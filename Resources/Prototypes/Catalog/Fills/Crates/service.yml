@@ -1,8 +1,8 @@
 - type: entity
   id: CrateServiceJanitorialSupplies
-  parent: CratePlasticBiodegradable # Frontier: CratePlastic<CratePlasticBiodegradable
+  parent: CratePlastic
   name: janitorial supplies crate
-  description: Fight back against dirt and grime with Nanotrasen's Janitorial Essentials Plus�! Contains a bucket and two caution signs, a mop, broom, two spray bottles of cleaner, soap, a plunger, and a light replacer. # Frontier: match crate contents
+  description: Fight back against dirt and grime with Nanotrasen's Janitorial Essentials Plus�! Contains a bucket and two caution signs, a mop, broom, grenades and spray bottles of cleaner, soap, a plunger, and a light replacer. # Frontier: match crate contents
   components:
   - type: StorageFill
     contents:
@@ -18,9 +18,8 @@
       - id: TrashBag
         amount: 2
       - id: Plunger # Frontier 2<1
-        amount: 1
+      - id: BoxCleanerGrenades
       - id: LightReplacer # Frontier
-        amount: 1
 
 - type: entity
   id: CrateServiceReplacementLights
@@ -131,7 +130,7 @@
   - type: StorageFill
     contents:
     - id: Paper
-      amount: 6 # DeltaV - make room for more folders & stickies in the bureaucracy crate
+      amount: 2 # DeltaV - make room for more folders & stickies & reams in the bureaucracy crate
     - id: Pen
       amount: 2
     - id: BoxFolderClipboard
@@ -150,6 +149,16 @@
     - id: NewtonCradle
     - id: BoxEnvelope
     - id: BrbSign
+    # Start DeltaV - More folders & colored paper reams in the bureaucracy crate
+    - id: BoxFolderBlack
+      amount: 2
+    - id: BoxFolderGrey
+      amount: 2
+    - id: BoxFolderGreen
+      amount: 2
+    - id: BoxReamClassic
+    - id: BoxReamBright
+    # End DeltaV - More folders & colored paper reams in the bureaucracy crate
     - id: RubberStampCaptain # Frontier
 
 - type: entity
@@ -332,10 +341,10 @@
         - id: CigaretteSpent
           prob: 0.15
           # Bacteria
-#        - id: FoodBreadMoldySlice # Frontier
-#          prob: 0.15 # Frontier
-#        - id: FoodPizzaMoldySlice # Frontier
-#          prob: 0.15 # Frontier
+        - id: FoodBreadMoldySlice
+          prob: 0.15
+        - id: FoodPizzaMoldySlice
+          prob: 0.15
           # Botanical Waste
         - id: TrashBananaPeel
           prob: 0.15
