@@ -264,12 +264,18 @@
     - WeaponForceGunBorg # Mono
 =======
   # Frontier: droppable items
-  - type: ItemBorgModule
+  - type: DroppableBorgModule
     moduleId: Appraisal
-    items:
-    - HandPlaceholderTradeCrate
-    - HandPlaceholderTradeCrate
->>>>>>> 576962d9cd2 (borg module WIP)
+    items: []
+    placeholders:
+    - id: CrateTradeSecureNormal
+      whitelist:
+        components:
+        - TradeCrate
+    - id: CrateTradeSecureNormal
+      whitelist:
+        components:
+        - TradeCrate
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: appraisal-module }
 
@@ -402,7 +408,8 @@
     layers:
     - state: engineering
     - state: icon-rcd
-  - type: ItemBorgModule
+  # Frontier: droppable items
+  - type: DroppableBorgModule
     moduleId: RCD # Frontier
     items:
     - RCDRecharging
@@ -426,6 +433,16 @@
     - LightReplacer
     - Crowbar
     - Screwdriver
+  # Frontier: droppable items
+  - type: DroppableBorgModule
+    moduleId: LightReplacer
+    items: []
+    placeholders:
+    - id: LightBulb
+      whitelist:
+        components:
+        - LightBulb
+  # End Frontier
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: light-replacer-module }
 
@@ -443,7 +460,7 @@
     items:
     - MopItem
     # - Bucket # Frontier
-    - TrashBag
+    # - TrashBag # Frontier
   # Frontier: droppable items
   - type: DroppableBorgModule
     moduleId: Cleaning
@@ -452,6 +469,10 @@
       whitelist:
         tags:
         - Bucket
+    - id: TrashBag
+      whitelist:
+        tags:
+        - TrashBag
   # End Frontier
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: cleaning-module }
@@ -470,9 +491,22 @@
     items:
     - AdvMopItem
     - HoloprojectorBorg
-    - SprayBottleSpaceCleaner
+    # - SprayBottleSpaceCleaner # Frontier
     - Dropper
-    - TrashBag
+    # - TrashBag # Frontier
+  # Frontier: droppable items
+  - type: DroppableBorgModule
+    moduleId: AdvancedCleaning
+    items:
+    - id: SprayBottleSpaceCleaner
+      whitelist:
+        tags:
+        - Spray
+    - id: TrashBag
+      whitelist:
+        tags:
+        - TrashBag
+  # End Frontier
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-cleaning-module }
 
@@ -503,15 +537,40 @@
     layers:
     - state: medical
     - state: icon-treatment
+  # Frontier: droppable borg modules
   - type: ItemBorgModule
     moduleId: Treatment # Frontier
     items:
     - HandheldHealthAnalyzerUnpowered
-    - Brutepack10Lingering
-    - Ointment10Lingering
-    - Gauze10Lingering
-    - Bloodpack10Lingering
-    - Syringe
+    # - Brutepack10Lingering
+    # - Ointment10Lingering
+    # - Gauze10Lingering
+    # - Bloodpack10Lingering
+    # - Syringe
+  - type: DroppableBorgModule
+    moduleId: Treatment
+    items:
+    - id: Brutepack
+      whitelist:
+        components:
+        - Healing
+    - id: Ointment
+      whitelist:
+        components:
+        - Healing
+    - id: Gauze
+      whitelist:
+        components:
+        - Healing
+    - id: Bloodpack
+      whitelist:
+        components:
+        - Healing
+    - id: Syringe
+      whitelist:
+        tags:
+        - Syringe
+  # End Frontier
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
 
@@ -637,6 +696,18 @@
       whitelist:
         components:
         - NFShaker
+    placeholders:
+    - id: CigPackRed
+      whitelist:
+        components:
+        - NFSmokeableContainer
+        tags:
+        - Cigar
+        - Cigarette
+    - id: DrinkGlass
+      whitelist:
+        tags:
+        - DrinkGlass
   # End Frontier
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: service-module }
@@ -650,12 +721,29 @@
     layers:
     - state: service
     - state: icon-musique
-  - type: ItemBorgModule
-    moduleId: Music # Frontier
+  # Frontier: droppable borg modules
+  - type: DroppableBorgModule
+    moduleId: Music
     items:
-    - SynthesizerInstrument
-    - ElectricGuitarInstrument
-    - SaxophoneInstrument
+    - id: SynthesizerInstrument
+      whitelist:
+        requireAll: true
+        components:
+        - Instrument
+        - Item
+    - id: ElectricGuitarInstrument
+      whitelist:
+        requireAll: true
+        components:
+        - Instrument
+        - Item
+    - id: SaxophoneInstrument
+      whitelist:
+        requireAll: true
+        components:
+        - Instrument
+        - Item
+  # End Frontier
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: musical-module }
 
@@ -710,6 +798,11 @@
       whitelist:
         components:
         - NFPlantBag
+    placeholders:
+    - id: FoodApple
+      whitelist:
+        components:
+        - Produce
   # End Frontier
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: harvesting-module }
@@ -729,6 +822,15 @@
     - BikeHorn
     - ClownRecorder
     - BikeHornInstrument
+    placeholders:
+    - id: TrashBananaPeel
+      whitelist:
+        tags:
+        - BananaPeel
+    - id: FoodBananaCreamPie
+      whitelist:
+        components:
+        - CreamPie
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: clowning-module }
 
