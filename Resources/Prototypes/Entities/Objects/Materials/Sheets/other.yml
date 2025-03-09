@@ -12,6 +12,7 @@
   - type: Tag
     tags:
     - Sheet
+    - BorgMaterial # Frontier:
   - type: SolutionContainerManager
     solutions:
       paper:
@@ -117,6 +118,7 @@
   - type: Tag
     tags:
     - Sheet
+    - BorgMaterial # DeltaV
 
 - type: entity
   parent: SheetPlasma
@@ -149,6 +151,7 @@
     tags:
     - Plastic
     - Sheet
+    - BorgMaterial # DeltaV
   - type: Material
   - type: PhysicalComposition
     materialComposition:
