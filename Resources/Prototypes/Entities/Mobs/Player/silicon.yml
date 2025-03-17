@@ -669,7 +669,8 @@
         - PositronicBrain
       borg_module:
         - BorgModuleTool
-        # - BorgModuleFireExtinguisher # Frontier
+        # - BorgModuleFireExtinguisher # Frontier: jetpack is superior
+        # - BorgModuleGPS # Frontier: useless
         - BorgModuleJetpack # Frontier
         - BorgModuleGPS
   - type: ItemSlots

@@ -170,8 +170,8 @@
   tier: 2
   cost: 15000
   recipeUnlocks:
-  - BorgModuleAdvancedTreatment
-  - BorgModuleDefibrillator
+  # - BorgModuleAdvancedTreatment # Frontier
+  # - BorgModuleDefibrillator # Frontier
   - BorgModuleAdvancedParamedic # Frontier
   - EnergyScalpel
   - EnergyCautery

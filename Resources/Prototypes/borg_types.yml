@@ -212,8 +212,10 @@
   defaultModules:
   - BorgModuleTool # Mono
   - BorgModuleMusique
-  - BorgModuleService
+  # - BorgModuleService # Frontier: deprecated, use NF variant
   - BorgModuleClowning
+  - BorgModuleBureaucracy # Frontier
+  - BorgModuleNFService # Frontier
 
   radioChannels:
   - Science
