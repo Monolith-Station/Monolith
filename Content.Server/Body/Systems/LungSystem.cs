@@ -59,67 +59,6 @@ public sealed class LungSystem : EntitySystem
         }
     }
 
-<<<<<<< HEAD
-    // Goobstation - Update component state on component toggle
-    private void OnBreathToolInit(Entity<BreathToolComponent> ent, ref ComponentInit args)
-    {
-        var comp = ent.Comp;
-
-        comp.IsFunctional = true;
-
-        if (!_inventory.TryGetContainingEntity(ent.Owner, out var parent) || !_inventory.TryGetContainingSlot(ent.Owner, out var slot))
-            return;
-
-        if ((slot.SlotFlags & comp.AllowedSlots) == 0)
-            return;
-
-        if (TryComp(parent, out InternalsComponent? internals))
-        {
-            ent.Comp.ConnectedInternalsEntity = parent;
-            _internals.ConnectBreathTool((parent.Value, internals), ent);
-        }
-    }
-
-
-    private void OnMaskToggled(Entity<BreathToolComponent> ent, ref ItemMaskToggledEvent args)
-    {
-        if (args.IsToggled || args.IsEquip)
-        {
-            _atmos.DisconnectInternals(ent);
-        }
-        else
-        {
-            ent.Comp.IsFunctional = true;
-
-            if (TryComp(args.Wearer, out InternalsComponent? internals))
-            {
-                ent.Comp.ConnectedInternalsEntity = args.Wearer;
-                _internals.ConnectBreathTool((args.Wearer, internals), ent);
-            }
-        }
-    }
-
-||||||| parent of bd69fc612ae (Predicted internals (#33800))
-    private void OnMaskToggled(Entity<BreathToolComponent> ent, ref ItemMaskToggledEvent args)
-    {
-        if (args.Mask.Comp.IsToggled)
-        {
-            _atmos.DisconnectInternals(ent);
-        }
-        else
-        {
-            ent.Comp.IsFunctional = true;
-
-            if (TryComp(args.Wearer, out InternalsComponent? internals))
-            {
-                ent.Comp.ConnectedInternalsEntity = args.Wearer;
-                _internals.ConnectBreathTool((args.Wearer.Value, internals), ent);
-            }
-        }
-    }
-
-=======
->>>>>>> bd69fc612ae (Predicted internals (#33800))
     public void GasToReagent(EntityUid uid, LungComponent lung)
     {
         if (!_solutionContainerSystem.ResolveSolution(uid, lung.SolutionName, ref lung.Solution, out var solution))
