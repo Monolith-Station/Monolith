@@ -21,6 +21,8 @@
   name: Observer Role
   components:
   - type: ObserverRole
+  - type: MindRole
+    sortWeight: -10
 
 #Ghost Roles
 - type: entity
