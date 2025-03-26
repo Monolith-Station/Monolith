@@ -56,7 +56,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private IConsoleHost _console = default!;
         [Dependency] private IAdminManager _adminManager = default!;
         [Dependency] private IGameTiming _gameTiming = default!;
-        [Dependency] private IMapManager _mapManager = default!;
+        [Dependency] private SharedMapSystem _map = default!;
         [Dependency] private IPrototypeManager _prototypeManager = default!;
         [Dependency] private AdminSystem _adminSystem = default!;
         [Dependency] private DisposalTubeSystem _disposalTubes = default!;
@@ -76,7 +76,6 @@ namespace Content.Server.Administration.Systems
         [Dependency] private AdminFrozenSystem _freeze = default!;
         [Dependency] private IPlayerManager _playerManager = default!;
         [Dependency] private SiliconLawSystem _siliconLawSystem = default!;
-        [Dependency] private SharedContainerSystem _containerSystem = default!;
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 
