@@ -1,7 +1,6 @@
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Robust.Client.GameObjects;
-using Robust.Shared.Timing;
 
 namespace Content.Client.Movement.Systems;
 
