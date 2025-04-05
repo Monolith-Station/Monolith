@@ -14,6 +14,7 @@ using Content.Shared.Access.Systems; // Frontier
 using Content.Shared.Verbs; // Frontier
 using Content.Shared.Ghost;
 using Content.Shared.Mobs; // Frontier
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Paper;
 
@@ -32,6 +33,9 @@ public sealed class PaperSystem : EntitySystem
 
     private const int ReapplyLimit = 10; // Frontier: limits on reapplied stamps
     private const int StampLimit = 100; // Frontier: limits on total stamps on a page (should be able to get a signature from everybody on the server on a page)
+
+    private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
+    private static readonly ProtoId<TagPrototype> WriteTag = "Write";
 
     public override void Initialize()
     {
@@ -135,9 +139,9 @@ public sealed class PaperSystem : EntitySystem
     private void OnInteractUsing(Entity<PaperComponent> entity, ref InteractUsingEvent args)
     {
         // only allow editing if there are no stamps or when using a cyberpen
-        var editable = entity.Comp.StampedBy.Count == 0 || _tagSystem.HasTag(args.Used, "WriteIgnoreStamps")
+        var editable = entity.Comp.StampedBy.Count == 0 || _tagSystem.HasTag(args.Used, WriteIgnoreStampsTag)
                        || _tagSystem.HasTag(args.Used, "NFWriteIgnoreUnprotectedStamps") && !_tagSystem.HasTag(entity, "NFPaperStampProtected"); // Frontier: protected stamps
-        if (_tagSystem.HasTag(args.Used, "Write"))
+        if (_tagSystem.HasTag(args.Used, WriteTag))
         {
             if (editable)
             {

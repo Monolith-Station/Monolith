@@ -20,6 +20,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Controllers;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -513,7 +514,7 @@ public abstract partial class SharedMoverController : VirtualController
     {
         sound = null;
 
-        if (!CanSound() || !_tags.HasTag(uid, "FootstepSound"))
+        if (!CanSound() || !_tags.HasTag(uid, FootstepSoundTag))
             return false;
 
         var coordinates = xform.Coordinates;

@@ -66,6 +66,8 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
 
+    private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
+
     /// <summary>
     /// Handles an entity turning into a zombie when they die or go into crit
     /// </summary>
@@ -285,6 +287,6 @@ public sealed partial class ZombieSystem
 
         //Need to prevent them from getting an item, they have no hands.
         // Also prevents them from becoming a Survivor. They're undead.
-        _tag.AddTag(target, "InvalidForGlobalSpawnSpell");
+        _tag.AddTag(target, InvalidForGlobalSpawnSpellTag);
     }
 }

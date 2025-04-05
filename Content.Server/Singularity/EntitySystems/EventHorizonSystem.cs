@@ -15,6 +15,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Singularity.EntitySystems;
@@ -36,6 +37,8 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
     #endregion Dependencies
+
+    private static readonly ProtoId<TagPrototype> HighRiskItemTag = "HighRiskItem";
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -128,7 +131,7 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
             return;
 
         if (HasComp<MindContainerComponent>(morsel)
-            || _tagSystem.HasTag(morsel, "HighRiskItem")
+            || _tagSystem.HasTag(morsel, HighRiskItemTag)
             || HasComp<ContainmentFieldGeneratorComponent>(morsel))
         {
             _adminLogger.Add(LogType.EntityDelete, LogImpact.Extreme, $"{ToPrettyString(morsel)} entered the event horizon of {ToPrettyString(hungry)} and was deleted");
