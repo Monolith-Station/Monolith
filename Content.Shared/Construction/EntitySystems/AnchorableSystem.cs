@@ -280,7 +280,9 @@ public sealed partial class AnchorableSystem : EntitySystem
     private bool TileFree(EntityCoordinates coordinates, PhysicsComponent anchorBody)
     {
         // Probably ignore CanCollide on the anchoring body?
-        if (_transformSystem.GetGrid(coordinates) is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out var grid))
+        var gridUid = _transformSystem.GetGrid(coordinates);
+
+        if (!TryComp<MapGridComponent>(gridUid, out var grid))
             return false;
 
         var tileIndices = _map.TileIndicesFor(gridUid, grid, coordinates);
