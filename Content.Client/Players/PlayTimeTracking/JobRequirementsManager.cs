@@ -121,7 +121,7 @@ public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
         if (CheckRoleRequirements(reqs, profile, out reason))
             return true;
 
-        var altReqs = _entManager.System<SharedRoleSystem>().GetAlternateJobRequirements(job);
+        var altReqs = job.AlternateRequirementSets;
         if (altReqs != null)
         {
             foreach (var alternateSet in altReqs.Values)

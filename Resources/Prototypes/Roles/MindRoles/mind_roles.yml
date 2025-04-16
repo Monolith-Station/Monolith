@@ -115,6 +115,7 @@
   - type: MindRole
     antagPrototype: SubvertedSilicon
     roleType: SiliconAntagonist
+    subtype: role-subtype-subverted
   - type: SubvertedSiliconRole
 
 # Dragon
@@ -127,6 +128,7 @@
   - type: MindRole
     antagPrototype: Dragon
     roleType: TeamAntagonist
+    subtype: role-subtype-dragon
     exclusiveAntag: true
   - type: DragonRole
   - type: RoleBriefing
@@ -154,6 +156,7 @@
   components:
   - type: MindRole
     roleType: TeamAntagonist
+    subtype: role-subtype-nukie
     exclusiveAntag: true
     antagPrototype: Nukeops
   - type: NukeopsRole
@@ -187,6 +190,7 @@
     antagPrototype: HeadRev
     exclusiveAntag: true
     roleType: TeamAntagonist
+    subtype: role-subtype-head-revolutionary
   - type: RevolutionaryRole
 
 - type: entity
@@ -197,6 +201,7 @@
   components:
   - type: MindRole
     antagPrototype: Rev
+    subtype: role-subtype-revolutionary
 
 # Survivors (Wizard)
 - type: entity
@@ -207,6 +212,7 @@
   - type: MindRole
     antagPrototype: Survivor
     roleType: FreeAgent
+    subtype: role-subtype-survivor
   - type: SurvivorRole
 
 # Thief
@@ -218,7 +224,7 @@
   components:
   - type: MindRole
     antagPrototype: Thief
-    roleType: SoloAntagonist
+    subtype: role-subtype-thief
   - type: ThiefRole
 
 # Traitors
@@ -231,7 +237,7 @@
   - type: MindRole
     antagPrototype: Traitor
     exclusiveAntag: true
-    roleType: SoloAntagonist
+    subtype: role-subtype-traitor
   - type: TraitorRole
 
 - type: entity
@@ -249,8 +255,10 @@
   name: Syndicate Reinforcement Role
   #  description: mind-role-syndicate-reinforcement-description
   components:
-    - type: MindRole
-      roleType: TeamAntagonist
+  - type: MindRole
+    roleType: TeamAntagonist
+    subtype: role-subtype-traitor-reinforcement
+    antagPrototype: GenericTeamAntagonist
 
 # Wizards
 - type: entity
@@ -262,7 +270,7 @@
   - type: MindRole
     antagPrototype: Wizard
     exclusiveAntag: true
-    roleType: SoloAntagonist
+    subtype: role-subtype-wizard
   - type: WizardRole
 
 # Zombie Squad
@@ -276,6 +284,7 @@
     antagPrototype: InitialInfected
     exclusiveAntag: true
     roleType: TeamAntagonist
+    subtype: role-subtype-initial-infected
   - type: InitialInfectedRole
 
 - type: entity
@@ -287,5 +296,5 @@
   - type: MindRole
     antagPrototype: Zombie
     exclusiveAntag: true
-    roleType: TeamAntagonist
+    subtype: role-subtype-zombie
   - type: ZombieRole
