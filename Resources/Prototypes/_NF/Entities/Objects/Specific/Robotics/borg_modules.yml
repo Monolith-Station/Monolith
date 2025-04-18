@@ -152,6 +152,9 @@
       whitelist:
         tags:
         - Write
+      blacklist:
+        components:
+        - EnergyWeapon
     placeholders:
     - id: Paper
       whitelist:
