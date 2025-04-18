@@ -764,6 +764,7 @@
     - HydroponicsToolSpade
     - HydroponicsToolClippers
     # - Bucket # Frontier
+    - BorgDropper # Frontier
   # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: Gardening
@@ -772,6 +773,11 @@
       whitelist:
         tags:
         - Bucket
+    placeholders:
+    - id: AppleSeeds
+      whitelist:
+        components:
+        - Seed
   # End Frontier
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: gardening-module }
