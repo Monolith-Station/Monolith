@@ -67,6 +67,7 @@
       whitelist:
         components:
         - Jetpack
+      displayName: borg-placeholder-display-name-jetpack
   - type: BorgModuleIcon
     icon: { sprite: _NF/Interface/Actions/actions_borg.rsi, state: jetpack-module }
 
@@ -109,6 +110,7 @@
       whitelist:
         components:
         - NFLighter
+      displayName: borg-placeholder-display-name-lighter
     placeholders:
     - id: CigPackRed
       whitelist:
@@ -117,14 +119,17 @@
         tags:
         - Cigar
         - Cigarette
+      displayName: borg-placeholder-display-name-smokes
     - id: DrinkGlass
       whitelist:
         tags:
         - DrinkGlass
+      displayName: borg-placeholder-display-name-glassware
     - id: DrinkGlass
       whitelist:
         tags:
         - DrinkGlass
+      displayName: borg-placeholder-display-name-glassware
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: service-module }
 
@@ -164,6 +169,7 @@
       whitelist:
         components:
         - Stamp
+      displayName: borg-placeholder-display-name-rubber-stamp
   - type: BorgModuleIcon
     icon: { sprite: _NF/Interface/Actions/actions_borg.rsi, state: bureaucracy-module }
 
@@ -190,6 +196,7 @@
         tags:
         - GlassBeaker
         - DrinkGlass
+      displayName: borg-placeholder-display-name-glassware
     placeholders:
     - id: ReagentContainerFlour
       whitelist:
@@ -198,6 +205,7 @@
         - Produce
         tags:
         - Ingredient
+      displayName: borg-placeholder-display-name-food-or-ingredients
     - id: FoodApple
       whitelist:
         components:
@@ -205,5 +213,6 @@
         - Produce
         tags:
         - Ingredient
+      displayName: borg-placeholder-display-name-food-or-ingredients
   - type: BorgModuleIcon
     icon: { sprite: _NF/Interface/Actions/actions_borg.rsi, state: chef-module }
