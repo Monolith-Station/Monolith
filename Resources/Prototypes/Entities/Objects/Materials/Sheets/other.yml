@@ -117,6 +117,7 @@
   - type: Tag
     tags:
     - Sheet
+  - type: NFFuel # Frontier
 
 - type: entity
   parent: SheetPlasma
@@ -250,6 +251,7 @@
   #   castShadows: false # Frontier
   #   color: "#9be792" # Frontier
   - type: UraniumMaterials # Frontier
+  - type: NFFuel # Frontier
 
 - type: entity # Mono - added stack of 30
   parent: SheetUranium

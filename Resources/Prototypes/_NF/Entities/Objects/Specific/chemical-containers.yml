@@ -181,8 +181,8 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Label
-  - type: TrashOnSolutionEmpty # Frontier
-    solution: tank # Frontier
+  - type: TrashOnSolutionEmpty
+    solution: beaker
 
 - type: entity
   parent: JerryCan
@@ -198,8 +198,9 @@
         reagents:
         - ReagentId: WeldingFuel
           Quantity: 250 #Mono 200 >> 250
-  - type: StaticPrice # Frontier
-    vendPrice: 500 # Frontier
+  - type: StaticPrice
+    vendPrice: 500
+  - type: NFFuel
 
 # Fuel-grade items
 - type: entity
@@ -225,6 +226,7 @@
   - type: Stack
     stackType: FuelPlasma
     count: 25 # mono
+  - type: NFFuel # Frontier
 
 - type: entity
   parent: FuelPlasma
@@ -259,6 +261,7 @@
   - type: Stack
     stackType: FuelUranium
     count: 25 # mono
+  - type: NFFuel # Frontier
 
 - type: entity
   parent: FuelUranium
@@ -293,6 +296,7 @@
   - type: Stack
     stackType: FuelBananium
     count: 25 # mono
+  - type: NFFuel # Frontier
 
 - type: entity
   parent: FuelBananium
