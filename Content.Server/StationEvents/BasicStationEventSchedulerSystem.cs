@@ -123,7 +123,7 @@ namespace Content.Server.StationEvents
             for (var i = 0; i < rounds; i++)
             {
                 var curTime = TimeSpan.Zero;
-                var randomEndTime = _random.NextGaussian(roundEndMean, roundEndStdDev); // Its in minutes, should probably be a better time format once we get that in toolshed like [hh:mm:ss]
+                var randomEndTime = _random.NextGaussian(roundEndMean, roundEndStdDev) * 60; // Its in minutes, should probably be a better time format once we get that in toolshed like [hh:mm:ss]
                 if (randomEndTime <= 0)
                     continue;
 
@@ -158,8 +158,6 @@ namespace Content.Server.StationEvents
 
             var eventScheduler = _protoMan.Index(eventSchedulerProto);
 
-            eventSchedulerProto.Deconstruct(out EntityPrototype eventScheduler);
-
             if (!eventScheduler.TryGetComponent<BasicStationEventSchedulerComponent>(out var basicScheduler, _compFac))
                 yield break;
 
@@ -183,8 +181,6 @@ namespace Content.Server.StationEvents
             _protoMan ??= IoCManager.Resolve<IPrototypeManager>();
 
             var eventScheduler = _protoMan.Index(eventSchedulerProto);
-
-            eventSchedulerProto.Deconstruct(out EntityPrototype eventScheduler);
 
             if (!eventScheduler.TryGetComponent<BasicStationEventSchedulerComponent>(out var basicScheduler, _compFac))
                 yield break;
@@ -213,8 +209,6 @@ namespace Content.Server.StationEvents
             _protoMan ??= IoCManager.Resolve<IPrototypeManager>();
 
             var eventScheduler = _protoMan.Index(eventSchedulerProto);
-
-            eventSchedulerProto.Deconstruct(out EntityPrototype eventScheduler);
 
             if (!eventScheduler.TryGetComponent<BasicStationEventSchedulerComponent>(out var basicScheduler, _compFac))
                 return 0f;
