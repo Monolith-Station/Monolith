@@ -98,6 +98,7 @@
   frequency: 1984
   color: "#f6ce64"
   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
+<<<<<<< HEAD
   #longRange: true # Frontier - Move to server on cove
 
 - type: radioChannel
@@ -108,3 +109,24 @@
   color: "#BF94E4"
   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
   #longRange: true # Frontier - Move to server on cove
+=======
+  longRange: true
+
+- type: radioChannel
+  id: Xenoborg
+  name: chat-radio-xenoborg
+  keycode: 'x'
+  frequency: 2002
+  color: "#2288ff"
+  # long range since I don't wanna make a special xenoborg telecomm server
+  longRange: true
+
+- type: radioChannel
+  id: Mothership
+  name: chat-radio-mothership
+  keycode: 'z'
+  frequency: 2003
+  color: "#ff2222"
+  # long range since I don't wanna make a special xenoborg telecomm server
+  longRange: true
+>>>>>>> 6ef03b082f (Xenoborgs part 1 (#36830))

@@ -114,6 +114,7 @@
   frequency: 1280
 
 - type: deviceFrequency
+<<<<<<< HEAD
   id: SurveillanceCameraTSF
   name: device-frequency-prototype-name-surveillance-camera-tsf
   frequency: 1941
@@ -127,3 +128,13 @@
   id: SurveillanceCameraUSSP
   name: device-frequency-prototype-name-surveillance-camera-USSP
   frequency: 3528
+=======
+  id: Xenoborg
+  name: device-frequency-prototype-name-xenoborg
+  frequency: 2004
+
+- type: deviceFrequency
+  id: Mothership
+  name: device-frequency-prototype-name-mothership
+  frequency: 2005
+>>>>>>> 6ef03b082f (Xenoborgs part 1 (#36830))

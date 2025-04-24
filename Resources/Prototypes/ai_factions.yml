@@ -9,6 +9,7 @@
 
 - type: npcFaction
   id: NanoTrasen
+<<<<<<< HEAD
   neutral:
   - SimpleNeutral
   - PetsNT
@@ -18,6 +19,18 @@
   - Passive
   - ContrabandDetection
   defaultHostile: true
+=======
+  hostile:
+  - SimpleHostile
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Dragon
+  - AllHostile
+  - Wizard
+  - Xenoborg
+>>>>>>> 6ef03b082f (Xenoborgs part 1 (#36830))
 
 - type: npcFaction
   id: Mouse
@@ -43,14 +56,22 @@
   id: SimpleHostile
   neutral:
   - Dragon
+<<<<<<< HEAD
   - Passive
   defaultHostile: true
+=======
+  - Xeno
+  - AllHostile
+  - Wizard
+  - Xenoborg
+>>>>>>> 6ef03b082f (Xenoborgs part 1 (#36830))
 
 - type: npcFaction
   id: SimpleNeutral
 
 - type: npcFaction
   id: Syndicate
+<<<<<<< HEAD
   friendly: # Frontier
   - SyndicateNF # Frontier
   - Passive
@@ -84,3 +105,105 @@
   defaultHostile: true
 
 # Mono edit end.
+=======
+  hostile:
+  - NanoTrasen
+  - SimpleHostile
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Dragon
+  - AllHostile
+  - Wizard
+  - Xenoborg
+
+- type: npcFaction
+  id: Xeno
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - AllHostile
+  - Wizard
+  - Dragon
+  - Xenoborg
+
+- type: npcFaction
+  id: Zombie
+  hostile:
+  - NanoTrasen
+  - SimpleNeutral
+  - SimpleHostile
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Revolutionary
+  - AllHostile
+  - Wizard
+  - Dragon
+  - Xenoborg
+
+- type: npcFaction
+  id: Revolutionary
+  hostile:
+  - NanoTrasen
+  - Zombie
+  - SimpleHostile
+  - Dragon
+  - AllHostile
+  - Wizard
+  - Xenoborg
+
+- type: npcFaction
+  id: AllHostile
+  hostile:
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Wizard
+  - Xenoborg
+
+- type: npcFaction
+  id: Wizard
+  hostile:
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - AllHostile
+  - Xenoborg
+
+- type: npcFaction
+  id: Xenoborg
+  hostile:
+  # they have brains
+  - NanoTrasen
+  - Syndicate
+  - Zombie
+  - Revolutionary
+  - Wizard
+
+  - Xeno # rivalry
+
+  # cause they are hostile to them
+  - SimpleHostile 
+  - AllHostile
+>>>>>>> 6ef03b082f (Xenoborgs part 1 (#36830))

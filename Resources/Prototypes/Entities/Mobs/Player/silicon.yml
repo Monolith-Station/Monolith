@@ -150,6 +150,7 @@
   - type: SiliconLawProvider
     laws: Corporate
 
+<<<<<<< HEAD
 - type: entity
   id: NTDefaultCircuitBoard
   parent: BaseElectronics
@@ -343,6 +344,8 @@
   - type: SiliconLawProvider
     laws: EntertainerLawset
 
+=======
+>>>>>>> 6ef03b082f (Xenoborgs part 1 (#36830))
 # Items
 - type: entity
   id: Intellicard
