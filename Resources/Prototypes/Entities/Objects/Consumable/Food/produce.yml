@@ -402,6 +402,8 @@
     grindableSolutionName: food
   - type: SpaceGarbage
     cleanupExempt: true # Mono
+  - type: Food
+    requiresSpecialDigestion: true
 
 - type: entity
   name: baked banana peel
