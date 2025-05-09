@@ -1,4 +1,4 @@
-# Base game vehicles
+#region Base game vehicles
 - type: entity
   parent: VehicleATV
   id: VehicleATVNF
@@ -57,6 +57,7 @@
     tags:
     - DoorBumpOpener
 
+#region skeleton bike
 - type: entity
   parent: VehicleSkeletonMotorcycle
   id: VehicleSkeletonMotorcycleNF
@@ -85,7 +86,77 @@
     tags:
     - DoorBumpOpener
 
-# New Frontier vehicles
+#region unicycle
+- type: entity
+  id: VehicleUnicycle
+  parent: [BaseVehicle, BaseFoldable, BaseItem]
+  name: unicycle
+  description: It only has one wheel!
+  components:
+  - type: Vehicle
+    renderOver: None
+    northOffset: 0, -0.15
+    southOffset: 0, -0.15
+    eastOffset: 0, -0.15
+    westOffset: 0, -0.15
+    engineRunning: true
+    hornSound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+  - type: Sprite
+    sprite: Objects/Vehicles/unicycle.rsi
+    layers:
+    - state: vehicle
+      map: ["enum.VehicleVisualLayers.AutoAnimate", "unfoldedLayer"]
+    - state: vehicle_folded
+      map: ["foldedLayer"]
+      visible: false
+    noRot: true
+  - type: MovementSpeedModifier
+    acceleration: 1
+    friction: 0.8
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 4.3
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 240
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: ItemSlots
+    slots: {} # no keys required
+
+- type: entity
+  parent: VehicleUnicycle
+  id: VehicleUnicycleFolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: VehicleJanicartDestroyed
+  parent: MachineFrameDestroyed
+  name: destroyed janicart
+  components:
+  - type: Sprite
+    sprite: Objects/Vehicles/janicart.rsi
+    state: destroyed
+>>>>>>> ee110b1dd0 (Goblin Arts and Crafts DLC (#3323))
+
+#region hoverbike
 - type: entity
   parent: VehicleATVNF
   id: VehicleHoverbikeNF
@@ -195,6 +266,7 @@
           params:
             volume: -3
 
+#region janicart
 # Enhanced version of the vanilla Janicart that adds a bucket and mop slot.
 - type: entity
   id: NFVehicleJanicart
@@ -690,3 +762,73 @@
           components:
             - Gun
         priority: 2
+
+#region dumpster
+- type: entity
+  id: NFGoblinMadeVehicleDumpster
+  parent: [ BaseVehicle, NFMagnetBoxRubbish ]
+  name: dumpster
+  description: It only has one wheel!
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - SpawnGoblinMadeToolMalfunction
+    chance: 0.05
+    intervalSeconds: 1200 # 20 min
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: GoblinMade
+  - type: Vehicle
+    renderOver: None
+    northOffset: 0, -0.15
+    southOffset: 0, -0.15
+    eastOffset: 0, -0.15
+    westOffset: 0, -0.15
+    engineRunning: true
+    hornSound:
+      collection: CarBeeps
+      params:
+        variation: 0.125
+  - type: Sprite
+    sprite: _NF/Objects/Vehicles/dumpster.rsi
+    layers:
+    - state: dumpster
+      map: ["enum.VehicleVisualLayers.AutoAnimate"]
+    - sprite: _NF/Structures/Storage/magnetbox.rsi
+      state: controller
+    - sprite: _NF/Structures/Storage/magnetbox.rsi
+      state: controller-on
+      visible: False
+      map: [ "enum.ToggleVisuals.Layer" ]
+      shader: unshaded
+    - sprite: _NF/Objects/Tools/goblin_tools/overlay_sparks.rsi
+      state: overlay-icon
+      shader: unshaded
+  - type: MovementSpeedModifier
+    acceleration: 1
+    friction: 0.8
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 4.3
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 240
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: ItemSlots
+    slots: {} # no keys required
+  - type: Construction
+    graph: NFGoblinMadeVehicleDumpster
+    node: NFGoblinMadeVehicleDumpster
