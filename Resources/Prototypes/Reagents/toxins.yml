@@ -576,12 +576,7 @@
           type: Goblin # Frontier: Goblin
         reagent: Protein # Frontier: Goblin
         amount: 0.5 # Frontier: Goblin
-      - !type:AdjustReagent
-        conditions:
-        - !type:OrganType
-          type: Vox
-        reagent: Protein
-        amount: 0.25
+
 
 - type: reagent
   id: Allicin

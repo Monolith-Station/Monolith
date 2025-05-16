@@ -223,7 +223,6 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
-        conditions:
         - !type:OrganType
           type: Vox
           shouldHave: false
