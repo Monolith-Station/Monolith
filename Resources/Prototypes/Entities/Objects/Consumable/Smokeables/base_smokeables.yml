@@ -14,13 +14,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 5
         reagents:
         - ReagentId: ToxinTrash
           Quantity: 5
   - type: Food
     requiresSpecialDigestion: true
-
   - type: SpaceGarbage
     cleanupExempt: true # Mono
   - type: StaticPrice
