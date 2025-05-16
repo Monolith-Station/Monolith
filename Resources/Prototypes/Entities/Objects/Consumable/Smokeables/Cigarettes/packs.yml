@@ -39,6 +39,14 @@
     tags:
     - CigPack
     - Trash
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
+    requiresSpecialDigestion: true
   - type: PhysicalComposition
     materialComposition:
       Steel: 50
@@ -109,6 +117,14 @@
     tags:
     - CigPack
     - Trash
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
+    requiresSpecialDigestion: true
   - type: PhysicalComposition
     materialComposition:
       Steel: 50
