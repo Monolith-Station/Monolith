@@ -28,6 +28,7 @@
     specialDigestible:
       tags:
       - Trash
+<<<<<<< HEAD
     isSpecialDigestibleExclusive: false
   - type: Sprite
     sprite: Mobs/Species/Vox/organs.rsi
@@ -56,6 +57,9 @@
         - ReagentId: GreyMatter
           Quantity: 5
   - type: BorgBrain
+=======
+    specialExtraDiet: true
+>>>>>>> fd77fcd8a2 (Whitelist no longer, now the diet exclusion var is a bool.)
 
 - type: entity
   parent: OrganHumanLiver
