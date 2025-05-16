@@ -65,6 +65,11 @@
     solutions:
       smokable:
         maxVol: 20
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
   - type: Tag
     tags:
       - Cigarette
@@ -87,12 +92,10 @@
           - ReagentId: Omnizine
             Quantity: 30
       food:
-        maxVol: 40
+        maxVol: 5
         reagents:
-        - ReagentId: Nicotine
-          Quantity: 10
-        - ReagentId: Omnizine
-          Quantity: 30
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteOmnizine
@@ -109,12 +112,10 @@
           - ReagentId: Omnizine
             Quantity: 10
       food:
-        maxVol: 40
+        maxVol: 5
         reagents:
-        - ReagentId: Nicotine
-          Quantity: 10
-        - ReagentId: Omnizine
-          Quantity: 10
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteIron
@@ -131,12 +132,10 @@
           - ReagentId: Iron
             Quantity: 10
       food:
-        maxVol: 40
+        maxVol: 5
         reagents:
-        - ReagentId: Nicotine
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 10
+        - ReagentId: ToxinTrash
+          Quantity: 5
 - type: entity
   id: CigaretteTricordrazine
   parent: SoakedCigarette
@@ -152,12 +151,10 @@
           - ReagentId: Tricordrazine
             Quantity: 10
       food:
-        maxVol: 40
+        maxVol: 5
         reagents:
-        - ReagentId: Nicotine
-          Quantity: 10
-        - ReagentId: Tricordrazine
-          Quantity: 10
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteDylovene
@@ -174,7 +171,7 @@
           - ReagentId: Dylovene
             Quantity: 10
       food:
-        maxVol: 40
+        maxVol: 5
         reagents:
         - ReagentId: ToxinTrash
           Quantity: 5
@@ -193,6 +190,11 @@
             Quantity: 10
           - ReagentId: Dermaline
             Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteArithrazine
@@ -208,6 +210,11 @@
             Quantity: 10
           - ReagentId: Arithrazine
             Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteIpecac
@@ -223,6 +230,11 @@
             Quantity: 10
           - ReagentId: Ipecac
             Quantity: 2
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteBicaridine
@@ -238,6 +250,11 @@
             Quantity: 10
           - ReagentId: Bicaridine
             Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteDexalin
@@ -253,6 +270,11 @@
             Quantity: 10
           - ReagentId: Dexalin
             Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigarettePax
@@ -268,6 +290,11 @@
             Quantity: 10
           - ReagentId: Pax
             Quantity: 2
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteBbqSauce
@@ -283,6 +310,11 @@
             Quantity: 10
           - ReagentId: BbqSauce
             Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteBlackPepper
@@ -298,6 +330,11 @@
             Quantity: 10
           - ReagentId: Blackpepper
             Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteCapsaicinOil
@@ -313,6 +350,11 @@
             Quantity: 10
           - ReagentId: CapsaicinOil
             Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteBread
@@ -326,6 +368,14 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
+          - ReagentId: Radium
+            Quantity: 10
+      food:            
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteMilk
@@ -341,6 +391,11 @@
             Quantity: 10
           - ReagentId: Milk
             Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteBanana
@@ -356,6 +411,11 @@
             Quantity: 10
           - ReagentId: BananaHonk
             Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteSpaceDrugs
@@ -371,6 +431,11 @@
             Quantity: 10
           - ReagentId: SpaceDrugs
             Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteMuteToxin
@@ -384,8 +449,13 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: MuteToxin
-            Quantity: 2
+          - ReagentId: SodiumPolyacrylate
+            Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteMold
@@ -400,7 +470,12 @@
           - ReagentId: Nicotine
             Quantity: 10
           - ReagentId: Mold
-            Quantity: 2
+            Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteLicoxide
@@ -415,7 +490,12 @@
           - ReagentId: Nicotine
             Quantity: 10
           - ReagentId: Licoxide
-            Quantity: 5
+            Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteWeldingFuel
@@ -430,7 +510,12 @@
           - ReagentId: Nicotine
             Quantity: 10
           - ReagentId: WeldingFuel
-            Quantity: 5
+            Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
 
 - type: entity
   id: CigaretteTHC
@@ -444,5 +529,70 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: THC
-            Quantity: 5
+          - ReagentId: RobustHarvest
+            Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
+
+- type: entity
+  id: CigarettePhlogiston
+  parent: SoakedCigarette
+  name: Dragon Dating Sim
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Phlogiston
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
+
+- type: entity
+  id: CigaretteBanana
+  parent: SoakedCigarette
+  name: Pun Pun's Tropical Getaway
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Potassium
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
+
+- type: entity
+  id: CigaretteBlackPepper
+  parent: SoakedCigarette
+  name: English Spice
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Blackpepper
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
