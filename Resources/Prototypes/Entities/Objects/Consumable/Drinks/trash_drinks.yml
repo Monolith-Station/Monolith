@@ -73,6 +73,8 @@
     tags:
     - Trash
     - DrinkBottle # Mono Edit for Molotovs
+  - type: Food
+    requiresSpecialDigestion: true
   - type: PhysicalComposition
     materialComposition:
       Glass: 100
@@ -140,6 +142,8 @@
   - type: Tag
     tags:
     - Trash
+  - type: Food
+    requiresSpecialDigestion: true
   - type: PhysicalComposition
     materialComposition:
       Cardboard: 20
