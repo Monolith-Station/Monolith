@@ -454,6 +454,7 @@ public sealed class FoodSystem : EntitySystem
             // If their diet is whitelist exclusive, then they cannot eat anything but what follows their whitelisted tags. Else, they can eat their tags AND human food.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (ent.Comp1.IsSpecialDigestibleExclusive)
 =======
             if (!ent.Comp1.SpecialExtraDiet)
@@ -461,6 +462,9 @@ public sealed class FoodSystem : EntitySystem
 =======
             if (ent.Comp1.IsSpecialDigestiableExclusive)
 >>>>>>> 66b895999b (Clean-up)
+=======
+            if (ent.Comp1.IsSpecialDigestibleExclusive)
+>>>>>>> b1ad064270 (Update Content.Server/Nutrition/EntitySystems/FoodSystem.cs)
                 return false;
         }
 
