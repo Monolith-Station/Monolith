@@ -29,6 +29,7 @@
       tags:
       - Trash
 <<<<<<< HEAD
+<<<<<<< HEAD
     isSpecialDigestibleExclusive: false
   - type: Sprite
     sprite: Mobs/Species/Vox/organs.rsi
@@ -60,6 +61,9 @@
 =======
     specialExtraDiet: true
 >>>>>>> fd77fcd8a2 (Whitelist no longer, now the diet exclusion var is a bool.)
+=======
+    isSpecialDigestiableExclusive: false
+>>>>>>> 66b895999b (Clean-up)
 
 - type: entity
   parent: OrganHumanLiver

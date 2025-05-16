@@ -42,12 +42,13 @@ namespace Content.Server.Body.Components
         public TimeSpan DigestionDelay = TimeSpan.FromSeconds(20);
 
         /// <summary>
-        ///     A whitelist for what special-digestible-required foods this stomach is capable of eating. Exclusive whitelist, entities can only eat what is on this whitelist.
+        ///     A whitelist for what special-digestible-required foods this stomach is capable of eating.
         /// </summary>
         [DataField]
         public EntityWhitelist? SpecialDigestible = null;
 
         /// <summary>
+<<<<<<< HEAD
 <<<<<<< HEAD
         /// Controls whitelist behavior. If true, this stomach can digest <i>only</i> food that passes the whitelist. If false, it can digest normal food <i>and</i> any food that passes the whitelist.
         /// </summary>
@@ -59,6 +60,12 @@ namespace Content.Server.Body.Components
         [DataField]
         public bool SpecialExtraDiet = false;
 >>>>>>> fd77fcd8a2 (Whitelist no longer, now the diet exclusion var is a bool.)
+=======
+        ///     A bool for if the diet is exclusive to a whitelist. If they have additional foods they can eat on top of the human diet, that would be false. Else, it is true.
+        /// </summary>
+        [DataField]
+        public bool IsSpecialDigestiableExclusive = true;
+>>>>>>> 66b895999b (Clean-up)
 
         /// <summary>
         ///     Used to track how long each reagent has been in the stomach
