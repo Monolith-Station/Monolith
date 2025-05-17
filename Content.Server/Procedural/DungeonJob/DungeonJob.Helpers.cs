@@ -8,9 +8,7 @@ namespace Content.Server.Procedural.DungeonJob;
 
 public sealed partial class DungeonJob
 {
-    /*
-     * Run after the main dungeon generation
-     */
+    // Various helper methods.
 
     private bool HasWall(Vector2i tile)
     {
