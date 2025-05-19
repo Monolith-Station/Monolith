@@ -15,15 +15,22 @@ namespace Content.Client.Stack
 
     public sealed partial class StackSystem : SharedStackSystem
     {
-        // Modifies a given stack component to adjust the layers to display.
-        private bool ApplyLayerFunction(EntityUid uid, StackComponent comp, ref StackLayerData data)
+
+        /// <summary>
+        /// Adjusts the actual and maxCount to change how stack amounts are displayed.
+        /// </summary>
+        /// <param name="ent">The entity considered.</param>
+        /// <param name="actual">The actual number of items in the stack. Altered depending on the function to run.</param>
+        /// <param name="maxCount">The maximum number of items in the stack. Altered depending on the function to run.</param>
+        /// <returns>Whether or not a function was applied.</returns>
+        private bool ApplyLayerFunction(Entity<StackComponent> ent, ref int actual, ref int maxCount)
         {
-            switch (comp.LayerFunction)
+            switch (ent.Comp.LayerFunction)
             {
                 case StackLayerFunction.Threshold:
-                    if (TryComp<StackLayerThresholdComponent>(uid, out var threshold))
+                    if (TryComp<StackLayerThresholdComponent>(ent, out var threshold))
                     {
-                        ApplyThreshold(threshold, ref data);
+                        ApplyThreshold(threshold, ref actual, ref maxCount);
                         return true;
                     }
                     break;
@@ -33,24 +40,27 @@ namespace Content.Client.Stack
         }
 
         /// <summary>
-        /// Sets Actual to the number of thresholds that Actual exceeds from the beginning of the list.
-        /// Sets MaxCount to the total number of thresholds plus one (for values under thresholds).
+        /// Selects which layer a stack applies based on a list of thresholds.
+        /// Each threshold passed results in the next layer being selected.
         /// </summary>
-        private static void ApplyThreshold(StackLayerThresholdComponent comp, ref StackLayerData data)
+        /// <param name="comp">The threshold parameters to apply.</param>
+        /// <param name="actual">The number of items in the stack. Will be set to the index of the layer to use.</param>
+        /// <param name="maxCount">The maximum possible number of items in the stack. Will be set to the number of selectable layers.</param>
+        private static void ApplyThreshold(StackLayerThresholdComponent comp, ref int actual, ref int maxCount)
         {
-            // We must stop before we run out of thresholds or layers, whichever's smaller. 
-            data.MaxCount = Math.Min(comp.Thresholds.Count + 1, data.MaxCount);
-            int newActual = 0;
+            // We must stop before we run out of thresholds or layers, whichever's smaller.
+            maxCount = Math.Min(comp.Thresholds.Count + 1, maxCount);
+            var newActual = 0;
             foreach (var threshold in comp.Thresholds)
             {
                 //If our value exceeds threshold, the next layer should be displayed.
                 //Note: we must ensure actual <= MaxCount.
-                if (data.Actual >= threshold && newActual < data.MaxCount)
+                if (actual >= threshold && newActual < maxCount)
                     newActual++;
                 else
                     break;
             }
-            data.Actual = newActual;
+            actual = newActual;
         }
     }
 }

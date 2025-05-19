@@ -9,6 +9,7 @@ namespace Content.Client.Construction;
 public sealed partial class FlatpackSystem : SharedFlatpackSystem
 {
     [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -43,6 +44,6 @@ public sealed partial class FlatpackSystem : SharedFlatpackSystem
         }
 
         if (color != null)
-            args.Sprite.LayerSetColor(FlatpackVisualLayers.Overlay, color.Value);
+            _sprite.LayerSetColor((ent.Owner, args.Sprite), FlatpackVisualLayers.Overlay, color.Value);
     }
 }

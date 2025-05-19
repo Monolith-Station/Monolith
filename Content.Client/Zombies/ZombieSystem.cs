@@ -12,6 +12,7 @@ namespace Content.Client.Zombies;
 public sealed partial class ZombieSystem : SharedZombieSystem
 {
     [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -47,7 +48,7 @@ public sealed partial class ZombieSystem : SharedZombieSystem
 
         for (var i = 0; i < sprite.AllLayers.Count(); i++)
         {
-            sprite.LayerSetColor(i, component.SkinColor);
+            _sprite.LayerSetColor((uid, sprite), i, component.SkinColor);
         }
     }
 }

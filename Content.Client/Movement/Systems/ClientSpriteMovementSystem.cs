@@ -10,7 +10,7 @@ namespace Content.Client.Movement.Systems;
 /// </summary>
 public sealed partial class ClientSpriteMovementSystem : SharedSpriteMovementSystem
 {
-    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private EntityQuery<SpriteComponent> _spriteQuery;
 
@@ -32,14 +32,14 @@ public sealed partial class ClientSpriteMovementSystem : SharedSpriteMovementSys
         {
             foreach (var (layer, state) in ent.Comp.MovementLayers)
             {
-                sprite.LayerSetData(layer, state);
+                _sprite.LayerSetData((ent.Owner, sprite), layer, state);
             }
         }
         else
         {
             foreach (var (layer, state) in ent.Comp.NoMovementLayers)
             {
-                sprite.LayerSetData(layer, state);
+                _sprite.LayerSetData((ent.Owner, sprite), layer, state);
             }
         }
     }
