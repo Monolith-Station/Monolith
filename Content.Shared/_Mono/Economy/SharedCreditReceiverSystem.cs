@@ -28,17 +28,15 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
 
     protected void OnMapInit(EntityUid uid, CreditReceiverComponent component, MapInitEvent args)
     {
-        if (component.CashSlot != null && component.CashSlotName != null)
-            ItemSlots.AddItemSlot(uid, component.CashSlotName, component.CashSlot);
+        ItemSlots.AddItemSlot(uid, component.CashSlotName, component.CashSlot);
     }
 
 
     protected void Update(Entity<CreditReceiverComponent> ent)
     {
-        if (ent.Comp.CashSlotName != null
-            && ent.Comp.CurrencyStackType != null
+        if (ent.Comp.CurrencyStackType != null
             && ItemSlots.TryGetSlot(ent, ent.Comp.CashSlotName, out var slot)
-            && TryComp<StackComponent>(slot?.ContainerSlot?.ContainedEntity, out var stack)
+            && TryComp<StackComponent>(slot.ContainerSlot?.ContainedEntity, out var stack)
             && stack.StackTypeId == ent.Comp.CurrencyStackType)
         {
             ent.Comp.CashSlotBalance = stack.Count;
@@ -78,7 +76,7 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
 
     public bool CanPayWithCredit(Entity<CreditReceiverComponent> ent)
     {
-        return TryComp<CreditReceiverComponent>(ent.Owner, out var creditComponent) && creditComponent.CashSlotName != null && creditComponent.CurrencyStackType != null;
+        return TryComp<CreditReceiverComponent>(ent.Owner, out var creditComponent) && creditComponent.CurrencyStackType != null;
     }
 
     /// <summary>
@@ -118,10 +116,6 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
         if (!TryComp<CreditReceiverComponent>(uid, out var receiver))
             return false;
 
-        // In if in yaml a parent has CreditReceiver but doesn't actually want cash behavior, set these to null.
-        if (receiver.CashSlotName == null)
-            return false;
-
         // If there's no money in the bag, we fail to return anything.
         if (!TryGetCashSlot(uid, out var cashSlot)
             || cashSlot.ContainerSlot == null)
@@ -149,9 +143,6 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
         slot = null;
 
         if (!TryComp<CreditReceiverComponent>(uid, out var receiver))
-            return false;
-
-        if (receiver.CashSlot == null || receiver.CashSlotName == null)
             return false;
 
         if (!ItemSlots.TryGetSlot(uid, receiver.CashSlotName, out var cashSlot))

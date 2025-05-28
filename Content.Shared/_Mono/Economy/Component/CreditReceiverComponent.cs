@@ -14,13 +14,13 @@ public sealed partial class CreditReceiverComponent : Robust.Shared.GameObjects.
     /// in case you can't get rid of it, i.e. YAML inherited.
     /// </remarks>
     [DataField]
-    public ItemSlot? CashSlot;
+    public ItemSlot CashSlot;
 
     /// <summary>
     /// Name of the cash slot, if there is one.  Null if there isn't.
     /// </summary>
     [DataField]
-    public string? CashSlotName;
+    public string CashSlotName;
 
     /// <summary>
     /// The type of currency to accept in the item slot.
