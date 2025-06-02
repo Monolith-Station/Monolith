@@ -1,6 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.Projectiles;
+using Content.Server.Machines.EntitySystems;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
@@ -19,13 +20,12 @@ public sealed partial class ParticleAcceleratorSystem : EntitySystem
     [Dependency] private SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] private SharedTransformSystem _transformSystem = default!;
     [Dependency] private UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private MapSystem _mapSystem = default!;
+    [Dependency] private MultipartMachineSystem _multipartMachine = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         InitializeControlBoxSystem();
-        InitializePartSystem();
         InitializePowerBoxSystem();
     }
 }
