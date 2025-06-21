@@ -46,7 +46,6 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefMan = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly ReactiveSystem _reactive = default!;
@@ -59,6 +58,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [Dependency] private readonly TileFrictionController _tile = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     [ValidatePrototypeId<ReagentPrototype>]
     private const string Blood = "Blood";
@@ -654,7 +654,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         }
 
         // If space return early, let that spill go out into the void
-        if (tileRef.Tile.IsEmpty || tileRef.IsSpace(_tileDefMan))
+        if (tileRef.Tile.IsEmpty || _turf.IsSpace(tileRef))
         {
             puddleUid = EntityUid.Invalid;
             return false;

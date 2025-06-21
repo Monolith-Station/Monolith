@@ -27,6 +27,7 @@ public sealed class SpreaderSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     /// <summary>
     /// Cached maximum number of updates per spreader prototype. This is applied per-grid.
@@ -265,7 +266,7 @@ public sealed class SpreaderSystem : EntitySystem
             if (!_map.TryGetTileRef(neighborEnt, neighborGrid, neighborPos, out var tileRef) || tileRef.Tile.IsEmpty)
                 continue;
 
-            if (!spreadSpaced && tileRef.Tile.IsSpace())
+            if (!spreadSpaced && _turf.IsSpace(tileRef))
                 continue;
 
             var directionEnumerator = _map.GetAnchoredEntitiesEnumerator(neighborEnt, neighborGrid, neighborPos);

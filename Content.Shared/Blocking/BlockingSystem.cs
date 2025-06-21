@@ -45,6 +45,7 @@ public sealed partial class BlockingSystem : SharedBlockingSystem // Mono
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!; // Goobstation
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     public override void Initialize()
     {
