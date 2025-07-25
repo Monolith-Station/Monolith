@@ -1,4 +1,4 @@
-﻿using Content.Shared.Decals;
+using Content.Shared.Decals;
 using Content.Shared.Maps;
 using Robust.Shared.Prototypes;
 
@@ -20,6 +20,12 @@ public sealed class MappingPrototype
     ///     The text to display on the UI for this button.
     /// </summary>
     public readonly string Name;
+
+    //Reserve - Wizden mapping editor
+    /// <summary>
+    ///     Whether the prototype is in the “Favorites” list.
+    /// </summary>
+    public bool Favorite;
 
     /// <summary>
     ///     Which other prototypes (buttons) this one is nested inside of.
