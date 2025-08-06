@@ -5,6 +5,7 @@ using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Systems;
 using Content.Shared._NF.SizeAttribute;
 using Content.Shared.Nyanotrasen.Item.PseudoItem;
+using Content.Shared.Sprite;
 
 namespace Content.Server.SizeAttribute
 {
@@ -59,14 +60,13 @@ namespace Content.Server.SizeAttribute
             if (scale <= 0f && density <= 0f)
                 return;
 
-            // Exodus | Removing width&height properties
-            // _entityManager.EnsureComponent<ScaleVisualsComponent>(uid);
+            _entityManager.EnsureComponent<ScaleVisualsComponent>(uid);
 
-            // var appearanceComponent = _entityManager.EnsureComponent<AppearanceComponent>(uid);
-            // if (!_appearance.TryGetData<Vector2>(uid, ScaleVisuals.Scale, out var oldScale, appearanceComponent))
-            //     oldScale = Vector2.One;
+            var appearanceComponent = _entityManager.EnsureComponent<AppearanceComponent>(uid);
+            if (!_appearance.TryGetData<Vector2>(uid, ScaleVisuals.Scale, out var oldScale, appearanceComponent))
+                oldScale = Vector2.One;
 
-            // _appearance.SetData(uid, ScaleVisuals.Scale, oldScale * scale, appearanceComponent);
+            _appearance.SetData(uid, ScaleVisuals.Scale, oldScale * scale, appearanceComponent);
 
             if (!cosmeticOnly && _entityManager.TryGetComponent(uid, out FixturesComponent? manager))
             {

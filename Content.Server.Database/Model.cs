@@ -414,9 +414,7 @@ namespace Content.Server.Database
         public string FacialHairColor { get; set; } = null!;
         public string EyeColor { get; set; } = null!;
         public string SkinColor { get; set; } = null!;
-        [Obsolete("Removed by Exodus | Isn't removed due to DB migration")]
         public float Height { get; set; } = 1.0f;
-        [Obsolete("Removed by Exodus | Isn't removed due to DB migration")]
         public float Width { get; set; } = 1.0f;
         public int SpawnPriority { get; set; } = 0;
         public List<Job> Jobs { get; } = new();
