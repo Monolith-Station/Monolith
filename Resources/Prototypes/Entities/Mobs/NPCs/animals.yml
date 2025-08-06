@@ -2954,6 +2954,7 @@
   - type: HTN
     rootTask:
       task: RuminantHostileCompound
+  - type: MessyDrinker
   - type: Tag
     tags:
     - VimPilot
@@ -2994,6 +2995,7 @@
   - type: Inventory
     speciesId: dog
     templateId: pet
+  - type: MessyDrinker
   - type: DamageStateVisuals
     states:
       Alive:

@@ -4,6 +4,7 @@ using Content.Server.EntityEffects.Effects;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.Inventory;
+using Content.Server.Nutrition.Events;
 using Content.Server.Popups;
 using Content.Shared._Mono.Traits.Physical;
 using Content.Shared.Administration.Logs;
@@ -330,10 +331,17 @@ public sealed class DrinkSystem : SharedDrinkSystem
 
         _audio.PlayPvs(entity.Comp.UseSound, args.Target.Value, AudioParams.Default.WithVolume(-2f).WithVariation(0.25f));
 
-        _reaction.DoEntityReaction(args.Target.Value, solution, ReactionMethod.Ingestion);
-        _stomach.TryTransferSolution(firstStomach.Value.Owner, drained, firstStomach.Value.Comp1);
+        var beforeDrinkEvent = new BeforeIngestDrinkEvent(entity.Owner, drained, forceDrink);
+        RaiseLocalEvent(args.Target.Value, ref beforeDrinkEvent);
 
         _forensics.TransferDna(entity, args.Target.Value);
+
+        _reaction.DoEntityReaction(args.Target.Value, solution, ReactionMethod.Ingestion);
+
+        if (drained.Volume == 0)
+            return;
+
+        _stomach.TryTransferSolution(firstStomach.Value.Owner, drained, firstStomach.Value.Comp1);
 
         if (!forceDrink && solution.Volume > 0)
             args.Repeat = true;
