@@ -1,0 +1,40 @@
+# Author Info
+# GitHub: kyres1
+# Discord: kyres1
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Shezmu
+  parent: BaseVessel
+  name: UNSA Shezmu
+  description: A re-claimed liquid oil mining rig brought into space by a group of Atmospheric Technicians, funded by the UNSA.
+  price: 300000
+  category: Large
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/shezmu.yml
+  guidebookPage: null
+  class:
+  - Atmospherics
+  engine:
+  - AME
+
+- type: gameMap
+  id: Shezmu
+  mapName: 'UNSA Shezmu'
+  mapPath: /Maps/_Mono/Shuttles/shezmu.yml
+  minPlayers: 0
+  stations:
+    Shezmu:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Shezmu CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
