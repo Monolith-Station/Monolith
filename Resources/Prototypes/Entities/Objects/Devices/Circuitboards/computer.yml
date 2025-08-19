@@ -209,12 +209,30 @@
   name: surveillance wireless camera monitor board
   description: A computer printed circuit board for a surveillance wireless camera monitor.
   components:
+<<<<<<< HEAD
     - type: Sprite
       state: cpu_security
     - type: ComputerBoard
       prototype: ComputerSurveillanceWirelessCameraMonitor
     - type: ComputerTabletopBoard # Frontier
       prototype: ComputerTabletopSurveillanceWirelessCameraMonitor # Frontier
+=======
+  - type: Sprite
+    state: cpu_service
+  - type: ComputerBoard
+    prototype: ComputerSurveillanceWirelessCameraMonitor
+  
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: XenoborgCameraMonitorCircuitboard
+  name: xenoborg camera monitor board
+  description: A computer printed circuit board for a xenoborg camera monitor.
+  components:
+  - type: Sprite
+    state: cpu_science
+  - type: ComputerBoard
+    prototype: ComputerSurveillanceWirelessXenoborgCameraMonitor
+>>>>>>> de240e1739b (Xenoborgs part 5 (#37068))
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -541,6 +559,17 @@
       state: cpu_science
     - type: ComputerBoard
       prototype: ComputerRoboticsControl
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: ComputerXenoborgsControlCircuitboard
+  name: xenoborg control console board
+  description: A computer printed circuit board for a xenoborg control console.
+  components:
+    - type: Sprite
+      state: cpu_science
+    - type: ComputerBoard
+      prototype: ComputerXenoborgsControl
 
 - type: entity
   parent: BaseComputerCircuitboard
