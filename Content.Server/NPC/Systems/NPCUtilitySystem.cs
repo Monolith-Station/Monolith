@@ -11,12 +11,12 @@ using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Power.EntitySystems; // Mono
 using Content.Server.Shuttles.Components; // Mono
 using Content.Server.Storage.Components;
+using Content.Server.Temperature.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.Fluids.Components;
-using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -37,6 +37,7 @@ using Robust.Server.Containers;
 using Robust.Shared.Physics.Components; // Mono
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Atmos.Components;
 using System.Linq;
 using Content.Shared.StatusEffect; // Frontier
 
