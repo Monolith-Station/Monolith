@@ -12,7 +12,7 @@
   - SlimePerson
   - Vox
   - Goblin # Frontier
-  - Vulpkanin # DeltaV
+  - Vulpkanin # Mono - replaced with wiz vulps
   - Harpy # DeltaV
   - Felinid # DeltaV
   - Oni # DeltaV
@@ -88,3 +88,8 @@
   id: Hydrakin
   name: species-name-hydrakin
   text: "/ServerInfo/Guidebook/Mobs/Hydrakin.xml"
+
+- type: guideEntry
+  id: Vulpkanin
+  name: species-name-vulpkanin
+  text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"
