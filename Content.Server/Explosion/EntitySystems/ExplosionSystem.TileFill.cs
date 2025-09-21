@@ -275,7 +275,7 @@ public sealed partial class ExplosionSystem
         radius = Math.Min(radius, MaxIterations / 4);
 
         EntityUid? referenceGrid = null;
-        float mass = 0;
+        var mass = float.MinValue;
 
         // First attempt to find a grid that is relatively close to the explosion's center. Instead of looking in a
         // diameter x diameter sized box, use a smaller box with radius sized sides:
@@ -283,7 +283,7 @@ public sealed partial class ExplosionSystem
 
         foreach (var grid in _mapManager.FindGridsIntersecting(epicenter.MapId, box))
         {
-            if (TryComp(grid.Owner, out PhysicsComponent? physics) && physics.Mass > mass)
+            if (TryComp(grid.Owner, out PhysicsComponent? physics) && physics.FixturesMass > mass)
             {
                 mass = physics.Mass;
                 referenceGrid = grid.Owner;
@@ -312,7 +312,7 @@ public sealed partial class ExplosionSystem
         {
             if (TryComp(grid.Owner, out PhysicsComponent? physics) && physics.Mass > mass)
             {
-                mass = physics.Mass;
+                mass = physics.FixturesMass;
                 referenceGrid = grid.Owner;
             }
         }
