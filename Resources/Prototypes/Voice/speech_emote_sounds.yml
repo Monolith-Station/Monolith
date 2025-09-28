@@ -300,6 +300,7 @@
       collection: VoxHiss
   params:
     variation: 0.125
+    # TODO: We need vox sounds for the other emotes
 
 - type: emoteSounds
   id: UnisexDiona
@@ -574,6 +575,10 @@
       collection: VulpkaninWhines
     Howl:
       collection: VulpkaninHowls
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
 
 - type: emoteSounds
   id: FemaleVulpkanin
@@ -602,6 +607,10 @@
       collection: VulpkaninWhines
     Howl:
       collection: VulpkaninHowls
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp
 
 # body emotes
 - type: emoteSounds
