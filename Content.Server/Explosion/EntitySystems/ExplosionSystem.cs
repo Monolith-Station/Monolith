@@ -3,6 +3,8 @@ using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Server.Chat.Managers;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Destructible;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NPC.Pathfinding;
 using Content.Shared.Camera;
@@ -16,7 +18,6 @@ using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
-using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
@@ -47,14 +48,13 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
-    [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly NodeGroupSystem _nodeGroupSystem = default!;
     [Dependency] private readonly PathfindingSystem _pathfindingSystem = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoilSystem = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
     [Dependency] private readonly PvsOverrideSystem _pvsSys = default!;
@@ -63,11 +63,17 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly StackSystem _stack = default!; // Mono
     [Dependency] private readonly IGameTiming _gameTiming = default!; // Mono
+    [Dependency] private readonly FlammableSystem _flammableSystem = default!;
+    [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
 
     private EntityQuery<FlammableComponent> _flammableQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<ProjectileComponent> _projectileQuery;
     private EntityQuery<StackComponent> _stackQuery; // Mono
+    private EntityQuery<ActorComponent> _actorQuery;
+    private EntityQuery<DestructibleComponent> _destructibleQuery;
+    private EntityQuery<DamageableComponent> _damageableQuery;
+    private EntityQuery<AirtightComponent> _airtightQuery;
 
     /// <summary>
     ///     "Tile-size" for space when there are no nearby grids to use as a reference.
@@ -120,6 +126,10 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _projectileQuery = GetEntityQuery<ProjectileComponent>();
         _stackQuery = GetEntityQuery<StackComponent>(); // Mono
+        _actorQuery = GetEntityQuery<ActorComponent>();
+        _destructibleQuery = GetEntityQuery<DestructibleComponent>();
+        _damageableQuery = GetEntityQuery<DamageableComponent>();
+        _airtightQuery = GetEntityQuery<AirtightComponent>();
     }
 
     private void OnReset(RoundRestartCleanupEvent ev)
@@ -383,7 +393,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             return null;
 
         var pos = _transformSystem.ToMapCoordinates(entPos);
-        if (!_mapSystem.MapExists(pos.MapId))
+        if (!_map.MapExists(pos.MapId))
             return null;
 
         var results = GetExplosionTiles(pos, queued.Proto.ID, queued.TotalIntensity, queued.Slope, queued.MaxTileIntensity);
@@ -444,10 +454,10 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             queued.MaxTileBreak,
             queued.CanCreateVacuum,
             EntityManager,
-            _mapManager,
             visualEnt,
             queued.Cause,
-            _map);
+            _map,
+            _damageableSystem);
     }
 
     private void CameraShake(float range, MapCoordinates epicenter, float totalIntensity)
