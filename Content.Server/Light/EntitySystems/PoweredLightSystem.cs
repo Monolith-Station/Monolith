@@ -1,9 +1,7 @@
-using Content.Server.Emp;
 using Content.Server.Ghost;
 using Content.Shared.Light.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
-using Robust.Shared.Random; // Frontier
 using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Damage.Systems;
@@ -12,7 +10,6 @@ using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Power;
 using Content.Shared.Light.EntitySystems;
-using Robust.Shared.Random; // Frontier
 
 namespace Content.Server.Light.EntitySystems;
 
@@ -21,16 +18,12 @@ namespace Content.Server.Light.EntitySystems;
 /// </summary>
 public sealed partial class PoweredLightSystem : SharedPoweredLightSystem
 {
-    [Dependency] private IRobustRandom _random = default!; // Frontier
-
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<PoweredLightComponent, MapInitEvent>(OnMapInit);
 
         SubscribeLocalEvent<PoweredLightComponent, GhostBooEvent>(OnGhostBoo);
-
-        SubscribeLocalEvent<PoweredLightComponent, EmpPulseEvent>(OnEmpPulse);
     }
 
     private void OnGhostBoo(EntityUid uid, PoweredLightComponent light, GhostBooEvent args)
@@ -62,14 +55,5 @@ public sealed partial class PoweredLightSystem : SharedPoweredLightSystem
         }
         // need this to update visualizers
         UpdateLight(uid, light);
-    }
-
-    private void OnEmpPulse(EntityUid uid, PoweredLightComponent component, ref EmpPulseEvent args)
-    {
-        if (_random.Prob(component.LightBreakChance)) // Frontier
-        {
-            if (TryDestroyBulb(uid, component))
-                args.Affected = true;
-        }
     }
 }

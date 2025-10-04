@@ -1,7 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
-using Content.Shared.Clothing.EntitySystems;
+using Content.Shared.Emp;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
@@ -36,6 +36,7 @@ public abstract partial class SharedNinjaSuitSystem : EntitySystem
         SubscribeLocalEvent<NinjaSuitComponent, CreateItemAttemptEvent>(OnCreateStarAttempt);
         SubscribeLocalEvent<NinjaSuitComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
         SubscribeLocalEvent<NinjaSuitComponent, GotUnequippedEvent>(OnUnequipped);
+        SubscribeLocalEvent<NinjaSuitComponent, EmpAttemptEvent>(OnEmpAttempt);
     }
 
     private void OnEquipped(Entity<NinjaSuitComponent> ent, ref ClothingGotEquippedEvent args)
@@ -168,7 +169,14 @@ public abstract partial class SharedNinjaSuitSystem : EntitySystem
         // mark the user as not wearing a suit
         _ninja.AssignSuit(user, null);
         // disable glove abilities
-        if (user.Comp.Gloves is {} uid)
+        if (user.Comp.Gloves is { } uid)
             _toggle.TryDeactivate(uid, user: user);
+    }
+
+    private void OnEmpAttempt(Entity<NinjaSuitComponent> ent, ref EmpAttemptEvent args)
+    {
+        // ninja suit (battery) is immune to emp
+        // powercell relays the event to suit
+        args.Cancelled = true;
     }
 }

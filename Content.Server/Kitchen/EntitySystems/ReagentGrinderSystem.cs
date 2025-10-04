@@ -34,7 +34,6 @@ namespace Content.Server.Kitchen.EntitySystems
     [UsedImplicitly]
     internal sealed partial class ReagentGrinderSystem : EntitySystem
     {
-<<<<<<< HEAD
         [Dependency] private IGameTiming _timing = default!;
         [Dependency] private SharedSolutionContainerSystem _solutionContainersSystem = default!;
         [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
@@ -48,34 +47,6 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private RandomHelperSystem _randomHelper = default!;
         [Dependency] private JitteringSystem _jitter = default!;
         [Dependency] private SharedPowerStateSystem _powerState = default!;
-||||||| parent of 1b1cb64d24e (Power Consumers Rebalance: Simple Dynamic Power Loading (#41961))
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainersSystem = default!;
-        [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-        [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-        [Dependency] private readonly StackSystem _stackSystem = default!;
-        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-        [Dependency] private readonly SharedDestructibleSystem _destructible = default!;
-        [Dependency] private readonly RandomHelperSystem _randomHelper = default!;
-        [Dependency] private readonly JitteringSystem _jitter = default!;
-=======
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainersSystem = default!;
-        [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-        [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-        [Dependency] private readonly StackSystem _stackSystem = default!;
-        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-        [Dependency] private readonly SharedDestructibleSystem _destructible = default!;
-        [Dependency] private readonly RandomHelperSystem _randomHelper = default!;
-        [Dependency] private readonly JitteringSystem _jitter = default!;
-        [Dependency] private readonly SharedPowerStateSystem _powerState = default!;
->>>>>>> 1b1cb64d24e (Power Consumers Rebalance: Simple Dynamic Power Loading (#41961))
 
         public override void Initialize()
         {
