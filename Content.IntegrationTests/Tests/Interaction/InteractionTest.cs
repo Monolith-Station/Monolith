@@ -23,6 +23,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 using Robust.UnitTesting;
 using Content.Shared.Item.ItemToggle;
 using Robust.Client.State;
@@ -40,10 +41,20 @@ namespace Content.IntegrationTests.Tests.Interaction;
 [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
 public abstract partial class InteractionTest
 {
+    /// <summary>
+    /// The prototype that will be spawned for the player entity at <see cref="PlayerCoords"/>.
+    /// This is not a full humanoid and only has one hand by default.
+    /// </summary>
     protected virtual string PlayerPrototype => "InteractionTestMob";
 
+    /// <summary>
+    /// The map path to load for the integration test.
+    /// If null an empty map with a single 1x1 plating grid will be generated.
+    /// </summary>
+    protected virtual ResPath? TestMapPath => null;
+
     protected TestPair Pair = default!;
-    protected TestMapData MapData => Pair.TestMap!;
+    protected TestMapData MapData = default!;
 
     protected RobustIntegrationTest.ServerIntegrationInstance Server => Pair.Server;
     protected RobustIntegrationTest.ClientIntegrationInstance Client => Pair.Client;
@@ -188,7 +199,10 @@ public abstract partial class InteractionTest
         CUiSys = Client.System<SharedUserInterfaceSystem>();
 
         // Setup map.
-        await Pair.CreateTestMap();
+        if (TestMapPath == null)
+            MapData = await Pair.CreateTestMap();
+        else
+            MapData = await Pair.LoadTestMap(TestMapPath.Value);
 
         PlayerCoords = SEntMan.GetNetCoordinates(Transform.WithEntityId(MapData.GridCoords.Offset(new Vector2(0.5f, 0.5f)), MapData.MapUid));
         TargetCoords = SEntMan.GetNetCoordinates(Transform.WithEntityId(MapData.GridCoords.Offset(new Vector2(1.5f, 0.5f)), MapData.MapUid));
