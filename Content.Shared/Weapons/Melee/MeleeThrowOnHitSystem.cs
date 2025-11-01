@@ -79,10 +79,6 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         if (direction == Vector2.Zero)
             return;
 
-        // Frontier: check that hit entity passes whitelist
-        var unanchorOnHit = ent.Comp.UnanchorOnHit && _whitelist.IsWhitelistPassOrNull(ent.Comp.Whitelist, target);
-        // End Frontier
-
-        _throwing.TryThrow(target, direction.Normalized() * ent.Comp.Distance, ent.Comp.Speed, user, unanchor: unanchorOnHit); // Frontier: ent.Comp.UnanchorOnHit<unanchorOnHit
+        _throwing.TryThrow(target, direction.Normalized() * ent.Comp.Distance, ent.Comp.Speed, user, unanchor: ent.Comp.UnanchorOnHit);
     }
 }
