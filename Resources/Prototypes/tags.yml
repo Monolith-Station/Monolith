@@ -853,6 +853,12 @@
   id: MopBasic
 
 - type: Tag
+  id: MothershipCoreGhostrole # spawn whitelist : SpawnPointGhostRoleMothershipCore
+
+- type: Tag
+  id: MothershipModule # Cyborg module category for evil xenoborg core
+
+- type: Tag
   id: Mouse
 
 - type: Tag
@@ -1355,6 +1361,7 @@
   id: Write
 
 - type: Tag
+<<<<<<< HEAD
   id: WriteIgnoreStamps
 
 - type: Tag
@@ -1371,5 +1378,23 @@
 
 - type: Tag
   id: XenoborgModuleStealth
+=======
+  id: XenoborgGhostrole # spawn whitelist : SpawnPointGhostRoleXenoborg
+
+- type: Tag
+  id: XenoborgModuleEngi # Cyborg module category for evil engineer xenoborg
+
+- type: Tag
+  id: XenoborgModuleGeneric # Cyborg module category for evil xenoborg
+
+- type: Tag
+  id: XenoborgModuleHeavy # Cyborg module category for evil heavy xenoborg
+
+- type: Tag
+  id: XenoborgModuleScout # Cyborg module category for evil scout xenoborg
+
+- type: Tag
+  id: XenoborgModuleStealth # Cyborg module category for evil stealth xenoborg
+>>>>>>> e5daa54e79d (Xenoborgs part 7 (#40042))
 
 # ALPHABETICAL
