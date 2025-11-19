@@ -106,7 +106,7 @@
     startAnnouncement: station-event-ai-shuttle-detected
     startAudio:
       path: /Audio/Misc/notice1.ogg
-    weight: 6
+    weight: 4
     maxOccurrences: 2
   - type: GameRule
     minPlayers: 40
