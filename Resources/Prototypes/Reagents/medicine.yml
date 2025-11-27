@@ -1057,6 +1057,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 5
+        - !type:HasTag # Mono edit - Chimeras cant talk
+          tag: Chimera
+          invert: true
 
 - type: reagent
   id: Ethyloxyephedrine
