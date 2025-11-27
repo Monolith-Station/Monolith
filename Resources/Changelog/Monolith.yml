@@ -14299,3 +14299,12 @@ Entries:
   id: 1586
   time: '2025-11-27T21:06:31.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2693
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Chimeras can't revive themselfs by re-infection anymore.
+    - type: Fix
+      message: Chimeras can't be affected by cognizine now.
+  id: 1587
+  time: '2025-11-27T23:51:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2698
