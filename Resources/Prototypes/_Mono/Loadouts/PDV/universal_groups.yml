@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2025 Arcticular
+# SPDX-FileCopyrightText: 2025 AthrunZala33092
 # SPDX-FileCopyrightText: 2025 Blu
 # SPDX-FileCopyrightText: 2025 Hyenh
 #
@@ -24,6 +26,9 @@
   loadouts:
   - PDVClothingNeckIFFOrange
   - PDVClothingNeckCloakCommander
+  - PDVClothingNeckCloakVizier
+  - PDVClothingNeckMantleVizier
+
 - type: loadoutGroup
   id: PDVOuterClothing
   name: loadout-group-contractor-outerclothing
@@ -91,6 +96,7 @@
   minLimit: 1
   loadouts:
   - PDVCommanderBeret
+  - PDVCapVizier
   fallbacks:
   - PDVCommanderBeret
 - type: loadoutGroup

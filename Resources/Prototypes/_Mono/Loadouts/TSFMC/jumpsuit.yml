@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 AthrunZala33092
 # SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -16,3 +17,8 @@
   id: TsfmcEngineeringClothingJumpsuit
   equipment:
     jumpsuit: ClothingUniformTSFMCEngi
+
+- type: loadout
+  id: TsfmcClothingDressUniform
+  equipment:
+    jumpsuit: ClothingUniformTSFMCDress

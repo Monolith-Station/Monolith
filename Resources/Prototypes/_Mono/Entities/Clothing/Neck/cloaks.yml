@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2025 Arcticular
+# SPDX-FileCopyrightText: 2025 AthrunZala33092
 # SPDX-FileCopyrightText: 2025 Coenx-flex
 # SPDX-FileCopyrightText: 2025 Cojoke
 # SPDX-FileCopyrightText: 2025 HungryCuban
@@ -37,6 +39,24 @@
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Cloaks/phaethondynastycloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakVizier
+  name: grand vizier's ceremonial cloak
+  description: A Phaethon Dynasty Grand Vizier's cloak, only given to those who have proven their loyalty and worth to the Sultan.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Cloaks/pdvcloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMantleVizier
+  name: grand vizier's mantle
+  description: A Phaethon Dynasty Grand Vizier's mantle, a mix of elegance and practicality.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Cloaks/pdvmantle.rsi
 
 - type: entity
   parent: ClothingNeckBase

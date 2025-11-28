@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 AthrunZala33092
 # SPDX-FileCopyrightText: 2025 Blu
 # SPDX-FileCopyrightText: 2025 Eden077
 # SPDX-FileCopyrightText: 2025 Redrover1760
@@ -74,6 +75,20 @@
     sprite: _Mono/Clothing/Uniforms/Jumpsuit/tsfmcengi.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Uniforms/Jumpsuit/tsfmcengi.rsi
+  - type: SuitSensor
+    randomMode: false
+    mode: SensorVitals
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformTSFMCDress
+  name: TSFMC dress uniform
+  description: A military dress uniform for special occasions, complete with stripes and rank insignia.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/tsfmcdressuni.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/tsfmcdressuni.rsi
   - type: SuitSensor
     randomMode: false
     mode: SensorVitals
