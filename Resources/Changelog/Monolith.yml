@@ -14308,3 +14308,12 @@ Entries:
   id: 1587
   time: '2025-11-27T23:51:54.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2698
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Reworked player manifest in round end summary, now includes last words
+        and how players died.
+  id: 1588
+  time: '2025-11-28T03:11:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2668
