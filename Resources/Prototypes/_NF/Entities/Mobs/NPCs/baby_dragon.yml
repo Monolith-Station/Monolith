@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2024 AndresE55
 # SPDX-FileCopyrightText: 2024 Whatstone
+# SPDX-FileCopyrightText: 2025 Ilya246
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 starch
 #
@@ -187,6 +188,11 @@
   - type: NightVision # Goobstation - Nigthvision - Mono
     activateSound: null
     deactivateSound: null
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
 
 #- type: entity
 #  categories: [ HideSpawnMenu ]
