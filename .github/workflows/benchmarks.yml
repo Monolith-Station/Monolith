@@ -1,8 +1,17 @@
-﻿name: Benchmarks
+# SPDX-FileCopyrightText: 2022 Paul Ritter
+# SPDX-FileCopyrightText: 2023 DrSmugleaf
+# SPDX-FileCopyrightText: 2025 Aiden
+# SPDX-FileCopyrightText: 2025 Ark
+#
+# SPDX-License-Identifier: MPL-2.0
+
+name: Benchmarks
 on:
   workflow_dispatch:
 
-concurrency: benchmarks
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   benchmark:

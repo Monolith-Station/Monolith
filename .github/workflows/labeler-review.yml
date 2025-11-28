@@ -1,7 +1,22 @@
+# SPDX-FileCopyrightText: 2024 Myra
+# SPDX-FileCopyrightText: 2024 Saphire Lattice
+# SPDX-FileCopyrightText: 2024 Vasilis
+# SPDX-FileCopyrightText: 2025 Aiden
+# SPDX-FileCopyrightText: 2025 Dvir
+# SPDX-FileCopyrightText: 2025 Whatstone
+#
+# SPDX-License-Identifier: MPL-2.0
+
 name: "Labels: Approved"
+
 on:
   pull_request_review:
     types: [submitted]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   add_label:
     # Change the repository name after you've made sure the team name is correct for your fork!

@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2024 Jezithyr
 # SPDX-FileCopyrightText: 2024 Matt
 # SPDX-FileCopyrightText: 2024 Whatstone
+# SPDX-FileCopyrightText: 2025 Aiden
 # SPDX-FileCopyrightText: 2025 Ark
 # SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
 # SPDX-FileCopyrightText: 2025 Redrover1760
@@ -18,12 +19,13 @@
 
 name: Publish
 
-concurrency:
-  group: publish
-
 on:
   workflow_dispatch:
   # Frontier: re-enabled autopublish bawk
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:

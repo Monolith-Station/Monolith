@@ -1,10 +1,21 @@
-﻿name: "Labels: Untriaged"
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2024 SlamBamActionman
+# SPDX-FileCopyrightText: 2024 Vasilis
+# SPDX-FileCopyrightText: 2025 Aiden
+#
+# SPDX-License-Identifier: MPL-2.0
+
+name: "Labels: Untriaged"
 
 on:
   issues:
     types: [opened]
   pull_request_target:
     types: [opened]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   add_label:

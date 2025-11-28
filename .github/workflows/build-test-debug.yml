@@ -18,6 +18,7 @@
 # SPDX-FileCopyrightText: 2024 Dvir
 # SPDX-FileCopyrightText: 2024 Myra
 # SPDX-FileCopyrightText: 2024 Whatstone
+# SPDX-FileCopyrightText: 2025 Aiden
 # SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 sleepyyapril
@@ -25,6 +26,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 name: Build & Test Debug
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 on:
   push:

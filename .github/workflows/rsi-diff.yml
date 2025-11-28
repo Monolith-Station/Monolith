@@ -1,9 +1,21 @@
+# SPDX-FileCopyrightText: 2021 mirrorcult
+# SPDX-FileCopyrightText: 2022 Kara D
+# SPDX-FileCopyrightText: 2023 DrSmugleaf
+# SPDX-FileCopyrightText: 2024 Vasilis
+# SPDX-FileCopyrightText: 2025 Aiden
+#
+# SPDX-License-Identifier: MPL-2.0
+
 name: Diff RSIs
 
 on:
   pull_request_target:
     paths:
       - '**.rsi/**.png'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   diff:
@@ -18,7 +30,7 @@ jobs:
         uses: Ana06/get-changed-files@v2.3.0
         with:
           format: 'space-delimited'
-          filter: | 
+          filter: |
             **.rsi
             **.png
 

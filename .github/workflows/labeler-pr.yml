@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2023 Kevin Zheng
 # SPDX-FileCopyrightText: 2024 Dvir
 # SPDX-FileCopyrightText: 2024 TsjipTsjip
+# SPDX-FileCopyrightText: 2025 Aiden
 # SPDX-FileCopyrightText: 2025 Redrover1760
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -11,6 +12,10 @@ name: "Labels: PR"
 
 on:
 - pull_request_target
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   labeler:
