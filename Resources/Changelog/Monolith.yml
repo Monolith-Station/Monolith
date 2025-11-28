@@ -14328,3 +14328,14 @@ Entries:
   id: 1589
   time: '2025-11-28T03:13:47.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2676
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed language implanters not working on all mobs, like baby space
+        dragon.
+    - type: Fix
+      message: Baby space dragon now understands Tau Ceti by default.
+  id: 1590
+  time: '2025-11-28T03:15:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2674
