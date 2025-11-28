@@ -14317,3 +14317,14 @@ Entries:
   id: 1588
   time: '2025-11-28T03:11:47.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2668
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer FTL when near any powered shuttle console, instead of
+        near player-bought ships.
+    - type: Tweak
+      message: FTL blocking range 256m->512m.
+  id: 1589
+  time: '2025-11-28T03:13:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2676
