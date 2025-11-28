@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Aiden
+#
+# SPDX-License-Identifier: MPL-2.0
+
+- type: entity
+  id: MindBase
+  name: mind
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Mind
+  - type: LastWords
+  - type: ContainerContainer

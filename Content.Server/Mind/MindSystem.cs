@@ -20,7 +20,9 @@
 // SPDX-FileCopyrightText: 2023 vanx <#vanxxxx>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich
 // SPDX-FileCopyrightText: 2024 Winkarst
+// SPDX-FileCopyrightText: 2025 Aiden
 // SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2025 Redrover1760
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -39,6 +41,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Mobs.Components; // Goob Station
 
 namespace Content.Server.Mind;
 
@@ -232,6 +235,9 @@ public sealed class MindSystem : SharedMindSystem
 
                 alreadyAttached = true;
             }
+
+            if (HasComp<MobStateComponent>(entity.Value))// Goob Station
+                mind.LastMob = entity.Value;
         }
         else if (createGhost)
         {
