@@ -1,7 +1,12 @@
+# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
+# SPDX-FileCopyrightText: 2025 NazrinNya
+#
+# SPDX-License-Identifier: MPL-2.0
+
 - type: entity
   parent: XenoWardingTower
   id: ExplorersLootRadar
-  name: salvage radar
+  name: malfunctioning salvage radar # Mono edit
   description: Essential tool for any looter.
   components:
   - type: Sprite

@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2024 Whatstone
 // SPDX-FileCopyrightText: 2025 GreaseMonk
 // SPDX-FileCopyrightText: 2025 Ilya246
+// SPDX-FileCopyrightText: 2025 NazrinNya
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -14,7 +15,8 @@ using Robust.Server.GameObjects;
 using Content.Server._NF.Worldgen.Components.Debris; // Frontier
 using Content.Shared.Humanoid; // Frontier
 using Content.Shared.Mobs.Components; // Frontier
-using System.Numerics; // Frontier
+using System.Numerics;
+using Content.Server._Mono.Worldgen.Components; // Frontier
 using Robust.Shared.Map; // Frontier
 using Content.Server._NF.Salvage; // Frontier
 
@@ -66,12 +68,18 @@ public sealed class LocalityLoaderSystem : BaseWorldSystem
 
                     foreach (var loader in loaded.Loaders)
                     {
+                        // Mono edit start
+                        var distance = loadable.LoadingDistance;
+
+                        if (TryComp<ChunkLoaderComponent>(loader, out var cLoad))
+                            distance = cLoad.LoadingDistance;
+
                         if (!xformQuery.TryGetComponent(loader, out var loaderXform))
                             continue;
 
-                        if ((_xformSys.GetWorldPosition(loaderXform) - _xformSys.GetWorldPosition(xform)).Length() > loadable.LoadingDistance)
+                        if ((_xformSys.GetWorldPosition(loaderXform) - _xformSys.GetWorldPosition(xform)).Length() > distance)
                             continue;
-
+                        // Mono edit end
                         RaiseLocalEvent(uid, new LocalStructureLoadedEvent());
                         RemCompDeferred<LocalityLoaderComponent>(uid);
                         done = true;
