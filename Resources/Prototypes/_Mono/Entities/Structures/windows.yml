@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Avalon
 # SPDX-FileCopyrightText: 2025 starch
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
 #
 # SPDX-License-Identifier: MPL-2.0
 
@@ -151,3 +152,71 @@
   components:
   - type: TimedDespawn
     lifetime: 1800
+
+#plastitanium but blocks rads 100%
+
+- type: entity
+  id: PlasturaniumWindowDiagonalRadProof
+  parent: PlastitaniumWindowDiagonal
+  name: plasturanium window
+  description: Don't smudge up the rads down there.
+  suffix: Rad-Proof
+  components:
+  - type: RadiationBlocker
+    resistance: 100
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _Mono/Structures/Windows/plasturanium_window_diagonal.rsi
+  - type: Icon
+    sprite: _Mono/Structures/Windows/plasturanium_window_diagonal.rsi
+    state: state0
+
+- type: entity
+  id: PlasturaniumWindowRadProof
+  parent: PlastitaniumWindow
+  name: plasturanium window
+  description: Don't smudge up the rads down there.
+  suffix: Rad-Proof
+  components:
+  - type: RadiationBlocker
+    resistance: 100
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _Mono/Structures/Windows/plasturanium_window.rsi
+  - type: Icon
+    sprite: _Mono/Structures/Windows/plasturanium_window.rsi
+    state: full
+
+#plastitanium but blocks rads 100% (industructible var.)
+
+- type: entity
+  id: PlasturaniumWindowDiagonalRadProofIndestructible
+  parent: PlastitaniumWindowDiagonalIndestructible
+  name: plasturanium window
+  description: Don't smudge up the rads down there.
+  suffix: Rad-Proof, Indestructible
+  components:
+  - type: RadiationBlocker
+    resistance: 100
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _Mono/Structures/Windows/plasturanium_window_diagonal.rsi
+  - type: Icon
+    sprite: _Mono/Structures/Windows/plasturanium_window_diagonal.rsi
+    state: state0
+
+- type: entity
+  id: PlasturaniumWindowRadProofIndestructible
+  parent: PlastitaniumWindowIndestructible
+  name: plasturanium window
+  description: Don't smudge up the rads down there.
+  suffix: Rad-Proof, Indestructible
+  components:
+  - type: RadiationBlocker
+    resistance: 100
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _Mono/Structures/Windows/plasturanium_window.rsi
+  - type: Icon
+    sprite: _Mono/Structures/Windows/plasturanium_window.rsi
+    state: full
