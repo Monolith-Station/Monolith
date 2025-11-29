@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Avalon
 # SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -55,6 +56,8 @@
         Blunt: -1.5
   - type: Flammable
     fireSpread: true
+    alwaysCombustible: true
+    minIgnitionTemperature: 200
     damage:
       types:
         Heat: 9
