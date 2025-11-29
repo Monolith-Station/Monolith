@@ -8,10 +8,12 @@
 # SPDX-FileCopyrightText: 2025 BlueHNT
 # SPDX-FileCopyrightText: 2025 BramvanZijp
 # SPDX-FileCopyrightText: 2025 LukeZurg22
+# SPDX-FileCopyrightText: 2025 NazrinNya
 # SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 Whatstone
 # SPDX-FileCopyrightText: 2025 core-mene
+# SPDX-FileCopyrightText: 2025 significant harassment
 # SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -100,8 +102,8 @@
         Radiation: 0.3
         Caustic: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.8
+    walkModifier: 0.95 # Mono edit 0.9 -> 0.95
+    sprintModifier: 0.95 # Mono edit 0.9 -> 0.95
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
@@ -150,15 +152,16 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.6 # Mono - 0.5->0.6
+        Blunt: 0.6 # Mono - 0.7 -> 0.6
+        Slash: 0.6 # Mono - 0.7 -> 0.6
+        Piercing: 0.65 # Mono - 0.5->0.65
         Heat: 0.8
         Radiation: 0.3
         Caustic: 0.5
+        Poison: 0.4 # Mono - Injection protection.
   - type: ClothingSpeedModifier
     walkModifier: 0.95 #0.8->0.95
-    sprintModifier: 0.9
+    sprintModifier: 0.95 # 0.9 -> 0.95
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
