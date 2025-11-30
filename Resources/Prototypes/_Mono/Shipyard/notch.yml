@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: 2025 UnicornOnLSD
+#
+# SPDX-License-Identifier: MPL-2.0
+
+# Author Info
+# GitHub: UnicornOnLSD
+# Discord: unicornonlsd
+
+# Shuttle Notes: If this ship is ever to be revised by someone else than me in the future, avoid putting pulse miners on it. It was done on purpose, as it's sister small mining shuttle will have them.
+#                This shuttle is intended to be one of the cheapest yet pretty first timer's shuttle.
+- type: vessel
+  id: Notch
+  parent: BaseVessel
+  name: DIS Notch
+  description: A small salvage shuttle featuring the bare minimum for any fresh aspiring scavenger in the sector. Fast and compact. A proud piece of Drake Industries' civilian spacecrafts collection.
+  price: 25900
+  category: Small
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/notch.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Notch
+  mapName: 'DIS Notch'
+  mapPath: /Maps/_Mono/Shuttles/notch.yml
+  minPlayers: 0
+  stations:
+    Notch:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Notch CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
