@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: 2025 Ilya246
+#
+# SPDX-License-Identifier: MPL-2.0
+
+# Author Info
+# GitHub: Ilya246
+# Discord: Ilya246
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Mite
+  parent: BaseVessel
+  name: Mite
+  description: A heap of scrap of unknown origin, seemingly retrofitted by salvagers into a military ship using salvage weaponry. Was found as a derelict in space and now is being resold without even as much as a cleanup.
+  price: 45000 # it's a heap of scrap
+  category: Small
+  group: Scrap
+  shuttlePath: /Maps/_Mono/Shuttles/Scrap/mite.yml
+  guidebookPage: Null
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Mite
+  mapName: 'Mite'
+  mapPath: /Maps/_Mono/Shuttles/Scrap/mite.yml
+  minPlayers: 0
+  stations:
+    Mite:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Mite MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
