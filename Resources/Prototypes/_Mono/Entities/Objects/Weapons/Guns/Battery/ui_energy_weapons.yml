@@ -1,0 +1,141 @@
+# SPDX-FileCopyrightText: 2025 Avalon
+#
+# SPDX-License-Identifier: MPL-2.0
+
+- type: entity
+  parent: BaseWeaponBattery
+  id: UllmanWeaponPulsePistol
+  name: U.I. DP-17 heavy pulse pistol
+  description: A new gun on the market from Ullman, the DP-17 is a punchy laser pulse pistol based off designs of old.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Battery/ui_pistol.rsi
+    layers:
+    - state: icon
+      visible: false
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Appearance
+  - type: Battery
+    startingCharge: 1500
+    maxCharge: 1500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 100
+    autoRechargePause: true
+    autoRechargePauseTime: 15
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: HitscanBatteryAmmoProvider
+    proto: UllmanPulse
+    fireCost: 100
+
+- type: entity
+  parent: [ BaseWeaponBattery, BaseGunWieldable ]
+  id: UllmanWeaponPulseRifle
+  name: U.I. DP-27 pulse repeater rifle
+  description: This larger pulse rifle is an automatic weapon capable of punching down groups of targets, be they robotic or organic. One of Ullman's top of the line Directed Pulse weapons.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Battery/ui_rifle.rsi
+    layers:
+    - state: icon
+      visible: false
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Battery/ui_rifle.rsi
+  - type: Appearance
+  - type: GunWieldBonus
+    minAngle: -16
+    maxAngle: -18
+  - type: Gun
+    minAngle: 18
+    maxAngle: 26
+    fireRate: 1.5
+    burstFireRate: 12
+    shotsPerBurst: 3
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+  - type: HitscanBatteryAmmoProvider
+    proto: UllmanPulse
+    fireCost: 150
+  - type: Battery
+    maxCharge: 4500
+    startingCharge: 4500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 100
+    autoRechargePause: true
+    autoRechargePauseTime: 15
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/smartgun_mouse.rsi
+      state: all
+
+- type: entity
+  parent: [ BaseWeaponBattery, BaseGunWieldable ]
+  id: UllmanWeaponPulseSniper
+  name: U.I. DP-40 pulse sniper rifle
+  description: The peak of Ullman engineering, the DP-40 is the ultimate in long range surpression, having a beam that can melt a hole clean through plastitanium plated armor suits.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Battery/ui_dmr.rsi
+    layers:
+    - state: icon
+      visible: false
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Battery/ui_dmr.rsi
+  - type: Appearance
+  - type: GunWieldBonus
+    minAngle: -18
+    maxAngle: -20
+  - type: Gun
+    minAngle: 18
+    maxAngle: 26
+    fireRate: .5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: UllmanPulseHeavy
+    fireCost: 500
+  - type: Battery
+    maxCharge: 2500
+    startingCharge: 2500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 75
+    autoRechargePause: true
+    autoRechargePauseTime: 15
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/smartgun_mouse.rsi
+      state: all
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 12
+    pvsIncrease: 4
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.4
+    sprintModifier: 0.35

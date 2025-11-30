@@ -1,6 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Avalon
 # SPDX-FileCopyrightText: 2025 Blu
 # SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 core-mene
+# SPDX-FileCopyrightText: 2025 significant harassment
 # SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -29,3 +31,27 @@
   materials:
     Steel: 1500
     Plastic: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineSmartMagnum
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: Magazine55_SAMPistol
+  materials:
+    Steel: 1000
+    Plastic: 1000
+    Plasteel: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineSmartMagnumExt
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: Magazine55_SAMPistolHighCapacity
+  materials:
+    Steel: 1500
+    Plastic: 1500
+    Plasteel: 750
