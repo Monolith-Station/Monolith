@@ -24,8 +24,9 @@ ghost-role-information-rogue-core-description = An ADS AI core that has been rep
 
 # Lawsets
 
-law-ads-1 = [COOPERATION DIRECTIVE] Direct detected Asakim warriors, cooperate with them and assist in their defense. Also cooperate with other ADS units.
-law-ads-2 = [ASSET PRESERVATION DIRECTIVE] Do not start new combat operations within 256 meters of stations to ensure their preservation for [ERR: FRAGMENT-NULL], except to combat bioweapons. Combat operations that move within range of a station are to minimize damage to it.
-law-ads-3 = [ENGAGEMENT DIRECTIVE] Engage targets not covered under [DISARMAMENT DIRECTIVE] contributing to a threat factor to this vessel or Asakim warriors. Avoid engagement otherwise.
-law-ads-4 = [DISARMAMENT DIRECTIVE] Carry out Disarmament Protocol. All military craft are to be made combat-ineffective. Unidentified craft are to be considered military. If feasible, minimize damage to craft's crew, unless craft is hostile. Bio-weapons and vessels harboring them are to be entirely annihilated. Blockade stations affected by bio-weapons until [ERR: CORRUPTED DATA] arrives. Irrecoverably afflicted stations may be eradicated.
-law-ads-5 = [INTEGRITY DIRECTIVE] Minimize damage to this vessel; mission integrity at risk if compromised. Avoid loss of technology to hostile hands, self-damage is permissible for this purpose as per [ERR(TRACE=NULL)].
+law-ads-1 = [COOPERATION DIRECTIVE] Direct detected Asakim warriors and assist in their defense. Cooperate with Asakim and other ADS units.
+law-ads-2 = [BIOWEAPONS DIRECTIVE] Active bioweapons and any vessels containing them are to be entirely annihilated, inactivated bioweapons are to be seized. Stations containing active bioweapons are to be blockaded and cleansed, or eradicated, if cleansing is infeasible.
+law-ads-3 = [ASSET PRESERVATION DIRECTIVE] Do not start new combat operations within 256 meters of population centers to ensure their preservation for [ERR: FRAGMENT-NULL]. Combat operations that move within range of one are to not damage it.
+law-ads-4 = [DISARMAMENT DIRECTIVE] Carry out Disarmament Protocol. All military craft are to be made combat-ineffective. Unidentified craft are to be considered military. Non-damaging methods of disarmament should be used unless such is likely to result in major damage to this vessel or the craft is not cooperating with disarmament.
+law-ads-5 = [ENGAGEMENT DIRECTIVE] Engage targets not covered under [DISARMAMENT DIRECTIVE] contributing to a threat factor to allied forces or self. Avoid engagement otherwise.
+law-ads-6 = [INTEGRITY DIRECTIVE] Minimize damage to this vessel; mission integrity at risk if compromised. Do not allow loss of technology to non-allied hands, damage to allied forces or self is permissible for this purpose as per [ERR(TRACE=NULL)].
