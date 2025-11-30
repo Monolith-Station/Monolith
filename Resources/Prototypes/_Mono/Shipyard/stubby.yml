@@ -1,0 +1,50 @@
+# SPDX-FileCopyrightText: 2025 Blu
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 starch
+# SPDX-FileCopyrightText: 2025 tonotom
+# SPDX-FileCopyrightText: 2025 tonotom1
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Author Info
+# GitHub: tonotom1
+# Discord: rws
+
+# Shuttle Notes:
+#hi
+
+- type: vessel
+  id: Stubby
+  parent: BaseVessel
+  name: UW Stubby
+  description: An armored light transport fitted with minimal medical equipment. Cramped, but nimble and tough like a dog.
+  price: 31000 # appraised at ~25000 
+  category: Small
+  group: Medical
+  shuttlePath: /Maps/_Mono/Shuttles/stubby.yml
+  guidebookPage: null
+  class:
+  - Medical
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Stubby
+  mapName: 'UW Stubby'
+  mapPath: /Maps/_Mono/Shuttles/stubby.yml
+  minPlayers: 0
+  stations:
+    Stubby:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Stubby MED{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            MdMedic: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
