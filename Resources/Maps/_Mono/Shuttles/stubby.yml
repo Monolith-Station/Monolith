@@ -27,8 +27,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/30/2025 13:30:19
-  entityCount: 249
+  time: 12/01/2025 18:24:00
+  entityCount: 248
 maps: []
 grids:
 - 1
@@ -365,17 +365,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,-0.5
       parent: 1
-- proto: AlwaysPoweredLightSodium
-  entities:
-  - uid: 7
-    components:
-    - type: Transform
-      anchored: False
-      rot: 3.141592653589793 rad
-      pos: 3.5,2.5
-      parent: 1
-    - type: Physics
-      bodyType: Dynamic
 - proto: APCBasic
   entities:
   - uid: 8
@@ -1388,6 +1377,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,1.5
       parent: 1
+- proto: PoweredlightSodium
+  entities:
+  - uid: 7
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,2.5
+      parent: 1
 - proto: PoweredStrobeRed
   entities:
   - uid: 159
@@ -1571,11 +1568,6 @@ entities:
 - proto: StasisBed
   entities:
   - uid: 176
-    components:
-    - type: Transform
-      pos: 1.5,-2.5
-      parent: 1
-  - uid: 177
     components:
     - type: Transform
       pos: 1.5,-2.5
