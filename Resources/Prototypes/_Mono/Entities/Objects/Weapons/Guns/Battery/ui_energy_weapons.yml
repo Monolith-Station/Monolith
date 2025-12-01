@@ -69,12 +69,11 @@
     maxAngle: 26
     fireRate: 1.5
     burstFireRate: 12
-    shotsPerBurst: 3
-    selectedMode: FullAuto
+    shotsPerBurst: 2
+    selectedMode: SemiAuto
     availableModes:
     - SemiAuto
     - Burst
-    - FullAuto
   - type: HitscanBatteryAmmoProvider
     proto: UllmanPulse
     fireCost: 150
