@@ -14464,3 +14464,12 @@ Entries:
   id: 1605
   time: '2025-12-01T14:52:05.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2651
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: >-
+        DP-27 Pulse repeater changed from 3 to 2 shots, and can no longer be
+        full auto. It was worse than burst anyhow
+  id: 1606
+  time: '2025-12-01T15:22:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2720
