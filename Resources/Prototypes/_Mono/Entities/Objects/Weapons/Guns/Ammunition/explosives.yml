@@ -21,6 +21,7 @@
 # SPDX-FileCopyrightText: 2024 Whatstone
 # SPDX-FileCopyrightText: 2024 Winkarst
 # SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2025 Avalon
 # SPDX-FileCopyrightText: 2025 LukeZurg22
 # SPDX-FileCopyrightText: 2025 core-mene
 # SPDX-FileCopyrightText: 2025 sleepyyapril
@@ -101,6 +102,9 @@
   - type: SpentAmmoVisuals
     state: baton
     suffix: false
+  - type: Tag
+    tags:
+    - LessLethalGrenade
 
 - type: entity
   id: 40mmGrenadeThermobaric
@@ -135,6 +139,9 @@
   - type: SpentAmmoVisuals
     state: flash
     suffix: false
+  - type: Tag
+    tags:
+    - LessLethalGrenade
 
 - type: entity
   id: 40mmGrenadeFragmentation
@@ -173,6 +180,9 @@
     range: 5 # Frontier
     energyConsumption: 2700000 # Frontier
     disableDuration: 10 # Frontier
+  - type: Tag
+    tags:
+    - LessLethalGrenade
 
 # Cannon Balls
 

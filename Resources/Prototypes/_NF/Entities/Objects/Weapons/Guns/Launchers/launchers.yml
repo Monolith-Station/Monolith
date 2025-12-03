@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2024 ErhardSteinhauer
 # SPDX-FileCopyrightText: 2024 Kesiath
 # SPDX-FileCopyrightText: 2024 Whatstone
+# SPDX-FileCopyrightText: 2025 Avalon
 # SPDX-FileCopyrightText: 2025 LukeZurg22
 # SPDX-FileCopyrightText: 2025 core-mene
 # SPDX-FileCopyrightText: 2025 sleepyyapril
@@ -69,6 +70,6 @@
     whitelist:
       tags:
         - NFTrackingDart
-        - Grenade
+        - LessLethalGrenade # Mono
   - type: StaticPrice
     price: 50
