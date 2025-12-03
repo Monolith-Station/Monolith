@@ -2,22 +2,25 @@
 # SPDX-FileCopyrightText: 2024 Dvir
 # SPDX-FileCopyrightText: 2024 Salvantrix
 # SPDX-FileCopyrightText: 2024 Whatstone
+# SPDX-FileCopyrightText: 2025 Arcticular
+# SPDX-FileCopyrightText: 2025 Arcticular1
 # SPDX-FileCopyrightText: 2025 Ilya246
 # SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 kasature90
 # SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: vessel
-  id: Spyglass
+  id: Spyglass MKII
   parent: BaseVesselAntag
-  name: PDV Spyglass
-  description: One of the more rare kinds of ships you'll see rogues with. A actual commercial one. Capable of Xenoarcheology and Robotics.
-  price: 55500
+  name: PDV Spyglass MKII
+  description: One of salvage ships you'll see from the Phaethon Dynasty. This baby is capable of Xenoarcheology and salvage work.
+  price: 62500
   category: Small
   group: BlackMarket
   access: Pirate
-  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/spyglass.yml
+  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/spyglassmk2.yml
   guidebookPage: Null
   class:
   - Pirate
@@ -26,16 +29,16 @@
   - Uranium
 
 - type: gameMap
-  id: Spyglass
-  mapName: 'PDV Spyglass'
-  mapPath: /Maps/_Mono/Shuttles/BlackMarket/spyglass.yml
+  id: Spyglass MKII
+  mapName: 'PDV Spyglass MKII'
+  mapPath: /Maps/_Mono/Shuttles/BlackMarket/spyglassmk2.yml
   minPlayers: 0
   stations:
-    Spyglass:
+    Spyglass MKII:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Spyglass PDV{1}'
+          mapNameTemplate: 'Spyglass MKII PDV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
