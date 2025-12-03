@@ -27,8 +27,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/01/2025 18:24:00
-  entityCount: 248
+  time: 12/03/2025 02:37:10
+  entityCount: 246
 maps: []
 grids:
 - 1
@@ -367,11 +367,11 @@ entities:
       parent: 1
 - proto: APCBasic
   entities:
-  - uid: 8
+  - uid: 70
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 3.5,-2.5
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-2.5
       parent: 1
 - proto: AtmosDeviceFanDirectional
   entities:
@@ -582,7 +582,7 @@ entities:
   - uid: 47
     components:
     - type: Transform
-      pos: 1.5,-2.5
+      pos: 2.5,-2.5
       parent: 1
   - uid: 48
     components:
@@ -647,7 +647,7 @@ entities:
   - uid: 60
     components:
     - type: Transform
-      pos: 3.5,-2.5
+      pos: 3.5,-3.5
       parent: 1
 - proto: CableHV
   entities:
@@ -678,6 +678,11 @@ entities:
       parent: 1
 - proto: CableMV
   entities:
+  - uid: 8
+    components:
+    - type: Transform
+      pos: 2.5,-2.5
+      parent: 1
   - uid: 66
     components:
     - type: Transform
@@ -697,21 +702,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-2.5
-      parent: 1
-  - uid: 70
-    components:
-    - type: Transform
-      pos: 1.5,-1.5
-      parent: 1
-  - uid: 71
-    components:
-    - type: Transform
-      pos: 2.5,-1.5
-      parent: 1
-  - uid: 72
-    components:
-    - type: Transform
-      pos: 3.5,-1.5
       parent: 1
   - uid: 73
     components:
@@ -954,11 +944,11 @@ entities:
       parent: 1
 - proto: DefibrillatorCabinetFilled
   entities:
-  - uid: 107
+  - uid: 72
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 2.5,-2.5
+      pos: 4.5,-1.5
       parent: 1
 - proto: DrinkMugDog
   entities:
@@ -1978,13 +1968,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,4.5
       parent: 1
-- proto: WallWeaponCapacitorRecharger
+- proto: WallWeaponCapacitorRechargerOmnidirectional
   entities:
-  - uid: 245
+  - uid: 71
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,-1.5
+      pos: 3.5,-2.5
       parent: 1
 - proto: WarpPoint
   entities:

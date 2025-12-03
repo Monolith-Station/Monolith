@@ -1,11 +1,40 @@
+# SPDX-FileCopyrightText: 2022 Jacob Tong
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2022 T-Stalker
+# SPDX-FileCopyrightText: 2022 TaralGit
+# SPDX-FileCopyrightText: 2022 and_a
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 DrSmugleaf
+# SPDX-FileCopyrightText: 2023 JoeHammad1844
+# SPDX-FileCopyrightText: 2023 Kevin Zheng
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-FileCopyrightText: 2023 Morb
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2024 Checkraze
+# SPDX-FileCopyrightText: 2024 Dvir
+# SPDX-FileCopyrightText: 2024 Emisse
+# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
+# SPDX-FileCopyrightText: 2024 Mr. Samuel
+# SPDX-FileCopyrightText: 2024 PECK
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2024 Rainfey
+# SPDX-FileCopyrightText: 2025 Ark
+# SPDX-FileCopyrightText: 2025 RikuTheKiller
+# SPDX-FileCopyrightText: 2025 starch
+# SPDX-FileCopyrightText: 2025 tonotom1
+#
+# SPDX-License-Identifier: MPL-2.0
+
 meta:
   format: 7
   category: Grid
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/30/2025 17:24:34
-  entityCount: 864
+  time: 12/03/2025 02:45:43
+  entityCount: 865
 maps: []
 grids:
 - 1
@@ -2378,7 +2407,7 @@ entities:
   - uid: 334
     components:
     - type: Transform
-      pos: 1.4741306,-12.316483
+      pos: 4.3880663,-13.37525
       parent: 1
 - proto: CMSemioticAirlock
   entities:
@@ -2540,12 +2569,12 @@ entities:
   - uid: 277
     components:
     - type: Transform
-      pos: 4.7642474,-13.1733055
+      pos: 4.7318163,-13.422125
       parent: 1
   - uid: 341
     components:
     - type: Transform
-      pos: 4.5767474,-13.4233055
+      pos: 4.7474413,-13.1565
       parent: 1
 - proto: DarkCatwalkMono
   entities:
@@ -2687,9 +2716,9 @@ entities:
     - type: Transform
       pos: 11.5,-3.5
       parent: 1
-- proto: DefibrillatorCabinet
+- proto: DefibrillatorCabinetFilled
   entities:
-  - uid: 299
+  - uid: 865
     components:
     - type: Transform
       pos: 1.5,-10.5
@@ -2871,7 +2900,7 @@ entities:
   - uid: 342
     components:
     - type: Transform
-      pos: 4.34184,-13.288596
+      pos: 4.3568163,-13.1565
       parent: 1
 - proto: GasFilterInline
   entities:
@@ -6589,6 +6618,13 @@ entities:
     components:
     - type: Transform
       pos: 7.5,-13.5
+      parent: 1
+- proto: WeaponCapacitorRecharger
+  entities:
+  - uid: 299
+    components:
+    - type: Transform
+      pos: 1.5,-12.5
       parent: 1
 - proto: WeaponTurretL85Autocannon
   entities:
