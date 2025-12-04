@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Blu
+# SPDX-FileCopyrightText: 2025 Greenwall-Exe
 # SPDX-FileCopyrightText: 2025 NotActuallyMarty
 # SPDX-FileCopyrightText: 2025 RealSchepka
 # SPDX-FileCopyrightText: 2025 Redrover1760
@@ -231,3 +232,93 @@
     coefficient: 0.9
   - type: FireProtection
     reduction: 0.0
+
+# Gallóglach
+
+- type: entity
+  parent: [ ClothingOuterBase, EnergyShieldClothing ] # Mono - add soft-shield
+  id: ClothingModsuitChestplateMercenary
+  name: mercenary modsuit chestplate
+  description: The shield generator hums lightly against your torso...I'm sure that's meant to happen.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: AllowSuitStorage
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Modsuits/mercenary.rsi
+    layers:
+    - state: chestplate
+    - state: chestplate-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ outerClothing ]
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95 # Mono
+    sprintModifier: 0.95 # Mono
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-chestplate
+    sealDownPopup: sealable-clothing-seal-down-chestplate
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
+  - type: ExplosionResistance
+    damageCoefficient: 0.50 # Mono
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.55
+        Heat: 0.55
+        Caustic: 0.45 # Mono
+        Radiation: .75 # Mono
+  - type: ComponentToggler
+    components:
+    - type: PressureProtection
+      highPressureMultiplier: 0.3
+      lowPressureMultiplier: 1000
+    - type: TemperatureProtection
+      coolingCoefficient: 0.1
+      heatingCoefficient: 0.4
+  - type: StaminaDamageResistance
+    coefficient: 0.7 # Mono
+  - type: FireProtection
+    reduction: 0.5 # Mono
+  # Mono - Shielding comps
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+      flatReductions:
+        Heat: 5
+        Piercing: 5
+    passiveBlockFraction: 0.5
+    activeBlockFraction: 0.5
+    isClothing: true
+  - type: Damageable
+    damageContainer: Shield
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 0.1
+  - type: RechargeableBlocking
+  - type: UseDelay
+    delay: 20
