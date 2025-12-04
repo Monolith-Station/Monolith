@@ -14562,3 +14562,18 @@ Entries:
   id: 1617
   time: '2025-12-04T12:24:22.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2739
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Civillian tech disk drops from salvage now spawn inside salvmaint
+        lockers instead of outside salv material crates
+    - type: Tweak
+      message: Salvage maints locker drop tables generally improved
+    - type: Tweak
+      message: >-
+        Scrap processor drop table touched up: you can now find AI cores and
+        some less-remarkable shuttle board components are more common
+  id: 1618
+  time: '2025-12-04T12:34:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2688
