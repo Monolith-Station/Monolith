@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 kasature90
 # SPDX-FileCopyrightText: 2025 significant harassment
 # SPDX-FileCopyrightText: 2025 starch
 #
@@ -14,7 +15,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 5000
+        Structural: 100
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/150_shell.rsi
     layers:
@@ -90,8 +91,8 @@
   - type: Projectile
     damage:
       types:
-        Structural: 12000
-        Blunt: 3000
+        Structural: 16000
+        Blunt: 50
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/150_shell.rsi
     layers:

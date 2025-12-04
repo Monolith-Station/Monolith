@@ -89,9 +89,9 @@
     powerLoad: 60000
   - type: Appearance
   - type: ShipShieldEmitter
-    damageLimit: 65000
+    damageLimit: 8000
     damageOverloadTimePunishment: 40
-    healPerSecond: 1750 # Base is 250
+    healPerSecond: 120 # Base is 250
     damageExp: 1.15 # Base is 1.1
     baseDraw: 40000 # Base is 50000
     maxDraw: 100000 # Base is 150000
@@ -119,7 +119,7 @@
       machine_parts: !type:Container
   - type: PirateBountyItem
     id: ShipShield
-    
+
 # POI
 - type: entity
   id: ShieldGeneratorPOI
@@ -128,12 +128,12 @@
   suffix: POI ONLY
   components:
   - type: ShipShieldEmitter
-    healPerSecond: 10000
+    healPerSecond: 2000
     damageExp: 0.5
     baseDraw: 80000
     maxDraw: 150000
     unpoweredBonus: 8
-    damageLimit: 150000
+    damageLimit: 10000
     damageOverloadTimePunishment: 30
     shieldColor: "#FF9933"
   - type: Sprite
@@ -197,12 +197,12 @@
   suffix: TSF CAPITAL ONLY
   components:
   - type: ShipShieldEmitter
-    healPerSecond: 12000
+    healPerSecond: 150
     damageExp: 0.5
     baseDraw: 60000
     maxDraw: 100000
     unpoweredBonus: 8
-    damageLimit: 85000
+    damageLimit: 8000
     damageOverloadTimePunishment: 35
     shieldColor: "#FF0A70"
   - type: Sprite
@@ -270,7 +270,7 @@
   id: ShieldGeneratorMedium
   parent: ShieldGeneratorBase
   name: MS-250 "Aegis" Shield Generator
-  suffix: ADS ONLY, SCI VOUCHER SHIPS ONLY
+  suffix: ADS/TSF ONLY, SCI VOUCHER SHIPS ONLY
   components:
   - type: ShipShieldEmitter
     healPerSecond: 1000 # Base is 250
@@ -355,12 +355,12 @@
   name: MS-100 "Sentinel" Shield Generator
   components:
   - type: ShipShieldEmitter
-    healPerSecond: 300 # Mono
+    healPerSecond: 80 # Mono
     damageExp: 1.2 # Mono
     baseDraw: 20000
     maxDraw: 60000
     unpoweredBonus: 3 # Mono
-    damageLimit: 20000 # Mono
+    damageLimit: 5000 # Mono
     damageOverloadTimePunishment: 80
     shieldColor: "#3399FF"
   - type: Sprite

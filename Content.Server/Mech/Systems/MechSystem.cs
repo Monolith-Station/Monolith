@@ -23,6 +23,7 @@
 // SPDX-FileCopyrightText: 2025 BeeRobynn
 // SPDX-FileCopyrightText: 2025 Blu
 // SPDX-FileCopyrightText: 2025 Ilya246
+// SPDX-FileCopyrightText: 2025 Onezero0
 // SPDX-FileCopyrightText: 2025 ScyronX
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -326,8 +327,10 @@ public sealed partial class MechSystem : SharedMechSystem
 
     private void OnEmpAttempt(EntityUid uid, MechComponent comp, EmpAttemptEvent args) // Monolith
     {
-        if (comp.Broken != true)
-            _damageable.TryChangeDamage(uid, comp.EMPdamage);
+        // Mono: Removed EMP damage
+        //if (comp.Broken != true)
+        //    _damageable.TryChangeDamage(uid, comp.EMPdamage);
+        // End mono
 
         if (TryComp<BatteryComponent>(comp.BatterySlot.ContainedEntity, out var battery))
         {

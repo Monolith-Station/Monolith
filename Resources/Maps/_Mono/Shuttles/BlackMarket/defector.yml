@@ -8,9 +8,11 @@
 # SPDX-FileCopyrightText: 2024 ErhardSteinhauer
 # SPDX-FileCopyrightText: 2024 TsjipTsjip
 # SPDX-FileCopyrightText: 2025 Alice "Arimah" Heurlin
+# SPDX-FileCopyrightText: 2025 Arcticular
 # SPDX-FileCopyrightText: 2025 Arcticular1
 # SPDX-FileCopyrightText: 2025 Checkraze
 # SPDX-FileCopyrightText: 2025 Honestly101
+# SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 dustylens
 # SPDX-FileCopyrightText: 2025 plethorian
 # SPDX-FileCopyrightText: 2025 starch
@@ -2566,13 +2568,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: CrateAmmoBoxCyrexa
-  entities:
-  - uid: 95
-    components:
-    - type: Transform
-      pos: -0.5,-4.5
-      parent: 1
 - proto: DefibrillatorCabinetFilled
   entities:
   - uid: 329

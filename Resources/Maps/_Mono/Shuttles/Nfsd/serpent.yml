@@ -20,9 +20,11 @@
 # SPDX-FileCopyrightText: 2024 PECK
 # SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
 # SPDX-FileCopyrightText: 2024 Rainfey
+# SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 RikuTheKiller
 # SPDX-FileCopyrightText: 2025 core-mene
+# SPDX-FileCopyrightText: 2025 kasature90
 # SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: MPL-2.0
@@ -4019,18 +4021,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: CrateAmmoBoxCyrexa
-  entities:
-  - uid: 565
-    components:
-    - type: Transform
-      pos: -3.5,7.5
-      parent: 1
-  - uid: 1325
-    components:
-    - type: Transform
-      pos: 4.5,7.5
-      parent: 1
 - proto: CrateMedicalSurgery
   entities:
   - uid: 559

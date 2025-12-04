@@ -1,13 +1,8 @@
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: WeaponTurretASM220
-  name: ASM-220 torpedo VLS
+  name: ASM-220 "Trident" 500mm torpedo rack
   parent: BallisticArtilleryUnanchorableCartridge
-  description: A heavy torpedo VLS relying on manual loading to work, usually done at harbor. However, it has high-yield missiles for its size.
+  description: A heavy built-in torpedo rack for cruisers which relies on manual loading, usually done at harbor. Despite this, it has the largest missiles in the sector.
   components:
   - type: StaticPrice
     price: 10000

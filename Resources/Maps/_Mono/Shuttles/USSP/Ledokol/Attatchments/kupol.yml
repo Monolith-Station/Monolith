@@ -13,6 +13,8 @@
 # SPDX-FileCopyrightText: 2024 Ubaser
 # SPDX-FileCopyrightText: 2025 BoskiYourk
 # SPDX-FileCopyrightText: 2025 Coenx-flex
+# SPDX-FileCopyrightText: 2025 Cojoke
+# SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 compilatron
 # SPDX-FileCopyrightText: 2025 starch
 #
@@ -1540,14 +1542,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 6.5,9.5
-      parent: 1
-- proto: WeaponTurretCharonette
-  entities:
-  - uid: 121
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 8.5,7.5
       parent: 1
 - proto: WeaponTurretHades
   entities:

@@ -25,6 +25,7 @@
 # SPDX-FileCopyrightText: 2025 Ark
 # SPDX-FileCopyrightText: 2025 Checkraze
 # SPDX-FileCopyrightText: 2025 Jakumba
+# SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 Rubeebeebee
 # SPDX-FileCopyrightText: 2025 Whatstone
 # SPDX-FileCopyrightText: 2025 chrome-cirrus
@@ -6427,13 +6428,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: CrateAmmoBoxCyrexa
-  entities:
-  - uid: 1676
-    components:
-    - type: Transform
-      pos: -4.5,-7.5
-      parent: 1
 - proto: CrateSurgery
   entities:
   - uid: 1486

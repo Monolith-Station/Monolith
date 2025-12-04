@@ -16,6 +16,7 @@
 # SPDX-FileCopyrightText: 2024 cohanna
 # SPDX-FileCopyrightText: 2025 Ark
 # SPDX-FileCopyrightText: 2025 Ilya246
+# SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 Southbridge
 # SPDX-FileCopyrightText: 2025 core-mene
@@ -116,13 +117,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 9000 # Backup
+        damage: 3600 # Backup
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 6000 # vanilla (500) / CombatOverhaul (6000) - Mono
+        damage: 3500 # Mono
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -215,13 +216,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 9000 # Mono
+        damage: 3600 # Mono
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 6000 # vanilla (1000) / CombatOverhaul (6000) - Mono
+        damage: 3500 # Mono
       behaviors:
       - !type:PlaySoundBehavior
         sound:

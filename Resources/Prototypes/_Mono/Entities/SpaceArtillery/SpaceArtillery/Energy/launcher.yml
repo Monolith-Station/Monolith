@@ -43,7 +43,7 @@
     fireRate: 0.5
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 140
+    projectileSpeed: 65
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -65,13 +65,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 15000
+        damage: 6000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 12500
+        damage: 3000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -135,13 +135,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 15000
+        damage: 6000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 11500
+        damage: 3000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -220,7 +220,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 70000
+        damage: 10000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -283,13 +283,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 8000
+        damage: 4000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 6000
+        damage: 2000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -356,7 +356,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 12000
+        damage: 6000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -428,7 +428,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 25000
+        damage: 15000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -451,7 +451,7 @@
   id: WeaponLaserTurretL1Phalanx
   name: L-1 Phalanx
   parent: BallisticArtillery
-  description: A light laser emplactment designed by the Pantheon Collective, used to shred threats of all types
+  description: A light laser emplacement designed by the Pantheon Collective, used to shred threats of all types.
   components:
   - type: StaticPrice
     price: 3000
@@ -473,7 +473,7 @@
   - type: Gun
     fireRate: 20
     minAngle: 0
-    maxAngle: 3
+    maxAngle: 0
     shootThermalSignature: 2000000
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
@@ -492,13 +492,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 12500
+        damage: 600
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 10000
+        damage: 3000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -532,6 +532,7 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 500
+  - type: FireControlRotate
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
@@ -553,13 +554,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300000
+        damage: 9000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 275000
+        damage: 5000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -639,7 +640,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 70000
+        damage: 10000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -661,7 +662,7 @@
   name: Curio-129 ion cannon "Harbringer"
   parent: BallisticArtilleryUnanchorable
   suffix: ADS ONLY
-  description: One of the most powerful EMP weapons in sector, its a sign of doom for its targets.
+  description: One of the most powerful EMP weapons in sector, it is a sign of doom for its targets.
   components:
   - type: StaticPrice
     price: 1250000
@@ -714,7 +715,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 70000
+        damage: 10000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -777,13 +778,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 25000
+        damage: 9000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 20000
+        damage: 6000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -805,7 +806,7 @@
   name: Curio-1008 neutron repeater "Scythe"
   parent: BallisticArtillery
   suffix: ADS ONLY
-  description: A steadily firing neutron repeater, dealing solid damage to most targets. A pre-fracture marvel of weapons technology
+  description: A steadily firing neutron repeater, firing high-damage but slow balls of hell. A marvel of rapture weapons technology.
   components:
   - type: StaticPrice
     price: 40000
@@ -823,7 +824,7 @@
     range: 500
   - type: Gun
     fireRate: 1
-    projectileSpeed: 200
+    projectileSpeed: 100
     minAngle: 0
     maxAngle: 6
     shootThermalSignature: 500000 # ~5.6km with continuous fire
@@ -847,13 +848,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 15000
+        damage: 9000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 11500
+        damage: 6000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -916,13 +917,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 25000
+        damage: 6000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 20000
+        damage: 3000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

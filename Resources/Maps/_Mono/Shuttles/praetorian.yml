@@ -9,8 +9,10 @@
 # SPDX-FileCopyrightText: 2024 dustylens
 # SPDX-FileCopyrightText: 2025 Alkheemist
 # SPDX-FileCopyrightText: 2025 Ark
+# SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 RikuTheKiller
 # SPDX-FileCopyrightText: 2025 Whatstone
+# SPDX-FileCopyrightText: 2025 kasature90
 # SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: MPL-2.0
@@ -1694,13 +1696,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: CrateAmmoBox90mm
-  entities:
-  - uid: 340
-    components:
-    - type: Transform
-      pos: 0.5,8.5
-      parent: 1
 - proto: DefibrillatorCabinetFilled
   entities:
   - uid: 229

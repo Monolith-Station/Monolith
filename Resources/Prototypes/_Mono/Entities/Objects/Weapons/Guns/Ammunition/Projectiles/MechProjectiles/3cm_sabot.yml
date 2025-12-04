@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Onezero0
+# SPDX-FileCopyrightText: 2025 starch
+# SPDX-FileCopyrightText: 2025 wewman222
+#
+# SPDX-License-Identifier: MPL-2.0
+
 - type: entity
   id: MechCoilgunSabot
   name: 3cm sabot
@@ -7,7 +13,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 200
+        Structural: 150
+        Piercing: 150
         Shock: 0
   - type: EmpOnTrigger
     range: 4

@@ -32,8 +32,9 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 26
-    armorPenetration: 0.05
+        Piercing: 20
+        Structural: 20
+    armorPenetration: 0.2
 
 - type: entity
   id: Bullet45_ACPPractice
@@ -81,6 +82,7 @@
       types:
         Radiation: 9
         Piercing: 15
+        Structural: 20
     armorPenetration: -0.075
 
 # Upstream
@@ -93,7 +95,7 @@
   - type: Projectile
     damage:
       types:
-        Shock: 0
+        Shock: 2
 
 
 # Mono AP syst
@@ -135,5 +137,6 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 12
+        Piercing: 16
+        Structural: 40
     armorPenetration: 0.7

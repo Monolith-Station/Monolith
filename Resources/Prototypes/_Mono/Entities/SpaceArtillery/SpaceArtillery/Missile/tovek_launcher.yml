@@ -5,9 +5,9 @@
 
 - type: entity
   id: WeaponTurretTovek
-  name: ADMX-23 TOVEK Hybrid EMP Pod
+  name: ADMX-23 TOVEK 250mm Missile Pod
   parent: BallisticArtilleryCartridge
-  description: A hybrid EMP missile pod by Aetherion Dynamics. Fires EMPHE warheads to disable and weaken enemy ships at long range. Can be remotely activated or linked to a GCS.
+  description: A 250mm missile pod created by Aetherion Dynamics. Fires 250mm warheads to devastate enemy ships at long range. Can be remotely activated or linked to a GCS.
   components:
   - type: StaticPrice
     price: 10000
@@ -36,12 +36,12 @@
     radarColor: "#035EFC"
     scale: 2
   - type: BallisticAmmoProvider
-    infiniteUnspawned: true
+    infiniteUnspawned: false
     whitelist:
       tags:
       - TovekCartridge
-    capacity: 6
-    proto: TovekCartridgeWeak
+    capacity: 2
+    proto: TovekCartridge
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
   - type: ShipGunType

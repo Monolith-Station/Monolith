@@ -7,9 +7,9 @@
 
 - type: entity
   id: WeaponTurretVanyk
-  name: ASM-302 pod
+  name: ASM-302 "Vanyk" 150mm missile pod
   parent: BallisticArtilleryCartridge
-  description: An escort missile pod manufactured by Aetherion Dynamics. Launches guided missiles for basic ship-to-ship combat and area denial. Can be remotely activated or linked to a GCS.
+  description: An escort missile pod manufactured by Aetherion Dynamics. Launches 150mm guided missiles for basic ship-to-ship combat and area denial. Uses a built-in autoloader instead of a rack, increasing capacity but reducing rate of fire. Can be remotely activated or linked to a GCS.
   components:
   - type: StaticPrice
     price: 4000
@@ -48,12 +48,12 @@
         sound:
           collection: MetalBreak
   - type: BallisticAmmoProvider
-    infiniteUnspawned: true
+    infiniteUnspawned: false
     whitelist:
       tags:
       - VanykCartridge
     capacity: 12
-    proto: VanykCartridgeWeak
+    proto: VanykCartridge
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
   - type: RadarBlip

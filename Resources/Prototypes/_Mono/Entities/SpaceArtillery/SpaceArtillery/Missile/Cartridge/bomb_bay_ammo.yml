@@ -16,9 +16,9 @@
   - type: Projectile
     damage:
       types:
-        Structural: 6500
-        Blunt: 7500
-        Heat: 500
+        Structural: 100
+        Blunt: 50
+        Heat: 50
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/GPO.rsi
     layers:
@@ -37,9 +37,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: HardBombShipGun
-    maxIntensity: 1500
+    totalIntensity: 2000
     intensitySlope: 30
-    totalIntensity: 4000
+    maxIntensity: 1500
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   # destructible components below
@@ -67,7 +67,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 250
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -125,9 +125,9 @@
   - type: Projectile
     damage:
       types:
-        Structural: 5000
-        Blunt: 600
-        Heat: 1000
+        Structural: 500
+        Blunt: 50
+        Heat: 50
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/zenith.rsi
     layers:
@@ -150,9 +150,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: HardBombShipGun
-    maxIntensity: 1000
+    totalIntensity: 100
     intensitySlope: 10
-    totalIntensity: 4000
+    maxIntensity: 150
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
@@ -187,7 +187,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 120
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -269,9 +269,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: HardBombShipGun
-    maxIntensity: 500
-    intensitySlope: 10
-    totalIntensity: 500
+    maxIntensity: 25
+    intensitySlope: 1000
+    totalIntensity: 25
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking

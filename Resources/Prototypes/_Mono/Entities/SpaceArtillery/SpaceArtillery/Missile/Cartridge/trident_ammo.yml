@@ -52,9 +52,9 @@
   - type: Projectile
     damage:
       types:
-        Structural: 6500
-        Blunt: 10000
-        Heat: 500
+        Structural: 300
+        Blunt: 200
+        Heat: 100
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
     layers:
@@ -77,9 +77,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: HardBombShipGun
-    maxIntensity: 2000
+    maxIntensity: 150
     intensitySlope: 30
-    totalIntensity: 7000
+    totalIntensity: 1000
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
@@ -101,7 +101,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2500
+        damage: 500
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -195,9 +195,9 @@
     trackDelay: 1
   - type: Explosive
     explosionType: HardBombShipGun
-    maxIntensity: 300
-    intensitySlope: 90
-    totalIntensity: 500
+    maxIntensity: 1000
+    intensitySlope: 100
+    totalIntensity: 200
   # destructible components below
   - type: Fixtures
     fixtures:
@@ -218,12 +218,12 @@
   - type: Meteor
     damageTypes:
       types:
-        Blunt: 5
+        Blunt: 50
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 85000
+        damage: 2400
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -309,9 +309,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: HardBombShipGun
-    maxIntensity: 300
+    maxIntensity: 50
     intensitySlope: 4
-    totalIntensity: 1000
+    totalIntensity: 150
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking

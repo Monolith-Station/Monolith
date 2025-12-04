@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Avalon
 # SPDX-FileCopyrightText: 2025 Ghagliiarghii
+# SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 core-mene
 # SPDX-FileCopyrightText: 2025 starch
 #
@@ -197,7 +198,7 @@
     damage:
       types:
         Blunt: 15
-        Structural: 100
+        Structural: 50
     soundHit:
       collection: ExplosionSmall
     heavyStaminaCost: 0

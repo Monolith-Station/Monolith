@@ -15,8 +15,10 @@
 # SPDX-FileCopyrightText: 2024 chrome-cirrus
 # SPDX-FileCopyrightText: 2025 Checkraze
 # SPDX-FileCopyrightText: 2025 Honestly101
+# SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 dustylens
+# SPDX-FileCopyrightText: 2025 kasature90
 # SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: MPL-2.0
@@ -8810,13 +8812,6 @@ entities:
     components:
     - type: Transform
       pos: -6.5,11.5
-      parent: 1
-- proto: CrateAmmoBoxBofors
-  entities:
-  - uid: 2943
-    components:
-    - type: Transform
-      pos: 4.5,26.5
       parent: 1
 - proto: CrewMonitoringServer
   entities:

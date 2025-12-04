@@ -5,9 +5,9 @@
 
 - type: entity
   id: WeaponTurretVespera
-  name: ADMP-27 VESPERA Rapid-Fire Pod
-  parent: BallisticArtilleryUnanchorableCartridge
-  description: A rapid-fire swarm missile pod manufactured by Aetherion Dynamics. Saturates targets with guided warheads to overwhelm defenses. Can be remotely activated or linked to a GCS.
+  name: ADMP-27 VESPERA 50mm Rapid-Fire Missile Rack
+  parent: BallisticArtilleryMagazine
+  description: A rapid-fire swarm missile rack manufactured by Aetherion Dynamics. Saturates targets with guided warheads to overwhelm defenses. Limited ammo, but deadly. Can be remotely activated or linked to a GCS.
   components:
   - type: StaticPrice
     price: 1500
@@ -22,11 +22,11 @@
     range: 500
   - type: Gun
     fireRate: 16
-    minAngle: 0
-    maxAngle: 1
+    minAngle: 4
+    maxAngle: 35
     burstCooldown: 20
     burstFireRate: 16
-    shotsPerBurst: 28
+    shotsPerBurst: 13
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 2000000 # ~4.9km if firing continuously
@@ -39,15 +39,19 @@
     powerUsePassive: 750
     powerUseActive: 0
   - type: Actions
-  - type: BallisticAmmoProvider
-    infiniteUnspawned: true
-    whitelist:
-      tags:
-      - VesperaCartridge
-    capacity: 26
-    proto: VesperaCartridgeWeak
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: VesperaMagazine
+        insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - VesperaMagazine
+        whitelistFailPopup: gun-magazine-whitelist-fail
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 2

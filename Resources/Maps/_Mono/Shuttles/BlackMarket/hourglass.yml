@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 Alice "Arimah" Heurlin
 # SPDX-FileCopyrightText: 2025 Checkraze
 # SPDX-FileCopyrightText: 2025 Honestly101
+# SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 dustylens
 # SPDX-FileCopyrightText: 2025 marklyfied
 # SPDX-FileCopyrightText: 2025 plethorian
@@ -4325,7 +4326,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,15.5
       parent: 1
-- proto: WeaponTurretCharonette
+- proto: WeaponTurretBofors
   entities:
   - uid: 666
     components:

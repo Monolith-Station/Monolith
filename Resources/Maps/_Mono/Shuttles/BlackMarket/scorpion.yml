@@ -7,10 +7,12 @@
 # SPDX-FileCopyrightText: 2024 checkraze
 # SPDX-FileCopyrightText: 2025 Ark
 # SPDX-FileCopyrightText: 2025 Honestly101
+# SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 RikuTheKiller
 # SPDX-FileCopyrightText: 2025 Rubeebeebee
 # SPDX-FileCopyrightText: 2025 Whatstone
+# SPDX-FileCopyrightText: 2025 kasature90
 # SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: MPL-2.0
@@ -772,12 +774,6 @@ entities:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
         850:
-        - - AmmoLoaderLoad
-          - SpaceArtilleryLoad
-        845:
-        - - AmmoLoaderLoad
-          - SpaceArtilleryLoad
-        846:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
   - uid: 853
@@ -2808,13 +2804,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: CrateAmmoBoxKargil
-  entities:
-  - uid: 855
-    components:
-    - type: Transform
-      pos: 2.5,-0.5
-      parent: 1
 - proto: DefibrillatorCabinetFilled
   entities:
   - uid: 408
@@ -5563,7 +5552,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,17.5
       parent: 1
-- proto: WeaponTurretKargil
+- proto: WeaponTurretBofors
   entities:
   - uid: 845
     components:

@@ -25,6 +25,7 @@
 # SPDX-FileCopyrightText: 2025 Havaren
 # SPDX-FileCopyrightText: 2025 Honestly101
 # SPDX-FileCopyrightText: 2025 Ilya246
+# SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 ScyronX
 # SPDX-FileCopyrightText: 2025 starch
@@ -132,8 +133,8 @@
       mech-battery-slot: !type:ContainerSlot
       paper_label: !type:ContainerSlot # Goobstation
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: LightArmor # Goobstation
+    damageContainer: StructuralInorganic # Mono
+    damageModifierSet: MechArmorLight # Mono
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/mechmove03.ogg
@@ -144,7 +145,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2500 # Mono
+        damage: 5000 # Mono
       behaviors:
       - !type:PlaySoundBehavior
         sound:
