@@ -14593,3 +14593,27 @@ Entries:
   id: 1620
   time: '2025-12-04T12:45:55.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2637
+- author: Onezero0
+  changes:
+    - type: Remove
+      message: >-
+        Removed the Kargil, ASM-501 and Charonette. Ships that used these
+        (Scorpion, Vulture, Hourglass, Sellsword, etc) may be temporarily
+        under-armed.
+    - type: Tweak
+      message: Shipguns have been universally tweaked - TTK should be higher.
+    - type: Tweak
+      message: >-
+        Shipguns have infinite normal ammo. Expect special ammo types to make an
+        appearance sometime in the future.
+    - type: Tweak
+      message: Increased price of subnuclear Charon ammo.
+    - type: Fix
+      message: Mechs no longer take unblockable damage from EMP sources.
+    - type: Tweak
+      message: Mechs have new armor values, and can receive structural damage now.
+    - type: Tweak
+      message: AP ammo does structural damage now.
+  id: 1621
+  time: '2025-12-04T13:07:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2690
