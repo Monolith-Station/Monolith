@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Ilya246
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 starch
 #
@@ -18,6 +19,7 @@
     - id: UnknownShuttleZenith
     - id: UnknownShuttleZenithE
     - id: UnknownShuttleRazor
+    - id: UnknownShuttleRazorN
     - id: UnknownShuttleNebula
     - id: UnknownShuttleWyvern
 
@@ -80,6 +82,21 @@
     minPlayers: 15
   - type: LoadMapRule
     preloadedGrid: AIRazor
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleRazorN
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-ai-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 1 # rare but not too rare since it's in the T2 spawner
+    maxOccurrences: 2
+  - type: GameRule
+    minPlayers: 32
+  - type: LoadMapRule
+    preloadedGrid: AIRazorN
 
 - type: entity
   parent: BaseRandomShuttleRule
