@@ -30,6 +30,7 @@
 # SPDX-FileCopyrightText: 2025 Southbridge
 # SPDX-FileCopyrightText: 2025 Whatstone
 # SPDX-FileCopyrightText: 2025 tonotom
+# SPDX-FileCopyrightText: 2025 tonotom1
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -163,7 +164,7 @@
     - id: WeaponSniperMosin
       weight: 2
 
-- type: entityTable #Mono note: Still used for POI maints lockers. Refer to _Mono\Catalogs\Fills\Lockers\misc.yml for salv maint locker.
+- type: entityTable #Mono note: Still used for certain holdover POI maints lockers. Refer to _Mono\Catalogs\Fills\Lockers\misc.yml for new salv maint locker.
   id: MaintenanceLockerLoot
   table: !type:AllSelector
     children:
