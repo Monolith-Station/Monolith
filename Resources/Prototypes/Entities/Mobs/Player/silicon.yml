@@ -369,16 +369,16 @@
     laws: TSFMCLawset
 
 - type: entity
-  id: RogueCircuitBoard
+  id: PDVCircuitBoard
   parent: BaseElectronics
-  name: law board (Rogue)
-  description: An electronics board containing the Rogue lawset.
+  name: law board (PDV)
+  description: An electronics board containing the PDV lawset.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
   - type: SiliconLawProvider
-    laws: RogueLawset
+    laws: PDVLawset
 
 - type: entity
   id: FreemanCircuitBoard
