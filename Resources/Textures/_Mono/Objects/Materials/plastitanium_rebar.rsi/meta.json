@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Ported from CEV-Eris to Monolith.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "plastitanium_rebar",
+      "directions": 1
+    },
+    {
+      "name": "plastitanium_rebar_bundle",
+      "directions": 1
+    },
+    {
+      "name": "plastitanium_rebar_pile",
+      "directions": 1
+    },
+    {
+      "name": "inhand-left",
+      "directions": 1
+    },
+    {
+      "name": "inhand-right",
+      "directions": 1
+    }
+  ]
+}

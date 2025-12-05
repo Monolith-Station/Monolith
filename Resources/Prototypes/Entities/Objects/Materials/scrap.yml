@@ -592,4 +592,59 @@
     materialComposition:
       Steel: 200 # 2 sheets
       Plasma: 500 # 5 sheets
+
+- type: entity
+  parent: BaseScrap
+  id: PlastitaniumRebar
+  name: plastitanium scrap rebar
+  suffix: 1
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/plastitanium_rebar.rsi
+    layers:
+      - state: plastitanium_rebar
+        map: ["base"]
+  - type: Item
+    heldPrefix: inhand
+  - type: PhysicalComposition
+    materialComposition:
+      Plastitanium: 100 # 1 sheet
+      Steel: 100 # 1 sheet
+      Plasteel: 50 # 0.5 sheet
+
+- type: entity
+  parent: PlastitaniumRebar
+  id: PlastitaniumRebarBundle
+  name: plastitanium scrap rebar bundle
+  suffix: 5
+  components:
+  - type: Sprite
+    layers:
+      - state: plastitanium_rebar_bundle
+        map: ["base"]
+  - type: Item
+    heldPrefix: inhand
+  - type: PhysicalComposition
+    materialComposition:
+      Plastitanium: 500 # 5 sheets
+      Steel: 500 # 5 sheets
+      Plasteel: 250 # 2.5 sheets
+
+- type: entity
+  parent: PlastitaniumRebar
+  id: PlastitaniumRebarPile
+  name: plastitanium scrap rebar pile
+  suffix: 10
+  components:
+  - type: Sprite
+    layers:
+      - state: plastitanium_rebar_pile
+        map: ["base"]
+  - type: Item
+    heldPrefix: inhand
+  - type: PhysicalComposition
+    materialComposition:
+      Plastitanium: 1000 # 10 sheets
+      Steel: 1000 # 10 sheets
+      Plasteel: 500 # 5 sheets
 # Mono end

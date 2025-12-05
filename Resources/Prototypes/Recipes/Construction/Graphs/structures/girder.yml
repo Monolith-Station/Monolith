@@ -680,8 +680,8 @@
       - to: reinforcedGirder
         completed:
         - !type:SpawnPrototype
-          prototype: SheetPlastitanium #Mono
-          amount: 2 #Mono
+           prototype: PlastitaniumRebarBundle #Mono
+           amount: 1
         steps:
         - tool: Cutting
           doAfter: 1
@@ -714,8 +714,8 @@
       - to: reinforcedGirder
         completed:
         - !type:SpawnPrototype
-          prototype: SheetPlastitanium #Mono
-          amount: 4 #Mono
+          prototype: PlastitaniumRebarPile #Mono
+          amount: 1
         steps:
         - tool: Cutting
           doAfter: 1
