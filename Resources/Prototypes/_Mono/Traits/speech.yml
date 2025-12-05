@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Ark
+# SPDX-FileCopyrightText: 2025 Goldmask990
 # SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -54,3 +55,16 @@
   - Gary
   languagesUnderstood:
   - Gary
+
+- type: trait
+  id: MonoNovaCygniBasic
+  name: trait-language-NovaCygni-name
+  description: trait-language-NovaCygni-desc
+  category: LanguageTraits
+  cost: 1
+  components:
+  - type: LanguageSpeaker
+  languagesSpoken:
+  - NovaCygniBasic
+  languagesUnderstood:
+  - NovaCygniBasic

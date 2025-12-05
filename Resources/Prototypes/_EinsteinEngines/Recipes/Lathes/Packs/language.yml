@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Goldmask990
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 ScyronX
 # SPDX-FileCopyrightText: 2025 core-mene
@@ -20,6 +21,7 @@
   - ValyrianStandardTranslator
   - ChittinTranslator
   - GaryTranslator # Mono
+  - NovaCygniTranslator # Mono
   # - SiikMaasTranslator
   # - MarishTranslator
 
@@ -38,5 +40,6 @@
   - ValyrianStandardTranslatorImplanter
   - ChittinTranslatorImplanter
   - GaryTranslatorImplanter # Mono
+  - NovaCygniTranslatorImplanter # Mono
 #  - SiikMaasTranslatorImplanter
 #  - MarishTranslatorImplanter

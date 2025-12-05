@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Goldmask990
+# SPDX-FileCopyrightText: 2025 ScyronX
+#
+# SPDX-License-Identifier: MPL-2.0
+
 - type: entity
   id: BaseTranslatorImplanter
   abstract: true
@@ -125,3 +130,11 @@
   components:
   - type: Implanter
     implant: MarishTranslatorImplant
+
+- type: entity # Mono
+  id: NovaCygniTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Nova Cygni translator implant
+  components:
+  - type: Implanter
+    implant: NovaCygniTranslatorImplant
