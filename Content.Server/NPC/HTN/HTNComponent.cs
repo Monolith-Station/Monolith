@@ -50,4 +50,10 @@ public sealed partial class HTNComponent : NPCComponent
     /// Is this NPC currently planning?
     /// </summary>
     [ViewVariables] public bool Planning => PlanningJob != null;
+
+    /// <summary>
+    /// Monolith - Whether sleeping this NPC for there being no nearby players is allowed.
+    /// </summary>
+    [DataField]
+    public bool NoNearbyPlayerSleepAllowed = true;
 }

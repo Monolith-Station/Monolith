@@ -263,7 +263,7 @@ public sealed class MoverController : SharedMoverController
     /// </summary>
     public float GetAngularAcceleration(ShuttleComponent shuttle, PhysicsComponent body)
     {
-        return shuttle.AngularThrust * body.InvMass;
+        return shuttle.AngularThrust * body.InvI;
     }
 
     /// <summary>
