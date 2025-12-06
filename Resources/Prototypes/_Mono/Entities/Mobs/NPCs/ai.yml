@@ -34,3 +34,14 @@
     noNearbyPlayerSleepAllowed: false
     rootTask:
       task: RamShuttleCompound
+
+- type: entity
+  id: NpcStationAiApproacher
+  name: approacher core
+  parent: NpcStationAiRammer
+  description: Stands there, menacingly.
+  components:
+  - type: HTN
+    noNearbyPlayerSleepAllowed: false
+    rootTask:
+      task: ApproachShuttleCompound

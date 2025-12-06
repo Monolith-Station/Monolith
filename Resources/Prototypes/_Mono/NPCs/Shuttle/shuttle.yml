@@ -9,6 +9,17 @@
       - !type:HTNCompoundTask
         task: ShuttleRamTargetCompound
 
+# approaches closest shuttle with parent ship
+- type: htnCompound
+  id: ApproachShuttleCompound
+  branches:
+    - tasks:
+      - !type:HTNPrimitiveTask
+        operator: !type:UtilityOperator
+          proto: NearbyShuttleTargets
+      - !type:HTNCompoundTask
+        task: ShuttleGoToTargetCompound
+
 - type: utilityCurvePreset
   id: InvCurve
   curve: !type:QuadraticCurve
@@ -38,4 +49,19 @@
             shutdownState: TaskFinished
             removeKeyOnFinish: false
             brakeMaxVelocity: null # there's no braking where we're going
+            targetKey: TargetCoordinates
+
+- type: htnCompound
+  id: ShuttleGoToTargetCompound
+  branches:
+    - preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ShipMoveToOperator
+            shutdownState: TaskFinished
+            removeKeyOnFinish: false
+            brakeMaxVelocity: 0.1
+            range: 250
             targetKey: TargetCoordinates

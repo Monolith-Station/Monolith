@@ -50,7 +50,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     /// How close we need to get before considering movement finished.
     /// </summary>
     [DataField]
-    public string RangeKey = "ShipMovementRange";
+    public float Range = 5f;
 
     /// <summary>
     /// Velocity below which we count as successfully braked.
@@ -88,10 +88,8 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
             !_entManager.TryGetComponent<PhysicsComponent>(owner, out var body))
             return (false, null);
 
-        var range = blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
-
         if (xform.Coordinates.TryDistance(_entManager, targetCoordinates, out var distance)
-            && distance <= range)
+            && distance <= Range)
         {
             // In range
             return (true, new Dictionary<string, object>()
@@ -118,9 +116,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         // Re-use the path we may have if applicable.
         var comp = _steering.Steer(uid, targetCoordinates);
 
-        if (blackboard.TryGetValue<float>(RangeKey, out var range, _entManager))
-            comp.Range = range;
-
+        comp.Range = Range;
         comp.InRangeMaxSpeed = BrakeMaxVelocity;
         comp.AvoidCollisions = AvoidCollisions;
         comp.TargetRotation = TargetRotation;

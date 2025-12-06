@@ -116,10 +116,11 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         // now calculate our braking path
         var brakeInput = 0f;
-        var brakeThrust = _mover.GetDirectionThrust(-linVel, shuttle, shipBody) * ShuttleComponent.BrakeCoefficient;
-        var brakePath = linVel.Length() > 0 ? linVel.LengthSquared() / (2f * brakeThrust.Length()) : 0f;
+        var brakeThrust = _mover.GetDirectionThrust((-shipNorthAngle).RotateVec(-linVel), shuttle, shipBody) * ShuttleComponent.BrakeCoefficient;
+        var brakeAccel = brakeThrust * shipBody.InvMass;
+        var brakePath = linVel.Length() > 0 ? linVel.LengthSquared() / (2f * brakeAccel.Length()) : 0f;
 
-        if (brakePath > distance && needBrake)
+        if (brakePath + ent.Comp.Range > distance && needBrake)
         {
             brakeInput = 1f;
         }
