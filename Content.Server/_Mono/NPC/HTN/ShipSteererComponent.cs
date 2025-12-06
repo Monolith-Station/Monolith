@@ -30,6 +30,11 @@ public sealed partial class ShipSteererComponent : Component
     [ViewVariables(VVAccess.ReadWrite)] public float? InRangeMaxSpeed = null;
 
     /// <summary>
+    /// Max rotation rate to be considered stationary.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)] public float MaxRotateRate = 0.01f;
+
+    /// <summary>
     /// Whether to avoid collisions with other grids.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)] public bool AvoidCollisions = true;
