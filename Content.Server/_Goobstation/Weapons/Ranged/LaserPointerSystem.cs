@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Aviu00
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.NPC.Components;
 using Content.Shared._Goobstation.Weapons.SmartGun;
 using Content.Shared.Wieldable.Components;

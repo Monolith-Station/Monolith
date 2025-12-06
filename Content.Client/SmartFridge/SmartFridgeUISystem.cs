@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 bitcrushing
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.SmartFridge;
 using Robust.Shared.Analyzers;
 

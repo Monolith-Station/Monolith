@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Client._Mono.Blocking.Components;
 
 namespace Content.Shared._Mono.Blocking;

@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022 20kdc
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Threading;
 using System.Threading.Tasks;
 using Robust.Client.Graphics;

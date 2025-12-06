@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2023 chromiumboy
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Winkarst
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Threading;
 using Content.Server.Power.EntitySystems;
 using Content.Server.StationEvents.Events;

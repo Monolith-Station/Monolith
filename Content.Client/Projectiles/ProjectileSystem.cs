@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 AJCM-git
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Shared.Projectiles;
 using Robust.Shared.Spawners;
 using Content.Shared.Weapons.Ranged.Systems;

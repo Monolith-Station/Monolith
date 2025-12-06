@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Avalon
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 

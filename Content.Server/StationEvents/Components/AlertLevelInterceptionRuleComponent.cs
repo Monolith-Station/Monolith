@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Mr. 27
-// SPDX-FileCopyrightText: 2025 AwareFoxy
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Server.StationEvents.Events;
 using Content.Server.AlertLevel;
 using Robust.Shared.Prototypes;
