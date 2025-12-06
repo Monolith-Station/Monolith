@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Ark
+# SPDX-FileCopyrightText: 2025 Avalon
 # SPDX-FileCopyrightText: 2025 EctoplasmIsGood
 # SPDX-FileCopyrightText: 2025 Ilya246
 # SPDX-FileCopyrightText: 2025 NazrinNya
@@ -176,6 +177,12 @@
     guides:
     - Letoferol
   - type: MovementAlwaysTouching
+  - type: Clumsy
+    clumsyDefaultCheck: 1
+    gunShootFailDamage:
+      types:
+        Heat: 60
+    clumsyVaulting: false
 
 - type: entity
   parent:
