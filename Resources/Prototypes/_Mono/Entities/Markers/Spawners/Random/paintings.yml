@@ -1,7 +1,8 @@
 - type: entity
   parent: MarkerBase
-  id: RandomPainting
+  id: RandomPaintingConstructed
   name: random painting spawner
+  suffix: Constructed
   components:
   - type: Sprite
     layers:
@@ -26,12 +27,14 @@
       - PaintingSleepingGypsy
       - PaintingRedBlueYellow
       - PaintingHelloWorld
-      - PaintingNightOfThePostGoblin # Frontier
-      - PaintingMonkey #Mono
+      - PaintingNightOfThePostGoblin
+      - PaintingMonkey
     chance: 1
     rarePrototypes:
       - PaintingSkeletonBoof
-      - PaintingEmpty
       - PaintingMoony
       - PaintingAmogusTriptych
     rareChance: 0.01
+  - type: Construction
+    graph: RandomPainting
+    node: randomPainting
