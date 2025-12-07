@@ -2,14 +2,14 @@
 # GitHub: UnicornOnLSD
 # Discord: unicornonlsd
 
-# Shuttle Notes: 
-#                Price marker is 1.25%; able to go at max ship speed, has FTL drive, two way belt system & blast doors.
+# Shuttle Notes:
+#                Price marker is x125%; able to go at max ship speed, has FTL drive, two way belt system & blast doors.
 - type: vessel
   id: Plutomkii
   parent: BaseVessel
   name: DIS Pluto MK. II
   description: A light-weight cargo runner manufactured by DIS. The replacement of the venerable Pluto. Performing better than it's predecessor in every way. Larger cargo bay, faster top speed and sleeker design.
-  price: 32,900
+  price: 32900
   category: Small
   group: Shipyard
   shuttlePath: /Maps/_Mono/Shuttles/plutomkii.yml
