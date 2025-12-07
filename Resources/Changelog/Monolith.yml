@@ -14455,3 +14455,222 @@ Entries:
   id: 1604
   time: '2025-11-30T23:10:01.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2716
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: >-
+        The spear is now a medical ship called the Syringe. Rejoice corpsman of
+        the TSFMC!
+  id: 1605
+  time: '2025-12-01T14:52:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2651
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: >-
+        DP-27 Pulse repeater changed from 3 to 2 shots, and can no longer be
+        full auto. It was worse than burst anyhow
+  id: 1606
+  time: '2025-12-01T15:22:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2720
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: The Tethys is now a dedicated medical ship!
+  id: 1607
+  time: '2025-12-01T15:31:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2649
+- author: Primusirius
+  changes:
+    - type: Add
+      message: Added the Triage, a small medical themed mil ship that packs a punch.
+  id: 1608
+  time: '2025-12-01T18:23:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2696
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: The mite got even trashier, somehow...
+  id: 1609
+  time: '2025-12-02T01:48:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2724
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Sawn-off PKA isn't unusable dogwater anymore
+  id: 1610
+  time: '2025-12-02T02:14:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2721
+- author: Primusirius
+  changes:
+    - type: Add
+      message: Added the sirius' big brother, the Sagittarius.
+  id: 1611
+  time: '2025-12-02T15:49:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2495
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Unjanked the Stubby wall charger, added a charger to the Medicus, and
+        fixed its defib cabinet
+  id: 1612
+  time: '2025-12-03T06:57:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2730
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: >-
+        Spyglass MKII is now fit for Phaethon Dynasty use! (a medium research
+        salvage vessel)
+    - type: Add
+      message: >-
+        The old Spyglass design has been given to Colossus Central with some
+        minor touchups! It is a small research vessel.
+  id: 1613
+  time: '2025-12-03T10:37:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2645
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: TSF grenade launchers no longer accept lethal ammo
+  id: 1614
+  time: '2025-12-03T11:07:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2680
+- author: Primusirius
+  changes:
+    - type: Tweak
+      message: >-
+        MD has gotten an overhaul to the docking space, ATU wing and other
+        various requested features.
+  id: 1615
+  time: '2025-12-03T11:10:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2618
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        You can now dump plant bags directly into reagent grinders! All credit
+        to imatsoup
+  id: 1616
+  time: '2025-12-03T11:13:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2675
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Microwaves are now transportable by hand and weaponized.
+  id: 1617
+  time: '2025-12-04T12:24:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2739
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Civillian tech disk drops from salvage now spawn inside salvmaint
+        lockers instead of outside salv material crates
+    - type: Tweak
+      message: Salvage maints locker drop tables generally improved
+    - type: Tweak
+      message: >-
+        Scrap processor drop table touched up: you can now find AI cores and
+        some less-remarkable shuttle board components are more common
+  id: 1618
+  time: '2025-12-04T12:34:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2688
+- author: Scruq445
+  changes:
+    - type: Tweak
+      message: Added new sounds to instruments
+    - type: Fix
+      message: Hopefully fix the instrument bug
+  id: 1619
+  time: '2025-12-04T12:44:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2641
+- author: Ilya246
+  changes:
+    - type: Add
+      message: 'Added new rare ADS: Razor-N.'
+  id: 1620
+  time: '2025-12-04T12:45:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2637
+- author: Onezero0
+  changes:
+    - type: Remove
+      message: >-
+        Removed the Kargil, ASM-501 and Charonette. Ships that used these
+        (Scorpion, Vulture, Hourglass, Sellsword, etc) may be temporarily
+        under-armed.
+    - type: Tweak
+      message: Shipguns have been universally tweaked - TTK should be higher.
+    - type: Tweak
+      message: >-
+        Shipguns have infinite normal ammo. Expect special ammo types to make an
+        appearance sometime in the future.
+    - type: Tweak
+      message: Increased price of subnuclear Charon ammo.
+    - type: Fix
+      message: Mechs no longer take unblockable damage from EMP sources.
+    - type: Tweak
+      message: Mechs have new armor values, and can receive structural damage now.
+    - type: Tweak
+      message: AP ammo does structural damage now.
+  id: 1621
+  time: '2025-12-04T13:07:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2690
+- author: Primusirius
+  changes:
+    - type: Add
+      message: A new chimera hunting ship; the 'Siebel' is now available.
+    - type: Remove
+      message: Archon has been removed.
+  id: 1622
+  time: '2025-12-04T15:46:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2695
+- author: Greenwall-Exe
+  changes:
+    - type: Add
+      message: Added the Gallóglach Mercenary Modsuit!
+  id: 1623
+  time: '2025-12-04T18:58:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2556
+- author: GOLDMASK990
+  changes:
+    - type: Add
+      message: >-
+        USSP Mercenary Loadout items and Nova Cygni language with
+        handheld/implant Translators
+  id: 1624
+  time: '2025-12-05T12:04:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2679
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: All shipguns have been resprited to match in style!
+  id: 1625
+  time: '2025-12-06T00:11:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2740
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Salvage techfab can now make ore and construction boxes with no research
+        needed.
+  id: 1626
+  time: '2025-12-06T15:14:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2750
+- author: tonotom1
+  changes:
+    - type: Add
+      message: You can now construct random posters and paintings.
+    - type: Tweak
+      message: Paintings are now more fun to destroy.
+  id: 1627
+  time: '2025-12-06T15:55:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2744
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Civilian modsuits have been buffed. Mercenary modsuit has been nerfed.
+  id: 1628
+  time: '2025-12-06T21:25:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2756

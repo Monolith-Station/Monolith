@@ -1,24 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Cheackraze
-# SPDX-FileCopyrightText: 2023 Checkraze
-# SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 TsjipTsjip
-# SPDX-FileCopyrightText: 2024 checkraze
-# SPDX-FileCopyrightText: 2025 Arcticular
-# SPDX-FileCopyrightText: 2025 Arcticular1
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 Cojoke
-# SPDX-FileCopyrightText: 2025 Honestly101
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 RikuTheKiller
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: MPL-2.0
-
 meta:
   format: 7
   category: Grid
@@ -24767,40 +24746,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 8.5,85.5
       parent: 1
-- proto: CrateAmmoBox20mm
-  entities:
-  - uid: 1760
-    components:
-    - type: Transform
-      pos: -16.5,13.5
-      parent: 1
-  - uid: 1761
-    components:
-    - type: Transform
-      pos: -16.5,14.5
-      parent: 1
-  - uid: 1762
-    components:
-    - type: Transform
-      pos: -15.5,14.5
-      parent: 1
-  - uid: 1763
-    components:
-    - type: Transform
-      pos: -15.5,13.5
-      parent: 1
-- proto: CrateAmmoBox90mm
-  entities:
-  - uid: 1764
-    components:
-    - type: Transform
-      pos: -18.5,13.5
-      parent: 1
-  - uid: 1765
-    components:
-    - type: Transform
-      pos: -18.5,14.5
-      parent: 1
 - proto: CrateAmmoBoxCharon
   entities:
   - uid: 1766
@@ -24812,30 +24757,6 @@ entities:
     components:
     - type: Transform
       pos: -13.5,15.5
-      parent: 1
-- proto: CrateAmmoBoxCyrexa
-  entities:
-  - uid: 1768
-    components:
-    - type: Transform
-      pos: -12.5,14.5
-      parent: 1
-  - uid: 1769
-    components:
-    - type: Transform
-      pos: -13.5,14.5
-      parent: 1
-- proto: CrateAmmoBoxKargil
-  entities:
-  - uid: 1770
-    components:
-    - type: Transform
-      pos: -17.5,13.5
-      parent: 1
-  - uid: 1771
-    components:
-    - type: Transform
-      pos: -17.5,14.5
       parent: 1
 - proto: CrateAmmoBoxVanyk
   entities:
@@ -51629,7 +51550,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WeaponTurretASM501
+- proto: WeaponTurretTovek
   entities:
   - uid: 4327
     components:

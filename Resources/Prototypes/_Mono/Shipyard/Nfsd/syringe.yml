@@ -1,0 +1,37 @@
+- type: vessel
+  id: Syringe
+  parent: BaseVesselAntag
+  name: TSF-SKR Syringe
+  description: A small ship meant as an escort and render aid to other TSF vessels. It has a small interior and is lightly armed.
+  price: 58500
+  category: Small
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/syringe.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Uranium
+  cloakHunter: true
+  company:
+  - TSF
+
+- type: gameMap
+  id: Syringe
+  mapName: 'Syringe'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/syringe.yml
+  minPlayers: 0
+  stations:
+    Syringe:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Syringe TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+

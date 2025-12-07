@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 ElectroJr
-// SPDX-FileCopyrightText: 2025 Leon Friedrich
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 #nullable enable
 using System;
 using System.Runtime.CompilerServices;

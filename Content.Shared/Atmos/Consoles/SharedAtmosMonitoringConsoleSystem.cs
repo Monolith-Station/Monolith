@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba
-// SPDX-FileCopyrightText: 2025 chromiumboy
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Atmos.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;

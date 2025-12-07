@@ -1,14 +1,7 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 NazrinNya
-# SPDX-FileCopyrightText: 2025 kasature90
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: MPL-2.0
-
 - type: entity
   id: Magazine90mm
-  name: "90x427mm APHE ammo drum"
+  name: "90mm ammo loader"
+  description: "An ammunition loader containing infinite 90mm high-explosive rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -17,8 +10,9 @@
   - type: Item
     size: Small
   - type: BallisticAmmoProvider
+    infiniteUnspawned: true
     proto: 90mmCartridge
-    capacity: 400
+    capacity: 1 # normally should hold 400
     mayTransfer: true
     whitelist:
       tags:
@@ -27,21 +21,21 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Magazines/SmartGuns/magazine_smart_gun.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_shipgun_box.rsi
     layers:
     - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: mag
-    steps: 2
+    steps: 4
     zeroVisible: false
   - type: Appearance
 
 - type: entity
   id: 90mmCartridge
-  name: cartridge (90x427mm APHE)
+  name: cartridge (90mm)
   parent: [ BaseCartridge, BaseC1Contraband ]
   components:
   - type: Tag
@@ -50,7 +44,7 @@
     - 90mmCartridge
   - type: CartridgeAmmo
     deleteOnSpawn: true
-    proto: 90mmBulletArmorPiercing
+    proto: 90mmBullet
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
     layers:
@@ -69,20 +63,3 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
-
-- type: entity
-  id: Magazine90mmWeak
-  name: "90x427mm ammo drum"
-  parent: Magazine90mm
-  components:
-  - type: BallisticAmmoProvider
-    infiniteUnspawned: true
-    proto: 90mmCartridgeWeak
-
-- type: entity
-  id: 90mmCartridgeWeak
-  name: "cartridge (90x427mm)"
-  parent: 90mmCartridge
-  components:
-  - type: CartridgeAmmo
-    proto: 90mmBulletWeak

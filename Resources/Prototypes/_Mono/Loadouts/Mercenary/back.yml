@@ -1,14 +1,15 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 
 - type: loadout
   id: MercenaryClothingModsuitSecurityPowerCell
   price: 15000
   equipment:
     back: ClothingModsuitSecurityPowerCell
+
+- type: loadout
+  id: MercenaryClothingModsuitMercenaryPowerCell
+  price: 65000
+  equipment:
+    back: ClothingModsuitMercenaryPowerCell
 
 - type: loadout
   id: MercenaryClothingBackpackDuffelTacticalDuffelTan

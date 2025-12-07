@@ -7,16 +7,16 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 1500
-        Blunt: 3000
-        Structural: 2000
+        Piercing: 60
+        Blunt: 50
+        Structural: 200
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
-    maxIntensity: 400
+    explosionType: Default
+    maxIntensity: 15
     intensitySlope: 20
-    totalIntensity: 150
-    maxTileBreak: 2
+    totalIntensity: 15
+    maxTileBreak: 1
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
     layers:

@@ -1,0 +1,34 @@
+- type: vessel
+  id: Spyglass MKII
+  parent: BaseVesselAntag
+  name: PDV Spyglass MKII
+  description: One of salvage ships you'll see from the Phaethon Dynasty. This baby is capable of Xenoarcheology and salvage work.
+  price: 62500
+  category: Small
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/spyglassmk2.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  - Science
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Spyglass MKII
+  mapName: 'PDV Spyglass MKII'
+  mapPath: /Maps/_Mono/Shuttles/BlackMarket/spyglassmk2.yml
+  minPlayers: 0
+  stations:
+    Spyglass MKII:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Spyglass MKII PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]

@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Flipp Syder
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2024 Errant
-// SPDX-FileCopyrightText: 2024 deathride58
-// SPDX-FileCopyrightText: 2025 inquisitor-star
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using System.Security.Cryptography;
 using Microsoft.VisualBasic.CompilerServices;
 

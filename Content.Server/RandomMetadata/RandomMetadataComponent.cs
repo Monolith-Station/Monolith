@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Kara
-// SPDX-FileCopyrightText: 2022 Moony
-// SPDX-FileCopyrightText: 2022 Nemanja
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2025 mikus
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 
 using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;

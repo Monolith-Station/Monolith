@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2025 tonotom1
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;

@@ -1,14 +1,7 @@
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 kasature90
-# SPDX-FileCopyrightText: 2025 significant harassment
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: MPL-2.0
-
 - type: entity
-  id: Magazine20mmPiercing
-  name: "20x124mm AP ammo drum"
+  id: Magazine20mm
+  name: "20mm solid ammo loader"
+  description: "An ammunition loader containing infinite 20mm solid rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -17,8 +10,9 @@
   - type: Item
     size: Small
   - type: BallisticAmmoProvider
+    infiniteUnspawned: true
     proto: 20mmCartridge
-    capacity: 1250
+    capacity: 1 # normally should hold 1250
     mayTransfer: true
     whitelist:
       tags:
@@ -27,15 +21,15 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Magazines/SmartGuns/magazine_smart_gun.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_shipgun_box.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
+    - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 2
+    steps: 4
     zeroVisible: false
   - type: Appearance
   - type: StaticPrice
@@ -43,7 +37,7 @@
 
 - type: entity
   id: 20mmCartridge
-  name: cartridge (20x124mm AP)
+  name: cartridge (20mm Solid)
   parent: [ BaseCartridge, BaseC1Contraband ]
   components:
   - type: Tag
@@ -52,7 +46,7 @@
     - 20mmCartridge
   - type: CartridgeAmmo
     deleteOnSpawn: true
-    proto: 20mmBulletArmorPiercing
+    proto: 20mmBullet
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
     layers:
@@ -79,20 +73,3 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
-
-- type: entity
-  id: Magazine20mmWeak
-  name: "20x124mm ammo drum"
-  parent: Magazine20mmPiercing
-  components:
-  - type: BallisticAmmoProvider
-    infiniteUnspawned: true
-    proto: 20mmCartridgeWeak
-
-- type: entity
-  id: 20mmCartridgeWeak
-  name: "cartridge (20x124mm)"
-  parent: 20mmCartridge
-  components:
-  - type: CartridgeAmmo
-    proto: 20mmBulletWeak

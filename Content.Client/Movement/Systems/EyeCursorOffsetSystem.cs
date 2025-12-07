@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 SX-7
-// SPDX-FileCopyrightText: 2025 SlamBamActionman
-// SPDX-FileCopyrightText: 2025 Winkarst
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Client.Movement.Components;
 using Content.Shared.Camera;

@@ -1,12 +1,7 @@
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 kasature90
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: MPL-2.0
-
 - type: entity
   id: Magazine57mm
-  name: "57x210mm APHE ammo drum"
+  name: "57mm HE ammo loader"
+  description: "An ammunition loader containing infinite 57mm high-explosive rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -15,8 +10,9 @@
   - type: Item
     size: Small
   - type: BallisticAmmoProvider
+    infiniteUnspawned: true
     proto: 57mmCartridge
-    capacity: 600
+    capacity: 1 # normally should hold 600
     mayTransfer: true
     whitelist:
       tags:
@@ -25,21 +21,21 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Magazines/SmartGuns/magazine_smart_gun.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_shipgun_box.rsi
     layers:
     - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: mag
-    steps: 2
+    steps: 4
     zeroVisible: false
   - type: Appearance
 
 - type: entity
   id: 57mmCartridge
-  name: cartridge (57x210mm APHE)
+  name: cartridge (57mm)
   parent: [ BaseCartridge, BaseC1Contraband ]
   components:
   - type: Tag
@@ -76,20 +72,3 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
-
-- type: entity
-  id: Magazine57mmWeak
-  name: "57x210mm ammo drum"
-  parent: Magazine57mm
-  components:
-  - type: BallisticAmmoProvider
-    infiniteUnspawned: true
-    proto: 57mmCartridgeWeak
-
-- type: entity
-  id: 57mmCartridgeWeak
-  name: "cartridge (57x210mm)"
-  parent: 57mmCartridge
-  components:
-  - type: CartridgeAmmo
-    proto: ShipDravonProjectileWeak

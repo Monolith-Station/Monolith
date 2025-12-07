@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: MPL-2.0
-
 namespace Content.Shared._Mono.Ships.Components;
 
 /// <summary>

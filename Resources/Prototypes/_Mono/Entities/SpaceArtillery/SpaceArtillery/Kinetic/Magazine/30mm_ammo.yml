@@ -1,13 +1,7 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 kasature90
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: MPL-2.0
-
 - type: entity
   id: Magazine30mm
-  name: "30x173mm AP ammo drum"
+  name: "30mm solid ammo loader"
+  description: "An ammunition loader containing infinite 30mm solid rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -16,8 +10,9 @@
   - type: Item
     size: Small
   - type: BallisticAmmoProvider
+    infiniteUnspawned: true
     proto: 30mmCartridge
-    capacity: 2000
+    capacity: 1 # normally should hold 2000
     mayTransfer: true
     whitelist:
       tags:
@@ -26,15 +21,15 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Magazines/SmartGuns/magazine_smart_gun.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_shipgun_box.rsi
     layers:
     - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: mag
-    steps: 2
+    steps: 4
     zeroVisible: false
   - type: Appearance
 
@@ -77,20 +72,3 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
-
-- type: entity
-  id: Magazine30mmWeak
-  name: "30x173mm ammo drum"
-  parent: Magazine30mm
-  components:
-  - type: BallisticAmmoProvider
-    infiniteUnspawned: true
-    proto: 30mmCartridgeWeak
-
-- type: entity
-  id: 30mmCartridgeWeak
-  name: "cartridge (30x173mm)"
-  parent: 30mmCartridge
-  components:
-  - type: CartridgeAmmo
-    proto: 30mmBulletWeak
