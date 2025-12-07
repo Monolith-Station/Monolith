@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/07/2025 16:47:54
+  time: 12/07/2025 16:49:48
   entityCount: 607
 maps: []
 grids:
@@ -2613,13 +2613,6 @@ entities:
     - type: Transform
       pos: 12.5,3.5
       parent: 1
-- proto: LockerChiefMedicalOfficerFilledHardsuit
-  entities:
-  - uid: 219
-    components:
-    - type: Transform
-      pos: 5.5,1.5
-      parent: 1
 - proto: LockerWallColorL2RadiationFilled
   entities:
   - uid: 272
@@ -2953,6 +2946,13 @@ entities:
     components:
     - type: Transform
       pos: -4.5,0.5
+      parent: 1
+- proto: SuitStorageCMO
+  entities:
+  - uid: 219
+    components:
+    - type: Transform
+      pos: 5.5,1.5
       parent: 1
 - proto: TableReinforced
   entities:
