@@ -45,13 +45,13 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: AmmoBox46x30mmFMJ
+        startingItem: AmmoBox9x19mmFMJ
         insertSound: /Audio/Weapons/Guns/MagIn/lmg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/lmg_magout.ogg
         priority: 2
         whitelist:
           tags:
-          - Magazine46x30mmFMJBox
+          - Magazine9x19mmFMJBox
         whitelistFailPopup: gun-magazine-whitelist-fail
   - type: ContainerContainer
     containers:
