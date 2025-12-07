@@ -86,7 +86,7 @@ namespace Content.Server.Shuttles.Components
         /// At what Thrust-Weight-Ratio should this ship have the base max velocity as its maximum velocity.
         /// </summary>
         [DataField]
-        public float BaseMaxVelocityTWR = 2f;
+        public float BaseMaxVelocityTWR = 8f;
 
         /// <summary>
         /// How much should TWR affect max velocity.
