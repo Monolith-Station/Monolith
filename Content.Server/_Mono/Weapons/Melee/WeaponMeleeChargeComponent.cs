@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 NazrinNya
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Shared.Damage;
 
 namespace Content.Server._Mono.Weapons.Melee;

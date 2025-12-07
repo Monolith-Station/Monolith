@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2024 Mervill
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 shab00m
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.MachineLinking;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;

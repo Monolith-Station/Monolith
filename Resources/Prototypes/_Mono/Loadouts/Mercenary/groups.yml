@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 IndependentSpacer
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadoutGroup # ONLY TO BE USED AS A SUBGROUP FOR _NF MERCENARY GROUPS
   id: MonoMercenaryJumpsuit
   name: loadout-group-contractor-jumpsuit
@@ -95,6 +88,7 @@
   name: loadout-group-contractor-backpack
   loadouts:
   - MercenaryClothingModsuitSecurityPowerCell # Mono
+  - MercenaryClothingModsuitMercenaryPowerCell # Mono
   - MercenaryClothingBackpackDuffelTacticalDuffelTan
   - MercenaryClothingBackpackDuffelTacticalDuffelOlive
   - MercenaryClothingBackpackDuffelTacticalDuffelBlack
@@ -119,3 +113,32 @@
   - MercenaryClothingBalaclavaSkiMaskTan
   - MercenaryClothingBalaclavaSkiMaskRangerGreen
   - MercenaryClothingBalaclavaSkiMaskCoyoteBrown
+
+- type: loadoutGroup
+  id: MonoUSSPJumpsuit
+  name: loadout-group-ussp-jumpsuit
+  loadouts:
+  - USSPClothingJumpsuit
+
+- type: loadoutGroup
+  id: MonoUSSPHead
+  name: loadout-group-ussp-head
+  loadouts:
+  - USSPOfficerCap
+  - USSPCommissarCap
+
+- type: loadoutGroup
+  id: MonoUSSPOuterClothing
+  name: loadout-group-ussp-outerclothing
+  loadouts:
+  - USSPClothingL10
+  - USSPClothingL10A
+  - USSPClothingCoat
+
+- type: loadoutGroup
+  id: MonoUSSPBackpack
+  name: loadout-group-ussp-backpack
+  loadouts:
+  - USSPBackpack
+  - USSPDuffel
+  - USSPSatchel
