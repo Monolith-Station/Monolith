@@ -14674,3 +14674,16 @@ Entries:
   id: 1628
   time: '2025-12-06T21:25:41.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2756
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Ships going at max speed can now properly thrust to the side without
+        having to brake first.
+    - type: Tweak
+      message: >-
+        Decreased thruster upgrade effect on max speed. There's now only effect
+        via thrust increase.
+  id: 1629
+  time: '2025-12-07T14:34:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2754
