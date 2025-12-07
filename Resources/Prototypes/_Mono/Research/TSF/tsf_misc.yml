@@ -119,33 +119,6 @@
   position: 12, 4
 
 - type: technology
-  id: TsfIndustrialStorage
-  name: research-technology-tsfmc-industrial-storage
-  entityIcon: OreBox
-  discipline: TsfmcShipyard
-  tier: 1
-  cost: 7500
-  recipeUnlocks:
-    - OreBoxFlatpackTSF
-    - MaterialBoxFlatpackTSF
-  technologyPrerequisites:
-  - UniversalMaterialResearchT1
-  position: 13, 1
-
-- type: technology
-  id: TsfIndustrialProcessing
-  name: research-technology-tsfmc-industrial-processing
-  entityIcon: OreProcessorIndustrial
-  discipline: TsfmcShipyard
-  tier: 1
-  cost: 15000
-  recipeUnlocks:
-    - OreProcessorIndustrialMachineCircuitboard
-  technologyPrerequisites:
-  - TsfIndustrialStorage
-  position: 13, 2
-
-- type: technology
   id: TsfPortableRecharger
   name: research-technology-tsfmc-portable-recharger
   entityIcon: PortableRecharger
@@ -194,6 +167,5 @@
   recipeUnlocks:
   - SynthalloyProductionTsf
   technologyPrerequisites:
-  - TsfIndustrialProcessing
   - UniversalMaterialResearchT3
   position: 13, 11

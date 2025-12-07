@@ -1,0 +1,49 @@
+#Posters
+- type: constructionGraph
+  id: RandomPoster
+  start: start
+  graph:
+  - node: start
+    edges:
+      - to: randomPoster
+        steps:
+        - material: Paper
+          amount: 12
+          doAfter: 1
+        
+  - node: randomPoster
+    entity: RandomPosterConstructed
+
+#Paintings
+- type: constructionGraph
+  id: RandomPainting
+  start: start
+  graph:
+  - node: start
+    edges:
+      - to: emptyPainting
+        steps:
+        - material: WoodPlank
+          amount: 6
+        - material: Cloth
+          amount: 6
+          doAfter: 1
+
+  - node: emptyPainting
+    entity: PaintingEmpty
+    edges:
+      - to: randomPainting
+        steps:
+        - material: Paper
+          amount: 6
+          doAfter: 1
+        completed:
+          - !type:SpawnPrototype    
+            prototype: RandomPaintingConstructed
+          - !type:DeleteEntity {}
+          
+  - node: randomPainting
+    entity: RandomPaintingConstructed
+    
+  - node: finishedPainting #Used to make paintings break into empty frames
+    entity: PaintingBase

@@ -166,12 +166,6 @@
     guides:
     - Letoferol
   - type: MovementAlwaysTouching
-  - type: Clumsy
-    clumsyDefaultCheck: 1
-    gunShootFailDamage:
-      types:
-        Heat: 60
-    clumsyVaulting: false
 
 - type: entity
   parent:
