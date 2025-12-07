@@ -20,6 +20,7 @@
   - type: Item
     sprite: _Mono/Objects/Weapons/Guns/Launchers/hpc-inhand-32x.rsi
     size: Ginormous
+  - type: MultiHandedItem
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Guns/Launchers/hpc-inhand-32x.rsi
     quickEquip: false
@@ -27,7 +28,7 @@
     - Back
     - suitStorage
   - type: Gun
-    fireRate: .5
+    fireRate: .25
     projectileSpeed: 200
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
