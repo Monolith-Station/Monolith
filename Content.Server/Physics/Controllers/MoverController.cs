@@ -480,7 +480,7 @@ public sealed class MoverController : SharedMoverController
                 // if we're going faster than we can be, thrust to adjust our velocity to the max wish-direction velocity
                 if (localVel.LengthSquared() > maxVelocity.LengthSquared())
                 {
-                    var velDelta = maxWishVelocity - maxVelocity;
+                    var velDelta = maxWishVelocity - localVel;
                     var maxForceLength = velDelta.Length() * body.Mass / frameTime;
                     var appliedLength = MathF.Min(totalForce.Length(), maxForceLength);
                     totalForce = velDelta.Length() == 0 ? Vector2.Zero : velDelta.Normalized() * appliedLength;
