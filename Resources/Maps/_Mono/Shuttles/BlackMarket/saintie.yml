@@ -4,9 +4,9 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/07/2025 08:36:52
-  entityCount: 1744
 maps: []
+  time: 12/07/2025 08:50:37
+  entityCount: 1745
 grids:
 - 1
 orphans:
@@ -2780,7 +2780,7 @@ entities:
     - type: Transform
       anchored: False
       pos: 7,-24
-      parent: 12
+      parent: 1
   - uid: 1575
     components:
     - type: Transform
@@ -2812,7 +2812,7 @@ entities:
     - type: Transform
       anchored: False
       pos: 3,-25
-      parent: 12
+      parent: 1
   - uid: 1581
     components:
     - type: Transform
@@ -2840,7 +2840,7 @@ entities:
     - type: Transform
       anchored: False
       pos: -1,-25
-      parent: 12
+      parent: 1
   - uid: 1586
     components:
     - type: Transform
@@ -2872,7 +2872,7 @@ entities:
     - type: Transform
       anchored: False
       pos: -5,-24
-      parent: 12
+      parent: 1
   - uid: 1592
     components:
     - type: Transform
@@ -5005,6 +5005,11 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-21.5
+      parent: 1
+  - uid: 1736
+    components:
+    - type: Transform
+      pos: 5.5,-16.5
       parent: 1
 - proto: CableMV
   entities:
