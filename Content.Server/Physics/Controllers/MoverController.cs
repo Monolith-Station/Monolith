@@ -296,6 +296,9 @@ public sealed class MoverController : SharedMoverController
     /// </summary>
     public Vector2 ObtainMaxVel(Vector2 vel, ShuttleComponent shuttle, PhysicsComponent body) // mono
     {
+        if (vel.Length() == 0f)
+            return Vector2.Zero;
+
         var thrust = GetDirectionThrust(vel, shuttle, body);
         var twr = thrust.Length() / body.Mass;
         var twrMult = MathF.Pow(twr / shuttle.BaseMaxVelocityTWR, shuttle.MaxVelocityScalingExponent);
