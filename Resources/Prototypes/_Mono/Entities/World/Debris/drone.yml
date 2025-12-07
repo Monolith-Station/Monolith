@@ -1,0 +1,19 @@
+- type: entity
+  id: MonoRamDroneSpawner
+  parent: MarkerBase
+  components:
+  - type: GridSpawn
+    groups:
+      drone: !type:GridSpawnGroup
+        addComponents:
+          - type: IFF
+            flags: AlwaysShowColor
+            color: "#9a2020"
+        paths:
+          - /Maps/_Mono/Shuttles/World/drone.yml
+        hide: false
+        nameGrid: true
+        minCount: 1
+        maxCount: 1
+        stationGrid: false
+        nameDataset: NamesCorrupt

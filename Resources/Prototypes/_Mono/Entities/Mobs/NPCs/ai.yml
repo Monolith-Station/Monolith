@@ -2,6 +2,7 @@
   id: NpcStationAiRammer
   name: rammer core
   description: You feel like the fact you're looking at this means this isn't safe.
+  suffix: AI
   parent: BaseStructure
   components:
   - type: Destructible
@@ -45,3 +46,21 @@
     noNearbyPlayerSleepAllowed: false
     rootTask:
       task: ApproachShuttleCompound
+
+- type: entity
+  name: rammer core spawner
+  id: SpawnMobRammerCore
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Mobs/Silicon/station_ai.rsi
+      state: base
+    - sprite: Mobs/Silicon/station_ai.rsi
+      state: ai
+      shader: unshaded
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - NpcStationAiRammer
