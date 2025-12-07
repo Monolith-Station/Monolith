@@ -20,22 +20,22 @@
       - !type:HTNCompoundTask
         task: ShuttleGoToTargetCompound
 
-- type: utilityCurvePreset
-  id: InvCurve
-  curve: !type:QuadraticCurve
-    slope: 1
-    exponent: -1
-    yOffset: 0
-    xOffset: -1
-
 - type: utilityQuery
   id: NearbyShuttleTargets
   query:
     - !type:NearbyHostileShuttlesQuery
+      blacklist:
+        tags:
+        - ShuttleAIIgnore
+        components:
+        - ForceAnchor
   considerations:
-    - !type:TargetDistanceCon
-      curve: !type:PresetCurve
-        preset: InvCurve
+    - !type:TargetInverseDistanceCon
+      curve: !type:QuadraticCurve
+        slope: 1
+        exponent: 1
+        yOffset: 0
+        xOffset: 0
 
 - type: htnCompound
   id: ShuttleRamTargetCompound

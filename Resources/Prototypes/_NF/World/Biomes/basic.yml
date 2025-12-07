@@ -362,3 +362,7 @@
     - id: NFWreckDebrisBrassExtraLarge
       prob: 0.1
       orGroup: wreck
+    # Mono - very rare rammer drones even in far ring
+    - id: MonoRamDroneSpawner
+      prob: 0.05
+      orGroup: wreck

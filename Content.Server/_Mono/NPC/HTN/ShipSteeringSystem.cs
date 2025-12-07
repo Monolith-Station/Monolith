@@ -65,6 +65,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         args.GotInput = true;
 
         var target = ent.Comp.Coordinates;
+        var targetUid = target.EntityId; // if we have a target try to lead it
         var mapTarget = _transform.ToMapCoordinates(target);
 
         var shipPos = _transform.GetMapCoordinates(shipXform);
@@ -74,10 +75,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             return;
 
         var toTargetVec = mapTarget.Position - shipPos.Position;
-        var toTargetAngle = toTargetVec.ToWorldAngle();
         var distance = toTargetVec.Length();
-        // there's 500 different standards on how to count angles so needs the +PI
-        var wishRotateBy = new Angle(ent.Comp.TargetRotation) + ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), toTargetAngle);
 
         var needBrake = ent.Comp.InRangeMaxSpeed != null;
         var maxArrivedVel = ent.Comp.InRangeMaxSpeed ?? 0.1f;
@@ -105,18 +103,12 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         ent.Comp.Status = ShipSteeringStatus.Moving;
 
-        var angAccel = _mover.GetAngularAcceleration(shuttle, shipBody);
-        var brakeAngleDelta = angAccel == 0f ? 0f : (angVel * angVel) / (2f * angAccel);
-        brakeAngleDelta *= Math.Sign(angVel);
-        var rotateDelta = ShortestAngleDistance(new Angle(brakeAngleDelta), wishRotateBy);
-        var rotationInput = -(float)rotateDelta.Theta;
-        rotationInput = MathF.Abs(rotationInput) < 0.01f ? 0f : MathF.Sign(rotationInput);
-
         var strafeInput = Vector2.Zero;
 
         // now calculate our braking path
         var brakeInput = 0f;
-        var brakeThrust = _mover.GetDirectionThrust((-shipNorthAngle).RotateVec(-linVel), shuttle, shipBody) * ShuttleComponent.BrakeCoefficient;
+        var brakeVec = GetGoodThrustVector((-shipNorthAngle).RotateVec(-linVel), shuttle);
+        var brakeThrust = _mover.GetDirectionThrust(brakeVec, shuttle, shipBody) * ShuttleComponent.BrakeCoefficient;
         var brakeAccel = brakeThrust * shipBody.InvMass;
         var brakePath = linVel.Length() > 0 ? linVel.LengthSquared() / (2f * brakeAccel.Length()) : 0f;
 
@@ -126,16 +118,67 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         }
         else
         {
-            var linVelDir = linVel.Length() == 0 ? Vector2.Zero : linVel.Normalized();
+            var linVelDir = Vector2.Zero;
+            // lead target if we don't want to brake
+            if (!needBrake && TryComp<PhysicsComponent>(targetUid, out var targetBody))
+            {
+                var deltaVel = linVel - targetBody.LinearVelocity;
+                linVelDir = deltaVel.Length() == 0 ? Vector2.Zero : deltaVel.Normalized();
+            }
+            else if (linVel.Length() != 0)
+            {
+                linVelDir = linVel.Normalized();
+            }
             var toTargetDir = toTargetVec.Normalized();
             // mirror linVelDir in relation to toTargetDir
             // for that we orthogonalize it then invert it to get the perpendicular-vector
             var adjustDir = -(linVelDir - toTargetDir * Vector2.Dot(linVelDir, toTargetDir));
             var globalStrafeInput = toTargetDir + adjustDir * 2;
             strafeInput = (-shipNorthAngle).RotateVec(globalStrafeInput);
+            strafeInput = GetGoodThrustVector(strafeInput, shuttle);
         }
 
+        var targetAngle = toTargetVec.ToWorldAngle();
+        if (strafeInput.Length() > 0)
+            targetAngle = shipNorthAngle + strafeInput.ToWorldAngle();
+
+        var angAccel = _mover.GetAngularAcceleration(shuttle, shipBody);
+        var brakeAngleDelta = angAccel == 0f ? 0f : (angVel * angVel) / (2f * angAccel);
+        brakeAngleDelta *= Math.Sign(angVel);
+        // there's 500 different standards on how to count angles so needs the +PI
+        var wishRotateBy = new Angle(ent.Comp.TargetRotation) + ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), targetAngle);
+        var rotateDelta = ShortestAngleDistance(new Angle(brakeAngleDelta), wishRotateBy);
+        var rotationInput = -(float)rotateDelta.Theta;
+        rotationInput = MathF.Sign(rotationInput);
+        // don't overbrake if we're braking
+        if (angVel * rotationInput < 0)
+            rotationInput *= MathF.Min(1f, MathF.Abs(angVel) / (angAccel * args.FrameTime));
+
         args.Input = new ShuttleInput(strafeInput, rotationInput, brakeInput);
+    }
+
+    /// <summary>
+    /// Checks if thrust in any direction this vector wants to go to is blocked, and zeroes it out in that direction if necessary.
+    /// </summary>
+    public Vector2 GetGoodThrustVector(Vector2 wish, ShuttleComponent shuttle, float threshold = 0.125f)
+    {
+        var res = wish;
+
+        var horizIndex = wish.X > 0 ? 1 : 3; // east else west
+        var vertIndex = wish.Y > 0 ? 2 : 0; // north else south
+        var horizThrust = shuttle.LinearThrust[horizIndex];
+        var vertThrust = shuttle.LinearThrust[vertIndex];
+
+        var normWish = wish.Normalized();
+        var horizScale = MathF.Abs(horizThrust / normWish.X);
+        var vertScale = MathF.Abs(vertThrust / normWish.Y);
+
+        if (horizThrust < vertThrust * threshold && vertScale < horizScale * threshold)
+            res.X = 0f;
+        if (vertThrust < horizThrust * threshold && horizScale < vertScale * threshold)
+            res.Y = 0f;
+
+        return res.Normalized();
     }
 
     /// <summary>

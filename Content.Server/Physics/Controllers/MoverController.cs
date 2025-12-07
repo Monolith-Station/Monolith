@@ -313,7 +313,7 @@ public sealed class MoverController : SharedMoverController
 
             foreach (var pilot in piloted.InputSources)
             {
-                var inputsEv = new GetShuttleInputsEvent();
+                var inputsEv = new GetShuttleInputsEvent(frameTime);
                 RaiseLocalEvent(pilot, ref inputsEv);
 
                 if (!inputsEv.GotInput)

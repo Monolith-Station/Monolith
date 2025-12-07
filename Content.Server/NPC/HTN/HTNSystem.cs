@@ -178,9 +178,6 @@ public sealed class HTNSystem : EntitySystem
                 return;
             }
 
-            if (!IsNPCActive(uid))  // Frontier
-                continue;
-
             if (comp.PlanningJob != null)
             {
                 if (comp.PlanningJob.Exception != null)
@@ -272,19 +269,6 @@ public sealed class HTNSystem : EntitySystem
         // only reset our counter back to 0 if we finish iterating.
         // otherwise it lets us know where we left off.
         count = 0;
-    }
-
-    // Frontier: prevent unneded NPC activity
-    private bool IsNPCActive(EntityUid entity) // Frontier
-    {
-        var transform = Transform(entity);
-
-        if (!_mapQuery.TryGetComponent(transform.MapUid, out var worldComponent))
-            return true;
-
-        var chunk = _world.GetOrCreateChunk(WorldGen.WorldToChunkCoords(_transform.GetWorldPosition(transform)).Floored(), transform.MapUid.Value, worldComponent);
-
-        return _loadedQuery.TryGetComponent(chunk, out var loaded) && loaded.Loaders is not null;
     }
 
     private void AppendDebugText(HTNTask task, StringBuilder text, List<int> planBtr, List<int> btr, ref int level)

@@ -84,8 +84,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
 
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
-        if (!_entManager.TryGetComponent<TransformComponent>(owner, out var xform) ||
-            !_entManager.TryGetComponent<PhysicsComponent>(owner, out var body))
+        if (!_entManager.TryGetComponent<TransformComponent>(owner, out var xform))
             return (false, null);
 
         if (xform.Coordinates.TryDistance(_entManager, targetCoordinates, out var distance)
@@ -113,7 +112,6 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         var targetCoordinates = blackboard.GetValue<EntityCoordinates>(TargetKey);
         var uid = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
-        // Re-use the path we may have if applicable.
         var comp = _steering.Steer(uid, targetCoordinates);
 
         comp.Range = Range;

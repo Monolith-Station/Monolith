@@ -19,7 +19,7 @@
   clippedValue: 0
   remapTo0Through1: true
   inputMultiplier: 16 # Makes wreck concentration very low noise at scale.
-  outputMultiplier: 1 # rare
+  outputMultiplier: 0.3 # rare
 
 # region Far Ring
 - type: spaceBiome
@@ -148,5 +148,5 @@
       prob: 0.3
       orGroup: wreck
     - id: MonoRamDroneSpawner
-      prob: 10
+      prob: 3
       orGroup: wreck

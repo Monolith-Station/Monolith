@@ -10,8 +10,8 @@ namespace Content.Server._Mono.Spawning;
 [RegisterComponent]
 public sealed partial class GridSpawnerComponent : Component
 {
-    [DataField]
-    public ResPath Path = "/Maps/_Mono/Shuttles/World/drone.yml";
+    [DataField(required: true)]
+    public ResPath Path;
 
     [DataField]
     public ProtoId<LocalizedDatasetPrototype>? NameDataset = null;

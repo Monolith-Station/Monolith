@@ -2,6 +2,7 @@
   parent: RogueSiliconGiftBox
   id: ClothingBackpackDroneLoot
   name: blackbox data recorder
+  description: Data recorder from a derelict drone. Contains valuable components.
   suffix: Drone Loot
   components:
   - type: RadarBlip
@@ -11,6 +12,10 @@
     shape: square
   - type: SpawnItemsOnUse
     items:
+    # Money
+    - id: SpaceCash10000
+      amount: 3
+      prob: 1.0
     # Scrap chunks
     - id: ScrapOre100
       amount: 4

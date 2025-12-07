@@ -177,12 +177,17 @@ namespace Content.Server.NPC.Systems
                 if (_mobState.IsIncapacitated(npcUid))
                     continue;
 
+                var isAwake = IsAwake(npcUid, htn);
+
                 // Mono
                 if (!htn.NoNearbyPlayerSleepAllowed)
+                {
+                    if (!isAwake)
+                        WakeNPC(npcUid, htn);
                     continue;
+                }
 
                 var npcCoords = npcTransform.Coordinates;
-                var isAwake = IsAwake(npcUid, htn);
                 var hasNearbyPlayer = false;
 
                 // Check distance to all players.
