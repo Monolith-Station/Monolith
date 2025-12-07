@@ -284,7 +284,8 @@ public sealed class MoverController : SharedMoverController
 
         var horizScale = MathF.Abs(horizThrust / dir.X);
         var vertScale = MathF.Abs(vertThrust / dir.Y);
-        dir *= MathF.Min(horizScale, vertScale);
+        // prevent NaNs
+        dir *= dir.X == 0 ? vertScale : dir.Y == 0 ? horizScale : MathF.Min(horizScale, vertScale);
 
         return dir;
     }
