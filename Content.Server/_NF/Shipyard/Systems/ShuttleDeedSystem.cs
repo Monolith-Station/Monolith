@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin
-// SPDX-FileCopyrightText: 2025 Dvir
-// SPDX-FileCopyrightText: 2025 sleepyyapril
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._NF.Shipyard.Components;
 using Content.Shared.Examine;
 using Content.Server._NF.Shipyard.Systems;

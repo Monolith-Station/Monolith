@@ -1,19 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Hamblinius
-# SPDX-FileCopyrightText: 2024 Maxtone
-# SPDX-FileCopyrightText: 2024 steinhauer.erhard
-# SPDX-FileCopyrightText: 2025 Bonaout
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 UnicornOnLSD
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadoutGroup
   id: MercenaryJumpsuit
   name: loadout-group-contractor-jumpsuit
@@ -31,6 +15,7 @@
   - MercenaryClothingUniformJumpsitDrakeIndustriesWatchdog
   subgroups:
   - MonoMercenaryJumpsuit # Mono
+  - MonoUSSPJumpsuit # Mono
   - PilotJumpsuit
   - ContractorJumpsuit
   fallbacks:
@@ -50,6 +35,7 @@
   - SecurityDuffel
   subgroups:
   - MonoMercenaryBackpack # Mono
+  - MonoUSSPBackpack # Mono
   - PilotBackpack
   - ContractorBackpack
   fallbacks:
@@ -69,6 +55,7 @@
   - MercenaryClothingOuterArmorCaptainCarapace
   subgroups:
   - MonoMercenaryOuterClothing # Mono
+  - MonoUSSPOuterClothing # Mono
   - PilotOuterClothing
   - ContractorOuterClothing
 
@@ -100,6 +87,7 @@
   - SecurityHelmet
   - SecurityBeret
   subgroups:
+  - MonoUSSPHead # Mono
   - PilotHead
   - ContractorHead
   - MonoMercenaryHead

@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 CrescentMothershipComputer: null # missing from map
 ShipyardLiquidatorInfo: null # missing from map
 ShipyardCeresInfo: null
@@ -44,3 +36,6 @@ SuitStorageNfsdCommand: SuitStorageM86
 # T2 hardsuits
 ClothingOuterHardsuitNfsdCombat: ClothingOuterHardsuitM86
 ClothingOuterHardsuitNfsdCommand: ClothingOuterHardsuitM86
+
+# rogue->PDV AI core
+PlayerStationAiRogue: PlayerStationAiPDV

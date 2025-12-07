@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Onezero0
-// SPDX-FileCopyrightText: 2025 significant harassment
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;

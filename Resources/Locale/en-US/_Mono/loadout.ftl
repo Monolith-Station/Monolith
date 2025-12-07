@@ -4,3 +4,7 @@ loadout-group-pistol = sidearm
 loadout-group-magazine = ammunition
 loadout-group-special-gun = special gun
 loadout-group-contractor-balaclava = balaclava
+loadout-group-ussp-jumpsuit = USSP Jumpsuit
+loadout-group-ussp-head = USSP Headgear
+loadout-group-ussp-outerclothing = USSP Outerclothing
+loadout-group-ussp-backpack = USSP Backpack
