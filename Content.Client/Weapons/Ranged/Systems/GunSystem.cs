@@ -469,10 +469,11 @@ public sealed partial class GunSystem : SharedGunSystem
         Vector2 gunVelocity,
         EntityUid gunUid,
         EntityUid? user = null,
-        float speed = 20f)
+        float speed = 20f,
+        float offset = 0f) // Mono
     {
         EnsureComp<PredictedProjectileClientComponent>(uid);
         _physics.UpdateIsPredicted(uid);
-        base.ShootProjectile(uid, direction, gunVelocity, gunUid, user, speed);
+        base.ShootProjectile(uid, direction, gunVelocity, gunUid, user, speed, offset);
     }
 }
