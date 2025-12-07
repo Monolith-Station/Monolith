@@ -4,10 +4,9 @@
   entityIcon: UllmanWeaponPulsePistol
   discipline: Arsenal
   tier: 2
-  cost: 45000
+  cost: 50000
   recipeUnlocks:
   - UllmanWeaponPulsePistol
-  - UllmanWeaponPulseRifle
   technologyPrerequisites:
   - AdvancedParts
   - WeaponizedLaserManipulation
@@ -19,9 +18,10 @@
   entityIcon: UllmanWeaponPulseSniper
   discipline: Arsenal
   tier: 3
-  cost: 125000
+  cost: 350000
   recipeUnlocks:
   - UllmanWeaponPulseSniper
+  - UllmanWeaponPulseRifle
   - UllmanMeleePlasmaBlade
   - UllmanWeaponSmartMagnum
   - MagazineSmartMagnum
@@ -37,7 +37,7 @@
   entityIcon: ClothingOuterHardsuitUIPilot
   discipline: Arsenal
   tier: 2
-  cost: 20000
+  cost: 25000
   recipeUnlocks:
   - UllmanHardsuitPilot
   - UllmanHardsuitEngineer
@@ -52,7 +52,7 @@
   entityIcon: ClothingOuterHardsuitUIEnforcer
   discipline: Arsenal
   tier: 3
-  cost: 80000
+  cost: 260000
   recipeUnlocks:
   - UllmanHardsuitEnforcer
   - UllmanHardsuitEnforcerMKII
