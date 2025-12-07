@@ -73,6 +73,10 @@
   - type: LightningTarget
     priority: 1
   - type: ThermalSignature # at least most have a thermal signature when firing
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
 
 - type: entity
   id: BallisticArtilleryUnanchorable
@@ -248,6 +252,9 @@
     scale: 1
   - type: Gun
     fireRate: 3
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
     soundEmpty:

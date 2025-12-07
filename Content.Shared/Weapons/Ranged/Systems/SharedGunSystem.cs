@@ -81,6 +81,8 @@ public abstract partial class SharedGunSystem : EntitySystem
     protected const string FireRateExamineColor = "yellow";
     public const string ModeExamineColor = "cyan";
 
+    private float _lastFrameTime = 0.05f;
+
     public override void Initialize()
     {
         SubscribeAllEvent<RequestShootEvent>(OnShootRequest);
@@ -318,9 +320,20 @@ public abstract partial class SharedGunSystem : EntitySystem
         gun.ShotCounter = 0;
     }
 
+    /// <summary>
+    /// Mono - attempts to shoot at the target coordinates for specified duration, or refreshes duration if already shooting.
+    /// </summary>
+    public void AttemptShots(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates toCoordinates, TimeSpan duration)
+    {
+        gun.ShootCoordinates = toCoordinates;
+        var autoShoot = EnsureComp<AutoShootGunComponent>(gunUid);
+        if (autoShoot.RemainingTime < duration)
+            autoShoot.RemainingTime = duration;
+    }
+
     private void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun)
     {
-        if (TryComp<AutoShootGunComponent>(gunUid, out var auto) && !auto.CanFire) // Frontier
+        if (TryComp<AutoShootGunComponent>(gunUid, out var auto) && !auto.CanFire && auto.RemainingTime <= TimeSpan.FromSeconds(0)) // Frontier // Mono
             return; // Frontier
 
         if (gun.FireRateModified <= 0f ||
@@ -363,17 +376,13 @@ public abstract partial class SharedGunSystem : EntitySystem
         // First shot
         // Previously we checked shotcounter but in some cases all the bullets got dumped at once
         // curTime - fireRate is insufficient because if you time it just right you can get a 3rd shot out slightly quicker.
-        if (gun.NextFire < curTime - fireRate || gun.ShotCounter == 0 && gun.NextFire < curTime)
+        if (gun.NextFire < curTime - TimeSpan.FromSeconds(0.2)) // Mono - hack to let guns properly fire faster than tickrate because shotCounter is weird
             gun.NextFire = curTime;
 
-        var shots = 0;
         var lastFire = gun.NextFire;
-
-        while (gun.NextFire <= curTime)
-        {
-            gun.NextFire += fireRate;
-            shots++;
-        }
+        var catchupTime = curTime - gun.NextFire;
+        var shots = (int) Math.Max(Math.Floor(catchupTime.TotalSeconds / fireRate.TotalSeconds), 1);
+        gun.NextFire += fireRate * shots;
 
         // NextFire has been touched regardless so need to dirty the gun.
         EntityManager.DirtyField(gunUid, gun, nameof(GunComponent.NextFire));
@@ -395,7 +404,8 @@ public abstract partial class SharedGunSystem : EntitySystem
                 default:
                     throw new ArgumentOutOfRangeException($"No implemented shooting behavior for {gun.SelectedMode}!");
             }
-        } else
+        }
+        else
         {
             shots = Math.Min(shots, gun.ShotsPerBurstModified - gun.ShotCounter);
         }
@@ -519,7 +529,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         EntityUid? user = null,
         bool throwItems = false);
 
-    public virtual void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid gunUid, EntityUid? user = null, float speed = 20f)
+    public virtual void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid gunUid, EntityUid? user = null, float speed = 20f,
+                                        float offset = 0f) // Mono - add offset
     {
         var physics = EnsureComp<PhysicsComponent>(uid);
         Physics.SetBodyStatus(uid, physics, BodyStatus.InAir);
@@ -528,6 +539,14 @@ public abstract partial class SharedGunSystem : EntitySystem
         var currentMapVelocity = Physics.GetMapLinearVelocity(uid, physics);
         var finalLinear = physics.LinearVelocity + targetMapVelocity - currentMapVelocity * 2; // Mono, multiples currentMapVelocity by 2
         Physics.SetLinearVelocity(uid, finalLinear, body: physics);
+        // Mono
+        if (offset != 0f)
+        {
+            var bulletXform = Transform(uid);
+            var offsetVec = finalLinear * offset * _lastFrameTime;
+            offsetVec = (-TransformSystem.GetWorldRotation(bulletXform.ParentUid)).RotateVec(offsetVec);
+            TransformSystem.SetCoordinates(uid, bulletXform.Coordinates.Offset(offsetVec));
+        }
         // hullrot edit , do not let these slow down >:( SPCR 2025
         Physics.SetAngularDamping(uid, physics, 0);
         Physics.SetLinearDamping(uid, physics, 0);
@@ -539,6 +558,12 @@ public abstract partial class SharedGunSystem : EntitySystem
         projectile.Weapon = gunUid;
 
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
+    }
+
+    // Mono - used for multiple-per-frame projectile offset
+    public override void Update(float frameTime)
+    {
+        _lastFrameTime = frameTime;
     }
 
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);

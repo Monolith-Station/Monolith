@@ -14687,3 +14687,43 @@ Entries:
   id: 1629
   time: '2025-12-07T14:34:45.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2754
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Ullman tech cost a lot more research points now. Time to make money,
+        research enjoyers.
+    - type: Tweak
+      message: Moved pulse rifle to advanced ullman tech
+  id: 1630
+  time: '2025-12-07T14:52:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2758
+- author: Avalon-Proto
+  changes:
+    - type: Add
+      message: >-
+        The Pillbox by The Pantheon Collective is now in production, a
+        pharmacy/Bar Shuttle!
+    - type: Remove
+      message: >-
+        The Dram, by Steel Hammer Manufacturing, has fallen out of production
+        due to issues.
+  id: 1631
+  time: '2025-12-07T14:57:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2665
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        High-firerate shipguns (and people guns) can now fire at their full
+        firerate.
+  id: 1632
+  time: '2025-12-07T15:01:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2712
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added (for now) admin-spawn ship AI.
+  id: 1633
+  time: '2025-12-07T15:30:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2757
