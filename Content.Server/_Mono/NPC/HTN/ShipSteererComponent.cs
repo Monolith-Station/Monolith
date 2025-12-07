@@ -59,6 +59,13 @@ public sealed partial class ShipSteererComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)] public float TargetRotation = 0f;
 
+    /// <summary>
+    /// Whether to require us to be anchored.
+    /// Here because HTN does not allow us to continuously check a condition by itself.
+    /// Ignored if we're not anchorable.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)] public bool RequireAnchored = true;
+
     [ViewVariables] public ShipSteeringStatus Status = ShipSteeringStatus.Moving;
 }
 

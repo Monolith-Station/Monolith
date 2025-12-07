@@ -4,6 +4,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.Physics.Controllers;
 using Content.Server.Shuttles.Components;
 using Content.Shared.CCVar;
+using Content.Shared.Construction.Components;
 using Content.Shared.NPC;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
@@ -56,9 +57,10 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     {
         var pilotXform = Transform(ent);
 
-        var shipUid = pilotXform.ParentUid;
-        var shipXform = Transform(shipUid);
+        var shipUid = pilotXform.GridUid;
         if (ent.Comp.Status == ShipSteeringStatus.InRange
+            || shipUid == null
+            || !pilotXform.Anchored && ent.Comp.RequireAnchored && HasComp<AnchorableComponent>(ent)
             || !TryComp<ShuttleComponent>(shipUid, out var shuttle)
             || !TryComp<PhysicsComponent>(shipUid, out var shipBody))
         {
@@ -66,6 +68,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             return;
         }
 
+        var shipXform = Transform(shipUid.Value);
         args.GotInput = true;
 
         var target = ent.Comp.Coordinates;
@@ -73,7 +76,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var mapTarget = _transform.ToMapCoordinates(target);
 
         var shipPos = _transform.GetMapCoordinates(shipXform);
-        var shipNorthAngle = _transform.GetWorldRotation(shipUid);
+        var shipNorthAngle = _transform.GetWorldRotation(shipUid.Value);
 
         if (mapTarget.MapId != shipPos.MapId)
             return;
@@ -203,14 +206,17 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     }
 
     /// <summary>
-    /// Adds the AI to the steering system to move towards a specific target
+    /// Adds the AI to the steering system to move towards a specific target.
+    /// Returns null on failure.
     /// </summary>
-    public ShipSteererComponent Steer(EntityUid uid, EntityCoordinates coordinates, ShipSteererComponent? component = null)
+    public ShipSteererComponent? Steer(EntityUid uid, EntityCoordinates coordinates, ShipSteererComponent? component = null)
     {
         var xform = Transform(uid);
-        var shipUid = xform.ParentUid;
+        var shipUid = xform.GridUid;
         if (TryComp<ShuttleComponent>(shipUid, out var shuttle))
-            _mover.AddPilot(shipUid, uid);
+            _mover.AddPilot(shipUid.Value, uid);
+        else
+            return null;
 
         if (!Resolve(uid, ref component, false))
             component = AddComp<ShipSteererComponent>(uid);

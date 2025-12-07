@@ -84,6 +84,14 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     [DataField]
     public bool LeadingEnabled = true;
 
+    /// <summary>
+    /// Whether to require us to be anchored.
+    /// Here because HTN does not allow us to continuously check a condition by itself.
+    /// Ignored if we're not anchorable.
+    /// </summary>
+    [DataField]
+    public bool RequireAnchored = true;
+
     private const string MovementCancelToken = "ShipMovementCancelToken";
 
     public override void Initialize(IEntitySystemManager sysManager)
@@ -133,6 +141,9 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
 
         var comp = _steering.Steer(uid, targetCoordinates);
 
+        if (comp == null)
+            return;
+
         comp.Range = Range;
         comp.RangeTolerance = RangeTolerance;
         comp.InRangeMaxSpeed = BrakeMaxVelocity;
@@ -140,6 +151,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         comp.AvoidCollisions = AvoidCollisions;
         comp.TargetRotation = TargetRotation;
         comp.LeadingEnabled = LeadingEnabled;
+        comp.RequireAnchored = RequireAnchored;
     }
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
@@ -147,6 +159,11 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
         if (!_entManager.TryGetComponent<ShipSteererComponent>(owner, out var steerer))
+            return HTNOperatorStatus.Failed;
+
+        // ensure we're still steering if we e.g. move grids
+        var comp = _steering.Steer(owner, steerer.Coordinates);
+        if (comp == null)
             return HTNOperatorStatus.Failed;
 
         // Just keep moving in the background and let the other tasks handle it.
