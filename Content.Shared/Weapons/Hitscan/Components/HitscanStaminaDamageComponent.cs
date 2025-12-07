@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 beck-thompson
-//
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Weapons.Hitscan.Components;

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 tonotom1
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects;

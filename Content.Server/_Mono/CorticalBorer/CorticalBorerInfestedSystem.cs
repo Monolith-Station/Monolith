@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Cojoke
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._Mono.CorticalBorer;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Body.Part;

@@ -11,3 +11,27 @@
   completetime: 2
   materials:
     Plastic: 100
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: OreBoxFlatpack
+  result: OreBoxFlatpack
+  categories:
+  - Tools
+  completetime: 5
+  materials:
+    Steel: 600
+    Glass: 50
+    Plastic: 200
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: MaterialBoxFlatpack
+  result: MaterialBoxFlatpack
+  categories:
+  - Tools
+  completetime: 5
+  materials:
+    Steel: 600
+    Glass: 50
+    Plastic: 200

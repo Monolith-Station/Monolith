@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Arcticular
-// SPDX-FileCopyrightText: 2025 Arcticular1
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Blu
-// SPDX-FileCopyrightText: 2025 HacksLua
-// SPDX-FileCopyrightText: 2025 LukeZurg22
-// SPDX-FileCopyrightText: 2025 Onezero0
-// SPDX-FileCopyrightText: 2025 significant harassment
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._Mono.Company;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;

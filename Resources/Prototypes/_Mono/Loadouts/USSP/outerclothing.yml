@@ -1,12 +1,14 @@
 - type: loadout
-  id: USSPClothingL10A
-  equipment:
-   outerClothing: ClothingOuterHardsuitUsspL10A
-
-- type: loadout
   id: USSPClothingL10
+  price: 10000
   equipment:
    outerClothing: ClothingOuterHardsuitUsspL10
+
+- type: loadout
+  id: USSPClothingL10A
+  price: 15000
+  equipment:
+   outerClothing: ClothingOuterHardsuitUsspL10A
 
 - type: loadout
   id: USSPClothingCoat
