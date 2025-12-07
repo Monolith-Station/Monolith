@@ -11,7 +11,7 @@ namespace Content.Server._Mono.Spawning;
 public sealed partial class GridSpawnerComponent : Component
 {
     [DataField(required: true)]
-    public ResPath Path = default!;
+    public ResPath Path = new("");
 
     [DataField]
     public ProtoId<LocalizedDatasetPrototype>? NameDataset = null;
