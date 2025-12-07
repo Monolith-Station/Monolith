@@ -120,7 +120,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         {
             var linVelDir = Vector2.Zero;
             // lead target if we don't want to brake
-            if (!needBrake && TryComp<PhysicsComponent>(targetUid, out var targetBody))
+            if (!needBrake && ent.Comp.LeadingEnabled && TryComp<PhysicsComponent>(targetUid, out var targetBody))
             {
                 var deltaVel = linVel - targetBody.LinearVelocity;
                 linVelDir = deltaVel.Length() == 0 ? Vector2.Zero : deltaVel.Normalized();
@@ -139,7 +139,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         }
 
         var targetAngle = toTargetVec.ToWorldAngle();
-        if (strafeInput.Length() > 0)
+        if (strafeInput.Length() > 0 && ent.Comp.LeadingEnabled)
             targetAngle = shipNorthAngle + strafeInput.ToWorldAngle();
 
         var angAccel = _mover.GetAngularAcceleration(shuttle, shipBody);
@@ -160,7 +160,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     /// <summary>
     /// Checks if thrust in any direction this vector wants to go to is blocked, and zeroes it out in that direction if necessary.
     /// </summary>
-    public Vector2 GetGoodThrustVector(Vector2 wish, ShuttleComponent shuttle, float threshold = 0.125f)
+    public Vector2 GetGoodThrustVector(Vector2 wish, ShuttleComponent shuttle, float threshold = 0.125f, float lenThreshold = 2f)
     {
         var res = wish;
 
@@ -170,12 +170,12 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var vertThrust = shuttle.LinearThrust[vertIndex];
 
         var normWish = wish.Normalized();
-        var horizScale = MathF.Abs(horizThrust / normWish.X);
-        var vertScale = MathF.Abs(vertThrust / normWish.Y);
+        var wishX = MathF.Abs(normWish.X);
+        var wishY = MathF.Abs(normWish.Y);
 
-        if (horizThrust < vertThrust * threshold && vertScale < horizScale * threshold)
+        if (horizThrust * wishX < vertThrust * threshold * wishY)
             res.X = 0f;
-        if (vertThrust < horizThrust * threshold && horizScale < vertScale * threshold)
+        if (vertThrust * wishY < horizThrust * threshold * wishX)
             res.Y = 0f;
 
         return res.Normalized();

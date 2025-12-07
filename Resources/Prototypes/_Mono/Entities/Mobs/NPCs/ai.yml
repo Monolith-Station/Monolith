@@ -47,6 +47,15 @@
       task: ApproachShuttleCompound
 
 - type: entity
+  id: NpcStationAiApproacher
+  parent: NpcStationAiRammer
+  suffix: AI, Smart
+  components:
+  - type: HTN
+    rootTask:
+      task: RamShuttleSmartCompound
+
+- type: entity
   name: rammer core spawner
   id: SpawnMobRammerCore
   parent: MarkerBase

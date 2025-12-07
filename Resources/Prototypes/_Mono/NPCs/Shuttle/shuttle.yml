@@ -9,6 +9,17 @@
       - !type:HTNCompoundTask
         task: ShuttleRamTargetCompound
 
+# same, but with leading
+- type: htnCompound
+  id: RamShuttleSmartCompound
+  branches:
+    - tasks:
+      - !type:HTNPrimitiveTask
+        operator: !type:UtilityOperator
+          proto: NearbyShuttleTargets
+      - !type:HTNCompoundTask
+        task: ShuttleRamTargetSmartCompound
+
 # approaches closest shuttle with parent ship
 - type: htnCompound
   id: ApproachShuttleCompound
@@ -39,6 +50,21 @@
 
 - type: htnCompound
   id: ShuttleRamTargetCompound
+  branches:
+    - preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ShipMoveToOperator
+            shutdownState: TaskFinished
+            removeKeyOnFinish: false
+            brakeMaxVelocity: null # there's no braking where we're going
+            leadingEnabled: false # else it's too good
+            targetKey: TargetCoordinates
+
+- type: htnCompound
+  id: ShuttleRamTargetSmartCompound
   branches:
     - preconditions:
       - !type:KeyExistsPrecondition

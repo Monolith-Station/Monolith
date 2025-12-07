@@ -65,6 +65,13 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     [DataField]
     public float TargetRotation = 0f;
 
+    /// <summary>
+    /// Whether to lead the target.
+    /// Leads to much higher hit rates for moving targets.
+    /// </summary>
+    [DataField]
+    public bool LeadingEnabled = true;
+
     private const string MovementCancelToken = "ShipMovementCancelToken";
 
     public override void Initialize(IEntitySystemManager sysManager)
@@ -118,6 +125,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         comp.InRangeMaxSpeed = BrakeMaxVelocity;
         comp.AvoidCollisions = AvoidCollisions;
         comp.TargetRotation = TargetRotation;
+        comp.LeadingEnabled = LeadingEnabled;
     }
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)

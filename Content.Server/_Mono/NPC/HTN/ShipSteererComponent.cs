@@ -40,6 +40,11 @@ public sealed partial class ShipSteererComponent : Component
     [ViewVariables(VVAccess.ReadWrite)] public bool AvoidCollisions = true;
 
     /// <summary>
+    /// Whether to lead the target if we're told to not brake.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)] public bool LeadingEnabled = true;
+
+    /// <summary>
     /// Target rotation in relation to movement direction.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)] public float TargetRotation = 0f;
