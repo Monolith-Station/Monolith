@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: latheRecipe
   parent: BaseToolRecipe
   id: JawsOfLifeRogue
@@ -146,19 +140,6 @@
 
 - type: latheRecipe
   parent: BaseToolRecipe
-  id: OreBoxFlatpackTSF
-  result: OreBoxFlatpack
-  categories:
-  - Tools
-  - FactionEquipment
-  completetime: 5
-  materials:
-    Steel: 600
-    Glass: 50
-    Plastic: 200
-
-- type: latheRecipe
-  parent: BaseToolRecipe
   id: MotionDetectorTSF
   result: MotionDetector
   categories:
@@ -171,19 +152,6 @@
     Plastic: 200
     Gold: 50
     Silver: 50
-
-- type: latheRecipe
-  parent: BaseToolRecipe
-  id: MaterialBoxFlatpackTSF
-  result: MaterialBoxFlatpack
-  categories:
-  - Tools
-  - FactionEquipment
-  completetime: 5
-  materials:
-    Steel: 600
-    Glass: 50
-    Plastic: 200
 
 - type: latheRecipe
   parent: BaseToolRecipe

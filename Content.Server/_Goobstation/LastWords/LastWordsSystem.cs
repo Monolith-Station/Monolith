@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Server.Chat.Systems;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mind;

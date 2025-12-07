@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: MPL-2.0
-
 namespace Content.Shared._Mono.FireControl;
 
 /// <summary>

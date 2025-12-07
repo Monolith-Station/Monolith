@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 0x6273
-// SPDX-FileCopyrightText: 2023 20kdc
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2025 ScyronX
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Shared.Chat; // Einstein Engines - Languages
 using Content.Shared.Chat.Prototypes;

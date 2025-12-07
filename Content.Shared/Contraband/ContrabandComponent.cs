@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-// SPDX-FileCopyrightText: 2024 Kara
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2025 John
-// SPDX-FileCopyrightText: 2025 Redrover1760
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Roles;
 using Content.Shared.Store; // Frontier: turn-in features
 using Robust.Shared.GameStates;

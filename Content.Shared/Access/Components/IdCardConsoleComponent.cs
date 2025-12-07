@@ -1,23 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Kesiath
-// SPDX-FileCopyrightText: 2023 Mnemotechnican
-// SPDX-FileCopyrightText: 2023 Moony
-// SPDX-FileCopyrightText: 2023 Velcroboy
-// SPDX-FileCopyrightText: 2023 moonheart08
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-// SPDX-FileCopyrightText: 2024 Kara
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Salvantrix
-// SPDX-FileCopyrightText: 2024 c4llv07e
-// SPDX-FileCopyrightText: 2024 deltanedas
-// SPDX-FileCopyrightText: 2024 neuPanda
-// SPDX-FileCopyrightText: 2025 HungryCuban
-// SPDX-FileCopyrightText: 2025 Onezero0
-// SPDX-FileCopyrightText: 2025 Whatstone
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Access.Systems;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.GameStates;

@@ -1,32 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Paul Ritter
-// SPDX-FileCopyrightText: 2022 Emisse
-// SPDX-FileCopyrightText: 2022 Kara
-// SPDX-FileCopyrightText: 2022 Moony
-// SPDX-FileCopyrightText: 2022 ShadowCommander
-// SPDX-FileCopyrightText: 2022 keronshb
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 IntegerTempest
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 MisterMecky
-// SPDX-FileCopyrightText: 2023 Visne
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2024 Krunklehorn
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 PrPleGoo
-// SPDX-FileCopyrightText: 2024 SlamBamActionman
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 beck-thompson
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Milon
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-// SPDX-FileCopyrightText: 2025 Zachary Higgs
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._Goobstation.Flashbang;
 using Content.Shared._White.Overlays;
 using Content.Shared.Armor;

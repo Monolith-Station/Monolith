@@ -1,26 +1,3 @@
-// SPDX-FileCopyrightText: 2020 Exp
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-// SPDX-FileCopyrightText: 2020 scuffedjays
-// SPDX-FileCopyrightText: 2021 DrSmugleaf
-// SPDX-FileCopyrightText: 2021 Galactic Chimp
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 KIBORG04
-// SPDX-FileCopyrightText: 2022 Paul Ritter
-// SPDX-FileCopyrightText: 2022 ShadowCommander
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2023 Sailor
-// SPDX-FileCopyrightText: 2023 Visne
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2024 Kara
-// SPDX-FileCopyrightText: 2024 Winkarst
-// SPDX-FileCopyrightText: 2024 wafehling
-// SPDX-FileCopyrightText: 2025 Aiden
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using System.Linq;
 using System.Numerics;
 using Content.Client.Message;

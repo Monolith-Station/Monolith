@@ -1,30 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 TaralGit
-// SPDX-FileCopyrightText: 2023 Vordenburg
-// SPDX-FileCopyrightText: 2023 and_a
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2023 stopbreaking
-// SPDX-FileCopyrightText: 2024 AJCM-git
-// SPDX-FileCopyrightText: 2024 Brandon Hu
-// SPDX-FileCopyrightText: 2024 Doomsdrayk
-// SPDX-FileCopyrightText: 2024 DrSmugleaf
-// SPDX-FileCopyrightText: 2024 Errant
-// SPDX-FileCopyrightText: 2024 Froffy025
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 RiceMar1244
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 WarMechanic
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Aviu00
-// SPDX-FileCopyrightText: 2025 SlamBamActionman
-// SPDX-FileCopyrightText: 2025 Winkarst
-// SPDX-FileCopyrightText: 2025 deltanedas
-// SPDX-FileCopyrightText: 2025 keronshb
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Shared.Camera;
 using Content.Shared.Examine;

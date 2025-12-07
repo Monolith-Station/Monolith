@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 bitcrushing
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using System.Linq;
 using Content.Shared.Instruments;
 using Robust.Shared.Audio.Midi;

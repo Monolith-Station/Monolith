@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Jark255
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2023 ShadowCommander
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Kara
-// SPDX-FileCopyrightText: 2024 Scribbles0
-// SPDX-FileCopyrightText: 2024 TsjipTsjip
-// SPDX-FileCopyrightText: 2024 poeMota
-// SPDX-FileCopyrightText: 2025 Errant
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared.Examine;
 using Content.Shared.Interaction; // Goobstation

@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Steve
-// SPDX-FileCopyrightText: 2024 marc-pelletier
-// SPDX-FileCopyrightText: 2025 Aiden
-// SPDX-FileCopyrightText: 2025 tonotom
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Body.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Server.Body.Systems;

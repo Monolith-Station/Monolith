@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Checkraze
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 GreaseMonk
-// SPDX-FileCopyrightText: 2024 Salvantrix
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2025 Redrover1760
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server._NF.Contraband.Components;
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;

@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2024 Emisse
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 checkraze
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.IntegrationTests.Tests.Interaction;
 
 namespace Content.IntegrationTests.Tests.Construction.Interaction;

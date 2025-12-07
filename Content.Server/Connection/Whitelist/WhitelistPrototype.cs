@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Simon
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 Tayrtahn
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Threading.Tasks;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;

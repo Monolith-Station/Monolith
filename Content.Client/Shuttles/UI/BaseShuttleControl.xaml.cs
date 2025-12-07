@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-// SPDX-FileCopyrightText: 2024 Jake Huxell
-// SPDX-FileCopyrightText: 2024 eoineoineoin
-// SPDX-FileCopyrightText: 2024 exincore
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Shuttles.Components;

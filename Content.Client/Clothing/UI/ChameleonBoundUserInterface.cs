@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin
-// SPDX-FileCopyrightText: 2022 Moony
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2025 SlamBamActionman
-// SPDX-FileCopyrightText: 2025 metalgearsloth
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Client.Clothing.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Tag;

@@ -1,35 +1,3 @@
-// SPDX-FileCopyrightText: 2020 Bright0
-// SPDX-FileCopyrightText: 2021 Acruid
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 Flipp Syder
-// SPDX-FileCopyrightText: 2022 Rane
-// SPDX-FileCopyrightText: 2022 mirrorcult
-// SPDX-FileCopyrightText: 2023 Checkraze
-// SPDX-FileCopyrightText: 2023 Chief-Engineer
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 FoxxoTrystan
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Slava0135
-// SPDX-FileCopyrightText: 2023 Visne
-// SPDX-FileCopyrightText: 2023 adamsong
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 LordCarve
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 SkaldetSkaeg
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 beck-thompson
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 ScyronX
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server._NF.Radio; // Frontier
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;

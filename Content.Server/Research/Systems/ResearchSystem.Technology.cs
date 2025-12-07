@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Paul Ritter
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2025 gluesniffler
-// SPDX-FileCopyrightText: 2025 themias
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Database;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;

@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2024 Fildrance
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2025 ScarKy0
-// SPDX-FileCopyrightText: 2025 Whatstone
-// SPDX-FileCopyrightText: 2025 gluesniffler
-// SPDX-FileCopyrightText: 2025 starch
-// SPDX-FileCopyrightText: 2025 themias
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Power.EntitySystems;
 using Content.Server.Research.Components;
 using Content.Shared.UserInterface;

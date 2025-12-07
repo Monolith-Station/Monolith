@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2025 Aviu00
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Client.Weapons.Ranged.Systems;
 
 namespace Content.Client.Weapons.Ranged.Components;
