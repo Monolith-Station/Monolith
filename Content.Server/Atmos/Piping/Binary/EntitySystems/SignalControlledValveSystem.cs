@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2023 AJCM-git
-// SPDX-FileCopyrightText: 2023 Julian Giebel
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 slarticodefast
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Atmos.Piping.Binary.Components;
 using Content.Server.DeviceLinking.Systems;
 using Content.Shared.DeviceLinking.Events;

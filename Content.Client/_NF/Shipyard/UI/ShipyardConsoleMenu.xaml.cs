@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Cheackraze
-// SPDX-FileCopyrightText: 2023 Checkraze
-// SPDX-FileCopyrightText: 2024 GreaseMonk
-// SPDX-FileCopyrightText: 2024 Mnemotechnican
-// SPDX-FileCopyrightText: 2024 Salvantrix
-// SPDX-FileCopyrightText: 2024 exincore
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Dvir
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 Whatstone
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using System.Linq;
 using Content.Client.UserInterface.Controls;
 using Content.Client._NF.Shipyard.BUI;

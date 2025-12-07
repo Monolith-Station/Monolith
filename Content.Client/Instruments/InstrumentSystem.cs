@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2020 Vince
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-// SPDX-FileCopyrightText: 2020 zumorica
-// SPDX-FileCopyrightText: 2021 20kdc
-// SPDX-FileCopyrightText: 2021 Acruid
-// SPDX-FileCopyrightText: 2021 DrSmugleaf
-// SPDX-FileCopyrightText: 2021 metalgearsloth
-// SPDX-FileCopyrightText: 2022 Leon Friedrich
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 mirrorcult
-// SPDX-FileCopyrightText: 2023 Visne
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2025 bitcrushing
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using System.IO;
 using System.Linq;
 using Content.Shared.CCVar;

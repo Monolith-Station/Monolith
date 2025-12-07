@@ -1,24 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 checkraze
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 GreaseMonk
-// SPDX-FileCopyrightText: 2024 Jake Huxell
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 TemporalOroboros
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 Wiebe Geertsma
-// SPDX-FileCopyrightText: 2024 chromiumboy
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2024 nikthechampiongr
-// SPDX-FileCopyrightText: 2025 Blu
-// SPDX-FileCopyrightText: 2025 Dvir
-// SPDX-FileCopyrightText: 2025 J
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Components;

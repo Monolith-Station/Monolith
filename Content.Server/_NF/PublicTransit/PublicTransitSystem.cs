@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Checkraze
-// SPDX-FileCopyrightText: 2024 GreaseMonk
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Dvir
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 ScyronX
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Server._NF.PublicTransit.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;

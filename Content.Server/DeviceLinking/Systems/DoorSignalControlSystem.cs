@@ -1,20 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Jack Fox
-// SPDX-FileCopyrightText: 2022 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 AJCM-git
-// SPDX-FileCopyrightText: 2023 Julian Giebel
-// SPDX-FileCopyrightText: 2023 Kevin Zheng
-// SPDX-FileCopyrightText: 2023 Sailor
-// SPDX-FileCopyrightText: 2023 Tom Leys
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2024 Kot
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 deltanedas
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 slarticodefast
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.DeviceLinking.Components;
 using Content.Server.Doors.Systems;
 using Content.Shared.DeviceLinking;

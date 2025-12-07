@@ -1,20 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Mnemotechnican
-// SPDX-FileCopyrightText: 2024 AndresE55
-// SPDX-FileCopyrightText: 2024 Checkraze
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-// SPDX-FileCopyrightText: 2024 GreaseMonk
-// SPDX-FileCopyrightText: 2024 Shroomerian
-// SPDX-FileCopyrightText: 2025 EctoplasmIsGood
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 Whatstone
-// SPDX-FileCopyrightText: 2025 Your Name
-// SPDX-FileCopyrightText: 2025 dustylens
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Configuration;
 
 namespace Content.Shared._NF.CCVar;

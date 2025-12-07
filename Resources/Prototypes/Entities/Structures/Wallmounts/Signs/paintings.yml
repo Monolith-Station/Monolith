@@ -1,10 +1,36 @@
 - type: entity
   parent: BaseSign
   id: PaintingBase
-  abstract: true
+#  abstract: true #Mono out
+  categories: [ HideSpawnMenu ] #Mono in
   components:
   - type: WallMount
     arc: 360
+  - type: Destructible #Mono Start
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: WoodDestroy
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: emptyPainting
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/poster_broken.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ] 
+  - type: Construction
+    graph: RandomPainting
+    node: finishedPainting #Mono end
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/paintings.rsi
@@ -17,6 +43,20 @@
   components:
   - type: Sprite
     state: painting0
+  - type: Destructible #Mono Start
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: WoodDestroy
+  - type: Construction #Constructible art
+    graph: RandomPainting
+    node: emptyPainting #Mono end
 
 - type: entity
   parent: PaintingBase

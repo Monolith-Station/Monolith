@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 metalgearsloth
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Diagnostics.Contracts;
 using System.Numerics;
 using Content.Client.GameTicking.Managers;

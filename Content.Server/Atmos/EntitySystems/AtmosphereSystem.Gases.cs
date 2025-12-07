@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 mirrorcult
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2023 Kevin Zheng
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Visne
-// SPDX-FileCopyrightText: 2024 Jezithyr
-// SPDX-FileCopyrightText: 2024 drakewill-CRL
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba
-// SPDX-FileCopyrightText: 2025 ScyronX
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Content.Server.Atmos.Reactions;
