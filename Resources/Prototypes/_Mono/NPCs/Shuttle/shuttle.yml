@@ -8,6 +8,8 @@
           proto: NearbyShuttleTargets
       - !type:HTNCompoundTask
         task: ShuttleRamTargetCompound
+      - !type:HTNCompoundTask
+        task: ShuttleBackOffCompound
 
 # same, but with leading
 - type: htnCompound
@@ -19,6 +21,8 @@
           proto: NearbyShuttleTargets
       - !type:HTNCompoundTask
         task: ShuttleRamTargetSmartCompound
+      - !type:HTNCompoundTask
+        task: ShuttleBackOffCompound
 
 # approaches closest shuttle with parent ship
 - type: htnCompound
@@ -78,6 +82,24 @@
             targetKey: TargetCoordinates
 
 - type: htnCompound
+  id: ShuttleBackOffCompound
+  branches:
+    - preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ShipMoveToOperator
+            shutdownState: TaskFinished
+            removeKeyOnFinish: false
+            finishOnCollide: false # we might be already collided
+            brakeMaxVelocity: null # just immediately finish once out of range
+            # be within 200-300m
+            range: 300
+            rangeTolerance: 100
+            targetKey: TargetCoordinates
+
+- type: htnCompound
   id: ShuttleGoToTargetCompound
   branches:
     - preconditions:
@@ -88,6 +110,7 @@
           operator: !type:ShipMoveToOperator
             shutdownState: TaskFinished
             removeKeyOnFinish: false
-            brakeMaxVelocity: 0.1
+            brakeMaxVelocity: 5
             range: 250
+            rangeTolerance: 50
             targetKey: TargetCoordinates

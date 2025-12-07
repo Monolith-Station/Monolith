@@ -177,15 +177,7 @@ namespace Content.Server.NPC.Systems
                 if (_mobState.IsIncapacitated(npcUid))
                     continue;
 
-                var isAwake = IsAwake(npcUid, htn);
-
-                // Mono
-                if (!htn.NoNearbyPlayerSleepAllowed)
-                {
-                    if (!isAwake)
-                        WakeNPC(npcUid, htn);
-                    continue;
-                }
+                var minDistance = htn.SleepPlayerCheckRangeOverride ?? _playerPauseDistance; // Mono
 
                 var npcCoords = npcTransform.Coordinates;
                 var hasNearbyPlayer = false;
@@ -205,12 +197,14 @@ namespace Content.Server.NPC.Systems
                     var playerCoords = Transform(playerEnt).Coordinates;
 
                     if (npcCoords.TryDistance(EntityManager, playerCoords, out var distance) &&
-                        distance <= _playerPauseDistance)
+                        distance <= minDistance)
                     {
                         hasNearbyPlayer = true;
                         break;
                     }
                 }
+
+                var isAwake = IsAwake(npcUid, htn);
 
                 if (!hasNearbyPlayer)
                 {

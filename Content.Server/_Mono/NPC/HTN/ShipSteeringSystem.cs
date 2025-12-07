@@ -13,6 +13,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -38,6 +39,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShipSteererComponent, GetShuttleInputsEvent>(OnSteererGetInputs);
+        SubscribeLocalEvent<ShipSteererComponent, PilotedShuttleRelayedEvent<StartCollideEvent>>(OnShuttleStartCollide);
 
         Subs.CVar(_cfg, CCVars.NPCEnabled, enabled => _enabled = enabled, true);
     }
@@ -56,7 +58,9 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         var shipUid = pilotXform.ParentUid;
         var shipXform = Transform(shipUid);
-        if (!TryComp<ShuttleComponent>(shipUid, out var shuttle) || !TryComp<PhysicsComponent>(shipUid, out var shipBody))
+        if (ent.Comp.Status == ShipSteeringStatus.InRange
+            || !TryComp<ShuttleComponent>(shipUid, out var shuttle)
+            || !TryComp<PhysicsComponent>(shipUid, out var shipBody))
         {
             ent.Comp.Status = ShipSteeringStatus.InRange;
             return;
@@ -83,25 +87,34 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         var linVel = shipBody.LinearVelocity;
 
-        if (distance <= ent.Comp.Range)
+        var minDistance = ent.Comp.RangeTolerance == null ? 0f : ent.Comp.Range - ent.Comp.RangeTolerance.Value;
+
+        if (distance <= ent.Comp.Range && distance >= minDistance)
         {
-            if (linVel.Length() <= maxArrivedVel && angVel < ent.Comp.MaxRotateRate && needBrake)
+            if (!needBrake)
             {
-                // all good, but keep braking
                 ent.Comp.Status = ShipSteeringStatus.InRange;
-                args.Input = new ShuttleInput(Vector2.Zero, 0f, 1f);
                 return;
             }
 
-            if (needBrake)
-            {
-                // close but moving, brake
+            if (linVel.Length() <= maxArrivedVel && angVel < ent.Comp.MaxRotateRate)
+                ent.Comp.Status = ShipSteeringStatus.InRange;
+            else
                 args.Input = new ShuttleInput(Vector2.Zero, 0f, 1f);
-            }
-            return;
         }
 
         ent.Comp.Status = ShipSteeringStatus.Moving;
+
+        var isInside = false;
+        // if we're too close, go to min radius
+        // transform target point to closest point on inner wanted circle, if we have one and we're inside
+        if (distance < minDistance)
+        {
+            isInside = true;
+            mapTarget = mapTarget.Offset((-toTargetVec).Normalized() * minDistance);
+            toTargetVec = mapTarget.Position - shipPos.Position;
+            distance = toTargetVec.Length();
+        }
 
         var strafeInput = Vector2.Zero;
 
@@ -112,7 +125,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var brakeAccel = brakeThrust * shipBody.InvMass;
         var brakePath = linVel.Length() > 0 ? linVel.LengthSquared() / (2f * brakeAccel.Length()) : 0f;
 
-        if (brakePath + ent.Comp.Range > distance && needBrake)
+        if (brakePath + (isInside ? -ent.Comp.RangeTolerance : ent.Comp.Range) > distance && needBrake)
         {
             brakeInput = 1f;
         }
@@ -155,6 +168,14 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             rotationInput *= MathF.Min(1f, MathF.Abs(angVel) / (angAccel * args.FrameTime));
 
         args.Input = new ShuttleInput(strafeInput, rotationInput, brakeInput);
+    }
+
+    private void OnShuttleStartCollide(Entity<ShipSteererComponent> ent, ref PilotedShuttleRelayedEvent<StartCollideEvent> outerArgs) {
+        var args = outerArgs.Args;
+
+        // finish movement if we collided with target and want to finish in this case
+        if (ent.Comp.FinishOnCollide && args.OtherEntity == ent.Comp.Coordinates.EntityId)
+            ent.Comp.Status = ShipSteeringStatus.InRange;
     }
 
     /// <summary>

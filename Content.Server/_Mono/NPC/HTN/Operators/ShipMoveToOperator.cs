@@ -60,6 +60,18 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public float? BrakeMaxVelocity = 0.1f;
 
     /// <summary>
+    /// At most how far inside to have to stay into the desired range. If null, will consider the movement finished while in range.
+    /// </summary>
+    [DataField]
+    public float? RangeTolerance = null;
+
+    /// <summary>
+    /// Whether to consider the movement finished if we collide with target.
+    /// </summary>
+    [DataField]
+    public bool FinishOnCollide = true;
+
+    /// <summary>
     /// Rotation to move at relative to direction to target.
     /// </summary>
     [DataField]
@@ -122,7 +134,9 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         var comp = _steering.Steer(uid, targetCoordinates);
 
         comp.Range = Range;
+        comp.RangeTolerance = RangeTolerance;
         comp.InRangeMaxSpeed = BrakeMaxVelocity;
+        comp.FinishOnCollide = FinishOnCollide;
         comp.AvoidCollisions = AvoidCollisions;
         comp.TargetRotation = TargetRotation;
         comp.LeadingEnabled = LeadingEnabled;

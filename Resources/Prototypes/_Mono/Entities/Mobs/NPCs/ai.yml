@@ -32,7 +32,7 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: Anchorable
   - type: HTN
-    noNearbyPlayerSleepAllowed: false
+    sleepPlayerCheckRangeOverride: 2000
     rootTask:
       task: RamShuttleCompound
 

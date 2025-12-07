@@ -12,3 +12,6 @@ public record struct ShuttleInput(Vector2 Strafe, float Rotation, float Brakes);
 /// </summary>
 [ByRefEvent]
 public record struct GetShuttleInputsEvent(float FrameTime, ShuttleInput? Input = null, bool GotInput = false);
+
+[ByRefEvent]
+public record struct PilotedShuttleRelayedEvent<TEvent>(TEvent Args);

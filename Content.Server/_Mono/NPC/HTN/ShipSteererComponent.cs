@@ -25,6 +25,16 @@ public sealed partial class ShipSteererComponent : Component
     [ViewVariables(VVAccess.ReadWrite)] public float Range = 5f;
 
     /// <summary>
+    /// At most how far inside to have to stay into the desired range. If null, will consider the movement finished while in range.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)] public float? RangeTolerance = null;
+
+    /// <summary>
+    /// Whether to consider the movement finished if we collide with target.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)] public bool FinishOnCollide = true;
+
+    /// <summary>
     /// Up to how fast can we be going before being considered in range, if not null.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)] public float? InRangeMaxSpeed = null;
