@@ -641,44 +641,6 @@
     hideValues: true # Frontier
 
 - type: entity
-  name: spasaka ID card # Frontier: passenger<contractor
-  parent: [IDCardStandard, BaseC3SyndicateContraband]
-  id: PDVSpasakaIDCard
-  suffix: Chameleon
-  components:
-  - type: PresetIdCard
-    job: PDVInfiltrator # Frontier: Passenger<Contractor
-  - type: Access
-    tags:
-    - Maintenance
-    - Pirate
-    - Mercenary
-  - type: Sprite
-    layers:
-    - state: pirate
-    - state: idpirate
-      sprite: _NF/Objects/Misc/id_cards.rsi # Frontier
-  - type: AgentIDCard
-  - type: ActivatableUI
-    key: enum.AgentIDCardUiKey.Key
-    inHandsOnly: true
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-  - type: ChameleonClothing
-    slot: [idcard]
-    default: PirateFirstMateNFIDCard # Frontier: PassengerIDCard<ContractorIDCard
-    requireTag: WhitelistChameleonIdCard
-  - type: UserInterface
-    interfaces:
-      enum.AgentIDCardUiKey.Key:
-        type: AgentIDCardBoundUserInterface
-      enum.ChameleonUiKey.Key:
-        type: ChameleonBoundUserInterface
-  - type: Contraband # Frontier
-    hideValues: true # Frontier
-
-- type: entity
   name: contractor ID card # Frontier: passenger<contractor
   parent: AgentIDCard
   id: NukieAgentIDCard

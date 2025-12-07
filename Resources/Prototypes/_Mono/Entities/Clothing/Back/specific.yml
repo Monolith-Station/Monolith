@@ -55,3 +55,32 @@
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Back/Satchels/tsfmc.rsi
+
+# PDV bags
+
+- type: entity
+  parent: NFClothingBackpack
+  id: ClothingBackpackPDV
+  name: vanguard tactical backpack
+  description: A tactical backpack developed for the dynast troops of Helios.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Back/Backpacks/pdv.rsi
+
+- type: entity
+  parent: NFClothingDuffel
+  id: ClothingBackpackDuffelPDV
+  name: vanguard tactical duffel
+  description: A tactical duffel bag developed for the dynast troops of Helios.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Back/Duffels/pdv.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelPDV
+  name: vanguard tactical satchel
+  description: A tactical satchel developed for the dynast troops of Helios.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Back/Satchels/pdv.rsi

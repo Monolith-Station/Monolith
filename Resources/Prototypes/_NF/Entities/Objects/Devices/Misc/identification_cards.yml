@@ -218,47 +218,6 @@
     - state: idcontractor
 
 - type: entity
-  parent: PirateIDCard
-  id: PirateNFIDCard
-  name: PDV rakhshan ID card
-  components:
-  - type: PresetIdCard
-    job: Pirate
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: pirate
-    - state: idpirate
-  - type: Item
-    heldPrefix: pirate
-
-- type: entity
-  parent: PirateNFIDCard
-  id: PirateCaptainNFIDCard
-  name: PDV grand vizier ID card
-  components:
-  - type: PresetIdCard
-    job: PirateCaptain
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: pirate
-    - state: idpiratecaptain
-
-- type: entity
-  parent: PirateNFIDCard
-  id: PirateFirstMateNFIDCard
-  name: PDV asvaran ID card
-  components:
-  - type: PresetIdCard
-    job: PirateFirstMate
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: pirate
-    - state: idpiratefirstmate
-
-- type: entity
   parent: PunPunIDCard
   id: YipYipIDCard
   name: yip yip ID card
@@ -293,7 +252,7 @@
     name: Clippy
 
 - type: entity
-  parent: PirateFirstMateNFIDCard
+  parent: PDVAsvaranIDCard
   id: ClarpyIDCard
   name: clarpy ID card
   components:

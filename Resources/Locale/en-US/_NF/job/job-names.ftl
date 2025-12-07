@@ -12,6 +12,7 @@ job-name-pdv-infiltrator = PDV Spasaka
 job-name-pirate = PDV Rahkshan
 job-name-pirate-captain = PDV Grand Vizier
 job-name-pirate-first-mate = PDV Asvaran
+job-name-pdv-denasvar = PDV Denasvar
 job-name-security-guard = Security Guard
 job-name-sheriff = TSFMC Colonel
 job-name-stc = Station Traffic Controller
@@ -30,6 +31,7 @@ JobPDVInfiltrator = PDV Spasaka
 JobPirate = PDV Rakhshan
 JobPirateCaptain = PDV Grand Vizier
 JobPirateFirstMate = PDV Asvaran
+JobPirateBoatswain = PDV Denasvar
 JobSecurityGuard = Security Guard
 JobSTC = Station Traffic Controller
 
