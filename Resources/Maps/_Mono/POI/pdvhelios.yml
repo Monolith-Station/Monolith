@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/09/2025 10:46:21
-  entityCount: 8023
+  time: 11/24/2025 07:34:17
+  entityCount: 8022
 maps: []
 grids:
 - 1
@@ -27370,7 +27370,6 @@ entities:
       inletTwoConcentration: 0.79
       inletOneConcentration: 0.21
       targetPressure: 600
-      enabled: True
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -43005,17 +43004,34 @@ entities:
     - type: Transform
       pos: -10.5,16.5
       parent: 1
+- proto: SpawnPointPDVDenasvar
+  entities:
+  - uid: 10
+    components:
+    - type: Transform
+      pos: -4.5,64.5
+      parent: 1
+  - uid: 7577
+    components:
+    - type: Transform
+      pos: -6.5,65.5
+      parent: 1
+  - uid: 7846
+    components:
+    - type: Transform
+      pos: -5.5,63.5
+      parent: 1
+  - uid: 7853
+    components:
+    - type: Transform
+      pos: -3.5,62.5
+      parent: 1
 - proto: SpawnPointPDVInfiltrator
   entities:
   - uid: 7858
     components:
     - type: Transform
       pos: -4.5,65.5
-      parent: 1
-  - uid: 7859
-    components:
-    - type: Transform
-      pos: -4.5,64.5
       parent: 1
   - uid: 7860
     components:
@@ -43029,11 +43045,6 @@ entities:
       parent: 1
 - proto: SpawnPointPirate
   entities:
-  - uid: 7577
-    components:
-    - type: Transform
-      pos: -6.5,65.5
-      parent: 1
   - uid: 7578
     components:
     - type: Transform
@@ -43093,11 +43104,6 @@ entities:
     - type: Transform
       pos: -6.5,62.5
       parent: 1
-  - uid: 7846
-    components:
-    - type: Transform
-      pos: -5.5,63.5
-      parent: 1
   - uid: 7847
     components:
     - type: Transform
@@ -43107,11 +43113,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,63.5
-      parent: 1
-  - uid: 7853
-    components:
-    - type: Transform
-      pos: -3.5,62.5
       parent: 1
   - uid: 7854
     components:

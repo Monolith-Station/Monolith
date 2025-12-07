@@ -11,7 +11,7 @@
   - PDVShoes
   - PirateFace
   - ContractorBoxSurvival
-  - PiratePDA
+  - RakhshanPDA
   - ContractorWallet
   - NFSpeciesSpecific
   - PirateTrinkets
@@ -34,7 +34,7 @@
   - PDVShoes
   - PDVFace
   - ContractorBoxSurvival
-  - PirateFirstMatePDA
+  - AsvaranPDA
   - NFSpeciesSpecific
   - ContractorWallet
   - PirateTrinkets
@@ -57,7 +57,7 @@
   - PDVFace
   - PDVCommanderNeck
   - ContractorBoxSurvival
-  - PirateCaptainPDA
+  - GrandVizierPDA
   - NFSpeciesSpecific
   - ContractorWallet
   - PirateCaptainTrinkets
@@ -83,6 +83,29 @@
   - PDVInfiltratorPDA
   - NFSpeciesSpecific
   - ContractorWallet
+  - PirateTrinkets
+  - PDVBelt
+  - ContractorEncryptionKey
+  - RogueFirearm
+  - RogueMag
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobPDVDenasvar
+  groups:
+  - PDVHead
+  - PDVNeck
+  - PDVJumpsuit
+  - PDVGloves
+  - PDVOuterClothing
+  - PDVHud
+  - PDVBackpack
+  - PDVShoes
+  - PirateFace
+  - ContractorBoxSurvival
+  - PDVDenasvarPDA
+  - ContractorWallet
+  - NFSpeciesSpecific
   - PirateTrinkets
   - PDVBelt
   - ContractorEncryptionKey
