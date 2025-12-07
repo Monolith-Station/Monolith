@@ -80,17 +80,6 @@
     state: banner-red
 
 - type: entity
-  id: SpawnPointPDVInfiltrator
-  parent: SpawnPointJobBase
-  name: pdv infiltrator
-  components:
-  - type: SpawnPoint
-    job_id: PDVInfiltrator
-  - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-red
-
-- type: entity
   id: SpawnPointStc
   parent: SpawnPointJobBase
   name: station traffic controller
