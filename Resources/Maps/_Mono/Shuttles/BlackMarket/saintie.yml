@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/07/2025 09:21:46
-  entityCount: 1741
+  time: 12/07/2025 11:44:49
+  entityCount: 1752
 maps: []
 grids:
 - 1
@@ -1746,6 +1746,16 @@ entities:
     - type: Transform
       pos: 3.5,-9.5
       parent: 1
+  - uid: 753
+    components:
+    - type: Transform
+      pos: 3.5,-17.5
+      parent: 1
+  - uid: 1733
+    components:
+    - type: Transform
+      pos: -2.5,-17.5
+      parent: 1
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 1463
@@ -3300,11 +3310,6 @@ entities:
     - type: Transform
       pos: 0.5,-13.5
       parent: 1
-  - uid: 753
-    components:
-    - type: Transform
-      pos: -2.5,-16.5
-      parent: 1
   - uid: 754
     components:
     - type: Transform
@@ -4390,6 +4395,31 @@ entities:
     - type: Transform
       pos: -11.5,-18.5
       parent: 1
+  - uid: 1739
+    components:
+    - type: Transform
+      pos: 3.5,-17.5
+      parent: 1
+  - uid: 1740
+    components:
+    - type: Transform
+      pos: 3.5,-18.5
+      parent: 1
+  - uid: 1741
+    components:
+    - type: Transform
+      pos: 3.5,-19.5
+      parent: 1
+  - uid: 1742
+    components:
+    - type: Transform
+      pos: 3.5,-20.5
+      parent: 1
+  - uid: 1743
+    components:
+    - type: Transform
+      pos: 4.5,-20.5
+      parent: 1
   - uid: 1750
     components:
     - type: Transform
@@ -5274,6 +5304,31 @@ entities:
     - type: Transform
       pos: -0.5,-6.5
       parent: 1
+  - uid: 1734
+    components:
+    - type: Transform
+      pos: -2.5,-17.5
+      parent: 1
+  - uid: 1735
+    components:
+    - type: Transform
+      pos: -2.5,-16.5
+      parent: 1
+  - uid: 1736
+    components:
+    - type: Transform
+      pos: -2.5,-15.5
+      parent: 1
+  - uid: 1737
+    components:
+    - type: Transform
+      pos: -1.5,-15.5
+      parent: 1
+  - uid: 1738
+    components:
+    - type: Transform
+      pos: -0.5,-15.5
+      parent: 1
   - uid: 1748
     components:
     - type: Transform
@@ -5970,6 +6025,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: -3.5,-20.5
       parent: 1
+- proto: ComputerCrewMonitoring
+  entities:
+  - uid: 1487
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-4.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
 - proto: ComputerEliteRadar
   entities:
   - uid: 1022
@@ -5996,18 +6063,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-3.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-- proto: ComputerMedicalRecords
-  entities:
-  - uid: 1487
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,-4.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -6502,7 +6557,6 @@ entities:
     - type: GasMixer
       inletTwoConcentration: 0.71000004
       inletOneConcentration: 0.29
-      enabled: True
     - type: AtmosPipeColor
       color: '#0055CCFF'
 - proto: GasPassiveVent
