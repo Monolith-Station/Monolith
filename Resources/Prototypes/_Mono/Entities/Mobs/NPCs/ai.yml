@@ -1,0 +1,47 @@
+- type: entity
+  id: NpcStationAiRammer
+  name: rammer core
+  description: You feel like the fact you're looking at this means this isn't safe.
+  parent: BaseStructure
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+    - state: base
+    - state: ai
+      shader: unshaded
+  - type: Appearance
+  - type: InteractionPopup
+    interactSuccessString: petting-success-station-ai
+    interactFailureString: petting-failure-station-ai
+    messagePerceivedByOthers: petting-success-station-ai-others
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Anchorable
+  - type: HTN
+    noNearbyPlayerSleepAllowed: false
+    rootTask:
+      task: RamShuttleCompound
+
+- type: entity
+  id: NpcStationAiApproacher
+  name: approacher core
+  parent: NpcStationAiRammer
+  description: Stands there, menacingly.
+  components:
+  - type: HTN
+    noNearbyPlayerSleepAllowed: false
+    rootTask:
+      task: ApproachShuttleCompound
