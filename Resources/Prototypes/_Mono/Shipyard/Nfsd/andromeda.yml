@@ -1,32 +1,32 @@
 - type: vessel
-  id: Serpent
+  id: Andromeda
   parent: BaseVesselAntag
-  name: TSF-SKR Serpent
-  description: A experimental heavy frigate, with heavy spinal and broadside firepower.
+  name: TSF-CRSW Andromeda
+  description: A experimental heavy frigate, with heavy burst frontal firepower and fast maneuveability.
   limit: 2
   price: 272250
   category: Large
   group: Security
   access: Armory
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/serpent.yml
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/andromeda.yml
   guidebookPage: Null
   class:
   - Capital
   - Frigate
   engine:
-  - AME
+  - Plasma
 
 - type: gameMap
-  id: Serpent
-  mapName: 'Serpent'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/serpent.yml
+  id: Andromeda
+  mapName: 'Andromeda'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/andromeda.yml
   minPlayers: 0
   stations:
-    Serpent:
+    Andromeda:
       stationProto: StandardFrontierSecurityVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Serpent TSF{1}'
+        mapNameTemplate: 'Andromeda TSF{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
