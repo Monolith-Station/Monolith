@@ -149,7 +149,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var leftoverBrakePath = brakeAccel == 0f ? 0f : brakePath - innerBrakePath;
 
         var wishInputVec = Vector2.Zero;
-        if (leftoverBrakePath > destDistance)
+        // if we can't brake then don't
+        if (leftoverBrakePath > destDistance && brakeAccel != 0f)
         {
             wishInputVec = -effectiveVel;
         }
@@ -218,10 +219,9 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     /// <summary>
     /// Checks if thrust in any direction this vector wants to go to is blocked, and zeroes it out in that direction if necessary.
     /// </summary>
-    public Vector2 GetGoodThrustVector(Vector2 wish, ShuttleComponent shuttle, float threshold = 0.125f, float lenThreshold = 2f)
+    public Vector2 GetGoodThrustVector(Vector2 wish, ShuttleComponent shuttle, float threshold = 0.125f)
     {
-        var res = wish;
-        res.Normalize();
+        var res = NormalizedOrZero(wish);
 
         var horizIndex = wish.X > 0 ? 1 : 3; // east else west
         var vertIndex = wish.Y > 0 ? 2 : 0; // north else south
