@@ -78,6 +78,12 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public float? MaxRotateRate = null;
 
     /// <summary>
+    /// If target goes further than this, drop target.
+    /// </summary>
+    [DataField]
+    public float MaxTargetingRange = 2000f;
+
+    /// <summary>
     /// How close we need to get before considering movement finished.
     /// </summary>
     [DataField]
@@ -173,6 +179,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
 
         if (!_entManager.TryGetComponent<ShipSteererComponent>(owner, out var steerer)
             || !blackboard.TryGetValue<EntityCoordinates>(TargetKey, out var target, _entManager)
+            || !_entManager.TryGetComponent<TransformComponent>(owner, out var xform)
         )
             return HTNOperatorStatus.Failed;
 
@@ -180,6 +187,9 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         var comp = _steering.Steer(owner, target);
         if (comp == null)
             return HTNOperatorStatus.Failed;
+
+        if (target.EntityId == EntityUid.Invalid || !xform.Coordinates.TryDistance(_entManager, target, out var distance) || distance > MaxTargetingRange)
+            return HTNOperatorStatus.Finished;
 
         // Just keep moving in the background and let the other tasks handle it.
         if (ShutdownState == HTNPlanState.PlanFinished && steerer.Status == ShipSteeringStatus.Moving)

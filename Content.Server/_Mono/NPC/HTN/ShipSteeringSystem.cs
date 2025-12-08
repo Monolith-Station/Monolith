@@ -194,7 +194,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         var brakeInput = 0f;
         // check if we should brake, brake if it's in a good direction and it won't stop us from rotating
-        if (Vector2.Dot(wishInputVec, -linVel) >= brakeThreshold
+        if (Vector2.Dot(NormalizedOrZero(wishInputVec), NormalizedOrZero(-linVel)) >= brakeThreshold
             && (MathF.Abs(rotationInput) < 1f - brakeThreshold || angVel * rotateDelta < 0))
         {
             brakeInput = 1f;
