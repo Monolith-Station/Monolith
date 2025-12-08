@@ -109,8 +109,18 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             && effectiveVel.Length() < maxArrivedVel
             && MathF.Abs(angVel) < maxArrivedAngVel)
         {
-            ent.Comp.Status = ShipSteeringStatus.InRange;
-            return;
+            var good = true;
+            if (ent.Comp.AlwaysFaceTarget)
+            {
+                var shipNorthAngle = _transform.GetWorldRotation(shipXform);
+                var wishRotateBy = targetAngleOffset + ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), toTargetVec.ToWorldAngle());
+                good = MathF.Abs((float)wishRotateBy.Theta) < ent.Comp.AlwaysFaceTargetOffset;
+            }
+            if (good)
+            {
+                ent.Comp.Status = ShipSteeringStatus.InRange;
+                return;
+            }
         }
 
         // get our actual move target, which will be either under us if we're in a position we're okay with, or a point in the middle of our target band
@@ -120,13 +130,13 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         else
             destMapPos = shipPos;
 
-        args.Input = ProcessMovement(shipUid.Value, shipBody, shuttle, shipPos,
+        args.Input = ProcessMovement(shipXform, shipBody, shuttle, shipPos,
                                      destMapPos, effectiveVel,
                                      maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
                                      ent.Comp.LeadingEnabled, targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
     }
 
-    private ShuttleInput ProcessMovement(EntityUid shipUid, PhysicsComponent shipBody, ShuttleComponent shuttle, MapCoordinates shipPos,
+    private ShuttleInput ProcessMovement(TransformComponent shipXform, PhysicsComponent shipBody, ShuttleComponent shuttle, MapCoordinates shipPos,
                                          MapCoordinates destMapPos, Vector2 effectiveVel,
                                          float maxArrivedVel, float brakeThreshold, float frameTime,
                                          bool leadTarget, Angle targetAngleOffset, Angle? angleOverride)
@@ -134,7 +144,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var toDestVec = destMapPos.Position - shipPos.Position;
         var destDistance = toDestVec.Length();
 
-        var shipNorthAngle = _transform.GetWorldRotation(shipUid);
+        var shipNorthAngle = _transform.GetWorldRotation(shipXform);
         var angVel = shipBody.AngularVelocity;
         var linVel = shipBody.LinearVelocity;
 

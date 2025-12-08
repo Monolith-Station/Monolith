@@ -30,6 +30,12 @@ public sealed partial class ShipSteererComponent : Component
     public bool AlwaysFaceTarget = false;
 
     /// <summary>
+    /// If AlwaysFaceTarget is true, how much of a difference in angle (in radians) to accept.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float AlwaysFaceTargetOffset = 0.01f;
+
+    /// <summary>
     /// How unwilling we are to use brake to adjust our velocity. Higher means less willing.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
