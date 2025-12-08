@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 KiraZen_
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: MPL-2.0
-
 - type: ghostRole
   id: RedactedBorg
   name: ghost-role-information-redacted-borg
@@ -29,9 +23,9 @@
   whitelisted: true
 
 - type: ghostRole
-  id: RogueAICore
-  name: ghost-role-information-rogue-core
-  description: ghost-role-information-rogue-core-description
+  id: PDVAICore
+  name: ghost-role-information-pdv-core
+  description: ghost-role-information-pdv-description
   rules: ghost-role-information-silicon-rules
-  entityPrototype: StationAiBrainRogue
+  entityPrototype: StationAiBrainPDV
   whitelisted: true

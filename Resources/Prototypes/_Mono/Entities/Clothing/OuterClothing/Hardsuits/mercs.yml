@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitMercenaryWarlord
@@ -50,7 +43,7 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitScafAdvanced
-  name: SCAF reinforced exosuit 
+  name: SCAF reinforced exosuit
   description: A combat hardsuit made out of reinforced layered plasteel sheet on top of lead shielding and a pneumatic exoskeleton to help with mobility. Old but still sturdy due to its archaic yet reinforced components.
   components:
   - type: Sprite

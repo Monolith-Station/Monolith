@@ -2,7 +2,8 @@
   id: WeaponProtoKineticAcceleratorSawn
   parent: [ BaseC1Contraband, WeaponProtoKineticAcceleratorBase ]
   name: sawn-off proto-kinetic accelerator
-  description: boundaries and rules are ment to be broken otherwise there will be no progress, but this thing here is a good argumant against that statement.
+  #description: boundaries and rules are ment to be broken otherwise there will be no progress, but this thing here is a good argumant against that statement. #Mono out
+  description: A proto-kinetic accelerator pared down to its minimum operating parts. Easy to handle in one hand, but brutal on the wrist. #Mono in
   components:
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Basic/sawn_kinetic_accelerator.rsi
@@ -12,17 +13,19 @@
     size: Small
     shape:
     - 0,0,1,0
-  - type: UseDelay
-    delay: 1
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 1
+#  - type: UseDelay #Mono start
+#    delay: 1
+#  - type: RechargeBasicEntityAmmo
+#    rechargeCooldown: 1 #Mono end
   - type: Gun
-    fireRate: 0.9
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
-    minAngle: 41
-    maxAngle: 55
+    fireRate: 0.6 #Mono start 0.5 >> 0.6
+#    selectedMode: FullAuto
+#    availableModes:
+#    - FullAuto
+    angleDecay: 9 #Add
+    angleIncrease: 5 #Add
+    minAngle: 6 #41 >> 6
+    maxAngle: 16.5 #Mono end: 55 >> 16.5
   - type: Clothing
     sprite: _NF/Objects/Weapons/Guns/Basic/sawn_kinetic_accelerator.rsi
   - type: Construction

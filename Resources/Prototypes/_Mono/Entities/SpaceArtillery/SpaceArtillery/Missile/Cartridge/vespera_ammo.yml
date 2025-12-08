@@ -1,7 +1,40 @@
 - type: entity
+  id: VesperaMagazine
+  name: "Vespera 50mm HE missile autoloader"
+  parent: [BaseItem, RecyclableItemSteelTiny]
+  components:
+  - type: Tag
+    tags:
+    - VesperaMagazine
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    proto: VesperaCartridge
+    capacity: 26
+    mayTransfer: true
+    whitelist:
+      tags:
+      - VesperaCartridge
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_shipgun_box.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
   id: VesperaCartridge
-  name: ASM-417 HEAT missile
-  description: An individual ASM-417 HEAT missile for the Vespera.
+  name: 50mm HE missile
+  description: An individual ASM-417 HE missile for the Vespera.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -37,12 +70,3 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
-
-- type: entity
-  id: VesperaCartridgeWeak
-  name: ASM-417 missile
-  description: An individual ASM-417 missile.
-  parent: VesperaCartridge
-  components:
-  - type: CartridgeAmmo
-    proto: ShipMissileASM417Weak

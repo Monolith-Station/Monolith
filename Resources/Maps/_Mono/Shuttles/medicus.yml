@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/30/2025 17:24:34
-  entityCount: 864
+  time: 12/03/2025 02:45:43
+  entityCount: 865
 maps: []
 grids:
 - 1
@@ -2378,7 +2378,7 @@ entities:
   - uid: 334
     components:
     - type: Transform
-      pos: 1.4741306,-12.316483
+      pos: 4.3880663,-13.37525
       parent: 1
 - proto: CMSemioticAirlock
   entities:
@@ -2540,12 +2540,12 @@ entities:
   - uid: 277
     components:
     - type: Transform
-      pos: 4.7642474,-13.1733055
+      pos: 4.7318163,-13.422125
       parent: 1
   - uid: 341
     components:
     - type: Transform
-      pos: 4.5767474,-13.4233055
+      pos: 4.7474413,-13.1565
       parent: 1
 - proto: DarkCatwalkMono
   entities:
@@ -2687,9 +2687,9 @@ entities:
     - type: Transform
       pos: 11.5,-3.5
       parent: 1
-- proto: DefibrillatorCabinet
+- proto: DefibrillatorCabinetFilled
   entities:
-  - uid: 299
+  - uid: 865
     components:
     - type: Transform
       pos: 1.5,-10.5
@@ -2871,7 +2871,7 @@ entities:
   - uid: 342
     components:
     - type: Transform
-      pos: 4.34184,-13.288596
+      pos: 4.3568163,-13.1565
       parent: 1
 - proto: GasFilterInline
   entities:
@@ -6589,6 +6589,13 @@ entities:
     components:
     - type: Transform
       pos: 7.5,-13.5
+      parent: 1
+- proto: WeaponCapacitorRecharger
+  entities:
+  - uid: 299
+    components:
+    - type: Transform
+      pos: 1.5,-12.5
       parent: 1
 - proto: WeaponTurretL85Autocannon
   entities:

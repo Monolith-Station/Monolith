@@ -1,15 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Mnemosyne
-# SPDX-FileCopyrightText: 2023 SurfinNinja1
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Mr. Samuel
-# SPDX-FileCopyrightText: 2025 Alice "Arimah" Heurlin
-# SPDX-FileCopyrightText: 2025 Checkraze
-# SPDX-FileCopyrightText: 2025 starch
-# SPDX-FileCopyrightText: 2025 tonotom1
-#
-# SPDX-License-Identifier: MPL-2.0
-
 meta:
   format: 7
   category: Grid
@@ -323,92 +311,6 @@ entities:
         -1,-1: 17361654735643144320
         0,-1: 18446744073709551391
         1,-1: 3328717291520
-- proto: 203mmCartridge
-  entities:
-  - uid: 210
-    components:
-    - type: Transform
-      parent: 57
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 216
-    components:
-    - type: Transform
-      parent: 57
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 284
-    components:
-    - type: Transform
-      parent: 57
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 287
-    components:
-    - type: Transform
-      parent: 57
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 291
-    components:
-    - type: Transform
-      parent: 57
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 292
-    components:
-    - type: Transform
-      parent: 57
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 296
-    components:
-    - type: Transform
-      parent: 57
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 297
-    components:
-    - type: Transform
-      parent: 57
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 298
-    components:
-    - type: Transform
-      parent: 57
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 299
-    components:
-    - type: Transform
-      parent: 57
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 300
-    components:
-    - type: Transform
-      parent: 57
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 301
-    components:
-    - type: Transform
-      parent: 57
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -1006,37 +908,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: CrateAmmoGeneric
-  entities:
-  - uid: 57
-    components:
-    - type: Transform
-      pos: 5.5,-1.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 303
-          - 302
-          - 216
-          - 301
-          - 300
-          - 299
-          - 298
-          - 297
-          - 296
-          - 292
-          - 291
-          - 287
-          - 284
-          - 210
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
     - type: EntityStorage
       air:
         volume: 200
@@ -1612,22 +1483,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,-1.5
       parent: 1
-- proto: Magazine57mm
-  entities:
-  - uid: 302
-    components:
-    - type: Transform
-      parent: 57
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 303
-    components:
-    - type: Transform
-      parent: 57
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: NFHolopadShip
   entities:
   - uid: 164
@@ -2382,7 +2237,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 9.5,-1.5
       parent: 1
-- proto: WeaponTurretKargil
+- proto: WeaponTurretBofors
   entities:
   - uid: 97
     components:

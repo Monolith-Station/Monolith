@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 NotActuallyMarty
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ark1368
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsStandard
@@ -356,3 +347,4 @@
       - state: equipped-FEET-sealed
   - type: ClothingSlowOnDamageModifier # Mono
     modifier: 0.75
+

@@ -1,8 +1,6 @@
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Robust.Shared.Audio;
+using Robust.Shared.Localization;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System;
 
@@ -77,6 +75,24 @@ public sealed partial class ScuttleDeviceComponent : Component
     [DataField]
     public float AnnounceRadius = 1500f;
 
+    [DataField]
+    public bool DisarmOnUnanchor = false;
+
+    /// <summary>
+    ///     Disarm the nuke if it changes map by, say, going to FTL.
+    /// </summary>
+    [DataField]
+    public bool DisarmOnMapChange = false;
+
+    [DataField]
+    public bool DoMusic = true;
+
+    [DataField]
+    public LocId AnnounceSender = "scuttle-device-announcement-sender";
+
+    [ViewVariables]
+    public MapId ArmedMap = MapId.Nullspace;
+
     /// <summary>
     ///     Time until explosion in seconds.
     /// </summary>
@@ -96,6 +112,10 @@ public sealed partial class ScuttleDeviceComponent : Component
     ///     Check if nuke has already played the nuke song so we don't do it again
     /// </summary>
     public bool PlayedNukeSong = false;
+
+    public TimeSpan NukeSongLength;
+
+    public ResolvedSoundSpecifier SelectedNukeSong = String.Empty;
 
     /// <summary>
     ///     Check if nuke has already played last alert sound

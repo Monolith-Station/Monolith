@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._Crescent.Dispenser;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.VirtualItem;

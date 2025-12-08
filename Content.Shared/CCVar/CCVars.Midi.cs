@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Simon
-// SPDX-FileCopyrightText: 2025 bitcrushing
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;

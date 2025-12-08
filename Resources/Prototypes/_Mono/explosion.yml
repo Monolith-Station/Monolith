@@ -1,47 +1,28 @@
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin
-# SPDX-FileCopyrightText: 2022 Leon Friedrich
-# SPDX-FileCopyrightText: 2022 Moony
-# SPDX-FileCopyrightText: 2022 keronshb
-# SPDX-FileCopyrightText: 2023 Dawid Bla
-# SPDX-FileCopyrightText: 2023 Emisse
-# SPDX-FileCopyrightText: 2023 Kara
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 Skye
-# SPDX-FileCopyrightText: 2023 ThunderBear2006
-# SPDX-FileCopyrightText: 2023 eclips_e
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2024 Mr. 27
-# SPDX-FileCopyrightText: 2024 liltenhead
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 Redrover1760
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 #  Does not currently support prototype hot-reloading. See comments in c# file.
 
-- type: explosion
-  id: DefaultShipGun
-  damagePerIntensity:
-    types:
-      Heat: 2
-      Blunt: 2
-      Piercing: 2
-      Structural: 2
-  tileBreakChance: [0, 0.5, 1]
-  tileBreakIntensity: [0, 15, 30]
-  tileBreakRerollReduction: 20
-  lightColor: Orange
-  texturePath: /Textures/Effects/fire.rsi
-  fireStates: 3
+#- type: explosion
+#  id: DefaultShipGun
+#  damagePerIntensity:
+#    types:
+#      Heat: 0.5
+#      Blunt: 0.5
+#      Piercing: 0.5
+#      Structural: 1
+#  tileBreakChance: [0, 0.5, 1]
+#  tileBreakIntensity: [0, 15, 30]
+#  tileBreakRerollReduction: 20
+#  lightColor: Orange
+#  texturePath: /Textures/Effects/fire.rsi
+#  fireStates: 3
 
 - type: explosion
   id: HardBombShipGun
   damagePerIntensity:
     types:
-      Heat: 7.5
-      Blunt: 7.5
-      Piercing: 3
-      Structural: 20
+      Heat: 2
+      Blunt: 2
+      Piercing: 0.5
+      Structural: 2
   tileBreakChance: [ 0, 0.5, 1 ]
   tileBreakIntensity: [ 0, 15, 30 ]
   tileBreakRerollReduction: 10
