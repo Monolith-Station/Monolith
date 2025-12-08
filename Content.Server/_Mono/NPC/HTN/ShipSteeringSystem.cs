@@ -59,9 +59,12 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         var shipUid = pilotXform.GridUid;
 
-        /// 1. check if we can drive at all
+        var target = ent.Comp.Coordinates;
+        var targetUid = target.EntityId; // if we have a target try to lead it
+
         if (ent.Comp.Status == ShipSteeringStatus.InRange
             || shipUid == null
+            || TerminatingOrDeleted(targetUid)
             || !pilotXform.Anchored && ent.Comp.RequireAnchored && HasComp<AnchorableComponent>(ent)
             || !TryComp<ShuttleComponent>(shipUid, out var shuttle)
             || !TryComp<PhysicsComponent>(shipUid, out var shipBody))
@@ -73,12 +76,9 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var shipXform = Transform(shipUid.Value);
         args.GotInput = true;
 
-        var target = ent.Comp.Coordinates;
-        var targetUid = target.EntityId; // if we have a target try to lead it
         var mapTarget = _transform.ToMapCoordinates(target);
 
         var shipPos = _transform.GetMapCoordinates(shipXform);
-        var shipNorthAngle = _transform.GetWorldRotation(shipUid.Value);
 
         // we or target might just be in FTL so don't count us as finished
         if (mapTarget.MapId != shipPos.MapId)
@@ -100,22 +100,44 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var lowRange = (ent.Comp.Range - ent.Comp.RangeTolerance) ?? 0f;
         var midRange = (highRange + lowRange) / 2f;
 
+        var effectiveVel = linVel;
+        if (ent.Comp.LeadingEnabled && TryComp<PhysicsComponent>(targetUid, out var targetBody))
+            effectiveVel -= targetBody.LinearVelocity;
+
         // check if all good
         if (distance >= lowRange && distance <= highRange
-            && linVel.Length() < maxArrivedVel
+            && effectiveVel.Length() < maxArrivedVel
             && MathF.Abs(angVel) < maxArrivedAngVel)
         {
             ent.Comp.Status = ShipSteeringStatus.InRange;
             return;
         }
 
-        /// 2. process where we want to move
-        // get our actual move target, which will be a point at a circle of the radius we wish to be at
-        var destMapPos = mapTarget.Offset(NormalizedOrZero(-toTargetVec) * midRange);
+        // get our actual move target, which will be either under us if we're in a position we're okay with, or a point in the middle of our target band
+        var destMapPos = mapTarget;
+        if (distance < lowRange || distance > highRange)
+            destMapPos = destMapPos.Offset(NormalizedOrZero(-toTargetVec) * midRange);
+        else
+            destMapPos = shipPos;
+
+        args.Input = ProcessMovement(shipUid.Value, shipBody, shuttle, shipPos,
+                                     destMapPos, effectiveVel,
+                                     maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
+                                     ent.Comp.LeadingEnabled, targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
+    }
+
+    private ShuttleInput ProcessMovement(EntityUid shipUid, PhysicsComponent shipBody, ShuttleComponent shuttle, MapCoordinates shipPos,
+                                         MapCoordinates destMapPos, Vector2 effectiveVel,
+                                         float maxArrivedVel, float brakeThreshold, float frameTime,
+                                         bool leadTarget, Angle targetAngleOffset, Angle? angleOverride)
+    {
         var toDestVec = destMapPos.Position - shipPos.Position;
         var destDistance = toDestVec.Length();
 
-        /// 3. handle braking and movement
+        var shipNorthAngle = _transform.GetWorldRotation(shipUid);
+        var angVel = shipBody.AngularVelocity;
+        var linVel = shipBody.LinearVelocity;
+
         var brakeVec = GetGoodThrustVector((-shipNorthAngle).RotateVec(-linVel), shuttle);
         var brakeThrust = _mover.GetDirectionThrust(brakeVec, shuttle, shipBody) * ShuttleComponent.BrakeCoefficient;
         var brakeAccelVec = brakeThrust * shipBody.InvMass;
@@ -125,10 +147,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var innerBrakePath = maxArrivedVel / (2f * brakeAccel);
         // negative if we're already slow enough
         var leftoverBrakePath = brakeAccel == 0f ? 0f : brakePath - innerBrakePath;
-
-        var effectiveVel = linVel;
-        if (ent.Comp.LeadingEnabled && TryComp<PhysicsComponent>(targetUid, out var targetBody))
-            effectiveVel -= targetBody.LinearVelocity;
 
         var wishInputVec = Vector2.Zero;
         if (leftoverBrakePath > destDistance)
@@ -146,21 +164,13 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         }
 
         var strafeInput = Vector2.Zero;
-        var brakeInput = 0f;
-        if (Vector2.Dot(wishInputVec, -linVel) >= ent.Comp.BrakeThreshold)
-        {
-            brakeInput = 1f;
-        }
-        else
-        {
-            strafeInput = (-shipNorthAngle).RotateVec(wishInputVec);
-            strafeInput = GetGoodThrustVector(strafeInput, shuttle);
-        }
+        strafeInput = (-shipNorthAngle).RotateVec(wishInputVec);
+        strafeInput = GetGoodThrustVector(strafeInput, shuttle);
 
-        /// 5. handle rotation
+
         var wishAngle = new Angle(0);
-        if (ent.Comp.AlwaysFaceTarget)
-            wishAngle = toTargetVec.ToWorldAngle();
+        if (angleOverride != null)
+            wishAngle = angleOverride.Value;
         // try to face our thrust direction if we can
         // TODO: determine best thrust direction and face accordingly
         else if (strafeInput.Length() > 0)
@@ -177,11 +187,19 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var rotationInput = -(float)rotateDelta.Theta;
         rotationInput = MathF.Sign(rotationInput);
         // don't overbrake if we're braking
-        if (angVel * rotationInput < 0)
-            rotationInput *= MathF.Min(1f, MathF.Abs(angVel) / (angAccel * args.FrameTime));
+        if (angVel * rotateDelta < 0)
+            rotationInput *= MathF.Min(1f, MathF.Abs(angVel) / (angAccel * frameTime));
 
-        /// 6. output
-        args.Input = new ShuttleInput(strafeInput, rotationInput, brakeInput);
+
+        var brakeInput = 0f;
+        // check if we should brake, brake if it's in a good direction and it won't stop us from rotating
+        if (Vector2.Dot(wishInputVec, -linVel) >= brakeThreshold
+            && (MathF.Abs(rotationInput) < 1f - brakeThreshold || angVel * rotateDelta < 0))
+        {
+            brakeInput = 1f;
+        }
+
+        return new ShuttleInput(strafeInput, rotationInput, brakeInput);
     }
 
     private void OnShuttleStartCollide(Entity<ShipSteererComponent> ent, ref PilotedShuttleRelayedEvent<StartCollideEvent> outerArgs) {
@@ -225,31 +243,31 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     /// Adds the AI to the steering system to move towards a specific target.
     /// Returns null on failure.
     /// </summary>
-    public ShipSteererComponent? Steer(EntityUid uid, EntityCoordinates coordinates, ShipSteererComponent? component = null)
+    public ShipSteererComponent? Steer(Entity<ShipSteererComponent?> ent, EntityCoordinates coordinates)
     {
-        var xform = Transform(uid);
+        var xform = Transform(ent);
         var shipUid = xform.GridUid;
         if (TryComp<ShuttleComponent>(shipUid, out var shuttle))
-            _mover.AddPilot(shipUid.Value, uid);
+            _mover.AddPilot(shipUid.Value, ent);
         else
             return null;
 
-        if (!Resolve(uid, ref component, false))
-            component = AddComp<ShipSteererComponent>(uid);
+        if (!Resolve(ent, ref ent.Comp, false))
+            ent.Comp = AddComp<ShipSteererComponent>(ent);
 
-        component.Coordinates = coordinates;
+        ent.Comp.Coordinates = coordinates;
 
-        return component;
+        return ent.Comp;
     }
 
     /// <summary>
     /// Stops the steering behavior for the AI and cleans up.
     /// </summary>
-    public void Stop(EntityUid uid, ShipSteererComponent? component = null)
+    public void Stop(Entity<ShipSteererComponent?> ent)
     {
-        if (!Resolve(uid, ref component, false))
+        if (!Resolve(ent, ref ent.Comp, false))
             return;
 
-        RemComp<ShipSteererComponent>(uid);
+        RemComp<ShipSteererComponent>(ent);
     }
 }

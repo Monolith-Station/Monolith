@@ -171,11 +171,13 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
-        if (!_entManager.TryGetComponent<ShipSteererComponent>(owner, out var steerer))
+        if (!_entManager.TryGetComponent<ShipSteererComponent>(owner, out var steerer)
+            || !blackboard.TryGetValue<EntityCoordinates>(TargetKey, out var target, _entManager)
+        )
             return HTNOperatorStatus.Failed;
 
         // ensure we're still steering if we e.g. move grids
-        var comp = _steering.Steer(owner, steerer.Coordinates);
+        var comp = _steering.Steer(owner, target);
         if (comp == null)
             return HTNOperatorStatus.Failed;
 
