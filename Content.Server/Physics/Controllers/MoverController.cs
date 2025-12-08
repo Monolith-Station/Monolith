@@ -284,7 +284,8 @@ public sealed class MoverController : SharedMoverController
 
         var horizScale = MathF.Abs(horizThrust / dir.X);
         var vertScale = MathF.Abs(vertThrust / dir.Y);
-        dir *= MathF.Min(horizScale, vertScale);
+        // prevent NaNs
+        dir *= dir.X == 0 ? vertScale : dir.Y == 0 ? horizScale : MathF.Min(horizScale, vertScale);
 
         return dir;
     }
@@ -295,6 +296,9 @@ public sealed class MoverController : SharedMoverController
     /// </summary>
     public Vector2 ObtainMaxVel(Vector2 vel, ShuttleComponent shuttle, PhysicsComponent body) // mono
     {
+        if (vel.Length() == 0f)
+            return Vector2.Zero;
+
         var thrust = GetDirectionThrust(vel, shuttle, body);
         var twr = thrust.Length() / body.Mass;
         var twrMult = MathF.Pow(twr / shuttle.BaseMaxVelocityTWR, shuttle.MaxVelocityScalingExponent);
@@ -476,7 +480,7 @@ public sealed class MoverController : SharedMoverController
                 // if we're going faster than we can be, thrust to adjust our velocity to the max wish-direction velocity
                 if (localVel.LengthSquared() > maxVelocity.LengthSquared())
                 {
-                    var velDelta = maxWishVelocity - maxVelocity;
+                    var velDelta = maxWishVelocity - localVel;
                     var maxForceLength = velDelta.Length() * body.Mass / frameTime;
                     var appliedLength = MathF.Min(totalForce.Length(), maxForceLength);
                     totalForce = velDelta.Length() == 0 ? Vector2.Zero : velDelta.Normalized() * appliedLength;
