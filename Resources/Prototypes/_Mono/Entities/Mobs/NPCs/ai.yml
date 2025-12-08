@@ -72,3 +72,12 @@
   - type: ConditionalSpawner
     prototypes:
       - NpcStationAiRammer
+
+- type: entity
+  name: approacher core spawner
+  id: SpawnMobApproacherCore
+  parent: SpawnMobRammerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+      - NpcStationAiApproacher
