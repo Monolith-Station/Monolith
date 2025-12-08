@@ -29,12 +29,6 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public HTNPlanState ShutdownState { get; private set; } = HTNPlanState.TaskFinished;
 
     /// <summary>
-    /// Whether to trust away from obstacles.
-    /// </summary>
-    [DataField]
-    public bool AvoidCollisions = true;
-
-    /// <summary>
     /// When we're finished moving to the target should we remove its key?
     /// </summary>
     [DataField]
@@ -47,23 +41,16 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public string TargetKey = "ShipTargetCoordinates";
 
     /// <summary>
-    /// How close we need to get before considering movement finished.
+    /// Whether to keep facing target if backing off due to RangeTolerance.
     /// </summary>
     [DataField]
-    public float Range = 5f;
+    public bool AlwaysFaceTarget = false;
 
     /// <summary>
-    /// Velocity below which we count as successfully braked.
-    /// Don't care about velocity if null.
+    /// How unwilling we are to use brake to adjust our velocity. Higher means less willing.
     /// </summary>
     [DataField]
-    public float? BrakeMaxVelocity = 0.1f;
-
-    /// <summary>
-    /// At most how far inside to have to stay into the desired range. If null, will consider the movement finished while in range.
-    /// </summary>
-    [DataField]
-    public float? RangeTolerance = null;
+    public float BrakeThreshold = 0.75f;
 
     /// <summary>
     /// Whether to consider the movement finished if we collide with target.
@@ -72,17 +59,35 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public bool FinishOnCollide = true;
 
     /// <summary>
-    /// Rotation to move at relative to direction to target.
+    /// Velocity below which we count as successfully braked.
+    /// Don't care about velocity if null.
     /// </summary>
     [DataField]
-    public float TargetRotation = 0f;
+    public float? InRangeMaxSpeed = 0.1f;
 
     /// <summary>
-    /// Whether to lead the target.
-    /// Leads to much higher hit rates for moving targets.
+    /// Whether to try to match velocity with target.
     /// </summary>
     [DataField]
     public bool LeadingEnabled = true;
+
+    /// <summary>
+    /// Max rotation rate to be considered stationary, if not null.
+    /// </summary>
+    [DataField]
+    public float? MaxRotateRate = null;
+
+    /// <summary>
+    /// How close we need to get before considering movement finished.
+    /// </summary>
+    [DataField]
+    public float Range = 5f;
+
+    /// <summary>
+    /// At most how far inside to have to stay into the desired range. If null, will consider the movement finished while in range.
+    /// </summary>
+    [DataField]
+    public float? RangeTolerance = null;
 
     /// <summary>
     /// Whether to require us to be anchored.
@@ -91,6 +96,12 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     /// </summary>
     [DataField]
     public bool RequireAnchored = true;
+
+    /// <summary>
+    /// Rotation to move at relative to direction to target.
+    /// </summary>
+    [DataField]
+    public float TargetRotation = 0f;
 
     private const string MovementCancelToken = "ShipMovementCancelToken";
 
@@ -144,14 +155,16 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         if (comp == null)
             return;
 
+        comp.AlwaysFaceTarget = AlwaysFaceTarget;
+        comp.BrakeThreshold = BrakeThreshold;
+        comp.FinishOnCollide = FinishOnCollide;
+        comp.InRangeMaxSpeed = InRangeMaxSpeed;
+        comp.LeadingEnabled = LeadingEnabled;
+        comp.MaxRotateRate = MaxRotateRate;
         comp.Range = Range;
         comp.RangeTolerance = RangeTolerance;
-        comp.InRangeMaxSpeed = BrakeMaxVelocity;
-        comp.FinishOnCollide = FinishOnCollide;
-        comp.AvoidCollisions = AvoidCollisions;
-        comp.TargetRotation = TargetRotation;
-        comp.LeadingEnabled = LeadingEnabled;
         comp.RequireAnchored = RequireAnchored;
+        comp.TargetRotation = TargetRotation;
     }
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)

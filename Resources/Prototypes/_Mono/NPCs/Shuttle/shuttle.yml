@@ -63,7 +63,7 @@
           operator: !type:ShipMoveToOperator
             shutdownState: TaskFinished
             removeKeyOnFinish: false
-            brakeMaxVelocity: null # there's no braking where we're going
+            inRangeMaxSpeed: null # there's no braking where we're going
             leadingEnabled: false # else it's too good
             targetKey: TargetCoordinates
 
@@ -78,7 +78,7 @@
           operator: !type:ShipMoveToOperator
             shutdownState: TaskFinished
             removeKeyOnFinish: false
-            brakeMaxVelocity: null # there's no braking where we're going
+            inRangeMaxSpeed: null # there's no braking where we're going
             targetKey: TargetCoordinates
 
 - type: htnCompound
@@ -93,7 +93,7 @@
             shutdownState: TaskFinished
             removeKeyOnFinish: false
             finishOnCollide: false # we might be already collided
-            brakeMaxVelocity: null # just immediately finish once out of range
+            inRangeMaxSpeed: null # just immediately finish once out of range
             # be within 200-300m
             range: 300
             rangeTolerance: 100
@@ -110,7 +110,7 @@
           operator: !type:ShipMoveToOperator
             shutdownState: TaskFinished
             removeKeyOnFinish: false
-            brakeMaxVelocity: 5
+            inRangeMaxSpeed: 5
             range: 250
             rangeTolerance: 50
             targetKey: TargetCoordinates
