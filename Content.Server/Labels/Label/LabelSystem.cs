@@ -8,6 +8,7 @@ using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Paper;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Labels
 {
