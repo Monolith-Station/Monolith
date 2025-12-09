@@ -14674,3 +14674,132 @@ Entries:
   id: 1628
   time: '2025-12-06T21:25:41.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2756
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Ships going at max speed can now properly thrust to the side without
+        having to brake first.
+    - type: Tweak
+      message: >-
+        Decreased thruster upgrade effect on max speed. There's now only effect
+        via thrust increase.
+  id: 1629
+  time: '2025-12-07T14:34:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2754
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Ullman tech cost a lot more research points now. Time to make money,
+        research enjoyers.
+    - type: Tweak
+      message: Moved pulse rifle to advanced ullman tech
+  id: 1630
+  time: '2025-12-07T14:52:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2758
+- author: Avalon-Proto
+  changes:
+    - type: Add
+      message: >-
+        The Pillbox by The Pantheon Collective is now in production, a
+        pharmacy/Bar Shuttle!
+    - type: Remove
+      message: >-
+        The Dram, by Steel Hammer Manufacturing, has fallen out of production
+        due to issues.
+  id: 1631
+  time: '2025-12-07T14:57:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2665
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        High-firerate shipguns (and people guns) can now fire at their full
+        firerate.
+  id: 1632
+  time: '2025-12-07T15:01:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2712
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added (for now) admin-spawn ship AI.
+  id: 1633
+  time: '2025-12-07T15:30:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2757
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: >-
+        The TSF has received a new capital vessel for FTLs and above! Check it
+        out in the shipyard.
+    - type: Remove
+      message: Removed the Serpent. Rest easy old girl.
+  id: 1634
+  time: '2025-12-07T15:33:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2735
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: 'Modsuit seal/unseal time has been decreased: 7s -> 1.8s'
+  id: 1635
+  time: '2025-12-07T21:06:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2766
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Added new combat batteries with EMP shielding. You can be safe now, IPCs
+  id: 1636
+  time: '2025-12-07T21:07:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2761
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Loadout acquisition of SVS (15000) and Mosin (5000) by mercenaries is
+        now possible. 7.62×54mmR mag box (1000) included.
+  id: 1637
+  time: '2025-12-08T20:57:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2770
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        You can now stash items in cakes like a plushie. All credit to
+        beck-thompson
+  id: 1638
+  time: '2025-12-08T20:59:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2769
+- author: UnicornOnLSD
+  changes:
+    - type: Add
+      message: >-
+        The DIS Pluto MK. II has pierced it's way on the hull market. A
+        replacement of the honorable Pluto. 
+    - type: Remove
+      message: >-
+        DIS Pluto hulls are no longer available on the hull market. We will miss
+        you, space cowboy.
+  id: 1639
+  time: '2025-12-08T21:04:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2763
+- author: NazrinNya
+  changes:
+    - type: Remove
+      message: >-
+        SCAF suit, soldat and mercenary modsuits were removed from loadouts.
+        SCAF suit storage is replaced with mercenary suit storage on all maps.
+    - type: Tweak
+      message: Mercenary modsuit migrated to T3 research.
+    - type: Tweak
+      message: Added civilian mod/hardsuits to loadouts.
+  id: 1640
+  time: '2025-12-09T12:27:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2771
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Added new armored medical shuttle - Dervi.
+  id: 1641
+  time: '2025-12-09T12:58:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2762

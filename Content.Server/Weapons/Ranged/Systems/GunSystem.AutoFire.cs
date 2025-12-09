@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 Dvir
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-FileCopyrightText: 2024 Whatstone
+// SPDX-FileCopyrightText: 2025 Ilya246
+//
+// SPDX-License-Identifier: MPL-2.0
+
 using Content.Shared.Damage;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Map;
@@ -26,23 +34,28 @@ public sealed partial class GunSystem
 
         while (query.MoveNext(out var uid, out var gun))
         {
-            if (gun.NextFire > Timing.CurTime)
-                continue;
-
-            if (TryComp(uid, out AutoShootGunComponent? autoShoot))
-            {
-                if (!autoShoot.Enabled)
-                    continue;
-
-                AttemptShoot(uid, gun);
-            }
-            else if (gun.BurstActivated)
+            if (gun.BurstActivated)
             {
                 var parent = _transform.GetParentUid(uid);
                 if (HasComp<DamageableComponent>(parent))
                     AttemptShoot(parent, uid, gun, gun.ShootCoordinates ?? new EntityCoordinates(uid, gun.DefaultDirection));
                 else
                     AttemptShoot(uid, gun);
+            }
+            else if (TryComp(uid, out AutoShootGunComponent? autoShoot))
+            {
+                // Mono
+                if (autoShoot.RemainingTime <= TimeSpan.FromSeconds(0))
+                {
+                    if (!autoShoot.Enabled)
+                        continue;
+                }
+                else
+                {
+                    autoShoot.RemainingTime -= TimeSpan.FromSeconds(frameTime);
+                }
+
+                AttemptShoot(uid, gun);
             }
         }
     }

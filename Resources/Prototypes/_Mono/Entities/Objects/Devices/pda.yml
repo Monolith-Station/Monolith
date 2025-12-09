@@ -149,6 +149,8 @@
   - type: Icon
     state: pda-hos
 
+#TSF
+
 - type: entity
   parent: BaseSecurityPDA
   id: TsfEngiPDA
@@ -224,6 +226,139 @@
     - LogProbeCartridge
     - AstroNavCartridge
     - MailMetricsCartridge # Frontier
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+
+- type: entity
+  parent: BasePDA
+  id: BasePDVPDA
+  description: A basic personal computer for access restriction and organization, manufactured in the Phaethon Dynasty.
+  abstract: true
+  components:
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - BountyContractsCartridge
+    - AstroNavCartridge
+  - type: Sprite
+    sprite: _Mono/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Icon
+    sprite: _Mono/Objects/Devices/pda.rsi
+    state: pda
+
+- type: entity
+  parent: BasePDVPDA
+  id: PDVRakhshanPDA
+  name: PDV rakhshan PDA
+  components:
+  - type: Pda
+    id: PDVRakhshanIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-rakhshan
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: PdaBorderColor
+    borderColor: "#9c8245"
+
+- type: entity
+  parent: BasePDVPDA
+  id: PDVGrandVizierPDA
+  name: PDV grand vizier PDA
+  components:
+  - type: Pda
+    id: PDVGrandVizierIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-grand-vizier
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: CartridgeLoader
+    preinstalled:
+    - LedgerCartridge
+  - type: PdaBorderColor
+    borderColor: "#533980"
+
+
+- type: entity
+  parent: BasePDVPDA
+  id: PDVAsvaranPDA
+  name: PDV asvaran PDA
+  components:
+  - type: Pda
+    id: PDVAsvaranIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-asvaran
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: PdaBorderColor
+    borderColor: "#9c8245"
+
+
+- type: entity
+  parent: BasePDVPDA
+  id: PDVSpasakaPDA
+  name: PDV spasaka PDA
+  components:
+  - type: Pda
+    id: PDVSpasakaIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-rakhshan
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: PdaBorderColor
+    borderColor: "#9c8245"
+
+- type: entity
+  parent: BasePDVPDA
+  id: PDVDenasvarPDA
+  name: PDV denasvar PDA
+  components:
+  - type: Pda
+    id: PDVDenasvarIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-denasvar
   - type: Geiger # Mono
     showExamine: true
     showControl: true

@@ -42,7 +42,8 @@
         - type: StationJobs
           availableJobs:
             PirateCaptain: [ 1, 1 ]
-            PirateFirstMate: [ 2, 2 ] # Mono
+            PirateFirstMate: [ 1, 1 ] # Mono
+            PDVDenasvar: [ 2, 2 ]
             Pirate: [ 8, 8 ] # Mono
           tags:
           - RogueCommander

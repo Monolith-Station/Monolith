@@ -140,6 +140,27 @@
     back:
     - BoxMagazine762x51mmFMJ
 
+- type: loadout #Mosin
+  id: MercenaryMosinLoadout
+  price: 5000
+  storage:
+    back:
+    - WeaponSniperMosin
+
+- type: loadout #SVS42
+  id: MercenarySvsLoadout
+  price: 15000
+  storage:
+    back:
+    - WeaponRifleSVS
+
+- type: loadout #Mosin / SVS42 Ammo
+  id: Mercenary762x54mmRAmmoLoadout
+  price: 1000
+  storage:
+    back:
+    - BoxMagazine762x54mmRFMJ
+
 # Shotguns
 
 - type: loadout #Kammerer
