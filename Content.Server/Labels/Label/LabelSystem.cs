@@ -50,7 +50,7 @@ namespace Content.Server.Labels
             if (_tagSystem.HasTag(uid, PreventTag)) // DeltaV - Prevent labels on certain items
                 return; // DeltaV
 
-            label.CurrentLabel = text;
+            label.CurrentLabel = text == null ? null : FormattedMessage.EscapeText(text);
             NameMod.RefreshNameModifiers(uid);
 
             Dirty(uid, label);
