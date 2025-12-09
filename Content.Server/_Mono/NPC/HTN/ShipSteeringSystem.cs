@@ -33,7 +33,9 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private bool _enabled;
+    private EntityQuery<AnchorableComponent> _anchorableQuery;
+    private EntityQuery<PhysicsComponent> _physQuery;
+    private EntityQuery<ShuttleComponent> _shuttleQuery;
 
     public override void Initialize()
     {
@@ -42,7 +44,9 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         SubscribeLocalEvent<ShipSteererComponent, GetShuttleInputsEvent>(OnSteererGetInputs);
         SubscribeLocalEvent<ShipSteererComponent, PilotedShuttleRelayedEvent<StartCollideEvent>>(OnShuttleStartCollide);
 
-        Subs.CVar(_cfg, CCVars.NPCEnabled, enabled => _enabled = enabled, true);
+        _anchorableQuery = GetEntityQuery<AnchorableComponent>();
+        _physQuery = GetEntityQuery<PhysicsComponent>();
+        _shuttleQuery = GetEntityQuery<ShuttleComponent>();
     }
 
     // have to use this because RT's is broken and unusable for navigation
@@ -65,9 +69,9 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         if (ent.Comp.Status == ShipSteeringStatus.InRange
             || shipUid == null
             || TerminatingOrDeleted(targetUid)
-            || !pilotXform.Anchored && ent.Comp.RequireAnchored && HasComp<AnchorableComponent>(ent)
-            || !TryComp<ShuttleComponent>(shipUid, out var shuttle)
-            || !TryComp<PhysicsComponent>(shipUid, out var shipBody))
+            || !pilotXform.Anchored && ent.Comp.RequireAnchored && _anchorableQuery.HasComp(ent)
+            || !_shuttleQuery.TryComp(shipUid, out var shuttle)
+            || !_physQuery.TryComp(shipUid, out var shipBody))
         {
             ent.Comp.Status = ShipSteeringStatus.InRange;
             return;
@@ -101,7 +105,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var midRange = (highRange + lowRange) / 2f;
 
         var effectiveVel = linVel;
-        if (ent.Comp.LeadingEnabled && TryComp<PhysicsComponent>(targetUid, out var targetBody))
+        if (ent.Comp.LeadingEnabled && _physQuery.TryComp(targetUid, out var targetBody))
             effectiveVel -= targetBody.LinearVelocity;
 
         // check if all good
@@ -257,7 +261,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     {
         var xform = Transform(ent);
         var shipUid = xform.GridUid;
-        if (TryComp<ShuttleComponent>(shipUid, out var shuttle))
+        if (_shuttleQuery.TryComp(shipUid, out var shuttle))
             _mover.AddPilot(shipUid.Value, ent);
         else
             return null;
