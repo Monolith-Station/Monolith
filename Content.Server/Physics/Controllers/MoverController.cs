@@ -61,9 +61,12 @@ public sealed class MoverController : SharedMoverController
 
     private void OnPilotGetInputs(Entity<PilotComponent> entity, ref GetShuttleInputsEvent args)
     {
-        var input = GetPilotVelocityInput(entity.Comp);
         args.GotInput = true;
 
+        if (Paused(args.ShuttleUid) || !CanPilot(args.ShuttleUid) || !HasComp<PhysicsComponent>(args.ShuttleUid))
+            return;
+
+        var input = GetPilotVelocityInput(entity.Comp);
         // don't slow down the ship if we're just looking at the console with zero input
         if (input.Brakes == 0f && input.Rotation == 0f && input.Strafe.LengthSquared() == 0f)
             return;
@@ -317,7 +320,7 @@ public sealed class MoverController : SharedMoverController
 
             foreach (var pilot in piloted.InputSources)
             {
-                var inputsEv = new GetShuttleInputsEvent();
+                var inputsEv = new GetShuttleInputsEvent(uid);
                 RaiseLocalEvent(pilot, ref inputsEv);
 
                 if (!inputsEv.GotInput)
@@ -560,9 +563,6 @@ public sealed class MoverController : SharedMoverController
         // then do the movement input once for it.
         foreach (var (shuttleUid, (shuttle, pilots)) in _shuttlePilots)
         {
-            if (Paused(shuttleUid) || CanPilot(shuttleUid) || !TryComp<PhysicsComponent>(shuttleUid, out var body))
-                continue;
-
             foreach (var (pilotUid, _, _, _) in pilots)
             {
                 AddPilot(shuttleUid, pilotUid);
@@ -591,9 +591,7 @@ public sealed class MoverController : SharedMoverController
 
     private bool CanPilot(EntityUid shuttleUid)
     {
-        return TryComp<FTLComponent>(shuttleUid, out var ftl)
-        && (ftl.State & (FTLState.Starting | FTLState.Travelling | FTLState.Arriving)) != 0x0
-            || HasComp<PreventPilotComponent>(shuttleUid);
+        return !HasComp<PreventPilotComponent>(shuttleUid);
     }
 
 }
