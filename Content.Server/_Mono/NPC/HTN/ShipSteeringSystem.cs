@@ -73,7 +73,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         args.GotInput = true;
 
         var mapTarget = _transform.ToMapCoordinates(target);
-
         var shipPos = _transform.GetMapCoordinates(shipXform);
 
         // we or target might just be in FTL so don't count us as finished
@@ -95,13 +94,14 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var lowRange = (ent.Comp.Range - ent.Comp.RangeTolerance) ?? 0f;
         var midRange = (highRange + lowRange) / 2f;
 
-        var effectiveVel = linVel;
+        var targetVel = Vector2.Zero;
         if (ent.Comp.LeadingEnabled && _physQuery.TryComp(targetUid, out var targetBody))
-            effectiveVel -= targetBody.LinearVelocity;
+            targetVel = targetBody.LinearVelocity;
+        var relVel = linVel - targetVel;
 
         // check if all good
         if (distance >= lowRange && distance <= highRange
-            && effectiveVel.Length() < maxArrivedVel
+            && relVel.Length() < maxArrivedVel
             && MathF.Abs(angVel) < maxArrivedAngVel)
         {
             var good = true;
@@ -125,23 +125,28 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         else
             destMapPos = shipPos;
 
-        args.Input = ProcessMovement(shipXform, shipBody, shuttle, shipPos,
-                                     destMapPos, effectiveVel,
+        args.Input = ProcessMovement(shipXform, shipBody, shuttle,
+                                     destMapPos, targetVel,
                                      maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
                                      targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
     }
 
-    private ShuttleInput ProcessMovement(TransformComponent shipXform, PhysicsComponent shipBody, ShuttleComponent shuttle, MapCoordinates shipPos,
-                                         MapCoordinates destMapPos, Vector2 effectiveVel,
+    private ShuttleInput ProcessMovement(TransformComponent shipXform, PhysicsComponent shipBody, ShuttleComponent shuttle,
+                                         MapCoordinates destMapPos, Vector2 targetVel,
                                          float maxArrivedVel, float brakeThreshold, float frameTime,
                                          Angle targetAngleOffset, Angle? angleOverride)
     {
-        var toDestVec = destMapPos.Position - shipPos.Position;
-        var destDistance = toDestVec.Length();
 
+        var shipPos = _transform.GetMapCoordinates(shipXform);
         var shipNorthAngle = _transform.GetWorldRotation(shipXform);
         var angleVel = shipBody.AngularVelocity;
         var linVel = shipBody.LinearVelocity;
+
+        var toDestVec = destMapPos.Position - shipPos.Position;
+        var destDistance = toDestVec.Length();
+
+        // try to lead the target with the target velocity we've been passed in
+        var relVel = linVel - targetVel;
 
         var brakeVec = GetGoodThrustVector((-shipNorthAngle).RotateVec(-linVel), shuttle);
         var brakeThrust = _mover.GetDirectionThrust(brakeVec, shuttle, shipBody) * ShuttleComponent.BrakeCoefficient;
@@ -157,11 +162,11 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // if we can't brake then don't
         if (leftoverBrakePath > destDistance && brakeAccel != 0f)
         {
-            wishInputVec = -effectiveVel;
+            wishInputVec = -relVel;
         }
         else
         {
-            var linVelDir = NormalizedOrZero(effectiveVel);
+            var linVelDir = NormalizedOrZero(relVel);
             var toDestDir = NormalizedOrZero(toDestVec);
             // mirror linVelDir in relation to toTargetDir
             // for that we orthogonalize it then invert it to get the perpendicular-vector
