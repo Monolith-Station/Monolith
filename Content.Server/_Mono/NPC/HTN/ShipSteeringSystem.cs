@@ -193,7 +193,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var wishRotateBy = targetAngleOffset + ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), wishAngle);
         var wishAngleVel = MathF.Sqrt(MathF.Abs((float)wishRotateBy) * 2f * angAccel) * Math.Sign(wishRotateBy);
         var wishDeltaAngleVel = wishAngleVel - angleVel;
-        var rotationInput = -wishDeltaAngleVel / angAccel / frameTime;
+        var rotationInput = angAccel == 0f ? 0f : -wishDeltaAngleVel / angAccel / frameTime;
 
 
         var brakeInput = 0f;
