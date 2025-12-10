@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadoutGroup
   id: MercenaryFirearm
   name: loadout-group-weapon
@@ -20,6 +13,8 @@
   - MercenaryKeyboardLoadout
   - MercenaryPrometheusLoadout
   - MercenaryVulcanCLoadout
+  - MercenaryMosinLoadout
+  - MercenarySvsLoadout
   - MercenaryKammererLoadout
   - MercenaryDisablerSMGLoadout
   - MercenaryLaserCarbineLoadout
@@ -61,6 +56,7 @@
   - MercenaryBuckshotAmmoLoadout #Kammerer / Sawn Buckshot
   - MercenarySlugAmmoLoadout #Kammerer / Sawn Slugs
   # - Mercenary46x30mmTopAmmoLoadout #WT550
+  - Mercenary762x54mmRAmmoLoadout #Mosin / SVS42
   - MercenaryRechargerLoadout #Energy
   fallbacks:
   - Mercenary9x19mmPistolAmmoLoadout #Pollock

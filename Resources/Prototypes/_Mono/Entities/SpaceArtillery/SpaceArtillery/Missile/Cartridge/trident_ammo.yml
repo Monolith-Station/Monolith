@@ -1,0 +1,385 @@
+- type: entity
+  id: BaseTorpedo
+  name: BaseTorpedo
+  description: If you can see this you're probably dead!
+  abstract: true
+  components:
+  - type: Clickable
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1
+        density: 1500
+        layer:
+        - WallLayer
+        mask:
+        - MachineMask
+  - type: Projectile
+    impactEffect: BulletImpactEffect
+    damage:
+      types:
+        Piercing: 14
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+  - type: TimedDespawn
+    lifetime: 10
+  - type: TriggerOnCollide
+    fixtureID: projectile
+
+# base end
+
+- type: entity
+  id: ShipMissileASM220HE
+  name: ASM-220 torpedo (HE)
+  parent: BaseTorpedo
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 300
+        Blunt: 200
+        Heat: 100
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
+    layers:
+    - state: mini-rocket
+    scale: 3, 3
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#ffff00"
+    scale: 4
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 25
+  - type: PointLight
+    radius: 5
+    color: orange
+    energy: 2
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBombShipGun
+    maxIntensity: 150
+    intensitySlope: 30
+    totalIntensity: 1000
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetSeeking
+    acceleration: 20
+    detectionRange: 750
+    scanArc: 75
+    launchSpeed: 25
+    maxSpeed: 70
+    trackDelay: 3
+  # destructible components below
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Meteor
+    damageTypes:
+      types:
+        Blunt: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  id: Asm220TorpedoHE
+  name: ASM-220 high-explosive torpedo
+  description: Contains a large explosive payload. High-Explosive is an understatement.
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - Asm220Torpedo
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipMissileASM220HE
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/asm220.rsi
+    layers:
+    - state: standard
+      map: ["enum.AmmoVisualLayers.Base"]
+    scale: 0.55, 0.725
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 3
+    totalIntensity: 75
+  - type: ExplodeOnTrigger
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+
+# HE end
+
+- type: entity
+  id: ShipMissileASM220LOSAT
+  name: ASM-220 LOSAT hyper-penetrator
+  parent: BaseTorpedo
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 25000
+        Blunt: 5000
+    deleteOnCollide: false
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
+    layers:
+    - state: mini-rocket
+    scale: 3, 3
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#00ffff"
+    scale: 4
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 15
+  - type: PointLight
+    radius: 5
+    color: orange
+    energy: 2
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetSeeking
+    acceleration: 70
+    detectionRange: 750
+    scanArc: 15
+    launchSpeed: 45
+    maxSpeed: 250
+    trackDelay: 1
+  - type: Explosive
+    explosionType: HardBombShipGun
+    maxIntensity: 1000
+    intensitySlope: 100
+    totalIntensity: 200
+  # destructible components below
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 1500
+        hard: true
+        layer:
+        - LargeMobLayer
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Meteor
+    damageTypes:
+      types:
+        Blunt: 50
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  id: Asm220TorpedoLOSAT
+  name: ASM-220 LOSAT missile
+  description: Effectively a large synthalloy hyper-penetrator. Tears through hull with ease.
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - Asm220Torpedo
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipMissileASM220LOSAT
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/asm220.rsi
+    layers:
+    - state: losat
+      map: ["enum.AmmoVisualLayers.Base"]
+    scale: 0.55, 0.725
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 3
+    totalIntensity: 75
+  - type: ExplodeOnTrigger
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+
+# LOSAT end
+
+- type: entity
+  id: ShipMissileASM220ECM
+  name: ASM-220 torpedo (ECM)
+  parent: BaseTorpedo
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 350
+        Blunt: 200
+        Heat: 50
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
+    layers:
+    - state: mini-rocket
+    scale: 3, 3
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#00b8ff"
+    scale: 4
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 15
+  - type: PointLight
+    radius: 5
+    color: orange
+    energy: 2
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBombShipGun
+    maxIntensity: 50
+    intensitySlope: 4
+    totalIntensity: 150
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetSeeking
+    acceleration: 20
+    detectionRange: 750
+    scanArc: 45
+    launchSpeed: 25
+    maxSpeed: 70
+    trackDelay: 3
+  - type: EmpOnTrigger
+    range: 7
+    energyConsumption: 2900000
+    disableDuration: 10
+  # destructible components below
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Meteor
+    damageTypes:
+      types:
+        Blunt: 0.5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  id: Asm220TorpedoECM
+  name: ASM-220 ECM torpedo
+  description: Compared to a standard HE torpedo, this one is much more destructive to electronics due to an EMP payload installed inside, though it's almost completely harmless to the hull.
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - Asm220Torpedo
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipMissileASM220ECM
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/asm220.rsi
+    layers:
+    - state: ecm
+      map: ["enum.AmmoVisualLayers.Base"]
+    scale: 0.55, 0.725
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: EmpDescription
+    range: 7
+    energyConsumption: 2900000
+    disableDuration: 10
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 3
+    totalIntensity: 75
+  - type: ExplodeOnTrigger
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+
+# ECM end

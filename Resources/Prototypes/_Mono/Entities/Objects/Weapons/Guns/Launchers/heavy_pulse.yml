@@ -1,0 +1,60 @@
+- type: entity
+  id: WeaponHeavyPulseCannon
+  parent: [ BaseWeaponBattery, BaseGunWieldable ]
+  name: NT-WS heavy pulse cannon
+  description: A rare, corporate war era weapon of Nanotrasen origin. A massive shoulder mounted pulse cannon, packing enough power in its punches to blow holes through organics, or when tuned to high power, blow holes clean into shuttle hulls.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/hpc-icon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Appearance
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/hpc-inhand-32x.rsi
+    size: Ginormous
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/hpc-inhand-32x.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: .25
+    projectileSpeed: 200
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Battery
+    maxCharge: 1500000
+    startingCharge: 1500000
+  - type: BatterySelfRecharger
+    autoRechargePause: true
+    autoRechargePauseTime: 60
+    autoRecharge: true
+    autoRechargeRate: 25000
+  - type: ProjectileBatteryAmmoProvider
+    proto: HeavyPulse
+    fireCost: 187500
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: HeavyPulse
+      fireCost: 187500
+    - proto: HeavyPulseExp
+      fireCost: 750000
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.65
+    sprintModifier: 0.4
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 9
+    pvsIncrease: 1
+  - type: GunRequiresWield
+
+

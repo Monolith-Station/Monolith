@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ilya246
-#
-# SPDX-License-Identifier: MPL-2.0
-
 - type: entity
   parent: [BaseStructure, StructureWheeled, BaseC3ContrabandUnredeemable ]
   id: ScuttleDeviceWyvern
@@ -85,3 +81,36 @@
   - type: StaticPrice
     price: 200000 # antimatter is worth a lot
   - type: FTLSmashImmune
+
+
+- type: entity
+  parent: ScuttleDeviceWyvern
+  id: ScuttleDeviceRazorN
+  name: atomizer assembly
+  description: Why are you stopping to read this?!
+  components:
+  - type: ScuttleDevice
+    unlockedPrice: 400000
+    doMusic: false
+    disarmOnMapChange: true # no FTL divebombing
+    disarmOnUnanchor: true # can't just ram with it
+    announceSender: scuttle-device-razor-announcement-sender
+    timer: 20
+    minimumTime: 20
+    armDoafterLength: 1
+    disarmDoafterLength: 1
+  # calibrated to be able to blast capitals but not POI wall
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 800
+    intensitySlope: 20
+    totalIntensity: 10000000
+    deleteAfterExplosion: true
+  - type: StaticPrice
+    price: 100000
+  - type: Lock
+    lockTime: 60
+  - type: PointLight
+    color: "#FF6040"
+  - type: RotatingLight
+    speed: 360 # weeee

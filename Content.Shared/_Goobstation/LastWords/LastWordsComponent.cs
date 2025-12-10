@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden
-//
-// SPDX-License-Identifier: MPL-2.0
-
 namespace Content.Shared._Goobstation.LastWords;
 
 /// <summary>

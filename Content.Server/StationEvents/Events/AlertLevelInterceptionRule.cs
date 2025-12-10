@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Mr. 27
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 deltanedas
-// SPDX-FileCopyrightText: 2025 AwareFoxy
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Server.StationEvents.Components;
 using Content.Server.AlertLevel;
 ﻿using Content.Shared.GameTicking.Components;

@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: MPL-2.0
-
 # Translators
 - type: latheRecipe
   id: GaryTranslator
@@ -13,10 +9,31 @@
     Plastic: 50
     Gold: 50
 
+- type: latheRecipe
+  id: NovaCygniTranslator
+  result: NovaCygniTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
 # Implanters
 - type: latheRecipe
   id: GaryTranslatorImplanter
   result: GaryTranslatorImplant
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
+  id: NovaCygniTranslatorImplanter
+  result: NovaCygniTranslatorImplant
   completetime: 2
   materials:
     Steel: 500

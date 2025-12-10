@@ -1,25 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Cheackraze
-// SPDX-FileCopyrightText: 2023 DustScoundrel
-// SPDX-FileCopyrightText: 2023 Gados
-// SPDX-FileCopyrightText: 2023 OCO_Omega
-// SPDX-FileCopyrightText: 2023 RealIHaveANameOfficial
-// SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2023 checkraze
-// SPDX-FileCopyrightText: 2023 terezi
-// SPDX-FileCopyrightText: 2024 Checkraze
-// SPDX-FileCopyrightText: 2024 FoxxoTrystan
-// SPDX-FileCopyrightText: 2024 Maxtone
-// SPDX-FileCopyrightText: 2024 Shroomerian
-// SPDX-FileCopyrightText: 2024 TsjipTsjip
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Dvir
-// SPDX-FileCopyrightText: 2025 LukeZurg22
-// SPDX-FileCopyrightText: 2025 sleepyyapril
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using System.Net.Http;
 using System.Text;

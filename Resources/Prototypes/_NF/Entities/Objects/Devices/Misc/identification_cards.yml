@@ -1,19 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Kesiath
-# SPDX-FileCopyrightText: 2023 LankLTE
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Maxtone
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Tych0
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 BramvanZijp
-# SPDX-FileCopyrightText: 2025 LukeZurg22
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 dustylens
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: IDCardStandard
   id: MercenaryIDCard
@@ -234,47 +218,6 @@
     - state: idcontractor
 
 - type: entity
-  parent: PirateIDCard
-  id: PirateNFIDCard
-  name: PDV rakhshan ID card
-  components:
-  - type: PresetIdCard
-    job: Pirate
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: pirate
-    - state: idpirate
-  - type: Item
-    heldPrefix: pirate
-
-- type: entity
-  parent: PirateNFIDCard
-  id: PirateCaptainNFIDCard
-  name: PDV grand vizier ID card
-  components:
-  - type: PresetIdCard
-    job: PirateCaptain
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: pirate
-    - state: idpiratecaptain
-
-- type: entity
-  parent: PirateNFIDCard
-  id: PirateFirstMateNFIDCard
-  name: PDV asvaran ID card
-  components:
-  - type: PresetIdCard
-    job: PirateFirstMate
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: pirate
-    - state: idpiratefirstmate
-
-- type: entity
   parent: PunPunIDCard
   id: YipYipIDCard
   name: yip yip ID card
@@ -309,7 +252,7 @@
     name: Clippy
 
 - type: entity
-  parent: PirateFirstMateNFIDCard
+  parent: PDVAsvaranIDCard
   id: ClarpyIDCard
   name: clarpy ID card
   components:

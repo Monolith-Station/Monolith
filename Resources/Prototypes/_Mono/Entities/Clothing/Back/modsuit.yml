@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 NotActuallyMarty
-# SPDX-FileCopyrightText: 2025 RealSchepka
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 Schepka
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitUSSPVaryag
@@ -372,6 +363,105 @@
 - type: entity
   parent: ClothingModsuitVolta
   id: ClothingModsuitVoltaPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+            - PowerCell
+
+# Gallóglach
+
+- type: entity
+  parent: [Clothing, ContentsExplosionResistanceBase]
+  id: ClothingModsuitMercenary
+  name: mercenary gallóglach hardsuit control unit
+  description: A modular hardsuit control module unit packed with a powered shield for extra protection.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Mono/Clothing/Back/Modsuits/mercenary.rsi
+    layers:
+    - state: control
+    - state: control-sealed
+      visible: false
+      shader: unshaded
+      map: [ "sealed" ]
+  - type: Item
+    size: Huge
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: Storage
+    grid:
+    - 0,0,1,3
+    - 3,0,6,3
+    - 8,0,9,3
+    maxItemSize: Huge
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      toggleable-clothing: !type:Container
+      cell_slot: !type:ContainerSlot
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
+  - type: UseDelay
+    delay: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ToggleableClothing
+    requiredSlot: back
+    blockUnequipWhenAttached: true
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingModsuitHelmetMercenary
+      gloves: ClothingModsuitGauntletsMercenary
+      outerClothing: ClothingModsuitChestplateMercenary
+      shoes: ClothingModsuitBootsMercenary
+  - type: WiresPanel
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        whitelist:
+          components:
+            - PowerCell
+  - type: ItemSlotsRequirePanel
+    slots:
+      cell_slot: true
+  - type: PowerCellDraw
+    drawRate: 0.1 # Sealed draw rate
+    useRate: 0.5 # Draw rate for sealing
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: false
+  - type: DoAfter
+  - type: SealableClothingControl
+  - type: SealableClothingRequiresPower
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+      back-resomi:
+      - state: equipped-BACKPACK-sealed-resomi
+  - type: Construction
+    graph: Modsuit
+    node: mercenary
+
+- type: entity
+  parent: ClothingModsuitMercenary
+  id: ClothingModsuitMercenaryPowerCell
   suffix: High-Capacity Battery
   components:
   - type: ItemSlots

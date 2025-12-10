@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Honestly101
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 Redrover1760
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 
 - type: damageModifierSet # Mono
   id: Protogen
@@ -53,3 +46,55 @@
   flatReductions:
     Blunt: 3
     Structural: -1
+
+# mech armor
+
+- type: damageModifierSet
+  id: MechArmorLight
+  coefficients:
+    Blunt: 1.1
+    Slash: 1.1
+    Piercing: 1.1
+    Shock: 2
+    Heat: 1
+    Structural: 0.5
+  flatReductions:
+    Blunt: 2
+    Slash: 3
+    Piercing: 2
+
+
+- type: damageModifierSet
+  id: MechArmorMedium
+  coefficients:
+    Blunt: 0.7
+    Slash: 0.7
+    Cold: 0
+    Radiation: 0
+    Piercing: 0.7
+    Shock: 2
+    Heat: 0.7
+    Structural: 0.5
+  flatReductions:
+    Blunt: 3
+    Slash: 3
+    Piercing: 3
+    Structural: 1
+
+- type: damageModifierSet
+  id: MechArmorHeavy
+  coefficients:
+    Blunt: 0.4
+    Slash: 0.4
+    Cold: 0
+    Radiation: 0
+    Piercing: 0.5
+    Shock: 2
+    Heat: 0.4
+    Structural: 0.6
+  flatReductions:
+    Blunt: 7
+    Slash: 7
+    Piercing: 7
+    Heat: 4
+    Structural: 1

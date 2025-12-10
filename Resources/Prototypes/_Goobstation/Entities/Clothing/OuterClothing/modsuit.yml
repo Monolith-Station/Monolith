@@ -1,9 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 NotActuallyMarty
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+# Mono - modsuit overhaul - see #2755 
 
 - type: entity
   parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
@@ -26,8 +21,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    walkModifier: 1 
+    sprintModifier: 1
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -80,8 +75,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.80
-    sprintModifier: 0.80
+    walkModifier: 0.87
+    sprintModifier: 0.87
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -95,13 +90,13 @@
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: StaminaDamageResistance
-    coefficient: 0.7
+    coefficient: 0.6
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.45
         Heat: 0.6
         Radiation: 0.6
   - type: ComponentToggler
@@ -156,12 +151,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
+        Blunt: 0.45
         Slash: 0.5
-        Piercing: 0.45
-        Heat: 0.5
+        Piercing: 0.38
+        Heat: 0.45
         Caustic: 0.5
-        Radiation: 0.5
+        Radiation: 0.4
   - type: ComponentToggler
     components:
     - type: PressureProtection
@@ -194,8 +189,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 1.05
+    sprintModifier: 1.05
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -207,16 +202,17 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
   - type: ExplosionResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 1
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.9
         Slash: 0.9
-        Piercing: 0.85
+        Piercing: 0.9
         Heat: 0.8
         Caustic: 0.6
         Radiation: 0.6
+        Poison: 0.6
   - type: ComponentToggler
     components:
     - type: PressureProtection
@@ -309,8 +305,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 0.95
+    sprintModifier: 0.95
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -382,9 +378,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.8
-        Piercing: 0.85
+        Blunt: 0.35
+        Slash: 0.7
+        Piercing: 0.75
         Heat: 0.3
         Shock: 0.8
         Caustic: 0.5
@@ -440,9 +436,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.6
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.5
         Heat: 0.5
         Radiation: 0.4
   - type: ComponentToggler
@@ -457,3 +453,4 @@
     coefficient: 0.7
   - type: FireProtection
     reduction: 0.5
+

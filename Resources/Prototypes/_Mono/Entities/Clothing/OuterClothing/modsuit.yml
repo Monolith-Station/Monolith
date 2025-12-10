@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 NotActuallyMarty
-# SPDX-FileCopyrightText: 2025 RealSchepka
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 Schepka
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
   id: ClothingModsuitChestplateUSSPVaryag
@@ -231,3 +222,92 @@
     coefficient: 0.9
   - type: FireProtection
     reduction: 0.0
+
+# Gallóglach
+
+- type: entity
+  parent: [ ClothingOuterBase, EnergyShieldClothing ] # Mono - add soft-shield
+  id: ClothingModsuitChestplateMercenary
+  name: mercenary modsuit chestplate
+  description: Lightweight modsuit that sacrifices explosion and heat protection for energy shield and speed.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: AllowSuitStorage
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Modsuits/mercenary.rsi
+    layers:
+    - state: chestplate
+    - state: chestplate-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ outerClothing ]
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-chestplate
+    sealDownPopup: sealable-clothing-seal-down-chestplate
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
+  - type: ExplosionResistance
+    damageCoefficient: 0.8 # Mono
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.75
+        Caustic: 0.45 # Mono
+        Radiation: .75 # Mono
+  - type: ComponentToggler
+    components:
+    - type: PressureProtection
+      highPressureMultiplier: 0.3
+      lowPressureMultiplier: 1000
+    - type: TemperatureProtection
+      coolingCoefficient: 0.1
+      heatingCoefficient: 0.4
+  - type: StaminaDamageResistance
+    coefficient: 0.7 # Mono
+  - type: FireProtection
+    reduction: 0.5 # Mono
+  # Mono - Shielding comps
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 1.5 # Trash againt heat.
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 1.5
+      flatReductions:
+        Piercing: 5
+    passiveBlockFraction: 0.5
+    activeBlockFraction: 0.5
+    isClothing: true
+  - type: Damageable
+    damageContainer: Shield
+  - type: Battery
+    maxCharge: 50
+    startingCharge: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 0.1
+  - type: RechargeableBlocking
+  - type: UseDelay
+    delay: 20

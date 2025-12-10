@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 Honestly101
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: CombatMech
   abstract: true
@@ -87,7 +78,7 @@
     baseWalkSpeed: 1
     baseSprintSpeed: 2
   - type: Damageable
-    damageModifierSet: MediumArmorNT
+    damageModifierSet: MechArmorMedium
   - type: StaticPrice
     price: 1000
   - type: Tag
@@ -201,7 +192,7 @@
   id: MechGygax
   parent: [ BaseMech, CombatMech, BaseRestrictedContraband ]
   name: Gygax
-  description: While lightly armored, the Gygax has incredible mobility thanks to its ability that lets it smash through walls at high speeds.
+  description: While lightly armored, the Gygax has incredible mobility thanks to its ability to punch through walls at high speeds.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -221,7 +212,7 @@
     openState: gygax-open
     brokenState: gygax-broken
     mechToPilotDamageMultiplier: 0.1 # Mono
-    maxIntegrity: 550 # Mono
+    maxIntegrity: 1000 # Mono
     airtight: true
     pilotWhitelist:
       components:
@@ -234,6 +225,8 @@
       types:
         Blunt: 25
         Structural: 180
+  - type: Damageable
+    damageModifierSet: MechArmorMedium # Mono
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: MovementSpeedModifier # Mono
@@ -296,7 +289,7 @@
     brokenState: durand-broken
     mechToPilotDamageMultiplier: 0.25
     airtight: true
-    maxIntegrity: 800
+    maxIntegrity: 1200
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -313,7 +306,7 @@
     baseSprintSpeed: 2
     baseWeightlessModifier: 3 # Mono
   - type: Damageable
-    damageModifierSet: MediumArmorNT
+    damageModifierSet: MechArmorHeavy
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: Repairable
@@ -376,7 +369,7 @@
     brokenState: marauder-broken
     mechToPilotDamageMultiplier: 0.1
     airtight: true
-    maxIntegrity: 1000
+    maxIntegrity: 1200
     maxEquipmentAmount: 4
     pilotWhitelist:
       components:
@@ -394,7 +387,7 @@
     baseSprintSpeed: 1.5
     baseWeightlessModifier: 3 # Mono
   - type: Damageable
-    damageModifierSet: HeavyArmorNT
+    damageModifierSet: MechArmorHeavy
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: Repairable
@@ -466,7 +459,7 @@
     brokenState: seraph-broken
     mechToPilotDamageMultiplier: 0.05
     airtight: true
-    maxIntegrity: 1100
+    maxIntegrity: 1200
     maxEquipmentAmount: 5
     pilotWhitelist:
       components:
@@ -484,7 +477,7 @@
     baseSprintSpeed: 3.7
     baseWeightlessModifier: 3 # Mono
   - type: Damageable
-    damageModifierSet: HeavyArmorNT
+    damageModifierSet: MechArmorHeavy
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: Repairable
@@ -538,7 +531,7 @@
   id: MechGygaxSyndie
   parent: [ BaseMech, CombatMech, BaseSyndicateContraband ]
   name: Dark Gygax
-  description: A modified Gygax used for nefarious purposes. On the back of the armor plate there is an inscription "Cybersun Inc."
+  description: A modified Gygax used for nefarious purposes.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -559,7 +552,7 @@
     brokenState: darkgygax-broken
     mechToPilotDamageMultiplier: 0.15
     airtight: true
-    maxIntegrity: 750
+    maxIntegrity: 1250
     maxEquipmentAmount: 4
     pilotWhitelist:
       components:
@@ -577,7 +570,7 @@
     baseSprintSpeed: 5.5 # Mono
     baseWeightlessModifier: 7 # Mono
   - type: Damageable
-    damageModifierSet: MediumArmorSyndi
+    damageModifierSet: MechArmorLight
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: Repairable
@@ -628,7 +621,7 @@
   id: MechMaulerSyndie
   parent: [ BaseMech, CombatMech, BaseSyndicateContraband ]
   name: Mauler
-  description: A modified Marauder used by the Syndicate that's not as maneuverable as the Dark Gygax, but it makes up for that in armor and sheer firepower. On the back of the armor plate there is an inscription "Cybersun Inc."
+  description: A modified Marauder once used by the Syndicate. Not as maneuverable as the Dark Gygax, but it makes up for its speed in armor and sheer firepower.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -649,7 +642,7 @@
     brokenState: mauler-broken
     mechToPilotDamageMultiplier: 0.1
     airtight: true
-    maxIntegrity: 500
+    maxIntegrity: 1300
     maxEquipmentAmount: 5
     pilotWhitelist:
       components:
@@ -666,7 +659,7 @@
     baseWalkSpeed: 1
     baseSprintSpeed: 1.5
   - type: Damageable
-    damageModifierSet: HeavyArmorSyndi
+    damageModifierSet: MechArmorHeavy
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: Repairable
