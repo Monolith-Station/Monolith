@@ -406,13 +406,13 @@
       sprite: _RMC14/Interface/MousePointer/smartgun_mouse.rsi
       state: all
 
-#Pre-fracture NT lecter/prometheus
+#Corporate War Lecter
 
 - type: entity
   name: NTSF-LTR-556 (5.56x45mm,6.8x52mm Caseless)
   parent: [BaseWeaponRifle, BaseC2ContrabandUnredeemable]
   id: WeaponRifleNtsfLtr
-  description: An old pre-fracture gun. The Nano Trasen Security Forces and Special Forces's Light Tactical Rifle chambered in 5.56x45mm, also accepts 6.8x52mm due to it being a brand new caliber of its time and being a prototype. This rifle is of high-quality with plastitanium internal and plasteel furnitures.
+  description: An old corporate war era rifle. The Nano Trasen Security Forces and Special Forces's Light Tactical Rifle chambered in 5.56x45mm, also accepts 6.8x52mm due to it being a brand new caliber of its time and being a prototype. This rifle is of high-quality with plastitanium internal and plasteel furnitures.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Rifles/NTSF-LTR-556

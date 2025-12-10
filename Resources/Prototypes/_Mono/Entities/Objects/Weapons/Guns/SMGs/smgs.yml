@@ -223,12 +223,12 @@
     defaultColor: "#FF0000"
   - type: Appearance
 
-#Pre-corpowar 45 magnum rare vector
+# Corpo War .45 Mag Vector
 - type: entity
   name: NTSF-HCLM-45 (.45 magnum)
   parent: [BaseWeaponSubMachineGun, BaseGunWieldable, BaseC2ContrabandUnredeemable]
   id: WeaponSubMachineGunVectorNtsfHclm
-  description: The NTSF Heavy Caliber Light Machinegun. A very high-quality heavy SMG chambered in .45 magnum for use for the Nano Trasen Security Force and NT spec-ops.
+  description: The NTSF Heavy Caliber Light Machinegun. A very high-quality heavy SMG chambered in .45 magnum for use for the Nano Trasen Security Force and NT spec-ops, from the corporate war.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/SMGs/NTSF-HCLM-45rsi
