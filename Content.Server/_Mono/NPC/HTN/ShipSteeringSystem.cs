@@ -1,18 +1,10 @@
 using System.Numerics;
-using Content.Server.NPC.Components;
-using Content.Server.NPC.HTN;
 using Content.Server.Physics.Controllers;
 using Content.Server.Shuttles.Components;
-using Content.Shared.CCVar;
 using Content.Shared.Construction.Components;
-using Content.Shared.NPC;
-using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
-using Content.Shared.NPC.Events;
-using Content.Shared.Physics;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
-using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
@@ -96,7 +88,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         var maxArrivedVel = ent.Comp.InRangeMaxSpeed ?? float.PositiveInfinity;
         var maxArrivedAngVel = ent.Comp.MaxRotateRate ?? float.PositiveInfinity;
-        var minDistance = (ent.Comp.Range - ent.Comp.RangeTolerance) ?? 0f;
 
         var targetAngleOffset = new Angle(ent.Comp.TargetRotation);
 
@@ -137,19 +128,19 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         args.Input = ProcessMovement(shipXform, shipBody, shuttle, shipPos,
                                      destMapPos, effectiveVel,
                                      maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
-                                     ent.Comp.LeadingEnabled, targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
+                                     targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
     }
 
     private ShuttleInput ProcessMovement(TransformComponent shipXform, PhysicsComponent shipBody, ShuttleComponent shuttle, MapCoordinates shipPos,
                                          MapCoordinates destMapPos, Vector2 effectiveVel,
                                          float maxArrivedVel, float brakeThreshold, float frameTime,
-                                         bool leadTarget, Angle targetAngleOffset, Angle? angleOverride)
+                                         Angle targetAngleOffset, Angle? angleOverride)
     {
         var toDestVec = destMapPos.Position - shipPos.Position;
         var destDistance = toDestVec.Length();
 
         var shipNorthAngle = _transform.GetWorldRotation(shipXform);
-        var angVel = shipBody.AngularVelocity;
+        var angleVel = shipBody.AngularVelocity;
         var linVel = shipBody.LinearVelocity;
 
         var brakeVec = GetGoodThrustVector((-shipNorthAngle).RotateVec(-linVel), shuttle);
@@ -162,7 +153,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // negative if we're already slow enough
         var leftoverBrakePath = brakeAccel == 0f ? 0f : brakePath - innerBrakePath;
 
-        var wishInputVec = Vector2.Zero;
+        Vector2 wishInputVec;
         // if we can't brake then don't
         if (leftoverBrakePath > destDistance && brakeAccel != 0f)
         {
@@ -178,12 +169,11 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             wishInputVec = toDestDir + adjustDir * 2;
         }
 
-        var strafeInput = Vector2.Zero;
-        strafeInput = (-shipNorthAngle).RotateVec(wishInputVec);
+        var strafeInput = (-shipNorthAngle).RotateVec(wishInputVec);
         strafeInput = GetGoodThrustVector(strafeInput, shuttle);
 
 
-        var wishAngle = new Angle(0);
+        Angle wishAngle;
         if (angleOverride != null)
             wishAngle = angleOverride.Value;
         // try to face our thrust direction if we can
@@ -194,22 +184,17 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             wishAngle = toDestVec.ToWorldAngle();
 
         var angAccel = _mover.GetAngularAcceleration(shuttle, shipBody);
-        var brakeAngleDelta = angAccel == 0f ? 0f : (angVel * angVel) / (2f * angAccel);
-        brakeAngleDelta *= Math.Sign(angVel);
         // there's 500 different standards on how to count angles so needs the +PI
         var wishRotateBy = targetAngleOffset + ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), wishAngle);
-        var rotateDelta = ShortestAngleDistance(new Angle(brakeAngleDelta), wishRotateBy);
-        var rotationInput = -(float)rotateDelta.Theta;
-        rotationInput = MathF.Sign(rotationInput);
-        // don't overbrake if we're braking
-        if (angVel * rotateDelta < 0)
-            rotationInput *= MathF.Min(1f, MathF.Abs(angVel) / (angAccel * frameTime));
+        var wishAngleVel = MathF.Sqrt(MathF.Abs((float)wishRotateBy) * 2f * angAccel) * Math.Sign(wishRotateBy);
+        var wishDeltaAngleVel = wishAngleVel - angleVel;
+        var rotationInput = -wishDeltaAngleVel / angAccel / frameTime;
 
 
         var brakeInput = 0f;
         // check if we should brake, brake if it's in a good direction and it won't stop us from rotating
         if (Vector2.Dot(NormalizedOrZero(wishInputVec), NormalizedOrZero(-linVel)) >= brakeThreshold
-            && (MathF.Abs(rotationInput) < 1f - brakeThreshold || angVel * rotateDelta < 0))
+            && (MathF.Abs(rotationInput) < 1f - brakeThreshold || wishAngleVel * angleVel < 0 || MathF.Abs(wishAngleVel) < MathF.Abs(angleVel)))
         {
             brakeInput = 1f;
         }
@@ -217,7 +202,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         return new ShuttleInput(strafeInput, rotationInput, brakeInput);
     }
 
-    private void OnShuttleStartCollide(Entity<ShipSteererComponent> ent, ref PilotedShuttleRelayedEvent<StartCollideEvent> outerArgs) {
+    private void OnShuttleStartCollide(Entity<ShipSteererComponent> ent, ref PilotedShuttleRelayedEvent<StartCollideEvent> outerArgs)
+    {
         var args = outerArgs.Args;
 
         // finish movement if we collided with target and want to finish in this case
@@ -261,7 +247,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     {
         var xform = Transform(ent);
         var shipUid = xform.GridUid;
-        if (_shuttleQuery.TryComp(shipUid, out var shuttle))
+        if (_shuttleQuery.TryComp(shipUid, out _))
             _mover.AddPilot(shipUid.Value, ent);
         else
             return null;
