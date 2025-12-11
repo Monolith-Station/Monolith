@@ -1,0 +1,18 @@
+- type: technology
+  id: AdvancedTacticalBackpacks
+  name: research-technology-advanced-tactical-backpacks
+  entityIcon: ClothingBackpackERTLeader
+  discipline: FactionUniversal
+  tier: 3
+  cost: 350000
+  recipeUnlocks:
+  - ClothingBackpackERTLeader
+  - ClothingBackpackERTJanitor
+  - ClothingBackpackERTSecurity
+  - ClothingBackpackERTEngineer
+  - ClothingBackpackERTChaplain
+  - ClothingBackpackERTMedical
+#  - ClothingBackpackERTClown #Omitted: It's rare NT crate loot
+  technologyPrerequisites:
+  - UniversalMaterialResearchT3
+  position: 9, 12

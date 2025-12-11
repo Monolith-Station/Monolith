@@ -37,3 +37,52 @@
   parent: BaseNeckClothingRecipe
   id: ClothingNeckPonchoSmallRed
   result: ClothingNeckPonchoSmallRed
+
+#advanced tactical backpacks
+- type: latheRecipe
+  id: AdvancedTacticalBackpackBase
+  categories:
+  - ClothesNF
+  completetime: 15
+  materials:
+    Steel: 500
+    Plastic: 1500
+    Cloth: 3000
+    Durathread: 3000
+    
+- type: latheRecipe
+  parent: AdvancedTacticalBackpackBase
+  id: ClothingBackpackERTLeader
+  result: ClothingBackpackERTLeader
+  
+- type: latheRecipe
+  parent: AdvancedTacticalBackpackBase
+  id: ClothingBackpackERTJanitor
+  result: ClothingBackpackERTJanitor
+  
+- type: latheRecipe
+  parent: AdvancedTacticalBackpackBase
+  id: ClothingBackpackERTSecurity
+  result: ClothingBackpackERTSecurity
+  
+- type: latheRecipe
+  parent: AdvancedTacticalBackpackBase
+  id: ClothingBackpackERTEngineer
+  result: ClothingBackpackERTEngineer
+  
+- type: latheRecipe
+  parent: AdvancedTacticalBackpackBase
+  id: ClothingBackpackERTChaplain
+  result: ClothingBackpackERTChaplain
+  
+- type: latheRecipe
+  parent: AdvancedTacticalBackpackBase
+  id: ClothingBackpackERTMedical
+  result: ClothingBackpackERTMedical
+
+#Omitted: It's rare NT crate loot  
+#- type: latheRecipe
+#  parent: AdvancedTacticalBackpackBase
+#  id: ClothingBackpackERTClown
+#  result: ClothingBackpackERTClown
+ 
