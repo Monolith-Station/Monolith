@@ -41,6 +41,7 @@
 #advanced tactical backpacks
 - type: latheRecipe
   id: AdvancedTacticalBackpackBase
+  abstract: true
   categories:
   - ClothesNF
   completetime: 15
