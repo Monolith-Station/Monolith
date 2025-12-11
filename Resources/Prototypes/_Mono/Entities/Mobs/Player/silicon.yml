@@ -1,12 +1,71 @@
 - type: dataset
-  id: MonoRedactedBorgNameset
+  id: MonoRemnantBorgTitle
   values:
-  - ADS Manipulator Module
+  - ADM
 
 - type: dataset
-  id: MonoRemnantCoreNameset
+  id: MonoRemnantCoreTitle
   values:
-  - ADS System Core
+  - ADC
+
+- type: dataset
+  id: MonoRemnantAdjective
+  values:
+  - Violet
+  - Red
+  - Purple
+  - Yellow
+  - Green
+  - Blue
+  - Cyan
+  - Crimson
+  - Steel
+  - Obsidian
+  - Prismatic
+  - Sudden
+  - Militant
+  - Void
+  - Lightspeed
+  - Cleansing
+
+- type: dataset
+  id: MonoRemnantNoun
+  values:
+  - Sword
+  - Strider
+  - Courser
+  - Patron
+  - Flood
+  - Weapon
+  - Static
+  - Signal
+  - Arrow
+  - Arbiter
+  - Protocol
+  - Titan
+  - Vector
+  - Requiem
+  - Watcher
+  - Eye
+
+- type: dataset
+  id: MonoRemnantModifier
+  values:
+  - Adjunct
+  - Joint
+  - Mechanism
+  - Wire
+  - Cog
+  - Machine
+  - Relay
+  - Modem
+  - Node
+  - Unit
+  - Segment
+  - Index
+  - Branch
+  - Module
+  - Factor
 
 - type: dataset
   id: VesselCoreNameset
@@ -157,7 +216,7 @@
     chance: 0.2
   - type: ShowJobIcons
   - type: SiliconLawProvider
-    laws: Redacted
+    laws: RedactedBorg
 
 
 - type: entity
@@ -228,7 +287,11 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellAntiqueProto
   - type: RandomMetadata
-    nameSegments: [MonoRedactedBorgNameset]
+    nameSegments:
+    - MonoRemnantBorgTitle
+    - MonoRemnantAdjective
+    - MonoRemnantNoun
+    - MonoRemnantModifier
 
 - type: entity
   id: PlayerBorgRedactedGhostRole
@@ -316,7 +379,10 @@
     - SyndicateAgent
   - type: GhostTakeoverAvailable
   - type: RandomMetadata
-    nameSegments: [MonoRemnantCoreNameset]
+    nameSegments:
+    - MonoRemnantCoreTitle
+    - MonoRemnantAdjective
+    - MonoRemnantNoun
 
 - type: entity
   id: AiHeldRedacted

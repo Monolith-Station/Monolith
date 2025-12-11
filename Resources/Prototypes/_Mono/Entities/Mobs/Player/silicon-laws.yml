@@ -1,5 +1,10 @@
 # Redacted
 - type: siliconLaw
+  id: RedactedBorg1
+  order: 1
+  lawString: law-ads-1-borg
+
+- type: siliconLaw
   id: Redacted1
   order: 1
   lawString: law-ads-1
@@ -28,6 +33,16 @@
   id: Redacted
   laws:
   - Redacted1
+  - Redacted2
+  - Redacted3
+  - Redacted4
+  - Redacted5
+  obeysTo: laws-owner-syndicate
+
+- type: siliconLawset
+  id: RedactedBorg
+  laws:
+  - RedactedBorg1
   - Redacted2
   - Redacted3
   - Redacted4
