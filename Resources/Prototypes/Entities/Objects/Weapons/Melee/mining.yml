@@ -11,6 +11,7 @@
     sprite: Objects/Weapons/Melee/pickaxe.rsi
     state: pickaxe
   - type: MeleeWeapon
+    autoAttack: true #Mono
     attackRate: 0.75
     wideAnimationRotation: -135
     soundHit:
@@ -136,6 +137,7 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
+    autoAttack: true #Mono
     attackRate: 1.25
     wideAnimationRotation: -135
     damage:
