@@ -71,15 +71,3 @@
   - RogueSyndicateTacsuits
   position: 21, 12
 
-- type: technology
-  id: RogueRx01
-  name: research-technology-rogue-rx01
-  entityIcon: ClothingModsuitRoguePowerCell
-  discipline: RogueEquipment
-  tier: 3
-  cost: 35000
-  recipeUnlocks:
-  - ClothingModsuitRoguePowerCellRogue
-  technologyPrerequisites:
-  - RogueAdvancedEquipment
-  position: 21, 6
