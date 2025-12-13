@@ -154,6 +154,7 @@
         Slash: 5
         Structural: 30
   - type: GunRequiresWield
+  - type: SkipPlayerAccuracyModifier #Mono
   - type: Item
     size: Ginormous
     sprite: Objects/Weapons/Melee/crusher-inhands.rsi
