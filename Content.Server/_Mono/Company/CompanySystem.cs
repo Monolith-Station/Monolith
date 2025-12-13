@@ -34,7 +34,8 @@ public sealed class CompanySystem : EntitySystem
         "PublicAffairsLiaison",
         "SecurityGuard",
         "Cadet",
-        "TsfEngineer"
+        "TsfEngineer",
+        "TsfBorg",
     };
 
     private readonly HashSet<string> _rogues = new()
@@ -43,6 +44,7 @@ public sealed class CompanySystem : EntitySystem
         "PirateFirstMate",
         "Pirate",
         "PDVInfiltrator",
+        "PdvBorg",
     };
 
     // private readonly HashSet<string> _usspJobs = new()

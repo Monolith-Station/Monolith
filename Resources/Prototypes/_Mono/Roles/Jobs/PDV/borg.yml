@@ -1,0 +1,14 @@
+- type: job
+  id: PdvBorg
+  name: job-name-pdv-borg
+  description: job-description-pdv-borg
+  playTimeTracker: JobPdvBorg
+  setPreference: true
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 43200 # 12 hrs # Frontier: 40<12 hrs
+  canBeAntag: false
+  icon: JobIconBorg
+  supervisors: job-supervisors-hire # Frontier
+  jobEntity: PlayerBorgPDV
+  applyTraits: false

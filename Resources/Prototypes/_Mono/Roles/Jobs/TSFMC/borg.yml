@@ -1,0 +1,14 @@
+- type: job
+  id: TsfBorg
+  name: job-name-tsf-borg
+  description: job-description-tsf-borg
+  playTimeTracker: JobTsfBorg
+  setPreference: true
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 43200 # 12 hrs # Frontier: 40<12 hrs
+  canBeAntag: false
+  icon: JobIconBorg
+  supervisors: job-supervisors-hire # Frontier
+  jobEntity: PlayerBorgTSF
+  applyTraits: false

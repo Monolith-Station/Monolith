@@ -613,7 +613,7 @@
   - type: Access
     tags:
     - Pirate
-    - Rogue Commander
+    - RogueCommander
     - Mercenary
   - type: AccessReader
     access: [["Rogue Commander"], ["Pirate"]]
@@ -678,7 +678,6 @@
     moduleWhitelist:
       tags:
       - BorgModuleGeneric
-      - BorgModuleEngineering
       - BorgModuleSyndicate
       - BorgModuleSyndicateAssault
     hasMindState: derelict_e
@@ -702,7 +701,6 @@
       - PositronicBrain
       borg_module:
       - BorgModulePDVStandardWeapon
-      - BorgModulePDVAdvancedWeapon
       - BorgModuleJetpack
       - BorgModuleTool
       - BorgModuleGPS
@@ -740,7 +738,7 @@
     - Mercenary
     - Captain
   - type: AccessReader
-  access: [["Security"], ["Armory"], ["Sergeant"], ["Bailiff"], ["TsfmcEngineering"], ["Brig"]]
+    access: [["Security"], ["Armory"], ["Sergeant"], ["Bailiff"], ["TsfmcEngineering"], ["Brig"]]
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
@@ -755,7 +753,7 @@
     channels:
     - Binary
     defaultChannel: Binary
-  - type: ShowSecurityIcons
+  - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
   - type: Speech
     speechSounds: SyndieBorg
@@ -801,7 +799,6 @@
     moduleWhitelist:
       tags:
       - BorgModuleGeneric
-      - BorgModuleEngineering
       - BorgModuleSyndicate
       - BorgModuleSyndicateAssault
     hasMindState: derelict_e
@@ -825,7 +822,6 @@
       - PositronicBrain
       borg_module:
       - BorgModuleTSFStandardWeapon
-      - BorgModuleTSFAdvancedWeapon
       - BorgModuleJetpack
       - BorgModuleTool
       - BorgModuleGPS
