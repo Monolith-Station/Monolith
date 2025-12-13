@@ -14853,3 +14853,39 @@ Entries:
   id: 1647
   time: '2025-12-12T18:35:11.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2783
+- author: DieselMohawkTheSequel
+  changes:
+    - type: Fix
+      message: Fixed MS-250 recharge rate.
+  id: 1648
+  time: '2025-12-13T06:19:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2794
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Hand-mining improvement: All non-autoswinging mining tools were given
+        autoswing.
+  id: 1649
+  time: '2025-12-13T06:38:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2791
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Oni can now accurately mark targets with the crusher.
+  id: 1650
+  time: '2025-12-13T08:06:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2795
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: Gave the RX-01 voidboots
+    - type: Remove
+      message: Removed the RX-01 from research
+    - type: Tweak
+      message: >-
+        Spasaka sabotage kit has gotten equipment changes to help with boarding
+        as well as receiving the RX-01 suit. 
+  id: 1651
+  time: '2025-12-13T08:10:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2782
