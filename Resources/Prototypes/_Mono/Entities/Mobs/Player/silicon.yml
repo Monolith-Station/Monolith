@@ -609,14 +609,14 @@
   components:
   - type: NpcFactionMember
     factions:
-    - Pirate
+    - PirateNF
   - type: Access
     tags:
     - Pirate
     - RogueCommander
     - Mercenary
   - type: AccessReader
-    access: [["RogueCommander"], ["PDV"]]
+    access: [["RogueCommander"]]
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
