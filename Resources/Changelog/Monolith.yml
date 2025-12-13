@@ -14812,3 +14812,51 @@ Entries:
   id: 1642
   time: '2025-12-09T13:59:55.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2515
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: Typo fixes for NT things
+  id: 1643
+  time: '2025-12-10T12:15:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2776
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Diagonal lattice and plating now properly renders on radar.
+  id: 1644
+  time: '2025-12-10T20:20:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2772
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        You can use your suit storage slot without actually wearing outerwear
+        now
+  id: 1645
+  time: '2025-12-10T20:21:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2777
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: >-
+        The TSFMC Volta modsuit has received a security hud and welding
+        protection
+    - type: Add
+      message: TSFMC Engineer now spawns with a pouch
+  id: 1646
+  time: '2025-12-11T12:45:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2786
+- author: core-mene
+  changes:
+    - type: Fix
+      message: Fixed part of stripping UI being hiden.
+  id: 1647
+  time: '2025-12-12T18:35:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2783
+- author: DieselMohawkTheSequel
+  changes:
+    - type: Fix
+      message: Fixed MS-250 recharge rate.
+  id: 1648
+  time: '2025-12-13T06:19:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2794

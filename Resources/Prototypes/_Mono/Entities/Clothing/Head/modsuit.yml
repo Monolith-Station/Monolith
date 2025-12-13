@@ -277,7 +277,7 @@
 
 # Volta
 - type: entity
-  parent: BaseClothingModsuitHelmet
+  parent: [BaseClothingModsuitHelmet, ShowSecurityIcons]
   id: ClothingModsuitHelmetVolta
   name: Volta Modsuit Helmet
   description: A reinforced sapper's plate, reimburced with higher quality CCTV and military-grade flashlight, doesn't make you look any better though.
@@ -313,6 +313,7 @@
   - type: ComponentToggler
     components:
     - type: BreathMask
+    - type: EyeProtection
     - type: PressureProtection
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
