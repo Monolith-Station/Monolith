@@ -12,10 +12,11 @@ using Content.Shared._Mono.CorticalBorer;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
+using Content.Shared.Chat; // Einstein Engines - Languages
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Chat; // Einstein Engines - Languages
 using Content.Shared.Database;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.MedicalScanner;
 using Content.Shared.Mind;
@@ -61,6 +62,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         SubscribeLocalEvent<CorticalBorerComponent, CheckTargetedSpeechEvent>(OnSpeakEvent);
 
         SubscribeLocalEvent<CorticalBorerComponent, MindRemovedMessage>(OnMindRemoved);
+        SubscribeLocalEvent<CorticalBorerComponent, AttackAttemptEvent>(OnBorerAttackAttempt);
     }
 
     private void OnStartup(Entity<CorticalBorerComponent> ent, ref ComponentStartup args)
@@ -185,6 +187,23 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
 
         UpdateChems(ent, -((int)chemAmount * chemicalPrototype.Cost));
         return true;
+    }
+
+    /// <summary>
+    /// Checks if host has borer protection before allowing attack damage vs hosts
+    /// </summary>
+    private void OnBorerAttackAttempt(EntityUid uid, CorticalBorerComponent component, AttackAttemptEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (component.Host is EntityUid host && args.Target == host)
+        {
+            if (!CanUseAbility((uid, component), host))
+            {
+                args.Cancel();
+            }
+        }
     }
 
     private void OnInjectReagentMessage(Entity<CorticalBorerComponent> ent, ref CorticalBorerDispenserInjectMessage message)
