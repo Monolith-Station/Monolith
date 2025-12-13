@@ -4,6 +4,22 @@
   - ADS Manipulator Module
 
 - type: dataset
+  id: MonoPDVBorgNameset
+  values:
+  - Vanguard Unit
+  - PDV Enforcer Module
+  - PDV Sentinel
+  - Dynast Defense Unit
+
+- type: dataset
+  id: MonoTSFBorgNameset
+  values:
+  - Federation Silicon
+  - TSFMC Compliance Unit
+  - TSFMC Sgt. Reckless
+  - TSFMC Judge & Jury
+
+- type: dataset
   id: MonoRemnantCoreNameset
   values:
   - ADS System Core
@@ -583,3 +599,240 @@
     channels:
     - Binary
     defaultChannel: Binary
+
+# PDV Cyborgs
+
+- type: entity
+  id: BaseBorgChassisPDV
+  parent: BaseBorgChassis
+  abstract: true
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Pirate
+  - type: Access
+    tags:
+    - Pirate
+    - Rogue Commander
+    - Mercenary
+  - type: AccessReader
+    access: [["Rogue Commander"], ["Pirate"]]
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Freelance
+    - Traffic
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Freelance
+    - Traffic
+  - type: CollectiveMind
+    channels:
+    - Binary
+    defaultChannel: Binary
+  - type: ShowSyndicateIcons
+  - type: MovementAlwaysTouching
+  - type: Speech
+    speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
+  - type: IonStormTarget
+    chance: 0.2
+  - type: ShowJobIcons
+  - type: SiliconLawProvider
+    laws: PDVLawset
+
+
+- type: entity
+  id: BorgChassisPDV
+  parent: BaseBorgChassisPDV
+  name: PDV cyborg
+  description: A purpose built assault cyborg used by the PDV.
+  components:
+  - type: Sprite
+    layers:
+    - state: synd_engi
+    - state: synd_engi_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: synd_engi_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    - Freespeak
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+    - Freespeak
+  - type: BorgChassis
+    maxModules: 8
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleEngineering
+      - BorgModuleSyndicate
+      - BorgModuleSyndicateAssault
+    hasMindState: derelict_e
+    noMindState: derelict_e_r
+  - type: Construction
+    node: derelictcyborg
+  - type: InteractionPopup
+    interactSuccessString: petting-success-derelict-cyborg
+    interactFailureString: petting-failure-derelict-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+
+- type: entity
+  id: PlayerBorgPDV
+  parent: BorgChassisPDV
+  suffix: Battery, Module
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModulePDVStandardWeapon
+      - BorgModulePDVAdvancedWeapon
+      - BorgModuleJetpack
+      - BorgModuleTool
+      - BorgModuleGPS
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellCombat
+  - type: RandomMetadata
+    nameSegments: [MonoPDVBorgNameset]
+
+# TSF Cyborgs
+
+- type: entity
+  id: BaseBorgChassisTSF
+  parent: BaseBorgChassis
+  abstract: true
+  components:
+  - type: NpcFactionMember
+    factions:
+    - TSFMC
+  - type: Access
+    tags:
+    - Security
+    - Armory
+    - Sergeant
+    - Bailiff
+    - Medical
+    - Chemistry
+    - TsfmcEngineering
+    - Maintenance
+    - External
+    - Command
+    - Brig
+    - Mercenary
+    - Captain
+  - type: AccessReader
+  access: [["Security"], ["Armory"], ["Sergeant"], ["Bailiff"], ["TsfmcEngineering"], ["Brig"]]
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Nfsd
+    - Traffic
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Nfsd
+    - Traffic
+  - type: CollectiveMind
+    channels:
+    - Binary
+    defaultChannel: Binary
+  - type: ShowSecurityIcons
+  - type: MovementAlwaysTouching
+  - type: Speech
+    speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
+  - type: IonStormTarget
+    chance: 0.2
+  - type: ShowJobIcons
+  - type: SiliconLawProvider
+    laws: TSFMCBorgLawset
+
+- type: entity
+  id: BorgChassisTSF
+  parent: BaseBorgChassisTSF
+  name: TSFMC cyborg
+  description: A purpose built assault silicon used by the TSFMC.
+  components:
+  - type: Sprite
+    layers:
+    - state: synd_engi
+    - state: synd_engi_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: synd_engi_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    - Freespeak
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+    - Freespeak
+  - type: BorgChassis
+    maxModules: 8
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleEngineering
+      - BorgModuleSyndicate
+      - BorgModuleSyndicateAssault
+    hasMindState: derelict_e
+    noMindState: derelict_e_r
+  - type: Construction
+    node: derelictcyborg
+  - type: InteractionPopup
+    interactSuccessString: petting-success-derelict-cyborg
+    interactFailureString: petting-failure-derelict-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+
+- type: entity
+  id: PlayerBorgTSF
+  parent: BorgChassisTSF
+  suffix: Battery, Module
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleTSFStandardWeapon
+      - BorgModuleTSFAdvancedWeapon
+      - BorgModuleJetpack
+      - BorgModuleTool
+      - BorgModuleGPS
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellCombat
+  - type: RandomMetadata
+    nameSegments: [MonoTSFBorgNameset]
