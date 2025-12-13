@@ -154,7 +154,7 @@
 - type: latheRecipe
   parent: BaseToolRecipe
   id: AdvancedBorgCombatModulePDV
-  result: BorgModulePDVStandardWeapon
+  result: BorgModulePDVAdvancedWeapon
   categories:
   - Tools
   - FactionEquipment
@@ -169,7 +169,7 @@
 - type: latheRecipe
   parent: BaseToolRecipe
   id: AdvancedBorgCombatModuleTSF
-  result: BorgModuleTSFStandardWeapon
+  result: BorgModuleTSFAdvancedWeapon
   categories:
   - Tools
   - FactionEquipment
