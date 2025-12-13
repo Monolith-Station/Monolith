@@ -188,9 +188,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         UpdateChems(ent, -((int)chemAmount * chemicalPrototype.Cost));
         return true;
     }
-
-
-
+    
     private void OnInjectReagentMessage(Entity<CorticalBorerComponent> ent, ref CorticalBorerDispenserInjectMessage message)
     {
         CorticalBorerChemicalPrototype? chemProto = null;
