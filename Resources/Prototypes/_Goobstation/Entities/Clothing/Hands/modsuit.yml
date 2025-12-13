@@ -58,6 +58,15 @@
     damageProtection:
       flatReductions:
         Heat: 10
+  - type: MeleeWeapon # Mono edit start
+    attackRate: 1
+    damage:
+      types:
+        Shock: 5
+  - type: StaminaDamageOnHit # goob edited
+    damage: 15
+    overtime: 40 # Mono edit end
+    sound: /Audio/Weapons/egloves.ogg
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-modular
@@ -95,6 +104,13 @@
     damageProtection:
       flatReductions:
         Heat: 10
+  - type: MeleeWeapon # Mono edit
+    autoAttack: true
+    attackRate: 3
+    damage:
+      groups:
+        Burn: -4
+        Brute: -3
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-modular
@@ -132,6 +148,11 @@
     damageProtection:
       flatReductions:
         Heat: 10
+  - type: MeleeWeapon # Mono edit
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 25
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-modular
@@ -170,6 +191,7 @@
       flatReductions:
         Heat: 10
   - type: Insulated
+  - type: Prying # Mono edit
   - type: Fiber
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
@@ -209,6 +231,7 @@
       flatReductions:
         Heat: 10
   - type: Insulated
+  - type: Prying # Mono edit
   - type: Fiber
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
@@ -260,6 +283,10 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+  - type: NodeScanner # Mono edit
+  - type: UseDelay # Mono edit
+    delay: 3
+
 
 - type: entity
   parent: ClothingHandsBase
