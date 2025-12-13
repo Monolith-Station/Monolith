@@ -658,14 +658,6 @@
     layers:
     - state: assault
       map: ["enum.BorgVisualLayers.Body", "movement"]
-    - state: assault
-      map: ["enum.BorgVisualLayers.Light"]
-      shader: unshaded
-      visible: false
-    - state: assault
-      shader: unshaded
-      map: ["light","enum.BorgVisualLayers.LightStatus"]
-      visible: false
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic
@@ -777,18 +769,10 @@
   description: A purpose built assault silicon used by the TSFMC.
   components:
   - type: Sprite
-    sprite: _Mono/Mobs/Silicon/TSF/assault.rsi
+    sprite: _Mono/Mobs/Silicon/TSFMC/assault.rsi
     layers:
     - state: assault
       map: ["enum.BorgVisualLayers.Body", "movement"]
-    - state: assault
-      map: ["enum.BorgVisualLayers.Light"]
-      shader: unshaded
-      visible: false
-    - state: assault
-      shader: unshaded
-      map: ["light","enum.BorgVisualLayers.LightStatus"]
-      visible: false
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic
