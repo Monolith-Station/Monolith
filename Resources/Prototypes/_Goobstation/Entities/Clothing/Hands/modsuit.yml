@@ -59,11 +59,12 @@
       flatReductions:
         Heat: 10
   - type: MeleeWeapon # Mono edit start
+    canWideSwing: false
     attackRate: 1
     damage:
       types:
         Shock: 5
-  - type: StaminaDamageOnHit # goob edited
+  - type: StaminaDamageOnHit
     damage: 15
     overtime: 40 # Mono edit end
     sound: /Audio/Weapons/egloves.ogg
@@ -105,6 +106,7 @@
       flatReductions:
         Heat: 10
   - type: MeleeWeapon # Mono edit
+    canWideSwing: false
     autoAttack: true
     attackRate: 3
     damage:
@@ -149,10 +151,11 @@
       flatReductions:
         Heat: 10
   - type: MeleeWeapon # Mono edit
+    canWideSwing: false
     attackRate: 1
     damage:
       types:
-        Blunt: 25
+        Blunt: 35
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-modular
@@ -191,7 +194,6 @@
       flatReductions:
         Heat: 10
   - type: Insulated
-  - type: Prying # Mono edit
   - type: Fiber
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
@@ -231,7 +233,6 @@
       flatReductions:
         Heat: 10
   - type: Insulated
-  - type: Prying # Mono edit
   - type: Fiber
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
@@ -283,9 +284,6 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-  - type: NodeScanner # Mono edit
-  - type: UseDelay # Mono edit
-    delay: 3
 
 
 - type: entity
