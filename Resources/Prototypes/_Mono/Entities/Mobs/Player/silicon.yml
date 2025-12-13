@@ -654,15 +654,17 @@
   description: A purpose built assault cyborg used by the PDV.
   components:
   - type: Sprite
+    sprite: _Mono/Mobs/Silicon/PDV/assault.rsi
     layers:
-    - state: synd_engi
-    - state: synd_engi_e
+    - state: assault
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: assault
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: synd_engi_l
+    - state: assault
       shader: unshaded
-      map: ["light"]
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
       visible: false
   - type: LanguageKnowledge
     speaks:
@@ -775,15 +777,17 @@
   description: A purpose built assault silicon used by the TSFMC.
   components:
   - type: Sprite
+    sprite: _Mono/Mobs/Silicon/TSF/assault.rsi
     layers:
-    - state: synd_engi
-    - state: synd_engi_e
+    - state: assault
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: assault
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: synd_engi_l
+    - state: assault
       shader: unshaded
-      map: ["light"]
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
       visible: false
   - type: LanguageKnowledge
     speaks:
