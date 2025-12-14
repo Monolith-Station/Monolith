@@ -46,3 +46,17 @@
   technologyPrerequisites:
   - BasicParts
   position: 2, 1
+
+- type: technology
+  id: AdvancedMeleeCombatOptions
+  name: research-technology-wave-particle-harnessing
+  entityIcon: WeaponRadAx
+  discipline: Arsenal
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - WeaponRadAx # Monolith
+  technologyPrerequisites:
+  - ArsenalStyle
+  - SuperParts
+  position: 5, 2
