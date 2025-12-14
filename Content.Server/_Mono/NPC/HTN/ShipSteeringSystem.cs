@@ -172,62 +172,82 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // try avoid collisions
         if (minObstructorDistance != null && linVel.LengthSquared() > 0f)
         {
-            brakePath = brakeAccel == 0f ? maxObstructorDistance : MathF.Min(maxObstructorDistance, brakePath);
-            var shipAABB = shipGrid.LocalAABB.Enlarged(64f); // enlarge a bit to get more grids
-            var shipPosVec = shipPos.Position;
-            var localBrakeBounds = shipAABB.ExtendToContain(new Vector2(0, brakePath + 50f)); // check extra distance
-            var brakeBounds = new Box2(localBrakeBounds.BottomLeft + shipPosVec, localBrakeBounds.TopRight + shipPosVec);
-            var velAngle = linVel.ToWorldAngle();
-            var rotatedBrakeBounds = new Box2Rotated(brakeBounds, velAngle - new Angle(Math.PI), shipPosVec);
-
             var grids = new List<Entity<MapGridComponent>>();
-            _mapMan.FindGridsIntersecting(shipPos.MapId, rotatedBrakeBounds, ref grids, approx: true, includeMap: false);
+
+            // note: there's several magic numbers here, i consider those acceptable since they're almost an implementation detail
+            // i can't think of any reason for anyone to want to change them
+            const float SearchBuffer = 96f;
+            const float ScanDistanceBuffer = 96f;
+            const float CollisionRadiusBuffer = 24f;
+
+            // how far ahead to look for grids
+            var shipPosVec = shipPos.Position;
+            var shipAABB = shipGrid.LocalAABB;
+            var velAngle = linVel.ToWorldAngle();
+
+            var scanDistance = (brakeAccel == 0f ? maxObstructorDistance : MathF.Min(maxObstructorDistance, brakePath))
+                                + shipAABB.Height * 0.5f + ScanDistanceBuffer;
+
+            var scanBoundsLocal = shipAABB
+                                   .Enlarged(SearchBuffer)
+                                   .ExtendToContain(new Vector2(0, scanDistance));
+
+            var scanBounds = new Box2(scanBoundsLocal.BottomLeft + shipPosVec, scanBoundsLocal.TopRight + shipPosVec);
+            var scanBoundsWorld = new Box2Rotated(scanBounds, velAngle - new Angle(Math.PI), shipPosVec);
+            _mapMan.FindGridsIntersecting(shipPos.MapId, scanBoundsWorld, ref grids, approx: true, includeMap: false);
 
             foreach (var ent in grids)
             {
                 if (ent.Owner == shipUid || ent.Owner == targetUid)
                     continue;
 
-                var otherXform = Transform(ent);
-                var toOther = _transform.GetMapCoordinates(ent).Position - shipPosVec;
-                var dist = toOther.Length();
+                var toObstacle = _transform.GetMapCoordinates(ent).Position - shipPosVec;
+                var obstacleDistance = toObstacle.Length();
 
                 // if it's behind destination we don't care
-                if (dist + minObstructorDistance.Value > destDistance)
+                if (obstacleDistance + minObstructorDistance.Value > destDistance)
                     continue;
 
                 var velDir = NormalizedOrZero(linVel);
 
                 // if it's somehow not in front of our movement we don't care
-                if (Vector2.Dot(toOther, velDir) <= 0)
+                if (Vector2.Dot(toObstacle, velDir) <= 0)
                     continue;
 
                 // check by how much we have to miss
+                // approximate via grid AABB
                 var otherBounds = ent.Comp.LocalAABB;
-                var shipRadius = MathF.Sqrt(shipAABB.Width * shipAABB.Width + shipAABB.Height * shipAABB.Height) / 2f;
-                var otherRadius = MathF.Sqrt(otherBounds.Width * otherBounds.Width + otherBounds.Height * otherBounds.Height) / 2f;
-                var sumRadius = shipRadius + otherRadius;
+                var shipRadius = MathF.Sqrt(shipAABB.Width * shipAABB.Width + shipAABB.Height * shipAABB.Height) / 2f + CollisionRadiusBuffer;
+                var obstacleRadius = MathF.Sqrt(otherBounds.Width * otherBounds.Width + otherBounds.Height * otherBounds.Height) / 2f;
+                var sumRadius = shipRadius + obstacleRadius;
 
                 // check by how much we're already missing
-                var pathVec = velDir * dist * dist / Vector2.Dot(toOther, velDir);
-                var sideVec = pathVec - toOther;
+                var effectiveDist = MathF.Max(obstacleDistance - sumRadius, 1f); // this being 0 will break things
+                var pathVec = velDir * obstacleDistance * obstacleDistance / Vector2.Dot(toObstacle, velDir);
+                var sideVec = pathVec - toObstacle;
+                sideVec *= effectiveDist / obstacleDistance;
                 var sideDist = sideVec.Length();
 
                 if (sideDist < sumRadius)
                 {
                     var toDestDir = NormalizedOrZero(toDestVec);
 
+                    // get direction we want to dodge in and where we'll actually thrust to do that
                     var dodgeDir = NormalizedOrZero(sideVec);
                     var dodgeVec = GetGoodThrustVector((-shipNorthAngle).RotateVec(sideVec), shuttle);
                     var dodgeThrust = _mover.GetDirectionThrust(dodgeVec, shuttle, shipBody).Length();
                     var dodgeAccel = dodgeThrust * shipBody.InvMass;
                     var dodgeLeft = sumRadius - sideDist;
                     var dodgeVel = Vector2.Dot(linVel, dodgeDir);
+                    // knowing our side-thrust,
+                    // solve quadratic equation to determine in how much more time we'll dodge
                     var dodgeTime = (-dodgeVel + MathF.Sqrt(dodgeVel * dodgeVel + 2f * dodgeLeft * dodgeAccel)) / dodgeAccel;
 
-                    var inVel = Vector2.Dot(toOther, linVel) * toOther / toOther.LengthSquared();
-                    var maxInAccel = 2f * (dist / dodgeTime - inVel.Length()) / dodgeTime;
+                    // check how much we can afford to thrust inwards (or outwards) anyway and still dodge
+                    var inVel = Vector2.Dot(toObstacle, linVel) * toObstacle / toObstacle.LengthSquared();
+                    var maxInAccel = 2f * (effectiveDist / dodgeTime - inVel.Length()) / dodgeTime;
 
+                    // check what's our actual inwards thrust so we know how to scale our input
                     var inAccelVec = GetGoodThrustVector((-shipNorthAngle).RotateVec(toDestDir), shuttle);
                     var inThrust = _mover.GetDirectionThrust(inAccelVec, shuttle, shipBody).Length();
                     var inAccel = inThrust * shipBody.InvMass;
@@ -235,6 +255,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                     // if we don't have dodge acceleration, brake and turn to the side and hope this helps
                     var inInput = dodgeAccel == 0f ? -1f : float.Clamp(maxInAccel / inAccel, -1f, 1f);
 
+                    // those should be around perpendicular so this should work out
                     wishInputVec = toDestDir * inInput + dodgeDir;
                     didCollisionAvoidance = true;
                 }
