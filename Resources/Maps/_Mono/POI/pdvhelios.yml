@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/24/2025 07:34:17
-  entityCount: 8022
+  time: 12/14/2025 02:23:03
+  entityCount: 8015
 maps: []
 grids:
 - 1
@@ -10322,6 +10322,13 @@ entities:
     components:
     - type: Transform
       pos: 0.5,66.5
+      parent: 1
+- proto: BorgCharger
+  entities:
+  - uid: 1761
+    components:
+    - type: Transform
+      pos: -16.5,30.5
       parent: 1
 - proto: BoxBeaker
   entities:
@@ -43004,6 +43011,13 @@ entities:
     - type: Transform
       pos: -10.5,16.5
       parent: 1
+- proto: SpawnPointPDVBorg
+  entities:
+  - uid: 1762
+    components:
+    - type: Transform
+      pos: -15.5,28.5
+      parent: 1
 - proto: SpawnPointPDVDenasvar
   entities:
   - uid: 10
@@ -51551,30 +51565,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WeaponTurretTovek
-  entities:
-  - uid: 4327
-    components:
-    - type: Transform
-      pos: 33.5,28.5
-      parent: 1
-  - uid: 4328
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -32.5,34.5
-      parent: 1
-  - uid: 4329
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 33.5,34.5
-      parent: 1
-  - uid: 8016
-    components:
-    - type: Transform
-      pos: -32.5,28.5
-      parent: 1
 - proto: WeaponTurretHades
   entities:
   - uid: 4363
@@ -51934,6 +51924,30 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 23.5,47.5
+      parent: 1
+- proto: WeaponTurretTovek
+  entities:
+  - uid: 4327
+    components:
+    - type: Transform
+      pos: 33.5,28.5
+      parent: 1
+  - uid: 4328
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -32.5,34.5
+      parent: 1
+  - uid: 4329
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 33.5,34.5
+      parent: 1
+  - uid: 8016
+    components:
+    - type: Transform
+      pos: -32.5,28.5
       parent: 1
 - proto: WeaponTurretType35
   entities:
