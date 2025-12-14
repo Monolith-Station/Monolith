@@ -55,6 +55,7 @@
     damage:
       types:
         Piercing: 6
+        Structural: 25 # 175 dmg on each burst
 
 - type: entity
   id: ActionLetoferolSpike
