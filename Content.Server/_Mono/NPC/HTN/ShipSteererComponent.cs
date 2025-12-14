@@ -30,6 +30,12 @@ public sealed partial class ShipSteererComponent : Component
     public float AlwaysFaceTargetOffset = 0.01f;
 
     /// <summary>
+    /// Whether to avoid obstacles.
+    /// </summary>
+    [DataField]
+    public bool AvoidCollisions = true;
+
+    /// <summary>
     /// How unwilling we are to use brake to adjust our velocity. Higher means less willing.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
@@ -64,13 +70,6 @@ public sealed partial class ShipSteererComponent : Component
     /// </summary>
     [DataField]
     public float MaxObstructorDistance = 800f;
-
-    /// <summary>
-    /// Avoid collisions if there's a blocker at least this far from our destination.
-    /// If null, don't avoid collisions.
-    /// </summary>
-    [DataField]
-    public float? MinObstructorDistance = 20f;
 
     /// <summary>
     /// How close are we trying to get to the coordinates before being considered in range.

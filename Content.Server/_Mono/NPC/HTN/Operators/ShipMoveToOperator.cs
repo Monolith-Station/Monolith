@@ -47,6 +47,12 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public bool AlwaysFaceTarget = false;
 
     /// <summary>
+    /// Whether to avoid obstacles.
+    /// </summary>
+    [DataField]
+    public bool AvoidCollisions = true;
+
+    /// <summary>
     /// How unwilling we are to use brake to adjust our velocity. Higher means less willing.
     /// </summary>
     [DataField]
@@ -82,13 +88,6 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     /// </summary>
     [DataField]
     public float MaxTargetingRange = 2000f;
-
-    /// <summary>
-    /// Avoid collisions if there's a blocker at least this far from our destination.
-    /// If null, don't avoid collisions.
-    /// </summary>
-    [DataField]
-    public float? MinObstructorDistance = 20f;
 
     /// <summary>
     /// How close we need to get before considering movement finished.
@@ -169,7 +168,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
             return;
 
         comp.AlwaysFaceTarget = AlwaysFaceTarget;
-        comp.MinObstructorDistance = MinObstructorDistance;
+        comp.AvoidCollisions = AvoidCollisions;
         comp.BrakeThreshold = BrakeThreshold;
         comp.FinishOnCollide = FinishOnCollide;
         comp.InRangeMaxSpeed = InRangeMaxSpeed;

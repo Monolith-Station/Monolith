@@ -134,7 +134,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                                      shipXform, shipBody, shuttle, shipGrid,
                                      destMapPos, targetVel, targetUid,
                                      maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
-                                     ent.Comp.MinObstructorDistance, ent.Comp.MaxObstructorDistance,
+                                     ent.Comp.AvoidCollisions, ent.Comp.MaxObstructorDistance,
                                      targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
     }
 
@@ -142,7 +142,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                                          TransformComponent shipXform, PhysicsComponent shipBody, ShuttleComponent shuttle, MapGridComponent shipGrid,
                                          MapCoordinates destMapPos, Vector2 targetVel, EntityUid? targetUid,
                                          float maxArrivedVel, float brakeThreshold, float frameTime,
-                                         float? minObstructorDistance, float maxObstructorDistance,
+                                         bool avoidCollisions, float maxObstructorDistance,
                                          Angle targetAngleOffset, Angle? angleOverride)
     {
 
@@ -170,7 +170,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         Vector2 wishInputVec = Vector2.Zero;
         bool didCollisionAvoidance = false;
         // try avoid collisions
-        if (minObstructorDistance != null && linVel.LengthSquared() > 0f)
+        if (avoidCollisions && linVel.LengthSquared() > 0f)
         {
             var grids = new List<Entity<MapGridComponent>>();
 
@@ -178,7 +178,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             // i can't think of any reason for anyone to want to change them
             const float SearchBuffer = 96f;
             const float ScanDistanceBuffer = 96f;
-            const float CollisionRadiusBuffer = 24f;
+            const float CollisionRadiusBuffer = 12f;
 
             // how far ahead to look for grids
             var shipPosVec = shipPos.Position;
@@ -204,10 +204,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 var toObstacle = _transform.GetMapCoordinates(ent).Position - shipPosVec;
                 var obstacleDistance = toObstacle.Length();
 
-                // if it's behind destination we don't care
-                if (obstacleDistance + minObstructorDistance.Value > destDistance)
-                    continue;
-
                 var velDir = NormalizedOrZero(linVel);
 
                 // if it's somehow not in front of our movement we don't care
@@ -220,6 +216,10 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 var shipRadius = MathF.Sqrt(shipAABB.Width * shipAABB.Width + shipAABB.Height * shipAABB.Height) / 2f + CollisionRadiusBuffer;
                 var obstacleRadius = MathF.Sqrt(otherBounds.Width * otherBounds.Width + otherBounds.Height * otherBounds.Height) / 2f;
                 var sumRadius = shipRadius + obstacleRadius;
+
+                // if it's behind destination we don't care
+                if (obstacleDistance > destDistance + sumRadius)
+                    continue;
 
                 // check by how much we're already missing
                 var effectiveDist = MathF.Max(obstacleDistance - sumRadius, 1f); // this being 0 will break things
