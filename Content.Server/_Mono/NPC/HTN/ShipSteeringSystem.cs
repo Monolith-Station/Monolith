@@ -5,6 +5,7 @@ using Content.Shared.Construction.Components;
 using Content.Shared.NPC.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
@@ -15,17 +16,19 @@ namespace Content.Server._Mono.NPC.HTN;
 
 public sealed partial class ShipSteeringSystem : EntitySystem
 {
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly MoverController _mover = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly MoverController _mover = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private EntityQuery<AnchorableComponent> _anchorableQuery;
+    private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<PhysicsComponent> _physQuery;
     private EntityQuery<ShuttleComponent> _shuttleQuery;
 
@@ -37,6 +40,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         SubscribeLocalEvent<ShipSteererComponent, PilotedShuttleRelayedEvent<StartCollideEvent>>(OnShuttleStartCollide);
 
         _anchorableQuery = GetEntityQuery<AnchorableComponent>();
+        _gridQuery = GetEntityQuery<MapGridComponent>();
         _physQuery = GetEntityQuery<PhysicsComponent>();
         _shuttleQuery = GetEntityQuery<ShuttleComponent>();
     }
@@ -63,7 +67,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             || TerminatingOrDeleted(targetUid)
             || !pilotXform.Anchored && ent.Comp.RequireAnchored && _anchorableQuery.HasComp(ent)
             || !_shuttleQuery.TryComp(shipUid, out var shuttle)
-            || !_physQuery.TryComp(shipUid, out var shipBody))
+            || !_physQuery.TryComp(shipUid, out var shipBody)
+            || !_gridQuery.TryComp(shipUid, out var shipGrid))
         {
             ent.Comp.Status = ShipSteeringStatus.InRange;
             return;
@@ -125,15 +130,17 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         else
             destMapPos = shipPos;
 
-        args.Input = ProcessMovement(shipXform, shipBody, shuttle,
-                                     destMapPos, targetVel,
-                                     maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
+        args.Input = ProcessMovement(shipUid.Value,
+                                     shipXform, shipBody, shuttle, shipGrid,
+                                     destMapPos, targetVel, targetUid,
+                                     maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime, ent.Comp.MinObstructorDistance,
                                      targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
     }
 
-    private ShuttleInput ProcessMovement(TransformComponent shipXform, PhysicsComponent shipBody, ShuttleComponent shuttle,
-                                         MapCoordinates destMapPos, Vector2 targetVel,
-                                         float maxArrivedVel, float brakeThreshold, float frameTime,
+    private ShuttleInput ProcessMovement(EntityUid shipUid,
+                                         TransformComponent shipXform, PhysicsComponent shipBody, ShuttleComponent shuttle, MapGridComponent shipGrid,
+                                         MapCoordinates destMapPos, Vector2 targetVel, EntityUid? targetUid,
+                                         float maxArrivedVel, float brakeThreshold, float frameTime, float? minObstructorDistance,
                                          Angle targetAngleOffset, Angle? angleOverride)
     {
 
@@ -158,20 +165,91 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // negative if we're already slow enough
         var leftoverBrakePath = brakeAccel == 0f ? 0f : brakePath - innerBrakePath;
 
-        Vector2 wishInputVec;
-        // if we can't brake then don't
-        if (leftoverBrakePath > destDistance && brakeAccel != 0f)
+        Vector2 wishInputVec = Vector2.Zero;
+        bool didCollisionAvoidance = false;
+        // try avoid collisions
+        if (minObstructorDistance != null && brakeAccel > 0)
         {
-            wishInputVec = -relVel;
+            var shipAABB = shipGrid.LocalAABB.Enlarged(4f); // enlarge a bit for safety
+            var shipPosVec = shipPos.Position;
+            var localBrakeBounds = shipAABB.ExtendToContain(new Vector2(0, brakePath));
+            var brakeBounds = new Box2(localBrakeBounds.BottomLeft + shipPosVec, localBrakeBounds.TopRight + shipPosVec);
+            var velAngle = linVel.ToWorldAngle();
+            var rotatedBrakeBounds = new Box2Rotated(brakeBounds, velAngle - new Angle(Math.PI), shipPosVec);
+
+            var grids = new List<Entity<MapGridComponent>>();
+            _mapMan.FindGridsIntersecting(shipPos.MapId, rotatedBrakeBounds, ref grids, approx: true, includeMap: false);
+
+            foreach (var ent in grids)
+            {
+                if (ent.Owner == shipUid || ent.Owner == targetUid)
+                    continue;
+
+                var otherXform = Transform(ent);
+                var toOther = _transform.GetMapCoordinates(ent).Position - shipPosVec;
+                var dist = toOther.Length();
+
+                // if it's behind destination we don't care
+                if (dist + minObstructorDistance.Value > destDistance)
+                    continue;
+
+                var velDir = NormalizedOrZero(linVel);
+
+                // if it's somehow not in front of our movement we don't care
+                if (Vector2.Dot(toOther, velDir) <= 0)
+                    continue;
+
+                // check by how much we have to miss
+                var otherBounds = ent.Comp.LocalAABB;
+                var shipRadius = MathF.Sqrt(shipAABB.Width * shipAABB.Width + shipAABB.Height * shipAABB.Height) / 2f + 4f; // enlarge a bit for safety
+                var otherRadius = MathF.Sqrt(otherBounds.Width * otherBounds.Width + otherBounds.Height * otherBounds.Height) / 2f;
+                var sumRadius = shipRadius + otherRadius;
+
+                // check by how much we're already missing
+                var pathVec = velDir * dist * dist / Vector2.Dot(toOther, velDir);
+                var sideVec = pathVec - toOther;
+                var sideDist = sideVec.Length();
+
+                if (sideDist < sumRadius)
+                {
+                    var toDestDir = NormalizedOrZero(toDestVec);
+
+                    var dodgeDir = NormalizedOrZero(sideVec);
+                    var dodgeVec = GetGoodThrustVector((-shipNorthAngle).RotateVec(sideVec), shuttle);
+                    var dodgeThrust = _mover.GetDirectionThrust(dodgeVec, shuttle, shipBody);
+                    var dodgeAccelVec = dodgeThrust * shipBody.InvMass;
+                    var dodgeAccel = dodgeAccelVec.Length();
+                    var dodgeTime = linVel.LengthSquared() / (2f * dodgeAccel);
+
+                    var inVel = Vector2.Dot(toOther, linVel) * toOther / toOther.LengthSquared();
+                    var maxInAccel = 2f * (dist / dodgeTime - inVel.Length()) / dodgeTime;
+
+                    var inAccelVec = GetGoodThrustVector((-shipNorthAngle).RotateVec(toDestDir), shuttle);
+                    var inThrust = _mover.GetDirectionThrust(inAccelVec, shuttle, shipBody);
+                    var inAccelThrust = inThrust * shipBody.InvMass;
+                    var inAccel = inAccelThrust.Length();
+
+                    wishInputVec = toDestDir * MathF.Min(1f, maxInAccel / inAccel) + dodgeDir;
+                    didCollisionAvoidance = true;
+                }
+            }
         }
-        else
+        if (!didCollisionAvoidance)
         {
-            var linVelDir = NormalizedOrZero(relVel);
-            var toDestDir = NormalizedOrZero(toDestVec);
-            // mirror linVelDir in relation to toTargetDir
-            // for that we orthogonalize it then invert it to get the perpendicular-vector
-            var adjustDir = -(linVelDir - toDestDir * Vector2.Dot(linVelDir, toDestDir));
-            wishInputVec = toDestDir + adjustDir * 2;
+            // if we can't brake then don't
+            if (leftoverBrakePath > destDistance && brakeAccel != 0f)
+            {
+                wishInputVec = -relVel;
+            }
+            else
+            {
+                var linVelDir = NormalizedOrZero(relVel);
+                var toDestDir = NormalizedOrZero(toDestVec);
+                // mirror linVelDir in relation to toTargetDir
+                // for that we orthogonalize it then invert it to get the perpendicular-vector
+                var adjustDir = -(linVelDir - toDestDir * Vector2.Dot(linVelDir, toDestDir));
+                wishInputVec = toDestDir + adjustDir * 2;
+            }
         }
 
         var strafeInput = (-shipNorthAngle).RotateVec(wishInputVec);
@@ -183,7 +261,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             wishAngle = angleOverride.Value;
         // try to face our thrust direction if we can
         // TODO: determine best thrust direction and face accordingly
-        else if (strafeInput.Length() > 0)
+        else if (wishInputVec.Length() > 0)
             wishAngle = wishInputVec.ToWorldAngle();
         else
             wishAngle = toDestVec.ToWorldAngle();

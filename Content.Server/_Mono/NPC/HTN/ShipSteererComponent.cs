@@ -60,6 +60,13 @@ public sealed partial class ShipSteererComponent : Component
     public float? MaxRotateRate = null;
 
     /// <summary>
+    /// Avoid collisions if there's a blocker at least this far from our destination.
+    /// If null, don't avoid collisions.
+    /// </summary>
+    [DataField]
+    public float? MinObstructorDistance = 20f;
+
+    /// <summary>
     /// How close are we trying to get to the coordinates before being considered in range.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]

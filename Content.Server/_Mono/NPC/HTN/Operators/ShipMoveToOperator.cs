@@ -84,6 +84,13 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public float MaxTargetingRange = 2000f;
 
     /// <summary>
+    /// Avoid collisions if there's a blocker at least this far from our destination.
+    /// If null, don't avoid collisions.
+    /// </summary>
+    [DataField]
+    public float? MinObstructorDistance = 20f;
+
+    /// <summary>
     /// How close we need to get before considering movement finished.
     /// </summary>
     [DataField]
@@ -162,6 +169,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
             return;
 
         comp.AlwaysFaceTarget = AlwaysFaceTarget;
+        comp.MinObstructorDistance = MinObstructorDistance;
         comp.BrakeThreshold = BrakeThreshold;
         comp.FinishOnCollide = FinishOnCollide;
         comp.InRangeMaxSpeed = InRangeMaxSpeed;
