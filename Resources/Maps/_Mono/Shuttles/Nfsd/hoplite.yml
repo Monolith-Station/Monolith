@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/11/2025 16:29:20
-  entityCount: 562
+  time: 12/14/2025 17:15:14
+  entityCount: 556
 maps: []
 grids:
 - 1
@@ -62,7 +62,7 @@ entities:
           version: 7
         -1,-1:
           ind: -1,-1
-          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAEAAAAAAAAXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQAAAAAAABEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAA0AAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAABAAAAAAAAAQAAAAAAABcAAAAAAAAXAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAgAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAQAAAAAAAAEAAAAAAAAXAAAAAAAAFwAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAIAAAAAAAAXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAACAAAAAAAAFwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAFwAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQAAAAAAABIAAAAAAAADAAAAAAAAAQAAAAAAABcAAAAAAAAXAAAAAAAAHAAAAAAAABgAAAAAAAAbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAB0AAAAAAAAdAAAAAAAAHgAAAAAAAA==
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAEAAAAAAAAXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQAAAAAAABEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAA0AAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAgAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAABAAAAAAAAAQAAAAAAABcAAAAAAAAXAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAgAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAQAAAAAAAAEAAAAAAAAXAAAAAAAAFwAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAIAAAAAAAAXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAACAAAAAAAAFwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAFwAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQAAAAAAABIAAAAAAAADAAAAAAAAAQAAAAAAABcAAAAAAAAXAAAAAAAAHAAAAAAAABgAAAAAAAAbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAB0AAAAAAAAdAAAAAAAAHgAAAAAAAA==
           version: 7
         0,0:
           ind: 0,0
@@ -960,8 +960,6 @@ entities:
       pos: -3.5,-5.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 2
       address: SNS-0FBE-AA86
@@ -1190,8 +1188,6 @@ entities:
       pos: 2.5,-5.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6
       address: SNS-68B2-32A7
@@ -1446,14 +1442,6 @@ entities:
       loadingNetworkDemand: 7700
       currentReceiving: 7700
       currentSupply: 7700
-- proto: ArmorPlateLight
-  entities:
-  - uid: 30
-    components:
-    - type: Transform
-      parent: 29
-    - type: Physics
-      canCollide: False
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 38
@@ -2581,43 +2569,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-0.5
       parent: 1
-- proto: ClothingHeadHelmetAttachmentBlock
-  entities:
-  - uid: 31
-    components:
-    - type: Transform
-      parent: 29
-    - type: Physics
-      canCollide: False
-    - type: AttachedClothing
-      attachedUid: 29
-    - type: ContainerContainer
-      containers:
-        replaced-clothing: !type:ContainerSlot {}
-- proto: ClothingHeadHelmetCoverBlock
-  entities:
-  - uid: 32
-    components:
-    - type: Transform
-      parent: 29
-    - type: Physics
-      canCollide: False
-    - type: AttachedClothing
-      attachedUid: 29
-    - type: ContainerContainer
-      containers:
-        replaced-clothing: !type:ContainerSlot {}
-- proto: ClothingHeadHelmetHardsuitM82
-  entities:
-  - uid: 33
-    components:
-    - type: Transform
-      parent: 29
-    - type: AttachedClothing
-      attachedUid: 29
-    - type: ContainerContainer
-      containers:
-        replaced-clothing: !type:ContainerSlot {}
 - proto: ClothingOuterHardsuitEVAPrisoner
   entities:
   - uid: 247
@@ -2626,127 +2577,6 @@ entities:
       parent: 246
     - type: Physics
       canCollide: False
-    - type: InsideEntityStorage
-- proto: ClothingOuterHardsuitM82c
-  entities:
-  - uid: 29
-    components:
-    - type: Transform
-      parent: 28
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: This decreases your speed by [color=yellow]10%[/color].
-          priority: 0
-          component: ClothingSpeedModifier
-        - message: >-
-            It provides the following protection:
-
-            - [color=yellow]Blunt[/color] damage reduced by [color=lightblue]30%[/color].
-
-            - [color=yellow]Slash[/color] damage reduced by [color=lightblue]30%[/color].
-
-            - [color=yellow]Piercing[/color] damage reduced by [color=lightblue]45%[/color].
-
-            - [color=yellow]Heat[/color] damage reduced by [color=lightblue]30%[/color].
-
-            - [color=yellow]Radiation[/color] damage reduced by [color=lightblue]35%[/color].
-
-            - [color=yellow]Caustic[/color] damage reduced by [color=lightblue]20%[/color].
-
-            - [color=aqua]Stamina[/color] damage reduced by [color=lightblue]75%[/color].
-
-            - [color=orange]Explosion[/color] damage reduced by [color=lightblue]35%[/color].
-          priority: 0
-          component: Armor
-        title: null
-    - type: ToggleableClothing
-      clothingUids:
-        33: head
-        32: helmetcover
-        31: helmetattachment
-      actionEntity: invalid
-    - type: ContainerContainer
-      containers:
-        toggleable-clothing: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 33
-          - 32
-          - 31
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 30
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - invalid
-    - type: Physics
-      canCollide: False
-    - type: ArmorPlateHolder
-      sprintSpeedModifier: 0.94
-      walkSpeedModifier: 0.94
-      activePlate: 30
-    - type: Storage
-      storedItems:
-        30:
-          position: 0,0
-          _rotation: South
-    - type: ActionsContainer
-    - type: UseDelay
-      delays:
-        default:
-          endTime: 746.6411163
-          length: 1
-        quickInsert:
-          endTime: 746.6411163
-          length: 0.5
-        storage:
-          endTime: 746.6411163
-    - type: InsideEntityStorage
-- proto: ClothingShoesBootsMagSecurity
-  entities:
-  - uid: 34
-    components:
-    - type: Transform
-      parent: 28
-    - type: ToggleClothing
-      actionEntity: invalid
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - food
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        item: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - invalid
-        solution@food: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: invalid
-    - type: ActionsContainer
-    - type: Actions
-      actions:
-      - invalid
     - type: InsideEntityStorage
 - proto: ClothingUnderSocksCoder
   entities:
@@ -2760,11 +2590,10 @@ entities:
       - food
     - type: Physics
       canCollide: False
+    - type: InsideEntityStorage
     - type: ContainerContainer
       containers:
-        solution@food: !type:ContainerSlot
-          ent: invalid
-    - type: InsideEntityStorage
+        solution@food: !type:ContainerSlot {}
 - proto: CMSemioticAirlock
   entities:
   - uid: 252
@@ -3139,24 +2968,13 @@ entities:
       fixtures: {}
 - proto: GasMixerOnFlipped
   entities:
-  - uid: 293
+  - uid: 29
     components:
     - type: Transform
       pos: -0.5,-8.5
       parent: 1
-    - type: UserInterface
-      actors:
-        enum.GasMixerUiKey.Key:
-        - invalid
-    - type: GasMixer
-      inletTwoConcentration: 0.73
-      inletOneConcentration: 0.27
-      enabled: True
     - type: AtmosPipeLayers
       pipeLayer: Secondary
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
-    - type: ActiveUserInterface
 - proto: GasPassiveVent
   entities:
   - uid: 294
@@ -3699,8 +3517,6 @@ entities:
       pos: -3.5,-3.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 2
     - type: GasVentPump
@@ -3734,8 +3550,6 @@ entities:
     - type: AtmosPipeColor
       color: '#0055CCFF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6
     - type: AtmosPipeLayers
@@ -3760,8 +3574,6 @@ entities:
     - type: AtmosPipeColor
       color: '#990000FF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6
     - type: AtmosPipeLayers
@@ -3772,8 +3584,6 @@ entities:
       pos: -4.5,-3.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 2
     - type: AtmosPipeLayers
@@ -3937,23 +3747,6 @@ entities:
       parent: 1
     - type: Physics
       canCollide: False
-- proto: JetpackNfsdFilled
-  entities:
-  - uid: 35
-    components:
-    - type: Transform
-      parent: 28
-    - type: Jetpack
-      toggleActionEntity: invalid
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - invalid
-    - type: InsideEntityStorage
 - proto: LockerNfsdEvidence
   entities:
   - uid: 370
@@ -4264,42 +4057,6 @@ entities:
     - type: Transform
       pos: -0.5,-4.5
       parent: 1
-- proto: SheetGlass1
-  entities:
-  - uid: 197
-    components:
-    - type: Transform
-      parent: 191
-    - type: Stack
-      count: 10
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - glass
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@glass: !type:ContainerSlot
-          ent: invalid
-- proto: SheetSteel1
-  entities:
-  - uid: 198
-    components:
-    - type: Transform
-      parent: 191
-    - type: Stack
-      count: 10
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - steel
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@steel: !type:ContainerSlot
-          ent: invalid
 - proto: SinkWide
   entities:
   - uid: 389
@@ -4382,8 +4139,6 @@ entities:
           occludes: True
           ents:
           - 36
-          - 29
-          - 34
           - 37
           - 35
     - type: Anchorable
