@@ -60,6 +60,12 @@ public sealed partial class ShipSteererComponent : Component
     public float? MaxRotateRate = null;
 
     /// <summary>
+    /// Check for obstacles for collision avoidance at most this far.
+    /// </summary>
+    [DataField]
+    public float MaxObstructorDistance = 800f;
+
+    /// <summary>
     /// Avoid collisions if there's a blocker at least this far from our destination.
     /// If null, don't avoid collisions.
     /// </summary>

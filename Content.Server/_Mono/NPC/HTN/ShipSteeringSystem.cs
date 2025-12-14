@@ -133,14 +133,16 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         args.Input = ProcessMovement(shipUid.Value,
                                      shipXform, shipBody, shuttle, shipGrid,
                                      destMapPos, targetVel, targetUid,
-                                     maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime, ent.Comp.MinObstructorDistance,
+                                     maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
+                                     ent.Comp.MinObstructorDistance, ent.Comp.MaxObstructorDistance,
                                      targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
     }
 
     private ShuttleInput ProcessMovement(EntityUid shipUid,
                                          TransformComponent shipXform, PhysicsComponent shipBody, ShuttleComponent shuttle, MapGridComponent shipGrid,
                                          MapCoordinates destMapPos, Vector2 targetVel, EntityUid? targetUid,
-                                         float maxArrivedVel, float brakeThreshold, float frameTime, float? minObstructorDistance,
+                                         float maxArrivedVel, float brakeThreshold, float frameTime,
+                                         float? minObstructorDistance, float maxObstructorDistance,
                                          Angle targetAngleOffset, Angle? angleOverride)
     {
 
@@ -168,9 +170,10 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         Vector2 wishInputVec = Vector2.Zero;
         bool didCollisionAvoidance = false;
         // try avoid collisions
-        if (minObstructorDistance != null && brakeAccel > 0)
+        if (minObstructorDistance != null && linVel.LengthSquared() > 0f)
         {
-            var shipAABB = shipGrid.LocalAABB.Enlarged(4f); // enlarge a bit for safety
+            brakePath = brakeAccel == 0f ? maxObstructorDistance : MathF.Min(maxObstructorDistance, brakePath);
+            var shipAABB = shipGrid.LocalAABB.Enlarged(12f); // enlarge a bit for safety
             var shipPosVec = shipPos.Position;
             var localBrakeBounds = shipAABB.ExtendToContain(new Vector2(0, brakePath));
             var brakeBounds = new Box2(localBrakeBounds.BottomLeft + shipPosVec, localBrakeBounds.TopRight + shipPosVec);
@@ -201,7 +204,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
                 // check by how much we have to miss
                 var otherBounds = ent.Comp.LocalAABB;
-                var shipRadius = MathF.Sqrt(shipAABB.Width * shipAABB.Width + shipAABB.Height * shipAABB.Height) / 2f + 4f; // enlarge a bit for safety
+                var shipRadius = MathF.Sqrt(shipAABB.Width * shipAABB.Width + shipAABB.Height * shipAABB.Height) / 2f;
                 var otherRadius = MathF.Sqrt(otherBounds.Width * otherBounds.Width + otherBounds.Height * otherBounds.Height) / 2f;
                 var sumRadius = shipRadius + otherRadius;
 
@@ -216,20 +219,21 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
                     var dodgeDir = NormalizedOrZero(sideVec);
                     var dodgeVec = GetGoodThrustVector((-shipNorthAngle).RotateVec(sideVec), shuttle);
-                    var dodgeThrust = _mover.GetDirectionThrust(dodgeVec, shuttle, shipBody);
-                    var dodgeAccelVec = dodgeThrust * shipBody.InvMass;
-                    var dodgeAccel = dodgeAccelVec.Length();
+                    var dodgeThrust = _mover.GetDirectionThrust(dodgeVec, shuttle, shipBody).Length();
+                    var dodgeAccel = dodgeThrust * shipBody.InvMass;
                     var dodgeTime = linVel.LengthSquared() / (2f * dodgeAccel);
 
                     var inVel = Vector2.Dot(toOther, linVel) * toOther / toOther.LengthSquared();
                     var maxInAccel = 2f * (dist / dodgeTime - inVel.Length()) / dodgeTime;
 
                     var inAccelVec = GetGoodThrustVector((-shipNorthAngle).RotateVec(toDestDir), shuttle);
-                    var inThrust = _mover.GetDirectionThrust(inAccelVec, shuttle, shipBody);
-                    var inAccelThrust = inThrust * shipBody.InvMass;
-                    var inAccel = inAccelThrust.Length();
+                    var inThrust = _mover.GetDirectionThrust(inAccelVec, shuttle, shipBody).Length();
+                    var inAccel = inThrust * shipBody.InvMass;
 
-                    wishInputVec = toDestDir * MathF.Min(1f, maxInAccel / inAccel) + dodgeDir;
+                    // if we don't have dodge acceleration, brake and turn to the side and hope this helps
+                    var inInput = dodgeAccel == 0f ? -1f : MathF.Min(1f, maxInAccel / inAccel);
+
+                    wishInputVec = toDestDir * inInput + dodgeDir;
                     didCollisionAvoidance = true;
                 }
             }
@@ -247,8 +251,17 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 var toDestDir = NormalizedOrZero(toDestVec);
                 // mirror linVelDir in relation to toTargetDir
                 // for that we orthogonalize it then invert it to get the perpendicular-vector
-                var adjustDir = -(linVelDir - toDestDir * Vector2.Dot(linVelDir, toDestDir));
-                wishInputVec = toDestDir + adjustDir * 2;
+                var adjustVec = -(linVelDir - toDestDir * Vector2.Dot(linVelDir, toDestDir));
+                var adjustDir = NormalizedOrZero(adjustVec);
+
+                var adjustThrustDir = GetGoodThrustVector((-shipNorthAngle).RotateVec(adjustDir), shuttle);
+                var adjustThrust = _mover.GetDirectionThrust(adjustVec, shuttle, shipBody).Length();
+                var adjustAccel = adjustThrust * shipBody.InvMass;
+
+                var adjustDirVel = Vector2.Dot(adjustDir, linVel) * adjustDir;
+                adjustVec *= adjustAccel == 0f ? 0f : MathF.Min(1f, adjustDirVel.Length() / (adjustAccel * frameTime));
+
+                wishInputVec = toDestDir + adjustVec * 2;
             }
         }
 
