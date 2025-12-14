@@ -258,6 +258,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                     // those should be around perpendicular so this should work out
                     wishInputVec = toDestDir * inInput + dodgeDir;
                     didCollisionAvoidance = true;
+                    break;
                 }
             }
         }
