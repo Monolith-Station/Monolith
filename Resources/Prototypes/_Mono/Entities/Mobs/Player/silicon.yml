@@ -650,7 +650,7 @@
 - type: entity
   id: BorgChassisPDV
   parent: BaseBorgChassisPDV
-  name: PDV cyborg
+  name: PDV assault cyborg
   description: A purpose built assault cyborg used by the PDV.
   components:
   - type: Sprite
@@ -773,7 +773,7 @@
 - type: entity
   id: BorgChassisTSF
   parent: BaseBorgChassisTSF
-  name: TSFMC cyborg
+  name: TSFMC assault cyborg
   description: A purpose built assault silicon used by the TSFMC.
   components:
   - type: Sprite
@@ -792,11 +792,11 @@
     speaks:
     - TauCetiBasic
     - RobotTalk
-    - Freespeak
+    - SolCommon
     understands:
     - TauCetiBasic
     - RobotTalk
-    - Freespeak
+    - SolCommon
   - type: BorgChassis
     maxModules: 8
     moduleWhitelist:
