@@ -163,6 +163,17 @@
     Plastic: 600
 
 - type: latheRecipe
+  id: WeaponRifleAk
+  parent: BaseWeaponRecipeLong
+  result: WeaponRifleAk
+  categories:
+  - Weapons
+  materials:
+    Steel: 2500
+    Plasteel: 1000
+    Plastic: 1000
+
+- type: latheRecipe
   id: WeaponRadAx
   parent: BaseWeaponRecipeLong
   result: WeaponRadAx
@@ -172,3 +183,4 @@
     Steel: 1500
     Plasteel: 600
     Uranium: 600
+
