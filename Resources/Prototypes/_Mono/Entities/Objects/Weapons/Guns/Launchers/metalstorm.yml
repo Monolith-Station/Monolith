@@ -4,7 +4,7 @@
   name: NT-WS Mk.348 "Hailstorm" directed kinetic pulse weapon
   parent: BaseItem
   id: WeaponLauncherMk348
-  description: A bulky multi-barreled weapon firing 4.6x30mm. Ammo is fed via boxes, which is moved inside the gun to each respective barrel. Be glad you aren't the one having to maintain this awful mechanism.
+  description: A bulky multi-barreled weapon firing 9x19mm. Ammo is fed via boxes, which is moved inside the gun to each respective barrel. Be glad you aren't the one having to maintain this awful mechanism.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Launchers/mk348.rsi
@@ -45,13 +45,13 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: AmmoBox46x30mmFMJ
+        startingItem: AmmoBox9x19mmFMJ
         insertSound: /Audio/Weapons/Guns/MagIn/lmg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/lmg_magout.ogg
         priority: 2
         whitelist:
           tags:
-          - Magazine46x30mmFMJBox
+          - Magazine9x19mmFMJBox
         whitelistFailPopup: gun-magazine-whitelist-fail
   - type: ContainerContainer
     containers:

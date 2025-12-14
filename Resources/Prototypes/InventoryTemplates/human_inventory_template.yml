@@ -89,9 +89,9 @@
       stripTime: 3
       uiWindowPos: 2,1
       strippingWindowPos: 2,5
-      dependsOn: outerClothing
-      dependsOnComponents:
-      - type: AllowSuitStorage
+#      dependsOn: outerClothing #Mono: Disable shoulder slot restrictions
+#      dependsOnComponents:
+#      - type: AllowSuitStorage
       displayName: Suit Storage
     - name: id
       slotTexture: id
