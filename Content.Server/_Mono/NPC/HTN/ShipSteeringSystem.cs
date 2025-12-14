@@ -173,7 +173,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         if (minObstructorDistance != null && linVel.LengthSquared() > 0f)
         {
             brakePath = brakeAccel == 0f ? maxObstructorDistance : MathF.Min(maxObstructorDistance, brakePath);
-            var shipAABB = shipGrid.LocalAABB.Enlarged(12f); // enlarge a bit for safety
+            var shipAABB = shipGrid.LocalAABB.Enlarged(64f); // enlarge a bit to get more grids
             var shipPosVec = shipPos.Position;
             var localBrakeBounds = shipAABB.ExtendToContain(new Vector2(0, brakePath + 50f)); // check extra distance
             var brakeBounds = new Box2(localBrakeBounds.BottomLeft + shipPosVec, localBrakeBounds.TopRight + shipPosVec);
