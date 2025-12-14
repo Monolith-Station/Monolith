@@ -658,6 +658,14 @@
     layers:
     - state: assault
       map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: assault_l
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: assault_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic
@@ -773,6 +781,13 @@
     layers:
     - state: assault
       map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: assault_l
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: assault_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic
