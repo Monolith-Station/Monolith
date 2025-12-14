@@ -198,10 +198,10 @@
   tier: 2
   cost: 20000
   recipeUnlocks:
-  #- OreBagOfHolding
+  - OreBagOfHolding
   - MiningDrillDiamond
   - AdvancedMineralScannerEmpty
-  #- NFBlueprintOreBagOfHolding # Frontier
+  - NFBlueprintOreBagOfHolding # Frontier
   - NFBlueprintMiningDrillDiamond # Frontier
   - NFBlueprintAdvancedMineralScannerEmpty # Frontier
   - BorgModuleAdvancedMining # Frontier

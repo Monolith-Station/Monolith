@@ -266,7 +266,7 @@
   suffix: ADS/TSF ONLY, SCI VOUCHER SHIPS ONLY
   components:
   - type: ShipShieldEmitter
-    healPerSecond: 1000 # Base is 250
+    healPerSecond: 100 # Base is 250
     damageExp: 1.15 # Base is 1.1
     baseDraw: 30000 # Base is 50000
     maxDraw: 75000 # Base is 150000
