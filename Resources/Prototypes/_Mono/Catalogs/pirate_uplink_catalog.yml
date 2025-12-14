@@ -1,21 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 EctoplasmIsGood
-# SPDX-FileCopyrightText: 2025 Ghost581
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 KiraZen_
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 RikuTheKiller
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 SupernoobTheN1
-# SPDX-FileCopyrightText: 2025 Your Name
-# SPDX-FileCopyrightText: 2025 ark1368
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 #MARK: Medical
 - type: listing
   id: UplinkPirateMedicalBundle
@@ -351,21 +333,6 @@
       - PirateUplink
 
 - type: listing
-  id: UplinkPirateAgentIDCard
-  name: uplink-pirate-agent-id-card-name
-  description: uplink-pirate-agent-id-card-desc
-  productEntity: AgentIDCard
-  cost:
-    Doubloon: 15
-  categories:
-  - UplinkPirateUtility
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - PirateUplink
-
-- type: listing
   id: UplinkPirateRadioJammer
   name: uplink-pirate-radio-jammer-name
   description: uplink-pirate-radio-jammer-desc
@@ -468,21 +435,6 @@
   productEntity: BorgModuleSecurity
   cost:
     Doubloon: 50
-  categories:
-  - UplinkPirateUtility
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - PirateUplink
-
-- type: listing
-  id: UplinkPirateVoicemask
-  name: uplink-pirate-voicemask-name
-  description: uplink-pirate-voicemask-desc
-  productEntity: ClothingMaskGasVoiceChameleon
-  cost:
-    Doubloon: 20
   categories:
   - UplinkPirateUtility
   conditions:

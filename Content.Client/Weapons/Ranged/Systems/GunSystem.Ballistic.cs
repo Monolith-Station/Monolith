@@ -36,7 +36,7 @@ public sealed partial class GunSystem
             Containers.Remove(existing, component.Container);
             EnsureShootable(existing);
         }
-        else if (component.UnspawnedCount > 0)
+        else if (component.UnspawnedCount > 0 && !component.InfiniteUnspawned)
         {
             component.UnspawnedCount--;
             ent = Spawn(component.Proto, coordinates);

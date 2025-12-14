@@ -1,29 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Ablankmann
-# SPDX-FileCopyrightText: 2022 Flipp Syder
-# SPDX-FileCopyrightText: 2023 Checkraze
-# SPDX-FileCopyrightText: 2023 Emisse
-# SPDX-FileCopyrightText: 2023 Velcroboy
-# SPDX-FileCopyrightText: 2023 brainfood1183
-# SPDX-FileCopyrightText: 2024 Alzore
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Flareguy
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 MACMAN2003
-# SPDX-FileCopyrightText: 2024 Unisol
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 checkraze
-# SPDX-FileCopyrightText: 2024 cohanna
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 Southbridge
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 nathan736
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: PlastitaniumWindowBase
   parent: BaseStructure
@@ -116,13 +90,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 9000 # Backup
+        damage: 3600 # Backup
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 6000 # vanilla (500) / CombatOverhaul (6000) - Mono
+        damage: 3500 # Mono
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -215,13 +189,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 9000 # Mono
+        damage: 3600 # Mono
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 6000 # vanilla (1000) / CombatOverhaul (6000) - Mono
+        damage: 3500 # Mono
       behaviors:
       - !type:PlaySoundBehavior
         sound:

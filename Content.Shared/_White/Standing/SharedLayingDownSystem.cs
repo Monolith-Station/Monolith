@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Blu
-// SPDX-FileCopyrightText: 2025 Redrover1760
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
@@ -23,7 +17,6 @@ public abstract class SharedLayingDownSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
-
     public override void Initialize()
     {
         CommandBinds.Builder
@@ -34,7 +27,9 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         SubscribeLocalEvent<StandingStateComponent, StandingUpDoAfterEvent>(OnStandingUpDoAfter);
         SubscribeLocalEvent<LayingDownComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeed);
+        SubscribeLocalEvent<LayingDownComponent, RefreshWeightlessModifiersEvent>(OnRefreshWeightlessModifier);
         SubscribeLocalEvent<LayingDownComponent, EntParentChangedMessage>(OnParentChanged);
+
     }
 
     public override void Shutdown()
@@ -102,6 +97,14 @@ public abstract class SharedLayingDownSystem : EntitySystem
             args.ModifySpeed(component.SpeedModify, component.SpeedModify);
         else
             args.ModifySpeed(1f, 1f);
+    }
+
+    // Mono edit
+    private void OnRefreshWeightlessModifier(EntityUid uid, LayingDownComponent component, ref RefreshWeightlessModifiersEvent args)
+    {
+        if (!_standing.IsDown(uid))
+            return;
+        args.ModifyAcceleration(1f, 0.10f);
     }
 
     private void OnParentChanged(EntityUid uid, LayingDownComponent component, EntParentChangedMessage args)

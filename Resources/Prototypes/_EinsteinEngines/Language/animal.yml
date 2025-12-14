@@ -54,10 +54,17 @@
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
-    maxSyllables: 8 # They locked me in a room...
-    replacement:
-    - o
-    - k
+    maxSyllables: 4 # They locked me in a room... #Mono: 8 >> 4
+    replacement: #Mono: Expanded just o and k with a more monke syllable set
+    - A
+    - AA
+    - AH
+    - HA
+    - HH
+    - O
+    - OO
+    - OOK
+    - OKO
 
 - type: language
   id: Mouse

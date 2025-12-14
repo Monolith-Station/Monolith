@@ -1,7 +1,4 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
+#T1 TECH DISKS
 - type: entity
   name: T1 random tech disks
   id: SpawnLootTechDisksT1
@@ -14,25 +11,43 @@
     - sprite: _NF/Markers/general.rsi
       state: questionmark
       color: red
-  - type: RandomSpawner
-    prototypes:
-    - TechDiskCivBluespaceBags
-    - TechDiskRCD
-    - TechDiskMechCiv
-    - TechDiskCivMS250
-    - TechDiskCivCTLA50
-    - TechDiskCivShipComps
-    - TechDiskCivBackpackWaterTank
-    chance: 1
+  - type: EntityTableSpawner
     offset: 0.0
-    rarePrototypes:
-    - SpawnLootTechDisksT2Faction
-    - SpawnLootTechDisksT2Mech
-    - TechDiskCivMicroreactors
-    - TechDiskCivAdvancedTools
-    - TechDiskCivTranslationBasic
-    rareChance: 0.3
+    table: !type:NestedSelector
+      tableId: SpawnLootTechDisksT1Trunk
+      prob: 1.0
 
+- type: entityTable
+  id: SpawnLootTechDisksT1Trunk
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - id: TechDiskCivBluespaceBags
+      - id: TechDiskRCD
+      - id: TechDiskMechCiv
+      - id: TechDiskCivMS250
+      - id: TechDiskCivCTLA50
+      - id: TechDiskCivShipComps
+      - id: TechDiskCivBackpackWaterTank
+    - !type:NestedSelector
+      weight: 3
+      tableId: SpawnLootTechDisksT1RareBranch
+
+- type: entityTable
+  id: SpawnLootTechDisksT1RareBranch
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: SpawnLootTechDisksT2FactionTrunk
+    - !type:NestedSelector
+      tableId: SpawnLootTechDisksT2MechTrunk
+    - id: TechDiskCivMicroreactors
+    - id: TechDiskCivAdvancedTools
+    - id: TechDiskCivTranslationBasic
+
+#T2 TECH DISKS
 - type: entity
   name: T2 random faction tech disks
   id: SpawnLootTechDisksT2Faction
@@ -45,29 +60,45 @@
     - sprite: _NF/Markers/general.rsi
       state: questionmark
       color: red
-  - type: RandomSpawner
-    prototypes:
-    - TechDiskRogueTools
-    - TechDiskUniversalShipAmmo
-    - TechDiskTSFBandit
-    - TechDiskTSFLecter
-    - TechDiskTSFDrozd
-    - TechDiskC20r
-    - TechDiskM90
-    - TechDiskMla73
-    chance: 1
+  - type: EntityTableSpawner
     offset: 0.0
-    rarePrototypes:
-    - TechDiskRogueToolsAdvanced
-    - TechDiskTSFICWS
-    - TechDiskTSFAnnie
-    - TechDiskEnergyWeapons
-    - TechDiskBulldog
-    - TechDiskHristov
-    - SpawnLootTechDisksT3Fracture
-    - TechDiskUniversalShipAmmoAdvanced
-    rareChance: 0.15
+    table: !type:NestedSelector
+      tableId: SpawnLootTechDisksT2FactionTrunk
+      prob: 1.0
 
+- type: entityTable
+  id: SpawnLootTechDisksT2FactionTrunk
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 17
+      children:
+      - id: TechDiskRogueTools
+      - id: TechDiskUniversalShipAmmo
+      - id: TechDiskTSFBandit
+      - id: TechDiskTSFLecter
+      - id: TechDiskTSFDrozd
+      - id: TechDiskC20r
+      - id: TechDiskM90
+      - id: TechDiskMla73
+    - !type:NestedSelector
+      weight: 3
+      tableId: SpawnLootTechDisksT2RareBranch
+
+- type: entityTable
+  id: SpawnLootTechDisksT2RareBranch
+  table: !type:GroupSelector
+    children:
+    - id: TechDiskRogueToolsAdvanced
+    - id: TechDiskTSFICWS
+    - id: TechDiskTSFAnnie
+    - id: TechDiskEnergyWeapons
+    - id: TechDiskBulldog
+    - id: TechDiskHristov
+    - id: SpawnLootTechDisksT3Fracture
+    - id: TechDiskUniversalShipAmmoAdvanced
+
+#T2 TECH MECH DISKS
 - type: entity
   name: T2 random mech tech disks
   id: SpawnLootTechDisksT2Mech
@@ -80,25 +111,38 @@
     - sprite: _NF/Markers/general.rsi
       state: questionmark
       color: red
-  - type: RandomSpawner
-    prototypes:
-    - TechDiskMechCiv
-    - TechDiskMechHeavyIndustrial
-    - TechDiskMechGygax
-    - TechDiskMechMissiles
-    - TechDiskMechBallistics
-    - TechDiskMechEWAR
-    - TechDiskMechIFF
-    - TechDiskMechWeaponsLight
-    - TechDiskMechWeaponsMedium
-    - TechDiskMechWeaponsHeavy
-    chance: 1
+  - type: EntityTableSpawner
     offset: 0.0
-    rarePrototypes:
-    - SpawnLootTechDisksT3Fracture
-    - SpawnLootTechDisksT3Mech
-    rareChance: 0.3
+    table: !type:NestedSelector
+      tableId: SpawnLootTechDisksT2MechTrunk
+      prob: 1.0
+    
+- type: entityTable
+  id: SpawnLootTechDisksT2MechTrunk
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - id: TechDiskMechCiv
+      - id: TechDiskMechHeavyIndustrial
+      - id: TechDiskMechGygax
+      - id: TechDiskMechMissiles
+      - id: TechDiskMechBallistics
+      - id: TechDiskMechEWAR
+      - id: TechDiskMechIFF
+      - id: TechDiskMechWeaponsLight
+      - id: TechDiskMechWeaponsMedium
+      - id: TechDiskMechWeaponsHeavy
+      - !type:GroupSelector
+        weight: 3
+        children:
+        - !type:NestedSelector
+          tableId: SpawnLootTechDisksT3MechTrunk
+        - !type:NestedSelector
+          tableId: SpawnLootTechDisksT3FractureTrunk
 
+#T3 TECH MECH DISKS
 - type: entity
   name: T3 random mech tech disks
   id: SpawnLootTechDisksT3Mech
@@ -111,18 +155,28 @@
     - sprite: _NF/Markers/general.rsi
       state: questionmark
       color: red
-  - type: RandomSpawner
-    prototypes:
-    - TechDiskMechS4Base
-    - TechDiskMechS4Spec
-    - TechDiskMechS2Base
-    - TechDiskMechS2Spec
-    chance: 1
+  - type: EntityTableSpawner
     offset: 0.0
-    rarePrototypes:
-    - SpawnLootTechDisksT3Fracture
-    rareChance: 0.1
+    table: !type:NestedSelector
+      tableId: SpawnLootTechDisksT3MechTrunk
+      prob: 1.0
 
+- type: entityTable
+  id: SpawnLootTechDisksT3MechTrunk
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 9
+      children:
+      - id: TechDiskMechS4Base
+      - id: TechDiskMechS4Spec
+      - id: TechDiskMechS2Base
+      - id: TechDiskMechS2Spec
+      - !type:NestedSelector
+        weight: 100
+        tableId: SpawnLootTechDisksT3FractureTrunk
+
+#T3 TECH DISKS
 - type: entity
   name: T3 random fracture tech disks
   id: SpawnLootTechDisksT3Fracture
@@ -135,13 +189,19 @@
     - sprite: _NF/Markers/general.rsi
       state: questionmark
       color: red
-  - type: RandomSpawner
-    prototypes:
-    - TechDiskSynthalloy
-    - TechDiskSpeedBoots
-    - TechDiskBluespaceBags
-    - TechDiskShields
-    - TechDiskFtl
-    - TechDiskTranslationPreFracture
-    chance: 1
+  - type: EntityTableSpawner
     offset: 0.0
+    table: !type:NestedSelector
+      tableId: SpawnLootTechDisksT3FractureTrunk
+      prob: 1.0
+
+- type: entityTable
+  id: SpawnLootTechDisksT3FractureTrunk
+  table: !type:GroupSelector
+    children:
+    - id: TechDiskSynthalloy
+    - id: TechDiskSpeedBoots
+    - id: TechDiskBluespaceBags
+    - id: TechDiskShields
+    - id: TechDiskFtl
+    - id: TechDiskTranslationPreFracture

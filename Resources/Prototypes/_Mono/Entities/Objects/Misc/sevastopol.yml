@@ -1,0 +1,47 @@
+- type: entity
+  parent: BasePlushie
+  id: SevastopolPlushie
+  name: Highfleet plushie
+  description: Thermal signature detected!
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Fun/sevastopolplush.rsi
+    state: sevastopol
+  - type: Item
+    heldPrefix: sevastopol
+  - type: EmitSoundOnDrop
+    sound:
+      collection: SevastopolPlushLanding
+      params:
+        volume: -3
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Mono/Items/sevastopolplush/sevastopolplush-thermalsignature.ogg
+      params:
+        volume: -3
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Mono/Items/sevastopolplush/sevastopolplush-structuraldamage.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Mono/Items/sevastopolplush/sevastopolplush-thermalsignature.ogg
+      params:
+        volume: -3
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Mono/Items/sevastopolplush/sevastopolplush-thermalsignature.ogg
+      params:
+        volume: -3
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Mono/Items/sevastopolplush/sevastopolplush-structuraldamage.ogg
+      params:
+        volume: -6
+  - type: MeleeWeapon
+    wideAnimationRotation: 360
+    soundHit:
+      path: /Audio/_Mono/Items/sevastopolplush/sevastopolplush-killconfirmed.ogg
+  - type: UseDelay
+    delay: 7

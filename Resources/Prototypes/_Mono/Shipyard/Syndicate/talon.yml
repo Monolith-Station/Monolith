@@ -1,0 +1,31 @@
+- type: vessel
+  id: Talon
+  parent: BaseVesselAntag
+  name: Talon
+  description: A heavy syndicate interceptor, with 4 forward facing Fang autocannons and 2 sidemounted Adder scatter cannons
+  price: 45000
+  category: Small
+  group: Syndicate
+  shuttlePath: /Maps/_Mono/Shuttles/Syndicate/talon.yml
+  guidebookPage: Null
+  class:
+  - Syndicate
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Talon
+  mapName: 'Talon'
+  mapPath: /Maps/_Mono/Shuttles/Syndicate/talon.yml
+  minPlayers: 0
+  stations:
+    Talon:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Talon SYN{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

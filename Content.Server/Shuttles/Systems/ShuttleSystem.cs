@@ -1,33 +1,3 @@
-// SPDX-FileCopyrightText: 2021 DrSmugleaf
-// SPDX-FileCopyrightText: 2021 Wrexbe
-// SPDX-FileCopyrightText: 2022 Moony
-// SPDX-FileCopyrightText: 2022 Paul Ritter
-// SPDX-FileCopyrightText: 2022 Radrark
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 Kevin Zheng
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 Tom Leys
-// SPDX-FileCopyrightText: 2023 Varen
-// SPDX-FileCopyrightText: 2024 ElectroJr
-// SPDX-FileCopyrightText: 2024 Mervill
-// SPDX-FileCopyrightText: 2024 MilenVolf
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Simon
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 checkraze
-// SPDX-FileCopyrightText: 2024 neuPanda
-// SPDX-FileCopyrightText: 2024 no
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 Whatstone
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server._NF.Shuttles.Components; // Frontier
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
@@ -180,32 +150,34 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
         component.DampingModifier = component.BodyModifier;
     }
 
-    public void Toggle(EntityUid uid, ShuttleComponent component)
+    public void Toggle(EntityUid uid, ShuttleComponent component,
+                       bool force = false) // Mono - add force
     {
         if (!EntityManager.TryGetComponent(uid, out PhysicsComponent? physicsComponent))
             return;
 
-        if (HasComp<PreventGridAnchorChangesComponent>(uid)) // Frontier
+        if (HasComp<PreventGridAnchorChangesComponent>(uid) && !force) // Frontier // Mono
             return; // Frontier
 
         component.Enabled = !component.Enabled;
 
         if (component.Enabled)
         {
-            Enable(uid, component: physicsComponent, shuttle: component);
+            Enable(uid, component: physicsComponent, shuttle: component, force: force);
         }
         else
         {
-            Disable(uid, component: physicsComponent);
+            Disable(uid, component: physicsComponent, force: force);
         }
     }
 
-    public void Enable(EntityUid uid, FixturesComponent? manager = null, PhysicsComponent? component = null, ShuttleComponent? shuttle = null)
+    public void Enable(EntityUid uid, FixturesComponent? manager = null, PhysicsComponent? component = null, ShuttleComponent? shuttle = null,
+                       bool force = false) // Mono - add force
     {
         if (!Resolve(uid, ref manager, ref component, ref shuttle, false))
             return;
 
-        if (HasComp<PreventGridAnchorChangesComponent>(uid)) // Frontier
+        if (HasComp<PreventGridAnchorChangesComponent>(uid) && !force) // Frontier // Mono
             return; // Frontier
 
         _physics.SetBodyType(uid, BodyType.Dynamic, manager: manager, body: component);
@@ -213,12 +185,13 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
         _physics.SetFixedRotation(uid, false, manager: manager, body: component);
     }
 
-    public void Disable(EntityUid uid, FixturesComponent? manager = null, PhysicsComponent? component = null)
+    public void Disable(EntityUid uid, FixturesComponent? manager = null, PhysicsComponent? component = null,
+                        bool force = false) // Mono - add force
     {
         if (!Resolve(uid, ref manager, ref component, false))
             return;
 
-        if (HasComp<PreventGridAnchorChangesComponent>(uid)) // Frontier
+        if (HasComp<PreventGridAnchorChangesComponent>(uid) && !force) // Frontier // Mono
             return; // Frontier
 
         _physics.SetBodyType(uid, BodyType.Static, manager: manager, body: component);

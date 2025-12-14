@@ -1,0 +1,36 @@
+# - type: technology
+  # id: UniversalMaterialResearchT1
+  # name: research-technology-universal-engsci-1
+  # entityIcon: SheetSteel
+  # discipline: FactionUniversal
+  # tier: 1
+  # cost: 5000
+  # - UniversalMaterialResearchT1
+  # position: 10, 0
+  
+- type: technology
+  id: UniversalArmorPlatesT1
+  name: research-technology-universal-armorplates-1
+  entityIcon: ArmorPlateMedium
+  discipline: FactionUniversal
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - ArmorPlateMedium
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 11, 3
+  
+- type: technology
+  id: UniversalArmorPlatesT2
+  name: research-technology-universal-armorplates-2
+  entityIcon: ArmorPlateTactical
+  discipline: FactionUniversal
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - ArmorPlateTactical
+  technologyPrerequisites:
+  - UniversalArmorPlatesT1
+  - UniversalMaterialResearchT2
+  position: 11, 4

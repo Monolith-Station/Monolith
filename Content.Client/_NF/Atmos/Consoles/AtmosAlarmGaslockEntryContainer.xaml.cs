@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Milon
-// SPDX-FileCopyrightText: 2025 Whatstone
-// SPDX-FileCopyrightText: 2025 bitcrushing
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Globalization;
 using System.Linq;
 using Content.Client.Stylesheets;
@@ -41,15 +35,16 @@ public sealed partial class AtmosAlarmGaslockEntryContainer : BoxContainer
     private readonly Dictionary<Gas, string> _gasShorthands = new()
     {
         [Gas.Ammonia] = "NH₃",
-        [Gas.BZ] = "PN₂O", // Funky Station
+        [Gas.BZ] = "PN₂O", // //Funky/Goob
         [Gas.CarbonDioxide] = "CO₂",
         [Gas.Frezon] = "F",
-        [Gas.Healium] = "PN₂OF", // Funky Station
-        [Gas.Nitrium] = "TPN₃O", // Funky Station
+        [Gas.Healium] = "PN₂OF", // Funky/Goob
+        [Gas.Nitrium] = "TPN₃O", // Funky/Goob
         [Gas.Nitrogen] = "N₂",
         [Gas.NitrousOxide] = "N₂O",
         [Gas.Oxygen] = "O₂",
         [Gas.Plasma] = "P",
+		[Gas.Pluoxium] = "C₂O₆", // Funky/Goob
         [Gas.Tritium] = "T",
         [Gas.WaterVapor] = "H₂O",
     };

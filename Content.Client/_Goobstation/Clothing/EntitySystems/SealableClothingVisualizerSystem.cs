@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 NotActuallyMarty
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Client._Goobstation.Clothing.Components;
 using Content.Client.Clothing;
 using Content.Shared._Goobstation.Clothing;

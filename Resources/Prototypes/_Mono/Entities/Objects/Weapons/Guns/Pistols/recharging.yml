@@ -1,15 +1,8 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 halycon
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: [ WeaponPistolAnaconda, BaseC3PirateContraband ]
   id: WeaponPistolHawk4
   name: LWC HAWK-4 I.S
-  description: A modified, heavy Anaconda for the purpose of assassinating high value targets. This rare prototype is capable of printing armor penetrating bullets. A laser and holographic sight alongside a matte black chassis with a custom-built integrated silencer make for an exceedingly deadly stealth weapon, only fit for a true Commander of the Ashen Republic.
+  description: A modified, heavy Anaconda for the purpose of assassinating high value targets. This rare prototype is capable of printing armor penetrating bullets. A laser and holographic sight alongside a matte black chassis with a custom-built integrated silencer make for an exceedingly deadly stealth weapon, only fit for a true Commander of the Phaethon Dynasty Imperial Vanguard.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Pistols/hawk4.rsi

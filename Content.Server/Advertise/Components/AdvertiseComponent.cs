@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 Wrexbe (Josh)
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Advertise.EntitySystems;
 using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;

@@ -1,0 +1,6 @@
+- type: ghostRole
+  id: VesselAICore
+  name: ghost-role-information-vessel-core
+  description: ghost-role-information-vessel-core-description
+  rules: ghost-role-information-silicon-rules
+  entityPrototype: StationAiBrainVessel

@@ -1,35 +1,3 @@
-// SPDX-FileCopyrightText: 2019 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2019 Silver
-// SPDX-FileCopyrightText: 2019 tentekal
-// SPDX-FileCopyrightText: 2020 Clement-O
-// SPDX-FileCopyrightText: 2020 Exp
-// SPDX-FileCopyrightText: 2020 Hugo Laloge
-// SPDX-FileCopyrightText: 2020 Metal Gear Sloth
-// SPDX-FileCopyrightText: 2020 ShadowCommander
-// SPDX-FileCopyrightText: 2020 zumorica
-// SPDX-FileCopyrightText: 2021 AJCM-git
-// SPDX-FileCopyrightText: 2021 Acruid
-// SPDX-FileCopyrightText: 2021 Clyybber
-// SPDX-FileCopyrightText: 2021 E F R
-// SPDX-FileCopyrightText: 2021 Galactic Chimp
-// SPDX-FileCopyrightText: 2021 Leo
-// SPDX-FileCopyrightText: 2021 Paul
-// SPDX-FileCopyrightText: 2021 Paul Ritter
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2021 ike709
-// SPDX-FileCopyrightText: 2021 mirrorcult
-// SPDX-FileCopyrightText: 2022 DrSmugleaf
-// SPDX-FileCopyrightText: 2022 Jezithyr
-// SPDX-FileCopyrightText: 2022 Michael Phillips
-// SPDX-FileCopyrightText: 2022 Morbo
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2024 Errant
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Client.Administration.Managers;
 using Content.Client.Ghost;
 using Content.Shared.Administration;

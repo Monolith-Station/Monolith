@@ -116,4 +116,12 @@ public sealed partial class MindComponent : Component
     [ViewVariables, Access(typeof(SharedMindSystem), typeof(SharedGameTicker))]
     // TODO remove this after moving IPlayerManager functions to shared
     public ICommonSession? Session { get; set; }
+
+    // Goob Station
+    /// <summary>
+    ///     The last mob entity this mind was in.
+    ///     Can be null.
+    /// </summary>
+    [DataField]
+    public EntityUid? LastMob = null;
 }

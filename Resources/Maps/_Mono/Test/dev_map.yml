@@ -19,6 +19,7 @@
 # SPDX-FileCopyrightText: 2024 Verm
 # SPDX-FileCopyrightText: 2024 Whatstone
 # SPDX-FileCopyrightText: 2024 eoineoineoin
+# SPDX-FileCopyrightText: 2025 Arcticular
 # SPDX-FileCopyrightText: 2025 Ark
 # SPDX-FileCopyrightText: 2025 ErhardSteinhauer
 # SPDX-FileCopyrightText: 2025 Redrover1760
@@ -26,8 +27,9 @@
 # SPDX-FileCopyrightText: 2025 core-mene
 # SPDX-FileCopyrightText: 2025 dustylens
 # SPDX-FileCopyrightText: 2025 starch
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later
+# SPDX-License-Identifier: MPL-2.0
 
 meta:
   format: 7
@@ -35,8 +37,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/25/2025 22:52:42
-  entityCount: 1702
+  time: 11/24/2025 07:53:02
+  entityCount: 1704
 maps:
 - 1
 grids:
@@ -399,9 +401,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           immutable: True
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -3750,6 +3760,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 619
     components:
     - type: Transform
@@ -3763,6 +3777,10 @@ entities:
         moles:
         - 2.9923203
         - 11.2568245
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -3805,6 +3823,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 622
     components:
     - type: Transform
@@ -3828,6 +3850,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: ClothingBackpackDuffelNfsdTrackingBundle
   entities:
   - uid: 623
@@ -3835,7 +3861,6 @@ entities:
     - type: Transform
       pos: -2.1876638,-3.38657
       parent: 2
-    - type: Visibility
 - proto: ClothingBeltQuiverCrossbowFilledPlasma
   entities:
   - uid: 624
@@ -4341,18 +4366,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-    - type: DeviceLinkSource
-      linkedPorts: {}
-      lastSignals: {}
-      ports:
-      - device-button-1
-      - device-button-2
-      - device-button-3
-      - device-button-4
-      - device-button-5
-      - device-button-6
-      - device-button-7
-      - device-button-8
 - proto: ComputerStationRecords
   entities:
   - uid: 676
@@ -4676,6 +4689,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: CrateHydroponicsTools
   entities:
   - uid: 721
@@ -4691,6 +4708,10 @@ entities:
         moles:
         - 2.9923203
         - 11.2568245
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -4726,6 +4747,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 723
     components:
     - type: Transform
@@ -4739,6 +4764,10 @@ entities:
         moles:
         - 2.9923203
         - 11.2568245
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -5733,7 +5762,7 @@ entities:
       pos: -13.5,6.5
       parent: 2
     - type: Advertise
-      nextAdvertisementTime: 612.6409997
+      nextAdvertisementTime: 612.6409996
 - proto: LockerBotanistFilled
   entities:
   - uid: 866
@@ -5749,6 +5778,10 @@ entities:
         moles:
         - 2.9923203
         - 11.2568245
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -5784,6 +5817,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: LockerChiefEngineerFilled
   entities:
   - uid: 868
@@ -5799,6 +5836,10 @@ entities:
         moles:
         - 2.9923203
         - 11.2568245
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -5834,6 +5875,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: LockerEngineerFilled
   entities:
   - uid: 870
@@ -5849,6 +5894,10 @@ entities:
         moles:
         - 2.9923203
         - 11.2568245
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -5891,6 +5940,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 873
     components:
     - type: Transform
@@ -5904,6 +5957,10 @@ entities:
         moles:
         - 2.9923203
         - 11.2568245
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -5939,6 +5996,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: LockerMedicineFilled
   entities:
   - uid: 875
@@ -5954,6 +6015,10 @@ entities:
         moles:
         - 2.9923203
         - 11.2568245
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -5986,6 +6051,10 @@ entities:
         moles:
         - 2.9923203
         - 11.2568245
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -7808,6 +7877,20 @@ entities:
     - type: Transform
       pos: -4.5,4.5
       parent: 2
+- proto: SpawnPointPDVDenasvar
+  entities:
+  - uid: 1703
+    components:
+    - type: Transform
+      pos: -4.5,2.5
+      parent: 2
+- proto: SpawnPointPDVInfiltrator
+  entities:
+  - uid: 1877
+    components:
+    - type: Transform
+      pos: -4.5,2.5
+      parent: 2
 - proto: SpawnPointPilot
   entities:
   - uid: 1136
@@ -9080,7 +9163,7 @@ entities:
       pos: 27.5,10.5
       parent: 2
     - type: Advertise
-      nextAdvertisementTime: 682.6409997
+      nextAdvertisementTime: 682.6409996
 - proto: VendingMachineDinnerware
   entities:
   - uid: 1281
@@ -9135,7 +9218,7 @@ entities:
       pos: 27.5,-5.5
       parent: 2
     - type: Advertise
-      nextAdvertisementTime: 787.666402
+      nextAdvertisementTime: 787.6664019
   - uid: 1288
     components:
     - type: Transform
@@ -9151,7 +9234,7 @@ entities:
       pos: -15.5,6.5
       parent: 2
     - type: Advertise
-      nextAdvertisementTime: 629.6409997
+      nextAdvertisementTime: 629.6409996
 - proto: VendingMachineTankDispenserEVAPOI
   entities:
   - uid: 1290

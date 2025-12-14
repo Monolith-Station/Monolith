@@ -8,27 +8,27 @@
 
 # Notes:
 #
-- type: pointOfInterest
-  id: Courthouse
-  parent: BasePOI
-  name: "Courthouse"
-  minimumDistance: 4250
-  maximumDistance: 5050
-  spawnGroup: Required
-  gridPath: /Maps/_NF/POI/courthouse.yml
-  addComponents:
-  - type: IFF
-    color: "#047abd"
-
-- type: gameMap
-  id: Courthouse
-  mapName: "Courthouse"
-  mapPath: /Maps/_NF/POI/courthouse.yml
-  minPlayers: 0
-  stations:
-    Courthouse:
-      stationProto: StandardFrontierOutpost
-      components:
-        - type: StationNameSetup
-          mapNameTemplate: "Courthouse"
-        - type: StationDeadDropHintExempt
+#- type: pointOfInterest
+#  id: Courthouse
+#  parent: BasePOI
+#  name: "Courthouse"
+#  minimumDistance: 4250
+#  maximumDistance: 5050
+#  spawnGroup: Required
+#  gridPath: /Maps/_NF/POI/courthouse.yml
+#  addComponents:
+#  - type: IFF
+ #   color: "#047abd"
+#
+#- type: gameMap
+ # id: Courthouse
+#  mapName: "Courthouse"
+#  mapPath: /Maps/_NF/POI/courthouse.yml
+#  minPlayers: 0
+#  stations:
+#    Courthouse:
+#      stationProto: StandardFrontierOutpost
+#      components:
+#        - type: StationNameSetup
+#          mapNameTemplate: "Courthouse"
+#        - type: StationDeadDropHintExempt

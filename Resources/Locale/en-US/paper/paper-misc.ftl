@@ -80,8 +80,8 @@ book-text-cargo-instructions = You have tried to activate the machine without an
       - Camelot Station - Buy and Sell
       - Trade Mall - Buy and Sell
       - Cargo Depots - Buy and Sell
-      - ASR Base - Sell Only
-      - ASR Jupiter - Sell Only
+      - PDV Base - Sell Only
+      - PDV Jupiter - Sell Only
 
       This paper will automatically disintegrate after 2 minutes.
 

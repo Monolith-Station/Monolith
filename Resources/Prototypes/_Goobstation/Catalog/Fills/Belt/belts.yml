@@ -1,0 +1,29 @@
+- type: entity
+  id: ClothingBeltHolsterFilledCentComm
+  parent: ClothingBeltHolster
+  suffix: Filled, N1984
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolN1984
+
+- type: entity
+  id: ClothingBeltSheathFilledNavyOfficer
+  parent: ClothingBeltSheath
+  suffix: Filled, Winter Solstice Officer
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - NavyOfficerSabre
+
+- type: entityTable
+  id: BeltSecurityNoBatonEntityTable
+  table: !type:AllSelector
+    children:
+    - id: Handcuffs
+    - id: Handcuffs
+    - id: Handcuffs
+    - id: HoloprojectorSecurity
+    - id: RadioHandheldSecurity
+    - id: WeaponDisabler #Goobstation

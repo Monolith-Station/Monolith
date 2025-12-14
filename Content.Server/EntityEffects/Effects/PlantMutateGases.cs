@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 drakewill-CRL
-// SPDX-FileCopyrightText: 2025 bitcrushing
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Botany.Components;
 using Content.Shared.Atmos;
 using Content.Shared.EntityEffects;
@@ -46,6 +40,7 @@ public sealed partial class PlantMutateExudeGasses : EntityEffect
           //Gas.BZ,
           //Gas.Healium,
           //Gas.Nitrium,
+		  //Gas.Pluoxium,
         };
         // End Frontier, Funky: List of gasses
 
@@ -104,6 +99,7 @@ public sealed partial class PlantMutateConsumeGasses : EntityEffect
           //Gas.BZ,
           //Gas.Healium,
           //Gas.Nitrium,
+		  //Gas.Pluoxium,
         };
         // End Frontier: List of gasses
 

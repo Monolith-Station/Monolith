@@ -1,0 +1,47 @@
+# /tg/ gases from Funky/Goob: Credit to marc-pelletier
+
+- type: gas
+  id: 9
+  name: gases-bz
+  specificHeat: 20
+  heatCapacityRatio: 1.6
+  molarMass: 12
+  color: 9370db
+  reagent: BZ
+  pricePerMole: 12 #Mono 2<12
+
+- type: gas
+  id: 10
+  name: gases-healium
+  specificHeat: 20
+  heatCapacityRatio: 1.4
+  molarMass: 15
+  gasOverlaySprite: /Textures/_Funkystation/Effects/atmospherics.rsi
+  gasOverlayState: healium
+  gasMolesVisible: 2
+  color: 8b0000
+  reagent: Healium
+  pricePerMole: 18 #Mono 3<18
+
+- type: gas
+  id: 11
+  name: gases-nitrium
+  specificHeat: 10
+  heatCapacityRatio: 1.4
+  gasOverlaySprite: /Textures/_Funkystation/Effects/atmospherics.rsi
+  gasOverlayState: nitrium
+  gasMolesVisible: 0.6
+  molarMass: 8
+  color: b76f0e
+  reagent: Nitrium
+  pricePerMole: 45 #Mono 3<45 this looks fucked but you can make 9x the frezon with the same trit and profit harder
+
+- type: gas
+  id: 12
+  name: gases-pluoxium
+  specificHeat: 80
+  heatCapacityRatio: 1.33
+  molarMass: 32
+  color: 4359a1
+  reagent: Pluoxium
+  pricePerMole: 2 #Mono 0.1<2

@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich
-// SPDX-FileCopyrightText: 2022 keronshb
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2024 Krunklehorn
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Strip.Components;

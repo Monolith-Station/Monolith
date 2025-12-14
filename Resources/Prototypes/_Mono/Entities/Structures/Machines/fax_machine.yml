@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Outpost
 - type: entity
   parent: [BaseStructureDisableToolUse, FaxMachineBase]
@@ -22,8 +17,8 @@
 
 - type: entity
   parent: [BaseStructureDisableToolUse, FaxMachineBase]
-  id: FaxMachineASRJupiter
-  suffix: POI, ASR Jupiter
+  id: FaxMachinePDVJupiter
+  suffix: POI, PDV Jupiter
   components:
   - type: FaxMachine
-    name: "ASR Jupiter-Class Carrier"
+    name: "PDV Jupiter-Class Carrier"

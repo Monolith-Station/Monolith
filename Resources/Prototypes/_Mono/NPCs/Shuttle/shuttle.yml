@@ -1,0 +1,67 @@
+# rams parent ship into the closest shuttle with a powered shuttle console
+- type: htnCompound
+  id: RamShuttleCompound
+  branches:
+    - tasks:
+      - !type:HTNPrimitiveTask
+        operator: !type:UtilityOperator
+          proto: NearbyShuttleTargets
+      - !type:HTNCompoundTask
+        task: ShuttleRamTargetCompound
+
+# approaches closest shuttle with parent ship
+- type: htnCompound
+  id: ApproachShuttleCompound
+  branches:
+    - tasks:
+      - !type:HTNPrimitiveTask
+        operator: !type:UtilityOperator
+          proto: NearbyShuttleTargets
+      - !type:HTNCompoundTask
+        task: ShuttleGoToTargetCompound
+
+- type: utilityCurvePreset
+  id: InvCurve
+  curve: !type:QuadraticCurve
+    slope: 1
+    exponent: -1
+    yOffset: 0
+    xOffset: -1
+
+- type: utilityQuery
+  id: NearbyShuttleTargets
+  query:
+    - !type:NearbyHostileShuttlesQuery
+  considerations:
+    - !type:TargetDistanceCon
+      curve: !type:PresetCurve
+        preset: InvCurve
+
+- type: htnCompound
+  id: ShuttleRamTargetCompound
+  branches:
+    - preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ShipMoveToOperator
+            shutdownState: TaskFinished
+            removeKeyOnFinish: false
+            brakeMaxVelocity: null # there's no braking where we're going
+            targetKey: TargetCoordinates
+
+- type: htnCompound
+  id: ShuttleGoToTargetCompound
+  branches:
+    - preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ShipMoveToOperator
+            shutdownState: TaskFinished
+            removeKeyOnFinish: false
+            brakeMaxVelocity: 0.1
+            range: 250
+            targetKey: TargetCoordinates
