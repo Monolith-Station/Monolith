@@ -40,6 +40,12 @@
       types:
         Slash: 16
         Structural: 90
+  - type: Clumsy
+    clumsyDefaultCheck: 1
+    gunShootFailDamage:
+      types:
+        Heat: 35
+    clumsyVaulting: false
   #- type: ActionGun
   #  action: ActionLetoferolSpike
   #  gunProto: LetoferolSpikeGun
