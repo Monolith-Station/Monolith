@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 Ghagliiarghii
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesMopp
@@ -197,7 +191,7 @@
     damage:
       types:
         Blunt: 15
-        Structural: 100
+        Structural: 50
     soundHit:
       collection: ExplosionSmall
     heavyStaminaCost: 0

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 MilonPL
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Client._Emberfall.Weapons.Ranged.Systems;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;

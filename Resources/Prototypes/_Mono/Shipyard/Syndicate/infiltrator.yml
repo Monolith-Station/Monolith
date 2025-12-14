@@ -2,7 +2,7 @@
   id: Infiltrator
   parent: BaseVesselAntag
   name: Infiltrator
-  description: A light syndicate frigate meant for raiding enemy stations. Armed to the teeth in missiles and CYREXAs.
+  description: A light syndicate frigate meant for raiding enemy stations. Armed to the teeth with missiles and Hydras.
   price: 275000
   category: Large
   group: Syndicate
@@ -23,7 +23,7 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Infiltrator MIL{1}'
+          mapNameTemplate: 'Infiltrator SYN{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

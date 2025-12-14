@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: BaseDispenser
   id: BaseCargoChute
@@ -151,7 +146,7 @@
 - type: entity
   parent: BaseCargoChute
   id: CargoChuteHideout
-  name: ASR hideout cargo turn-in chute
+  name: PDV hideout cargo turn-in chute
   description: A machine with piping systems that lead into the bowels of the station, accepting export goods for trade deeds.
   components:
   - type: Dispenser
@@ -174,7 +169,7 @@
 - type: entity
   parent: BaseCargoChute
   id: CargoChuteJupiter
-  name: ASR jupiter cargo turn-in chute
+  name: PDV jupiter cargo turn-in chute
   description: A machine with piping systems that lead into the bowels of the carrier, accepting export goods for trade deeds.
   components:
   - type: Dispenser

@@ -1,22 +1,17 @@
-# SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # ASM
 
 - type: entity
   id: ShipMissileASM19
-  name: MPSSM ASM-19 man-portable anti-ship missile
+  name: MPSSM  anti-ship EMPHE missile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Structural: 1500
-        Blunt: 65
-        Heat: 50
+        Structural: 500
+        Blunt: 50
+        Heat: 25
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
     layers:
@@ -37,10 +32,10 @@
     energy: 0.5
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: DefaultShipGun
-    totalIntensity: 150
+    explosionType: Default
+    totalIntensity: 8
     intensitySlope: 8
-    maxIntensity: 75
+    maxIntensity: 3
   - type: TargetSeeking
     acceleration: 170
     detectionRange: 1200
@@ -65,9 +60,8 @@
     damage:
       types:
         Structural: 2500
-        Blunt: 150
-        Piercing: 500
-        Heat: 50
+        Blunt: 35
+        Heat: 15
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
     layers:
@@ -96,7 +90,7 @@
     exposesTracking: false
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: DefaultShipGun
-    totalIntensity: 200
+    explosionType: Default
+    totalIntensity: 25
     intensitySlope: 80
-    maxIntensity: 1000
+    maxIntensity: 10

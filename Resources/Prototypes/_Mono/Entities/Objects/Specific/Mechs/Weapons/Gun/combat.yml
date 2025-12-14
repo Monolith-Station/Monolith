@@ -1,13 +1,7 @@
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 starch
-# SPDX-FileCopyrightText: 2025 wewman222
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 #Light Weapons
 - type: entity
   id: LightMechaAutocannon
-  name: LAC-29
+  name: LAC-29 20mm autocannon
   description: The everyman's mecha rifle. Chambered in 20mm, with balanced stats to tackle both Armored Frames and do light damage against ships. Fits on Light Hardpoints.
   suffix: Mech Weapon, Gun, Combat, Rifle
   parent: [ BaseMechWeaponRange, LightMechMountEquipment ]
@@ -30,14 +24,14 @@
   - type: Battery
     maxCharge: 180
   - type: ProjectileBatteryAmmoProvider
-    proto: Bullet20mm_ACPFMJ_Mech
+    proto: 20mmBullet
     fireCost: 60
   - type: Appearance
   - type: AmmoCounter
 
 - type: entity
   id: LightMechaSMG
-  name: RAC-3
+  name: RAC-6 .45 ACP rotary machine gun
   description: An uncommon choice of weaponry, it consists of a 6 barrelled gatling gun, chambered in .45 ACP. Overwhelms mecha with sheer firerate. Good for CQC. Fits on Light Hardpoints.
   suffix: Mech Weapon, Gun, Combat, SMG
   parent: [ BaseMechWeaponRange, LightMechMountEquipment ]
@@ -69,7 +63,7 @@
 
 - type: entity
   id: LightMechaShotgun
-  name: SH-35
+  name: SH-0.5 shotgun
   description: A large mech-grade shotgun chambered in 0.5 gauge shells, perfect for CQC combat, the firerate leaves much to be desired however. Fits on Light Hardpoints.
   suffix: Mech Weapon, Gun, Combat, Shotgun
   parent: [ BaseMechWeaponRange, LightMechMountEquipment ]
@@ -100,7 +94,7 @@
 #Medium Weapons
 - type: entity
   id: MediumMechDMR
-  name: DMR-49
+  name: DMR-57mm autocannon
   description: A heavy duty autocannon chambered in 57mm. General purpose Medium Hardpoint gun.
   suffix: Mech Weapon, Gun, Combat, Cannon
   parent: [ BaseMechWeaponRange, MediumMechMountEquipment ]
@@ -132,8 +126,8 @@
 
 - type: entity
   id: MediumMechCoilgun
-  name: CL-03
-  description: A light coilgun chambered in 3cm sabots. Inflicts minor damage, however spreads the dreaded EMP effect across an area. Needs a Medium Hardpoint.
+  name: CL-03 EMP coilgun
+  description: A medium-sized coilgun chambered in 3cm sabots. Inflicts minor damage, however spreads the dreaded EMP effect across an area. Needs a Medium Hardpoint.
   suffix: Mech Weapon, Gun, Combat, Cannon
   parent: [ BaseMechWeaponRange, MediumMechMountEquipment ]
   components:
@@ -160,7 +154,7 @@
 
 - type: entity
   id: MediumMechTOW
-  name: ASM-55 TOW
+  name: ASM-55 TOW anti-tank missile gantry
   description: Repurposed anti-tank missile. Wire guided computer is exchanged for a much more sophisticated targetting system, but the mobility leaves much to be desired. Fits in Medium Hardpoints.
   suffix: Mech Weapon, Gun, Combat, Cannon
   parent: [ BaseMechWeaponRange, MediumMechMountEquipment ]
@@ -189,8 +183,8 @@
 #Heavy Weapons
 - type: entity
   id: HeavyMechRPG
-  name: R3 "Bazooka" Missile System
-  description: Ground based cruise missile launcher repurposed for mech usage. Guidance systems are all but removed to reduce the size, making the munitions into a glorified rocket. Mounts on Heavy Hardpoints.
+  name: R3 "Bazooka" rocket system
+  description: Ground based cruise missile launcher repurposed for mech usage. Guidance systems are all but removed to reduce the size, making the munitions glorified rockets. Mounts on Heavy Hardpoints.
   suffix: Mech Weapon, Gun, Combat, Missile
   parent: [ BaseMechWeaponRange, HeavyMechMountEquipment ]
   components:
@@ -216,7 +210,7 @@
 
 - type: entity
   id: HeavyMechCannon
-  name: 120mm "Metronome"
+  name: 220mm "Metronome" heavy burst autocannon
   description: A burst fire 120mm cannon, relatively inaccurate, but much longer ranged than the "Bazooka". Mounts on Heavy Hardpoints.
   suffix: Mech Weapon, Gun, Combat, Cannon
   parent: [ BaseMechWeaponRange, HeavyMechMountEquipment ]
@@ -276,15 +270,15 @@
   - type: Battery
     maxCharge: 300
   - type: ProjectileBatteryAmmoProvider
-    proto: MechPlasmaProjectile
-    fireCost: 50
+    proto: ShipMediumPlasmaProjectile
+    fireCost: 75
   - type: Appearance
   - type: AmmoCounter
 
 #Misc Weapons
 - type: entity
   id: EWACMechaJammer
-  name: E-58 "Blanket"
+  name: E-58 "Blanket" jammer
   description: An extremely specialized jamming tool, fires a volley of flares with extremely large jamming signals to screen an advance. Fits on EWAR Hardpoints.
   suffix: Mech Weapon, Gun, Combat, EWAR
   parent: [ BaseMechWeaponRange, EWARMechMountEquipment ]
@@ -312,7 +306,7 @@
 
 - type: entity
   id: EWACMechaFlares
-  name: E-58 "Spark"
+  name: E-58 "Spark" jammer
   description: A cheaper alternative to the Blanket, this emitter launches a volley of 5 flares to confuse enemy gunners. Fits on EWAR Hardpoints.
   suffix: Mech Weapon, Gun, Combat, EWAR
   parent: [ BaseMechWeaponRange, EWARMechMountEquipment ]

@@ -1,19 +1,7 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Coenx-flex
-# SPDX-FileCopyrightText: 2025 Cojoke
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vessel
   id: Scorpion
   parent: BaseVesselAntag
-  name: ASR Scorpion
+  name: PDV Scorpion
   description: An unusual variant from the same shipyards manufacturing Anacondas, using a mix of missile pods and 2 large-caliber cannons.
   price: 113200
   category: Medium
@@ -30,7 +18,7 @@
 
 - type: gameMap
   id: Scorpion
-  mapName: 'ASR Scorpion'
+  mapName: 'PDV Scorpion'
   mapPath: /Maps/_Mono/Shuttles/BlackMarket/scorpion.yml
   minPlayers: 0
   stations:
@@ -38,7 +26,7 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Scorpion ASR{1}'
+          mapNameTemplate: 'Scorpion PDV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

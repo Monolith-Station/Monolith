@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Dvir
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Onezero0
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Research.Systems;
 using Content.Server._Mono.Research.PointDiskPrinter.Components;
 using Content.Server.Research.TechnologyDisk.Components;

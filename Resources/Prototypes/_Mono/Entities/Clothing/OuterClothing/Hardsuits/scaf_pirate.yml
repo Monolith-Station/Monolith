@@ -1,15 +1,8 @@
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseC3SyndicateContraband]
   id: ClothingOuterHardsuitPirateScaf
-  name: ASR SCAF hardsuit
-  description: An old SCAF suit painted in an ASR tan color scheme. The armor feels degraded, but lighter.
+  name: PDV SCAF hardsuit
+  description: An old SCAF suit painted in an PDV tan color scheme. The armor feels degraded, but lighter.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/scaf_pirate.rsi

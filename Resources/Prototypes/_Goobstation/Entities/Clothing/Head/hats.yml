@@ -1,7 +1,32 @@
-# SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: entity
+  parent: [ClothingHeadBase]
+  id: ClothingHeadHatBeretEliteNavyOfficer
+  name: elite navy officer's beret
+  description: A navy blue beret with the silver shield of the Trans Solar Federation.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/navy_officer_beret.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/navy_officer_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon # We do a little bit of trolling.
 
+- type: entity
+  parent: [ClothingHeadBase]
+  id: ClothingHeadHatBeretNavyCaptain
+  name: Winter Solstice HiCom's beret
+  description: A starch white beret. If you see it, you're probably dead already.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/navy_captain_beret.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/navy_captain_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadBase

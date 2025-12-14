@@ -1,23 +1,23 @@
 - type: entity
   id: NFMobXeno
-  parent: [NFMobRestrictions, NFMobSimpleHostileBase, MobXeno]
+  parent: [NFMobRestrictions, NFMobFactionlessBase, MobXeno] # Mono edit - faction overwriting fix
   suffix: Frontier
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [NFMobRestrictions, NFMobSimpleHostileBase, MobXenoPraetorian]
+  parent: [NFMobRestrictions, NFMobFactionlessBase, MobXenoPraetorian]  # Mono edit - faction overwriting fix
   id: NFMobXenoPraetorian
   suffix: Frontier
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [NFMobRestrictions, NFMobSimpleHostileBase, MobXenoDrone]
+  parent: [NFMobRestrictions, NFMobFactionlessBase, MobXenoDrone]  # Mono edit - faction overwriting fix
   id: NFMobXenoDrone
   suffix: Frontier
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [NFMobRestrictions, NFMobSimpleHostileBase, MobXenoQueen]
+  parent: [NFMobRestrictions, NFMobFactionlessBase, MobXenoQueen]  # Mono edit - faction overwriting fix
   id: NFMobXenoQueen
   suffix: Frontier
   categories: [ HideSpawnMenu ]
@@ -39,25 +39,25 @@
   - type: GhostTakeoverAvailable
 
 - type: entity
-  parent: [NFMobRestrictions, NFMobSimpleHostileBase, MobXenoRavager]
+  parent: [NFMobRestrictions, NFMobFactionlessBase, MobXenoRavager] # Mono edit - faction overwriting fix
   id: NFMobXenoRavager
   suffix: Frontier
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [NFMobRestrictions, NFMobSimpleHostileBase, MobXenoRunner]
+  parent: [NFMobRestrictions, NFMobFactionlessBase, MobXenoRunner] # Mono edit - faction overwriting fix
   id: NFMobXenoRunner
   suffix: Frontier
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [NFMobRestrictions, NFMobSimpleHostileBase, MobXenoRouny]
+  parent: [NFMobRestrictions, NFMobFactionlessBase, MobXenoRouny] # Mono edit - faction overwriting fix
   id: NFMobXenoRouny
   suffix: Frontier
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [NFMobRestrictions, NFMobSimpleHostileBase, MobXenoSpitter]
+  parent: [NFMobRestrictions, NFMobFactionlessBase, MobXenoSpitter] # Mono edit - faction overwriting fix
   id: NFMobXenoSpitter
   suffix: Frontier
   categories: [ HideSpawnMenu ]

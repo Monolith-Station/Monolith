@@ -1,13 +1,7 @@
-# SPDX-FileCopyrightText: 2025 Arcticular
-# SPDX-FileCopyrightText: 2025 Arcticular1
-# SPDX-FileCopyrightText: 2025 Avalon
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitUIEnforcer
-  name: U.I ENFORCER combat tacsuit
+  name: U.I. ENFORCER combat tacsuit
   description: Infamously one of the most reliable combat tacsuits that the Black Market has to offer, developed by Ullman Industries. "Heads up display sold seperately!"
   components:
   - type: Sprite
@@ -44,9 +38,9 @@
     coefficient: 0.55
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, EnergyShieldClothing ]
   id: ClothingOuterHardsuitUIEnforcerMKII
-  name: U.I ENFORCER MKII combat tacsuit
+  name: U.I. ENFORCER MKII combat tacsuit
   description: Based off of the infamous MKI design with versatility in mind. This is Ullman Industries' top of the line combat suit. Whether it be slipping away from the feds, taking out the competition, or serving your corporate overlords, this marvel of engineering will make sure that you get it done.
   components:
   - type: Sprite
@@ -63,13 +57,32 @@
       coefficients:
         Blunt: 0.7
         Slash: 0.75
-        Piercing: 0.5
+        Piercing: 0.6
         Heat: 0.5
         Radiation: 0.6
         Caustic: 0.7
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.25
+        Piercing: 0.5
+        Heat: 0.3
+      flatReductions:
+        Heat: 15
+        Piercing: 5
+    passiveBlockFraction: 0.5
+    activeBlockFraction: 1.0
+    isClothing: true
+  - type: Battery
+    maxCharge: 15
+    startingCharge: 15
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 0.1
   - type: ClothingSpeedModifier
     walkModifier: 1
-    sprintModifier: 0.95
+    sprintModifier: 0.85 # Temporary till shield toggling doesnt break movement speed modifiers
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
@@ -85,7 +98,7 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitUllmanEngineer
-  name: U.I engineering hardsuit
+  name: U.I. engineering hardsuit
   description: A protective hardsuit worn by black market engineering specialists. Developed by Ullman Industries.
   components:
   - type: Sprite
@@ -124,7 +137,7 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitUIPilot
-  name: U.I pilot voidsuit
+  name: U.I. pilot voidsuit
   description: A voidsuit made for black market pilots. Developed by Ullman Industries
   components:
   - type: Sprite
@@ -164,7 +177,7 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitUIDirector
-  name: U.I VK-1 experimental hardsuit
+  name: U.I. VK-1 experimental hardsuit
   description: Felix Ullman's top of the line personal hardsuit. A warning label engraved on the chestplate reads "Theft of this suit has a high chance of death! Seriously, I will find you. You will die."
   components:
   - type: Sprite

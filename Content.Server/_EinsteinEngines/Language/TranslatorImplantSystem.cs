@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Implants.Components;
 using Content.Shared._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Components;
@@ -28,8 +23,9 @@ public sealed class TranslatorImplantSystem : EntitySystem
             return;
 
         var implantee = Transform(uid).ParentUid;
-        if (implantee is not { Valid: true } || !TryComp<LanguageKnowledgeComponent>(implantee, out var knowledge))
+        if (implantee is not { Valid: true })
             return;
+        var knowledge = EnsureComp<LanguageKnowledgeComponent>(implantee);
 
         component.Enabled = true;
         // To operate an implant, you need to know its required language intrinsically, because like... it connects to your brain or something,

@@ -1,18 +1,7 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vessel
   id: Prowler
   parent: BaseVesselAntag
-  name: ASR Prowler
+  name: PDV Prowler
   description: A dedicated boarding ship, capable of hiding its radar signature fully. Incapable of mounting any ship weapons. Due to the resources required for its construction, procurement is only permitted via vouchers.
   limit: 2
   price: 300000
@@ -31,7 +20,7 @@
 
 - type: gameMap
   id: Prowler
-  mapName: 'ASR Prowler'
+  mapName: 'PDV Prowler'
   mapPath: /Maps/_Mono/Shuttles/BlackMarket/prowler.yml
   minPlayers: 0
   stations:
@@ -39,7 +28,7 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Prowler ASR{1}'
+          mapNameTemplate: 'Prowler PDV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

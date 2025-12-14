@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 AndresE55
-# SPDX-FileCopyrightText: 2025 Dvir
-# SPDX-FileCopyrightText: 2025 blackknight954
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # BASE
 ## AI packages
 - type: entity
@@ -79,7 +70,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead #Mono, health buff
+      80: Dead #Mono, health adjustments
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
@@ -189,7 +180,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      240: Dead #Mono, health buff
+      85: Dead #Mono, health adjustments
   - type: SlowOnDamage
     speedModifierThresholds:
       36: 0.7
@@ -247,7 +238,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      180: Dead #Mono, health buff
+      54: Dead #Mono, health adjustments
   - type: SlowOnDamage
     speedModifierThresholds:
       18: 0.7
@@ -639,7 +630,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      40: Dead #Mono, health buff
+      25: Dead #Mono, health adjustments
   - type: DamageStateVisuals
     states:
       Alive:
@@ -921,7 +912,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      320: Dead #Mono, health buff
+      145: Dead #Mono, health adjustments
   - type: SlowOnDamage
     speedModifierThresholds:
       66: 0.7
@@ -929,7 +920,7 @@
   - type: Stamina
     critThreshold: 600
   - type: ProjectileBatteryAmmoProvider
-    proto: TeslaGunBullet
+    proto: TeslaGunBulletRogueSilicon # Mono
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -940,7 +931,7 @@
   - type: Gun
     projectileSpeed: 10
     showExamineText: false
-    fireRate: 0.75
+    fireRate: 0.55 # Mono 0.75 -> 0.55
     minAngle: 0
     maxAngle: 15
     soundGunshot:
@@ -1029,7 +1020,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      400: Dead #Mono, health buff
+      350: Dead #Mono, health adjustments
   - type: SlowOnDamage
     speedModifierThresholds:
       120: 0.7
@@ -1084,7 +1075,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      450: Dead #Mono, health buff
+      400: Dead #Mono, health adjustments
   - type: SlowOnDamage
     speedModifierThresholds:
       200: 0.7

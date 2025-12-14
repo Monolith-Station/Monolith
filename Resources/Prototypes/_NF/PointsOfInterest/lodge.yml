@@ -8,38 +8,38 @@
 
 # Notes:
 # Provides higher end expeditionary ships and a space for vets to spawn in away from potential frontier shenanigans
-- type: pointOfInterest
-  id: Lodge
-  parent: BasePOI
-  name: 'Expeditionary Lodge'
-  minimumDistance: 6650
-  maximumDistance: 7400
-  spawnGroup: Required
-  gridPath: /Maps/_NF/POI/lodge.yml
-  addComponents:
-  - type: IFF
-    color: "#3737F8"
-  - type: StationTransit
-
-- type: gameMap
-  id: Lodge
-  mapName: 'Expeditionary Lodge'
-  mapPath: /Maps/_NF/POI/lodge.yml
-  minPlayers: 0
-  stations:
-    Lodge:
-      stationProto: RecordsFrontierOutpost
-      components:
-        - type: StationNameSetup
-          mapNameTemplate: 'Expeditionary Lodge'
-        - type: ExtraStationInformation
-          iconPath: /Textures/_NF/Markers/jobs.rsi/mercenary.png
-          stationSubtext: 'frontier-lobby-exped-subtext'
-          stationDescription: 'frontier-lobby-exped-description'
-          lobbySortOrder: 3
-        - type: StationJobs
-          availableJobs:
-            Pilot: [ -1, -1 ]
-            Mercenary: [ -1, -1 ]
-        - type: StationDeadDrop
-          maxDeadDrops: 1 # Fewer here, players start here.
+#- type: pointOfInterest
+#  id: Lodge
+#  parent: BasePOI
+#  name: 'Expeditionary Lodge'
+#  minimumDistance: 6650
+#  maximumDistance: 7400
+#  spawnGroup: Required
+#  gridPath: /Maps/_NF/POI/lodge.yml
+#  addComponents:
+#  - type: IFF
+ #   color: "#3737F8"
+#  - type: StationTransit
+#
+#- type: gameMap
+#  id: Lodge
+#  mapName: 'Expeditionary Lodge'
+#  mapPath: /Maps/_NF/POI/lodge.yml
+#  minPlayers: 0
+#  stations:
+#    Lodge:
+ #     stationProto: RecordsFrontierOutpost
+#      components:
+#        - type: StationNameSetup
+#          mapNameTemplate: 'Expeditionary Lodge'
+#        - type: ExtraStationInformation
+ #         iconPath: /Textures/_NF/Markers/jobs.rsi/mercenary.png
+ #         stationSubtext: 'frontier-lobby-exped-subtext'
+ #         stationDescription: 'frontier-lobby-exped-description'
+ #         lobbySortOrder: 3
+ #       - type: StationJobs
+  #        availableJobs:
+  #          Pilot: [ -1, -1 ]
+  #          Mercenary: [ -1, -1 ]
+  #      - type: StationDeadDrop
+   #       maxDeadDrops: 1 # Fewer here, players start here.

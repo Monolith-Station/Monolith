@@ -1,0 +1,226 @@
+## Navy Roles
+
+# Navy Officer
+
+- type: job
+  id: NavyOfficer
+  name: job-name-navy-officer
+  description: job-description-navy-officer
+  playTimeTracker: JobNavyOfficer
+  setPreference: false
+  startingGear: NavyOfficerGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
+
+- type: startingGear
+  id: NavyOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyGold
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHatBeretEliteNavyOfficer
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledNavyOfficer
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: NavyOfficerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltHolsterFilledCentComm # Todo - Give the officer a sabre
+    pocket1: BoxFolderCentCom
+  inhand:
+  - BriefcaseCentcomm
+
+# Navy Captain
+
+- type: job
+  id: NavyCaptain
+  name: job-name-navy-captain
+  description: job-description-navy-captain
+  playTimeTracker: JobNavyCaptain
+  setPreference: false
+  startingGear: NavyCaptainGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-null
+  canBeAntag: false
+  accessGroups:
+    - AllAccess
+  access:
+    - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
+
+- type: startingGear
+  id: NavyCaptainGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyGold
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHatBeretNavyCaptain
+    eyes: ClothingEyesGlassesDeathsquad
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledNavyOfficer
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: NavyCaptainPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSheathFilledNavyOfficer
+    pocket1: NukeOverride
+  inhand:
+  - BriefcaseCentcomm
+
+# Undercover Officer
+
+- type: job
+  id: NavyOfficerUndercover
+  name: job-name-navy-officer-undercover
+  description: job-description-navy-officer-undercover
+  playTimeTracker: JobNavyOfficerUndercover
+  setPreference: false
+  startingGear: NavyOfficerUndercoverGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  accessGroups:
+    - AllAccess
+  access:
+    - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
+
+- type: startingGear
+  id: NavyOfficerUndercoverGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChameleon
+    shoes: ClothingShoesChameleon
+    head: ClothingHeadHatChameleon
+    eyes: ClothingEyesGlassesDeathsquad
+    gloves: ClothingHandsChameleon
+    mask: ClothingMaskGasVoiceChameleon
+    back: ClothingBackpackChameleonFilledUndercover
+    outerClothing: ClothingOuterArmourInvisibleChameleon
+    neck: ClothingNeckChameleon
+    id: ChameleonPDA
+    ears: ClothingHeadsetChameleon
+    pocket1: WeaponPistolCobra
+
+
+# Special Operations Officer
+
+- type: job
+  id: SpecialOperationsOfficer
+  name: job-name-special-operations-officer
+  description: job-description-operations-officer
+  playTimeTracker: JobSpecialOperationsOfficer
+  setPreference: false
+  startingGear: SpecialOperationsOfficerGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  accessGroups:
+    - AllAccess
+  access:
+    - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
+
+- type: startingGear
+  id: SpecialOperationsOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSpecOps
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHatBeretSecurity
+    eyes: ClothingEyesGlassesDeathsquad
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpackSatchelLeatherFilledSpecOps
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: SpecialOperationsOfficerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltHolsterFilledCentComm
+    suitstorage: WeaponRifleAnnie
+    pocket1: WeaponRevolverMateba
+  inhand:
+  - BriefcaseCentcomm
+
+
+# Diplomat
+
+- type: job
+  id: Diplomat
+  name: job-name-diplomat
+  description: job-description-diplomat
+  playTimeTracker: JobDiplomat
+  setPreference: false
+  startingGear: DiplomatGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
+
+- type: startingGear
+  id: DiplomatGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDiplomat
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledNavyOfficer
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: DiplomatPDA
+    ears: ClothingHeadsetAltCentCom
+    # belt: ClothingBeltHolsterFilledCentComm - SOMEONE wouldn't stop bitching until i removed this
+  inhand:
+  - BriefcaseCentcomm
+
+## Half-life stolen roles
+
+- type: job
+  id: GovernmentMan
+  name: job-name-governmentman
+  description: job-description-governmentman
+  playTimeTracker: JobGovernmentMan
+  setPreference: false
+  startingGear: GovernmentManGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-null
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - Wizard
+  - NuclearOperative
+  - SyndicateAgent
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
+
+- type: startingGear
+  id: GovernmentManGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitReporter
+    shoes: ClothingShoesLeather
+    eyes: ClothingEyesGlassesCentComm
+    outerClothing: ClothingOuterArmourInvisible
+    id: GmanPDA
+    ears: ClothingHeadsetChronolegioneer
+    pocket1: SonicScrewdriver
+  inhand:
+  - BriefcaseCentcomm

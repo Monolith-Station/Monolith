@@ -1,13 +1,8 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: Magazine55_SAMPistol
   name: pistol magazine (.55 SAM)
   parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseSecurityContraband<BaseC1Contraband, added RecyclableItemSteelTiny
+  description: A standard magazine for the MK5 smart magnum, holding 12 rounds.
   components:
   - type: Tag
     tags:
@@ -39,6 +34,7 @@
   id: Magazine55_SAMPistolHighCapacity
   name: machine pistol magazine (.55 SAM)
   parent: [BaseItem, BaseC1Contraband, RecyclableItemSteelTiny] # Frontier: added RecyclableItemSteelTiny, BaseC1Contraband
+  description: An extended magazine for the MK5 smart magnum, holding 18 rounds.
   components:
   - type: Tag
     tags:

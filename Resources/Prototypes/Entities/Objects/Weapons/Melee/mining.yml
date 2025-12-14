@@ -11,6 +11,7 @@
     sprite: Objects/Weapons/Melee/pickaxe.rsi
     state: pickaxe
   - type: MeleeWeapon
+    autoAttack: true #Mono
     attackRate: 0.75
     wideAnimationRotation: -135
     soundHit:
@@ -28,7 +29,7 @@
       types:
         Blunt: 15
         Piercing: 5
-        Structural: 25
+        Structural: 35
   - type: Item
     size: Normal
     shape:
@@ -136,6 +137,7 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
+    autoAttack: true #Mono
     attackRate: 1.25
     wideAnimationRotation: -135
     damage:
@@ -152,6 +154,7 @@
         Slash: 5
         Structural: 30
   - type: GunRequiresWield
+  - type: SkipPlayerAccuracyModifier #Mono
   - type: Item
     size: Ginormous
     sprite: Objects/Weapons/Melee/crusher-inhands.rsi

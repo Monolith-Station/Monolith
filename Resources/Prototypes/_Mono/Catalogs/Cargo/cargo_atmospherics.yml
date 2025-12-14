@@ -1,13 +1,8 @@
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus
-#
-# SPDX-License-Identifier: MPL-2.0
-
 - type: cargoProduct
   id: AtmosphericsBZ
   icon:
     sprite: _NF/Structures/Storage/canister.rsi # Frontier: _NF
-    state: bz
+    state: mono_bz
   product: BZCanister
   cost: 75000 # NO MORE BZ PROFITS
   category: cargoproduct-category-name-atmospherics

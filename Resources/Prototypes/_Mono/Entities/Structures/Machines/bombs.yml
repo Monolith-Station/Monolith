@@ -1,0 +1,42 @@
+- type: entity
+  parent: [BaseStructureDynamic]
+  id: SyndicateBombSilicon
+  name: modified syndicate bomb
+  suffix: Silicon
+  description: A bomb for Syndicate operatives and agents alike. Looks like this one explodes from physical impact
+  components:
+     - type: Sprite
+       sprite: Structures/Machines/bomb.rsi
+       state: syndicate-bomb
+     - type: Appearance
+     - type: InteractionOutline
+     - type: Explosive
+       explosionType: Default
+       totalIntensity: 10000.0
+       intensitySlope: 250
+       maxIntensity: 2500
+     - type: Fixtures
+       fixtures:
+         fix1:
+           shape:
+            !type:PhysShapeAabb
+             bounds: "-0.3,-0.3,0.3,0.3"
+           density: 190
+           mask:
+             - MachineMask
+           layer:
+             - MachineLayer
+     - type: Damageable
+       damageContainer: StructuralInorganic
+       damageModifierSet: StructuralMetallicStrong
+     - type: Destructible # Mono
+       thresholds:
+       - trigger:
+          !type:DamageTrigger
+          damage: 1250
+         behaviors:
+         - !type:DoActsBehavior
+           acts: ["Destruction"]
+         - !type:ExplodeBehavior
+     - type: Anchorable
+       delay: 180

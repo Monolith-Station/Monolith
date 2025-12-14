@@ -36,9 +36,9 @@
       types:
         Blunt: 0
     hidden: true
-  - type: PhysicalComposition
-    materialComposition:
-      Cloth: 100
+  #- type: PhysicalComposition #Mono out
+  #  materialComposition:
+  #    Cloth: 100
   - type: StaticPrice
     price: 5
   - type: Food

@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # FACTIONLATHE ONLY TECH DISKS - #454545
 
 - type: entity
@@ -208,7 +202,7 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskRogueTools
-  name: ASR equipment faction tech disk
+  name: PDV equipment faction tech disk
   description: A disk capable of adding various tools of Rogues to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
@@ -228,7 +222,7 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskRogueToolsAdvanced
-  name: high-tech ASR equipment faction tech disk
+  name: high-tech PDV equipment faction tech disk
   description: A disk capable of adding the hacking equipment of Rogues to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
@@ -248,7 +242,7 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskC20r
-  name: ASR C-20r faction tech disk
+  name: PDV C-20r faction tech disk
   description: A disk capable of adding the C-20r and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
@@ -269,7 +263,7 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskM90
-  name: ASR M-90 faction tech disk
+  name: PDV M-90 faction tech disk
   description: A disk capable of adding the M-90 and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
@@ -290,7 +284,7 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskBulldog
-  name: ASR bulldog faction tech disk
+  name: PDV bulldog faction tech disk
   description: A disk capable of adding the Bulldog and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
@@ -313,7 +307,7 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskHristov
-  name: ASR Hristov faction tech disk
+  name: PDV Hristov faction tech disk
   description: A disk capable of adding the Hristov and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
@@ -332,7 +326,7 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskMla73
-  name: ASR MLA-73 faction tech disk
+  name: PDV MLA-73 faction tech disk
   description: A disk capable of adding the MLA-73 and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite

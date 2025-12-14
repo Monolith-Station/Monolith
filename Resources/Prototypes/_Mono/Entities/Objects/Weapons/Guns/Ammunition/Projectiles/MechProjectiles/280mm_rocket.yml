@@ -1,15 +1,15 @@
 - type: entity
   id: 280mmRocket
-  name: 280mm "Spearfish" Rocket
+  name: 280mm "Bazooka" Rocket
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Structural: 6500
-        Blunt: 1500
-        Heat: 500
+        Structural: 500
+        Blunt: 100
+        Heat: 50
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
@@ -30,10 +30,10 @@
     energy: 2
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: DefaultShipGun
-    maxIntensity: 6000
-    intensitySlope: 30
-    totalIntensity: 2500
+    explosionType: Default
+    totalIntensity: 100
+    intensitySlope: 20
+    maxIntensity: 30
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard

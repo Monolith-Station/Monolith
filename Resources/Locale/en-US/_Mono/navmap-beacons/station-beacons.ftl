@@ -9,3 +9,5 @@ station-beacon-ussp-armory = USSP Armory
 station-beacon-ussp-cargo = USSP Cargo
 station-beacon-ussp-brig = USSP Brig
 station-beacon-ussp-servers = USSP Servers
+station-beacon-exped-lounge = Expeditionary Lounge
+station-beacon-mail-room = Post Office

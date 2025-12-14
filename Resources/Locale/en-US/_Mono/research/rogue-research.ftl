@@ -1,11 +1,11 @@
-research-discipline-rogue-weaponry = ASR Arsenal
-research-discipline-rogue-gear = ASR Gear
-research-discipline-rogue-equipment = ASR Equipment
-research-discipline-rogue-shipyard = ASR Heavy Industry
+research-discipline-rogue-weaponry = PDV Arsenal
+research-discipline-rogue-gear = PDV Gear
+research-discipline-rogue-equipment = PDV Equipment
+research-discipline-rogue-shipyard = PDV Heavy Industry
 
-research-technology-rogue-basic-equipment = Basic ASR Equipment
-research-technology-rogue-advanced-equipment = Advanced ASR Equipment
-research-technology-rogue-experimental-equipment = Experimental ASR Equipment
+research-technology-rogue-basic-equipment = Basic PDV Equipment
+research-technology-rogue-advanced-equipment = Advanced PDV Equipment
+research-technology-rogue-experimental-equipment = Experimental PDV Equipment
 
 # T1 rogue
 research-technology-rogue-jaws = Advanced Jaws of Life
@@ -21,6 +21,7 @@ research-technology-rogue-emag = Basic Hacking Procedures
 research-technology-rogue-hristov = Heavy Ballistics
 research-technology-rogue-stealthsuit = Metamaterial Fibers
 research-technology-rogue-subsonic = Subsonic Firearms
+research-technology-rogue-saintie-voucher = PDV Saintie Procurement LPC
 
 # T3 rogue
 research-technology-rogue-prowler-voucher = Stealthcraft Technologies
@@ -29,4 +30,4 @@ research-technology-rogue-access-breaker = Advanced Hacking Procedures
 research-technology-rogue-hf-sword = Weaponised Resonance Technology
 research-technology-rogue-syndicate-tacsuits = Blood-Red Imitation
 research-technology-rogue-syndicate-tacsuits-t3 = Synthalloy Utilization
-research-technology-rogue-rx01 = RX-01 Modsuit
+

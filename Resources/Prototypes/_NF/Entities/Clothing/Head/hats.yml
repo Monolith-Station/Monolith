@@ -150,8 +150,8 @@
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatNfsdBeretBrown
-  name: TSFMC beret
-  description: A brown beret for use by TSFMC officers.
+  name: PDV beret
+  description: A brown beret for use by the PDV Vanguard.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Head/Hats/nfsd_beret_brown.rsi
@@ -162,8 +162,8 @@
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatNfsdBeretCream
-  name: TSFMC beret
-  description: A cream beret for use by TSFMC officers.
+  name: PDV grand vizier beret
+  description: A cream beret for use by PDV commanders.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Head/Hats/nfsd_beret_cream.rsi

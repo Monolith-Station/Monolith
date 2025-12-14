@@ -1,20 +1,9 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Cojoke
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vessel
   id: Tethys
   parent: BaseVesselAntag
-  name: ASR Tethys
-  description: A basic entry-level rogue ship. 4 heavy autocannons and a bit of plastitanium is what you get.
-  price: 44700 # WALMARTMOBILE
+  name: PDV Tethys
+  description: A medical Phaethon Dynasty shuttle. It comes equipped with 4 90mm turrets and 2 tovek missile launchers. Hot damn.
+  price: 72000
   category: Medium
   group: BlackMarket
   access: Pirate
@@ -27,7 +16,7 @@
 
 - type: gameMap
   id: Tethys
-  mapName: 'ASR Tethys'
+  mapName: 'PDV Tethys'
   mapPath: /Maps/_Mono/Shuttles/BlackMarket/tethys.yml
   minPlayers: 0
   stations:
@@ -35,7 +24,7 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Tethys ASR{1}'
+          mapNameTemplate: 'Tethys PDV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

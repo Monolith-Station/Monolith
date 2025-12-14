@@ -8,6 +8,7 @@ using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Paper;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Labels
 {
@@ -50,7 +51,7 @@ namespace Content.Server.Labels
             if (_tagSystem.HasTag(uid, PreventTag)) // DeltaV - Prevent labels on certain items
                 return; // DeltaV
 
-            label.CurrentLabel = text;
+            label.CurrentLabel = text == null ? null : FormattedMessage.EscapeText(text);
             NameMod.RefreshNameModifiers(uid);
 
             Dirty(uid, label);

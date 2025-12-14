@@ -1,52 +1,3 @@
-// SPDX-FileCopyrightText: 2019 DamianX
-// SPDX-FileCopyrightText: 2019 Injazz
-// SPDX-FileCopyrightText: 2019 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2019 Silver
-// SPDX-FileCopyrightText: 2019 ZelteHonor
-// SPDX-FileCopyrightText: 2019 moneyl
-// SPDX-FileCopyrightText: 2020 4dplanner
-// SPDX-FileCopyrightText: 2020 ColdAutumnRain
-// SPDX-FileCopyrightText: 2020 FL-OZ
-// SPDX-FileCopyrightText: 2020 Jackson Lewis
-// SPDX-FileCopyrightText: 2020 Memory
-// SPDX-FileCopyrightText: 2020 Metal Gear Sloth
-// SPDX-FileCopyrightText: 2020 Tyler Young
-// SPDX-FileCopyrightText: 2020 Vince
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-// SPDX-FileCopyrightText: 2020 Ygg01
-// SPDX-FileCopyrightText: 2020 chairbender
-// SPDX-FileCopyrightText: 2020 zumorica
-// SPDX-FileCopyrightText: 2021 DrSmugleaf
-// SPDX-FileCopyrightText: 2021 Galactic Chimp
-// SPDX-FileCopyrightText: 2021 Paul Ritter
-// SPDX-FileCopyrightText: 2021 ShadowCommander
-// SPDX-FileCopyrightText: 2021 Swept
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2021 Visne
-// SPDX-FileCopyrightText: 2021 tmtmtl30
-// SPDX-FileCopyrightText: 2022 Acruid
-// SPDX-FileCopyrightText: 2022 Radrark
-// SPDX-FileCopyrightText: 2022 Rane
-// SPDX-FileCopyrightText: 2022 keronshb
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2022 mirrorcult
-// SPDX-FileCopyrightText: 2023 Doru991
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 router
-// SPDX-FileCopyrightText: 2024 Errant
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 checkraze
-// SPDX-FileCopyrightText: 2024 {Koks}
-// SPDX-FileCopyrightText: 2025 Alkheemist
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-// SPDX-FileCopyrightText: 2025 Redrover1760
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using Content.Server.Shuttles.Components;
@@ -83,6 +34,7 @@ public sealed class MoverController : SharedMoverController
         SubscribeLocalEvent<RelayInputMoverComponent, PlayerDetachedEvent>(OnRelayPlayerDetached);
         SubscribeLocalEvent<InputMoverComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<InputMoverComponent, PlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeLocalEvent<PilotComponent, GetShuttleInputsEvent>(OnPilotGetInputs); // Mono
     }
 
     private void OnRelayPlayerAttached(Entity<RelayInputMoverComponent> entity, ref PlayerAttachedEvent args)
@@ -105,6 +57,18 @@ public sealed class MoverController : SharedMoverController
     private void OnPlayerDetached(Entity<InputMoverComponent> entity, ref PlayerDetachedEvent args)
     {
         SetMoveInput(entity, MoveButtons.None);
+    }
+
+    private void OnPilotGetInputs(Entity<PilotComponent> entity, ref GetShuttleInputsEvent args)
+    {
+        var input = GetPilotVelocityInput(entity.Comp);
+        args.GotInput = true;
+
+        // don't slow down the ship if we're just looking at the console with zero input
+        if (input.Brakes == 0f && input.Rotation == 0f && input.Strafe.LengthSquared() == 0f)
+            return;
+
+        args.Input = input;
     }
 
     protected override bool CanSound()
@@ -156,10 +120,13 @@ public sealed class MoverController : SharedMoverController
 
         ActiveMoverGauge.Set(_movers.Count);
 
+        HandleShuttlePilot(frameTime);
+
         HandleShuttleMovement(frameTime);
     }
 
-    public (Vector2 Strafe, float Rotation, float Brakes) GetPilotVelocityInput(PilotComponent component)
+    // Mono: make ShuttleInput
+    public ShuttleInput GetPilotVelocityInput(PilotComponent component)
     {
         if (!Timing.InSimulation)
         {
@@ -168,7 +135,7 @@ public sealed class MoverController : SharedMoverController
             // Physics system will have the correct time step anyways.
             ResetSubtick(component);
             ApplyTick(component, 1f);
-            return (component.CurTickStrafeMovement, component.CurTickRotationMovement, component.CurTickBraking);
+            return new ShuttleInput(component.CurTickStrafeMovement, component.CurTickRotationMovement, component.CurTickBraking);
         }
 
         float remainingFraction;
@@ -188,7 +155,7 @@ public sealed class MoverController : SharedMoverController
         ApplyTick(component, remainingFraction);
 
         // Logger.Info($"{curDir}{walk}{sprint}");
-        return (component.CurTickStrafeMovement, component.CurTickRotationMovement, component.CurTickBraking);
+        return new ShuttleInput(component.CurTickStrafeMovement, component.CurTickRotationMovement, component.CurTickBraking);
     }
 
     private void ResetSubtick(PilotComponent component)
@@ -286,44 +253,272 @@ public sealed class MoverController : SharedMoverController
         component.CurTickBraking += brake * fraction;
     }
 
+    #region mono
+    //
+    // Mono: all below code handling shuttle movement has been heavily modified by Monolith
+    //
+
+    /// <summary>
+    /// Get a shuttle's angular acceleration.
+    /// </summary>
+    public float GetAngularAcceleration(ShuttleComponent shuttle, PhysicsComponent body)
+    {
+        return shuttle.AngularThrust * body.InvI;
+    }
+
+    /// <summary>
+    /// Get shuttle thrust in a given direction.
+    /// Takes local direction.
+    /// </summary>
+    public Vector2 GetDirectionThrust(Vector2 dir, ShuttleComponent shuttle, PhysicsComponent body)
+    {
+        if (dir.Length() == 0f)
+            return Vector2.Zero;
+
+        dir.Normalize();
+
+        var horizIndex = dir.X > 0 ? 1 : 3; // east else west
+        var vertIndex = dir.Y > 0 ? 2 : 0; // north else south
+        var horizThrust = shuttle.LinearThrust[horizIndex];
+        var vertThrust = shuttle.LinearThrust[vertIndex];
+
+        var horizScale = MathF.Abs(horizThrust / dir.X);
+        var vertScale = MathF.Abs(vertThrust / dir.Y);
+        // prevent NaNs
+        dir *= dir.X == 0 ? vertScale : dir.Y == 0 ? horizScale : MathF.Min(horizScale, vertScale);
+
+        return dir;
+    }
+
     /// <summary>
     /// Helper function to extrapolate max velocity for a given Vector2 (really, its angle) and shuttle.
+    /// Takes local direction.
     /// </summary>
-    private Vector2 ObtainMaxVel(Vector2 vel, ShuttleComponent shuttle, PhysicsComponent body) // mono
+    public Vector2 ObtainMaxVel(Vector2 vel, ShuttleComponent shuttle, PhysicsComponent body) // mono
     {
         if (vel.Length() == 0f)
             return Vector2.Zero;
 
-        vel.Normalize(); // Mono
-
-        // this math could PROBABLY be simplified for performance
-        // probably
-        //             __________________________________
-        //            / /    __   __ \2   /    __   __ \2
-        // O = I : _ /  |I * | 1/H | |  + |I * |  0  | |
-        //          V   \    |_ 0 _| /    \    |_1/V_| /
-
-        var horizIndex = vel.X > 0 ? 1 : 3; // east else west
-        var vertIndex = vel.Y > 0 ? 2 : 0; // north else south
-
-        // Mono
-        var horizThrust = vel.X * shuttle.LinearThrust[horizIndex];
-        var vertThrust = vel.Y * shuttle.LinearThrust[vertIndex];
-
-        // Mono - scale max velocity depending on TWR
-        var thrust = MathF.Sqrt(horizThrust * horizThrust + vertThrust * vertThrust);
-        var twr = thrust / body.Mass;
+        var thrust = GetDirectionThrust(vel, shuttle, body);
+        var twr = thrust.Length() / body.Mass;
         var twrMult = MathF.Pow(twr / shuttle.BaseMaxVelocityTWR, shuttle.MaxVelocityScalingExponent);
 
-        // Mono - minor optimisation
-        var horizComp = vel.X == 0 ? 0 : vel.X * shuttle.BaseLinearThrust[horizIndex] / horizThrust; // Frontier: LinearThrust<BaseLinearThrust
-        var vertComp = vel.Y == 0 ? 0 : vel.Y * shuttle.BaseLinearThrust[vertIndex] / vertThrust; // Frontier: LinearThrust<BaseLinearThrust
-
-        // Mono
-        return vel * MathF.Min(shuttle.BaseMaxLinearVelocity * twrMult / MathF.Sqrt(horizComp * horizComp + vertComp * vertComp), MathF.Min(shuttle.UpperMaxVelocity, shuttle.SetMaxVelocity));
+        return vel.Normalized() * MathF.Min(shuttle.BaseMaxLinearVelocity * twrMult, MathF.Min(shuttle.UpperMaxVelocity, shuttle.SetMaxVelocity));
     }
 
     private void HandleShuttleMovement(float frameTime)
+    {
+        var shuttleQuery = EntityQueryEnumerator<ShuttleComponent, PilotedShuttleComponent, PhysicsComponent>();
+        while (shuttleQuery.MoveNext(out var uid, out var shuttle, out var piloted, out var body))
+        {
+            var inputs = new List<ShuttleInput>();
+            // query all our pilots for input
+            var toRemove = new List<EntityUid>();
+
+            foreach (var pilot in piloted.InputSources)
+            {
+                var inputsEv = new GetShuttleInputsEvent();
+                RaiseLocalEvent(pilot, ref inputsEv);
+
+                if (!inputsEv.GotInput)
+                    toRemove.Add(pilot);
+                else if (inputsEv.Input != null)
+                    inputs.Add(inputsEv.Input.Value);
+            }
+
+            foreach (var remUid in toRemove)
+            {
+                piloted.InputSources.Remove(remUid);
+            }
+
+            var count = inputs.Count;
+            if (count == 0)
+            {
+                _thruster.DisableLinearThrusters(shuttle);
+                PhysicsSystem.SetSleepingAllowed(uid, body, true);
+                continue;
+            }
+            PhysicsSystem.SetSleepingAllowed(uid, body, false);
+
+            // get the averaged input from all controllers
+            var linearInput = Vector2.Zero;
+            var angularInput = 0f;
+            var brakeInput = 0f;
+            foreach (var inp in inputs)
+            {
+                linearInput += inp.Strafe.LengthSquared() > 1 ? inp.Strafe.Normalized() : inp.Strafe;
+                angularInput += MathHelper.Clamp(inp.Rotation, -1f, 1f);
+                brakeInput += MathF.Min(inp.Brakes, 1f);
+            }
+            linearInput /= count;
+            angularInput /= count;
+            brakeInput /= count;
+
+            var shuttleNorthAngle = _xformSystem.GetWorldRotation(uid);
+
+            // handle movement: brake
+            if (brakeInput > 0f)
+            {
+                if (body.LinearVelocity.Length() > 0f)
+                {
+                    // Minimum brake velocity for a direction to show its thrust appearance.
+                    const float appearanceThreshold = 0.1f;
+
+                    // Get velocity relative to the shuttle so we know which thrusters to fire
+                    var shuttleVelocity = (-shuttleNorthAngle).RotateVec(body.LinearVelocity);
+                    var force = GetDirectionThrust(-shuttleVelocity, shuttle, body);
+
+                    if (force.X < 0f)
+                    {
+                        _thruster.DisableLinearThrustDirection(shuttle, DirectionFlag.West);
+                        if (shuttleVelocity.X < -appearanceThreshold)
+                            _thruster.EnableLinearThrustDirection(shuttle, DirectionFlag.East);
+                    }
+                    else if (force.X > 0f)
+                    {
+                        _thruster.DisableLinearThrustDirection(shuttle, DirectionFlag.East);
+                        if (shuttleVelocity.X > appearanceThreshold)
+                            _thruster.EnableLinearThrustDirection(shuttle, DirectionFlag.West);
+                    }
+
+                    if (shuttleVelocity.Y < 0f)
+                    {
+                        _thruster.DisableLinearThrustDirection(shuttle, DirectionFlag.South);
+                        if (shuttleVelocity.Y < -appearanceThreshold)
+                            _thruster.EnableLinearThrustDirection(shuttle, DirectionFlag.North);
+                    }
+                    else if (shuttleVelocity.Y > 0f)
+                    {
+                        _thruster.DisableLinearThrustDirection(shuttle, DirectionFlag.North);
+                        if (shuttleVelocity.Y > appearanceThreshold)
+                            _thruster.EnableLinearThrustDirection(shuttle, DirectionFlag.South);
+
+                    }
+
+                    var impulse = force * brakeInput * ShuttleComponent.BrakeCoefficient;
+                    impulse = shuttleNorthAngle.RotateVec(impulse);
+                    var maxForce = body.LinearVelocity.Length() * body.Mass / frameTime;
+
+                    if (maxForce == 0f)
+                        impulse = Vector2.Zero;
+                    // Don't overshoot
+                    else if (impulse.Length() > maxForce)
+                        impulse = impulse.Normalized() * maxForce;
+
+                    PhysicsSystem.ApplyForce(uid, impulse, body: body);
+                }
+                else
+                {
+                    _thruster.DisableLinearThrusters(shuttle);
+                }
+
+                if (body.AngularVelocity != 0f)
+                {
+                    var torque = shuttle.AngularThrust * brakeInput * (body.AngularVelocity > 0f ? -1f : 1f) * ShuttleComponent.BrakeCoefficient;
+                    var torqueMul = body.InvI * frameTime;
+
+                    if (body.AngularVelocity > 0f)
+                    {
+                        torque = MathF.Max(-body.AngularVelocity / torqueMul, torque);
+                    }
+                    else
+                    {
+                        torque = MathF.Min(-body.AngularVelocity / torqueMul, torque);
+                    }
+
+                    if (!torque.Equals(0f))
+                    {
+                        PhysicsSystem.ApplyTorque(uid, torque, body: body);
+                        _thruster.SetAngularThrust(shuttle, true);
+                    }
+                }
+                else
+                {
+                    _thruster.SetAngularThrust(shuttle, false);
+                }
+            }
+
+            if (linearInput.Length().Equals(0f))
+            {
+                if (brakeInput.Equals(0f))
+                    _thruster.DisableLinearThrusters(shuttle);
+            }
+            else
+            {
+                var angle = linearInput.ToWorldAngle();
+                var linearDir = angle.GetDir();
+                var dockFlag = linearDir.AsFlag();
+
+                var totalForce = GetDirectionThrust(linearInput, shuttle, body);
+
+                // Won't just do cardinal directions.
+                foreach (DirectionFlag dir in Enum.GetValues(typeof(DirectionFlag)))
+                {
+                    // Brain no worky but I just want cardinals
+                    switch (dir)
+                    {
+                        case DirectionFlag.South:
+                        case DirectionFlag.East:
+                        case DirectionFlag.North:
+                        case DirectionFlag.West:
+                            break;
+                        default:
+                            continue;
+                    }
+
+                    if ((dir & dockFlag) == 0x0)
+                        _thruster.DisableLinearThrustDirection(shuttle, dir);
+                    else
+                        _thruster.EnableLinearThrustDirection(shuttle, dir);
+                }
+
+                var localVel = (-shuttleNorthAngle).RotateVec(body.LinearVelocity);
+                // vector of max velocity we can be traveling with along current direction
+                var maxVelocity = ObtainMaxVel(localVel, shuttle, body);
+                // vector of max velocity we can be traveling with along wish-direction
+                var maxWishVelocity = ObtainMaxVel(totalForce, shuttle, body);
+                // if we're going faster than we can be, thrust to adjust our velocity to the max wish-direction velocity
+                if (localVel.LengthSquared() > maxVelocity.LengthSquared())
+                {
+                    var velDelta = maxWishVelocity - localVel;
+                    var maxForceLength = velDelta.Length() * body.Mass / frameTime;
+                    var appliedLength = MathF.Min(totalForce.Length(), maxForceLength);
+                    totalForce = velDelta.Length() == 0 ? Vector2.Zero : velDelta.Normalized() * appliedLength;
+                }
+
+                totalForce = shuttleNorthAngle.RotateVec(totalForce);
+
+                if (totalForce.Length() > 0f)
+                    PhysicsSystem.ApplyForce(uid, totalForce, body: body);
+            }
+
+            if (MathHelper.CloseTo(angularInput, 0f))
+            {
+                if (brakeInput <= 0f)
+                    _thruster.SetAngularThrust(shuttle, false);
+            }
+            else
+            {
+                var torque = shuttle.AngularThrust * -angularInput;
+
+                // Need to cap the velocity if 1 tick of input brings us over cap so we don't continuously
+                // edge onto the cap over and over.
+                var torqueMul = body.InvI * frameTime;
+
+                torque = Math.Clamp(torque,
+                    (-ShuttleComponent.MaxAngularVelocity - body.AngularVelocity) / torqueMul,
+                    (ShuttleComponent.MaxAngularVelocity - body.AngularVelocity) / torqueMul);
+
+                if (!torque.Equals(0f))
+                {
+                    PhysicsSystem.ApplyTorque(uid, torque, body: body);
+                    _thruster.SetAngularThrust(shuttle, true);
+                }
+            }
+        }
+    }
+
+    private void HandleShuttlePilot(float frameTime)
     {
         var newPilots = new Dictionary<EntityUid, (ShuttleComponent Shuttle, List<(EntityUid PilotUid, PilotComponent Pilot, InputMoverComponent Mover, TransformComponent ConsoleXform)>)>();
 
@@ -358,275 +553,33 @@ public sealed class MoverController : SharedMoverController
             pilots.Item2.Add((uid, pilot, mover, xform));
         }
 
-        // Reset inputs for non-piloted shuttles.
-        foreach (var (shuttleUid, (shuttle, _)) in _shuttlePilots)
-        {
-            if (newPilots.ContainsKey(shuttleUid) || CanPilot(shuttleUid))
-                continue;
-
-            _thruster.DisableLinearThrusters(shuttle);
-        }
-
         _shuttlePilots = newPilots;
+
 
         // Collate all of the linear / angular velocites for a shuttle
         // then do the movement input once for it.
-        var xformQuery = GetEntityQuery<TransformComponent>();
         foreach (var (shuttleUid, (shuttle, pilots)) in _shuttlePilots)
         {
             if (Paused(shuttleUid) || CanPilot(shuttleUid) || !TryComp<PhysicsComponent>(shuttleUid, out var body))
                 continue;
 
-            var shuttleNorthAngle = _xformSystem.GetWorldRotation(shuttleUid, xformQuery);
-
-            // Collate movement linear and angular inputs together
-            var linearInput = Vector2.Zero;
-            var brakeInput = 0f;
-            var angularInput = 0f;
-            var linearCount = 0;
-            var brakeCount = 0;
-            var angularCount = 0;
-
-            foreach (var (pilotUid, pilot, _, consoleXform) in pilots)
+            foreach (var (pilotUid, _, _, _) in pilots)
             {
-                var (strafe, rotation, brakes) = GetPilotVelocityInput(pilot);
-
-                if (brakes > 0f)
-                {
-                    brakeInput += brakes;
-                    brakeCount++;
-                }
-
-                if (strafe.Length() > 0f)
-                {
-                    var offsetRotation = consoleXform.LocalRotation;
-                    linearInput += offsetRotation.RotateVec(strafe);
-                    linearCount++;
-                }
-
-                if (rotation != 0f)
-                {
-                    angularInput += rotation;
-                    angularCount++;
-                }
-            }
-
-            // Don't slow down the shuttle if there's someone just looking at the console
-            linearInput /= Math.Max(1, linearCount);
-            angularInput /= Math.Max(1, angularCount);
-            brakeInput /= Math.Max(1, brakeCount);
-
-            // Handle shuttle movement
-            if (brakeInput > 0f)
-            {
-                if (body.LinearVelocity.Length() > 0f)
-                {
-                    // Minimum brake velocity for a direction to show its thrust appearance.
-                    const float appearanceThreshold = 0.1f;
-
-                    // Get velocity relative to the shuttle so we know which thrusters to fire
-                    var shuttleVelocity = (-shuttleNorthAngle).RotateVec(body.LinearVelocity);
-                    var force = Vector2.Zero;
-
-                    if (shuttleVelocity.X < 0f)
-                    {
-                        _thruster.DisableLinearThrustDirection(shuttle, DirectionFlag.West);
-
-                        if (shuttleVelocity.X < -appearanceThreshold)
-                            _thruster.EnableLinearThrustDirection(shuttle, DirectionFlag.East);
-
-                        var index = (int)Math.Log2((int)DirectionFlag.East);
-                        force.X += shuttle.LinearThrust[index];
-                    }
-                    else if (shuttleVelocity.X > 0f)
-                    {
-                        _thruster.DisableLinearThrustDirection(shuttle, DirectionFlag.East);
-
-                        if (shuttleVelocity.X > appearanceThreshold)
-                            _thruster.EnableLinearThrustDirection(shuttle, DirectionFlag.West);
-
-                        var index = (int)Math.Log2((int)DirectionFlag.West);
-                        force.X -= shuttle.LinearThrust[index];
-                    }
-
-                    if (shuttleVelocity.Y < 0f)
-                    {
-                        _thruster.DisableLinearThrustDirection(shuttle, DirectionFlag.South);
-
-                        if (shuttleVelocity.Y < -appearanceThreshold)
-                            _thruster.EnableLinearThrustDirection(shuttle, DirectionFlag.North);
-
-                        var index = (int)Math.Log2((int)DirectionFlag.North);
-                        force.Y += shuttle.LinearThrust[index];
-                    }
-                    else if (shuttleVelocity.Y > 0f)
-                    {
-                        _thruster.DisableLinearThrustDirection(shuttle, DirectionFlag.North);
-
-                        if (shuttleVelocity.Y > appearanceThreshold)
-                            _thruster.EnableLinearThrustDirection(shuttle, DirectionFlag.South);
-
-                        var index = (int)Math.Log2((int)DirectionFlag.South);
-                        force.Y -= shuttle.LinearThrust[index];
-                    }
-
-                    var impulse = force * brakeInput * ShuttleComponent.BrakeCoefficient;
-                    impulse = shuttleNorthAngle.RotateVec(impulse);
-                    var forceMul = frameTime * body.InvMass;
-                    var maxVelocity = (-body.LinearVelocity).Length() / forceMul;
-
-                    // Don't overshoot
-                    if (impulse.Length() > maxVelocity)
-                        impulse = impulse.Normalized() * maxVelocity;
-
-                    PhysicsSystem.ApplyForce(shuttleUid, impulse, body: body);
-                }
-                else
-                {
-                    _thruster.DisableLinearThrusters(shuttle);
-                }
-
-                if (body.AngularVelocity != 0f)
-                {
-                    var torque = shuttle.AngularThrust * brakeInput * (body.AngularVelocity > 0f ? -1f : 1f) * ShuttleComponent.BrakeCoefficient;
-                    var torqueMul = body.InvI * frameTime;
-
-                    if (body.AngularVelocity > 0f)
-                    {
-                        torque = MathF.Max(-body.AngularVelocity / torqueMul, torque);
-                    }
-                    else
-                    {
-                        torque = MathF.Min(-body.AngularVelocity / torqueMul, torque);
-                    }
-
-                    if (!torque.Equals(0f))
-                    {
-                        PhysicsSystem.ApplyTorque(shuttleUid, torque, body: body);
-                        _thruster.SetAngularThrust(shuttle, true);
-                    }
-                }
-                else
-                {
-                    _thruster.SetAngularThrust(shuttle, false);
-                }
-            }
-
-            if (linearInput.Length().Equals(0f))
-            {
-                PhysicsSystem.SetSleepingAllowed(shuttleUid, body, true);
-
-                if (brakeInput.Equals(0f))
-                    _thruster.DisableLinearThrusters(shuttle);
-            }
-            else
-            {
-                PhysicsSystem.SetSleepingAllowed(shuttleUid, body, false);
-                var angle = linearInput.ToWorldAngle();
-                var linearDir = angle.GetDir();
-                var dockFlag = linearDir.AsFlag();
-                var totalForce = Vector2.Zero;
-
-                // Won't just do cardinal directions.
-                foreach (DirectionFlag dir in Enum.GetValues(typeof(DirectionFlag)))
-                {
-                    // Brain no worky but I just want cardinals
-                    switch (dir)
-                    {
-                        case DirectionFlag.South:
-                        case DirectionFlag.East:
-                        case DirectionFlag.North:
-                        case DirectionFlag.West:
-                            break;
-                        default:
-                            continue;
-                    }
-
-                    if ((dir & dockFlag) == 0x0)
-                    {
-                        _thruster.DisableLinearThrustDirection(shuttle, dir);
-                        continue;
-                    }
-
-                    var force = Vector2.Zero;
-                    var index = (int)Math.Log2((int)dir);
-                    var thrust = shuttle.LinearThrust[index];
-
-                    switch (dir)
-                    {
-                        case DirectionFlag.North:
-                            force.Y += thrust;
-                            break;
-                        case DirectionFlag.South:
-                            force.Y -= thrust;
-                            break;
-                        case DirectionFlag.East:
-                            force.X += thrust;
-                            break;
-                        case DirectionFlag.West:
-                            force.X -= thrust;
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException($"Attempted to apply thrust to shuttle {shuttleUid} along invalid dir {dir}.");
-                    }
-
-                    _thruster.EnableLinearThrustDirection(shuttle, dir);
-                    var impulse = force * linearInput.Length();
-                    totalForce += impulse;
-                }
-
-                var forceMul = frameTime * body.InvMass;
-
-                var localVel = (-shuttleNorthAngle).RotateVec(body.LinearVelocity);
-                // Mono - ObtainMaxVel takes body
-                var maxVelocity = ObtainMaxVel(localVel, shuttle, body); // max for current travel dir
-                var maxWishVelocity = ObtainMaxVel(totalForce, shuttle, body);
-                var properAccel = (maxWishVelocity - localVel) / forceMul;
-
-                var finalForce = Vector2Dot(totalForce, properAccel.Normalized()) * properAccel.Normalized();
-
-                if (localVel.Length() >= maxVelocity.Length() && Vector2.Dot(totalForce, localVel) > 0f)
-                    finalForce = Vector2.Zero; // burn would be faster if used as such
-
-                if (finalForce.Length() > properAccel.Length())
-                    finalForce = properAccel; // don't overshoot
-
-                //Log.Info($"shuttle: maxVelocity {maxVelocity} totalForce {totalForce} finalForce {finalForce} forceMul {forceMul} properAccel {properAccel}");
-
-                finalForce = shuttleNorthAngle.RotateVec(finalForce);
-
-                if (finalForce.Length() > 0f)
-                    PhysicsSystem.ApplyForce(shuttleUid, finalForce, body: body);
-            }
-
-            if (MathHelper.CloseTo(angularInput, 0f))
-            {
-                PhysicsSystem.SetSleepingAllowed(shuttleUid, body, true);
-
-                if (brakeInput <= 0f)
-                    _thruster.SetAngularThrust(shuttle, false);
-            }
-            else
-            {
-                PhysicsSystem.SetSleepingAllowed(shuttleUid, body, false);
-                var torque = shuttle.AngularThrust * -angularInput;
-
-                // Need to cap the velocity if 1 tick of input brings us over cap so we don't continuously
-                // edge onto the cap over and over.
-                var torqueMul = body.InvI * frameTime;
-
-                torque = Math.Clamp(torque,
-                    (-ShuttleComponent.MaxAngularVelocity - body.AngularVelocity) / torqueMul,
-                    (ShuttleComponent.MaxAngularVelocity - body.AngularVelocity) / torqueMul);
-
-                if (!torque.Equals(0f))
-                {
-                    PhysicsSystem.ApplyTorque(shuttleUid, torque, body: body);
-                    _thruster.SetAngularThrust(shuttle, true);
-                }
+                AddPilot(shuttleUid, pilotUid);
             }
         }
     }
+
+    /// <summary>
+    /// Registers an entity as an input source for a shuttle.
+    /// </summary>
+    public void AddPilot(EntityUid shuttleUid, EntityUid pilot)
+    {
+        var shuttle = EnsureComp<PilotedShuttleComponent>(shuttleUid);
+        shuttle.InputSources.Add(pilot);
+    }
+
+    #endregion
 
     // .NET 8 seem to miscompile usage of Vector2.Dot above. This manual outline fixes it pending an upstream fix.
     // See PR #24008

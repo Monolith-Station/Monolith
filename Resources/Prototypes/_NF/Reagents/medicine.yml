@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 neuPanda
-# SPDX-FileCopyrightText: 2025 tonotom
-#
-# SPDX-License-Identifier: MPL-2.0
-
 - type: reagent
   id : Traumoxadone
   name: reagent-name-traumoxadone
@@ -27,15 +21,17 @@
 #            Slash: -2
           groups:
             Brute: -18
-      - !type:HealthChange
+      - !type:HealthScaleEffect
         conditions:
         - !type:Temperature
           max: 213.0
         - !type:TotalDamage
-          min: 1000
-        damage:
-          groups:
-            Brute: -75 #Mono end
+          min: 200
+        healthScale:
+          types:
+            Blunt: 0.98
+            Slash: 0.98
+            Piercing: 0.98 #Mono end
 
 - type: reagent
   id: Stelloxadone
@@ -60,12 +56,13 @@
             #Cellular: 1 #Mono out
           groups:
             Brute: 3
-      - !type:HealthChange
+      - !type:HealthScaleEffect
         conditions:
         - !type:Temperature
           max: 213.0
         - !type:TotalDamage
-          min: 1000 #Mono start: RR reversal buff
-        damage:
-          groups:
-            Toxin: -50 #Mono end
+          min: 200 #Mono start: RR reversal buff
+        healthScale:
+          types:
+            Poison: 0.98
+            Radiation: 0.98 #Mono end

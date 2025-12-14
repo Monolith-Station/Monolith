@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Kevin Zheng
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2024 neuPanda
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 using Content.Shared._NF.Shuttles.Events; // Frontier - InertiaDampeningMode access
@@ -56,7 +46,7 @@ public sealed class NavInterfaceState
     public bool HideCoords = false;
     // End Frontier fields
 
-    public bool Pannable = false; // Mono
+    public bool Pannable = true; // Mono
     public bool RelativePanning = false; // Mono
 
     public NavInterfaceState(
@@ -66,7 +56,7 @@ public sealed class NavInterfaceState
         Dictionary<NetEntity, List<DockingPortState>> docks,
         InertiaDampeningMode dampeningMode, // Frontier: add dampeningMode
         Dictionary<string, string>? networkPortNames = null,
-        bool pannable = false, // Mono
+        bool pannable = true, // Mono
         bool relativePan = false) // Mono
     {
         MaxRange = maxRange;

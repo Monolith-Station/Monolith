@@ -1,16 +1,8 @@
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vessel
   id: Vulture
   parent: BaseVesselAntag
   name: UI Vulture
-  description: A heavy material reclaiming ship manufacted by Ullman industries originally for deep-space mining and planet cracking, but has been up-gunned and sold to the Rogue Insurgency in recent days. Equiped with a full array or PTKs and 3, 255mm Bofors cannons.
+  description: A heavy material reclaiming ship manufacted by Ullman industries originally for deep-space mining and planet cracking, but has been up-gunned and sold to the Phaethon Dynasty in recent days. Equiped with a full array or PTKs and 3, 255mm Bofors cannons.
   limit: 2
   price: 285580
   category: Large
@@ -35,7 +27,7 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Vulture ASR{1}'
+          mapNameTemplate: 'Vulture PDV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
