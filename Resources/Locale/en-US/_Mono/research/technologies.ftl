@@ -10,3 +10,5 @@ research-technology-ullmansmart-magnum = U.I. MK5 Smart Magnum Production
 research-technology-ullmanplasma-blade = U.I. Exotic Melee
 research-technology-ullmansuits-basic = U.I. Basic Hardsuits
 research-technology-ullmansuits-high-end = U.I. High End Hardsuit
+
+research-technology-advanced-melee-combat-options = Advanced Melee Combat Options
