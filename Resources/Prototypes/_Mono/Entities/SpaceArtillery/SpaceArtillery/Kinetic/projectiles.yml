@@ -151,9 +151,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 9 # totalIntensity goes first, please.
-    intensitySlope: 2.5
-    maxIntensity: 1.5
+    totalIntensity: 6 # totalIntensity goes first, please.
+    intensitySlope: 1
+    maxIntensity: 1
     maxTileBreak: 1
   - type: PointLight
     color: orange
