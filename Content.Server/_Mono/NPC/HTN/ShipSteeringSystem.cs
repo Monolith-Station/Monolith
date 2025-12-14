@@ -198,16 +198,18 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
             foreach (var ent in grids)
             {
-                if (ent.Owner == shipUid || ent.Owner == targetUid)
+                if (ent.Owner == shipUid || ent.Owner == targetUid || !_physQuery.TryComp(ent, out var obstacleBody))
                     continue;
 
                 var toObstacle = _transform.GetMapCoordinates(ent).Position - shipPosVec;
                 var obstacleDistance = toObstacle.Length();
 
+                var obstacleRelVel = linVel - obstacleBody.LinearVelocity;
                 var velDir = NormalizedOrZero(linVel);
+                var relVelDir = NormalizedOrZero(obstacleRelVel);
 
                 // if it's somehow not in front of our movement we don't care
-                if (Vector2.Dot(toObstacle, velDir) <= 0)
+                if (Vector2.Dot(toObstacle, relVelDir) <= 0)
                     continue;
 
                 // check by how much we have to miss
@@ -223,7 +225,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
                 // check by how much we're already missing
                 var effectiveDist = MathF.Max(obstacleDistance - sumRadius, 1f); // this being 0 will break things
-                var pathVec = velDir * obstacleDistance * obstacleDistance / Vector2.Dot(toObstacle, velDir);
+                var pathVec = relVelDir * obstacleDistance * obstacleDistance / Vector2.Dot(toObstacle, relVelDir);
                 var sideVec = pathVec - toObstacle;
                 sideVec *= effectiveDist / obstacleDistance;
                 var sideDist = sideVec.Length();
@@ -238,13 +240,13 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                     var dodgeThrust = _mover.GetDirectionThrust(dodgeVec, shuttle, shipBody).Length();
                     var dodgeAccel = dodgeThrust * shipBody.InvMass;
                     var dodgeLeft = sumRadius - sideDist;
-                    var dodgeVel = Vector2.Dot(linVel, dodgeDir);
+                    var dodgeVel = Vector2.Dot(obstacleRelVel, dodgeDir);
                     // knowing our side-thrust,
                     // solve quadratic equation to determine in how much more time we'll dodge
                     var dodgeTime = (-dodgeVel + MathF.Sqrt(dodgeVel * dodgeVel + 2f * dodgeLeft * dodgeAccel)) / dodgeAccel;
 
                     // check how much we can afford to thrust inwards (or outwards) anyway and still dodge
-                    var inVel = Vector2.Dot(toObstacle, linVel) * toObstacle / toObstacle.LengthSquared();
+                    var inVel = Vector2.Dot(toObstacle, obstacleRelVel) * toObstacle / toObstacle.LengthSquared();
                     var maxInAccel = 2f * (effectiveDist / dodgeTime - inVel.Length()) / dodgeTime;
 
                     // check what's our actual inwards thrust so we know how to scale our input
