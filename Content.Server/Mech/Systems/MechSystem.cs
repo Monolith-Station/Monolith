@@ -88,7 +88,7 @@ public sealed partial class MechSystem : SharedMechSystem
     private void OnMechCanMoveEvent(EntityUid uid, MechComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         if (component.CriticalPowerState)
-            args.ModifySpeed(0.25f, 0.25f);
+            args.ModifySpeed(component.CriticalPowerStateSpeedPenalty);
     }
 
     private void OnInteractUsing(EntityUid uid, MechComponent component, InteractUsingEvent args)

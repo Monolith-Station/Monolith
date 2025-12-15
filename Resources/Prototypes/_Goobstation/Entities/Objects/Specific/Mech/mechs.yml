@@ -212,6 +212,7 @@
     openState: gygax-open
     brokenState: gygax-broken
     mechToPilotDamageMultiplier: 0.1 # Mono
+    criticalPowerStateSpeedPenalty: 0.5 # Mono
     maxIntegrity: 500 # Mono
     airtight: true
     pilotWhitelist:

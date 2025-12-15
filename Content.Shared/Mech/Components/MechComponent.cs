@@ -56,6 +56,12 @@ public sealed partial class MechComponent : Component
     public bool CriticalPowerState = false;
 
     /// <summary>
+    /// Monolith - Speed penalty that applies when CriticalPowerState is true.
+    /// </summary>
+    [DataField]
+    public float CriticalPowerStateSpeedPenalty = 0.65f;
+
+    /// <summary>
     /// The slot the battery is stored in.
     /// </summary>
     [ViewVariables]
