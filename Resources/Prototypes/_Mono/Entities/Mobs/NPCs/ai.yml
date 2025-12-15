@@ -2,6 +2,7 @@
   id: NpcStationAiRammer
   name: rammer core
   description: You feel like the fact you're looking at this means this isn't safe.
+  suffix: AI
   parent: BaseStructure
   components:
   - type: Destructible
@@ -31,7 +32,7 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: Anchorable
   - type: HTN
-    noNearbyPlayerSleepAllowed: false
+    sleepPlayerCheckRangeOverride: 2000
     rootTask:
       task: RamShuttleCompound
 
@@ -42,6 +43,41 @@
   description: Stands there, menacingly.
   components:
   - type: HTN
-    noNearbyPlayerSleepAllowed: false
     rootTask:
       task: ApproachShuttleCompound
+
+- type: entity
+  id: NpcStationAiRammerSmart
+  parent: NpcStationAiRammer
+  suffix: AI, Smart
+  components:
+  - type: HTN
+    rootTask:
+      task: RamShuttleSmartCompound
+
+- type: entity
+  name: rammer core spawner
+  id: SpawnMobRammerCore
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Mobs/Silicon/station_ai.rsi
+      state: base
+    - sprite: Mobs/Silicon/station_ai.rsi
+      state: ai
+      shader: unshaded
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - NpcStationAiRammer
+
+- type: entity
+  name: approacher core spawner
+  id: SpawnMobApproacherCore
+  parent: SpawnMobRammerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+      - NpcStationAiApproacher

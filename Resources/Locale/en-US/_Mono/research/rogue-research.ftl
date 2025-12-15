@@ -30,4 +30,4 @@ research-technology-rogue-access-breaker = Advanced Hacking Procedures
 research-technology-rogue-hf-sword = Weaponised Resonance Technology
 research-technology-rogue-syndicate-tacsuits = Blood-Red Imitation
 research-technology-rogue-syndicate-tacsuits-t3 = Synthalloy Utilization
-research-technology-rogue-rx01 = RX-01 Modsuit
+
