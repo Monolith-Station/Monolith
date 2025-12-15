@@ -66,6 +66,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     [Dependency] private IGameTiming _gameTiming = default!; // Mono
     [Dependency] private FlammableSystem _flammableSystem = default!;
     [Dependency] private DestructibleSystem _destructibleSystem = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
 
     private EntityQuery<FlammableComponent> _flammableQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
