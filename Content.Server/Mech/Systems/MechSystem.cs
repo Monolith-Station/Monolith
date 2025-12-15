@@ -68,7 +68,7 @@ public sealed partial class MechSystem : SharedMechSystem
         SubscribeLocalEvent<MechComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<MechComponent, EmpAttemptEvent>(OnEmpAttempt);
         SubscribeLocalEvent<MechComponent, MechEquipmentRemoveMessage>(OnRemoveEquipmentMessage);
-        SubscribeLocalEvent<MechComponent, RefreshMovementSpeedModifiersEvent>(OnMechCanMoveEvent); // Mono
+        SubscribeLocalEvent<MechComponent, RefreshMovementSpeedModifiersEvent>(OnMechRefreshMovementSpeed); // Mono
 
 
         SubscribeLocalEvent<MechPilotComponent, ToolUserAttemptUseEvent>(OnToolUseAttempt);
@@ -85,7 +85,7 @@ public sealed partial class MechSystem : SharedMechSystem
     }
 
     // Mono
-    private void OnMechCanMoveEvent(EntityUid uid, MechComponent component, RefreshMovementSpeedModifiersEvent args)
+    private void OnMechRefreshMovementSpeed(EntityUid uid, MechComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         if (component.CriticalPowerState)
             args.ModifySpeed(component.CriticalPowerStateSpeedPenalty);
