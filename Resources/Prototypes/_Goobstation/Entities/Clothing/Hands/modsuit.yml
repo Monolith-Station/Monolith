@@ -58,6 +58,16 @@
     damageProtection:
       flatReductions:
         Heat: 10
+  - type: MeleeWeapon # Mono edit start
+    canWideSwing: false
+    attackRate: 1
+    damage:
+      types:
+        Shock: 5
+  - type: StaminaDamageOnHit
+    damage: 15
+    overtime: 40 # Mono edit end
+    sound: /Audio/Weapons/egloves.ogg
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-modular
@@ -95,6 +105,14 @@
     damageProtection:
       flatReductions:
         Heat: 10
+  - type: MeleeWeapon # Mono edit
+    canWideSwing: false
+    autoAttack: true
+    attackRate: 3
+    damage:
+      groups:
+        Burn: -4
+        Brute: -3
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-modular
@@ -132,6 +150,12 @@
     damageProtection:
       flatReductions:
         Heat: 10
+  - type: MeleeWeapon # Mono edit
+    canWideSwing: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 35
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-modular

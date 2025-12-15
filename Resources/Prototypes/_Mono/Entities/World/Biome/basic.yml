@@ -1,0 +1,153 @@
+- type: noiseChannel
+  id: DensityRare
+  noiseType: Perlin
+  fractalLacunarityByPi: 0.666666666
+  remapTo0Through1: true
+  clippingRanges:
+  - 0.4, 0.6
+  clippedValue: 25 # MONO NOTE = BIGGER = SMALLER AMOUNT OF ASTEROIDS!!!
+  inputMultiplier: 3 # Makes density hopefully low noise in the local area while still being interesting at scale.
+  outputMultiplier: 5000.0 # We scale density up significantly for more human-friendly numbers.
+  minimum: 0.25
+
+- type: noiseChannel
+  id: WreckRare
+  noiseType: Perlin
+  fractalLacunarityByPi: 0.666666666
+  clippingRanges:
+  - 0.0, 0.4
+  clippedValue: 0
+  remapTo0Through1: true
+  inputMultiplier: 16 # Makes wreck concentration very low noise at scale.
+  outputMultiplier: 0.35
+
+# region Far Ring
+- type: spaceBiome
+  id: MonoWorldgenVeryFar
+  parent: NFBiomeBase
+  priority: -1
+  # no distanceRange, accepts all remaining distance
+  noiseRanges: {}
+  chunkComponents:
+  - type: DebrisFeaturePlacerController
+    densityNoiseChannel: DensityRare
+  - type: SimpleDebrisSelector
+    debrisTable:
+    # Medium (1.44)
+    - id: NFAsteroidDebrisMedium
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidAndesiteDebrisMedium
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidBasaltDebrisMedium
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidSandDebrisMedium
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidChromiteDebrisMedium
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidRockDebrisMedium
+      prob: 0.24
+      orGroup: debris
+    # Large (1.44)
+    - id: NFAsteroidDebrisLarge
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidAndesiteDebrisLarge
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidBasaltDebrisLarge
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidSandDebrisLarge
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidChromiteDebrisLarge
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidRockDebrisLarge
+      prob: 0.24
+      orGroup: debris
+    # Extra Large (1.44)
+    - id: NFAsteroidDebrisExtraLarge
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidAndesiteDebrisExtraLarge
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidBasaltDebrisExtraLarge
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidSandDebrisExtraLarge
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidChromiteDebrisExtraLarge
+      prob: 0.24
+      orGroup: debris
+    - id: NFAsteroidRockDebrisExtraLarge
+      prob: 0.24
+      orGroup: debris
+    # Huge (.36)
+    - id: NFAsteroidDebrisHuge
+      prob: 0.06
+      orGroup: debris
+    - id: NFAsteroidAndesiteDebrisHuge
+      prob: 0.06
+      orGroup: debris
+    - id: NFAsteroidBasaltDebrisHuge
+      prob: 0.06
+      orGroup: debris
+    - id: NFAsteroidSandDebrisHuge
+      prob: 0.06
+      orGroup: debris
+    - id: NFAsteroidChromiteDebrisHuge
+      prob: 0.06
+      orGroup: debris
+    - id: NFAsteroidRockDebrisHuge
+      prob: 0.046
+      orGroup: debris
+    # Extra Enormous
+    - id: NFAsteroidIceDebrisExtraEnormous
+      prob: 0.3
+      orGroup: debris
+    # Massive
+    - id: NFAsteroidIceDebrisMassive
+      prob: 0.6
+      orGroup: debris
+    # Extra Massive
+    - id: NFAsteroidIceDebrisExtraMassive
+      prob: 1
+      orGroup: debris
+    # Gigantic
+    - id: NFAsteroidIceDebrisGigantic
+      prob: 0.6
+      orGroup: debris
+    # Extra Gigantic
+    - id: NFAsteroidIceDebrisExtraGigantic
+      prob: 1.2
+      orGroup: debris
+  - type: NoiseDrivenDebrisSelector
+    noiseChannel: WreckRare
+    debrisTable:
+    - id: NFWreckDebrisSmall
+      prob: 1
+      orGroup: wreck
+    - id: NFWreckDebrisMedium
+      prob: 2
+      orGroup: wreck
+    - id: NFWreckDebrisLarge
+      prob: 1
+      orGroup: wreck
+    - id: NFWreckDebrisBrassLarge
+      prob: 0.9
+      orGroup: wreck
+    - id: NFWreckDebrisBrassExtraLarge
+      prob: 0.3
+      orGroup: wreck
+    # uncomment when proper drones mapped
+    #- id: MonoRamDroneSpawner
+    #  prob: 3
+    #  orGroup: wreck

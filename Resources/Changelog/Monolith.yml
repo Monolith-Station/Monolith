@@ -14889,3 +14889,65 @@ Entries:
   id: 1651
   time: '2025-12-13T08:10:05.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2782
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Cortical borer hosts consuming sugar now blocks their borer from
+        attacking them
+    - type: Tweak
+      message: Cortical borers can now pilot VIM mechs!
+  id: 1652
+  time: '2025-12-14T08:53:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2797
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Bluespace ore and plant bags can be researched manually again
+  id: 1653
+  time: '2025-12-14T13:18:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2788
+- author: Ilya246
+  changes:
+    - type: Add
+      message: ADS core and manipulator names changed to be procedurally generated.
+    - type: Tweak
+      message: ADS manipulator laws changed to have to obey ADS cores.
+  id: 1654
+  time: '2025-12-14T14:00:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2789
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Gygax health 1000 -> 500. Dark gygax health 1250 -> 900.
+  id: 1655
+  time: '2025-12-14T14:04:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2793
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: You can now see other ships in FTL.
+  id: 1656
+  time: '2025-12-14T14:27:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2773
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: 255mm damage has been increased.
+    - type: Tweak
+      message: >-
+        Some of modsuit gauntlets can punch things now (Soldat gauntlets now act
+        as stunbaton, as an example).
+    - type: Fix
+      message: Fixed dervi not having directional fan.
+    - type: Tweak
+      message: Pulse carbine and U.I Pulse Rifle burst cooldowns were increased.
+    - type: Tweak
+      message: Welder swords received buff (18 damage -> 30 damage).
+    - type: Add
+      message: >-
+        Added two DEBUG entities - Indestructible plastitanium wall with damage
+        popup and omnigun which you can load with any entity you want.
+  id: 1657
+  time: '2025-12-14T19:43:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2798

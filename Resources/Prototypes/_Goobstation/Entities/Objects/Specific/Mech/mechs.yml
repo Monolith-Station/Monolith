@@ -212,7 +212,7 @@
     openState: gygax-open
     brokenState: gygax-broken
     mechToPilotDamageMultiplier: 0.1 # Mono
-    maxIntegrity: 1000 # Mono
+    maxIntegrity: 500 # Mono
     airtight: true
     pilotWhitelist:
       components:
@@ -552,7 +552,7 @@
     brokenState: darkgygax-broken
     mechToPilotDamageMultiplier: 0.15
     airtight: true
-    maxIntegrity: 1250
+    maxIntegrity: 900 
     maxEquipmentAmount: 4
     pilotWhitelist:
       components:

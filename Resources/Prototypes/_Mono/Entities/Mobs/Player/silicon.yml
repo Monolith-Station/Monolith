@@ -173,7 +173,7 @@
     chance: 0.2
   - type: ShowJobIcons
   - type: SiliconLawProvider
-    laws: Redacted
+    laws: RedactedBorg
 
 
 - type: entity
@@ -244,7 +244,11 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellAntiqueProto
   - type: RandomMetadata
-    nameSegments: [MonoRedactedBorgNameset]
+    nameSegments:
+    - MonoRemnantBorgTitle
+    - MonoRemnantAdjective
+    - MonoRemnantNoun
+    - MonoRemnantModifier
 
 - type: entity
   id: PlayerBorgRedactedGhostRole
@@ -332,7 +336,10 @@
     - SyndicateAgent
   - type: GhostTakeoverAvailable
   - type: RandomMetadata
-    nameSegments: [MonoRemnantCoreNameset]
+    nameSegments:
+    - MonoRemnantCoreTitle
+    - MonoRemnantAdjective
+    - MonoRemnantNoun
 
 - type: entity
   id: AiHeldRedacted

@@ -8,6 +8,21 @@
           proto: NearbyShuttleTargets
       - !type:HTNCompoundTask
         task: ShuttleRamTargetCompound
+      - !type:HTNCompoundTask
+        task: ShuttleBackOffCompound
+
+# same, but with leading
+- type: htnCompound
+  id: RamShuttleSmartCompound
+  branches:
+    - tasks:
+      - !type:HTNPrimitiveTask
+        operator: !type:UtilityOperator
+          proto: NearbyShuttleTargets
+      - !type:HTNCompoundTask
+        task: ShuttleRamTargetSmartCompound
+      - !type:HTNCompoundTask
+        task: ShuttleBackOffCompound
 
 # approaches closest shuttle with parent ship
 - type: htnCompound
@@ -20,22 +35,22 @@
       - !type:HTNCompoundTask
         task: ShuttleGoToTargetCompound
 
-- type: utilityCurvePreset
-  id: InvCurve
-  curve: !type:QuadraticCurve
-    slope: 1
-    exponent: -1
-    yOffset: 0
-    xOffset: -1
-
 - type: utilityQuery
   id: NearbyShuttleTargets
   query:
     - !type:NearbyHostileShuttlesQuery
+      blacklist:
+        tags:
+        - ShuttleAIIgnore
+        components:
+        - ForceAnchor
   considerations:
-    - !type:TargetDistanceCon
-      curve: !type:PresetCurve
-        preset: InvCurve
+    - !type:TargetInverseDistanceCon
+      curve: !type:QuadraticCurve
+        slope: 1
+        exponent: 1
+        yOffset: 0
+        xOffset: 0
 
 - type: htnCompound
   id: ShuttleRamTargetCompound
@@ -48,7 +63,53 @@
           operator: !type:ShipMoveToOperator
             shutdownState: TaskFinished
             removeKeyOnFinish: false
-            brakeMaxVelocity: null # there's no braking where we're going
+            inRangeMaxSpeed: null # there's no braking where we're going
+            leadingEnabled: false # else it's too good
+            targetKey: TargetCoordinates
+          services:
+            - !type:UtilityService
+              id: TargetsService
+              proto: NearbyShuttleTargets
+              key: Target
+              coordinatesKey: TargetCoordinates
+
+- type: htnCompound
+  id: ShuttleRamTargetSmartCompound
+  branches:
+    - preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ShipMoveToOperator
+            shutdownState: TaskFinished
+            removeKeyOnFinish: false
+            inRangeMaxSpeed: null # there's no braking where we're going
+            targetKey: TargetCoordinates
+          services:
+            - !type:UtilityService
+              id: TargetsService
+              proto: NearbyShuttleTargets
+              key: Target
+              coordinatesKey: TargetCoordinates
+
+- type: htnCompound
+  id: ShuttleBackOffCompound
+  branches:
+    - preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ShipMoveToOperator
+            shutdownState: TaskFinished
+            removeKeyOnFinish: false
+            finishOnCollide: false # we might be already collided
+            inRangeMaxSpeed: null # just immediately finish once out of range
+            leadingEnabled: false
+            # be within 200-300m
+            range: 300
+            rangeTolerance: 100
             targetKey: TargetCoordinates
 
 - type: htnCompound
@@ -62,6 +123,14 @@
           operator: !type:ShipMoveToOperator
             shutdownState: TaskFinished
             removeKeyOnFinish: false
-            brakeMaxVelocity: 0.1
+            inRangeMaxSpeed: 0.1
             range: 250
+            rangeTolerance: 50
+            alwaysFaceTarget: true
             targetKey: TargetCoordinates
+          services:
+            - !type:UtilityService
+              id: TargetsService
+              proto: NearbyShuttleTargets
+              key: Target
+              coordinatesKey: TargetCoordinates

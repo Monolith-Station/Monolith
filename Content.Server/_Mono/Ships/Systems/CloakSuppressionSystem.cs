@@ -122,9 +122,6 @@ public sealed class CloakSuppressionSystem : EntitySystem
                 (iffComp.Flags & IFFFlags.Hide) == 0)
                 continue;
 
-            if (HasComp<TemporaryFtlIffStorageComponent>(shipUid))
-                continue;
-
             // Check if the target ship has a matching company
             if (ShouldNotSuppressShip(shipUid, hunterPrototype))
                 continue;

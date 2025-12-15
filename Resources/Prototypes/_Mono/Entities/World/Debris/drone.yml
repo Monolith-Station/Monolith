@@ -1,0 +1,53 @@
+- type: entity
+  id: MonoRamDroneSpawner
+  parent: MarkerBase
+  components:
+  - type: RandomSpawner
+    prototypes:
+      - SpawnDroneNeedle
+      - SpawnDroneWedge
+
+- type: entity
+  id: SpawnDroneBase
+  parent: MarkerBase
+  abstract: true
+  components:
+  - type: GridSpawner
+    addComponents:
+      - type: IFF
+        flags: AlwaysShowColor
+        color: "#9a2020"
+      - type: Tag
+        tags:
+        - ShuttleAIIgnore
+      - type: GridCleanupGrid
+        cleanupAcceleration: 3
+        ignorePowered: true
+        ignoreIFF: true
+        ignorePrice: true
+      - type: RandomMetadata
+        nameSeparator: ""
+        nameSegments:
+        - DroneTitle
+        - " 0x"
+        - DroneHex
+        - DroneHex
+        - DroneHex
+        - DroneHex
+        - DroneHex
+        - DroneHex
+    nameGrid: false
+
+- type: entity
+  id: SpawnDroneNeedle
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/needle.yml
+
+- type: entity
+  id: SpawnDroneWedge
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/wedge.yml
