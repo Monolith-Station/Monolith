@@ -1,6 +1,6 @@
 - type: entity
   name: fireaxe
-  parent: [BaseItem, BaseC1Contraband] # Frontier: BaseEngineeringContraband<BaseC1Contraband
+  parent: BaseItem
   id: FireAxe
   description: Truly, the weapon of a madman. Who would think to fight fire with an axe?
   components:
@@ -62,7 +62,7 @@
 - type: entity
   id: FireAxeFlaming
   name: fire axe
-  parent: [BaseC3SyndicateContraband, FireAxe] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: FireAxe
   description: Why fight fire with an axe when you can fight with fire and axe? Now featuring rugged rubberized handle!
   components:
   - type: MeleeWeapon

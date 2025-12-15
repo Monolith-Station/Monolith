@@ -21,7 +21,7 @@
 
 - type: entity
   name: captain's sabre
-  parent: [ BaseSword, BaseC1Contraband ] # Frontier: BaseCommandContraband<BaseC1Contraband
+  parent: BaseSword
   id: CaptainSabre
   description: A common sighting among ship captains. Once ceremonial, it now has common use for self-defense.
   components:
@@ -62,7 +62,7 @@
 
 - type: entity
   name: katana
-  parent: [ BaseSword, BaseC1Contraband ] # Frontier: BaseMajorContraband<BaseC1Contraband
+  parent: BaseSword
   id: Katana
   description: Ancient craftwork made with not so ancient plasteel.
   components:
@@ -117,7 +117,7 @@
 
 - type: entity
   name: machete
-  parent: [ BaseSword, BaseC1Contraband ] # Frontier: BaseMajorContraband<BaseC1Contraband
+  parent: BaseSword
   id: Machete
   description: A large, vicious looking blade.
   components:
@@ -143,7 +143,7 @@
 
 - type: entity
   name: claymore # Mono TODO: make this a wieldable weapon
-  parent: [ BaseSword, BaseC1Contraband ] # Frontier: BaseMajorContraband<BaseC1Contraband
+  parent: BaseSword
   id: Claymore
   description: An ancient war blade.
   components:
@@ -167,7 +167,7 @@
 
 - type: entity
   name: cutlass
-  parent: [ BaseSword, BaseC1Contraband ] # Frontier: BaseMajorContraband<BaseC1Contraband
+  parent: BaseSword
   id: Cutlass
   description: A wickedly curved blade, often seen in the hands of space pirates.
   components:
@@ -193,7 +193,7 @@
 
 - type: entity
   name: throngler
-  parent: [ BaseSword, BaseC3Contraband ] # Frontier: BaseMajorContraband<BaseC3Contraband
+  parent: BaseSword
   id: Throngler
   description: Why would you make this?
   components:

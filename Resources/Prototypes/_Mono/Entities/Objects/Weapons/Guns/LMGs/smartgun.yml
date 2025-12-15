@@ -1,6 +1,6 @@
 - type: entity
   name: SKR-WS MLA-79 smart LMG (.160 smart)
-  parent: [BaseWeaponLightMachineGun, BaseGunWieldable, BaseC2Contraband]
+  parent: [BaseWeaponLightMachineGun, BaseGunWieldable]
   id: WeaponSmartLmg
   description: A military prototype that saw rare use in front-lines field testing. This is a refined version for standard production.
   components:

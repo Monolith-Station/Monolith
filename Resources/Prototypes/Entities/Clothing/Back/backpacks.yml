@@ -80,7 +80,7 @@
       collection: IanBark
 
 - type: entity
-  parent: [NFClothingBackpack, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband, ClothingBackpack<NFClothingBackpack
+  parent: NFClothingBackpack
   id: ClothingBackpackSecurity
   name: tactical backpack # Mono
   description: It's a very robust backpack.
@@ -89,7 +89,7 @@
     sprite: Clothing/Back/Backpacks/security.rsi
 
 - type: entity
-  parent: [NFClothingBackpack, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable, ClothingBackpack<NFClothingBackpack
+  parent: NFClothingBackpack
   id: ClothingBackpackBrigmedic
   name: brigmedic backpack
   description: It's a very sterile backpack.
@@ -125,7 +125,7 @@
     sprite: Clothing/Back/Backpacks/medical.rsi
 
 - type: entity
-  parent: NFClothingBackpack # Frontier: ClothingBackpack<NFClothingBackpack # Frontier: removed BaseCommandContraband
+  parent: NFClothingBackpack # Frontier: ClothingBackpack<NFClothingBackpack
   id: ClothingBackpackCaptain
   name: captain's backpack
   description: It's a special backpack made exclusively for TSF officers.
@@ -216,7 +216,7 @@
 
 #ERT
 - type: entity
-  parent: [ ClothingBackpack, BaseC2ContrabandUnredeemable ] # Frontier - note: NFBackpack sets max size, fails to insert some ERT loadout items # Mono - changed to C2 contra
+  parent: ClothingBackpack # Frontier - note: NFBackpack sets max size, fails to insert some ERT loadout items # Mono - changed to C2 contra
   id: ClothingBackpackERTLeader
   name: advanced tactical backpack # Mono
   description: A spacious backpack with lots of pockets. # Mono
@@ -283,7 +283,7 @@
 
 #Syndicate
 - type: entity
-  parent: [NFClothingBackpack, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, ClothingBackpack<NFClothingBackpack
+  parent: NFClothingBackpack
   id: ClothingBackpackSyndicate
   name: syndicate backpack
   description:

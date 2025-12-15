@@ -622,9 +622,7 @@
 ## Antagonists / Contraband
 - type: entity
   parent:
-  - BaseC3SyndicateContrabandUnredeemable
   - ClothingBackpackMessengerContractor
-  - ContrabandClothing
   id: ClothingBackpackMessengerSyndicate
   name: syndicate messenger bag
   description: A robust messenger bag for waging war against oppressors.
@@ -663,9 +661,7 @@
 
 - type: entity
   parent:
-  - BaseC3CultContrabandUnredeemable
   - ClothingBackpackMessengerContractor
-  - ContrabandClothing
   id: ClothingBackpackMessengerBloodCult
   name: cultist messenger bag
   description: A watertight messenger bag for loyal Nar'Sie followers.
@@ -705,7 +701,7 @@
 - type: entity
   id: ClothingBackpackMessengerArcadia
   name: arcadia messenger bag
-  parent: [ ClothingBackpackMessengerContractor, BaseC3ContrabandNoValue, ContrabandClothing ]
+  parent: [ ClothingBackpackMessengerContractor ]
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/color.rsi

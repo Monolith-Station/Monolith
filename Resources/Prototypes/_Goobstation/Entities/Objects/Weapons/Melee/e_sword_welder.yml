@@ -1,6 +1,6 @@
 - type: entity
   name: welder energy sword
-  parent: [BaseMeleeWeaponEnergy, BaseC1Contraband]
+  parent: BaseMeleeWeaponEnergy
   id: EnergySwordWelder
   description: Roughly converted from a welding tool, this energy sword hums an unstable flame. It looks like it's about to fall apart.
   components:
