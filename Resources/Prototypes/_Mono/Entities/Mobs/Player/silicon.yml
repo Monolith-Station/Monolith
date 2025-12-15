@@ -776,6 +776,9 @@
   - type: ShowJobIcons
   - type: SiliconLawProvider
     laws: TSFMCBorgLawset
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
 
 - type: entity
   id: BorgChassisTSF
