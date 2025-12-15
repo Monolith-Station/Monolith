@@ -9,6 +9,7 @@ using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Ghost; // Frontier
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using DroneConsoleComponent = Content.Server.Shuttles.DroneConsoleComponent;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
@@ -35,6 +36,8 @@ public sealed class MoverController : SharedMoverController
         SubscribeLocalEvent<InputMoverComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<InputMoverComponent, PlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<PilotComponent, GetShuttleInputsEvent>(OnPilotGetInputs); // Mono
+
+        SubscribeLocalEvent<PilotedShuttleComponent, StartCollideEvent>(PilotedShuttleRelayEvent<StartCollideEvent>); // Mono
     }
 
     private void OnRelayPlayerAttached(Entity<RelayInputMoverComponent> entity, ref PlayerAttachedEvent args)
@@ -72,6 +75,15 @@ public sealed class MoverController : SharedMoverController
             return;
 
         args.Input = input;
+    }
+
+    private void PilotedShuttleRelayEvent<TEvent>(Entity<PilotedShuttleComponent> entity, ref TEvent args)
+    {
+        foreach (var pilot in entity.Comp.InputSources)
+        {
+            var relayEv = new PilotedShuttleRelayedEvent<TEvent>(args);
+            RaiseLocalEvent(pilot, ref relayEv);
+        }
     }
 
     protected override bool CanSound()
@@ -320,7 +332,7 @@ public sealed class MoverController : SharedMoverController
 
             foreach (var pilot in piloted.InputSources)
             {
-                var inputsEv = new GetShuttleInputsEvent(uid);
+                var inputsEv = new GetShuttleInputsEvent(frameTime, uid);
                 RaiseLocalEvent(pilot, ref inputsEv);
 
                 if (!inputsEv.GotInput)

@@ -44,16 +44,16 @@ public sealed class GridCleanupSystem : BaseCleanupSystem<MapGridComponent>
         var xform = Transform(uid);
         var parent = xform.ParentUid;
 
-        var state = EnsureComp<GridCleanupStateComponent>(uid);
+        var state = EnsureComp<GridCleanupGridComponent>(uid);
 
         if (HasComp<MapComponent>(uid) // if we're a planetmap ignore
             || !HasComp<MapGridComponent>(uid) // if we somehow lost MapGridComponent
             || HasComp<MapGridComponent>(parent) // do not delete anything on planetmaps either
             || _immuneQuery.HasComp(uid)
-            || TryComp<IFFComponent>(uid, out var iff) && (iff.Flags & IFFFlags.HideLabel) == 0 // delete only if IFF off
+            || !state.IgnoreIFF && TryComp<IFFComponent>(uid, out var iff) && (iff.Flags & IFFFlags.HideLabel) == 0 // delete only if IFF off
             || _cleanup.HasNearbyPlayers(xform.Coordinates, _maxDistance)
-            || HasPoweredAPC((uid, xform)) // don't delete if it has powered APCs
-            || _pricing.AppraiseGrid(uid) > _maxValue) // expensive to run, put last
+            || !state.IgnorePowered && HasPoweredAPC((uid, xform)) // don't delete if it has powered APCs
+            || !state.IgnorePrice && _pricing.AppraiseGrid(uid) > _maxValue) // expensive to run, put last
         {
             state.CleanupAccumulator = TimeSpan.FromSeconds(0);
             return false;
@@ -61,7 +61,7 @@ public sealed class GridCleanupSystem : BaseCleanupSystem<MapGridComponent>
         // see if we should update timer or just be deleted
         else if (state.CleanupAccumulator < _duration)
         {
-            state.CleanupAccumulator += _cleanupInterval;
+            state.CleanupAccumulator += _cleanupInterval * state.CleanupAcceleration;
             return false;
         }
 

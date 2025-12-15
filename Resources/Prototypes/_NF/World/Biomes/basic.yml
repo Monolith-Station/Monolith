@@ -243,7 +243,7 @@
   id: NFAsteroidsFar
   parent: NFBiomeBase
   priority: 0
-  # no distanceRange, accepts all remaining distance
+  distanceRange: 9500, 18000 # Mono
   noiseRanges: {}
   chunkComponents:
   - type: SimpleDebrisSelector
@@ -362,3 +362,8 @@
     - id: NFWreckDebrisBrassExtraLarge
       prob: 0.1
       orGroup: wreck
+    # Mono - very rare rammer drones even in far ring
+    # uncomment when proper drones mapped
+    #- id: MonoRamDroneSpawner
+    #  prob: 0.05
+    #  orGroup: wreck

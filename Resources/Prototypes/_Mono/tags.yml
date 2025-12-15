@@ -424,3 +424,9 @@
 
 - type: Tag
   id: MachineBoard3x3
+
+# AI
+
+# makes shuttle AI not target this grid
+- type: Tag
+  id: ShuttleAIIgnore

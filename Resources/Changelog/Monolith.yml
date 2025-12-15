@@ -14930,3 +14930,24 @@ Entries:
   id: 1656
   time: '2025-12-14T14:27:57.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2773
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: 255mm damage has been increased.
+    - type: Tweak
+      message: >-
+        Some of modsuit gauntlets can punch things now (Soldat gauntlets now act
+        as stunbaton, as an example).
+    - type: Fix
+      message: Fixed dervi not having directional fan.
+    - type: Tweak
+      message: Pulse carbine and U.I Pulse Rifle burst cooldowns were increased.
+    - type: Tweak
+      message: Welder swords received buff (18 damage -> 30 damage).
+    - type: Add
+      message: >-
+        Added two DEBUG entities - Indestructible plastitanium wall with damage
+        popup and omnigun which you can load with any entity you want.
+  id: 1657
+  time: '2025-12-14T19:43:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2798
