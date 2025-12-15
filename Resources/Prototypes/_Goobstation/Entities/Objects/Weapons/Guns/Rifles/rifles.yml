@@ -1,6 +1,6 @@
 - type: entity
   name: TCA M27 Annie (7.62x39mm)
-  parent: BaseWeaponRifle # Mono - C2 contra
+  parent: [BaseWeaponRifle, BaseFactionGearTSFT2] # Mono
   id: WeaponRifleAnnie
   description: A beast designed to shoulder the weight of impossible missions. Uses 7.62x39mm ammo.
   components:

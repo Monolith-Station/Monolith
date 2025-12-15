@@ -109,7 +109,7 @@
     reduction: 0.5
 
 - type: entity
-  parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
+  parent: [ ClothingOuterBase, GeigerCounterClothing, BaseFactionGearPDVT3 ] # Mono - add geiger
   id: ClothingModsuitChestplateRogue
   name: RX-01 modsuit chestplate
   description: The chestpiece has some warning label on the inside about radiation leaks- and a note next to it 'Remove this label in the final product - Felix

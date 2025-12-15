@@ -134,7 +134,7 @@
 
 - type: entity
   name: VFD XLR-556 ICWS (5.56x45mm)
-  parent: [BaseWeaponRifle, BaseGunWieldable]
+  parent: [BaseWeaponRifle, BaseGunWieldable, BaseFactionGearTSFT1]
   id: WeaponRifleXlr556
   description: A proposed next-gen "rifle" for TSF standard infantry. Chambered in 5.56x45mm rifle rounds, its RPM is incredible - but with great firerate comes great fire control...
   components:
@@ -410,7 +410,7 @@
 
 - type: entity
   name: NTSF-LTR-556 (5.56x45mm,6.8x52mm Caseless)
-  parent: BaseWeaponRifle
+  parent: [BaseWeaponRifle, BaseFactionGearOtherFactionT1]
   id: WeaponRifleNtsfLtr
   description: An old corporate war era rifle. The Nano Trasen Security Forces and Special Forces's Light Tactical Rifle chambered in 5.56x45mm, also accepts 6.8x52mm due to it being a brand new caliber of its time and being a prototype. This rifle is of high-quality with plastitanium internal and plasteel furnitures.
   components:

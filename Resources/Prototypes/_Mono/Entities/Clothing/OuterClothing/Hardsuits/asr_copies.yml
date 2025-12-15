@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingOuterHardsuitSyndie
+  parent: [ ClothingOuterHardsuitSyndie, BaseFactionGearPDVT2 ]
   id: ClothingOuterHardsuitAshen
   name: PDV CV-32 combat tacsuit
   description: A combat tacsuit designed by the Phaethon Dynasty. A heavier but still general-purpose hardsuit.
@@ -21,7 +21,7 @@
     - RogueHardsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitSyndieElite, EnergyShieldClothing ]
+  parent: [ ClothingOuterHardsuitSyndieElite, EnergyShieldClothing, BaseFactionGearPDVT3 ]
   id: ClothingOuterHardsuitAshenElite
   name: PDV CV-53 combat hardsuit
   description: Originally based off of the CV-32, the CV-53 sacrifices conventional armor plating for environmental protection, and a rechargeable hard-shield.
