@@ -14835,3 +14835,98 @@ Entries:
   id: 1645
   time: '2025-12-10T20:21:31.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2777
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: >-
+        The TSFMC Volta modsuit has received a security hud and welding
+        protection
+    - type: Add
+      message: TSFMC Engineer now spawns with a pouch
+  id: 1646
+  time: '2025-12-11T12:45:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2786
+- author: core-mene
+  changes:
+    - type: Fix
+      message: Fixed part of stripping UI being hiden.
+  id: 1647
+  time: '2025-12-12T18:35:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2783
+- author: DieselMohawkTheSequel
+  changes:
+    - type: Fix
+      message: Fixed MS-250 recharge rate.
+  id: 1648
+  time: '2025-12-13T06:19:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2794
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Hand-mining improvement: All non-autoswinging mining tools were given
+        autoswing.
+  id: 1649
+  time: '2025-12-13T06:38:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2791
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Oni can now accurately mark targets with the crusher.
+  id: 1650
+  time: '2025-12-13T08:06:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2795
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: Gave the RX-01 voidboots
+    - type: Remove
+      message: Removed the RX-01 from research
+    - type: Tweak
+      message: >-
+        Spasaka sabotage kit has gotten equipment changes to help with boarding
+        as well as receiving the RX-01 suit. 
+  id: 1651
+  time: '2025-12-13T08:10:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2782
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Cortical borer hosts consuming sugar now blocks their borer from
+        attacking them
+    - type: Tweak
+      message: Cortical borers can now pilot VIM mechs!
+  id: 1652
+  time: '2025-12-14T08:53:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2797
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Bluespace ore and plant bags can be researched manually again
+  id: 1653
+  time: '2025-12-14T13:18:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2788
+- author: Ilya246
+  changes:
+    - type: Add
+      message: ADS core and manipulator names changed to be procedurally generated.
+    - type: Tweak
+      message: ADS manipulator laws changed to have to obey ADS cores.
+  id: 1654
+  time: '2025-12-14T14:00:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2789
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Gygax health 1000 -> 500. Dark gygax health 1250 -> 900.
+  id: 1655
+  time: '2025-12-14T14:04:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2793
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: You can now see other ships in FTL.
+  id: 1656
+  time: '2025-12-14T14:27:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2773
