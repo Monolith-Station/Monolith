@@ -50,6 +50,12 @@ public sealed partial class MechComponent : Component
     public FixedPoint2 MaxEnergy = 0;
 
     /// <summary>
+    /// Monolith - State that activates at 5% of mech battery remaining.
+    /// </summary>
+    [DataField]
+    public bool CriticalPowerState = false;
+
+    /// <summary>
     /// The slot the battery is stored in.
     /// </summary>
     [ViewVariables]
