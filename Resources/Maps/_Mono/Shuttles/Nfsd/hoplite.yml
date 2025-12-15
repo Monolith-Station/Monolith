@@ -27,16 +27,11 @@ tilemap:
   23: FloorMaintGridDark
   6: FloorMetalDiamond
   89: FloorSteel
-  15: FloorSteelDirty
   10: FloorSteelMono
   7: FloorTechMaint2
   5: FloorTechMaint3
   2: FloorTechMaintAlt
   30: FloorTechMaintDark
-  9: FloorWhite
-  11: FloorWhiteMono
-  19: FloorWhitePlastic
-  12: FloorWoodLarge
   3: Lattice
   17: LatticeCornerNE
   14: LatticeCornerNW
@@ -497,18 +492,6 @@ entities:
       - 353
       - 348
       - 23
-    - type: DeviceLinkSource
-      lastSignals:
-        AirDanger: False
-        AirWarning: False
-        AirNormal: True
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 3
   - uid: 4
     components:
     - type: Transform
@@ -524,18 +507,6 @@ entities:
       - 349
       - 354
       - 22
-    - type: DeviceLinkSource
-      lastSignals:
-        AirDanger: False
-        AirWarning: False
-        AirNormal: True
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 5
   - uid: 6
     components:
     - type: Transform
@@ -546,20 +517,6 @@ entities:
       - 350
       - 24
       - 352
-- proto: AirAlarmElectronics
-  entities:
-  - uid: 3
-    components:
-    - type: Transform
-      parent: 2
-    - type: Physics
-      canCollide: False
-  - uid: 5
-    components:
-    - type: Transform
-      parent: 4
-    - type: Physics
-      canCollide: False
 - proto: AirlockExternalGlassNfsdLocked
   entities:
   - uid: 7
@@ -568,26 +525,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,-7.5
       parent: 1
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 8
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
-    - type: DeviceNetwork
-      address: 0BE3-C93D
-      receiveFrequency: 1280
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints:
-      - 06D42F71AAB3E722CF3C7A6AB7BCF167
 - proto: AirlockHatch
   entities:
   - uid: 9
@@ -596,37 +533,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -5.5,-4.5
       parent: 1
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 10
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
-    - type: DeviceNetwork
-      address: 0404-E973
-      receiveFrequency: 1280
   - uid: 11
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -5.5,-5.5
       parent: 1
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 12
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
     - type: DeviceNetwork
       address: 0B14-6705
       receiveFrequency: 1280
@@ -636,20 +548,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 4.5,-5.5
       parent: 1
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
   - uid: 14
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -3.5,-1.5
       parent: 1
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
 - proto: AirlockNfsdGlassLocked
   entities:
   - uid: 15
@@ -658,9 +562,7 @@ entities:
       pos: 2.5,-1.5
       parent: 1
     - type: Airlock
-      powered: True
     - type: DoorBolt
-      powered: True
 - proto: AirlockNfsdLocked
   entities:
   - uid: 16
@@ -669,53 +571,21 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,-5.5
       parent: 1
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 17
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
-    - type: DeviceNetwork
-      address: 69CC-32C7
-      receiveFrequency: 1280
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints:
-      - 06D42F71AAB3E722CF3C7A6AB7BCF167
   - uid: 18
     components:
     - type: Transform
       pos: -1.5,-2.5
       parent: 1
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
   - uid: 19
     components:
     - type: Transform
       pos: -1.5,4.5
       parent: 1
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
   - uid: 20
     components:
     - type: Transform
       pos: -1.5,1.5
       parent: 1
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
 - proto: AirlockShuttleNfsdLocked
   entities:
   - uid: 21
@@ -740,219 +610,6 @@ entities:
     - type: AtmosMonitor
       registeredDevices:
       - AIR-11C5-0D5A
-      trippedThresholds:
-      - Pressure
-      gasThresholds:
-        Oxygen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0.8
-            enabled: True
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0.3
-            enabled: True
-          ignore: False
-        Nitrogen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: False
-        CarbonDioxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.006
-            enabled: True
-          ignore: False
-        Plasma:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.005
-            enabled: True
-          ignore: False
-        Tritium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.004
-            enabled: True
-          ignore: False
-        WaterVapor:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 1.5
-            enabled: True
-          ignore: False
-        Ammonia:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.05
-            enabled: True
-          ignore: False
-        NitrousOxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Frezon:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        BZ:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Healium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Nitrium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Pluoxium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: True
-      pressureThreshold:
-        lowerWarnAround:
-          threshold: 1.05
-          enabled: True
-        upperWarnAround:
-          threshold: 0.7
-          enabled: True
-        lowerBound:
-          threshold: 85
-          enabled: True
-        upperBound:
-          threshold: 550
-          enabled: True
-        ignore: False
-      temperatureThreshold:
-        lowerWarnAround:
-          threshold: 1.1
-          enabled: True
-        upperWarnAround:
-          threshold: 0.8
-          enabled: True
-        lowerBound:
-          threshold: 193.15
-          enabled: True
-        upperBound:
-          threshold: 393.15
-          enabled: True
-        ignore: False
   - uid: 23
     components:
     - type: Transform
@@ -968,219 +625,6 @@ entities:
     - type: AtmosMonitor
       registeredDevices:
       - AIR-51F2-1740
-      trippedThresholds:
-      - Pressure
-      gasThresholds:
-        Oxygen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0.8
-            enabled: True
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0.3
-            enabled: True
-          ignore: False
-        Nitrogen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: False
-        CarbonDioxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.006
-            enabled: True
-          ignore: False
-        Plasma:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.005
-            enabled: True
-          ignore: False
-        Tritium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.004
-            enabled: True
-          ignore: False
-        WaterVapor:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 1.5
-            enabled: True
-          ignore: False
-        Ammonia:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.05
-            enabled: True
-          ignore: False
-        NitrousOxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Frezon:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        BZ:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Healium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Nitrium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Pluoxium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: True
-      pressureThreshold:
-        lowerWarnAround:
-          threshold: 1.05
-          enabled: True
-        upperWarnAround:
-          threshold: 0.7
-          enabled: True
-        lowerBound:
-          threshold: 85
-          enabled: True
-        upperBound:
-          threshold: 550
-          enabled: True
-        ignore: False
-      temperatureThreshold:
-        lowerWarnAround:
-          threshold: 1.1
-          enabled: True
-        upperWarnAround:
-          threshold: 0.8
-          enabled: True
-        lowerBound:
-          threshold: 193.15
-          enabled: True
-        upperBound:
-          threshold: 393.15
-          enabled: True
-        ignore: False
   - uid: 24
     components:
     - type: Transform
@@ -1417,31 +861,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,-7.5
       parent: 1
-    - type: PowerNetworkBattery
-      loadingNetworkDemand: 9317
-      currentReceiving: 9317
-      currentSupply: 9317
   - uid: 26
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,-2.5
       parent: 1
-    - type: PowerNetworkBattery
-      loadingNetworkDemand: 23975
-      currentReceiving: 23975
-      currentSupply: 23975.002
-      supplyRampPosition: 0.001953125
   - uid: 27
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,2.5
       parent: 1
-    - type: PowerNetworkBattery
-      loadingNetworkDemand: 7700
-      currentReceiving: 7700
-      currentSupply: 7700
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 38
@@ -2658,10 +2089,6 @@ entities:
       parent: 1
     - type: Battery
       startingCharge: 0
-    - type: PointLight
-      enabled: True
-    - type: SpamEmitSound
-      nextSound: 8746.6813766
     - type: ApcPowerReceiver
       powerLoad: 5
 - proto: ComputerTabletopAdvancedRadar
@@ -2673,10 +2100,6 @@ entities:
       parent: 1
     - type: Battery
       startingCharge: 0
-    - type: PointLight
-      enabled: True
-    - type: SpamEmitSound
-      nextSound: 8746.7238012
     - type: ApcPowerReceiver
       powerLoad: 5
 - proto: ComputerTabletopCriminalRecords
@@ -2689,10 +2112,6 @@ entities:
       parent: 1
     - type: Battery
       startingCharge: 0
-    - type: PointLight
-      enabled: True
-    - type: SpamEmitSound
-      nextSound: 8749.5294675
     - type: ApcPowerReceiver
       powerLoad: 5
 - proto: ComputerTabletopGunneryConsole
@@ -2704,10 +2123,6 @@ entities:
       parent: 1
     - type: Battery
       startingCharge: 0
-    - type: PointLight
-      enabled: True
-    - type: SpamEmitSound
-      nextSound: 8739.4494153
     - type: ApcPowerReceiver
       powerLoad: 5
 - proto: ComputerTabletopShuttle
@@ -2719,12 +2134,6 @@ entities:
       parent: 1
     - type: Battery
       startingCharge: 0
-    - type: PointLight
-      enabled: True
-    - type: SpamEmitSound
-      nextSound: 8755.6349467
-    - type: ShuttleConsoleLock
-      shuttleId: 4148
     - type: ApcPowerReceiver
       powerLoad: 5
 - proto: ComputerTabletopStationRecords
@@ -2736,10 +2145,6 @@ entities:
       parent: 1
     - type: Battery
       startingCharge: 0
-    - type: PointLight
-      enabled: True
-    - type: SpamEmitSound
-      nextSound: 8746.864953
     - type: ApcPowerReceiver
       powerLoad: 5
 - proto: DarkCatwalkMono
@@ -2776,34 +2181,6 @@ entities:
     - type: Transform
       pos: -2.5,-2.5
       parent: 1
-- proto: DoorElectronics
-  entities:
-  - uid: 10
-    components:
-    - type: Transform
-      parent: 9
-    - type: Physics
-      canCollide: False
-  - uid: 12
-    components:
-    - type: Transform
-      parent: 11
-    - type: Physics
-      canCollide: False
-- proto: DoorElectronicsSecurity
-  entities:
-  - uid: 8
-    components:
-    - type: Transform
-      parent: 7
-    - type: Physics
-      canCollide: False
-  - uid: 17
-    components:
-    - type: Transform
-      parent: 16
-    - type: Physics
-      canCollide: False
 - proto: EmergencyLight
   entities:
   - uid: 271
@@ -3672,29 +3049,6 @@ entities:
       startingCharge: 0
     - type: ApcPowerReceiver
       powerLoad: 10
-    - type: ContainerContainer
-      containers:
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 194
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 197
-          - 198
-          - 192
-          - 193
-          - 195
-          - 196
-    - type: LanguageSpeaker
-      understoodLanguages:
-      - TauCetiBasic
-      spokenLanguages:
-      - TauCetiBasic
-      currentLanguage: TauCetiBasic
 - proto: GyroscopeNfsd
   entities:
   - uid: 364
@@ -3703,16 +3057,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-4.5
       parent: 1
-    - type: PointLight
-      enabled: True
   - uid: 365
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 5.5,-5.5
       parent: 1
-    - type: PointLight
-      enabled: True
   - uid: 366
     components:
     - type: Transform
@@ -3721,16 +3071,12 @@ entities:
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 1
-    - type: PointLight
-      enabled: True
   - uid: 367
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -6.5,-4.5
       parent: 1
-    - type: PointLight
-      enabled: True
 - proto: Handcuffs
   entities:
   - uid: 368
@@ -3761,28 +3107,6 @@ entities:
     - type: Transform
       pos: -1.4996948,6.4992676
       parent: 1
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14917
-        moles:
-        - 1.7442851
-        - 6.561834
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -3790,10 +3114,6 @@ entities:
           occludes: True
           ents:
           - 251
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: LockerWallMaterialsFuelBananiumFilled
   entities:
   - uid: 371
@@ -3801,28 +3121,6 @@ entities:
     - type: Transform
       pos: 2.5,-3.5
       parent: 1
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14908
-        moles:
-        - 1.7490243
-        - 6.557411
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
 - proto: MachineFTLDrive
   entities:
   - uid: 372
@@ -3832,28 +3130,6 @@ entities:
       parent: 1
     - type: PointLight
       enabled: True
-- proto: MachineGCSMediumCircuitboard
-  entities:
-  - uid: 194
-    components:
-    - type: Transform
-      parent: 191
-    - type: Physics
-      canCollide: False
-- proto: MicroManipulatorStockPart
-  entities:
-  - uid: 195
-    components:
-    - type: Transform
-      parent: 191
-    - type: Physics
-      canCollide: False
-  - uid: 196
-    components:
-    - type: Transform
-      parent: 191
-    - type: Physics
-      canCollide: False
 - proto: NFHolopadShip
   entities:
   - uid: 373
@@ -3901,22 +3177,6 @@ entities:
         - 0
     - type: Physics
       bodyType: Static
-- proto: NitrogenTankFilled
-  entities:
-  - uid: 36
-    components:
-    - type: Transform
-      parent: 28
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 248
-    components:
-    - type: Transform
-      parent: 246
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: OxygenCanister
   entities:
   - uid: 376
@@ -3949,22 +3209,6 @@ entities:
         - 0
     - type: Physics
       bodyType: Static
-- proto: OxygenTankFilled
-  entities:
-  - uid: 37
-    components:
-    - type: Transform
-      parent: 28
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 249
-    components:
-    - type: Transform
-      parent: 246
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: PlasmaReinforcedWindowDirectional
   entities:
   - uid: 377
@@ -3986,8 +3230,6 @@ entities:
     - type: Transform
       pos: 0.41410828,6.3600464
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: PortableGeneratorDKJrShuttle
   entities:
   - uid: 379
@@ -4110,41 +3352,6 @@ entities:
     - type: Transform
       pos: 0.5,-9.5
       parent: 1
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14923
-        moles:
-        - 1.7675653
-        - 6.6494117
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 36
-          - 37
-          - 35
-    - type: Anchorable
-      currentDelay: 2
-    - type: Pullable
-      prevFixedRotation: True
 - proto: SuitStorageWallmountEVAPrisoner
   entities:
   - uid: 246
@@ -4153,28 +3360,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,-2.5
       parent: 1
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14917
-        moles:
-        - 1.7771984
-        - 6.6856513
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -4234,98 +3419,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -3.5,-9.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-1.45
-            - 1.45,-1.45
-            - 1.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          - BulletImpassable
-          - Opaque
-          density: 1750
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - 1.3,0.5
-            - 0.8,1.6
-            - 0.2,1.6
-            - -0.3,0.5
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
-    - type: ApcPowerReceiver
-      powerLoad: 1
   - uid: 401
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 3.5,-9.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-1.45
-            - 1.45,-1.45
-            - 1.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          - BulletImpassable
-          - Opaque
-          density: 1750
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - 1.3,0.5
-            - 0.8,1.6
-            - 0.2,1.6
-            - -0.3,0.5
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
 - proto: ThrusterNfsd
   entities:
   - uid: 402
@@ -4333,641 +3432,81 @@ entities:
     - type: Transform
       pos: -6.5,-2.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-0.45
-            - 0.45,-0.45
-            - 0.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          density: 60
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.4,0.5
-            - 0.4,0.5
-            - 0.1,1.2
-            - -0.1,1.2
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
   - uid: 403
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,5.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-0.45
-            - 0.45,-0.45
-            - 0.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          density: 60
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.4,0.5
-            - 0.4,0.5
-            - 0.1,1.2
-            - -0.1,1.2
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
   - uid: 404
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,4.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-0.45
-            - 0.45,-0.45
-            - 0.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          density: 60
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.4,0.5
-            - 0.4,0.5
-            - 0.1,1.2
-            - -0.1,1.2
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
   - uid: 405
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 7.5,-4.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-0.45
-            - 0.45,-0.45
-            - 0.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          density: 60
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.4,0.5
-            - 0.4,0.5
-            - 0.1,1.2
-            - -0.1,1.2
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
   - uid: 406
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -8.5,-5.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-0.45
-            - 0.45,-0.45
-            - 0.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          density: 60
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.4,0.5
-            - 0.4,0.5
-            - 0.1,1.2
-            - -0.1,1.2
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
   - uid: 407
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -7.5,-7.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-0.45
-            - 0.45,-0.45
-            - 0.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          density: 60
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.4,0.5
-            - 0.4,0.5
-            - 0.1,1.2
-            - -0.1,1.2
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
   - uid: 408
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 6.5,-7.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-0.45
-            - 0.45,-0.45
-            - 0.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          density: 60
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.4,0.5
-            - 0.4,0.5
-            - 0.1,1.2
-            - -0.1,1.2
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
   - uid: 409
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -3.5,4.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-0.45
-            - 0.45,-0.45
-            - 0.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          density: 60
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.4,0.5
-            - 0.4,0.5
-            - 0.1,1.2
-            - -0.1,1.2
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
   - uid: 410
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -8.5,-4.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-0.45
-            - 0.45,-0.45
-            - 0.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          density: 60
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.4,0.5
-            - 0.4,0.5
-            - 0.1,1.2
-            - -0.1,1.2
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
   - uid: 411
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 7.5,-5.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-0.45
-            - 0.45,-0.45
-            - 0.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          density: 60
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.4,0.5
-            - 0.4,0.5
-            - 0.1,1.2
-            - -0.1,1.2
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
   - uid: 412
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -3.5,5.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-0.45
-            - 0.45,-0.45
-            - 0.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          density: 60
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.4,0.5
-            - 0.4,0.5
-            - 0.1,1.2
-            - -0.1,1.2
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
   - uid: 413
     components:
     - type: Transform
       pos: 5.5,-2.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-0.45
-            - 0.45,-0.45
-            - 0.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          density: 60
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.4,0.5
-            - 0.4,0.5
-            - 0.1,1.2
-            - -0.1,1.2
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
   - uid: 414
     components:
     - type: Transform
       pos: -7.5,-2.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-0.45
-            - 0.45,-0.45
-            - 0.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          density: 60
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.4,0.5
-            - 0.4,0.5
-            - 0.1,1.2
-            - -0.1,1.2
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
   - uid: 415
     components:
     - type: Transform
       pos: 6.5,-2.5
       parent: 1
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.45,-0.45
-            - 0.45,-0.45
-            - 0.45,0.45
-            - -0.45,0.45
-          mask:
-          - Impassable
-          - TableLayer
-          - LowImpassable
-          layer:
-          - TableLayer
-          - LowImpassable
-          density: 60
-          hard: True
-          restitution: 0
-          friction: 0.4
-        thruster-burn:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.4,0.5
-            - 0.4,0.5
-            - 0.1,1.2
-            - -0.1,1.2
-          mask: []
-          layer:
-          - Impassable
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - InteractImpassable
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
 - proto: WallPlastitanium
   entities:
   - uid: 416
@@ -5822,8 +4361,4 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,-4.5
       parent: 1
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
 ...
