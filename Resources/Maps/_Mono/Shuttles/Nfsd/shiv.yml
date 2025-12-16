@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/14/2025 17:11:48
-  entityCount: 566
+  time: 12/16/2025 13:01:12
+  entityCount: 567
 maps: []
 grids:
 - 1
@@ -42,8 +42,6 @@ entities:
     - type: MetaData
       name: Shiv
     - type: Transform
-      rot: -0.001099107787013054 rad
-      pos: 0.4589827,5.673299
       parent: invalid
     - type: MapGrid
       chunks:
@@ -74,9 +72,7 @@ entities:
       id: Shiv
     - type: OccluderTree
     - type: SpreaderGrid
-      updateAccumulator: 0.70070314
     - type: Shuttle
-      dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -465,6 +461,9 @@ entities:
       - 369
       - 376
       - 23
+      - 284
+      - 282
+      - 281
   - uid: 3
     components:
     - type: Transform
@@ -476,6 +475,9 @@ entities:
       - 370
       - 22
       - 372
+      - 279
+      - 281
+      - 280
   - uid: 4
     components:
     - type: Transform
@@ -487,6 +489,7 @@ entities:
       - 21
       - 364
       - 373
+      - 280
   - uid: 5
     components:
     - type: Transform
@@ -498,6 +501,9 @@ entities:
       - 367
       - 375
       - 20
+      - 283
+      - 285
+      - 286
   - uid: 6
     components:
     - type: Transform
@@ -509,6 +515,8 @@ entities:
       - 366
       - 19
       - 374
+      - 282
+      - 283
   - uid: 7
     components:
     - type: Transform
@@ -519,6 +527,7 @@ entities:
       - 368
       - 24
       - 371
+      - 279
 - proto: AirlockExternalGlassNfsdLocked
   entities:
   - uid: 8
@@ -2051,6 +2060,18 @@ entities:
     - type: Transform
       pos: 1.5,15.5
       parent: 1
+- proto: FireAlarm
+  entities:
+  - uid: 239
+    components:
+    - type: Transform
+      pos: -5.5,10.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 284
+      - 282
+      - 281
 - proto: Firelock
   entities:
   - uid: 279
@@ -2059,48 +2080,82 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.5,9.5
       parent: 1
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 3
+      - 7
   - uid: 280
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 2.5,14.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 4
+      - 3
   - uid: 281
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 0.5,12.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 239
+      - 2
+      - 3
   - uid: 282
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,14.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 239
+      - 2
+      - 6
   - uid: 283
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,17.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 6
+      - 5
   - uid: 284
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,9.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 239
+      - 2
   - uid: 285
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,21.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 5
   - uid: 286
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,21.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 5
 - proto: FirelockEdge
   entities:
   - uid: 287
