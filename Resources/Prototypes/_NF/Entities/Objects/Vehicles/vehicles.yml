@@ -86,23 +86,6 @@
     tags:
     - DoorBumpOpener
 
-- type: entity
-  parent: VehicleUnicycle
-  id: VehicleUnicycleFolded
-  suffix: folded
-  components:
-  - type: Foldable
-    folded: true
-
-- type: entity
-  id: VehicleJanicartDestroyed
-  parent: MachineFrameDestroyed
-  name: destroyed janicart
-  components:
-  - type: Sprite
-    sprite: Objects/Vehicles/janicart.rsi
-    state: destroyed
-
 #region hoverbike
 - type: entity
   parent: VehicleATVNF
