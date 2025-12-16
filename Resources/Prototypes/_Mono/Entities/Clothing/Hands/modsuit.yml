@@ -203,3 +203,7 @@
       - Cartridge45_magnumFMJ
     capacity: 6
     proto: Cartridge45_magnumFMJ
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
