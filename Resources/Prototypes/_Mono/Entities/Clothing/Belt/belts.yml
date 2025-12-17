@@ -237,7 +237,7 @@
   - type: ItemSlots
     slots:
       sheath:
-        sword: Sabre
+        name: Sabre
         insertVerbText: sheath-insert-verb
         ejectVerbText: sheath-eject-verb
         insertSound: /Audio/Items/sheath.ogg
@@ -246,7 +246,7 @@
           tags:
           - Shamshir
       holster:
-        gun: Dragoon
+        name: Dragoon
         whitelist:
           tags:
           - Dragoon
