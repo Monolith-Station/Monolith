@@ -4,8 +4,8 @@
   components:
   - type: RandomSpawner
     prototypes:
-      - SpawnDroneNeedle
-      - SpawnDroneWedge
+      - SpawnDroneBasicSmall
+      - SpawnDroneBasicMedium
 
 - type: entity
   id: SpawnDroneBase
@@ -51,3 +51,17 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/wedge.yml
+
+- type: entity
+  id: SpawnDroneBasicSmall
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/ramdronesmall.yml
+
+- type: entity
+  id: SpawnDroneBasicMedium
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/ramdronemedium.yml
