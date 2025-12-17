@@ -21,7 +21,29 @@
     - RogueHardsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitSyndieElite, EnergyShieldClothing, BaseFactionGearPDVT3 ]
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ClothingOuterHardsuitVizier
+  name: PDV CV-67 combat tacsuit
+  description: An adorned tacsuit designed with an imperfect nanolaminate composition. High maneuverability, sturdy armor.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/pdv_vizier.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/pdv_vizier.rsi
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitVizier
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: Tag
+    tags:
+    - RogueHardsuit
+
+- type: entity
+  parent: [ ClothingOuterHardsuitSyndieElite, EnergyShieldClothing ]
   id: ClothingOuterHardsuitAshenElite
   name: PDV CV-53 combat hardsuit
   description: Originally based off of the CV-32, the CV-53 sacrifices conventional armor plating for environmental protection, and a rechargeable hard-shield.
