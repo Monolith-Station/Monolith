@@ -36,6 +36,9 @@
       ballistic-ammo: !type:Container
   - type: Wieldable
   - type: LaserPointer
+  - type: Tag
+    tags:
+    - Sidearm
 
 - type: entity
   id: BulletHawk
