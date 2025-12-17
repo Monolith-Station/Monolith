@@ -44,8 +44,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 30
-        Piercing: 50
+        Piercing: 75
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/50_armorpiercing_machinegun_casing.rsi
     layers:
@@ -63,9 +62,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 30
-        Blunt: 20
-        Piercing: 30
+        Piercing: 120
   - type: ShipWeaponProjectile
   - type: TimedDespawn
     lifetime: 3
