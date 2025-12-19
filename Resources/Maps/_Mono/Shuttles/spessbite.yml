@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/19/2025 16:39:07
+  time: 12/19/2025 16:42:58
   entityCount: 347
 maps: []
 grids:
@@ -2236,6 +2236,23 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,0.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        323:
+        - - On
+          - Open
+        - - Off
+          - Close
+        322:
+        - - On
+          - Open
+        - - Off
+          - Close
+        13:
+        - - On
+          - Open
+        - - Off
+          - Close
 - proto: SignNosmoking
   entities:
   - uid: 233
