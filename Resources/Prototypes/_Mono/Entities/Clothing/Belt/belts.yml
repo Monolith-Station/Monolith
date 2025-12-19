@@ -224,7 +224,7 @@
 # Viz Sheath
 
 - type: entity
-  parent: ClothingBeltSheath
+  parent: [ClothingBeltBase, ClothingSlotBase]
   id: ClothingBeltSheathVizier
   name: grand vizier's sheath
   description: A paired sheath and holster, custom made for grand vizier of the PDV to carry their Dragoon revolvers and shamshir blades.
