@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/19/2025 16:42:58
-  entityCount: 347
+  time: 12/19/2025 16:54:48
+  entityCount: 348
 maps: []
 grids:
 - 1
@@ -1888,6 +1888,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -0.5,0.5
+      parent: 1
+- proto: KitchenAssembler
+  entities:
+  - uid: 348
+    components:
+    - type: Transform
+      pos: 0.5,-1.5
       parent: 1
 - proto: KitchenDeepFryer
   entities:
