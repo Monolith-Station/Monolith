@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/19/2025 16:19:42
-  entityCount: 346
+  time: 12/19/2025 16:39:07
+  entityCount: 347
 maps: []
 grids:
 - 1
@@ -2243,6 +2243,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 3.5,-0.5
+      parent: 1
+- proto: SignSmoking
+  entities:
+  - uid: 347
+    components:
+    - type: Transform
+      pos: 3.5,-6.5
       parent: 1
 - proto: SinkWide
   entities:
