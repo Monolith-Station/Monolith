@@ -272,6 +272,10 @@
     fiberMaterial: fibers-insulative
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.95 # *grabs ur baton* nice knife
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Blunt: 4
 
 # can't parent combat gloves since they are butcherable
 - type: entity
@@ -307,6 +311,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-olive
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Blunt: 3
 
 - type: entity
   parent: ClothingHandsButcherable

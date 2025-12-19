@@ -1,0 +1,20 @@
+- type: entity
+  id: BriefcaseSyndieTitanboaBundleFilled
+  parent: Briefcase
+  suffix: Syndicate, Titanboa Bundle
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,3
+  - type: StorageFill
+    contents:
+      - id: WeaponTitanboa
+      - id: SpeedLoaderTitanboa
+        amount: 2
+      - id: ClothingHeadHatCowboyBlack
+      - id: ClothingShoesBootsCowboyBlack
+      - id: ClothingOuterBlackPoncho
+      - id: ClothingUniformJumpsuitFlannel

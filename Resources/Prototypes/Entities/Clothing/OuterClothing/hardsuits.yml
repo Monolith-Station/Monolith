@@ -22,6 +22,11 @@
         Slash: 0.8
         Piercing: 0.85
         Caustic: 0.9
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 3
   - type: ClothingSpeedModifier
     walkModifier: 0.9 # Mono
     sprintModifier: 0.9 # Mono
@@ -69,6 +74,11 @@
         Piercing: 0.9
         Heat: 0.75
         Radiation: 0.35
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 5
   - type: ClothingSpeedModifier
     walkModifier: 0.85 # Mono
     sprintModifier: 0.85 # Mono
@@ -109,6 +119,11 @@
         Shock: 0.8
         Caustic: 0.5
         Radiation: 0.2
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 3
   - type: ClothingSpeedModifier
     walkModifier: 0.85 # Mono
     sprintModifier: 0.85 # Mono
@@ -147,6 +162,11 @@
         Radiation: 0.25 #salv is supposed to have radiation hazards in the future
         Caustic: 0.45
         Poison: 0.4
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 3
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.87
@@ -191,6 +211,11 @@
         Piercing: 0.75
         Radiation: 0.15
         Caustic: 0.85
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 8
   - type: ClothingSpeedModifier
     walkModifier: 0.80
     sprintModifier: 0.80
@@ -314,6 +339,11 @@
         Piercing: 0.5
         Caustic: 0.8
         Heat: 0.7 # Goobstation
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 5
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -351,6 +381,11 @@
         Piercing: 0.6
         Caustic: 0.3
         Heat: 0.75 # Goobstation
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 8
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -509,6 +544,11 @@
         Piercing: 0.9
         Caustic: 0.1
         Poison: 0.1
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 0
   - type: ClothingSpeedModifier
     walkModifier: 1.10 # 0.9-> 1.10 - Mono
     sprintModifier: 1.10 # 0.95-> 1.10 - Mono
@@ -972,6 +1012,11 @@
         Piercing: 0.9
         Heat: 0.4
         Caustic: 0.75
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 0
   - type: ClothingSpeedModifier
     walkModifier: 0.6
     sprintModifier: 0.6
