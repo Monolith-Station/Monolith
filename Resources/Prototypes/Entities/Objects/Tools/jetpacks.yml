@@ -105,7 +105,7 @@
 #Empty black
 - type: entity
   id: JetpackBlack
-  parent: [BaseJetpack, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseJetpack
   name: jetpack
   suffix: Empty
   components:
@@ -140,7 +140,7 @@
 #Empty captain
 - type: entity
   id: JetpackCaptain
-  parent: BaseJetpack # Frontier: remove BaseGrandTheftContraband
+  parent: BaseJetpack
   name: captain's jetpack
   suffix: Empty
   components:
@@ -224,7 +224,7 @@
 #Empty security
 - type: entity
   id: JetpackSecurity
-  parent: [BaseJetpack, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: BaseJetpack
   name: security jetpack
   suffix: Empty
   components:

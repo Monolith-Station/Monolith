@@ -89,7 +89,7 @@
 
 - type: entity
   name: LWC PT-45A viper (9x19mm)
-  parent: [BaseWeaponPistol, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseWeaponPistol
   id: WeaponPistolViper
   description: A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses 9x19mm ammo. While the schematics to build new Vipers has been lost, they are so abundant from the Corporate War that building new ones is no longer required.
   components:
@@ -127,7 +127,7 @@
 
 - type: entity
   name: LWC PT-45C echis (9x19mm)
-  parent: [ BaseItem, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseItem
   id: WeaponPistolEchis
   description: A viper for use by cyborgs. Creates 9x19mm on the fly from an internal ammo fabricator, which slowly self-charges.
   components:
@@ -162,7 +162,7 @@
 
 - type: entity
   name: LWC mercenary PT-45C echis (9x19mm)
-  parent: [ BaseItem, BaseC1Contraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseItem
   id: WeaponPistolMercenaryEchis
   description: A viper for use by cyborgs, redesigned for mercenary use. Creates 9x19mm on the fly from an internal ammo fabricator, which slowly self-charges.
   components:
@@ -197,7 +197,7 @@
 
 - type: entity
   name: CS PT-72 cobra (635x40mm)
-  parent: [ BaseWeaponPistol, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseWeaponPistol
   id: WeaponPistolCobra
   description: A rugged, robust spec-ops handgun with an inbuilt silencer. Uses 6.35x40mm Caseless ammo. A common sight among Phaethon imperials, they are the most commonly seen sidearm among boarding crews or agents.
   components:
@@ -247,7 +247,7 @@
 
 - type: entity
   name: MA Mk-58 (.45 ACP)
-  parent: [BaseWeaponPistol, BaseC1Contraband] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable<BaseC1Contraband to match weapon description
+  parent: BaseWeaponPistol
   id: WeaponPistolMk58
   description: The Mark 58 Offensive Handgun, the most abundant sidearm in the entire galaxy. Commonly called a Corporate War fragment, it was used until the bitter end. Uses .45 ACP ammo.
   components:
@@ -293,7 +293,7 @@
 
 - type: entity
   name: NT N1984 (.45 magnum)
-  parent: [BaseWeaponPistol, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: BaseWeaponPistol
   id: WeaponPistolN1984 # the spaces in description are for formatting.
   description: The sidearm of any self respecting officer. Comes in .45 magnum, the lord's caliber. On the handle is a label that says 'for authorized use only.'
   components:
