@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/10/2025 14:55:32
-  entityCount: 994
+  time: 12/18/2025 23:55:51
+  entityCount: 996
 maps: []
 grids:
 - 1
@@ -77,6 +77,7 @@ entities:
       id: Moonlight
     - type: OccluderTree
     - type: Shuttle
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -967,9 +968,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           immutable: True
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -997,11 +1006,19 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 235
           moles:
           - 27.225372
           - 102.419266
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -1912,6 +1929,13 @@ entities:
     components:
     - type: Transform
       pos: -4.5,12.5
+      parent: 1
+- proto: Biogenerator
+  entities:
+  - uid: 996
+    components:
+    - type: Transform
+      pos: -3.5,9.5
       parent: 1
 - proto: Bucket
   entities:
@@ -3228,18 +3252,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-    - type: DeviceLinkSource
-      linkedPorts: {}
-      lastSignals: {}
-      ports:
-      - device-button-1
-      - device-button-2
-      - device-button-3
-      - device-button-4
-      - device-button-5
-      - device-button-6
-      - device-button-7
-      - device-button-8
 - proto: ComputerTabletopStationRecords
   entities:
   - uid: 408
@@ -5777,6 +5789,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,12.5
+      parent: 1
+- proto: SmartFridge
+  entities:
+  - uid: 995
+    components:
+    - type: Transform
+      pos: -4.5,9.5
       parent: 1
 - proto: SMESAdvanced
   entities:
