@@ -40,7 +40,7 @@
 - type: entity
   name: explosive grenade
   description: Grenade that creates a small but devastating explosion.
-  parent: [GrenadeBase, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: GrenadeBase
   id: ExGrenade
   components:
   - type: ExplodeOnTrigger
@@ -61,7 +61,7 @@
 - type: entity
   name: flashbang
   description: Eeeeeeeeeeeeeeeeeeeeee.
-  parent: [ GrenadeBase, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: GrenadeBase
   id: GrenadeFlashBang
   components:
   - type: Sprite
@@ -105,7 +105,7 @@
 - type: entity
   name: syndicate minibomb
   description: A syndicate-manufactured explosive used to stow destruction and cause chaos.
-  parent: [GrenadeBase, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: GrenadeBase
   id: SyndieMiniBomb
   components:
   - type: Sprite
@@ -166,7 +166,7 @@
 
 
 - type: entity
-  parent: [ GrenadeBase, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: GrenadeBase
   id: SingularityGrenade
   name: singularity grenade
   description: Grenade that simulates the power of a singularity, pulling things in a heap.
@@ -273,7 +273,7 @@
 - type: entity
   name: the nuclear option
   description: Please don't throw it, think of the children.
-  parent: [GrenadeBase, BaseC3SyndicateContraband] # Frontier: added BaseC3SyndicateContraband
+  parent: GrenadeBase
   id: NuclearGrenade
   components:
   - type: Sprite
@@ -349,7 +349,7 @@
 - type: entity
   name: EMP grenade
   description: A grenade designed to wreak havoc on electronic systems.
-  parent: [GrenadeBase, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: GrenadeBase
   id: EmpGrenade
   components:
   - type: Sprite
@@ -366,7 +366,7 @@
 - type: entity
   name: holy hand grenade
   description: O Lord, bless this thy hand grenade, that with it thou mayst blow thine enemies to tiny bits, in thy mercy.
-  parent: [GrenadeBase, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: GrenadeBase
   id: HolyHandGrenade
   components:
   - type: Sprite
@@ -389,7 +389,7 @@
       path: /Audio/Effects/hallelujah.ogg
 
 - type: entity
-  parent: [ GrenadeBase, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: GrenadeBase
   id: SmokeGrenade
   name: smoke grenade
   description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
@@ -407,7 +407,7 @@
       path: /Audio/Items/smoke_grenade_prime.ogg
 
 - type: entity
-  parent: SmokeGrenade # Frontier: removed BaseCivilianContraband
+  parent: SmokeGrenade
   id: CleanerGrenade
   name: cleanade
   description: Special grenade for janitors, releasing large cloud of space cleaner foam.
@@ -440,7 +440,7 @@
         Quantity: 50
 
 - type: entity
-  parent: SmokeGrenade # Frontier: removed BaseEngineeringContraband
+  parent: SmokeGrenade
   id: MetalFoamGrenade
   name: metal foam grenade
   description: An emergency tool used for patching up holes. Almost as good as real walls.
@@ -478,7 +478,7 @@
 - type: entity
   name: syndicate trickybomb
   description: A syndicate-manufactured explosive used to make an excellent distraction.
-  parent: [GrenadeDummy, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: GrenadeDummy
   id: SyndieTrickyBomb
   components:
   - type: Sprite

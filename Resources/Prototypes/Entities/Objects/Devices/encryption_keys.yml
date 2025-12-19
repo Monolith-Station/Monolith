@@ -31,7 +31,7 @@
     - state: common_label
 
 - type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseCargoContraband
+  parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyCargo
   name: cargo encryption key
   categories: [ DoNotMap ] # Frontier
@@ -47,7 +47,7 @@
     - state: cargo_label
 
 - type: entity
-  parent: [EncryptionKey, BaseCentcommCommandContraband] # Frontier: Added BaseCentcommCommandContraband, removed BaseCentcommContraband.
+  parent: EncryptionKey
   id: EncryptionKeyCentCom
   name: central command encryption key
   categories: [ DoNotMap ] # Frontier
@@ -63,7 +63,7 @@
     - state: nano_label
 
 - type: entity
-  parent: [EncryptionKey, BaseC2ContrabandUnredeemable] # Frontier: BaseCentcommCommandContraband<BaseC2ContrabandUnredeemable
+  parent: EncryptionKey
   id: EncryptionKeyStationMaster
   name: station master encryption key
   categories: [ DoNotMap ] # Frontier
@@ -108,7 +108,7 @@
 # Mono end
 
 - type: entity
-  parent: [EncryptionKey, BaseC2ContrabandUnredeemable] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
+  parent: EncryptionKey
   id: EncryptionKeyCommand
   name: TSF command encryption key # mono
   categories: [ DoNotMap ] # Frontier
@@ -126,7 +126,7 @@
     id: EncryptionKeyFaction
 
 - type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseEngineeringContraband
+  parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyEngineering
   name: engineering encryption key
   categories: [ DoNotMap ] # Frontier
@@ -142,7 +142,7 @@
     - state: eng_label
 
 - type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseMedicalContraband
+  parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyMedical
   name: medical encryption key
   description: An encryption key used by those who save lives.
@@ -157,7 +157,7 @@
     - state: med_label
 
 - type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseMedicalScienceContraband
+  parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyMedicalScience
   name: med-sci encryption key
   categories: [ DoNotMap ] # Frontier
@@ -174,7 +174,7 @@
     - state: medsci_label
 
 - type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseScienceContraband
+  parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyScience
   name: science encryption key
   categories: [ DoNotMap ] # Frontier
@@ -190,7 +190,7 @@
     - state: sci_label
 
 - type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseScienceContraband
+  parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyRobo
   name: robotech encryption key
   categories: [ DoNotMap ] # Frontier
@@ -206,7 +206,7 @@
     - state: robotics_label
 
 - type: entity
-  parent: [ EncryptionKey, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityLawyerContraband<BaseC2ContrabandUnredeemable
+  parent: EncryptionKey
   id: EncryptionKeySecurity
   name: colonial security encryption key # mono
   categories: [ DoNotMap ] # Frontier
@@ -222,7 +222,7 @@
     - state: sec_label
 
 - type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseCivilianContraband
+  parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyService
   name: colonial staff encryption key # Mono
   categories: [ DoNotMap ] # Frontier
@@ -238,7 +238,7 @@
     - state: service_label
 
 - type: entity
-  parent: [EncryptionKey, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: EncryptionKey
   id: EncryptionKeySyndie
   name: blood-red encryption key
   categories: [ DoNotMap ] # Frontier
@@ -254,7 +254,7 @@
     - state: synd_label
 
 #- type: entity
-#  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseSiliconScienceContraband
+#  parent: [EncryptionKey, RecyclableItemDeviceTiny]
 #  id: EncryptionKeyBinary
 #  name: binary translator key
 #  categories: [ DoNotMap ] # Frontier
@@ -270,7 +270,7 @@
 #    - state: ai_label
 
 #- type: entity
-#  parent: [ EncryptionKey, BaseC3SyndicateContrabandNoValue ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContrabandNoValue
+#  parent: EncryptionKey
 #  id: EncryptionKeyBinarySyndicate
 #  name: binary translator key
 #  description: A syndicate encryption key that translates binary signals used by silicons.
@@ -285,7 +285,7 @@
 #    - state: ai_label
 
 - type: entity
-  parent: [EncryptionKey, BaseC3PirateContrabandHighValue] # Frontier: added BaseC3PirateContraband - Mono: Changed to HighValue
+  parent: EncryptionKey
   id: EncryptionKeyFreelance
   name: Vanguard encryption key # mono
   description: An encryption key used by imperials. # Mono

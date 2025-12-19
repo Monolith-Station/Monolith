@@ -27,7 +27,6 @@
   name: laser turret
   suffix: Frontier, Silicon
   parent:
-  - BaseC3Contraband
   - WeaponTurretLaserSyndicateNF
   components:
   - type: NpcFactionMember
@@ -178,7 +177,6 @@
   description: A disassembled and packed MK-290 sentry system.
   suffix: TSFMC, Packed
   parent:
-  - BaseC2ContrabandUnredeemable
   - BaseItem
   components:
   - type: WeaponCaseInsertable

@@ -27,7 +27,7 @@
           Unprimed: { state: icon }
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: ProjectileGrenadeBase
   id: GrenadeStinger
   name: stinger grenade
   description: Nothing to see here, please disperse.
@@ -56,7 +56,7 @@
       path: /Audio/Effects/countdown.ogg
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: ProjectileGrenadeBase
   id: GrenadeIncendiary
   name: incendiary grenade
   description: Guaranteed to light up the mood.
@@ -82,7 +82,7 @@
       path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: ProjectileGrenadeBase
   id: GrenadeShrapnel
   name: shrapnel grenade
   description: Releases a deadly spray of shrapnel that causes severe bleeding.

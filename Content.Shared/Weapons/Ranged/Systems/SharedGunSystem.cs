@@ -258,6 +258,15 @@ public abstract partial class SharedGunSystem : EntitySystem
             return true;
         }
 
+        // Mono edit - you can use gloves as guns now because its fucking amazing.
+        if (_inventory.TryGetSlotEntity(entity, "gloves", out var gloves) &&
+            TryComp<GunComponent>(gloves, out var glovesGun))
+        {
+            gunEntity = gloves.Value;
+            gunComp = glovesGun;
+            return true;
+        }
+
         // Last resort is check if the entity itself is a gun.
         if (TryComp(entity, out gun))
         {

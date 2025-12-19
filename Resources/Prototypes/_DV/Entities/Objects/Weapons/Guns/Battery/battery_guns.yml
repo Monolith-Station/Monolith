@@ -1,6 +1,6 @@
 - type: entity
   name: energy gun
-  parent: [BaseWeaponBattery, BaseC2ContrabandUnredeemable] # Frontier: added BaseC2ContrabandUnredeemable
+  parent: BaseWeaponBattery
   id: WeaponEnergyGun
   description: "A basic hybrid energy gun with two settings: disable and kill. On the handle is a label that says 'for authorized use only.'"
   components:
@@ -60,7 +60,7 @@
 
 - type: entity
   name: cyborg energy gun
-  parent: [BaseWeaponBattery, BaseC1Contraband]
+  parent: BaseWeaponBattery
   id: WeaponCyborgEnergyGun
   description: "A basic hybrid energy gun with two settings: disable and kill. Designed for cyborgs. On the handle is a label that says 'for authorized use only.'"
   components:
@@ -120,7 +120,7 @@
 
 - type: entity
   name: LWC X-01 multiphase energy gun
-  parent: [BaseWeaponBatterySmall, BaseCommandContraband] # Frontier: added BaseCommandContraband
+  parent: BaseWeaponBatterySmall
   categories: [DoNotMap] # Frontier / Monolith - this is the colonel /sheriff's gun
   id: WeaponEnergyGunMultiphase
   description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time in exchange for a larger battery. On the handle is a label that says 'for authorized use only.'

@@ -2,7 +2,7 @@
 - type: entity
   id: BaseMagazine556x45mm
   name: "magazine (5.56x45mm FMJ)"
-  parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseSecurityContraband<BaseC1Contraband, added RecyclableItemSteelTiny
+  parent: [ BaseItem, RecyclableItemSteelTiny ]
   abstract: true
   components:
   - type: Tag

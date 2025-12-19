@@ -1,0 +1,335 @@
+- type: entity
+  id: MechPelletShotgun
+  name: pellet (0.5 gauge)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 40
+
+- type: entity
+  id: MechPelletShotgunSpread
+  categories: [ HideSpawnMenu ]
+  parent: MechPelletShotgun
+  components:
+  - type: ProjectileSpread
+    proto: MechPelletShotgun
+    count: 6
+    spread: 15
+
+- type: entity
+  id: MechCoilgunSabot
+  name: 3cm sabot
+  parent: BulletRocketEmp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 150
+        Piercing: 150
+        Shock: 0
+  - type: EmpOnTrigger
+    range: 4
+    energyConsumption: 2700000
+    disableDuration: 30
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+  - type: RadarBlip
+    scale: 0.5
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 1
+
+- type: entity
+  id: Bullet45_ACPFMJ_Mech
+  name: bullet (.45 ACP FMJ)
+  parent: Bullet45_ACPFMJ
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 17
+  - type: RadarBlip
+    scale: 0.5
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 1
+
+- type: entity
+  id: 60mmMechShell
+  name: 60mm shell
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 420
+        Blunt: 100
+        Piercing: 210
+  - type: RadarBlip
+    scale: 2.5
+    requireNoGrid: true
+    shape: triangle
+  - type: Explosive
+    explosionType: HardBombShipGun
+    totalIntensity: 10
+    intensitySlope: 5
+    maxIntensity: 25
+    maxTileBreak: 1
+
+- type: entity
+  id: 120mmBulletHE
+  name: 120mm Shell
+  parent: BulletRocket
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 60
+        Blunt: 50
+        Structural: 200
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 15
+    intensitySlope: 20
+    totalIntensity: 15
+    maxTileBreak: 1
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
+    layers:
+    - state: base-projectile
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 2.5
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 5
+
+- type: entity
+  id: 280mmRocket
+  name: 280mm "Bazooka" Rocket
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 500
+        Blunt: 100
+        Heat: 50
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 4
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 5
+  - type: PointLight
+    radius: 5
+    color: orange
+    energy: 2
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 100
+    intensitySlope: 20
+    maxIntensity: 30
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetSeeking
+    acceleration: 20
+    detectionRange: 1
+    scanArc: 1
+    launchSpeed: 10
+    maxSpeed: 50
+
+- type: entity
+  id: BlanketFlare
+  name: Signal Emitter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: false
+  - type: EmbeddableProjectile
+    deleteOnRemove: true
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        mask:
+        - ItemMask # BulletImpassable
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    state: magicm_cyan
+    scale: 0.3,0.3
+  - type: TimedDespawn
+    lifetime: 40 # Same as normal flare
+  - type: AmbientSound
+    enabled: true
+    volume: -10
+    range: 3
+    sound:
+      path: /Audio/Ambience/Objects/light_hum.ogg
+      params:
+        loop: true
+  - type: PointLight
+    enabled: true
+    color: "#CF0E0E"
+    radius: 9.0
+    energy: 3.0
+    netsync: false
+  - type: RadarBlip
+    scale: 40
+    requireNoGrid: true
+    shape: circle
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Heat: 0
+
+- type: entity
+  id: SparkFlare
+  name: Signal Emitter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: false
+  - type: EmbeddableProjectile
+    deleteOnRemove: true
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        mask:
+        - ItemMask # BulletImpassable
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    state: magicm_cyan
+    scale: 0.3,0.3
+  - type: TimedDespawn
+    lifetime: 40 # Same as normal flare
+  - type: AmbientSound
+    enabled: true
+    volume: -10
+    range: 3
+    sound:
+      path: /Audio/Ambience/Objects/light_hum.ogg
+      params:
+        loop: true
+  - type: PointLight
+    enabled: true
+    color: "#CF0E0E"
+    radius: 9.0
+    energy: 3.0
+    netsync: false
+  - type: RadarBlip
+    scale: 4
+    requireNoGrid: true
+    shape: square
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Heat: 0
+
+# converted ship weapons
+
+- type: entity
+  id: MechDravonProjectile
+  name: 57mm projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 20
+        Piercing: 20
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/57_shell.rsi
+    layers:
+    - state: 57-shell
+    scale: 1, 1
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 2.5
+    requireNoGrid: true
+    shape: triangle
+    radarColor: "#1df1f5"
+  - type: TimedDespawn
+    lifetime: 7
+  - type: PointLight
+    color: "#FCBA03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 12
+    intensitySlope: 4
+    maxIntensity: 3
+    maxTileBreak: 1
+
+- type: entity
+  id: MechMediumPlasmaProjectile
+  name: plasma projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 25
+        Structural: 400
+        Heat: 50
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
+    layers:
+    - state: plasmashot
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectPlasmaPulser
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 2.5
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 8
+  - type: PointLight
+    color: "#FF0040"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 25
+    intensitySlope: 12
+    maxIntensity: 15
+    maxTileBreak: 1

@@ -14965,3 +14965,55 @@ Entries:
   id: 1659
   time: '2025-12-15T21:43:35.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2801
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked contraband. Almost all items are no longer contraband, and
+        instead some items are marked as faction gear and can be handed in by
+        the opposite faction. More will be marked soon.
+  id: 1660
+  time: '2025-12-17T00:08:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2804
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: >-
+        Mercenary modsuit gauntlets are capable of shooting magnum bullets now.
+        Make sure to reload them!
+  id: 1661
+  time: '2025-12-17T12:20:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2807
+- author: thoughtlessuser
+  changes:
+    - type: Add
+      message: Added CV-67 to Grand Vizier's storage unit!
+    - type: Fix
+      message: >-
+        Moved Helios's armory into its old artillery room and gave it roundstart
+        SCAF. Added medical necessities to Helios and small changes to Helios
+        interior.
+  id: 1662
+  time: '2025-12-17T12:20:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2787
+- author: thoughtlessuser
+  changes:
+    - type: Add
+      message: Added visible HP value to all structures.
+  id: 1663
+  time: '2025-12-17T23:47:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2813
+- author: thoughtlessuser
+  changes:
+    - type: Fix
+      message: Fixed sprite issue with CV-67 inhands!
+  id: 1664
+  time: '2025-12-17T23:48:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2812
+- author: OneZerooo0
+  changes:
+    - type: Fix
+      message: Hopefully fixed mech blindness bug.
+  id: 1665
+  time: '2025-12-18T22:48:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2817
