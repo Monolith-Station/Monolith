@@ -1,0 +1,13 @@
+# Ore definitions
+
+- type: ore
+  id: OreThorium
+  oreEntity: ThoriumOre1
+  minOreYield: 3 
+  maxOreYield: 5
+
+- type: ore
+  id: OreTitanium
+  oreEntity: TitaniumOre1
+  minOreYield: 3
+  maxOreYield: 5

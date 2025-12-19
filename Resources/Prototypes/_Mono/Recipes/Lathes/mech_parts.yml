@@ -104,6 +104,7 @@
     Glass: 3000
     Plasteel: 3000
     Plastic: 3000
+    Titanium: 1500
 
 - type: latheRecipe
   id: FlailHead
@@ -128,6 +129,7 @@
     Steel: 4000
     Plasteel: 1000
     Plastic: 1500
+    Titanium: 500
 
 - type: latheRecipe
   id: FlailLLeg
@@ -139,6 +141,7 @@
     Steel: 2500
     Plasteel: 1000
     Plastic: 1500
+    Titanium: 500
 
 - type: latheRecipe
   id: FlailRLeg
@@ -150,6 +153,7 @@
     Steel: 2500
     Plasteel: 1000
     Plastic: 1500
+    Titanium: 500
 
 - type: latheRecipe
   id: FlailRArm
@@ -161,6 +165,7 @@
     Steel: 4000
     Plasteel: 1000
     Plastic: 1500
+    Titanium: 500
 
 - type: latheRecipe
   id: SpyglassHarness
@@ -173,6 +178,7 @@
     Glass: 3000
     Plasteel: 3000
     Plastic: 3000
+    Titanium: 1000
     Diamond: 100
 
 - type: latheRecipe
@@ -186,6 +192,8 @@
     Glass: 3000
     Plasteel: 1500
     Plastic: 3000
+    Titanium: 250
+    Thorium: 1250
 
 - type: latheRecipe
   id: PowerCageMech

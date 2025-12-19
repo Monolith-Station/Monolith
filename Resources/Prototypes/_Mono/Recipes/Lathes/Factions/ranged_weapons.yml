@@ -258,11 +258,11 @@
   - Ballistic
   - Weapons
   materials:
-    Steel: 7500
-    Plasteel: 3000
-    Plastic: 1000
-    Silver: 2000
-    Uranium: 400
+    Steel: 1500
+    Plasteel: 2000
+    Plastic: 700
+    Silver: 1000
+    Titanium: 1000
 
 # Ussp guns
 
@@ -359,10 +359,10 @@
   - Ballistic
   - Weapons
   materials:
-    Steel: 3000
-    Plasteel: 3000
-    Wood: 1000
-    Uranium: 1500
+    Steel: 1500
+    Plasteel: 15000
+    Wood: 100
+    Titanium: 500
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong

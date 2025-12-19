@@ -7,9 +7,9 @@
   result: EnergySword
   materials:
     Steel: 1200
-    Plasteel: 3000
+    Plasteel: 1000
     Plastic: 400
-    Plasma: 3000
+    Thorium: 1500
 
 - type: latheRecipe
   parent: BaseWeaponRecipe
@@ -20,9 +20,9 @@
   result: EnergyDaggerLoud
   materials:
     Steel: 1200
-    Plasteel: 1500
+    Plasteel: 500
     Plastic: 300
-    Plasma: 500
+    Thorium: 500
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -33,10 +33,10 @@
   result: WeaponVT7
   materials:
     Steel: 1000
-    Plasteel: 7000
-    Plastic: 6000
-    Plasma: 10000
-    Uranium: 6000
+    Plasteel: 1250
+    Plasma: 500
+    Thorium: 1000
+    Titanium: 500
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -47,9 +47,9 @@
   result: EnergyShieldNfsd
   materials:
     Steel: 1500
-    Plasteel: 6500
+    Plasteel: 500
     Plastic: 800
-    Plasma: 4000
+    Thorium: 2500
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -60,9 +60,9 @@
   result: EnergyShield
   materials:
     Steel: 1500
-    Plasteel: 6500
+    Plasteel: 500
     Plastic: 800
-    Plasma: 4000
+    Thorium: 2500
 
 - type: latheRecipe
   parent: BaseWeaponRecipe

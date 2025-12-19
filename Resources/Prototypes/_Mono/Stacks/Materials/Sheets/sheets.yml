@@ -25,3 +25,31 @@
   icon: { sprite: /Textures/_Mono/Objects/Materials/plastitanium.rsi, state: plastitanium }
   spawn: SheetPlastitanium1
   maxCount: 100
+
+- type: stack
+  id: Thorium
+  name: thorium
+  icon: { sprite: /Textures/_Mono/Objects/Materials/plastitanium.rsi, state: plastitanium }
+  spawn: IngotThorium1
+  maxCount: 100
+
+- type: stack
+  id: Titanium
+  name: titanium
+  icon: { sprite: /Textures/_Mono/Objects/Materials/plastitanium.rsi, state: plastitanium }
+  spawn: IngotTitanium1
+  maxCount: 100
+
+- type: stack
+  id: ThoriumOre
+  name: thorium ore
+  icon: { sprite: /Textures/_Mono/Objects/Materials/plastitanium.rsi, state: plastitanium }
+  spawn: ThoriumOre1
+  maxCount: 100
+
+- type: stack
+  id: TitaniumOre
+  name: titanium ore
+  icon: { sprite: /Textures/_Mono/Objects/Materials/plastitanium.rsi, state: plastitanium }
+  spawn: TitaniumOre1
+  maxCount: 100

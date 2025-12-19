@@ -219,3 +219,21 @@
   components:
   - type: Stack
     count: 5
+
+- type: material
+  id: Thorium
+  stackEntity: IngotThorium1
+  name: materials-thorium
+  unit: materials-unit-sheet
+  icon: { sprite: /Textures/_Mono/Objects/Materials/synthalloy.rsi, state: synthalloy }
+  color: "#FFFFFF"
+  price: 5 # 500/sheet
+
+- type: material
+  id: Titanium
+  stackEntity: IngotTitanium1
+  name: materials-titanium
+  unit: materials-unit-sheet
+  icon: { sprite: /Textures/_Mono/Objects/Materials/synthalloy.rsi, state: synthalloy }
+  color: "#FFFFFF"
+  price: 7.5 # 7500/sheet

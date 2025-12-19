@@ -92,6 +92,8 @@
     Uranium: 5000
     Silver: 10000
     Gold: 5000
+    Titanium: 15000 # the amount of plastit is CRAZY
+    Thorium: 5000
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -107,6 +109,7 @@
     Uranium: 10000
     Silver: 10000
     Gold: 5000
+    Titanium: 5000
 
 # Rogues
 - type: latheRecipe
@@ -118,8 +121,9 @@
     Plasteel: 10000
     Plastic: 30000
     Glass: 10000
-    Plasma: 20000
-    Uranium: 20000
+    Plasma: 5000
+    Uranium: 5000
+    Thorium: 12500
     Silver: 15000
     Gold: 15000
 

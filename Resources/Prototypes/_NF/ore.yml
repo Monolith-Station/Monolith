@@ -24,13 +24,13 @@
 # Medium yields
 - type: ore
   id: NFOreGold
-  oreEntity: GoldOre5
+  oreEntity: GoldOre1 # Mono
   minOreYield: 1
   maxOreYield: 3
 
 - type: ore
   id: NFOreSilver
-  oreEntity: SilverOre5
+  oreEntity: SilverOre1 # Mono
   minOreYield: 1
   maxOreYield: 3
 

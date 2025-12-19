@@ -1,0 +1,73 @@
+- type: entity
+  parent: IngotBase
+  id: IngotThorium
+  name: thorium bar
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Thorium: 100
+  - type: Stack
+    stackType: Thorium
+    baseLayer: base
+    layerStates:
+    - gold
+    - gold_2
+    - gold_3
+  - type: Sprite
+    state: gold_3
+    layers:
+    - state: gold_3
+      map: ["base"]
+  - type: Item
+    heldPrefix: gold
+  - type: Appearance
+
+- type: entity
+  parent: IngotThorium
+  id: IngotThorium1
+  name: thorium bar
+  suffix: Single
+  components:
+  - type: Sprite
+    state: gold
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: IngotBase
+  id: IngotTitanium
+  name: titanium bar
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Titanium: 100
+  - type: Stack
+    stackType: Titanium
+    baseLayer: base
+    layerStates:
+    - gold
+    - gold_2
+    - gold_3
+  - type: Sprite
+    state: gold_3
+    layers:
+    - state: gold_3
+      map: ["base"]
+  - type: Item
+    heldPrefix: gold
+  - type: Appearance
+
+- type: entity
+  parent: IngotTitanium
+  id: IngotTitanium1
+  suffix: Single
+  components:
+  - type: Sprite
+    state: gold
+  - type: Stack
+    count: 1
+    

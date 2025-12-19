@@ -73,12 +73,13 @@
   - ArmorNF
   result: ClothingOuterHardsuitUIEnforcer
   materials:
-    Steel: 5000
+    Steel: 2500
     Durathread: 3000
     Plastic: 2000
     Plasteel: 2000
     Silver: 500
     Gold: 500
+    Titanium: 1250
 
 - type: latheRecipe
   id: UllmanHardsuitEnforcerMKII
@@ -90,7 +91,7 @@
   - ArmorNF
   result: ClothingOuterHardsuitUIEnforcerMKII
   materials:
-    Steel: 5000
+    Steel: 2500
     Durathread: 3000
     Plastic: 2500
     Plasteel: 1500
@@ -98,7 +99,9 @@
     Gold: 1000
     Glass: 1000
     Uranium: 2500
-    Diamond: 200
+    Thorium: 1250
+    Titanium: 500
+    Diamond: 100
 
 - type: latheRecipe
   id: UllmanWeaponPulsePistol
@@ -116,6 +119,7 @@
     Gold: 500
     Uranium: 500
     Plasma: 500
+    Thorium: 500
 
 - type: latheRecipe
   id: UllmanWeaponSmartMagnum
@@ -129,9 +133,9 @@
   result: WeaponPistolUllmanSmartMagnumMK5
   materials:
     Steel: 1500
-    Plastic: 2500
-    Silver: 1000
-    Gold: 1000
+    Plastic: 1500
+    Silver: 400
+    Gold: 400
     Plasteel: 1500
 
 - type: latheRecipe
@@ -144,13 +148,14 @@
   - Rifles
   result: UllmanWeaponPulseRifle
   materials:
-    Steel: 2500
+    Steel: 1500
     Plasteel: 1500
-    Silver: 1500
-    Gold: 2000
-    Plasma: 2500
-    Plastic: 2500
-    Uranium: 2000
+    Silver: 500
+    Gold: 450
+    Plasma: 1500
+    Plastic: 2000
+    Uranium: 1250
+    Thorium: 1500
 
 - type: latheRecipe
   id: UllmanWeaponPulseSniper
@@ -162,13 +167,14 @@
   - DMRs
   result: UllmanWeaponPulseSniper
   materials:
-    Steel: 3000
-    Plasteel: 2000
-    Silver: 2000
-    Gold: 2000
-    Plastic: 2500
-    Plasma: 3000
-    Uranium: 3000
+    Steel: 1500
+    Plasteel: 1000
+    Silver: 700
+    Gold: 650
+    Plastic: 2000
+    Plasma: 1250
+    Uranium: 1500
+    Thorium: 2000
     Diamond: 100
 
 - type: latheRecipe
@@ -179,12 +185,13 @@
   - Weapons
   result: UllmanPlasmaBlade
   materials:
-    Steel: 2000
-    Plasteel: 3000
+    Steel: 1000
+    Plasteel: 1000
     Plastic: 500
-    Silver: 1000
-    Gold: 1000
+    Silver: 600
+    Gold: 450
     Plasma: 500
+    Thorium: 1000
 
 #Armor Plates
 - type: latheRecipe

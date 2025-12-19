@@ -15,13 +15,13 @@
     - id: WallRockSalt
       weight: 0.06
     - id: WallRockGold
-      weight: 0.01
+      weight: 0.008
     - id: WallRockSilver
-      weight: 0.04
+      weight: 0.01
     - id: WallRockPlasma
-      weight: 0.07
+      weight: 0.045
     - id: WallRockUranium
-      weight: 0.04
+      weight: 0.03
     - id: WallRockBananium
       weight: 0.01
     - id: WallRockArtifactFragment
@@ -69,7 +69,7 @@
     - id: NFWallCobblebrickGold
       weight: 0.001
     - id: NFWallCobblebrickSilver
-      weight: 0.004
+      weight: 0.0012
     - id: NFWallCobblebrickPlasma
       weight: 0.007
     - id: NFWallCobblebrickUranium
@@ -148,16 +148,18 @@
       weight: 0.04
     - id: WallRockSnowQuartz
       weight: 0.01
-    - id: WallRockSnowSalt
+    - id: WallRockSnowThorium # Mono edit.
+      weight: 0.02
+    - id: WallRockSnowTitanium # Mono edit.
       weight: 0.01
     - id: WallRockSnowGold
-      weight: 0.02
+      weight: 0.005
     - id: WallRockSnowSilver
-      weight: 0.02
+      weight: 0.005
     - id: WallRockSnowPlasma
-      weight: 0.05
+      weight: 0.045
     - id: WallRockSnowUranium
-      weight: 0.01
+      weight: 0.008
     - id: WallRockSnowBananium
       weight: 0.005
     - id: WallRockSnowArtifactFragment
@@ -203,9 +205,9 @@
     - id: NFWallIceSalt
       weight: 0.001
     - id: NFWallIceGold
-      weight: 0.002
+      weight: 0.001
     - id: NFWallIceSilver
-      weight: 0.002
+      weight: 0.001
     - id: NFWallIcePlasma
       weight: 0.005
     - id: NFWallIceUranium
@@ -289,13 +291,13 @@
     - id: WallRockAndesiteSalt
       weight: 0.01
     - id: WallRockAndesiteGold
-      weight: 0.01
+      weight: 0.005
     - id: WallRockAndesiteSilver
-      weight: 0.01
+      weight: 0.005
     - id: WallRockAndesitePlasma
-      weight: 0.01
+      weight: 0.008
     - id: WallRockAndesiteUranium
-      weight: 0.01
+      weight: 0.008
     - id: WallRockAndesiteBananium
       weight: 0.005
     - id: WallRockAndesiteArtifactFragment
@@ -429,11 +431,11 @@
     - id: WallRockBasaltGold
       weight: 0.01
     - id: WallRockBasaltSilver
-      weight: 0.03
+      weight: 0.01
     - id: WallRockBasaltPlasma
-      weight: 0.1
+      weight: 0.085
     - id: WallRockBasaltUranium
-      weight: 0.05
+      weight: 0.04
     - id: WallRockBasaltBananium
       weight: 0.005
     - id: WallRockBasaltArtifactFragment
@@ -565,13 +567,13 @@
     - id: WallRockSandSalt
       weight: 0.01
     - id: WallRockSandSilver
-      weight: 0.08
+      weight: 0.030
     - id: WallRockSandGold
-      weight: 0.07
+      weight: 0.025 
     - id: WallRockSandPlasma
-      weight: 0.01
+      weight: 0.008
     - id: WallRockSandUranium
-      weight: 0.01
+      weight: 0.008
     - id: WallRockSandBananium
       weight: 0.01
     - id: WallRockSandArtifactFragment
@@ -703,13 +705,13 @@
     - id: WallRockChromiteSalt
       weight: 0.04
     - id: WallRockChromiteGold
-      weight: 0.01
+      weight: 0.005
     - id: WallRockChromiteSilver
-      weight: 0.01
+      weight: 0.005
     - id: WallRockChromitePlasma
-      weight: 0.04
+      weight: 0.025
     - id: WallRockChromiteUranium
-      weight: 0.09
+      weight: 0.065
     - id: WallRockChromiteBananium
       weight: 0.015
     - id: WallRockChromiteArtifactFragment
@@ -841,13 +843,13 @@
     - id: AsteroidRockSalt
       weight: 0.15
     - id: AsteroidRockGold
-      weight: 0.06
+      weight: 0.01
     - id: AsteroidRockSilver
-      weight: 0.03
+      weight: 0.01
     - id: AsteroidRockPlasma
-      weight: 0.07
+      weight: 0.03
     - id: AsteroidRockUranium
-      weight: 0.04
+      weight: 0.02
     - id: AsteroidRockBananium
       weight: 0.04
     - id: AsteroidRockArtifactFragment
@@ -979,11 +981,11 @@
     - id: WallRockScrapPileSalt
       weight: 0.01
     - id: WallRockScrapPileGold
-      weight: 0.02
+      weight: 0.015
     - id: WallRockScrapPileSilver
-      weight: 0.02
+      weight: 0.01
     - id: WallRockScrapPilePlasma
-      weight: 0.05
+      weight: 0.025
     - id: WallRockScrapPileUranium
       weight: 0.01
     - id: WallRockScrapPileBananium

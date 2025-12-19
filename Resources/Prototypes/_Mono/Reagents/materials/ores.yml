@@ -1,0 +1,16 @@
+- type: material
+  id: RawTitanium
+  stackEntity: TitaniumOre1
+  name: materials-raw-titanium
+  unit: materials-unit-chunk
+  icon: { sprite: Objects/Materials/ore.rsi, state: iron }
+  price: 0.05
+
+- type: material
+  id: RawThorium
+  stackEntity: ThoriumOre1
+  name: materials-raw-thorium
+  unit: materials-unit-chunk
+  icon: { sprite: Objects/Materials/ore.rsi, state: spacequartz }
+  color: "#a8ccd7"
+  price: 0.075

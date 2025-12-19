@@ -24,7 +24,7 @@
   abstract: true
   materials:
     Steel: 100
-    Plasteel: 375
+    Titanium: 175
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -98,7 +98,7 @@
   abstract: true
   materials:
     Steel: 235
-    Plasteel: 240
+    Titanium: 120
 
 #Base intermediate ammo speedloaders for .45 magnum, 5.56, 5.45, 762x39mm and potential others
 #speedloaders:     [TOTAL = 175]
@@ -122,7 +122,7 @@
   abstract: true
   materials:
     Steel: 35
-    Plasteel: 140
+    Titanium: 80
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -194,7 +194,7 @@
   abstract: true
   materials:
     Steel: 85
-    Plasteel: 90
+    Titanium: 45
 
 #Base intermediate ammo boxes for 5.56, 5.45, 762x39mm and potential others
 #Boxes:     [TOTAL = 1425]
@@ -218,7 +218,7 @@
   abstract: true
   materials:
     Steel: 350
-    Plasteel: 1075
+    Titanium: 350
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -283,7 +283,7 @@
   abstract: true
   materials:
     Steel: 710
-    Plasteel: 715
+    Titanium: 250
 
 #Base Fully powered ammo magazines for all the other 7.62 (-762x39mm)
 #Magazines: [TOTAL = 575]
@@ -307,7 +307,7 @@
   abstract: true
   materials:
     Steel: 150
-    Plasteel: 425
+    Titanium: 175
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -379,7 +379,7 @@
   abstract: true
   materials:
     Steel: 285
-    Plasteel: 290
+    Titanium: 125
 
 #Base Fully powered ammo boxes for all the other 7.62 (-762x39mm)
 #Boxes:     [TOTAL = 1725]
@@ -403,7 +403,7 @@
   abstract: true
   materials:
     Steel: 400
-    Plasteel: 1325
+    Titanium: 650
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -468,7 +468,7 @@
   abstract: true
   materials:
     Steel: 860
-    Plasteel: 865
+    Titanium: 350
 
 #Base Fully powered ammo speedloaders for all the other 7.62 (-762x39mm)
 #speedloaders:     [TOTAL = 225]
@@ -505,7 +505,7 @@
   abstract: true
   materials:
     Steel: 50
-    Plasteel: 125
+    Titanium: 50
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -577,7 +577,7 @@
   abstract: true
   materials:
     Steel: 85
-    Plasteel: 90
+    Titanium: 45
 
 #Base pistol caliber smg magazines ammo for .45 ACP, 9mm, 5.7mm, 4.6mm
 #Magazines: [TOTAL = 375]
@@ -601,7 +601,7 @@
   abstract: true
   materials:
     Steel: 50
-    Plasteel: 225
+    Titanium: 100
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -673,7 +673,7 @@
   abstract: true
   materials:
     Steel: 185
-    Plasteel: 190
+    Titanium: 90
 
 #Base PistolCaliber ammo speedloaders for .45 magnum, 5.56, 5.45, 762x39mm and potential others
 #speedloaders:     [TOTAL = 175]
@@ -761,7 +761,7 @@
   abstract: true
   materials:
     Steel: 200
-    Plasteel: 925
+    Titanium: 350
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -823,4 +823,4 @@
   abstract: true
   materials:
     Steel: 560
-    Plasteel: 565
+    Titanium: 250
