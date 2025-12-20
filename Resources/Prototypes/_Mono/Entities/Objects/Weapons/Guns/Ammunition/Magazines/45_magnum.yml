@@ -1,7 +1,7 @@
 - type: entity
   id: BaseMagazine45_magnum
   name: pistol magazine (.45 magnum FMJ)
-  parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseSecurityContraband<BaseC1Contraband, added RecyclableItemSteelTiny
+  parent: [ BaseItem, RecyclableItemSteelTiny ]
   abstract: true
   components:
   - type: Tag
@@ -188,7 +188,7 @@
 - type: entity
   id: BaseMagazine45_magnumPistolHighCapacityFMJ
   name: machine pistol magazine (.45 magnum FMJ)
-  parent: [BaseItem, BaseC1Contraband, RecyclableItemSteelTiny] # Frontier: added RecyclableItemSteelTiny, BaseC1Contraband
+  parent: [BaseItem, RecyclableItemSteelTiny]
   abstract: true
   components:
   - type: Tag
@@ -281,7 +281,7 @@
 - type: entity
   id: BaseMagazine45_magnumSubMachineGunFMJ
   name: SMG magazine (.45 magnum FMJ)
-  parent: [BaseItem, BaseC1Contraband, RecyclableItemSteelTiny] # Frontier: added RecyclableItemSteelTiny, BaseSecurityContraband<BaseC1Contraband
+  parent: [BaseItem, RecyclableItemSteelTiny]
   abstract: true
   components:
   - type: Tag

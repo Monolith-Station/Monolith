@@ -1,6 +1,6 @@
 - type: entity
   name: colonial liaison's rubber stamp
-  parent: [RubberStampHop, BaseCommandContraband]
+  parent: RubberStampHop
   id: RubberStampSr
   components:
   - type: Stamp
@@ -27,7 +27,7 @@
 
 - type: entity
   name: colonel's rubber stamp
-  parent: [RubberStampBase, BaseCommandContraband]
+  parent: RubberStampBase
   id: RubberStampSheriff
   categories: [ DoNotMap ]
   components:
@@ -82,7 +82,7 @@
 
 - type: entity
   name: director of care's rubber stamp
-  parent: [RubberStampBase, BaseCommandContraband]
+  parent: RubberStampBase
   id: RubberStampDoc
   categories: [ DoNotMap ]
   components:

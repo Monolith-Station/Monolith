@@ -54,7 +54,7 @@
 
 - type: entity
   name: advanced jaws of life # Mono
-  parent: [JawsOfLife, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: JawsOfLife
   id: SyndicateJawsOfLife
   description: Useful for entering the station or its departments.
   components:

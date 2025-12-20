@@ -3,7 +3,7 @@
 
 #Basic armor vest for inheritance
 - type: entity
-  parent: [RecyclableItemClothArmor, ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseC1Contraband] # Frontier: BaseSecurityContraband<BaseC1Contraband, added RecyclableItemClothArmor
+  parent: [RecyclableItemClothArmor, ClothingOuterBaseMedium, AllowSuitStorageClothing] # added RecyclableItemClothArmor
   id: ClothingOuterArmorBase
   name: armor vest
   abstract: true
@@ -28,7 +28,7 @@
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity
-  parent: [ClothingOuterArmorBase, ClothingArmorPlateLight] # Frontier: removed BaseSecurityBartenderContraband
+  parent: [ClothingOuterArmorBase, ClothingArmorPlateLight]
   id: ClothingOuterArmorBasic
   components:
   - type: Tag  # Mono
@@ -49,7 +49,7 @@
     sprite: Clothing/OuterClothing/Armor/security_slim.rsi
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
   id: ClothingOuterArmorRiot
   name: riot suit
   description: A suit of semi-flexible polycarbonate body armor with heavy padding to protect against melee attacks. Perfect for fighting delinquents around the station.
@@ -125,7 +125,7 @@
     coefficient: 0.5
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseC3SyndicateContraband, ContrabandClothing ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing ]
   id: ClothingOuterArmorRaid
   name: syndicate raid suit
   description: A somewhat flexible and well-armored suit with a powerful shoulder mounted flashlight manufactured in the Gorlex Marauder's iconic blood-red color scheme, it does not protect its wearer from space.
@@ -208,7 +208,7 @@
     - Kevlar
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, BaseC3CultContraband, AllowSuitStorageClothing, ContrabandClothing] # Frontier: BaseMajorContraband<BaseC3CultContraband, added ContrabandClothing as parent
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
   id: ClothingOuterArmorCult
   name: acolyte armor
   description: An evil-looking piece of cult armor, made of bones.
@@ -277,7 +277,7 @@
     sprite: Clothing/OuterClothing/Armor/heavyred.rsi
 
 - type: entity
-  parent: [ClothingOuterArmorHeavy, BaseC3CultContraband, ContrabandClothing] # Frontier: added BaseC3CultContraband, ContrabandClothing as parent
+  parent: [ClothingOuterArmorHeavy]
   id: ClothingOuterArmorMagusblue
   name: blue magus armor
   description: An blue armored suit that provides good protection.
@@ -288,7 +288,7 @@
     sprite: Clothing/OuterClothing/Armor/magusblue.rsi
 
 - type: entity
-  parent: [ClothingOuterArmorHeavy, BaseC3WizardContraband, ContrabandClothing] # Frontier: added BaseC3WizardContraband, ContrabandClothing as parent
+  parent: [ClothingOuterArmorHeavy]
   id: ClothingOuterArmorMagusred
   name: red magus armor
   description: A red armored suit that provides good protection.
@@ -299,7 +299,7 @@
     sprite: Clothing/OuterClothing/Armor/magusred.rsi
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseC1Contraband] # Frontier: BaseCommandContraband<BaseC1Contraband
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
   id: ClothingOuterArmorCaptainCarapace
   name: "captain's carapace"
   description: "An armored chestpiece that provides protection whilst still offering maximum mobility and flexibility. Issued only to the captains of luxury vessels." # Frontier
@@ -329,7 +329,7 @@
     - Kevlar
 
 - type: entity
-  parent: [ ClothingOuterBaseLarge, BaseC3Contraband, AllowSuitStorageClothing ] # Frontier: BaseMajorContraband<BaseC3Contraband
+  parent: [ ClothingOuterBaseLarge, AllowSuitStorageClothing ]
   id: ClothingOuterArmorChangeling
   name: chitinous armor
   description: Inflates the changeling's body into an all-consuming chitinous mass of armor.
@@ -359,7 +359,7 @@
     coefficient: 0.8 # i mean, if the batong is electrical or whatever, and this is just hardened skin, it would probably still go through?
 
 - type: entity
-  parent: [ ClothingOuterBaseLarge, BaseC1Contraband, AllowSuitStorageClothing ] # Frontier: BaseMajorContraband<BaseC1Contraband
+  parent: [ ClothingOuterBaseLarge, AllowSuitStorageClothing ]
   id: ClothingOuterArmorBone
   name: bone armor
   description: Sits on you like a second skin.
@@ -389,7 +389,7 @@
     coefficient: 0.7
 
 - type: entity
-  parent: [ ClothingOuterBaseLarge, BaseC1Contraband, AllowSuitStorageClothing ] # Frontier: BaseMajorContraband<BaseC1Contraband
+  parent: [ ClothingOuterBaseLarge, AllowSuitStorageClothing ]
   id: ClothingOuterArmorPodWars
   name: ironclad II armor
   description: A repurposed suit of ironclad II armor, a relic of the pod wars.

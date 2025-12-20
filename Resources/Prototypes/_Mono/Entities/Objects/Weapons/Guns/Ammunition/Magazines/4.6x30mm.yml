@@ -1,7 +1,7 @@
 - type: entity
   id: BaseMagazine46x30mm
   name: pistol magazine (4.6x30mm FMJ)
-  parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseSecurityContraband<BaseC1Contraband, added RecyclableItemSteelTiny
+  parent: [ BaseItem, RecyclableItemSteelTiny ]
   abstract: true
   components:
   - type: Tag
@@ -173,7 +173,7 @@
 - type: entity
   id: BaseMagazine46x30mmPistolHighCapacityFMJ
   name: machine pistol magazine (4.6x30mm FMJ)
-  parent: [BaseItem, BaseC1Contraband, RecyclableItemSteelTiny] # Frontier: added RecyclableItemSteelTiny, BaseC1Contraband
+  parent: [BaseItem, RecyclableItemSteelTiny]
   abstract: true
   components:
   - type: Tag
@@ -266,7 +266,7 @@
 - type: entity
   id: BaseMagazine46x30mmSubMachineGunFMJ
   name: SMG magazine (4.6x30mm FMJ)
-  parent: [BaseItem, BaseC1Contraband, RecyclableItemSteelTiny] # Frontier: added RecyclableItemSteelTiny, BaseSecurityContraband<BaseC1Contraband
+  parent: [BaseItem, RecyclableItemSteelTiny]
   abstract: true
   components:
   - type: Tag
@@ -457,7 +457,7 @@
 - type: entity
   id: Magazine46x30mmSubMachineGunTopMountedFMJ
   name: WT550 magazine (4.6x30mm top-mounted)
-  parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseSecurityContraband<BaseC1Contraband, added RecyclableItemSteelTiny
+  parent: [ BaseItem, RecyclableItemSteelTiny ]
   components:
   - type: Tag
     tags:

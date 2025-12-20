@@ -1,6 +1,6 @@
 - type: entity
   name: VFD MR-8C DMR (8x65mm SKR)
-  parent: [BaseWeaponRifle, BaseGunWieldable, BaseC2ContrabandUnredeemable]
+  parent: [BaseWeaponRifle, BaseGunWieldable]
   id: WeaponRifleMR8C
   description: The DMR variant of the MR-8 series, firing with incredible accuracy. Chambered in 8x65mm SKR. A label on the side reads "FOR MILITARY USE ONLY".
   components:
@@ -72,7 +72,7 @@
 
 - type: entity
   name: NCI AK-502 (7.62x39mm)
-  parent: [BaseWeaponRifle, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseWeaponRifle
   id: WeaponRifleAK502
   description: A standard-issue USSP combat rifle. Uses 7.62x39mm ammo.
   components:
@@ -134,7 +134,7 @@
 
 - type: entity
   name: VFD XLR-556 ICWS (5.56x45mm)
-  parent: [BaseWeaponRifle, BaseGunWieldable, BaseC2ContrabandUnredeemable]
+  parent: [BaseWeaponRifle, BaseGunWieldable, BaseFactionGearTSFT1]
   id: WeaponRifleXlr556
   description: A proposed next-gen "rifle" for TSF standard infantry. Chambered in 5.56x45mm rifle rounds, its RPM is incredible - but with great firerate comes great fire control...
   components:
@@ -255,7 +255,7 @@
 #Mercenary lecter
 - type: entity
   name: HWM FCL "Prometheus" (5.56x45mm)
-  parent: [BaseWeaponRifle, BaseC1Contraband]
+  parent: BaseWeaponRifle
   id: WeaponRiflePrometheus
   description: The Herstal Weapon Manufacture "Prometheus" Light combat rifle (Fusil de Combat Léger) in 556x45mm. Made to be mass producable for fight against xenos. Its firerate is decent with burst being superior and accuracy poor.
   components:
@@ -326,7 +326,7 @@
 
 - type: entity
   name: SKR-WS MLA-34 smartgun (.160 smart) # TODO - make like 5.56 level smartgun ammo for these
-  parent: [BaseWeaponRifle, BaseGunWieldable, BaseC2Contraband]
+  parent: [BaseWeaponRifle, BaseGunWieldable]
   id: WeaponRifleMla34
   description: A limited-production special smartgun made as a self-defense weapon for untrained ship crew.
   components:
@@ -410,7 +410,7 @@
 
 - type: entity
   name: NTSF-LTR-556 (5.56x45mm,6.8x52mm Caseless)
-  parent: [BaseWeaponRifle, BaseC2ContrabandUnredeemable]
+  parent: [BaseWeaponRifle, BaseFactionGearOtherFactionT1]
   id: WeaponRifleNtsfLtr
   description: An old corporate war era rifle. The Nano Trasen Security Forces and Special Forces's Light Tactical Rifle chambered in 5.56x45mm, also accepts 6.8x52mm due to it being a brand new caliber of its time and being a prototype. This rifle is of high-quality with plastitanium internal and plasteel furnitures.
   components:

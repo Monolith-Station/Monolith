@@ -76,7 +76,7 @@
 
 - type: entity
   name: seclite
-  parent: [FlashlightLantern, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: FlashlightLantern
   id: FlashlightSeclite
   description: A robust flashlight used by security.
   components:

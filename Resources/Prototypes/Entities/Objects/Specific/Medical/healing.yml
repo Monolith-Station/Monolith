@@ -1069,7 +1069,7 @@
 
 #this is where all the syringes are so i didn't know where to put it
 - type: entity
-  parent: [PrefilledSyringe, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: PrefilledSyringe
   suffix: romerol
   id: SyringeRomerol
   components:
@@ -1085,7 +1085,7 @@
 
 # Mono start
 - type: entity
-  parent: [PrefilledSyringe, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: PrefilledSyringe
   suffix: letoferol
   id: SyringeLetoferol
   components:
@@ -1101,7 +1101,7 @@
 # Mono end
 
 - type: entity
-  parent: [PrefilledSyringe, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: PrefilledSyringe
   suffix: hyperzine
   id: SyringeStimulants
   components:

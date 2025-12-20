@@ -1,7 +1,7 @@
 - type: entity
   id: ClothingHandsGlovesArcadiaCombat
   name: arcadia combat gloves
-  parent: [ ClothingHandsGlovesCombat, BaseC3ContrabandNoValue, ContrabandClothing ]
+  parent: [ ClothingHandsGlovesCombat ]
   description: Combat gloves produced by Arcadia Industries.
   components:
   - type: Sprite
