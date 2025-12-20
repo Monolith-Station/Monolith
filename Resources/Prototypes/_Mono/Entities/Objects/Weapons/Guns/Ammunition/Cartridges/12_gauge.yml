@@ -1,7 +1,7 @@
 - type: entity
   id: BaseShellShotgun12_gauge
   name: shotgun shell (12 gauge)
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: added BaseC1Contraband
+  parent: BaseCartridge
   description: Standard shotgun round practically everywhere.
   abstract: true
   components:
@@ -33,7 +33,7 @@
 - type: entity
   id: ShellShotgun12_gaugeBeanbag
   name: shotgun shell (12 gauge beanbag)
-  parent: BaseShellShotgun12_gauge # Frontier: remove BaseSecurityBartenderContraband
+  parent: BaseShellShotgun12_gauge
   components:
   - type: Tag
     tags:

@@ -1,6 +1,6 @@
 - type: entity
   name: high-frequency blade
-  parent: [BaseC2ContrabandUnredeemable, Katana]
+  parent: Katana
   id: WeaponHFKatana
   description: A high-frequency blade. It's incredibly powerful. # Why the glorp would a katana be modified to have a HF blade :nerd::point_up:
   components:
@@ -36,7 +36,7 @@
 
 - type: entity
   name: VT-7 high-frequency blade
-  parent: [BaseC3SyndicateContraband, Katana] # we dont want the construction node, so we dont copy off the other HF katana
+  parent: Katana # we dont want the construction node, so we dont copy off the other HF katana
   id: WeaponVT7
   description: A high-frequency blade tuned with ill-advised modifications designed to sunder armor.
   components:
@@ -71,7 +71,7 @@
 
 - type: entity
   name: VT-7 HF blade "Murasama"
-  parent: [BaseC3SyndicateContraband, Katana] # we dont want the construction node, so we dont copy off the other HF katana
+  parent: Katana # we dont want the construction node, so we dont copy off the other HF katana
   id: WeaponMurasama
   description: You're the boss.
   components:

@@ -194,7 +194,7 @@
 - type: entity
   id: VendingMachineArcadia
   name: ArcadiaDrobe
-  parent: [ VendingMachine, BaseC3Contraband ]
+  parent: VendingMachine
   description: Selling clothes from another reality for cheap prices!
   components:
     - type: VendingMachine

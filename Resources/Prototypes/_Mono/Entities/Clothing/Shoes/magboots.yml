@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingShoesBootsMagBase]
+  parent: [ ClothingShoesBootsMagBase, BaseFactionGearOtherFactionT0 ]
   id: ClothingShoesBootsMagDrakeIndustries
   name: painted magboots
   description: Yep, that's just repainted science boots.
@@ -23,7 +23,7 @@
     sprite: _Mono/Clothing/Shoes/Boots/voidboots.rsi
 
 - type: entity
-  parent: ClothingShoesBootsMagAdv
+  parent: [ ClothingShoesBootsMagAdv, BaseFactionGearOtherFactionT2 ]
   id: ClothingShoesBootsMagAsakim
   name: pre-fracture magboots
   description: State-of-the-art magnetic boots made for combat with advanced harnesses.
@@ -35,7 +35,7 @@
     modifier: 0.35
 
 - type: entity
-  parent: [ClothingShoesBootsMagSyndie]
+  parent: [ ClothingShoesBootsMagSyndie, BaseFactionGearPDVT1 ]
   id: ClothingShoesBootsMagAshen
   name: tactical magboots
   description: Tactical magnetic boots that have a heavy magnetic pull and integrated thrusters for boarding. It can hold 0.75 L of gas.

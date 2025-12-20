@@ -107,6 +107,7 @@
     receiveFrequencyId: BasicDevice
   - type: WirelessNetworkConnection
     range: 200
+  - type: NoSignalOnLink # Mono
   - type: DeviceLinkSink
     ports:
       - Open

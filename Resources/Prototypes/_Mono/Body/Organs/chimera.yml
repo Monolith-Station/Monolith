@@ -5,7 +5,7 @@
 - type: entity
   id: BaseChimeraOrgan
   name: chimera organ
-  parent: [BaseItem, BaseC3SyndicateContraband]
+  parent: BaseItem
   abstract: true
   components:
   - type: Sprite

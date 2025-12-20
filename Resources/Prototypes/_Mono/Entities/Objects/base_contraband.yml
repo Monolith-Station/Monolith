@@ -1,56 +1,188 @@
-- type: entity
-  parent: BaseC2ContrabandUnredeemable
-  id: BaseC2ContrabandMercenary
-  abstract: true
-  components:
-  - type: Contraband
-    severity: Class2Restricted
-    allowedDepartments: [ PMC, Security, Command, CentralCommand ]
+# Frontier-specific contraband targets.
+# If you need multiple currency types, specify them in the actual object instead of inheriting multiple parents here.
 
-- type: entity
-  parent: BaseC3Contraband
-  id: BaseC3ChemContraband
+- type: entity # Mono
+  id: BaseFactionGearT0
   abstract: true
   components:
   - type: Contraband
-    severity: Class3Chem
+    hideCarryStatus: true
+    severity: FactionGear0
     turnInValues:
-      FederationMilitaryCredit: 1 # set to 1 now that FMC values are multiplied by 5
+      FederationMilitaryCredit: 0
+      Doubloon: 0
 
-# These are compatibility prototypes to work with ported definitions
-# They simply map to the appropriate NF/Mono contraband equivalents
+#region PDV
 
-# non-stealth syndicate stuff
 - type: entity
-  id: BaseSyndicateContraband
-  parent: BaseC3SyndicateContraband
-  abstract: true
-
-# base department restricted contraband
-- type: entity
-  id: BaseRestrictedContraband
-  parent: BaseC2ContrabandUnredeemable
-  abstract: true
-
-# civilian department contraband
-- type: entity
-  id: BaseCivilianContraband
-  parent: BaseC1Contraband
-  abstract: true
-
-# cargo department contraband
-- type: entity
-  id: BaseCargoContraband
-  parent: BaseC1Contraband
-  abstract: true
-
-# near-worthless syndicate contraband
-- type: entity
-  id: BaseC3SyndicateContrabandLowValue
-  parent: BaseC3ChemContraband
+  parent: BaseFactionGearT0
+  id: BaseFactionGearPDVT0
   abstract: true
   components:
   - type: Contraband
-    severity: Class3Syndicate
+    allowedDepartments: [ Antag ]
+
+- type: entity
+  parent: BaseFactionGearPDVT0
+  id: BaseFactionGearPDVT1
+  abstract: true
+  components:
+  - type: Contraband
+    severity: FactionGear1
     turnInValues:
-      FederationMilitaryCredit: 1
+      FederationMilitaryCredit: 5
+
+- type: entity
+  parent: BaseFactionGearPDVT0
+  id: BaseFactionGearPDVT2
+  abstract: true
+  components:
+  - type: Contraband
+    severity: FactionGear2
+    turnInValues:
+      FederationMilitaryCredit: 15
+
+- type: entity
+  parent: BaseFactionGearPDVT0
+  id: BaseFactionGearPDVT3
+  abstract: true
+  components:
+  - type: Contraband
+    severity: FactionGear3
+    turnInValues:
+      FederationMilitaryCredit: 45
+
+#endregion
+
+#region TSF
+
+- type: entity
+  parent: BaseFactionGearT0
+  id: BaseFactionGearTSFT0
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Security ]
+
+- type: entity
+  parent: BaseFactionGearTSFT0
+  id: BaseFactionGearTSFT1
+  abstract: true
+  components:
+  - type: Contraband
+    severity: FactionGear1
+    turnInValues:
+      Doubloon: 5
+
+- type: entity
+  parent: BaseFactionGearTSFT0
+  id: BaseFactionGearTSFT2
+  abstract: true
+  components:
+  - type: Contraband
+    severity: FactionGear2
+    turnInValues:
+      Doubloon: 15
+
+- type: entity
+  parent: BaseFactionGearTSFT0
+  id: BaseFactionGearTSFT3
+  abstract: true
+  components:
+  - type: Contraband
+    severity: FactionGear3
+    turnInValues:
+      Doubloon: 45
+
+#endregion
+
+#region non-faction
+
+- type: entity
+  parent: BaseFactionGearT0
+  id: BaseFactionGearOtherFactionT0
+  abstract: true
+  components:
+  - type: Contraband
+    severity: OtherFactionGear0
+
+- type: entity
+  parent: BaseFactionGearOtherFactionT0
+  id: BaseFactionGearOtherFactionT1
+  abstract: true
+  components:
+  - type: Contraband
+    severity: OtherFactionGear1
+    turnInValues:
+      FederationMilitaryCredit: 5
+      Doubloon: 5
+
+- type: entity
+  parent: BaseFactionGearOtherFactionT0
+  id: BaseFactionGearOtherFactionT2
+  abstract: true
+  components:
+  - type: Contraband
+    severity: OtherFactionGear2
+    turnInValues:
+      FederationMilitaryCredit: 15
+      Doubloon: 15
+
+- type: entity
+  parent: BaseFactionGearOtherFactionT0
+  id: BaseFactionGearOtherFactionT3
+  abstract: true
+  components:
+  - type: Contraband
+    severity: OtherFactionGear3
+    turnInValues:
+      FederationMilitaryCredit: 45
+      Doubloon: 45
+
+#endregion
+
+#region taxed contraband
+
+- type: entity
+  parent: BaseFactionGearOtherFactionT0
+  id: BaseFactionGearTaxedT0
+  abstract: true
+  components:
+  - type: ItemTax
+    taxAccounts:
+      nfsd: -0.2
+
+- type: entity
+  parent: BaseFactionGearTaxedT0
+  id: BaseFactionGearTaxedT1
+  abstract: true
+  components:
+  - type: Contraband
+    severity: OtherFactionGear1
+    turnInValues:
+      FederationMilitaryCredit: 5
+      Doubloon: 5
+
+- type: entity
+  parent: BaseFactionGearTaxedT0
+  id: BaseFactionGearTaxedT2
+  abstract: true
+  components:
+  - type: Contraband
+    severity: OtherFactionGear2
+    turnInValues:
+      FederationMilitaryCredit: 15
+      Doubloon: 15
+
+- type: entity
+  parent: BaseFactionGearTaxedT0
+  id: BaseFactionGearTaxedT3
+  abstract: true
+  components:
+  - type: Contraband
+    severity: OtherFactionGear3
+    turnInValues:
+      FederationMilitaryCredit: 45
+      Doubloon: 45
+
+#endregion

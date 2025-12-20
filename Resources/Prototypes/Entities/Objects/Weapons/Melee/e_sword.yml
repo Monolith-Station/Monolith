@@ -87,7 +87,7 @@
 
 - type: entity
   name: energy sword
-  parent: [BaseMeleeWeaponEnergy, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseMeleeWeaponEnergy
   id: EnergySword
   description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
   components:
@@ -110,7 +110,7 @@
 
 - type: entity
   name: energy dagger
-  parent: [BaseMeleeWeaponEnergy, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseMeleeWeaponEnergy
   id: EnergyDaggerLoud
   description: A not as loud and dangerous dagger with a beam made of pure, concentrated plasma. This one is completely undisguised.
   components:
@@ -176,7 +176,7 @@
 
 - type: entity
   name: pen
-  parent: [BaseMeleeWeaponEnergy, BaseC3SyndicateContraband] # Frontier: added BaseC3SyndicateContraband
+  parent: BaseMeleeWeaponEnergy
   id: EnergyDagger
   suffix: E-Dagger
   description: 'A dark ink pen.'
@@ -212,8 +212,6 @@
       malus: 0.4
     - type: Execution
       doAfterDuration: 4.0
-    # - type: Contraband # Frontier
-    #   severity: Syndicate # Frontier
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_dagger.rsi
     layers:
@@ -243,11 +241,9 @@
   - type: Tag
     tags:
     - Write
-  - type: Contraband # Frontier
-    hideValues: true # Frontier
 
 - type: entity
-  parent: [BaseItem, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseItem
   id: EnergyDaggerBox
   name: e-dagger box
   suffix: E-Dagger
@@ -266,7 +262,7 @@
 
 - type: entity
   name: energy cutlass
-  parent: [BaseMeleeWeaponEnergy, BaseC3PirateContraband] # Frontier: BaseMajorContraband<BaseC3PirateContraband
+  parent: BaseMeleeWeaponEnergy
   id: EnergyCutlass
   description: An exotic energy weapon.
   components:
@@ -291,7 +287,7 @@
 
 - type: entity
   name: double-bladed energy sword
-  parent: [BaseMeleeWeaponEnergy, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseMeleeWeaponEnergy
   id: EnergySwordDouble
   description: This energy sword has been modified to have blades on both ends, it's unwieldy and dangerous... This can be stored in pockets.
   components:

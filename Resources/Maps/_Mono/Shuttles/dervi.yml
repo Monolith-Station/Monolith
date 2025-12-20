@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/07/2025 16:49:48
-  entityCount: 607
+  time: 12/13/2025 18:52:20
+  entityCount: 608
 maps: []
 grids:
 - 1
@@ -629,6 +629,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -1.5,-0.5
+      parent: 1
+- proto: AtmosDeviceFanDirectional
+  entities:
+  - uid: 608
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -6.5,1.5
       parent: 1
 - proto: AtmosFixBlockerMarker
   entities:

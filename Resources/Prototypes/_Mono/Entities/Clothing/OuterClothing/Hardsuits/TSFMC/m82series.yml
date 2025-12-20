@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseC2ContrabandUnredeemable]
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearTSFT2]
   id: ClothingOuterHardsuitM82c
   name: M82c hardsuit
   description: A hardsuit issued to marines operating in low-pressure and high-risk environments. Specialized in bullet protection.
@@ -43,7 +43,7 @@
     vendPrice: 7500
 
 - type: entity
-  parent: ClothingOuterHardsuitM82c
+  parent: [ ClothingOuterHardsuitM82c, BaseFactionGearTSFT2 ]
   id: ClothingOuterHardsuitM82b
   name: M82b hardsuit
   description: Corpsman variant of the M82c outfitted with caustic and radiological shielding. Some of the blunt-absorbent gel layer is sacrificed for the NBC protection.
