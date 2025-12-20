@@ -44,7 +44,7 @@
     - 57mmCartridge
   - type: CartridgeAmmo
     deleteOnSpawn: true
-    proto: ShipDravonProjectile
+    proto: 57mmBullet
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
     layers:
