@@ -28,10 +28,10 @@
     lifetime: 30
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
-    totalIntensity: 2000
-    intensitySlope: 30
-    maxIntensity: 1500
+    explosionType: Default
+    totalIntensity: 250
+    intensitySlope: 5
+    maxIntensity: 75
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   # destructible components below
@@ -141,10 +141,10 @@
     energy: 2
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
-    totalIntensity: 100
+    explosionType: Default
+    totalIntensity: 125
     intensitySlope: 10
-    maxIntensity: 150
+    maxIntensity: 50
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
@@ -260,7 +260,7 @@
     energy: 2
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
+    explosionType: Default
     maxIntensity: 25
     intensitySlope: 1000
     totalIntensity: 25

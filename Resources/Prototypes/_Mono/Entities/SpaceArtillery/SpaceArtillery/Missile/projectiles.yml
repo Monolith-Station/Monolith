@@ -82,7 +82,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 25
+    totalIntensity: 30
     intensitySlope: 10
     maxIntensity: 15
   - type: GatheringProjectile
@@ -184,9 +184,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 10
+    maxIntensity: 80
     intensitySlope: 3
-    totalIntensity: 75
+    totalIntensity: 175
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -194,6 +194,6 @@
     acceleration: 50
     detectionRange: 600
     scanArc: 30
-    launchSpeed: 25
-    maxSpeed: 30
+    launchSpeed: 85
+    maxSpeed: 100
     trackDelay: 2

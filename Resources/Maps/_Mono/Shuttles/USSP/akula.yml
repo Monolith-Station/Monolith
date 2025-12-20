@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/20/2025 20:36:43
-  entityCount: 407
+  time: 12/20/2025 21:16:26
+  entityCount: 411
 maps: []
 grids:
 - 1
@@ -504,6 +504,30 @@ entities:
     - type: Transform
       pos: -1.4631739,-2.856717
       parent: 1
+  - uid: 408
+    components:
+    - type: Transform
+      parent: 400
+    - type: Physics
+      canCollide: False
+  - uid: 409
+    components:
+    - type: Transform
+      parent: 400
+    - type: Physics
+      canCollide: False
+  - uid: 410
+    components:
+    - type: Transform
+      parent: 400
+    - type: Physics
+      canCollide: False
+  - uid: 411
+    components:
+    - type: Transform
+      parent: 400
+    - type: Physics
+      canCollide: False
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 16
@@ -2812,8 +2836,25 @@ entities:
   - uid: 400
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: 0.5,8.5
       parent: 1
+    - type: BallisticAmmoProvider
+      entities:
+      - 408
+      - 409
+      - 410
+      - 411
+    - type: ContainerContainer
+      containers:
+        ballistic-ammo: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 408
+          - 409
+          - 410
+          - 411
 - proto: WeaponTurretDravon
   entities:
   - uid: 401

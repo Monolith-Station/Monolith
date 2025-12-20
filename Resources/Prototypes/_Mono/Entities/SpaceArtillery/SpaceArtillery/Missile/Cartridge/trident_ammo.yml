@@ -67,10 +67,10 @@
     energy: 2
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
-    maxIntensity: 150
-    intensitySlope: 30
-    totalIntensity: 1000
+    explosionType: Default
+    maxIntensity: 120
+    intensitySlope: 15
+    totalIntensity: 550
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
@@ -185,10 +185,10 @@
     maxSpeed: 250
     trackDelay: 1
   - type: Explosive
-    explosionType: HardBombShipGun
+    explosionType: Default
     maxIntensity: 1000
     intensitySlope: 100
-    totalIntensity: 200
+    totalIntensity: 150
   # destructible components below
   - type: Fixtures
     fixtures:
@@ -299,10 +299,10 @@
     energy: 2
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
-    maxIntensity: 50
+    explosionType: Default
+    maxIntensity: 45
     intensitySlope: 4
-    totalIntensity: 150
+    totalIntensity: 100
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
