@@ -183,7 +183,7 @@
     attachedToSuit: true # Mono
 
 - type: entity
-  parent: [BaseC2ContrabandUnredeemable, SheriffPDA]
+  parent: SheriffPDA
   id: MarsocFTLPDA
   name: TSFMC MARSOC fire team leader PDA
   description: A standard TSFMC personal computer.
@@ -208,7 +208,7 @@
     attachedToSuit: true # Mono
 
 - type: entity
-  parent: [BaseC2ContrabandUnredeemable, SheriffPDA]
+  parent: SheriffPDA
   id: MarsocPDA
   name: TSFMC MARSOC operative PDA
   description: A standard TSFMC personal computer.

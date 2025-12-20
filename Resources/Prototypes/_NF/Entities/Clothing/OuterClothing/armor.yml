@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ ClothingOuterBaseLarge, BaseC2ContrabandUnredeemable ]
+  parent: ClothingOuterBaseLarge
   id: ClothingOuterArmorSrCarapace
   name: "colonial liaison's carapace"
   description: "A premium armored chest-piece that provides above average protection for its size. It offers maximum mobility and flexibility thanks to the premium composite materials. Issued only to the colonial liaison."
@@ -27,10 +27,7 @@
 
 # Syndicate armored bio suit
 - type: entity
-  parent:
-  - BaseC3SyndicateContraband
-  - ClothingOuterBioGeneral
-  - ContrabandClothing
+  parent: ClothingOuterBioGeneral
   id: ClothingOuterBioArmoredSyndicate
   name: bio suit
   suffix: Syndicate
@@ -56,7 +53,7 @@
     coefficient: 0.6
 
 - type: entity
-  parent: [ ClothingOuterBaseLarge, BaseC2ContrabandUnredeemable ]
+  parent: ClothingOuterBaseLarge
   id: ClothingOuterArmorNfsd
   name: TSFMC armor
   description: Get shot, maybe survive?
@@ -83,7 +80,7 @@
     coefficient: 0.4
 
 - type: entity
-  parent: [ BaseC1Contraband, ClothingOuterVestWebMercenary ]
+  parent: ClothingOuterVestWebMercenary
   id: ClothingOuterVestWebMercenaryBlack
   components:
   - type: Sprite

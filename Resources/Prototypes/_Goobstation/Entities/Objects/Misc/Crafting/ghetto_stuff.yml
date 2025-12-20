@@ -109,7 +109,7 @@
 
 - type: entity
   id: ContrabandBag
-  parent: [ BaseStorageItem, BaseBagOpenClose, BaseC1Contraband ]
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
   name: makeshift bag
   description: A makeshift bag, made out of steel and cables in such way, to block contraband scanners.
   components:
@@ -131,7 +131,7 @@
 
 - type: entity
   id: ContrabandBagUnfinished
-  parent: [ BaseItem, BaseC1Contraband ]
+  parent: BaseItem
   name: makeshift something
   description: Something made out of steel and plastic, you are not sure what is this supposed to be.
   components:
@@ -191,7 +191,7 @@
 
 - type: entity
   id: TideFlipperZero
-  parent: [ DoorRemoteDefault, BaseC1Contraband ]
+  parent: DoorRemoteDefault
   name: tide flipper
   description: A makeshift device that can hack doors without access.
   components:
@@ -254,7 +254,7 @@
 
 - type: entity
   id: MakeshiftJammer
-  parent: [ BaseItem, BaseC3Contraband ]
+  parent: BaseItem
   name: makeshift radio jammer
   description: A cheap looking device that can spam radio waves, essentially blocking all signal. Yeah its not effective.
   components:
@@ -349,7 +349,7 @@
 
 # heavy boots
 - type: entity
-  parent: [ClothingShoesMilitaryBase, BaseC1Contraband]
+  parent: ClothingShoesMilitaryBase
   id: ClothingShoesHeavyBoots
   name: tide boots
   description: Metal is scraping through the floor as you walk with them, who thought this was a good idea?
@@ -367,7 +367,7 @@
 # helmet
 
 - type: entity
-  parent: [ ClothingHeadHelmetBase, BaseC1Contraband ]
+  parent: ClothingHeadHelmetBase
   id: ClothingHeadMakeshiftHelmet
   name: makeshift light helmet
   description: A bunch of steel connected with wires, surprisingly durable, and stylish.
@@ -388,7 +388,7 @@
 # light armor
 
 - type: entity
-  parent: [ ClothingOuterArmorBase, BaseC1Contraband ]
+  parent: ClothingOuterArmorBase
   id: ClothingOuterArmorMakeshiftVestLight
   name: makeshift light vest
   description: A light handmade vest made with steel and cables. Durable, but not that efficient.
@@ -414,7 +414,7 @@
 # heavy armor
 
 - type: entity
-  parent: [ ClothingOuterArmorBase, BaseC1Contraband ]
+  parent: ClothingOuterArmorBase
   id: ClothingOuterArmorMakeshiftVestHeavy
   name: makeshift heavy vest
   description: A heavy makeshift vest, made to withstand bullets.

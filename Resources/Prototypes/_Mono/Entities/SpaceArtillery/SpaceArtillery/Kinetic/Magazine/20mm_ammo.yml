@@ -38,7 +38,7 @@
 - type: entity
   id: 20mmCartridge
   name: cartridge (20mm Solid)
-  parent: [ BaseCartridge, BaseC1Contraband ]
+  parent: BaseCartridge
   components:
   - type: Tag
     tags:

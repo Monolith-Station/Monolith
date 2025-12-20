@@ -1,7 +1,7 @@
 - type: entity
   id: BaseCartridge45_magnum
   name: cartridge (.45 magnum)
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseCartridge
   description: Heavy magnum round, usually only seen in magnums or manually-cycled rifles.
   abstract: true
   components:

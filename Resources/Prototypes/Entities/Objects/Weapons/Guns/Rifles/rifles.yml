@@ -72,7 +72,7 @@
 
 - type: entity
   name: LWC AKM (7.62x39mm)
-  parent: [BaseWeaponRifle, BaseC3SyndicateContraband] # Frontier: BaseSecurityContraband<BaseC3SyndicateContraband
+  parent: BaseWeaponRifle
   id: WeaponRifleAk
   description: An old Pre-Fracture Era rifle. Uses 7.62x39mm ammo. When the Fracture began to spread across the Old Earth territories, few weapons were as reliable as the AKM
   components:
@@ -128,7 +128,7 @@
 
 - type: entity
   name: TCA M-6 Lecter (6.8x52mm Caseless)
-  parent: [BaseWeaponRifle, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: BaseWeaponRifle
   id: WeaponRifleLecter
   description: The result of a project to make a new standard rifle for the branches of the TSF military. Accurate, easy to use, and firing the 6.8x52mm STANAG round. Also accepts 5.56x45mm magazines to assist with standardization.
   components:

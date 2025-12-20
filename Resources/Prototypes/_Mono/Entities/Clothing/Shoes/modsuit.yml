@@ -92,7 +92,7 @@
   parent: ClothingShoesBase
   id: ClothingModsuitBootsRogue
   name: RX-01 modsuit boots
-  description: Magnetized to help you avoid slips, trips, and Feds.
+  description: Magnetized voidboots to help you avoid slips, trips, and Feds.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -125,6 +125,7 @@
       walkModifier: 0.95
       sprintModifier: 0.95
   - type: Magboots
+    requiresGrid: false
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:

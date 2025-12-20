@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, BaseC3SyndicateContraband]
+  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase]
   id: ClothingHeadHelmetHardsuitViperGroupStandard
   name: JACKAL mk.II viper hardsuit helmet
   description: A hardsuit helmet with signature markings of the Viper Group. Has a built-in nightvision system.
@@ -31,7 +31,7 @@
     - HeadSide
 
 - type: entity
-  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, BaseC3SyndicateContraband, ShowMedicalIcons]
+  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowMedicalIcons]
   id: ClothingHeadHelmetHardsuitViperGroupMedic
   name: IMP mk.III viper hardsuit helmet
   description: A hardsuit helmet with signature markings of the Viper Group. Has a built-in medical HUD complemented by thermal pulse systems.

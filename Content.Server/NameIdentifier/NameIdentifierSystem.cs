@@ -39,7 +39,7 @@ public sealed class NameIdentifierSystem : EntitySystem
         {
             // Avoid inserting the value right back at the end or shuffling in place:
             // just pick a random spot to put it and then move that one to the end.
-            var randomIndex = _robustRandom.Next(ids.Count);
+            var randomIndex = _robustRandom.Next(ids.Count - 1);
             var random = ids[randomIndex];
             ids[randomIndex] = component.Identifier;
             ids.Add(random);
