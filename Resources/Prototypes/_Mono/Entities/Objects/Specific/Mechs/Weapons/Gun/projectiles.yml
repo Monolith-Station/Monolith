@@ -275,6 +275,7 @@
   - type: PointLight
     radius: 3.5
     energy: 0.5
+    color: orange
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 1.5
@@ -296,9 +297,7 @@
     intensitySlope: 4
     maxIntensity: 3
     maxTileBreak: 1
-  - type: PointLight
-    color: orange
-
+    
 - type: entity
   id: MechMediumPlasmaProjectile
   name: plasma projectile
