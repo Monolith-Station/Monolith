@@ -70,7 +70,7 @@
     explosionType: Default
     maxIntensity: 120
     intensitySlope: 15
-    totalIntensity: 550
+    totalIntensity: 350
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
@@ -188,7 +188,7 @@
     explosionType: Default
     maxIntensity: 1000
     intensitySlope: 100
-    totalIntensity: 150
+    totalIntensity: 75
   # destructible components below
   - type: Fixtures
     fixtures:
