@@ -224,7 +224,7 @@
 # Viz Sheath
 
 - type: entity
-  parent: ClothingBeltBase
+  parent: [ClothingBeltBase, ClothingSlotBase]
   id: ClothingBeltSheathVizier
   name: grand vizier's sheath
   description: A paired sheath and holster, custom made for grand viziers of the PDV to carry the weapons of their office.
@@ -234,6 +234,20 @@
     state: sheath
   - type: Clothing
     sprite: _Mono/Clothing/Belt/vizier_sheath.rsi
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+      showEnts: False
+      occludes: True
+      ent: null
+    sheath: !type:ContainerSlot
+      showEnts: False
+      occludes: True
+      ent: null
+    holster: !type:ContainerSlot
+      showEnts: False
+      occludes: True
+      ent: null
   - type: ItemSlots
     slots:
       sheath:
