@@ -1,33 +1,22 @@
-using System.Numerics;
 using Content.Server.Physics.Controllers;
 using Content.Server.Shuttles.Components;
-using Content.Shared.Construction.Components;
-using Content.Shared.NPC.Systems;
-using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
+using System.Numerics;
 
 namespace Content.Server._Mono.NPC.HTN;
 
 public sealed partial class ShipSteeringSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MoverController _mover = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private EntityQuery<AnchorableComponent> _anchorableQuery;
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<PhysicsComponent> _physQuery;
     private EntityQuery<ShuttleComponent> _shuttleQuery;
@@ -39,7 +28,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         SubscribeLocalEvent<ShipSteererComponent, GetShuttleInputsEvent>(OnSteererGetInputs);
         SubscribeLocalEvent<ShipSteererComponent, PilotedShuttleRelayedEvent<StartCollideEvent>>(OnShuttleStartCollide);
 
-        _anchorableQuery = GetEntityQuery<AnchorableComponent>();
         _gridQuery = GetEntityQuery<MapGridComponent>();
         _physQuery = GetEntityQuery<PhysicsComponent>();
         _shuttleQuery = GetEntityQuery<ShuttleComponent>();
@@ -62,10 +50,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var target = ent.Comp.Coordinates;
         var targetUid = target.EntityId; // if we have a target try to lead it
 
-        if (ent.Comp.Status == ShipSteeringStatus.InRange
-            || shipUid == null
+        if (shipUid == null
             || TerminatingOrDeleted(targetUid)
-            || !pilotXform.Anchored && ent.Comp.RequireAnchored && _anchorableQuery.HasComp(ent)
             || !_shuttleQuery.TryComp(shipUid, out var shuttle)
             || !_physQuery.TryComp(shipUid, out var shipBody)
             || !_gridQuery.TryComp(shipUid, out var shipGrid))
@@ -73,6 +59,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             ent.Comp.Status = ShipSteeringStatus.InRange;
             return;
         }
+        ent.Comp.Status = ShipSteeringStatus.Moving;
 
         var shipXform = Transform(shipUid.Value);
         args.GotInput = true;

@@ -2,135 +2,173 @@
 - type: htnCompound
   id: RamShuttleCompound
   branches:
-    - tasks:
-      - !type:HTNPrimitiveTask
-        operator: !type:UtilityOperator
-          proto: NearbyShuttleTargets
-      - !type:HTNCompoundTask
-        task: ShuttleRamTargetCompound
-      - !type:HTNCompoundTask
-        task: ShuttleBackOffCompound
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleRamTargetCompound
+    - !type:HTNCompoundTask
+      task: ShuttleBackOffCompound
 
 # same, but with leading
 - type: htnCompound
   id: RamShuttleSmartCompound
   branches:
-    - tasks:
-      - !type:HTNPrimitiveTask
-        operator: !type:UtilityOperator
-          proto: NearbyShuttleTargets
-      - !type:HTNCompoundTask
-        task: ShuttleRamTargetSmartCompound
-      - !type:HTNCompoundTask
-        task: ShuttleBackOffCompound
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleRamTargetSmartCompound
+    - !type:HTNCompoundTask
+      task: ShuttleBackOffCompound
 
 # approaches closest shuttle with parent ship
 - type: htnCompound
   id: ApproachShuttleCompound
   branches:
-    - tasks:
-      - !type:HTNPrimitiveTask
-        operator: !type:UtilityOperator
-          proto: NearbyShuttleTargets
-      - !type:HTNCompoundTask
-        task: ShuttleGoToTargetCompound
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleGoToTargetCompound
+
+- type: htnCompound
+  id: AttackShuttleCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleAttackCompound
 
 - type: utilityQuery
   id: NearbyShuttleTargets
   query:
-    - !type:NearbyHostileShuttlesQuery
-      blacklist:
-        tags:
-        - ShuttleAIIgnore
-        components:
-        - ForceAnchor
+  - !type:NearbyHostileShuttlesQuery
+    blacklist:
+      tags:
+      - ShuttleAIIgnore
   considerations:
-    - !type:TargetInverseDistanceCon
-      curve: !type:QuadraticCurve
-        slope: 1
-        exponent: 1
-        yOffset: 0
-        xOffset: 0
+  - !type:TargetInverseDistanceCon
+    curve: !type:QuadraticCurve
+      slope: 1
+      exponent: 1
+      yOffset: 0
+      xOffset: 0
 
 - type: htnCompound
   id: ShuttleRamTargetCompound
   branches:
-    - preconditions:
-      - !type:KeyExistsPrecondition
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: Target
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        inRangeMaxSpeed: null # there's no braking where we're going
+        leadingEnabled: false # else it's too good
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
         key: Target
-      tasks:
-        - !type:HTNPrimitiveTask
-          operator: !type:ShipMoveToOperator
-            shutdownState: TaskFinished
-            removeKeyOnFinish: false
-            inRangeMaxSpeed: null # there's no braking where we're going
-            leadingEnabled: false # else it's too good
-            targetKey: TargetCoordinates
-          services:
-            - !type:UtilityService
-              id: TargetsService
-              proto: NearbyShuttleTargets
-              key: Target
-              coordinatesKey: TargetCoordinates
+        coordinatesKey: TargetCoordinates
 
 - type: htnCompound
   id: ShuttleRamTargetSmartCompound
   branches:
-    - preconditions:
-      - !type:KeyExistsPrecondition
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: Target
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        inRangeMaxSpeed: null # there's no braking where we're going
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
         key: Target
-      tasks:
-        - !type:HTNPrimitiveTask
-          operator: !type:ShipMoveToOperator
-            shutdownState: TaskFinished
-            removeKeyOnFinish: false
-            inRangeMaxSpeed: null # there's no braking where we're going
-            targetKey: TargetCoordinates
-          services:
-            - !type:UtilityService
-              id: TargetsService
-              proto: NearbyShuttleTargets
-              key: Target
-              coordinatesKey: TargetCoordinates
+        coordinatesKey: TargetCoordinates
 
 - type: htnCompound
   id: ShuttleBackOffCompound
   branches:
-    - preconditions:
-      - !type:KeyExistsPrecondition
-        key: Target
-      tasks:
-        - !type:HTNPrimitiveTask
-          operator: !type:ShipMoveToOperator
-            shutdownState: TaskFinished
-            removeKeyOnFinish: false
-            finishOnCollide: false # we might be already collided
-            inRangeMaxSpeed: null # just immediately finish once out of range
-            leadingEnabled: false
-            # be within 200-300m
-            range: 300
-            rangeTolerance: 100
-            targetKey: TargetCoordinates
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: Target
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        finishOnCollide: false # we might be already collided
+        inRangeMaxSpeed: null # just immediately finish once out of range
+        leadingEnabled: false
+        # be within 200-300m
+        range: 300
+        rangeTolerance: 100
+        targetKey: TargetCoordinates
 
 - type: htnCompound
   id: ShuttleGoToTargetCompound
   branches:
-    - preconditions:
-      - !type:KeyExistsPrecondition
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        inRangeMaxSpeed: 0.1
+        range: 250
+        rangeTolerance: 50
+        alwaysFaceTarget: true
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
         key: Target
-      tasks:
-        - !type:HTNPrimitiveTask
-          operator: !type:ShipMoveToOperator
-            shutdownState: TaskFinished
-            removeKeyOnFinish: false
-            inRangeMaxSpeed: 0.1
-            range: 250
-            rangeTolerance: 50
-            alwaysFaceTarget: true
-            targetKey: TargetCoordinates
-          services:
-            - !type:UtilityService
-              id: TargetsService
-              proto: NearbyShuttleTargets
-              key: Target
-              coordinatesKey: TargetCoordinates
+        coordinatesKey: TargetCoordinates
+
+- type: htnCompound
+  id: ShuttleAttackCompound
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: PlanFinished
+        removeKeyOnFinish: false
+        alwaysFaceTarget: true
+        inRangeMaxSpeed: 1
+        range: 250
+        rangeTolerance: 50
+        alwaysFaceTarget: true
+        targetKey: TargetCoordinates
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipFireGunsOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        leadingAccuracy: 0.4
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates

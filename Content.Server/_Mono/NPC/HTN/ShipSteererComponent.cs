@@ -84,14 +84,6 @@ public sealed partial class ShipSteererComponent : Component
     public float? RangeTolerance = null;
 
     /// <summary>
-    /// Whether to require us to be anchored.
-    /// Here because HTN does not allow us to continuously check a condition by itself.
-    /// Ignored if we're not anchorable.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool RequireAnchored = true;
-
-    /// <summary>
     /// Target rotation in relation to movement direction.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
