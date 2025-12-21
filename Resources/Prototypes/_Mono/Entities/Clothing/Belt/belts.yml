@@ -237,9 +237,7 @@
   - type: ContainerContainer
     containers:
       sheath: !type:ContainerSlot
-        ent: []
       holster: !type:ContainerSlot
-        ent: []
   - type: ItemSlots
     slots:
       sheath:
