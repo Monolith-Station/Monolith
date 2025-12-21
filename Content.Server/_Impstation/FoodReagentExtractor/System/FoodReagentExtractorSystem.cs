@@ -1,17 +1,17 @@
 using System.Linq;
+using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Whitelist;
 using Robust.Server.Audio;
 
 namespace Content.Server._Impstation.FoodReagentExtractor;
 
 // TODO the only thing keeping this system in server is food.
 /// <summary>
-///     System for extracting reagents from <see cref="EdibleComponent">.
+///     System for extracting reagents from <see cref="FoodComponent">.
 /// </summary>
 /// <seealso cref="FoodReagentExtractorComponent"/>
 public sealed class FoodReagentExtractorSystem : EntitySystem
@@ -19,7 +19,6 @@ public sealed class FoodReagentExtractorSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -28,12 +27,10 @@ public sealed class FoodReagentExtractorSystem : EntitySystem
 
     private void OnInteractUsing(Entity<FoodReagentExtractorComponent> ent, ref AfterInteractUsingEvent args)
     {
-        if (args.Handled || _whitelist.IsBlacklistPass(ent.Comp.EdibleBlacklist, args.Used))
+        if (args.Handled)
             return;
 
-        args.Handled = true;
-
-        if (!TryComp<EdibleComponent>(args.Used, out var food))
+        if (!TryComp<FoodComponent>(args.Used, out var food))
             return;
 
         if (!_solutionContainer.TryGetSolution(args.Used, food.Solution, out var foodSol) ||

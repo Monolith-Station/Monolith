@@ -1,6 +1,6 @@
 - type: entity
   name: Ouroboros
-  parent: [BaseItem, BaseGunWieldable, Tier3Contraband]
+  parent: [BaseItem, BaseGunWieldable]
   id: WeaponSpecialOuroboros
   description: You can feel a murderous hunger buzzing from deep within the weapon's frame. Its contained creatures demands food for its services.
   components:

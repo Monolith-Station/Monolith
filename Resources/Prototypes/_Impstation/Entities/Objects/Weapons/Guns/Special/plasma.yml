@@ -1,6 +1,6 @@
 - type: entity
-  name: Adder
-  parent: [BaseItem, Tier3Contraband]
+  name: Adder heavy plasma pistol
+  parent: BaseItem
   id: WeaponPlasmaAdder
   description: The future of stellar warfare in the palm of your hand. Uses Echion, produced from advanced synthesizers.
   components:
@@ -63,7 +63,7 @@
     price: 100
 
 - type: entity
-  name: Akurra
+  name: Akurra auto plasma rifle
   parent: [WeaponPlasmaAdder, BaseGunWieldable]
   id: WeaponPlasmaAkurra
   description: A beautiful marriage of technology and malice in a single package. Uses Echion, produced from advanced synthesizers.

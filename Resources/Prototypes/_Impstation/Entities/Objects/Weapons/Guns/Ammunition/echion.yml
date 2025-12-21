@@ -1,7 +1,7 @@
 - type: entity
-  parent: [ BaseItem, Tier3Contraband ]
+  parent: BaseItem
   id: EchionCanister
-  name: Echion Canister
+  name: echion canister
   description: A special, disposable containment device designed for quickly refueling Echion plasma weapons.
   components:
   - type: Sprite

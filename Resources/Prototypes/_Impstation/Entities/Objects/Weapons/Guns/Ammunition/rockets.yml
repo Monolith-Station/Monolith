@@ -1,7 +1,7 @@
 - type: entity
   id: CartridgeBazookaExp
   name: Leviathan explosive rocket
-  parent: [BaseItem, Tier3Contraband]
+  parent: BaseItem
   description: Guaranteed to ruin someone's day.
   components:
   - type: Tag
