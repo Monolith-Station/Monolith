@@ -158,7 +158,6 @@
 - type: entity
   parent:
   - ClothingOuterHardsuitSyndie
-  - ContrabandClothing
   id: ClothingOuterHardsuitSyndieEliteUnremoveable
   name: syndicate hardsuit
   categories: [ HideSpawnMenu ]
@@ -172,7 +171,6 @@
 - type: entity
   parent:
   - ClothingOuterHardsuitSyndie
-  - ContrabandClothing
   id: ClothingOuterHardsuitSyndieBloodRedUnremoveable
   name: syndicate hardsuit
   categories: [ HideSpawnMenu ]
@@ -331,7 +329,7 @@
     sprintModifier: 0.93
 
 - type: entity
-  parent: [BaseC2ContrabandUnredeemable, ClothingOuterHardsuitJuggernaut, EnergyShieldClothing ] # Jugger Suit
+  parent: [ClothingOuterHardsuitJuggernaut, EnergyShieldClothing ] # Jugger Suit
   id: ClothingOuterHardsuitNfsdExperimental
   name: TSFMC M92-X tacsuit
   description: An experimental modification of the M92 tacsuit for spec-ops units of the TSFMC. Durable, and comes with an integrated soft-shield, but at the cost of insulation and heft.
@@ -568,7 +566,7 @@
     coefficient: 0.4
 
 - type: entity
-  parent: [BaseC3PirateContraband, ClothingOuterHardsuitBaseNF]
+  parent: ClothingOuterHardsuitBaseNF
   id: ClothingOuterHardsuitPirateElite
   name: elite pirate hardsuit
   description: An ancient elite armored hardsuit, designed by an unknown bearded man and built like a brick house.

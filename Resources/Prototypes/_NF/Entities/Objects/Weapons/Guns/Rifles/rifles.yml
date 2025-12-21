@@ -54,7 +54,7 @@
 # Frontier
 - type: entity
   name: PA Gestio (7.62x39mm)
-  parent: [ BaseWeaponRifle, BaseC1Contraband ]
+  parent: BaseWeaponRifle
   id: WeaponRifleGestio
   description: An old burst-fire rifle that never left trials. Accepts low capacity 762x39mm magazines.
   components:
@@ -136,7 +136,7 @@
             - Cartridge762x39mmFMJ
 
 - type: entity
-  parent: [ BaseWeaponRifle, BaseC1Contraband ]
+  parent: BaseWeaponRifle
   id: WeaponRifleNovaliteC1
   name: LWC Novalite C1 (5.56x45mm)
   description: A modification to the Lecter from LWC, a civilian grade semi-automatic rifle with an internal magazine. Uses 5.56x45mm ammo.
@@ -216,7 +216,7 @@
 - type: entity
   id: WeaponRifleSVS
   name: NCI SVS-42 (7.62x54mmR)
-  parent: [ BaseWeaponRifle, BaseGunMelee, BaseC1Contraband ]
+  parent: [ BaseWeaponRifle, BaseGunMelee ]
   description: "Originally designed by Samonov, this old surplus rifle looks like it's seen a few wars. Uses low capacity 10 rounder 762x54mmR magazines. Equipped with bayonet."
   components:
   - type: Sprite
@@ -285,7 +285,7 @@
 # Monolith: PMC variants
 - type: entity
   name: PA Gestio (7.62x39mm)
-  parent: [ BaseWeaponRifle, BaseC1Contraband ]
+  parent: BaseWeaponRifle
   id: WeaponRifleGestioPMC
   description: An old burst-fire rifle that never left trials. Accepts low capacity 762x39mm magazines. Acquired legally from a licensed provider.
   components:

@@ -1,7 +1,7 @@
 ﻿- type: entity
   id: WeaponStaffBase
   abstract: true
-  parent: [BaseItem, BaseC3WizardContraband] # Frontier: BaseMagicalContraband<BaseC3WizardContraband
+  parent: BaseItem
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/staves.rsi

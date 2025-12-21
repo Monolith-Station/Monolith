@@ -36,3 +36,47 @@
     soundHit:
       collection: MeatLaserImpact
 
+- type: entity
+  id: HeavyPulse
+  parent: BulletEnergyGunLaser
+  name: Heavy Pulse Bolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: heavystun
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 80
+        Structural: 1000 # So it can break cover
+
+- type: entity
+  id: HeavyPulseExp
+  parent: BaseBulletTrigger
+  name: Explosive Pulse Bolt
+  categories: [ HideSpawnMenu ] 
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: heavystun
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 300
+        Structural: 4500 # So it can break shuttles
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBombShipGun
+    totalIntensity: 50
+    intensitySlope: 2
+    maxIntensity: 5
+
+
+

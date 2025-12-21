@@ -285,6 +285,23 @@ public sealed class NPCUtilitySystem : EntitySystem
 
                 return Math.Clamp(distance / radius, 0f, 1f);
             }
+            // Mono
+            case TargetInverseDistanceCon:
+            {
+                if (!TryComp(targetUid, out TransformComponent? targetXform) ||
+                    !TryComp(owner, out TransformComponent? xform))
+                {
+                    return 0f;
+                }
+
+                if (!targetXform.Coordinates.TryDistance(EntityManager, _transform, xform.Coordinates,
+                        out var distance))
+                {
+                    return 0f;
+                }
+
+                return 1f / (distance + 1f);
+            }
             case TargetAmmoCon:
             {
                 if (!HasComp<GunComponent>(targetUid))
@@ -487,7 +504,8 @@ public sealed class NPCUtilitySystem : EntitySystem
                     if (consGrid == null ||
                         consGrid == ownGrid ||
                         (_transform.GetWorldPosition(consGrid.Value) - _transform.GetWorldPosition(xform)).Length() > shuttlesQuery.Range ||
-                        !this.IsPowered(console, EntityManager))
+                        !this.IsPowered(console, EntityManager) ||
+                        _whitelistSystem.IsBlacklistPass(shuttlesQuery.Blacklist, consGrid.Value))
                     {
                         continue;
                     }

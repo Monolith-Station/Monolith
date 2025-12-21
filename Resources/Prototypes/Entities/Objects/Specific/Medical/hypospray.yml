@@ -1,6 +1,6 @@
 - type: entity
   name: hypospray
-  parent: BaseItem # Frontier: remove BaseGrandTheftContraband
+  parent: BaseItem
   description: The base, unrestricted hypospray. Designed by top Nanotrasen researchers, it features a large chemical storage, along with a next-to-zero injection delay. It has a warning on its side reading "FOR MEDICAL USE ONLY.".
   id: Hypospray
   components:
@@ -29,7 +29,7 @@
 
 - type: entity
   name: gorlex hypospray
-  parent: [BaseItem, BaseC3SyndicateContraband] # Frontier: add BaseC3SyndicateContraband
+  parent: BaseItem
   description: Using reverse engineered designs from NT, Cybersun produced these in limited quantities for Gorlex Marauder operatives.
   id: SyndiHypo
   components:
@@ -78,7 +78,7 @@
 - type: entity
   name: experimental hypospray
   suffix: Admeme
-  parent: [BaseClearContraband, SyndiHypo] # Frontier: added BaseClearContraband
+  parent: SyndiHypo
   description: The ultimate application of bluespace technology and rapid chemical administration.
   id: AdminHypo
   components:
@@ -414,7 +414,7 @@
 
 - type: entity
   name: hyperzine injector
-  parent: [ChemicalMedipen, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: ChemicalMedipen
   id: Stimpack
   description: Contains enough hyperzine for you to have the chemical's effect for 30 seconds. Use it when you're sure you're ready to throw down.
   components:
@@ -446,7 +446,7 @@
 
 - type: entity
   name: hyperzine microinjector
-  parent: [ChemicalMedipen, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: ChemicalMedipen
   id: StimpackMini
   description: A microinjector of hyperzine that give you about 15 seconds of the chemical's effects.
   components:
@@ -473,7 +473,7 @@
 
 - type: entity
   name: combat medipen
-  parent: [ChemicalMedipen] #Mono Removed C3SyndieContraband
+  parent: [ChemicalMedipen]
   id: CombatMedipen
   description: A single-use medipen containing chemicals that regenerate most types of damage.
   components:
@@ -508,7 +508,7 @@
 - type: entity
   name: pen
   suffix: Hypopen
-  parent: [Pen, BaseC3SyndicateContraband] # It is just like normal pen, isn't it?
+  parent: Pen # It is just like normal pen, isn't it?
   description: A dark ink pen.
   id: Hypopen
   components:
@@ -529,11 +529,9 @@
     price: 75
   - type: EmitSoundOnUse
     handle: false # don't want the sound to stop the self-inject from triggering
-  - type: Contraband # Frontier
-    hideValues: true # Frontier - stealthy
 
 - type: entity
-  parent: [ BaseItem, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseItem
   id: HypopenBox
   name: hypopen box
   description: A small box containing a hypopen. Packaging disintegrates when opened, leaving no evidence behind.

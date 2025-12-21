@@ -189,3 +189,21 @@
       - state: equipped-HAND-sealed
       gloves-resomi:
       - state: equipped-HAND-sealed-resomi
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+    projectileSpeed: 65 # Mono
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - Cartridge45_magnumFMJ
+    capacity: 6
+    proto: Cartridge45_magnumFMJ
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []

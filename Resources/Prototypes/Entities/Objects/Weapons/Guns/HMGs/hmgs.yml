@@ -40,7 +40,7 @@
 - type: entity
   name: minigun
   id: WeaponMinigun
-  parent: [ BaseWeaponHeavyMachineGun, BaseC3Contraband ] # Frontier: BaseMajorContraband<BaseC3Contraband
+  parent: BaseWeaponHeavyMachineGun
   description: Vzzzzzt! Rahrahrahrah! Vrrrrr! Uses .10 rifle ammo. Illegal for use in the Frontier sector. # Frontier: edit description
   components:
   - type: Sprite

@@ -10,7 +10,7 @@
   recipeUnlocks:
   - BorgModuleGardening
   - BorgModuleHarvesting
-  #- PlantBagOfHolding
+  - PlantBagOfHolding
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
@@ -24,7 +24,6 @@
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
-  # Mono edit end
   technologyPrerequisites:
   - BasicParts
   position: 3, -1

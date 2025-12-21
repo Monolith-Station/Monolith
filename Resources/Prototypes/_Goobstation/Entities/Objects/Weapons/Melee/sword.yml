@@ -1,6 +1,6 @@
 - type: entity
   name: navy officer's sabre
-  parent: [ BaseSword, BaseCentcommContraband ]
+  parent: BaseSword
   id: NavyOfficerSabre
   description: Plastitanium sabre used primarily in ceremonies by naval officers, it remains a proven weapon. # Mono added mention of plastitanium to description to explain its heightened damage
   components:

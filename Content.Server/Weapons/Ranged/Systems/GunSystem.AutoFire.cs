@@ -34,9 +34,6 @@ public sealed partial class GunSystem
 
         while (query.MoveNext(out var uid, out var gun))
         {
-            if (gun.NextFire > Timing.CurTime)
-                continue;
-
             if (gun.BurstActivated)
             {
                 var parent = _transform.GetParentUid(uid);

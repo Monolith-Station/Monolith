@@ -18,6 +18,9 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
+  - type: Tag
+    tags:
+    - Sidearm
   - type: Appearance
   - type: Battery
     startingCharge: 1500
@@ -64,6 +67,7 @@
     minAngle: 18
     maxAngle: 26
     fireRate: 1.5
+    burstCooldown: 0.75
     burstFireRate: 12
     shotsPerBurst: 2
     selectedMode: SemiAuto

@@ -28,7 +28,7 @@
 
 #Syndicate EVA Helmet
 - type: entity
-  parent: [ClothingHeadEVAHelmetBase, BaseC3SyndicateContraband, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
+  parent: [ClothingHeadEVAHelmetBase]
   id: ClothingHeadHelmetSyndicate
   name: syndicate EVA helmet
   description: A simple, stylish EVA helmet. Designed for maximum humble space-badassery.

@@ -2,7 +2,7 @@
   id: BaseCartridge57x28mm
   name: cartridge (5.7x28mm FMJ)
   description: A small PDW cartridge. More internal damage than 4.6, but less armor-piercing capabilities. Formerly infamous for its high cost.
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseCartridge
   abstract: true
   components:
   - type: Tag

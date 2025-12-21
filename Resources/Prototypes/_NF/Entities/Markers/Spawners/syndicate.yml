@@ -50,11 +50,17 @@
         - CrateTradeContrabandSecure3
         - CrateNanotrasenLootFilledT1 # Mono
       rarePrototypes:
-        - CrateNanotrasenLootFilledT1 # Mono
-        - CrateNanotrasenLootFilledT1 # Mono
         - CrateSyndicateSurplusBundle
         - CrateSyndicateSurplusBundle
         - CrateSyndicateSuperSurplusBundle
+# Begin Mono additions
+        - CrateSyndicateSurplusBundle
+        - CrateSyndicateSurplusBundle
+        - CrateSyndicateSuperSurplusBundle
+        - CrateNanotrasenLootFilledT3
+        - CrateNanotrasenLootFilledT2
+        - CrateNanotrasenLootFilledT2
+# End Mono Additions
       rareChance: 0.1
 
 - type: entity

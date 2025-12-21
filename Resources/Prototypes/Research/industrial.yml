@@ -224,10 +224,10 @@
   tier: 2
   cost: 15000 # aint that good tbh.
   recipeUnlocks:
-  #- OreBagOfHolding
+  - OreBagOfHolding
   - MiningDrillDiamond
   - AdvancedMineralScannerEmpty
-  #- NFBlueprintOreBagOfHolding # Frontier
+  - NFBlueprintOreBagOfHolding # Frontier
   - NFBlueprintMiningDrillDiamond # Frontier
   - NFBlueprintAdvancedMineralScannerEmpty # Frontier
   - BorgModuleAdvancedMining # Frontier
@@ -267,6 +267,7 @@
   cost: 22500
   recipeUnlocks:
   - PowerCellMicroreactor
+  - PowerCellCombat # Mono
   - NFBlueprintPowerCellMicroreactor # Frontier
   - PortableGeneratorDKJrMachineCircuitboard # Frontier
   - NFBlueprintPortableGeneratorDKJr # Frontier

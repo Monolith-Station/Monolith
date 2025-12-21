@@ -14738,3 +14738,370 @@ Entries:
   id: 1634
   time: '2025-12-07T15:33:23.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2735
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: 'Modsuit seal/unseal time has been decreased: 7s -> 1.8s'
+  id: 1635
+  time: '2025-12-07T21:06:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2766
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Added new combat batteries with EMP shielding. You can be safe now, IPCs
+  id: 1636
+  time: '2025-12-07T21:07:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2761
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Loadout acquisition of SVS (15000) and Mosin (5000) by mercenaries is
+        now possible. 7.62×54mmR mag box (1000) included.
+  id: 1637
+  time: '2025-12-08T20:57:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2770
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        You can now stash items in cakes like a plushie. All credit to
+        beck-thompson
+  id: 1638
+  time: '2025-12-08T20:59:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2769
+- author: UnicornOnLSD
+  changes:
+    - type: Add
+      message: >-
+        The DIS Pluto MK. II has pierced it's way on the hull market. A
+        replacement of the honorable Pluto. 
+    - type: Remove
+      message: >-
+        DIS Pluto hulls are no longer available on the hull market. We will miss
+        you, space cowboy.
+  id: 1639
+  time: '2025-12-08T21:04:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2763
+- author: NazrinNya
+  changes:
+    - type: Remove
+      message: >-
+        SCAF suit, soldat and mercenary modsuits were removed from loadouts.
+        SCAF suit storage is replaced with mercenary suit storage on all maps.
+    - type: Tweak
+      message: Mercenary modsuit migrated to T3 research.
+    - type: Tweak
+      message: Added civilian mod/hardsuits to loadouts.
+  id: 1640
+  time: '2025-12-09T12:27:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2771
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Added new armored medical shuttle - Dervi.
+  id: 1641
+  time: '2025-12-09T12:58:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2762
+- author: Avalon-Proto
+  changes:
+    - type: Add
+      message: A new pulse cannon from he corporate war has been seen in sector
+    - type: Tweak
+      message: NT Lootcrates contents adjusted
+  id: 1642
+  time: '2025-12-09T13:59:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2515
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: Typo fixes for NT things
+  id: 1643
+  time: '2025-12-10T12:15:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2776
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Diagonal lattice and plating now properly renders on radar.
+  id: 1644
+  time: '2025-12-10T20:20:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2772
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        You can use your suit storage slot without actually wearing outerwear
+        now
+  id: 1645
+  time: '2025-12-10T20:21:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2777
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: >-
+        The TSFMC Volta modsuit has received a security hud and welding
+        protection
+    - type: Add
+      message: TSFMC Engineer now spawns with a pouch
+  id: 1646
+  time: '2025-12-11T12:45:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2786
+- author: core-mene
+  changes:
+    - type: Fix
+      message: Fixed part of stripping UI being hiden.
+  id: 1647
+  time: '2025-12-12T18:35:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2783
+- author: DieselMohawkTheSequel
+  changes:
+    - type: Fix
+      message: Fixed MS-250 recharge rate.
+  id: 1648
+  time: '2025-12-13T06:19:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2794
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Hand-mining improvement: All non-autoswinging mining tools were given
+        autoswing.
+  id: 1649
+  time: '2025-12-13T06:38:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2791
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Oni can now accurately mark targets with the crusher.
+  id: 1650
+  time: '2025-12-13T08:06:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2795
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: Gave the RX-01 voidboots
+    - type: Remove
+      message: Removed the RX-01 from research
+    - type: Tweak
+      message: >-
+        Spasaka sabotage kit has gotten equipment changes to help with boarding
+        as well as receiving the RX-01 suit. 
+  id: 1651
+  time: '2025-12-13T08:10:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2782
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Cortical borer hosts consuming sugar now blocks their borer from
+        attacking them
+    - type: Tweak
+      message: Cortical borers can now pilot VIM mechs!
+  id: 1652
+  time: '2025-12-14T08:53:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2797
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Bluespace ore and plant bags can be researched manually again
+  id: 1653
+  time: '2025-12-14T13:18:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2788
+- author: Ilya246
+  changes:
+    - type: Add
+      message: ADS core and manipulator names changed to be procedurally generated.
+    - type: Tweak
+      message: ADS manipulator laws changed to have to obey ADS cores.
+  id: 1654
+  time: '2025-12-14T14:00:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2789
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Gygax health 1000 -> 500. Dark gygax health 1250 -> 900.
+  id: 1655
+  time: '2025-12-14T14:04:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2793
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: You can now see other ships in FTL.
+  id: 1656
+  time: '2025-12-14T14:27:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2773
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: 255mm damage has been increased.
+    - type: Tweak
+      message: >-
+        Some of modsuit gauntlets can punch things now (Soldat gauntlets now act
+        as stunbaton, as an example).
+    - type: Fix
+      message: Fixed dervi not having directional fan.
+    - type: Tweak
+      message: Pulse carbine and U.I Pulse Rifle burst cooldowns were increased.
+    - type: Tweak
+      message: Welder swords received buff (18 damage -> 30 damage).
+    - type: Add
+      message: >-
+        Added two DEBUG entities - Indestructible plastitanium wall with damage
+        popup and omnigun which you can load with any entity you want.
+  id: 1657
+  time: '2025-12-14T19:43:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2798
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Both faction bases are now hidden and spawn far out.
+  id: 1658
+  time: '2025-12-15T21:42:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2802
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: Thrusters can now be directly hit by projectiles
+  id: 1659
+  time: '2025-12-15T21:43:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2801
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked contraband. Almost all items are no longer contraband, and
+        instead some items are marked as faction gear and can be handed in by
+        the opposite faction. More will be marked soon.
+  id: 1660
+  time: '2025-12-17T00:08:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2804
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: >-
+        Mercenary modsuit gauntlets are capable of shooting magnum bullets now.
+        Make sure to reload them!
+  id: 1661
+  time: '2025-12-17T12:20:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2807
+- author: thoughtlessuser
+  changes:
+    - type: Add
+      message: Added CV-67 to Grand Vizier's storage unit!
+    - type: Fix
+      message: >-
+        Moved Helios's armory into its old artillery room and gave it roundstart
+        SCAF. Added medical necessities to Helios and small changes to Helios
+        interior.
+  id: 1662
+  time: '2025-12-17T12:20:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2787
+- author: thoughtlessuser
+  changes:
+    - type: Add
+      message: Added visible HP value to all structures.
+  id: 1663
+  time: '2025-12-17T23:47:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2813
+- author: thoughtlessuser
+  changes:
+    - type: Fix
+      message: Fixed sprite issue with CV-67 inhands!
+  id: 1664
+  time: '2025-12-17T23:48:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2812
+- author: OneZerooo0
+  changes:
+    - type: Fix
+      message: Hopefully fixed mech blindness bug.
+  id: 1665
+  time: '2025-12-18T22:48:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2817
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: >-
+        Cryopod collisions now match visual expectations: you can walk "behind"
+        them now.
+  id: 1666
+  time: '2025-12-19T16:02:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2824
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Spessbite received a huge overhaul: Rear docks, food assembler, and
+        biogenerator were added. Atmos totally redone. External layout shuffled.
+        Price reduced to 35000.
+    - type: Remove
+      message: >-
+        The Rhea, one of the oldest ships in Monolith breathes its last breath.
+        Rest in peace.
+  id: 1667
+  time: '2025-12-20T17:32:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2830
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Added hostile AI drones with loot to the >20km area and rarely further
+        in.
+  id: 1668
+  time: '2025-12-20T17:35:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2811
+- author: thoughtlessuser
+  changes:
+    - type: Fix
+      message: Replaced CV-67 human equipped sprite with its intended design.
+  id: 1669
+  time: '2025-12-20T17:38:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2833
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Sellsword: Received spare Vespera magazines. Atmos and external tiling
+        touched up.
+    - type: Tweak
+      message: >-
+        Takeaway: Received biogenerator and spare biomass. Atmos and external
+        tiling touched up.
+  id: 1670
+  time: '2025-12-20T17:44:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2826
+- author: Helicaste
+  changes:
+    - type: Add
+      message: >-
+        Added NoSignalOnLink component to Airlocks, causing them to not
+        immediately trigger networks when linked.
+    - type: Add
+      message: Added signal network compatibility to most grenades. Happy saw trapping!
+  id: 1671
+  time: '2025-12-20T17:55:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2825
+- author: whythelettuce
+  changes:
+    - type: Add
+      message: 'Velios: New Medical Shuttle'
+    - type: Remove
+      message: Removed Shirokami
+  id: 1672
+  time: '2025-12-20T18:36:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2715
+- author: Helicaste
+  changes:
+    - type: Add
+      message: >-
+        Added standard PDV ballistic turret for future mapping. They didn't have
+        one.
+  id: 1673
+  time: '2025-12-20T18:56:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2820
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: The Saintie is now worthy of being called the Grand Vizier's ship
+  id: 1674
+  time: '2025-12-20T19:14:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2759

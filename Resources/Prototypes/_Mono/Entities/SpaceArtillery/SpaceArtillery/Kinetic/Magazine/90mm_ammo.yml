@@ -36,7 +36,7 @@
 - type: entity
   id: 90mmCartridge
   name: cartridge (90mm)
-  parent: [ BaseCartridge, BaseC1Contraband ]
+  parent: BaseCartridge
   components:
   - type: Tag
     tags:

@@ -1,7 +1,7 @@
 - type: entity
   id: ClothingHeadHatBH
   name: "bounty hunter's hat"
-  parent: [ BaseC1Contraband, ClothingHeadHatHoshat ]
+  parent: ClothingHeadHatHoshat
   description: "There's a new bounty hunter in the sector."
   components:
   - type: Sprite

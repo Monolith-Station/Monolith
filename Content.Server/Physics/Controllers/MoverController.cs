@@ -9,6 +9,7 @@ using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Ghost; // Frontier
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using DroneConsoleComponent = Content.Server.Shuttles.DroneConsoleComponent;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
@@ -35,6 +36,8 @@ public sealed class MoverController : SharedMoverController
         SubscribeLocalEvent<InputMoverComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<InputMoverComponent, PlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<PilotComponent, GetShuttleInputsEvent>(OnPilotGetInputs); // Mono
+
+        SubscribeLocalEvent<PilotedShuttleComponent, StartCollideEvent>(PilotedShuttleRelayEvent<StartCollideEvent>); // Mono
     }
 
     private void OnRelayPlayerAttached(Entity<RelayInputMoverComponent> entity, ref PlayerAttachedEvent args)
@@ -61,14 +64,26 @@ public sealed class MoverController : SharedMoverController
 
     private void OnPilotGetInputs(Entity<PilotComponent> entity, ref GetShuttleInputsEvent args)
     {
-        var input = GetPilotVelocityInput(entity.Comp);
         args.GotInput = true;
 
+        if (Paused(args.ShuttleUid) || !CanPilot(args.ShuttleUid) || !HasComp<PhysicsComponent>(args.ShuttleUid))
+            return;
+
+        var input = GetPilotVelocityInput(entity.Comp);
         // don't slow down the ship if we're just looking at the console with zero input
         if (input.Brakes == 0f && input.Rotation == 0f && input.Strafe.LengthSquared() == 0f)
             return;
 
         args.Input = input;
+    }
+
+    private void PilotedShuttleRelayEvent<TEvent>(Entity<PilotedShuttleComponent> entity, ref TEvent args)
+    {
+        foreach (var pilot in entity.Comp.InputSources)
+        {
+            var relayEv = new PilotedShuttleRelayedEvent<TEvent>(args);
+            RaiseLocalEvent(pilot, ref relayEv);
+        }
     }
 
     protected override bool CanSound()
@@ -284,7 +299,8 @@ public sealed class MoverController : SharedMoverController
 
         var horizScale = MathF.Abs(horizThrust / dir.X);
         var vertScale = MathF.Abs(vertThrust / dir.Y);
-        dir *= MathF.Min(horizScale, vertScale);
+        // prevent NaNs
+        dir *= dir.X == 0 ? vertScale : dir.Y == 0 ? horizScale : MathF.Min(horizScale, vertScale);
 
         return dir;
     }
@@ -295,6 +311,9 @@ public sealed class MoverController : SharedMoverController
     /// </summary>
     public Vector2 ObtainMaxVel(Vector2 vel, ShuttleComponent shuttle, PhysicsComponent body) // mono
     {
+        if (vel.Length() == 0f)
+            return Vector2.Zero;
+
         var thrust = GetDirectionThrust(vel, shuttle, body);
         var twr = thrust.Length() / body.Mass;
         var twrMult = MathF.Pow(twr / shuttle.BaseMaxVelocityTWR, shuttle.MaxVelocityScalingExponent);
@@ -313,7 +332,7 @@ public sealed class MoverController : SharedMoverController
 
             foreach (var pilot in piloted.InputSources)
             {
-                var inputsEv = new GetShuttleInputsEvent();
+                var inputsEv = new GetShuttleInputsEvent(frameTime, uid);
                 RaiseLocalEvent(pilot, ref inputsEv);
 
                 if (!inputsEv.GotInput)
@@ -476,7 +495,7 @@ public sealed class MoverController : SharedMoverController
                 // if we're going faster than we can be, thrust to adjust our velocity to the max wish-direction velocity
                 if (localVel.LengthSquared() > maxVelocity.LengthSquared())
                 {
-                    var velDelta = maxWishVelocity - maxVelocity;
+                    var velDelta = maxWishVelocity - localVel;
                     var maxForceLength = velDelta.Length() * body.Mass / frameTime;
                     var appliedLength = MathF.Min(totalForce.Length(), maxForceLength);
                     totalForce = velDelta.Length() == 0 ? Vector2.Zero : velDelta.Normalized() * appliedLength;
@@ -556,9 +575,6 @@ public sealed class MoverController : SharedMoverController
         // then do the movement input once for it.
         foreach (var (shuttleUid, (shuttle, pilots)) in _shuttlePilots)
         {
-            if (Paused(shuttleUid) || CanPilot(shuttleUid) || !TryComp<PhysicsComponent>(shuttleUid, out var body))
-                continue;
-
             foreach (var (pilotUid, _, _, _) in pilots)
             {
                 AddPilot(shuttleUid, pilotUid);
@@ -587,9 +603,7 @@ public sealed class MoverController : SharedMoverController
 
     private bool CanPilot(EntityUid shuttleUid)
     {
-        return TryComp<FTLComponent>(shuttleUid, out var ftl)
-        && (ftl.State & (FTLState.Starting | FTLState.Travelling | FTLState.Arriving)) != 0x0
-            || HasComp<PreventPilotComponent>(shuttleUid);
+        return !HasComp<PreventPilotComponent>(shuttleUid);
     }
 
 }

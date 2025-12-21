@@ -1,4 +1,5 @@
 using Content.Server.NPC.Systems;
+using Content.Shared.Whitelist;
 
 // Mono - whole file
 
@@ -11,4 +12,8 @@ public sealed partial class NearbyHostileShuttlesQuery : UtilityQuery
 {
     [DataField]
     public float Range = 2000f;
+
+    // TODO: make this use factions
+    [DataField]
+    public EntityWhitelist Blacklist = new();
 }

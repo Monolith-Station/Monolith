@@ -60,7 +60,7 @@
 # S2 Mechas
 - type: entity
   id: BaseAFInterceptor
-  parent: [ BaseMech, LightMechMount, BaseRestrictedContraband ]
+  parent: [ BaseMech, LightMechMount ]
   abstract: true
   categories: [ HideSpawnMenu ]
   name: AF-28 "Broadsword"
@@ -276,7 +276,7 @@
 #4x4 mechas
 - type: entity
   id: AFFlail
-  parent: [ BaseMech, HeavyMechMount, BaseRestrictedContraband ]
+  parent: [ BaseMech, HeavyMechMount ]
   name: ASF-59 "Flail"
   description: Newest mech on the market, the Armored Strike Frame is built to tackle ship-sized foes with it's oversized weapon mounts. Slow as a pig however, it tacks on generous armor plating to survive it's runs.
   components:
