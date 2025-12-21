@@ -15026,3 +15026,82 @@ Entries:
   id: 1666
   time: '2025-12-19T16:02:29.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2824
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Spessbite received a huge overhaul: Rear docks, food assembler, and
+        biogenerator were added. Atmos totally redone. External layout shuffled.
+        Price reduced to 35000.
+    - type: Remove
+      message: >-
+        The Rhea, one of the oldest ships in Monolith breathes its last breath.
+        Rest in peace.
+  id: 1667
+  time: '2025-12-20T17:32:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2830
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Added hostile AI drones with loot to the >20km area and rarely further
+        in.
+  id: 1668
+  time: '2025-12-20T17:35:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2811
+- author: thoughtlessuser
+  changes:
+    - type: Fix
+      message: Replaced CV-67 human equipped sprite with its intended design.
+  id: 1669
+  time: '2025-12-20T17:38:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2833
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Sellsword: Received spare Vespera magazines. Atmos and external tiling
+        touched up.
+    - type: Tweak
+      message: >-
+        Takeaway: Received biogenerator and spare biomass. Atmos and external
+        tiling touched up.
+  id: 1670
+  time: '2025-12-20T17:44:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2826
+- author: Helicaste
+  changes:
+    - type: Add
+      message: >-
+        Added NoSignalOnLink component to Airlocks, causing them to not
+        immediately trigger networks when linked.
+    - type: Add
+      message: Added signal network compatibility to most grenades. Happy saw trapping!
+  id: 1671
+  time: '2025-12-20T17:55:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2825
+- author: whythelettuce
+  changes:
+    - type: Add
+      message: 'Velios: New Medical Shuttle'
+    - type: Remove
+      message: Removed Shirokami
+  id: 1672
+  time: '2025-12-20T18:36:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2715
+- author: Helicaste
+  changes:
+    - type: Add
+      message: >-
+        Added standard PDV ballistic turret for future mapping. They didn't have
+        one.
+  id: 1673
+  time: '2025-12-20T18:56:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2820
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: The Saintie is now worthy of being called the Grand Vizier's ship
+  id: 1674
+  time: '2025-12-20T19:14:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2759
