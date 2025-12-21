@@ -236,10 +236,6 @@
     sprite: _Mono/Clothing/Belt/vizier_sheath.rsi
   - type: ContainerContainer
     containers:
-      item: !type:ContainerSlot
-      showEnts: False
-      occludes: True
-      ent: null
     sheath: !type:ContainerSlot
       showEnts: False
       occludes: True
