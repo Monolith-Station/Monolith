@@ -1,0 +1,59 @@
+- type: entity
+  name: MWC hailstorm submachine gun
+  parent: [BaseItem]
+  id: WeaponSubMachineGunHailstorm
+  description: A Corporate-Era SMG, a design based off of the corporate war era c20r. It features improved accuracy at the cost of having a lower rate of fire. It is equipped with incendiary rounds to help incapacitate organic targets.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+    map: ["enum.GunVisualLayers.Base"]
+    sprite: _Mono/Objects/Weapons/Guns/SMGs/hailstorm.rsi
+  - type: Item
+    size: Large
+    sprite: _Mono/Objects/Weapons/Guns/SMGs/hailstorm_inhands_32x.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/SMGs/hailstorm_inhands_32x.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    selectedMode: Burst
+    fireRate: 12
+    projectileSpeed: 60
+    minAngle: 6
+    maxAngle: 12
+    shotsPerBurst: 3
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletHailstorm
+    capacity: 18
+    count: 18
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1.2
+    rechargeSound:
+      path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
+  - type: AmmoCounter
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/pistol_mouse.rsi
+      state: all
+
+- type: entity
+  id: BulletHailstorm
+  name: bullet (9x19mm caseless)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+        Heat: 6

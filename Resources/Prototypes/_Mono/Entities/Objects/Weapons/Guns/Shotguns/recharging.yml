@@ -1,0 +1,55 @@
+- type: entity
+  name: MWC Breacher (12 gauge)
+
+  parent: [BaseItem, BaseGunWieldable]
+  id: WeaponShotgunBreacher
+  description: An automatic self ammo replicating shotgun for close-quarters combat. Kicks like a mule on steroids. Uses 12 gauge shotgun shells.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Large
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 2.5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: BasicEntityAmmoProvider
+    proto: PelletBreacher
+    capacity: 6
+    count: 6
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1.2
+    rechargeSound:
+      path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
+  - type: AmmoCounter
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+
+- type: entity
+  id: PelletBreacher
+  name: shell (Pellet23x75mmIncendiary)
+  parent: Pellet12_gaugeSpread
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 8
+        Heat: 15
+        Structural: 80

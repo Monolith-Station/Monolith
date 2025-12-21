@@ -48,3 +48,56 @@
       types:
         Piercing: 40
     armorPenetration: 0.5
+
+- type: entity
+  parent: [ WeaponPistolAnaconda]
+  id: WeaponPistolBlink
+  name: MWC Blink
+  description: A modified Anaconda that shoots experimental incendiary .45 ACP.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Pistols/blink.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Pistols/blink.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Gun
+    fireRate: 2.5
+    projectileSpeed: 80
+    availableModes:
+    - Burst
+    - SemiAuto
+    burstCooldown: 1
+    burstFireRate: 7.5
+    shotsPerBurst: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/hpistol.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletBlink
+    capacity: 10
+    count: 10
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 2
+    rechargeSound:
+      path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
+  - type: AmmoCounter
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+
+- type: entity
+  id: BulletBlink
+  name: bullet (.45 ACP caseless)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+        Heat: 10
