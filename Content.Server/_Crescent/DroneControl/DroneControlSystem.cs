@@ -89,14 +89,14 @@ public sealed class DroneControlSystem : EntitySystem
 
     private void SendToSelected(EntityUid source, HashSet<NetEntity> selected, NetworkPayload payload)
     {
-        if (!TryComp<DeviceListComponent>(uid, out var devList))
+        if (!TryComp<DeviceListComponent>(source, out var devList))
             return;
 
         var linked = _deviceList.GetDeviceList(source, devList);
 
         foreach (var (name, droneUid) in linked)
         {
-            if (selected.Contains(droneUid))
+            if (selected.Contains(GetNetEntity(droneUid)) && TryComp<DeviceNetworkComponent>(droneUid, out var droneNet))
                 _deviceNetwork.QueuePacket(source, droneNet.Address, payload);
         }
     }
