@@ -1,26 +1,3 @@
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-// SPDX-FileCopyrightText: 2020 chairbender
-// SPDX-FileCopyrightText: 2020 zumorica
-// SPDX-FileCopyrightText: 2021 20kdc
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 Acruid
-// SPDX-FileCopyrightText: 2022 Mervill
-// SPDX-FileCopyrightText: 2022 mirrorcult
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Henry
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 Slava0135
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 eoineoineoin
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2024 Jake Huxell
-// SPDX-FileCopyrightText: 2024 Kot
-// SPDX-FileCopyrightText: 2024 sleepyyapril
-// SPDX-FileCopyrightText: 2025 J
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Disposal.Tube;
 using Content.Shared.Body.Components;

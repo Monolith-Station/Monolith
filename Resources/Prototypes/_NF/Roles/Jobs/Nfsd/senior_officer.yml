@@ -1,24 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Checkraze
-# SPDX-FileCopyrightText: 2023 DrSmugleaf
-# SPDX-FileCopyrightText: 2023 LankLTE
-# SPDX-FileCopyrightText: 2023 Nairod
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 PrPleGoo
-# SPDX-FileCopyrightText: 2023 TsjipTsjip
-# SPDX-FileCopyrightText: 2023 coolmankid12345
-# SPDX-FileCopyrightText: 2024 AndresE55
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 neuPanda
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: job
   id: SeniorOfficer
   name: job-name-senior-officer
@@ -33,13 +12,6 @@
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
       time: 90000 # 25 hours # mono
-  alternateRequirementSets:
-    longerPlaytimeLessSec:
-    - !type:OverallPlaytimeRequirement
-      time: 108000 # 12 hours # mono
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 21600 # 6 hours
   startingGear: SeniorOfficerGear
   icon: JobIconSergeant
   supervisors: job-supervisors-sheriff

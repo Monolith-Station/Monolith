@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: MPL-2.0
-
 - type: entity
   parent: BaseSubdermalImplant
   id: GaryTranslatorImplant
@@ -14,5 +10,20 @@
     - Gary
     spoken:
     - Gary
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: NovaCygniTranslatorImplant
+  name: NovaCygni translator implant
+  description: An implant that helps you speak and understand the language of the USSP.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - NovaCygniBasic
+    spoken:
+    - NovaCygniBasic
     requires:
     - TauCetiBasic

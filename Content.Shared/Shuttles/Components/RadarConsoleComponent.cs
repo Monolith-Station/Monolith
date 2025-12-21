@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Shared.Shuttles.Systems;
 using Robust.Shared.GameStates;
 
@@ -51,7 +42,7 @@ public sealed partial class RadarConsoleComponent : Component
 
     // <Mono>
     [DataField]
-    public bool Pannable = false;
+    public bool Pannable = true;
 
     [DataField]
     public bool RelativePanning = false;

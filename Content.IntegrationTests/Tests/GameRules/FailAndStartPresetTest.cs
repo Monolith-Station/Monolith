@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2024 DrSmugleaf
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 deltanedas
-// SPDX-FileCopyrightText: 2025 Redrover1760
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 #nullable enable
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;

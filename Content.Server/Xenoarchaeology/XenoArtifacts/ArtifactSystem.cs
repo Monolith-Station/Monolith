@@ -151,11 +151,11 @@ public sealed partial class ArtifactSystem : EntitySystem
                 return;
         }
 
-        // Science should happen on shuttles or stations.
-        if (_station.GetOwningStation(xform.GridUid) == null)
-        {
-            disintegrateProb += disintegrateProbOffStationGrid;
-        }
+        // Science should happen on shuttles or stations. //MONO: disable anti fun
+        //if (_station.GetOwningStation(xform.GridUid) == null)
+        //{
+        //    disintegrateProb += disintegrateProbOffStationGrid;
+        //}
 
         if (_random.Prob(disintegrateProb))
         {
@@ -175,7 +175,7 @@ public sealed partial class ArtifactSystem : EntitySystem
         {
             // Activate the artifact, but consume any points from newly visited nodes.
             bool oldRemove = artifactComp.RemoveGainedPoints;
-            artifactComp.RemoveGainedPoints = true;
+            artifactComp.RemoveGainedPoints = false; //MONO: true >> false, restore fun
             TryActivateArtifact(uid, uid, artifactComp);
             artifactComp.RemoveGainedPoints = oldRemove;
         }

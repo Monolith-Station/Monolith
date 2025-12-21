@@ -78,7 +78,7 @@
       head: ClothingHeadHatHoodWinterBartender
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterCap
   name: captain's winter coat
   components:
@@ -106,7 +106,7 @@
       head: ClothingHeadHatHoodWinterCargo
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterCE
   name: chief engineer's winter coat
   components:
@@ -120,7 +120,7 @@
       head: ClothingHeadHatHoodWinterCE
 
 - type: entity
-  parent: [ ClothingOuterWinterCoatToggleable, BaseCentcommContraband ]
+  parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterCentcom
   name: CentComm winter coat
   components:
@@ -167,7 +167,7 @@
       head: ClothingHeadHatHoodWinterChem
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterCMO
   name: chief medical officer's winter coat
   components:
@@ -233,7 +233,7 @@
       head: ClothingHeadHatHoodWinterSci
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterHoP
   name: head of personnel's winter coat
   components:
@@ -249,7 +249,7 @@
 
 ##########################################################
 - type: entity
-  parent: [ClothingOuterArmorHoS, ClothingOuterWinterCoatToggleable, BaseC2ContrabandUnredeemable]
+  parent: [ClothingOuterArmorHoS, ClothingOuterWinterCoatToggleable]
   id: ClothingOuterWinterHoS
   name: head of security's armored winter coat
   description: A sturdy, utilitarian winter coat designed to protect a head of security from any brig-bound threats and hypothermic events.
@@ -271,7 +271,7 @@
 ##########################################################
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseC2ContrabandUnredeemable]
+  parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterHoSUnarmored
   name: head of security's winter coat
   description: A sturdy coat, a warm coat, but not an armored coat.
@@ -390,7 +390,7 @@
       head: ClothingHeadHatHoodWinterPara
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterQM
   name: quartermaster's winter coat
   components:
@@ -405,7 +405,7 @@
 
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterRD
   name: research director's winter coat
   components:
@@ -462,7 +462,7 @@
       head: ClothingHeadHatHoodWinterSci
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseC2ContrabandUnredeemable]
+  parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterSec
   name: security winter coat
   components:
@@ -498,7 +498,7 @@
 
 ################################################################
 - type: entity
-  parent: [ClothingOuterArmorWarden, ClothingOuterWinterCoatToggleable, BaseC2ContrabandUnredeemable]
+  parent: [ClothingOuterArmorWarden, ClothingOuterWinterCoatToggleable]
   id: ClothingOuterWinterWarden
   name: warden's armored winter coat
   description: A sturdy, utilitarian winter coat designed to protect a warden from any brig-bound threats and hypothermic events.
@@ -520,7 +520,7 @@
 ################################################################
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseC2ContrabandUnredeemable]
+  parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterWardenUnarmored
   name: warden's winter coat
   description: A sturdy coat, a warm coat, but not an armored coat.
@@ -535,7 +535,7 @@
       head: ClothingHeadHatHoodWinterWarden
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingOuterWinterCoatToggleable]
   id: ClothingOuterWinterSyndieCap
   name: syndicate's winter coat
   description: "The syndicate's winter coat is made of durable fabric, with gilded patterns, and coarse wool."
@@ -551,7 +551,7 @@
 
 ##############################################################
 - type: entity
-  parent: [ClothingOuterWinterWarden, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingOuterWinterWarden]
   id: ClothingOuterWinterSyndieCapArmored
   name: syndicate's armored winter coat
   description: "The syndicate's armored winter coat is made of durable fabric, with gilded patterns, and coarse wool."
@@ -566,7 +566,7 @@
 ##############################################################
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingOuterWinterCoatToggleable]
   id: ClothingOuterWinterSyndie
   name: syndicate's winter coat
   description: Insulated winter coat, looks like a merch from "Syndieland".

@@ -18,59 +18,25 @@ public sealed class MechGunSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MechEquipmentComponent, HandleMechEquipmentBatteryEvent>(OnHandleMechEquipmentBattery);
-        SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, CheckMechWeaponBatteryEvent>(OnCheckBattery);
-        SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, CheckMechWeaponBatteryEvent>(OnCheckBattery);
     }
 
+    // Mono: changed
     private void OnHandleMechEquipmentBattery(EntityUid uid, MechEquipmentComponent component, HandleMechEquipmentBatteryEvent args)
     {
-        if (!component.EquipmentOwner.HasValue)
+        if (!component.EquipmentOwner.HasValue
+            || !TryComp<MechComponent>(component.EquipmentOwner.Value, out var mech)
+            || !TryComp<BatteryComponent>(uid, out var battery)
+        )
             return;
 
-        if (!TryComp<MechComponent>(component.EquipmentOwner.Value, out var mech))
-            return;
-
-        if (TryComp<BatteryComponent>(uid, out var battery))
-        {
-            var ev = new CheckMechWeaponBatteryEvent(battery);
-            RaiseLocalEvent(uid, ref ev);
-
-            if (ev.Cancelled)
-                return;
-
-            ChargeGunBattery(uid, battery);
-        }
-    }
-
-    private void OnCheckBattery(EntityUid uid, BatteryAmmoProviderComponent component, CheckMechWeaponBatteryEvent args)
-    {
-        if (args.Battery.CurrentCharge > component.FireCost)
-            args.Cancelled = true;
-    }
-
-    private void ChargeGunBattery(EntityUid uid, BatteryComponent component)
-    {
-        if (!TryComp<MechEquipmentComponent>(uid, out var mechEquipment) || !mechEquipment.EquipmentOwner.HasValue)
-            return;
-
-        if (!TryComp<MechComponent>(mechEquipment.EquipmentOwner.Value, out var mech))
-            return;
-
-        var maxCharge = component.MaxCharge;
-        var currentCharge = component.CurrentCharge;
+        var maxCharge = battery.MaxCharge;
+        var currentCharge = battery.CurrentCharge;
 
         var chargeDelta = maxCharge - currentCharge;
 
-        // TODO: The battery charge of the mech would be spent directly when fired.
-        if (chargeDelta <= 0 || mech.Energy - chargeDelta < 0)
+        if (!_mech.TryChangeEnergy(component.EquipmentOwner.Value, -chargeDelta, mech))
             return;
 
-        if (!_mech.TryChangeEnergy(mechEquipment.EquipmentOwner.Value, -chargeDelta, mech))
-            return;
-
-        _battery.SetCharge(uid, component.MaxCharge, component);
+        _battery.SetCharge(uid, battery.MaxCharge, battery);
     }
 }
-
-[ByRefEvent]
-public record struct CheckMechWeaponBatteryEvent(BatteryComponent Battery, bool Cancelled = false);

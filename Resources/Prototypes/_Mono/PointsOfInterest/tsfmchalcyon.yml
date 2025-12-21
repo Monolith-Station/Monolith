@@ -1,23 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 GreaseMonk
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Shroomerian
-# SPDX-FileCopyrightText: 2024 TsjipTsjip
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Arcticular1
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 LukeZurg22
-# SPDX-FileCopyrightText: 2025 RealSchepka
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 Schepka
-# SPDX-FileCopyrightText: 2025 SuperJoelDood
-# SPDX-FileCopyrightText: 2025 significant harassment
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Author Info
 # GitHub: onezerooo0, Redrover1760
 # Discord: onezero00, Gnarlysheep
@@ -34,14 +14,15 @@
   id: TSFMCHalcyon
   parent: BasePOI
   name: 'TSFMC Flagship Halcyon'
-  minimumDistance: 2500 # Mono
-  maximumDistance: 4000 # Mono
-  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoAllAtOnce ]
+  minimumDistance: 14500 # Mono
+  maximumDistance: 16000 # Mono
+  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/tsfmchalcyon.yml
   addComponents:
   - type: IFF
     color: "#047abd"
+    flags: [HideLabel]
     readOnly: true
   - type: SolarPoweredGrid
     doNotCull: true

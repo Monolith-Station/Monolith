@@ -46,12 +46,6 @@
   - type: StationSectorServiceHost
 
 - type: entity
-  id: BaseStationDampening
-  abstract: true
-  components:
-  - type: StationDampening
-
-- type: entity
   id: NFBaseStationCargo
   abstract: true
   components:

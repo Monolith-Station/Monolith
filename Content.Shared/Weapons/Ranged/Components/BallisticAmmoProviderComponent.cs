@@ -22,7 +22,7 @@ public sealed partial class BallisticAmmoProviderComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public int Capacity = 30;
 
-    public int Count => UnspawnedCount + Container.ContainedEntities.Count;
+    public int Count => Container.ContainedEntities.Count + (InfiniteUnspawned ? 0 : UnspawnedCount); // Mono
 
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public int UnspawnedCount;
@@ -63,4 +63,17 @@ public sealed partial class BallisticAmmoProviderComponent : Component
     /// </summary>
     [DataField]
     public bool AutoCycle = true;
+
+    /// <summary>
+    /// Monolith - whether to ignore UnspawnedCount and be able to fire infinitely
+    /// Will prioritise and fire/spend entity ammo if loaded
+    /// </summary>
+    [DataField]
+    public bool InfiniteUnspawned = false;
+
+    /// <summary>
+    /// Monolith - Ignore whitelist and allow to load any type of ammo
+    /// </summary>
+    [DataField]
+    public bool IgnoreWhitelist = false;
 }

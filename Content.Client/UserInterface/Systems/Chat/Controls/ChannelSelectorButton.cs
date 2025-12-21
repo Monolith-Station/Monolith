@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Chief-Engineer
-// SPDX-FileCopyrightText: 2022 DrSmugleaf
-// SPDX-FileCopyrightText: 2022 Jezithyr
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using System.Numerics;
 using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
 using Content.Shared.Chat;

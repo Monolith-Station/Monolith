@@ -14,7 +14,7 @@ pirate-bounty-item-cybernetics = Bionic Limbs
 pirate-bounty-item-techfab = Techfab
 pirate-bounty-item-rtg = RTG
 
-pirate-bounty-description-generic = The Insurgency is in need of this.
+pirate-bounty-description-generic = The Dynasty is in need of this.
 pirate-bounty-description-encryption-key-faction = Only TSF and USSP encryption keys count. Remove the key from the headset with a screwdriver; the headset itself is not needed.
 pirate-bounty-description-merc-suit = SCAF suits, Mercernary Hardsuits, and PMC Hardsuits count equally towards this. Not your own SCAF suits though.
 pirate-bounty-description-faction-tacsuit = Any faction hardsuit except mercenary hardsuits counts towards this.

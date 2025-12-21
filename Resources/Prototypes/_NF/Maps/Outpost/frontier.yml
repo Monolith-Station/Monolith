@@ -1,57 +1,40 @@
-# SPDX-FileCopyrightText: 2023 Cheackraze
-# SPDX-FileCopyrightText: 2023 Kesiath
-# SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 GreaseMonk
-# SPDX-FileCopyrightText: 2024 Maxtone
-# SPDX-FileCopyrightText: 2024 TsjipTsjip
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 LukeZurg22
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-- type: gameMap
-  id: Frontier
-  mapName: 'Colonial Outpost'
-  mapPath: /Maps/_Mono/Outpost/colonial.yml # Mono
-  minPlayers: 0
-  maxPlayers: 100
-  randomRotation: false
-  maxRandomOffset: 0
-  stations:
-    Frontier:
-      stationProto: StandardFrontierStation
-      components:
-        - type: StationNameSetup
-          mapNameTemplate: 'Colonial Outpost'
+# - type: gameMap
+#  id: Frontier
+#  mapName: 'Colonial Outpost'
+#  mapPath: /Maps/_Mono/Outpost/colonial.yml # Mono
+#  minPlayers: 0
+#  maxPlayers: 100
+#  randomRotation: false
+#  maxRandomOffset: 0
+#  stations:
+#    Frontier:
+#      stationProto: StandardFrontierStation
+#      components:
+#        - type: StationNameSetup
+#          mapNameTemplate: 'Colonial Outpost'
 #          nameGenerator:
 #            !type:NanotrasenNameGenerator
 #            prefixCreator: '14'
-        - type: ExtraStationInformation
-          iconPath: /Textures/_Mono/Logo/icon/icon-256x256.png # used the biggest one, looks better when downscaling than upscaling
-          stationSubtext: 'frontier-lobby-frontier-subtext'
-          stationDescription: 'frontier-lobby-frontier-description'
-          lobbySortOrder: 1
-        # - type: StationPlanetSpawner # Mono - Commented out planet spawner (for now)
-        #   planet: DesertWorld
-        #   gridPath: /Maps/_Mono/POI/surface_outpost_desert.yml
-        - type: StationJobs
-          availableJobs:
-            Contractor: [ -1, -1 ]
-            Pilot: [ -1, -1 ]
-            Mercenary: [ -1, -1 ]
-            Borg: [ -1, -1 ]
-            StationRepresentative: [ 1, 1 ]
-            StationTrafficController: [ 2, 2 ]
-            SecurityGuard: [ 2, 2 ]
-            Valet: [ 2, 2 ]
-            NFJanitor: [ 2, 2 ]
-            MailCarrier: [ 2, 2 ]
-          tags:
-          - HeadOfPersonnel
-          - HeadOfSecurity
+#        - type: ExtraStationInformation
+#          iconPath: /Textures/_Mono/Logo/icon/icon-256x256.png # used the biggest one, looks better when downscaling than upscaling
+#          stationSubtext: 'frontier-lobby-frontier-subtext'
+#          stationDescription: 'frontier-lobby-frontier-description'
+#          lobbySortOrder: 1
+ #       # - type: StationPlanetSpawner # Mono - Commented out planet spawner (for now)
+#        #   planet: DesertWorld
+#        #   gridPath: /Maps/_Mono/POI/surface_outpost_desert.yml
+#        - type: StationJobs
+ #         availableJobs:
+ #           Contractor: [ -1, -1 ]
+#            Pilot: [ -1, -1 ]
+#            Mercenary: [ -1, -1 ]
+ #           Borg: [ -1, -1 ]
+ #           StationRepresentative: [ 1, 1 ]
+#            StationTrafficController: [ 2, 2 ]
+#            SecurityGuard: [ 2, 2 ]
+#            Valet: [ 2, 2 ]
+#            NFJanitor: [ 2, 2 ]
+ #           MailCarrier: [ 2, 2 ]
+ #         tags:
+ #         - HeadOfPersonnel
+#          - HeadOfSecurity

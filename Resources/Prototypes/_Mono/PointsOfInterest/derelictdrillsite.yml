@@ -1,0 +1,34 @@
+# Author Info
+# GitHub: Primusirius
+# Discord: Primusirius
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Notes:
+- type: pointOfInterest
+  id: Mining
+  parent: BasePOI
+  name: 'Derelict Drillsite'
+  minimumDistance: 3500
+  maximumDistance: 7500
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/POI/derelictdrillsite.yml
+  addComponents:
+  - type: IFF
+    color: "#ccaa55"
+
+- type: gameMap
+  id: Mining
+  mapName: 'Derelict Drillsite'
+  mapPath: /Maps/_Mono/POI/derelictdrillsite.yml
+  minPlayers: 0
+  stations:
+    Mining:
+      stationProto: RecordsFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Derelict Drillsite'
+        - type: StationDeadDrop
+          maxDeadDrops: 6

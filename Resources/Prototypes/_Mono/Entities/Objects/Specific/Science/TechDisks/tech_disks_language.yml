@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # CIV TECH DISKS - #395933
 # FRACTURE TECH DISKS - #d4d4d4
 
@@ -31,6 +27,7 @@
     - ValyrianStandardTranslator # Harpies
     - ChittinTranslator # Chitinids and arachnids
     - GaryTranslator # Trait language
+    - NovaCygniTranslator # Trait language
     #- SiikMaasTranslator # No tajara here
     #- MarishTranslator # No shadowkin here
 
@@ -62,6 +59,7 @@
     - ValyrianStandardTranslator
     - ChittinTranslator
     - GaryTranslator # Trait language
+    - NovaCygniTranslator # Trait language
     #- SiikMaasTranslator # No tajara here
     #- MarishTranslator # No shadowkin here
     - AdvancedGalaticCommonTranslatorImplanter
@@ -75,6 +73,7 @@
     - ValyrianStandardTranslatorImplanter
     - ChittinTranslatorImplanter
     - GaryTranslatorImplanter # Trait language
+    - NovaCygniTranslatorImplanter # Trait language
     #- SiikMaasTranslatorImplanter # No tajara here
     #- MarishTranslatorImplanter # No shadowkin here
     - AnimalTranslator

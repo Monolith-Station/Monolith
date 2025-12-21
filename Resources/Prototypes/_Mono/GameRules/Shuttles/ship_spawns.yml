@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: preloadedGrid
   id: AIZenith
   path: /Maps/_Mono/ShuttleEvent/zenith.yml
@@ -21,6 +17,11 @@
   id: AIRazor
   path: /Maps/_Mono/ShuttleEvent/razor.yml
   copies: 12
+
+- type: preloadedGrid
+  id: AIRazorN
+  path: /Maps/_Mono/ShuttleEvent/razorn.yml
+  copies: 3
 
 - type: preloadedGrid
   id: AIWyvern

@@ -1,27 +1,13 @@
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 significant harassment
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: LaserDrill
-  name: automated laser drill
+  id: LaserDrillBase
   parent: BaseMachine
-  description: A large automated drill that digs up random materials when powered with 50 kW of HV. Only works on expedition planets.
+  abstract: true
   components:
-  - type: PowerConsumer
-    voltage: High
-    drawRate: 50000
   - type: ItemMiner
     proto: SpawnLootOres15
     interval: 10
     needApcPower: false
-  - type: PowerConsumerMiner
-  - type: PlanetMiner
-    requireExpedition: true
-    requireGround: false # works just fine on lattice
   - type: Sprite
     offset: 0,0.5
     noRot: true
@@ -32,12 +18,6 @@
     - map: ["computerLayerScreen"]
       state: unlit
       shader: unshaded
-  - type: NodeContainer
-    examinable: true
-    nodes:
-      input:
-        !type:CableDeviceNode
-        nodeGroupID: HVPower
   - type: Transform
     anchored: true
   - type: Physics
@@ -64,9 +44,37 @@
     radius: 0.8
     energy: 0.5
     color: "#00AACC"
-  - type: Construction
-    graph: LaserDrill
-    node: laserDrill
+  - type: PowerConsumer
+    voltage: High
+    drawRate: 50000
+  - type: PowerConsumerMiner
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+
+- type: entity
+  id: LaserDrill
+  name: automated laser drill
+  parent: LaserDrillBase
+  description: A large automated drill that digs up random materials when powered with 50 kW of HV. Only works on expedition planets.
+  components:
+  - type: PlanetMiner
+    requireExpedition: true
+    requireGround: false # works just fine on lattice
+
+- type: entity
+  id: StationLaserDrill
+  name: advanced automated laser drill
+  parent: LaserDrillBase
+  description: A large bluespace automated drill that digs up random materials when powered with 50 kW of HV. Now works in space! You can just make out a scratched off logo starting with an embossed 'N' on the side.
+  components:
+  - type: Anchorable
+    flags: None # 1984
+  - type: ItemMiner
+    interval: 20
 
 - type: entity
   name: random ores
@@ -147,21 +155,3 @@
   components:
   - type: Stack
     count: 15
-
-- type: constructionGraph
-  id: LaserDrill
-  start: start
-  graph:
-  - node: start
-  - node: laserDrill
-    entity: LaserDrill
-    edges:
-    - to: start
-      completed:
-      - !type:SpawnPrototype
-        prototype: LaserDrillFlatpack
-        amount: 1
-      - !type:DeleteEntity
-      steps:
-      - tool: Welding
-        doAfter: 3

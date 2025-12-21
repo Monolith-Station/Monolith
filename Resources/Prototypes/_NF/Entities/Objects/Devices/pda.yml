@@ -1,21 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Kesiath
-# SPDX-FileCopyrightText: 2023 LankLTE
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Maxtone
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 blueDev2
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 BramvanZijp
-# SPDX-FileCopyrightText: 2025 GreaseMonk
-# SPDX-FileCopyrightText: 2025 LukeZurg22
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 dustylens
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: MusicBasePDA
   abstract: true
@@ -134,7 +116,7 @@
         - Write
 
 - type: entity
-  parent: [BaseSecurityPDA, BaseCommandContraband]
+  parent: BaseSecurityPDA
   id: SheriffPDA
   name: TSFMC colonel PDA
   description: A standard TSFMC personal computer.
@@ -356,7 +338,7 @@
     state: pda-prosecutor
 
 - type: entity
-  parent: [BaseSecurityPDA, BaseCommandContraband]
+  parent: BaseSecurityPDA
   id: SrPDA
   name: colonial liaison PDA
   description: Looks like it's been clawed on.
@@ -388,60 +370,6 @@
     - AstroNavCartridge
     - LedgerCartridge
     - MailMetricsCartridge
-
-- type: entity
-  parent: PiratePDA
-  id: PirateNFPDA
-  name: ASR insurgent PDA
-  components:
-  - type: Pda
-    id: PirateNFIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-syndi
-  - type: Geiger # Mono
-    showExamine: true
-    showControl: true
-    isEnabled: true
-    attachedToSuit: true # Mono
-
-- type: entity
-  parent: PiratePDA
-  id: PirateCaptainNFPDA
-  name: ASR cell commander PDA
-  components:
-  - type: Pda
-    id: PirateCaptainNFIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-syndi-agent
-  - type: Geiger # Mono
-    showExamine: true
-    showControl: true
-    isEnabled: true
-    attachedToSuit: true # Mono
-
-- type: entity
-  parent: PiratePDA
-  id: PirateFirstMateNFPDA
-  name: ASR agent PDA
-  components:
-  - type: Pda
-    id: PirateFirstMateNFIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-syndi
-  - type: Geiger # Mono
-    showExamine: true
-    showControl: true
-    isEnabled: true
-    attachedToSuit: true # Mono
 
 - type: entity
   parent: PassengerPDA
@@ -481,7 +409,7 @@
         pda-janitor
 
 - type: entity
-  parent: [CMOPDA, BaseCommandContraband]
+  parent: CMOPDA
   id: DocPDA
   name: director of care PDA
   description: It smells like disinfectant.

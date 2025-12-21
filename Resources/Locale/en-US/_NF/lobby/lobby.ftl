@@ -37,11 +37,11 @@ frontier-lobby-nfsd-description = The TFSMC-FOB is the center of operations for 
    - Report crimes
    - Turn in contraband
 
-frontier-lobby-pirate-subtext = The center of operations for the ASR.
-frontier-lobby-pirate-description = This is the ultimate hideout where Ashen Republic insurgents gather. Here you can:
-   - Start an insurgent crew
+frontier-lobby-pirate-subtext = The center of operations for the PDV.
+frontier-lobby-pirate-description = This is the ultimate hideout where Phaethon Imperial Forces gather. Here you can:
+   - Start an Imperial crew
    - Find a crew to join
-   - Socialize with other Ashen Republic insurgents
+   - Socialize with other Phaethon Dynasty soldiers
 
 # Crew Menu
 frontier-lobby-crew-vessel = [bold][color=#A88B5E]Vessel:[/color][/bold] {$name}

@@ -26,7 +26,7 @@ uplink-security-thrusterkit-name = Thruster Upgrade Kit
 uplink-security-thrusterkit-desc = Contains 32 super capaciters. Perfect for upgrading eight thrusters.
 
 uplink-security-cyborg-module-name = Security Cyborg Module
-uplink-security-cyborg-module-desc = A machete, an energy gun, and a stun baton, made specifically for borgs. Wait, don't Insurgents have the same thing?
+uplink-security-cyborg-module-desc = A machete, an energy gun, and a stun baton, made specifically for borgs. Wait, doesnt the Phaethon Dynasty have the same thing?
 
 uplink-security-eg4-name = EG-4 Energy Revolver
 uplink-security-eg4-desc = A self-recharging energy weapon, capable of shooting both disabling and lethal bolts. Like a mini-energy gun.
@@ -96,3 +96,6 @@ uplink-security-hardsuit-m82b-desc = A variant of the M-82c for NBC protection, 
 
 uplink-security-hardsuit-m82c-name = M82c Hardsuit
 uplink-security-hardsuit-m82c-desc = A basic protective system for dangerous environments (such as space). Takes the role of an armor vest in the average TSF marine's gear.
+
+uplink-security-pulserifle-name = Pulse Rifle
+uplink-security-pulserifle-desc = A large, automatic pulse weapon. Larger cell, and high powered, perfect for chewing through groups of foes.

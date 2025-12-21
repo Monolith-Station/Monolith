@@ -1,22 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Acruid
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2021 Visne
-// SPDX-FileCopyrightText: 2021 metalgearsloth
-// SPDX-FileCopyrightText: 2022 DrSmugleaf
-// SPDX-FileCopyrightText: 2022 Nemanja
-// SPDX-FileCopyrightText: 2022 mirrorcult
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 AJCM-git
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2024 Arendian
-// SPDX-FileCopyrightText: 2024 MilenVolf
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 SlamBamActionman
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
@@ -99,6 +80,12 @@ public sealed partial class ProjectileComponent : Component
     /// </summary>
     [DataField]
     public bool ProjectileSpent;
+
+    /// <summary>
+    ///     If true, the projectile has hit enough targets and should no longer interact with further collisions pending deletion.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool DamagedEntity;
 
     /// <summary>
     ///     When a projectile has this threshold set, it will continue to penetrate entities until the damage dealt reaches this threshold.

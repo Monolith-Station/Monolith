@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;

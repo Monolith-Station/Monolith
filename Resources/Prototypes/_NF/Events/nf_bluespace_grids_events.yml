@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2025 GreaseMonk
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 SupernoobTheN1
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 assignedgod
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: BluespaceCacheError
   parent: BaseStationEventShortDelay
@@ -154,21 +145,24 @@
         minimumDistance: 1500
         maximumDistance: 2500
         addComponents:
-        - type: Gravity
-          enabled: true
-          inherent: true
         - type: IFF
           color: "#E10F9B"
         - type: LinkedLifecycleGridParent
-        - type: ProtectedGrid
-          preventArtifactTriggers: true
-        - type: PreventPilot
-        - type: ForceAnchor
+# Mono edit - No more anchored UIV's
+#        - type: Gravity
+#          enabled: true
+#          inherent: true
+#        - type: ProtectedGrid
+#          preventArtifactTriggers: true
+#        - type: PreventPilot
+#        - type: ForceAnchor
+# Mono edit end
         paths:
         - /Maps/_NF/Bluespace/syndieftlintercept.yml
 
+# Mono edit - Mono UIV's
 - type: entity
-  id: BluespaceWizardFederationScout
+  id: BluespacePreFractureFTLInterception
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
@@ -180,43 +174,6 @@
     earliestStart: 100
     minimumPlayers: 1
     weight: 1
-    duration: 900
-    maxDuration: 1200
-    reoccurrenceDelay: 240 # Mono: From 8 to 4 hours
-  - type: BluespaceErrorRule
-    groups:
-      grid: !type:GridSpawnGroup
-        nameLoc:
-        - station-event-bluespace-name-UnidentifiedVessel
-        minimumDistance: 1500
-        maximumDistance: 2500
-        addComponents:
-        - type: Gravity
-          enabled: true
-          inherent: true
-        - type: IFF
-          color: "#E10F9B"
-        - type: LinkedLifecycleGridParent
-        - type: ProtectedGrid
-          preventArtifactTriggers: true
-        - type: PreventPilot
-        - type: ForceAnchor
-        paths:
-        - /Maps/_NF/Bluespace/wizardprobealt.yml
-
-- type: entity
-  id: BluespaceBloodMoon
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-bluespace-generic-ftl-start-announcement
-    startAudio:
-      path: /Audio/Misc/notice1.ogg
-    warningAnnouncement: station-event-bluespace-generic-ftl-warning-announcement
-    endAnnouncement: station-event-bluespace-generic-ftl-end-announcement
-    earliestStart: 80
-    minimumPlayers: 1
-    weight: 1
     duration: 1800
     maxDuration: 2400
     reoccurrenceDelay: 240 # Mono: From 8 to 4 hours
@@ -225,87 +182,159 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-UnidentifiedVessel
-        minimumDistance: 1500
-        maximumDistance: 2500
+        minimumDistance: 2500
+        maximumDistance: 4000
         addComponents:
-        - type: Gravity
-          enabled: true
-          inherent: true
         - type: IFF
           color: "#E10F9B"
         - type: LinkedLifecycleGridParent
-        - type: ProtectedGrid
-          preventArtifactTriggers: true
-        - type: PreventPilot
-        - type: ForceAnchor
         paths:
-        - /Maps/_NF/Bluespace/bloodmoon.yml
+        - /Maps/_Mono/Bluespace/prefracture.yml
+# Mono edit end
 
-- type: entity
-  id: BluespaceCave
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-bluespace-generic-ftl-start-announcement
-    startAudio:
-      path: /Audio/Misc/notice1.ogg
-    warningAnnouncement: station-event-bluespace-generic-ftl-warning-announcement
-    endAnnouncement: station-event-bluespace-generic-ftl-end-announcement
-    earliestStart: 20
-    weight: 1
-    duration: 1800
-    maxDuration: 2400
-    maxOccurrences: 1
-  - type: BluespaceErrorRule
-    groups:
-      grid: !type:GridSpawnGroup
-        nameLoc:
-        - station-event-bluespace-name-Cave
-        minimumDistance: 1500
-        maximumDistance: 2500
-        addComponents:
-        - type: Gravity
-          enabled: true
-          inherent: true
-        - type: IFF
-        - type: LinkedLifecycleGridParent
-        - type: ProtectedGrid
-          preventArtifactTriggers: true
-        - type: PreventPilot
-        - type: ForceAnchor
-        paths:
-        - /Maps/_NF/Bluespace/cave.yml
+## Mono edit - commenting out useless UIV's
 
-- type: entity
-  id: BluespaceBrokenMcDelivery
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-bluespace-generic-ftl-start-announcement
-    startAudio:
-      path: /Audio/Misc/notice1.ogg
-    warningAnnouncement: station-event-bluespace-generic-ftl-warning-announcement
-    endAnnouncement: station-event-bluespace-generic-ftl-end-announcement
-    earliestStart: 20
-    maximumPlayers: 20
-    weight: 5
-    duration: 900
-    maxDuration: 1800
-    reoccurrenceDelay: 120 # Mono: From 4 to 2 hours
-  - type: BluespaceErrorRule
-    groups:
-      grid: !type:GridSpawnGroup
-        nameLoc:
-        - station-event-bluespace-name-BrokenMcDelivery
-        minCount: 2
-        maxCount: 3
-        minimumDistance: 1500
-        maximumDistance: 2500
-        addComponents:
-        - type: IFF
-        - type: LinkedLifecycleGridParent
-        - type: ProtectedGrid
-          preventArtifactTriggers: true
-        - type: PreventPilot
-        paths:
-        - /Maps/_NF/Bluespace/mcevent.yml
+# - type: entity
+#   id: BluespaceWizardFederationScout
+#   parent: BaseStationEventShortDelay
+#   components:
+#   - type: StationEvent
+#     startAnnouncement: station-event-bluespace-generic-ftl-start-announcement
+#     startAudio:
+#       path: /Audio/Misc/notice1.ogg
+#     warningAnnouncement: station-event-bluespace-generic-ftl-warning-announcement
+#     endAnnouncement: station-event-bluespace-generic-ftl-end-announcement
+#     earliestStart: 100
+#     minimumPlayers: 1
+#     weight: 1
+#     duration: 900
+#     maxDuration: 1200
+#     reoccurrenceDelay: 240 # Mono: From 8 to 4 hours
+#   - type: BluespaceErrorRule
+#     groups:
+#       grid: !type:GridSpawnGroup
+#         nameLoc:
+#         - station-event-bluespace-name-UnidentifiedVessel
+#         minimumDistance: 1500
+#         maximumDistance: 2500
+#         addComponents:
+#         - type: Gravity
+#           enabled: true
+#           inherent: true
+#         - type: IFF
+#           color: "#E10F9B"
+#         - type: LinkedLifecycleGridParent
+#         - type: ProtectedGrid
+#           preventArtifactTriggers: true
+#         - type: PreventPilot
+#         - type: ForceAnchor
+#         paths:
+#         - /Maps/_NF/Bluespace/wizardprobealt.yml
+
+# - type: entity
+#   id: BluespaceBloodMoon
+#   parent: BaseStationEventShortDelay
+#   components:
+#   - type: StationEvent
+#     startAnnouncement: station-event-bluespace-generic-ftl-start-announcement
+#     startAudio:
+#       path: /Audio/Misc/notice1.ogg
+#     warningAnnouncement: station-event-bluespace-generic-ftl-warning-announcement
+#     endAnnouncement: station-event-bluespace-generic-ftl-end-announcement
+#     earliestStart: 80
+#     minimumPlayers: 1
+#     weight: 1
+#     duration: 1800
+#     maxDuration: 2400
+#     reoccurrenceDelay: 240 # Mono: From 8 to 4 hours
+#   - type: BluespaceErrorRule
+#     groups:
+#       grid: !type:GridSpawnGroup
+#         nameLoc:
+#         - station-event-bluespace-name-UnidentifiedVessel
+#         minimumDistance: 1500
+#         maximumDistance: 2500
+#         addComponents:
+#         - type: Gravity
+#           enabled: true
+#           inherent: true
+#         - type: IFF
+#           color: "#E10F9B"
+#         - type: LinkedLifecycleGridParent
+#         - type: ProtectedGrid
+#           preventArtifactTriggers: true
+#         - type: PreventPilot
+#         - type: ForceAnchor
+#         paths:
+#         - /Maps/_NF/Bluespace/bloodmoon.yml
+
+# - type: entity
+#   id: BluespaceCave
+#   parent: BaseStationEventShortDelay
+#   components:
+#   - type: StationEvent
+#     startAnnouncement: station-event-bluespace-generic-ftl-start-announcement
+#     startAudio:
+#       path: /Audio/Misc/notice1.ogg
+#     warningAnnouncement: station-event-bluespace-generic-ftl-warning-announcement
+#     endAnnouncement: station-event-bluespace-generic-ftl-end-announcement
+#     earliestStart: 20
+#     weight: 1
+#     duration: 1800
+#     maxDuration: 2400
+#     maxOccurrences: 1
+#   - type: BluespaceErrorRule
+#     groups:
+#       grid: !type:GridSpawnGroup
+#         nameLoc:
+#         - station-event-bluespace-name-Cave
+#         minimumDistance: 1500
+#         maximumDistance: 2500
+#         addComponents:
+#         - type: Gravity
+#           enabled: true
+#           inherent: true
+#         - type: IFF
+#         - type: LinkedLifecycleGridParent
+#         - type: ProtectedGrid
+#           preventArtifactTriggers: true
+#         - type: PreventPilot
+#         - type: ForceAnchor
+#         paths:
+#         - /Maps/_NF/Bluespace/cave.yml
+
+# - type: entity
+#   id: BluespaceBrokenMcDelivery
+#   parent: BaseStationEventShortDelay
+#   components:
+#   - type: StationEvent
+#     startAnnouncement: station-event-bluespace-generic-ftl-start-announcement
+#     startAudio:
+#       path: /Audio/Misc/notice1.ogg
+#     warningAnnouncement: station-event-bluespace-generic-ftl-warning-announcement
+#     endAnnouncement: station-event-bluespace-generic-ftl-end-announcement
+#     earliestStart: 20
+#     maximumPlayers: 20
+#     weight: 5
+#     duration: 900
+#     maxDuration: 1800
+#     reoccurrenceDelay: 120 # Mono: From 4 to 2 hours
+#   - type: BluespaceErrorRule
+#     groups:
+#       grid: !type:GridSpawnGroup
+#         nameLoc:
+#         - station-event-bluespace-name-BrokenMcDelivery
+#         minCount: 2
+#         maxCount: 3
+#         minimumDistance: 1500
+#         maximumDistance: 2500
+#         addComponents:
+#         - type: IFF
+#         - type: LinkedLifecycleGridParent
+#         - type: ProtectedGrid
+#           preventArtifactTriggers: true
+#         - type: PreventPilot
+#         paths:
+#         - /Maps/_NF/Bluespace/mcevent.yml
+
+## Mono edit end

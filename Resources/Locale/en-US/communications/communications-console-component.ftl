@@ -31,4 +31,4 @@ comms-console-announcement-title-station-ai = Station AI
 comms-console-announcement-title-wizard = Wizard
 
 # Mono
-comms-console-announcement-title-rogue = Ashen Republic Insurgency
+comms-console-announcement-title-rogue = Phaethon Dynasty Imperial Vanguard

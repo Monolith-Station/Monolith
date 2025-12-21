@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft
-// SPDX-FileCopyrightText: 2025 Leon Friedrich
-// SPDX-FileCopyrightText: 2025 deltanedas
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Collections.Generic;
 using Content.Client.Weapons.Ranged.Components;
 using Content.Shared.Prototypes;

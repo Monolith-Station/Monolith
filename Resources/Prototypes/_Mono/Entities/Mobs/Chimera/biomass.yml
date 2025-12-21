@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: ChimeraFleshKudzu
   name: chimera hive biomass
@@ -55,6 +51,8 @@
         Blunt: -1.5
   - type: Flammable
     fireSpread: true
+    alwaysCombustible: true
+    minIgnitionTemperature: 200
     damage:
       types:
         Heat: 9

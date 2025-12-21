@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2025 EctoplasmIsGood
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 Your Name
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: listing
   id: UplinkSecurityAnnie
   name:  uplink-security-annie-name
@@ -346,3 +336,24 @@
 #     whitelist:
 #       tags:
 #       - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityPulseRifle
+  name:  uplink-security-pulserifle-name
+  description: uplink-security-pulserifle-desc
+  productEntity: WeaponPulseRifle
+  icon: { sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi, state: base }
+  cost:
+    FederationMilitaryCredit: 100
+  categories:
+    - UplinkSecurityWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - Sheriff
+        - Bailiff
+        - SeniorOfficer 

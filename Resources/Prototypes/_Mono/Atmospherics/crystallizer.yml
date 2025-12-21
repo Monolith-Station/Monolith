@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 NazrinNya
-# SPDX-FileCopyrightText: 2025 marc-pelletier
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: crystallizerRecipe
   id: PlasticRecipe
   name: Plastic (10)
@@ -131,10 +125,10 @@
     SheetPlasma1: 1
   dangerous: false
   minimumRequirements:
-  - 0     # oxygen
+  - 1     # oxygen
   - 0     # nitrogen
   - 0     # carbon dioxide
-  - 2     # plasma
+  - 10     # plasma
   - 0     # tritium
   - 0     # vapor
   - 0     # ammonia

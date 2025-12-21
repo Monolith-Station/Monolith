@@ -1,35 +1,3 @@
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-// SPDX-FileCopyrightText: 2020 chairbender
-// SPDX-FileCopyrightText: 2021 Acruid
-// SPDX-FileCopyrightText: 2021 Galactic Chimp
-// SPDX-FileCopyrightText: 2021 Moony
-// SPDX-FileCopyrightText: 2021 Paul
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2021 ShadowCommander
-// SPDX-FileCopyrightText: 2021 Silver
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 AJCM-git
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2023 PixelTK
-// SPDX-FileCopyrightText: 2023 Slava0135
-// SPDX-FileCopyrightText: 2024 Arendian
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 LordCarve
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 Winkarst
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2024 nikthechampiongr
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 SlamBamActionman
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems; // Frontier
 using Content.Server.Destructible;
@@ -37,6 +5,8 @@ using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Eye.Blinding.Components; // Frontier
 using Content.Shared.Eye.Blinding.Systems; // Frontier
@@ -44,6 +14,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
 using Content.Shared.StatusEffect;
+using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics; // Mono
@@ -90,62 +61,43 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ProjectileComponent, StartCollideEvent>(OnStartCollide);
 
         // Mono
         _physQuery = GetEntityQuery<PhysicsComponent>();
         _fixQuery = GetEntityQuery<FixturesComponent>();
     }
 
-    private void OnStartCollide(EntityUid uid, ProjectileComponent component, ref StartCollideEvent args)
+    public override DamageSpecifier? ProjectileCollide(Entity<ProjectileComponent, PhysicsComponent> projectile, EntityUid target, MapCoordinates? collisionCoordinates, bool predicted = false)
     {
-        // This is so entities that shouldn't get a collision are ignored.
-        if (args.OurFixtureId != ProjectileFixture || !args.OtherFixture.Hard
-            || component.ProjectileSpent || component is { Weapon: null, OnlyCollideWhenShot: true })
-            return;
-
-        var target = args.OtherEntity;
-        // it's here so this check is only done once before possible hit
-        var attemptEv = new ProjectileReflectAttemptEvent(uid, component, false);
-        RaiseLocalEvent(target, ref attemptEv);
-        if (attemptEv.Cancelled)
-        {
-            SetShooter(uid, component, target);
-            return;
-        }
-
-        var ev = new ProjectileHitEvent(component.Damage * _damageableSystem.UniversalProjectileDamageModifier, target, component.Shooter);
-        RaiseLocalEvent(uid, ref ev);
-
-        if (component.RandomBlindChance > 0.0f && _random.Prob(component.RandomBlindChance)) // Frontier - bb make you go blind
-        {
-            TryBlind(target);
-        }
+        var (uid, component, ourBody) = projectile;
+        // Check if projectile is already spent (server-specific check)
+        if (component.ProjectileSpent)
+            return null;
 
         var otherName = ToPrettyString(target);
-        var damageRequired = _destructibleSystem.DestroyedAt(target);
+        // Get damage required for destructible before base applies damage
+        var damageRequired = FixedPoint2.Zero;
         if (TryComp<DamageableComponent>(target, out var damageableComponent))
         {
+            damageRequired = _destructibleSystem.DestroyedAt(target);
             damageRequired -= damageableComponent.TotalDamage;
             damageRequired = FixedPoint2.Max(damageRequired, FixedPoint2.Zero);
         }
-        var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, damageable: damageableComponent, origin: component.Shooter, armorPenetration: component.ArmorPenetration); // Goob edit
         var deleted = Deleted(target);
 
-        if (modifiedDamage is not null && EntityManager.EntityExists(component.Shooter))
-        {
-            if (modifiedDamage.AnyPositive() && !deleted)
-            {
-                _color.RaiseEffect(Color.Red, new List<EntityUid> { target }, Filter.Pvs(target, entityManager: EntityManager));
-            }
+        // Call base implementation to handle damage application and other effects
+        var modifiedDamage = base.ProjectileCollide(projectile, target, collisionCoordinates, predicted);
 
-            _adminLogger.Add(LogType.BulletHit,
-                HasComp<ActorComponent>(target) ? LogImpact.Extreme : LogImpact.High,
-                $"Projectile {ToPrettyString(uid):projectile} shot by {ToPrettyString(component.Shooter!.Value):user} hit {otherName:target} and dealt {modifiedDamage.GetTotal():damage} damage");
+        if (modifiedDamage == null)
+        {
+            component.ProjectileSpent = true;
+            if (component.DeleteOnCollide && component.ProjectileSpent)
+                QueueDel(uid);
+            return null;
         }
 
-        // If penetration is to be considered, we need to do some checks to see if the projectile should stop.
-        if (modifiedDamage is not null && component.PenetrationThreshold != 0)
+        // Server-specific logic: penetration
+        if (component.PenetrationThreshold != 0)
         {
             // If a damage type is required, stop the bullet if the hit entity doesn't have that type.
             if (component.PenetrationDamageTypeRequirement != null)
@@ -159,6 +111,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                         break;
                     }
                 }
+
                 if (stopPenetration)
                     component.ProjectileSpent = true;
             }
@@ -184,21 +137,12 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             component.ProjectileSpent = true;
         }
 
-        if (!deleted)
+        if (component.RandomBlindChance > 0.0f && _random.Prob(component.RandomBlindChance)) // Frontier - bb make you go blind
         {
-            _guns.PlayImpactSound(target, modifiedDamage, component.SoundHit, component.ForceSound);
-
-            if (!args.OurBody.LinearVelocity.IsLengthZero())
-                _sharedCameraRecoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized());
+            TryBlind(target);
         }
 
-        if (component.DeleteOnCollide && component.ProjectileSpent)
-            QueueDel(uid);
-
-        if (component.ImpactEffect != null && TryComp(uid, out TransformComponent? xform))
-        {
-            RaiseNetworkEvent(new ImpactEffectEvent(component.ImpactEffect, GetNetCoordinates(xform.Coordinates)), Filter.Pvs(xform.Coordinates, entityMan: EntityManager));
-        }
+        return modifiedDamage;
     }
 
     public override void Update(float frameTime)

@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Julian Giebel
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2024 Errant
-// SPDX-FileCopyrightText: 2024 MrFippik
-// SPDX-FileCopyrightText: 2024 avery
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2024 nikthechampiongr
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 shab00m
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.DeviceLinking.Components;
 using Content.Shared.UserInterface;
 using Content.Shared.Access.Systems;

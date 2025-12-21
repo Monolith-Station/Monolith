@@ -5,6 +5,10 @@ on:
     paths:
       - '**.rsi/**.png'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   diff:
     name: Diff
@@ -18,7 +22,7 @@ jobs:
         uses: Ana06/get-changed-files@v2.3.0
         with:
           format: 'space-delimited'
-          filter: | 
+          filter: |
             **.rsi
             **.png
 

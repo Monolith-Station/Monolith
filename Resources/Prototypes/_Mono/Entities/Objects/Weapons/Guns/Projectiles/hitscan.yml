@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: MPL-2.0
-
 - type: entity
   id: PulsedPlasma
   parent: BasicHitscan
@@ -29,3 +24,38 @@
       sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
       state: impact_beam_light_pulse
 
+- type: entity
+  id: UllmanPulse
+  parent: BasicHitscan
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 28
+        Structural: 30
+  - type: HitscanBasicRaycast
+    maxDistance: 120.0
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: ui_muzzle_pulse
+    travelFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: ui_pulse
+    impactFlash:
+     sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+     state: ui_impact_pulse
+
+- type: entity
+  id: UllmanPulseHeavy
+  parent: UllmanPulse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 75
+        Structural: 300
+  - type: HitscanBasicRaycast
+    maxDistance: 360.0

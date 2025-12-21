@@ -1,6 +1,6 @@
 - type: entity
   name: TSFMC energy sword
-  parent: [BaseC2ContrabandUnredeemable, EnergySword]
+  parent: EnergySword
   id: EnergySwordNfsd
   description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
   components:
@@ -11,7 +11,7 @@
 
 - type: entity
   id: NFEnergyPickaxe
-  parent: [EnergySword, BaseC1Contraband] # Has a reflect chance
+  parent: EnergySword # Has a reflect chance
   name: holopickaxe
   description: A holographic mining tool with blades comprised of hard light. Doesn't pack the same punch as an energy weapon, but more compact than most mining tools when turned off.
   components:
@@ -20,12 +20,14 @@
     activatedShape:
     - 0,0,2,0
     - 1,1,1,2
+  - type: MeleeWeapon
+    autoAttack: true
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-        types: # Slightly less total damage than wielded crusher glaive has
-          Heat: 8
-          Piercing: 2
-          Structural: 40 # +10 damage compared to crusher glaive
+        types: # Mono start: 0.5dps higher than standard wielded pickaxe with worse trading power
+          Heat: 10 # 8 >> 10
+          Piercing: 10 # 2 >> 10
+          Structural: 75 #Mono end: 40 >> 75
     deactivatedSecret: true
   - type: Sprite
     sprite: _NF/Objects/Weapons/Melee/energy_pickaxe.rsi

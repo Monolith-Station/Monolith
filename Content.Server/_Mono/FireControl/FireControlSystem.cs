@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 RikuTheKiller
-// SPDX-FileCopyrightText: 2025 ScyronX
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 sleepyyapril
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 // Copyright Rane (elijahrane@gmail.com) 2025
 // All rights reserved. Relicensed under AGPL with permission
 
@@ -461,7 +451,7 @@ public sealed partial class FireControlSystem : EntitySystem
             var isArtillery = HasComp<SpaceArtilleryComponent>(localWeapon);
 
             // If we can fire, fire the weapon
-            _gun.AttemptShoot(localWeapon, localWeapon, gun, targetCoords);
+            _gun.AttemptShots(localWeapon, localWeapon, gun, targetCoords, TimeSpan.FromSeconds(0.2));
 
             if (isArtillery)
             {

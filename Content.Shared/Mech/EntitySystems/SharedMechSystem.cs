@@ -1,27 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Rane
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 brainfood1183
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2023 themias
-// SPDX-FileCopyrightText: 2024 Arendian
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 nikthechampiongr
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 BeeRobynn
-// SPDX-FileCopyrightText: 2025 Blu
-// SPDX-FileCopyrightText: 2025 ScyronX
-// SPDX-FileCopyrightText: 2025 starch
-// SPDX-FileCopyrightText: 2025 wewman222
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Shared.Access.Components;
 using Content.Shared.ActionBlocker;
@@ -78,6 +54,7 @@ public abstract class SharedMechSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!; // Goobstation Change
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!; // Goobstation Change
     [Dependency] private readonly IConfigurationManager _config = default!; // Goobstation Change
+    [Dependency] private readonly SharedContentEyeSystem _eye = default!; // Mono edit - Pilot camera zoom on mech enter
 
     // Goobstation: Local variable for checking if mech guns can be used out of them.
     private bool _canUseMechGunOutside;
@@ -442,6 +419,7 @@ public abstract class SharedMechSystem : EntitySystem
         _container.Insert(toInsert.Value, component.PilotSlot);
         UpdateAppearance(uid, component);
         UpdateHands(toInsert.Value, uid, true); // Goobstation
+        UpdateMechZoom(toInsert.Value, component, false); // Mono
         return true;
     }
 
@@ -467,6 +445,7 @@ public abstract class SharedMechSystem : EntitySystem
         _container.RemoveEntity(uid, pilot.Value);
         UpdateAppearance(uid, component);
         UpdateHands(pilot.Value, uid, false); // Goobstation
+        UpdateMechZoom(pilot.Value, component, true); // Mono
         return true;
     }
 
@@ -588,6 +567,24 @@ public abstract class SharedMechSystem : EntitySystem
         _doAfter.TryStartDoAfter(doAfterEventArgs);
     }
 
+    // Mono edit - Update pilot zoom when inserting/ejecting pilot from mech
+    private void UpdateMechZoom(EntityUid uid, MechComponent component, bool eject)
+    {
+        if (!TryComp<EyeComponent>(uid, out var eye))
+            return;
+
+        if (eject)
+        {
+            _eye.ResetZoom(uid);
+            _eye.SetMaxZoom(uid, eye.Zoom);
+            return;
+        }
+
+        _eye.SetMaxZoom(uid, component.Zoom);
+        _eye.SetZoom(uid, component.Zoom);
+    }
+    // Mono edit end
+    
     private void OnCanDragDrop(EntityUid uid, MechComponent component, ref CanDropTargetEvent args)
     {
         args.Handled = true;
