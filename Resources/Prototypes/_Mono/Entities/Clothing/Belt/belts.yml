@@ -236,14 +236,10 @@
     sprite: _Mono/Clothing/Belt/vizier_sheath.rsi
   - type: ContainerContainer
     containers:
-    sheath: !type:ContainerSlot
-      showEnts: False
-      occludes: True
-      ent: null
-    holster: !type:ContainerSlot
-      showEnts: False
-      occludes: True
-      ent: null
+      sheath: !type:ContainerSlot
+        ents: []
+      holster: !type:ContainerSlot
+        ents: []
   - type: ItemSlots
     slots:
       sheath:
