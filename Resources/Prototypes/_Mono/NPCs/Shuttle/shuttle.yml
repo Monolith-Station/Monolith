@@ -1,42 +1,42 @@
 # rams parent ship into the closest shuttle with a powered shuttle console
 - type: htnCompound
-  id: RamShuttleCompound
+  id: RammerShuttleCompound
   branches:
   - tasks:
     - !type:HTNPrimitiveTask
       operator: !type:UtilityOperator
         proto: NearbyShuttleTargets
     - !type:HTNCompoundTask
-      task: ShuttleRamTargetCompound
+      task: ShuttleRamCompound
     - !type:HTNCompoundTask
       task: ShuttleBackOffCompound
 
 # same, but with leading
 - type: htnCompound
-  id: RamShuttleSmartCompound
+  id: RammerShuttleSmartCompound
   branches:
   - tasks:
     - !type:HTNPrimitiveTask
       operator: !type:UtilityOperator
         proto: NearbyShuttleTargets
     - !type:HTNCompoundTask
-      task: ShuttleRamTargetSmartCompound
+      task: ShuttleRamSmartCompound
     - !type:HTNCompoundTask
       task: ShuttleBackOffCompound
 
 # approaches closest shuttle with parent ship
 - type: htnCompound
-  id: ApproachShuttleCompound
+  id: ApproacherShuttleCompound
   branches:
   - tasks:
     - !type:HTNPrimitiveTask
       operator: !type:UtilityOperator
         proto: NearbyShuttleTargets
     - !type:HTNCompoundTask
-      task: ShuttleGoToTargetCompound
+      task: ShuttleApproachCompound
 
 - type: htnCompound
-  id: AttackShuttleCompound
+  id: AttackerShuttleCompound
   branches:
   - tasks:
     - !type:HTNPrimitiveTask
@@ -61,7 +61,7 @@
       xOffset: 0
 
 - type: htnCompound
-  id: ShuttleRamTargetCompound
+  id: ShuttleRamCompound
   branches:
   - preconditions:
     - !type:KeyExistsPrecondition
@@ -82,7 +82,7 @@
         coordinatesKey: TargetCoordinates
 
 - type: htnCompound
-  id: ShuttleRamTargetSmartCompound
+  id: ShuttleRamSmartCompound
   branches:
   - preconditions:
     - !type:KeyExistsPrecondition
@@ -121,7 +121,7 @@
         targetKey: TargetCoordinates
 
 - type: htnCompound
-  id: ShuttleGoToTargetCompound
+  id: ShuttleApproachCompound
   branches:
   - preconditions:
     - !type:KeyExistsPrecondition
@@ -158,7 +158,6 @@
         inRangeMaxSpeed: 1
         range: 250
         rangeTolerance: 50
-        alwaysFaceTarget: true
         targetKey: TargetCoordinates
     - !type:HTNPrimitiveTask
       operator: !type:ShipFireGunsOperator

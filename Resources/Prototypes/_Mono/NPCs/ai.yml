@@ -34,7 +34,7 @@
   - type: HTN
     sleepPlayerCheckRangeOverride: 2000
     rootTask:
-      task: RamShuttleCompound
+      task: RammerShuttleCompound
 
 - type: entity
   id: NpcStationAiApproacher
@@ -44,7 +44,7 @@
   components:
   - type: HTN
     rootTask:
-      task: ApproachShuttleCompound
+      task: ApproacherShuttleCompound
 
 - type: entity
   id: NpcStationAiRammerSmart
@@ -53,7 +53,7 @@
   components:
   - type: HTN
     rootTask:
-      task: RamShuttleSmartCompound
+      task: RammerShuttleSmartCompound
 
 - type: entity
   id: NpcStationAiAttacker
@@ -63,7 +63,7 @@
   components:
   - type: HTN
     rootTask:
-      task: AttackShuttleCompound
+      task: AttackerShuttleCompound
 
 - type: entity
   name: rammer core spawner
