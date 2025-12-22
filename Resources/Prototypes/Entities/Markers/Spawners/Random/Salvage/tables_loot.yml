@@ -50,7 +50,7 @@
       weight: 0.5
       amount: !type:RangeNumberSelector
         range: 1, 3
-    - id: PlastitaniumRebar
+    - id: PlastitaniumScrap
       weight: 0.05
       amount: !type:RangeNumberSelector
         range: 1, 4
@@ -86,9 +86,9 @@
       weight: 0.05
     - id: SheetPlasteel10
       weight: 0.05
-    - id: PlastitaniumRebarBundle
+    - id: PlastitaniumScrapPile
       weight: 0.05
-    - id: PlastitaniumRebarPile
+    - id: PlastitaniumScrapHullplate
       weight: 0.025
 
 - type: entityTable
