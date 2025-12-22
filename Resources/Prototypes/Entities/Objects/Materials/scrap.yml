@@ -587,6 +587,7 @@
   id: PlastitaniumScrap
   name: plastitanium scrap
   suffix: Scrap, Plastitanium
+  description: A scrap plate made of Plastitanium, likely blown off a ship or station. Requires further processing to reclaim the valuable base material.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Materials/Plastitanium_Scrap.rsi
@@ -611,6 +612,7 @@
   id: PlastitaniumScrapPile
   name: plastitanium scrap pile
   suffix: Scrap, Plastitanium
+  description: Several plates of Plastitanium stacked together, either through chance or by an unlucky scavenger. Requires further processing to be of value.
   components:
   - type: Sprite
     layers:
@@ -634,6 +636,7 @@
   id: PlastitaniumScrapHullplate
   name: plastitanium scrap hullplate
   suffix: Scrap, Plastitanium
+  description: What appears to be a significant structural component of a former miitary ship or station. Large and bulky, this is widely sought by Salvagers who understand the importance of the circular economy.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Materials/Plastitanium_Scrap_Hullplate.rsi
