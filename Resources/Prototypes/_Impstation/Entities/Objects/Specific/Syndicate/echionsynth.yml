@@ -7,26 +7,16 @@
   - type: Sprite
     sprite: _Impstation/Objects/Specific/Syndicate/echionsynth.rsi
     layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: cap-1
-      visible: false
-      shader: unshaded
-      map: ["enum.SolutionContainerLayers.Fill"]
-    - state: core
-      visible: false
-      shader: unshaded
-      map: ["enum.ToggleableVisuals.Layer"]
-  - type: Appearance
-  - type: Item
-    size: Large
-    storedRotation: 90
-  - type: GenericVisualizer
-    visuals:
-      enum.ToggleableVisuals.Enabled:
-        enum.ToggleableVisuals.Layer:
-          True: { visible: true }
-          False: { visible: false }
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: cap-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        shader: unshaded
+        visible: false
+      - state: core
+        shader: unshaded
+        visible: false
+        map: ["enum.ToggleableVisuals.Layer"]
   - type: ToggleableVisuals
     spriteLayer: core
     inhandVisuals:
@@ -43,6 +33,16 @@
     radius: 1.5
     energy: 1.5
     color: "#83db2b"
+  - type: Appearance
+  - type: Item
+    size: Large
+    storedRotation: 90
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
   - type: SolutionContainerVisuals
     maxFillLevels: 4
     fillBaseName: cap-
@@ -82,7 +82,7 @@
       params:
         volume: -4
   - type: PowerCellDraw
-    drawRate: 6
+    drawRate: 12
     useRate: 0
   - type: ToggleCellDraw
   - type: PowerCellSlot
