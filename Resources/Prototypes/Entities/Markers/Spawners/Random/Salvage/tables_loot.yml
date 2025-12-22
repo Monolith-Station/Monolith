@@ -35,6 +35,10 @@
       weight: 0.5
       amount: !type:RangeNumberSelector
         range: 1, 3
+    - id: PlastitaniumScrap
+      weight: 0.05
+      amount: !type:RangeNumberSelector
+        range: 1, 4
     - id: CrayonBox # Frontier
       weight: 0.05 # Mono 0.01 >> 0.05
     - id: CrayonMagic # Frontier
@@ -67,6 +71,10 @@
       weight: 0.05
     - id: SheetPlasteel10
       weight: 0.05
+    - id: PlastitaniumScrapPile
+      weight: 0.05
+    - id: PlastitaniumScrapHullplate
+      weight: 0.025
 
 - type: entityTable
   id: SalvageScrapLarge

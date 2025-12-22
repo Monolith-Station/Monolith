@@ -651,7 +651,41 @@
       - to: reinforcedGirder
         completed:
         - !type:SpawnPrototype
-          prototype: ScrapSteel
+           prototype: PlastitaniumRebarBundle #Mono
+           amount: 1
+        steps:
+        - tool: Cutting
+          doAfter: 1
+        - tool: Screwing
+          doAfter: 1
+        - tool: Welding
+          doAfter: 5
+        - tool: Prying
+          doAfter: 1
+        - tool: Anchoring
+          doAfter: 1
+        - tool: Welding
+          doAfter: 5 #Mono
+        - tool: Prying
+          doAfter: 1
+        - tool: Screwing
+          doAfter: 1
+        - tool: Cutting
+          doAfter: 1
+        - tool: Welding
+          doAfter: 10 #Mono
+        - tool: Prying
+          doAfter: 5
+        - tool: Anchoring
+          doAfter: 1
+
+    - node: plastitaniumWall
+      entity: WallPlastitanium
+      edges:
+      - to: reinforcedGirder
+        completed:
+        - !type:SpawnPrototype
+          prototype: PlastitaniumRebarPile #Mono
           amount: 1
         steps:
         - tool: Cutting
@@ -665,7 +699,7 @@
         - tool: Anchoring
           doAfter: 1
         - tool: Welding
-          doAfter: 10
+          doAfter: 5 #Mono
         - tool: Prying
           doAfter: 1
         - tool: Screwing
@@ -673,41 +707,7 @@
         - tool: Cutting
           doAfter: 1
         - tool: Welding
-          doAfter: 15
-        - tool: Prying
-          doAfter: 5
-        - tool: Anchoring
-          doAfter: 1
-
-    - node: plastitaniumWall
-      entity: WallPlastitanium
-      edges:
-      - to: reinforcedGirder
-        completed:
-        - !type:SpawnPrototype
-          prototype: ScrapSteel
-          amount: 2
-        steps:
-        - tool: Cutting
-          doAfter: 1
-        - tool: Screwing
-          doAfter: 1
-        - tool: Welding
-          doAfter: 5
-        - tool: Prying
-          doAfter: 1
-        - tool: Anchoring
-          doAfter: 1
-        - tool: Welding
-          doAfter: 10
-        - tool: Prying
-          doAfter: 1
-        - tool: Screwing
-          doAfter: 1
-        - tool: Cutting
-          doAfter: 1
-        - tool: Welding
-          doAfter: 15
+          doAfter: 10 #Mono
         - tool: Prying
           doAfter: 5
         - tool: Anchoring

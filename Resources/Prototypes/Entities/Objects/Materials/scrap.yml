@@ -581,4 +581,79 @@
     materialComposition:
       Steel: 200 # 2 sheets
       Plasma: 500 # 5 sheets
+
+- type: entity
+  parent: BaseScrap
+  id: PlastitaniumScrap
+  name: plastitanium scrap
+  suffix: Scrap, Plastitanium
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/Plastitanium_Scrap.rsi
+    layers:
+      - state: Scrap_Plate_1
+        map: ["base"]
+  - type: RandomSprite
+    available:
+    - base:
+        Scrap_Plate_1: ""
+        Scrap_Plate_2: ""
+        Scrap_Plate_3: ""
+  - type: Item
+    heldPrefix: inhand
+  - type: PhysicalComposition
+    materialComposition:
+      Plastitanium: 200 # 2 sheets
+      Steel: 100 # 1 sheet
+
+- type: entity
+  parent: PlastitaniumScrap
+  id: PlastitaniumScrapPile
+  name: plastitanium scrap pile
+  suffix: Scrap, Plastitanium
+  components:
+  - type: Sprite
+    layers:
+      - state: Scrap_Plate_Pile_1
+        map: ["base"]
+  - type: RandomSprite
+    available:
+    - base:
+        Scrap_Plate_Pile_1: ""
+        Scrap_Plate_Pile_2: ""
+        Scrap_Plate_Pile_3: ""
+  - type: Item
+    heldPrefix: inhand
+  - type: PhysicalComposition
+    materialComposition:
+      Plastitanium: 500 # 5 sheets
+      Steel: 250 # 2.5 sheets
+
+- type: entity
+  parent: PlastitaniumScrap
+  id: PlastitaniumScrapHullplate
+  name: plastitanium scrap hullplate
+  suffix: Scrap, Plastitanium
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/Plastitanium_Scrap_Hullplate.rsi
+    layers:
+      - state: Scrap_Hullplate_1
+        map: ["base"]
+  - type: RandomSprite
+    available:
+    - base:
+        Scrap_Hullplate_1: ""
+        Scrap_Hullplate_2: ""
+  - type: MultiHandedItem
+  - type: Item
+    heldPrefix: hullplate
+    size: Huge
+    shape:
+    - 0,0,5,2
+  - type: PhysicalComposition
+    materialComposition:
+      Plastitanium: 1000 # 10 sheets
+      Steel: 500 # 5 sheets
+
 # Mono end
