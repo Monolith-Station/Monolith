@@ -284,7 +284,7 @@
         Blunt: 0.5
         Slash: 0.5
         Piercing: 0.45
-        Heat: 0.5
+        Heat: 0.4
         Radiation: 0.4
         Caustic: 0.5
         Poison: 0.8 # Mono
@@ -293,6 +293,8 @@
     sprintModifier: 0.85
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.35
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
   - type: PirateBountyItem # Mono
     id: ClothingOuterHardsuitTacsuitHighValue
 
