@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/23/2025 17:21:24
-  entityCount: 10685
+  time: 12/23/2025 18:05:28
+  entityCount: 10686
 maps:
 - 10548
 grids:
@@ -10245,8 +10245,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5,82.5
       parent: 1
-    - type: Docking
-      name: SEC-2
   - uid: 761
     components:
     - type: Transform
@@ -40209,6 +40207,9 @@ entities:
     - type: Transform
       pos: 0.5,67.5
       parent: 1
+    - type: GasFilter
+      filterGases:
+      - Nitrogen
     - type: AtmosPipeColor
       color: '#0055CCFF'
 - proto: GasFilterOxygenOn
@@ -40219,6 +40220,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,67.5
       parent: 1
+    - type: GasFilter
+      filterGases:
+      - Oxygen
     - type: AtmosPipeColor
       color: '#0055CCFF'
 - proto: GasMinerNitrogenStationLarge
@@ -54969,6 +54973,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -44.575428,61.461235
+      parent: 1
+- proto: PillCanisterStrange
+  entities:
+  - uid: 10609
+    components:
+    - type: Transform
+      pos: -0.6783626,65.693886
       parent: 1
 - proto: PlasticFlapsAirtightOpaque
   entities:
