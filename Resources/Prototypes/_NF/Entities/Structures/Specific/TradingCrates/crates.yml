@@ -88,7 +88,7 @@
 
 # region Contraband Crates
 - type: entity
-  parent: CrateTradeBaseSecureContraband
+  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure1
   categories: [ HideSpawnMenu ]
   components:
@@ -117,7 +117,7 @@
     valueElsewhere: 45000
 
 - type: entity
-  parent: CrateTradeBaseSecureContraband
+  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure2
   categories: [ HideSpawnMenu ]
   components:
@@ -149,7 +149,7 @@
     expressLatePenalty: 75000
 
 - type: entity
-  parent: CrateTradeBaseSecureContraband
+  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure3
   categories: [ HideSpawnMenu ]
   components:
@@ -181,7 +181,7 @@
     expressLatePenalty: 30000
 
 - type: entity
-  parent: CrateTradeBaseSecureContraband
+  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure4
   name: Donk Co. contraband crate
   categories: [ HideSpawnMenu ]
@@ -214,7 +214,7 @@
     expressLatePenalty: 30000
 
 - type: entity
-  parent: CrateTradeBaseSecureContraband
+  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT3 ] # the only t3
   id: CrateTradeContrabandSecure5
   name: Cybersun Industries contraband crate
   categories: [ HideSpawnMenu ]

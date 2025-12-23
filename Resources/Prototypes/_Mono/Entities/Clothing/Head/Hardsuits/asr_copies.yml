@@ -13,9 +13,20 @@
   parent: ClothingHeadHelmetHardsuitSyndieElite
   id: ClothingHeadHelmetHardsuitAshenElite
   name: PDV CV-53 combat hardsuit helmet
-  description: Based off of the CV-32, sacrifices combat protection for enviornment protection.
+  description: Based off of the CV-32, sacrifices combat protection for environment protection.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/syndieelite.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Head/Hardsuits/syndieelite.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSyndieElite
+  id: ClothingHeadHelmetHardsuitVizier
+  name: PDV CV-67 combat hardsuit helmet
+  description: An adorned tacsuit designed with an imperfect nanolaminate composition. High maneuverability, sturdy armor.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/pdv_vizier.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/pdv_vizier.rsi

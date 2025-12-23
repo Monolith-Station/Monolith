@@ -494,7 +494,6 @@
 # Look for magic bolt here:\Resources\Prototypes\_NF\Entities\Objects\Weapons\Guns\Projectiles\magic.yml
 - type: entity
   parent:
-  - BaseC3CultContraband
   - BaseWeaponTurretNF
   #- MobBloodCultistTimedDespawn
   id: BloodCultTurret

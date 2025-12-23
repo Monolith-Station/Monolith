@@ -7,7 +7,7 @@
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.7
-    baseSprintSpeed : 4.65
+    baseSprintSpeed : 4.85
     weightlessAcceleration: 1.5 # Slightly more manueverable in space.
   - type: Sprite
     layers:
@@ -27,9 +27,8 @@
     allowRevives: true
   - type: SlowOnDamage
     speedModifierThresholds:
-      120: 0.7
-      250: 0.5
-      300: 0.25
+      350: 0.85
+      425: 0.75
   - type: MeleeWeapon
     autoAttack: true
     attackRate: 1.2
@@ -39,8 +38,14 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Slash: 14
-        Structural: 75
+        Slash: 16
+        Structural: 90
+  - type: Clumsy
+    clumsyDefaultCheck: 1
+    gunShootFailDamage:
+      types:
+        Heat: 35
+    clumsyVaulting: false
   #- type: ActionGun
   #  action: ActionLetoferolSpike
   #  gunProto: LetoferolSpikeGun

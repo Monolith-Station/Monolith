@@ -1,6 +1,6 @@
 - type: entity
   name: ritual dagger
-  parent: [BaseItem, BaseC3CultContraband] # Frontier: added BaseC3CultContraband
+  parent: BaseItem
   id: RitualDagger
   description: A strange dagger used by sinister groups for rituals and sacrifices.
   components:
@@ -24,7 +24,7 @@
 
 - type: entity
   name: eldritch blade
-  parent: [BaseItem, BaseC3CultContraband] # Frontier: added BaseC3CultContraband
+  parent: BaseItem
   id: EldritchBlade
   description: A sword humming with unholy energy.
   components:
@@ -39,7 +39,7 @@
       types:
         Slash: 38
     soundHit: # Mono nearly forgot, this weapon makes no noise so i gave it the slash sound, i had been planning on adding this but i forgot until i re-opened the file
-      collection: MetalThud 
+      collection: MetalThud
   - type: Item
     size: Large # Mono Increased from normal to large to make damage make more sense
   - type: Clothing
@@ -50,7 +50,7 @@
 
 - type: entity
   name: unholy halberd
-  parent: [BaseItem, BaseC3CultContraband] # Frontier: added BaseC3CultContraband
+  parent: BaseItem
   id: UnholyHalberd
   description: A poleaxe that seems to be linked to its wielder.
   components:

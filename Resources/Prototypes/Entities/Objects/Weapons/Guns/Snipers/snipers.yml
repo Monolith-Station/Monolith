@@ -59,7 +59,7 @@
 
 - type: entity
   name: NCI Kardashev-Mosin (7.62x54mmR)
-  parent: [BaseWeaponSniper, BaseGunWieldable, BaseGunMelee, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added BaseGunMelee
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseGunMelee] # added BaseGunMelee
   id: WeaponSniperMosin
   description: A weapon for hunting, or endless trench warfare. Uses 762x54mmR ammo. Equipped with bayonet. # Frontier: bayonet
   components:
@@ -82,7 +82,7 @@
 
 - type: entity
   name: SKR-WS M96 Hristov (14.5x114mm)
-  parent: [BaseWeaponSniper, BaseGunWieldable, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: [BaseWeaponSniper, BaseGunWieldable]
   id: WeaponSniperHristov
   description: A portable anti-material rifle. Fires high velocity 14.5mm shells. Uses 145x114mm ammo.
   components:
@@ -117,7 +117,7 @@
 
 - type: entity
   name: musket
-  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseGunMelee, BaseC2Contraband ] # Frontier: BaseMinorContraband<BaseC2Contraband, add BaseGunMelee
+  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseGunMelee ] # add BaseGunMelee
   id: Musket
   description: This should've been in a museum long before you were born. Uses 145x114mm ammo.
   components:
@@ -158,7 +158,7 @@
 
 - type: entity
   name: flintlock pistol
-  parent: [BaseWeaponSniper, BaseC3PirateContraband] # Frontier: BaseMinorContraband<BaseC3PirateContraband
+  parent: BaseWeaponSniper
   id: WeaponPistolFlintlock
   description: A pirate's companion. Yarrr! Uses 145x114mm ammo. An illegal weapon often used by pirates.
   components:

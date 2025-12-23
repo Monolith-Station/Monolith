@@ -1,6 +1,6 @@
 - type: entity
   name: MA Mk32 "Universal" (9x19mm)
-  parent: [BaseWeaponPistol, BaseC1Contraband]
+  parent: BaseWeaponPistol
   id: WeaponPistolMk32
   description: A cheap, civilian grade, ubiquitous sidearm, produced by Midnight Arms Co. While it shares similarities to the MK58, it has been fully improved upon from it's Corporate War counterpart. Uses 9x19mm ammo.
   components:
@@ -48,7 +48,7 @@
 
 - type: entity
   name: LWC C17 Pollock (9x19mm)
-  parent: [BaseWeaponPistol, BaseC1Contraband]
+  parent: BaseWeaponPistol
   id: WeaponPistolPollock
   description: A compact and mass-produced combat pistol. Uses 9x19mm ammo.
   components:
