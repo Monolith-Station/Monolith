@@ -147,14 +147,6 @@
   fallbacks:
   - TsfmcHud
 
-- type: loadoutGroup
-  id: TsfmcColonelGlasses
-  name: loadout-group-contractor-glasses
-  hidden: true # No point in showing this, it gets auto-selected.
-  loadouts:
-  - TsfmcColonelHud
-  fallbacks:
-  - TsfmcColonelHud
 
 - type: loadoutGroup
   id: TsfmcNeck
