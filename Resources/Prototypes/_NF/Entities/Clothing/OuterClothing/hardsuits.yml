@@ -289,8 +289,8 @@
         Caustic: 0.5
         Poison: 0.8 # Mono
   - type: ClothingSpeedModifier # Mono - Armor Value Changes
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.35
   - type: ClothingSlowOnDamageModifier
