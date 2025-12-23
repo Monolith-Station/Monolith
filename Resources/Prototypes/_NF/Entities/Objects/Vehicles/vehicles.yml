@@ -439,7 +439,6 @@
 - type: entity
   parent:
   - VehicleHoverbikeMailcarrier
-  - BaseC2ContrabandUnredeemable
   id: VehicleHoverbikeNfsd
   name: TSFMC hoverbike
   description: An TSFMC issued turbine with bike handles. Very safe.
@@ -531,7 +530,6 @@
 - type: entity
   parent:
   - VehicleHoverbikeMailcarrier
-  - BaseC3PirateContraband
   id: VehicleHoverbikePirate
   name: pirate hoverbike
   description: Yarr! Dis be me sovereign space shuttle. Now, whaur me rum?
@@ -611,7 +609,6 @@
 - type: entity
   parent:
   - VehicleHoverbikeMailcarrier
-  - BaseC3SyndicateContraband
   id: VehicleHoverbikeSyndicate
   name: syndicate hoverbike
   description: This thing screams style. And war crimes.

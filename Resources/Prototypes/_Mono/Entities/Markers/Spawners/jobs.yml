@@ -1,3 +1,30 @@
+
+#PDV
+- type: entity
+  id: SpawnPointPDVDenasvar
+  parent: SpawnPointJobBase
+  name: PDV Denasvar
+  components:
+  - type: SpawnPoint
+    job_id: PDVDenasvar
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red
+
+
+- type: entity
+  id: SpawnPointPDVInfiltrator
+  parent: SpawnPointJobBase
+  name: pdv infiltrator
+  components:
+  - type: SpawnPoint
+    job_id: PDVInfiltrator
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red
+
+#USSP
+
 - type: entity
   id: SpawnPointUSSPRifleman
   parent: SpawnPointJobBase
@@ -53,6 +80,8 @@
     sprite: Structures/Decoration/banner.rsi
     state: banner-red
 
+#MD
+
 - type: entity
   id: SpawnPointMdMedic
   parent: SpawnPointJobBase
@@ -65,6 +94,8 @@
     layers:
       - state: green
       - state: medic
+
+#TSF
 
 - type: entity
   id: SpawnPointTsfEngi

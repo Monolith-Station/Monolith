@@ -5,7 +5,7 @@
   playTimeTracker: JobPirate
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 90000 # 25 hrs - mono
+      time: 72000 # 20 hrs - mono
   startingGear: PirateNFGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
@@ -24,9 +24,6 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: MailDisabled
-    - type: SpecialSectorStationRecord
-      recordGeneration: FalseRecord
     - type: NpcFactionMember
       factions:
       - PirateNF

@@ -1,16 +1,3 @@
-
-- type: loadout
-  id: MercenaryClothingModsuitSecurityPowerCell
-  price: 15000
-  equipment:
-    back: ClothingModsuitSecurityPowerCell
-
-- type: loadout
-  id: MercenaryClothingModsuitMercenaryPowerCell
-  price: 65000
-  equipment:
-    back: ClothingModsuitMercenaryPowerCell
-
 - type: loadout
   id: MercenaryClothingBackpackDuffelTacticalDuffelTan
   equipment:
@@ -40,3 +27,10 @@
   id: MercenaryClothingBackpackDuffelTacticalDuffelWhite
   equipment:
     back: ClothingBackpackDuffelTacticalDuffelWhite
+
+- type: loadout
+  id: MercenaryClothingModsuitSecurityPowerCell # Only to CC guards
+  price: 0
+  equipment:
+    back: ClothingModsuitSecurityPowerCell
+

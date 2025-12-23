@@ -70,7 +70,6 @@
   - MercenaryClothingOuterHardsuitMercenary
   - MercenaryClothingOuterHardsuitPrivateSecurity
   - MercenaryClothingOuterHardsuitMercenaryWarlord
-  - MercenaryClothingOuterHardsuitScaf
 
 - type: loadoutGroup
   id: MonoMercenaryGloves # ONLY TO BE USED AS A SUBGROUP FOR _NF MERCENARY GROUPS
@@ -87,8 +86,6 @@
   id: MonoMercenaryBackpack # ONLY TO BE USED AS A SUBGROUP FOR _NF MERCENARY GROUPS
   name: loadout-group-contractor-backpack
   loadouts:
-  - MercenaryClothingModsuitSecurityPowerCell # Mono
-  - MercenaryClothingModsuitMercenaryPowerCell # Mono
   - MercenaryClothingBackpackDuffelTacticalDuffelTan
   - MercenaryClothingBackpackDuffelTacticalDuffelOlive
   - MercenaryClothingBackpackDuffelTacticalDuffelBlack

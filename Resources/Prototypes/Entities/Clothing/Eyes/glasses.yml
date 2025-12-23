@@ -53,7 +53,7 @@
         Blunt: 10
 
 - type: entity
-  parent: ClothingEyesBase # Frontier: removed BaseEngineeringContraband
+  parent: ClothingEyesBase
   id: ClothingEyesGlassesMeson
   name: engineering goggles #less confusion
   description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
@@ -160,7 +160,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: [ClothingEyesBase, ShowSecurityIcons]
   id: ClothingEyesGlassesSecurity
   name: security glasses
   description: Upgraded sunglasses that provide flash immunity and a security HUD.
@@ -187,7 +187,7 @@
     coverage: EYES
 
 - type: entity
-  parent: [ClothingEyesBase, BaseCommandContraband ]
+  parent: ClothingEyesBase
   id: ClothingEyesGlassesCommand
   name: administration glasses
   description: Upgraded sunglasses that provide flash immunity and show ID card status.
@@ -257,7 +257,7 @@
       coverage: EYES
 
 - type: entity
-  parent: [ClothingEyesBase, BaseC3Contraband, ContrabandClothing] # Frontier: BaseMajorContraband<BaseC3Contraband added ContrabandClothing as parent
+  parent: [ClothingEyesBase]
   id: ClothingEyesVisorNinja
   name: ninja visor
   description: An advanced visor protecting a ninja's eyes from flashing lights.

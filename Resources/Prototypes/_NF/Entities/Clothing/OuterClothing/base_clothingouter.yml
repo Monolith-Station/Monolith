@@ -5,7 +5,7 @@
 
 - type: entity
   abstract: true
-  parent: [ClothingOuterHardsuitBaseNF, BaseC2ContrabandUnredeemable]
+  parent: ClothingOuterHardsuitBaseNF
   id: ClothingOuterHardsuitBaseNFNfsd
   components:
   - type: PressureProtection

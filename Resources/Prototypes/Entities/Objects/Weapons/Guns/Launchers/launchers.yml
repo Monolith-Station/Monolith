@@ -26,7 +26,7 @@
 
 - type: entity
   name: PA china lake
-  parent: [BaseWeaponLauncher, BaseGunWieldable, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: [BaseWeaponLauncher, BaseGunWieldable]
   id: WeaponLauncherChinaLake
   description: PLOOP.
   components:
@@ -59,7 +59,7 @@
 
 - type: entity
   name: PA RPG-7
-  parent: [ BaseWeaponLauncher, BaseC3Contraband ] # Frontier: BaseMajorContraband<BaseC3Contraband
+  parent: BaseWeaponLauncher
   id: WeaponLauncherRocket
   description: A modified ancient rocket-propelled grenade launcher.
   components:
@@ -128,7 +128,7 @@
 
 - type: entity
   name: pirate cannon
-  parent: [BaseC3PirateContraband, BaseWeaponLauncher] # Frontier: added C3PirateContraband
+  parent: BaseWeaponLauncher
   id: WeaponLauncherPirateCannon
   description: Kaboom!
   components:

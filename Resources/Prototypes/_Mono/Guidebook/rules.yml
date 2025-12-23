@@ -26,6 +26,12 @@
 #MARK: Core Rules
 
 - type: guideEntry
+  id: MonolithRuleCoreZeroAgeThreshold
+  name: guide-entry-monolith-rule-core-zero-age-threshold
+  text: "/ServerInfo/_Mono/Guidebook/Rules/Zero_AgeThreshold.xml"
+  ruleEntry: true
+
+- type: guideEntry
   id: MonolithRuleCoreOneCommonSense
   name: guide-entry-monolith-rule-core-one-common-sense
   text: "/ServerInfo/_Mono/Guidebook/Rules/One_CommonSense.xml"

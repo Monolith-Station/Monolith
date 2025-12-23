@@ -1,47 +1,62 @@
 - type: tile
+  id: DebugLatticeRadarHalfWidth
+  parent: Lattice
+  name: debug radar half width lattice
+  sprite: /Textures/Tiles/lattice.png
+  vertices: ["0.25, 0", "0.75, 0", "0.75, 1", "0.25, 1"]
+
+- type: tile
   id: LatticeCornerNE
   parent: Lattice
-  name: tiles-latticecornerNE
+  name: tiles-lattice
   sprite: /Textures/_Mono/Tiles/lattice/ne.png
+  vertices: ["1, 0", "1, 1", "0, 1"]
 
 - type: tile
   id: LatticeCornerNW
   parent: Lattice
-  name: tiles-latticecornerNW
+  name: tiles-lattice
   sprite: /Textures/_Mono/Tiles/lattice/nw.png
+  vertices: ["0, 0", "1, 1", "0, 1"]
 
 - type: tile
   id: LatticeCornerSE
   parent: Lattice
-  name: tiles-latticecornerSE
+  name: tiles-lattice
   sprite: /Textures/_Mono/Tiles/lattice/se.png
+  vertices: ["0, 0", "1, 0", "1, 1"]
 
 - type: tile
   id: LatticeCornerSW
   parent: Lattice
-  name: tiles-latticecornerSW
+  name: tiles-lattice
   sprite: /Textures/_Mono/Tiles/lattice/sw.png
+  vertices: ["0, 0", "1, 0", "0, 1"]
 
 - type: tile
   id: PlatingCornerNE
   parent: Plating
-  name: tiles-platingcornerNE
+  name: tiles-plating
   sprite: /Textures/_Mono/Tiles/plating/ne.png
+  vertices: ["1, 0", "1, 1", "0, 1"]
 
 - type: tile
   id: PlatingCornerNW
   parent: Plating
-  name: tiles-platingcornerNW
+  name: tiles-plating
   sprite: /Textures/_Mono/Tiles/plating/nw.png
-
-- type: tile
-  id: PlatingCornerSW
-  parent: Plating
-  name: tiles-platingcornerSW
-  sprite: /Textures/_Mono/Tiles/plating/sw.png
+  vertices: ["0, 0", "1, 1", "0, 1"]
 
 - type: tile
   id: PlatingCornerSE
   parent: Plating
-  name: tiles-platingcornerSE
+  name: tiles-plating
   sprite: /Textures/_Mono/Tiles/plating/se.png
+  vertices: ["0, 0", "1, 0", "1, 1"]
+
+- type: tile
+  id: PlatingCornerSW
+  parent: Plating
+  name: tiles-plating
+  sprite: /Textures/_Mono/Tiles/plating/sw.png
+  vertices: ["0, 0", "1, 0", "0, 1"]

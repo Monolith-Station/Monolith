@@ -451,7 +451,7 @@ public sealed partial class FireControlSystem : EntitySystem
             var isArtillery = HasComp<SpaceArtilleryComponent>(localWeapon);
 
             // If we can fire, fire the weapon
-            _gun.AttemptShoot(localWeapon, localWeapon, gun, targetCoords);
+            _gun.AttemptShots(localWeapon, localWeapon, gun, targetCoords, TimeSpan.FromSeconds(0.2));
 
             if (isArtillery)
             {

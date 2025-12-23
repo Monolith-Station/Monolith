@@ -1,7 +1,7 @@
 - type: entity
   id: BaseCartridge762x51mm
   name: cartridge (7.62x51mm FMJ)
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseCartridge
   description: A decently sized full-power round.
   abstract: true
   components:

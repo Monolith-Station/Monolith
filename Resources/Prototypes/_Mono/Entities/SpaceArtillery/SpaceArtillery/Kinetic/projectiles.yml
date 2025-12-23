@@ -209,7 +209,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 300
+        Structural: 350
         Blunt: 250
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
@@ -230,9 +230,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 75
+    totalIntensity: 95
     intensitySlope: 5
-    maxIntensity: 30
+    maxIntensity: 45
     maxTileBreak: 4
   - type: GatheringProjectile
   - type: MiningGatheringSoft

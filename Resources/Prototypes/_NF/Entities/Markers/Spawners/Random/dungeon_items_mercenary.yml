@@ -482,10 +482,15 @@
     - CrateSecurityNonlethal
     - CrateSecureMercenaryHardsuitMagBoots
     - CrateSecureMercenaryPrivateSecHardsuitMagBoots
-    - CrateNanotrasenLootFilledT1 #Mono
     - CrateArmoryShotgunExpedition
     - CrateArmoryPistolsExpedition
     - CrateArmoryEnergyGunExpedition
+# Begin Mono Additions
+    - CrateNanotrasenLootFilledT1
+    - CrateNanotrasenLootFilledT1
+    - CrateNanotrasenLootFilledT2
+    - CrateNanotrasenLootFilledT3
+# End Mono Additions
     rareChance: 0.65
     chance: 1
     offset: 0.0

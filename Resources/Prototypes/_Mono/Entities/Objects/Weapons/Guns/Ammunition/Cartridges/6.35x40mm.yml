@@ -1,7 +1,7 @@
 - type: entity
   id: BaseCartridge635x40mmCaseless
   name: cartridge (.25 rifle)
-  parent: [ BaseCartridge, BaseC3SyndicateContrabandNoValue ] # Frontier: BaseSecurityContraband<BaseC3SyndicateContraband
+  parent: BaseCartridge
   description: Developed during corporate wars for subsonic weapons to keep a low-profile during operations.
   abstract: true
   components:

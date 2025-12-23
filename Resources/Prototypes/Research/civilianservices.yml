@@ -10,13 +10,13 @@
   recipeUnlocks:
   - BorgModuleGardening
   - BorgModuleHarvesting
-  #- PlantBagOfHolding
+  - PlantBagOfHolding
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
   - PlantAnalyzer # Frontier
   - NFBlueprintPlantAnalyzerEmpty # Frontier
-  #- NFBlueprintPlantBagOfHolding # Frontier
+  - NFBlueprintPlantBagOfHolding # Frontier
   technologyPrerequisites:
   - BasicParts
   position: 3, -1
