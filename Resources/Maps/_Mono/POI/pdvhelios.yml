@@ -5,7 +5,8 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 12/11/2025 04:10:17
-  entityCount: 8046
+  time: 12/23/2025 15:13:30
+  entityCount: 8048
 maps: []
 grids:
 - 1
@@ -24202,6 +24203,12 @@ entities:
     - type: Transform
       pos: 13.331253,16.56563
       parent: 1
+- proto: ClothingShoesBootsMagPDVAdvanced
+  entities:
+      parent: 2371
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: ClothingShoesBootsMagSyndie
   entities:
   - uid: 2388
@@ -40299,8 +40306,9 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 3993
+          - 8048
           - 7576
+          - 3993
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
