@@ -12,13 +12,6 @@
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
       time: 90000 # 25 hours # mono
-  alternateRequirementSets:
-    longerPlaytimeLessSec:
-    - !type:OverallPlaytimeRequirement
-      time: 108000 # 12 hours # mono
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 21600 # 6 hours
   startingGear: SeniorOfficerGear
   icon: JobIconSergeant
   supervisors: job-supervisors-sheriff

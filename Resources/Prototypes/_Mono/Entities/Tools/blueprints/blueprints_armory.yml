@@ -9,7 +9,7 @@
     - WeaponLauncherRocket
     - CartridgeRocket
 
-#Pre-corpowar tech
+# Corpo War Tech
 - type: entity
   parent: NFBaseBlueprintArmory
   id: BlueprintWeaponRifleNtsfLtr
@@ -29,3 +29,24 @@
   - type: Blueprint
     providedRecipes:
     - WeaponSubMachineGunVectorNtsfHclm
+
+- type: entity
+  parent: NFBaseBlueprintArmory
+  id: BlueprintAmmoPPLCCell
+  name: phased plasma laser canister blueprint
+  description: A blueprint for the production of cells for the NT-WS PPLC rifle
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - PulsedPlasmaLaserCanister
+
+- type: entity
+  parent: NFBaseBlueprintArmory
+  id: BlueprintAmmoMPSSMMissile
+  name: MPSSM missile cartridge blueprint
+  description: A blueprint for the production of missiles for the SM-27 MPSSM missile launcher
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - CartridgeMPSSMMissile
+    - CartridgeMPSSMHEAT

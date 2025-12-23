@@ -1,23 +1,37 @@
-- type: loadout
-  id: PiratePirateNFPDA
-  price: 0
-  equipment:
-    id: PirateNFPDA
+# SPDX-FileCopyrightText: 2024 Dvir
+# SPDX-FileCopyrightText: 2024 Whatstone
+# SPDX-FileCopyrightText: 2025 Arcticular
+# SPDX-FileCopyrightText: 2025 Arcticular1
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
+#
+# SPDX-License-Identifier: MPL-2.0
 
 - type: loadout
-  id: PirateCaptainPirateCaptainNFPDA
+  id: PDVRakhshanPDVRakhshanPDA
   price: 0
   equipment:
-    id: PirateCaptainNFPDA
+    id: PDVRakhshanPDA
 
 - type: loadout
-  id: PirateFirstMatePirateFirstMateNFPDA
+  id: PDVGrandVizierPDVGrandVizierPDA
   price: 0
   equipment:
-    id: PirateFirstMateNFPDA
+    id: PDVGrandVizierPDA
+
+- type: loadout
+  id: PDVAsvaranPDVAsvaranPDA
+  price: 0
+  equipment:
+    id: PDVAsvaranPDA
 # Mono
 - type: loadout
-  id: PDVSpasakaPDVSpaskaPDA
+  id: PDVSpasakaPDVSpasakaPDA
   price: 0
   equipment:
     id: PDVSpasakaPDA
+
+- type: loadout
+  id: PDVDenasvarPDVDenasvarPDA
+  price: 0
+  equipment:
+    id: PDVDenasvarPDA

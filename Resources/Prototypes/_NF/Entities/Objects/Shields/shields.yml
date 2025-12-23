@@ -1,6 +1,6 @@
 - type: entity
   name: TSFMC energy shield
-  parent: [BaseC2ContrabandUnredeemable, EnergyShield]
+  parent: EnergyShield
   id: EnergyShieldNfsd
   components:
   - type: Sprite

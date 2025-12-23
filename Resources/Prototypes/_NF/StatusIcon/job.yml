@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2024 Dvir
+# SPDX-FileCopyrightText: 2024 Salvantrix
+# SPDX-FileCopyrightText: 2024 Whatstone
+# SPDX-FileCopyrightText: 2025 Arcticular
+# SPDX-FileCopyrightText: 2025 Arcticular1
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 dustylens
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
+#
+# SPDX-License-Identifier: MPL-2.0
+
 - type: jobIcon
   parent: JobIcon
   id: JobIconContractor
@@ -26,24 +37,32 @@
   parent: JobIcon
   id: JobIconPirate
   icon:
-    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: pirate
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: PDVRakhshan
   jobName: job-name-pirate
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPDVDenasvar
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: PDVDenasvar
+  jobName: job-name-pdv-denasvar
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconPirateCaptain
   icon:
-    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: piratecaptain
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: PDVVizier
   jobName: job-name-pirate-captain
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconPirateFirstMate
   icon:
-    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: piratefirstmate
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: PDVAsvaran
   jobName: job-name-pirate-first-mate
 
 - type: jobIcon

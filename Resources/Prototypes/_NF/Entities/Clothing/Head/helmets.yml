@@ -3,7 +3,7 @@
 
 #ERT Mail Carrier Helmet
 - type: entity
-  parent: [ BaseC2ContrabandUnredeemable, ClothingHeadHelmetBasic ]
+  parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetERTMailCarrier
   name: ERT mail carrier helmet
   description: An in-atmosphere helmet worn by mail members of the Colonial Emergency Response Team. Has dark purple highlights.
@@ -14,7 +14,7 @@
     sprite: _NF/Clothing/Head/Helmets/ert_mailcarrier.rsi
 
 - type: entity
-  parent: [ BaseC2ContrabandUnredeemable, ClothingHeadHelmetBasic ]
+  parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetNfsd
   name: TSFMC helmet
   description: An TSFMC issued helmet to protect your head.
@@ -26,7 +26,7 @@
 
 #Mercenary Helmet
 - type: entity
-  parent: [ BaseC1Contraband, ClothingHeadHelmetMercenary ]
+  parent: ClothingHeadHelmetMercenary
   id: ClothingHeadHelmetMercenaryBlack
   name: combat helmet
   description: The combat helmet is commonly used by mercenaries, is strong, light and smells like gunpowder and the urban sprawl.

@@ -297,10 +297,13 @@
     offset: 0.0
     rarePrototypes:
     - SpawnDungeonLootCrateArmoryWeapon
-    #Mono
+    # Mono
     - SpawnDungeonLootCrateArmoryWeapon
     - SpawnDungeonLootCrateArmoryWeapon
     - CrateNanotrasenLootFilledT1
+    - CrateNanotrasenLootFilledT2
+    - CrateNanotrasenLootFilledT3
+    # Mono end
     rareChance: 0.05
 
 - type: entity

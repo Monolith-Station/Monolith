@@ -1,7 +1,7 @@
 - type: entity
   id: BaseShellShotgun23x75mm
   name: shotgun shell (4 gauge)
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: added BaseC1Contraband
+  parent: BaseCartridge
   description: Large shotgun round. Kicks like a mule, and will tear a chunk out of anything that doesnt have the armor to protect it.
   abstract: true
   components:
@@ -33,7 +33,7 @@
 - type: entity
   id: ShellShotgun23x75mmBeanbag
   name: shotgun shell (4 gauge beanbag)
-  parent: BaseShellShotgun23x75mm # Frontier: remove BaseSecurityBartenderContraband
+  parent: BaseShellShotgun23x75mm
   components:
   - type: Tag
     tags:

@@ -46,3 +46,52 @@
     Steel: 1500
     Plastic: 1500
     Plasteel: 750
+
+# NT-WS Ammo
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PulsedPlasmaLaserCanister
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: PulsedPlasmaLaserCanister
+  materials:
+    Steel: 2000
+    Plastic: 500
+    Glass: 1500
+    Gold: 200
+    Silver: 200
+    Plasma: 1000
+    Uranium: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: CartridgeMPSSMMissile
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: CartridgeMPSSMMissile
+  materials:
+    Steel: 2500
+    Plastic: 200
+    Glass: 500
+    Gold: 100
+    Silver: 100
+    Plasma: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: CartridgeMPSSMHEAT
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: CartridgeMPSSMHEAT
+  materials:
+    Steel: 2000
+    Plastic: 400
+    Glass: 500
+    Silver: 500
+    Plasma: 750
+    Uranium: 500
+

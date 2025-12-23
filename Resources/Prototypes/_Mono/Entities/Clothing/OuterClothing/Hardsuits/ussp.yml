@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT2 ]
   id: ClothingOuterHardsuitUsspL27
   name: USSP L-27 tacsuit
   description: The standard combat suit of USSP naval operations.
@@ -45,7 +45,7 @@
     id: ClothingOuterHardsuitTacsuit
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT0 ]
   id: ClothingOuterHardsuitUsspL10
   name: USSP L-10 lightsuit
   description: An old USSP model of combat suit that is still in use in the frontlines.
@@ -91,7 +91,7 @@
     id: ClothingOuterHardsuitTacsuit
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT0 ]
   id: ClothingOuterHardsuitUsspL10A
   name: USSP L-10-A lightsuit
   description: An old USSP model of combat suit that is still in use in the frontlines.
@@ -137,7 +137,7 @@
     id: ClothingOuterHardsuitTacsuit
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT0 ]
   id: ClothingOuterHardsuitUsspM10
   name: USSP M-10 scoutsuit
   description: A new prototype of combat suit using the old L-10 as a baseline. It has a integrated mass scanner in his helmet.
@@ -182,7 +182,7 @@
     id: ClothingOuterHardsuitTacsuitHighValue
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT2 ]
   id: ClothingOuterHardsuitUsspL30
   name: USSP L-30 Naval Commissar parade hardsuit.
   description: A highly decorated hardsuit with upgraded mobility and higher quality lighter armor plates to quickly convey orders on the frontline. (or not be sweaty in a parade)
@@ -228,7 +228,7 @@
     id: ClothingOuterHardsuitTacsuitHighValue
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT3 ]
   id: ClothingOuterHardsuitOfficerCombat
   name: USSP UF-16 "Voenkom" commissar tacsuit
   description: Developed by Union armament manufacturers for use by members of the commissariat on the frontlines. Features enhanced plating for survivability, allowing commanders to continue to give orders even while under heavy fire.

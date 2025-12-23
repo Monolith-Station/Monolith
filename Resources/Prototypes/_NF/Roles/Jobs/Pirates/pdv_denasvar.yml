@@ -1,0 +1,68 @@
+# SPDX-FileCopyrightText: 2024 Checkraze
+# SPDX-FileCopyrightText: 2024 Dvir
+# SPDX-FileCopyrightText: 2024 Qulibly
+# SPDX-FileCopyrightText: 2024 Salvantrix
+# SPDX-FileCopyrightText: 2024 Whatstone
+# SPDX-FileCopyrightText: 2025 Arcticular
+# SPDX-FileCopyrightText: 2025 LukeZurg22
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 ScyronX
+# SPDX-FileCopyrightText: 2025 sleepyyapril
+# SPDX-FileCopyrightText: 2025 starch
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: job
+  id: PDVDenasvar
+  name: job-name-pdv-denasvar
+  description: job-description-pdv-denasvar
+  playTimeTracker: JobPDVDenasvar
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50 hours # mono
+    - !type:RoleTimeRequirement
+      role: JobPirate
+      time: 90000 # 25 hours
+  startingGear: PDVDenasvarGear
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  canBeAntag: true
+  icon: "JobIconPDVDenasvar"
+  supervisors: job-supervisors-pdv-denasvar
+  weight: 30
+  displayWeight: 30
+  setPreference: true
+  guides: [ BasicLore, PhaethonDynasty] # Mono
+  access:
+  - Pirate
+  - Mercenary
+  accessGroups:
+  - GeneralAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - PirateNF
+  - !type:AddImplantSpecial
+    implants: [ FreelanceTrackingImplant ]
+  - !type:AddLanguageSpecial # Monolith - Languages
+    languagesSpoken:
+    - Freespeak
+    languagesUnderstood:
+    - Freespeak
+  - !type:GiveItemOnHolidaySpecial # Even pirates get a piece of cake.
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: PDVDenasvarGear
+  equipment:
+    ears: ClothingHeadsetAltFreelancer
+    #belt: ClothingBeltUtility
+    pocket1: BasePirateUplinkPirateCrew
+    #pocket2: AppraisalTool
+  storage:
+    back:
+    - RadioHandheldNF

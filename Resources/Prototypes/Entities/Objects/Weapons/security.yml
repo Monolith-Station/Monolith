@@ -1,6 +1,6 @@
 - type: entity
   name: stun baton
-  parent: [BaseItem, BaseC1Contraband] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseItem
   id: Stunbaton
   description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
   components:
@@ -93,7 +93,7 @@
 
 - type: entity
   name: cyborg stun baton
-  parent: [BaseItem, BaseC1Contraband]
+  parent: BaseItem
   id: CyborgStunbaton
   description: A stun baton for incapacitating people with, designed for cyborgs. Actively harming with this is considered bad tone.
   components:
@@ -183,7 +183,7 @@
 
 - type: entity
   name: truncheon
-  parent: [BaseItem, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: BaseItem
   id: Truncheon
   description: A rigid, steel-studded baton, meant to harm. On the handle is a label that says 'for authorized use only.'
   components:
@@ -220,7 +220,7 @@
 
 - type: entity
   name: flash
-  parent: [BaseItem, BaseC1Contraband] # Frontier: BaseSecurityScienceCommandContraband<BaseC1Contraband
+  parent: BaseItem
   id: Flash
   description: An ultrabright flashbulb with a trigger, which causes the victim to be dazed and lose their eyesight for a moment. Useless when burnt out.
   components:
@@ -287,7 +287,7 @@
 
 - type: entity
   name: portable flasher
-  parent: [BaseMachine, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: BaseMachine
   id: PortableFlasher
   description: An ultrabright flashbulb with a proximity trigger, useful for making an area security-only.
   components:
