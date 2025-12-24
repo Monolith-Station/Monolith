@@ -186,7 +186,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         gunComp.Target = GetEntity(target);
 
         AttemptShoot(user.Value, ent, gunComp);
-        
+
         // Check if shooting was successful by checking if ammo was consumed
         // This is a workaround since AttemptShoot returns void
         if (gunComp.ShotCounter == 0)
@@ -255,6 +255,15 @@ public abstract partial class SharedGunSystem : EntitySystem
         {
             gunEntity = held;
             gunComp = gun;
+            return true;
+        }
+
+        // Mono edit - you can use gloves as guns now because its fucking amazing.
+        if (_inventory.TryGetSlotEntity(entity, "gloves", out var gloves) &&
+            TryComp<GunComponent>(gloves, out var glovesGun))
+        {
+            gunEntity = gloves.Value;
+            gunComp = glovesGun;
             return true;
         }
 
@@ -579,6 +588,10 @@ public abstract partial class SharedGunSystem : EntitySystem
             DirtyField(uid, cartridge, nameof(CartridgeAmmoComponent.Spent));
 
         cartridge.Spent = spent;
+
+        if (cartridge.DeleteOnSpawn) // Mono - No need to update appearance if cartridge is getting deleted anyways
+            return;
+
         Appearance.SetData(uid, AmmoVisuals.Spent, spent);
     }
 

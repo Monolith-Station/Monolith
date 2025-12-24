@@ -79,7 +79,7 @@
 
 - type: entity
   name: MA PDW-58 Atreides (5.7x28mm)
-  parent: [BaseWeaponSubMachineGun, BaseC3SyndicateContraband] # Frontier: BaseMajorContraband<BaseC3SyndicateContraband
+  parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunAtreides
   description: Midnight Arms Co. Streamlined SMG that's commonly found use among uprisings and criminals. Uses 5.7x28mm ammo.
   components:
@@ -123,7 +123,7 @@
 
 - type: entity
   name: CS C-20r submachine gun (9x19mm)
-  parent: [BaseWeaponSubMachineGun, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunC20r
   description: A Corporate-Era SMG, once used by Nuclear Operatives, it now finds purchase among the Phaethon Dynasty. Uses 9x19mm ammo.
   components:
@@ -163,7 +163,7 @@
 
 - type: entity
   name: TCA M-5 Drozd (.45 ACP)
-  parent: [BaseWeaponSubMachineGun, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunDrozd
   description: An SMG that once found use among NT security forces, now has found itself as one of the most reliable boarding and anti-boarding weapons on the market. Uses .45 ACP ammo.
   components:
@@ -232,7 +232,7 @@
 
 - type: entity
   name: UI WT550 (4.6x30mm)
-  parent: [ BaseWeaponSubMachineGun, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunWt550
   description: An excellent SMG, produced by a Black Market Arms Company known as Ullman Industries. Uses 4.6x30mm ammo. On the receiver is a label that says 'for authorized use only.'
   components:

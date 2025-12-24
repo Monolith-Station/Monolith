@@ -105,7 +105,7 @@
     tags:
     - Soap
   - type: Slippery
-    slipData: 
+    slipData:
       paralyzeTime: 0.7
       launchForwardsMultiplier: 0.5
   - type: StepTrigger
@@ -553,7 +553,7 @@
 
 - type: entity
   name: toy RPG
-  parent: [BaseClearContraband, WeaponLauncherRocket]
+  parent: WeaponLauncherRocket
   id: WeaponLauncherRocketToy
   suffix: Toy
   description: A plush toy, this launches foam "grenades". There are stitches on the side that spell out "SAM".
@@ -605,7 +605,7 @@
 
 # Grown cap gun, in toys.yml for consistency with fake parent
 - type: entity
-  parent: [BaseC3SyndicateContrabandNoValue, RevolverCapGunFake] # Frontier: added BaseC3SyndicateContraband
+  parent: RevolverCapGunFake
   id: RevolverCapGunFakeGrown
   categories: [ HideSpawnMenu ]
   suffix: Fake, Grown

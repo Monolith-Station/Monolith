@@ -1,18 +1,18 @@
-- type: technology
-  id: ModsuitsTech
-  name: research-technology-modsuits
-  entityIcon: ModsuitCoreStandard
-  discipline: Experimental
-  tier: 2 # Mono
-  cost: 75000 # Mono
-  recipeUnlocks:
-  - ModsuitChestplate
-  - ModsuitBoots
-  - ModsuitHelmet
-  - ModsuitGauntlets
-  - ModsuitShell
-  - ModsuitPlatingExternal
-  - ModsuitCoreStandard
-  position: 2, 7
-  technologyPrerequisites:
-  - HardsuitsBasic
+# - type: technology
+#   id: ModsuitsTech
+#   name: research-technology-modsuits
+#   entityIcon: ModsuitCoreStandard
+#   discipline: Experimental
+#   tier: 2 # Mono
+#   cost: 75000 # Mono
+#   recipeUnlocks:
+#   - ModsuitChestplate
+#   - ModsuitBoots
+#   - ModsuitHelmet
+#   - ModsuitGauntlets
+#   - ModsuitShell
+#   - ModsuitPlatingExternal
+#   - ModsuitCoreStandard
+#   position: 2, 7
+#   technologyPrerequisites:
+#   - HardsuitsSpecialized

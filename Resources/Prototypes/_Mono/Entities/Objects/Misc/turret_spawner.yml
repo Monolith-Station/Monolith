@@ -58,4 +58,17 @@
     prototypes:
     - WeaponTurretUSSP
 
-
+- type: entity
+  id: SpawnMobWeaponTurretPDV
+  parent: MarkerBase
+  name: PDV ballistic turret spawner
+  suffix: PDV, Frontier
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+      state: syndie_lethal
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretPDV

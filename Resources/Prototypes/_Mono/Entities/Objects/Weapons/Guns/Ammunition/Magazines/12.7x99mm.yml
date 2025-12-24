@@ -1,7 +1,7 @@
 - type: entity
   id: BaseMagazine127x99mm
   name: "magazine (12.7x99mm)"
-  parent: [ BaseItem, BaseC3PirateContraband ]
+  parent: BaseItem
   abstract: true
   components:
   - type: Tag

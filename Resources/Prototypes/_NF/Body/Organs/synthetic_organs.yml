@@ -1,7 +1,7 @@
 # Organs with boosted metabolizm
 - type: entity
   id: OrganSyntheticHeart
-  parent: [BaseHumanOrgan, BaseC3SyndicateContraband] # Frontier: add BaseC3SyndicateContraband
+  parent: BaseHumanOrgan
   name: synthetic heart
   description: "Whirrs and pumps blood."
   components:
@@ -19,7 +19,7 @@
 
 - type: entity
   id: OrganSyntheticLiver
-  parent: [BaseHumanOrgan, BaseC3SyndicateContraband] # Frontier: add BaseC3SyndicateContraband
+  parent: BaseHumanOrgan
   name: synthetic liver
   description: "Filters toxins from the bloodstream at higher rate than old 'ganic liver."
   components:
@@ -40,7 +40,7 @@
 
 - type: entity
   id: OrganSyntheticKidneys
-  parent: [BaseHumanOrgan, BaseC3SyndicateContraband] # Frontier: add BaseC3SyndicateContraband
+  parent: BaseHumanOrgan
   name: synthetic kidneys
   description: "Filters toxins from the bloodstream at higher rate than old 'ganic liver."
   components:
