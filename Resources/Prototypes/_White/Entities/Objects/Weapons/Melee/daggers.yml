@@ -1,7 +1,7 @@
 - type: entity
   name: betrayal knife
   description: Watch your back!
-  parent: [BaseKnife, BaseSyndicateContraband]
+  parent: BaseKnife
   id: BetrayalKnife
   components:
   - type: Sprite

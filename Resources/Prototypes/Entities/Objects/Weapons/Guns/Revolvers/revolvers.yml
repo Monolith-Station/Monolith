@@ -72,7 +72,7 @@
 
 - type: entity
   name: NT Deckard (.45 magnum)
-  parent: [BaseWeaponRevolver, BaseC1Contraband] # Frontier: BaseSecurityCommandContraband<BaseC1Contraband
+  parent: BaseWeaponRevolver
   id: WeaponRevolverDeckard
   description: A rare, civilian grade custom-built revolver. Use when there is no time for Voight-Kampff test. Uses .45 magnum ammo.
   components:
@@ -100,7 +100,7 @@
 
 - type: entity
   name: Inspector (.45 magnum)
-  parent: [BaseWeaponRevolver, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: BaseWeaponRevolver
   id: WeaponRevolverInspector
   description: A detective's best friend. Uses .45 magnum ammo. On the handle is a label that says 'for authorized use only.'
   components:
@@ -115,7 +115,7 @@
 
 - type: entity
   name: NT Mateba (.45 magnum)
-  parent: [BaseWeaponRevolver, BaseC2ContrabandUnredeemable] # Frontier: BaseMajorContraband<BaseC2ContrabandUnredeemable
+  parent: BaseWeaponRevolver
   id: WeaponRevolverMateba
   description: A legendary sidearm from the Corporate Era, once used by corporate kill-teams, it now belongs to TSF Officers across the galaxy. Uses .45 magnum ammo. On the handle is a label that says 'for authorized use only.'
   components:
@@ -138,7 +138,7 @@
 
 - type: entity
   name: LWC Python (.45 magnum)
-  parent: [BaseWeaponRevolver, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseWeaponRevolver
   id: WeaponRevolverPython
   description: A revolver that is commonly found around Phaethon Dynasty space, it's typically used by high-ranking imperials. Uses .45 magnum ammo. # Frontier
   components:
@@ -161,7 +161,7 @@
 # Mono: Gatfruit revolver variant, little FMC worth
 - type: entity
   name: LWC Python (.45 magnum)
-  parent: [BaseWeaponRevolver, BaseC3SyndicateContrabandUnredeemable]
+  parent: BaseWeaponRevolver
   id: WeaponRevolverPythonGatfruit
   suffix: Low Value
   description: A revolver that is commonly found around Phaethon Dynasty space, it's typically used by high-ranking imperials. Uses .45 magnum ammo. It seems to be made of fragile plant matter, and isn't as valuable for contraband recycling.
@@ -197,7 +197,7 @@
 
 - type: entity
   name: pirate revolver (.45 magnum)
-  parent: [BaseWeaponRevolver, BaseC3PirateContraband] # Frontier: BaseMinorContraband<BaseC3PirateContraband
+  parent: BaseWeaponRevolver
   id: WeaponRevolverPirate
   description: An odd, illegal, old-looking revolver, favoured by pirate crews. Uses .45 magnum ammo. # Frontier
   components:

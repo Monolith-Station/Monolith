@@ -63,20 +63,11 @@
   flavor: acid
   color: "#ebba34"
   worksOnTheDead: true
-  flammability: 6
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: ChimeraFleshKudzu
     maxOnTileWhitelist:
       tags: [ ChimeraFloor ]
-  - !type:FlammableTileReaction
-    temperatureMultiplier: 5
-  reactiveEffects:
-    Flammable:
-      methods: [ Touch ]
-      effects:
-      - !type:FlammableReaction
-        multiplier: 0.4
   metabolisms:
     Poison:
       metabolismRate: 0.2

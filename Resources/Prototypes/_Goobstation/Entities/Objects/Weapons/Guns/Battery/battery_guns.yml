@@ -1,6 +1,6 @@
 - type: entity
   name: VFD EG-4 energy revolver
-  parent: [BaseWeaponBatterySmall, BaseC2ContrabandUnredeemable] # Mono - C2 contra instead of command contra
+  parent: BaseWeaponBatterySmall # Mono - C2 contra instead of command contra
   id: WeaponEnergyRevolver
   description: A highly advanced energy revolver capable of firing both lethal and disabling bullets.
   components:

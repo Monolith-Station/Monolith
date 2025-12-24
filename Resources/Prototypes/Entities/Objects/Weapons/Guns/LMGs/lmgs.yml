@@ -95,7 +95,7 @@
 - type: entity
   name: PA L6B SAW (7.62x39mm)
   id: WeaponLightMachineGunL6
-  parent: [BaseWeaponLightMachineGun, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseWeaponLightMachineGun
   description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses 7.62x39mm ammo. No longer in production, it serves as a remnant of humanity's greed and ambition during The Fracture.
   components:
   - type: Sprite
@@ -117,7 +117,7 @@
 - type: entity
   name: PA L6C ROW (7.62x39mm)
   id: WeaponLightMachineGunL6C
-  parent: [BaseItem, BaseC3SyndicateContraband] # Frontier: added BaseC3SyndicateContraband
+  parent: BaseItem
   description: A L6 SAW for use by cyborgs. Creates 762x39mm ammo on the fly from an internal ammo fabricator, which slowly self-charges.
   components:
     - type: Gun
