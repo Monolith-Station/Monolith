@@ -11,7 +11,7 @@
   technologyPrerequisites:
   - MercArmementSimple
   - AdvancedParts
-  position: 4, 1
+  position: 3, 1
 
 - type: technology
   id: MercArmementSimple
@@ -27,18 +27,6 @@
   - WeaponSubMachineGunVector9x19mm
   - WeaponSubMachineGunFirestarter
   - WeaponRifleAk
-  technologyPrerequisites:
-  - MercArmementBasic
-  position: 3, 1
-
-- type: technology
-  id: MercArmementBasic
-  name: research-technology-merc-armement-basic
-  entityIcon: WeaponRiflePrometheus
-  discipline: Arsenal
-  tier: 1
-  cost: 7500
-  recipeUnlocks:
   - WeaponSubMachineGunWt550
   - WeaponRiflePrometheus
   - WeaponRifleVulcanFCMC

@@ -70,4 +70,10 @@ public sealed partial class BallisticAmmoProviderComponent : Component
     /// </summary>
     [DataField]
     public bool InfiniteUnspawned = false;
+
+    /// <summary>
+    /// Monolith - Ignore whitelist and allow to load any type of ammo
+    /// </summary>
+    [DataField]
+    public bool IgnoreWhitelist = false;
 }

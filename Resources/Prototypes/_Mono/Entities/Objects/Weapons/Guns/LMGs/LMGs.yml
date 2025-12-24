@@ -1,6 +1,6 @@
 - type: entity
   name: NCI DP-29
-  parent: [BaseWeaponLightMachineGun, BaseGunWieldable, BaseC3Contraband]
+  parent: [BaseWeaponLightMachineGun, BaseGunWieldable]
   id: WeaponDP29
   description: A staple of USSP military doctrine, the DP-29 is a mass-produced light machine gun designed for reliability, ease of use, and battlefield endurance. Featuring a distinctive top-mounted pan magazine and a folding bipod, the DP-29 excels at providing suppressive fire in both urban and open combat scenarios. While its design dates back decades, its reliability and ease of maintenance make it a favorite among USSP infantry squads.
   components:
@@ -68,7 +68,7 @@
 
 - type: entity
   name: VFD MR-8B LWMMG (8x65mm SKR)
-  parent: [BaseWeaponLightMachineGun, BaseGunWieldable, BaseC2ContrabandUnredeemable]
+  parent: [BaseWeaponLightMachineGun, BaseGunWieldable]
   id: WeaponLMGMR8B
   description: The LWMMG variant of the MR-8 series. Chambered in 8x65mm SKR, and accepts both box and STANAG magazines. A label on the side reads "FOR MILITARY USE ONLY".
   components:
@@ -139,7 +139,7 @@
 
 - type: entity
   name: NCI AK-150 HAMMER (7.62x39mm)
-  parent: [BaseWeaponLightMachineGun, BaseGunWieldable, BaseC2ContrabandUnredeemable]
+  parent: [BaseWeaponLightMachineGun, BaseGunWieldable]
   id: WeaponLMGHammer
   description: A modified old style AK from earth which has been improved with USSP engineering and new design philosophies. At a base level? It's been turned into an LMG with a box magazine attached alongside various recoil lessening upgrades and a stylized chassis. Hail The Commissariat.
   components:
@@ -212,7 +212,7 @@
 
 - type: entity
   name: TCA MMG-68 "Grizzly" (6.8x52mm Caseless)
-  parent: [BaseWeaponLightMachineGun, BaseGunWieldable, BaseC2ContrabandUnredeemable]
+  parent: [BaseWeaponLightMachineGun, BaseGunWieldable]
   id: WeaponLMGGrizzly
   description: A medium machine gun chambered in 6.8x52mm Caseless, accepts both box and standard magazines. A label on the side reads "FOR MILITARY USE ONLY". The weight of the machine gun make it hard to wield easily. To assist with standardization, it also accepts 5.56x45mm and 7.62x39mm.
   components:

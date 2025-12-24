@@ -23,6 +23,7 @@
       path: /Audio/Items/bow_pull.ogg
     soundEmpty: null
     projectileSpeed: 30
+    clumsyProof: true
 
 - type: entity
   id: LetoferolHorrorSpikeSpread
@@ -54,6 +55,7 @@
     damage:
       types:
         Piercing: 6
+        Structural: 25 # 175 dmg on each burst
 
 - type: entity
   id: ActionLetoferolSpike

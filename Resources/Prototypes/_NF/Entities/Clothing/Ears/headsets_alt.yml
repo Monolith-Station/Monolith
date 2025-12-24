@@ -53,7 +53,7 @@
     sprite: _NF/Clothing/Ears/Headsets/nfsd_h_cb.rsi
 
 - type: entity
-  parent: [ClothingHeadsetAlt, BaseCommandContraband]
+  parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltNfsdBrownCentcom
   name: sheriff's over-ear headset
   categories: [ HideSpawnMenu ]

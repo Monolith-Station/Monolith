@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseC2ContrabandUnredeemable]
+  parent: [ClothingOuterHardsuitBase, BaseFactionGearTSFT3]
   id: ClothingOuterHardsuitM86
   name: M86 Mk.3(R) hardsuit
   description: An armored hardsuit, designed to be an upgrade for the M82 series. The extra armor gives it some more weight to move around.
@@ -46,7 +46,7 @@
 # MARSOC only
 
 - type: entity
-  parent: [EnergyShieldClothing, ClothingOuterHardsuitM86]
+  parent: [EnergyShieldClothing, ClothingOuterHardsuitM86, BaseFactionGearTSFT3]
   id: ClothingOuterHardsuitM86Mk4
   name: M86 Mk.4(B) hardsuit
   description: A limited-production redesign proposal for the M86 Mk.3(R), outfitted with an inbuilt personal shield generator.

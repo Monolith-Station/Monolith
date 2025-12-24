@@ -123,7 +123,7 @@
     - state: idintern-service
 
 - type: entity
-  parent: [IDCardStandard, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityCommandContraband<BaseC2ContrabandUnredeemable
+  parent: IDCardStandard
   id: CaptainIDCard
   name: captain ID card
   components:
@@ -605,7 +605,7 @@
 
 - type: entity
   name: contractor ID card # Frontier: passenger<contractor
-  parent: [IDCardStandard, BaseC3SyndicateContraband]
+  parent: IDCardStandard
   id: AgentIDCard
   suffix: Agent
   components:
@@ -637,8 +637,6 @@
         type: AgentIDCardBoundUserInterface
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
-  - type: Contraband # Frontier
-    hideValues: true # Frontier
 
 - type: entity
   name: contractor ID card # Frontier: passenger<contractor
@@ -665,7 +663,7 @@
     job: AtmosphericTechnician
 
 - type: entity
-  parent: [IDCardStandard, BaseC3SyndicateContraband] # Frontier: added BaseC3SyndicateContraband
+  parent: IDCardStandard
   id: SyndicateIDCard
   name: syndicate ID card
   components:
@@ -678,7 +676,7 @@
     - SyndicateAgent
 
 - type: entity
-  parent: [IDCardStandard, BaseC3PirateContraband] # Frontier: added BaseC3PirateContraband
+  parent: IDCardStandard
   id: PirateIDCard
   name: pirate ID card
   categories: [ HideSpawnMenu ] # Frontier

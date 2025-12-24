@@ -101,10 +101,10 @@
     mod: 0.70 # Mono 0.5->0.7
 
 - type: entity
-  name: contraband exchange computer
+  name: technology exchange computer
   parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, BaseComputer]
   id: ComputerContrabandPalletConsole
-  description: Used to exchange contraband for Federation Military Credits.
+  description: Sends off faction gear in exchange for FMC.
   components:
   - type: Sprite
     sprite: _NF/Structures/Machines/computers.rsi
@@ -273,10 +273,10 @@
   #   - Pirate # Frontier: eventually?  maybe?
 
 - type: entity
-  name: contraband exchange console
+  name: technology hand-in console
   parent: ComputerContrabandPalletConsole
   id: ComputerContrabandPalletConsolePirate
-  description: Upload contraband and blacklisted tech. Pays well if you know what you're doing.
+  description: Takes faction tech to be sent off to research and grants DC in exchange.
   components:
   - type: Sprite
     sprite: _NF/Structures/Machines/computers.rsi

@@ -1,7 +1,7 @@
 - type: entity
   id: ClothingOuterWinterArcadia
   name: arcadia winter coat
-  parent: [ ClothingOuterWinterCoatToggleable, BaseC3ContrabandNoValue, ContrabandClothing ]
+  parent: [ ClothingOuterWinterCoatToggleable ]
   description: A coat produced by Arcadia Industries, seems soft.
   components:
   - type: Sprite

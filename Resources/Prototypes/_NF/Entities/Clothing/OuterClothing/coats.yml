@@ -1,7 +1,7 @@
 - type: entity
   id: ClothingOuterCoatBHTrench
   name: "bounty hunter's flak trenchcoat"
-  parent: [ BaseC1Contraband, ClothingOuterCoatHoSTrench ]
+  parent: ClothingOuterCoatHoSTrench
   description: A greatcoat enhanced with a bulletproof alloy for some extra protection and style for those with a charismatic presence.
   components:
   - type: Sprite
@@ -58,7 +58,7 @@
       head:  ClothingHeadHatHoodCardinalHood
 
 - type: entity
-  parent: [ ClothingOuterStorageBase, BaseC2ContrabandUnredeemable ]
+  parent: ClothingOuterStorageBase
   id: ClothingOuterCoatNfsdBomber
   name: TSFMC bomber
   description: Lookin' slick Tom.
@@ -69,7 +69,7 @@
     sprite: _NF/Clothing/OuterClothing/Misc/nfsd_bomber.rsi
 
 - type: entity
-  parent: [ ClothingOuterStorageBase, BaseC2ContrabandUnredeemable ]
+  parent: ClothingOuterStorageBase
   id: ClothingOuterCoatNfsdBomberBrigmed
   name: TSFMC brigmedic bomber
   description: Blood may stain.
@@ -80,7 +80,7 @@
     sprite: _NF/Clothing/OuterClothing/Misc/nfsd_brigmed_bomber.rsi
 
 - type: entity
-  parent: [ ClothingOuterStorageBase, BaseC2ContrabandUnredeemable ]
+  parent: ClothingOuterStorageBase
   id: ClothingOuterCoatNfsdFormal
   name: TSFMC formal coat
   description: Snazzy.
@@ -91,7 +91,7 @@
     sprite: _NF/Clothing/OuterClothing/Misc/nfsd_formal.rsi
 
 - type: entity
-  parent: [ ClothingOuterStorageBase, BaseC2ContrabandUnredeemable ]
+  parent: ClothingOuterStorageBase
   id: ClothingOuterCoatNfsdFormalSheriff
   name: TSFMC colonel's formal coat
   description: Very snazzy.
@@ -102,7 +102,7 @@
     sprite: _NF/Clothing/OuterClothing/Misc/nfsd_sheriff_formal.rsi
 
 - type: entity
-  parent: [ ClothingOuterStorageBase, BaseC2ContrabandUnredeemable ]
+  parent: ClothingOuterStorageBase
   id: ClothingOuterCoatNfsdLongCoat
   name: TSFMC long coat
   description: Big iron on his hip...
@@ -113,7 +113,7 @@
     sprite: _NF/Clothing/OuterClothing/Misc/nfsd_long.rsi
 
 - type: entity
-  parent: [ ClothingOuterStorageBase, BaseC2ContrabandUnredeemable ]
+  parent: ClothingOuterStorageBase
   id: ClothingOuterJacketSr
   name: colonial liaison's jacket
   description: The upper part of the colonial liaison's uniform.
@@ -129,7 +129,7 @@
       - state: equipped-OUTERCLOTHING
 
 - type: entity
-  parent: [ ClothingOuterStorageBase, BaseC3PirateContrabandNoValue ]
+  parent: ClothingOuterStorageBase
   id: ClothingOuterCoatPirateCaptain
   name: pirate captain's coat
   description: Y'arrgh har fiddle di dee.
@@ -140,7 +140,7 @@
     sprite: _NF/Clothing/OuterClothing/Misc/pirate_captain.rsi
 
 - type: entity
-  parent: [ ClothingOuterStorageFoldableBase, BaseC3ContrabandNoValue, ContrabandClothing ]
+  parent: [ ClothingOuterStorageFoldableBase ]
   id: ClothingOuterCoatArcadiaTrench
   name: arcadia flak trenchcoat
   description: A flak trenchcoat produced by Arcadia Industries, enhanced with a bulletproof alloy for some extra protection.

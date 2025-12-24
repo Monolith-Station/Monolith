@@ -29,7 +29,7 @@
 
 - type: entity
   name: NTCS-102 hypospray
-  parent: [HypoMini, BaseC2ContrabandUnredeemable]
+  parent: HypoMini
   description: A commercial hypospray designed by Nanotrasen Chemical Supply. It has a larger chemical reservoir compared to its commercial version and a slightly lowered injection delay. # Mono
   id: HypoBrigmedic
   components:

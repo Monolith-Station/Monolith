@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT2 ]
   id: ClothingOuterHardsuitUIEnforcer
   name: U.I. ENFORCER combat tacsuit
   description: Infamously one of the most reliable combat tacsuits that the Black Market has to offer, developed by Ullman Industries. "Heads up display sold seperately!"
@@ -38,7 +38,7 @@
     coefficient: 0.55
 
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, EnergyShieldClothing ]
+  parent: [ ClothingOuterHardsuitBase, EnergyShieldClothing, BaseFactionGearOtherFactionT2 ]
   id: ClothingOuterHardsuitUIEnforcerMKII
   name: U.I. ENFORCER MKII combat tacsuit
   description: Based off of the infamous MKI design with versatility in mind. This is Ullman Industries' top of the line combat suit. Whether it be slipping away from the feds, taking out the competition, or serving your corporate overlords, this marvel of engineering will make sure that you get it done.
@@ -96,7 +96,7 @@
     coefficient: 0.45
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT0 ]
   id: ClothingOuterHardsuitUllmanEngineer
   name: U.I. engineering hardsuit
   description: A protective hardsuit worn by black market engineering specialists. Developed by Ullman Industries.
@@ -135,7 +135,7 @@
     coefficient: 0.8
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT0 ]
   id: ClothingOuterHardsuitUIPilot
   name: U.I. pilot voidsuit
   description: A voidsuit made for black market pilots. Developed by Ullman Industries
@@ -175,7 +175,7 @@
     coefficient: 0.7
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT2 ]
   id: ClothingOuterHardsuitUIDirector
   name: U.I. VK-1 experimental hardsuit
   description: Felix Ullman's top of the line personal hardsuit. A warning label engraved on the chestplate reads "Theft of this suit has a high chance of death! Seriously, I will find you. You will die."

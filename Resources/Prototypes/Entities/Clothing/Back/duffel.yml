@@ -44,7 +44,7 @@
       sprite: Clothing/Back/Duffels/medical.rsi
 
 - type: entity
-  parent: NFClothingDuffel # Frontier: ClothingBackpackDuffelNFClothingDuffel # Frontier: removed BaseCommandContraband
+  parent: NFClothingDuffel # Frontier: ClothingBackpackDuffelNFClothingDuffel
   id: ClothingBackpackDuffelCaptain
   name: captain's duffel bag
   description: A large duffel bag for holding extra captainly goods.
@@ -65,7 +65,7 @@
         collection: BikeHorn
 
 - type: entity
-  parent: [NFClothingDuffel, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband, ClothingBackpackDuffel<NFClothingDuffel
+  parent: NFClothingDuffel
   id: ClothingBackpackDuffelSecurity
   name: tactical duffel bag # Mono
   description: A large duffel bag for holding extra security related goods.
@@ -74,7 +74,7 @@
       sprite: Clothing/Back/Duffels/security.rsi
 
 - type: entity
-  parent: [NFClothingDuffel, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable, ClothingBackpackDuffel<NFClothingDuffel
+  parent: NFClothingDuffel
   id: ClothingBackpackDuffelBrigmedic
   name: brigmedic duffel bag
   description: A large duffel bag for holding extra medical related goods.
@@ -159,7 +159,7 @@
       sprite: Clothing/Back/Duffels/salvage.rsi
 
 - type: entity
-  parent: [NFClothingDuffel, BaseC3Contraband, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3Contraband, added ContrabandClothing as parent
+  parent: [NFClothingDuffel]
   id: ClothingBackpackDuffelSyndicate
   name: syndicate duffel bag
   description: A large duffel bag for holding various traitor goods.
@@ -262,7 +262,7 @@
         shader: unshaded # Frontier
 
 - type: entity
-  parent: [ NFClothingDuffel, BaseCentcommContraband ] # Frontier: ClothingBackpackDuffel<NFClothingDuffel
+  parent: NFClothingDuffel # Frontier: ClothingBackpackDuffel<NFClothingDuffel
   id: ClothingBackpackDuffelCBURN
   name: CBURN duffel bag
   description: A duffel bag containing a variety of biological containment equipment.
