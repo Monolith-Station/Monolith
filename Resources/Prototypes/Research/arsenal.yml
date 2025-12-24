@@ -1,23 +1,26 @@
-- type: technology
-  id: SalvageWeapons
-  name: research-technology-salvage-weapons
-  entityIcon: WeaponProtoKineticAccelerator
-  discipline: Arsenal
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - WeaponProtoKineticAccelerator
-  - ShuttleGunKineticCircuitboard
-  - WeaponTurretM25Circuitboard # Mono
-  # These are roundstart but not replenishable for salvage
-  - WeaponCrusher
-  - WeaponCrusherDagger
-  # This is not roundstart since its a direct upgrade
-  - WeaponCrusherGlaive
-  - MechEquipmentKineticAccelerator # Goobstation
-  technologyPrerequisites:
-  - SalvageEquipment
-  position: -2, 3
+# Tier 1
+
+# Mono edit - research consolidation
+# - type: technology
+#   id: SalvageWeapons
+#   name: research-technology-salvage-weapons
+#   entityIcon: WeaponProtoKineticAccelerator
+#   discipline: Arsenal
+#   tier: 1
+#   cost: 5000
+#   recipeUnlocks:
+#   - WeaponProtoKineticAccelerator
+#   - ShuttleGunKineticCircuitboard
+#   - WeaponTurretM25Circuitboard # Mono
+#   # These are roundstart but not replenishable for salvage
+#   - WeaponCrusher
+#   - WeaponCrusherDagger
+#   # This is not roundstart since its a direct upgrade
+#   - WeaponCrusherGlaive
+#   - MechEquipmentKineticAccelerator # Goobstation
+#   technologyPrerequisites:
+#   - SalvageEquipment
+#   position: -2, 3
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -193,17 +196,18 @@
 #   - BasicParts
 #   position: 3, 4
 
-- type: technology
-  id: AdvancedShuttleWeapon
-  name: research-technology-advanced-shuttle-weapon
-  entityIcon: 40mmGrenadeEMP
-  discipline: Arsenal
-  tier: 3
-  cost: 25000
-  recipeUnlocks:
-  - 40mmGrenadeEMP
-  - PowerCageHigh
-#  - ShuttleGunDusterCircuitboard # Mono
-  technologyPrerequisites:
-  - BasicShuttleArmament
-  position: -4, 8
+# Mono edit - research consolidation
+# - type: technology
+#   id: AdvancedShuttleWeapon
+#   name: research-technology-advanced-shuttle-weapon
+#   entityIcon: 40mmGrenadeEMP
+#   discipline: Arsenal
+#   tier: 3
+#   cost: 25000
+#   recipeUnlocks:
+#   - 40mmGrenadeEMP
+#   - PowerCageHigh
+# #  - ShuttleGunDusterCircuitboard # Mono
+#   technologyPrerequisites:
+#   - BasicShuttleArmament
+#   position: -4, 8
