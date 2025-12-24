@@ -1,7 +1,8 @@
-# Ore veins
+# region ASTEROID
+
 - type: entity
   id: WallRockSnowThorium
-  parent: NFWallRockSnowOre # Frontier: AsteroidRock<NFAsteroidRockOre
+  parent: NFWallRockSnowOre
   description: An ore vein rich with thorium.
   suffix: Thorium
   components:
@@ -10,21 +11,12 @@
     currentOre: OreThorium # Frontier: NF prefix
   - type: Sprite
     layers:
-    - state: rock_asteroid
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_asteroid_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_asteroid_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_asteroid_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_asteroid_west
-    - state: rock_coal
+    - state: rock_thorium
       map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
   id: WallRockSnowTitanium
-  parent: NFWallRockSnowOre # Frontier: AsteroidRock<NFAsteroidRockOre
+  parent: NFWallRockSnowOre
   description: An ore vein rich with titanium.
   suffix: Titanium
   components:
@@ -33,14 +25,97 @@
     currentOre: OreTitanium # Frontier: NF prefix
   - type: Sprite
     layers:
-    - state: rock_asteroid
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_asteroid_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_asteroid_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_asteroid_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_asteroid_west
-    - state: rock_coal
+    - state: rock_titanium
       map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+# region SNOW
+
+- type: entity
+  id: WallRockSnowThorium
+  parent: NFWallRockSnowOre
+  description: An ore vein rich with thorium.
+  suffix: Thorium
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreThorium # Frontier: NF prefix
+  - type: Sprite
+    layers:
+    - state: rock_thorium
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: WallRockSnowTitanium
+  parent: NFWallRockSnowOre
+  description: An ore vein rich with titanium.
+  suffix: Titanium
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreTitanium # Frontier: NF prefix
+  - type: Sprite
+    layers:
+    - state: rock_titanium
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+# region ANDESITE
+
+- type: entity
+  id: WallRockSnowThorium
+  parent: NFWallRockSnowOre
+  description: An ore vein rich with thorium.
+  suffix: Thorium
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreThorium # Frontier: NF prefix
+  - type: Sprite
+    layers:
+    - state: rock_thorium
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: WallRockSnowTitanium
+  parent: NFWallRockSnowOre
+  description: An ore vein rich with titanium.
+  suffix: Titanium
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreTitanium # Frontier: NF prefix
+  - type: Sprite
+    layers:
+    - state: rock_titanium
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+# region CHROMITE
+
+- type: entity
+  id: WallRockSnowThorium
+  parent: NFWallRockSnowOre
+  description: An ore vein rich with thorium.
+  suffix: Thorium
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreThorium # Frontier: NF prefix
+  - type: Sprite
+    layers:
+    - state: rock_thorium
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: WallRockSnowTitanium
+  parent: NFWallRockSnowOre
+  description: An ore vein rich with titanium.
+  suffix: Titanium
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreTitanium # Frontier: NF prefix
+  - type: Sprite
+    layers:
+    - state: rock_titanium
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+

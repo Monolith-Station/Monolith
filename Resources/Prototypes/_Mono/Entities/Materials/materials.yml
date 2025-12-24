@@ -225,7 +225,7 @@
   stackEntity: IngotThorium1
   name: materials-thorium
   unit: materials-unit-sheet
-  icon: { sprite: /Textures/_Mono/Objects/Materials/synthalloy.rsi, state: synthalloy }
+  icon: { sprite: /Textures/_Mono/Objects/Materials/thorium.rsi, state: thorium }
   color: "#FFFFFF"
   price: 5 # 500/sheet
 
@@ -234,6 +234,6 @@
   stackEntity: IngotTitanium1
   name: materials-titanium
   unit: materials-unit-sheet
-  icon: { sprite: /Textures/_Mono/Objects/Materials/synthalloy.rsi, state: synthalloy }
+  icon: { sprite: /Textures/_Mono/Objects/Materials/titanium.rsi, state: titanium }
   color: "#FFFFFF"
   price: 7.5 # 7500/sheet

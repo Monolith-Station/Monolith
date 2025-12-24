@@ -7,7 +7,8 @@
   - type: Stack
     stackType: ThoriumOre
   - type: Sprite
-    state: gold
+    sprite: _Mono/Objects/Misc/ore.rsi
+    state: thorium
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -40,7 +41,8 @@
   - type: Stack
     stackType: TitaniumOre
   - type: Sprite
-    state: gold
+    sprite: _Mono/Objects/Misc/ore.rsi
+    state: titanium
   - type: Material
   - type: PhysicalComposition
     materialComposition:
