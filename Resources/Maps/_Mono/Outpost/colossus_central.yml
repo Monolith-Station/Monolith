@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/24/2025 09:47:32
-  entityCount: 10655
+  time: 12/24/2025 09:51:57
+  entityCount: 10659
 maps:
 - 10548
 grids:
@@ -9936,6 +9936,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 38.5,21.5
+      parent: 1
+- proto: AirlockAssembly
+  entities:
+  - uid: 7722
+    components:
+    - type: Transform
+      pos: 8.5,62.5
       parent: 1
 - proto: AirlockAtmosphericsGlass
   entities:
@@ -52337,6 +52344,19 @@ entities:
     - type: Transform
       pos: -33.5,55.5
       parent: 1
+- proto: Girder
+  entities:
+  - uid: 7729
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,65.5
+      parent: 1
+  - uid: 8178
+    components:
+    - type: Transform
+      pos: 4.5,66.5
+      parent: 1
 - proto: GravityGenerator
   entities:
   - uid: 4307
@@ -53464,6 +53484,12 @@ entities:
     components:
     - type: Transform
       pos: 40.5,27.5
+      parent: 1
+  - uid: 8188
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 8.5,64.5
       parent: 1
   - uid: 8299
     components:
