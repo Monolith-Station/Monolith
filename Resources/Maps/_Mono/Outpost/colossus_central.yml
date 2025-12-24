@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/24/2025 09:46:05
+  time: 12/24/2025 09:47:32
   entityCount: 10655
 maps:
 - 10548
@@ -23863,6 +23863,11 @@ entities:
       parent: 1
 - proto: CableMV
   entities:
+  - uid: 878
+    components:
+    - type: Transform
+      pos: 8.5,60.5
+      parent: 1
   - uid: 1027
     components:
     - type: Transform
@@ -27050,11 +27055,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 37.00075,22.601234
-      parent: 1
-  - uid: 1448
-    components:
-    - type: Transform
-      pos: 8.5,60.5
       parent: 1
 - proto: CableTerminal
   entities:
@@ -55674,19 +55674,19 @@ entities:
       parent: 1
 - proto: Poweredlight
   entities:
-  - uid: 878
+  - uid: 904
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -9.5,75.5
       parent: 1
-  - uid: 904
+  - uid: 938
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -18.5,83.5
       parent: 1
-  - uid: 938
+  - uid: 1448
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
