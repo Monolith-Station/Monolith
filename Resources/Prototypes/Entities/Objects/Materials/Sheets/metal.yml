@@ -221,6 +221,19 @@
     stackType: Plasteel
     count: 10
 
+#Mono
+- type: entity
+  parent: SheetPlasteel
+  id: SheetPlasteel25
+  name: plasteel
+  suffix: 25
+  components:
+  - type: Sprite
+    state: plasteel
+  - type: Stack
+    stackType: Plasteel
+    count: 25
+
 - type: entity
   parent: SheetPlasteel
   id: SheetPlasteel1

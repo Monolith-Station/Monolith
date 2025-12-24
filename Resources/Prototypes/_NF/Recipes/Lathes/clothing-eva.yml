@@ -328,7 +328,7 @@
 
 - type: latheRecipe
   id: ClothingOuterHardsuitScaf
-  parent: NFBaseHardSuitArmoredRecipe
+  parent: MonoHardsuitT3Recipe # Mono - use proper recipes
   result: ClothingOuterHardsuitScaf
 
 - type: latheRecipe

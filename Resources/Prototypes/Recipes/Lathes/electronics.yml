@@ -42,7 +42,7 @@
   materials:
     Steel: 100
     Glass: 500
-    Gold: 100
+    Gold: 50 # Mono
 
 - type: latheRecipe
   abstract: true
@@ -51,7 +51,7 @@
   materials:
     Steel: 100
     Glass: 500
-    Silver: 100
+    Silver: 50 # Mono
 
 - type: latheRecipe
   abstract: true

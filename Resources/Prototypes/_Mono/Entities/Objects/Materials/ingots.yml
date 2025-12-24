@@ -37,9 +37,20 @@
     count: 1
 
 - type: entity
+  parent: IngotThorium
+  id: IngotThorium15
+  name: thorium bar
+  suffix: Fifteen
+  components:
+  - type: Sprite
+    state: thorium
+  - type: Stack
+    count: 15
+
+- type: entity
   parent: IngotBase
-  id: IngotTitanium
-  name: titanium bar
+  id: SheetTitanium
+  name: titanium sheet
   suffix: Full
   components:
   - type: Material
@@ -54,7 +65,7 @@
     - titanium_2
     - titanium_3
   - type: Sprite
-    sprite: _Mono/Objects/Materials/titanium.rsi
+    sprite: Objects/Materials/Sheets/metal.rsi
     state: titanium_3
     layers:
     - state: titanium_3
@@ -64,8 +75,8 @@
   - type: Appearance
 
 - type: entity
-  parent: IngotTitanium
-  id: IngotTitanium1
+  parent: SheetTitanium
+  id: SheetTitanium1
   suffix: Single
   components:
   - type: Sprite
@@ -73,3 +84,12 @@
   - type: Stack
     count: 1
     
+- type: entity
+  parent: SheetTitanium
+  id: SheetTitanium15
+  suffix: Fifteen
+  components:
+  - type: Sprite
+    state: titanium
+  - type: Stack
+    count: 15

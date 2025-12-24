@@ -21,14 +21,17 @@
       weight: 1.5
     - id: SheetGlass
       weight: 1.5
-    - id: SheetPlasma
-    - id: IngotGold
-    - id: IngotSilver
+    - id: SheetPlasma25
+    - id: IngotGold15
+    - id: IngotSilver15
+    - id: IngotThorium15 # Mono
     - id: SheetPlastic
-    - id: SheetUranium
-    - id: SheetPlasteel
+    - id: SheetUranium25
+    - id: SheetPlasteel25
+    - id: SheetTitanium15 # Mono
     - id: MaterialWoodPlank
     - id: MaterialCloth
+      weight: 1.2
     - id: MaterialDurathread
       weight: 0.1 #0.01 >> 0.1
     - id: MaterialCardboard

@@ -73,6 +73,18 @@
   - type: Stack
     count: 1
 
+# Mono
+- type: entity
+  parent: IngotGold
+  id: IngotGold15
+  name: gold bar
+  suffix: Fifteen
+  components:
+  - type: Sprite
+    state: gold
+  - type: Stack
+    count: 15
+
 - type: entity
   parent: IngotBase
   id: IngotSilver
@@ -117,3 +129,15 @@
     state: silver
   - type: Stack
     count: 1
+
+#Mono
+- type: entity
+  parent: IngotSilver
+  id: IngotSilver15
+  name: silver bar
+  suffix: Fifteen
+  components:
+  - type: Sprite
+    state: silver
+  - type: Stack
+    count: 15

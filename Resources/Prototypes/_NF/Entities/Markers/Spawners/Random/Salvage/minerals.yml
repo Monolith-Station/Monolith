@@ -15,9 +15,13 @@
     - id: WallRockSalt
       weight: 0.06
     - id: WallRockGold
-      weight: 0.008
+      weight: 0.015
     - id: WallRockSilver
-      weight: 0.01
+      weight: 0.015
+    - id: WallRockThorium
+      weight: 0.012
+    - id: WallRockTitanium
+      weight: 0.012
     - id: WallRockPlasma
       weight: 0.045
     - id: WallRockUranium
@@ -149,9 +153,9 @@
     - id: WallRockSnowQuartz
       weight: 0.01
     - id: WallRockSnowThorium # Mono edit.
-      weight: 0.02
+      weight: 0.025
     - id: WallRockSnowTitanium # Mono edit.
-      weight: 0.01
+      weight: 0.025
     - id: WallRockSnowGold
       weight: 0.005
     - id: WallRockSnowSilver
@@ -294,6 +298,10 @@
       weight: 0.005
     - id: WallRockAndesiteSilver
       weight: 0.005
+    - id: WallRockAndesiteThorium
+      weight: 0.003
+    - id: WallRockAndesiteTitanium
+      weight: 0.065
     - id: WallRockAndesitePlasma
       weight: 0.008
     - id: WallRockAndesiteUranium
@@ -567,9 +575,9 @@
     - id: WallRockSandSalt
       weight: 0.01
     - id: WallRockSandSilver
-      weight: 0.030
+      weight: 0.05
     - id: WallRockSandGold
-      weight: 0.025 
+      weight: 0.045 
     - id: WallRockSandPlasma
       weight: 0.008
     - id: WallRockSandUranium
@@ -710,6 +718,10 @@
       weight: 0.005
     - id: WallRockChromitePlasma
       weight: 0.025
+    - id: WallRockChromiteThorium
+      weight: 0.065
+    - id: WallRockChromiteTitanium
+      weight: 0.003
     - id: WallRockChromiteUranium
       weight: 0.065
     - id: WallRockChromiteBananium
@@ -847,9 +859,13 @@
     - id: AsteroidRockSilver
       weight: 0.01
     - id: AsteroidRockPlasma
-      weight: 0.03
+      weight: 0.055
     - id: AsteroidRockUranium
       weight: 0.02
+    - id: WallRockAsteroidThorium
+      weight: 0.01
+    - id: WallRockASteroidTitanium
+      weight: 0.01
     - id: AsteroidRockBananium
       weight: 0.04
     - id: AsteroidRockArtifactFragment

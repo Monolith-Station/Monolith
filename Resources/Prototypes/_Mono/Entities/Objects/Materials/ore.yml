@@ -1,13 +1,13 @@
 - type: entity
   parent: OreBase
-  id: ThoriumOre
+  id: OreThorium
   name: thorium ore
   suffix: Full
   components:
   - type: Stack
-    stackType: ThoriumOre
+    stackType: OreThorium
   - type: Sprite
-    sprite: _Mono/Objects/Misc/ore.rsi
+    sprite: _Mono/Objects/Materials/ore.rsi
     state: thorium
   - type: Material
   - type: PhysicalComposition
@@ -17,16 +17,16 @@
     heldPrefix: thorium
 
 - type: entity
-  parent: ThoriumOre
-  id: ThoriumOre1
+  parent: OreThorium
+  id: OreThorium1
   suffix: Single
   components:
   - type: Stack
     count: 1
 
 - type: entity
-  parent: ThoriumOre
-  id: ThoriumOre5
+  parent: OreThorium
+  id: OreThorium5
   suffix: Five
   components:
   - type: Stack
@@ -34,14 +34,14 @@
 
 - type: entity
   parent: OreBase
-  id: TitaniumOre
+  id: OreTitanium
   name: titanium ore
   suffix: Full
   components:
   - type: Stack
-    stackType: TitaniumOre
+    stackType: OreTitanium
   - type: Sprite
-    sprite: _Mono/Objects/Misc/ore.rsi
+    sprite: _Mono/Objects/Materials/ore.rsi
     state: titanium
   - type: Material
   - type: PhysicalComposition
@@ -51,16 +51,16 @@
     heldPrefix: titanium
 
 - type: entity
-  parent: TitaniumOre
-  id: TitaniumOre1
+  parent: OreTitanium
+  id: OreTitanium1
   suffix: Single
   components:
   - type: Stack
     count: 1
 
 - type: entity
-  parent: TitaniumOre
-  id: TitaniumOre5
+  parent: OreTitanium
+  id: OreTitanium5
   suffix: Five
   components:
   - type: Stack

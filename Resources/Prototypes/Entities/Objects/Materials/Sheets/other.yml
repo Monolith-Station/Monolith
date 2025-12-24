@@ -121,6 +121,17 @@
   - type: Stack
     count: 10
 
+# Mono
+- type: entity
+  parent: SheetPlasma
+  id: SheetPlasma25
+  suffix: 25
+  components:
+  - type: Sprite
+    state: plasma
+  - type: Stack
+    count: 25
+
 - type: entity
   parent: SheetPlasma
   id: SheetPlasma1
@@ -252,6 +263,15 @@
   components:
   - type: Stack
     count: 1
+
+- type: entity
+  parent: SheetUranium
+  id: SheetUranium25
+  name: uranium
+  suffix: 25
+  components:
+  - type: Stack
+    count: 25
 
 - type: entity
   parent: SheetOtherBase

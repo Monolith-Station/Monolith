@@ -227,13 +227,13 @@
   unit: materials-unit-sheet
   icon: { sprite: /Textures/_Mono/Objects/Materials/thorium.rsi, state: thorium }
   color: "#FFFFFF"
-  price: 5 # 500/sheet
+  price: 2 # 200/sheet
 
 - type: material
   id: Titanium
-  stackEntity: IngotTitanium1
+  stackEntity: SheetTitanium1
   name: materials-titanium
   unit: materials-unit-sheet
-  icon: { sprite: /Textures/_Mono/Objects/Materials/titanium.rsi, state: titanium }
+  icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: titanium }
   color: "#FFFFFF"
-  price: 7.5 # 7500/sheet
+  price: 3.5 # 350/sheet

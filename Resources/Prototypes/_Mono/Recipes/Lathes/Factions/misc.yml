@@ -97,13 +97,14 @@
   - FactionEquipment
   completetime: 20
   materials:
-    Steel: 2500
-    Glass: 2000
+    Steel: 1250
+    Glass: 1000
     Plastic: 500
     Gold: 750
     Silver: 750
     Plasma: 600
     Uranium: 200
+    Thorium: 250
 
 - type: latheRecipe
   parent: BaseToolRecipe
