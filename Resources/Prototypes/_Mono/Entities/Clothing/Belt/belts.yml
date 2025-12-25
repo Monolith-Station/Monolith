@@ -220,3 +220,49 @@
     - 0,0,11,1
   - type: ClothingSpeedModifier
     sprintModifier: 0.95
+
+# Viz Sheath
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ClothingBeltSheathVizier
+  name: grand vizier's sheath
+  description: A paired sheath and holster, custom made for grand viziers of the PDV to carry the weapons of their office.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Belt/vizier_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Mono/Clothing/Belt/vizier_sheath.rsi
+  - type: ContainerContainer
+    containers:
+      sheath: !type:ContainerSlot
+      holster: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      sheath:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - Shamshir
+      holster:
+        name: Dragoon
+        whitelist:
+          tags:
+          - Dragoon
+  - type: ItemMapper
+    mapLayers:
+      sheath-sword:
+        whitelist:
+          tags:
+          - Shamshir
+      sheath-gun:
+        whitelist:
+          tags:
+          - Dragoon
+    sprite: _Mono/Clothing/Belt/vizier_sheath.rsi
+  - type: Appearance
