@@ -52,6 +52,15 @@
     - USSPTurret
 
 - type: entity
+  parent: BaseWeaponBallisticTurret
+  id: WeaponTurretPDV
+  suffix: PDV
+  components:
+  - type: NpcFactionMember
+    factions:
+    - PirateNF
+
+- type: entity
   parent: BaseWeaponTurretNF
   id: BaseMk290Sentry
   name: MK-290 Sentry

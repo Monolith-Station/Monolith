@@ -17,6 +17,13 @@
   - PlantAnalyzer # Frontier
   - NFBlueprintPlantAnalyzerEmpty # Frontier
   - NFBlueprintPlantBagOfHolding # Frontier
+  # Mono edit start
+  - FauxTileAstroGrass
+  - FauxTileMowedAstroGrass
+  - FauxTileJungleAstroGrass
+  - FauxTileAstroIce
+  - FauxTileAstroSnow
+  - FauxTileAstroAsteroidSand
   technologyPrerequisites:
   - BasicParts
   position: 3, -1
@@ -39,16 +46,16 @@
   - MechEquipmentGrabberSmall
   - VimHarness
   technologyPrerequisites:
-  - RipleyAPLU
+  - MechBasic
   position: 3, 10
 
 - type: technology
   id: AudioVisualCommunication
   name: research-technology-audio-visual-communication
-  entityIcon: SurveillanceCameraAssembly
+  entityIcon: ComputerTelevision # Mono
   discipline: CivilianServices
   tier: 1
-  cost: 5000
+  cost: 7500 # Mono
   recipeUnlocks:
   - SurveillanceCameraRouterCircuitboard
   #  - SurveillanceCameraWirelessRouterCircuitboard # Frontier - Removal of range limits made it useless to build
@@ -58,75 +65,85 @@
   - SurveillanceWirelessCameraMonitorCircuitboard
   - TelecomServerCircuitboard
   #  - HolopadMachineCircuitboard # Frontier: needs work before use
-  technologyPrerequisites:
-  - BasicParts
-  position: 6, -1
-
-- type: technology
-  id: AdvancedEntertainment
-  name: research-technology-advanced-entertainment
-  entityIcon: ComputerTelevision
-  discipline: CivilianServices
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
+  # Mono edit
   - ComputerTelevisionCircuitboard
   - SynthesizerInstrument
   - DawInstrumentMachineCircuitboard
   - MassMediaCircuitboard
   - JukeboxCircuitBoard
-  technologyPrerequisites:
-  - AudioVisualCommunication
-  position: 6, -2
-
-- type: technology
-  id: RoboticCleanliness
-  name: research-technology-robotic-cleanliness
-  entityIcon: BorgChassisJanitor
-  discipline: CivilianServices
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - BorgModuleAdvancedCleaning
+  # Mono edit end
   technologyPrerequisites:
   - BasicParts
-  position: 5, -1
+  position: 2, -2
 
-- type: technology
-  id: MeatManipulation
-  name: research-technology-meat-manipulation
-  entityIcon: FatExtractor
-  discipline: CivilianServices
-  tier: 1
-  cost: 7500
-  recipeUnlocks:
-  - FatExtractorMachineCircuitboard
-  - BiogeneratorMachineCircuitboard
-  - BiofabricatorMachineCircuitboard # mono
-  - BiomassReclaimerMachineCircuitboard
-  technologyPrerequisites:
-    - AdvancedParts
-  position: -3, 10
+# Mono edit - research consolidation
+# - type: technology
+#   id: AdvancedEntertainment
+#   name: research-technology-advanced-entertainment
+#   entityIcon: ComputerTelevision
+#   discipline: CivilianServices
+#   tier: 1
+#   cost: 5000
+#   recipeUnlocks:
+#   - ComputerTelevisionCircuitboard
+#   - SynthesizerInstrument
+#   - DawInstrumentMachineCircuitboard
+#   - MassMediaCircuitboard
+#   - JukeboxCircuitBoard
+#   technologyPrerequisites:
+#   - AudioVisualCommunication
+#   position: 6, -2
+
+# Mono edit - research consolidation
+# - type: technology
+#   id: RoboticCleanliness
+#   name: research-technology-robotic-cleanliness
+#   entityIcon: BorgChassisJanitor
+#   discipline: CivilianServices
+#   tier: 1
+#   cost: 5000
+#   recipeUnlocks:
+#   - BorgModuleAdvancedCleaning
+#   technologyPrerequisites:
+#   - BasicParts
+#   position: 5, -1
+
+# - type: technology
+#   id: MeatManipulation
+#   name: research-technology-meat-manipulation
+#   entityIcon: FatExtractor
+#   discipline: CivilianServices
+#   tier: 1
+#   cost: 7500
+#   recipeUnlocks:
+#   - FatExtractorMachineCircuitboard
+#   - BiogeneratorMachineCircuitboard
+#   - BiofabricatorMachineCircuitboard # mono
+#   - BiomassReclaimerMachineCircuitboard
+#   technologyPrerequisites:
+#   - AdvancedParts
+#   position: -3, 10
 
 # Tier 2
 
-- type: technology
-  id: FauxAstroTiles
-  name: research-technology-faux-astro-tiles
-  entityIcon: FloorTileItemAstroGrass
-  discipline: CivilianServices
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - FauxTileAstroGrass
-  - FauxTileMowedAstroGrass
-  - FauxTileJungleAstroGrass
-  - FauxTileAstroIce
-  - FauxTileAstroSnow
-  - FauxTileAstroAsteroidSand
-  technologyPrerequisites:
-  - Hydroponics
-  position: 3, -2
+# Mono edit - research consolidation
+# - type: technology
+#   id: FauxAstroTiles
+#   name: research-technology-faux-astro-tiles
+#   entityIcon: FloorTileItemAstroGrass
+#   discipline: CivilianServices
+#   tier: 2
+#   cost: 10000
+#   recipeUnlocks:
+#   - FauxTileAstroGrass
+#   - FauxTileMowedAstroGrass
+#   - FauxTileJungleAstroGrass
+#   - FauxTileAstroIce
+#   - FauxTileAstroSnow
+#   - FauxTileAstroAsteroidSand
+#   technologyPrerequisites:
+#   - Hydroponics
+#   position: 3, -2
 
 - type: technology
   id: BiochemicalStasis
@@ -134,15 +151,14 @@
   entityIcon: StasisBed
   discipline: CivilianServices
   tier: 2
-  cost: 15000
+  cost: 10000
   recipeUnlocks:
   - StasisBedMachineCircuitboard
   - CryoPodMachineCircuitboard
   - CryostasisBeaker
   - SyringeCryostasis
   technologyPrerequisites:
-  - MeatManipulation
-  - ChemicalDispensary
+  - IndustrialMedicine
   position: -4, 11
 
 # Shitmed Change Start
@@ -152,7 +168,7 @@
   entityIcon: EnergyScalpel
   discipline: CivilianServices
   tier: 2
-  cost: 20000
+  cost: 15000
   recipeUnlocks:
   - BorgModuleAdvancedTreatment
   - BorgModuleDefibrillator
@@ -165,7 +181,6 @@
   technologyPrerequisites:
   - SuperParts
   - IndustrialMedicine
-  - MeatManipulation
   position: -2, 11
 
 - type: technology
@@ -174,7 +189,7 @@
   entityIcon: SecurityCyberneticEyes
   discipline: CivilianServices
   tier: 2
-  cost: 25000
+  cost: 20000
   recipeUnlocks:
   - JawsOfLifeLeftArm
   - JawsOfLifeRightArm
@@ -190,6 +205,7 @@
   position: -2, 12
 # Shitmed Change End
 
+# Mono edit
 - type: technology
   id: AdvancedCleaning
   name: research-technology-advanced-cleaning
@@ -202,9 +218,13 @@
   - MegaSprayBottle
   - NFBlueprintAdvMopItem # Frontier
   - ReinforcedJug # Frontier
+  - BorgModuleAdvancedCleaning
+  - WeaponSprayNozzle
+  - ClothingBackpackWaterTank
+  - JanicartFlatpack
   technologyPrerequisites:
-  - RoboticCleanliness
-  position: 5, -2
+  - BasicParts
+  position: 2, -3
 
 - type: technology
   id: HONKMech
@@ -229,20 +249,21 @@
   - CritterMechs
   position: 4, 10
 
-- type: technology
-  id: AdvancedSpray
-  name: research-technology-advanced-spray
-  entityIcon: WeaponSprayNozzle
-  discipline: CivilianServices
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - WeaponSprayNozzle
-  - ClothingBackpackWaterTank
-  technologyPrerequisites:
-  - AdvancedParts
-  - AdvancedCleaning
-  position: 5, -4
+# Mono edit - research consolidation
+# - type: technology
+#   id: AdvancedSpray
+#   name: research-technology-advanced-spray
+#   entityIcon: WeaponSprayNozzle
+#   discipline: CivilianServices
+#   tier: 2
+#   cost: 10000
+#   recipeUnlocks:
+#   - WeaponSprayNozzle
+#   - ClothingBackpackWaterTank
+#   technologyPrerequisites:
+#   - AdvancedParts
+#   - AdvancedCleaning
+#   position: 5, -4
 
     # Tier 3
 

@@ -1,6 +1,3 @@
-# The mercenary techfab made into packs.
-# TODO: Reorganize these into common packs.
-
 - type: latheRecipePack
   id: NFMercenaryTechfabDeprecatedStatic
   recipes:
@@ -187,6 +184,7 @@
   - WeaponSubMachineGunWt550
   - WeaponRifleNtsfLtr
   - WeaponSubMachineGunVectorNtsfHclm
+  - WeaponRadAx
   - WeaponRifleAk
   - UllmanHardsuitPilot
   - UllmanHardsuitEngineer
@@ -197,7 +195,6 @@
   - UllmanWeaponPulseRifle
   - UllmanWeaponPulseSniper
   - UllmanMeleePlasmaBlade
-
 #Mono end
 
 - type: latheRecipePack

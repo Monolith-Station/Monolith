@@ -1,20 +1,20 @@
-- type: latheRecipe
-  id: BioGenMonkeyCube
-  result: MonkeyCube
-  categories:
-  - Food
-  completetime: 3
-  materials:
-    Biomass: 16 # Mono
+#- type: latheRecipe # Mono removed to prevent redundancy in Biogenerator
+# id: BioGenMonkeyCube
+# #result: MonkeyCube
+# #categories:
+#  - Food
+# completetime: 3
+# materials:
+#  Biomass: 16 # Mono
 
-- type: latheRecipe
-  id: BioGenKoboldCube
-  result: KoboldCube
-  categories:
-  - Food
-  completetime: 3
-  materials:
-    Biomass: 16 # Mono
+#- type: latheRecipe # Mono removed to prevent redundancy in Biogenerator
+# id: BioGenKoboldCube
+# result: KoboldCube
+# categories:
+# - Food
+# completetime: 3
+# materials:
+#   Biomass: 16 # Mono
 
 - type: latheRecipe
   id: BioGenMaterialCloth1

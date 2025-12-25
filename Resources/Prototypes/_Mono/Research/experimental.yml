@@ -25,6 +25,29 @@
   position: -2, -2
 
 - type: technology
+  id: BasicResearch
+  name: research-technology-basic-research
+  entityIcon: AnomalyScanner
+  discipline: Experimental
+  tier: 1
+  cost: 8000
+  recipeUnlocks:
+  - AnomalyScanner
+  - AnomalyLocator
+  - AnomalyLocatorWide
+  - BorgModuleAnomaly
+  - APECircuitboard
+  - AnomalyVesselCircuitboard
+  - NodeScanner
+  - BorgModuleArtifact
+  - AnalysisComputerCircuitboard
+  - ArtifactAnalyzerMachineCircuitboard
+  - ProximitySensor
+  technologyPrerequisites:
+  - BasicParts
+  position: -1, -1
+
+- type: technology
   id: BasicParts
   name: research-technology-basic-parts
   entityIcon: CapacitorStockPart
@@ -32,3 +55,20 @@
   tier: 1
   cost: 5000
   position: 0, 0
+
+- type: technology
+  id: AdvancedResearch
+  name: research-technology-advanced-research
+  entityIcon: WeaponPistolCHIMP
+  discipline: Experimental
+  tier: 2
+  cost: 17500
+  recipeUnlocks:
+  - WeaponGauntletGorilla
+  - ArtifactCrusherMachineCircuitboard
+  - WeaponPistolCHIMP
+  - AnomalySynchronizerCircuitboard
+  - AnomalyVesselExperimentalCircuitboard
+  technologyPrerequisites:
+  - BasicResearch
+  position: -1, -2
