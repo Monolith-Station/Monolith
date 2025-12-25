@@ -6,7 +6,7 @@
   entityIcon: MiningDrill
   discipline: Industrial
   tier: 1
-  cost: 7500
+  cost: 10000 # Mono
   recipeUnlocks:
   - MiningDrill
   - WeaponGrapplingGun # Frontier
@@ -14,9 +14,18 @@
   - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
   - MechEquipmentDrill # Goobstation
+  - WeaponProtoKineticAccelerator
+  - ShuttleGunKineticCircuitboard
+  - WeaponTurretM25Circuitboard # Mono
+  # These are roundstart but not replenishable for salvage
+  - WeaponCrusher
+  - WeaponCrusherDagger
+  # This is not roundstart since its a direct upgrade
+  - WeaponCrusherGlaive
+  - MechEquipmentKineticAccelerator # Goobstation
   technologyPrerequisites:
   - BasicParts
-  position: -2, 2
+  position: -1, 1
 
 - type: technology
   id: SpaceScanning
@@ -31,39 +40,43 @@
   - BorgModuleGPS
   technologyPrerequisites:
   - BasicParts
-  position: -5, 2
+  position: -2, 0
 
-- type: technology
-  id: AdvancedPowercells
-  name: research-technology-advanced-powercells
-  entityIcon: PowerCellHigh
-  discipline: Industrial
-  tier: 1
-  cost: 20000
-  recipeUnlocks:
-  - PowerCellHigh
-  - TurboItemRechargerCircuitboard
-  - SMESAdvancedMachineCircuitboard
-  - PowerCageSmall # Mono
-  - PowerCageMedium # Mono
-  - PowerCageHigh # Mono
-  - PowerCageRechargerCircuitboard # Mono
-  technologyPrerequisites:
-  - PowerGeneration
-  position: -2, 7
+# - type: technology
+#   id: AdvancedPowercells
+#   name: research-technology-advanced-powercells
+#   entityIcon: PowerCellHigh
+#   discipline: Industrial
+#   tier: 1
+#   cost: 20000
+#   recipeUnlocks:
+#   - PowerCellHigh
+#   - TurboItemRechargerCircuitboard
+#   - SMESAdvancedMachineCircuitboard
+#   - PowerCageSmall # Mono
+#   - PowerCageMedium # Mono
+#   - PowerCageHigh # Mono
+#   - PowerCageRechargerCircuitboard # Mono
+#   technologyPrerequisites:
+#   - PowerGeneration
+#   position: -2, 7
 
+# Mono edit
 - type: technology
   id: MechanicalCompression
   name: research-technology-mechanical-compression
   entityIcon: MachineFlatpacker
   discipline: Industrial
-  tier: 1
-  cost: 10000
+  tier: 2
+  cost: 12500
   recipeUnlocks:
   - FlatpackerMachineCircuitboard
+  - RPED
+  - NFBlueprintRped
   technologyPrerequisites:
-  - RapidPartExchange
-  position: -1, 7
+  - AdvancedParts
+  position: -1, 8
+# Mono edit end
 
 - type: technology
   id: IndustrialEngineering
@@ -71,7 +84,7 @@
   entityIcon: LatheUpgradeKitHyper
   discipline: Industrial
   tier: 1
-  cost: 30000
+  cost: 22500
   recipeUnlocks:
   # Begin DeltaV Removals - replaced by upgrade kits + departmental techfabs
   #- AutolatheHyperConvectionMachineCircuitboard
@@ -92,8 +105,9 @@
   - SheetifierMachineCircuitboard
   technologyPrerequisites:
   - MechanicalCompression
-  position: -1, 6
+  position: -1, 7
 
+# Mono edit
 - type: technology
   id: PowerGeneration
   name: research-technology-power-generation
@@ -110,6 +124,13 @@
   - SolarAssemblyFlatpack # Mono
   - EmitterCircuitboard
   - ContainmentFieldGeneratorCircuitboard # Mono
+  - PowerCellHigh
+  - TurboItemRechargerCircuitboard
+  - SMESAdvancedMachineCircuitboard
+  - PowerCageSmall # Mono
+  - PowerCageMedium # Mono
+  - PowerCageHigh # Mono
+  - PowerCageRechargerCircuitboard # Mono
   technologyPrerequisites:
   - AdvancedParts
   position: -2, 8
@@ -126,7 +147,7 @@
   - GasRecyclerMachineCircuitboard
   technologyPrerequisites:
   - BasicParts
-  position: -4, 2
+  position: -2, 1
 
 # Tier 2
 
@@ -155,7 +176,7 @@
   entityIcon: GasThermoMachineHellfireFreezer
   discipline: Industrial
   tier: 2
-  cost: 20000
+  cost: 15000
   recipeUnlocks:
   - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard
@@ -164,7 +185,7 @@
   #  - FireExtinguisherBluespace # DeltaV
   technologyPrerequisites:
   - AtmosphericTech
-  position: -4, 3
+  position: -2, 2
 
 - type: technology
   id: AdvancedToolsTechnology
@@ -172,7 +193,7 @@
   entityIcon: WelderExperimental
   discipline: Industrial
   tier: 2
-  cost: 30000
+  cost: 23500
   recipeUnlocks:
   - WelderExperimental
   - PowerDrill
@@ -186,6 +207,11 @@
   #- NFBlueprintPowerDrill # Frontier
   #- NFBlueprintJawsOfLife # Frontier
   #- NFBlueprintWelderExperimental # Frontier
+  # Mono edit start
+  - RCD
+  - RCDAmmo
+  - NFBlueprintRCDAmmo
+  # Mono edit end 
   technologyPrerequisites:
   - SuperParts
   position: -1, 18
@@ -196,7 +222,7 @@
   entityIcon: MiningDrillDiamond
   discipline: Industrial
   tier: 2
-  cost: 20000
+  cost: 15000 # aint that good tbh.
   recipeUnlocks:
   - OreBagOfHolding
   - MiningDrillDiamond
@@ -207,9 +233,9 @@
   - BorgModuleAdvancedMining # Frontier
   - MechEquipmentDrillDiamond
   technologyPrerequisites:
-  - SalvageWeapons
+  - SalvageEquipment
   - AdvancedParts
-  position: -2, 4
+  position: -1, 2
 
 # Tier 3
 
@@ -238,7 +264,7 @@
   entityIcon: PowerCellMicroreactor
   discipline: Industrial
   tier: 3
-  cost: 30000
+  cost: 22500
   recipeUnlocks:
   - PowerCellMicroreactor
   - PowerCellCombat # Mono
@@ -246,23 +272,24 @@
   - PortableGeneratorDKJrMachineCircuitboard # Frontier
   - NFBlueprintPortableGeneratorDKJr # Frontier
   technologyPrerequisites:
-  - AdvancedPowercells
+  - PowerGeneration
   - SuperParts
-  position: -2, 6
+  position: -2, 7
 
-- type: technology
-  id: RapidConstruction
-  name: research-technology-rapid-construction
-  entityIcon: RCD
-  discipline: Industrial
-  tier: 3
-  cost: 15000
-  recipeUnlocks:
-#  - ShipyardRCD # Frontier
-#  - ShipyardRCDAmmo # Frontier
-  - RCD
-  - RCDAmmo
-  - NFBlueprintRCDAmmo
-  technologyPrerequisites:
-  - AdvancedToolsTechnology
-  position: -1, 19
+# Mono edit - research consolidation
+# - type: technology
+#   id: RapidConstruction
+#   name: research-technology-rapid-construction
+#   entityIcon: RCD
+#   discipline: Industrial
+#   tier: 3
+#   cost: 15000
+#   recipeUnlocks:
+# #  - ShipyardRCD # Frontier
+# #  - ShipyardRCDAmmo # Frontier
+#   - RCD
+#   - RCDAmmo
+#   - NFBlueprintRCDAmmo
+#   technologyPrerequisites:
+#   - AdvancedToolsTechnology
+#   position: -1, 19

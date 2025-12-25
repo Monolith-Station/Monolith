@@ -1,10 +1,10 @@
 - type: technology
-  id: RipleyAPLU
-  name: research-technology-ripley-aplu
+  id: MechBasic
+  name: research-technology-mechs-base
   entityIcon: MechRipleyBattery
   discipline: MechaEngineering
   tier: 1
-  cost: 10000
+  cost: 12000
   recipeUnlocks:
   - RipleyHarness
   - RipleyLArm
@@ -14,32 +14,8 @@
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
   - MechEquipmentGrabber
-  technologyPrerequisites:
-  - AdvancedParts
-  position: 2, 10
-
-- type: technology
-  id: Ripley2
-  name: research-technology-ripley-mkii
-  entityIcon: MechRipley2Battery
-  discipline: MechaEngineering
-  tier: 1
-  cost: 12000
-  recipeUnlocks:
   - RipleyMKIIHarness
   - RipleyUpgradeKit
-  technologyPrerequisites:
-  - RipleyAPLU
-  position: 2, 11
-
-- type: technology
-  id: Clarke
-  name: research-technology-clarke
-  entityIcon: MechClarkeBattery
-  discipline: MechaEngineering
-  tier: 2
-  cost: 12000
-  recipeUnlocks:
   - ClarkeHarness
   - ClarkeHead
   - ClarkeLArm
@@ -48,8 +24,9 @@
   - ClarkeCentralElectronics
   - ClarkePeripheralsElectronics
   technologyPrerequisites:
-  - Ripley2
-  position: 2, 12
+  - AdvancedParts
+  position: 2, 10
+
 
 # - type: technology
 #  id: HONKWeapons
@@ -64,12 +41,12 @@
 #  position: -7, 6
 
 - type: technology
-  id: Gygax
-  name: research-technology-gygax
+  id: MechCombat
+  name: research-technology-mechs-combat
   entityIcon: MechGygaxBattery
   discipline: MechaEngineering
-  tier: 1
-  cost: 25000
+  tier: 2
+  cost: 32500
   recipeUnlocks:
   - GygaxHarness
   - GygaxArmor
@@ -82,34 +59,8 @@
   - GygaxPeripheralsElectronics
   - GygaxTargetingElectronics
   - WeaponMechCombatUltraRifle
-  technologyPrerequisites:
-  - Ripley2
-  - SuperParts
-  position: 3, 12
-
-- type: technology
-  id: ExplosiveMechAmmunition
-  name: research-technology-explosive-mech-ammunition
-  entityIcon: WeaponMechCombatMissileRack8
-  discipline: MechaEngineering
-  tier: 1
-  cost: 12000
-  recipeUnlocks:
   - WeaponMechCombatMissileRack8
   - WeaponMechCombatFlashbangLauncher
-  technologyPrerequisites:
-  - ExplosiveTechnology
-  - Gygax
-  position: 3, 13
-
-- type: technology
-  id: Durand
-  name: research-technology-durand
-  entityIcon: MechDurandBattery
-  discipline: MechaEngineering
-  tier: 1
-  cost: 25000
-  recipeUnlocks:
   - DurandHarness
   - DurandArmor
   - DurandHead
@@ -123,12 +74,13 @@
   - WeaponMechCombatShotgun
   - WeaponMechCombatShotgunIncendiary
   technologyPrerequisites:
-  - Gygax
-  position: 4, 12
+  - SuperParts
+  - MechBasic
+  position: 2, 11
 
 - type: technology
   id: Broadsword
-  name: research-technology-mech-base
+  name: research-technology-broadsword
   entityIcon: AFInterceptor
   discipline: MechaEngineering
   tier: 2
@@ -160,38 +112,26 @@
   - IFFMechaGreenCircle
   - IFFMechaGreenTriangle
   technologyPrerequisites:
-  - Durand
-  position: 5, 12
+  - MechCombat
+  position: 3, 11
 
 - type: technology
-  id: Halberd
-  name: research-technology-halberd
+  id: BroadswordSubtypes
+  name: research-technology-broadsword-subtypes
   entityIcon: AFInterceptorM
   discipline: MechaEngineering
   tier: 1
-  cost: 30000
+  cost: 35000
   recipeUnlocks:
   - HalberdHarness
   - MediumMechDMR
   - MediumMechCoilgun
   - MediumMechTOW
-  technologyPrerequisites:
-  - Broadsword
-  position: 5, 13
-
-- type: technology
-  id: Sabre
-  name: research-technology-sabre
-  entityIcon: AFInterceptorG
-  discipline: MechaEngineering
-  tier: 2
-  cost: 30000 # gygax+ bro i've seen how fast that shit is in grav
-  recipeUnlocks:
   - SabreHarness
   technologyPrerequisites:
   - Broadsword
-  position: 5, 14
-
+  position: 3, 12
+  
 - type: technology
   id: Flail
   name: research-technology-flail
@@ -214,32 +154,20 @@
   - HeavyMechProjector
   technologyPrerequisites:
   - Broadsword
-  position: 6, 12
+  position: 4, 11
 
 - type: technology
-  id: Spyglass
-  name: research-technology-spyglass
+  id: FlailSubtypes
+  name: research-technology-flail-subtypes
   entityIcon: AFFlailE
   discipline: MechaEngineering
   tier: 3
-  cost: 22500
+  cost: 30000
   recipeUnlocks:
+  - MaceHarness
   - SpyglassHarness
   - EWACMechaFlares
   - EWACMechaJammer
   technologyPrerequisites:
   - Flail
-  position: 6, 13
-
-- type: technology
-  id: Mace
-  name: research-technology-mace
-  entityIcon: AFMace
-  discipline: MechaEngineering
-  tier: 2
-  cost: 22500
-  recipeUnlocks:
-  - MaceHarness
-  technologyPrerequisites:
-  - Flail
-  position: 6, 14
+  position: 4, 12

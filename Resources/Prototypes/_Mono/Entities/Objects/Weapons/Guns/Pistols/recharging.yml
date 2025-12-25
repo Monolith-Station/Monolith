@@ -36,6 +36,9 @@
       ballistic-ammo: !type:Container
   - type: Wieldable
   - type: LaserPointer
+  - type: Tag
+    tags:
+    - Sidearm
 
 - type: entity
   id: BulletHawk
@@ -46,5 +49,64 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 40
-    armorPenetration: 0.5
+        Piercing: 32
+    armorPenetration: 0.3
+
+- type: entity
+  parent: WeaponPistolAnaconda
+  id: WeaponRevolverDragoon
+  name: TPC Dragoon officer's revolver
+  description: A heavy revolver, chambered in a replicating .500 magnum round. The Dragoon is a custom made revolver for the Grand Vizier of the PDV, meant to be a commanding presence in the hands of an experienced marshall.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Pistols/vizier-revolver.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Gun
+    fireRate: 1.5
+    projectileSpeed: 75
+    burstCooldown: 0.75
+    burstFireRate: 12
+    shotsPerBurst: 2
+    selectedMode: SemiAuto
+    minAngle: 1
+    maxAngle: 8
+    availableModes:
+    - SemiAuto
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletDragoon
+    capacity: 12
+    count: 12
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1.5
+    rechargeSound:
+      path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
+  - type: AmmoCounter
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Tag
+    tags:
+    - Sidearm
+    - Dragoon
+
+- type: entity
+  id: BulletDragoon
+  name: bullet (.500 magnum caseless)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 50
+    armorPenetration: 0.20

@@ -5,8 +5,8 @@
   name: research-technology-construction-bags
   entityIcon: ConstructionBagOfHolding
   discipline: Industrial
-  tier: 1
-  cost: 20000
+  tier: 3
+  cost: 12500
   recipeUnlocks:
   - ConstructionBagOfHolding
   - NFBlueprintConstructionBagOfHolding
@@ -14,27 +14,29 @@
   - AdvancedToolsTechnology
   position: -2, 18
 
-- type: technology
-  id: HardsuitsBasic
-  name: research-technology-hardsuits-basic
-  entityIcon: ClothingOuterHardsuitBasic
-  discipline: Industrial
-  tier: 1
-  cost: 10000
-  recipeUnlocks:
-  - ClothingOuterHardsuitBasic
-  technologyPrerequisites:
-    - AdvancedParts
-  position: 2, 8
+# - type: technology
+#   id: HardsuitsBasic
+#   name: research-technology-hardsuits-basic
+#   entityIcon: ClothingOuterHardsuitBasic
+#   discipline: Industrial
+#   tier: 1
+#   cost: 10000
+#   recipeUnlocks:
+#   - ClothingOuterHardsuitBasic
+#   technologyPrerequisites:
+#     - AdvancedParts
+#   position: 2, 8
 
+# Mono edit
 - type: technology
   id: HardsuitsSpecialized
   name: research-technology-hardsuits-specialized
   entityIcon: ClothingOuterHardsuitEngineering
   discipline: Industrial
-  tier: 1
-  cost: 20000
+  tier: 2
+  cost: 17500
   recipeUnlocks:
+  - ClothingOuterHardsuitBasic
   - ClothingOuterHardsuitAtmos
   - ClothingOuterHardsuitEngineering
   - ClothingOuterHardsuitSpatio
@@ -42,42 +44,53 @@
   - ClothingOuterHardsuitClown
   - ClothingOuterHardsuitMime
   - ClothingOuterHardsuitPilot
+  - ModsuitChestplate
+  - ModsuitBoots
+  - ModsuitHelmet
+  - ModsuitGauntlets
+  - ModsuitShell
+  - ModsuitPlatingExternal
+  - ModsuitCoreStandard
   technologyPrerequisites:
-  - HardsuitsBasic
-  position: 3, 8
+  - AdvancedParts
+  position: 1, 8
 
 # Tier 2
 
+# Mono edit
 - type: technology
   id: HardsuitsAdvanced
   name: research-technology-hardsuits-advanced
   entityIcon: ClothingOuterHardsuitEngineeringWhite
   discipline: Industrial
-  tier: 2
+  tier: 3
   cost: 25000
   recipeUnlocks:
   - ClothingOuterHardsuitCap
   - ClothingOuterHardsuitEngineeringWhite
   - ClothingOuterHardsuitMedical
   - ClothingOuterHardsuitLuxury
+  - ClothingOuterHardsuitMaximPrototype
+  - NFBlueprintClothingOuterHardsuitMaximPrototype
+  - ClothingOuterHardsuitRd
   technologyPrerequisites:
   - HardsuitsSpecialized
-  position: 3, 7
+  position: 1, 7
 
 # Tier 3
 
-- type: technology
-  id: HardsuitsExperimentalIndustrial
-  name: research-technology-hardsuits-experimental-industrial
-  entityIcon: ClothingOuterHardsuitMaximPrototype
-  discipline: Industrial
-  tier: 3
-  cost: 30000
-  recipeUnlocks:
-    - ClothingOuterHardsuitMaximPrototype
-#    - ClothingHeadHelmetAncient
-#    - ClothingOuterHardsuitAncientEVA
-    - NFBlueprintClothingOuterHardsuitMaximPrototype
-  technologyPrerequisites:
-  - HardsuitsArmored
-  position: 4, 7
+# - type: technology
+#   id: HardsuitsExperimentalIndustrial
+#   name: research-technology-hardsuits-experimental-industrial
+#   entityIcon: ClothingOuterHardsuitMaximPrototype
+#   discipline: Industrial
+#   tier: 3
+#   cost: 30000
+#   recipeUnlocks:
+#     - ClothingOuterHardsuitMaximPrototype
+# #    - ClothingHeadHelmetAncient
+# #    - ClothingOuterHardsuitAncientEVA
+#     - NFBlueprintClothingOuterHardsuitMaximPrototype
+#   technologyPrerequisites:
+#   - HardsuitsArmored
+#   position: 4, 7
