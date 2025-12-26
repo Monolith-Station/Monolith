@@ -590,22 +590,21 @@
   description: A scrap plate made of Plastitanium, likely blown off a ship or station. Requires further processing to reclaim the valuable base material.
   components:
   - type: Sprite
-    sprite: _Mono/Objects/Materials/Plastitanium_Scrap.rsi
+    sprite: _Mono/Objects/Materials/plastitanium_scrap.rsi
     layers:
-      - state: Scrap_Plate_1
+      - state: scrap_plate_1
         map: ["base"]
   - type: RandomSprite
     available:
     - base:
-        Scrap_Plate_1: ""
-        Scrap_Plate_2: ""
-        Scrap_Plate_3: ""
-  - type: Item
-    heldPrefix: inhand
+        scrap_plate_1: ""
+        scrap_plate_2: ""
+        scrap_plate_3: ""
   - type: PhysicalComposition
     materialComposition:
       Plastitanium: 200 # 2 sheets
       Steel: 100 # 1 sheet
+      Plasteel: 100 # 1 sheet
 
 - type: entity
   parent: PlastitaniumScrap
@@ -616,20 +615,19 @@
   components:
   - type: Sprite
     layers:
-      - state: Scrap_Plate_Pile_1
+      - state: scrap_plate_pile_1
         map: ["base"]
   - type: RandomSprite
     available:
     - base:
-        Scrap_Plate_Pile_1: ""
-        Scrap_Plate_Pile_2: ""
-        Scrap_Plate_Pile_3: ""
-  - type: Item
-    heldPrefix: inhand
+        scrap_plate_pile_1: ""
+        scrap_plate_pile_2: ""
+        scrap_plate_pile_3: ""
   - type: PhysicalComposition
     materialComposition:
       Plastitanium: 500 # 5 sheets
       Steel: 250 # 2.5 sheets
+      Plasteel: 250 # 2.5 sheets
 
 - type: entity
   parent: PlastitaniumScrap
@@ -639,15 +637,15 @@
   description: What appears to be a significant structural component of a former miitary ship or station. Large and bulky, this is widely sought by Salvagers who understand the importance of the circular economy.
   components:
   - type: Sprite
-    sprite: _Mono/Objects/Materials/Plastitanium_Scrap_Hullplate.rsi
+    sprite: _Mono/Objects/Materials/plastitanium_scrap_hullplate.rsi
     layers:
-      - state: Scrap_Hullplate_1
+      - state: scrap_hullplate_1
         map: ["base"]
   - type: RandomSprite
     available:
     - base:
-        Scrap_Hullplate_1: ""
-        Scrap_Hullplate_2: ""
+        scrap_hullplate_1: ""
+        scrap_hullplate_2: ""
   - type: MultiHandedItem
   - type: Item
     heldPrefix: hullplate
@@ -658,5 +656,6 @@
     materialComposition:
       Plastitanium: 1000 # 10 sheets
       Steel: 500 # 5 sheets
+      Plasteel: 500 # 5 sheets
 
 # Mono end
