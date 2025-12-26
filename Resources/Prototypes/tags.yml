@@ -3,9 +3,6 @@
 - type: Tag
   id: AccessBreakerImmune
 
-- type: Tag # Mono
-  id: AdvancedLaserPistol
-
 - type: Tag
   id: AICoreElectronics
 
@@ -278,9 +275,6 @@
 
 - type: Tag
   id: CartridgeRocket
-
-- type: Tag
-  id: CartridgeRocketEmp # mono
 
 # Allows you to walk over tile entities such as lava without steptrigger
 - type: Tag
@@ -993,9 +987,6 @@
 - type: Tag
   id: PlushieSharkPink
 
-- type: Tag #Mono
-  id: PointDisk
-
 - type: Tag
   id: Posibrain
 
@@ -1315,9 +1306,6 @@
 - type: Tag
   id: WeaponShotgunKammerer
 
-- type: Tag # Mono - Prevents a crash and makes future cherry-picks hurt less but not actually implemented
-  id: TurretCompatibleWeapon # Used in the construction of sentry turrets
-
 - type: Tag
   id: WeldingMask
 
@@ -1374,7 +1362,13 @@
 # Mono
 
 - type: Tag
+  id: AdvancedLaserPistol
+
+- type: Tag
   id: CartridgeMachineGun
+
+- type: Tag
+  id: CartridgeRocketEmp
 
 - type: Tag
   id: CartridgeShell
@@ -1383,10 +1377,16 @@
   id: Mask
 
 - type: Tag
-  id: SugarBiscuit
-
-- type: Tag
   id: OatmealBiscuit
 
 - type: Tag
+  id: PointDisk
+
+- type: Tag
   id: SimpleBiscuit
+
+- type: Tag
+  id: SugarBiscuit
+  
+- type: Tag # Prevents a crash and makes future cherry-picks hurt less but not actually implemented
+  id: TurretCompatibleWeapon # Used in the construction of sentry turrets
