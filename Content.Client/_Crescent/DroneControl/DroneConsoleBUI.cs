@@ -1,63 +1,53 @@
 using Content.Shared._Crescent.DroneControl;
 using JetBrains.Annotations;
-using Robust.Client.GameObjects;
+using Robust.Client.UserInterface;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
-using System.Numerics;
 
 namespace Content.Client._Crescent.DroneControl;
 
 [UsedImplicitly]
 public sealed class DroneConsoleBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
-    private TransformSystem _xform;
+
     private DroneConsoleWindow? _window;
 
     public DroneConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
-        _xform = _entMan.System<TransformSystem>();
     }
 
     protected override void Open()
     {
         base.Open();
-        _window = new DroneConsoleWindow();
-        _window.OnClose += Close;
-        _window.OpenCentered();
+        _window = this.CreateWindow<DroneConsoleWindow>();
 
-        _window.OnRadarOrder += OnRadarClick;
+        _window.OnMoveOrder += OnMoveOrder;
+        _window.OnAttackOrder += OnAttackOrder;
+        _window.SetConsole(Owner);
     }
 
-    private void OnRadarClick(EntityCoordinates coord)
+    private void OnMoveOrder(EntityCoordinates coord)
     {
-        if (_window == null) return;
+        if (_window == null)
+            return;
 
-        var selected = _window.GetSelectedDrones();
-        if (selected.Count == 0) return;
+        var selected = _window.SelectedDrones;
+        if (selected.Count == 0)
+            return;
 
-        var worldPos = _xform.ToMapCoordinates(coord).Position;
+        SendMessage(new DroneConsoleMoveMessage(selected, _entMan.GetNetCoordinates(coord)));
+    }
 
-        // Perform Grid Detection on Client
-        var xform = _entMan.GetComponent<TransformComponent>(Owner);
-        var mapId = xform.MapID;
+    private void OnAttackOrder(EntityCoordinates coord)
+    {
+        if (_window == null)
+            return;
 
-        // Create a small box around the click
-        var box = Box2.FromDimensions(worldPos, new Vector2(0.5f, 0.5f));
+        var selected = _window.SelectedDrones;
+        if (selected.Count == 0)
+            return;
 
-        EntityUid? foundGrid = null;
-
-        _mapManager.FindGridsIntersecting(mapId, box, (EntityUid uid, MapGridComponent comp) =>
-        {
-            foundGrid = uid;
-            return false; // Stop at first grid found
-        }, true, false);
-
-        if (foundGrid != null)
-            SendMessage(new DroneConsoleTargetMessage(selected, _entMan.GetNetEntity(foundGrid.Value)));
-        else
-            SendMessage(new DroneConsoleMoveMessage(selected, worldPos));
+        SendMessage(new DroneConsoleTargetMessage(selected, _entMan.GetNetCoordinates(coord)));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -67,12 +57,5 @@ public sealed class DroneConsoleBoundUserInterface : BoundUserInterface
         {
             _window?.UpdateState(cast);
         }
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-        base.Dispose(disposing);
-        if (disposing)
-            _window?.Dispose();
     }
 }

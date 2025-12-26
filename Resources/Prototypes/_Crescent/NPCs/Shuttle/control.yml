@@ -1,7 +1,7 @@
 - type: entity
   parent: [ BaseMachinePowered ]
   id: DroneController
-  name: drone server
+  name: drone control server
   description: Pilots the drone it's on, if controlled by a drone control console.
   components:
   - type: Sprite
@@ -54,6 +54,7 @@
   - type: Pullable
   - type: DroneControl
   - type: HTN
+    sleepPlayerCheckRangeOverride: 4000
     rootTask:
       task: DroneCompound
   - type: DeviceNetwork
@@ -88,6 +89,7 @@
       enum.DroneConsoleUiKey.Key:
         type: DroneConsoleBoundUserInterface
   - type: RadarConsole
+    maxRange: 1024
   - type: WorldLoader
     radius: 256
   - type: DeviceNetwork
