@@ -202,7 +202,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
 
     private void OnGrappleCollide(EntityUid uid, GrapplingProjectileComponent component, ref ProjectileEmbedEvent args)
     {
-        if (!Timing.IsFirstTimePredicted)
+        if (!Timing.IsFirstTimePredicted || TerminatingOrDeleted(args.Weapon)) // Mono - test fix
             return;
 
         var jointComp = EnsureComp<JointComponent>(uid);
