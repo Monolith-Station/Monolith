@@ -352,12 +352,11 @@
   - type: HitscanBasicDamage
     damage:
      types:
-      Heat: 100
-      Structural: 2000
-  - type: HitscanSpawnEntity
-    spawnedEntity: ApolloExplosion
+      Heat: 80
+      Structural: 35
   - type: HitscanBasicRaycast
     maxDistance: 600
+  - type: HitscanGathering
 
 # Reaper
 

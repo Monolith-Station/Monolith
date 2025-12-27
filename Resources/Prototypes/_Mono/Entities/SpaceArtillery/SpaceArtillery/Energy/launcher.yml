@@ -441,7 +441,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 0.3
+    fireRate: 20 # LASER GUN GO BRRR
     minAngle: 0
     maxAngle: 0
     shootThermalSignature: 5000000
@@ -453,7 +453,7 @@
     shipClass: Heavy
   - type: HitscanBatteryAmmoProvider
     proto: ApolloLaser
-    fireCost: 500
+    fireCost: 250
   - type: Destructible
     thresholds:
     - trigger:
