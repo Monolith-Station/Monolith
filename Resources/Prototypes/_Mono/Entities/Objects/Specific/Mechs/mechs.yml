@@ -259,8 +259,8 @@
     maxRange: 256
     followEntity: true
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 0.5 # from 1
-    visualMultiplier: 3 # from 4
+    infraredMultiplier: 0.5
+    visualMultiplier: 0.75
   # Only ground-based mecha so far. Don't use it in space. Can't move in space.
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
@@ -411,8 +411,8 @@
     maxRange: 2048 #It's a radar/EWAC platform.
     followEntity: true
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 1.5 # from 1
-    visualMultiplier: 8 # from 4
+    infraredMultiplier: 1.5
+    visualMultiplier: 2
   # EXTREMELY slow in gravity. Only really good to taxi, and that's about it. Even worse than S2s
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.25
