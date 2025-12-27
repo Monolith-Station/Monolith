@@ -34,8 +34,8 @@
     Plastic: 2000
     Steel: 2000
     Durathread: 2000
-    Silver: 1500
-    Gold: 1000
+    Silver: 500 # Mono
+    Gold: 250 # Mono
 
 - type: latheRecipe
   abstract: true
@@ -51,8 +51,8 @@
     Plastic: 2000
     Plasteel: 2000
     Durathread: 2000
-    Silver: 1500
-    Gold: 1000
+    Silver: 500 # Mono
+    Gold: 250 # Mono
 
 - type: latheRecipe
   abstract: true
@@ -99,7 +99,7 @@
     Steel: 1000
     Cloth: 300
     Durathread: 2500
-    Silver: 1000
+    Silver: 250 # Mono
 
 - type: latheRecipe
   id: ClothingOuterHardsuitEVAPrisoner
@@ -259,7 +259,7 @@
     Steel: 2000
     Cloth: 300
     Durathread: 1500
-    Silver: 1000
+    Silver: 150 # Mono
 
 # Departmental hardsuits (T2 research)
 - type: latheRecipe
@@ -352,8 +352,8 @@
     Steel: 1000
     Plasteel: 1000
     Durathread: 2000
-    Silver: 1500
-    Gold: 1000
+    Silver: 750 # Mono
+    Gold: 350 # Mono
 
 - type: latheRecipe
   id: ClothingOuterHardsuitRd
@@ -380,8 +380,8 @@
     Plastic: 2000
     Plasteel: 3000
     Durathread: 2000
-    Silver: 1000
-    Gold: 2000
+    Silver: 250 # Mono
+    Gold: 450 # Mono
 
 # Better security hardsuits (T3 Research)
 

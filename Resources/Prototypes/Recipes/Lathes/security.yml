@@ -87,7 +87,7 @@
   materials:
     Steel: 1500
     Glass: 1000
-    Gold: 850
+    Gold: 300 # Mono
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -101,7 +101,7 @@
   materials:
     Steel: 1250
     Plastic: 750
-    Gold: 500
+    Gold: 200 # Mono
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -112,8 +112,8 @@
   - Energy
   - Sidearms
   materials:
-    Steel: 2000
-    Gold: 500
+    Steel: 500 # Mono
+    Gold: 150 # Mono
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -336,5 +336,5 @@
     Steel: 1000
     Glass: 500
     Plastic: 500
-    Gold: 300
-    Silver: 300
+    Gold: 150 # Mono
+    Silver: 150 # Mono

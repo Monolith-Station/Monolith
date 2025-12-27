@@ -6,8 +6,8 @@
     Steel: 3000
     Glass: 1500
     Plastic: 1000
-    Gold: 300
-    Silver: 800
+    Gold: 100 # Mono
+    Silver: 200 # Mono
 
 - type: latheRecipe
   id: ClothingBackpackMessengerHolding
@@ -36,8 +36,8 @@
   completetime: 1.5 # Completes quickly - you need a lot of the things
   materials:
     Steel: 500
-    Silver: 100
-    Gold: 50
+    Silver: 50 # Mono
+    Gold: 25
 
 - type: latheRecipe
   id: GasDepositLocator
