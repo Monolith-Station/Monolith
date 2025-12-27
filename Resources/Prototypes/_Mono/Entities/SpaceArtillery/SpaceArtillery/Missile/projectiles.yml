@@ -191,9 +191,9 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 50
+    acceleration: 35
     detectionRange: 600
     scanArc: 30
-    launchSpeed: 85
+    launchSpeed: 25
     maxSpeed: 100
     trackDelay: 2
