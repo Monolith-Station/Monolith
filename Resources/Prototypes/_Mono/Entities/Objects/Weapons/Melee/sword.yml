@@ -269,3 +269,54 @@
     doAfterDuration: 4.0
   - type: UseDelay
     delay: 1
+
+# Vizier's sword
+
+- type: entity
+  name: officer's shamshir
+  parent: CaptainSabre
+  id: WeaponVizierShamshir
+  description: A uniquely curved sword, a sharp weapon styled after weapons of old, made of pale plastitanium. Primed to strike and sever.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Melee/viz-sabre.rsi
+  - type: MeleeWeapon
+    attackRate: 1.25
+    wideAnimationRotation: -60
+    damage:
+      types: # It's still incredibly strong, but -reasonable-
+        Slash: 42
+        Structural: 75 # Ion doesn't exist, according to Proto manager.
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Melee/viz-sabre.rsi
+  - type: Clothing
+    slots:
+    - Back
+    - Belt
+    - suitStorage
+  - type: Reflect
+    reflectProb: 0.50
+  - type: DisarmMalus
+    malus: 0.9
+  - type: StaticPrice
+    price: 5000 # YOU CALL THAT A BLADE.... I'LL SHOW YOU A BLADE...
+  - type: WeaponMeleeCharge
+    activeTime: 3
+    cooldown: 30
+    cooldownDamagePenalty:
+      types:
+        Slash: -27
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+            Slash: 100
+            Structural: 300
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/Weapons/bladeslice.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Tag
+    tags:
+    - Shamshir

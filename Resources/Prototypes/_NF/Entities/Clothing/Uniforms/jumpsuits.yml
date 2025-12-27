@@ -134,13 +134,16 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNfsdTacCream
-  name: PDV tactical jumpsuit
+  name: PDV tactical jumpsuit #Mono
   description: A tactical jumpsuit for PDV forces in the field.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_cream.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_cream.rsi
+  - type: SuitSensor #Mono
+    randomMode: false
+    mode: SensorOff
 
 - type: entity
   parent: ClothingUniformBase
