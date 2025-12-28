@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 SupernoobTheN1
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Pirate loadouts
 
 - type: loadoutGroup
@@ -22,13 +12,13 @@
   - PirateMercenaryJumpsuit
 
 - type: loadoutGroup
-  id: PiratePDA
+  id: RakhshanPDA
   name: loadout-group-contractor-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
-  - PiratePirateNFPDA
+  - PDVRakhshanPDVRakhshanPDA
   fallbacks:
-  - PiratePirateNFPDA
+  - PDVRakhshanPDVRakhshanPDA
 
 - type: loadoutGroup
   id: PirateFace
@@ -104,13 +94,13 @@
   - PilotOuterClothing
 
 - type: loadoutGroup
-  id: PirateCaptainPDA
+  id: GrandVizierPDA
   name: loadout-group-contractor-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
-  - PirateCaptainPirateCaptainNFPDA
+  - PDVGrandVizierPDVGrandVizierPDA
   fallbacks:
-  - PirateCaptainPirateCaptainNFPDA
+  - PDVGrandVizierPDVGrandVizierPDA
 
 - type: loadoutGroup
   id: PirateCaptainWallet
@@ -157,21 +147,30 @@
   - PilotOuterClothing
 
 - type: loadoutGroup
-  id: PirateFirstMatePDA
+  id: AsvaranPDA
   name: loadout-group-contractor-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
-  - PirateFirstMatePirateFirstMateNFPDA
+  - PDVAsvaranPDVAsvaranPDA
   fallbacks:
-  - PirateFirstMatePirateFirstMateNFPDA
+  - PDVAsvaranPDVAsvaranPDA
 
-# PDV Infiltrator loadouts
+# PDV Additions
 
 - type: loadoutGroup
   id: PDVInfiltratorPDA
   name: loadout-group-contractor-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
-  - PDVSpasakaPDVSpaskaPDA
+  - PDVSpasakaPDVSpasakaPDA
   fallbacks:
-  - PDVSpasakaPDVSpaskaPDA
+  - PDVSpasakaPDVSpasakaPDA
+
+- type: loadoutGroup
+  id: PDVDenasvarPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - PDVDenasvarPDVDenasvarPDA
+  fallbacks:
+  - PDVDenasvarPDVDenasvarPDA

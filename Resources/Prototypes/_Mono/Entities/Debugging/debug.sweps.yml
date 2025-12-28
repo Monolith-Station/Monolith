@@ -1,0 +1,38 @@
+- type: entity
+  parent: WallPlastitaniumIndestructible
+  id: WallPlastitaniumDebug
+  name: debug plastitanium wall
+  description: God bless shipgun rebalance.
+  suffix: indestructible, DEBUG
+  components:
+  - type: DamagePopup
+
+- type: entity
+  name: omnigun
+  parent: BaseItem
+  id: WeaponOmnigun
+  description: shoot with anything i dont fucking care.
+  suffix: DEBUG
+  components:
+  - type: Tag
+    tags:
+      - Debug
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/debug.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    proto: null
+    capacity: 999
+    ignoreWhitelist: true
+  - type: Gun
+    fireRate: 2
+    projectileSpeed: 55
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []

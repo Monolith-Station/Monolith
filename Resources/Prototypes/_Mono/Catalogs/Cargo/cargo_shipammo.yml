@@ -1,49 +1,4 @@
-# SPDX-FileCopyrightText: 2025 kasature90
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: MPL-2.0
-
 # Cartridge reload
-
-- type: cargoProduct
-  id: ArmoryShipAmmo220mm
-  icon:
-    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
-    state: icon
-  product: CrateAmmoBoxCyrexa
-  cost: 7500
-  category: cargoproduct-category-name-shipammo
-  group: market
-
-- type: cargoProduct
-  id: ArmoryShipAmmo255mm
-  icon:
-    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
-    state: icon
-  product: CrateAmmoBoxBofors
-  cost: 7500
-  category: cargoproduct-category-name-shipammo
-  group: market
-
-- type: cargoProduct
-  id: ArmoryShipAmmo203mm
-  icon:
-    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
-    state: icon
-  product: CrateAmmoBoxKargil
-  cost: 7500
-  category: cargoproduct-category-name-shipammo
-  group: market
-
-- type: cargoProduct
-  id: ArmoryShipAmmo150mm
-  icon:
-    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
-    state: icon
-  product: CrateAmmoBox150mm
-  cost: 7500
-  category: cargoproduct-category-name-shipammo
-  group: market
 
 - type: cargoProduct
   id: ArmoryShipAmmoCharon
@@ -52,16 +7,6 @@
     state: icon
   product: CrateAmmoBoxCharon
   cost: 7500
-  category: cargoproduct-category-name-shipammo
-  group: market
-
-- type: cargoProduct
-  id: ArmoryShipAmmoCharonette
-  icon:
-    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
-    state: icon
-  product: CrateAmmoBoxCharonette
-  cost: 5000
   category: cargoproduct-category-name-shipammo
   group: market
 
@@ -104,16 +49,6 @@
     state: icon
   product: CrateAmmoBox90mm
   cost: 6500
-  category: cargoproduct-category-name-shipammo
-  group: market
-
-- type: cargoProduct
-  id: ArmoryShipAmmo140mm
-  icon:
-    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
-    state: icon
-  product: CrateAmmoBox140mm
-  cost: 5000
   category: cargoproduct-category-name-shipammo
   group: market
 

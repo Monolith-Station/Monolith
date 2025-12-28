@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Qulibly
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Registered (legal) weapon crates
 - type: entity
   id: CrateArmoryRifleGestio
@@ -25,7 +16,6 @@
 - type: entity
   id: CrateArmorySMGExpedition
   parent:
-  - BaseC2ExpeditionContraband
   - CrateFirearmsSecure
   name: SMG crate
   description: Contains two high-powered, SMGs with four mags. Requires Armory access to open. Unregistered.
@@ -41,7 +31,6 @@
 - type: entity
   id: CrateArmoryShotgunExpedition
   parent:
-  - BaseC2ExpeditionContraband
   - CrateFirearmsSecure
   name: shotgun crate
   description: For when the enemy absolutely needs to be replaced with lead. Contains two Enforcer Combat Shotguns, and some standard shotgun shells. Requires Armory access to open. Unregistered.
@@ -57,7 +46,6 @@
 - type: entity
   id: CrateArmoryLaserExpedition
   parent:
-  - BaseC2ExpeditionContraband
   - CrateFirearmsSecure
   name: lasers crate
   description: Contains three standard-issue laser carbines. Requires Armory access to open. Unregistered.
@@ -71,7 +59,6 @@
 - type: entity
   id: CrateArmoryEnergyGunExpedition
   parent:
-  - BaseC2ExpeditionContraband
   - CrateFirearmsSecure
   name: energy guns crate
   description: Contains three energy guns. Requires Armory access to open. Unregistered.
@@ -85,7 +72,6 @@
 - type: entity
   id: CrateArmoryPistolsExpedition
   parent:
-  - BaseC2ExpeditionContraband
   - CrateFirearmsSecure
   name: pistols crate
   description: Contains two standard NT pistols with four mags. Requires Armory access to open. Unregistered.
@@ -101,7 +87,6 @@
 - type: entity
   id: CrateArmoryRifleGestioExpedition
   parent:
-  - BaseC2ExpeditionContraband
   - CrateFirearmsSecure
   name: gestio rifle crate
   description: Contains two old prototype, burst-fire rifles with six low capacity mags. Requires Armory access to open. Unregistered.
@@ -117,7 +102,6 @@
 - type: entity
   id: CrateArmoryRifleNovaliteC1Expedition
   parent:
-  - BaseC2ExpeditionContraband
   - CrateFirearmsSecure
   name: novalite rifle crate
   description: Contains two civilian grade rifles with six low capacity clips. Requires Armory access to open. Unregistered.

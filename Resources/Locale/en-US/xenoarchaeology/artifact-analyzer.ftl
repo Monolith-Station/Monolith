@@ -40,3 +40,5 @@ analysis-console-print-popup = The console printed out a report.
 analyzer-artifact-extract-popup = Energy shimmers on the artifact's surface!
 
 analysis-report-title = Artifact Report: Node {$id}
+
+artifact-analyzer-upgrade-duration = Scan Delay

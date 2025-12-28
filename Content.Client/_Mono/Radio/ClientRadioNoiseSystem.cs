@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._Mono.CCVar;
 using Content.Shared._Mono.Radio;
 using Robust.Shared.Audio;

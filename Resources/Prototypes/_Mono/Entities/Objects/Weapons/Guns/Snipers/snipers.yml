@@ -1,15 +1,7 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 grandalff
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: WeaponRifleAK410
   name: NCI AK-410 (7.62x54mmR)
-  parent: [ BaseWeaponRifle, BaseC1Contraband ]
+  parent: BaseWeaponRifle
   description: "Bullpup DMR feeding from 762x54mmR magazines, developed to modernize USSP long-range infantry weapons."
   components:
   - type: Sprite

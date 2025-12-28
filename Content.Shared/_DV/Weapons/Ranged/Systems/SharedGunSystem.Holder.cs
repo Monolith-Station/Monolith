@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Avalon
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Hands;
 using Content.Shared.Weapons.Ranged.Components;
 

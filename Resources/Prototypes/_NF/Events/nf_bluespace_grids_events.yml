@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2025 GreaseMonk
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 NazrinNya
-# SPDX-FileCopyrightText: 2025 SupernoobTheN1
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 assignedgod
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: BluespaceCacheError
   parent: BaseStationEventShortDelay
@@ -18,20 +8,20 @@
       path: /Audio/Announcements/attention.ogg
     warningAnnouncement: station-event-bluespace-cache-warning-announcement
     endAnnouncement: station-event-bluespace-cache-end-announcement
-    earliestStart: 100
+    earliestStart: 60 # Mono
     weight: 5
     duration: 1350
     maxDuration: 1560
     reoccurrenceDelay: 240 # Mono: From 8 to 4 hours
-    requiredJobs:
-      Sheriff: 1
+    #requiredJobs: Mono - Remove Sheriff/Colonel requirement
+    #  Sheriff: 1
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-SyndicateWeaponsCache
         minimumDistance: 1500
-        maximumDistance: 2500
+        maximumDistance: 5000 # Mono
         addComponents:
         - type: Gravity
           enabled: true
@@ -60,20 +50,20 @@
       path: /Audio/Announcements/attention.ogg
     warningAnnouncement: station-event-bluespace-vault-warning-announcement
     endAnnouncement: station-event-bluespace-vault-end-announcement
-    earliestStart: 100
+    earliestStart: 60 # Mono
     weight: 5
     duration: 1020
     maxDuration: 1350
     reoccurrenceDelay: 240 # Mono: From 8 to 4 hours
-    requiredJobs:
-      Sheriff: 1
+    #requiredJobs: Mono - Remove Sheriff/Colonel requirement
+    #  Sheriff: 1
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-SecureNTVault
         minimumDistance: 1500
-        maximumDistance: 2500
+        maximumDistance: 5000 # Mono
         addComponents:
         - type: Gravity
           enabled: true
@@ -100,21 +90,21 @@
       path: /Audio/Announcements/attention.ogg
     warningAnnouncement: station-event-bluespace-vault-warning-announcement
     endAnnouncement: station-event-bluespace-vault-end-announcement
-    earliestStart: 100
-    maximumPlayers: 30
+    earliestStart: 60 # Mono
+    maximumPlayers: 0 # Mono
     weight: 5
     duration: 590
     maxDuration: 780
     reoccurrenceDelay: 240 # Mono: From 8 to 4 hours
-    requiredJobs:
-      Sheriff: 1
+    #requiredJobs: Mono - Remove Sheriff/Colonel requirement
+    #  Sheriff: 1
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-SecureNTVault
         minimumDistance: 1500
-        maximumDistance: 2500
+        maximumDistance: 5000 # Mono
         addComponents:
         - type: Gravity
           enabled: true

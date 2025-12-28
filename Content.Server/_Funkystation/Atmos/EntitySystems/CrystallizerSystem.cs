@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 NazrinNya
-// SPDX-FileCopyrightText: 2025 marc-pelletier
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._Funkystation.Atmos.Components;
 using Content.Server._Funkystation.Atmos.Components;
 using Content.Server.Power.Components;

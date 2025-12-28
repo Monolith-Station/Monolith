@@ -2,8 +2,8 @@
 
 - type: latheRecipe
   parent: BaseLightShipgunAmmoRecipe
-  id: Magazine20mmPiercingAmmoRecipe
-  result: Magazine20mmPiercing
+  id: Magazine20mmAmmoRecipe
+  result: Magazine20mm
 
 - type: latheRecipe
   parent: BaseShipgunAmmoRecipe
@@ -20,11 +20,6 @@
   id: Magazine90mmAmmoRecipe
   result: Magazine90mm
 
-- type: latheRecipe
-  parent: BaseHeavyShipgunAmmoRecipe
-  id: Magazine140mmAmmoRecipe
-  result: Magazine140mm
-
 # Individual
 
 - type: latheRecipe
@@ -33,19 +28,9 @@
   result: 220mmCartridge
 
 - type: latheRecipe
-  parent: BaseLightShipgunAmmoRecipe
-  id: 203mmCartridgeAmmoRecipe
-  result: 203mmCartridge
-
-- type: latheRecipe
   parent: BaseShipgunAmmoRecipe
   id: 255mmCartridgeAmmoRecipe
   result: 255mmCartridge
-
-- type: latheRecipe
-  parent: BaseShipgunAmmoRecipe
-  id: CharonetteSlugCartridgeAmmoRecipe
-  result: CharonetteSlugAmmo
 
 # Missiles
 
@@ -61,5 +46,5 @@
 
 - type: latheRecipe
   parent: BaseLightMissileShipgunAmmoRecipe
-  id: VesperaCartridgeAmmoRecipe
-  result: VesperaCartridge
+  id: VesperaMagazineAmmoRecipe
+  result: VesperaMagazine

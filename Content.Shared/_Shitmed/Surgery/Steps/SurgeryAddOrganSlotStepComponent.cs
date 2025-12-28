@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
 using Robust.Shared.GameStates;
 

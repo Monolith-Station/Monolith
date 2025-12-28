@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Radrark
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Kevin Zheng
-// SPDX-FileCopyrightText: 2023 router
-// SPDX-FileCopyrightText: 2024 Kesiath
-// SPDX-FileCopyrightText: 2024 checkraze
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-// SPDX-FileCopyrightText: 2025 Redrover1760
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 
 namespace Content.Server.Shuttles.Components
@@ -101,7 +86,7 @@ namespace Content.Server.Shuttles.Components
         /// At what Thrust-Weight-Ratio should this ship have the base max velocity as its maximum velocity.
         /// </summary>
         [DataField]
-        public float BaseMaxVelocityTWR = 2f;
+        public float BaseMaxVelocityTWR = 8f;
 
         /// <summary>
         /// How much should TWR affect max velocity.

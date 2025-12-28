@@ -267,7 +267,7 @@
 # Wieldable
 - type: entity
   id: CrossbowModern
-  parent: [ BaseCrossbowWieldable, BaseC1Contraband ]
+  parent: BaseCrossbowWieldable
   components:
   - type: UseDelay
     delay: 0.5
@@ -280,7 +280,7 @@
 
 - type: entity
   id: CrossbowImprovised
-  parent: [ BaseCrossbowWieldable, BaseC1Contraband ]
+  parent: BaseCrossbowWieldable
   name: impovised crossbow
   components:
   - type: UseDelay
@@ -293,7 +293,7 @@
 
 - type: entity
   id: CrossbowBloodCult
-  parent: [ BaseCrossbowWieldable, BaseC3CultContraband ]
+  parent: BaseCrossbowWieldable
   name: blood cult crossbow
   components:
   - type: Sprite
@@ -308,7 +308,7 @@
 # Hand crossbows
 - type: entity
   id: CrossbowModernHand
-  parent: [ BaseCrossbow, BaseC1Contraband ]
+  parent: BaseCrossbow
   name: hand crossbow
   components:
   - type: UseDelay
@@ -321,7 +321,7 @@
 
 - type: entity
   id: CrossbowImprovisedHand
-  parent: [ BaseCrossbow, BaseC1Contraband ]
+  parent: BaseCrossbow
   name: impovised hand crossbow
   components:
   - type: UseDelay
@@ -334,7 +334,7 @@
 
 - type: entity
   id: CrossbowBloodCultHand
-  parent: [ BaseCrossbow, BaseC3CultContraband ]
+  parent: BaseCrossbow
   name: blood cult hand crossbow
   components:
   - type: Sprite
