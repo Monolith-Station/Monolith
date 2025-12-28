@@ -18,7 +18,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2000
+        damage: 1100
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -270,7 +270,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 10000 # Mono - wall buff
+        damage: 10100 # Mono - wall buff
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
