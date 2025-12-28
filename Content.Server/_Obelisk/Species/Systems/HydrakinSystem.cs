@@ -1,3 +1,4 @@
+using Content.Server._Obelisk.Species.Components;
 using Content.Server.Popups;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
@@ -21,12 +22,12 @@ public sealed class HydrakinSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<Species.Components.HydrakinComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<Species.Components.HydrakinComponent, HydrakinCoolOffActionEvent>(OnCoolOff);
-        SubscribeLocalEvent<Species.Components.HydrakinComponent, CoolOffDoAfterEvent>(OnCoolOffDoAfter);
+        SubscribeLocalEvent<HydrakinComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<HydrakinComponent, HydrakinCoolOffActionEvent>(OnCoolOff);
+        SubscribeLocalEvent<HydrakinComponent, CoolOffDoAfterEvent>(OnCoolOffDoAfter);
     }
 
-    private void OnInit(EntityUid uid, Species.Components.HydrakinComponent component, ComponentInit args)
+    private void OnInit(EntityUid uid, HydrakinComponent component, ComponentInit args)
     {
         if (component.CoolOffAction != null)
             return;
@@ -34,7 +35,7 @@ public sealed class HydrakinSystem : EntitySystem
         _actionsSystem.AddAction(uid, ref component.CoolOffAction, component.CoolOffActionId);
     }
 
-    private void OnCoolOff(EntityUid uid, Species.Components.HydrakinComponent component, HydrakinCoolOffActionEvent args)
+    private void OnCoolOff(EntityUid uid, HydrakinComponent component, HydrakinCoolOffActionEvent args)
     {
         var doafter = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(3), new CoolOffDoAfterEvent(), uid);
 
@@ -44,7 +45,7 @@ public sealed class HydrakinSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnCoolOffDoAfter(Entity<Species.Components.HydrakinComponent> ent, ref CoolOffDoAfterEvent args)
+    private void OnCoolOffDoAfter(Entity<HydrakinComponent> ent, ref CoolOffDoAfterEvent args)
     {
         _popupSystem.PopupEntity(Loc.GetString("hydrakin-cool-off-emote", ("name", Identity.Entity(ent, EntityManager))), ent);
         _audio.PlayEntity(ent.Comp.CoolOffSound, ent, ent);

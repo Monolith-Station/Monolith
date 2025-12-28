@@ -1,3 +1,4 @@
+using Content.Server._Obelisk.Species.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Mobs.Components;
@@ -13,10 +14,10 @@ public sealed class PassiveHeatGenerationSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<Species.Components.PassiveHeatGenerationComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<PassiveHeatGenerationComponent, MapInitEvent>(OnMapInit);
     }
 
-    private void OnMapInit(Entity<Species.Components.PassiveHeatGenerationComponent> ent, ref MapInitEvent args)
+    private void OnMapInit(Entity<PassiveHeatGenerationComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.NextUpdate = _timing.CurTime + ent.Comp.UpdateInterval;
     }
@@ -27,7 +28,7 @@ public sealed class PassiveHeatGenerationSystem : EntitySystem
 
         var curTime = _timing.CurTime;
 
-        var query = EntityQueryEnumerator<Species.Components.PassiveHeatGenerationComponent, TemperatureComponent>();
+        var query = EntityQueryEnumerator<PassiveHeatGenerationComponent, TemperatureComponent>();
 
         while (query.MoveNext(out var uid, out var passiveHeatComp, out var tempComp))
         {
