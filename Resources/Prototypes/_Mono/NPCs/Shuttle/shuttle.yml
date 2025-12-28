@@ -155,10 +155,11 @@
         shutdownState: PlanFinished
         removeKeyOnFinish: false
         alwaysFaceTarget: true
-        inRangeMaxSpeed: 1
+        inRangeMaxSpeed: null # orbit at top velocity
         range: 250
         rangeTolerance: 50
         targetKey: TargetCoordinates
+        mode: Orbit
     - !type:HTNPrimitiveTask
       operator: !type:ShipFireGunsOperator
         shutdownState: TaskFinished

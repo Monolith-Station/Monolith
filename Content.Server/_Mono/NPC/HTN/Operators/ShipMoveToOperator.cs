@@ -84,6 +84,12 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public float MaxTargetingRange = 2000f;
 
     /// <summary>
+    /// What movement behavior to use.
+    /// </summary>
+    [DataField]
+    public ShipSteeringMode Mode = ShipSteeringMode.GoToRange;
+
+    /// <summary>
     /// How close we need to get before considering movement finished.
     /// </summary>
     [DataField]
@@ -152,6 +158,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         comp.InRangeMaxSpeed = InRangeMaxSpeed;
         comp.LeadingEnabled = LeadingEnabled;
         comp.MaxRotateRate = MaxRotateRate;
+        comp.Mode = Mode;
         comp.Range = Range;
         comp.RangeTolerance = RangeTolerance;
         comp.TargetRotation = TargetRotation;

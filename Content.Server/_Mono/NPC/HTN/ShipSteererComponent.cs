@@ -32,7 +32,7 @@ public sealed partial class ShipSteererComponent : Component
     /// <summary>
     /// Whether to avoid obstacles.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool AvoidCollisions = true;
 
     /// <summary>
@@ -68,8 +68,20 @@ public sealed partial class ShipSteererComponent : Component
     /// <summary>
     /// Check for obstacles for collision avoidance at most this far.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float MaxObstructorDistance = 800f;
+
+    /// <summary>
+    /// What movement behavior to use.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public ShipSteeringMode Mode = ShipSteeringMode.GoToRange;
+
+    /// <summary>
+    /// How much to angularly offset our movement target on orbit movement mode.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public Angle OrbitOffset = Angle.FromDegrees(30f);
 
     /// <summary>
     /// How close are we trying to get to the coordinates before being considered in range.
@@ -101,4 +113,10 @@ public enum ShipSteeringStatus : byte
     /// Are we currently in range of our target.
     /// </summary>
     InRange,
+}
+
+public enum ShipSteeringMode
+{
+    GoToRange,
+    Orbit
 }

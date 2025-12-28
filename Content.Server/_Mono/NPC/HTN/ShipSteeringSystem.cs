@@ -91,35 +91,50 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             targetVel = targetBody.LinearVelocity;
         var relVel = linVel - targetVel;
 
-        // check if all good
-        if (distance >= lowRange && distance <= highRange
-            && relVel.Length() < maxArrivedVel
-            && MathF.Abs(angVel) < maxArrivedAngVel)
+        var destMapPos = mapTarget;
+
+        switch (ent.Comp.Mode)
         {
-            var good = true;
-            if (ent.Comp.AlwaysFaceTarget)
+            case ShipSteeringMode.GoToRange:
             {
-                var shipNorthAngle = _transform.GetWorldRotation(shipXform);
-                var wishRotateBy = targetAngleOffset + ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), toTargetVec.ToWorldAngle());
-                good = MathF.Abs((float)wishRotateBy.Theta) < ent.Comp.AlwaysFaceTargetOffset;
+                // check if all good
+                if (distance >= lowRange && distance <= highRange
+                    && relVel.Length() < maxArrivedVel
+                    && MathF.Abs(angVel) < maxArrivedAngVel)
+                {
+                    var good = true;
+                    if (ent.Comp.AlwaysFaceTarget)
+                    {
+                        var shipNorthAngle = _transform.GetWorldRotation(shipXform);
+                        var wishRotateBy = targetAngleOffset + ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), toTargetVec.ToWorldAngle());
+                        good = MathF.Abs((float)wishRotateBy.Theta) < ent.Comp.AlwaysFaceTargetOffset;
+                    }
+                    if (good)
+                    {
+                        ent.Comp.Status = ShipSteeringStatus.InRange;
+                        return;
+                    }
+                }
+
+                // get our actual move target, which will be either under us if we're in a position we're okay with, or a point in the middle of our target band
+                if (distance < lowRange || distance > highRange)
+                    destMapPos = mapTarget.Offset(NormalizedOrZero(-toTargetVec) * midRange);
+                else
+                    destMapPos = shipPos;
+
+                break;
             }
-            if (good)
+            case ShipSteeringMode.Orbit:
             {
-                ent.Comp.Status = ShipSteeringStatus.InRange;
-                return;
+                // target a position slightly offset from ours, have maxArrivedVel handle having proper velocity
+                destMapPos = mapTarget.Offset(NormalizedOrZero(ent.Comp.OrbitOffset.RotateVec(-toTargetVec)) * midRange);
+                break;
             }
         }
 
-        // get our actual move target, which will be either under us if we're in a position we're okay with, or a point in the middle of our target band
-        var destMapPos = mapTarget;
-        if (distance < lowRange || distance > highRange)
-            destMapPos = destMapPos.Offset(NormalizedOrZero(-toTargetVec) * midRange);
-        else
-            destMapPos = shipPos;
-
         args.Input = ProcessMovement(shipUid.Value,
                                      shipXform, shipBody, shuttle, shipGrid,
-                                     destMapPos, targetVel, targetUid,
+                                     destMapPos, targetVel, targetUid, mapTarget,
                                      maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
                                      ent.Comp.AvoidCollisions, ent.Comp.MaxObstructorDistance,
                                      targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
@@ -127,7 +142,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
     private ShuttleInput ProcessMovement(EntityUid shipUid,
                                          TransformComponent shipXform, PhysicsComponent shipBody, ShuttleComponent shuttle, MapGridComponent shipGrid,
-                                         MapCoordinates destMapPos, Vector2 targetVel, EntityUid? targetUid,
+                                         MapCoordinates destMapPos, Vector2 targetVel, EntityUid? targetUid, MapCoordinates targetEntPos,
                                          float maxArrivedVel, float brakeThreshold, float frameTime,
                                          bool avoidCollisions, float maxObstructorDistance,
                                          Angle targetAngleOffset, Angle? angleOverride)
@@ -206,8 +221,9 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 var obstacleRadius = MathF.Sqrt(otherBounds.Width * otherBounds.Width + otherBounds.Height * otherBounds.Height) / 2f;
                 var sumRadius = shipRadius + obstacleRadius;
 
-                // if it's behind destination we don't care
-                if (obstacleDistance > destDistance + sumRadius)
+                var targetEntDistance = (targetEntPos.Position - shipPos.Position).Length();
+                // if it's behind destination entity we don't care, needed for ramming to work properly
+                if (obstacleDistance > targetEntDistance + sumRadius)
                     continue;
 
                 // check by how much we're already missing
