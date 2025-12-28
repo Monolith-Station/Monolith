@@ -4,7 +4,7 @@
 
 - type: entity
   id: BaseHydrakinOrgan
-  name: hydrakin organ
+  name: hydrakin organ 
   parent: [BaseItem]
   abstract: true
   components:
@@ -36,7 +36,7 @@
     slotId: stomach
   - type: Metabolizer
     maxReagents: 3
-    metabolizerTypes: [ Animal, Hydrakin]
+    metabolizerTypes: [ Animal ]
     removeEmpty: true
   - type: SolutionContainerManager
     solutions:
@@ -59,7 +59,7 @@
 
 - type: entity
   id: OrganHydrakinLiver
-  parent: [BaseHydrakinOrgan, OrganHumanLiver]
+  parent: BaseHydrakinOrgan
   name: hydrakin liver
   components:
   - type: Sprite
@@ -72,16 +72,11 @@
   - type: Liver # Shitmed Change
   - type: Organ # Shitmed Change
     slotId: liver # Shitmed Change
-  - type: Metabolizer
-    metabolizerTypes: [Hydrakin]
 
 - type: entity
   id: OrganHydrakinHeart
   parent: [ BaseHydrakinOrgan , OrganHumanHeart ]
   name: hydrakin heart
-  components:
-  - type: Metabolizer
-    metabolizerTypes: [Hydrakin]
 
 - type: entity
   id: OrganHydrakinLungs

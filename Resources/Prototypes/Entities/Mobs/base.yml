@@ -179,7 +179,7 @@
     sweatHeatRegulation: 500
     shiveringHeatRegulation: 500
     normalBodyTemperature: 310.15
-    thermalRegulationTemperatureThreshold: 2
+    thermalRegulationTemperatureThreshold: 25
   - type: Temperature
     heatDamageThreshold: 325
     coldDamageThreshold: 260

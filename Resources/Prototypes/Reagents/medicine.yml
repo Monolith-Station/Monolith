@@ -564,11 +564,10 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-          min: 115.15
+          min: 215.15
         - !type:OrganType
           type: Hydrakin
-          shouldHave: true
-        amount: -100000
+        amount: -75000
 
 - type: reagent
   id: Barozine
