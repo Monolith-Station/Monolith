@@ -35,3 +35,16 @@
   - BasicParts
   position: 2, 1
 
+- type: technology
+  id: AdvancedMeleeCombatOptions
+  name: research-technology-advanced-melee-combat-options
+  entityIcon: WeaponRadAx
+  discipline: Arsenal
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - WeaponRadAx # Monolith
+  technologyPrerequisites:
+  - AdvancedRiotControl
+  - SuperParts
+  position: 4, 2
