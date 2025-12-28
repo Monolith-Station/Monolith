@@ -1,19 +1,18 @@
 using Content.Shared.Mobs;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._Obelisk.Species.Components;
 
 /// <summary>
 /// Passively adds or takes away heat from the entity.
 /// </summary>
-[RegisterComponent, AutoGenerateComponentPause]
+[RegisterComponent]
 public sealed partial class PassiveHeatGenerationComponent : Component
 {
     /// <summary>
-    /// Amount of jules to add or subtract every <see cref="UpdateInterval"/>
+    /// Amount of heat being generated or taken away in watts.
     /// </summary>
     [DataField]
-    public float Joules;
+    public float Watts;
 
     /// <summary>
     /// Each mob state can have its own custom modifier. This will be applied to <see cref="Joules"/>
@@ -39,13 +38,4 @@ public sealed partial class PassiveHeatGenerationComponent : Component
     /// </summary>
     [DataField]
     public bool IgnoreHeatResistance;
-
-    /// <summary>
-    /// <see cref="Joules"/> will be applied with a period of this time.
-    /// </summary>
-    [DataField]
-    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
-
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan NextUpdate;
 }

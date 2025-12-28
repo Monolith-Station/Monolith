@@ -66,7 +66,7 @@
     normalBodyTemperature: 210.15
     thermalRegulationTemperatureThreshold: 2
   - type: PassiveHeatGeneration
-    joules: 6000
+    watts: 6000
     mobStateModifier:
       Alive: 1
       Critical: 0.75
