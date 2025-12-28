@@ -1,56 +1,3 @@
-# SPDX-FileCopyrightText: 2021 Mith-randalf
-# SPDX-FileCopyrightText: 2021 Peptide90
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2022 Emisse
-# SPDX-FileCopyrightText: 2022 Fishfish458
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
-# SPDX-FileCopyrightText: 2022 ike709
-# SPDX-FileCopyrightText: 2022 theashtronaut
-# SPDX-FileCopyrightText: 2023 Alekshhh
-# SPDX-FileCopyrightText: 2023 Checkraze
-# SPDX-FileCopyrightText: 2023 Chief-Engineer
-# SPDX-FileCopyrightText: 2023 Jeff
-# SPDX-FileCopyrightText: 2023 Kevin Zheng
-# SPDX-FileCopyrightText: 2023 Kit0vras
-# SPDX-FileCopyrightText: 2023 Lei Yunxing
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 Nim
-# SPDX-FileCopyrightText: 2023 Puro
-# SPDX-FileCopyrightText: 2023 Scribbles0
-# SPDX-FileCopyrightText: 2023 SpaceCat
-# SPDX-FileCopyrightText: 2023 Velcroboy
-# SPDX-FileCopyrightText: 2023 Whisper
-# SPDX-FileCopyrightText: 2023 deltanedas
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2024 Agoichi
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Flareguy
-# SPDX-FileCopyrightText: 2024 HappyRoach
-# SPDX-FileCopyrightText: 2024 IlyaElDunaev
-# SPDX-FileCopyrightText: 2024 LankLTE
-# SPDX-FileCopyrightText: 2024 Moomoobeef
-# SPDX-FileCopyrightText: 2024 Nairod
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 crazybrain23
-# SPDX-FileCopyrightText: 2024 kosticia
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2024 marbow
-# SPDX-FileCopyrightText: 2024 to4no_fix
-# SPDX-FileCopyrightText: 2025 BramvanZijp
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 Floxington
-# SPDX-FileCopyrightText: 2025 GreaseMonk
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 slarticodefast
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: LockerWardenFilledHardsuit
   suffix: Filled, Hardsuit
@@ -211,7 +158,7 @@
         prob: 0.5
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: GunSafeBaseSecure
   id: GunSafeDisabler
   name: disabler safe
   categories: [ HideSpawnMenu ] # Frontier
@@ -222,7 +169,7 @@
       amount: 5
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: GunSafeBaseSecure
   id: GunSafePistolMk58
   name: mk58 safe
   categories: [ HideSpawnMenu ] # Frontier
@@ -235,7 +182,7 @@
       amount: 8
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: GunSafeBaseSecure
   id: GunSafeRifleLecter
   name: lecter safe
   categories: [ HideSpawnMenu ] # Frontier
@@ -248,7 +195,7 @@
       amount: 4
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: GunSafeBaseSecure
   id: GunSafeSubMachineGunDrozd
   name: drozd safe
   categories: [ HideSpawnMenu ] # Frontier
@@ -261,7 +208,7 @@
       amount: 4
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: GunSafeBaseSecure
   id: GunSafeShotgunEnforcer
   name: enforcer safe
   categories: [ HideSpawnMenu ] # Frontier
@@ -274,7 +221,7 @@
       amount: 4
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: GunSafeBaseSecure
   id: GunSafeShotgunKammerer
   name: kammerer safe
   categories: [ HideSpawnMenu ] # Frontier
@@ -289,7 +236,7 @@
 - type: entity
   id: GunSafeSubMachineGunWt550
   suffix: Wt550
-  parent: [GunSafeBaseSecure, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: GunSafeBaseSecure
   name: wt550 safe
   categories: [ HideSpawnMenu ] # Frontier
   components:
@@ -301,7 +248,7 @@
       amount: 4
 
 - type: entity
-  parent: [GunSafeBaseSecure] # Frontier: remove BaseSecurityContraband
+  parent: [GunSafeBaseSecure]
   id: GunSafeLaserCarbine
   name: laser safe
   categories: [ HideSpawnMenu ] # Frontier

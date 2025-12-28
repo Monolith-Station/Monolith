@@ -1,31 +1,3 @@
-# SPDX-FileCopyrightText: 2022 20kdc
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin
-# SPDX-FileCopyrightText: 2022 EmoGarbage404
-# SPDX-FileCopyrightText: 2022 Flipp Syder
-# SPDX-FileCopyrightText: 2022 Leon Friedrich
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2022 mirrorcult
-# SPDX-FileCopyrightText: 2023 CrigCrag
-# SPDX-FileCopyrightText: 2023 FoxxoTrystan
-# SPDX-FileCopyrightText: 2023 Interrobang01
-# SPDX-FileCopyrightText: 2023 Kara
-# SPDX-FileCopyrightText: 2023 Kevin Zheng
-# SPDX-FileCopyrightText: 2023 LankLTE
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 PuceTint
-# SPDX-FileCopyrightText: 2023 Whisper
-# SPDX-FileCopyrightText: 2023 qwerltaz
-# SPDX-FileCopyrightText: 2024 ArchPigeon
-# SPDX-FileCopyrightText: 2024 Brandon Li
-# SPDX-FileCopyrightText: 2024 Errant
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 starch
-# SPDX-FileCopyrightText: 2025 tonotom
-# SPDX-FileCopyrightText: 2025 tonotom1
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: reagent
   id: Oxygen
   name: reagent-name-oxygen
@@ -43,6 +15,10 @@
         conditions:
         - !type:OrganType
           type: Human
+      - !type:Oxygenate # Mono - Hydrakin
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
       - !type:Oxygenate
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -118,10 +94,17 @@
         amount: -2.0
     Gas:
       effects:
+      - !type:Oxygenate # Mono - Hydrakin
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
+          shouldHave: false
+        - !type:OrganType
+          type: Hydrakin
           shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
@@ -137,6 +120,16 @@
             min: 1.5
         clear: True
         time: 5
+      - !type:HealthChange # Mono
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        - !type:ReagentThreshold
+          reagent: Plasma
+          min: 0.5
+        damage:
+          types:
+            Heat: -0.5
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
@@ -169,6 +162,10 @@
             Radiation: 3
     Gas:
       effects:
+      - !type:Oxygenate # Mono - Hydrakin
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: true
@@ -184,6 +181,17 @@
             min: 1.5
         clear: True
         time: 5
+      - !type:HealthChange # Mono
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        - !type:ReagentThreshold
+          reagent: Tritium
+          min: 0.5
+        damage:
+          types:
+            Heat: -0.5
+            Poison: -0.5
 
 - type: reagent
   id: CarbonDioxide
@@ -199,6 +207,10 @@
         conditions:
         - !type:OrganType
           type: Plant
+      - !type:Oxygenate # Mono - Hydrakin
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
       - !type:HealthChange
         conditions:
         - !type:OrganType
@@ -206,6 +218,9 @@
           shouldHave: false
         - !type:OrganType
           type: Vox
+          shouldHave: false
+        - !type:OrganType
+          type: Hydrakin
           shouldHave: false
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
@@ -252,6 +267,10 @@
         conditions:
         - !type:OrganType
           type: Vox
+      - !type:Oxygenate # Mono - Hydrakin
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
       - !type:Oxygenate
         conditions:
         - !type:OrganType
@@ -284,6 +303,19 @@
   metabolisms:
     Gas:
       effects:
+      - !type:Oxygenate # Mono - Hydrakin
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+      - !type:MovespeedModifier # Mono - Hydrakin
+        walkSpeedModifier: 1.15
+        sprintSpeedModifier: 1.15
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 0.75
       - !type:Emote
         conditions:
         - !type:ReagentThreshold
@@ -316,6 +348,9 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
+        - !type:OrganType # Mono - Hydrakin
+          type: Hydrakin
+          shouldHave: false
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
@@ -328,6 +363,9 @@
           min: 1
         - !type:OrganType
           type: Slime
+          shouldHave: false
+        - !type:OrganType # Mono - Hydrakin
+          type: Hydrakin
           shouldHave: false
         key: ForcedSleep
         component: ForcedSleeping
@@ -343,6 +381,9 @@
           min: 3.5
         - !type:OrganType
           type: Slime
+          shouldHave: false
+        - !type:OrganType # Mono - Hydrakin
+          type: Hydrakin
           shouldHave: false
         ignoreResistances: true
         damage:
@@ -361,6 +402,10 @@
   metabolisms:
     Gas:
       effects:
+      - !type:Oxygenate # Mono - Hydrakin
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -377,6 +422,9 @@
         conditions:
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
+          shouldHave: false
+        - !type:OrganType # Mono - Hydrakin
+          type: Hydrakin 
           shouldHave: false
         - !type:ReagentThreshold
           reagent: Frezon
@@ -419,4 +467,14 @@
         - !type:ReagentThreshold
           reagent: Frezon
           min: 1
+      - !type:AdjustTemperature # Mono - Hydrakin
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 0.25
+        - !type:Temperature
+          min: 215.15
+        - !type:OrganType
+          type: Hydrakin
+        amount: -10000
  

@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Cojoke
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 ScyronX
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
@@ -21,9 +12,9 @@ using Content.Shared._Mono.CorticalBorer;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
+using Content.Shared.Chat; // Einstein Engines - Languages
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Chat; // Einstein Engines - Languages
 using Content.Shared.Database;
 using Content.Shared.Inventory;
 using Content.Shared.MedicalScanner;
@@ -59,6 +50,8 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
 
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeAbilities();
 
         SubscribeLocalEvent<CorticalBorerComponent, ComponentStartup>(OnStartup);
@@ -195,7 +188,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         UpdateChems(ent, -((int)chemAmount * chemicalPrototype.Cost));
         return true;
     }
-
+    
     private void OnInjectReagentMessage(Entity<CorticalBorerComponent> ent, ref CorticalBorerDispenserInjectMessage message)
     {
         CorticalBorerChemicalPrototype? chemProto = null;

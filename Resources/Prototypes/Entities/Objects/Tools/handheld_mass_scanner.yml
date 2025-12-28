@@ -1,15 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Temoffy
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 Wiebe Geertsma
-# SPDX-FileCopyrightText: 2024 deltanedas
-# SPDX-FileCopyrightText: 2024 metalgearsloth
-# SPDX-FileCopyrightText: 2025 Ilya246
-#
-# SPDX-License-Identifier: MPL-2.0
-
 - type: entity
   name: handheld mass scanner
   parent: BaseHandheldComputer
@@ -31,8 +19,8 @@
     followEntity: true
   # Mono
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 0.5 # from 1
-    visualMultiplier: 3 # from 4
+    infraredMultiplier: 0.5
+    visualMultiplier: 0.75
   - type: Appearance
   - type: GenericVisualizer
     visuals:

@@ -4,6 +4,8 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: ExaminableDamage
+    messages: WindowMessages
   - type: Transform
     anchored: true
   - type: Clickable

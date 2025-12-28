@@ -1,0 +1,31 @@
+- type: construction
+  id: RandomPoster
+  name: random poster
+  description: The thinking spacer's solution for a damaged hull.
+  graph: RandomPoster
+  startNode: start
+  targetNode: randomPoster
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Wallmounts/posters.rsi
+    state: poster4_contraband
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+    
+- type: construction
+  id: RandomPainting
+  name: random painting
+  description: A happy collection of little accidents.
+  graph: RandomPainting
+  startNode: start
+  targetNode: randomPainting
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Wallmounts/paintings.rsi
+    state: painting8
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition

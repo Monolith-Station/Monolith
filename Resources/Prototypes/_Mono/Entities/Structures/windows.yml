@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 starch
-# SPDX-FileCopyrightText: 2025 thoughtlessuser
-#
-# SPDX-License-Identifier: MPL-2.0
-
 # strong windows for outposts sir!
 
 - type: entity
@@ -170,6 +164,8 @@
   - type: Icon
     sprite: _Mono/Structures/Windows/plasturanium_window_diagonal.rsi
     state: state0
+  - type: ArmorThickness
+    thickness: 30
 
 - type: entity
   id: PlasturaniumWindowRadProof
@@ -186,6 +182,8 @@
   - type: Icon
     sprite: _Mono/Structures/Windows/plasturanium_window.rsi
     state: full
+  - type: ArmorThickness
+    thickness: 30
 
 #plastitanium but blocks rads 100% (industructible var.)
 
@@ -204,6 +202,8 @@
   - type: Icon
     sprite: _Mono/Structures/Windows/plasturanium_window_diagonal.rsi
     state: state0
+  - type: ArmorThickness
+    thickness: 30
 
 - type: entity
   id: PlasturaniumWindowRadProofIndestructible
@@ -220,3 +220,5 @@
   - type: Icon
     sprite: _Mono/Structures/Windows/plasturanium_window.rsi
     state: full
+  - type: ArmorThickness
+    thickness: 30

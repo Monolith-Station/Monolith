@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Arcticular
-# SPDX-FileCopyrightText: 2025 Arcticular1
-# SPDX-FileCopyrightText: 2025 Avalon
-#
-# SPDX-License-Identifier: MPL-2.0
-
 # Base Heavy Turret
 
 - type: entity
@@ -98,7 +92,7 @@
     - HostileUniversally
 
 - type: entity
-  parent: [BallisticTurretHeavyBase, BaseC3SyndicateContraband]
+  parent: BallisticTurretHeavyBase
   id: WeaponTurretHeavySyndicate
   suffix: Syndicate
   components:
