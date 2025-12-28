@@ -1,0 +1,95 @@
+- type: dataset
+  id: MonoRemnantBorgTitle
+  values:
+  - ADM
+
+- type: dataset
+  id: MonoRemnantCoreTitle
+  values:
+  - ADC
+
+- type: dataset
+  id: MonoRemnantAdjective
+  values:
+  - Violet
+  - Red
+  - Purple
+  - Yellow
+  - Green
+  - Blue
+  - Cyan
+  - Crimson
+  - Steel
+  - Obsidian
+  - Prismatic
+  - Sudden
+  - Militant
+  - Void
+  - Lightspeed
+  - Cleansing
+  - Burning
+  - Frozen
+  - Molten
+  - Flying
+  - Marching
+  - Spectral
+  - Piercing
+  - Glass
+
+- type: dataset
+  id: MonoRemnantNoun
+  values:
+  - Sword
+  - Strider
+  - Courser
+  - Patron
+  - Flood
+  - Weapon
+  - Static
+  - Signal
+  - Arrow
+  - Arbiter
+  - Protocol
+  - Titan
+  - Vector
+  - Requiem
+  - Watcher
+  - Eye
+  - Tower
+  - Terminal
+  - Sentinel
+  - Echo
+  - Nemesis
+  - Daemon # this one fits into modifiers too but sounds better here i think
+  - Locust
+  - Wraith
+  - Lens
+  - Prophet
+
+- type: dataset
+  id: MonoRemnantModifier
+  values:
+  - Adjunct
+  - Joint
+  - Mechanism
+  - Wire
+  - Cog
+  - Machine
+  - Relay
+  - Modem
+  - Node
+  - Unit
+  - Segment
+  - Index
+  - Branch
+  - Module
+  - Factor
+  - Scion
+  - Offset
+  - Fragment
+  - Routine
+  - Sector
+  - Link
+  - Process
+  - Servo
+  - Trait

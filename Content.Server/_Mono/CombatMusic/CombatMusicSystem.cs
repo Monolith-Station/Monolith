@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Shared._Mono.CombatMusic;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;

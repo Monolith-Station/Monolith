@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2023 Kesiath
+# SPDX-FileCopyrightText: 2023 LankLTE
+# SPDX-FileCopyrightText: 2024 Checkraze
+# SPDX-FileCopyrightText: 2024 Dvir
+# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
+# SPDX-FileCopyrightText: 2024 Maxtone
+# SPDX-FileCopyrightText: 2024 Salvantrix
+# SPDX-FileCopyrightText: 2025 Arcticular
+# SPDX-FileCopyrightText: 2025 LukeZurg22
+# SPDX-FileCopyrightText: 2025 dustylens
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
+#
+# SPDX-License-Identifier: MPL-2.0
+
 - type: entity
   id: SpawnPointContractor
   parent: SpawnPointPassenger
@@ -61,17 +75,6 @@
   components:
   - type: SpawnPoint
     job_id: PirateCaptain
-  - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-red
-
-- type: entity
-  id: SpawnPointPDVInfiltrator
-  parent: SpawnPointJobBase
-  name: pdv infiltrator
-  components:
-  - type: SpawnPoint
-    job_id: PDVInfiltrator
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
     state: banner-red

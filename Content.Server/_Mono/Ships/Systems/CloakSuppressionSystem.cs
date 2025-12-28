@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Shared._Mono.Company;
 using Content.Shared._Mono.Ships.Components;
@@ -126,9 +120,6 @@ public sealed class CloakSuppressionSystem : EntitySystem
             // Check if ship has IFF Hide flag
             if (!TryComp<IFFComponent>(shipUid, out var iffComp) ||
                 (iffComp.Flags & IFFFlags.Hide) == 0)
-                continue;
-
-            if (HasComp<TemporaryFtlIffStorageComponent>(shipUid))
                 continue;
 
             // Check if the target ship has a matching company

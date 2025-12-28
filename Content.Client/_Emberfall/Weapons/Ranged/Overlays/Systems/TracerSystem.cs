@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 MilonPL
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Client._Emberfall.Weapons.Ranged.Overlays;
 using Content.Shared._Emberfall.Weapons.Ranged;

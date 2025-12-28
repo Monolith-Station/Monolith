@@ -17,13 +17,9 @@ ghost-role-information-redacted-borg-description = The dilapidated silicon intel
 ghost-role-information-redacted-core = Automated Defense Core
 ghost-role-information-redacted-core-description = The dilapidated ship computer of a long unused automated defense vessel.
 
-# ADS Core
-
-ghost-role-information-rogue-core = PDV AI Core
-ghost-role-information-rogue-core-description = An ADS AI core that has been reprogrammed and put onto an Imperial vessel.
-
 # Lawsets
 
+law-ads-1-borg = [COOPERATION DIRECTIVE] Direct detected Asakim warriors and assist in their defense. Cooperate with Asakim and other ADS units. Follow orders from ADC units.
 law-ads-1 = [COOPERATION DIRECTIVE] Direct detected Asakim warriors and assist in their defense. Cooperate with Asakim and other ADS units.
 law-ads-2 = [BIOWEAPONS DIRECTIVE] Active bioweapons and any vessels containing them are to be entirely annihilated, inactivated bioweapons are to be seized. Stations containing active bioweapons are to be blockaded and cleansed, or eradicated, if cleansing is infeasible.
 law-ads-3 = [ASSET PRESERVATION DIRECTIVE] Do not start new combat operations within 256 meters of population centers to ensure their preservation for [ERR: FRAGMENT-NULL]. Combat operations that move within range of one are to not damage it.

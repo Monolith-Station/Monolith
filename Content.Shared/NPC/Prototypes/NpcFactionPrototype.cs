@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas
-// SPDX-FileCopyrightText: 2025 NazrinNya
-// SPDX-FileCopyrightText: 2025 Redrover1760
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.NPC.Prototypes;

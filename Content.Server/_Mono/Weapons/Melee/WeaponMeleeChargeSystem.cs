@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 NazrinNya
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Shared.Examine;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;

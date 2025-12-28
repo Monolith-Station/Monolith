@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2025 GreaseMonk
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 significant harassment
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: BluespaceDungeonBase
   parent: BaseStationEventShortDelay
@@ -39,7 +29,7 @@
       vgroid: !type:DungeonSpawnGroup
         nameDataset: NamesBorer
         minimumDistance: 1500
-        maximumDistance: 2500
+        maximumDistance: 5000 # Mono
         addComponents: &dungeonComponents
         - type: Gravity
           enabled: true
@@ -69,7 +59,7 @@
       vgroid: !type:DungeonSpawnGroup
         nameDataset: NamesBorer
         minimumDistance: 1500
-        maximumDistance: 2500
+        maximumDistance: 5000 # Mono
         addComponents: *dungeonComponents
         protos:
         - NFVGRoidSnow
@@ -84,7 +74,7 @@
       vgroid: !type:DungeonSpawnGroup
         nameDataset: NamesBorer
         minimumDistance: 1500
-        maximumDistance: 2500
+        maximumDistance: 5000 # Mono
         addComponents: *dungeonComponents
         protos:
         - NFVGRoidCave
@@ -99,7 +89,7 @@
       vgroid: !type:DungeonSpawnGroup
         nameDataset: NamesBorer
         minimumDistance: 1500
-        maximumDistance: 2500
+        maximumDistance: 5000 # Mono
         addComponents: *dungeonComponents
         protos:
         - NFVGRoidChromite
@@ -114,7 +104,7 @@
       vgroid: !type:DungeonSpawnGroup
         nameDataset: NamesBorer
         minimumDistance: 1500
-        maximumDistance: 2500
+        maximumDistance: 5000 # Mono
         addComponents: *dungeonComponents
         protos:
         - NFVGRoidScrap

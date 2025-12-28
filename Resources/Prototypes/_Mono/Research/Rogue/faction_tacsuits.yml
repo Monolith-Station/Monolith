@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: technology
   id: RogueBasicEquipment
   name: research-technology-rogue-basic-equipment
@@ -77,15 +71,3 @@
   - RogueSyndicateTacsuits
   position: 21, 12
 
-- type: technology
-  id: RogueRx01
-  name: research-technology-rogue-rx01
-  entityIcon: ClothingModsuitRoguePowerCell
-  discipline: RogueEquipment
-  tier: 3
-  cost: 35000
-  recipeUnlocks:
-  - ClothingModsuitRoguePowerCellRogue
-  technologyPrerequisites:
-  - RogueAdvancedEquipment
-  position: 21, 6

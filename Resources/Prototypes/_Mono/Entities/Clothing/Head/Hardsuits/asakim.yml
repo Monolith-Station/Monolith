@@ -1,14 +1,5 @@
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 Coenx-flex
-# SPDX-FileCopyrightText: 2025 Cojoke
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
-  parent: [ClothingHeadHardsuitBase, BaseC3SyndicateContraband, ShowMedicalIcons]
+  parent: [ClothingHeadHardsuitBase, ShowMedicalIcons]
   id: ClothingHelmetHardsuitAsakim
   name: kasature-pattern combat harness helmet
   description: Part of an advanced pre-fracture combat harness.
@@ -41,8 +32,8 @@
     maxRange: 1024
     followEntity: true
   - type: DetectionRangeMultiplier # upgraded thermal sensors
-    infraredMultiplier: 1.5 # from 1
-    visualMultiplier: 8 # from 4
+    infraredMultiplier: 1.5
+    visualMultiplier: 2
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
     singleUser: true

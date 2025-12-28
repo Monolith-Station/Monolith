@@ -1,11 +1,5 @@
-# SPDX-FileCopyrightText: 2025 Arcticular1
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 SupernoobTheN1
-#
-# SPDX-License-Identifier: MPL-2.0
-
 - type: entity
-  parent: [ ComputerComms, BaseC3PirateContrabandHighValue ]
+  parent: ComputerComms
   id: RogueComputerComms
   name: imperial vanguard communications computer
   description: A computer capable of remotely hacking into the station's communications systems. Using this to make an announcement will alert the station to your presence.

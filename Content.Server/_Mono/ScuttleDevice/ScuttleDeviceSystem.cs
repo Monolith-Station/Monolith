@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Server.AlertLevel;
 using Content.Server.Audio;
 using Content.Server.Cargo.Systems;
@@ -47,9 +43,6 @@ public sealed class ScuttleDeviceSystem : EntitySystem
     [Dependency] private readonly SharedShuttleSystem _shuttles = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private TimeSpan _nukeSongLength;
-    private ResolvedSoundSpecifier _selectedNukeSong = String.Empty;
-
     /// <summary>
     ///     Time to leave between the nuke song and the nuke alarm playing.
     /// </summary>
@@ -64,6 +57,7 @@ public sealed class ScuttleDeviceSystem : EntitySystem
         SubscribeLocalEvent<ScuttleDeviceComponent, GetVerbsEvent<AlternativeVerb>>(OnAlternateVerb);
         SubscribeLocalEvent<ScuttleDeviceComponent, ScuttleDisarmDoAfterEvent>(OnDisarmDoAfter);
         SubscribeLocalEvent<ScuttleDeviceComponent, ScuttleArmDoAfterEvent>(OnArmDoAfter);
+        SubscribeLocalEvent<ScuttleDeviceComponent, AnchorStateChangedEvent>(OnAnchorChange);
         SubscribeLocalEvent<ScuttleDeviceComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
         SubscribeLocalEvent<ScuttleDeviceComponent, PriceCalculationEvent>(OnGetPrice);
     }
@@ -124,6 +118,12 @@ public sealed class ScuttleDeviceSystem : EntitySystem
         args.Handled = true;
     }
 
+    private void OnAnchorChange(Entity<ScuttleDeviceComponent> ent, ref AnchorStateChangedEvent args)
+    {
+        if (ent.Comp.DisarmOnUnanchor && !args.Anchored)
+            DisarmBomb((ent, ent.Comp));
+    }
+
     private void OnUnanchorAttempt(Entity<ScuttleDeviceComponent> ent, ref UnanchorAttemptEvent args)
     {
         if (args.Cancelled)
@@ -173,11 +173,18 @@ public sealed class ScuttleDeviceSystem : EntitySystem
 
         ent.Comp.RemainingTime -= TimeSpan.FromSeconds(frameTime);
 
+        // disarm if we changed map and this should disarm us
+        if (ent.Comp.DisarmOnMapChange && ent.Comp.ArmedMap != Transform(ent).MapID)
+        {
+            DisarmBomb(ent);
+            return;
+        }
+
         // Start playing the ent.Comp event song so that it ends a couple seconds before the alert sound
         // should play
-        if (ent.Comp.RemainingTime <= _nukeSongLength + ent.Comp.AlertSoundTime + NukeSongBuffer && !ent.Comp.PlayedNukeSong && !ResolvedSoundSpecifier.IsNullOrEmpty(_selectedNukeSong))
+        if (ent.Comp.DoMusic && ent.Comp.RemainingTime <= ent.Comp.NukeSongLength + ent.Comp.AlertSoundTime + NukeSongBuffer && !ent.Comp.PlayedNukeSong && !ResolvedSoundSpecifier.IsNullOrEmpty(ent.Comp.SelectedNukeSong))
         {
-            _sound.DispatchStationEventMusic(ent, _selectedNukeSong, StationEventMusicType.Nuke);
+            _sound.DispatchStationEventMusic(ent, ent.Comp.SelectedNukeSong, StationEventMusicType.Nuke);
             ent.Comp.PlayedNukeSong = true;
         }
 
@@ -211,20 +218,21 @@ public sealed class ScuttleDeviceSystem : EntitySystem
         var grid = nukeXform.GridUid;
         var name = grid == null ? "Space" : _shuttles.GetIFFLabel(grid.Value) ?? "Space";
 
-        // We are collapsing the randomness here, otherwise we would get separate random song picks for checking duration and when actually playing the song afterwards
-        _selectedNukeSong = _audio.ResolveSound(ent.Comp.ArmMusic);
-
         // warn a crew
         var announcement = Loc.GetString("scuttle-device-announcement-armed",
             ("time", (int) ent.Comp.RemainingTime.TotalSeconds),
             ("location", name));
-        var sender = Loc.GetString("scuttle-device-announcement-sender");
+        var sender = Loc.GetString(ent.Comp.AnnounceSender);
         _chatSystem.DispatchFilteredAnnouncement(Filter.Local().AddInRange(_transform.GetMapCoordinates(ent, nukeXform), ent.Comp.AnnounceRadius),
                                                 announcement, sender: sender, playSound: false, colorOverride: Color.Red);
 
         _sound.PlayGlobalOnStation(ent, _audio.ResolveSound(ent.Comp.ActivateSound));
         _sound.PlayGlobalOnStation(ent, _audio.ResolveSound(ent.Comp.ArmSound));
-        _nukeSongLength = _audio.GetAudioLength(_selectedNukeSong);
+        if (ent.Comp.DoMusic)
+        {
+            ent.Comp.SelectedNukeSong = _audio.ResolveSound(ent.Comp.ArmMusic);
+            ent.Comp.NukeSongLength = _audio.GetAudioLength(ent.Comp.SelectedNukeSong);
+        }
 
         // turn on the spinny light
         _pointLight.SetEnabled(ent, true);
@@ -236,6 +244,8 @@ public sealed class ScuttleDeviceSystem : EntitySystem
             // Admin command shenanigans, just make sure.
             _transform.AnchorEntity(ent, nukeXform);
         }
+
+        ent.Comp.ArmedMap = nukeXform.MapID;
 
         ent.Comp.Armed = true;
         UpdateAppearance((ent, ent.Comp));

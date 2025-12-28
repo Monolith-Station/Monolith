@@ -1,10 +1,6 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: MPL-2.0
-
 - type: entity
   name: NT-WS SM-27 MPSSM missile launcher
-  parent: [ BaseWeaponLauncher, BaseGunWieldable, BaseC2ContrabandUnredeemable ]
+  parent: [ BaseWeaponLauncher, BaseGunWieldable ]
   id: WeaponLauncherMPSSM
   suffix: HEAT
   description: A multipurpose man-portable launcher, capable of firing both guided anti-ship and unguided HEAT warheads.
