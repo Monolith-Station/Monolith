@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 sneb
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Server.Popups;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;

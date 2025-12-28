@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 sneb
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Shared.Actions;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
