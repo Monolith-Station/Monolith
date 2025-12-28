@@ -34,10 +34,12 @@ public sealed class PassiveHeatGenerationSystem : EntitySystem
             if (passiveHeatComp.NextUpdate > curTime)
                 continue;
 
+            // If your too cold or hot don't update.
             var currentTemp = tempComp.CurrentTemperature;
             if (currentTemp > passiveHeatComp.MaximumTemperature || currentTemp < passiveHeatComp.MinimumTemperature)
                 continue;
 
+            // Modify the heat by the mob state modifiers (if they exist)
             var joules = passiveHeatComp.Joules;
             if (passiveHeatComp.MobStateModifier != null && TryComp<MobStateComponent>(uid, out var mobStateComp) )
             {

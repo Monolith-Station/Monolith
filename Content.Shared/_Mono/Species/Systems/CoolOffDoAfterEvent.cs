@@ -5,4 +5,3 @@ namespace Content.Shared._Mono.Species.Systems;
 
 [Serializable, NetSerializable]
 public sealed partial class CoolOffDoAfterEvent : SimpleDoAfterEvent;
-
