@@ -446,9 +446,6 @@ entities:
       locked: False
     - type: Roof
       data: {}
-    - type: ThermalSignature
-      storedHeat: 1.6160249
-    - type: GridCleanupState
 - proto: AirAlarm
   entities:
   - uid: 2
