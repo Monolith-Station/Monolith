@@ -265,31 +265,31 @@
 # converted ship weapons
 
 - type: entity
-  id: MechDravonProjectile
-  name: 57mm projectile
+  id: Mech90mmBullet
+  name: 90mm projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
-  - type: Projectile
-    damage:
-      types:
-        Blunt: 20
-        Piercing: 20
-  - type: Sprite
-    sprite: _Mono/Objects/SpaceArtillery/57_shell.rsi
-    layers:
-    - state: 57-shell
-    scale: 1, 1
+  - type: TimedDespawn
+    lifetime: 4.2
+  - type: PointLight
+    radius: 3.5
+    energy: 0.5
+    color: orange
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 2.5
+    scale: 1.5
     requireNoGrid: true
     shape: triangle
     radarColor: "#1df1f5"
-  - type: TimedDespawn
-    lifetime: 7
-  - type: PointLight
-    color: "#FCBA03"
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 70
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
+    layers:
+    - state: base-projectile
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -297,7 +297,7 @@
     intensitySlope: 4
     maxIntensity: 3
     maxTileBreak: 1
-
+    
 - type: entity
   id: MechMediumPlasmaProjectile
   name: plasma projectile
