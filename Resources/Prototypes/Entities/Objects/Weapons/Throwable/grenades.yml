@@ -17,6 +17,10 @@
     - Belt
   - type: OnUseTimerTrigger
     delay: 3.5
+  - type: TimerStartOnSignal # Mono
+  - type: DeviceLinkSink # Mono
+    ports:
+      - Timer
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible

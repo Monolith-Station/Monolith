@@ -17,8 +17,8 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 1.5 # up from 1
-    visualMultiplier: 8 # up from 4
+    infraredMultiplier: 1.5
+    visualMultiplier: 2
   - type: RadarConsole
     maxRange: 2048
     maxIffRange: 2048
@@ -36,8 +36,8 @@
   description: A visual uplink to a station's advanced, long-range intelligence suite, allowing commanders to have eyes on unfolding combat at all times.
   components:
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 2 # up from 1
-    visualMultiplier: 16 # up from 4
+    infraredMultiplier: 2
+    visualMultiplier: 4
   - type: RadarConsole
     maxRange: 3072 # biiig
     maxIffRange: 3072

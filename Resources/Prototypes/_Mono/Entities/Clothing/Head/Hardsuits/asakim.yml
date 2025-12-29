@@ -32,8 +32,8 @@
     maxRange: 1024
     followEntity: true
   - type: DetectionRangeMultiplier # upgraded thermal sensors
-    infraredMultiplier: 1.5 # from 1
-    visualMultiplier: 8 # from 4
+    infraredMultiplier: 1.5
+    visualMultiplier: 2
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
     singleUser: true

@@ -1,10 +1,10 @@
 - type: technology
-  id: ShuttleArmamentComponentsResearch
-  name: research-technology-shuttle-armaments-components
-  entityIcon: GunneryServerLow
-  discipline: Arsenal
+  id: ShuttleAdvancedComponents
+  name: research-technology-shuttle-advanced-components 
+  entityIcon: ComputerAdvancedRadar
+  discipline: CivilianServices
   tier: 3
-  cost: 50000
+  cost: 55000
   recipeUnlocks:
 #  - ShieldControlComputerCircuitboard
 #  - MachineShieldMS225Circuitboard
@@ -12,37 +12,14 @@
   - MachineGCSLowCircuitboard
   - MachineGCSMediumCircuitboard
   - MachineGCSHighCircuitboard
-  technologyPrerequisites:
-  - ShuttleRadarResearch
-  position: -6, 8
-
-- type: technology
-  id: ShuttleRadarResearch
-  name: research-technology-shuttle-radar-components
-  entityIcon: ComputerAdvancedRadar
-  discipline: CivilianServices
-  tier: 3
-  cost: 80000
-  recipeUnlocks:
   - AdvancedRadarConsoleCircuitboard
   - ComputerIFFCircuitboard
+  - MachineDriveCTLA25Circuitboard
   technologyPrerequisites:
   - Shuttlecraft
   - SuperParts
   position: -6, 7
 
-- type: technology
-  id: ShuttleCtla25DriveResearch
-  name: research-technology-bluespace-drive-ctla25
-  entityIcon: MachineFTLDrive
-  discipline: Experimental
-  tier: 2
-  cost: 50000
-  recipeUnlocks:
-  - MachineDriveCTLA25Circuitboard
-  technologyPrerequisites:
-  - ShuttleRadarResearch
-  position: -7, 7
 
 - type: technology
   id: ShuttleCtlaAdvancedDriveResearch
@@ -50,11 +27,11 @@
   entityIcon: MachineFTLDrive50
   discipline: Experimental
   tier: 3
-  cost: 75000
+  cost: 45000
   recipeUnlocks:
   - MachineDriveCTLA25sCircuitboard
   - MachineDriveCTLA50Circuitboard
   technologyPrerequisites:
-  - ShuttleCtla25DriveResearch
+  - ShuttleAdvancedComponents
   - PortableFission
-  position: -7, 6
+  position: -6, 9

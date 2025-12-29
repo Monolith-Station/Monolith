@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/20/2025 13:55:45
+  time: 12/11/2025 04:10:17
   entityCount: 8377
 maps: []
 grids:
@@ -4384,8 +4384,8 @@ entities:
           -1,7:
             1: 65535
           -1,8:
-            1: 15
-            0: 1280
+            1: 143
+            0: 20480
           0,5:
             1: 61967
           0,6:
@@ -4515,7 +4515,7 @@ entities:
           -3,12:
             1: 26118
           -2,9:
-            1: 64716
+            1: 64512
           -2,10:
             1: 4095
           -2,11:
@@ -4547,8 +4547,8 @@ entities:
           1,8:
             1: 61024
           1,12:
-            1: 4607
-            3: 32768
+            1: 4351
+            5: 32768
           2,9:
             1: 3003
           2,10:
@@ -4744,7 +4744,8 @@ entities:
             1: 255
             0: 4096
           2,19:
-            0: 13057
+            0: 13073
+            1: 64
           2,20:
             0: 4369
           3,17:
@@ -24228,15 +24229,6 @@ entities:
     - type: Transform
       pos: 15.573562,14.732298
       parent: 1
-- proto: ClothingBeltSheathFilledNavy
-  entities:
-  - uid: 3993
-    components:
-    - type: Transform
-      parent: 2371
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingMaskBreathMedicalSecurity
   entities:
   - uid: 1676
@@ -24309,7 +24301,7 @@ entities:
     - type: Transform
       pos: 13.331253,16.56563
       parent: 1
-- proto: ClothingShoesBootsMagSyndie
+- proto: ClothingShoesBootsMagAshen
   entities:
   - uid: 2388
     components:
@@ -42162,45 +42154,6 @@ entities:
       parent: 1
 - proto: LockerSteel
   entities:
-  - uid: 2371
-    components:
-    - type: Transform
-      pos: 7.5,41.5
-      parent: 1
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14923
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 3993
-          - 7576
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
   - uid: 4453
     components:
     - type: Transform
@@ -42240,6 +42193,13 @@ entities:
     components:
     - type: Transform
       pos: 16.5,29.5
+      parent: 1
+- proto: LockerVizier
+  entities:
+  - uid: 2371
+    components:
+    - type: Transform
+      pos: 7.5,41.5
       parent: 1
 - proto: LockerWeldingSuppliesFilled
   entities:
@@ -45819,12 +45779,12 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 2540
-          - 2385
-          - 2388
-          - 2389
-          - 2390
           - 2553
+          - 2540
+          - 2390
+          - 2389
+          - 2388
+          - 2385
 - proto: SuitStorageEVAPirate
   entities:
   - uid: 8029
@@ -53898,15 +53858,6 @@ entities:
     - type: Transform
       pos: -4.5,-1.5
       parent: 1
-- proto: WeaponPistolHawk4
-  entities:
-  - uid: 7576
-    components:
-    - type: Transform
-      parent: 2371
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: WeaponTurretHades
   entities:
   - uid: 4363
