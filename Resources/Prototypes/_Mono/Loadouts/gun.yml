@@ -177,6 +177,13 @@
    back:
     - WeaponShotgunEnforcerPMC
 
+- type: loadout #Helepolis Sidearm
+  id: MercenaryHelepolisLoadout
+  price: 3000
+  storage:
+    back:
+    - WeaponShotgunHelepolis
+
 - type: loadout #Buckshot Shells
   id: MercenaryBuckshotAmmoLoadout
   price: 500

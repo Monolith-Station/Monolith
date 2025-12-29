@@ -4,6 +4,10 @@
   id: ProjectileGrenadeBase
   components:
   - type: Appearance
+  - type: TimerStartOnSignal # Mono
+  - type: DeviceLinkSink # Mono
+    ports:
+      - Timer
   - type: Damageable
     damageContainer: Inorganic
   - type: DeleteOnTrigger

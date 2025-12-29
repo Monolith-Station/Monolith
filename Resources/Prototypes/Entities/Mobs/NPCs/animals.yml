@@ -237,7 +237,7 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatChicken
-      amount: 1
+      amount: 2 # mono 1->2
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird
