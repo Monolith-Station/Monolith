@@ -469,6 +469,29 @@
   storage:
     back:
     - BoxMagazine45_ACPRubber
+    
+#region Station Rep
+
+- type: loadout #Lecter
+  id: StationRepWeaponEnergyShotgun
+  price: 0
+  storage:
+    back:
+    - WeaponEnergyShotgun
+
+- type: loadout #Lecter
+  id: StationRepWeaponRifleNtsfLtr
+  price: 0
+  storage:
+    back:
+    - WeaponRifleNtsfLtr
+
+- type: loadout #Lecter
+  id: StationRepWeaponSubMachineGunVectorNtsfHclm
+  price: 0
+  storage:
+    back:
+    - WeaponSubMachineGunVectorNtsfHclm
 
 #region Factions
 

@@ -2,7 +2,7 @@
   id: StationRepresentative
   name: job-name-sr
   description: job-description-sr
-  playTimeTracker: JobHeadOfPersonnel
+  playTimeTracker: JobHeadOfPersonel
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hrs
@@ -12,7 +12,7 @@
   whitelisted: true
   startingGear: SrGear
   alwaysUseSpawner: true
-  icon: "JobIconHeadOfPersonnel"
+  icon: "JobIconHeadOfSecurity" # Mono
   requireAdminNotify: true
   supervisors: job-supervisors-centcom
   weight: 170
