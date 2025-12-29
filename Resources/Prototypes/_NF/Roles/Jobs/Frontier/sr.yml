@@ -2,7 +2,7 @@
   id: StationRepresentative
   name: job-name-sr
   description: job-description-sr
-  playTimeTracker: JobHeadOfPersonel
+  playTimeTracker: JobHeadOfPersonnel
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hrs

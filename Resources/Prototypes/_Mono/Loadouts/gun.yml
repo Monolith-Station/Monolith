@@ -480,18 +480,18 @@
     - WeaponEnergyShotgun
 
 - type: loadout #Lecter
-  id: StationRepWeaponRifleNtsfLtr
+  id: StationRepWeaponRifleLecter
   price: 0
   storage:
     back:
-    - WeaponRifleNtsfLtr
+    - WeaponRifleLecter
 
 - type: loadout #Lecter
-  id: StationRepWeaponSubMachineGunVectorNtsfHclm
+  id: StationRepWeaponRifleAk
   price: 0
   storage:
     back:
-    - WeaponSubMachineGunVectorNtsfHclm
+    - WeaponRifleAk
 
 #region Factions
 
