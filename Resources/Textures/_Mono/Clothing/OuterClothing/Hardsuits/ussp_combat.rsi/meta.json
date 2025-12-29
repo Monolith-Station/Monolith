@@ -1,7 +1,7 @@
 {
   "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from shiptest-ss13 spacesuits.dmi at mob/clothing/head, obj/clothing/head, mob/clothing/suits, and obj/clothing/suits. | equipped-OUTERCLOTHING-resomi by f0x-n3rd (github), equipped-OUTERCLOTHING-reptilian sprite by Zethine / @synthetic_086 (discord)",
+  "copyright": "Taken from shiptest-ss13 spacesuits.dmi at mob/clothing/head, obj/clothing/head, mob/clothing/suits, and obj/clothing/suits. | equipped-OUTERCLOTHING-resomi by f0x-n3rd (github), equipped-OUTERCLOTHING-reptilian/hydrakin sprite by Zethine / @synthetic_086 (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -28,6 +28,10 @@
     },
     {
       "name": "equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-hydrakin",
       "directions": 4
     }
   ]

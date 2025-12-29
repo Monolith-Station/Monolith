@@ -147,7 +147,6 @@
     - id: NFWreckDebrisBrassExtraLarge
       prob: 0.3
       orGroup: wreck
-    # uncomment when proper drones mapped
-    #- id: MonoRamDroneSpawner
-    #  prob: 3
-    #  orGroup: wreck
+    - id: MonoRamDroneSpawner
+      prob: 3
+      orGroup: wreck

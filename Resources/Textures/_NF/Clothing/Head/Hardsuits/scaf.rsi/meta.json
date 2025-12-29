@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "icon, icon-flash, on-equipped-HELMET, and off-equipped-HELMET made by _starch_ (discord). Inhands taken from cev-eris at commit https://github.com/discordia-space/CEV-Eris/commit/a75dee2e6d236612dbd403dd5f8687ca930c01f1.",
+  "copyright": "icon, icon-flash, on-equipped-HELMET, and off-equipped-HELMET made by _starch_ (discord). Inhands taken from cev-eris at commit https://github.com/discordia-space/CEV-Eris/commit/a75dee2e6d236612dbd403dd5f8687ca930c01f1, hydrakin sprite by Zethine / @synthetic_086 (discord).",
   "size": {
     "x": 32,
     "y": 32
@@ -19,6 +19,14 @@
     },
     {
       "name": "off-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-hydrakin",
       "directions": 4
     },
     {
