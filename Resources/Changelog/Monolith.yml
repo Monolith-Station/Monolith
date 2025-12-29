@@ -15287,3 +15287,32 @@ Entries:
   id: 1696
   time: '2025-12-28T03:44:22.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2878
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Minor hydrakin tweakening
+    - type: Fix
+      message: Thermal body regulation actually works properly again.
+    - type: Fix
+      message: Hydrakin are actually effected by hydrakin specific chemicals now
+  id: 1697
+  time: '2025-12-28T06:52:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2882
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: Baeg front windows reattached to the structure
+  id: 1698
+  time: '2025-12-29T00:24:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2891
+- author: Helicaste
+  changes:
+    - type: Fix
+      message: 'Fixed 14.5mm Big Ammo Boxes not being printable. '
+    - type: Fix
+      message: >-
+        Added Power Cages and Smart Guns to Mercfabs and Military Multi-Purpose
+        Assemblers.
+  id: 1699
+  time: '2025-12-29T00:25:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2880
