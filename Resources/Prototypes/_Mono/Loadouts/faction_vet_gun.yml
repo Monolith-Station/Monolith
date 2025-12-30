@@ -15,6 +15,7 @@
   # USSP -> MERC/CIV playtime guns
   - ContractorSpecialGunAk502
   - ContractorSpecialGunBigLeady
+  - ContractorSpecialGunEShield
   # Rogue playtime guns
   - ContractorSpecialGunAnaconda
   - ContractorSpecialGunMla73
@@ -117,6 +118,16 @@
   price: 32500
   inhand:
   - WeaponCaseBigLeadyRegistered
+
+- type: loadout
+  id: ContractorSpecialGunEShield
+  name: Energy Shield
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCivVet
+  price: 30000
+  inhand:
+  - EnergyShield
 
 # Rogue playtime weapons
 
