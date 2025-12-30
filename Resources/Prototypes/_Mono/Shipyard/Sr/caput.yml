@@ -1,0 +1,35 @@
+# Author Info
+# Github: NazrinNya
+# Discord: NazrinNya
+
+- type: vessel
+  id: Caput
+  parent: BaseVessel
+  name: Caput
+  description: Small drone-like vessel for "Hit&Run" strikes.
+  price: 36900
+  category: Small
+  group: Sr
+  access: Brig
+  mapchecker_group_override: Security
+  shuttlePath: /Maps/_Mono/Shuttles/caput.yml
+  guidebookPage: Null
+  class:
+  - Civilian
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Caput
+  mapName: 'Caput'
+  mapPath: /Maps/_Mono/Shuttles/caput.yml
+  minPlayers: 0
+  stations:
+    Caput:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Caput SEC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
