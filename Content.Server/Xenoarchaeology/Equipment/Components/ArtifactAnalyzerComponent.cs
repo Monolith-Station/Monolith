@@ -15,9 +15,23 @@ public sealed partial class ArtifactAnalyzerComponent : Component
 {
     /// <summary>
     /// How long it takes to analyze an artifact
+	  /// MONO: Changed AnalyisDuration >> BaseAnalysisDuration
     /// </summary>
-    [DataField("analysisDuration", customTypeSerializer: typeof(TimespanSerializer))]
-    public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(10);// Mono 30 > 10
+    [DataField("baseanalysisDuration", customTypeSerializer: typeof(TimespanSerializer))]
+    public TimeSpan BaseAnalysisDuration = TimeSpan.FromSeconds(10); // Mono 30 > 10
+	
+	/// <summary>
+    /// MONO: Machine part handler for upgradeable analysis duration
+    /// </summary>
+	
+	[DataField("partRatingDurationMultiplier")]
+	public float PartRatingDurationMultiplier = 0.75f;
+	
+	[DataField("machinePartDuration")]
+	public string MachinePartDuration = "Capacitor";
+	
+	[ViewVariables(VVAccess.ReadWrite)]
+	public TimeSpan AnalysisDuration;
 
     /// <summary>
     /// The corresponding console entity.

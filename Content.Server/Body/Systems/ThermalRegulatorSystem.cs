@@ -74,7 +74,7 @@ public sealed class ThermalRegulatorSystem : EntitySystem
 
         // if body temperature is not within comfortable, thermal regulation
         // processes starts
-        if (tempDiff > ent.Comp1.ThermalRegulationTemperatureThreshold)
+        if (tempDiff < ent.Comp1.ThermalRegulationTemperatureThreshold)
             return;
 
         if (ent.Comp2.CurrentTemperature > ent.Comp1.NormalBodyTemperature)
