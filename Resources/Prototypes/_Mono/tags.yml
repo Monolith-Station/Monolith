@@ -1,8 +1,38 @@
 - type: Tag
+  id: AdvancedLaserPistol
+
+- type: Tag
+  id: CartridgeMachineGun
+
+- type: Tag
+  id: CartridgeRocketEmp
+
+- type: Tag
+  id: CartridgeShell
+
+- type: Tag
   id: CassetteTape
 
 - type: Tag
+  id: Mask
+
+- type: Tag
   id: MREFood
+
+- type: Tag
+  id: OatmealBiscuit
+
+- type: Tag
+  id: PointDisk
+
+- type: Tag
+  id: SugarBiscuit
+
+- type: Tag
+  id: SimpleBiscuit
+  
+- type: Tag # Prevents a crash and makes future cherry-picks hurt less but not actually implemented
+  id: TurretCompatibleWeapon # Used in the construction of sentry turrets
 
 # Crafting for desert planet
 
