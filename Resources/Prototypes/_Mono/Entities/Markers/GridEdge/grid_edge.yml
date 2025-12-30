@@ -13,6 +13,7 @@
     begin: 1, 1
     end: 1, 0
   - type: GlobalPvs
+  - type: RequiresGrid
 
 - type: entity
   parent: RadarEdgeMarkerBase
