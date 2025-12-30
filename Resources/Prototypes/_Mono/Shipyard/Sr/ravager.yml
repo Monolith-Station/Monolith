@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 NazrinNya
-#
-# SPDX-License-Identifier: MPL-2.0
-
 # # Author Info
 # # GitHub: NazrinNya
 # # Discord: NazrinNya
@@ -12,6 +8,7 @@
   name: Ravager
   description: Heavily armored security ship carrier made for fast neutralization of civilian threats.
   price: 350000
+  purchasable: false # voucher only
   category: Large
   group: Sr
   access: Security # Shouldn't be buyable with sec voucher.
