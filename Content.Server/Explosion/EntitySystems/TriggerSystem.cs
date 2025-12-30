@@ -1,56 +1,3 @@
-// SPDX-FileCopyrightText: 2019 Injazz
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-// SPDX-FileCopyrightText: 2020 chairbender
-// SPDX-FileCopyrightText: 2021 Acruid
-// SPDX-FileCopyrightText: 2021 DrSmugleaf
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández
-// SPDX-FileCopyrightText: 2021 Paul
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2021 metalgearsloth
-// SPDX-FileCopyrightText: 2021 mirrorcult
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin
-// SPDX-FileCopyrightText: 2022 Chris V
-// SPDX-FileCopyrightText: 2022 EmoGarbage404
-// SPDX-FileCopyrightText: 2022 Jack Fox
-// SPDX-FileCopyrightText: 2022 Júlio César Ueti
-// SPDX-FileCopyrightText: 2022 Moony
-// SPDX-FileCopyrightText: 2022 Paul Ritter
-// SPDX-FileCopyrightText: 2022 ScalyChimp
-// SPDX-FileCopyrightText: 2022 Snowni
-// SPDX-FileCopyrightText: 2022 keronshb
-// SPDX-FileCopyrightText: 2022 themias
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 AJCM
-// SPDX-FileCopyrightText: 2023 AlexMorgan3817
-// SPDX-FileCopyrightText: 2023 Arendian
-// SPDX-FileCopyrightText: 2023 Doru991
-// SPDX-FileCopyrightText: 2023 Emisse
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 Slava0135
-// SPDX-FileCopyrightText: 2023 Visne
-// SPDX-FileCopyrightText: 2023 Vordenburg
-// SPDX-FileCopyrightText: 2023 checkraze
-// SPDX-FileCopyrightText: 2023 eclips_e
-// SPDX-FileCopyrightText: 2024 Aexxie
-// SPDX-FileCopyrightText: 2024 Cojoke
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2024 Jezithyr
-// SPDX-FileCopyrightText: 2024 KISS
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 Winkarst
-// SPDX-FileCopyrightText: 2024 deltanedas
-// SPDX-FileCopyrightText: 2024 to4no_fix
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 TemporalOroboros
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Explosion.Components;
@@ -83,6 +30,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Content.Server.Station.Systems;
+using Content.Shared._EinsteinEngines.Language;
 using Content.Shared.Humanoid;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -287,7 +235,7 @@ namespace Content.Server.Explosion.EntitySystems
         }
         // End Frontier
 
-        // Frontier: custom function implementation
+        // Frontier: custom function implementation. Mono P.S - handling radio based on job through hardcode was something
         private void HandleRattleTrigger(EntityUid uid, RattleComponent component, TriggerEvent args)
         {
             if (!TryComp<SubdermalImplantComponent>(uid, out var implanted))
@@ -323,61 +271,20 @@ namespace Content.Server.Explosion.EntitySystems
 
             if (mobstate.CurrentState != MobState.Alive)
             {
-                // Check if this is a TSF job
-                var isTSF = false;
-                if (TryComp<MindContainerComponent>(implanted.ImplantedEntity, out var mindContainer) &&
-                    mindContainer.Mind.HasValue &&
-                    TryComp<MindComponent>(mindContainer.Mind.Value, out var mindComp))
+                var radioChannel = _prototypeManager.Index(component.RadioChannel);
+                var language = _prototypeManager.Index(component.Language);
+                switch (mobstate.CurrentState)
                 {
-                    string jobTitle = "";
-
-                    // Try to get job name from the mind roles
-                    foreach (var roleId in mindComp.MindRoles)
+                    case MobState.Critical:
                     {
-                        if (!TryComp<MindRoleComponent>(roleId, out var mindRole) || mindRole.JobPrototype == null)
-                            continue;
-
-                        if (!_prototypeManager.TryIndex(mindRole.JobPrototype.Value, out var jobPrototype))
-                            continue;
-
-                        jobTitle = jobPrototype.LocalizedName;
+                        _radioSystem.SendRadioMessage(uid, critMessage, radioChannel, uid, null, language);
                         break;
                     }
-
-                    isTSF = jobTitle.Equals(Loc.GetString("job-name-bailiff"), StringComparison.OrdinalIgnoreCase) ||
-                            jobTitle.Equals(Loc.GetString("job-name-brigmedic"), StringComparison.OrdinalIgnoreCase) ||
-                            jobTitle.Equals(Loc.GetString("job-name-cadet-nf"), StringComparison.OrdinalIgnoreCase) ||
-                            jobTitle.Equals(Loc.GetString("job-name-deputy"), StringComparison.OrdinalIgnoreCase) ||
-                            jobTitle.Equals(Loc.GetString("job-name-nf-detective"), StringComparison.OrdinalIgnoreCase) ||
-                            jobTitle.Equals(Loc.GetString("job-name-sheriff"), StringComparison.OrdinalIgnoreCase) ||
-                            jobTitle.Equals(Loc.GetString("job-name-stc"), StringComparison.OrdinalIgnoreCase) ||
-                            jobTitle.Equals(Loc.GetString("job-name-sr"), StringComparison.OrdinalIgnoreCase) ||
-                            jobTitle.Equals(Loc.GetString("job-name-pal"), StringComparison.OrdinalIgnoreCase);
-                }
-
-                // Sends a message to the radio channel specified by the implant
-                if (mobstate.CurrentState == MobState.Critical)
-                {
-                    // Use TSF channel for TSF jobs, otherwise use the original channel
-                    RadioChannelPrototype radioChannel;
-                    if (isTSF)
+                    case MobState.Dead:
                     {
-                        // Use explicit ProtoId for TSF channel
-                        radioChannel = _prototypeManager.Index<RadioChannelPrototype>(new ProtoId<RadioChannelPrototype>("Nfsd"));
+                        _radioSystem.SendRadioMessage(uid, deathMessage, radioChannel, uid, null, language);
+                        break;
                     }
-                    else
-                    {
-                        // Use component's channel directly
-                        radioChannel = _prototypeManager.Index<RadioChannelPrototype>(component.RadioChannel);
-                    }
-
-                    _radioSystem.SendRadioMessage(uid, critMessage, radioChannel, uid);
-                }
-
-                if (mobstate.CurrentState == MobState.Dead)
-                {
-                    var radioChannel = _prototypeManager.Index<RadioChannelPrototype>(component.RadioChannel);
-                    _radioSystem.SendRadioMessage(uid, deathMessage, radioChannel, uid);
                 }
             }
 

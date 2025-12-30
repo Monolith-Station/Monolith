@@ -93,7 +93,7 @@
     netsync: false
 
 - type: entity
-  parent: [ClothingShoesBaseButcherable, BaseC3CultContraband, ContrabandClothing ] # Frontier: added BaseC3CultContraband, ContrabandClothing
+  parent: [ClothingShoesBaseButcherable ]
   id: ClothingShoesCult
   name: cult shoes
   description: A pair of boots worn by the followers of Nar'Sie.
@@ -104,7 +104,7 @@
     sprite: Clothing/Shoes/Specific/cult.rsi
 
 - type: entity
-  parent: ClothingShoesBase # Frontier: remove BaseJanitorContraband
+  parent: ClothingShoesBase
   id: ClothingShoesGaloshes
   name: galoshes
   description: Rubber boots.
@@ -121,7 +121,7 @@
     maxContactWalkSlowdown: 0.7
 
 - type: entity
-  parent: [ClothingShoesBaseButcherable, BaseC3Contraband, ContrabandClothing ] # Frontier: BaseMajorContraband<BaseC3Contraband, added ContrabandClothing
+  parent: [ClothingShoesBaseButcherable ]
   id: ClothingShoesSpaceNinja
   name: space ninja shoes
   description: A pair of nano-enhanced boots with built-in magnetic suction cups.
@@ -140,7 +140,7 @@
     footstepSoundCollection: null
 
 - type: entity
-  parent: [ClothingShoesBaseButcherable, BaseC2ContrabandUnredeemable] # Frontier: BaseMajorContraband<BaseC2ContrabandUnredeemable
+  parent: ClothingShoesBaseButcherable
   id: ClothingShoesSwat
   name: swat shoes
   description: When you want to turn up the heat.
@@ -151,7 +151,7 @@
     sprite: Clothing/Shoes/Specific/swat.rsi
 
 - type: entity
-  parent: [ClothingShoesBaseButcherable, BaseC3WizardContraband] # Frontier: added BaseC3WizardContraband
+  parent: ClothingShoesBaseButcherable
   id: ClothingShoesWizard
   name: wizard shoes
   description: A pair of magic shoes.
@@ -202,15 +202,13 @@
           type: ChameleonBoundUserInterface
 
 - type: entity
-  parent: [ClothingShoesChameleon, BaseC3SyndicateContraband] # Frontier: add BaseC3SyndicateContraband
+  parent: ClothingShoesChameleon
   id: ClothingShoesChameleonNoSlips
   name: black shoes #actual name and description in uplink_catalog.yml
   suffix: No-slip, Chameleon
   description: Stylish black shoes.
   components:
   - type: NoSlip
-  - type: Contraband # Frontier
-    hideValues: true # Frontier
 
 - type: entity
   parent: ClothingShoesClown

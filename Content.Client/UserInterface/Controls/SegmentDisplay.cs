@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 MilonPL
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: MIT
 // Labeling this as MIT since no changes made from the PR, just all original wizden code.
 
 using System.Numerics;

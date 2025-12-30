@@ -1,51 +1,10 @@
-# SPDX-FileCopyrightText: 2022 0x6273
-# SPDX-FileCopyrightText: 2022 20kdc
-# SPDX-FileCopyrightText: 2022 Francesco
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 LittleBuilderJane
-# SPDX-FileCopyrightText: 2022 Nairod
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2023 Debug
-# SPDX-FileCopyrightText: 2023 Leon Friedrich
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 TsjipTsjip
-# SPDX-FileCopyrightText: 2023 avery
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin
-# SPDX-FileCopyrightText: 2024 AndresE55
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Emisse
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 GreaseMonk
-# SPDX-FileCopyrightText: 2024 Maxtone
-# SPDX-FileCopyrightText: 2024 PECK
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2024 ThatOneGoblin25
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 Checkraze
-# SPDX-FileCopyrightText: 2025 Honestly101
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 RikuTheKiller
-# SPDX-FileCopyrightText: 2025 WreakHavocOnTheMiddleClass
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 dustylens
-# SPDX-FileCopyrightText: 2025 grandalff
-# SPDX-FileCopyrightText: 2025 significant harassment
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: MPL-2.0
-
 meta:
   format: 7
   category: Grid
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/02/2025 23:55:09
+  time: 11/30/2025 20:47:51
   entityCount: 11257
 maps: []
 grids:
@@ -3401,7 +3360,7 @@ entities:
           -9,-1:
             1: 12
             0: 4096
-            5: 17
+            2: 17
           -8,0:
             0: 26367
           -8,-5:
@@ -3560,12 +3519,12 @@ entities:
             0: 7
           -9,0:
             0: 255
-            2: 4096
+            3: 4096
           -8,1:
             0: 26214
           -9,1:
             1: 192
-            2: 17
+            3: 17
           -8,2:
             0: 26598
           -9,2:
@@ -3646,13 +3605,13 @@ entities:
           3,3:
             0: 8208
           4,5:
-            2: 1911
+            3: 1911
           0,0:
             0: 57382
-            2: 8
+            3: 8
           0,-1:
             0: 59972
-            2: 1024
+            3: 1024
           0,2:
             0: 52416
           1,0:
@@ -3703,7 +3662,7 @@ entities:
           -7,-8:
             0: 61440
             1: 66
-            2: 136
+            3: 136
           -7,-7:
             0: 48063
           -7,-6:
@@ -3711,9 +3670,9 @@ entities:
           -7,-5:
             0: 4095
           -7,-9:
-            2: 32768
+            3: 32768
           -6,-8:
-            2: 51
+            3: 51
             0: 61440
             1: 72
           -6,-7:
@@ -3723,7 +3682,7 @@ entities:
           -6,-5:
             0: 3871
           -6,-9:
-            2: 12288
+            3: 12288
           -5,-8:
             0: 61440
             1: 78
@@ -3751,44 +3710,44 @@ entities:
           0,-5:
             0: 53520
           0,-8:
-            2: 17408
+            3: 17408
           0,-7:
-            2: 17476
+            3: 17476
             1: 32776
           0,-9:
             1: 24576
           0,-6:
             1: 2048
           1,-7:
-            2: 21845
+            3: 21845
             1: 40970
           1,-6:
-            2: 21845
+            3: 21845
             1: 2560
           1,-5:
             0: 47104
-            2: 4
+            3: 4
           1,-8:
-            2: 21504
+            3: 21504
           1,-4:
             0: 29627
           2,-7:
             0: 4369
             1: 40962
-            2: 17484
+            3: 17484
           2,-6:
             0: 4369
             1: 2560
-            2: 17476
+            3: 17476
           2,-5:
             0: 7937
-            2: 4
+            3: 4
           2,-8:
-            2: 21504
+            3: 21504
           2,-4:
             0: 4607
           3,-7:
-            2: 79
+            3: 79
             0: 21776
             1: 40960
           3,-6:
@@ -3798,18 +3757,18 @@ entities:
             0: 17733
             1: 160
           3,-8:
-            2: 21504
+            3: 21504
           3,-4:
             0: 17476
             1: 40970
           4,-7:
-            2: 21855
+            3: 21855
             1: 40960
           4,-6:
-            2: 21845
+            3: 21845
             1: 2560
           4,-5:
-            2: 21845
+            3: 21845
             1: 160
           8,3:
             0: 4368
@@ -3864,7 +3823,7 @@ entities:
           7,0:
             1: 17920
           7,1:
-            2: 3822
+            3: 3822
             1: 16384
           7,2:
             1: 6
@@ -3887,26 +3846,26 @@ entities:
           3,-3:
             0: 4
           4,-4:
-            2: 21845
+            3: 21845
             1: 40970
           4,-3:
-            2: 17749
+            3: 17749
             1: 2560
           4,-1:
             0: 4080
           5,-4:
-            2: 12563
+            3: 12563
           5,-3:
-            2: 4881
+            3: 4881
           5,-1:
             0: 4080
           5,-5:
-            2: 4401
+            3: 4401
           5,-2:
             1: 17632
           6,-2:
             1: 16
-            2: 3822
+            3: 3822
           7,-2:
             1: 16
           7,-1:
@@ -3914,10 +3873,10 @@ entities:
           -12,-7:
             0: 61152
           -12,-5:
-            2: 49152
+            3: 49152
             1: 2184
           -12,-4:
-            2: 204
+            3: 204
             1: 34816
           -11,-7:
             0: 65520
@@ -3927,13 +3886,13 @@ entities:
             1: 5184
           -11,-5:
             1: 256
-            2: 4096
-            3: 204
+            3: 4096
+            4: 204
             0: 51200
           -11,-8:
             1: 9058
           -11,-4:
-            2: 17
+            3: 17
             0: 52428
             1: 256
           -10,-8:
@@ -3941,7 +3900,7 @@ entities:
           -10,-7:
             0: 65535
           -10,-5:
-            3: 17
+            4: 17
             0: 61440
           -10,-9:
             0: 30464
@@ -3963,10 +3922,10 @@ entities:
           -13,1:
             1: 192
           -12,2:
-            2: 3855
+            3: 3855
             1: 41120
           -12,3:
-            2: 3855
+            3: 3855
             1: 160
           -11,0:
             0: 14584
@@ -3975,17 +3934,17 @@ entities:
             1: 43144
           -11,2:
             1: 45232
-            2: 3598
+            3: 3598
           -11,3:
             1: 4528
-            2: 3598
+            3: 3598
           -11,-1:
             0: 45872
           -11,4:
             1: 1
           -10,0:
             0: 255
-            2: 57344
+            3: 57344
           -10,2:
             1: 4112
             0: 3296
@@ -3994,10 +3953,10 @@ entities:
             0: 32904
           -10,-1:
             0: 61440
-            4: 51
-            5: 136
+            5: 51
+            2: 136
           -10,1:
-            2: 238
+            3: 238
             1: 40960
           -10,4:
             0: 24584
@@ -4019,12 +3978,12 @@ entities:
             1: 496
           -12,4:
             1: 14
-            2: 4896
+            3: 4896
           -13,4:
-            2: 45824
+            3: 45824
             1: 4
           -13,5:
-            2: 11915
+            3: 11915
           -12,6:
             0: 49352
           -12,7:
@@ -4050,9 +4009,9 @@ entities:
           -13,11:
             1: 8
           -12,11:
-            2: 52928
+            3: 52928
           -11,11:
-            2: 4880
+            3: 4880
           -11,9:
             0: 61120
           -11,10:
@@ -4088,65 +4047,69 @@ entities:
           -6,10:
             0: 3549
           -16,8:
-            2: 3080
+            3: 3080
           -15,8:
-            2: 3845
+            3: 3845
             1: 41130
           -16,9:
-            2: 8
+            3: 8
           -15,9:
-            2: 3855
+            3: 3855
             1: 32832
           -15,7:
             1: 41088
-            2: 3854
+            3: 3854
           -15,10:
-            2: 3086
+            3: 3086
           -14,8:
-            2: 775
+            3: 775
             1: 9248
           -14,9:
-            2: 3847
+            3: 3847
             1: 8280
           -14,10:
-            2: 24327
+            3: 24327
             1: 88
           -14,7:
             1: 9248
-            2: 775
+            3: 775
           -13,8:
-            2: 4369
+            3: 4369
           -13,9:
-            2: 1
+            3: 1
           -13,7:
-            2: 12834
+            3: 12834
           -13,10:
             1: 8192
           -15,6:
-            2: 3072
+            3: 3072
           -14,6:
-            2: 3855
+            3: 3855
             1: 20544
           -14,4:
-            2: 34816
+            3: 34816
           -14,5:
-            2: 8
+            3: 8
           -13,6:
-            2: 8738
+            3: 8738
           4,-8:
-            2: 21504
+            3: 21504
           5,-7:
-            2: 12563
+            3: 12563
           5,-6:
-            2: 4881
+            3: 4881
           5,-8:
-            2: 4096
+            3: 4096
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -4172,9 +4135,36 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
+          - 2500
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -4202,6 +4192,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -4210,17 +4204,6 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 2500
           - 0
           - 0
           - 0
@@ -31533,6 +31516,9 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
+    missingComponents:
+    - Construction
+    - Anchorable
 - proto: ComputerTabletopAdvancedRadar
   entities:
   - uid: 4997

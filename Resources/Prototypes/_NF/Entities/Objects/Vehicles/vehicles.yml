@@ -1,15 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 chrome-cirrus
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 LukeZurg22
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Base game vehicles
 - type: entity
   parent: VehicleATV
@@ -451,7 +439,6 @@
 - type: entity
   parent:
   - VehicleHoverbikeMailcarrier
-  - BaseC2ContrabandUnredeemable
   id: VehicleHoverbikeNfsd
   name: TSFMC hoverbike
   description: An TSFMC issued turbine with bike handles. Very safe.
@@ -543,7 +530,6 @@
 - type: entity
   parent:
   - VehicleHoverbikeMailcarrier
-  - BaseC3PirateContraband
   id: VehicleHoverbikePirate
   name: pirate hoverbike
   description: Yarr! Dis be me sovereign space shuttle. Now, whaur me rum?
@@ -623,7 +609,6 @@
 - type: entity
   parent:
   - VehicleHoverbikeMailcarrier
-  - BaseC3SyndicateContraband
   id: VehicleHoverbikeSyndicate
   name: syndicate hoverbike
   description: This thing screams style. And war crimes.

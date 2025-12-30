@@ -317,7 +317,7 @@
 - type: entity
   name: advanced circular saw
   id: SawAdvanced
-  parent: [ SawElectric, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: SawElectric
   description: You think you can cut anything with it.
   components:
   - type: Sprite
@@ -479,7 +479,7 @@
     price: 200
 
 - type: entity
-  parent: [ OmnimedTool, BaseSyndicateContraband ]
+  parent: OmnimedTool
   id: OmnimedToolSyndie
   components:
   - type: Sprite

@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Dvir
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2025 Ilya246
+//
+// SPDX-License-Identifier: MPL-2.0
+
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.GameStates;
 
@@ -28,4 +34,10 @@ public sealed partial class AutoShootGunComponent : Component
     /// Frontier - Amount of power this gun needs from an APC in Watts to function.
     /// </summary>
     public float OriginalLoad { get; set; } = 0;
+
+    /// <summary>
+    /// Mono - For how much more time to keep shooting, ignores whether this component is enabled.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan RemainingTime = TimeSpan.FromSeconds(0);
 }

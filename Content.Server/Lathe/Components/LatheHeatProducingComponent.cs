@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Shared.Atmos; // Mono
 using Content.Shared.Lathe;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;

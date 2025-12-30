@@ -1,22 +1,9 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 marklyfie4
-# SPDX-FileCopyrightText: 2025 marklyfied
-# SPDX-FileCopyrightText: 2025 plethorian
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vessel
   id: Hourglass
   parent: BaseVesselAntag
   name: BSB Hourglass
-  description: The Hourglass is a bulky slow ship with 2 charonnetes and 2 90mm in the front. It has a medbay and a kitchen. Comes with FTL.
-  price: 176000 #96k appraisegrid, 1 layer of plastitanium +10k, ftl +10k, medbay/kitchen +20k, taxes 20k, suits +20k, -10k because of not being agile
+  description: The Hourglass is a bulky slow ship with two 90mm autocannons in the front. It has a medbay and a kitchen. Comes with FTL.
+  price: 120000 #96k appraisegrid
   category: Medium
   group: BlackMarket
   access: Pirate

@@ -1,7 +1,7 @@
 - type: entity
   id: ClothingUniformJumpskirtArcadia
   name: arcadia jumpskirt
-  parent: [ ClothingUniformSkirtBase, BaseC3ContrabandNoValue, ContrabandClothing ]
+  parent: [ ClothingUniformSkirtBase ]
   description: A jumpskirt produced by Arcadia Industries. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood.
   components:
   - type: Sprite

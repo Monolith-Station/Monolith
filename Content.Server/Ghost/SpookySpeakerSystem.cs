@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ScyronX
-// SPDX-FileCopyrightText: 2025 Tayrtahn
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Chat.Systems;
 using Content.Server.Ghost.Components;
 using Content.Shared.Chat; // Einstein Engines - Languages

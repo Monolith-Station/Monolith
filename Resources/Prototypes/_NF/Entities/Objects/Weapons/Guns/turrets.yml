@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: MPL-2.0
-
 # VARIATIONS
 # Contraband denying turret
 - type: entity # Targets players wearing contra and all hostile to NT factions
@@ -13,7 +6,6 @@
   description: |-
    A Contraband Denying Energy Turret (CDET). A disabler turret with built-in microreactor. Use screwdriver to disassemble.
   parent:
-  - BaseC2ContrabandUnredeemable
   - BaseWeaponTurretEnergyNF
   components:
   - type: HTN
@@ -48,7 +40,6 @@
    A disassembled and packed Contraband Denying Energy Turret (CDET).
   suffix: NT, Packed
   parent:
-  - BaseC2ContrabandUnredeemable
   - BaseItem
   components:
   - type: WeaponCaseInsertable
@@ -92,7 +83,6 @@
    A Self-Recharging Laser Auto Turret (SLAT). A laser turret with built-in microreactor. Use screwdriver to disassemble.
   suffix: Frontier, NT
   parent:
-  - BaseC2ContrabandUnredeemable
   - BaseTurretSearchBeam
   - BaseWeaponTurretEnergyNF
   categories: [ HideSpawnMenu ]
@@ -123,7 +113,6 @@
    A disassembled and packed Self-Recharging Laser Auto Turret (SLAT).
   suffix: NT, Packed
   parent:
-  - BaseC2ContrabandUnredeemable
   - BaseItem
   components:
   - type: WeaponCaseInsertable
@@ -164,7 +153,6 @@
   name: laser turret
   suffix: Frontier, Syndicate
   parent:
-  - BaseC3SyndicateContraband
   - BaseTurretSearchBeam
   - BaseWeaponTurretEnergyNF
   categories: [ HideSpawnMenu ]
@@ -189,7 +177,6 @@
   name: laser turret
   suffix: Frontier, Hostile
   parent:
-  - BaseC3Contraband
   - WeaponTurretLaserSyndicateNF
   components:
   - type: NpcFactionMember
@@ -204,7 +191,6 @@
    An Autonomous Sentry Machine Gun Turret (ASMGT) is a magazine-fed turret with barrels compatible with 5.56x45mm, 7.62x39mm, 9x19mm and 6.35x40mm cartridges. Use screwdriver to disassemble.
   suffix: NT
   parent:
-  - BaseC2ContrabandUnredeemable
   - BaseWeaponTurretMagazineFed
   components:
   - type: NPCImprintingOnSpawnBehaviour
@@ -250,7 +236,6 @@
    A disassembled and packed Autonomous Sentry Machine Gun Turret (ASMGT).
   suffix: NT, Packed
   parent:
-  - BaseC2ContrabandUnredeemable
   - BaseItem
   components:
   - type: WeaponCaseInsertable
@@ -291,7 +276,6 @@
   id: WeaponTurretAsmgtHostileUniversallyDeployed
   suffix: Universally Hostile
   parent:
-  - BaseC3Contraband
   - WeaponTurretAsmgtNtDeployed
   components:
   - type: NPCImprintingOnSpawnBehaviour
@@ -312,7 +296,6 @@
   description: |-
    A disassembled and packed Autonomous Sentry Machine Gun Turret (ASMGT). WARNING! Unpacked turret will be hostile towards anyone who wasn't in close proximity (within 3 m) after unpacking!
   parent:
-  - BaseC3Contraband
   - WeaponTurretAsmgtNtPacked
   components:
   - type: WeaponCaseInsertable

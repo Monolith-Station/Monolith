@@ -1,7 +1,7 @@
 {
   "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from NSV-13, -reptilian sprite by Zethine / @synthetic_086 (discord).",
+  "copyright": "Taken from NSV-13, -reptilian/hydrakin sprite by Zethine / @synthetic_086 (discord).",
   "size": {
     "x": 32,
     "y": 32
@@ -16,6 +16,10 @@
     },
     {
       "name": "equipped-HELMET-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HELMET-hydrakin",
       "directions": 4
     }
   ]

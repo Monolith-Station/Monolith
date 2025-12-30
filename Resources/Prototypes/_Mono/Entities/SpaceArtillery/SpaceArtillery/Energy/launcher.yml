@@ -1,21 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Arcticular
-# SPDX-FileCopyrightText: 2025 Arcticular1
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 Disguised Bear
-# SPDX-FileCopyrightText: 2025 Ghagliiarghii
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 RikuTheKiller
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 kyres1
-# SPDX-FileCopyrightText: 2025 significant harassment
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 
 # MARAUDER
 
@@ -43,7 +25,7 @@
     fireRate: 0.5
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 140
+    projectileSpeed: 65
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -65,13 +47,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 15000
+        damage: 6000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 12500
+        damage: 3000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -135,13 +117,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 15000
+        damage: 6000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 11500
+        damage: 3000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -156,84 +138,6 @@
   - type: ShipGunClass
     shipClass: Heavy
 
-# T241 plasma lance
-
-- type: entity
-  id: WeaponTurretType241
-  name: Type-241 plasma lance
-  parent: BallisticArtilleryUnanchorable
-  suffix: TSF ONLY, ADS ONLY
-  description: A devastating weapon, usually used for large scale fire support and strategic destruction.
-  components:
-  - type: StaticPrice
-    price: 50000
-  - type: Sprite
-    sprite: _Mono/Objects/ShuttleWeapons/t241.rsi
-    layers:
-    - state: space_artillery
-    scale: 1.5, 1.5
-  - type: Appearance
-  - type: AmmoCounter
-  - type: FireControlRotate
-  - type: Battery
-    maxCharge: 40800
-    startingCharge: 40800
-  - type: ExaminableBattery
-  - type: WirelessNetworkConnection
-    range: 500
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.75,-0.75,0.75,0.75"
-        density: 1500
-  - type: Gun
-    projectileSpeed: 70
-    fireRate: 13
-    minAngle: 0
-    maxAngle: 0
-    burstCooldown: 60
-    burstFireRate: 13
-    shotsPerBurst: 136
-    selectedMode: Burst
-    availableModes: Burst
-    shootThermalSignature: 2000000 # ~10km while firing
-    soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/glassing.ogg
-    soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-  - type: BatterySelfRecharger
-    autoRechargePause: true
-    autoRechargePauseTime: 60
-    autoRecharge: true
-    autoRechargeRate: 81600
-  - type: SpaceArtillery
-    powerChargeRate: 81600
-    powerUsePassive: 25000
-    powerUseActive: 0
-  - type: Actions
-  - type: ProjectileBatteryAmmoProvider
-    proto: ShipGlassingBeamPlasmaProjectile
-    fireCost: 300
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 70000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-  - type: RadarBlip
-    radarColor: "#C92BCC"
-    scale: 3
-  - type: ShipGunType
-    shipType: Energy
-  - type: ShipGunClass
-    shipClass: Superheavy
 
  # M25
 
@@ -283,13 +187,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 8000
+        damage: 4000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 6000
+        damage: 2000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -356,7 +260,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 12000
+        damage: 6000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -428,7 +332,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 25000
+        damage: 15000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -451,7 +355,7 @@
   id: WeaponLaserTurretL1Phalanx
   name: L-1 Phalanx
   parent: BallisticArtillery
-  description: A light laser emplactment designed by the Pantheon Collective, used to shred threats of all types
+  description: A light laser emplacement designed by the Pantheon Collective, used to shred threats of all types.
   components:
   - type: StaticPrice
     price: 3000
@@ -473,7 +377,7 @@
   - type: Gun
     fireRate: 20
     minAngle: 0
-    maxAngle: 3
+    maxAngle: 0
     shootThermalSignature: 2000000
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
@@ -492,13 +396,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 12500
+        damage: 600
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 10000
+        damage: 3000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -532,6 +436,7 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 500
+  - type: FireControlRotate
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
@@ -553,13 +458,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300000
+        damage: 9000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 275000
+        damage: 5000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -580,6 +485,88 @@
     shipType: Energy
 
 # PRE- FRACTURE
+
+
+# Curio-8640 plasma lance "Malice"
+
+- type: entity
+  id: WeaponTurretType241
+  name: Curio-8640 plasma lance "Malice"
+  parent: BallisticArtilleryUnanchorable
+  suffix: ADS ONLY
+  description: A devastating weapon, known for glassign whoel fleets when used en masse
+  components:
+  - type: StaticPrice
+    price: 50000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/t241.rsi
+    layers:
+    - state: space_artillery
+    scale: 1.5, 1.5
+  - type: Appearance
+  - type: AmmoCounter
+  - type: FireControlRotate
+  - type: Battery
+    maxCharge: 40800
+    startingCharge: 40800
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.75,-0.75,0.75,0.75"
+        density: 1500
+  - type: Gun
+    projectileSpeed: 70
+    fireRate: 13
+    minAngle: 0
+    maxAngle: 0
+    burstCooldown: 60
+    burstFireRate: 13
+    shotsPerBurst: 136
+    selectedMode: Burst
+    availableModes: Burst
+    shootThermalSignature: 2000000 # ~10km while firing
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/glassing.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRechargePause: true
+    autoRechargePauseTime: 60
+    autoRecharge: true
+    autoRechargeRate: 81600
+  - type: SpaceArtillery
+    powerChargeRate: 81600
+    powerUsePassive: 25000
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipGlassingBeamPlasmaProjectile
+    fireCost: 300
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 3
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Superheavy
+
+
 # Tachyon Lance "Reaper"
 
 - type: entity
@@ -639,7 +626,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 70000
+        damage: 10000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -661,7 +648,7 @@
   name: Curio-129 ion cannon "Harbringer"
   parent: BallisticArtilleryUnanchorable
   suffix: ADS ONLY
-  description: One of the most powerful EMP weapons in sector, its a sign of doom for its targets.
+  description: One of the most powerful EMP weapons in sector, it is a sign of doom for its targets.
   components:
   - type: StaticPrice
     price: 1250000
@@ -714,7 +701,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 70000
+        damage: 10000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -777,13 +764,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 25000
+        damage: 9000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 20000
+        damage: 6000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -805,7 +792,7 @@
   name: Curio-1008 neutron repeater "Scythe"
   parent: BallisticArtillery
   suffix: ADS ONLY
-  description: A steadily firing neutron repeater, dealing solid damage to most targets. A pre-fracture marvel of weapons technology
+  description: A steadily firing neutron repeater, firing high-damage but slow balls of hell. A marvel of rapture weapons technology.
   components:
   - type: StaticPrice
     price: 40000
@@ -823,7 +810,7 @@
     range: 500
   - type: Gun
     fireRate: 1
-    projectileSpeed: 200
+    projectileSpeed: 100
     minAngle: 0
     maxAngle: 6
     shootThermalSignature: 500000 # ~5.6km with continuous fire
@@ -847,13 +834,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 15000
+        damage: 9000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 11500
+        damage: 6000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -916,13 +903,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 25000
+        damage: 6000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 20000
+        damage: 3000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

@@ -1,8 +1,10 @@
-﻿name: Benchmarks
+name: Benchmarks
 on:
   workflow_dispatch:
 
-concurrency: benchmarks
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   benchmark:

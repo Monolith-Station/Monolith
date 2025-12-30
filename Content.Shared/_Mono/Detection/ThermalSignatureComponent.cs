@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Robust.Shared.GameStates;
 using System;
 
@@ -20,7 +16,7 @@ public sealed partial class ThermalSignatureComponent : Component
     ///     Stored heat retains this portion of itself every next second.
     /// </summary>
     [DataField]
-    public float HeatDissipation = 0.75f;
+    public float HeatDissipation = 15f / 16f;
 
     /// <summary>
     ///     For grids, the combined stored heat of all entities on the grid.

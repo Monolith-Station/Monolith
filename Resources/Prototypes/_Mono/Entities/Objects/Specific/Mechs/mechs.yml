@@ -1,16 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Arcticular
-# SPDX-FileCopyrightText: 2025 Arcticular1
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 Honestly101
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 NazrinNya
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 starch
-# SPDX-FileCopyrightText: 2025 wewman222
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # MONOLITH MECH HARDPOINTS
 - type: entity
   id: LightMechMount
@@ -72,8 +59,10 @@
 
 # S2 Mechas
 - type: entity
-  id: AFInterceptor
-  parent: [ BaseMech, LightMechMount, BaseRestrictedContraband ]
+  id: BaseAFInterceptor
+  parent: [ BaseMech, LightMechMount ]
+  abstract: true
+  categories: [ HideSpawnMenu ]
   name: AF-28 "Broadsword"
   description: One of the first purpose built Armored Frames, made to engage light targets and other Armored Frames.
   components:
@@ -110,7 +99,7 @@
     mechToPilotDamageMultiplier: 0
     maxEquipmentAmount: 3
     airtight: true
-    maxIntegrity: 2400
+    maxIntegrity: 1500
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -127,7 +116,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 4800
+        damage: 2000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -141,8 +130,6 @@
     followEntity: true
   - type: Appearance
   - type: GenericVisualizer
-  - type: CanMoveInAir
-  - type: MovementAlwaysTouching
   # EXTREMELY slow in gravity. Only really good to taxi, and that's about it.
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.2
@@ -154,7 +141,7 @@
     requireNoGrid: true
     shape: square
   - type: Damageable
-    damageModifierSet: HeavyArmorNT
+    damageModifierSet: MechArmorMedium
   - type: Repairable
     fuelCost: 40
     doAfterDelay: 30
@@ -170,6 +157,13 @@
     speedModifier: 3
     useSound:
       path: /Audio/Items/jaws_pry.ogg
+
+- type: entity
+  id: AFInterceptor
+  parent: BaseAFInterceptor
+  components:
+  - type: CanMoveInAir
+  - type: MovementAlwaysTouching
 
 - type: entity
   id: AFInterceptorBattery
@@ -194,7 +188,7 @@
     mechToPilotDamageMultiplier: 0
     maxEquipmentAmount: 3
     airtight: true
-    maxIntegrity: 1800
+    maxIntegrity: 1100
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -204,7 +198,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 3600
+        damage: 1600
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -218,6 +212,8 @@
     baseWalkSpeed: 0.2
     baseSprintSpeed: 1
     baseWeightlessModifier: 35
+  - type: Damageable
+    damageModifierSet: MechArmorLight
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -239,7 +235,7 @@
     mechToPilotDamageMultiplier: 0
     maxEquipmentAmount: 3
     airtight: false
-    maxIntegrity: 1000
+    maxIntegrity: 1400
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -263,12 +259,13 @@
     maxRange: 256
     followEntity: true
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 0.5 # from 1
-    visualMultiplier: 3 # from 4
+    infraredMultiplier: 0.5
+    visualMultiplier: 0.75
   # Only ground-based mecha so far. Don't use it in space. Can't move in space.
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 6
+    baseWeightlessModifier: 0.3 # Barely usable in space.
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -279,7 +276,7 @@
 #4x4 mechas
 - type: entity
   id: AFFlail
-  parent: [ BaseMech, HeavyMechMount, BaseRestrictedContraband ]
+  parent: [ BaseMech, HeavyMechMount ]
   name: ASF-59 "Flail"
   description: Newest mech on the market, the Armored Strike Frame is built to tackle ship-sized foes with it's oversized weapon mounts. Slow as a pig however, it tacks on generous armor plating to survive it's runs.
   components:
@@ -333,7 +330,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 8000
+        damage: 4000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -360,7 +357,7 @@
     requireNoGrid: true
     shape: square
   - type: Damageable
-    damageModifierSet: HeavyArmorNT
+    damageModifierSet: MechArmorHeavy
   - type: Repairable
     fuelCost: 60
     doAfterDelay: 40
@@ -401,7 +398,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 4500
+        damage: 3000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -414,8 +411,8 @@
     maxRange: 2048 #It's a radar/EWAC platform.
     followEntity: true
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 1.5 # from 1
-    visualMultiplier: 8 # from 4
+    infraredMultiplier: 1.5
+    visualMultiplier: 2
   # EXTREMELY slow in gravity. Only really good to taxi, and that's about it. Even worse than S2s
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.25
@@ -450,7 +447,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 4000
+        damage: 3000
       behaviors:
       - !type:PlaySoundBehavior
         sound:

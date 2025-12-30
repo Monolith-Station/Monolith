@@ -29,6 +29,9 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+      - !type:PlaySoundBehavior #Mono start
+        sound:
+          path: /Audio/Effects/poster_broken.ogg #Mono end
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/signs.rsi

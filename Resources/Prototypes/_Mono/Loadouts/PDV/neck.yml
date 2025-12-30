@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Hyenh
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadout
   id: PDVClothingNeckIFFOrange
   equipment:
@@ -11,3 +7,13 @@
   id: PDVClothingNeckCloakCommander
   equipment:
     neck: ClothingNeckCloakRogueCommander
+
+- type: loadout
+  id: PDVClothingNeckCloakVizier
+  equipment:
+    neck: ClothingNeckCloakVizier
+
+- type: loadout
+  id: PDVClothingNeckMantleVizier
+  equipment:
+    neck: ClothingNeckMantleVizier

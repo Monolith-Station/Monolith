@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 #region Civilian
 
 - type: loadout #MK32 Universal
@@ -147,6 +140,27 @@
     back:
     - BoxMagazine762x51mmFMJ
 
+- type: loadout #Mosin
+  id: MercenaryMosinLoadout
+  price: 5000
+  storage:
+    back:
+    - WeaponSniperMosin
+
+- type: loadout #SVS42
+  id: MercenarySvsLoadout
+  price: 15000
+  storage:
+    back:
+    - WeaponRifleSVS
+
+- type: loadout #Mosin / SVS42 Ammo
+  id: Mercenary762x54mmRAmmoLoadout
+  price: 1000
+  storage:
+    back:
+    - BoxMagazine762x54mmRFMJ
+
 # Shotguns
 
 - type: loadout #Kammerer
@@ -162,6 +176,13 @@
   storage:
    back:
     - WeaponShotgunEnforcerPMC
+
+- type: loadout #Helepolis Sidearm
+  id: MercenaryHelepolisLoadout
+  price: 3000
+  storage:
+    back:
+    - WeaponShotgunHelepolis
 
 - type: loadout #Buckshot Shells
   id: MercenaryBuckshotAmmoLoadout

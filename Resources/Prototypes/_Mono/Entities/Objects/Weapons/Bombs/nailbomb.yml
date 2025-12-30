@@ -1,9 +1,5 @@
-# SPDX-FileCopyrightText: 2025 BlueHNT
-#
-# SPDX-License-Identifier: MPL-2.0
-
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseC3SyndicateContraband]
+  parent: ProjectileGrenadeBase
   id: NailBomb
   name: nail bomb
   description: An improvised explosive made from nails and gunpowder.

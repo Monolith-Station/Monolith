@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Alex Klos
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2022 Ygg01
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 KISS
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 no
-// SPDX-FileCopyrightText: 2025 EckoAurum
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Shared.DeviceLinking; //Mono
 using Content.Shared.Gravity;
 using Content.Shared.StepTrigger.Components;

@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Chronophylos
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2024 beck-thompson
-// SPDX-FileCopyrightText: 2025 Zachary Higgs
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
