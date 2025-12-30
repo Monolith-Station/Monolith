@@ -315,7 +315,7 @@
           type: Hydrakin
         - !type:ReagentThreshold
           reagent: NitrousOxide
-          min: 0.35
+          min: 0.05
       - !type:Emote
         conditions:
         - !type:ReagentThreshold
@@ -483,7 +483,7 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Frezon
-          min: 0.075
+          min: 0.045
         - !type:Temperature
           min: 215.15
         - !type:OrganType

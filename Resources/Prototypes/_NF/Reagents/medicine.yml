@@ -33,12 +33,15 @@
             Slash: 0.98
             Piercing: 0.98 #Mono end
       - !type:GenericStatusEffect # Mono edit
-          conditions:
-          - !type:OrganType
-            type: Hydrakin
-          component: ForcedSleeping
-          refresh: false
-          type: Add
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        - !type:Temperature
+          max: 213.0
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
 
 - type: reagent
   id: Stelloxadone
@@ -74,9 +77,13 @@
             Poison: 0.98
             Radiation: 0.98 #Mono end
       - !type:GenericStatusEffect # Mono edit
-          conditions:
-          - !type:OrganType
-            type: Hydrakin
-          component: ForcedSleeping
-          refresh: false
-          type: Add
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        - !type:Temperature
+          max: 213.0
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+
