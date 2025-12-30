@@ -110,20 +110,20 @@
     vendPrice: 42300
 
 - type: entity
-  name: UW12-B Helopolis (12 gauge)
+  name: UW12-B Helepolis (12 gauge)
   parent: BaseWeaponShotgun
-  id: WeaponShotgunHelopolis
-  description: The Union Wrightworks 12-gauge breaching model "Helopolis", a compact shotgun that sacrifices all combat ergonomics to better serve as a breaching tool. Breaks doors with slugs. Combat use unadvised.
+  id: WeaponShotgunHelepolis
+  description: The Union Wrightworks 12-gauge breaching model "Helepolis", a compact shotgun that sacrifices all combat ergonomics to better serve as a breaching tool. Breaks doors with slugs. Combat use unadvised.
   components:
   - type: Item
     size: Normal
     shape:
     - 0,0,1,0
-    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helopolis.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helepolis.rsi
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helopolis.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helepolis.rsi
   - type: Clothing
-    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helopolis.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helepolis.rsi
   - type: Gun
     minAngle: 3
     maxAngle: 12
@@ -132,11 +132,11 @@
     angleDecay: 4
   - type: Tag
     tags:
-    - WeaponShotgunHelopolis
+    - WeaponShotgunHelepolis
   - type: BallisticAmmoProvider
     autoCycle: false
     capacity: 4
     proto: ShellShotgun12_gaugeSlug
   - type: StaticPrice
-    price: 1000
+    price: 600
     vendPrice: 3000

@@ -404,8 +404,8 @@
   - type: RadarConsole
     maxRange: 1024 # Mono 350->768
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 1 # from 1 - doesn't really care about thermal sigs
-    visualMultiplier: 12 # from 4
+    infraredMultiplier: 1
+    visualMultiplier: 3
   - type: Computer
     board: Null
   - type: Sprite

@@ -15,7 +15,7 @@
   minimumDistance: 7000
   maximumDistance: 10800
   spawnGroup: ScienceLab
-  gridPath: /Maps/_NF/POI/anomalouslab.yml
+  gridPath: /Maps/_Mono/POI/anomalouslab.yml
   addComponents:
   - type: SolarPoweredGrid
     trackOnInit: true
@@ -24,7 +24,7 @@
 - type: gameMap
   id: AnomalousLab
   mapName: 'Anomalous Lab'
-  mapPath: /Maps/_NF/POI/anomalouslab.yml
+  mapPath: /Maps/_Mono/POI/anomalouslab.yml
   minPlayers: 0
   stations:
     AnomalousLab:
