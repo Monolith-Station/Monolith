@@ -595,8 +595,8 @@
     radius: 1.5
     energy: 1.6
     color: "#4b93ad"
-  # - type: MarketModifier ## Mono
-  #   mod: 10 # damn
+  - type: MarketModifier #Mono
+    mod: 3 #Mono 10 (damn) >> 3
   - type: Sprite
     sprite: _NF/Structures/Machines/VendingMachines/civimed.rsi
     layers:
