@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/29/2025 21:57:52
-  entityCount: 577
+  time: 12/30/2025 20:00:42
+  entityCount: 602
 maps: []
 grids:
 - 1
@@ -915,6 +915,131 @@ entities:
     components:
     - type: Transform
       pos: 4.5,22.5
+      parent: 1
+  - uid: 578
+    components:
+    - type: Transform
+      pos: 1.5,20.5
+      parent: 1
+  - uid: 579
+    components:
+    - type: Transform
+      pos: -4.5,4.5
+      parent: 1
+  - uid: 580
+    components:
+    - type: Transform
+      pos: 3.5,4.5
+      parent: 1
+  - uid: 581
+    components:
+    - type: Transform
+      pos: 3.5,3.5
+      parent: 1
+  - uid: 582
+    components:
+    - type: Transform
+      pos: 4.5,4.5
+      parent: 1
+  - uid: 583
+    components:
+    - type: Transform
+      pos: 5.5,5.5
+      parent: 1
+  - uid: 584
+    components:
+    - type: Transform
+      pos: 5.5,4.5
+      parent: 1
+  - uid: 585
+    components:
+    - type: Transform
+      pos: -5.5,4.5
+      parent: 1
+  - uid: 586
+    components:
+    - type: Transform
+      pos: -4.5,3.5
+      parent: 1
+  - uid: 587
+    components:
+    - type: Transform
+      pos: -6.5,5.5
+      parent: 1
+  - uid: 588
+    components:
+    - type: Transform
+      pos: -5.5,7.5
+      parent: 1
+  - uid: 589
+    components:
+    - type: Transform
+      pos: -6.5,9.5
+      parent: 1
+  - uid: 590
+    components:
+    - type: Transform
+      pos: 5.5,9.5
+      parent: 1
+  - uid: 591
+    components:
+    - type: Transform
+      pos: 5.5,10.5
+      parent: 1
+  - uid: 592
+    components:
+    - type: Transform
+      pos: 6.5,8.5
+      parent: 1
+  - uid: 593
+    components:
+    - type: Transform
+      pos: 5.5,7.5
+      parent: 1
+  - uid: 594
+    components:
+    - type: Transform
+      pos: 6.5,6.5
+      parent: 1
+  - uid: 595
+    components:
+    - type: Transform
+      pos: 6.5,11.5
+      parent: 1
+  - uid: 596
+    components:
+    - type: Transform
+      pos: 5.5,11.5
+      parent: 1
+  - uid: 597
+    components:
+    - type: Transform
+      pos: 6.5,14.5
+      parent: 1
+  - uid: 598
+    components:
+    - type: Transform
+      pos: -5.5,16.5
+      parent: 1
+  - uid: 599
+    components:
+    - type: Transform
+      pos: 0.5,23.5
+      parent: 1
+  - uid: 600
+    components:
+    - type: Transform
+      pos: 5.5,18.5
+      parent: 1
+  - uid: 601
+    components:
+    - type: Transform
+      pos: -1.5,3.5
+      parent: 1
+  - uid: 602
+    components:
+    - type: Transform
+      pos: 0.5,3.5
       parent: 1
 - proto: Bed
   entities:
