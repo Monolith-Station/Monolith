@@ -35,3 +35,81 @@
     Steel: 600
     Glass: 50
     Plastic: 200
+
+# Pods + Driver
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: ZephyrFlatpack
+  result: ZephyrFlatpack
+  categories:
+  - Tools
+  completetime: 30
+  materials:
+    Steel: 3000
+    Glass: 3000
+    Plasteel: 2000
+    Plastic: 1500
+    Uranium: 5000
+    Plasma: 5000
+    Gold: 1000
+    Silver: 1000
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: SupplyPod
+  result: SupplyPod
+  completetime: 10
+  categories:
+  - Tools
+  materials:
+    Steel: 1000
+    Plasteel: 1500
+    Plastic: 1000
+    Gold: 300
+    Silver: 300
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: BasePod
+  result: BasePod
+  completetime: 10
+  categories:
+  - Tools
+  materials:
+    Steel: 1500
+    Plasteel: 2000
+    Plastic: 1000
+    Gold: 300
+    Silver: 300
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: LargePod
+  result: LargePod
+  completetime: 15
+  categories:
+  - Tools
+  materials:
+    Steel: 2000
+    Plasteel: 3500
+    Plastic: 1500
+    Gold: 500
+    Silver: 500
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AdvancedPod
+  result: AdvancedPod
+  completetime: 10
+  categories:
+  - Tools
+  materials:
+    Steel: 2000
+    Plasteel: 2500
+    Plastic: 2000
+    Glass: 2000
+    Uranium: 1000
+    Plasma: 1000
+    Gold: 1000
+    Silver: 1000

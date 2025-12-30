@@ -1,0 +1,385 @@
+- type: entity
+  id: WeaponTurretZephyrDriver
+  name: TPC Zephyr Mass Driver delivery system
+  parent: BallisticArtilleryCartridge
+  suffix: No Rotate
+  description: A Zephyr mass driver, used to launch specialized pods that carry both people and supplies, capable of firing specialized pods many kilometers across space.
+  components:
+  - type: StaticPrice
+    price: 30000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/massdriver.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.2
+    minAngle: 0
+    maxAngle: 0
+    projectileSpeed: 650
+    shootThermalSignature: 18000000 # ~8.5m after firing
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 350
+    powerUsePassive: 1000
+    powerUseActive: 7500
+  - type: Actions
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - BoardingPod
+    capacity: 1
+    proto: BasePod
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 35000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    radarColor: "#0080ff"
+    scale: 3
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Heavy
+  - type: DragDropTargetable
+
+# Flatpack
+
+- type: entity
+  parent: BaseFlatpack
+  id: ZephyrFlatpack
+  name: Zephyr flatpack
+  description: A flatpack used for constructing a Zephyr mass driver delivery system.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretZephyrDriver
+  - type: StaticPrice
+    price: 50000
+
+# BoardingPods
+
+- type: entity
+  id: BasePod
+  name: standard boarding pod
+  parent: BaseItem
+  description: A boarding pod, fired from a Zephyr mass driver, used for boarding actions of all types.
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Boarding_pods/pod.rsi
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    embedOnThrow: false
+  - type: ThrowingAngle
+    angle: 0
+  - type: Ammo
+    muzzleFlash: null
+  - type: Tag
+    tags:
+    - BoardingPod
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Structural: 8500
+  - type: EntityStorage
+    capacity: 2
+    itemCanStoreMobs: true
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateDoorOpen: open
+    stateDoorClosed: closed
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+  - type: ItemSlots
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: RadarBlip
+    shape: square
+    requireNoGrid: true
+    color: #eb4034
+    scale: 3
+  - type: Weldable
+  - type: ResistLocker
+  - type: MultiHandedItem
+  - type: DragDropTargetable
+  - type: HeldSpeedModifier
+    sprintModifier: .6
+    walkModifier: .6
+
+- type: entity
+  parent: BasePod
+  id: SupplyPod
+  name: supply pod
+  description: A large storage container fitted into a heavy pod, used for sending packages and supplies long distances
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Boarding_pods/supply_pod.rsi
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: EntityStorage
+    capacity: 50
+    itemCanStoreMobs: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Structural: 0
+  - type: RadarBlip
+    shape: square
+    requireNoGrid: true
+    color: #0084ff
+    scale: 3
+
+- type: entity
+  parent: BasePod
+  id: LargePod
+  name: heavy boarding pod
+  description: A heavy duty boarding pod, with a larger drill and tougher armor
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Boarding_pods/large_pod.rsi
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Structural: 12500
+
+- type: entity
+  parent: BasePod
+  id: AdvancedPod
+  name: advanced boarding pod
+  description: Sacrificing some armor, this boarding pod comes with built in thrusters and tracking systems to ensure a direct hit.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Boarding_pods/adv_pod.rsi
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Structural: 12500
+  - type: TargetSeeking
+    acceleration: 0.0000001
+    detectionRange: 1000
+    scanArc: 35
+    launchSpeed: 0
+    maxSpeed: 650
+    trackDelay: 0.1
+
+- type: entity
+  parent: BasePod
+  id: HellPod
+  name: hellpod
+  suffix: Admeme
+  description: A strange old relic of a bygone era - ITS FLYING RIGHT AT YOU!
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Boarding_pods/hellpod.rsi
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: Item
+    size: Ginormous
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    embedOnThrow: false
+  - type: ThrowingAngle
+    angle: 0
+  - type: Ammo
+    muzzleFlash: null
+  - type: Tag
+    tags:
+    - BoardingPod
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Structural: 30000
+  - type: EntityStorage
+    capacity: 30
+    itemCanStoreMobs: true
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateDoorOpen: open
+    stateDoorClosed: closed
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+  - type: ItemSlots
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: RadarBlip
+    shape: square
+    requireNoGrid: true
+    color: #eb4034
+    scale: 3
+  - type: MultiHandedItem
+  - type: DragDropTargetable
+  - type: HeldSpeedModifier
+    sprintModifier: .6
+    walkModifier: .6
