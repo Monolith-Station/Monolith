@@ -39,6 +39,10 @@ public sealed partial class FireControlSystem : EntitySystem
     /// </summary>
     private readonly HashSet<EntityUid> _visualizedEntities = new();
 
+    private EntityQuery<SpaceArtilleryComponent> _artilleryQuery;
+    private EntityQuery<FireControlRotateComponent> _fireRotateQuery;
+    private EntityQuery<GunComponent> _gunQuery;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -56,6 +60,10 @@ public sealed partial class FireControlSystem : EntitySystem
 
         InitializeConsole();
         InitializeTargetGuided();
+
+        _artilleryQuery = GetEntityQuery<SpaceArtilleryComponent>();
+        _fireRotateQuery = GetEntityQuery<FireControlRotateComponent>();
+        _gunQuery = GetEntityQuery<GunComponent>();
     }
 
     private void OnPowerChanged(EntityUid uid, FireControlServerComponent component, PowerChangedEvent args)
@@ -390,7 +398,7 @@ public sealed partial class FireControlSystem : EntitySystem
 
         // Check if the weapon is an expedition
         if (grid != null &&
-            TryComp<TransformComponent>((EntityUid)grid, out var gridXform) &&
+            TryComp(grid, out TransformComponent? gridXform) &&
             gridXform.MapUid != null &&
             HasComp<SalvageExpeditionComponent>(gridXform.MapUid.Value))
             return;
@@ -404,65 +412,13 @@ public sealed partial class FireControlSystem : EntitySystem
             if (!Exists(localWeapon) || !component.Controlled.Contains(localWeapon))
                 continue;
 
-            if (!TryComp<GunComponent>(localWeapon, out var gun))
-                continue;
+            var fired = AttemptFire(localWeapon, localWeapon, targetCoords);
 
-            if (TryComp<TransformComponent>(localWeapon, out var weaponXform))
-            {
-                var currentMapCoords = _xform.GetMapCoordinates(localWeapon, weaponXform);
-                var destinationMapCoords = targetCoords.ToMap(EntityManager, _xform);
-
-                if (destinationMapCoords.MapId == currentMapCoords.MapId && currentMapCoords.MapId != MapId.Nullspace)
-                {
-                    var diff = destinationMapCoords.Position - currentMapCoords.Position;
-                    if (TryComp<FireControlRotateComponent>(localWeapon, out var rotateEnabled))
-                    if (diff.LengthSquared() > 0.01f)
-                    {
-                        // Only rotate the gun if it has line of sight to the target
-                        if (HasLineOfSight(localWeapon, currentMapCoords.Position, destinationMapCoords.Position, currentMapCoords.MapId))
-                        {
-                            var goalAngle = Angle.FromWorldVec(diff);
-                            _rotateToFace.TryRotateTo(localWeapon, goalAngle, 0f, Angle.FromDegrees(1), float.MaxValue, weaponXform);
-                        }
-                    }
-                }
-            }
-
-            var weaponX = Transform(localWeapon);
-            var targetPos = targetCoords.ToMap(EntityManager, _xform);
-
-            if (targetPos.MapId != weaponX.MapID)
-                continue;
-
-            var weaponPos = _xform.GetWorldPosition(weaponX);
-
-            // Get direction to target
-            var direction = (targetPos.Position - weaponPos);
-            var distance = direction.Length();
-            if (distance <= 0)
-                continue;
-
-            direction = Vector2.Normalize(direction);
-
-            // Check for obstacles in the firing direction
-            if (!CanFireInDirection(localWeapon, weaponPos, direction, targetPos.Position, weaponX.MapID))
-                continue;
-
-            var isArtillery = HasComp<SpaceArtilleryComponent>(localWeapon);
-
-            // If we can fire, fire the weapon
-            _gun.AttemptShots(localWeapon, localWeapon, gun, targetCoords, TimeSpan.FromSeconds(0.2));
-
-            if (isArtillery)
-            {
-                artilleryFired = true;
-            }
+            artilleryFired |= _artilleryQuery.HasComp(localWeapon) && fired;
         }
 
         if (artilleryFired)
-        {
             TriggerCombatMusic(server);
-        }
     }
 
     /// <summary>
@@ -518,19 +474,21 @@ public sealed partial class FireControlSystem : EntitySystem
     /// <summary>
     /// Attempts to fire a weapon, handling aiming and firing logic.
     /// </summary>
-    public bool AttemptFire(EntityUid weapon, EntityUid user, EntityCoordinates coords, FireControllableComponent? comp = null)
+    public bool AttemptFire(EntityUid weapon, EntityUid user, EntityCoordinates coords, FireControllableComponent? comp = null, bool noServer = false)
     {
         if (!Resolve(weapon, ref comp))
             return false;
 
         // Check if the weapon is ready to fire
-        if (!CanFire(weapon, comp))
+        if (!CanFire(weapon, comp, noServer))
             return false;
 
         // Get weapon and target positions
         var weaponXform = Transform(weapon);
-        var weaponPos = _xform.GetWorldPosition(weaponXform);
-        var targetPos = coords.ToMap(EntityManager, _xform).Position;
+        var weaponCoords = _xform.GetMapCoordinates(weaponXform);
+        var weaponPos = weaponCoords.Position;
+        var targetCoords = coords.ToMap(EntityManager, _xform);
+        var targetPos = targetCoords.Position;
 
         // Calculate direction
         var direction = targetPos - weaponPos;
@@ -547,10 +505,16 @@ public sealed partial class FireControlSystem : EntitySystem
         // Set the cooldown for next firing
         comp.NextFire = _timing.CurTime + TimeSpan.FromSeconds(comp.FireCooldown);
 
-        // Try to get a gun component and fire the weapon
-        if (TryComp<GunComponent>(weapon, out var gun))
+        if (_fireRotateQuery.HasComp(weapon))
         {
-            _gun.AttemptShoot(weapon, user, gun, coords);
+            var goalAngle = Angle.FromWorldVec(direction);
+            _rotateToFace.TryRotateTo(weapon, goalAngle, 0f, Angle.FromDegrees(1), float.MaxValue, weaponXform);
+        }
+
+        // Try to get a gun component and fire the weapon
+        if (_gunQuery.TryComp(weapon, out var gun))
+        {
+            _gun.AttemptShots(user, weapon, gun, coords, TimeSpan.FromSeconds(0.2));
             return true;
         }
 
@@ -560,14 +524,14 @@ public sealed partial class FireControlSystem : EntitySystem
     /// <summary>
     /// Checks if a weapon is ready to fire.
     /// </summary>
-    private bool CanFire(EntityUid weapon, FireControllableComponent comp)
+    private bool CanFire(EntityUid weapon, FireControllableComponent comp, bool noServer = false)
     {
         // Check if weapon is powered
         if (!_power.IsPowered(weapon))
             return false;
 
         // Check if weapon is connected to a server
-        if (comp.ControllingServer == null)
+        if (comp.ControllingServer == null && !noServer)
             return false;
 
         // Check for other conditions like cooldowns if needed

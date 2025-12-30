@@ -211,7 +211,7 @@
   suffix: Low
   components:
   - type: MarketModifier
-    mod: 4
+    mod: 1.5 #Mono: 4 >> 1.5
 
 - type: entity
   name: cargo market computer
@@ -220,7 +220,7 @@
   suffix: Normal
   components:
   - type: MarketModifier
-    mod: 6
+    mod: 2 #Mono: 6 >> 2
 
 - type: entity
   name: cargo market computer
@@ -229,7 +229,7 @@
   suffix: High
   components:
   - type: MarketModifier
-    mod: 8
+    mod: 4 #Mono: 8 >> 4
 
 - type: entity
   id: ComputerPirateBounty

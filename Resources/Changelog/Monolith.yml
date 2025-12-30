@@ -15323,3 +15323,72 @@ Entries:
   id: 1700
   time: '2025-12-29T13:08:11.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2896
+- author: Helicaste
+  changes:
+    - type: Fix
+      message: >-
+        PDV headsets now have the default encryption key capacity of 10. Like
+        every other headset.
+  id: 1701
+  time: '2025-12-30T10:07:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2894
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Colonial Lianson is now Overseer, acting as Head Of Security on Colossus
+        Sector.
+    - type: Tweak
+      message: >-
+        Emergency Responders now actually get firearms and sidearms for their
+        duties
+  id: 1702
+  time: '2025-12-30T11:01:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2897
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Added (all currently unused) ship AI gun usage behavior and drone RTS
+        control console.
+  id: 1703
+  time: '2025-12-30T13:36:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2870
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Markup costs from the market console are now much less ridiculous (6x >>
+        2x)
+    - type: Tweak
+      message: Point disk sell price standardized to 20% of its point value
+    - type: Tweak
+      message: Medical vendor prices standardized to 3x their appraisal price
+    - type: Tweak
+      message: >-
+        Topicals and point disks now appear in market console listings when you
+        pawn them
+  id: 1704
+  time: '2025-12-30T13:39:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2869
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Various Hydrakin fixes
+  id: 1705
+  time: '2025-12-30T13:41:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2893
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added tilted plating tile variants for mapping.
+  id: 1706
+  time: '2025-12-30T13:49:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2874
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Only Colonial Liason can delete public bounties now
+  id: 1707
+  time: '2025-12-30T16:57:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2881
