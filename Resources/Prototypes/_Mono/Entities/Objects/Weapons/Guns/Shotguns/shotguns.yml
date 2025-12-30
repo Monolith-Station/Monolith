@@ -54,6 +54,8 @@
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
     #fireRate: 1 # Goobstation
+  - type: GunSpreadModifier
+    spread: 0.7
   - type: Tag
     tags:
     - WeaponShotgunBigLeady

@@ -67,7 +67,7 @@
 - type: entity
   parent: GunSafe
   id: GunSafeSr
-  name: SR's gun safe
+  name: overseer heavy gun safe # Mono
   suffix: Filled
   components:
   - type: AccessReader
@@ -75,7 +75,9 @@
   - type: StorageFill
     contents:
     - id: WeaponCaseHeavyCdet
-    - id: WeaponPistolMk58
+#    - id: WeaponPistolMk58
+    - id: WeaponCaseHeavyAsmgt # Mono
+    - id: WeaponCaseMla79Registered # Mono - might be so wrong for ts LMAO
       amount: 1
-    - id: Magazine45_ACPPistolFMJ
-      amount: 2
+    # - id: Magazine45_ACPPistolFMJ
+    #   amount: 2

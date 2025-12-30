@@ -49,9 +49,10 @@ public sealed class NFCCVars
 
     /// <summary>
     /// The map to use for the public bus.
+	/// Mono: Changed to _Mono busdart.yml
     /// </summary>
     public static readonly CVarDef<string> PublicTransitBusMap =
-        CVarDef.Create("nf14.publictransit.bus_map", "/Maps/_NF/Shuttles/Bus/publicts.yml", CVar.SERVERONLY);
+        CVarDef.Create("nf14.publictransit.bus_map", "/Maps/_Mono/Shuttles/Bus/busdart.yml", CVar.SERVERONLY);
 
     /// <summary>
     /// The amount of time the bus waits at a station.
@@ -60,7 +61,8 @@ public sealed class NFCCVars
         CVarDef.Create("nf14.publictransit.wait_time", 40f, CVar.SERVERONLY);
 
     /// <summary>
-    /// The amount of time the flies through FTL space.
+    /// The amount of time the bus flies through FTL space.
+    /// This does nothing because the transit system is bugged in our favor (instant travel)
     /// </summary>
     public static readonly CVarDef<float> PublicTransitFlyTime =
         CVarDef.Create("nf14.publictransit.fly_time", 15f, CVar.SERVERONLY);
