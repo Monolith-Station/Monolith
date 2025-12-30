@@ -17,8 +17,8 @@
     maxRange: 512
     followEntity: true
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 0.5 # from 1
-    visualMultiplier: 3 # from 4
+    infraredMultiplier: 0.5
+    visualMultiplier: 0.75
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
     singleUser: true

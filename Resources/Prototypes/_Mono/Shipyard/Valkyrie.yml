@@ -1,0 +1,41 @@
+# Author Info
+# GitHub: Arcticular1
+# Discord: Arcticular
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Valkyrie
+  parent: BaseVessel
+  name: PDW Valkyrie
+  description: An ancient phaethon dynasty interceptor. It's instruments are outdated and it's hull is rusted. However the Valkyrie still contends with vessels of similar class.
+  price: 93650
+  category: Medium
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/valkyrie.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - AME
+
+- type: gameMap
+  id: Valkyrie
+  mapName: 'PDW Valkyrie'
+  mapPath: /Maps/_Mono/Shuttles/valkyrie.yml
+  minPlayers: 0
+  stations:
+    Valkyrie:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Valkyrie MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

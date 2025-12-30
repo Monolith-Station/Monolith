@@ -52,13 +52,13 @@
       prob: 0.3
     # Research disk, expected value ~45k/drone
     - id: RogueSiliconResearchDisk5000
-      prob: 0.5
+      prob: 0.6
     - id: RogueSiliconResearchDisk10000
-      prob: 0.5
+      prob: 0.4
     - id: RogueSiliconResearchDisk25000
-      prob: 0.5
+      prob: 0.25
     - id: RogueSiliconResearchDisk50000
-      prob: 0.5
+      prob: 0.15
     # Tech disk
     - id: SpawnLootTechDisksT1
       prob: 0.5
