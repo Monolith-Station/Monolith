@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/30/2025 15:13:09
-  entityCount: 463
+  time: 12/30/2025 15:56:15
+  entityCount: 470
 maps: []
 grids:
 - 841
@@ -772,6 +772,41 @@ entities:
       parent: 841
 - proto: CableApcExtension
   entities:
+  - uid: 14
+    components:
+    - type: Transform
+      pos: 12.5,-10.5
+      parent: 841
+  - uid: 15
+    components:
+    - type: Transform
+      pos: 11.5,-10.5
+      parent: 841
+  - uid: 16
+    components:
+    - type: Transform
+      pos: 10.5,-10.5
+      parent: 841
+  - uid: 17
+    components:
+    - type: Transform
+      pos: 9.5,-10.5
+      parent: 841
+  - uid: 18
+    components:
+    - type: Transform
+      pos: 8.5,-10.5
+      parent: 841
+  - uid: 19
+    components:
+    - type: Transform
+      pos: 9.5,-11.5
+      parent: 841
+  - uid: 20
+    components:
+    - type: Transform
+      pos: 9.5,-12.5
+      parent: 841
   - uid: 1112
     components:
     - type: Transform
@@ -2658,6 +2693,8 @@ entities:
         1013:
         - - On
           - Forward
+        - - Off
+          - Off
         1012:
         - - On
           - Forward
