@@ -137,7 +137,7 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Structural: 8500
+        Structural: 10000
   - type: EntityStorage
     capacity: 2
     itemCanStoreMobs: true
@@ -168,7 +168,7 @@
   - type: RadarBlip
     shape: square
     requireNoGrid: true
-    color: #eb4034
+    radarColor: #eb4034
     scale: 3
   - type: Weldable
   - type: ResistLocker
@@ -217,7 +217,7 @@
   - type: RadarBlip
     shape: square
     requireNoGrid: true
-    color: #0080ff
+    radarColor: #0080ff
     scale: 3
 
 - type: entity
@@ -252,7 +252,7 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Structural: 12500
+        Structural: 20000
 
 - type: entity
   parent: BasePod
@@ -286,7 +286,7 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Structural: 12500
+        Structural: 15000
   - type: TargetSeeking
     acceleration: 0.0000001
     detectionRange: 1000
@@ -377,7 +377,7 @@
   - type: RadarBlip
     shape: square
     requireNoGrid: true
-    color: #fcba03
+    radarColor: #fcba03
     scale: 3
   - type: MultiHandedItem
   - type: DragDropTargetable
