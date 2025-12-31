@@ -1,0 +1,35 @@
+- type: vessel
+  id: Mire
+  parent: BaseVessel
+  name: Z-22 Mire
+  description: A trade in, purpose built to hunt down rampant AI cores in the deep periphery. More of a Technical than a fighter.
+  price: 42000
+  category: Small
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/mire.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Corvette
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Mire
+  mapName: 'Z-22 Mire'
+  mapPath: /Maps/_Mono/Shuttles/mire.yml
+  minPlayers: 0
+  stations:
+    Mire:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Mire MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
