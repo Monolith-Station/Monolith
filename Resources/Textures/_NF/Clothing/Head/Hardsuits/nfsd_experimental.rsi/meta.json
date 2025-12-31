@@ -1,7 +1,7 @@
 {
   "version": 2,
   "license": "CC0-1.0",
-  "copyright": "Original work by TJohnson, helmet normal/reptilian sprite by Zethine / @synthetic_086 (discord).",
+  "copyright": "Original work by TJohnson, helmet normal/reptilian/hydrakin sprite by Zethine / @synthetic_086 (discord).",
   "size": {
     "x": 32,
     "y": 32
@@ -35,6 +35,14 @@
     },
     {
       "name": "on-equipped-HELMET-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-hydrakin",
       "directions": 4
     }
   ]

@@ -24,7 +24,7 @@ public sealed partial class DetectionRangeMultiplierComponent : Component
     ///     Visual detection radius scales linearly off a grid's diagonal.
     /// </summary>
     [DataField]
-    public float VisualMultiplier = 4f;
+    public float VisualMultiplier = 1f;
 
     /// <summary>
     ///     Whether to have effectively infinite detection range.

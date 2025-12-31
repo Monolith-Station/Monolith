@@ -1,7 +1,7 @@
 {
   "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from paradise-ss13 hats.dmi at mob/clothing/hats, obj/clothing/hats, mob/clothing/suits, and obj/clothing/suits.(https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/clothing/hats.dmi), -reptilian sprite by Zethine / @synthetic_086 (discord).",
+  "copyright": "Taken from paradise-ss13 hats.dmi at mob/clothing/hats, obj/clothing/hats, mob/clothing/suits, and obj/clothing/suits.(https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/clothing/hats.dmi), -reptilian/hydrakin sprite by Zethine / @synthetic_086 (discord).",
   "size": {
     "x": 32,
     "y": 32
@@ -27,6 +27,14 @@
     },
     {
       "name": "on-equipped-HELMET-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-hydrakin",
       "directions": 4
     }
   ]
