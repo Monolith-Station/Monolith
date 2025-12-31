@@ -9,15 +9,14 @@
   id: HeliosFortress
   parent: BasePOI
   name: 'PDV Helios Fortress'
-  minimumDistance: 13000
-  maximumDistance: 15000
+  minimumDistance: 7500
+  maximumDistance: 9500
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoRogueUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/pdvhelios.yml
   addComponents:
   - type: IFF
     color: "#DE9E59"
-    flags: [HideLabel]
     readOnly: true # mono
 
 - type: gameMap
