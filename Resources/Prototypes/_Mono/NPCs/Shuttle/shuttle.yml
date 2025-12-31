@@ -24,6 +24,19 @@
     - !type:HTNCompoundTask
       task: ShuttleBackOffCompound
 
+# same, but with leading
+- type: htnCompound
+  id: RammerShuttleSmartDodgingCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleRamSmartDodgingCompound
+    - !type:HTNCompoundTask
+      task: ShuttleBackOffCompound
+
 # approaches closest shuttle with parent ship
 - type: htnCompound
   id: ApproacherShuttleCompound
@@ -104,6 +117,27 @@
         removeKeyOnFinish: false
         inRangeMaxSpeed: null # there's no braking where we're going
         targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
+
+- type: htnCompound
+  id: ShuttleRamSmartDodgingCompound
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: Target
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        inRangeMaxSpeed: null # there's no braking where we're going
+        targetKey: TargetCoordinates
+        avoidProjectiles: true
       services:
       - !type:UtilityService
         id: TargetsService

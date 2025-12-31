@@ -24,7 +24,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
     private List<Entity<MapGridComponent>> _avoidGrids = new();
     private HashSet<Entity<ShipWeaponProjectileComponent>> _avoidProjs = new();
-    private List<EntityUid> _avoidEnts = new();
+    private List<EntityUid> _avoidPotentialEnts = new();
+    private List<(Entity<TransformComponent, PhysicsComponent> ent, float inTime)> _avoidEnts = new();
 
     public override void Initialize()
     {
@@ -142,7 +143,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                                      shipXform, shipBody, shuttle, shipGrid,
                                      destMapPos, targetVel, targetUid, mapTarget,
                                      maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
-                                     ent.Comp.AvoidCollisions, ent.Comp.AvoidProjectiles, ent.Comp.MaxObstructorDistance, ent.Comp.MinObstructorDistance,
+                                     ent.Comp.AvoidCollisions, ent.Comp.AvoidProjectiles, ent.Comp.MaxObstructorDistance, ent.Comp.MinObstructorDistance, ent.Comp.EvasionBuffer,
                                      targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
     }
 
@@ -150,7 +151,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                                          TransformComponent shipXform, PhysicsComponent shipBody, ShuttleComponent shuttle, MapGridComponent shipGrid,
                                          MapCoordinates destMapPos, Vector2 targetVel, EntityUid? targetUid, MapCoordinates targetEntPos,
                                          float maxArrivedVel, float brakeThreshold, float frameTime,
-                                         bool avoidCollisions, bool avoidProjectiles, float maxObstructorDistance, float minObstructorDistance,
+                                         bool avoidCollisions, bool avoidProjectiles, float maxObstructorDistance, float minObstructorDistance, float evasionBuffer,
                                          Angle targetAngleOffset, Angle? angleOverride)
     {
 
@@ -160,6 +161,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var linVel = shipBody.LinearVelocity;
 
         var toDestVec = destMapPos.Position - shipPos.Position;
+        var toDestDir = NormalizedOrZero(toDestVec);
         var destDistance = toDestVec.Length();
 
         // try to lead the target with the target velocity we've been passed in
@@ -210,13 +212,14 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                     _lookup.GetEntitiesInRange<ShipWeaponProjectileComponent>(shipPos,
                                                                               ProjectileSearchBounds,
                                                                               LookupFlags.Approximate | LookupFlags.Dynamic | LookupFlags.Sensors);
-            _avoidEnts.Clear();
+            _avoidPotentialEnts.Clear();
             foreach (var ent in _avoidGrids)
-                _avoidEnts.Add(ent);
+                _avoidPotentialEnts.Add(ent);
             foreach (var ent in _avoidProjs)
-                _avoidEnts.Add(ent);
+                _avoidPotentialEnts.Add(ent);
 
-            foreach (var ent in _avoidEnts)
+            _avoidEnts.Clear();
+            foreach (var ent in _avoidPotentialEnts)
             {
                 if (ent == shipUid || ent == targetUid || !_physQuery.TryComp(ent, out var obstacleBody))
                     continue;
@@ -224,21 +227,36 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 var otherXform = Transform(ent);
 
                 var toObstacle = _transform.GetWorldPosition(otherXform) - shipPosVec;
+                var obstacleRelVel = linVel - obstacleBody.LinearVelocity;
+                var dot = Vector2.Dot(obstacleRelVel, toObstacle);
+                // we're going away
+                if (dot <= 0f)
+                    continue;
+
+                var normRelVel = toObstacle * dot / toObstacle.LengthSquared();
+
+                // we're only using it for sorting so just use squared times
+                _avoidEnts.Add(((ent, otherXform, obstacleBody), toObstacle.LengthSquared() / normRelVel.LengthSquared()));
+            }
+            _avoidEnts.Sort((a, b) => a.inTime.CompareTo(b.inTime));
+
+            foreach (var (ent, _) in _avoidEnts)
+            {
+                var otherXform = ent.Comp1;
+                var obstacleBody = ent.Comp2;
+
+                var toObstacle = _transform.GetWorldPosition(otherXform) - shipPosVec;
                 var obstacleDistance = toObstacle.Length();
 
                 var obstacleRelVel = linVel - obstacleBody.LinearVelocity;
                 var relVelDir = NormalizedOrZero(obstacleRelVel);
-
-                // if it's somehow not in front of our movement we don't care
-                if (Vector2.Dot(toObstacle, relVelDir) <= 0)
-                    continue;
 
                 // check by how much we have to miss
                 // approximate via grid AABB or world AABB if projectile
                 _gridQuery.TryComp(ent, out var otherGrid);
 
                 var otherBounds = otherGrid != null ? otherGrid.LocalAABB : _physics.GetWorldAABB(ent, body: obstacleBody, xform: otherXform);
-                var shipRadius = MathF.Sqrt(shipAABB.Width * shipAABB.Width + shipAABB.Height * shipAABB.Height) / 2f;
+                var shipRadius = MathF.Sqrt(shipAABB.Width * shipAABB.Width + shipAABB.Height * shipAABB.Height) / 2f + evasionBuffer;
                 var obstacleRadius = MathF.Sqrt(otherBounds.Width * otherBounds.Width + otherBounds.Height * otherBounds.Height) / 2f;
                 var sumRadius = shipRadius + obstacleRadius;
 
@@ -256,8 +274,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
                 if (sideDist < sumRadius)
                 {
-                    var toDestDir = NormalizedOrZero(toDestVec);
-
                     // get direction we want to dodge in and where we'll actually thrust to do that
                     var dodgeDir = NormalizedOrZero(sideVec);
                     var dodgeVec = GetGoodThrustVector((-shipNorthAngle).RotateVec(sideVec), shuttle);
@@ -298,7 +314,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             else
             {
                 var linVelDir = NormalizedOrZero(relVel);
-                var toDestDir = NormalizedOrZero(toDestVec);
                 // mirror linVelDir in relation to toTargetDir
                 // for that we orthogonalize it then invert it to get the perpendicular-vector
                 var adjustVec = -(linVelDir - toDestDir * Vector2.Dot(linVelDir, toDestDir));

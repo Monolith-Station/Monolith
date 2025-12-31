@@ -56,6 +56,15 @@
       task: RammerShuttleSmartCompound
 
 - type: entity
+  id: NpcStationAiRammerSmartDodging
+  parent: NpcStationAiRammer
+  suffix: AI, Smart, Dodging
+  components:
+  - type: HTN
+    rootTask:
+      task: RammerShuttleSmartDodgingCompound
+
+- type: entity
   id: NpcStationAiAttacker
   name: attacker core
   parent: NpcStationAiRammer
@@ -102,6 +111,15 @@
   - type: ConditionalSpawner
     prototypes:
       - NpcStationAiRammerSmart
+
+- type: entity
+  name: smart dodging rammer core spawner
+  id: SpawnMobRammerCoreSmartDodging
+  parent: SpawnMobRammerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+      - NpcStationAiRammerSmartDodging
 
 - type: entity
   name: approacher core spawner

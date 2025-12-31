@@ -48,6 +48,12 @@ public sealed partial class ShipSteererComponent : Component
     public float BrakeThreshold = 0.75f;
 
     /// <summary>
+    /// How much larger to consider the ship for collision evasion purposes.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float EvasionBuffer = 6f;
+
+    /// <summary>
     /// Whether to consider the movement finished if we collide with target.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
