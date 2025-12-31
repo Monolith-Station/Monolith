@@ -66,6 +66,17 @@
       task: AttackerShuttleCompound
 
 - type: entity
+  id: NpcStationAiAttackerSmart
+  name: attacker core
+  parent: NpcStationAiRammer
+  description: Shoots at you. Smart.
+  suffix: AI, Smart
+  components:
+  - type: HTN
+    rootTask:
+      task: AttackerShuttleSmartCompound
+
+- type: entity
   name: rammer core spawner
   id: SpawnMobRammerCore
   parent: MarkerBase
@@ -103,9 +114,18 @@
 
 - type: entity
   name: attacker core spawner
-  id: SpawnMobAttackerCoreSmart
+  id: SpawnMobAttackerCore
   parent: SpawnMobRammerCore
   components:
   - type: ConditionalSpawner
     prototypes:
       - NpcStationAiAttacker
+
+- type: entity
+  name: smart attacker core spawner
+  id: SpawnMobAttackerCoreSmart
+  parent: SpawnMobRammerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+      - NpcStationAiAttackerSmart

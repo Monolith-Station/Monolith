@@ -75,33 +75,32 @@ public sealed partial class ShipTargetingSystem : EntitySystem
 
     private void FireWeapons(EntityUid shipUid, List<EntityUid> cannons, MapCoordinates destMapPos, Vector2 leadBy)
     {
-        var shipPos = _transform.GetMapCoordinates(shipUid);
-
-        var toDestVec = destMapPos.Position - shipPos.Position;
-        var toDestDir = NormalizedOrZero(toDestVec);
-
         foreach (var uid in cannons)
         {
             if (TerminatingOrDeleted(uid))
                 continue;
 
-            if (!_gunQuery.TryComp(uid, out var gun))
+            var gXform = Transform(uid);
+
+            if (!gXform.Anchored || !_gunQuery.TryComp(uid, out var gun))
                 continue;
 
+            var gunToDestVec = destMapPos.Position - _transform.GetWorldPosition(gXform);
+            var gunToDestDir = NormalizedOrZero(gunToDestVec);
             var projVel = gun.ProjectileSpeedModified;
-            var normVel = toDestDir * Vector2.Dot(leadBy, toDestDir);
+            var normVel = gunToDestDir * Vector2.Dot(leadBy, gunToDestDir);
             var tgVel = leadBy - normVel;
             // going too fast to the side, we can't possibly hit it
             if (tgVel.Length() > projVel)
                 continue;
 
-            var normTarget = toDestDir * MathF.Sqrt(projVel * projVel - tgVel.LengthSquared());
+            var normTarget = gunToDestDir * MathF.Sqrt(projVel * projVel - tgVel.LengthSquared());
             // going too fast away, we can't hit it
             if (Vector2.Dot(normTarget, normVel) > 0f && normVel.Length() > normTarget.Length())
                 continue;
 
             var approachVel = (normTarget - normVel).Length();
-            var hitTime = toDestVec.Length() / approachVel;
+            var hitTime = gunToDestVec.Length() / approachVel;
 
             var targetMapPos = destMapPos.Offset(leadBy * hitTime);
 
