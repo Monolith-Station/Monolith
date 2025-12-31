@@ -494,7 +494,7 @@
   name: Curio-8640 plasma lance "Malice"
   parent: BallisticArtilleryUnanchorable
   suffix: ADS ONLY
-  description: A devastating weapon, known for glassign whoel fleets when used en masse
+  description: A devastating weapon, known for glassing whole fleets when used en masse
   components:
   - type: StaticPrice
     price: 50000
@@ -810,7 +810,7 @@
     range: 500
   - type: Gun
     fireRate: 1
-    projectileSpeed: 100
+    projectileSpeed: 150
     minAngle: 0
     maxAngle: 6
     shootThermalSignature: 500000 # ~5.6km with continuous fire
