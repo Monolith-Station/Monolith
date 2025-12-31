@@ -76,7 +76,7 @@
 - type: entity
   id: WeaponRifleLeeEnfield
   name: MI Lee Enfield Mk 98 (7.62x51mm)
-  parent: [ BaseWeaponRifle, BaseC1Contraband ]
+  parent: BaseWeaponRifle
   description: "Reliable 762x51mm sniper rifle, designed and produced by Militia Ironworks to fit modern standards sniper rifle."
   components:
   - type: Sprite
@@ -140,10 +140,13 @@
   - type: Appearance
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
-    maxOffset: 0.7
-    pvsIncrease: 0.5
+    maxOffset: 7
+    pvsIncrease: 0.7
   - type: SpeedModifiedOnWield # Mono
     walkModifier: 0.85
     sprintModifier: 0.85
   - type: PirateBountyItem # Mono
     id: StandardFactionLongarm
+  - type: StaticPrice
+    price: 800
+    vendPrice: 12500
