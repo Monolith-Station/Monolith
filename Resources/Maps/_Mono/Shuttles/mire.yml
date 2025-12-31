@@ -1755,14 +1755,6 @@ entities:
       parent: 156
     - type: Physics
       canCollide: False
-- proto: WeaponShotgunHelopolis
-  entities:
-  - uid: 157
-    components:
-    - type: Transform
-      parent: 156
-    - type: Physics
-      canCollide: False
 - proto: WeaponTurretDravon
   entities:
   - uid: 202
