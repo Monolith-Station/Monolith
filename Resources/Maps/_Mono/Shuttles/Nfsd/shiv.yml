@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/31/2025 10:29:08
-  entityCount: 629
+  time: 12/31/2025 11:03:10
+  entityCount: 631
 maps: []
 grids:
 - 1
@@ -656,8 +656,6 @@ entities:
       pos: 2.5,12.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 623
   - uid: 23
@@ -2383,8 +2381,6 @@ entities:
       pos: 2.5,9.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 623
       - 7
@@ -2395,8 +2391,6 @@ entities:
       pos: 2.5,14.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4
       - 623
@@ -2407,8 +2401,6 @@ entities:
       pos: 0.5,12.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 239
       - 2
@@ -3127,8 +3119,6 @@ entities:
       pos: 3.5,13.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 623
     - type: AtmosPipeLayers
@@ -3156,8 +3146,6 @@ entities:
       pos: 3.5,12.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 623
     - type: AtmosPipeColor
@@ -3505,6 +3493,18 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 0.5,22.5
+      parent: 1
+  - uid: 630
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,3.5
+      parent: 1
+  - uid: 631
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,3.5
       parent: 1
 - proto: PlastitaniumWindow
   entities:
