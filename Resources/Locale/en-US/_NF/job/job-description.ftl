@@ -18,4 +18,4 @@ job-description-security-guard = Patrol the empty halls, whistle simple tunes yo
 job-description-senior-officer = Teach new privates the basics of combat, and lead your TSFMC squads to victory against the Dynasty.
 job-description-sheriff = Manage your TSFMC detachment and keep them efficient, quell dissent, and keep the sector safe.
 job-description-stc = Expertly de-conflict the space around the station and help the Colonial Outpost issue fines for overdocked ships.
-job-description-sr = Handle access reassignment fairly using your ID console, manage the colonial outpost, and keep Clippy safe.
+job-description-sr = Spend all your station funds on military vessels. Control your security guards and attempt to serve justice in this sector.

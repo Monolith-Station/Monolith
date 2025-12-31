@@ -16,7 +16,7 @@ job-name-pdv-denasvar = PDV Denasvar
 job-name-security-guard = Security Guard
 job-name-sheriff = TSFMC Colonel
 job-name-stc = Station Traffic Controller
-job-name-sr = Colonial Liaison
+job-name-sr = Overseer
 job-name-pal = Public Affairs Liaison
 job-name-doc = Director of Care
 
