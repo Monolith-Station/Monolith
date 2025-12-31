@@ -19,6 +19,11 @@
     containers:
     - machine_parts
     - machine_board
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      ballistic-ammo: !type:Container
   - type: Rotatable
   - type: AmmoCounter
   - type: FireControlRotate
