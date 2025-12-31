@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/23/2025 14:47:36
-  entityCount: 9783
+  time: 09/01/2025 10:05:59
+  entityCount: 9781
 maps: []
 grids:
 - 1
@@ -2777,8 +2777,7 @@ entities:
           0,7:
             0: 4095
           -1,7:
-            3: 16
-            0: 30688
+            0: 30704
           0,8:
             0: 65535
           1,5:
@@ -2830,7 +2829,7 @@ entities:
           -1,-7:
             0: 30591
           0,-6:
-            4: 26487
+            3: 26487
             0: 2048
           -1,-5:
             0: 3840
@@ -3067,8 +3066,8 @@ entities:
             2: 34816
           -3,-7:
             2: 272
-            5: 12
-            6: 3072
+            4: 12
+            5: 3072
           -3,-6:
             2: 16385
             1: 1150
@@ -3078,8 +3077,8 @@ entities:
           -3,-9:
             0: 35775
           -2,-7:
-            5: 1
-            6: 256
+            4: 1
+            5: 256
             0: 52428
           -2,-6:
             2: 1
@@ -3453,10 +3452,6 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           immutable: True
           moles:
@@ -3472,36 +3467,9 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           temperature: 293.15
           moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 21.6852
-          - 81.57766
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -3529,18 +3497,10 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -3557,10 +3517,6 @@ entities:
           moles:
           - 0
           - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -4449,7 +4405,7 @@ entities:
       pos: -32.5,-11.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -60615.07
+      secondsUntilStateChange: -60573.555
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4629,7 +4585,7 @@ entities:
       pos: 31.5,29.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -14262.487
+      secondsUntilStateChange: -14220.972
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4836,7 +4792,7 @@ entities:
       pos: -14.5,-3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -102451.14
+      secondsUntilStateChange: -102409.625
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4885,7 +4841,7 @@ entities:
       pos: 22.5,-2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -104265.24
+      secondsUntilStateChange: -104223.73
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4908,7 +4864,7 @@ entities:
       pos: 20.5,-11.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -1113.7845
+      secondsUntilStateChange: -1072.2689
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4987,7 +4943,7 @@ entities:
       pos: 13.5,-1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -102007.875
+      secondsUntilStateChange: -101966.36
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5023,7 +4979,7 @@ entities:
       pos: 11.5,-2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -59025.043
+      secondsUntilStateChange: -58983.527
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5034,7 +4990,7 @@ entities:
       pos: 9.5,-2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -72835.57
+      secondsUntilStateChange: -72794.055
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5060,7 +5016,7 @@ entities:
       pos: 8.5,-12.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -100536.21
+      secondsUntilStateChange: -100494.695
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5097,7 +5053,7 @@ entities:
       pos: -0.5,-12.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -71814.87
+      secondsUntilStateChange: -71773.35
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5343,7 +5299,7 @@ entities:
       pos: -3.5,15.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -64572.652
+      secondsUntilStateChange: -64531.137
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -27004,10 +26960,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
 - proto: ClosetMaintenanceFilledRandom
   entities:
   - uid: 4316
@@ -27143,15 +27095,6 @@ entities:
     - type: Transform
       pos: -6.465517,10.460848
       parent: 1
-- proto: ClothingEyesTSFOfficerGlasses
-  entities:
-  - uid: 9783
-    components:
-    - type: Transform
-      parent: 6674
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingHeadHatBeretCommander
   entities:
   - uid: 4338
@@ -43491,10 +43434,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -43526,10 +43465,6 @@ entities:
         moles:
         - 1.8856695
         - 7.0937095
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -43577,10 +43512,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
   - uid: 6605
     components:
     - type: Transform
@@ -43601,10 +43532,6 @@ entities:
         moles:
         - 1.8856695
         - 7.0937095
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -44085,12 +44012,8 @@ entities:
         immutable: False
         temperature: 293.14923
         moles:
-        - 1.8856695
-        - 7.0937095
-        - 0
-        - 0
-        - 0
-        - 0
+        - 1.7459903
+        - 6.568249
         - 0
         - 0
         - 0
@@ -44107,7 +44030,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 9783
           - 6675
         paper_label: !type:ContainerSlot
           showEnts: False
