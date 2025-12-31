@@ -283,8 +283,8 @@
     maxRange: 512
     followEntity: true
   - type: DetectionRangeMultiplier # same as mass scanner
-    infraredMultiplier: 0.5 # from 1
-    visualMultiplier: 3 # from 4
+    infraredMultiplier: 0.5
+    visualMultiplier: 0.75
   # </Mono>
 
 - type: entity

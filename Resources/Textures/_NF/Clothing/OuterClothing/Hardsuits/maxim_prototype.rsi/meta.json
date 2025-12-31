@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/6b3f58d7de4d4e374282819a7001eaa9bde1676d | equipped-OUTERCLOTHING-resomi by f0x-n3rd (github)",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/6b3f58d7de4d4e374282819a7001eaa9bde1676d | equipped-OUTERCLOTHING-resomi by f0x-n3rd (github), equipped-OUTERCLOTHING-hydrakin sprite by Zethine / @synthetic_086 (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -24,6 +24,10 @@
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-hydrakin",
       "directions": 4
     }
   ]
