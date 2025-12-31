@@ -11,6 +11,15 @@
     layers:
     - state: space_artillery
   - type: Appearance
+  - type: Machine
+    board: ZephyrCircuitBoard
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
+  - type: Rotatable
   - type: AmmoCounter
   - type: FireControlRotate
   - type: GunSignalControl
