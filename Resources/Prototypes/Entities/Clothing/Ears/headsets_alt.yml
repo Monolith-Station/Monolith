@@ -159,8 +159,8 @@
   name: imperial over-ear headset
   components:
     - type: Headset
-    - type: EncryptionKeyHolder
-      keySlots: 5
+  #  - type: EncryptionKeyHolder #Mono parity with ClothingHeadset key capacity.
+  #      keySlots: 5
     - type: ContainerFill
       containers:
         key_slots:

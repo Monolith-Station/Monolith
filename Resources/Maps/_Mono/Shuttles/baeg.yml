@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/24/2025 08:58:11
-  entityCount: 64
+  time: 12/28/2025 19:44:56
+  entityCount: 66
 maps: []
 grids:
 - 1
@@ -77,6 +77,55 @@ entities:
     - type: GridAtmosphere
       version: 2
       data:
+        tiles:
+          0,0:
+            0: 115
+          0,-1:
+            0: 4096
+            1: 9984
+          -1,0:
+            0: 128
+          -1,-1:
+            1: 2048
+        uniqueMixes:
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          immutable: True
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: ShipGridLock
       locked: False
@@ -181,6 +230,16 @@ entities:
     components:
     - type: Transform
       pos: 2.5,-0.5
+      parent: 1
+  - uid: 39
+    components:
+    - type: Transform
+      pos: -0.5,1.5
+      parent: 1
+  - uid: 45
+    components:
+    - type: Transform
+      pos: 2.5,1.5
       parent: 1
 - proto: CableApcExtension
   entities:
@@ -288,16 +347,15 @@ entities:
       parent: 1
 - proto: ComputerShuttle
   entities:
-  - uid: 39
+  - uid: 10
     components:
     - type: Transform
       pos: 1.5,1.5
       parent: 1
-    - type: ShuttleConsoleLock
-      locked: False
     - type: ApcPowerReceiver
       powerLoad: 5
-      needsPower: False
+    - type: Battery
+      startingCharge: 0
 - proto: GeneratorWallmountAPU
   entities:
   - uid: 40
@@ -326,23 +384,17 @@ entities:
       parent: 1
 - proto: ReinforcedWindowDiagonal
   entities:
-  - uid: 10
+  - uid: 65
     components:
     - type: Transform
-      anchored: False
       pos: -0.5,1.5
       parent: 1
-    - type: Physics
-      bodyType: Dynamic
-  - uid: 45
+  - uid: 66
     components:
     - type: Transform
-      anchored: False
       rot: -1.5707963267948966 rad
       pos: 2.5,1.5
       parent: 1
-    - type: Physics
-      bodyType: Dynamic
 - proto: SmallGyroscope
   entities:
   - uid: 42

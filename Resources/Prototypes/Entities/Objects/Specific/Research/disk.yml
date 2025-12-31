@@ -30,7 +30,10 @@
     guides:
     - Science
   - type: StaticPrice # Frontier
-    price: 200 # Frontier
+    price: 2000 # Mono
+  - type: Tag #Mono: Exchangeable at commodity crate machine
+    tags:
+      - PointDisk
 
 #Mono start
 - type: entity
@@ -41,8 +44,8 @@
   components:
   - type: ResearchDisk
     points: 35000
-  - type: StaticPrice # Frontier
-    price: 1000 # Frontier
+  - type: StaticPrice
+    price: 7000
 
 - type: entity
   parent: ResearchDisk
@@ -52,8 +55,8 @@
   components:
   - type: ResearchDisk
     points: 65000
-  - type: StaticPrice # Frontier
-    price: 2000 # Frontier
+  - type: StaticPrice
+    price: 13000
 
 #Rogue silicon disks
 - type: entity
@@ -68,7 +71,7 @@
   - type: ResearchDisk
     points: 50000
   - type: StaticPrice
-    price: 1000
+    price: 10000
 
 - type: entity
   parent: ResearchDisk
@@ -82,7 +85,7 @@
   - type: ResearchDisk
     points: 25000
   - type: StaticPrice
-    price: 2000
+    price: 5000
 
 - type: entity
   parent: ResearchDisk
@@ -110,7 +113,7 @@
   - type: ResearchDisk
     points: 5000
   - type: StaticPrice
-    price: 2000
+    price: 1000
 #Mono end
 
 - type: entity
@@ -122,7 +125,7 @@
   - type: ResearchDisk
     points: 5000
   - type: StaticPrice # Frontier
-    price: 1000 # Frontier
+    price: 1000 # Mono
 
 - type: entity
   parent: ResearchDisk
@@ -133,7 +136,7 @@
   - type: ResearchDisk
     points: 10000
   - type: StaticPrice # Frontier
-    price: 2000 # Frontier
+    price: 2000 # Mono
 
 - type: entity
   parent: ResearchDisk

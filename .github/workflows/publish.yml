@@ -5,8 +5,7 @@ on:
   # Frontier: re-enabled autopublish bawk
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  group: publish
 
 jobs:
   build:
