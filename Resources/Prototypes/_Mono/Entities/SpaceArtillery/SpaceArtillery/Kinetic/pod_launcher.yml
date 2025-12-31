@@ -13,6 +13,8 @@
     - state: space_artillery
   - type: Appearance
   - type: AmmoCounter
+  - type: FireControlRotate
+  - type: GunSignalControl
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
@@ -215,7 +217,7 @@
   - type: RadarBlip
     shape: square
     requireNoGrid: true
-    color: #0084ff
+    color: #0080ff
     scale: 3
 
 - type: entity
@@ -294,7 +296,6 @@
     trackDelay: 0.1
 
 - type: entity
-  parent: BasePod
   id: HellPod
   name: hellpod
   suffix: Admeme
@@ -376,7 +377,7 @@
   - type: RadarBlip
     shape: square
     requireNoGrid: true
-    color: #eb4034
+    color: #fcba03
     scale: 3
   - type: MultiHandedItem
   - type: DragDropTargetable
