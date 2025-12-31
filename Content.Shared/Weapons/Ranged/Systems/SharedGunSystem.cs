@@ -432,6 +432,7 @@ public abstract partial class SharedGunSystem : EntitySystem
                 gun.Target = null;
             gun.BurstActivated = false;
             gun.BurstShotsCount = 0;
+            gun.ShotCounter = 0;
             gun.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.NextFire.TotalSeconds));
             return;
         }
@@ -463,6 +464,7 @@ public abstract partial class SharedGunSystem : EntitySystem
                 gun.Target = null;
             gun.BurstActivated = false;
             gun.BurstShotsCount = 0;
+            gun.ShotCounter = 0;
             gun.NextFire += TimeSpan.FromSeconds(gun.BurstCooldown);
 
             // Play empty gun sounds if relevant
@@ -499,6 +501,7 @@ public abstract partial class SharedGunSystem : EntitySystem
                     gun.Target = null;
                 gun.BurstActivated = false;
                 gun.BurstShotsCount = 0;
+                gun.ShotCounter = 0;
             }
         }
 
