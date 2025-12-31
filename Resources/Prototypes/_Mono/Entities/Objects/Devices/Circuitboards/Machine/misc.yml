@@ -40,3 +40,25 @@
     stackRequirements:
       Glass: 5
       Cable: 1
+
+# Zephyr Mass Driver
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ZephyrCircuitBoard
+  name: zephyr mass driver circuit board
+  description: A machine printed circuit board for a zephyr mass driver cannon.
+  components:
+  - type: MachineBoard
+    prototype: WeaponTurretZephyrDriver
+    requirements:
+      Capacitor: 12
+    stackRequirements:
+      Steel: 20
+      Plasteel: 30
+      Gold: 20
+      Silver: 20
+      Uranium: 50
+      Cable: 50
+      CableMV: 50
+      CableHV: 50

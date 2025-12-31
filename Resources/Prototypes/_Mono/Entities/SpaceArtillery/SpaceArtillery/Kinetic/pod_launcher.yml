@@ -2,7 +2,6 @@
   id: WeaponTurretZephyrDriver
   name: TPC Zephyr Mass Driver delivery system
   parent: BallisticArtilleryCartridge
-  suffix: No Rotate
   description: A Zephyr mass driver, used to launch specialized pods that carry both people and supplies, capable of firing specialized pods many kilometers across space.
   components:
   - type: StaticPrice
@@ -70,19 +69,6 @@
   - type: ShipGunClass
     shipClass: Heavy
   - type: DragDropTargetable
-
-# Flatpack
-
-- type: entity
-  parent: BaseFlatpack
-  id: ZephyrFlatpack
-  name: Zephyr flatpack
-  description: A flatpack used for constructing a Zephyr mass driver delivery system.
-  components:
-  - type: Flatpack
-    entity: WeaponTurretZephyrDriver
-  - type: StaticPrice
-    price: 50000
 
 # BoardingPods
 
@@ -168,7 +154,7 @@
   - type: RadarBlip
     shape: square
     requireNoGrid: true
-    radarColor: #eb4034
+    radarColor: "#eb4034"
     scale: 3
   - type: Weldable
   - type: ResistLocker
@@ -217,7 +203,7 @@
   - type: RadarBlip
     shape: square
     requireNoGrid: true
-    radarColor: #0080ff
+    radarColor: "#0080ff"
     scale: 3
 
 - type: entity
@@ -296,6 +282,7 @@
     trackDelay: 0.1
 
 - type: entity
+  parent: BasePod
   id: HellPod
   name: hellpod
   suffix: Admeme
@@ -311,36 +298,6 @@
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
-  - type: Item
-    size: Ginormous
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: !type:PhysShapeCircle
-          radius: 0.2
-        density: 5
-        mask:
-        - ItemMask
-        restitution: 0.3
-        friction: 0.2
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
-        hard: false
-        mask:
-        - Impassable
-        - BulletImpassable
-  - type: EmbeddableProjectile
-    sound: /Audio/Weapons/star_hit.ogg
-    embedOnThrow: false
-  - type: ThrowingAngle
-    angle: 0
-  - type: Ammo
-    muzzleFlash: null
-  - type: Tag
-    tags:
-    - BoardingPod
   - type: Projectile
     deleteOnCollide: false
     onlyCollideWhenShot: true
@@ -357,27 +314,17 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 5000
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateDoorOpen: open
-    stateDoorClosed: closed
-  - type: ContainerContainer
-    containers:
-      entity_storage: !type:Container
-  - type: ItemSlots
-  - type: ExplosionResistance
-    damageCoefficient: 0.75
   - type: RadarBlip
     shape: square
     requireNoGrid: true
-    radarColor: #fcba03
+    radarColor: "#fcba03"
     scale: 3
   - type: MultiHandedItem
   - type: DragDropTargetable

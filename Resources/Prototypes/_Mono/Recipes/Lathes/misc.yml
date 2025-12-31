@@ -39,21 +39,9 @@
 # Pods + Driver
 
 - type: latheRecipe
-  parent: BaseToolRecipe
-  id: ZephyrFlatpack
-  result: ZephyrFlatpack
-  categories:
-  - Tools
-  completetime: 30
-  materials:
-    Steel: 3000
-    Glass: 3000
-    Plasteel: 2000
-    Plastic: 1500
-    Uranium: 5000
-    Plasma: 5000
-    Gold: 1000
-    Silver: 1000
+  parent: BaseGoldCircuitboardRecipe
+  id: ZephyrCircuitBoard
+  result: ZephyrCircuitBoard
 
 - type: latheRecipe
   parent: BaseToolRecipe
