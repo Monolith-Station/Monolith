@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/05/2025 23:37:37
-  entityCount: 1411
+  time: 01/01/2026 05:47:30
+  entityCount: 1423
 maps: []
 grids:
 - 1
@@ -794,7 +794,7 @@ entities:
       pos: -0.5,-5.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -7842.2725
+      secondsUntilStateChange: -8314.705
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -980,11 +980,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,12.5
       parent: 1
-  - uid: 203
-    components:
-    - type: Transform
-      pos: 0.5,17.5
-      parent: 1
   - uid: 346
     components:
     - type: Transform
@@ -1012,6 +1007,35 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,1.5
+      parent: 1
+  - uid: 1412
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,15.5
+      parent: 1
+  - uid: 1413
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,15.5
+      parent: 1
+- proto: AtmosDeviceFanDirectional
+  entities:
+  - uid: 1160
+    components:
+    - type: Transform
+      pos: 1.5,-8.5
+      parent: 1
+  - uid: 1414
+    components:
+    - type: Transform
+      pos: 0.5,-8.5
+      parent: 1
+  - uid: 1415
+    components:
+    - type: Transform
+      pos: -0.5,-8.5
       parent: 1
 - proto: AtmosFixBlockerMarker
   entities:
@@ -2287,6 +2311,11 @@ entities:
     - type: Transform
       pos: -8.5,15.5
       parent: 1
+  - uid: 203
+    components:
+    - type: Transform
+      pos: -4.5,15.5
+      parent: 1
   - uid: 207
     components:
     - type: Transform
@@ -2446,6 +2475,11 @@ entities:
     components:
     - type: Transform
       pos: -1.5,8.5
+      parent: 1
+  - uid: 336
+    components:
+    - type: Transform
+      pos: 5.5,15.5
       parent: 1
   - uid: 340
     components:
@@ -2671,11 +2705,6 @@ entities:
     components:
     - type: Transform
       pos: 4.5,16.5
-      parent: 1
-  - uid: 457
-    components:
-    - type: Transform
-      pos: 0.5,17.5
       parent: 1
   - uid: 458
     components:
@@ -3341,6 +3370,11 @@ entities:
     - type: Transform
       pos: -7.5,13.5
       parent: 1
+  - uid: 457
+    components:
+    - type: Transform
+      pos: 4.5,14.5
+      parent: 1
   - uid: 486
     components:
     - type: Transform
@@ -3531,15 +3565,50 @@ entities:
     - type: Transform
       pos: 1.5,14.5
       parent: 1
-  - uid: 1160
-    components:
-    - type: Transform
-      pos: 0.5,17.5
-      parent: 1
   - uid: 1372
     components:
     - type: Transform
       pos: 1.5,9.5
+      parent: 1
+  - uid: 1416
+    components:
+    - type: Transform
+      pos: 5.5,14.5
+      parent: 1
+  - uid: 1417
+    components:
+    - type: Transform
+      pos: 5.5,15.5
+      parent: 1
+  - uid: 1418
+    components:
+    - type: Transform
+      pos: -4.5,15.5
+      parent: 1
+  - uid: 1419
+    components:
+    - type: Transform
+      pos: -4.5,14.5
+      parent: 1
+  - uid: 1420
+    components:
+    - type: Transform
+      pos: -3.5,14.5
+      parent: 1
+  - uid: 1421
+    components:
+    - type: Transform
+      pos: -2.5,14.5
+      parent: 1
+  - uid: 1422
+    components:
+    - type: Transform
+      pos: -1.5,14.5
+      parent: 1
+  - uid: 1423
+    components:
+    - type: Transform
+      pos: -0.5,14.5
       parent: 1
 - proto: CableTerminal
   entities:
@@ -6312,12 +6381,6 @@ entities:
       parent: 1
 - proto: PoweredStrobeRedEnabled
   entities:
-  - uid: 336
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -5.5,19.5
-      parent: 1
   - uid: 337
     components:
     - type: Transform

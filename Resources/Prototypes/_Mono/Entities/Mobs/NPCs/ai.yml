@@ -56,6 +56,15 @@
       task: RammerShuttleSmartCompound
 
 - type: entity
+  id: NpcStationAiRammerStraight
+  parent: NpcStationAiRammer
+  suffix: AI, No Evasion
+  components:
+  - type: HTN
+    rootTask:
+      task: RammerShuttleStraightCompound
+
+- type: entity
   id: NpcStationAiAttacker
   name: attacker core
   parent: NpcStationAiRammer
@@ -91,6 +100,15 @@
   - type: ConditionalSpawner
     prototypes:
       - NpcStationAiRammerSmart
+
+- type: entity
+  name: no-evade rammer core spawner
+  id: SpawnMobRammerCoreStraight
+  parent: SpawnMobRammerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+      - NpcStationAiRammerStraight
 
 - type: entity
   name: approacher core spawner

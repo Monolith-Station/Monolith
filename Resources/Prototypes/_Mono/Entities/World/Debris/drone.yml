@@ -5,6 +5,7 @@
   - type: RandomSpawner
     prototypes:
       - SpawnDroneWasp
+      - SpawnDroneMedusa
       - SpawnDroneBasicSmall
       - SpawnDroneBasicMedium
 
@@ -59,6 +60,13 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/wasp.yml
+
+- type: entity
+  id: SpawnDroneMedusa
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/medusa.yml
 
 - type: entity
   id: SpawnDroneBasicSmall
