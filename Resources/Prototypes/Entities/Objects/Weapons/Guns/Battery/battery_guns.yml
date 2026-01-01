@@ -275,7 +275,7 @@
   - type: StaticPrice
     price: 500
   - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser #Mono
+    proto: RedMediumLaser #Mono: RedLaser >> RedMediumLaser
     fireCost: 62.5
   - type: PirateBountyItem # Mono
     id: StandardFactionLongarm
