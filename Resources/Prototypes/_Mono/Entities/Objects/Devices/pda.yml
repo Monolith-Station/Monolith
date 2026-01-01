@@ -302,6 +302,11 @@
   - type: CartridgeLoader
     preinstalled:
     - LedgerCartridge
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - BountyContractsCartridge
+    - AstroNavCartridge
   - type: PdaBorderColor
     borderColor: "#533980"
 

@@ -7,8 +7,8 @@
   - type: Computer
     board: AdvancedRadarConsoleCircuitboard
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 1.2 # up from 1
-    visualMultiplier: 6 # up from 4
+    infraredMultiplier: 1.2
+    visualMultiplier: 1.5
   - type: RadarConsole
     maxRange: 1536
     maxIffRange: null # Frontier

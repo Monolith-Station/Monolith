@@ -1,34 +1,31 @@
-# Ship by Starch
-# Minor edits by Redrover
-
 - type: vessel
-  id: Legionnaire
+  id: Shiv
   parent: BaseVesselAntag
-  name: TSF-SKR Legionnaire
-  description: A light ship equipped with EMP weaponry and 4 frontal autopulsers.
-  price: 77500
+  name: TSF-PIN Shiv
+  description: The workhorse of industry of the Solarian fleets, comes with an artifact research bay and good mining capabilities.
+  price: 60000
   category: Small
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/legionnaire.yml
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/shiv.yml
   guidebookPage: Null
   class:
-  - Patrol
-  - Pursuit
+  - Salvage
+  - Science
   engine:
-  - Uranium
+  - Plasma
 
 - type: gameMap
-  id: Legionnaire
-  mapName: 'Legionnaire'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/legionnaire.yml
+  id: Shiv
+  mapName: 'Shiv'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/shiv.yml
   minPlayers: 0
   stations:
-    Legionnaire:
+    Shiv:
       stationProto: StandardFrontierSecurityVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Legionnaire TSF{1}'
+        mapNameTemplate: 'Shiv TSF{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
