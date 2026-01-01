@@ -1,0 +1,35 @@
+#ship by Eldritch_Pineapple
+- type: vessel
+  id: Hoplite
+  parent: BaseVesselAntag
+  name: TSF-PIN Hoplite
+  description: A patrol craft meant to intercept smugglers and light enemy craft with powerful engines and EMPs. It is equipped with 2 RUBICON, two plasma pulsers and two MARAUDER plasma cannons
+  price: 78500
+  category: Small
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/hoplite.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Pursuit
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Hoplite
+  mapName: 'Hoplite'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/hoplite.yml
+  minPlayers: 0
+  stations:
+    Hoplite:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Hoplite TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
