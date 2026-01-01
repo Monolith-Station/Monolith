@@ -423,7 +423,7 @@
 
 - type: entity
   name: Cyborg pulse rifle
-  parent: [BaseWeaponBattery, BaseC2ContrabandUnredeemable]
+  parent: [BaseWeaponBattery, BaseFactionGearPDVT3]
   id: WeaponBorgPulseRifle
   description: A weapon that used to be used by the special operations units of NT, but mounted onto a silicon. # Mono
   components:
