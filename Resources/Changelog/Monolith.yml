@@ -15187,3 +15187,279 @@ Entries:
   id: 1684
   time: '2025-12-25T23:14:15.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2868
+- author: Helicaste
+  changes:
+    - type: Tweak
+      message: Plant Analyzer advanced scan is much faster.
+    - type: Tweak
+      message: Plant Analyzers added to botanical belts by default.
+  id: 1685
+  time: '2025-12-27T17:20:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2863
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Significantly increased ship detection ranges.
+  id: 1686
+  time: '2025-12-27T21:03:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2871
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: You can now upgrade artifact scan speed with capacitors
+  id: 1687
+  time: '2025-12-27T21:06:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2861
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: Viz's sabre now has an 80% reflect while the power attack is prepped.
+  id: 1688
+  time: '2025-12-27T21:06:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2856
+- author: Helicaste
+  changes:
+    - type: Tweak
+      message: Vaults and Vgroids can now spawn up to 5km out.
+    - type: Tweak
+      message: Vaults no longer require a Colonel to spawn.
+    - type: Tweak
+      message: >-
+        Bluespace crates occur more frequently. By extension there will be fewer
+        solar flares. 
+    - type: Tweak
+      message: >-
+        Increased the number of smuggling hints sent out to ships. Happy
+        hunting.
+  id: 1689
+  time: '2025-12-27T21:08:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2848
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: You can walk through hydroponics trays now!
+  id: 1690
+  time: '2025-12-27T21:09:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2844
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: Hydrakin
+  id: 1691
+  time: '2025-12-27T21:28:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2644
+- author: Wuffindy
+  changes:
+    - type: Tweak
+      message: Hotplates should be anchorable on table now
+  id: 1692
+  time: '2025-12-27T21:37:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2846
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        90mm is now actually stronger than 57mm. AK570 and DRAVON swapped their
+        ammo types. Longbow burst 20 -> 15.
+  id: 1693
+  time: '2025-12-27T21:39:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2839
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Hardsuits and armor doesn't come with durathread plate now.
+  id: 1694
+  time: '2025-12-28T03:36:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2876
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: '"Hide+farify Faction Bases" has been reverted.'
+  id: 1695
+  time: '2025-12-28T03:43:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2822
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Hydrakin now spawn with shoes and survival kits
+    - type: Fix
+      message: Diona now can spawn with shoes
+  id: 1696
+  time: '2025-12-28T03:44:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2878
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Minor hydrakin tweakening
+    - type: Fix
+      message: Thermal body regulation actually works properly again.
+    - type: Fix
+      message: Hydrakin are actually effected by hydrakin specific chemicals now
+  id: 1697
+  time: '2025-12-28T06:52:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2882
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: Baeg front windows reattached to the structure
+  id: 1698
+  time: '2025-12-29T00:24:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2891
+- author: Helicaste
+  changes:
+    - type: Fix
+      message: 'Fixed 14.5mm Big Ammo Boxes not being printable. '
+    - type: Fix
+      message: >-
+        Added Power Cages and Smart Guns to Mercfabs and Military Multi-Purpose
+        Assemblers.
+  id: 1699
+  time: '2025-12-29T00:25:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2880
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Pet carriers now have no whitelist.
+  id: 1700
+  time: '2025-12-29T13:08:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2896
+- author: Helicaste
+  changes:
+    - type: Fix
+      message: >-
+        PDV headsets now have the default encryption key capacity of 10. Like
+        every other headset.
+  id: 1701
+  time: '2025-12-30T10:07:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2894
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Colonial Lianson is now Overseer, acting as Head Of Security on Colossus
+        Sector.
+    - type: Tweak
+      message: >-
+        Emergency Responders now actually get firearms and sidearms for their
+        duties
+  id: 1702
+  time: '2025-12-30T11:01:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2897
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Added (all currently unused) ship AI gun usage behavior and drone RTS
+        control console.
+  id: 1703
+  time: '2025-12-30T13:36:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2870
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Markup costs from the market console are now much less ridiculous (6x >>
+        2x)
+    - type: Tweak
+      message: Point disk sell price standardized to 20% of its point value
+    - type: Tweak
+      message: Medical vendor prices standardized to 3x their appraisal price
+    - type: Tweak
+      message: >-
+        Topicals and point disks now appear in market console listings when you
+        pawn them
+  id: 1704
+  time: '2025-12-30T13:39:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2869
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Various Hydrakin fixes
+  id: 1705
+  time: '2025-12-30T13:41:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2893
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added tilted plating tile variants for mapping.
+  id: 1706
+  time: '2025-12-30T13:49:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2874
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Only Colonial Liason can delete public bounties now
+  id: 1707
+  time: '2025-12-30T16:57:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2881
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Kammerer and Big Johnny 30% spread reduction. Double-Barrel 60% spread
+        reduction. All credit to SpeltIncorrectyl for the spread reduction
+        system ported
+  id: 1708
+  time: '2025-12-30T18:00:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2895
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed advanced radar console having 4x visual detection than intended.
+  id: 1709
+  time: '2025-12-30T19:00:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2902
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed Cyrexa and AK570 only firing one burst then ceasing to work.
+  id: 1710
+  time: '2025-12-31T07:29:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2910
+- author: EldritchPineapple
+  changes:
+    - type: Add
+      message: >-
+        Added the Hoplite, a sort of replacement to the Legionnaire, filling its
+        own niche
+    - type: Remove
+      message: Legionnaire and Legionnaire TOV, godspeed shippies o7
+  id: 1711
+  time: '2026-01-01T01:44:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2752
+- author: EldritchPineapple
+  changes:
+    - type: Add
+      message: >-
+        Added the Shiv, a new ship inspired bu the late Splinter to tsf
+        shipyards
+    - type: Remove
+      message: Removed the Splinter, good service, soldier o7
+  id: 1712
+  time: '2026-01-01T02:24:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2774
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: >-
+        Partially revamped the halcyon to be a little bit better (bash me with
+        rocks if it isn't please)
+    - type: Fix
+      message: Fixed a singular dispo pipe missing
+  id: 1713
+  time: '2026-01-01T04:49:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2831
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added a new type of rammer drone to the outer reaches.
+  id: 1714
+  time: '2026-01-01T05:18:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2865
+- author: Arcticular1
+  changes:
+    - type: Fix
+      message: Fixed the Andromeda's power issues and spacing issue.
+  id: 1715
+  time: '2026-01-01T06:33:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2917

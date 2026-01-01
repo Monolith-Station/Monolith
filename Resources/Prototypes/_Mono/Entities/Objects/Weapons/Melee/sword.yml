@@ -295,7 +295,10 @@
     - Belt
     - suitStorage
   - type: Reflect
-    reflectProb: 0.50
+    reflectProb: 0.8
+    reflects:
+    - Energy
+    - NonEnergy
   - type: DisarmMalus
     malus: 0.9
   - type: StaticPrice

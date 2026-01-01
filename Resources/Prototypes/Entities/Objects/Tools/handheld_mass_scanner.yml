@@ -19,8 +19,8 @@
     followEntity: true
   # Mono
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 0.5 # from 1
-    visualMultiplier: 3 # from 4
+    infraredMultiplier: 0.5
+    visualMultiplier: 0.75
   - type: Appearance
   - type: GenericVisualizer
     visuals:
