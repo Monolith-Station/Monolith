@@ -65,6 +65,15 @@
       task: RammerShuttleSmartDodgingCompound
 
 - type: entity
+  id: NpcStationAiRammerStraight
+  parent: NpcStationAiRammer
+  suffix: AI, No Evasion
+  components:
+  - type: HTN
+    rootTask:
+      task: RammerShuttleStraightCompound
+
+- type: entity
   id: NpcStationAiAttacker
   name: attacker core
   parent: NpcStationAiRammer
@@ -101,7 +110,7 @@
     - state: ai
   - type: ConditionalSpawner
     prototypes:
-      - NpcStationAiRammer
+    - NpcStationAiRammer
 
 - type: entity
   name: smart rammer core spawner
@@ -110,16 +119,23 @@
   components:
   - type: ConditionalSpawner
     prototypes:
-      - NpcStationAiRammerSmart
+    - NpcStationAiRammerSmart
 
 - type: entity
   name: smart dodging rammer core spawner
   id: SpawnMobRammerCoreSmartDodging
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiRammerSmartDodging
+
+- type: entity
+  name: no-evade rammer core spawner
+  id: SpawnMobRammerCoreStraight
   parent: SpawnMobRammerCore
   components:
   - type: ConditionalSpawner
     prototypes:
-      - NpcStationAiRammerSmartDodging
+    - NpcStationAiRammerStraight
 
 - type: entity
   name: approacher core spawner
@@ -128,7 +144,7 @@
   components:
   - type: ConditionalSpawner
     prototypes:
-      - NpcStationAiApproacher
+    - NpcStationAiApproacher
 
 - type: entity
   name: attacker core spawner
@@ -137,7 +153,7 @@
   components:
   - type: ConditionalSpawner
     prototypes:
-      - NpcStationAiAttacker
+    - NpcStationAiAttacker
 
 - type: entity
   name: smart attacker core spawner
@@ -146,4 +162,4 @@
   components:
   - type: ConditionalSpawner
     prototypes:
-      - NpcStationAiAttackerSmart
+    - NpcStationAiAttackerSmart
