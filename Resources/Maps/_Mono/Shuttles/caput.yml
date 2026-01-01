@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/31/2025 12:12:39
+  time: 01/01/2026 12:57:00
   entityCount: 219
 maps: []
 grids:
@@ -1041,9 +1041,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 1.5,1.5
       parent: 662
-- proto: GunneryServerMedium
+- proto: GunneryServerLow
   entities:
-  - uid: 737
+  - uid: 40
     components:
     - type: Transform
       pos: 8.5,6.5
@@ -1051,7 +1051,7 @@ entities:
     - type: Battery
       startingCharge: 0
     - type: ApcPowerReceiver
-      powerLoad: 10
+      powerLoad: 5
 - proto: Gyroscope
   entities:
   - uid: 788
@@ -1571,31 +1571,31 @@ entities:
     - type: Transform
       pos: 5.5,5.5
       parent: 662
-- proto: WeaponLaserTurretL1Phalanx
+- proto: WeaponTurretAK570
   entities:
-  - uid: 663
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.5,11.5
-      parent: 662
-  - uid: 664
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5,8.5
-      parent: 662
-  - uid: 665
+  - uid: 41
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 9.5,8.5
       parent: 662
-  - uid: 666
+  - uid: 42
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 10.5,11.5
+      parent: 662
+  - uid: 43
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,8.5
+      parent: 662
+  - uid: 44
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,11.5
       parent: 662
 - proto: WeaponTurretL85Autocannon
   entities:
