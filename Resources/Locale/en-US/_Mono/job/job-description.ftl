@@ -13,4 +13,4 @@ job-description-tsf-engineer = Maintain the integrity of the flagship, get laugh
 job-description-tsf-borg = Half-human, Half-machine. Follow your laws, serve the TSF, and beg engineers for upgrades.
 
 # MARK: PDV
-job-description-pdv-borg = Half-human, Half-machine. Follow your laws, serve the TSF, and beg the dynast troops for upgrades.
+job-description-pdv-borg = Half-human, Half-machine. Follow your laws, serve the PDV, and beg dynasty troops for upgrades.
