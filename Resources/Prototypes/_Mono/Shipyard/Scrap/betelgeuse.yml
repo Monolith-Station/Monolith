@@ -4,31 +4,31 @@
 
 # Shuttle Notes:
 - type: vessel
-  id: Noble
+  id: Betelgeuse
   parent: BaseVessel
-  name: SKR Noble
-  description: A salvage vessel outfitted with both a scrap and ore processor, plus 4 mining pulsers. Outside of that, its quite lacking, outside of a highly efficient pinch-fusion generator.
-  price: 52100
-  category: Medium
-  group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/noble.yml
+  name: Betelgeuse
+  description: Cramped salvage vessel that is ran on hopes and dreams, but includes one of the most powerful mining-grade shipguns in this sector.
+  price: 43500
+  category: Small
+  group: Scrap
+  shuttlePath: /Maps/_Mono/Shuttles/betelgeuse.yml
   guidebookPage: Null
   class:
   - Salvage
   engine:
-  - Plasma # Pinch fusion gen kind, not the pacman kind.
+  - Plasma
 
 - type: gameMap
-  id: Noble
-  mapName: 'SKR Noble'
-  mapPath: /Maps/_Mono/Shuttles/noble.yml
+  id: Betelgeuse
+  mapName: 'Betelgeuse'
+  mapPath: /Maps/_Mono/Shuttles/betelgeuse.yml
   minPlayers: 0
   stations:
-    Noble:
+    Betelgeuse:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Noble CIV{1}'
+          mapNameTemplate: 'Betelgeuse CIV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
