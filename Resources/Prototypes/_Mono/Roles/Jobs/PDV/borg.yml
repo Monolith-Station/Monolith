@@ -6,9 +6,9 @@
   setPreference: true
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 43200 # 12 hrs # Frontier: 40<12 hrs
+      time: 43200
   canBeAntag: false
   icon: JobIconBorg
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-hire
   jobEntity: PlayerBorgPDV
   applyTraits: false
