@@ -124,6 +124,8 @@
 - type: entity
   name: smart dodging rammer core spawner
   id: SpawnMobRammerCoreSmartDodging
+  parent: SpawnMobRammerCore
+  components:
   - type: ConditionalSpawner
     prototypes:
     - NpcStationAiRammerSmartDodging
