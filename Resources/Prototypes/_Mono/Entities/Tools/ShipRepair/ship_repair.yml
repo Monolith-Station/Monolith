@@ -1,0 +1,17 @@
+- type: entity
+  id: ShipRepairTool
+  parent: BaseItem
+  name: ship repair tool
+  description: Repairs ships.
+  components:
+  - type: ShipRepairTool
+  - type: Sprite
+    sprite: _NF/Objects/Tools/rcd.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: _NF/Objects/Tools/rcd.rsi
+    quickEquip: false
+    slots:
+    - Belt
