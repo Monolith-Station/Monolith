@@ -1,29 +1,11 @@
-# SPDX-FileCopyrightText: 2021 Moony
-# SPDX-FileCopyrightText: 2021 Paul Ritter
-# SPDX-FileCopyrightText: 2021 wrexbe
-# SPDX-FileCopyrightText: 2022 20kdc
-# SPDX-FileCopyrightText: 2023 Leon Friedrich
-# SPDX-FileCopyrightText: 2023 TsjipTsjip
-# SPDX-FileCopyrightText: 2023 deltanedas
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2024 Emisse
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 QueerNB
-# SPDX-FileCopyrightText: 2024 metalgearsloth
-# SPDX-FileCopyrightText: 2025 NazrinNya
-#
-# SPDX-License-Identifier: MPL-2.0
-
 meta:
   format: 7
   category: Grid
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/25/2025 08:21:21
-  entityCount: 64
+  time: 01/01/2026 12:34:09
+  entityCount: 57
 maps: []
 grids:
 - 569
@@ -155,32 +137,37 @@ entities:
       parent: 569
 - proto: APCBasic
   entities:
-  - uid: 1309
+  - uid: 18
     components:
     - type: Transform
-      pos: -0.5,4.5
+      pos: -1.5,2.5
       parent: 569
 - proto: CableApcExtension
   entities:
-  - uid: 610
-    components:
-    - type: Transform
-      pos: -0.5,2.5
-      parent: 569
-  - uid: 611
-    components:
-    - type: Transform
-      pos: 0.5,2.5
-      parent: 569
-  - uid: 612
+  - uid: 8
     components:
     - type: Transform
       pos: -0.5,3.5
       parent: 569
-  - uid: 613
+  - uid: 9
     components:
     - type: Transform
       pos: -0.5,4.5
+      parent: 569
+  - uid: 10
+    components:
+    - type: Transform
+      pos: -1.5,2.5
+      parent: 569
+  - uid: 19
+    components:
+    - type: Transform
+      pos: -0.5,0.5
+      parent: 569
+  - uid: 610
+    components:
+    - type: Transform
+      pos: -0.5,2.5
       parent: 569
   - uid: 614
     components:
@@ -189,69 +176,64 @@ entities:
       parent: 569
 - proto: CableHV
   entities:
-  - uid: 602
+  - uid: 3
     components:
     - type: Transform
-      pos: 0.5,3.5
+      pos: -0.5,2.5
       parent: 569
-  - uid: 603
+  - uid: 4
     components:
     - type: Transform
       pos: 0.5,2.5
+      parent: 569
+  - uid: 11
+    components:
+    - type: Transform
+      pos: 0.5,1.5
       parent: 569
   - uid: 604
     components:
     - type: Transform
       pos: -0.5,2.5
       parent: 569
-  - uid: 605
+- proto: CableMV
+  entities:
+  - uid: 2
+    components:
+    - type: Transform
+      pos: 0.5,1.5
+      parent: 569
+  - uid: 5
+    components:
+    - type: Transform
+      pos: -0.5,2.5
+      parent: 569
+  - uid: 6
     components:
     - type: Transform
       pos: -1.5,2.5
       parent: 569
-  - uid: 606
+  - uid: 17
     components:
     - type: Transform
-      pos: -1.5,3.5
-      parent: 569
-- proto: CableMV
-  entities:
-  - uid: 607
-    components:
-    - type: Transform
-      pos: -1.5,3.5
-      parent: 569
-  - uid: 1310
-    components:
-    - type: Transform
-      pos: -0.5,3.5
-      parent: 569
-  - uid: 1311
-    components:
-    - type: Transform
-      pos: -0.5,4.5
+      pos: 0.5,2.5
       parent: 569
 - proto: Catwalk
   entities:
-  - uid: 615
+  - uid: 21
+    components:
+    - type: Transform
+      pos: -0.5,0.5
+      parent: 569
+  - uid: 25
     components:
     - type: Transform
       pos: -0.5,1.5
-      parent: 569
-  - uid: 616
-    components:
-    - type: Transform
-      pos: -0.5,2.5
       parent: 569
   - uid: 617
     components:
     - type: Transform
       pos: 0.5,2.5
-      parent: 569
-  - uid: 618
-    components:
-    - type: Transform
-      pos: 0.5,1.5
       parent: 569
   - uid: 619
     components:
@@ -268,37 +250,13 @@ entities:
     - type: Transform
       pos: -1.5,1.5
       parent: 569
-- proto: ChairPilotSeat
+- proto: DarkCatwalkMono
   entities:
-  - uid: 597
+  - uid: 24
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,1.5
+      pos: -0.5,3.5
       parent: 569
-- proto: ComputerGunneryConsole
-  entities:
-  - uid: 598
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,1.5
-      parent: 569
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-- proto: ComputerShuttle
-  entities:
-  - uid: 592
-    components:
-    - type: Transform
-      pos: -0.5,2.5
-      parent: 569
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
 - proto: DebugThrusterSecurity
   entities:
   - uid: 574
@@ -324,24 +282,22 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,0.5
       parent: 569
+- proto: DroneController
+  entities:
+  - uid: 1
+    components:
+    - type: Transform
+      pos: -0.5,1.5
+      parent: 569
+    missingComponents:
+    - Anchorable
 - proto: GeneratorWallmountAPU
   entities:
-  - uid: 601
+  - uid: 14
     components:
     - type: Transform
-      pos: 0.5,3.5
+      pos: -0.5,2.5
       parent: 569
-- proto: GunneryServerLow
-  entities:
-  - uid: 1304
-    components:
-    - type: Transform
-      pos: -0.5,3.5
-      parent: 569
-    - type: Battery
-      startingCharge: 0
-    - type: ApcPowerReceiver
-      powerLoad: 5
 - proto: PoweredlightBlue
   entities:
   - uid: 623
@@ -350,35 +306,44 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,4.5
       parent: 569
-- proto: PoweredWarmSmallLight
-  entities:
-  - uid: 593
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,2.5
-      parent: 569
 - proto: SmallGyroscopeSecurity
   entities:
-  - uid: 1305
+  - uid: 13
     components:
     - type: Transform
-      pos: -1.5,2.5
+      pos: -0.5,3.5
       parent: 569
 - proto: SubstationWallBasic
   entities:
-  - uid: 599
+  - uid: 26
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,1.5
+      parent: 569
+- proto: WallPlastitanium
+  entities:
+  - uid: 7
     components:
     - type: Transform
       pos: -1.5,3.5
       parent: 569
-- proto: WallPlastitanium
-  entities:
-  - uid: 571
+  - uid: 12
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,3.5
+      rot: 3.141592653589793 rad
+      pos: -0.5,2.5
+      parent: 569
+  - uid: 15
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,1.5
+      parent: 569
+  - uid: 27
+    components:
+    - type: Transform
+      pos: -1.5,2.5
       parent: 569
   - uid: 572
     components:
@@ -402,10 +367,27 @@ entities:
       parent: 569
 - proto: WindowReinforcedDirectional
   entities:
-  - uid: 570
+  - uid: 16
+    components:
+    - type: Transform
+      pos: -0.5,3.5
+      parent: 569
+  - uid: 20
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,3.5
+      parent: 569
+  - uid: 22
     components:
     - type: Transform
       rot: 3.141592653589793 rad
+      pos: -0.5,3.5
+      parent: 569
+  - uid: 23
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
       pos: -0.5,3.5
       parent: 569
   - uid: 577
@@ -413,12 +395,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 0.5,4.5
-      parent: 569
-  - uid: 580
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,3.5
       parent: 569
   - uid: 582
     components:
@@ -442,17 +418,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.5,1.5
-      parent: 569
-  - uid: 587
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,3.5
-      parent: 569
-  - uid: 590
-    components:
-    - type: Transform
-      pos: -0.5,3.5
       parent: 569
   - uid: 594
     components:
@@ -482,40 +447,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,2.5
       parent: 569
-  - uid: 627
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,1.5
-      parent: 569
-  - uid: 628
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 0.5,1.5
-      parent: 569
-  - uid: 629
-    components:
-    - type: Transform
-      pos: 0.5,1.5
-      parent: 569
-  - uid: 1300
-    components:
-    - type: Transform
-      pos: -1.5,2.5
-      parent: 569
-  - uid: 1301
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,2.5
-      parent: 569
-  - uid: 1302
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.5,2.5
-      parent: 569
   - uid: 1303
     components:
     - type: Transform
@@ -533,11 +464,5 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.5,0.5
-      parent: 569
-  - uid: 1312
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,2.5
       parent: 569
 ...

@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/31/2025 11:20:12
-  entityCount: 1325
+  time: 01/01/2026 12:36:03
+  entityCount: 1326
 maps: []
 grids:
 - 2
@@ -630,7 +630,8 @@ entities:
             1: 61168
           6,3:
             0: 4096
-            1: 3310
+            1: 3182
+            3: 128
           6,4:
             0: 1
             2: 16
@@ -4124,6 +4125,18 @@ entities:
     - type: Transform
       pos: 17.5,3.5
       parent: 2
+- proto: ComputerDroneControl
+  entities:
+  - uid: 455
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,12.5
+      parent: 2
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
 - proto: ComputerGunneryConsole
   entities:
   - uid: 454
@@ -4164,18 +4177,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 30.5,12.5
-      parent: 2
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-- proto: ComputerTabletopPowerMonitoring
-  entities:
-  - uid: 459
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 7.5,12.5
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -6002,6 +6003,40 @@ entities:
     - type: Transform
       pos: 27.5,13.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14923
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 459
+          - 1326
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: LockerWallColorEngineer
   entities:
   - uid: 1097
@@ -6477,6 +6512,15 @@ entities:
     - type: Transform
       pos: 32.5,8.5
       parent: 2
+- proto: RobocopCircuitBoard
+  entities:
+  - uid: 459
+    components:
+    - type: Transform
+      parent: 160
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: ScrapSteel
   entities:
   - uid: 48
@@ -6892,11 +6936,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 11.5,9.5
       parent: 2
-  - uid: 455
-    components:
-    - type: Transform
-      pos: 7.5,12.5
-      parent: 2
   - uid: 456
     components:
     - type: Transform
@@ -6992,6 +7031,15 @@ entities:
       rot: 3.141592653589793 rad
       pos: 28.5,5.5
       parent: 2
+- proto: VesselCircuitBoard
+  entities:
+  - uid: 1326
+    components:
+    - type: Transform
+      parent: 160
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: WallPlastitanium
   entities:
   - uid: 15
