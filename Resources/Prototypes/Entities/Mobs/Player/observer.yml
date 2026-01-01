@@ -80,7 +80,6 @@
       enum.RadarConsoleUiKey.Key:
         toggleAction: ActionObserverShowRadar
   - type: RadarConsole
-    maxRange: 768 #256->768 Mono
     followEntity: true
     hideCoords: true
   - type: ComplexInteraction # Needed to interact with innate radar console

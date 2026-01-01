@@ -89,7 +89,6 @@
       enum.RadarConsoleUiKey.Key:
         toggleAction: ActionAGhostShowRadar
   - type: RadarConsole
-    maxRange: 768
     followEntity: false
   - type: DeviceNetwork
     deviceNetId: Wireless

@@ -242,7 +242,6 @@
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
   - type: RadarConsole
-    maxRange: 1024
     relativePanning: true
   - type: WorldLoader
     radius: 384 # Mono

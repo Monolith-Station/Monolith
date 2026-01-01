@@ -20,8 +20,6 @@
     infraredMultiplier: 1.5
     visualMultiplier: 2
   - type: RadarConsole
-    maxRange: 2048
-    maxIffRange: 2048
   - type: Computer
     board: EliteRadarCircuitboard
   - type: PointLight
@@ -39,7 +37,5 @@
     infraredMultiplier: 2
     visualMultiplier: 4
   - type: RadarConsole
-    maxRange: 3072 # biiig
-    maxIffRange: 3072
   - type: Computer
     board: StationRadarCircuitboard

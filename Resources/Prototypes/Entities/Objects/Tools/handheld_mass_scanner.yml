@@ -15,7 +15,6 @@
         visible: true
         map: [ "enum.PowerDeviceVisualLayers.Powered" ]
   - type: RadarConsole
-    maxRange: 512
     followEntity: true
   # Mono
   - type: DetectionRangeMultiplier

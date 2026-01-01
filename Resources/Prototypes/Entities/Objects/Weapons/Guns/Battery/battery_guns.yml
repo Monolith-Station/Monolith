@@ -262,7 +262,7 @@
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedLaserPractice
-    fireCost: 62.5
+    fireCost: 35 #Mono: 62.5 >> 35
   - type: StaticPrice
     price: 300
 
@@ -275,8 +275,8 @@
   - type: StaticPrice
     price: 500
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
+    proto: RedMediumLaser #Mono: RedLaser >> RedMediumLaser
+    fireCost: 35 #Mono: 62.5 >> 35
   - type: PirateBountyItem # Mono
     id: StandardFactionLongarm
 
