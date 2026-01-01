@@ -139,7 +139,6 @@
 
 - type: htnCompound
   id: ShuttleRamSmartDodgingCompound
-  id: ShuttleRamStraightCompound
   branches:
   - preconditions:
     - !type:KeyExistsPrecondition
