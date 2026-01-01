@@ -35,6 +35,8 @@
     sleepPlayerCheckRangeOverride: 2000
     rootTask:
       task: RammerShuttleCompound
+  - type: StaticPrice
+    price: 20000
 
 - type: entity
   id: NpcStationAiApproacher
