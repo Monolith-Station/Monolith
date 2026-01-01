@@ -24,6 +24,30 @@
     Plastic: 2000
 
 - type: latheRecipe
+  id: WeaponRifleBlowtorch
+  parent: BaseWeaponRecipeLong
+  result: WeaponRifleBlowtorch
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 2500
+    Plastic: 2000
+
+- type: latheRecipe
+  id: WeaponRifleBlowback
+  parent: BaseWeaponRecipeLong
+  result: WeaponRifleBlowback
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3500
+    Plastic: 2500
+
+- type: latheRecipe
   id: WeaponRifleVulcanFCMC
   parent: BaseWeaponRecipeLong
   result: WeaponRifleVulcanFCMC
@@ -138,7 +162,7 @@
     Steel: 2000
     Plasteel: 1000
     Plastic: 500
-    
+
 - type: latheRecipe
   id: WeaponShotgunHelopolis
   parent: BaseWeaponRecipeLong

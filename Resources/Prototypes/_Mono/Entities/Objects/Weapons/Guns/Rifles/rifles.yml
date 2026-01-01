@@ -474,3 +474,154 @@
     price: 750
   - type: PirateBountyItem
     id: StandardFactionLongarm
+
+#Sig Sauer SG553, company rifle usable by mercs
+- type: entity
+  name: HWM-MI-553 "Blowtorch" (5.56x45mm)
+  parent: BaseWeaponRifle
+  id: WeaponRifleBlowtorch
+  description: The Herstal Weapon Manufacture "Blowtorch" model 553 assault rifle in 5.56x45mm. A good civilian quality rifle, does the job, no more no less. Used by milita forces that care about having some decent quality weaponry.
+  components:
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/blowtorch-553_inhands_32x.rsi
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/blowtorch-553_inhands_32x.rsi
+    size: Huge
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/blowtorch-553.rsi # Mono
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: ChamberMagazineAmmoProvider # Mono
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: GunWieldBonus
+    minAngle: -27
+    maxAngle: -40
+  - type: Gun
+    minAngle: 30
+    maxAngle: 46
+    angleIncrease: 76
+    angleDecay: 7
+    cameraRecoilScalar: 0
+    fireRate: 7
+    selectedMode: FullAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg # Mono
+      params:
+        pitch: 2
+        variaton: 0.1
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine556x45mmFMJ # Mono
+        insertSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagIn/m16_magin.ogg # Mono
+        ejectSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagOut/skm_magout.ogg # Mono
+        priority: 2
+        whitelist:
+          tags:
+            - Magazine556x45mmFMJ # Mono
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge556x45mmFMJ # Mono
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge556x45mmFMJ # Mono
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice # Mono
+    price: 1500
+
+#Sig Sauer SG550, scopped marksman version, company rifle usable by mercs
+- type: entity
+  name: HWM-MI-550 "Blowback" (5.56x45mm)
+  parent: BaseWeaponRifle
+  id: WeaponRifleBlowback
+  description: The Herstal Weapon Manufacture "Blowback" model 550 marksman rifle in 5.56x45mm. A good civilian quality rifle, does the job, no more no less. Used by milita forces that care about having some decent quality weaponry.
+  components:
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/blowback-553_inhands_32x.rsi
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/blowback-553_inhands_32x.rsi
+    size: Huge
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/blowback-553.rsi # Mono
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: ChamberMagazineAmmoProvider # Mono
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: GunWieldBonus
+    minAngle: -27
+    maxAngle: -40
+  - type: Gun
+    minAngle: 30
+    maxAngle: 50
+    angleIncrease: 80
+    angleDecay: 7
+    cameraRecoilScalar: 0
+    fireRate: 5
+    selectedMode: FullAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg # Mono
+      params:
+        pitch: 2
+        variaton: 0.1
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine556x45mmFMJ # Mono
+        insertSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagIn/m16_magin.ogg # Mono
+        ejectSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagOut/skm_magout.ogg # Mono
+        priority: 2
+        whitelist:
+          tags:
+            - Magazine556x45mmFMJ # Mono
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge556x45mmFMJ # Mono
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge556x45mmFMJ # Mono
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice # Mono
+    price: 1500
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.85
+    sprintModifier: 0.75
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 0.3

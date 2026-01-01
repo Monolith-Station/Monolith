@@ -91,6 +91,13 @@
     back:
     - WeaponRiflePrometheus
 
+- type: loadout # Blowtorch rifle
+  id: MercenaryPrometheusLoadout
+  price: 15000
+  storage:
+    back:
+    - WeaponRifleBlowtorch
+
 - type: loadout #Lecter / Prometheus Ammo
   id: Mercenary556x45mmAmmoLoadout
   price: 1000
