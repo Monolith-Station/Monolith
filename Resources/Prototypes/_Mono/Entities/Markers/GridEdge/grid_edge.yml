@@ -38,8 +38,8 @@
 
 - type: entity
   parent: RadarEdgeMarkerBase
-  id: RadarEdgeMarkerHalftiltUpper
-  name: halftilt radar edge marker
+  id: RadarEdgeMarkerHalftiltLeft
+  name: left halftilt radar edge marker
   components:
   - type: Sprite
     layers:
@@ -51,4 +51,20 @@
   - type: GridEdgeMarker
     begin: 0, 1
     end: 1, 0.5
+
+- type: entity
+  parent: RadarEdgeMarkerBase
+  id: RadarEdgeMarkerHalftiltRight
+  name: right halftilt radar edge marker
+  components:
+  - type: Sprite
+    layers:
+      - state: label
+      - state: edge
+        scale: 1, 1.118033988749895
+        offset: 0.2236067977499789, -0.19721359549995793
+        rotation: 116.5650511770780
+  - type: GridEdgeMarker
+    begin: 0, 0.5
+    end: 1, 1
 
