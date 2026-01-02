@@ -1,9 +1,10 @@
 - type: vessel
   id: Europa
   parent: BaseVesselAntag
-  name: PDV Europa
-  description: A multipurpose corvette, with a focus on broadside firepower and shields.
-  price: 160750
+  name: PDW Europa
+  description: A repurposed interdyne medical frigate, with a focus on broadside firepower and shields.
+  limit: 2
+  price: 210750
   category: Large
   group: BlackMarket
   access: Pirate
@@ -11,7 +12,8 @@
   guidebookPage: Null
   class:
   - Pirate
-  - Corvette
+  - frigate
+  - Capital
   engine:
   - AME
 
