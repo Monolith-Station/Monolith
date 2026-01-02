@@ -169,3 +169,30 @@
   technologyPrerequisites:
   - UniversalMaterialResearchT3
   position: 13, 11
+
+- type: technology
+  id: TSFBasicBorgModule
+  name: research-technology-tsfmc-basic-module
+  entityIcon: BorgModuleSecurity
+  discipline: TsfmcGear
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - BasicBorgCombatModuleTSF
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, -6
+
+- type: technology
+  id: TSFAdvancedBorgModule
+  name: research-technology-tsfmc-advanced-module
+  entityIcon: BorgModuleSecurity
+  discipline: TsfmcGear
+  tier: 3
+  cost: 65000
+  recipeUnlocks:
+  - AdvancedBorgCombatModuleTSF
+  technologyPrerequisites:
+  - UniversalMaterialResearchT3
+  - TSFBasicBorgModule
+  position: 14, 11

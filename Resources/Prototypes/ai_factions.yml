@@ -18,7 +18,7 @@
   - Passive
   - ContrabandDetection
   defaultHostile: true
-  
+
 - type: npcFaction
   id: Mouse
   hostile:
@@ -77,6 +77,10 @@
 
 - type: npcFaction
   id: Wizard
+  defaultHostile: true
+
+- type: npcFaction
+  id: Monolithic
   defaultHostile: true
 
 # Mono edit end.

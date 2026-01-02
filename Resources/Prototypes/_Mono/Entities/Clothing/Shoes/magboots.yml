@@ -45,3 +45,30 @@
     state: icon
   - type: Clothing
     sprite: _Mono/Clothing/Shoes/Boots/magboots-ashen.rsi
+
+- type: entity
+  parent: [ ClothingShoesBootsMagAdv, BaseFactionGearPDVT2, BaseJetpack ]
+  id: ClothingShoesBootsMagPDVAdvanced
+  name: advanced tactical magboots
+  description: Experimental high tech magboots, reverse engineered from the remnants of Pre-fracture technology. These sets are only found in hands of the Dynasty's most valued soldiers.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Shoes/Boots/magboots-ashen.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Mono/Clothing/Shoes/Boots/magboots-ashen.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHeavySuit
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 2 minutes of thrust
+      volume: 0.75
+      temperature: 293.15
+      moles:
+      - 0.153853429 # oxygen
+      - 0.153853429 # nitrogen
+

@@ -10358,6 +10358,13 @@ entities:
     - type: Transform
       pos: 0.5,66.5
       parent: 1
+- proto: BorgCharger
+  entities:
+  - uid: 17610
+    components:
+    - type: Transform
+      pos: -16.5,30.5
+      parent: 1
 - proto: BoxBeaker
   entities:
   - uid: 386
@@ -43175,6 +43182,13 @@ entities:
     components:
     - type: Transform
       pos: -10.5,16.5
+      parent: 1
+- proto: SpawnPointPDVBorg
+  entities:
+  - uid: 17620
+    components:
+    - type: Transform
+      pos: -15.5,28.5
       parent: 1
 - proto: SpawnPointPDVDenasvar
   entities:
