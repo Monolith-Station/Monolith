@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/29/2025 17:02:24
-  entityCount: 10659
+  time: 01/02/2026 14:45:51
+  entityCount: 10658
 maps:
 - 10548
 grids:
@@ -9936,13 +9936,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 38.5,21.5
-      parent: 1
-- proto: AirlockAssembly
-  entities:
-  - uid: 7722
-    components:
-    - type: Transform
-      pos: 8.5,62.5
       parent: 1
 - proto: AirlockAtmosphericsGlass
   entities:
@@ -34832,6 +34825,11 @@ entities:
     - type: Transform
       pos: -31.5,10.5
       parent: 1
+  - uid: 4730
+    components:
+    - type: Transform
+      pos: 33.5,46.5
+      parent: 1
   - uid: 5991
     components:
     - type: Transform
@@ -34862,11 +34860,6 @@ entities:
     - type: Transform
       pos: 1.5,46.5
       parent: 1
-  - uid: 8495
-    components:
-    - type: Transform
-      pos: 33.5,46.5
-      parent: 1
   - uid: 10119
     components:
     - type: Transform
@@ -34890,7 +34883,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -44.5,28.5
       parent: 1
-- proto: DresserHeadOfSecurityFilled
+- proto: DresserStationRepresentativeFilled
   entities:
   - uid: 5875
     components:
@@ -75247,13 +75240,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -29.5,78.5
       parent: 1
-- proto: WindoorSecureArmoryLocked
-  entities:
-  - uid: 4730
-    components:
-    - type: Transform
-      pos: -25.5,64.5
-      parent: 1
 - proto: WindoorSecureCommandLocked
   entities:
   - uid: 4738
@@ -75405,6 +75391,11 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -15.5,79.5
+      parent: 1
+  - uid: 7722
+    components:
+    - type: Transform
+      pos: -25.5,64.5
       parent: 1
 - proto: WindowReinforcedDirectional
   entities:
