@@ -502,11 +502,11 @@
     maxAngle: -40
   - type: Gun
     minAngle: 30
-    maxAngle: 46
-    angleIncrease: 76
+    maxAngle: 49
+    angleIncrease: 2.5
     angleDecay: 7
     cameraRecoilScalar: 0
-    fireRate: 6
+    fireRate: 8
     selectedMode: FullAuto
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg # Mono
@@ -575,7 +575,7 @@
   - type: Gun
     minAngle: 30
     maxAngle: 50
-    angleIncrease: 80
+    angleIncrease: 2.5
     angleDecay: 7
     cameraRecoilScalar: 0
     fireRate: 4
