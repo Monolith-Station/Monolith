@@ -179,7 +179,7 @@
     color: "#FB00FF"
   - type: EmpOnTrigger
     range: 4
-    energyConsumption: 2700000
+    energyConsumption: 3000000
     disableDuration: 10
 
 # DYMERE
@@ -291,8 +291,8 @@
     color: "#FB00FF"
   - type: EmpOnTrigger
     range: 3
-    energyConsumption: 6000000
-    disableDuration: 27.5
+    energyConsumption: 1000000
+    disableDuration: 8
   - type: LightningOnTrigger
     chance: 1
     count: 5
