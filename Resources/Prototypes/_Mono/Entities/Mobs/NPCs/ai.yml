@@ -3,7 +3,7 @@
   name: rammer core
   description: You feel like the fact you're looking at this means this isn't safe.
   suffix: AI
-  parent: BaseStructure
+  parent: [BaseStructure, BaseFactionGearOtherFactionT2]
   components:
   - type: Destructible
     thresholds:
@@ -18,10 +18,10 @@
         acts: [ "Destruction" ]
   - type: InteractionOutline
   - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
+    sprite: _Mono/Mobs/Core/drone.rsi
     layers:
     - state: base
-    - state: ai
+    - state: red_t1
       shader: unshaded
   - type: Appearance
   - type: InteractionPopup
@@ -35,6 +35,8 @@
     sleepPlayerCheckRangeOverride: 2000
     rootTask:
       task: RammerShuttleCompound
+  - type: StaticPrice
+    price: 20000
 
 - type: entity
   id: NpcStationAiApproacher
@@ -42,18 +44,51 @@
   parent: NpcStationAiRammer
   description: Stands there, menacingly.
   components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_t1
+      shader: unshaded
   - type: HTN
     rootTask:
       task: ApproacherShuttleCompound
 
 - type: entity
   id: NpcStationAiRammerSmart
-  parent: NpcStationAiRammer
+  parent: [NpcStationAiRammer, BaseFactionGearOtherFactionT3]
   suffix: AI, Smart
   components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: red_t2
+      shader: unshaded
   - type: HTN
     rootTask:
       task: RammerShuttleSmartCompound
+
+- type: entity
+  id: NpcStationAiRammerSmartDodging
+  parent: [NpcStationAiRammer, BaseFactionGearOtherFactionT3]
+  suffix: AI, Smart, Dodging
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: red_t2
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: RammerShuttleSmartDodgingCompound
+
+- type: entity
+  id: NpcStationAiRammerStraight
+  parent: NpcStationAiRammer
+  suffix: AI, No Evasion
+  components:
+  - type: HTN
+    rootTask:
+      task: RammerShuttleStraightCompound
 
 - type: entity
   id: NpcStationAiAttacker
@@ -61,9 +96,30 @@
   parent: NpcStationAiRammer
   description: Shoots at you.
   components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_t1
+      shader: unshaded
   - type: HTN
     rootTask:
       task: AttackerShuttleCompound
+
+- type: entity
+  id: NpcStationAiAttackerSmart
+  name: attacker core
+  parent: [NpcStationAiRammer, BaseFactionGearOtherFactionT3]
+  description: Shoots at you. Smart.
+  suffix: AI, Smart
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_t2
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: AttackerShuttleSmartCompound
 
 - type: entity
   name: rammer core spawner
@@ -72,40 +128,112 @@
   components:
   - type: Sprite
     layers:
-    - sprite: Mobs/Silicon/station_ai.rsi
+    - sprite: _Mono/Mobs/Core/drone.rsi
       state: base
-    - sprite: Mobs/Silicon/station_ai.rsi
-      state: ai
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: red_t1
       shader: unshaded
     - state: green
     - state: ai
   - type: ConditionalSpawner
     prototypes:
-      - NpcStationAiRammer
+    - NpcStationAiRammer
 
 - type: entity
   name: smart rammer core spawner
   id: SpawnMobRammerCoreSmart
   parent: SpawnMobRammerCore
   components:
+  - type: Sprite
+    layers:
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: base
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: red_t2
+      shader: unshaded
+    - state: green
+    - state: ai
   - type: ConditionalSpawner
     prototypes:
-      - NpcStationAiRammerSmart
+    - NpcStationAiRammerSmart
+
+- type: entity
+  name: smart dodging rammer core spawner
+  id: SpawnMobRammerCoreSmartDodging
+  parent: SpawnMobRammerCore
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: base
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: red_t2
+      shader: unshaded
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiRammerSmartDodging
+
+- type: entity
+  name: no-evade rammer core spawner
+  id: SpawnMobRammerCoreStraight
+  parent: SpawnMobRammerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiRammerStraight
 
 - type: entity
   name: approacher core spawner
   id: SpawnMobApproacherCore
   parent: SpawnMobRammerCore
   components:
+  - type: Sprite
+    layers:
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: base
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: green_t1
+      shader: unshaded
+    - state: green
+    - state: ai
   - type: ConditionalSpawner
     prototypes:
-      - NpcStationAiApproacher
+    - NpcStationAiApproacher
 
 - type: entity
   name: attacker core spawner
+  id: SpawnMobAttackerCore
+  parent: SpawnMobRammerCore
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: base
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: green_t1
+      shader: unshaded
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiAttacker
+
+- type: entity
+  name: smart attacker core spawner
   id: SpawnMobAttackerCoreSmart
   parent: SpawnMobRammerCore
   components:
+  - type: Sprite
+    layers:
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: base
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: green_t2
+      shader: unshaded
+    - state: green
+    - state: ai
   - type: ConditionalSpawner
     prototypes:
-      - NpcStationAiAttacker
+    - NpcStationAiAttackerSmart

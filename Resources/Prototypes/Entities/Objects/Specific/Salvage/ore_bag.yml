@@ -7,6 +7,7 @@
   - type: MagnetPickup
     magnetEnabled: false # Frontier
     magnetCanBeEnabled: false # Frontier
+    range: 1.5 # Mono
   - type: Sprite
     sprite: Objects/Specific/Mining/ore_bag.rsi
     # Frontier: layered sprite
@@ -26,7 +27,7 @@
   - type: Storage
     maxItemSize: Normal
     grid:
-    - 0,0,9,3
+    - 0,0,11,5 # Mono.
     quickInsert: true
     areaInsert: true
     whitelist:

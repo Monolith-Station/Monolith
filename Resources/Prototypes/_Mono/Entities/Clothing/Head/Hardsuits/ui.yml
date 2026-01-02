@@ -46,7 +46,6 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: RadarConsole
-    maxRange: 312
     followEntity: true
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
@@ -157,7 +156,6 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: RadarConsole
-    maxRange: 512
     followEntity: true
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key

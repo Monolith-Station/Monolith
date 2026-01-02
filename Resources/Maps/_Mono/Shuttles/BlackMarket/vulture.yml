@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/03/2025 06:13:10
-  entityCount: 3101
+  time: 12/27/2025 18:43:15
+  entityCount: 3107
 maps: []
 grids:
 - 1
@@ -1012,6 +1012,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -1027,9 +1031,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -6612,6 +6624,36 @@ entities:
     - type: Transform
       pos: 21.5,31.5
       parent: 1
+  - uid: 3102
+    components:
+    - type: Transform
+      pos: 19.5,45.5
+      parent: 1
+  - uid: 3103
+    components:
+    - type: Transform
+      pos: 19.5,46.5
+      parent: 1
+  - uid: 3104
+    components:
+    - type: Transform
+      pos: 19.5,47.5
+      parent: 1
+  - uid: 3105
+    components:
+    - type: Transform
+      pos: 19.5,48.5
+      parent: 1
+  - uid: 3106
+    components:
+    - type: Transform
+      pos: 19.5,49.5
+      parent: 1
+  - uid: 3107
+    components:
+    - type: Transform
+      pos: 19.5,50.5
+      parent: 1
 - proto: CableHV
   entities:
   - uid: 965
@@ -10662,15 +10704,6 @@ entities:
     - type: Transform
       pos: 22.5,40.5
       parent: 1
-- proto: ExplorersLootRadar
-  entities:
-  - uid: 1690
-    components:
-    - type: MetaData
-      name: Radar Dish
-    - type: Transform
-      pos: 18.5,50.5
-      parent: 1
 - proto: FaxMachineShipAntag
   entities:
   - uid: 1691
@@ -13544,6 +13577,15 @@ entities:
     components:
     - type: Transform
       pos: 5.5,-13.5
+      parent: 1
+- proto: MachineSalvageRadar
+  entities:
+  - uid: 1690
+    components:
+    - type: MetaData
+      name: Radar Dish
+    - type: Transform
+      pos: 18.5,50.5
       parent: 1
 - proto: Magazine762x39mmFMJ
   entities:
@@ -20657,24 +20699,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: 12.5,8.5
       parent: 1
-    missingComponents:
-    - Anchorable
   - uid: 3094
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 8.5,8.5
       parent: 1
-    missingComponents:
-    - Anchorable
   - uid: 3095
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 10.5,7.5
       parent: 1
-    missingComponents:
-    - Anchorable
 - proto: WeaponRifleAk
   entities:
   - uid: 3096

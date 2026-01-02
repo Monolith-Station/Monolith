@@ -101,12 +101,10 @@ public sealed partial class GunSystem : SharedGunSystem
             ? fromCoordinates.WithEntityId(gridUid, EntityManager)
             : new EntityCoordinates(MapManager.GetMapEntityId(fromMap.MapId), fromMap.Position);
 
-        // Get gun's velocity and also account for grid's velocity if firing from a grid-mounted weapon
-        var gunVelocity = Physics.GetMapLinearVelocity(fromEnt);
-        if (gridUid != null && gridUid != EntityUid.Invalid && TryComp<PhysicsComponent>(gridUid, out var gridPhysics))
-        {
-            gunVelocity += gridPhysics.LinearVelocity;
-        }
+        // get gun's local velocity
+        var gunVelocity = Vector2.Zero;
+        if (_physQuery.TryComp(gunUid, out var gunBody))
+            gunVelocity = gunBody.LinearVelocity;
 
         // I must be high because this was getting tripped even when true.
         // DebugTools.Assert(direction != Vector2.Zero);
