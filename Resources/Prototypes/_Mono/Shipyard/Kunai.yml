@@ -1,0 +1,43 @@
+# Author Info
+# GitHub: Corrupt142
+# Discord: Corrupt (theticalsteak49)
+
+# Shuttle Notes: Made under a comission from a discord bounty.
+
+- type: vessel
+  id: MI-COR Kunai
+  parent: BaseVessel
+  name:  Kunai
+  description: A high-end Martian Corvette, legitimately salvaged by Militia Ironworks. Armed with 4 30mms, 2 20mms, 2 torpedo tubes and speed. Includes a small medical bay and crew quarters with a galley for long patrols.  FTL capable.
+  price: 160000 # 70K base + 80K for torps on this ship size (Recommended by a maint) and 10K for a medbay with FTL.
+  category: Medium
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/Kunai.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Corvette
+  - Medical
+  engine:
+  - AME
+
+- type: gameMap
+  id: Kunai
+  mapName: 'MI-COR Kunai'
+  mapPath: /Maps/_Mono/Shuttles/Kunai.yml
+  minPlayers: 0
+  stations:
+    Kunai:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Kunai MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
