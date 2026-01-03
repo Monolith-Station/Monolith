@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/03/2026 20:54:21
+  time: 01/03/2026 20:58:00
   entityCount: 2167
 maps: []
 grids:
@@ -2067,7 +2067,7 @@ entities:
       pos: 22.5,7.5
       parent: 4270
     - type: Door
-      secondsUntilStateChange: -11658.864
+      secondsUntilStateChange: -11877.439
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2179,58 +2179,58 @@ entities:
       parent: 4270
 - proto: AirlockSecurityLocked
   entities:
-  - uid: 500
+  - uid: 511
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 22.5,-8.5
       parent: 4270
-  - uid: 511
+  - uid: 615
     components:
     - type: Transform
       pos: 17.5,-9.5
       parent: 4270
-  - uid: 615
+  - uid: 628
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 18.5,27.5
       parent: 4270
-  - uid: 628
+  - uid: 747
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 21.5,-7.5
       parent: 4270
-  - uid: 747
+  - uid: 762
     components:
     - type: Transform
       pos: 33.5,-6.5
       parent: 4270
-  - uid: 762
-    components:
-    - type: Transform
-      pos: 15.5,-3.5
-      parent: 4270
   - uid: 765
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 16.5,35.5
+      pos: 15.5,-3.5
       parent: 4270
   - uid: 851
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 15.5,33.5
+      pos: 16.5,35.5
       parent: 4270
   - uid: 870
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 15.5,34.5
+      pos: 15.5,33.5
       parent: 4270
   - uid: 871
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,34.5
+      parent: 4270
+  - uid: 952
     components:
     - type: Transform
       pos: 29.5,-3.5
@@ -9655,6 +9655,11 @@ entities:
       parent: 4270
 - proto: PoweredlightExterior
   entities:
+  - uid: 500
+    components:
+    - type: Transform
+      pos: 33.5,-14.5
+      parent: 4270
   - uid: 934
     components:
     - type: Transform
@@ -9751,11 +9756,6 @@ entities:
     components:
     - type: Transform
       pos: 19.5,-15.5
-      parent: 4270
-  - uid: 952
-    components:
-    - type: Transform
-      pos: 34.5,-14.5
       parent: 4270
   - uid: 953
     components:
