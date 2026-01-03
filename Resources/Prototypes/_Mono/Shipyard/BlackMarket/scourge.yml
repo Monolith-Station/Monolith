@@ -1,0 +1,34 @@
+- type: vessel
+  id: Scourge
+  parent: BaseVesselAntag
+  name: BT-Y Scourge
+  description: Escort vessel with a mass-driver. Serving as a medium-ranged puncher. Absolutely hopeless in short range. Armed with a Charon Mass Driver, 2 VESPERA burst missile pods and 2 20mm PD turrets.
+  price: 122500
+  category: Medium
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/scourge.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  - Corvette
+  engine:
+  - Plasma # (Pinch generator)
+
+- type: gameMap
+  id: Scourge
+  mapName: 'BT-Y Scourge'
+  mapPath: /Maps/_Mono/Shuttles/BlackMarket/scourge.yml
+  minPlayers: 0
+  stations:
+    Scourge:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Scourge PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
