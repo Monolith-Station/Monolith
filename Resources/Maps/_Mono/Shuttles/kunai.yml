@@ -67,7 +67,7 @@ entities:
       name: grid
     - type: Transform
       pos: -0.44322354,-0.33841756
-      parent: invalid
+      parent: 
     - type: MapGrid
       chunks:
         0,0:
@@ -2764,7 +2764,7 @@ entities:
       
       deviceLists:
       - 2
-      - invalid
+    
       - 4
     - type: AtmosPipeColor
       color: '#0055CCFF'
@@ -2778,7 +2778,7 @@ entities:
       
       deviceLists:
       - 2
-      - invalid
+      
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 342
@@ -2838,7 +2838,7 @@ entities:
      
       deviceLists:
       - 2
-      - invalid
+      
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 347
