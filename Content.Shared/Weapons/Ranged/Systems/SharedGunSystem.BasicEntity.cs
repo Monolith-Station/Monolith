@@ -31,7 +31,7 @@ public abstract partial class SharedGunSystem
             if (component.Count <= 0)
                 return;
 
-            if (component.Count != null)
+            if (component.Count != null && !args.CheckOnly) // Mono
             {
                 component.Count--;
             }
@@ -39,6 +39,10 @@ public abstract partial class SharedGunSystem
             var ent = Spawn(component.Proto, args.Coordinates);
             args.Ammo.Add((ent, EnsureShootable(ent)));
         }
+
+        // Mono
+        if (args.CheckOnly)
+            return;
 
         _recharge.Reset(uid);
         UpdateBasicEntityAppearance(uid, component);

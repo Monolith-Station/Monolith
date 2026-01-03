@@ -293,7 +293,7 @@ public abstract partial class SharedGunSystem
 
                 args.Ammo.Add((entity, EnsureShootable(entity)));
 
-                if (!component.AutoCycle) //  Goobstation - do not remove spent ammo from the gun it doesn't autocycle
+                if (!component.AutoCycle || args.CheckOnly) //  Goobstation - do not remove spent ammo from the gun it doesn't autocycle // Mono
                     break;
 
                 component.Entities.RemoveAt(component.Entities.Count - 1);
@@ -303,7 +303,7 @@ public abstract partial class SharedGunSystem
             else if (component.UnspawnedCount > 0
                 || component.InfiniteUnspawned) // Mono
             {
-                if (!component.InfiniteUnspawned) // Mono
+                if (!component.InfiniteUnspawned && !args.CheckOnly) // Mono
                 {
                     component.UnspawnedCount--;
                     DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.UnspawnedCount));
@@ -312,7 +312,7 @@ public abstract partial class SharedGunSystem
                 args.Ammo.Add((entity, EnsureShootable(entity)));
 
                 // Goobstation - put spent ammo back in the gun if it doesn't autocycle
-                if (!component.AutoCycle)
+                if (!component.AutoCycle && !args.CheckOnly) // Mono
                 {
                     component.Entities.Add(entity);
                     Containers.Insert(entity, component.Container);
@@ -322,7 +322,8 @@ public abstract partial class SharedGunSystem
             }
         }
 
-        UpdateBallisticAppearance(uid, component);
+        if (!args.CheckOnly) // Mono
+            UpdateBallisticAppearance(uid, component);
     }
 
     private void OnBallisticAmmoCount(EntityUid uid, BallisticAmmoProviderComponent component, ref GetAmmoCountEvent args)

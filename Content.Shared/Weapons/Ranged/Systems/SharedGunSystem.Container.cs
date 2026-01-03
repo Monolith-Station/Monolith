@@ -27,7 +27,7 @@ public partial class SharedGunSystem
 
             var ent = container.ContainedEntities[0];
 
-            if (_netManager.IsServer)
+            if (_netManager.IsServer || !args.CheckOnly) // Mono
                 Containers.Remove(ent, container);
 
             args.Ammo.Add((ent, EnsureShootable(ent)));

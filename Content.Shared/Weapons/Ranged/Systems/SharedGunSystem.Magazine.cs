@@ -146,6 +146,9 @@ public abstract partial class SharedGunSystem
         // Pass the event onwards.
         RaiseLocalEvent(magEntity.Value, args);
         // Should be Dirtied by what other ammoprovider is handling it.
+        // Mono
+        if (args.CheckOnly)
+            return;
 
         var ammoEv = new GetAmmoCountEvent();
         RaiseLocalEvent(magEntity.Value, ref ammoEv);

@@ -106,6 +106,21 @@
       task: AttackerShuttleCompound
 
 - type: entity
+  id: NpcStationAiShooter
+  name: shooter core
+  parent: NpcStationAiRammer
+  description: Shoots at you. Doesn't move.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_t1
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: ShooterShuttleCompound
+
+- type: entity
   id: NpcStationAiAttackerSmart
   name: attacker core
   parent: [NpcStationAiRammer, BaseFactionGearOtherFactionT3]

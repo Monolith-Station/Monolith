@@ -571,6 +571,31 @@ public abstract partial class SharedGunSystem : EntitySystem
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
     }
 
+    // Mono
+    public bool? IsHitscan(Entity<GunComponent?> gun)
+    {
+        if (!Resolve(gun, ref gun.Comp))
+            return null;
+
+        var checkEv = new TakeAmmoEvent(1,
+                                        new List<(EntityUid? Entity, IShootable Shootable)>(),
+                                        Transform(gun).Coordinates,
+                                        null,
+                                        checkOnly: true);
+        RaiseLocalEvent(gun, checkEv);
+        if (checkEv.Ammo.Count == 0)
+            return null;
+
+        var hitscan = HasComp<HitscanAmmoComponent>(checkEv.Ammo[0].Entity);
+        foreach (var ent in checkEv.Ammo)
+        {
+            // cleanup
+            if (ent.Entity != null && !Containers.IsEntityInContainer(ent.Entity.Value))
+                Del(ent.Entity.Value);
+        }
+        return hitscan;
+    }
+
     // Mono - used for multiple-per-frame projectile offset
     public override void Update(float frameTime)
     {

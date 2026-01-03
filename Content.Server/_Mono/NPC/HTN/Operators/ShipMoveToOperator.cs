@@ -221,4 +221,11 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
 
         _steering.Stop(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner));
     }
+
+    public override void PlanShutdown(NPCBlackboard blackboard)
+    {
+        base.PlanShutdown(blackboard);
+
+        ConditionalShutdown(blackboard);
+    }
 }

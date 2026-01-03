@@ -295,7 +295,7 @@ public abstract partial class SharedGunSystem
         }
     }
 
-    private bool TryTakeChamberEntity(EntityUid uid, [NotNullWhen(true)] out EntityUid? entity)
+    private bool TryTakeChamberEntity(EntityUid uid, [NotNullWhen(true)] out EntityUid? entity, bool check = false) // Mono
     {
         if (!Containers.TryGetContainer(uid, ChamberSlot, out var container) ||
             container is not ContainerSlot slot)
@@ -307,6 +307,10 @@ public abstract partial class SharedGunSystem
         entity = slot.ContainedEntity;
         if (entity == null)
             return false;
+
+        // Mono
+        if (check)
+            return true;
 
         Containers.Remove(entity.Value, container);
         return true;
@@ -368,7 +372,7 @@ public abstract partial class SharedGunSystem
         // Normal behaviour for guns.
         if (component.AutoCycle)
         {
-            if (TryTakeChamberEntity(uid, out chamberEnt))
+            if (TryTakeChamberEntity(uid, out chamberEnt, args.CheckOnly)) // Mono
             {
                 args.Ammo.Add((chamberEnt.Value, EnsureShootable(chamberEnt.Value)));
             }
@@ -384,8 +388,16 @@ public abstract partial class SharedGunSystem
             if (magEnt != null)
             {
                 // We pass in Shots not Shots - 1 as we'll take the last entity and move it into the chamber.
-                var relayedArgs = new TakeAmmoEvent(args.Shots, new List<(EntityUid? Entity, IShootable Shootable)>(), args.Coordinates, args.User);
+                var relayedArgs = new TakeAmmoEvent(args.Shots, new List<(EntityUid? Entity, IShootable Shootable)>(), args.Coordinates, args.User, checkOnly: args.CheckOnly);
                 RaiseLocalEvent(magEnt.Value, relayedArgs);
+
+                // Mono
+                if (args.CheckOnly)
+                {
+                    if (relayedArgs.Ammo.Count > 0)
+                        args.Ammo.AddRange(relayedArgs.Ammo);
+                    return;
+                }
 
                 // Put in the nth slot back into the chamber
                 // Rest of the ammo gets shot

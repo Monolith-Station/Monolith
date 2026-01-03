@@ -28,12 +28,20 @@ public class TakeAmmoEvent : EntityEventArgs // Mono: unseal
     public bool WillBeFired;
     // End Frontier
 
-    public TakeAmmoEvent(int shots, List<(EntityUid? Entity, IShootable Shootable)> ammo, EntityCoordinates coordinates, EntityUid? user, bool willBeFired = false) // Frontier: add willBeFired
+    /// <summary>
+    /// Monolith
+    /// If true, causes this event to only return the ammo that will be fired next without side effects beyond potentially spawning an entity.
+    /// If an entity has been spawned, it is guaranteed it will not be in a container.
+    /// </summary>
+    public bool CheckOnly = false;
+
+    public TakeAmmoEvent(int shots, List<(EntityUid? Entity, IShootable Shootable)> ammo, EntityCoordinates coordinates, EntityUid? user, bool willBeFired = false, bool checkOnly = false) // Frontier: add willBeFired
     {
         Shots = shots;
         Ammo = ammo;
         Coordinates = coordinates;
         User = user;
-        WillBeFired = willBeFired; // Frontier
+        CheckOnly = checkOnly; // Mono
+        WillBeFired = willBeFired = checkOnly; // Frontier // Mono
     }
 }

@@ -20,9 +20,6 @@
       - type: IFF
         flags: AlwaysShowColor
         color: "#9a2020"
-      - type: Tag
-        tags:
-        - ShuttleAIIgnore
       - type: GridCleanupGrid
         cleanupAcceleration: 3
         ignorePowered: true

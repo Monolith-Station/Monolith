@@ -135,4 +135,11 @@ public sealed partial class ShipFireGunsOperator : HTNOperator, IHtnConditionalS
 
         _targeting.Stop(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner));
     }
+
+    public override void PlanShutdown(NPCBlackboard blackboard)
+    {
+        base.PlanShutdown(blackboard);
+
+        ConditionalShutdown(blackboard);
+    }
 }

@@ -579,7 +579,7 @@ public partial class SharedGunSystem
                     {
                         ent = Spawn(component.FillPrototype, args.Coordinates);
 
-                        if (!_netManager.IsClient)
+                        if (!_netManager.IsClient && !args.CheckOnly) // Mono
                         {
                             component.AmmoSlots[index] = ent;
                             Containers.Insert(ent.Value, component.AmmoContainer);
@@ -588,6 +588,10 @@ public partial class SharedGunSystem
 
                     // Add the cartridge to our set and remove the bullet from the gun.
                     args.Ammo.Add((ent.Value, EnsureComp<AmmoComponent>(ent.Value)));
+                    // Mono
+                    if (args.CheckOnly)
+                        continue;
+
                     Containers.Remove(ent.Value, component.AmmoContainer);
                     component.AmmoSlots[index] = null;
                     component.Chambers[index] = null;
@@ -596,6 +600,10 @@ public partial class SharedGunSystem
             }
             // End Frontier
         }
+
+        // Mono
+        if (args.CheckOnly)
+            return;
 
         UpdateAmmoCount(uid, prediction: false);
         UpdateRevolverAppearance(uid, component);

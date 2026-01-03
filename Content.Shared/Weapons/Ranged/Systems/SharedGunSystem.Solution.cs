@@ -24,8 +24,14 @@ public partial class SharedGunSystem
         for (var i = 0; i < shots; i++)
         {
             args.Ammo.Add(GetSolutionShot(uid, component, args.Coordinates));
-            component.Shots--;
+            // Mono
+            if (!args.CheckOnly)
+                component.Shots--;
         }
+
+        // Mono
+        if (args.CheckOnly)
+            return;
 
         UpdateSolutionShots(uid, component);
         UpdateSolutionAppearance(uid, component);

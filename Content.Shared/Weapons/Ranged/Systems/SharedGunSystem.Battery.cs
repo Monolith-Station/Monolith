@@ -71,8 +71,13 @@ public abstract partial class SharedGunSystem
         for (var i = 0; i < shots; i++)
         {
             args.Ammo.Add(GetShootable(component, args.Coordinates));
-            component.Shots--;
+            if (!args.CheckOnly) // Mono
+                component.Shots--;
         }
+
+        // Mono
+        if (args.CheckOnly)
+            return;
 
         TakeCharge(uid, component);
         UpdateBatteryAppearance(uid, component);
