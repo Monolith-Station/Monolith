@@ -391,3 +391,64 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+# monolith asteroid walls
+
+- type: entity
+  parent: BaseWallOutpost # Mono
+  id: WallSolidChitinMonolithic
+  name: monolith tenebris
+  components:
+  - type: Tag
+    tags:
+    - Wall
+  - type: Sprite
+    sprite: Structures/Walls/xeno.rsi
+  - type: Icon
+    sprite: Structures/Walls/xeno.rsi
+  - type: IconSmooth
+    key: chitin
+    base: solid
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 99999
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseWallOutpost # Mono
+  id: WallReinforcedChitinMonolithic
+  name: monolith tenebris
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/xeno.rsi
+  - type: Icon
+    sprite: Structures/Walls/xeno.rsi
+    state: rgeneric
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ReinforcedWallVisuals.DeconstructionStage:
+        ReinforcedWallVisualLayers.Deconstruction:
+          -1: { visible: false }
+          0: { state: reinf_construct-0, visible: true}
+          1: { state: reinf_construct-1, visible: true}
+          2: { state: reinf_construct-2, visible: true}
+          3: { state: reinf_construct-3, visible: true}
+          4: { state: reinf_construct-4, visible: true}
+          5: { state: reinf_construct-5, visible: true}
+  - type: StaticPrice
+    price: 250
+  - type: RadiationBlocker
+    resistance: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 99999
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

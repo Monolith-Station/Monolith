@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2025 NazrinNya
+#
+# SPDX-License-Identifier: MPL-2.0
+
+# # Author Info
+# # GitHub: NazrinNya
+# # Discord: NazrinNya
+
+- type: vessel
+  id: Insect
+  parent: BaseVessel
+  name: Insect
+  description: Micro-fighter equipped with AK570. Drone server included.
+  price: 10500
+  category: Small
+  group: Custom
+  access: Brig
+  mapchecker_group_override: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Carrier/insect.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - APU
+
+- type: gameMap
+  id: Insect
+  mapName: 'Insect'
+  mapPath: /Maps/_Mono/Shuttles/Carrier/insect.yml
+  minPlayers: 0
+  stations:
+    Insect:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Insect SEC{1}'
+        nameGenerator: !type:NanotrasenNameGenerator
+          prefixCreator: '14'

@@ -1,4 +1,20 @@
 - type: dataset
+  id: MonoPDVBorgNameset
+  values:
+  - Vanguard Unit
+  - PDV Enforcer Module
+  - PDV Sentinel
+  - Dynast Defense Unit
+
+- type: dataset
+  id: MonoTSFBorgNameset
+  values:
+  - Federation Silicon
+  - TSFMC Compliance Unit
+  - TSFMC Sgt. Reckless
+  - TSFMC Judge & Jury
+
+- type: dataset
   id: VesselCoreNameset
   values:
   - Steven
@@ -579,3 +595,242 @@
     channels:
     - Binary
     defaultChannel: Binary
+
+# PDV Cyborgs
+
+- type: entity
+  id: BaseBorgChassisPDV
+  parent: BaseBorgChassis
+  abstract: true
+  components:
+  - type: NpcFactionMember
+    factions:
+    - PirateNF
+  - type: Access
+    tags:
+    - Pirate
+    - RogueCommander
+    - Mercenary
+  - type: AccessReader
+    access: [["RogueCommander"]]
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Freelance
+    - Traffic
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Freelance
+    - Traffic
+  - type: CollectiveMind
+    channels:
+    - Binary
+    defaultChannel: Binary
+  - type: ShowSyndicateIcons
+  - type: MovementAlwaysTouching
+  - type: Speech
+    speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
+  - type: IonStormTarget
+    chance: 0.2
+  - type: ShowJobIcons
+  - type: SiliconLawProvider
+    laws: PDVLawset
+
+
+- type: entity
+  id: BorgChassisPDV
+  parent: BaseBorgChassisPDV
+  name: PDV assault cyborg
+  description: A purpose built assault cyborg used by the PDV.
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Silicon/PDV/assault.rsi
+    layers:
+    - state: assault
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: assault_l
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: assault_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    - Freespeak
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+    - Freespeak
+  - type: BorgChassis
+    maxModules: 8
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleSyndicate
+      - BorgModuleSyndicateAssault
+    hasMindState: assault_l
+    noMindState: assault_l
+  - type: Construction
+    node: derelictcyborg
+  - type: InteractionPopup
+    interactSuccessString: petting-success-derelict-cyborg
+    interactFailureString: petting-failure-derelict-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+
+- type: entity
+  id: PlayerBorgPDV
+  parent: BorgChassisPDV
+  suffix: Battery, Module
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModulePDVStandardWeapon
+      - BorgModuleJetpack
+      - BorgModuleTool
+      - BorgModuleGPS
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellCombat
+  - type: RandomMetadata
+    nameSegments: [MonoPDVBorgNameset]
+
+# TSF Cyborgs
+
+- type: entity
+  id: BaseBorgChassisTSF
+  parent: BaseBorgChassis
+  abstract: true
+  components:
+  - type: NpcFactionMember
+    factions:
+    - TSFMC
+  - type: Access
+    tags:
+    - Security
+    - Armory
+    - Sergeant
+    - Bailiff
+    - Medical
+    - Chemistry
+    - TsfmcEngineering
+    - Maintenance
+    - External
+    - Command
+    - Brig
+    - Mercenary
+    - Captain
+  - type: AccessReader
+    access: [["Security"], ["Armory"], ["Sergeant"], ["Bailiff"], ["TsfmcEngineering"], ["Brig"]]
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Nfsd
+    - Traffic
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Nfsd
+    - Traffic
+  - type: CollectiveMind
+    channels:
+    - Binary
+    defaultChannel: Binary
+  - type: ShowSyndicateIcons
+  - type: MovementAlwaysTouching
+  - type: Speech
+    speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
+  - type: IonStormTarget
+    chance: 0.2
+  - type: ShowJobIcons
+  - type: SiliconLawProvider
+    laws: TSFMCBorgLawset
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+
+- type: entity
+  id: BorgChassisTSF
+  parent: BaseBorgChassisTSF
+  name: TSFMC assault cyborg
+  description: A purpose built assault silicon used by the TSFMC.
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Silicon/TSFMC/assault.rsi
+    layers:
+    - state: assault
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: assault_l
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: assault_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    - SolCommon
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+    - SolCommon
+  - type: BorgChassis
+    maxModules: 8
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleSyndicate
+      - BorgModuleSyndicateAssault
+    hasMindState: assault_l
+    noMindState: assault_l
+  - type: Construction
+    node: derelictcyborg
+  - type: InteractionPopup
+    interactSuccessString: petting-success-derelict-cyborg
+    interactFailureString: petting-failure-derelict-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+
+- type: entity
+  id: PlayerBorgTSF
+  parent: BorgChassisTSF
+  suffix: Battery, Module
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleTSFStandardWeapon
+      - BorgModuleJetpack
+      - BorgModuleTool
+      - BorgModuleGPS
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellCombat
+  - type: RandomMetadata
+    nameSegments: [MonoTSFBorgNameset]

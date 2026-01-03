@@ -244,3 +244,25 @@
     - Saturn
   - type: StaticPrice
     vendPrice: 1555000
+
+# CC
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherRavager
+  name: ravager LPC
+  description: A small card that contains the data for the procurement of a Ravager-class mothership from the flagship's reserves.
+  components:
+  - type: Sprite
+    layers:
+    - state: htech
+    - state: stripesec
+    - state: vouchermilitary
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Sr
+    companyName: Colonial
+    vessels:
+    - Ravager
+  - type: StaticPrice
+    vendPrice: 325000

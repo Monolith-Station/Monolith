@@ -106,3 +106,14 @@
     - map: ["computerLayerKeys"]
       state: blackmarket_key
 
+
+- type: entity
+  id: RavagerCarrierComputer
+  parent: BaseCarrierComputer
+  name: ravager shipyard console
+  components:
+  - type: ShipyardListing
+    shuttles:
+    - Ant
+    - Worm
+    - Insect

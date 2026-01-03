@@ -1,0 +1,619 @@
+
+- type: entity
+  abstract: true
+  id: MobSpawnMonolithicBase
+  parent: MarkerBase
+  name: spawner monolithic entity base
+  components:
+  - type: Transform
+    anchored: True
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: _Mono/Mobs/monolithic.rsi
+    state: gestalt_icon
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: SpawnOnDespawn
+    prototype: MobMonolithicGestalt
+
+- type: entity
+  id: MobSpawnMonolithicRandomBasic
+  parent: MarkerBase
+  name: spawner monolithic entity
+  suffix: Random, Basic
+  components:
+  - type: Transform
+    anchored: True
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: _Mono/Mobs/monolithic.rsi
+    state: golom_icon
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: RandomSpawner
+    prototypes:
+    - MobMonolithicGestalt
+    - MobMonolithicGolom
+    - MobMonolithicHellLocust
+    chance: 1
+    offset: 0.15
+
+- type: entity
+  id: MobSpawnMonolithicRandomIntermediate
+  parent: MarkerBase
+  name: spawner monolithic entity
+  suffix: Random, Intermediate
+  components:
+  - type: Transform
+    anchored: True
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: _Mono/Mobs/monolithic.rsi
+    state: golom_icon
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: RandomSpawner
+    prototypes:
+    - MobMonolithicGolomRanged
+    chance: 1
+    offset: 0.15
+
+# mobs
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: MobMonolithicBase
+  parent: [ MobNonHumanHostileBase, MobStepTriggerImmune ]
+  abstract: true
+  name: monolithic energy
+  description: Is this god?
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: NpcFactionMember
+    factions:
+    - Monolithic
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 3.5
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Elemental/living_light/luminous_person.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: luminous_person
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: glow
+      shader: unshaded
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Dead
+    allowRevives: false
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      250: 0.9
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: luminous_person
+        BaseUnshaded: glow
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_unshaded
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: RGlass
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 1000
+    damage:
+      groups:
+        Brute: -1
+      types:
+        Heat: -0.5
+  - type: NoSlip
+  - type: Pullable
+  - type: ZombieImmune
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: false
+    allowMovement: true
+    name: ghost-role-information-monolithic-generic-name
+    description: ghost-role-information-monolithic-generic-description
+    rules: ghost-role-information-monolithic-generic-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5 hrs
+  - type: GhostTakeoverAvailable
+  - type: PointLight
+    radius: 1.0
+    energy: 1.5
+    color: "#91469e"
+  - type: Speech
+    speechVerb: Ghost
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: Tag
+    tags:
+    - FootstepSound
+    - CannotSuicide
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 350
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MonolithicCrystalSmall:
+            min: 0
+            max: 1
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.05
+  - type: FireProtection
+    reduction: 1
+  - type: SolutionContainerManager
+  - type: InjectableSolution
+    solution: chemicals
+  - type: Bloodstream
+    bloodReagent: Gestalzitine
+    bloodMaxVolume: 35
+  - type: NightVision
+    activateSound: null
+    deactivateSound: null
+
+# actual entity spawners
+
+- type: entity
+  id: MobSpawnMonolithicGestalt
+  parent: MobSpawnMonolithicBase
+  name: monolithic gestalt
+  suffix: Spawner
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/monolithic.rsi
+    state: gestalt_icon
+  - type: SpawnOnDespawn
+    prototype: MobMonolithicGestalt
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: MobMonolithicGestalt
+  parent: MobMonolithicBase
+  name: monolithic gestalt
+  description: An anomalous entity. Seems to be composed entirely of some kind of intangible energy, which it seems to be shooting you with. Watch out!
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/monolithic.rsi
+    layers:
+    #- map: [ "enum.DamageStateVisualLayers.Base" ]
+    #  state: gestalt
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: gestalt
+      shader: unshaded
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: luminous_entity
+        BaseUnshaded: glow
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_unshaded
+  - type: MeleeWeapon
+    damage:
+      types:
+        Heat: 5
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletMonolithicGestalt
+    fireCost: 100
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1000
+  - type: Gun
+    fireRate: 1.5
+    minAngle: 5
+    maxAngle: 20
+    useKey: false
+    showExamineText: false
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+    soundEmpty:
+      path: /Audio/Items/Lighters/lighter_off.ogg
+  - type: Reflect # gigatroll, gotta use melee on these guys
+    reflectProb: 1
+    spread: 90
+  - type: Stealth
+    minVisibility: 0.3
+    maxVisibility: 0.4
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 60
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+        - Opaque
+  - type: MovementIgnoreGravity
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Dead
+    allowRevives: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MonolithicCrystalSmall:
+            min: 0
+            max: 1
+
+# golom
+
+- type: entity
+  id: MobSpawnMonolithicGolom
+  parent: MobSpawnMonolithicBase
+  name: monolithic golom
+  suffix: Spawner
+  components:
+    - type: Sprite
+      sprite: _Mono/Mobs/monolithic.rsi
+      state: golom_icon
+    - type: SpawnOnDespawn
+      prototype: MobMonolithicGolom
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: MobMonolithicGolom
+  parent: MobMonolithicBase
+  name: monolithic golom
+  description: An anomalous entity. Seems to be composed entirely of some kind of durable, crystal-like energy. It also seems to be heading right towards you.
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/monolithic.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: golom
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: golom_crystals
+      shader: unshaded
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: golom
+        BaseUnshaded: glow
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_unshaded
+  - type: MeleeWeapon
+    attackRate: 1
+    hidden: true
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 50
+        Structural: 300
+    altDisarm: false
+    angle: 20
+    animation: WeaponArcFist
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MonolithicCrystalSmall:
+            min: 0
+            max: 1
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      500: Dead
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 2
+    baseWalkSpeed: 1.5
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MovementIgnoreGravity
+
+# locust
+
+- type: entity
+  id: MobSpawnMonolithicHellLocust
+  parent: MobSpawnMonolithicBase
+  name: monolithic hell locust
+  suffix: Spawner
+  components:
+    - type: Sprite
+      sprite: _Mono/Mobs/monolithic.rsi
+      state: locust_icon
+    - type: SpawnOnDespawn
+      prototype: MobMonolithicHellLocust
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: MobMonolithicHellLocust
+  parent: MobMonolithicBase
+  name: monolithic hell locust
+  description: An anomalous entity. Seems to be composed of sharply tangible energy, in an oddly familiar form. Also seems to be running at you menacingly. Watch out!
+  components:
+    - type: Sprite
+      sprite: _Mono/Mobs/monolithic.rsi
+      layers:
+        - map: [ "enum.DamageStateVisualLayers.Base" ]
+          state: locust
+        - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+          state: locust_crystals
+          shader: unshaded
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: locust
+          BaseUnshaded: glow
+        Dead:
+          Base: dead
+          BaseUnshaded: dead_unshaded
+    - type: MeleeWeapon
+      attackRate: 2
+      hidden: true
+      soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+      damage:
+        types:
+          Slash: 5
+          Pierce: 3
+          Heat: 3
+          Structural: 30
+      altDisarm: false
+      angle: 0
+      animation: WeaponArcBite
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 250
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: GlassBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                MonolithicCrystalSmall:
+                  min: 0
+                  max: 1
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        200: Dead
+    - type: MovementSpeedModifier
+      baseSprintSpeed: 4.5
+      baseWalkSpeed: 3
+    - type: HTN
+      rootTask:
+        task: SimpleHostileCompound
+    - type: MovementIgnoreGravity
+  #⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠛⠛⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠙⠛⠛⠛⠿⠻⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+  #⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⡀⠠⠤⠒⢂⣉⣉⣉⣑⣒⣒⠒⠒⠒⠒⠒⠒⠒⠀⠀⠐⠒⠚⠻⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿
+  #⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⡠⠔⠉⣀⠔⠒⠉⣀⣀⠀⠀⠀⣀⡀⠈⠉⠑⠒⠒⠒⠒⠒⠈⠉⠉⠉⠁⠂⠀⠈⠙⢿⣿⣿⣿⣿⣿
+  #⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠔⠁⠠⠖⠡⠔⠊⠀⠀⠀⠀⠀⠀⠀⠐⡄⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠉⠲⢄⠀⠀⠀⠈⣿⣿⣿⣿⣿
+  #⣿⣿⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠊⠀⢀⣀⣤⣤⣤⣤⣀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠜⠀⠀⠀⠀⣀⡀⠀⠈⠃⠀⠀⠀⠸⣿⣿⣿⣿
+  #⣿⣿⣿⣿⡿⠥⠐⠂⠀⠀⠀⠀⡄⠀⠰⢺⣿⣿⣿⣿⣿⣟⠀⠈⠐⢤⠀⠀⠀⠀⠀⠀⢀⣠⣶⣾⣯⠀⠀⠉⠂⠀⠠⠤⢄⣀⠙⢿⣿⣿
+  #⣿⡿⠋⠡⠐⠈⣉⠭⠤⠤⢄⡀⠈⠀⠈⠁⠉⠁⡠⠀⠀⠀⠉⠐⠠⠔⠀⠀⠀⠀⠀⠲⣿⠿⠛⠛⠓⠒⠂⠀⠀⠀⠀⠀⠀⠠⡉⢢⠙⣿
+  #⣿⠀⢀⠁⠀⠊⠀⠀⠀⠀⠀⠈⠁⠒⠂⠀⠒⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⢀⣀⡠⠔⠒⠒⠂⠀⠈⠀⡇⣿
+  #⣿⠀⢸⠀⠀⠀⢀⣀⡠⠋⠓⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⠈⠢⠤⡀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⡠⠀⡇⣿
+  #⣿⡀⠘⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⠈⠑⡦⢄⣀⠀⠀⠐⠒⠁⢸⠀⠀⠠⠒⠄⠀⠀⠀⠀⠀⢀⠇⠀⣀⡀⠀⠀⢀⢾⡆⠀⠈⡀⠎⣸⣿
+  #⣿⣿⣄⡈⠢⠀⠀⠀⠀⠘⣶⣄⡀⠀⠀⡇⠀⠀⠈⠉⠒⠢⡤⣀⡀⠀⠀⠀⠀⠀⠐⠦⠤⠒⠁⠀⠀⠀⠀⣀⢴⠁⠀⢷⠀⠀⠀⢰⣿⣿
+  #⣿⣿⣿⣿⣇⠂⠀⠀⠀⠀⠈⢂⠀⠈⠹⡧⣀⠀⠀⠀⠀⠀⡇⠀⠀⠉⠉⠉⢱⠒⠒⠒⠒⢖⠒⠒⠂⠙⠏⠀⠘⡀⠀⢸⠀⠀⠀⣿⣿⣿
+  #⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠑⠄⠰⠀⠀⠁⠐⠲⣤⣴⣄⡀⠀⠀⠀⠀⢸⠀⠀⠀⠀⢸⠀⠀⠀⠀⢠⠀⣠⣷⣶⣿⠀⠀⢰⣿⣿⣿
+  #⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠁⢀⠀⠀⠀⠀⠀⡙⠋⠙⠓⠲⢤⣤⣷⣤⣤⣤⣤⣾⣦⣤⣤⣶⣿⣿⣿⣿⡟⢹⠀⠀⢸⣿⣿⣿
+  #⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠑⠀⢄⠀⡰⠁⠀⠀⠀⠀⠀⠈⠉⠁⠈⠉⠻⠋⠉⠛⢛⠉⠉⢹⠁⢀⢇⠎⠀⠀⢸⣿⣿⣿
+  #⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⠈⠢⢄⡉⠂⠄⡀⠀⠈⠒⠢⠄⠀⢀⣀⣀⣰⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⢀⣎⠀⠼⠊⠀⠀⠀⠘⣿⣿⣿
+  #⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⡀⠉⠢⢄⡈⠑⠢⢄⡀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠀⢀⠀⠀⠀⠀⠀⢻⣿⣿
+  #⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣀⡈⠑⠢⢄⡀⠈⠑⠒⠤⠄⣀⣀⠀⠉⠉⠉⠉⠀⠀⠀⣀⡀⠤⠂⠁⠀⢀⠆⠀⠀⢸⣿⣿
+  #⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣄⡀⠁⠉⠒⠂⠤⠤⣀⣀⣉⡉⠉⠉⠉⠉⢀⣀⣀⡠⠤⠒⠈⠀⠀⠀⠀⣸⣿⣿
+  #⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿
+  #⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣶⣤⣤⣤⣤⣀⣀⣤⣤⣤⣶⣾⣿⣿⣿⣿⣿ scream footsteps
+    - type: FootstepModifier
+      footstepSoundCollection:
+        path: /Audio/Voice/Moth/moth_scream.ogg
+        params:
+          variation: 0.25
+          volume: -3
+
+# region intermediate monolith mobs
+
+# golom ranged
+
+- type: entity
+  id: MobSpawnMonolithicGolomRanged
+  parent: MobSpawnMonolithicBase
+  name: monolithic ranged golom
+  suffix: Spawner
+  components:
+    - type: Sprite
+      sprite: _Mono/Mobs/monolithic.rsi
+      state: golom_icon
+    - type: SpawnOnDespawn
+      prototype: MobMonolithicGolomRanged
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: MobMonolithicGolomRanged
+  parent: MobMonolithicBase
+  name: monolithic golum
+  description: An anomalous entity. Seems to be composed entirely of some kind of durable, crystal-like energy, which it is shooting at you. Watch out!
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/monolithic.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: golom
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: golom_crystals
+      shader: unshaded
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: golom
+        BaseUnshaded: glow
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_unshaded
+  - type: MeleeWeapon
+    attackRate: 1
+    hidden: true
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 50
+        Structural: 300
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcPunch
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MonolithicCrystalMedium:
+            min: 0
+            max: 1
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      500: Dead
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 2
+    baseWalkSpeed: 1.5
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: MovementIgnoreGravity
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletMonolithicGolomRanged
+    fireCost: 100
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1000
+  - type: Gun
+    fireRate: 0.5
+    minAngle: 5
+    maxAngle: 20
+    useKey: false
+    showExamineText: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+    soundEmpty:
+      path: /Audio/Items/Lighters/lighter_off.ogg

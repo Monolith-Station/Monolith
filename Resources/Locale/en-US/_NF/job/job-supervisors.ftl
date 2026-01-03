@@ -1,4 +1,4 @@
-job-supervisors-sr = the Colonial Liaison
+job-supervisors-sr = the Overseer
 job-supervisors-sheriff = the Colonel
 job-supervisors-bailiff = the Captain
 job-supervisors-sergeant = the Fireteam Leaders

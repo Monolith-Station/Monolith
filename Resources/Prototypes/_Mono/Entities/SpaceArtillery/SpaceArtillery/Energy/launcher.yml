@@ -419,7 +419,7 @@
 - type: entity
   id: WeaponLaserTurretApollo
   parent: BallisticArtilleryUnanchorable
-  name: L-20 Apollo Heavy Laser Cannon
+  name: L-20 Apollo Mining Laser Cannon
   description: One of the Pantheon Collective's top weapons, the Apollo is aptly named for its beams heating surfaces to beyond the temperature of nearby stars.
   components:
   - type: StaticPrice
@@ -435,13 +435,13 @@
     startingCharge: 50000
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 500
+    autoRechargeRate: 800
   - type: FireControlRotate
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 0.3
+    fireRate: 20
     minAngle: 0
     maxAngle: 0
     shootThermalSignature: 5000000
@@ -453,7 +453,7 @@
     shipClass: Heavy
   - type: HitscanBatteryAmmoProvider
     proto: ApolloLaser
-    fireCost: 500
+    fireCost: 250
   - type: Destructible
     thresholds:
     - trigger:

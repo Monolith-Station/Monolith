@@ -11469,6 +11469,18 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -8.5,-11.5
       parent: 1
+- proto: BorgCharger
+  entities:
+  - uid: 97820
+    components:
+    - type: Transform
+      pos: -5.5,-8.5
+      parent: 1
+  - uid: 97830
+    components:
+    - type: Transform
+      pos: -5.5,-7.5
+      parent: 1
 - proto: BoxBodyBag
   entities:
   - uid: 1250
@@ -50418,6 +50430,13 @@ entities:
     components:
     - type: Transform
       pos: -1.5,34.5
+      parent: 1
+- proto: SpawnPointTSFBorg
+  entities:
+  - uid: 66050
+    components:
+    - type: Transform
+      pos: -3.5,-8.5
       parent: 1
 - proto: SpawnPointTsfEngi
   entities:
