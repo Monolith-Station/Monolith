@@ -11,7 +11,6 @@
     sprite: Structures/Decoration/banner.rsi
     state: banner-red
 
-
 - type: entity
   id: SpawnPointPDVInfiltrator
   parent: SpawnPointJobBase
@@ -22,6 +21,21 @@
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
     state: banner-red
+
+- type: entity
+  id: SpawnPointPDVBorg
+  parent: SpawnPointJobBase
+  name: pdv cyborg
+  components:
+  - type: SpawnPoint
+    job_id: Borg
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: robot
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: robot_e
 
 #USSP
 
@@ -108,3 +122,18 @@
     sprite: _NF/Markers/jobs.rsi
     layers:
     - state: green
+
+- type: entity
+  id: SpawnPointTSFBorg
+  parent: SpawnPointJobBase
+  name: tsf cyborg
+  components:
+  - type: SpawnPoint
+    job_id: TsfBorg
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: robot
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: robot_e

@@ -14,3 +14,71 @@
     - WeaponPistolAnaconda
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+
+- type: entity
+  id: BorgModuleTSFStandardWeapon
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearTSFT2 ]
+  name: TSFMC weapon cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - EnergySwordNfsd
+    - WeaponEnergyRevolver
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+
+- type: entity
+  id: BorgModulePDVStandardWeapon
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearPDVT2 ]
+  name: PDV weapon cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - EnergySword
+    - WeaponPistolAnaconda
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+
+- type: entity
+  id: BorgModuleTSFAdvancedWeapon
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearTSFT3 ]
+  name: TSFMC advanced weapon cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - WeaponHFKatana
+    - WeaponBorgPulseRifle
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+
+- type: entity
+  id: BorgModulePDVAdvancedWeapon
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearPDVT3 ]
+  name: PDV advanced weapon cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - WeaponVT7
+    - WeaponLightMachineGunL6C
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }

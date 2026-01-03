@@ -1,14 +1,18 @@
+# Author Info
+# Github: NazrinNya
+# Discord: NazrinNya
+
 - type: vessel
-  id: Arachnid
+  id: Manus
   parent: BaseVessel
-  name: Arachnid
-  description: The security wing of the combined service ship.
-  price: 43000
-  category: Small
+  name: Manus
+  description: A claw-shaped ship with good amount of firepower. Includes 4 DRAVONs, 2 Vanyks and 1 TARNYX.
+  price: 62125
+  category: Medium
   group: Sr
   access: Brig # Oddball, matches guard ID, specific enough to exclude cadets
   mapchecker_group_override: Security  # Treat this as a security vessel for mapchecker purposes
-  shuttlePath: /Maps/_Mono/Shuttles/arachnid.yml
+  shuttlePath: /Maps/_Mono/Shuttles/manus.yml
   guidebookPage: Null
   class:
   - Civilian
@@ -16,16 +20,16 @@
   - Uranium
 
 - type: gameMap
-  id: Arachnid
-  mapName: 'Arachnid'
-  mapPath: /Maps/_Mono/Shuttles/arachnid.yml
+  id: Manus
+  mapName: 'Manus'
+  mapPath: /Maps/_Mono/Shuttles/manus.yml
   minPlayers: 0
   stations:
-    Arachnid:
+    Manus:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Arachnid SEC{1}'
+          mapNameTemplate: 'Manus SEC{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

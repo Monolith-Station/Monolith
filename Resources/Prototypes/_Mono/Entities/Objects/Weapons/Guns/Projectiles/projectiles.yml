@@ -58,7 +58,7 @@
   id: HeavyPulseExp
   parent: BaseBulletTrigger
   name: Explosive Pulse Bolt
-  categories: [ HideSpawnMenu ] 
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
@@ -78,5 +78,90 @@
     intensitySlope: 2
     maxIntensity: 5
 
+# Monolithic projectiles
 
+- type: entity
+  name: gestalt bolt
+  description: Zzz...t?
+  id: BulletMonolithicGestalt
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    layers:
+    - state: mediumstun #imp
+      shader: unshaded
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque # Mono
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectOmnilaser #imp
+  - type: StaminaDamageOnCollide
+    damage: 5 # Mono
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 2
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 2
+        reagents:
+        - ReagentId: Gestalzitine
+          Quantity: 2
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 2
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo
+
+# golom ranged crystal attack
+
+- type: entity
+  name: golum spike
+  description: A pristine, nano-particulate weave crystal apparently made out of some sort of hard-light energy. It could probably revolutionize over five different industries if studied. Unfortunately, it seems to have been thrown right at you!
+  id: BulletMonolithicGolomRanged
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/monolith_crystal.rsi
+    layers:
+    - state: crystal_small
+      shader: unshaded
+  - type: Physics
+  - type: Ammo
+    muzzleFlash: null
+  - type: StaminaDamageOnCollide
+    damage: 65
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 5
+        Caustic: 15
+        Cellular: 5
+    soundHit:
+      collection: ExplosionSmall
+    forceSound: true
 

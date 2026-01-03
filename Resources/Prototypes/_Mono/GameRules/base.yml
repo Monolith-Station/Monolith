@@ -58,3 +58,15 @@
     maxOccurrences: 2 # should be the same as [copies] in ship_spawns.yml
   - type: RuleGrids
   - type: LoadMapRule
+
+- type: entity
+  id: MonoMonolithicEventsScheduler
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: MonoMonolithicEventsTable
+    minimumTimeUntilFirstEvent: 600 # 10 minutes
+    minMaxEventTiming:
+      min: 420 # 7 minutes between events
+      max: 1200 # 20 minutes between events

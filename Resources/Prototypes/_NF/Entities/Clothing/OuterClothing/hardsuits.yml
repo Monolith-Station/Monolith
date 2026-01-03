@@ -276,21 +276,23 @@
       head:  ClothingHeadHelmetHardsuitNfsdSheriff
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: FireProtection # Mono
+    reduction: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor # Mono - Armor Value Changes
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.45
-        Heat: 0.5
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.45
         Radiation: 0.4
         Caustic: 0.5
         Poison: 0.8 # Mono
   - type: ClothingSpeedModifier # Mono - Armor Value Changes
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.35
   - type: PirateBountyItem # Mono

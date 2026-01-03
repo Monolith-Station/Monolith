@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2025 Arcticular1
+# SPDX-FileCopyrightText: 2025 Ilya246
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 sleepyyapril
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: vessel
+  id: Saturn
+  parent: BaseVesselAntag
+  name: PDW-HSS Saturn
+  description: Commissioned by the Sultanate for dire need for heavy firepower against the Federation on their borders. A one of a kind ship, specifically designed with the vanguard stationed in Helios.
+  limit: 1
+  price: 1540950
+  purchasable: false # voucher only
+  category: Large
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /Maps/_Mono/Shuttles/Capitals/saturn.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  - Capital
+  - Destroyer
+  - Medical
+  - Chemistry
+  - Pursuit
+  - Patrol
+  engine:
+  - AME
+
+- type: gameMap
+  id: Saturn
+  mapName: 'PDW-HSS Saturn'
+  mapPath: /Maps/_Mono/Shuttles/Capitals/saturn.yml
+  minPlayers: 0
+  stations:
+    Saturn:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Saturn HSS{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Pirate: [ 0, 0 ]
