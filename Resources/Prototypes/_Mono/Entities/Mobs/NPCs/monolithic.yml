@@ -134,7 +134,7 @@
     allowRevives: false
   - type: SlowOnDamage
     speedModifierThresholds:
-      250: 0.9
+      150: 0.9
   - type: DamageStateVisuals
     states:
       Alive:
@@ -378,8 +378,8 @@
       collection: Punch
     damage:
       types:
-        Blunt: 50
-        Structural: 300
+        Blunt: 25
+        Structural: 150
     altDisarm: false
     angle: 20
     animation: WeaponArcFist
@@ -387,7 +387,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 400
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -402,7 +402,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      500: Dead
+      300: Dead
   - type: MovementSpeedModifier
     baseSprintSpeed: 2
     baseWalkSpeed: 1.5
@@ -466,7 +466,7 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 250
+            damage: 200
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
@@ -481,7 +481,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        200: Dead
+        150: Dead
     - type: MovementSpeedModifier
       baseSprintSpeed: 4.5
       baseWalkSpeed: 3
@@ -563,8 +563,8 @@
       collection: Punch
     damage:
       types:
-        Blunt: 50
-        Structural: 300
+        Blunt: 25
+        Structural: 150
     altDisarm: false
     angle: 0
     animation: WeaponArcPunch
@@ -572,7 +572,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 400
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -587,7 +587,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      500: Dead
+      300: Dead
   - type: MovementSpeedModifier
     baseSprintSpeed: 2
     baseWalkSpeed: 1.5

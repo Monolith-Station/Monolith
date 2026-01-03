@@ -153,13 +153,13 @@
   - type: Ammo
     muzzleFlash: null
   - type: StaminaDamageOnCollide
-    damage: 65
+    damage: 35
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
         Blunt: 5
-        Caustic: 15
+        Caustic: 10
         Cellular: 5
     soundHit:
       collection: ExplosionSmall
