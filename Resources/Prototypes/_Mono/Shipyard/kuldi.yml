@@ -1,7 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Blu
 # SPDX-FileCopyrightText: 2025 DuneTemplar
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -14,7 +11,7 @@
   parent: BaseVessel
   name: DWI Kuldi
   description: Equipped with a full chemistry lab and cryogenics, this ship is Dornan-Weryl Industrial's solution to most medical care.
-  price: 73000 # A bit higher than the grid appraisal.
+  price: 95000 # A bit higher than the grid appraisal +vendors
   category: Medium
   group: Medical
   shuttlePath: /Maps/_Mono/Shuttles/kuldi.yml
