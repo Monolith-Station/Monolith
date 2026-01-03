@@ -16,6 +16,7 @@
     - BluespaceSalvageEventScheduler
     - SmugglingEventScheduler
     - FrontierRoundstartVariation
+    - MonoMonolithicEventsScheduler
 
 - type: gamePreset
   id: MonoRogueTSF
@@ -30,6 +31,7 @@
   - BluespaceSalvageEventScheduler
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
+  - MonoMonolithicEventsScheduler
 
 - type: gamePreset
   id: MonoRogueUSSP
@@ -44,6 +46,7 @@
   - BluespaceSalvageEventScheduler
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
+  - MonoMonolithicEventsScheduler
 
 - type: gamePreset
   id: MonoTSFUSSP
@@ -58,6 +61,7 @@
   - BluespaceSalvageEventScheduler
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
+  - MonoMonolithicEventsScheduler
 
 - type: gamePreset
   id: MonoADS
@@ -75,6 +79,7 @@
   - MonoAISTCShuttleSpawnerScheduler
   - MonoAISTCShuttleSpawnerSchedulerTier2
   - MonoAsakimSTCShuttleSpawnerScheduler
+  - MonoMonolithicEventsScheduler
 
 - type: gamePreset
   id: MonoChimera
@@ -90,6 +95,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoChimeraSTCShuttleSpawnerScheduler
+  - MonoMonolithicEventsScheduler
 
 - type: gamePreset
   id: MonoMixed
@@ -108,6 +114,7 @@
   - MonoAISTCShuttleSpawnerSchedulerSlow
   - MonoAISTCShuttleSpawnerSchedulerTier2Slow
   - MonoAsakimSTCShuttleSpawnerSchedulerSlow
+  - MonoMonolithicEventsScheduler
 
 - type: gamePreset
   id: MonoAllAtOnce
@@ -125,4 +132,5 @@
   - MonoChimeraSTCShuttleSpawnerSchedulerApocalypse
   - MonoAISTCShuttleSpawnerSchedulerApocalypse
   - MonoAsakimSTCShuttleSpawnerSchedulerApocalypse
+  - MonoMonolithicEventsScheduler
 

@@ -21,7 +21,7 @@
     sprite: _Mono/Clothing/Head/Hardsuits/syndieelite.rsi
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieElite
+  parent: [ClothingHeadHelmetHardsuitSyndieElite, ShowSecurityIcons]
   id: ClothingHeadHelmetHardsuitVizier
   name: PDV CV-67 combat hardsuit helmet
   description: An adorned tacsuit designed with an imperfect nanolaminate composition. High maneuverability, sturdy armor.

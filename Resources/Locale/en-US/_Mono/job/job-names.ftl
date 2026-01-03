@@ -13,3 +13,7 @@ job-name-md-medic = Emergency Responder
 
 # MARK: TSF
 job-name-tsf-engineer = TSFMC Engineer
+job-name-tsf-borg = TSFMC Cyborg
+
+# MARK: PDV
+job-name-pdv-borg = PDV Cyborg

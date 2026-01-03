@@ -1,5 +1,6 @@
 using Content.Server.Physics.Controllers;
 using Content.Server.Shuttles.Components;
+using Content.Shared._Mono.SpaceArtillery;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
@@ -20,6 +21,11 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<PhysicsComponent> _physQuery;
     private EntityQuery<ShuttleComponent> _shuttleQuery;
+
+    private List<Entity<MapGridComponent>> _avoidGrids = new();
+    private HashSet<Entity<ShipWeaponProjectileComponent>> _avoidProjs = new();
+    private List<EntityUid> _avoidPotentialEnts = new();
+    private List<(Entity<TransformComponent, PhysicsComponent> ent, float inTime)> _avoidEnts = new();
 
     public override void Initialize()
     {
@@ -98,7 +104,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             case ShipSteeringMode.GoToRange:
             {
                 // check if all good
-                if (distance >= lowRange && distance <= highRange
+                if (!ent.Comp.NoFinish
+                    && distance >= lowRange && distance <= highRange
                     && relVel.Length() < maxArrivedVel
                     && MathF.Abs(angVel) < maxArrivedAngVel)
                 {
@@ -136,7 +143,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                                      shipXform, shipBody, shuttle, shipGrid,
                                      destMapPos, targetVel, targetUid, mapTarget,
                                      maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
-                                     ent.Comp.AvoidCollisions, ent.Comp.MaxObstructorDistance,
+                                     ent.Comp.AvoidCollisions, ent.Comp.AvoidProjectiles, ent.Comp.MaxObstructorDistance, ent.Comp.MinObstructorDistance, ent.Comp.EvasionBuffer,
                                      targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
     }
 
@@ -144,7 +151,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                                          TransformComponent shipXform, PhysicsComponent shipBody, ShuttleComponent shuttle, MapGridComponent shipGrid,
                                          MapCoordinates destMapPos, Vector2 targetVel, EntityUid? targetUid, MapCoordinates targetEntPos,
                                          float maxArrivedVel, float brakeThreshold, float frameTime,
-                                         bool avoidCollisions, float maxObstructorDistance,
+                                         bool avoidCollisions, bool avoidProjectiles, float maxObstructorDistance, float minObstructorDistance, float evasionBuffer,
                                          Angle targetAngleOffset, Angle? angleOverride)
     {
 
@@ -154,6 +161,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var linVel = shipBody.LinearVelocity;
 
         var toDestVec = destMapPos.Position - shipPos.Position;
+        var toDestDir = NormalizedOrZero(toDestVec);
         var destDistance = toDestVec.Length();
 
         // try to lead the target with the target velocity we've been passed in
@@ -172,15 +180,13 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         Vector2 wishInputVec = Vector2.Zero;
         bool didCollisionAvoidance = false;
         // try avoid collisions
-        if (avoidCollisions && linVel.LengthSquared() > 0f)
+        if (avoidCollisions || avoidProjectiles)
         {
-            var grids = new List<Entity<MapGridComponent>>();
-
             // note: there's several magic numbers here, i consider those acceptable since they're almost an implementation detail
             // i can't think of any reason for anyone to want to change them
             const float SearchBuffer = 96f;
             const float ScanDistanceBuffer = 96f;
-            const float CollisionRadiusBuffer = 12f;
+            const float ProjectileSearchBounds = 896f;
 
             // how far ahead to look for grids
             var shipPosVec = shipPos.Position;
@@ -196,34 +202,67 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
             var scanBounds = new Box2(scanBoundsLocal.BottomLeft + shipPosVec, scanBoundsLocal.TopRight + shipPosVec);
             var scanBoundsWorld = new Box2Rotated(scanBounds, velAngle - new Angle(Math.PI), shipPosVec);
-            _mapMan.FindGridsIntersecting(shipPos.MapId, scanBoundsWorld, ref grids, approx: true, includeMap: false);
+            _avoidGrids.Clear();
+            if (avoidCollisions)
+                _mapMan.FindGridsIntersecting(shipPos.MapId, scanBoundsWorld, ref _avoidGrids, approx: true, includeMap: false);
+            _avoidProjs.Clear();
+            if (avoidProjectiles)
+                // apparently not expensive?
+                _avoidProjs =
+                    _lookup.GetEntitiesInRange<ShipWeaponProjectileComponent>(shipPos,
+                                                                              ProjectileSearchBounds,
+                                                                              LookupFlags.Approximate | LookupFlags.Dynamic | LookupFlags.Sensors);
+            _avoidPotentialEnts.Clear();
+            foreach (var ent in _avoidGrids)
+                _avoidPotentialEnts.Add(ent);
+            foreach (var ent in _avoidProjs)
+                _avoidPotentialEnts.Add(ent);
 
-            foreach (var ent in grids)
+            _avoidEnts.Clear();
+            foreach (var ent in _avoidPotentialEnts)
             {
-                if (ent.Owner == shipUid || ent.Owner == targetUid || !_physQuery.TryComp(ent, out var obstacleBody))
+                if (ent == shipUid || ent == targetUid || !_physQuery.TryComp(ent, out var obstacleBody))
                     continue;
 
-                var toObstacle = _transform.GetMapCoordinates(ent).Position - shipPosVec;
+                var otherXform = Transform(ent);
+
+                var toObstacle = _transform.GetWorldPosition(otherXform) - shipPosVec;
+                var obstacleRelVel = linVel - obstacleBody.LinearVelocity;
+                var dot = Vector2.Dot(obstacleRelVel, toObstacle);
+                // we're going away
+                if (dot <= 0f)
+                    continue;
+
+                var normRelVel = toObstacle * dot / toObstacle.LengthSquared();
+
+                // we're only using it for sorting so just use squared times
+                _avoidEnts.Add(((ent, otherXform, obstacleBody), toObstacle.LengthSquared() / normRelVel.LengthSquared()));
+            }
+            _avoidEnts.Sort((a, b) => a.inTime.CompareTo(b.inTime));
+
+            foreach (var (ent, _) in _avoidEnts)
+            {
+                var otherXform = ent.Comp1;
+                var obstacleBody = ent.Comp2;
+
+                var toObstacle = _transform.GetWorldPosition(otherXform) - shipPosVec;
                 var obstacleDistance = toObstacle.Length();
 
                 var obstacleRelVel = linVel - obstacleBody.LinearVelocity;
-                var velDir = NormalizedOrZero(linVel);
                 var relVelDir = NormalizedOrZero(obstacleRelVel);
 
-                // if it's somehow not in front of our movement we don't care
-                if (Vector2.Dot(toObstacle, relVelDir) <= 0)
-                    continue;
-
                 // check by how much we have to miss
-                // approximate via grid AABB
-                var otherBounds = ent.Comp.LocalAABB;
-                var shipRadius = MathF.Sqrt(shipAABB.Width * shipAABB.Width + shipAABB.Height * shipAABB.Height) / 2f + CollisionRadiusBuffer;
+                // approximate via grid AABB or world AABB if projectile
+                _gridQuery.TryComp(ent, out var otherGrid);
+
+                var otherBounds = otherGrid != null ? otherGrid.LocalAABB : _physics.GetWorldAABB(ent, body: obstacleBody, xform: otherXform);
+                var shipRadius = MathF.Sqrt(shipAABB.Width * shipAABB.Width + shipAABB.Height * shipAABB.Height) / 2f + evasionBuffer;
                 var obstacleRadius = MathF.Sqrt(otherBounds.Width * otherBounds.Width + otherBounds.Height * otherBounds.Height) / 2f;
                 var sumRadius = shipRadius + obstacleRadius;
 
                 var targetEntDistance = (targetEntPos.Position - shipPos.Position).Length();
                 // if it's behind destination entity we don't care, needed for ramming to work properly
-                if (obstacleDistance > targetEntDistance + sumRadius)
+                if (targetUid != null && obstacleDistance > targetEntDistance + sumRadius + minObstructorDistance)
                     continue;
 
                 // check by how much we're already missing
@@ -235,8 +274,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
                 if (sideDist < sumRadius)
                 {
-                    var toDestDir = NormalizedOrZero(toDestVec);
-
                     // get direction we want to dodge in and where we'll actually thrust to do that
                     var dodgeDir = NormalizedOrZero(sideVec);
                     var dodgeVec = GetGoodThrustVector((-shipNorthAngle).RotateVec(sideVec), shuttle);
@@ -261,7 +298,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                     var inInput = dodgeAccel == 0f ? -1f : float.Clamp(maxInAccel / inAccel, -1f, 1f);
 
                     // those should be around perpendicular so this should work out
-                    wishInputVec = toDestDir * inInput + dodgeDir;
+                    wishInputVec = NormalizedOrZero(toDestDir * inInput + dodgeDir);
                     didCollisionAvoidance = true;
                     break;
                 }
@@ -277,7 +314,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             else
             {
                 var linVelDir = NormalizedOrZero(relVel);
-                var toDestDir = NormalizedOrZero(toDestVec);
                 // mirror linVelDir in relation to toTargetDir
                 // for that we orthogonalize it then invert it to get the perpendicular-vector
                 var adjustVec = -(linVelDir - toDestDir * Vector2.Dot(linVelDir, toDestDir));

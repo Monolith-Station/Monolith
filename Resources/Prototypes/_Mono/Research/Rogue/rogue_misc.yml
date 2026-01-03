@@ -13,6 +13,21 @@
   position: 22, 11
 
 - type: technology
+  id: RogueSaturn
+  name: research-technology-rogue-saturn-voucher
+  entityIcon: ShipVoucherSaturn
+  discipline: RogueShipyard
+  tier: 3
+  cost: 100000
+  recipeUnlocks:
+  - SaturnVoucherRogue
+  technologyPrerequisites:
+  - RogueGoliath
+  - UniversalMaterialResearchT3
+  - RogueProwler
+  position: 22, 12
+
+- type: technology
   id: RogueGoliath
   name: research-technology-rogue-saintie-voucher
   entityIcon: ShipVoucherSaintie
@@ -90,3 +105,30 @@
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: 20, -3
+
+- type: technology
+  id: PDVBasicBorgModule
+  name: research-technology-pdv-basic-module
+  entityIcon: BorgModuleSecurity
+  discipline: RogueGear
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - BasicBorgCombatModulePDV
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 20, -4
+
+- type: technology
+  id: PDVAdvancedBorgModule
+  name: research-technology-pdv-advanced-module
+  entityIcon: BorgModuleSecurity
+  discipline: RogueGear
+  tier: 3
+  cost: 65000
+  recipeUnlocks:
+  - AdvancedBorgCombatModulePDV
+  technologyPrerequisites:
+  - UniversalMaterialResearchT3
+  - PDVBasicBorgModule
+  position: 23, 11

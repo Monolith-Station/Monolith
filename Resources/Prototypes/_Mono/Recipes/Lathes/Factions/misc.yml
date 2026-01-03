@@ -123,6 +123,64 @@
     Plasma: 600
     Uranium: 200
 
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: BasicBorgCombatModulePDV
+  result: BorgModulePDVStandardWeapon
+  categories:
+  - Tools
+  - FactionEquipment
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: BasicBorgCombatModuleTSF
+  result: BorgModuleTSFStandardWeapon
+  categories:
+  - Tools
+  - FactionEquipment
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AdvancedBorgCombatModulePDV
+  result: BorgModulePDVAdvancedWeapon
+  categories:
+  - Tools
+  - FactionEquipment
+  completetime: 3
+  materials:
+    Steel: 5000
+    Glass: 5000
+    Plastic: 5000
+    Bluespace: 200
+
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AdvancedBorgCombatModuleTSF
+  result: BorgModuleTSFAdvancedWeapon
+  categories:
+  - Tools
+  - FactionEquipment
+  completetime: 3
+  materials:
+    Steel: 5000
+    Glass: 5000
+    Plastic: 5000
+    Bluespace: 200
+
+
 - type: latheRecipe
   parent: BaseToolRecipe
   id: NanolaminateFoamGrenadeTSF

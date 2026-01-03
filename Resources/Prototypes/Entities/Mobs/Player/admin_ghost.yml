@@ -77,7 +77,6 @@
     initialDelay: 0
     global: true
   - type: RadarConsole
-    maxRange: 2048 # Mono: further increase admin radar range
     followEntity: true
     hideCoords: false # Frontier
     maxIffRange: null # Frontier

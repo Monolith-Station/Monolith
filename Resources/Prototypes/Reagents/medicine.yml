@@ -210,6 +210,16 @@
               Brute: -4
               Burn: -6
               Toxin: -4
+        - !type:GenericStatusEffect # Mono edit
+          conditions:
+          - !type:OrganType #
+            type: Hydrakin
+          - !type:Temperature
+            max: 213.0
+          key: ForcedSleep
+          component: ForcedSleeping
+          refresh: false
+          type: Add
 
 - type: reagent
   id: Doxarubixadone
@@ -232,6 +242,16 @@
              Cellular: -4 # Frontier: -2<-4
             groups: # Frontier
                 Brute: 1 # Frontier
+        - !type:GenericStatusEffect # Mono edit
+          conditions:
+          - !type:OrganType #
+            type: Hydrakin
+          - !type:Temperature
+            max: 213.0
+          key: ForcedSleep
+          component: ForcedSleeping
+          refresh: false
+          type: Add
 
 - type: reagent
   id: Dermaline
@@ -1401,6 +1421,17 @@
               Toxin: -4 # 0 >> -4
             #types:
             #  Poison: -2 # Mono end
+        - !type:GenericStatusEffect # Mono edit
+          conditions:
+          - !type:OrganType
+            type: Hydrakin
+          - !type:Temperature
+            max: 217.15
+          key: ForcedSleep
+          component: ForcedSleeping
+          refresh: false
+          type: Add
+        
 
 - type: reagent
   id : Aloxadone
@@ -1436,6 +1467,16 @@
             Cold: 0.98
             Shock: 0.98
             Caustic: 0.98 #Mono end
+      - !type:GenericStatusEffect # Mono edit
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        - !type:Temperature
+          max: 213.0
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine

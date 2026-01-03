@@ -146,6 +146,47 @@
 
 - type: entity
   parent: BaseShipLPC
+  id: ShipVoucherFlyssa
+  name: TSF flyssa LPC
+  description: A small card that contains the data for the procurement of a Flyssa-class destroyer from the flagship's reserves.
+  components:
+  - type: Sprite
+    layers:
+    - state: htech
+    - state: stripetsfmc
+    - state: vouchermilitary
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Security
+    companyName: TSF
+    vessels:
+    - Flyssa
+  - type: StaticPrice
+    vendPrice: 500000
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherPolaris
+  name: TSF polaris LPC
+  description: A small card that contains the data for the procurement of a Polaris-class frigate from the flagship's reserves.
+  components:
+  - type: Sprite
+    layers:
+    - state: mtech
+    - state: stripetsfmc
+    - state: vouchermilitary
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Security
+    companyName: TSF
+    vessels:
+    - PolarisShip
+  - type: StaticPrice
+    vendPrice: 300000
+
+# PDV
+- type: entity
+  parent: BaseShipLPC
   id: ShipVoucherProwler
   name: PDV prowler LPC
   description: A small card that authorizes the procurement of a Prowler.
@@ -186,40 +227,42 @@
 
 - type: entity
   parent: BaseShipLPC
-  id: ShipVoucherFlyssa
-  name: TSF flyssa LPC
-  description: A small card that contains the data for the procurement of a Flyssa-class destroyer from the flagship's reserves.
+  id: ShipVoucherSaturn
+  name: PDV saturn LPC
+  description: A small card that authorizes the procurement of the Saturn.
   components:
   - type: Sprite
     layers:
     - state: htech
-    - state: stripetsfmc
+    - state: stripepdv
     - state: vouchermilitary
   - type: ShipyardVoucher
     destroyOnEmpty: true
-    consoleType: Security
-    companyName: TSF
+    consoleType: BlackMarket
+    companyName: PDV
     vessels:
-    - Flyssa
+    - Saturn
   - type: StaticPrice
-    vendPrice: 500000
+    vendPrice: 1555000
+
+# CC
 
 - type: entity
   parent: BaseShipLPC
-  id: ShipVoucherPolaris
-  name: TSF polaris LPC
-  description: A small card that contains the data for the procurement of a Polaris-class frigate from the flagship's reserves.
+  id: ShipVoucherRavager
+  name: ravager LPC
+  description: A small card that contains the data for the procurement of a Ravager-class mothership from the flagship's reserves.
   components:
   - type: Sprite
     layers:
-    - state: mtech
-    - state: stripetsfmc
+    - state: htech
+    - state: stripesec
     - state: vouchermilitary
   - type: ShipyardVoucher
     destroyOnEmpty: true
-    consoleType: Security
-    companyName: TSF
+    consoleType: Sr
+    companyName: Colonial
     vessels:
-    - PolarisShip
+    - Ravager
   - type: StaticPrice
-    vendPrice: 300000
+    vendPrice: 325000

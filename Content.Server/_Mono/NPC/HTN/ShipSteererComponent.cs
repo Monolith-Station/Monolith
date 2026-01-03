@@ -24,6 +24,12 @@ public sealed partial class ShipSteererComponent : Component
     public bool AlwaysFaceTarget = false;
 
     /// <summary>
+    /// Whether to avoid shipgun projectiles.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool AvoidProjectiles = false;
+
+    /// <summary>
     /// If AlwaysFaceTarget is true, how much of a difference in angle (in radians) to accept.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
@@ -40,6 +46,12 @@ public sealed partial class ShipSteererComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float BrakeThreshold = 0.75f;
+
+    /// <summary>
+    /// How much larger to consider the ship for collision evasion purposes.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float EvasionBuffer = 6f;
 
     /// <summary>
     /// Whether to consider the movement finished if we collide with target.
@@ -70,6 +82,19 @@ public sealed partial class ShipSteererComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float MaxObstructorDistance = 800f;
+
+    /// <summary>
+    /// Ignore obstacles this close to our destination grid if moving to a grid, + other grid's radius.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float MinObstructorDistance = 20f;
+
+    /// <summary>
+    /// Don't finish early even if we've completed our order.
+    /// Use to keep doing collision detection when we're supposed to finish on plan finish.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool NoFinish = false;
 
     /// <summary>
     /// What movement behavior to use.

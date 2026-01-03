@@ -18,6 +18,8 @@
   examineText: contraband-examine-text-faction-gear-3
   showDepartmentsAndJobs: true
 
+# other
+
 - type: contrabandSeverity
   id: OtherFactionGear0
   examineText: contraband-examine-text-faction-gear-0
@@ -33,3 +35,17 @@
 - type: contrabandSeverity
   id: OtherFactionGear3
   examineText: contraband-examine-text-faction-gear-3
+
+# loot
+
+- type: contrabandSeverity
+  id: MonolithContrabandT1
+  examineText: contraband-examine-text-monolith-loot-1
+
+- type: contrabandSeverity
+  id: MonolithContrabandT2
+  examineText: contraband-examine-text-monolith-loot-2
+
+- type: contrabandSeverity
+  id: MonolithContrabandT3
+  examineText: contraband-examine-text-monolith-loot-3
