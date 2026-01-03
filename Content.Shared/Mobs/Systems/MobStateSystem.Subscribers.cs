@@ -18,6 +18,9 @@ using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Components;
 
+// Mono
+using Content.Shared._White.Standing;
+
 namespace Content.Shared.Mobs.Systems;
 
 public partial class MobStateSystem
@@ -100,7 +103,7 @@ public partial class MobStateSystem
         switch (state)
         {
             case MobState.Alive:
-                _standing.Stand(target);
+                _standing.Stand(target, force: !HasComp<LayingDownComponent>(target)); // Mono - force stand up if we can't lay down at will
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
             case MobState.Critical:
