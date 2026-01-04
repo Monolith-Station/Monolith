@@ -22,6 +22,7 @@
         color: "#9a2020"
       - type: GridCleanupGrid
         cleanupAcceleration: 3
+        distanceOverride: 2000 # only clean up if no players within 2km
         ignorePowered: true
         ignoreIFF: true
         ignorePrice: true

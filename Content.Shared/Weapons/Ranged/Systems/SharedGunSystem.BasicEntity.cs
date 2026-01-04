@@ -10,6 +10,7 @@ public abstract partial class SharedGunSystem
     {
         SubscribeLocalEvent<BasicEntityAmmoProviderComponent, MapInitEvent>(OnBasicEntityMapInit);
         SubscribeLocalEvent<BasicEntityAmmoProviderComponent, TakeAmmoEvent>(OnBasicEntityTakeAmmo);
+        SubscribeLocalEvent<BasicEntityAmmoProviderComponent, CheckShootPrototypeEvent>(OnBasicEntityCheckProto); // Mono
         SubscribeLocalEvent<BasicEntityAmmoProviderComponent, GetAmmoCountEvent>(OnBasicEntityAmmoCount);
     }
 
@@ -31,7 +32,7 @@ public abstract partial class SharedGunSystem
             if (component.Count <= 0)
                 return;
 
-            if (component.Count != null && !args.CheckOnly) // Mono
+            if (component.Count != null)
             {
                 component.Count--;
             }
@@ -40,13 +41,16 @@ public abstract partial class SharedGunSystem
             args.Ammo.Add((ent, EnsureShootable(ent)));
         }
 
-        // Mono
-        if (args.CheckOnly)
-            return;
-
         _recharge.Reset(uid);
         UpdateBasicEntityAppearance(uid, component);
         Dirty(uid, component);
+    }
+
+    // Mono
+    private void OnBasicEntityCheckProto(Entity<BasicEntityAmmoProviderComponent> ent, ref CheckShootPrototypeEvent args)
+    {
+        ProtoManager.TryIndex(ent.Comp.Proto, out var proto);
+        args.ShootPrototype = proto;
     }
 
     private void OnBasicEntityAmmoCount(EntityUid uid, BasicEntityAmmoProviderComponent component, ref GetAmmoCountEvent args)

@@ -23,6 +23,7 @@ public abstract partial class SharedGunSystem
         SubscribeLocalEvent<BallisticAmmoProviderComponent, ComponentInit>(OnBallisticInit);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, MapInitEvent>(OnBallisticMapInit);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, TakeAmmoEvent>(OnBallisticTakeAmmo);
+        SubscribeLocalEvent<BallisticAmmoProviderComponent, CheckShootPrototypeEvent>(OnBallisticCheckProto); // Mono
         SubscribeLocalEvent<BallisticAmmoProviderComponent, GetAmmoCountEvent>(OnBallisticAmmoCount);
 
         SubscribeLocalEvent<BallisticAmmoProviderComponent, ExaminedEvent>(OnBallisticExamine);
@@ -293,7 +294,7 @@ public abstract partial class SharedGunSystem
 
                 args.Ammo.Add((entity, EnsureShootable(entity)));
 
-                if (!component.AutoCycle || args.CheckOnly) //  Goobstation - do not remove spent ammo from the gun it doesn't autocycle // Mono
+                if (!component.AutoCycle) //  Goobstation - do not remove spent ammo from the gun it doesn't autocycle
                     break;
 
                 component.Entities.RemoveAt(component.Entities.Count - 1);
@@ -303,7 +304,7 @@ public abstract partial class SharedGunSystem
             else if (component.UnspawnedCount > 0
                 || component.InfiniteUnspawned) // Mono
             {
-                if (!component.InfiniteUnspawned && !args.CheckOnly) // Mono
+                if (!component.InfiniteUnspawned) // Mono
                 {
                     component.UnspawnedCount--;
                     DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.UnspawnedCount));
@@ -312,7 +313,7 @@ public abstract partial class SharedGunSystem
                 args.Ammo.Add((entity, EnsureShootable(entity)));
 
                 // Goobstation - put spent ammo back in the gun if it doesn't autocycle
-                if (!component.AutoCycle && !args.CheckOnly) // Mono
+                if (!component.AutoCycle)
                 {
                     component.Entities.Add(entity);
                     Containers.Insert(entity, component.Container);
@@ -322,8 +323,22 @@ public abstract partial class SharedGunSystem
             }
         }
 
-        if (!args.CheckOnly) // Mono
-            UpdateBallisticAppearance(uid, component);
+        UpdateBallisticAppearance(uid, component);
+    }
+
+    // Mono
+    private void OnBallisticCheckProto(Entity<BallisticAmmoProviderComponent> ent, ref CheckShootPrototypeEvent args)
+    {
+        if (ent.Comp.Entities.Count > 0)
+        {
+            var ammo = ent.Comp.Entities[^1];
+            args.ShootPrototype = MetaData(ammo).EntityPrototype;
+        }
+        else if (ent.Comp.UnspawnedCount > 0 || ent.Comp.InfiniteUnspawned)
+        {
+            ProtoManager.TryIndex(ent.Comp.Proto, out var proto);
+            args.ShootPrototype = proto;
+        }
     }
 
     private void OnBallisticAmmoCount(EntityUid uid, BallisticAmmoProviderComponent component, ref GetAmmoCountEvent args)

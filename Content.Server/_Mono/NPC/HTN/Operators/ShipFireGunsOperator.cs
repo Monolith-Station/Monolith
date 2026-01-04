@@ -106,7 +106,7 @@ public sealed partial class ShipFireGunsOperator : HTNOperator, IHtnConditionalS
             return HTNOperatorStatus.Failed;
 
         // ensure we're still targeting if we e.g. move grids
-        var comp = _targeting.Target(owner, target, false);
+        var comp = _targeting.Target(owner, target);
         if (comp == null)
             return HTNOperatorStatus.Finished;
 

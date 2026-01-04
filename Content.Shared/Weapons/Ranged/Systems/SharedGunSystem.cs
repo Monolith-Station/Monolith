@@ -572,28 +572,27 @@ public abstract partial class SharedGunSystem : EntitySystem
     }
 
     // Mono
-    public bool? IsHitscan(Entity<GunComponent?> gun)
+    public bool TryNextShootPrototype(Entity<GunComponent?> gun, [NotNullWhen(true)] out EntityPrototype? proto)
     {
+        proto = null;
         if (!Resolve(gun, ref gun.Comp))
-            return null;
+            return false;
 
-        var checkEv = new TakeAmmoEvent(1,
-                                        new List<(EntityUid? Entity, IShootable Shootable)>(),
-                                        Transform(gun).Coordinates,
-                                        null,
-                                        checkOnly: true);
-        RaiseLocalEvent(gun, checkEv);
-        if (checkEv.Ammo.Count == 0)
-            return null;
+        var checkEv = new CheckShootPrototypeEvent();
+        RaiseLocalEvent(gun, ref checkEv);
+        proto = checkEv.ShootPrototype;
 
-        var hitscan = HasComp<HitscanAmmoComponent>(checkEv.Ammo[0].Entity);
-        foreach (var ent in checkEv.Ammo)
+        return proto != null;
+    }
+
+    // Mono
+    public EntityPrototype GetBulletPrototype(EntityPrototype cartridge)
+    {
+        if (cartridge.TryGetComponent<CartridgeAmmoComponent>(out var cartComp, Factory))
         {
-            // cleanup
-            if (ent.Entity != null && !Containers.IsEntityInContainer(ent.Entity.Value))
-                Del(ent.Entity.Value);
+            return ProtoManager.Index(cartComp.Prototype);
         }
-        return hitscan;
+        return cartridge;
     }
 
     // Mono - used for multiple-per-frame projectile offset

@@ -1,4 +1,5 @@
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes; // Mono
 
 namespace Content.Shared.Weapons.Ranged.Events;
 
@@ -26,22 +27,14 @@ public class TakeAmmoEvent : EntityEventArgs // Mono: unseal
     /// Does this event represent an intent to fire, or to safely remove ammo from an entity?
     /// </summary>
     public bool WillBeFired;
-    // End Frontier
+    // End Frontierull;
 
-    /// <summary>
-    /// Monolith
-    /// If true, causes this event to only return the ammo that will be fired next without side effects beyond potentially spawning an entity.
-    /// If an entity has been spawned, it is guaranteed it will not be in a container.
-    /// </summary>
-    public bool CheckOnly = false;
-
-    public TakeAmmoEvent(int shots, List<(EntityUid? Entity, IShootable Shootable)> ammo, EntityCoordinates coordinates, EntityUid? user, bool willBeFired = false, bool checkOnly = false) // Frontier: add willBeFired
+    public TakeAmmoEvent(int shots, List<(EntityUid? Entity, IShootable Shootable)> ammo, EntityCoordinates coordinates, EntityUid? user, bool willBeFired = false) // Frontier: add willBeFired
     {
         Shots = shots;
         Ammo = ammo;
         Coordinates = coordinates;
         User = user;
-        CheckOnly = checkOnly; // Mono
-        WillBeFired = willBeFired = checkOnly; // Frontier // Mono
+        WillBeFired = willBeFired; // Frontier
     }
 }

@@ -10,6 +10,7 @@ public partial class SharedGunSystem
     protected virtual void InitializeSolution()
     {
         SubscribeLocalEvent<SolutionAmmoProviderComponent, TakeAmmoEvent>(OnSolutionTakeAmmo);
+        SubscribeLocalEvent<SolutionAmmoProviderComponent, CheckShootPrototypeEvent>(OnSolutionCheckProto); // Mono
         SubscribeLocalEvent<SolutionAmmoProviderComponent, GetAmmoCountEvent>(OnSolutionAmmoCount);
     }
 
@@ -24,17 +25,18 @@ public partial class SharedGunSystem
         for (var i = 0; i < shots; i++)
         {
             args.Ammo.Add(GetSolutionShot(uid, component, args.Coordinates));
-            // Mono
-            if (!args.CheckOnly)
-                component.Shots--;
+            component.Shots--;
         }
-
-        // Mono
-        if (args.CheckOnly)
-            return;
 
         UpdateSolutionShots(uid, component);
         UpdateSolutionAppearance(uid, component);
+    }
+
+    // Mono
+    private void OnSolutionCheckProto(Entity<SolutionAmmoProviderComponent> ent, ref CheckShootPrototypeEvent args)
+    {
+        ProtoManager.TryIndex(ent.Comp.Prototype, out var proto);
+        args.ShootPrototype = proto;
     }
 
     private void OnSolutionAmmoCount(EntityUid uid, SolutionAmmoProviderComponent component, ref GetAmmoCountEvent args)
