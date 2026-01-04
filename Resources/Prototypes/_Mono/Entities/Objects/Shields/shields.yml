@@ -1,0 +1,88 @@
+- type: entity
+  name: hardlight shield
+  parent: BaseItem
+  id: HardlightShield
+  description: Z-22 produced hardlight shield, when folded, can even fit in your pocket. Its more emmitive than reflective, unlike its blue cousins.
+  components:
+    - type: ItemToggle
+      predictable: false # WD EDIT
+      soundActivate:
+        path: /Audio/Weapons/ebladeon.ogg
+      soundDeactivate:
+        path: /Audio/Weapons/ebladeoff.ogg
+      # WD EDIT START
+      soundFailToActivate:
+        path: /Audio/Machines/button.ogg
+        params:
+          variation: 0.250
+      # WD EDIT END
+    - type: ItemToggleActiveSound
+      activeSound:
+        path: /Audio/Weapons/ebladehum.ogg
+    - type: ItemToggleSize
+      activatedSize: Huge
+    - type: ComponentToggler
+      components:
+      - type: DisarmMalus
+        malus: 0.6
+    - type: Sprite
+      sprite: _Mono/Objects/Weapons/Melee/mshield.rsi
+      layers:
+        - state: eshield-icon
+        - state: eshield-on
+          color: "#FFFFFF"
+          visible: false
+          shader: unshaded
+          map: [ "shield" ]
+    - type: Item
+      size: Small
+      sprite: _Mono/Objects/Weapons/Melee/mshield.rsi
+      heldPrefix: eshield
+    - type: UseDelay
+      delay: 0.5
+    - type: ToggleableLightVisuals
+      spriteLayer: shield
+      inhandVisuals:
+        left:
+          - state: inhand-left-shield
+            shader: unshaded
+        right:
+          - state: inhand-right-shield
+            shader: unshaded
+    - type: PointLight
+      netsync: false
+      enabled: false
+      radius: 1.5
+      energy: 0.7 # WD EDIT
+      color: "#67d971" # WD EDIT
+    - type: ItemTogglePointLight
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 1.0
+          Slash: 0.9
+          Piercing: 0.85
+          Heat: 0.85 # WD EDIT
+      activeBlockModifier:
+        coefficients:
+          Blunt: 1.2
+          Slash: 0.85
+          Piercing: 0.5
+          Heat: 0.5
+        flatReductions:
+          Heat: 1
+          Piercing: 1
+    - type: Appearance
+    - type: Damageable
+      damageContainer: Shield
+    - type: StaticPrice
+      price: 350
+      # WD EDIT START
+    - type: Battery
+      maxCharge: 60
+      startingCharge: 60
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 5
+    - type: RechargeableBlocking
+      # WD EDIT END
