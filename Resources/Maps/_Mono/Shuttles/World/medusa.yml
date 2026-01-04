@@ -453,17 +453,12 @@ entities:
     - type: Transform
       pos: -1.5,-0.5
       parent: 1
-- proto: ClothingBackpackDroneLoot
+- proto: ClothingBackpackDroneLootT22
   entities:
   - uid: 60
     components:
     - type: Transform
       pos: 0.5788634,0.47274494
-      parent: 1
-  - uid: 164
-    components:
-    - type: Transform
-      pos: 0.71895885,0.82954866
       parent: 1
 - proto: GeneratorRTG
   entities:

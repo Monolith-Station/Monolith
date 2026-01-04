@@ -23,10 +23,10 @@
 
 # region Far Ring
 - type: spaceBiome
-  id: MonoWorldgenVeryFar
+  id: MonoWorldgenVeryFarT1
   parent: NFBiomeBase
   priority: -1
-  # no distanceRange, accepts all remaining distance
+  distanceRange: 18000, 20000
   noiseRanges: {}
   chunkComponents:
   - type: DebrisFeaturePlacerController
@@ -147,6 +147,64 @@
     - id: NFWreckDebrisBrassExtraLarge
       prob: 0.3
       orGroup: wreck
-    - id: MonoRamDroneSpawner
+    - id: MonoRamDroneSpawnerT1
       prob: 3
+      orGroup: wreck
+
+- type: spaceBiome
+  id: MonoWorldgenVeryFarT2Inner
+  parent: NFBiomeBase
+  priority: -1
+  distanceRange: 20000, 22000
+  noiseRanges: {}
+  chunkComponents:
+  - type: NoiseDrivenDebrisSelector
+    noiseChannel: WreckRare
+    debrisTable:
+    - id: NFWreckDebrisSmall
+      prob: 1
+      orGroup: wreck
+    - id: NFWreckDebrisMedium
+      prob: 2
+      orGroup: wreck
+    - id: NFWreckDebrisLarge
+      prob: 1
+      orGroup: wreck
+    - id: NFWreckDebrisBrassLarge
+      prob: 0.9
+      orGroup: wreck
+    - id: NFWreckDebrisBrassExtraLarge
+      prob: 0.3
+      orGroup: wreck
+    - id: MonoRamDroneSpawnerT2Inner
+      prob: 4
+      orGroup: wreck
+
+- type: spaceBiome
+  id: MonoWorldgenVeryFarT2Inner
+  parent: NFBiomeBase
+  priority: -10
+  # no distanceRange, accepts all remaining distance
+  noiseRanges: {}
+  chunkComponents:
+  - type: NoiseDrivenDebrisSelector
+    noiseChannel: WreckRare
+    debrisTable:
+    - id: NFWreckDebrisSmall
+      prob: 1
+      orGroup: wreck
+    - id: NFWreckDebrisMedium
+      prob: 2
+      orGroup: wreck
+    - id: NFWreckDebrisLarge
+      prob: 1
+      orGroup: wreck
+    - id: NFWreckDebrisBrassLarge
+      prob: 0.9
+      orGroup: wreck
+    - id: NFWreckDebrisBrassExtraLarge
+      prob: 0.3
+      orGroup: wreck
+    - id: MonoRamDroneSpawnerT2Middle
+      prob: 4
       orGroup: wreck
