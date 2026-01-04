@@ -27,7 +27,6 @@
   parent: NFBiomeBase
   priority: -1
   distanceRange: 18000, 22000
-  noiseRanges: {}
   chunkComponents:
   - type: DebrisFeaturePlacerController
     densityNoiseChannel: DensityRare
@@ -145,7 +144,7 @@
       prob: 0.9
       orGroup: wreck
     - id: NFWreckDebrisBrassExtraLarge
-      prob: 0.3
+      prob: 3
       orGroup: wreck
     - id: MonoRamDroneSpawnerT1
       prob: 3
@@ -153,10 +152,9 @@
 
 - type: spaceBiome
   id: MonoWorldgenVeryFarT2Inner
-  parent: NFBiomeBase
-  priority: -1
+  parent: MonoWorldgenVeryFarT1
+  priority: -2
   distanceRange: 22000, 25000
-  noiseRanges: {}
   chunkComponents:
   - type: NoiseDrivenDebrisSelector
     noiseChannel: WreckRare
@@ -182,10 +180,9 @@
 
 - type: spaceBiome
   id: MonoWorldgenVeryFarT2Middle
-  parent: NFBiomeBase
-  priority: -10
+  parent: MonoWorldgenVeryFarT1
+  priority: -3
   # no distanceRange, accepts all remaining distance
-  noiseRanges: {}
   chunkComponents:
   - type: NoiseDrivenDebrisSelector
     noiseChannel: WreckRare
