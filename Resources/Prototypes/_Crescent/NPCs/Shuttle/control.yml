@@ -102,7 +102,7 @@
   - type: DeviceList
 
 - type: entity
-  parent: BaseComputerAiAccess
+  parent: ComputerDroneControl
   id: ComputerDroneControlStation
   name: station drone control console
   description: A console that lets you control linked drones.
