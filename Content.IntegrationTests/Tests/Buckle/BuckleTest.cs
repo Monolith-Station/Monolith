@@ -22,6 +22,7 @@ namespace Content.IntegrationTests.Tests.Buckle
         private const string ItemDummyId = "ItemDummy";
 
         [TestPrototypes]
+        // Mono - add requiredLegs
         private const string Prototypes = $@"
 - type: entity
   name: {BuckleDummyId}
@@ -33,6 +34,7 @@ namespace Content.IntegrationTests.Tests.Buckle
   - type: InputMover
   - type: Body
     prototype: Human
+    requiredLegs: 2
   - type: StandingState
 
 - type: entity

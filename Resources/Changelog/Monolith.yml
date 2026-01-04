@@ -15707,3 +15707,32 @@ Entries:
   id: 1744
   time: '2026-01-03T02:19:01.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2933
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Borgs and chimeras no longer permanently lie down after being downed
+        once.
+  id: 1745
+  time: '2026-01-03T09:57:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2936
+- author: GOLDMASK990
+  changes:
+    - type: Add
+      message: >-
+        USSP headset (Includes Comms key) added to civilian loadouts. Headset
+        and key added to USSP Vendor. Bandit Radio is back.
+  id: 1746
+  time: '2026-01-04T02:01:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2944
+- author: burrrkeye
+  changes:
+    - type: Add
+      message: >-
+        Every faction ship with the sole exception of PDV Sable can now add
+        slots of Faction Cyborgs from their records console to allow Clankers to
+        latejoin them, similiarly as to how PDV Rahkshan and TSF Marine could
+        latejoin into ships. The Clanker uprising is now.
+  id: 1747
+  time: '2026-01-04T09:31:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2940
