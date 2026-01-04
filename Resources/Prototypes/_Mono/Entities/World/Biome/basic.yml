@@ -26,7 +26,7 @@
   id: MonoWorldgenVeryFarT1
   parent: NFBiomeBase
   priority: -1
-  distanceRange: 18000, 20000
+  distanceRange: 18000, 22000
   noiseRanges: {}
   chunkComponents:
   - type: DebrisFeaturePlacerController
@@ -155,7 +155,7 @@
   id: MonoWorldgenVeryFarT2Inner
   parent: NFBiomeBase
   priority: -1
-  distanceRange: 20000, 22000
+  distanceRange: 22000, 25000
   noiseRanges: {}
   chunkComponents:
   - type: NoiseDrivenDebrisSelector
@@ -181,7 +181,7 @@
       orGroup: wreck
 
 - type: spaceBiome
-  id: MonoWorldgenVeryFarT2Inner
+  id: MonoWorldgenVeryFarT2Middle
   parent: NFBiomeBase
   priority: -10
   # no distanceRange, accepts all remaining distance
