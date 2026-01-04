@@ -278,7 +278,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 50
+        Structural: 300
         Blunt: 50
         Piercing: 50
   - type: Sprite
@@ -300,6 +300,6 @@
   - type: Explosive
     explosionType: Default
     totalIntensity: 12
-    intensitySlope: 1
+    intensitySlope: 2
     maxIntensity: 2
     maxTileBreak: 1
