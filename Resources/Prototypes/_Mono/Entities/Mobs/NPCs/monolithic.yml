@@ -190,6 +190,8 @@
     color: "#91469e"
   - type: Speech
     speechVerb: Ghost
+  - type: ReplacementAccent
+    accent: genericAggressive
   - type: Tag
     tags:
     - FootstepSound
@@ -224,6 +226,9 @@
   - type: Bloodstream
     bloodReagent: Gestalzitine
     bloodMaxVolume: 35
+  - type: NightVision
+    activateSound: null
+    deactivateSound: null
 
 # actual entity spawners
 
