@@ -23,6 +23,7 @@
     - Toggle
   - type: Gun
     fireRate: 12
+    recoil: 5 # 1/5x
     projectileSpeed: 160
     minAngle: 0
     maxAngle: 5
@@ -96,6 +97,7 @@
     - Toggle
   - type: Gun
     fireRate: 10
+    recoil: 5 # 1/5x
     projectileSpeed: 180
     minAngle: 0
     maxAngle: 8

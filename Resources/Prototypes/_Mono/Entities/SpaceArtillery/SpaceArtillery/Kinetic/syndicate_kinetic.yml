@@ -30,6 +30,7 @@
     - Toggle
   - type: Gun
     fireRate: 5
+    recoil: 15 # 3/5x
     projectileSpeed: 200
     minAngle: 0
     maxAngle: 5
@@ -95,6 +96,7 @@
     range: 500
   - type: Gun
     fireRate: 2
+    recoil: 10 # 2/5x
     projectileSpeed: 170
     minAngle: 0
     maxAngle: 6
@@ -172,6 +174,7 @@
         - MachineLayer
   - type: Gun
     projectileSpeed: 325
+    recoil: 100 # 4x
     minAngle: 0
     maxAngle: 3
     fireRate: 0.2
