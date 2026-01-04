@@ -1,0 +1,74 @@
+# Thaumaturge
+
+- type: entity
+  id: WeaponTurretThaumaturge
+  name: Anomolous Cannon - Thaumaturge
+  parent: BallisticArtilleryUnanchorable
+  description: A bizzare weapon that has emerged after the appearance of monolithic shards, the Thaumaturge fires massive crystaline bolts taht obliterate targets.
+  components:
+  - type: StaticPrice
+    price: 30000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/thaumaturge.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 12000
+    startingCharge: 12000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.6,-0.6,0.6,0.6"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Gun
+    projectileSpeed: 500
+    minAngle: 0
+    maxAngle: 0
+    fireRate: 0.2
+    selectedMode: SemiAuto
+    shootThermalSignature: 160000000 # now all of china knows you're here (12.6km)
+    soundGunshot:
+      path: /Audio/Magic/staff_chaos.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 12000
+  - type: SpaceArtillery
+    powerChargeRate: 12000
+    powerUsePassive: 1500
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipThaumaturgeProjectile
+    fireCost: 6000
+  - type: RadarBlip
+    radarColor: "#9112e0"
+    scale: 2.5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Superheavy
