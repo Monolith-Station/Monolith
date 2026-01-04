@@ -2,8 +2,8 @@
   id: Scourge
   parent: BaseVesselAntag
   name: BT-Y Scourge
-  description: Escort vessel with a mass-driver. Serving as a medium-ranged puncher. Absolutely hopeless in short range. Armed with a Charon Mass Driver, 2 VESPERA burst missile pods and 2 20mm PD turrets.
-  price: 110000
+  description: A robust Mass Driver ship, armed with a Charon mass driver, 2 AK570 57mm autocannons, 2 VESPERA 50mm rocket pods and 2 L85 20mm PD autocannons.
+  price: 125000
   category: Medium
   group: BlackMarket
   access: Pirate
@@ -32,3 +32,4 @@
         - type: StationJobs
           availableJobs:
             Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]
