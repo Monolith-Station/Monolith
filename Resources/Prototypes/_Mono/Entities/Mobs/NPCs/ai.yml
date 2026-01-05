@@ -122,6 +122,22 @@
       task: AttackerShuttleSmartCompound
 
 - type: entity
+  id: NpcStationAiAttackerShortRange
+  name: attacker core
+  parent: [NpcStationAiRammer, BaseFactionGearOtherFactionT2]
+  description: Shoots at you.
+  suffix: AI, Short-Range
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_t1
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: AttackerShuttleShortRangeCompound
+
+- type: entity
   name: rammer core spawner
   id: SpawnMobRammerCore
   parent: MarkerBase
@@ -219,6 +235,16 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcStationAiAttacker
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobAttackerCoreShortRange
+  parent: SpawnMobAttackerCore
+  suffix: Short-Range
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiAttackerShortRange
 
 - type: entity
   name: smart attacker core spawner

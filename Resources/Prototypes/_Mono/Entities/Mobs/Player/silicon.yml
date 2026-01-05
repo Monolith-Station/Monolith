@@ -834,3 +834,43 @@
         startingItem: PowerCellCombat
   - type: RandomMetadata
     nameSegments: [MonoTSFBorgNameset]
+
+# Cent-Sec AI Core
+
+- type: entity
+  id: PlayerStationAiSecurity
+  parent: PlayerStationAiVessel
+  suffix: Ghost Role, Security
+  components:
+  - type: ContainerComp
+    proto: AiHeldSec
+
+- type: entity
+  id: AiHeldSec
+  parent: AiHeldMono
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Traffic
+    - Science
+    - Supply
+    - Engineering
+    - Medical
+    - Security
+    - Service
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Traffic
+    - Science
+    - Supply
+    - Engineering
+    - Medical
+    - Security
+    - Service
+  - type: CollectiveMind
+    channels:
+    - Binary
+    defaultChannel: Binary

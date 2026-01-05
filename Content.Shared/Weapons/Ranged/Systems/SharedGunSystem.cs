@@ -513,14 +513,10 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
         Shoot(gunUid, gun, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
-        var shotEv = new GunShotEvent(user, ev.Ammo);
+        var shotEv = new GunShotEvent(user, ev.Ammo, toCoordinates.Value); // Mono - pass coordinates
         RaiseLocalEvent(gunUid, ref shotEv);
 
-        if (userImpulse && _physQuery.TryComp(user, out var userPhysics))
-        {
-            if (_gravity.IsWeightless(user, userPhysics))
-                CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
-        }
+        CauseImpulse(toCoordinates.Value, (gunUid, gun), ev.Ammo.Count);
     }
 
     public void Shoot(
@@ -661,27 +657,26 @@ public abstract partial class SharedGunSystem : EntitySystem
         CreateEffect(gun, ev, user);
     }
 
-    public void CauseImpulse(EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, EntityUid user, PhysicsComponent userPhysics)
+    // Mono - rewritten
+    public void CauseImpulse(EntityCoordinates toCoordinates, Entity<GunComponent> ent, float scale)
     {
-        var fromMap = fromCoordinates.ToMapPos(EntityManager, TransformSystem);
-        var toMap = toCoordinates.ToMapPos(EntityManager, TransformSystem);
-        var shotDirection = (toMap - fromMap).Normalized();
+        var totalImpulse = ent.Comp.Recoil * scale;
+        var selfXform = Transform(ent);
 
-        const float impulseStrength = 25.0f;
-        var impulseVector =  shotDirection * impulseStrength;
+        var impulseCoord = new EntityCoordinates(ent, Vector2.Zero);
 
-        // Frontier: apply impulse to buckled object if buckled
-        if (TryComp<BuckleComponent>(user, out var buckle) && buckle.BuckledTo is not null)
-        {
-            TryComp<PhysicsComponent>(buckle.BuckledTo, out var buckledPhys);
-            Physics.ApplyLinearImpulse(buckle.BuckledTo.Value, -impulseVector, body: buckledPhys);
-        }
-        else
-        {
-            Physics.ApplyLinearImpulse(user, -impulseVector, body: userPhysics);
-        }
-        // End Frontier
-        // Physics.ApplyLinearImpulse(user, -impulseVector, body: userPhysics); // Frontier: old implementation
+        if (Containers.TryGetContainingContainer(ent.Owner, out var container))
+            impulseCoord = TransformSystem.WithEntityId(impulseCoord, container.Owner);
+        else if (selfXform.Anchored && selfXform.ParentUid != selfXform.MapUid)
+            impulseCoord = TransformSystem.WithEntityId(impulseCoord, selfXform.ParentUid);
+
+        // velocity is in world-aligned coordinates so get vec based off that
+        var worldSource = TransformSystem.GetWorldPosition(impulseCoord.EntityId);
+        var worldTarget = TransformSystem.ToWorldPosition(toCoordinates);
+        var dirVec = worldTarget - worldSource;
+        dirVec.Normalize();
+
+        Physics.ApplyLinearImpulse(impulseCoord.EntityId, -dirVec * totalImpulse, impulseCoord.Position);
     }
 
     public void RefreshModifiers(Entity<GunComponent?> gun, EntityUid? User = null) // GoobStation change - User for NoWieldNeeded
@@ -802,7 +797,7 @@ public record struct AttemptShootEvent(EntityUid User, string? Message, bool Can
 /// </summary>
 /// <param name="User">The user that fired this gun.</param>
 [ByRefEvent]
-public record struct GunShotEvent(EntityUid User, List<(EntityUid? Uid, IShootable Shootable)> Ammo);
+public record struct GunShotEvent(EntityUid User, List<(EntityUid? Uid, IShootable Shootable)> Ammo, EntityCoordinates ToCoordinates); // Mono - pass coordinates
 
 public enum EffectLayers : byte
 {

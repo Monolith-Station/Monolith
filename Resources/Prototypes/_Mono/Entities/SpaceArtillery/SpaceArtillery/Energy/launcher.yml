@@ -23,6 +23,7 @@
     range: 500
   - type: Gun
     fireRate: 0.5
+    recoil: 5 # 1/5x
     minAngle: 0
     maxAngle: 0
     projectileSpeed: 65
@@ -93,6 +94,7 @@
     range: 500
   - type: Gun
     fireRate: 20
+    recoil: 5 # 1/5x
     minAngle: 0
     maxAngle: 5
     projectileSpeed: 185
@@ -164,6 +166,7 @@
   - type: FireControlRotate
   - type: Gun
     fireRate: 5
+    recoil: 2 # 2/25x
     projectileSpeed: 20
     minAngle: 0
     maxAngle: 5
@@ -310,6 +313,7 @@
   - type: Gun
     projectileSpeed: 250
     fireRate: 0.75
+    recoil: 500 # 20x - station weapon
     shootThermalSignature: 12000000 # ~6km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/laserfire.ogg
@@ -376,6 +380,7 @@
     range: 500
   - type: Gun
     fireRate: 20
+    recoil: 0
     minAngle: 0
     maxAngle: 0
     shootThermalSignature: 2000000
@@ -442,6 +447,7 @@
     range: 500
   - type: Gun
     fireRate: 20
+    recoil: 0
     minAngle: 0
     maxAngle: 0
     shootThermalSignature: 5000000
@@ -522,6 +528,7 @@
   - type: Gun
     projectileSpeed: 70
     fireRate: 13
+    recoil: 0
     minAngle: 0
     maxAngle: 0
     burstCooldown: 60
@@ -593,6 +600,7 @@
     range: 500
   - type: Gun
     fireRate: 0.04 # 25s
+    recoil: 0
     minAngle: 0
     maxAngle: 0
     shootThermalSignature: 18000000 # ~8.5km after firing
@@ -667,6 +675,7 @@
     range: 500
   - type: Gun
     fireRate: 0.025 # 40s
+    recoil: 50 # 2x
     minAngle: 0
     maxAngle: 0
     projectileSpeed: 750
@@ -741,6 +750,7 @@
     range: 500
   - type: Gun
     fireRate: 1.2
+    recoil: 0
     minAngle: 0
     maxAngle: 4
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
@@ -810,6 +820,7 @@
     range: 500
   - type: Gun
     fireRate: 1
+    recoil: 10 # 2/5x
     projectileSpeed: 150
     minAngle: 0
     maxAngle: 6
@@ -883,6 +894,7 @@
     range: 500
   - type: Gun
     fireRate: 25
+    recoil: 2 # 2/25x
     minAngle: 0
     maxAngle: 4
     shootThermalSignature: 2000000
