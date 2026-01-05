@@ -1,25 +1,26 @@
 # Tier 1
 
-- type: technology
-  id: SalvageWeapons
-  name: research-technology-salvage-weapons
-  entityIcon: WeaponProtoKineticAccelerator
-  discipline: Arsenal
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - WeaponProtoKineticAccelerator
-  - ShuttleGunKineticCircuitboard
-  - WeaponTurretM25Circuitboard # Mono
-  # These are roundstart but not replenishable for salvage
-  - WeaponCrusher
-  - WeaponCrusherDagger
-  # This is not roundstart since its a direct upgrade
-  - WeaponCrusherGlaive
-  - MechEquipmentKineticAccelerator # Goobstation
-  technologyPrerequisites:
-  - SalvageEquipment
-  position: -2, 3
+# Mono edit - research consolidation
+# - type: technology
+#   id: SalvageWeapons
+#   name: research-technology-salvage-weapons
+#   entityIcon: WeaponProtoKineticAccelerator
+#   discipline: Arsenal
+#   tier: 1
+#   cost: 5000
+#   recipeUnlocks:
+#   - WeaponProtoKineticAccelerator
+#   - ShuttleGunKineticCircuitboard
+#   - WeaponTurretM25Circuitboard # Mono
+#   # These are roundstart but not replenishable for salvage
+#   - WeaponCrusher
+#   - WeaponCrusherDagger
+#   # This is not roundstart since its a direct upgrade
+#   - WeaponCrusherGlaive
+#   - MechEquipmentKineticAccelerator # Goobstation
+#   technologyPrerequisites:
+#   - SalvageEquipment
+#   position: -2, 3
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -31,23 +32,26 @@
   recipeUnlocks:
   - WeaponLaserCarbine
   - WeaponMechCombatFiredartLaser # Goobstation
+  - WeaponLaserSvalinn # Mono
+  - NFBlueprintWeaponLaserSvalinn # Frontier
   technologyPrerequisites:
-  - NonlethalAmmunition
-  position: 3, 3
-
-- type: technology
-  id: NonlethalAmmunition
-  name: research-technology-nonlethal-ammunition
-  entityIcon: WeaponDisabler
-  discipline: Arsenal
-  tier: 1
-  cost: 7500
-  recipeUnlocks:
-  - WeaponDisabler
-  - WeaponMechCombatDisabler # Goobstation
-  technologyPrerequisites:
-  - AdvancedRiotControl
+  - BasicParts
   position: 2, 3
+
+# Mono edit - research consolidation
+# - type: technology
+#   id: NonlethalAmmunition
+#   name: research-technology-nonlethal-ammunition
+#   entityIcon: WeaponDisabler
+#   discipline: Arsenal
+#   tier: 1
+#   cost: 7500
+#   recipeUnlocks:
+#   - WeaponDisabler
+#   - WeaponMechCombatDisabler # Goobstation
+#   technologyPrerequisites:
+#   - AdvancedRiotControl
+#   position: 2, 3
 
 - type: technology
   id: AdvancedRiotControl
@@ -61,6 +65,9 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
+  - WeaponDisabler # Mono
+  - WeaponMechCombatDisabler # Goobstation
+  - ClothingBackpackElectropack # Mono
   technologyPrerequisites:
   - BasicParts
   position: 2, 2
@@ -85,18 +92,19 @@
   - SuperParts
   position: 1, 14
 
-- type: technology
-  id: SpecialMeans
-  name: research-technology-special-means
-  entityIcon: ClothingBackpackElectropack
-  discipline: Arsenal
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - ClothingBackpackElectropack
-  technologyPrerequisites:
-  - NonlethalAmmunition
-  position: 2, 4
+# Mono edit - research consolidation
+# - type: technology
+#   id: SpecialMeans
+#   name: research-technology-special-means
+#   entityIcon: ClothingBackpackElectropack
+#   discipline: Arsenal
+#   tier: 1
+#   cost: 5000
+#   recipeUnlocks:
+#   - ClothingBackpackElectropack
+#   technologyPrerequisites:
+#   - NonlethalAmmunition
+#   position: 2, 4
 
 # Tier 2
 
@@ -106,27 +114,28 @@
   entityIcon: WeaponLaserCannon
   discipline: Arsenal
   tier: 2
-  cost: 20000
+  cost: 25000 # Mono
   recipeUnlocks:
   - WeaponLaserCannon
   - WeaponMechCombatSolarisLaser # Goobstation
+  - WeaponXrayCannon # Mono
   technologyPrerequisites:
   - WeaponizedLaserManipulation
-  position: 4, 3
+  position: 3, 3
 
-- type: technology
-  id: WaveParticleHarnessing
-  name: research-technology-wave-particle-harnessing
-  entityIcon: WeaponXrayCannon
-  discipline: Arsenal
-  tier: 2
-  cost: 20000
-  recipeUnlocks:
-  - WeaponXrayCannon
-  technologyPrerequisites:
-  - ConcentratedLaserWeaponry
-  - SuperParts
-  position: 4, 4
+# - type: technology
+#   id: WaveParticleHarnessing
+#   name: research-technology-wave-particle-harnessing
+#   entityIcon: WeaponXrayCannon
+#   discipline: Arsenal
+#   tier: 2
+#   cost: 20000
+#   recipeUnlocks:
+#   - WeaponXrayCannon
+#   technologyPrerequisites:
+#   - ConcentratedLaserWeaponry
+#   - SuperParts
+#   position: 4, 4
 
 - type: technology
   id: BasicShuttleArmament
@@ -147,8 +156,9 @@
   #  - ShuttleGunSvalinnMachineGunCircuitboard # Frontier
   #  - ShuttleGunPerforatorCircuitboard # Frontier
   #  - ShuttleGunFriendshipCircuitboard # Frontier
+  - 40mmGrenadeEMP
+  - PowerCageHigh
   technologyPrerequisites:
-  - ShuttleArmamentComponentsResearch
   - ExplosiveTechnology
   position: -5, 8
 
@@ -169,33 +179,35 @@
   technologyPrerequisites:
   - ConcentratedLaserWeaponry
   - SuperParts
-  position: 5, 3
+  position: 4, 3
 
-- type: technology
-  id: ExperimentalBatteryAmmo
-  name: research-technology-experimental-battery-ammo
-  entityIcon: WeaponLaserSvalinn
-  discipline: Arsenal
-  tier: 3
-  cost: 2500
-  recipeUnlocks:
-  - WeaponLaserSvalinn
-  - NFBlueprintWeaponLaserSvalinn # Frontier
-  technologyPrerequisites:
-  - BasicParts
-  position: 3, 4
+# Mono edit - research consolidation
+# - type: technology
+#   id: ExperimentalBatteryAmmo
+#   name: research-technology-experimental-battery-ammo
+#   entityIcon: WeaponLaserSvalinn
+#   discipline: Arsenal
+#   tier: 3
+#   cost: 2500
+#   recipeUnlocks:
+#   - WeaponLaserSvalinn
+#   - NFBlueprintWeaponLaserSvalinn # Frontier
+#   technologyPrerequisites:
+#   - BasicParts
+#   position: 3, 4
 
-- type: technology
-  id: AdvancedShuttleWeapon
-  name: research-technology-advanced-shuttle-weapon
-  entityIcon: 40mmGrenadeEMP
-  discipline: Arsenal
-  tier: 3
-  cost: 25000
-  recipeUnlocks:
-  - 40mmGrenadeEMP
-  - PowerCageHigh
-#  - ShuttleGunDusterCircuitboard # Mono
-  technologyPrerequisites:
-  - BasicShuttleArmament
-  position: -4, 8
+# Mono edit - research consolidation
+# - type: technology
+#   id: AdvancedShuttleWeapon
+#   name: research-technology-advanced-shuttle-weapon
+#   entityIcon: 40mmGrenadeEMP
+#   discipline: Arsenal
+#   tier: 3
+#   cost: 25000
+#   recipeUnlocks:
+#   - 40mmGrenadeEMP
+#   - PowerCageHigh
+# #  - ShuttleGunDusterCircuitboard # Mono
+#   technologyPrerequisites:
+#   - BasicShuttleArmament
+#   position: -4, 8

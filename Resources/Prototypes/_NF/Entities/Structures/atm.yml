@@ -189,7 +189,7 @@
         type: BankATMMenuBoundUserInterface
   - type: BankATM
     taxAccounts:
-      BlackMarket: 0.2 # Monolith #STOP-TAXES
+      BlackMarket: 0.02 # Monolith #STOP-TAXES
 
 - type: entity
   suffix: Wallmount, BlackMarket
@@ -213,7 +213,7 @@
         type: BankATMMenuBoundUserInterface
   - type: BankATM
     taxAccounts:
-      BlackMarket: 0.2 # Monolith #STOP-TAXES
+      BlackMarket: 0.02 # Monolith #STOP-TAXES
 
 - type: entity
   name: station administration console

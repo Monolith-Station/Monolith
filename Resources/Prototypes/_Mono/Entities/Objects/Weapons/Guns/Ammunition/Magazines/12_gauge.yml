@@ -1,7 +1,7 @@
 - type: entity
   id: BaseMagazine12_gauge
   name: ammo drum (12 gauge shells)
-  parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseSecurityContraband<BaseC1Contraband, added RecyclableItemSteelTiny
+  parent: [ BaseItem, RecyclableItemSteelTiny ]
   abstract: true
   components:
   - type: Tag

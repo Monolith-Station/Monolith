@@ -1,6 +1,6 @@
 - type: entity
   name: Big Leady (4 gauge)
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC3SyndicateContraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponShotgunBigLeady
   description: A massive 4 gauge (23x75mm) shotgun made to kill what any caliber bellow autocannon cant.
   components: # intend for BigLeady to have tighter choke for slower fire rate and/or manual cycling
@@ -36,7 +36,7 @@
 
 - type: entity
   name: Big Johnny (4 gauge)
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC1Contraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponShotgunBigJohnny
   description: A massive 4 gauge (23x75mm) shotgun made to kill what any caliber bellow autocannon cant. This one is outfitted with various tactical additions and is made for CQC at the cost of low ammo capacity.
   components: # intend for BigLeady to have tighter choke for slower fire rate and/or manual cycling
@@ -54,6 +54,8 @@
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
     #fireRate: 1 # Goobstation
+  - type: GunSpreadModifier
+    spread: 0.7
   - type: Tag
     tags:
     - WeaponShotgunBigLeady
@@ -75,7 +77,7 @@
 
 - type: entity
   name: Big Buddy (4 gauge)
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC3SyndicateContraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponShotgunBigBuddy
   description: A massive 4 gauge (23x75mm) shotgun made to kill what any caliber bellow autocannon cant.
   components: # intend for BigBuddy to have tighter choke for slower fire rate and/or manual cycling
@@ -110,20 +112,20 @@
     vendPrice: 42300
 
 - type: entity
-  name: UW12-B Helopolis (12 gauge)
-  parent: [BaseWeaponShotgun, BaseC1Contraband]
-  id: WeaponShotgunHelopolis
-  description: The Union Wrightworks 12-gauge breaching model "Helopolis", a compact shotgun that sacrifices all combat ergonomics to better serve as a breaching tool. Breaks doors with slugs. Combat use unadvised.
+  name: UW12-B Helepolis (12 gauge)
+  parent: BaseWeaponShotgun
+  id: WeaponShotgunHelepolis
+  description: The Union Wrightworks 12-gauge breaching model "Helepolis", a compact shotgun that sacrifices all combat ergonomics to better serve as a breaching tool. Breaks doors with slugs. Combat use unadvised.
   components:
   - type: Item
     size: Normal
     shape:
     - 0,0,1,0
-    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helopolis.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helepolis.rsi
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helopolis.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helepolis.rsi
   - type: Clothing
-    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helopolis.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helepolis.rsi
   - type: Gun
     minAngle: 3
     maxAngle: 12
@@ -132,11 +134,11 @@
     angleDecay: 4
   - type: Tag
     tags:
-    - WeaponShotgunHelopolis
+    - WeaponShotgunHelepolis
   - type: BallisticAmmoProvider
     autoCycle: false
     capacity: 4
     proto: ShellShotgun12_gaugeSlug
   - type: StaticPrice
-    price: 1000
+    price: 600
     vendPrice: 3000

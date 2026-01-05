@@ -47,7 +47,7 @@ public abstract partial class SharedGunSystem
         if (args.Handled)
             return;
 
-        if (_whitelistSystem.IsWhitelistFailOrNull(component.Whitelist, args.Used))
+        if (_whitelistSystem.IsWhitelistFailOrNull(component.Whitelist, args.Used) && !component.IgnoreWhitelist) // Mono edit - Skip this check if whitelist is ignored
             return;
 
         if (GetBallisticShots(component) >= component.Capacity)
@@ -162,7 +162,7 @@ public abstract partial class SharedGunSystem
             if (ent == null)
                 continue;
 
-            if (ballisticTarget is not null && _whitelistSystem.IsWhitelistFailOrNull(ballisticTarget?.Whitelist, ent.Value) || // Frontier: better revolver reloading
+            if (ballisticTarget is not null && _whitelistSystem.IsWhitelistFailOrNull(ballisticTarget?.Whitelist, ent.Value) && !component.IgnoreWhitelist || // Frontier: better revolver reloading. Mono edit
                 revolverTarget is not null && _whitelistSystem.IsWhitelistFailOrNull(revolverTarget?.Whitelist, ent.Value)) // Frontier: better revolver reloading
             {
                 Popup(

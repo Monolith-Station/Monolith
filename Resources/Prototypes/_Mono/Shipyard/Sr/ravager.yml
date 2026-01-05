@@ -1,0 +1,42 @@
+# # Author Info
+# # GitHub: NazrinNya
+# # Discord: NazrinNya
+
+- type: vessel
+  id: Ravager
+  parent: BaseVessel
+  name: Ravager
+  description: Heavily armored security ship carrier made for fast neutralization of civilian threats.
+  price: 350000
+  purchasable: false # voucher only
+  category: Large
+  group: Sr
+  access: Security # Shouldn't be buyable with sec voucher.
+  mapchecker_group_override: Security
+  shuttlePath: /Maps/_Mono/Shuttles/ravager.yml
+  guidebookPage: Null
+  class:
+  - Capital
+  - Science
+  engine:
+  - AME
+
+- type: gameMap
+  id: Ravager
+  mapName: 'Ravager'
+  mapPath: /Maps/_Mono/Shuttles/ravager.yml
+  minPlayers: 0
+  stations:
+    Ravager:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Ravager SEC{1}'
+        nameGenerator: !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Contractor: [ 0, 0 ]
+          Mercenary: [ 0, 0 ]
+          Borg: [ 0, 0 ]
+          SecurityGuard: [ 0, 0 ]

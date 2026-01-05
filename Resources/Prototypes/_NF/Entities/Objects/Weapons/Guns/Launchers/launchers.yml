@@ -8,7 +8,7 @@
 
 - type: entity
   suffix: EMP
-  parent: [BaseC2ContrabandUnredeemable, WeaponLauncherRocket]
+  parent: WeaponLauncherRocket
   id: WeaponLauncherRocketEmp
   components:
   - type: Gun
@@ -21,7 +21,7 @@
 
 - type: entity
   name: mail RPDS
-  parent: [BaseC1Contraband, WeaponLauncherChinaLake]
+  parent: WeaponLauncherChinaLake
   id: WeaponMailLake
   description: Rap(b?)id Parcel Delivery System
   components:
@@ -43,7 +43,7 @@
 
 - type: entity
   name: TSFMC grenade launcher
-  parent: [BaseC2ContrabandUnredeemable, WeaponLauncherChinaLake]
+  parent: WeaponLauncherChinaLake
   id: WeaponLauncherNfsdLake
   description: Able to lob both grenades and darts!
   components:

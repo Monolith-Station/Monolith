@@ -1,7 +1,7 @@
 - type: entity
   id: BaseCartridge762x54mmR
   name: cartridge (7.62x54mmR FMJ)
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseCartridge
   description: A full-power rifle round commonly used in DMRs and civilian bolt-action rifles.
   abstract: true
   components:

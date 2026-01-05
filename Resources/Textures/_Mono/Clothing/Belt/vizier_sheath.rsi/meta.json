@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites by Avalon-proto",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "sheath"
+    },
+    {
+      "name": "sheath-gun"
+    },
+    {
+      "name": "sheath-sword"
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "sheath-sword-equipped-BELT",
+      "directions": 4
+    }
+  ]
+}

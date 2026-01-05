@@ -1,7 +1,7 @@
 - type: entity
   id: BaseCartridge45_ACP
   name: cartridge (.45 ACP FMJ)
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseCartridge
   description: Heavier alternative to 9x19mm for handguns and SMGs.
   abstract: true
   components:

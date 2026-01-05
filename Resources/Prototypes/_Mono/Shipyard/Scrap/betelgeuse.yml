@@ -1,0 +1,39 @@
+# Author Info
+# GitHub: starch70
+# Discord: _starch_
+
+# Shuttle Notes:
+- type: vessel
+  id: Betelgeuse
+  parent: BaseVessel
+  name: Betelgeuse
+  description: Cramped salvage vessel that is ran on hopes and dreams, but includes one of the most powerful mining-grade shipguns in this sector.
+  price: 43500
+  category: Small
+  group: Scrap
+  shuttlePath: /Maps/_Mono/Shuttles/betelgeuse.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Betelgeuse
+  mapName: 'Betelgeuse'
+  mapPath: /Maps/_Mono/Shuttles/betelgeuse.yml
+  minPlayers: 0
+  stations:
+    Betelgeuse:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Betelgeuse CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

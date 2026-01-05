@@ -1,6 +1,6 @@
 - type: entity
   name: ER-5 Torrent
-  parent: [ BaseWeaponPowerCell, BaseC2ContrabandUnredeemable ]
+  parent: BaseWeaponPowerCell
   id: WeaponLaserCellSMG
   description: A high-tech laser SMG, compatible with specialized SMG power cells.
   components:
@@ -57,7 +57,7 @@
 
 - type: entity
   name:  ES-7 Multilens
-  parent: [ BaseWeaponPowerCell, BaseGunWieldable, BaseC2ContrabandUnredeemable ]
+  parent: [ BaseWeaponPowerCell, BaseGunWieldable ]
   id: WeaponLaserCellSniper
   description: A high-tech burst laser sniper rifle, compatible with specialized sniper power cells.
   components:
@@ -123,7 +123,7 @@
 
 - type: entity
   name: EG-1 Taro
-  parent: [ BaseWeaponPowerCellSmall, BaseC2ContrabandUnredeemable ]
+  parent: BaseWeaponPowerCellSmall
   id: WeaponLaserCellRevolver
   description: A high-tech laser revolver, compatible with specialized revolver power cells.
   components:
@@ -194,7 +194,7 @@
 
 - type: entity
   name: EL-20 HAMRR
-  parent: [BaseItem, BaseC2ContrabandUnredeemable]
+  parent: BaseItem
   id: WeaponLaserLMG
   description: A high-tech laser LMG, that draws power from specialized backpack.
   components:

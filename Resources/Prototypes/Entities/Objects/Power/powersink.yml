@@ -1,6 +1,6 @@
 ﻿- type: entity
   id: PowerSink
-  parent: [BaseMachine, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseMachine
   name: power sink
   description: Drains immense amounts of electricity from the grid.
   components:

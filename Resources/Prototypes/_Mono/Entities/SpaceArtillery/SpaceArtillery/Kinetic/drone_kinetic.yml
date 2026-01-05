@@ -1,0 +1,59 @@
+- type: entity
+  id: WeaponTurretShard
+  name: Light mass driver "Shard"
+  parent: BallisticArtillery
+  description: Ultralight mass driver weapon of unknown origin, designated "Shard" during initial reverse engineering attempts. Light damage, but long range and little upkeep to mount on ships.
+  suffix: DRONE ONLY
+  components:
+  - type: StaticPrice
+    price: 1500
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/shard.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.4
+    projectileSpeed: 350
+    minAngle: 0
+    maxAngle: 0
+    shootThermalSignature: 300000
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/autopulse_laser_fire_01.ogg
+    soundEmpty:
+      path: /Audio/Weapons/click.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 2000
+    powerUsePassive: 2000
+  - type: Battery
+    maxCharge: 10000
+    startingCharge: 10000
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipShardProjectile
+    fireCost: 1500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1500
+  - type: Actions
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 9000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 1.5
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Light

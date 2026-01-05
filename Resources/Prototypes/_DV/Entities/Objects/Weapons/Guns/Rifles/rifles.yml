@@ -1,6 +1,6 @@
 - type: entity
   name: HWM FCM "Vulcan" (7.62x51mm)
-  parent: [BaseWeaponRifle, BaseGunWieldable, BaseC1Contraband] # Frontier: add BaseC1Contraband
+  parent: [BaseWeaponRifle, BaseGunWieldable]
   id: WeaponRifleVulcan
   description: One of the heaviest small arms to grace Security's armory, The Herstal Weapon Manufacture FCM (Fusil de Combat Moyen) "Vulcan", this rifle is a modern take on a classic, informally dubbed the "Right Arm of the Free World". Uses 7.62x51mm ammo.
   components:
@@ -72,7 +72,7 @@
 
 - type: entity
   name: ceremonial rifle (7.62x51mm)
-  parent: [BaseWeaponSniper, BaseGunWieldable, BaseC1Contraband] # Frontier: add BaseGunWieldable, BaseC1Contraband
+  parent: [BaseWeaponSniper, BaseGunWieldable]
   id: WeaponSniperCeremonial
   description: A ceremonial variant of the Mark 1 Rifle, in tasteful blue and white. Uses 7.62x51mm ammo.
   components:
@@ -103,7 +103,7 @@
 
 - type: entity
   name: CS CAWS-25 Jackdaw (635x40mm)
-  parent: [BaseWeaponRifle, BaseGunWieldable, BaseC3Contraband] # Frontier: add BaseC3Contraband
+  parent: [BaseWeaponRifle, BaseGunWieldable]
   id: WeaponRifleJackdaw
   description: The beginning of the end is heralded by the song of a Jackdaw. Uses 6.35x40mm Caseless ammo.
   components:

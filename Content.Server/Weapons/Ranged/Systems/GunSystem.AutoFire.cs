@@ -40,7 +40,7 @@ public sealed partial class GunSystem
                 if (HasComp<DamageableComponent>(parent))
                     AttemptShoot(parent, uid, gun, gun.ShootCoordinates ?? new EntityCoordinates(uid, gun.DefaultDirection));
                 else
-                    AttemptShoot(uid, gun);
+                    AttemptShoot(uid, uid, gun);
             }
             else if (TryComp(uid, out AutoShootGunComponent? autoShoot))
             {
@@ -55,7 +55,7 @@ public sealed partial class GunSystem
                     autoShoot.RemainingTime -= TimeSpan.FromSeconds(frameTime);
                 }
 
-                AttemptShoot(uid, gun);
+                AttemptShoot(uid, uid, gun);
             }
         }
     }
