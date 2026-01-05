@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Southbridge
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Prototypes;
 using Content.Shared.Maps;
 using Content.Shared.Decals;

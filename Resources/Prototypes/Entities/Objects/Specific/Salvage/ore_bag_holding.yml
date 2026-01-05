@@ -5,7 +5,7 @@
   description: A robust bag of holding for salvage billionaires and rich miners alike to carry large amounts of ore. Magnetises any nearby ores when attached to a belt.
   components:
   - type: MagnetPickup
-    range: 2
+    range: 3 # Should outclass box
   # Frontier: layered sprite
   - type: Sprite
     sprite: _NF/Objects/Specific/Mining/ore_bag_holding.rsi

@@ -19,8 +19,8 @@ adventure-webhook-footer =
 nf-adventure-title = Adventure
 nf-adventure-description = Join a ship crew or buy your own and explore, research, salvage, or haul your way to riches!
 
-nf-pirate-title = Insurgency
-nf-pirate-description = Insurgency threatens TSF expansion into the sector. A tense cold war between the TSF and USSP also takes place.
+nf-pirate-title = Arms Race
+nf-pirate-description = The PDV threatens TSF expansion into the sector. A tense cold war between the TSF and USSP also takes place.
 
 currency = Credits
 
@@ -39,6 +39,7 @@ shuttle-ftl-too-many = Too many shuttles already on expedition!
 changelog-tab-title-Upstream = Upstream Changelog
 multiauth-already-connected = Already connected to Monolith Official servers.
 
-public-transit-shuttle-name = Public Transport Shuttle
+public-transit-shuttle-name = Bus
 public-transit-departure = Now departing for {$destination}. Estimated travel time: {$flytime} seconds.
 public-transit-arrival = Thank you for choosing NT Public Transit. Next transfer to {$destination} departs in {$waittime} seconds.
+public-transit-instant = Arrived at {$destination}. Next destination in {$waittime} seconds.

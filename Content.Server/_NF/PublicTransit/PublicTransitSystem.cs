@@ -48,7 +48,7 @@ public sealed class PublicTransitSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StationTransitComponent, ComponentStartup>(OnStationStartup);
+        SubscribeLocalEvent<StationTransitComponent, MapInitEvent>(OnStationStartup);
         SubscribeLocalEvent<StationTransitComponent, ComponentShutdown>(OnStationShutdown);
         SubscribeLocalEvent<TransitShuttleComponent, ComponentStartup>(OnShuttleStartup);
         SubscribeLocalEvent<TransitShuttleComponent, EntityUnpausedEvent>(OnShuttleUnpaused);
@@ -96,7 +96,7 @@ public sealed class PublicTransitSystem : EntitySystem
     /// Checks to make sure the grid is on the appropriate playfield, i.e., not in mapping space being worked on.
     /// If so, adds the grid to the list of bus stops, but only if its not already there
     /// </summary>
-    private void OnStationStartup(EntityUid uid, StationTransitComponent component, ComponentStartup args)
+    private void OnStationStartup(EntityUid uid, StationTransitComponent component, MapInitEvent args)
     {
         if (Transform(uid).MapID == _ticker.DefaultMap) //best solution i could find because of componentinit/mapinit race conditions
         {
@@ -215,8 +215,11 @@ public sealed class PublicTransitSystem : EntitySystem
                 {
                     var destinationString = metadata.EntityName;
 
-                    _chat.TrySendInGameICMessage(consoleUid, Loc.GetString("public-transit-departure",
-                        ("destination", destinationString), ("flytime", FlyTime)),
+                    //public-transit-arrival >> public-transit-instant, use waittime arg instead of flytime arg: The system is currently bugged
+                    //_shuttles.FTLToDock is calling TryFTLDock, which bypasses the FTL delay and breaks OnShuttleArrival
+                    //Standard FTL also occasionally overlaps the bus into stations so I have resorted to just reappropriating the message
+                    _chat.TrySendInGameICMessage(consoleUid, Loc.GetString("public-transit-instant",
+                        ("destination", destinationString), /*("flytime", FlyTime),*/ ("waittime", _cfgManager.GetCVar(NFCCVars.PublicTransitWaitTime))),
                         InGameICChatType.Speak, ChatTransmitRange.HideChat, hideLog: true, checkRadioPrefix: false,
                         ignoreActionBlocker: true);
                 }

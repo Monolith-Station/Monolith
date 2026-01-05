@@ -1,10 +1,5 @@
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
-  parent: [ BaseCartridge, BaseC3PirateContraband ]
+  parent: BaseCartridge
   description: Large anti-material round, capable of punching through armor and walls easily.
   id: Cartridge127x99mm
   name: cartridge (12.7x99mm anti-material)
@@ -26,7 +21,7 @@
     price: 20
 
 - type: entity
-  parent: [ BaseCartridge, BaseC3PirateContraband ]
+  parent: BaseCartridge
   id: Cartridge127x99mmExplosive
   name: cartridge (12.7x99mm high-explosive)
   components:

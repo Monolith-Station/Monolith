@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: MPL-2.0
-
 namespace Content.Shared._Mono.Detection;
 
 /// <summary>
@@ -28,7 +24,7 @@ public sealed partial class DetectionRangeMultiplierComponent : Component
     ///     Visual detection radius scales linearly off a grid's diagonal.
     /// </summary>
     [DataField]
-    public float VisualMultiplier = 4f;
+    public float VisualMultiplier = 1f;
 
     /// <summary>
     ///     Whether to have effectively infinite detection range.

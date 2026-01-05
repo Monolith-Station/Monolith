@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Arcticular1
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vessel
   id: Saintie
   parent: BaseVesselAntag
@@ -31,10 +27,11 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Saintie ASR{1}'
+          mapNameTemplate: 'Saintie PDV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
             Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

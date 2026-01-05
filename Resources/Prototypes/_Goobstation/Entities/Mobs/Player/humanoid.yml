@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 inquisitor-star
-# SPDX-FileCopyrightText: 2025 mikus
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: MobHuman
   id: MobHumanRandom
@@ -229,3 +224,219 @@
     nameSegments:
     - names_tajaran_first
     - names_tajaran_last
+
+# Goob Central Command!
+
+# Navy Officer
+
+- type: entity
+  id: RandomHumanoidSpawnerNavyOfficer
+  name: Navy Officer
+  suffix: Winter Solstice
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryLeader
+    - NamesLastMilitary
+  - type: RandomHumanoidSpawner
+    settings: NavyOfficer
+
+- type: randomHumanoidSettings
+  id: NavyOfficer
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-navy-officer-name
+    description: ghost-role-information-navy-officer-description
+    rules: ghost-role-information-navy-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ NavyOfficerGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryLeader
+    - NamesLastMilitary
+  - type: LanguageKnowledge
+    speaks:
+    - SolCommon
+    - TauCetiBasic
+    understands:
+    - SolCommon
+    - TauCetiBasic
+
+    
+# Navy Captain
+
+- type: entity
+  id: RandomHumanoidSpawnerNavyCaptain
+  name: Navy Captain
+  suffix: ADMIN ONLY, DO FUCKING NOT, Winter Solstice
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryFirstHighRank
+    - NamesLastMilitary
+  - type: RandomHumanoidSpawner
+    settings: NavyCaptain
+
+- type: randomHumanoidSettings
+  id: NavyCaptain
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-navy-captain-name
+    description: ghost-role-information-navy-captain-description
+    rules: ghost-role-information-navy-captain-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ NavyCaptainGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryFirstHighRank
+    - NamesLastMilitary
+  - type: LanguageKnowledge
+    speaks:
+    - SolCommon
+    - TauCetiBasic
+    understands:
+    - SolCommon
+    - TauCetiBasic
+
+# Navy Undercover Officer
+
+- type: entity
+  id: RandomHumanoidSpawnerNavyOfficerUndercover
+  name: Undercover Navy Officer
+  suffix: Winter Solstice
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomHumanoidSpawner
+    settings: NavyOfficerUndercover
+
+- type: randomHumanoidSettings
+  id: NavyOfficerUndercover
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-navy-officer-undercover-name
+    description: ghost-role-information-navy-officer-undercover-description
+    rules: ghost-role-information-navy-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ NavyOfficerUndercoverGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryFirstPolitical
+    - NamesLastMilitary
+  - type: LanguageKnowledge
+    speaks:
+    - SolCommon
+    - TauCetiBasic
+    understands:
+    - SolCommon
+    - TauCetiBasic
+
+
+
+# Special Operations Officer
+
+- type: entity
+  id: RandomHumanoidSpawnerSpecialOperationsOfficers
+  name: Special Operations Officer
+  suffix: Winter Solstice
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryFirstHighRank
+    - NamesLastMilitary
+  - type: RandomHumanoidSpawner
+    settings: SpecialOperationsOfficer
+
+- type: randomHumanoidSettings
+  id: SpecialOperationsOfficer
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-special-operations-officer-name
+    description: ghost-role-information-special-operations-officer-description
+    rules: ghost-role-information-special-operations-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ SpecialOperationsOfficerGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryFirstHighRank
+    - NamesLastMilitary
+  - type: LanguageKnowledge
+    speaks:
+    - SolCommon
+    - TauCetiBasic
+    understands:
+    - SolCommon
+    - TauCetiBasic
+
+
+# Diplomat
+
+- type: entity
+  id: RandomHumanoidSpawnerDiplomat
+  name: Diplomat
+  suffix: Winter Solstice
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryFirstPolitical
+    - names_last
+  - type: RandomHumanoidSpawner
+    settings: DiplomatGear
+
+- type: randomHumanoidSettings
+  id: DiplomatGear
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-diplomat-name
+    description: ghost-role-information-diplomat-description
+    rules: ghost-role-information-diplomat-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ DiplomatGear ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryFirstPolitical
+    - names_last
+  - type: LanguageKnowledge
+    speaks:
+    - SolCommon
+    - TauCetiBasic
+    understands:
+    - SolCommon
+    - TauCetiBasic

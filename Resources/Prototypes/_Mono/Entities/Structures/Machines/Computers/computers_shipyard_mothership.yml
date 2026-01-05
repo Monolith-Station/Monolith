@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 UnicornOnLSD
-# SPDX-FileCopyrightText: 2025 crazy1112345
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: BaseCarrierComputer
   parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerShipyard]
@@ -93,7 +86,7 @@
   id: JupiterCarrierComputer
   parent: BaseCarrierComputer
   name: jupiter shipyard console
-  description: Lighter shipyard using the Jupiter's internal hangars, doesn't have access to the full roster of Ashen Republic ships.
+  description: Lighter shipyard using the Jupiter's internal hangars, doesn't have access to the full roster of Phaethon Dynasty ships.
   components:
   - type: ShipyardListing
     shuttles:
@@ -113,3 +106,14 @@
     - map: ["computerLayerKeys"]
       state: blackmarket_key
 
+
+- type: entity
+  id: RavagerCarrierComputer
+  parent: BaseCarrierComputer
+  name: ravager shipyard console
+  components:
+  - type: ShipyardListing
+    shuttles:
+    - Ant
+    - Worm
+    - Insect

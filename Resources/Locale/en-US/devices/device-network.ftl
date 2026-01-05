@@ -22,7 +22,7 @@ device-frequency-prototype-name-surveillance-camera-medical = Medical Cameras
 device-frequency-prototype-name-surveillance-camera-general = General Cameras
 device-frequency-prototype-name-surveillance-camera-entertainment = Entertainment Cameras
 device-frequency-prototype-name-surveillance-camera-tsf = TSFMC Cameras
-device-frequency-prototype-name-surveillance-camera-Rogue = ASR Cameras
+device-frequency-prototype-name-surveillance-camera-Rogue = PDV Cameras
 device-frequency-prototype-name-surveillance-camera-USSP = USSP Cameras
 
 # prefixes for randomly generated device addresses

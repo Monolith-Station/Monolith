@@ -1,0 +1,56 @@
+- type: entity
+  id: WeaponTurretVespera
+  name: ADMP-27 VESPERA 50mm Rapid-Fire Missile Rack
+  parent: BallisticArtilleryMagazine
+  description: A rapid-fire swarm missile rack manufactured by Aetherion Dynamics. Saturates targets with guided warheads to overwhelm defenses. Limited ammo, but deadly. Can be remotely activated or linked to a GCS.
+  components:
+  - type: StaticPrice
+    price: 1500
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/vespera.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 16
+    minAngle: 4
+    maxAngle: 35
+    burstCooldown: 20
+    burstFireRate: 16
+    shotsPerBurst: 13
+    selectedMode: Burst
+    availableModes: Burst
+    shootThermalSignature: 2000000 # ~4.9km if firing continuously
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+    soundEmpty:
+      path: /Audio/Weapons/click.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 200
+    powerUsePassive: 750
+    powerUseActive: 0
+  - type: Actions
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: VesperaMagazine
+        insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - VesperaMagazine
+        whitelistFailPopup: gun-magazine-whitelist-fail
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 2
+  - type: ShipGunType
+    shipType: Missile
+  - type: ShipGunClass
+    shipClass: Medium

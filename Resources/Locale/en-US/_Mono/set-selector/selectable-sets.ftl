@@ -14,3 +14,11 @@ selectable-set-cap-modsuit-name = Magnate Modsuit
 selectable-set-cap-modsuit-desc =
     A MODsuit intended for shuttle owners. It has some luxurious gems
     surrounding it.
+
+selectable-set-pdvinfiltrator-sabotage-kit-name = Sabotage expert kit
+selectable-set-pdvinfiltrator-sabotage-kit-desc =
+    A kit with experimental tools and gear specifically designed to infiltrate an destroy high value targets without being noticed.
+
+selectable-set-pdvinfiltrator-chameleon-kit-name = Infiltration expert kit
+selectable-set-pdvinfiltrator-chameleon-kit-desc =
+    A full set of chameleon gear and espionage tools that are perfect for any imperial spy operating outside the Vanguard's ranks.

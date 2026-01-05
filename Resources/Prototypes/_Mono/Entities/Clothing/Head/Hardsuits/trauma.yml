@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Eden077
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 UltimateJester
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowMedicalIcons]
   id: ClothingHeadHelmetHardsuitTrauma
@@ -22,11 +14,10 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: RadarConsole
-    maxRange: 512
     followEntity: true
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 0.5 # from 1
-    visualMultiplier: 3 # from 4
+    infraredMultiplier: 0.5
+    visualMultiplier: 0.75
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
     singleUser: true
@@ -75,7 +66,6 @@
     isEquipment: true
     toggleAction: PulseThermalVision
   - type: RadarConsole
-    maxRange: 512
     followEntity: true
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key

@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: technology
   id: MercArmementAdvanced
   name: research-technology-merc-armement-advanced
@@ -17,7 +11,7 @@
   technologyPrerequisites:
   - MercArmementSimple
   - AdvancedParts
-  position: 4, 1
+  position: 3, 1
 
 - type: technology
   id: MercArmementSimple
@@ -32,18 +26,7 @@
   - WeaponRifleVulcanMerc
   - WeaponSubMachineGunVector9x19mm
   - WeaponSubMachineGunFirestarter
-  technologyPrerequisites:
-  - MercArmementBasic
-  position: 3, 1
-
-- type: technology
-  id: MercArmementBasic
-  name: research-technology-merc-armement-basic
-  entityIcon: WeaponRiflePrometheus
-  discipline: Arsenal
-  tier: 1
-  cost: 7500
-  recipeUnlocks:
+  - WeaponRifleAk
   - WeaponSubMachineGunWt550
   - WeaponRiflePrometheus
   - WeaponRifleVulcanFCMC
@@ -51,3 +34,17 @@
   technologyPrerequisites:
   - BasicParts
   position: 2, 1
+
+- type: technology
+  id: AdvancedMeleeCombatOptions
+  name: research-technology-advanced-melee-combat-options
+  entityIcon: WeaponRadAx
+  discipline: Arsenal
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - WeaponRadAx # Monolith
+  technologyPrerequisites:
+  - AdvancedRiotControl
+  - SuperParts
+  position: 4, 2

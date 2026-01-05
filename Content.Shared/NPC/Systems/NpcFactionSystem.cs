@@ -305,14 +305,20 @@ public sealed partial class NpcFactionSystem : EntitySystem
         RefreshFactions();
     }
 
+    /// <summary>
+    /// Mono edit - Assigns all factions to hostile except for "Friendly" and "Neutral" ones if "DefaultHostile" is true
+    /// </summary>
     private void RefreshFactions()
     {
-        _factions = _proto.EnumeratePrototypes<NpcFactionPrototype>().ToFrozenDictionary(
+        var factionPrototypes = _proto.EnumeratePrototypes<NpcFactionPrototype>();
+
+        _factions = factionPrototypes.ToFrozenDictionary(
             faction => faction.ID,
             faction =>  new FactionData
             {
                 Friendly = faction.Friendly.ToHashSet(),
-                Hostile = faction.Hostile.ToHashSet()
+                Neutral = faction.Neutral.ToHashSet(),
+                Hostile = GetHostileFactions(faction, faction.DefaultHostile, factionPrototypes)
             });
 
         var query = AllEntityQuery<NpcFactionMemberComponent>();
@@ -322,5 +328,38 @@ public sealed partial class NpcFactionSystem : EntitySystem
             comp.HostileFactions.Clear();
             RefreshFactions((uid, comp));
         }
+    }
+
+    /// <summary>
+    /// Mono edit - Gets hostile actions either from prototype or sets all factions to hostile except for friendly and neutral ones
+    /// </summary>
+    private HashSet<ProtoId<NpcFactionPrototype>> GetHostileFactions(NpcFactionPrototype iteratedFaction,
+        bool defaultHostile,
+        IEnumerable<NpcFactionPrototype> factionPrototypes)
+    {
+        HashSet<ProtoId<NpcFactionPrototype>> hostile = new();
+
+        if (!defaultHostile)
+        {
+           return GetHostileFactions(iteratedFaction);
+        }
+
+        foreach (var faction in factionPrototypes)
+        {
+            if (iteratedFaction.Neutral.Contains(faction) ||
+                iteratedFaction.Friendly.Contains(faction) ||
+                faction.ID == iteratedFaction.ID)
+                continue;
+
+            hostile.Add(faction);
+        }
+        return hostile;
+    }
+    /// <summary>
+    /// Mono edit - Returns hostile faction from prototype
+    /// </summary>
+    private HashSet<ProtoId<NpcFactionPrototype>> GetHostileFactions(NpcFactionPrototype faction)
+    {
+        return faction.Hostile.ToHashSet();
     }
 }

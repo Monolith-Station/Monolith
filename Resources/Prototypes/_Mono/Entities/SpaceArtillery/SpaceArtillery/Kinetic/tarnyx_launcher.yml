@@ -1,0 +1,100 @@
+# inf ammo for ads/station
+
+- type: entity
+  id: WeaponTurretTarnyx
+  name: ADBX-31 TARNYX 150mm EMP Cannon
+  parent: BallisticArtilleryUnanchorable
+  suffix: Station, Recharging Ammo, EMP
+  description: A heavy EMP cannon made by Aetherion Dynamics, designed to disable large sections of enemy ships with a single, powerful shot. Effective in asymmetric combat. Can be remotely activated or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 10000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/tarnyx.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.1
+    projectileSpeed: 400
+    shootThermalSignature: 8000000 # ~2.8km after firing - relatively low
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_duster.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 214
+  - type: SpaceArtillery
+    powerChargeRate: 214
+    powerUsePassive: 3500
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipTarnyxProjectile
+    fireCost: 15000 # low shot weapon moved back to the original spot
+  - type: RadarBlip
+    radarColor: "#035EFC"
+    scale: 2.5
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Heavy
+
+# limited ammo for ships
+
+- type: entity
+  id: WeaponTurretTarnyxReload
+  name: ADBX-31 TARNYX 150mm EMP Cannon
+  parent: BallisticArtilleryUnanchorableCartridge
+  suffix: Ship, Manual Reload
+  description: A heavy EMP cannon made by Aetherion Dynamics, designed to disable large sections of enemy ships with a single, powerful shot. Effective in asymmetric combat. Can be remotely activated or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 10000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/tarnyx.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.1
+    projectileSpeed: 400
+    shootThermalSignature: 8000000 # ~2.8km after firing - relatively low
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_duster.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 200
+    powerUsePassive: 3500
+    powerUseActive: 0
+  - type: Actions
+  - type: RadarBlip
+    radarColor: "#035EFC"
+    scale: 2.5
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Heavy
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - 150mmShell
+    capacity: 3
+    proto: 150mmEmpShell
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg

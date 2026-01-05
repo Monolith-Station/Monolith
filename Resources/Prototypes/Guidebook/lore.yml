@@ -1,22 +1,16 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ShadowWizard1137
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: guideEntry
   id: BasicLore
   name: Lore
   text: "/ServerInfo/Guidebook/Lore/BasicLore.xml"
   children:
-  - AshenRepublic
+  - PhaethonDynasty
   - TransSolarFederation
   - UnitedSovietSocialistPlanets
 
 - type: guideEntry
-  id: AshenRepublic
-  name: Ashen Republic
-  text: "/ServerInfo/Guidebook/Lore/AshenRepublic.xml"
+  id: PhaethonDynasty
+  name: Phaethon Dynasty
+  text: "/ServerInfo/Guidebook/Lore/PhaethonDynasty.xml"
 
 - type: guideEntry
   id: TransSolarFederation

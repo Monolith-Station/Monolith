@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Avalon
-#
-# SPDX-License-Identifier: MPL-2.0
-
 # Base Heavy Turret
 
 - type: entity
@@ -96,7 +92,7 @@
     - HostileUniversally
 
 - type: entity
-  parent: [BallisticTurretHeavyBase, BaseC3SyndicateContraband]
+  parent: BallisticTurretHeavyBase
   id: WeaponTurretHeavySyndicate
   suffix: Syndicate
   components:
@@ -116,7 +112,7 @@
 - type: entity
   parent: BallisticTurretHeavyBase
   id: WeaponTurretHeavyVDN
-  suffix: PDV/ASR
+  suffix: PDV
   components:
   - type: NpcFactionMember
     factions:

@@ -6,6 +6,8 @@ using Content.Server.NPC.Queries.Curves;
 using Content.Server.NPC.Queries.Queries;
 using Content.Server.Nutrition.Components;
 using Content.Server.Nutrition.EntitySystems;
+using Content.Server.Power.EntitySystems; // Mono
+using Content.Server.Shuttles.Components; // Mono
 using Content.Server.Storage.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
@@ -283,6 +285,23 @@ public sealed class NPCUtilitySystem : EntitySystem
 
                 return Math.Clamp(distance / radius, 0f, 1f);
             }
+            // Mono
+            case TargetInverseDistanceCon:
+            {
+                if (!TryComp(targetUid, out TransformComponent? targetXform) ||
+                    !TryComp(owner, out TransformComponent? xform))
+                {
+                    return 0f;
+                }
+
+                if (!targetXform.Coordinates.TryDistance(EntityManager, _transform, xform.Coordinates,
+                        out var distance))
+                {
+                    return 0f;
+                }
+
+                return 1f / (distance + 1f);
+            }
             case TargetAmmoCon:
             {
                 if (!HasComp<GunComponent>(targetUid))
@@ -470,6 +489,28 @@ public sealed class NPCUtilitySystem : EntitySystem
                 foreach (var ent in _npcFaction.GetNearbyHostiles(owner, vision))
                 {
                     entities.Add(ent);
+                }
+                break;
+            }
+            // Mono - TODO: consider factions
+            case NearbyHostileShuttlesQuery shuttlesQuery:
+            {
+                var xform = Transform(owner);
+                var ownGrid = xform.GridUid;
+                foreach (var (console, consoleComp) in _lookup.GetEntitiesInRange<ShuttleConsoleComponent>(_transform.GetMapCoordinates(xform), shuttlesQuery.Range))
+                {
+                    var consoleXform = Transform(console);
+                    var consGrid = consoleXform.GridUid;
+                    if (consGrid == null ||
+                        consGrid == ownGrid ||
+                        (_transform.GetWorldPosition(consGrid.Value) - _transform.GetWorldPosition(xform)).Length() > shuttlesQuery.Range ||
+                        !this.IsPowered(console, EntityManager) ||
+                        _whitelistSystem.IsBlacklistPass(shuttlesQuery.Blacklist, consGrid.Value))
+                    {
+                        continue;
+                    }
+
+                    entities.Add(consGrid.Value);
                 }
                 break;
             }

@@ -1,0 +1,116 @@
+- type: entity
+  parent: [BaseStructure, StructureWheeled ]
+  id: ScuttleDeviceWyvern
+  name: antimatter annihilation assembly
+  description: Uses the power of antimatter to completely scuttle a ship. Will sell for more if unlocked.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: Objects/Devices/nuke.rsi
+    noRot: true
+    layers:
+    - state: nuclearbomb_base
+      map: ["enum.NukeVisualLayers.Base"]
+    - state: nuclearbomb_deployed_unlit
+      map: ["enum.NukeVisualLayers.Unlit"]
+      shader: unshaded
+      visible: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.NukeVisuals.Deployed:
+        enum.NukeVisualLayers.Base:
+          False: { state: nuclearbomb_base }
+          True:  { state: nuclearbomb_deployed }
+        enum.NukeVisualLayers.Unlit:
+          True:  { visible: true }
+          False: { visible: false }
+      enum.NukeVisuals.State:
+        enum.NukeVisualLayers.Unlit:
+          Idle:        { state: nuclearbomb_deployed_unlit }
+          Armed:       { state: nuclearbomb_timing }
+          YoureFucked: { state: nuclearbomb_exploding }
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 255 # Has "bluespace technology" to make it lighter, whatever that means. Don't mind the fact that this is lighter then a high capacity fuel tank.
+        mask:
+        - MachineMask
+        layer:
+        - HalfWallLayer
+  - type: PointLight
+    enabled: false
+    radius: 4
+    energy: 2.0
+    color: "#FF4020"
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RotatingLight
+    speed: 120
+  - type: NavMapBeacon
+    color: "#666666"
+    text: antimatter annihilation assembly
+    enabled: false
+  - type: NukeLabel
+  - type: Lock
+    lockOnClick: false
+    unlockOnClick: false
+    breakOnAccessBreaker: false
+    lockTime: 600 # once the genie is out of the bottle there's no letting him back in
+  - type: AccessReader
+    access: [["SyndicateAgent"], ["NuclearOperative"]]
+    breakOnAccessBreaker: false
+  - type: ScuttleDevice
+    unlockedPrice: 800000 # +800k for unlocked antimatter device
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 5000
+    intensitySlope: 500
+    totalIntensity: 200000000
+    deleteAfterExplosion: true
+  - type: StationAiWhitelist
+  - type: Anchorable
+    flags: Unanchorable # no detonating it elsewhere
+    delay: 10
+  - type: InteractionOutline
+  - type: StaticPrice
+    price: 200000 # antimatter is worth a lot
+  - type: FTLSmashImmune
+
+
+- type: entity
+  parent: ScuttleDeviceWyvern
+  id: ScuttleDeviceRazorN
+  name: atomizer assembly
+  description: Why are you stopping to read this?!
+  components:
+  - type: ScuttleDevice
+    unlockedPrice: 400000
+    doMusic: false
+    disarmOnMapChange: true # no FTL divebombing
+    disarmOnUnanchor: true # can't just ram with it
+    announceSender: scuttle-device-razor-announcement-sender
+    timer: 20
+    minimumTime: 20
+    armDoafterLength: 1
+    disarmDoafterLength: 1
+  # calibrated to be able to blast capitals but not POI wall
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 800
+    intensitySlope: 20
+    totalIntensity: 10000000
+    deleteAfterExplosion: true
+  - type: StaticPrice
+    price: 100000
+  - type: Lock
+    lockTime: 60
+  - type: PointLight
+    color: "#FF6040"
+  - type: RotatingLight
+    speed: 360 # weeee

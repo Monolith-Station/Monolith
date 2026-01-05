@@ -1,12 +1,6 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   name: VFD EG-4 energy revolver
-  parent: [BaseWeaponBatterySmall, BaseC2ContrabandUnredeemable] # Mono - C2 contra instead of command contra
+  parent: BaseWeaponBatterySmall # Mono - C2 contra instead of command contra
   id: WeaponEnergyRevolver
   description: A highly advanced energy revolver capable of firing both lethal and disabling bullets.
   components:

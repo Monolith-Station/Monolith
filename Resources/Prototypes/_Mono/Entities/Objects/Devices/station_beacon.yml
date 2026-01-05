@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPShipyard
@@ -100,3 +96,21 @@
   - type: NavMapBeacon
     defaultText: station-beacon-ussp-servers
     color: "#b40044"
+
+# Used in Colossus Central
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconExpedLounge
+  suffix: Exped Lounge
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-exped-lounge
+    color: "#b8b873"
+    
+- type: entity
+  parent: DefaultStationBeaconCargoBay
+  id: DefaultStationBeaconMailRoom
+  suffix: Post Office
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-mail-room

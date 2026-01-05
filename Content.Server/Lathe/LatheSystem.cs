@@ -1,35 +1,3 @@
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-// SPDX-FileCopyrightText: 2020 chairbender
-// SPDX-FileCopyrightText: 2021 Acruid
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 0x6273
-// SPDX-FileCopyrightText: 2022 Chief-Engineer
-// SPDX-FileCopyrightText: 2022 Chris V
-// SPDX-FileCopyrightText: 2022 Paul Ritter
-// SPDX-FileCopyrightText: 2022 Rane
-// SPDX-FileCopyrightText: 2022 Visne
-// SPDX-FileCopyrightText: 2022 keronshb
-// SPDX-FileCopyrightText: 2023 Cheackraze
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Hannah Giovanna Dawson
-// SPDX-FileCopyrightText: 2023 Moony
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 chromiumboy
-// SPDX-FileCopyrightText: 2023 ubis1
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2024 Ilya246
-// SPDX-FileCopyrightText: 2024 Jezithyr
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 checkraze
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2025 ScarKy0
-// SPDX-FileCopyrightText: 2025 deltanedas
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Administration.Logs;
@@ -124,7 +92,6 @@ namespace Content.Server.Lathe
             SubscribeLocalEvent<LatheComponent, MaterialAmountChangedEvent>(OnMaterialAmountChanged);
             SubscribeLocalEvent<TechnologyDatabaseComponent, LatheGetRecipesEvent>(OnGetRecipes);
             SubscribeLocalEvent<EmagLatheRecipesComponent, LatheGetRecipesEvent>(GetEmagLatheRecipes);
-            SubscribeLocalEvent<LatheHeatProducingComponent, LatheStartPrintingEvent>(OnHeatStartPrinting);
 
             //Frontier: upgradeable parts
             SubscribeLocalEvent<LatheComponent, RefreshPartsEvent>(OnPartsRefresh);
@@ -132,6 +99,7 @@ namespace Content.Server.Lathe
 
             // Mono
             SubscribeLocalEvent<LatheComponent, SignalReceivedEvent>(OnSignalReceived);
+            SubscribeLocalEvent<LatheHeatProducingComponent, ExaminedEvent>(OnHeatExamine);
         }
         public override void Update(float frameTime)
         {
@@ -161,12 +129,14 @@ namespace Content.Server.Lathe
                     FinishProducing(uid, lathe);
             }
 
-            var heatQuery = EntityQueryEnumerator<LatheHeatProducingComponent, LatheProducingComponent, TransformComponent>();
-            while (heatQuery.MoveNext(out var uid, out var heatComp, out _, out var xform))
+            // Mono - now checks all and not only producing lathes in order to check air temperature
+            var heatQuery = EntityQueryEnumerator<LatheHeatProducingComponent, LatheComponent, TransformComponent>();
+            while (heatQuery.MoveNext(out var uid, out var heatComp, out var latheComp, out var xform))
             {
-                if (_timing.CurTime < heatComp.NextSecond)
+                heatComp.UpdateAccumulator += TimeSpan.FromSeconds(frameTime);
+                if (heatComp.UpdateAccumulator < heatComp.UpdateSpacing)
                     continue;
-                heatComp.NextSecond += TimeSpan.FromSeconds(1);
+                heatComp.UpdateAccumulator -= heatComp.UpdateSpacing;
 
                 var position = _transform.GetGridTilePositionOrDefault((uid, xform));
                 _environments.Clear();
@@ -183,13 +153,31 @@ namespace Content.Server.Lathe
                     }
                 }
 
-                if (_environments.Count > 0)
+                if (_environments.Count == 0)
+                    continue;
+
+                var avgTemp = 0f;
+                var totalHeatCap = 0f;
+                foreach (var env in _environments)
                 {
-                    var heatPerTile = heatComp.EnergyPerSecond / _environments.Count;
-                    foreach (var env in _environments)
-                    {
-                        _atmosphere.AddHeat(env, heatPerTile);
-                    }
+                    avgTemp += env.Temperature;;
+                    totalHeatCap += _atmosphere.GetHeatCapacity(env, true);
+                }
+                avgTemp /= _environments.Count;
+                var wasHot = heatComp.IsHot;
+                heatComp.IsHot = heatComp.TemperatureCap != null && avgTemp + heatComp.EnergyPerSecond / totalHeatCap > heatComp.TemperatureCap;
+                if (heatComp.IsHot)
+                    continue;
+                else if (wasHot && !latheComp.Paused)
+                    TryStartProducing(uid, latheComp);
+
+                if (!HasComp<LatheProducingComponent>(uid))
+                    continue;
+
+                var heatPerTile = heatComp.EnergyPerSecond / _environments.Count;
+                foreach (var env in _environments)
+                {
+                    _atmosphere.AddHeat(env, heatPerTile);
                 }
             }
         }
@@ -270,7 +258,11 @@ namespace Content.Server.Lathe
             if (!Resolve(uid, ref component))
                 return false;
             // Mono - pause
-            if (component.Paused || component.CurrentRecipe != null || component.Queue.Count <= 0 || !this.IsPowered(uid, EntityManager))
+            if (component.Paused
+                || component.CurrentRecipe != null
+                || component.Queue.Count <= 0
+                || !this.IsPowered(uid, EntityManager)
+                || TryComp<LatheHeatProducingComponent>(uid, out var heat) && heat.IsHot) // Mono - if you want to add more conditions turn this into an event please
                 return false;
 
             // Frontier: handle batches
@@ -436,11 +428,6 @@ namespace Content.Server.Lathe
                 AddRecipesFromDynamicPacks(ref args, database, component.EmagDynamicPacks);
         }
 
-        private void OnHeatStartPrinting(EntityUid uid, LatheHeatProducingComponent component, LatheStartPrintingEvent args)
-        {
-            component.NextSecond = _timing.CurTime;
-        }
-
         private void OnMaterialAmountChanged(EntityUid uid, LatheComponent component, ref MaterialAmountChangedEvent args)
         {
             UpdateUserInterfaceState(uid, component);
@@ -570,6 +557,13 @@ namespace Content.Server.Lathe
             args.AddPercentageUpgrade("lathe-component-upgrade-material-use", component.FinalMaterialUseMultiplier);
         }
 
+        // Mono
+        private void OnHeatExamine(Entity<LatheHeatProducingComponent> ent, ref ExaminedEvent args)
+        {
+            if (ent.Comp.IsHot)
+                args.PushMarkup(Loc.GetString("lathe-heat-producing-too-hot"));
+        }
+
         // Frontier: modify item value
         private void ModifyPrintedEntityPrice(EntityUid uid, LatheComponent component, EntityUid target)
         {
@@ -609,13 +603,31 @@ namespace Content.Server.Lathe
         {
             if (args.Port == ent.Comp.PausePort)
             {
-                ent.Comp.Paused = true;
+                TryPause((ent, ent.Comp));
             }
             else if (args.Port == ent.Comp.ResumePort)
             {
-                ent.Comp.Paused = false;
-                TryStartProducing(ent, ent.Comp);
+                TryUnpause((ent, ent.Comp));
             }
+        }
+
+        public void TryPause(Entity<LatheComponent?> ent)
+        {
+            if (!Resolve(ent, ref ent.Comp))
+                return;
+
+            ent.Comp.Paused = true;
+        }
+
+        public void TryUnpause(Entity<LatheComponent?> ent)
+        {
+            if (!Resolve(ent, ref ent.Comp))
+                return;
+
+            bool wasPaused = ent.Comp.Paused;
+            ent.Comp.Paused = false;
+            if (wasPaused)
+                TryStartProducing(ent, ent.Comp);
         }
     }
 }

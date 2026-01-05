@@ -52,8 +52,6 @@ entities:
     - type: Broadphase
     - type: Physics
       bodyStatus: InAir
-      angularDamping: 999999
-      linearDamping: 999999
       fixedRotation: False
       bodyType: Dynamic
     - type: Fixtures

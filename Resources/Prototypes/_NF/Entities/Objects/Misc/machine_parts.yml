@@ -107,7 +107,7 @@
       state: quadratic_capacitor
     - type: MachinePart
       part: Capacitor
-      rating: 4
+      rating: 6 # Mono: 4->6
     - type: Stack
       stackType: BluespaceCapacitor
 
@@ -122,7 +122,7 @@
       state: femto_mani
     - type: MachinePart
       part: Manipulator
-      rating: 4
+      rating: 6 # Mono: 4->6
     - type: Stack
       stackType: BluespaceManipulator
 
@@ -137,7 +137,7 @@
       state: bluespace_matter_bin
     - type: MachinePart
       part: MatterBin
-      rating: 4
+      rating: 6 # Mono: 4->6
     - type: Stack
       stackType: BluespaceMatterBin
 

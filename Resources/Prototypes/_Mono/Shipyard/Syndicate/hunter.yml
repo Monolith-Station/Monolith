@@ -2,7 +2,7 @@
   id: Hunter
   parent: BaseVesselAntag
   name: Hunter
-  description: A cheap, armored personnel carrier armed with 4 90mm autocannons.
+  description: A cheap, armored personnel carrier armed with 4 100mm autocannons.
   price: 50000
   category: Small
   group: Syndicate
@@ -23,7 +23,7 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Hunter MIL{1}'
+          mapNameTemplate: 'Hunter SYN{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

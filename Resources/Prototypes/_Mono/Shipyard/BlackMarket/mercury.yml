@@ -1,16 +1,7 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vessel
   id: Mercury
   parent: BaseVesselAntag
-  name: ASR Mercury
+  name: PDV Mercury
   description: Equipped with heavy frontal armor, 4 swarm missile pods, and a shield system. Good for dealing with smaller faster targets, but the firepower may be weaker against larger ones.
   price: 126800
   category: Medium
@@ -27,7 +18,7 @@
 
 - type: gameMap
   id: Mercury
-  mapName: 'ASR Mercury'
+  mapName: 'PDV Mercury'
   mapPath: /Maps/_Mono/Shuttles/BlackMarket/mercury.yml
   minPlayers: 0
   stations:
@@ -35,10 +26,11 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Mercury ASR{1}'
+          mapNameTemplate: 'Mercury PDV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
             Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

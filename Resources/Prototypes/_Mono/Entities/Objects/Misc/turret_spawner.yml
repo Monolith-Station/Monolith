@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: SpawnMobWeaponTurretLaserTSFMC
   parent: MarkerBase
@@ -17,6 +12,21 @@
   - type: ConditionalSpawner
     prototypes:
     - WeaponTurretLaserTSFMC
+
+- type: entity
+  id: SpawnMobWeaponTurretLaserSilicon
+  parent: MarkerBase
+  name: silicon laser turret spawner
+  suffix: Silicon, Frontier
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _NF/Objects/Weapons/Guns/Turrets/laser.rsi
+      state: base
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretLaserSilicon
 
 - type: entity
   id: SpawnMobWeaponTurretTFSMC
@@ -47,3 +57,18 @@
   - type: ConditionalSpawner
     prototypes:
     - WeaponTurretUSSP
+
+- type: entity
+  id: SpawnMobWeaponTurretPDV
+  parent: MarkerBase
+  name: PDV ballistic turret spawner
+  suffix: PDV, Frontier
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+      state: syndie_lethal
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretPDV

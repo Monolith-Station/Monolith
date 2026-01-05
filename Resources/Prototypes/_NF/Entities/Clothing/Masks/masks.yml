@@ -1,7 +1,7 @@
 - type: entity
   id: ClothingMaskArcadia
   name: arcadia battle mask
-  parent: [ ClothingMaskGasExplorer, BaseC3ContrabandNoValue, ContrabandClothing ]
+  parent: [ ClothingMaskGasExplorer ]
   description: A close-fitting high tech mask designed by Arcadia Industries for spacefaring operators.
   components:
   - type: Sprite
@@ -13,7 +13,7 @@
     - Hair
 
 - type: entity
-  parent: [PlushieXeno, ClothingMaskBase]
+  parent: PlushieXeno #Mono: Remove ClothingMaskBase
   id: FaceHuggerPlushie
   name: facehugger plushie
   description: The perfect plushie to scare your friends with aliens!
@@ -22,6 +22,7 @@
     sprite: _NF/Clothing/Mask/facehuggerplushie.rsi
     state: icon
   - type: Clothing
+    slots: [mask] #Mono
     sprite: _NF/Clothing/Mask/facehuggerplushie.rsi
   - type: IdentityBlocker
   - type: IngestionBlocker
@@ -43,7 +44,7 @@
     coverage: MOUTH
 
 - type: entity
-  parent: [ BaseC2ContrabandUnredeemable, ClothingMaskGasSecurity ]
+  parent: ClothingMaskGasSecurity
   id: ClothingMaskGasNfsd
   name: TSFMC gas mask
   description: A standard issue TSFMC gas mask.
@@ -55,7 +56,7 @@
   - type: CatWearable
 
 - type: entity
-  parent: [ BaseC2ContrabandUnredeemable, ClothingMaskGasSwat ]
+  parent: ClothingMaskGasSwat
   id: ClothingMaskGasSheriff
   name: TSFMC colonel gas mask
   description: A gas mask worthy of a colonel.
@@ -66,7 +67,7 @@
     sprite: _NF/Clothing/Mask/nfsd_sheriff.rsi
 
 - type: entity
-  parent: [ BaseC3CultContrabandUnredeemable, ContrabandClothing, ClothingMaskGasExplorer ]
+  parent: [ ClothingMaskGasExplorer ]
   id: ClothingMaskCultJanitor
   name: cult janitor mask
   description: A close-fitting, imposing breath mask designed for accursed custodians who value style.
