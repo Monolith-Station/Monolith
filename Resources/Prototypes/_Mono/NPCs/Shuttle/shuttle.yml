@@ -235,15 +235,15 @@
         removeKeyOnFinish: false
         alwaysFaceTarget: true
         inRangeMaxSpeed: null # orbit at top velocity
-        range: 250
-        rangeTolerance: 50
+        range: 850
+        rangeTolerance: 150
         targetKey: TargetCoordinates
         mode: Orbit
     - !type:HTNPrimitiveTask
       operator: !type:ShipFireGunsOperator
         shutdownState: TaskFinished
         removeKeyOnFinish: false
-        leadingAccuracy: 0.1 # stupid
+        leadingAccuracy: 0.4 # stupid
         targetKey: TargetCoordinates
       services:
       - !type:UtilityService
@@ -266,7 +266,7 @@
         removeKeyOnFinish: false
         alwaysFaceTarget: true
         inRangeMaxSpeed: null # orbit at top velocity
-        range: 750
+        range: 850
         rangeTolerance: 150
         avoidProjectiles: true
         targetKey: TargetCoordinates
