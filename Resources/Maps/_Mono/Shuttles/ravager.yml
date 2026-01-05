@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/05/2026 14:23:30
-  entityCount: 2294
+  time: 01/05/2026 14:51:06
+  entityCount: 2341
 maps: []
 grids:
 - 4270
@@ -107,7 +107,6 @@ entities:
     - type: MetaData
       name: Ravager
     - type: Transform
-      pos: -25,-25
       parent: invalid
     - type: MapGrid
       chunks:
@@ -2042,7 +2041,7 @@ entities:
       pos: 22.5,7.5
       parent: 4270
     - type: Door
-      secondsUntilStateChange: -18003.053
+      secondsUntilStateChange: -18623.3
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2605,11 +2604,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 13.5,-11.5
-      parent: 4270
-  - uid: 835
-    components:
-    - type: Transform
-      pos: 17.5,-11.5
       parent: 4270
 - proto: BoozeDispenser
   entities:
@@ -5561,6 +5555,88 @@ entities:
     - type: Transform
       pos: 36.151627,-6.175554
       parent: 4270
+- proto: CMSemioticAirlock
+  entities:
+  - uid: 2109
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,-2.5
+      parent: 4270
+  - uid: 2150
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 43.5,-2.5
+      parent: 4270
+- proto: CMSemioticAmmunition
+  entities:
+  - uid: 2183
+    components:
+    - type: Transform
+      pos: 11.5,31.5
+      parent: 4270
+- proto: CMSemioticAnalysis_lab
+  entities:
+  - uid: 2151
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,-7.5
+      parent: 4270
+- proto: CMSemioticBiohazard
+  entities:
+  - uid: 2152
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 25.5,16.5
+      parent: 4270
+- proto: CMSemioticBulkhead_door
+  entities:
+  - uid: 2160
+    components:
+    - type: Transform
+      pos: 21.5,6.5
+      parent: 4270
+  - uid: 2161
+    components:
+    - type: Transform
+      pos: 23.5,6.5
+      parent: 4270
+- proto: CMSemioticEast
+  entities:
+  - uid: 2163
+    components:
+    - type: Transform
+      pos: 25.5,12.5
+      parent: 4270
+  - uid: 2165
+    components:
+    - type: Transform
+      pos: 25.5,18.5
+      parent: 4270
+- proto: CMSemioticExhaust
+  entities:
+  - uid: 2154
+    components:
+    - type: Transform
+      pos: 19.5,-10.5
+      parent: 4270
+- proto: CMSemioticFour
+  entities:
+  - uid: 2159
+    components:
+    - type: Transform
+      pos: 24.5,-10.5
+      parent: 4270
+- proto: CMSemioticOne
+  entities:
+  - uid: 2157
+    components:
+    - type: Transform
+      pos: 8.5,-7.5
+      parent: 4270
 - proto: CMSemioticReception
   entities:
   - uid: 2071
@@ -5568,6 +5644,47 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 29.5,-10.5
+      parent: 4270
+- proto: CMSemioticStorage
+  entities:
+  - uid: 2155
+    components:
+    - type: Transform
+      pos: 18.5,-7.5
+      parent: 4270
+- proto: CMSemioticTerminal
+  entities:
+  - uid: 2153
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,30.5
+      parent: 4270
+- proto: CMSemioticThree
+  entities:
+  - uid: 2158
+    components:
+    - type: Transform
+      pos: 24.5,-7.5
+      parent: 4270
+- proto: CMSemioticTwo
+  entities:
+  - uid: 2156
+    components:
+    - type: Transform
+      pos: 8.5,-8.5
+      parent: 4270
+- proto: CMSemioticWest
+  entities:
+  - uid: 2162
+    components:
+    - type: Transform
+      pos: 19.5,12.5
+      parent: 4270
+  - uid: 2164
+    components:
+    - type: Transform
+      pos: 19.5,18.5
       parent: 4270
 - proto: ComputerAdvancedRadar
   entities:
@@ -5898,6 +6015,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: 25.5,13.5
       parent: 4270
+- proto: DefibrillatorCabinetFilled
+  entities:
+  - uid: 2149
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,14.5
+      parent: 4270
 - proto: DeskBell
   entities:
   - uid: 2087
@@ -6013,6 +6138,14 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-5.5
+      parent: 4270
+- proto: ExtinguisherCabinetFilled
+  entities:
+  - uid: 2148
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 15.5,-4.5
       parent: 4270
 - proto: FaxMachineBase
   entities:
@@ -9341,6 +9474,19 @@ entities:
     - type: Transform
       pos: 36.5,-14.5
       parent: 4270
+- proto: LockableButtonSecurity
+  entities:
+  - uid: 2070
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 16.5,-11.5
+      parent: 4270
+    - type: DeviceLinkSource
+      linkedPorts:
+        774:
+        - - Pressed
+          - Toggle
 - proto: LockerDetective
   entities:
   - uid: 969
@@ -9594,6 +9740,13 @@ entities:
     components:
     - type: Transform
       pos: 16.5,30.5
+      parent: 4270
+- proto: NFPosterLegitMagnusWatching
+  entities:
+  - uid: 2166
+    components:
+    - type: Transform
+      pos: 18.5,1.5
       parent: 4270
 - proto: NitrogenCanister
   entities:
@@ -9883,10 +10036,10 @@ entities:
       parent: 4270
 - proto: PlayerStationAiVessel
   entities:
-  - uid: 774
+  - uid: 2184
     components:
     - type: Transform
-      pos: 16.5,-12.5
+      pos: 17.5,-12.5
       parent: 4270
 - proto: PortableGeneratorJrPacman
   entities:
@@ -9894,6 +10047,83 @@ entities:
     components:
     - type: Transform
       pos: 23.5,8.5
+      parent: 4270
+- proto: PosterContrabandBorgFancyv2
+  entities:
+  - uid: 2168
+    components:
+    - type: Transform
+      pos: 15.5,-5.5
+      parent: 4270
+- proto: PosterContrabandEAT
+  entities:
+  - uid: 2170
+    components:
+    - type: Transform
+      pos: 29.5,-12.5
+      parent: 4270
+- proto: PosterContrabandMissingGloves
+  entities:
+  - uid: 2171
+    components:
+    - type: Transform
+      pos: 25.5,10.5
+      parent: 4270
+- proto: PosterContrabandRise
+  entities:
+  - uid: 2172
+    components:
+    - type: Transform
+      pos: 19.5,9.5
+      parent: 4270
+- proto: PosterContrabandVoteWeh
+  entities:
+  - uid: 2176
+    components:
+    - type: Transform
+      pos: 28.5,30.5
+      parent: 4270
+- proto: PosterLegitAnatomyPoster
+  entities:
+  - uid: 2167
+    components:
+    - type: Transform
+      pos: 21.5,18.5
+      parent: 4270
+- proto: PosterLegitCarbonDioxide
+  entities:
+  - uid: 2169
+    components:
+    - type: Transform
+      pos: 19.5,-9.5
+      parent: 4270
+- proto: PosterLegitSafetyInternals
+  entities:
+  - uid: 2174
+    components:
+    - type: Transform
+      pos: 3.5,-2.5
+      parent: 4270
+- proto: PosterLegitSecWatch
+  entities:
+  - uid: 2175
+    components:
+    - type: Transform
+      pos: 26.5,1.5
+      parent: 4270
+- proto: PosterLegitSMEpi
+  entities:
+  - uid: 2173
+    components:
+    - type: Transform
+      pos: 23.5,18.5
+      parent: 4270
+- proto: PosterLegitSpaceCops
+  entities:
+  - uid: 2182
+    components:
+    - type: Transform
+      pos: 13.5,35.5
       parent: 4270
 - proto: PoweredDimSmallLight
   entities:
@@ -9984,11 +10214,11 @@ entities:
       parent: 4270
 - proto: PoweredlightBlue
   entities:
-  - uid: 861
+  - uid: 2185
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 16.5,-12.5
+      rot: 3.141592653589793 rad
+      pos: 17.5,-12.5
       parent: 4270
 - proto: PoweredlightExterior
   entities:
@@ -10564,6 +10794,33 @@ entities:
     - type: Transform
       pos: 29.5,-9.5
       parent: 4270
+- proto: RandomPosterContraband
+  entities:
+  - uid: 2177
+    components:
+    - type: Transform
+      pos: 18.5,21.5
+      parent: 4270
+  - uid: 2178
+    components:
+    - type: Transform
+      pos: 26.5,22.5
+      parent: 4270
+  - uid: 2179
+    components:
+    - type: Transform
+      pos: 26.5,20.5
+      parent: 4270
+  - uid: 2180
+    components:
+    - type: Transform
+      pos: 19.5,11.5
+      parent: 4270
+  - uid: 2181
+    components:
+    - type: Transform
+      pos: 24.5,14.5
+      parent: 4270
 - proto: RavagerCarrierComputer
   entities:
   - uid: 560
@@ -10640,6 +10897,13 @@ entities:
     - type: Transform
       pos: 20.5,-6.5
       parent: 4270
+- proto: ShuttersWindow
+  entities:
+  - uid: 774
+    components:
+    - type: Transform
+      pos: 17.5,-11.5
+      parent: 4270
 - proto: ShuttersWindowOpen
   entities:
   - uid: 378
@@ -10654,11 +10918,10 @@ entities:
       parent: 4270
 - proto: SignAi
   entities:
-  - uid: 2109
+  - uid: 861
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 16.5,-11.5
+      pos: 17.5,-13.5
       parent: 4270
 - proto: SignAiUpload
   entities:
@@ -10941,6 +11204,56 @@ entities:
     components:
     - type: Transform
       pos: 37.5,-7.5
+      parent: 4270
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 2186
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,-1.5
+      parent: 4270
+  - uid: 2187
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,-1.5
+      parent: 4270
+  - uid: 2188
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 22.5,-1.5
+      parent: 4270
+  - uid: 2189
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 23.5,-1.5
+      parent: 4270
+  - uid: 2190
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 24.5,-1.5
+      parent: 4270
+  - uid: 2191
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 23.5,-0.5
+      parent: 4270
+  - uid: 2192
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 22.5,-2.5
+      parent: 4270
+  - uid: 2193
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,-0.5
       parent: 4270
 - proto: StairStageDark
   entities:
@@ -13862,6 +14175,11 @@ entities:
     components:
     - type: Transform
       pos: 10.5,-7.5
+      parent: 4270
+  - uid: 835
+    components:
+    - type: Transform
+      pos: 16.5,-12.5
       parent: 4270
   - uid: 838
     components:
