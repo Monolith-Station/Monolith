@@ -50,7 +50,6 @@ public sealed partial class ShipTargetingSystem : EntitySystem
 
             var target = comp.Target;
             var targetUid = target.EntityId; // if we have a target try to lead it
-            var targetGrid = Transform(targetUid).GridUid;
 
             if (shipUid == null
                 || TerminatingOrDeleted(targetUid)
@@ -58,6 +57,8 @@ public sealed partial class ShipTargetingSystem : EntitySystem
                 || !TryComp<MapGridComponent>(shipUid, out var shipGrid)
             )
                 continue;
+
+            var targetGrid = Transform(targetUid).GridUid;
 
             var shipXform = Transform(shipUid.Value);
 

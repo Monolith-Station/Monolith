@@ -66,6 +66,13 @@ public sealed partial class ShipSteererComponent : Component
     public float? InRangeMaxSpeed = null;
 
     /// <summary>
+    /// Direction we avoided collisions in previous update. Used to avoid edgecases of collision avoidance.
+    /// True means left, false means right.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool? LastAvoidDir = null;
+
+    /// <summary>
     /// Whether to try to match velocity with target.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]

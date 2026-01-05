@@ -58,6 +58,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         var target = ent.Comp.Coordinates;
         var targetUid = target.EntityId; // if we have a target try to lead it
+        var targetGrid = Transform(targetUid).GridUid;
 
         if (shipUid == null
             || TerminatingOrDeleted(targetUid)
@@ -96,7 +97,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var midRange = (highRange + lowRange) / 2f;
 
         var targetVel = Vector2.Zero;
-        if (ent.Comp.LeadingEnabled && _physQuery.TryComp(targetUid, out var targetBody))
+        if (ent.Comp.LeadingEnabled && _physQuery.TryComp(targetGrid ?? targetUid, out var targetBody))
             targetVel = targetBody.LinearVelocity;
         var relVel = linVel - targetVel;
 
@@ -146,15 +147,15 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                                      shipXform, shipBody, shuttle, shipGrid,
                                      destMapPos, targetVel, targetUid, mapTarget,
                                      maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
-                                     ent.Comp.AvoidCollisions, ent.Comp.AvoidProjectiles, ent.Comp.MaxObstructorDistance, ent.Comp.MinObstructorDistance, ent.Comp.EvasionBuffer,
+                                     ent.Comp.AvoidCollisions, ent.Comp.AvoidProjectiles, ent.Comp.MaxObstructorDistance, ent.Comp.MinObstructorDistance, ent.Comp.EvasionBuffer, ref ent.Comp.LastAvoidDir,
                                      targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
     }
 
     private ShuttleInput ProcessMovement(EntityUid shipUid,
                                          TransformComponent shipXform, PhysicsComponent shipBody, ShuttleComponent shuttle, MapGridComponent shipGrid,
-                                         MapCoordinates destMapPos, Vector2 targetVel, EntityUid? targetUid, MapCoordinates targetEntPos,
+                                         MapCoordinates destMapPos, Vector2 targetVel, EntityUid targetUid, MapCoordinates targetEntPos,
                                          float maxArrivedVel, float brakeThreshold, float frameTime,
-                                         bool avoidCollisions, bool avoidProjectiles, float maxObstructorDistance, float minObstructorDistance, float evasionBuffer,
+                                         bool avoidCollisions, bool avoidProjectiles, float maxObstructorDistance, float minObstructorDistance, float evasionBuffer, ref bool? lastAvoidDir,
                                          Angle targetAngleOffset, Angle? angleOverride)
     {
 
@@ -196,8 +197,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             var shipAABB = shipGrid.LocalAABB;
             var velAngle = linVel.ToWorldAngle();
 
-            var scanDistance = (brakeAccel == 0f ? maxObstructorDistance : MathF.Min(maxObstructorDistance, brakePath))
-                                + shipAABB.Height * 0.5f + ScanDistanceBuffer;
+            var scanDistance = (brakeAccel == 0f ? maxObstructorDistance : MathF.Min(maxObstructorDistance, brakePath * 2f))
+                                + shipAABB.Height * 0.5f + shipAABB.Height * 0.5f + ScanDistanceBuffer;
 
             var scanBoundsLocal = shipAABB
                                    .Enlarged(SearchBuffer)
@@ -209,7 +210,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             if (avoidCollisions)
                 _mapMan.FindGridsIntersecting(shipPos.MapId, scanBoundsWorld, ref _avoidGrids, approx: true, includeMap: false);
             _avoidProjs.Clear();
-            if (avoidProjectiles && _avoidGrids.Count == 0)
+            if (avoidProjectiles)
                 // apparently not expensive?
                 _avoidProjs =
                     _lookup.GetEntitiesInRange<ShipWeaponProjectileComponent>(shipPos,
@@ -220,14 +221,16 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 _avoidPotentialEnts.Add((ent, true));
             foreach (var ent in _avoidProjs)
             {
-                if (!_phaseQuery.TryComp(ent, out var phase) || phase.SourceGrid == null || phase.SourceGrid.Value != shipUid)
+                if (!_phaseQuery.TryComp(ent, out var phase) || phase.SourceGrid != shipUid)
                     _avoidPotentialEnts.Add((ent, false));
             }
+
+            var targetGrid = Transform(targetUid).GridUid;
 
             _avoidEnts.Clear();
             foreach (var (ent, isGrid) in _avoidPotentialEnts)
             {
-                if (ent == shipUid || ent == targetUid || !_physQuery.TryComp(ent, out var obstacleBody))
+                if (ent == shipUid || ent == targetUid || ent == targetGrid || !_physQuery.TryComp(ent, out var obstacleBody))
                     continue;
 
                 var otherXform = Transform(ent);
@@ -269,7 +272,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
                 var targetEntDistance = (targetEntPos.Position - shipPos.Position).Length();
                 // if it's behind destination entity we don't care, needed for ramming to work properly
-                if (targetUid != null && obstacleDistance > targetEntDistance + sumRadius + minObstructorDistance)
+                if (targetGrid != null && obstacleDistance > targetEntDistance - sumRadius - minObstructorDistance)
                     continue;
 
                 // check by how much we're already missing
@@ -283,6 +286,20 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 {
                     // get direction we want to dodge in and where we'll actually thrust to do that
                     var dodgeDir = NormalizedOrZero(sideVec);
+                    // rotate 90deg left
+                    var rotToObstacle = new Vector2(-toObstacle.Y, toObstacle.X);
+                    var dirSign = Vector2.Dot(rotToObstacle, dodgeDir) > 0f;
+                    if (lastAvoidDir == null)
+                    {
+                        lastAvoidDir = dirSign;
+                    }
+                    else if (lastAvoidDir != dirSign)
+                    {
+                        dodgeDir *= -1f;
+                        sideVec *= -1f;
+                        sideDist *= -1f;
+                    }
+
                     var dodgeVec = GetGoodThrustVector((-shipNorthAngle).RotateVec(sideVec), shuttle);
                     var dodgeThrust = _mover.GetDirectionThrust(dodgeVec, shuttle, shipBody).Length();
                     var dodgeAccel = dodgeThrust * shipBody.InvMass;
@@ -313,6 +330,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         }
         if (!didCollisionAvoidance)
         {
+            lastAvoidDir = null;
+
             // if we can't brake then don't
             if (leftoverBrakePath > destDistance && brakeAccel != 0f)
             {
@@ -373,9 +392,11 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     private void OnShuttleStartCollide(Entity<ShipSteererComponent> ent, ref PilotedShuttleRelayedEvent<StartCollideEvent> outerArgs)
     {
         var args = outerArgs.Args;
+        var targetEnt = ent.Comp.Coordinates.EntityId;
+        var targetGrid = Transform(targetEnt).GridUid;
 
         // finish movement if we collided with target and want to finish in this case
-        if (ent.Comp.FinishOnCollide && args.OtherEntity == ent.Comp.Coordinates.EntityId)
+        if (ent.Comp.FinishOnCollide && (args.OtherEntity == targetGrid || args.OtherEntity == targetEnt))
             ent.Comp.Status = ShipSteeringStatus.InRange;
     }
 
