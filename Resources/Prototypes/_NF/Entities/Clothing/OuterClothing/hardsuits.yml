@@ -276,6 +276,8 @@
       head:  ClothingHeadHelmetHardsuitNfsdSheriff
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: FireProtection # Mono
+    reduction: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor # Mono - Armor Value Changes

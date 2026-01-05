@@ -1,0 +1,35 @@
+- type: vessel
+  id: Hazel
+  parent: BaseVesselAntag
+  name: BT-Y Hazel
+  description: A small, cramped shuttle featuring a Syndicate 3 barreled 220mm Battery and 2 AK570s, well armored for its size. Does not have an FTL drive. A cheap option but realiability is questionable.
+  price: 65000
+  category: Small
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/hazel.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Hazel
+  mapName: 'BT-Y Hazel'
+  mapPath: /Maps/_Mono/Shuttles/BlackMarket/hazel.yml
+  minPlayers: 0
+  stations:
+    Hazel:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Hazel PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

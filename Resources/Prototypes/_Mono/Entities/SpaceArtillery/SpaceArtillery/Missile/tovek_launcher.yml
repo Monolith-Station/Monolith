@@ -17,6 +17,7 @@
     range: 500
   - type: Gun
     fireRate: 0.2
+    recoil: 5
     shootThermalSignature: 8000000 # ~2828m
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg

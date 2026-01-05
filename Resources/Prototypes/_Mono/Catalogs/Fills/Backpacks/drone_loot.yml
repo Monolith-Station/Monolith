@@ -1,8 +1,8 @@
 - type: entity
   parent: RogueSiliconGiftBox
-  id: ClothingBackpackDroneLoot
-  name: blackbox data recorder
-  description: Data recorder from a derelict drone. Contains valuable components.
+  id: ClothingBackpackDroneLootT1
+  name: blackbox data recorder (T1)
+  description: Data recorder from a drone. Contains valuable components.
   suffix: Drone Loot
   components:
   - type: RadarBlip
@@ -14,7 +14,7 @@
     items:
     # Money
     - id: SpaceCash10000
-      amount: 3
+      amount: 2
       prob: 1.0
     # Scrap chunks
     - id: ScrapOre100
@@ -22,13 +22,13 @@
       prob: 1.0
     # Parts
     - id: SuperCapacitorStockPart
-      prob: 1
+      prob: 0.4
       amount: 3
     - id: SuperMatterBinStockPart
-      prob: 1
+      prob: 0.4
       amount: 1
     - id: PicoManipulatorStockPart
-      prob: 1
+      prob: 0.4
       amount: 2
     - id: SpawnDungeonLootPowerCell
       prob: 0.5
@@ -48,19 +48,163 @@
       prob: 0.3
     # Flatpacks
     - id: SpawnDungeonLootFlatpacks
-      amount: 3
+      amount: 2
       prob: 0.3
-    # Research disk, expected value ~45k/drone
+    # Research disk, expected value ~12k/drone
     - id: RogueSiliconResearchDisk5000
       prob: 0.6
     - id: RogueSiliconResearchDisk10000
       prob: 0.4
     - id: RogueSiliconResearchDisk25000
-      prob: 0.25
-    - id: RogueSiliconResearchDisk50000
-      prob: 0.15
+      prob: 0.2
     # Tech disk
     - id: SpawnLootTechDisksT1
+      prob: 0.5
+    sound:
+      path: /Audio/Machines/windoor_open.ogg
+
+- type: entity
+  parent: ClothingBackpackDroneLootT1
+  id: ClothingBackpackDroneLootT21
+  name: blackbox data recorder (T2-1)
+  description: Data recorder from a drone. Contains valuable components.
+  suffix: Drone Loot
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    # Money
+    - id: SpaceCash10000
+      amount: 4
+      prob: 1.0
+    # Scrap chunks
+    - id: ScrapOre100
+      amount: 5
+      prob: 1.0
+    # Material
+    - id: SheetPlastitanium10
+      amount: 2
+      prob: 1
+    # Parts
+    - id: SuperCapacitorStockPart
+      prob: 1
+      amount: 3
+    - id: SuperMatterBinStockPart
+      prob: 1
+      amount: 1
+    - id: PicoManipulatorStockPart
+      prob: 1
+      amount: 2
+    # rare t4 parts
+    - id: QuadraticCapacitorStockPart
+      prob: 0.3
+    - id: FemtoManipulatorStockPart
+      prob: 0.2
+    - id: BluespaceMatterBinStockPart
+      prob: 0.1
+    - id: SpawnDungeonLootPowerCell
+      prob: 0.5
+    # - id: SpawnDungeonLootPartsEngi #Mono: mostly trash and bloat
+    #   amount: 3
+    #   prob: 0.25
+    # Circuit boards
+    - id: SpawnDungeonLootCircuitBoardEngi
+      prob: 0.3
+    - id: SpawnDungeonLootCircuitBoardScience
+      prob: 0.4
+    - id: SpawnDungeonLootCircuitBoardSalvage
+      prob: 0.4
+    - id: SpawnDungeonLootCircuitBoard
+      prob: 0.3
+    # Flatpacks
+    - id: SpawnDungeonLootFlatpacks
+      amount: 3
+      prob: 0.5
+    # Research disk, expected value ~50k/drone
+    - id: RogueSiliconResearchDisk5000
+      prob: 1
+    - id: RogueSiliconResearchDisk10000
+      prob: 1
+    - id: RogueSiliconResearchDisk25000
+      prob: 0.6
+    - id: RogueSiliconResearchDisk50000
+      prob: 0.4
+    # Tech disk
+    - id: SpawnLootTechDisksT2Mech
+      prob: 0.5
+    sound:
+      path: /Audio/Machines/windoor_open.ogg
+
+- type: entity
+  parent: ClothingBackpackDroneLootT1
+  id: ClothingBackpackDroneLootT22
+  name: blackbox data recorder (T2-2)
+  description: Data recorder from a drone. Contains valuable components.
+  suffix: Drone Loot
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    # Money
+    - id: SpaceCash25000
+      amount: 3
+      prob: 1.0
+    # Scrap chunks
+    - id: ScrapOre100
+      amount: 8
+      prob: 1.0
+    # Material
+    - id: SheetPlastitanium10
+      amount: 6
+      prob: 1
+    # Parts
+    - id: SuperCapacitorStockPart
+      prob: 1
+      amount: 6
+    - id: SuperMatterBinStockPart
+      prob: 1
+      amount: 2
+    - id: PicoManipulatorStockPart
+      prob: 1
+      amount: 4
+    # rare t4 parts
+    - id: QuadraticCapacitorStockPart
+      prob: 0.9
+      count: 2
+    - id: FemtoManipulatorStockPart
+      prob: 0.6
+      count: 2
+    - id: BluespaceMatterBinStockPart
+      prob: 0.3
+      count: 2
+    - id: SpawnDungeonLootPowerCell
+      count: 2
+      prob: 0.5
+    # - id: SpawnDungeonLootPartsEngi #Mono: mostly trash and bloat
+    #   amount: 3
+    #   prob: 0.25
+    # Circuit boards
+    - id: SpawnDungeonLootCircuitBoardEngi
+      prob: 0.3
+    - id: SpawnDungeonLootCircuitBoardScience
+      prob: 0.4
+    - id: SpawnDungeonLootCircuitBoardSalvage
+      prob: 0.4
+    - id: SpawnDungeonLootCircuitBoard
+      prob: 0.3
+    # Flatpacks
+    - id: SpawnDungeonLootFlatpacks
+      amount: 3
+      prob: 0.5
+    # Research disk, expected value ~50k/drone
+    - id: RogueSiliconResearchDisk5000
+      prob: 1
+    - id: RogueSiliconResearchDisk10000
+      prob: 1
+    - id: RogueSiliconResearchDisk25000
+      prob: 0.6
+    - id: RogueSiliconResearchDisk50000
+      prob: 0.4
+    # Tech disk
+    - id: SpawnLootTechDisksT2Mech
       prob: 0.5
     sound:
       path: /Audio/Machines/windoor_open.ogg

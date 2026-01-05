@@ -24,6 +24,7 @@
     range: 500
   - type: Gun
     fireRate: 0.1
+    recoil: 2500 # 100x
     minAngle: 0
     maxAngle: 0
     burstCooldown: 20

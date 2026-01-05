@@ -18,6 +18,7 @@
   - type: Gun
     projectileSpeed: 10
     fireRate: 0.8
+    recoil: 5
     shootThermalSignature: 8000000 # ~2.8km
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
