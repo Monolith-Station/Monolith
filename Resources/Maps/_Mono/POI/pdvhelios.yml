@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/03/2026 10:58:15
-  entityCount: 8376
+  time: 01/04/2026 19:35:58
+  entityCount: 8369
 maps: []
 grids:
 - 1
@@ -8098,21 +8098,6 @@ entities:
     - type: Transform
       pos: 8.5,78.5
       parent: 1
-  - uid: 5890
-    components:
-    - type: Transform
-      pos: 8.5,77.5
-      parent: 1
-  - uid: 5891
-    components:
-    - type: Transform
-      pos: 8.5,76.5
-      parent: 1
-  - uid: 5892
-    components:
-    - type: Transform
-      pos: 8.5,75.5
-      parent: 1
   - uid: 5893
     components:
     - type: Transform
@@ -8158,21 +8143,6 @@ entities:
     - type: Transform
       pos: 7.5,78.5
       parent: 1
-  - uid: 5902
-    components:
-    - type: Transform
-      pos: 7.5,77.5
-      parent: 1
-  - uid: 5903
-    components:
-    - type: Transform
-      pos: 7.5,76.5
-      parent: 1
-  - uid: 5904
-    components:
-    - type: Transform
-      pos: 7.5,75.5
-      parent: 1
   - uid: 5905
     components:
     - type: Transform
@@ -8217,21 +8187,6 @@ entities:
     components:
     - type: Transform
       pos: 6.5,78.5
-      parent: 1
-  - uid: 5914
-    components:
-    - type: Transform
-      pos: 6.5,77.5
-      parent: 1
-  - uid: 5915
-    components:
-    - type: Transform
-      pos: 6.5,76.5
-      parent: 1
-  - uid: 5916
-    components:
-    - type: Transform
-      pos: 6.5,75.5
       parent: 1
   - uid: 5917
     components:
@@ -10412,6 +10367,13 @@ entities:
     components:
     - type: Transform
       pos: 0.5,66.5
+      parent: 1
+- proto: BorgCharger
+  entities:
+  - uid: 5891
+    components:
+    - type: Transform
+      pos: -18.5,27.5
       parent: 1
 - proto: BoxBeaker
   entities:
@@ -22917,11 +22879,6 @@ entities:
     components:
     - type: Transform
       pos: -15.5,37.5
-      parent: 1
-  - uid: 1525
-    components:
-    - type: Transform
-      pos: -15.5,36.5
       parent: 1
   - uid: 1526
     components:
@@ -42238,6 +42195,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -5.4785843,51.015438
       parent: 1
+- proto: MachineArtifactAnalyzerFlatpack
+  entities:
+  - uid: 2380
+    components:
+    - type: Transform
+      pos: -15.335603,36.71125
+      parent: 1
 - proto: MachineCentrifuge
   entities:
   - uid: 2376
@@ -42272,13 +42236,6 @@ entities:
     components:
     - type: Transform
       pos: -13.5,45.5
-      parent: 1
-- proto: MachineFrameDestroyed2x2
-  entities:
-  - uid: 2380
-    components:
-    - type: Transform
-      pos: -16.5,37.5
       parent: 1
 - proto: MachineMaterialSilo
   entities:
@@ -44083,6 +44040,11 @@ entities:
       parent: 1
 - proto: Rack
   entities:
+  - uid: 1525
+    components:
+    - type: Transform
+      pos: -15.5,36.5
+      parent: 1
   - uid: 2667
     components:
     - type: Transform
@@ -45180,6 +45142,13 @@ entities:
     components:
     - type: Transform
       pos: -10.5,16.5
+      parent: 1
+- proto: SpawnPointPDVBorg
+  entities:
+  - uid: 5890
+    components:
+    - type: Transform
+      pos: -15.5,28.5
       parent: 1
 - proto: SpawnPointPDVDenasvar
   entities:
