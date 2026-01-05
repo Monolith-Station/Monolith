@@ -27,10 +27,10 @@ namespace Content.Server.Shuttles.Components
 
         // Need to serialize this because RefreshParts isn't called on Init and this will break post-mapinit maps!
         [ViewVariables(VVAccess.ReadWrite), DataField("thrust")]
-        public float Thrust = 150f; // 100f->150f Mono
+        public float Thrust = 200f; // 100f->200f Mono
 
         [DataField("baseThrust"), ViewVariables(VVAccess.ReadWrite)]
-        public float BaseThrust = 150f; // 100f->150f Mono
+        public float BaseThrust = 200f; // 100f->200f Mono
 
         [DataField("thrusterType")]
         public ThrusterType Type = ThrusterType.Linear;
