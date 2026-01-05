@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/05/2026 14:51:06
+  time: 01/05/2026 15:54:53
   entityCount: 2341
 maps: []
 grids:
@@ -2041,7 +2041,7 @@ entities:
       pos: 22.5,7.5
       parent: 4270
     - type: Door
-      secondsUntilStateChange: -18623.3
+      secondsUntilStateChange: -18633.834
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10034,7 +10034,7 @@ entities:
     - type: Transform
       pos: 26.5,-0.5
       parent: 4270
-- proto: PlayerStationAiVessel
+- proto: PlayerStationAiSecurity
   entities:
   - uid: 2184
     components:
