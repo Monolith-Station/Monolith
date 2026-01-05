@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2025 NazrinNya
+#
+# SPDX-License-Identifier: MPL-2.0
+
+# # Author Info
+# # GitHub: NazrinNya
+# # Discord: NazrinNya
+
+- type: vessel
+  id: Worm
+  parent: BaseVessel
+  name: Worm
+  description: Micro-fighter equipped with EMP Launcher. Drone server included.
+  price: 12500
+  category: Small
+  group: Custom
+  access: Brig
+  mapchecker_group_override: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Carrier/worm.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - APU
+
+- type: gameMap
+  id: Worm
+  mapName: 'Worm'
+  mapPath: /Maps/_Mono/Shuttles/Carrier/worm.yml
+  minPlayers: 0
+  stations:
+    Worm:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Worm SEC{1}'
+        nameGenerator: !type:NanotrasenNameGenerator
+          prefixCreator: '14'

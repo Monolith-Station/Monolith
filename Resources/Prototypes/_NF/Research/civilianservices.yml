@@ -6,16 +6,20 @@
   entityIcon: KitchenReagentGrinder
   discipline: CivilianServices
   tier: 1
-  cost: 5000
+  cost: 7500
   recipeUnlocks:
   - MicrowaveMachineCircuitboard
   - ReagentGrinderMachineCircuitboard
   - ElectricGrillMachineCircuitboard
   - BoozeDispenserMachineCircuitboard
   - SodaDispenserMachineCircuitboard
-  technologyPrerequisites:
+  - DeepFryerMachineCircuitboard # Mono
+  - ServiceSelectiveDropper # Mono
+  - KitchenAssemblerMachineCircuitboard # Mono
+  - ElectricRangeMachineCircuitboard # Mono
+  technologyPrerequisites: 
   - BasicParts
-  position: 4, -1
+  position: 3, -2
 
 - type: technology
   id: MiscellaneousItemsOrganization
@@ -45,34 +49,42 @@
   - NFPouchCargo
   technologyPrerequisites:
   - BasicParts
-  position: 7, -1
+  position: 3, -3
 
 # Tier 2
 
-- type: technology
-  id: ChemicalDispensary
-  name: research-technology-chemical-dispensary
-  entityIcon: ChemDispenser
-  discipline: CivilianServices
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - ChemMasterMachineCircuitboard
-  - ChemDispenserMachineCircuitboard
-  technologyPrerequisites:
-  - AdvancedParts
-  position: -4, 10
+# Mono edit - research consolidation
+# - type: technology
+#   id: ChemicalDispensary
+#   name: research-technology-chemical-dispensary
+#   entityIcon: ChemDispenser
+#   discipline: CivilianServices
+#   tier: 2
+#   cost: 10000
+#   recipeUnlocks:
+#   - ChemMasterMachineCircuitboard
+#   - ChemDispenserMachineCircuitboard
+#   technologyPrerequisites:
+#   - AdvancedParts
+#   position: -4, 10
 
+# Mono edit
 - type: technology
   id: IndustrialMedicine
   name: research-technology-industrial-medicine
   entityIcon: MedicalAssembler
   discipline: CivilianServices
   tier: 2
-  cost: 20000
+  cost: 13500
   recipeUnlocks:
   - MedicalAssemblerMachineCircuitboard
   - HotplateMachineCircuitboard
+  - ChemMasterMachineCircuitboard
+  - ChemDispenserMachineCircuitboard
+  - FatExtractorMachineCircuitboard
+  - BiogeneratorMachineCircuitboard
+  - BiofabricatorMachineCircuitboard 
+  - BiomassReclaimerMachineCircuitboard
   technologyPrerequisites:
   - AdvancedParts
   position: -2, 10
@@ -83,39 +95,40 @@
   entityIcon: JetpackVoid
   discipline: CivilianServices
   tier: 2 # 3->2 - Mono
-  cost: 25000
+  cost: 15000
   recipeUnlocks:
   - JetpackVoid
   technologyPrerequisites:
   - Shuttlecraft
   position: -4, 7
 
-- type: technology
-  id: AdvancedFoodService
-  name: research-technology-advanced-food-service
-  entityIcon: KitchenDeepFryer
-  discipline: CivilianServices
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - DeepFryerMachineCircuitboard #Nyano - Summary: adds deep fryer circuit board to service research.
-  - ServiceSelectiveDropper
-  - KitchenAssemblerMachineCircuitboard
-  - ElectricRangeMachineCircuitboard
-  technologyPrerequisites:
-  - FoodService
-  position: 4, -2
+# Mono edit - research consolidation
+# - type: technology
+#   id: AdvancedFoodService
+#   name: research-technology-advanced-food-service
+#   entityIcon: KitchenDeepFryer
+#   discipline: CivilianServices
+#   tier: 2
+#   cost: 10000
+#   recipeUnlocks:
+#   - DeepFryerMachineCircuitboard #Nyano - Summary: adds deep fryer circuit board to service research.
+#   - ServiceSelectiveDropper
+#   - KitchenAssemblerMachineCircuitboard
+#   - ElectricRangeMachineCircuitboard
+#   technologyPrerequisites:
+#   - FoodService
+#   position: 4, -2
 
-- type: technology
-  id: MobileSanitation
-  name: research-technology-mobile-sanitation
-  entityIcon: NFVehicleJanicart
-  discipline: CivilianServices
-  tier: 2
-  cost: 5000
-  recipeUnlocks:
-    - JanicartFlatpack
-  technologyPrerequisites:
-  - AdvancedParts
-  - AdvancedCleaning
-  position: 5, -3
+# - type: technology
+#   id: MobileSanitation
+#   name: research-technology-mobile-sanitation
+#   entityIcon: NFVehicleJanicart
+#   discipline: CivilianServices
+#   tier: 2
+#   cost: 5000
+#   recipeUnlocks:
+#     - JanicartFlatpack
+#   technologyPrerequisites:
+#   - AdvancedParts
+#   - AdvancedCleaning
+#   position: 5, -3

@@ -16,7 +16,7 @@
     startAnnouncement: bluespace-cargo-event-announcement
     weight: 5
     duration: 35
-    reoccurrenceDelay: 120
+    reoccurrenceDelay: 60 # Mono
   - type: BluespaceCargoRule
     spawnerPrototype: RandomCargoSpawner
     requireSafeAtmosphere: true
@@ -33,7 +33,7 @@
     weight: 5
     duration: 35
     maximumPlayers: 20
-    reoccurrenceDelay: 180
+    reoccurrenceDelay: 120 # Mono
   - type: BluespaceCargoRule
     spawnerPrototype: CrateFoodMcCargo
     flashPrototype: EffectFlashMcBluespace
@@ -49,9 +49,9 @@
       path: /Audio/Announcements/attention.ogg
     weight: 1
     duration: 35
-    earliestStart: 90
-    minimumPlayers: 20
-    reoccurrenceDelay: 480 # 8 hours
+    earliestStart: 60 # Mono
+    #minimumPlayers: 20 # Mono
+    reoccurrenceDelay: 180 # 8 hours #Mono: 3 hrs
   - type: BluespaceCargoRule
     spawnerPrototype: CrateSyndicateSurplusBundle
     maximumSpawns: 1
@@ -67,8 +67,8 @@
     minimumPlayers: 2
     reoccurrenceDelay: 50
   - type: RandomFaxRule
-    minFaxes: 1
-    maxFaxes: 2
+    minFaxes: 2 # Mono
+    maxFaxes: 3 # Mono
     name: deaddrop-faxed-hint-name
     prototypeId: PaperDeadDropFax
     content: deaddrop-faxed-hint-content # Default contents, will be edited.
@@ -88,8 +88,8 @@
     minimumPlayers: 10
     duration: 35
   - type: RandomFaxRule
-    minFaxes: 3
-    maxFaxes: 4
+    minFaxes: 4 # Mono
+    maxFaxes: 5 # Mono
     name: deaddrop-faxed-hint-name
     prototypeId: PaperDeadDropFax
     content: deaddrop-faxed-hint-content # Default contents, will be edited.

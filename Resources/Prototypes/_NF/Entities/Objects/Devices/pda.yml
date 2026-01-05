@@ -116,7 +116,7 @@
         - Write
 
 - type: entity
-  parent: [BaseSecurityPDA, BaseCommandContraband]
+  parent: BaseSecurityPDA
   id: SheriffPDA
   name: TSFMC colonel PDA
   description: A standard TSFMC personal computer.
@@ -338,7 +338,7 @@
     state: pda-prosecutor
 
 - type: entity
-  parent: [BaseSecurityPDA, BaseCommandContraband]
+  parent: BaseSecurityPDA
   id: SrPDA
   name: colonial liaison PDA
   description: Looks like it's been clawed on.
@@ -409,7 +409,7 @@
         pda-janitor
 
 - type: entity
-  parent: [CMOPDA, BaseCommandContraband]
+  parent: CMOPDA
   id: DocPDA
   name: director of care PDA
   description: It smells like disinfectant.

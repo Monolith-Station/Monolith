@@ -1,7 +1,7 @@
 - type: entity
   id: ClothingUniformJumpsuitArcadia
   name: arcadia jumpsuit
-  parent: [ ClothingUniformBase, BaseC3ContrabandNoValue, ContrabandClothing ]
+  parent: [ ClothingUniformBase ]
   description: A jumpsuit produced by Arcadia Industries. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood.
   components:
   - type: Sprite
@@ -134,13 +134,16 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNfsdTacCream
-  name: PDV tactical jumpsuit
+  name: PDV tactical jumpsuit #Mono
   description: A tactical jumpsuit for PDV forces in the field.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_cream.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_cream.rsi
+  - type: SuitSensor #Mono
+    randomMode: false
+    mode: SensorOff
 
 - type: entity
   parent: ClothingUniformBase
@@ -157,7 +160,6 @@
 - type: entity
   parent:
   - ClothingUniformJumpsuitRecruitSyndie
-  - ContrabandClothing
   id: ClothingUniformJumpsuitRecruitSyndieNF
   components:
   - type: SuitSensor
@@ -167,7 +169,6 @@
 - type: entity
   parent:
   - ClothingUniformJumpsuitRepairmanSyndie
-  - ContrabandClothing
   id: ClothingUniformJumpsuitRepairmanSyndieNF
   components:
   - type: SuitSensor
@@ -177,7 +178,6 @@
 - type: entity
   parent:
   - ClothingUniformJumpsuitParamedicSyndie
-  - ContrabandClothing
   id: ClothingUniformJumpsuitParamedicSyndieNF
   components:
   - type: SuitSensor
@@ -187,7 +187,6 @@
 - type: entity
   parent:
   - ClothingUniformJumpsuitChiefEngineerSyndie
-  - ContrabandClothing
   id: ClothingUniformJumpsuitChiefEngineerSyndieNF
   components:
   - type: SuitSensor
@@ -197,7 +196,6 @@
 - type: entity
   parent:
   - ClothingUniformJumpsuitSyndieFormal
-  - ContrabandClothing
   id: ClothingUniformJumpsuitSyndieFormalNF
   components:
   - type: SuitSensor

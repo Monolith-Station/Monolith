@@ -158,7 +158,6 @@
 - type: entity
   parent:
   - ClothingOuterHardsuitSyndie
-  - ContrabandClothing
   id: ClothingOuterHardsuitSyndieEliteUnremoveable
   name: syndicate hardsuit
   categories: [ HideSpawnMenu ]
@@ -172,7 +171,6 @@
 - type: entity
   parent:
   - ClothingOuterHardsuitSyndie
-  - ContrabandClothing
   id: ClothingOuterHardsuitSyndieBloodRedUnremoveable
   name: syndicate hardsuit
   categories: [ HideSpawnMenu ]
@@ -278,21 +276,23 @@
       head:  ClothingHeadHelmetHardsuitNfsdSheriff
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: FireProtection # Mono
+    reduction: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor # Mono - Armor Value Changes
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.45
-        Heat: 0.5
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.45
         Radiation: 0.4
         Caustic: 0.5
         Poison: 0.8 # Mono
   - type: ClothingSpeedModifier # Mono - Armor Value Changes
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.35
   - type: PirateBountyItem # Mono
@@ -331,7 +331,7 @@
     sprintModifier: 0.93
 
 - type: entity
-  parent: [BaseC2ContrabandUnredeemable, ClothingOuterHardsuitJuggernaut, EnergyShieldClothing ] # Jugger Suit
+  parent: [ClothingOuterHardsuitJuggernaut, EnergyShieldClothing ] # Jugger Suit
   id: ClothingOuterHardsuitNfsdExperimental
   name: TSFMC M92-X tacsuit
   description: An experimental modification of the M92 tacsuit for spec-ops units of the TSFMC. Durable, and comes with an integrated soft-shield, but at the cost of insulation and heft.
@@ -568,7 +568,7 @@
     coefficient: 0.4
 
 - type: entity
-  parent: [BaseC3PirateContraband, ClothingOuterHardsuitBaseNF]
+  parent: ClothingOuterHardsuitBaseNF
   id: ClothingOuterHardsuitPirateElite
   name: elite pirate hardsuit
   description: An ancient elite armored hardsuit, designed by an unknown bearded man and built like a brick house.

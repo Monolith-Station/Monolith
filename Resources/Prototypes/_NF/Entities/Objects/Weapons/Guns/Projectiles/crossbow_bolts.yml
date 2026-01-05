@@ -99,7 +99,7 @@
         Piercing: 35
 
 - type: entity
-  parent: [ BaseBoltProjectile, BaseBoltEmbeddable, BaseBoltLiquidInjector, BaseC1Contraband ]
+  parent: [ BaseBoltProjectile, BaseBoltEmbeddable, BaseBoltLiquidInjector ]
   id: BaseCrossbowBolt
   abstract: true
   components:
@@ -279,7 +279,7 @@
   id: CrossbowBoltUraniumGlassShard
 
 - type: entity
-  parent: [ BaseC3ContrabandNoValue, CrossbowBolt ]
+  parent: CrossbowBolt
   id: CrossbowBoltUraniumGlassShard
   name: uranium glass shard bolt
   description: A bolt with a uranium glass shard as a tip. God have mercy on thy victims for you won't.
@@ -347,7 +347,7 @@
   id: CrossbowBoltPlasteel
 
 - type: entity
-  parent: [ BaseC3ContrabandNoValue, CrossbowBolt ]
+  parent: CrossbowBolt
   id: CrossbowBoltPlasteel
   name: plasteel tipped bolt
   description: A bolt with plasteel tip. Has armor penetrating capabilities.
@@ -379,7 +379,7 @@
   id: CrossbowBoltExplosive
 
 - type: entity
-  parent: [ BaseC3ContrabandNoValue, BaseCrossbowBoltTrigger ]
+  parent: BaseCrossbowBoltTrigger
   id: CrossbowBoltExplosive
   name: explosive bolt
   description: A bolt with small explosive charge.
@@ -424,7 +424,7 @@
   id: CrossbowBoltEMP
 
 - type: entity
-  parent: [ BaseC3ContrabandNoValue, BaseCrossbowBoltTrigger ]
+  parent: BaseCrossbowBoltTrigger
   id: CrossbowBoltEMP
   name: EMP bolt
   description: A bolt with small power cell attached to it.
@@ -473,7 +473,7 @@
   id: CrossbowBoltIncendiary
 
 - type: entity
-  parent: [ BaseC3ContrabandNoValue, BaseCrossbowBolt ]
+  parent: BaseCrossbowBolt
   id: CrossbowBoltIncendiary
   name: incendiary bolt
   description: A bolt with a flare attached to it.
@@ -565,7 +565,6 @@
 # Blood cult
 - type: entity
   parent:
-  - BaseC3CultContrabandNoValue
   - CrossbowBolt
   - ConjuredObject10 # Despawns in 10 seconds
   id: CrossbowBoltBloodDrinker

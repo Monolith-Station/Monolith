@@ -1,6 +1,6 @@
 - type: entity
   name: U.I Smart Pistol MK5 (.55 SAM)
-  parent: [BaseWeaponPistol, BaseGunWieldable, BaseC3SyndicateContraband]
+  parent: [BaseWeaponPistol, BaseGunWieldable]
   id: WeaponPistolUllmanSmartMagnumMK5
   description: A prototype smart pistol developed by Ullman Industries that uses .55 Smart Action Magnum, designed for precision and adaptability in combat situations. It features advanced targeting systems and a sleek design.
   components:

@@ -1,13 +1,8 @@
-using Content.Server._Mono.NPC.HTN;
 using Content.Server.NPC;
-using Content.Server.NPC.Components;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
-using Content.Server.NPC.Systems;
-using Content.Shared.CCVar;
+using Content.Shared.Construction.Components;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Physics.Components;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -19,7 +14,6 @@ namespace Content.Server._Mono.NPC.HTN.Operators;
 public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShutdown
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    private SharedTransformSystem _transform = default!;
     private ShipSteeringSystem _steering = default!;
 
     /// <summary>
@@ -27,12 +21,6 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     /// </summary>
     [DataField]
     public HTNPlanState ShutdownState { get; private set; } = HTNPlanState.TaskFinished;
-
-    /// <summary>
-    /// Whether to trust away from obstacles.
-    /// </summary>
-    [DataField]
-    public bool AvoidCollisions = true;
 
     /// <summary>
     /// When we're finished moving to the target should we remove its key?
@@ -47,17 +35,85 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public string TargetKey = "ShipTargetCoordinates";
 
     /// <summary>
-    /// How close we need to get before considering movement finished.
+    /// Whether to keep facing target if backing off due to RangeTolerance.
     /// </summary>
     [DataField]
-    public float Range = 5f;
+    public bool AlwaysFaceTarget = false;
+
+    /// <summary>
+    /// Whether to avoid obstacles.
+    /// </summary>
+    [DataField]
+    public bool AvoidCollisions = true;
+
+    /// <summary>
+    /// Whether to avoid shipgun projectiles.
+    /// </summary>
+    [DataField]
+    public bool AvoidProjectiles = false;
+
+    /// <summary>
+    /// How unwilling we are to use brake to adjust our velocity. Higher means less willing.
+    /// </summary>
+    [DataField]
+    public float BrakeThreshold = 0.75f;
+
+    /// <summary>
+    /// Whether to consider the movement finished if we collide with target.
+    /// </summary>
+    [DataField]
+    public bool FinishOnCollide = true;
 
     /// <summary>
     /// Velocity below which we count as successfully braked.
     /// Don't care about velocity if null.
     /// </summary>
     [DataField]
-    public float? BrakeMaxVelocity = 0.1f;
+    public float? InRangeMaxSpeed = 0.1f;
+
+    /// <summary>
+    /// Whether to try to match velocity with target.
+    /// </summary>
+    [DataField]
+    public bool LeadingEnabled = true;
+
+    /// <summary>
+    /// Max rotation rate to be considered stationary, if not null.
+    /// </summary>
+    [DataField]
+    public float? MaxRotateRate = null;
+
+    /// <summary>
+    /// If target goes further than this, drop target.
+    /// </summary>
+    [DataField]
+    public float MaxTargetingRange = 2000f;
+
+    /// <summary>
+    /// What movement behavior to use.
+    /// </summary>
+    [DataField]
+    public ShipSteeringMode Mode = ShipSteeringMode.GoToRange;
+
+    /// <summary>
+    /// How close we need to get before considering movement finished.
+    /// </summary>
+    [DataField]
+    public float Range = 5f;
+
+    /// <summary>
+    /// At most how far inside to have to stay into the desired range. If null, will consider the movement finished while in range.
+    /// </summary>
+    [DataField]
+    public float? RangeTolerance = null;
+
+    /// <summary>
+    /// Whether to require us to be anchored.
+    /// Here because HTN does not allow us to continuously check a condition by itself.
+    /// Ignored if we're not anchorable.
+    /// </summary>
+    [DataField]
+    public bool RequireAnchored = true;
 
     /// <summary>
     /// Rotation to move at relative to direction to target.
@@ -70,7 +126,6 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
-        _transform = sysManager.GetEntitySystem<SharedTransformSystem>();
         _steering = sysManager.GetEntitySystem<ShipSteeringSystem>();
     }
 
@@ -80,22 +135,6 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         if (!blackboard.TryGetValue<EntityCoordinates>(TargetKey, out var targetCoordinates, _entManager))
         {
             return (false, null);
-        }
-
-        var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-
-        if (!_entManager.TryGetComponent<TransformComponent>(owner, out var xform) ||
-            !_entManager.TryGetComponent<PhysicsComponent>(owner, out var body))
-            return (false, null);
-
-        if (xform.Coordinates.TryDistance(_entManager, targetCoordinates, out var distance)
-            && distance <= Range)
-        {
-            // In range
-            return (true, new Dictionary<string, object>()
-            {
-                {NPCBlackboard.OwnerCoordinates, blackboard.GetValueOrDefault<EntityCoordinates>(NPCBlackboard.OwnerCoordinates, _entManager)}
-            });
         }
 
         return (true, new Dictionary<string, object>()
@@ -113,12 +152,23 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         var targetCoordinates = blackboard.GetValue<EntityCoordinates>(TargetKey);
         var uid = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
-        // Re-use the path we may have if applicable.
         var comp = _steering.Steer(uid, targetCoordinates);
 
-        comp.Range = Range;
-        comp.InRangeMaxSpeed = BrakeMaxVelocity;
+        if (comp == null)
+            return;
+
+        comp.AlwaysFaceTarget = AlwaysFaceTarget;
         comp.AvoidCollisions = AvoidCollisions;
+        comp.AvoidProjectiles = AvoidProjectiles;
+        comp.BrakeThreshold = BrakeThreshold;
+        comp.FinishOnCollide = FinishOnCollide;
+        comp.InRangeMaxSpeed = InRangeMaxSpeed;
+        comp.LeadingEnabled = LeadingEnabled;
+        comp.MaxRotateRate = MaxRotateRate;
+        comp.Mode = Mode;
+        comp.NoFinish = ShutdownState == HTNPlanState.PlanFinished;
+        comp.Range = Range;
+        comp.RangeTolerance = RangeTolerance;
         comp.TargetRotation = TargetRotation;
     }
 
@@ -126,8 +176,22 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
-        if (!_entManager.TryGetComponent<ShipSteererComponent>(owner, out var steerer))
+        if (!_entManager.TryGetComponent<ShipSteererComponent>(owner, out var steerer)
+            || !blackboard.TryGetValue<EntityCoordinates>(TargetKey, out var target, _entManager)
+            || !_entManager.TryGetComponent<TransformComponent>(owner, out var xform)
+            // also fail if we're anchorable but are unanchored and require to be anchored
+            || _entManager.TryGetComponent<AnchorableComponent>(owner, out var anchorable)
+                && !xform.Anchored && RequireAnchored
+        )
             return HTNOperatorStatus.Failed;
+
+        // ensure we're still steering if we e.g. move grids
+        var comp = _steering.Steer(owner, target);
+        if (comp == null)
+            return HTNOperatorStatus.Failed;
+
+        if (target.EntityId == EntityUid.Invalid || !xform.Coordinates.TryDistance(_entManager, target, out var distance) || distance > MaxTargetingRange)
+            return HTNOperatorStatus.Finished;
 
         // Just keep moving in the background and let the other tasks handle it.
         if (ShutdownState == HTNPlanState.PlanFinished && steerer.Status == ShipSteeringStatus.Moving)

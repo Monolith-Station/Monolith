@@ -128,7 +128,7 @@
 
 - type: entity
   abstract: true
-  parent: [RecyclableItemClothHardsuit, ClothingOuterBase, GeigerCounterClothing, AllowSuitStorageClothing, ClothingArmorPlateLight] # Frontier: added RecyclableItemClothHardsuit
+  parent: [RecyclableItemClothHardsuit, ClothingOuterBase, GeigerCounterClothing, AllowSuitStorageClothing, ClothingArmorPlate] # Frontier: added RecyclableItemClothHardsuit # Mono - armor plates.
   id: ClothingOuterHardsuitBase
   name: base hardsuit
   components:
