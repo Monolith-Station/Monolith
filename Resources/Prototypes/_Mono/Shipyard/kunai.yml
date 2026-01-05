@@ -8,7 +8,7 @@
   id: Kunai
   parent: BaseVessel
   name: MI-COR Kunai
-  description: A high-end Martian Corvette, legitimately salvaged by Militia Ironworks. Armed with 4 30mms, 2 20mms, 2 torpedo tubes and speed. Includes a small medical bay and crew quarters with a galley for long patrols.  FTL capable.
+  description: A high-end Martian Corvette, legitimately salvaged by Militia Ironworks. Armed with 4 30mms, 2 20mms, 1 torpedo tube and 1 DRAVON 90mm cannon. Includes a small medical bay and crew quarters with a galley for long patrols.  FTL capable.
   price: 130700 # 71K base + 40K for torps and 26K for medical bay with nanomed.
   category: medium
   group: Shipyard
@@ -16,8 +16,8 @@
   shuttlePath: /Maps/_Mono/Shuttles/kunai.yml
   guidebookPage: Null
   class:
-  
-  - Brawler
+  - small
+  - Strafer
   - Medical
   engine:
   - AME
