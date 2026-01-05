@@ -37,6 +37,9 @@
       task: RammerShuttleCompound
   - type: StaticPrice
     price: 20000
+  - type: ApcPowerReceiver
+    powerLoad: 1000 # suspiciously low power-using AI
+  - type: ExtensionCableReceiver
 
 - type: entity
   id: NpcStationAiApproacher

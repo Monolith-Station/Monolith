@@ -1,5 +1,6 @@
 using Content.Server.Physics.Controllers;
 using Content.Server.Shuttles.Components;
+using Content.Shared._Mono;
 using Content.Shared._Mono.SpaceArtillery;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -19,13 +20,14 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private EntityQuery<MapGridComponent> _gridQuery;
+    private EntityQuery<ProjectileGridPhaseComponent> _phaseQuery;
     private EntityQuery<PhysicsComponent> _physQuery;
     private EntityQuery<ShuttleComponent> _shuttleQuery;
 
     private List<Entity<MapGridComponent>> _avoidGrids = new();
     private HashSet<Entity<ShipWeaponProjectileComponent>> _avoidProjs = new();
-    private List<EntityUid> _avoidPotentialEnts = new();
-    private List<(Entity<TransformComponent, PhysicsComponent> ent, float inTime)> _avoidEnts = new();
+    private List<(EntityUid uid, bool isGrid)> _avoidPotentialEnts = new();
+    private List<(Entity<TransformComponent, PhysicsComponent> ent, float inTime, bool isGrid)> _avoidEnts = new();
 
     public override void Initialize()
     {
@@ -35,6 +37,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         SubscribeLocalEvent<ShipSteererComponent, PilotedShuttleRelayedEvent<StartCollideEvent>>(OnShuttleStartCollide);
 
         _gridQuery = GetEntityQuery<MapGridComponent>();
+        _phaseQuery = GetEntityQuery<ProjectileGridPhaseComponent>();
         _physQuery = GetEntityQuery<PhysicsComponent>();
         _shuttleQuery = GetEntityQuery<ShuttleComponent>();
     }
@@ -206,7 +209,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             if (avoidCollisions)
                 _mapMan.FindGridsIntersecting(shipPos.MapId, scanBoundsWorld, ref _avoidGrids, approx: true, includeMap: false);
             _avoidProjs.Clear();
-            if (avoidProjectiles)
+            if (avoidProjectiles && _avoidGrids.Count == 0)
                 // apparently not expensive?
                 _avoidProjs =
                     _lookup.GetEntitiesInRange<ShipWeaponProjectileComponent>(shipPos,
@@ -214,12 +217,15 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                                                                               LookupFlags.Approximate | LookupFlags.Dynamic | LookupFlags.Sensors);
             _avoidPotentialEnts.Clear();
             foreach (var ent in _avoidGrids)
-                _avoidPotentialEnts.Add(ent);
+                _avoidPotentialEnts.Add((ent, true));
             foreach (var ent in _avoidProjs)
-                _avoidPotentialEnts.Add(ent);
+            {
+                if (!_phaseQuery.TryComp(ent, out var phase) || phase.SourceGrid == null || phase.SourceGrid.Value != shipUid)
+                    _avoidPotentialEnts.Add((ent, false));
+            }
 
             _avoidEnts.Clear();
-            foreach (var ent in _avoidPotentialEnts)
+            foreach (var (ent, isGrid) in _avoidPotentialEnts)
             {
                 if (ent == shipUid || ent == targetUid || !_physQuery.TryComp(ent, out var obstacleBody))
                     continue;
@@ -236,11 +242,12 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 var normRelVel = toObstacle * dot / toObstacle.LengthSquared();
 
                 // we're only using it for sorting so just use squared times
-                _avoidEnts.Add(((ent, otherXform, obstacleBody), toObstacle.LengthSquared() / normRelVel.LengthSquared()));
+                _avoidEnts.Add(((ent, otherXform, obstacleBody), toObstacle.LengthSquared() / normRelVel.LengthSquared(), isGrid));
             }
-            _avoidEnts.Sort((a, b) => a.inTime.CompareTo(b.inTime));
+            // grids first, secondarily sort by impact time
+            _avoidEnts.Sort((a, b) => (b.isGrid, a.inTime).CompareTo((a.isGrid, b.inTime)));
 
-            foreach (var (ent, _) in _avoidEnts)
+            foreach (var (ent, _, _) in _avoidEnts)
             {
                 var otherXform = ent.Comp1;
                 var obstacleBody = ent.Comp2;
