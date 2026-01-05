@@ -1,0 +1,36 @@
+- type: vessel
+  id: Leopard
+  parent: BaseVessel
+  name: Z-22 Leopard
+  description: A mech dropshop fitted as a search and rescue vessel
+  price: 85000
+  category: large
+  group: Medical
+  shuttlePath: /Maps/_Mono/Shuttles/leopard.yml
+  guidebookPage: null
+  class:
+  - Medical
+  - Chemistry
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Leopard
+  mapName: 'Z-22 Leopard'
+  mapPath: /Maps/_Mono/Shuttles/leopard.yml
+  minPlayers: 0
+  stations:
+    Leopard:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Leopard MED{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            MdMedic: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
