@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/05/2026 14:19:52
-  entityCount: 540
+  time: 01/05/2026 14:35:09
+  entityCount: 552
 maps: []
 grids:
 - 1
@@ -730,6 +730,7 @@ entities:
       - 355
       - 40
       - 350
+      - 543
   - uid: 26
     components:
     - type: Transform
@@ -741,6 +742,8 @@ entities:
       - 352
       - 349
       - 37
+      - 542
+      - 544
   - uid: 27
     components:
     - type: Transform
@@ -749,9 +752,10 @@ entities:
       parent: 1
     - type: DeviceList
       devices:
-      - 354
-      - 347
       - 42
+      - 347
+      - 354
+      - 541
   - uid: 28
     components:
     - type: Transform
@@ -763,6 +767,11 @@ entities:
       - 348
       - 353
       - 41
+      - 546
+      - 545
+      - 541
+      - 542
+      - 543
   - uid: 29
     components:
     - type: Transform
@@ -775,6 +784,8 @@ entities:
       - 356
       - 38
       - 39
+      - 544
+      - 552
 - proto: Airlock
   entities:
   - uid: 30
@@ -845,7 +856,6 @@ entities:
       pos: -5.5,7.5
       parent: 1
     - type: DeviceNetwork
-      
       
       deviceLists:
       - 29
@@ -2297,6 +2307,139 @@ entities:
       containers:
         solution@drink: !type:ContainerSlot
           ent: 18
+- proto: FireAlarm
+  entities:
+  - uid: 547
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,5.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 543
+      - 542
+      - 541
+      - 545
+      - 546
+  - uid: 548
+    components:
+    - type: Transform
+      pos: 0.5,5.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 541
+  - uid: 549
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,5.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 544
+      - 542
+  - uid: 550
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.5,4.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 544
+      - 552
+  - uid: 551
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,12.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 543
+- proto: FirelockGlass
+  entities:
+  - uid: 541
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,5.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 27
+      - 28
+      - 547
+      - 548
+  - uid: 542
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,6.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 28
+      - 26
+      - 547
+      - 549
+  - uid: 543
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,10.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 28
+      - 25
+      - 551
+      - 547
+  - uid: 544
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,6.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 26
+      - 29
+      - 549
+      - 550
+  - uid: 545
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,6.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 28
+      - 547
+  - uid: 546
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,7.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 28
+      - 547
+  - uid: 552
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -6.5,8.5
+      parent: 1
+    - type: DeviceNetwork
+      
+      deviceLists:
+      - 550
+      - 29
 - proto: FloorDrain
   entities:
   - uid: 292
