@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2025 NazrinNya
+#
+# SPDX-License-Identifier: MPL-2.0
+
+# # Author Info
+# # GitHub: NazrinNya
+# # Discord: NazrinNya
+
+- type: vessel
+  id: Ant
+  parent: BaseVessel
+  name: Ant
+  description: Fragile but powerful combat vessel. Equipped with charonette and EMP launchers.
+  price: 75000
+  category: Small
+  group: Custom
+  access: Brig
+  mapchecker_group_override: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Carrier/ant.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Ant
+  mapName: 'Ant'
+  mapPath: /Maps/_Mono/Shuttles/Carrier/ant.yml
+  minPlayers: 0
+  stations:
+    Ant:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Ant SEC{1}'
+        nameGenerator: !type:NanotrasenNameGenerator
+          prefixCreator: '14'

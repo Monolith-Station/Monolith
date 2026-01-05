@@ -186,3 +186,40 @@
       Doubloon: 45
 
 #endregion
+
+#region anomalies/loot
+
+- type: entity
+  parent: BaseFactionGearOtherFactionT0
+  id: BaseMonolithContrabandT1
+  abstract: true
+  components:
+  - type: Contraband
+    severity: MonolithContrabandT1
+    turnInValues:
+      FederationMilitaryCredit: 15
+      Doubloon: 15
+
+- type: entity
+  parent: BaseFactionGearOtherFactionT0
+  id: BaseMonolithContrabandT2
+  abstract: true
+  components:
+  - type: Contraband
+    severity: MonolithContrabandT2
+    turnInValues:
+      FederationMilitaryCredit: 25
+      Doubloon: 25
+
+- type: entity
+  parent: BaseFactionGearOtherFactionT0
+  id: BaseMonolithContrabandT3
+  abstract: true
+  components:
+  - type: Contraband
+    severity: MonolithContrabandT3
+    turnInValues:
+      FederationMilitaryCredit: 50
+      Doubloon: 50
+
+#endregion

@@ -20,10 +20,10 @@
   playTimeTracker: JobPDVDenasvar
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 180000 # 50 hours # mono
+      time: 72000 # 20 hours # mono
     - !type:RoleTimeRequirement
       role: JobPirate
-      time: 90000 # 25 hours
+      time: 36000 # 10 hours
   startingGear: PDVDenasvarGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true

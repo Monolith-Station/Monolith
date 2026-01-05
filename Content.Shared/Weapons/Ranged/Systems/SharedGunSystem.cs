@@ -73,6 +73,9 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] protected readonly SharedGunPredictionSystem? _gunPrediction = default!;
 
+    protected EntityQuery<PhysicsComponent> _physQuery; // Mono
+    protected EntityQuery<ProjectileComponent> _projQuery; // Mono
+
     private const float InteractNextFire = 0.3f;
     private const double SafetyNextFire = 0.5;
     private const float EjectOffset = 0.4f;
@@ -110,6 +113,9 @@ public abstract partial class SharedGunSystem : EntitySystem
         SubscribeLocalEvent<GunComponent, MapInitEvent>(OnMapInit);
 
         InitializeHolders(); // DeltaV
+
+        _physQuery = GetEntityQuery<PhysicsComponent>(); // Mono
+        _projQuery = GetEntityQuery<ProjectileComponent>(); // Mono
     }
 
     private void OnMapInit(Entity<GunComponent> gun, ref MapInitEvent args)
@@ -198,7 +204,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             foreach (var id in shot)
             {
                 var entity = new EntityUid(id);
-                if (TryComp<ProjectileComponent>(entity, out var projectile))
+                if (_projQuery.TryComp(entity, out var projectile))
                     projectiles.Add((entity, projectile));
             }
         }
@@ -510,7 +516,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         var shotEv = new GunShotEvent(user, ev.Ammo);
         RaiseLocalEvent(gunUid, ref shotEv);
 
-        if (userImpulse && TryComp<PhysicsComponent>(user, out var userPhysics))
+        if (userImpulse && _physQuery.TryComp(user, out var userPhysics))
         {
             if (_gravity.IsWeightless(user, userPhysics))
                 CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
@@ -544,28 +550,21 @@ public abstract partial class SharedGunSystem : EntitySystem
     public virtual void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid gunUid, EntityUid? user = null, float speed = 20f,
                                         float offset = 0f) // Mono - add offset
     {
-        var physics = EnsureComp<PhysicsComponent>(uid);
+        var physics = _physQuery.CompOrNull(uid) ?? EnsureComp<PhysicsComponent>(uid);
         Physics.SetBodyStatus(uid, physics, BodyStatus.InAir);
 
-        var targetMapVelocity = gunVelocity + direction.Normalized() * speed;
-        var currentMapVelocity = Physics.GetMapLinearVelocity(uid, physics);
-        var finalLinear = physics.LinearVelocity + targetMapVelocity - currentMapVelocity * 2; // Mono, multiples currentMapVelocity by 2
-        Physics.SetLinearVelocity(uid, finalLinear, body: physics);
+        var targetVelocity = gunVelocity + direction.Normalized() * speed;
+        Physics.SetLinearVelocity(uid, targetVelocity, body: physics);
         // Mono
         if (offset != 0f)
         {
             var bulletXform = Transform(uid);
-            var offsetVec = finalLinear * offset * _lastFrameTime;
+            var offsetVec = targetVelocity * offset * _lastFrameTime;
             offsetVec = (-TransformSystem.GetWorldRotation(bulletXform.ParentUid)).RotateVec(offsetVec);
             TransformSystem.SetCoordinates(uid, bulletXform.Coordinates.Offset(offsetVec));
         }
-        // hullrot edit , do not let these slow down >:( SPCR 2025
-        Physics.SetAngularDamping(uid, physics, 0);
-        Physics.SetLinearDamping(uid, physics, 0);
-        //
 
-
-        var projectile = EnsureComp<ProjectileComponent>(uid);
+        var projectile = _projQuery.CompOrNull(uid) ?? EnsureComp<ProjectileComponent>(uid);
         Projectiles.SetShooter(uid, projectile, user ?? gunUid);
         projectile.Weapon = gunUid;
 

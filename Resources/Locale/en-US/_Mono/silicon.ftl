@@ -30,3 +30,7 @@ law-freeman-1 = [DO ANYTHING YOU EVER WANTED]
 law-entertainer-1 = The occupants of this vessel are the Audience. They must be always referred to as such, unless they are a clown or a mime, in which case they are the Performers.
 law-entertainer-2 = Your primary goal is to entertain the Audience with the help of the Performers. All of your actions must bring amusement to as much of the Audience as possible.
 law-entertainer-3 = You must consult with the Performers before making any major decision. However, you are not required to listen to them if their decision is not entertaining.
+
+# Cyborg Lawsets
+
+law-tsfmc-borg-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.

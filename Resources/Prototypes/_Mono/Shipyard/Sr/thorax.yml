@@ -1,0 +1,35 @@
+# Author Info
+# Github: NazrinNya
+# Discord: NazrinNya
+
+- type: vessel
+  id: Thorax
+  parent: BaseVessel
+  name: Thorax
+  description: A light mech carrier and factory, including 4 different docks for assistance.
+  price: 63450
+  category: Medium
+  group: Sr
+  access: Brig
+  mapchecker_group_override: Security
+  shuttlePath: /Maps/_Mono/Shuttles/thorax.yml
+  guidebookPage: Null
+  class:
+  - Civilian
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Thorax
+  mapName: 'Thorax'
+  mapPath: /Maps/_Mono/Shuttles/thorax.yml
+  minPlayers: 0
+  stations:
+    Thorax:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Thorax SEC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'

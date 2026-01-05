@@ -155,3 +155,21 @@
     - Inorganic
     - Silicon
     - Biological
+
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons]
+  id: ClothingEyesTSFOfficerGlasses
+  name: TSF commander shades
+  description: A high tech heads up display purpose built for Federation officers. Usually issued to the commanding officer of a company.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: ThermalVision
+    isEquipment: true
+    color: "#FFFFFFFF"
+    lightRadius: 45
