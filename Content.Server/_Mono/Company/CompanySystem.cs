@@ -12,6 +12,8 @@ namespace Content.Server._Mono.Company;
 
 /// <summary>
 /// This system handles assigning a company to players when they join.
+/// TODO: remove hardcoded slop.
+/// whoever hardcoded ts is getting slimed out no joke.
 /// </summary>
 public sealed class CompanySystem : EntitySystem
 {
@@ -32,7 +34,6 @@ public sealed class CompanySystem : EntitySystem
         "Brigmedic",
         "NFDetective",
         "PublicAffairsLiaison",
-        "SecurityGuard",
         "Cadet",
         "TsfEngineer",
         "TsfBorg",
