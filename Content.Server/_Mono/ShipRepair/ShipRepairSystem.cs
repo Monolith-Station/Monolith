@@ -140,8 +140,8 @@ public sealed partial class ShipRepairSystem : EntitySystem
 
     private Vector2i GetRepairChunkIndices(Vector2i gridIndices, int chunkSize)
     {
-        var xCoord = gridIndices.X < 0 ? -4 + gridIndices.X : gridIndices.X;
-        var yCoord = gridIndices.Y < 0 ? -4 + gridIndices.Y : gridIndices.Y;
+        var xCoord = gridIndices.X < 0 ? 1 - chunkSize + gridIndices.X : gridIndices.X;
+        var yCoord = gridIndices.Y < 0 ? 1 - chunkSize + gridIndices.Y : gridIndices.Y;
         var x = xCoord / chunkSize;
         var y = yCoord / chunkSize;
         return new Vector2i(x, y);
