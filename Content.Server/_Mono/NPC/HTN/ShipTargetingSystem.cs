@@ -97,6 +97,9 @@ public sealed partial class ShipTargetingSystem : EntitySystem
         if (!_physQuery.TryComp(shipUid, out var shipBody))
             return;
 
+        if (!_cannon.CanFireWeapons(shipUid))
+            return;
+
         var shipAngVel = shipBody.AngularVelocity;
         var shipCenter = shipBody.LocalCenter;
 
