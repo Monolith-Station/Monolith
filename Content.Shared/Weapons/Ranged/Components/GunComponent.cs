@@ -306,6 +306,13 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public float Recoil = 25f;
+
+    /// <summary>
+    /// Mono
+    /// Multiplier of how much recoil should rotate you.
+    /// </summary>
+    [DataField]
+    public float RecoilRotation = 0.2f;
 }
 
 [Flags]
