@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/06/2026 12:50:44
+  time: 01/06/2026 13:22:12
   entityCount: 806
 maps: []
 grids:
@@ -70,7 +70,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: grid
+      name: Phalanx
     - type: Transform
       pos: -1.4166667,-0.35927773
       parent: invalid
@@ -353,87 +353,112 @@ entities:
           0,0:
             0: 56320
           0,1:
-            0: 52688
+            1: 52688
           -1,1:
-            0: 26336
+            1: 26336
           0,2:
-            0: 23797
+            1: 23797
           -1,2:
-            0: 58100
+            1: 58100
           0,3:
-            0: 65485
+            1: 65485
           -1,3:
-            0: 43566
+            1: 43566
           0,4:
-            0: 20367
+            1: 20367
           1,0:
             0: 4352
-            1: 8192
+            2: 8192
           1,2:
-            0: 4082
+            1: 4082
           1,3:
-            0: 33331
+            1: 563
+            0: 32768
           1,1:
-            0: 8258
-            1: 4
+            0: 66
+            1: 8192
+            2: 4
           2,2:
-            0: 1904
+            1: 1904
           2,3:
             0: 17
-            1: 4386
+            2: 4386
           1,4:
-            1: 1160
-            0: 8256
+            2: 1160
+            0: 64
           2,1:
             0: 16384
           -1,4:
-            0: 20010
+            1: 20010
           0,5:
-            0: 3293
+            1: 3293
           0,6:
+            1: 6
             0: 24576
           -1,6:
+            1: 12
             0: 49153
           0,7:
             0: 14
           1,6:
             0: 8705
-            1: 2
-          1,7:
-            0: 17
+            2: 2
           1,5:
             0: 96
+          1,7:
+            0: 16
           -2,4:
-            1: 1058
-            0: 32832
+            2: 1058
+            0: 64
           -2,3:
-            0: 8345
-            1: 4352
+            0: 8209
+            2: 4352
+            1: 136
           -2,5:
             0: 192
           -2,6:
-            1: 8
+            2: 8
             0: 34816
           -1,5:
-            0: 1638
+            1: 1638
           -1,7:
-            0: 31
+            0: 30
           -3,1:
             0: 16384
           -3,2:
-            0: 3264
+            1: 3264
           -2,2:
-            0: 36856
+            1: 36856
           -3,3:
-            1: 136
+            2: 136
           -2,1:
-            0: 32840
-            1: 4
-          -2,0:
+            0: 72
+            2: 4
             1: 32768
+          -2,0:
+            2: 32768
           -1,0:
             0: 30464
         uniqueMixes:
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -477,6 +502,8 @@ entities:
     - type: RadiationGridResistance
     - type: ShipGridLock
       locked: False
+    - type: Roof
+      data: {}
 - proto: AirAlarm
   entities:
   - uid: 337
@@ -2555,8 +2582,6 @@ entities:
     - type: Transform
       pos: -0.5,16.5
       parent: 1
-    - type: RadarConsole
-      maxRange: 3072
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery
@@ -2568,8 +2593,6 @@ entities:
     - type: Transform
       pos: 1.5,16.5
       parent: 1
-    - type: RadarConsole
-      maxRange: 3072
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery
@@ -2593,8 +2616,6 @@ entities:
     - type: Transform
       pos: 0.5,16.5
       parent: 1
-    - type: RadarConsole
-      maxRange: 3072
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery
@@ -4389,18 +4410,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,2.5
       parent: 1
-    - type: Thruster
-      baseThrust: 800
-      thrust: 800
   - uid: 10
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.5,2.5
       parent: 1
-    - type: Thruster
-      baseThrust: 800
-      thrust: 800
     - type: ApcPowerReceiver
       powerLoad: 1
 - proto: ThrusterNfsd

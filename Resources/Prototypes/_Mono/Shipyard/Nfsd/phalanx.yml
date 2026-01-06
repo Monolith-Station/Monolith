@@ -1,0 +1,36 @@
+- type: vessel
+  id: Phalanx
+  parent: BaseVesselAntag
+  name: TSF-PIN Phalanx
+  description: A medium corvette with torpedoes used as a maintstay of the federation's smaller frontline units.
+  price: 170000
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/phalanx.yml
+  guidebookPage: Null
+  class:
+  - Brawler
+  - Corvette
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Phalanx
+  mapName: 'Phalanx'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/phalanx.yml
+  minPlayers: 0
+  stations:
+    Phalanx:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Phalanx TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+
