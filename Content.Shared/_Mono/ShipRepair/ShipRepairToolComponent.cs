@@ -32,5 +32,5 @@ public sealed partial class ShipRepairToolComponent : Component
     public List<DoAfterId> DoAfters = new();
 
     [DataField]
-    public EntProtoId ConstructEffect = "EffectRCDConstruct0";
+    public EntProtoId ConstructEffect = "EffectRCDConstruct1";
 }

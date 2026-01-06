@@ -919,6 +919,10 @@
         params:
           loop: true
           volume: 1
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   id: ComputerCargoShuttle
