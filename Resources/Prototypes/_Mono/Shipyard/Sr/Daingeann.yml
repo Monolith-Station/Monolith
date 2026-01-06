@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: BORT
+# Discord: BORT
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: daingeann
+  parent: BaseVessel
+  name: An Daingeann
+  description: A powerful brawling corvette designed to be the anchor of any serious security fleet. Equipped with heavy armour and weaponry, it is expected to fight head on and up close with little respect for its own safety.
+  limit: 1
+  price: 150000 # plastitanium tax + guns and premium markup
+  category: Medium
+  group: Sr
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Sr/daingeann.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  - Corvette
+  engine:
+  - Plasma # Pinch fusion
+
+- type: gameMap
+  id: daingeann
+  mapName: 'An Daingeann'
+  mapPath: /Maps/_Mono/Shuttles/Sr/deangeann.yml
+  minPlayers: 0
+  stations:
+    daingeann:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Daingeann SEC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+          Borg: [ 0, 0 ]
+          SecurityGuard: [ 0, 0 ]
