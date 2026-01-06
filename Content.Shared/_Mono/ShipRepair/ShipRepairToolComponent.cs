@@ -1,5 +1,6 @@
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Mono.ShipRepair;
 
@@ -29,4 +30,7 @@ public sealed partial class ShipRepairToolComponent : Component
 
     [ViewVariables]
     public List<DoAfterId> DoAfters = new();
+
+    [DataField]
+    public EntProtoId ConstructEffect = "EffectRCDConstruct0";
 }

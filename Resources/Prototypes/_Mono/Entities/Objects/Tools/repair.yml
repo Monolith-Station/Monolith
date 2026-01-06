@@ -23,14 +23,15 @@
       Plasma: 200
       Gold: 200
   - type: StaticPrice
-    price: 5000
-    vendPrice: 10000
+    price: 10000
+    vendPrice: 15000
   - type: Tag
     tags:
     - ShipRepairTool
 
 - type: entity
   id: MonoShipyardRCD
+  description: A repair device that can restore destroyed sections of ships. Holds 300 charges.
   parent: MonoShipyardRCDBase
   components:
   - type: ShipRepairTool
@@ -74,5 +75,5 @@
       Steel: 100
       Plastic: 100
   - type: StaticPrice
-    price: 1000
-    vendPrice: 5000
+    price: 2000
+    vendPrice: 8000

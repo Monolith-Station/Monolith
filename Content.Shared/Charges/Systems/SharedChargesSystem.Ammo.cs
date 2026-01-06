@@ -5,6 +5,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Whitelist;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Charges.Systems;
@@ -12,6 +13,7 @@ namespace Content.Shared.Charges.Systems;
 public abstract partial class SharedChargesSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
@@ -70,7 +72,7 @@ public abstract partial class SharedChargesSystem : EntitySystem
             var took = Math.Min(ent.Comp.Charges, UpTo);
             ent.Comp.Charges -= took;
             Dirty(ent);
-            if (ent.Comp.Charges == 0)
+            if (ent.Comp.Charges == 0 && _net.IsServer)
                 QueueDel(ent);
             return took;
         }

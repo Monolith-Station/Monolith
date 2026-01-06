@@ -33,7 +33,7 @@ public sealed partial class ShipRepairSystem : EntitySystem
 
         if (!TryComp<ShipRepairDataComponent>(targetGrid, out var repairData))
         {
-            GenerateRepairData(targetGrid);
+            _popup.PopupEntity(Loc.GetString("ship-repair-tool-no-data"), ent, args.User, PopupType.SmallCaution);
             return;
         }
 
@@ -137,8 +137,6 @@ public sealed partial class ShipRepairSystem : EntitySystem
 
     private void StartRepair(Entity<ShipRepairToolComponent> tool, EntityUid user, EntityUid grid, Vector2i tileIndices, float delay, int cost, int? repairId = null)
     {
-        _audio.PlayPvs(tool.Comp.RepairSound, tool);
-
         var ev = new ShipRepairDoAfterEvent
         {
             TargetGridIndices = tileIndices,
@@ -155,7 +153,11 @@ public sealed partial class ShipRepairSystem : EntitySystem
         };
 
         if (_doAfter.TryStartDoAfter(args, out var id))
+        {
             tool.Comp.DoAfters.Add(id.Value);
+            _audio.PlayPvs(tool.Comp.RepairSound, tool);
+            Spawn(tool.Comp.ConstructEffect, new EntityCoordinates(grid, tileIndices));
+        }
     }
 
     private void OnRepairDoAfter(Entity<ShipRepairToolComponent> ent, ref ShipRepairDoAfterEvent args)
