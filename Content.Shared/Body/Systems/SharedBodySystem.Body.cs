@@ -30,6 +30,9 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Standing;
 using Robust.Shared.Timing;
 
+// Mono
+using Content.Shared._White.Standing;
+
 namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
@@ -462,7 +465,7 @@ public partial class SharedBodySystem
 
     private void OnStandAttempt(Entity<BodyComponent> ent, ref StandAttemptEvent args)
     {
-        if (ent.Comp.LegEntities.Count == 0)
+        if (ent.Comp.LegEntities.Count == 0 && ent.Comp.RequiredLegs > 0) // Mono - fix
             args.Cancel();
     }
 

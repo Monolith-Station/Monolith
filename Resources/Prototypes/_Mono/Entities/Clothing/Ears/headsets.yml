@@ -82,6 +82,7 @@
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetUSSPCommand
   name: USSP command headset
+  description: A modular headset issued exclusively to high ranking USSP personnel. This headset will accept standard encryption keys and comes prefitted with a key for USSP Tactical Communications. Switching to the Strategic channel produces only static.
   components:
   - type: Sprite
     sprite: Clothing/Ears/Headsets/security.rsi
@@ -97,6 +98,7 @@
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetUSSP
   name: USSP headset
+  description: The standard-issue headset of the USSP Defensive Navy for decades. This headset will accept standard encryption keys and comes prefitted with a key for USSP Tactical Communications. 
   components:
   - type: Sprite
     sprite: Clothing/Ears/Headsets/security.rsi
