@@ -5,7 +5,7 @@
 - type: entity
   id: WeaponTurretInitiate
   name: Anomalous Repeater - Initiate
-  parent: BallisticArtillery
+  parent: BallisticArtilleryUnanchorable
   description: A small, strange shard of monolith energy, firing a spray of crytals not unlike the valuable shards that are often hunted for. Sometimes
   components:
   - type: StaticPrice
@@ -77,7 +77,7 @@
 - type: entity
   id: WeaponTurretAcolyte
   name: Anomalous Blaster - Acolyte
-  parent: BallisticArtillery
+  parent: BallisticArtilleryUnanchorable
   description: A larger construct, this one fires globs of energy that tend to corrupt anything they impact with, spreading a crystaline cancer known for crippling even the largest of shuttles.
   components:
   - type: StaticPrice
@@ -142,7 +142,7 @@
 - type: entity
   id: WeaponTurretProphet
   name: Anomalous Wave Emitter - Prophet
-  parent: BallisticArtillery
+  parent: BallisticArtilleryUnanchorable
   description: A uniquely deadly construct, while leaving shuttles undamged, it melts the crew and organics within instead with potent waves of energy
   components:
   - type: StaticPrice
@@ -181,7 +181,7 @@
     powerUseActive: 0
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
-    proto: ShipAcolyteShot
+    proto: ShipProphetWave
     fireCost: 50
   - type: Destructible
     thresholds:
