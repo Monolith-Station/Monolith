@@ -1,3 +1,4 @@
+using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 
 namespace Content.Shared._Mono.ShipRepair;
@@ -25,4 +26,7 @@ public sealed partial class ShipRepairToolComponent : Component
 
     [DataField]
     public SoundSpecifier? RepairSound = new SoundPathSpecifier("/Audio/Items/deconstruct.ogg");
+
+    [ViewVariables]
+    public List<DoAfterId> DoAfters = new();
 }

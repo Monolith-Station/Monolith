@@ -1,9 +1,10 @@
+using Content.Shared._Mono.ShipRepair;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Content.Shared._Mono.ShipRepair;
+using Content.Shared.Popups;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Content.Shared.Popups;
+using System.Numerics;
 
 namespace Content.Server._Mono.ShipRepair;
 
@@ -20,11 +21,15 @@ public sealed partial class ShipRepairSystem : EntitySystem
         if (!args.CanReach)
             return;
 
-        // TODO: find grids near click instead of using user grid
-        var maybeTargetGrid = Transform(ent).GridUid;
-        if (!TryComp<MapGridComponent>(maybeTargetGrid, out var gridComp))
+        var ourXform = Transform(ent);
+        var clickPos = args.ClickLocation;
+        var clickWorld = _transform.ToWorldPosition(clickPos);
+        var grids = new List<Entity<MapGridComponent>>();
+        _mapMan.FindGridsIntersecting(ourXform.MapID, Box2.FromDimensions(clickWorld, new Vector2(1f, 1f)), ref grids, true, false);
+        if (grids.Count == 0)
             return;
-        var targetGrid = maybeTargetGrid.Value;
+
+        var targetGrid = grids[0];
 
         if (!TryComp<ShipRepairDataComponent>(targetGrid, out var repairData))
         {
@@ -32,8 +37,7 @@ public sealed partial class ShipRepairSystem : EntitySystem
             return;
         }
 
-        var clickPos = args.ClickLocation;
-        var gridIndices = _map.CoordinatesToTile(targetGrid, gridComp, clickPos);
+        var gridIndices = _map.CoordinatesToTile(targetGrid, targetGrid.Comp, clickPos);
 
         if (!TryGetChunk(repairData, gridIndices, out var chunk))
             return;
@@ -45,16 +49,17 @@ public sealed partial class ShipRepairSystem : EntitySystem
             var index = relativeIndices.X + relativeIndices.Y * repairData.ChunkSize;
 
             var storedTile = chunk.Tiles[index];
-            var currentTile = _map.GetTileRef(targetGrid, gridComp, gridIndices).Tile;
+            var currentTile = _map.GetTileRef(targetGrid, targetGrid.Comp, gridIndices).Tile;
 
-            // don't repair to space or a tile that existss
-            if (storedTile != Tile.Empty.TypeId && currentTile.IsEmpty)
+            if (storedTile != currentTile.TypeId)
             {
                 StartRepair(ent, args.User, targetGrid, gridIndices, ent.Comp.TileRepairTime * ent.Comp.RepairTimeMultiplier, ent.Comp.TileRepairCost);
                 return; // do not attempt anything else
             }
         }
 
+        var alreadyExists = false;
+        var notEnoughCharges = false;
         // try entity repair if we haven't done tile repair
         if (ent.Comp.EnableEntityRepair)
         {
@@ -84,7 +89,7 @@ public sealed partial class ShipRepairSystem : EntitySystem
                         var origXform = Transform(spec.OriginalEntity.Value);
                         if (origXform.GridUid != null)
                         {
-                            _popup.PopupEntity(Loc.GetString("ship-repair-tool-entity-exists"), ent, args.User, PopupType.SmallCaution);
+                            alreadyExists = true;
                             continue;
                         }
                         else
@@ -92,27 +97,46 @@ public sealed partial class ShipRepairSystem : EntitySystem
                             QueueDel(spec.OriginalEntity);
                         }
                     }
-
                     needsRepair = ev.Repairable;
                 }
 
-                if (needsRepair)
+                // try repair another if we're already trying to repair this entity
+                if (TryComp<DoAfterComponent>(args.User, out var doAfterComp))
+                {
+                    var hasIdentical = false;
+                    foreach (var doAfterId in ent.Comp.DoAfters)
+                    {
+                        var doAfter = doAfterComp.DoAfters[doAfterId.Index];
+                        if (doAfter.Args.Event is not ShipRepairDoAfterEvent repairEv)
+                            continue;
+
+                        if (repairEv.TargetGridIndices == gridIndices && repairEv.RepairId == id)
+                        {
+                            hasIdentical = true;
+                            break;
+                        }
+                    }
+                    if (hasIdentical)
+                        continue;
+                }
+
+                var enough = !_charges.HasInsufficientCharges(ent, cost);
+                notEnoughCharges |= !enough;
+                if (needsRepair && enough)
                 {
                     StartRepair(ent, args.User, targetGrid, gridIndices, delay, cost, id);
                     return;
                 }
             }
         }
+        if (notEnoughCharges)
+            _popup.PopupEntity(Loc.GetString("ship-repair-tool-insufficient-ammo"), ent, args.User);
+        else if (alreadyExists)
+            _popup.PopupEntity(Loc.GetString("ship-repair-tool-entity-exists"), ent, args.User, PopupType.SmallCaution);
     }
 
     private void StartRepair(Entity<ShipRepairToolComponent> tool, EntityUid user, EntityUid grid, Vector2i tileIndices, float delay, int cost, int? repairId = null)
     {
-        if (_charges.HasInsufficientCharges(tool, cost))
-        {
-            _popup.PopupEntity(Loc.GetString("ship-repair-tool-insufficient-ammo"), tool, user);
-            return;
-        }
-
         _audio.PlayPvs(tool.Comp.RepairSound, tool);
 
         var ev = new ShipRepairDoAfterEvent
@@ -125,14 +149,19 @@ public sealed partial class ShipRepairSystem : EntitySystem
         var args = new DoAfterArgs(EntityManager, user, delay, ev, tool, grid)
         {
             BreakOnMove = true,
-            BreakOnDamage = true
+            BreakOnDamage = true,
+            // only block if we're trying the exact same
+            DuplicateCondition = DuplicateConditions.SameEvent
         };
 
-        _doAfter.TryStartDoAfter(args);
+        if (_doAfter.TryStartDoAfter(args, out var id))
+            tool.Comp.DoAfters.Add(id.Value);
     }
 
     private void OnRepairDoAfter(Entity<ShipRepairToolComponent> ent, ref ShipRepairDoAfterEvent args)
     {
+        ent.Comp.DoAfters.Remove(args.DoAfter.Id);
+
         if (args.Cancelled || args.Handled)
             return;
 
@@ -152,6 +181,15 @@ public sealed partial class ShipRepairSystem : EntitySystem
         {
             if (!chunk.Entities.TryGetValue(args.RepairId.Value, out var spec))
                 return;
+
+            if (spec.OriginalEntity != null && !TerminatingOrDeleted(spec.OriginalEntity))
+            {
+                var ev = new ShipRepairReinstateQueryEvent(true);
+                RaiseLocalEvent(spec.OriginalEntity.Value, ref ev);
+                // abort if we can't repair now
+                if (!ev.Handled || !ev.Repairable)
+                    return;
+            }
 
             var protoId = repairData.EntityPalette[spec.ProtoIndex];
             var coords = new EntityCoordinates(targetGrid, spec.LocalPosition);

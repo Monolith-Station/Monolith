@@ -1,4 +1,5 @@
 using Content.Server._NF.Shipyard;
+using Content.Server.Shuttles.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
@@ -8,7 +9,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
-using Content.Server.Shuttles.Components;
 
 namespace Content.Server._Mono.ShipRepair;
 
@@ -29,11 +29,18 @@ public sealed partial class ShipRepairSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShuttleComponent, ShipBoughtEvent>(OnShipBought);
+        SubscribeLocalEvent<InitRepairSnapshotComponent, MapInitEvent>(OnInitSnapshot);
 
         InitTool();
+        InitCommands();
     }
 
     private void OnShipBought(Entity<ShuttleComponent> ent, ref ShipBoughtEvent ev)
+    {
+        GenerateRepairData(ent);
+    }
+
+    private void OnInitSnapshot(Entity<InitRepairSnapshotComponent> ent, ref MapInitEvent ev)
     {
         GenerateRepairData(ent);
     }

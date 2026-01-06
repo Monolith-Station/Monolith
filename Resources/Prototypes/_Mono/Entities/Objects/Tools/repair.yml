@@ -1,13 +1,11 @@
 - type: entity
   name: ship repair device
   parent: BaseItem
-  id: MonoShipyardRCD
-  description: A repair device that can restore destroyed sections of ships. Holds 300 charges.
+  id: MonoShipyardRCDBase
+  description: A repair device that can restore destroyed sections of ships.
+  abstract: true
   components:
   - type: ShipRepairTool
-  - type: LimitedCharges
-    maxCharges: 300
-    charges: 100
   - type: Sprite
     sprite: _NF/Objects/Tools/rcd.rsi
     state: icon-shipyard
@@ -32,6 +30,15 @@
     - ShipRepairTool
 
 - type: entity
+  id: MonoShipyardRCD
+  parent: MonoShipyardRCDBase
+  components:
+  - type: ShipRepairTool
+  - type: LimitedCharges
+    maxCharges: 300
+    charges: 100
+
+- type: entity
   id: MonoShipyardRCDEmpty
   parent: MonoShipyardRCD
   suffix: Empty
@@ -41,13 +48,11 @@
 
 - type: entity
   id: MonoShipyardRCDAdmin
-  parent: MonoShipyardRCD
+  parent: MonoShipyardRCDBase
   suffix: Admin
   components:
   - type: ShipRepairTool
     repairTimeMultiplier: 0
-  - type: AutoRecharge
-    rechargeDuration: 0.1
 
 - type: entity
   name: ship repair matter
