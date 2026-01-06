@@ -148,14 +148,14 @@
     sprintSpeedModifier: 0.9
     staminaDamageMultiplier: 0.8
     damageMultipliers:
-      Blunt: 2
-      Slash: 2
-      Piercing: 2
+      Blunt: 5
+      Slash: 5
+      Piercing: 5
       Heat: 0.75
     absorptionRatios:
-      Blunt: 0.1
-      Slash: 0.1
-      Piercing: 0.1
+      Blunt: 0.05
+      Slash: 0.05
+      Piercing: 0.05
       Heat: 1
       Radiation: 0.5
   - type: Damageable
