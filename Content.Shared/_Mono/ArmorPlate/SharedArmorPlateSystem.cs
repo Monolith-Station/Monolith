@@ -1,19 +1,23 @@
+using Content.Shared.Armor;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Storage;
+using Content.Shared.Verbs;
 using Robust.Shared.Containers;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Mono.ArmorPlate;
 
 /// <summary>
-/// Handles armor plate insertion, removal, and speed modifier application.
+/// Handles armor plate insertion, removal, speed modifier application, and examine tooltip.
 /// </summary>
 public abstract class SharedArmorPlateSystem : EntitySystem
 {
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     public override void Initialize()
     {
@@ -23,6 +27,7 @@ public abstract class SharedArmorPlateSystem : EntitySystem
         SubscribeLocalEvent<ArmorPlateHolderComponent, EntRemovedFromContainerMessage>(OnPlateRemoved);
         SubscribeLocalEvent<ArmorPlateHolderComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ArmorPlateHolderComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMoveSpeed);
+        SubscribeLocalEvent<ArmorPlateItemComponent, GetVerbsEvent<ExamineVerb>>(OnPlateVerbExamine);
     }
 
     private void OnPlateInserted(Entity<ArmorPlateHolderComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -182,5 +187,124 @@ public abstract class SharedArmorPlateSystem : EntitySystem
         plate = (holder.Comp.ActivePlate.Value, plateComp);
         return true;
     }
-}
 
+    /// <summary>
+    /// Examine tooltip handler
+    /// </summary>
+    private void OnPlateVerbExamine(EntityUid uid, ArmorPlateItemComponent component, GetVerbsEvent<ExamineVerb> args)
+    {
+        if (!args.CanInteract || !args.CanAccess)
+            return;
+
+        var examineMarkup = GetPlateExamine(component);
+
+        var ev = new ArmorExamineEvent(examineMarkup);
+        RaiseLocalEvent(uid, ref ev);
+
+        _examine.AddDetailedExamineVerb(args, component, examineMarkup,
+            Loc.GetString("armor-plate-examinable-verb-text"),
+            "/Textures/Interface/VerbIcons/dot.svg.192dpi.png",
+            Loc.GetString("armor-plate-examinable-verb-message"));
+    }
+
+    private FormattedMessage GetPlateExamine(ArmorPlateItemComponent plate)
+    {
+        var msg = new FormattedMessage();
+        msg.AddMarkupOrThrow(Loc.GetString("armor-plate-attributes-examine"));
+
+        msg.PushNewline();
+
+        msg.AddMarkupOrThrow(Loc.GetString("armor-plate-initial-durability",
+            ("durability", plate.MaxDurability)
+        ));
+
+
+        // FUCK IT!! We boilerplate clothing speed modifiers since plates aren't clothing!!!
+        var walkModifierPercentage = MathF.Round((plate.WalkSpeedModifier - 1.0f) * 100f, 1);
+        var sprintModifierPercentage = MathF.Round((plate.SprintSpeedModifier - 1.0f) * 100f, 1);
+
+        if (!(walkModifierPercentage == 0.0f && sprintModifierPercentage == 0.0f))
+        {
+            msg.PushNewline();
+
+            if (MathHelper.CloseTo(walkModifierPercentage, sprintModifierPercentage, 0.5f))
+            {
+                if (walkModifierPercentage < 0.0f)
+                {
+                    msg.AddMarkupOrThrow(Loc.GetString(
+                        "armor-plate-speed-decrease-equal-examine",
+                        ("walkSpeed", (int)MathF.Abs(walkModifierPercentage)),
+                        ("runSpeed", (int)MathF.Abs(sprintModifierPercentage))));
+                }
+                else
+                {
+                    msg.AddMarkupOrThrow(Loc.GetString(
+                        "armor-plate-speed-increase-equal-examine",
+                        ("walkSpeed", (int)walkModifierPercentage),
+                        ("runSpeed", (int)sprintModifierPercentage)));
+                }
+            }
+            else
+            {
+                if (sprintModifierPercentage < 0.0f)
+                {
+                    msg.AddMarkupOrThrow(Loc.GetString(
+                        "armor-plate-speed-decrease-run-examine",
+                        ("runSpeed", (int)MathF.Abs(sprintModifierPercentage))));
+                }
+                else if (sprintModifierPercentage > 0.0f)
+                {
+                    msg.AddMarkupOrThrow(Loc.GetString(
+                        "armor-plate-speed-increase-run-examine",
+                        ("runSpeed", (int)sprintModifierPercentage)));
+                }
+
+                if (walkModifierPercentage != 0.0f && sprintModifierPercentage != 0.0f)
+                    msg.PushNewline();
+
+                if (walkModifierPercentage < 0.0f)
+                {
+                    msg.AddMarkupOrThrow(Loc.GetString(
+                        "armor-plate-speed-decrease-walk-examine",
+                        ("walkSpeed", (int)MathF.Abs(walkModifierPercentage))));
+                }
+                else if (walkModifierPercentage > 0.0f)
+                {
+                    msg.AddMarkupOrThrow(Loc.GetString(
+                        "armor-plate-speed-increase-walk-examine",
+                        ("walkSpeed", (int)walkModifierPercentage)));
+                }
+            }
+        }
+
+
+        foreach (var kv in plate.AbsorptionRatios)
+        {
+            msg.PushNewline();
+
+            var dmgType = Loc.GetString("armor-damage-type-" + kv.Key.ToLower());
+            var ratioPercent = MathF.Round(kv.Value * 100, 1);
+
+            var multiplier = plate.DamageMultipliers.GetValueOrDefault(kv.Key, 1.0f);
+            var multiplierStr = multiplier.ToString("0.##");
+
+
+            int CalcDirection(float ratio) => ratio < 0 ? 1 : ratio > 0 ? -1 : 0;
+            var deltaSign = CalcDirection(kv.Value);
+
+            msg.AddMarkupOrThrow(Loc.GetString("armor-plate-ratios-display",
+                ("deltasign", deltaSign),
+                ("dmgType", dmgType),
+                ("ratioPercent", Math.Abs(ratioPercent)),
+                ("multiplier", multiplierStr)
+            ));
+        }
+
+        msg.PushNewline();
+        var staminaPercent = MathF.Round(plate.StaminaDamageMultiplier * 100f, 1);
+        msg.AddMarkupOrThrow(Loc.GetString("armor-plate-stamina-value",
+            ("multiplier", staminaPercent)));
+
+        return msg;
+    }
+}
