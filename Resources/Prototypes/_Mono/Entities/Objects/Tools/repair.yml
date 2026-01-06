@@ -7,12 +7,13 @@
   components:
   - type: ShipRepairTool
   - type: Sprite
-    sprite: _NF/Objects/Tools/rcd.rsi
-    state: icon-shipyard
+    scale: 0.8, 0.8
+    sprite: _Mono/Objects/Tools/repair_device_item.rsi
+    state: item
   - type: Item
+    sprite: _Mono/Objects/Tools/repair_device.rsi
     size: Normal
   - type: Clothing
-    sprite: _NF/Objects/Tools/rcd.rsi
     quickEquip: false
     slots:
     - Belt
