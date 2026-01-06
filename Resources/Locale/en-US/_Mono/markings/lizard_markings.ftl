@@ -4,17 +4,17 @@ marking-AsakimEyesGlow = Glowing Asakim Eyes
 marking-LizardHeadFrills = Head Frills
 marking-LizardHeadSpineHorns = Spine Horns
 marking-LizardHeadSpinesA = Head Spines
-marking-LizardHeadSpinesEmissiveA = Head Spines (Glow, Alt.)
-marking-LizardHeadSpinesEmissiveB = Head Spines (Glow)
+marking-LizardHeadSpinesEmissiveFrills = Head Frills (Glowing Details)
+marking-LizardHeadSpinesEmissiveSpikes = Head Spines (Glowing Details)
 
 marking-LizardChestBackSpines = Back Spines
-marking-LizardChestBackSpinesGlow = Back Spines (Glow)
+marking-LizardChestBackSpinesGlow = Back Spines (Glowing Details)
 marking-LizardChestBackFrills = Back Frills
-marking-LizardChestBackFrillsGlow = Back Frills (Glow)
+marking-LizardChestBackFrillsGlow = Back Frills (Glowing Details)
 marking-LizardChestBackWings = Back Wings
 marking-LizardChestBackLargeBackSpikes = Large Back Spikes
 
-marking-LizardTailSpikes = Tail Spikes
-marking-LizardTailSpikesGlow = Tail Spikes (Glow)
-marking-LizardTailFrills = Tail Frills
-marking-LizardTailFrillsGlow = Tail Frills (Glow)
+marking-LizardTailSpikesLong = Spiked Tail
+marking-LizardTailSpikesGlow = Spiked Tail (Glowing Details)
+marking-LizardTailFrills = Frilled Tail
+marking-LizardTailFrillsGlow = Frilled Tail (Glowing Details)

@@ -26,7 +26,7 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: lizard_head_frills-1
+    state: lizard_head_frills
 
 - type: marking
   id: LizardHeadSpineHorns
@@ -35,7 +35,7 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: lizard_head_spines-1
+    state: lizard_head_horned
 
 - type: marking
   id: LizardHeadSpinesA
@@ -44,29 +44,30 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: lizor_head_spines_v2-1
+    state: lizard_head_spines
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: lizor_head_spines_emissive_v2-1
+    state: lizard_head_spines_emissive
 
 # While we DO have what makes markings glow, we don't have something to make them glow separately and not altogether, for now, will look into it anyways but for now it's gotta be like this. - Diggy
 
 - type: marking
-  id: LizardHeadSpinesEmissiveA
+  id: LizardHeadSpinesEmissiveFrills
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: lizor_head_spines_emissive_v2-1
+    state: lizard_head_frills_emissive
+  shader: unshaded
 
 - type: marking
-  id: LizardHeadSpinesEmissiveB
+  id: LizardHeadSpinesEmissiveSpikes
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: lizor_head_spines_emissive_v2
+    state: lizard_head_spines_emissive
   shader: unshaded
 
 - type: marking
@@ -76,9 +77,9 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: back_lizard_spines-1
+    state: back_lizard_spines
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: back_lizard_spines_emissive-1
+    state: back_lizard_spines_emissive
 
 - type: marking
   id: LizardChestBackSpinesGlow
@@ -87,7 +88,7 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: back_lizard_spines_emissive-1
+    state: back_lizard_spines_emissive
   shader: unshaded
 
 - type: marking
@@ -97,9 +98,9 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: lizard_back_frills-1
+    state: lizard_back_frills
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: lizard_back_frills_emissive-1
+    state: lizard_back_frills_emissive
 
 - type: marking
   id: LizardChestBackFrillsGlow
@@ -108,7 +109,7 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: lizard_back_frills_emissive-1
+    state: lizard_back_frills_emissive
   shader: unshaded
 
 - type: marking
@@ -118,7 +119,7 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: lizard_wings-1
+    state: lizard_wings
 
 - type: marking
   id: LizardChestBackLargeBackSpikes
@@ -127,18 +128,18 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: large_lizard_back_spines-1
+    state: large_lizard_back_spines
 
 - type: marking
-  id: LizardTailSpikes
+  id: LizardTailSpikesLong
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _Mono/Mobs/Customization/Lizard.rsi
-      state: lizard_tail_spines-1
+      state: lizard_tail_spines
     - sprite: _Mono/Mobs/Customization/Lizard.rsi
-      state: lizard_spines_emissive-1
+      state: lizard_spines_emissive
 
 - type: marking
   id: LizardTailSpikesGlow
@@ -147,7 +148,7 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: lizard_spines_emissive-1
+    state: lizard_spines_emissive
   shader: unshaded
 
 - type: marking
@@ -157,9 +158,9 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: lizard_tail_frills-1
+    state: lizard_tail_frills
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: lizard_tail_frills_emissive-1
+    state: lizard_tail_frills_emissive
 
 - type: marking
   id: LizardTailFrillsGlow
@@ -168,5 +169,5 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Mono/Mobs/Customization/Lizard.rsi
-    state: lizard_tail_frills_emissive-1
+    state: lizard_tail_frills_emissive
   shader: unshaded
