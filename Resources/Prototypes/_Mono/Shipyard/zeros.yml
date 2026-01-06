@@ -1,20 +1,19 @@
 # Author Info
-# GitHub: starch70
-# Discord: _starch_
+# GitHub: tsunameme
+# Discord: tsunameme
 
 # Shuttle Notes:
-#
-#
+# 
 
 - type: vessel
-  id: Moonlight
+  id: Zeros
   parent: BaseVessel
-  name: SKR Moonlight
-  description: A (relatively) luxurious ship with botanical and kitchen equipment. Why is this even in this sector? Who knows.
-  price: 95820
+  name: JIN Zeros
+  description: A truck stop diner ship designed to resemble a semi-truck, complete with a EVA accessable dining room and a small cargo bay.
+  price: 112500
   category: Large
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/moonlight.yml
+  shuttlePath: /Maps/_Mono/Shuttles/zeros.yml
   guidebookPage: null
   class:
   - Civilian
@@ -24,16 +23,16 @@
   - AME
 
 - type: gameMap
-  id: Moonlight
-  mapName: 'SKR Moonlight'
-  mapPath: /Maps/_Mono/Shuttles/moonlight.yml
+  id: Zeros
+  mapName: 'JIN Zeros'
+  mapPath: /Maps/_Mono/Shuttles/zeros.yml
   minPlayers: 0
   stations:
-    Moonlight:
+    Zeros:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Moonlight CIV{1}'
+          mapNameTemplate: 'Zeros CIV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

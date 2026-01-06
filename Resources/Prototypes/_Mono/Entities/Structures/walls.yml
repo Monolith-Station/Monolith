@@ -398,6 +398,7 @@
   parent: BaseWallOutpost # Mono
   id: WallSolidChitinMonolithic
   name: monolith tenebris
+  suffix: DEPRECATED
   components:
   - type: Tag
     tags:
@@ -424,22 +425,25 @@
   name: monolith tenebris
   components:
   - type: Sprite
-    sprite: Structures/Walls/xeno.rsi
+    sprite: _Mono/Structures/Walls/monolithic.rsi
   - type: Icon
-    sprite: Structures/Walls/xeno.rsi
+    sprite: _Mono/Structures/Walls/monolithic.rsi
     state: rgeneric
-  - type: Appearance
+  - type: IconSmooth
+    key: chitin
+    base: reinf_over
   - type: GenericVisualizer
     visuals:
       enum.ReinforcedWallVisuals.DeconstructionStage:
         ReinforcedWallVisualLayers.Deconstruction:
           -1: { visible: false }
-          0: { state: reinf_construct-0, visible: true}
-          1: { state: reinf_construct-1, visible: true}
-          2: { state: reinf_construct-2, visible: true}
-          3: { state: reinf_construct-3, visible: true}
-          4: { state: reinf_construct-4, visible: true}
-          5: { state: reinf_construct-5, visible: true}
+          0: { state: reinf_construct-0, visible: true }
+          1: { state: reinf_construct-1, visible: true }
+          2: { state: reinf_construct-2, visible: true }
+          3: { state: reinf_construct-3, visible: true }
+          4: { state: reinf_construct-4, visible: true }
+          5: { state: reinf_construct-5, visible: true }
+  - type: Appearance
   - type: StaticPrice
     price: 250
   - type: RadiationBlocker
