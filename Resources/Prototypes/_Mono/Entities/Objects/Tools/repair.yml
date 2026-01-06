@@ -34,7 +34,6 @@
   description: A repair device that can restore destroyed sections of ships. Holds 300 charges.
   parent: MonoShipyardRCDBase
   components:
-  - type: ShipRepairTool
   - type: LimitedCharges
     maxCharges: 300
     charges: 100
@@ -46,6 +45,18 @@
   components:
   - type: LimitedCharges
     charges: 0
+
+- type: entity
+  id: MonoShipyardRCDRecharging
+  description: A repair device that can restore destroyed sections of ships. Holds 300 charges and slowly recharges.
+  parent: MonoShipyardRCDBase
+  suffix: Recharging
+  components:
+  - type: LimitedCharges
+    maxCharges: 300
+    charges: 50
+  - type: AutoRecharge
+    rechargeDuration: 5
 
 - type: entity
   id: MonoShipyardRCDAdmin
