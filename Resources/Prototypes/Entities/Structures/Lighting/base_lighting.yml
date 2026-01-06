@@ -83,6 +83,10 @@
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
+  # Mono
+  - type: ShipRepairable
+    repairTime: 1
+    repairCost: 2
   placement:
     mode: SnapgridCenter
     snap:
@@ -304,6 +308,10 @@
     - type: Construction
       graph: LightFixture
       node: bulbLight
+    # Mono
+    - type: ShipRepairable
+      repairTime: 0.5
+      repairCost: 1
 
 - type: entity
   name: small light

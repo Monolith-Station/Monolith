@@ -1,0 +1,73 @@
+- type: entity
+  name: ship repair device
+  parent: BaseItem
+  id: MonoShipyardRCD
+  description: A repair device that can restore destroyed sections of ships. Holds 300 charges.
+  components:
+  - type: ShipRepairTool
+  - type: LimitedCharges
+    maxCharges: 300
+    charges: 100
+  - type: Sprite
+    sprite: _NF/Objects/Tools/rcd.rsi
+    state: icon-shipyard
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: _NF/Objects/Tools/rcd.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+      Plastic: 400
+      Plasma: 200
+      Gold: 200
+  - type: StaticPrice
+    price: 5000
+    vendPrice: 10000
+  - type: Tag
+    tags:
+    - ShipRepairTool
+
+- type: entity
+  id: MonoShipyardRCDEmpty
+  parent: MonoShipyardRCD
+  suffix: Empty
+  components:
+  - type: LimitedCharges
+    charges: 0
+
+- type: entity
+  id: MonoShipyardRCDAdmin
+  parent: MonoShipyardRCD
+  suffix: Admin
+  components:
+  - type: ShipRepairTool
+    repairTimeMultiplier: 0
+  - type: AutoRecharge
+    rechargeDuration: 0.1
+
+- type: entity
+  name: ship repair matter
+  parent: BaseItem
+  id: MonoShipyardRCDAmmo
+  description: Ammo cartridge for a ship repair device.
+  components:
+  - type: LimitedChargesAmmo
+    charges: 100
+    whitelist:
+      tags:
+      - ShipRepairTool
+  - type: Sprite
+    sprite: _NF/Objects/Tools/rcd.rsi
+    state: ammo-shipyard
+  - type: Item
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
+  - type: StaticPrice
+    price: 1000
+    vendPrice: 5000

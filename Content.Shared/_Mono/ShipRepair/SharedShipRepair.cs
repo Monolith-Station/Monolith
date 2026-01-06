@@ -7,7 +7,7 @@ namespace Content.Shared._Mono.ShipRepair;
 public sealed partial class ShipRepairDoAfterEvent : SimpleDoAfterEvent
 {
     public Vector2i TargetGridIndices;
+    public int Cost;
     // if we're repairing an entity, store what we're repairing
-    public bool IsEntityRepair = false;
-    public int EntitySpecifierIndex;
+    public int? RepairId = null;
 }

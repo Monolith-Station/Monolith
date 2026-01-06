@@ -1,28 +1,41 @@
+using Content.Server._NF.Shipyard;
+using Content.Shared.Charges.Systems;
 using Content.Shared.DoAfter;
-using Content.Shared.Interaction;
+using Content.Shared.Popups;
 using Content.Shared._Mono.ShipRepair;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+using Content.Server.Shuttles.Components;
 
 namespace Content.Server._Mono.ShipRepair;
 
 public sealed partial class ShipRepairSystem : EntitySystem
 {
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ShipRepairToolComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<ShipRepairToolComponent, ShipRepairDoAfterEvent>(OnRepairDoAfter);
+
+        SubscribeLocalEvent<ShuttleComponent, ShipBoughtEvent>(OnShipBought);
+
+        InitTool();
+    }
+
+    private void OnShipBought(Entity<ShuttleComponent> ent, ref ShipBoughtEvent ev)
+    {
+        GenerateRepairData(ent);
     }
 
     /// <summary>
@@ -56,26 +69,32 @@ public sealed partial class ShipRepairSystem : EntitySystem
         }
 
         // entities snapshot
-        var children = xform.ChildEnumerator;
-        while (children.MoveNext(out var childUid))
+        var repairables = new HashSet<Entity<ShipRepairableComponent>>();
+        _lookup.GetLocalEntitiesIntersecting(gridUid, grid.LocalAABB, repairables);
+        foreach (var childEnt in repairables)
         {
-            if (TerminatingOrDeleted(childUid))
+            if (TerminatingOrDeleted(childEnt))
                 continue;
 
-            var childXform = Transform(childUid);
+            var childXform = Transform(childEnt);
             // only ents directly parented to grid and anchored
             if (childXform.ParentUid != gridUid || !childXform.Anchored)
                 continue;
 
             var query = new ShipRepairStoreQueryEvent(true);
-            RaiseLocalEvent(childUid, ref query);
+            RaiseLocalEvent(childEnt, ref query);
             if (!query.Repairable)
                 continue;
 
-            var meta = MetaData(childUid);
-            if (meta.EntityPrototype == null)
-                continue;
-            var protoId = new EntProtoId(meta.EntityPrototype.ID);
+            var maybeProtoId = childEnt.Comp.RepairTo;
+            if (maybeProtoId == null)
+            {
+                var meta = MetaData(childEnt);
+                if (meta.EntityPrototype == null)
+                    continue;
+                maybeProtoId = new EntProtoId(meta.EntityPrototype.ID);
+            }
+            var protoId = maybeProtoId.Value;
 
             var paletteIndex = repairData.EntityPalette.IndexOf(protoId);
             if (paletteIndex == -1)
@@ -88,156 +107,28 @@ public sealed partial class ShipRepairSystem : EntitySystem
             var gridIndices = _map.LocalToTile(gridUid, grid, childXform.Coordinates);
             var chunk = GetCreateChunk(repairData, gridIndices);
 
-            chunk.Entities.Add(new ShipRepairEntitySpecifier
+            chunk.Entities[chunk.NextUid++] = new ShipRepairEntitySpecifier
             {
                 ProtoIndex = paletteIndex,
-                OriginalEntity = childUid,
+                OriginalEntity = childEnt,
                 Rotation = childXform.LocalRotation,
                 LocalPosition = localPos
-            });
+            };
         }
     }
 
-    private void OnAfterInteract(Entity<ShipRepairToolComponent> ent, ref AfterInteractEvent args)
+    public bool TryRepairTileTile(Entity<ShipRepairDataComponent> grid, Vector2i Indices)
     {
-        if (!args.CanReach)
-            return;
+        if (!TryGetChunk(grid.Comp, Indices, out var chunk) || !TryComp<MapGridComponent>(grid, out var gridComp))
+            return false;
 
-        // TODO: find grids near click instead of using user grid
-        var maybeTargetGrid = Transform(ent).GridUid;
-        if (!TryComp<MapGridComponent>(maybeTargetGrid, out var gridComp))
-            return;
-        var targetGrid = maybeTargetGrid.Value;
+        var relative = GetRelativeIndices(Indices, grid.Comp.ChunkSize);
+        var idx = relative.X + relative.Y * grid.Comp.ChunkSize;
 
-        if (!TryComp<ShipRepairDataComponent>(targetGrid, out var repairData))
-        {
-            GenerateRepairData(targetGrid);
-            return;
-        }
-
-        var clickPos = args.ClickLocation;
-        var gridIndices = _map.CoordinatesToTile(targetGrid, gridComp, clickPos);
-
-        if (!TryGetChunk(repairData, gridIndices, out var chunk))
-            return;
-
-        // first try repair tile if we can
-        if (ent.Comp.EnableTileRepair)
-        {
-            var relativeIndices = GetRelativeIndices(gridIndices, repairData.ChunkSize);
-            var index = relativeIndices.X + relativeIndices.Y * repairData.ChunkSize;
-
-            var storedTile = chunk.Tiles[index];
-            var currentTile = _map.GetTileRef(targetGrid, gridComp, gridIndices).Tile;
-
-            // don't repair to space or a tile that existss
-            if (storedTile != Tile.Empty.TypeId && currentTile.IsEmpty)
-            {
-                StartRepair(ent, args.User, targetGrid, gridIndices);
-                return; // do not attempt anything else
-            }
-        }
-
-        // try entity repair if we haven't done tile repair
-        if (ent.Comp.EnableEntityRepair)
-        {
-            for (var i = 0; i < chunk.Entities.Count; i++)
-            {
-                var spec = chunk.Entities[i];
-
-                // only consider it if it's close enough
-                if ((spec.LocalPosition - clickPos.Position).Length() > ent.Comp.EntitySearchRadius)
-                    continue;
-
-                var needsRepair = true;
-                if (spec.OriginalEntity != null && !TerminatingOrDeleted(spec.OriginalEntity))
-                {
-                    // if it's still on our grid, don't repair
-                    // TODO: decide how to do this better to not have to use the DRM thing for everything
-                    var origXform = Transform(spec.OriginalEntity.Value);
-                    if (origXform.GridUid == targetGrid)
-                        continue;
-
-                    var ev = new ShipRepairReinstateQueryEvent(true);
-                    RaiseLocalEvent(spec.OriginalEntity.Value, ref ev);
-                    needsRepair = ev.Repairable;
-                }
-
-                if (needsRepair)
-                {
-                    StartRepair(ent, args.User, targetGrid, gridIndices, true, i);
-                    return;
-                }
-            }
-        }
-    }
-
-    private void StartRepair(Entity<ShipRepairToolComponent> tool, EntityUid user, EntityUid grid, Vector2i tileIndices, bool isEntity = false, int entityIndex = 0)
-    {
-        _audio.PlayPvs(tool.Comp.RepairSound, tool);
-
-        var ev = new ShipRepairDoAfterEvent
-        {
-            TargetGridIndices = tileIndices,
-            IsEntityRepair = isEntity,
-            EntitySpecifierIndex = entityIndex
-        };
-
-        var delay = isEntity ? tool.Comp.EntityRepairTime : tool.Comp.TileRepairTime;
-        var args = new DoAfterArgs(EntityManager, user, delay, ev, tool, grid)
-        {
-            BreakOnMove = true,
-            BreakOnDamage = true
-        };
-
-        _doAfter.TryStartDoAfter(args);
-    }
-
-    private void OnRepairDoAfter(Entity<ShipRepairToolComponent> ent, ref ShipRepairDoAfterEvent args)
-    {
-        if (args.Cancelled || args.Handled)
-            return;
-
-        if (args.Target is not { } targetGrid || !TryComp<ShipRepairDataComponent>(targetGrid, out var repairData))
-            return;
-
-        if (!TryComp<MapGridComponent>(targetGrid, out var gridComp))
-            return;
-
-        if (!TryGetChunk(repairData, args.TargetGridIndices, out var chunk))
-            return;
-
-        if (args.IsEntityRepair)
-        {
-            if (args.EntitySpecifierIndex < 0 || args.EntitySpecifierIndex >= chunk.Entities.Count)
-                return;
-
-            var spec = chunk.Entities[args.EntitySpecifierIndex];
-
-            var protoId = repairData.EntityPalette[spec.ProtoIndex];
-            var coords = new EntityCoordinates(targetGrid, spec.LocalPosition);
-
-            var spawned = Spawn(protoId, coords);
-            _transform.SetLocalRotation(spawned, spec.Rotation);
-
-            spec.OriginalEntity = spawned;
-        }
-        else
-        {
-            var relative = GetRelativeIndices(args.TargetGridIndices, repairData.ChunkSize);
-            var idx = relative.X + relative.Y * repairData.ChunkSize;
-
-            if (idx >= 0 && idx < chunk.Tiles.Length)
-            {
-                var tileToPlace = chunk.Tiles[idx];
-                if (tileToPlace != Tile.Empty.TypeId)
-                {
-                    _map.SetTile(targetGrid, gridComp, args.TargetGridIndices, new Tile(tileToPlace));
-                }
-            }
-        }
-
-        args.Handled = true;
+        var tileToPlace = chunk.Tiles[idx];
+        if (tileToPlace != Tile.Empty.TypeId)
+            _map.SetTile(grid, gridComp, Indices, new Tile(tileToPlace));
+        return true;
     }
 
     private Vector2i GetRepairChunkIndices(Vector2i gridIndices, int chunkSize)

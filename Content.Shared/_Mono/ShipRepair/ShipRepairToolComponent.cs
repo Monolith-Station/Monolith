@@ -1,6 +1,6 @@
 using Robust.Shared.Audio;
 
-namespace Content.Server._Mono.ShipRepair;
+namespace Content.Shared._Mono.ShipRepair;
 
 [RegisterComponent]
 public sealed partial class ShipRepairToolComponent : Component
@@ -12,11 +12,13 @@ public sealed partial class ShipRepairToolComponent : Component
     public bool EnableEntityRepair = true;
 
     [DataField]
+    public float RepairTimeMultiplier = 1f;
+
+    [DataField]
     public float TileRepairTime = 0.5f;
 
-    // TODO: ask entity how long it wants to spend being repaired
     [DataField]
-    public float EntityRepairTime = 2f;
+    public int TileRepairCost = 1;
 
     [DataField]
     public float EntitySearchRadius = 0.5f;

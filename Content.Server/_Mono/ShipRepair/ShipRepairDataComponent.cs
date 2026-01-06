@@ -31,8 +31,14 @@ public sealed partial class ShipRepairChunk
     [DataField]
     public int[] Tiles = default!;
 
+    /// <summary>
+    /// Dictionary of uid -> repair specifier to be able to uniquely refer to entities to repair.
+    /// </summary>
     [DataField]
-    public List<ShipRepairEntitySpecifier> Entities = new();
+    public Dictionary<int, ShipRepairEntitySpecifier> Entities = new();
+
+    [DataField]
+    public int NextUid = 0;
 }
 
 [DataDefinition]
