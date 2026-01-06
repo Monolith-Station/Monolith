@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/06/2026 07:29:48
+  time: 01/06/2026 07:36:02
   entityCount: 1042
 maps: []
 grids:
@@ -524,7 +524,7 @@ entities:
       pos: 16.5,-5.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -1172.2236
+      secondsUntilStateChange: -1546.7733
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3502,6 +3502,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 11.5,-0.5
       parent: 1
+    - type: GasMixer
+      inletTwoConcentration: 0.77
+      inletOneConcentration: 0.23
 - proto: GasPipeBend
   entities:
   - uid: 573
