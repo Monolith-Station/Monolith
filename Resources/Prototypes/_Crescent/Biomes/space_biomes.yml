@@ -1,0 +1,30 @@
+#fallback, don't remove
+- type: spaceBiome
+  id: default
+  name: Uncharted Space
+  swapDuration: 2
+  parallax: AbyssParallax
+
+- type: spaceBiome
+  id: outer_ring
+  name: Outer Ring
+  swapDuration: 2
+  parallax: AbyssParallax
+
+- type: spaceBiome
+  id: middle_ring
+  name: Middle Ring
+  swapDuration: 2
+  parallax: AbyssParallax
+
+- type: spaceBiome
+  id: inner_ring
+  name: Inner Ring
+  swapDuration: 2
+  parallax: AbyssParallax
+
+- type: spaceBiome
+  id: frontier_outpost
+  name: Frontier Outpost
+  swapDuration: 2
+  parallax: AbyssParallax
