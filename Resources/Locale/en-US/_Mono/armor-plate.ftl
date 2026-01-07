@@ -6,7 +6,6 @@ armor-plate-examine-no-storage = No storage compartment for armor plates.
 
 armor-plate-examinable-verb-text = Plate attributes
 armor-plate-examinable-verb-message = Examine protection and durability characteristics.
-armor-plate-sprint = Sprint speed modifier: {sprint}
 
 armor-plate-attributes-examine = This armor plate:
 armor-plate-initial-durability = Is rated for [color=yellow]{ $durability }[/color] standard units of damage.
