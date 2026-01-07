@@ -2,7 +2,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Crescent.SpaceBiomes;
 
-[Prototype("spaceBiome")]
+[Prototype("ambientSpaceBiome")]
 public sealed class SpaceBiomePrototype : IPrototype
 {
     [IdDataField]
