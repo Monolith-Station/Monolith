@@ -7,6 +7,7 @@ using Content.Shared.Storage;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Utility;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared._Mono.ArmorPlate;
 
@@ -207,6 +208,21 @@ public abstract class SharedArmorPlateSystem : EntitySystem
             Loc.GetString("armor-plate-examinable-verb-message"));
     }
 
+    // Used to tell the .ftl if it's a positive or negative value
+    private static int CalcDirection(float ratio) => ratio < 0 ? 1 : ratio > 0 ? -1 : 0;
+    //Speed tooltip generating method
+    private void AddSpeedDisplay(FormattedMessage msg, string gaitType, float speedCalc)
+    {
+        var deltaSign = CalcDirection(speedCalc);
+
+        msg.PushNewline();
+        msg.AddMarkupOrThrow(Loc.GetString("armor-plate-speed-display",
+            ("gait", gaitType),
+            ("deltasign", deltaSign),
+            ("speedPercent", Math.Abs(speedCalc))
+        ));
+    }
+
     private FormattedMessage GetPlateExamine(ArmorPlateItemComponent plate)
     {
         var msg = new FormattedMessage();
@@ -218,65 +234,21 @@ public abstract class SharedArmorPlateSystem : EntitySystem
             ("durability", plate.MaxDurability)
         ));
 
+        var walkModifierCalc = MathF.Round((plate.WalkSpeedModifier - 1.0f) * 100f, 1);
+        var sprintModifierCalc = MathF.Round((plate.SprintSpeedModifier - 1.0f) * 100f, 1);
 
-        // FUCK IT!! We boilerplate clothing speed modifiers since plates aren't clothing!!!
-        var walkModifierPercentage = MathF.Round((plate.WalkSpeedModifier - 1.0f) * 100f, 1);
-        var sprintModifierPercentage = MathF.Round((plate.SprintSpeedModifier - 1.0f) * 100f, 1);
-
-        if (!(walkModifierPercentage == 0.0f && sprintModifierPercentage == 0.0f))
+        if (!(walkModifierCalc == 0.0f && sprintModifierCalc == 0.0f))
         {
-            msg.PushNewline();
-
-            if (MathHelper.CloseTo(walkModifierPercentage, sprintModifierPercentage, 0.5f))
+            if (MathHelper.CloseTo(walkModifierCalc, sprintModifierCalc, 0.5f))
             {
-                if (walkModifierPercentage < 0.0f)
-                {
-                    msg.AddMarkupOrThrow(Loc.GetString(
-                        "armor-plate-speed-decrease-equal-examine",
-                        ("walkSpeed", (int)MathF.Abs(walkModifierPercentage)),
-                        ("runSpeed", (int)MathF.Abs(sprintModifierPercentage))));
-                }
-                else
-                {
-                    msg.AddMarkupOrThrow(Loc.GetString(
-                        "armor-plate-speed-increase-equal-examine",
-                        ("walkSpeed", (int)walkModifierPercentage),
-                        ("runSpeed", (int)sprintModifierPercentage)));
-                }
+                AddSpeedDisplay(msg, "speed", walkModifierCalc);
             }
             else
             {
-                if (sprintModifierPercentage < 0.0f)
-                {
-                    msg.AddMarkupOrThrow(Loc.GetString(
-                        "armor-plate-speed-decrease-run-examine",
-                        ("runSpeed", (int)MathF.Abs(sprintModifierPercentage))));
-                }
-                else if (sprintModifierPercentage > 0.0f)
-                {
-                    msg.AddMarkupOrThrow(Loc.GetString(
-                        "armor-plate-speed-increase-run-examine",
-                        ("runSpeed", (int)sprintModifierPercentage)));
-                }
-
-                if (walkModifierPercentage != 0.0f && sprintModifierPercentage != 0.0f)
-                    msg.PushNewline();
-
-                if (walkModifierPercentage < 0.0f)
-                {
-                    msg.AddMarkupOrThrow(Loc.GetString(
-                        "armor-plate-speed-decrease-walk-examine",
-                        ("walkSpeed", (int)MathF.Abs(walkModifierPercentage))));
-                }
-                else if (walkModifierPercentage > 0.0f)
-                {
-                    msg.AddMarkupOrThrow(Loc.GetString(
-                        "armor-plate-speed-increase-walk-examine",
-                        ("walkSpeed", (int)walkModifierPercentage)));
-                }
+                AddSpeedDisplay(msg, "running speed", sprintModifierCalc);
+                AddSpeedDisplay(msg, "walking speed", walkModifierCalc);
             }
         }
-
 
         foreach (var kv in plate.AbsorptionRatios)
         {
@@ -287,9 +259,6 @@ public abstract class SharedArmorPlateSystem : EntitySystem
 
             var multiplier = plate.DamageMultipliers.GetValueOrDefault(kv.Key, 1.0f);
             var multiplierStr = multiplier.ToString("0.##");
-
-
-            int CalcDirection(float ratio) => ratio < 0 ? 1 : ratio > 0 ? -1 : 0;
             var deltaSign = CalcDirection(kv.Value);
 
             msg.AddMarkupOrThrow(Loc.GetString("armor-plate-ratios-display",

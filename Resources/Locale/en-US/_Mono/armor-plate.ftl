@@ -11,14 +11,13 @@ armor-plate-sprint = Sprint speed modifier: {sprint}
 armor-plate-attributes-examine = This armor plate:
 armor-plate-initial-durability = Is rated for [color=yellow]{ $durability }[/color] standard units of damage.
 
-plate-speed-increase-equal-examine = Increases your speed by [color=yellow]{$walkSpeed}%[/color].
-plate-speed-decrease-equal-examine = Decreases your speed by [color=yellow]{$walkSpeed}%[/color].
-armor-plate-speed-increase-equal-examine = Increases your speed by [color=yellow]{$walkSpeed}%[/color].
-armor-plate-speed-decrease-equal-examine = Decreases your speed by [color=yellow]{$walkSpeed}%[/color].
-armor-plate-speed-increase-run-examine = Increases your running speed by [color=yellow]{$runSpeed}%[/color].
-armor-plate-speed-decrease-run-examine = Decreases your running speed by [color=yellow]{$runSpeed}%[/color].
-armor-plate-speed-increase-walk-examine = Increases your walking speed by [color=yellow]{$walkSpeed}%[/color].
-armor-plate-speed-decrease-walk-examine = Decreases your walking speed by [color=yellow]{$walkSpeed}%[/color].
+armor-plate-speed-display =
+    { $deltasign ->
+        [-1] Increases your {$gait} by [color=yellow]{$speedPercent}%[/color].
+         [0] Doesn't affect your speed.
+         [1] Decreases your {$gait} by [color=yellow]{$speedPercent}%[/color].
+        *[other] Shouldn't be have this speed value!
+    }
 
 armor-plate-ratios-display =
     { $deltasign ->
