@@ -1,0 +1,42 @@
+# all of these are attached to colossus central in the prototype folder but they're here as well
+# structure:
+# 0-5000: inner ring
+# 5000-9500: middle ring
+# 9500-18000: outer ring
+# 18000+: uncharted space (fallback)
+
+- type: entity
+  id: FallbackBiomeSource
+  name: fallback (uncharted space) biome source
+  components:
+  - type: SpaceBiomeSource
+    biome: default
+    swapDistance: 25000
+    priority: 500
+
+- type: entity
+  id: OuterRingBiomeSource
+  name: outer ring biome source
+  components:
+  - type: SpaceBiomeSource
+    biome: outer_ring
+    swapDistance: 18000
+    priority: 1000
+
+- type: entity
+  id: MiddleRingBiomeSource
+  name: middle ring biome source
+  components:
+  - type: SpaceBiomeSource
+    biome: middle_ring
+    swapDistance: 9500
+    priority: 1500
+
+- type: entity
+  id: InnerRingBiomeSource
+  name: inner ring biome source
+  components:
+  - type: SpaceBiomeSource
+    biome: inner_ring
+    swapDistance: 5000
+    priority: 2000

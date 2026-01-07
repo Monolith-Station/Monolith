@@ -40,3 +40,19 @@
           - HeadOfSecurity
         - type: VesselMusic
           ambientMusicPrototype: ColossusCentralMusic
+        - type: SpaceBiomeSource
+          biome: default # uncharted space
+          swapDistance: 25000
+          priority: 500
+        - type: SpaceBiomeSource
+          biome: outer_ring
+          swapDistance: 18000
+          priority: 1000
+        - type: SpaceBiomeSource
+          biome: middle_ring
+          swapDistance: 9500
+          priority: 1500
+        - type: SpaceBiomeSource
+          biome: inner_ring
+          swapDistance: 5000
+          priority: 2000
