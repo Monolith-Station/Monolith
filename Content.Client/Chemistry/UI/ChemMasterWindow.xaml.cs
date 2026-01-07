@@ -218,7 +218,7 @@ namespace Content.Client.Chemistry.UI
             var reagent = (state.DrawSource switch
                 {
                     ChemMasterDrawSource.Internal => state.BufferReagents,
-                    ChemMasterDrawSource.External => state.InputContainerInfo.Reagents ?? [],
+                    ChemMasterDrawSource.External => state.InputContainerInfo?.Reagents ?? [],
                     _ => throw new($"Chemmaster {state.OutputContainerInfo} draw source is not set"),
                 }).MinBy(r => r.Quantity)
                 .Reagent;
