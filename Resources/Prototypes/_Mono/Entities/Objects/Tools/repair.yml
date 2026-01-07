@@ -78,6 +78,10 @@
   parent: ShipRepairDeviceRecharging
   suffix: Recharging
   components:
+  - type: Sprite
+    scale: 0.6, 0.6
+    sprite: _Mono/Objects/Tools/repair_device_item.rsi
+    state: prefracture
   - type: LimitedCharges
     maxCharges: 300
     charges: 50
