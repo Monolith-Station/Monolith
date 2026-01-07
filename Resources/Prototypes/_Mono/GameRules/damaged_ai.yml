@@ -5,7 +5,6 @@
       - id: UnknownShuttleZenith
       - id: UnknownShuttleRazor
       - id: UnknownShuttleNebula
-      - id: UnknownShuttleArchangel
 
 - type: entityTable
   id: DamagedAIShipsTableT2
@@ -17,7 +16,6 @@
     - id: UnknownShuttleRazorN
     - id: UnknownShuttleNebula
     - id: UnknownShuttleWyvern
-    - id: UnknownShuttleArchangel
 
 - type: entity
   parent: BaseRandomShuttleRule
