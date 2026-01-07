@@ -50,8 +50,8 @@
   components:
   - type: StorageFill
     contents:
-    - id: MonoShipyardRCD
-    - id: MonoShipyardRCDAmmo
+    - id: ShipRepairDevice
+    - id: ShipRepairDeviceAmmo
       amount: 4
 
 - type: entity

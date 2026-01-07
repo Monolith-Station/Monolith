@@ -2,6 +2,7 @@ using Content.Shared._Mono.ShipRepair;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using System.Numerics;
@@ -10,6 +11,8 @@ namespace Content.Server._Mono.ShipRepair;
 
 public sealed partial class ShipRepairSystem : EntitySystem
 {
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+
     private void InitTool()
     {
         SubscribeLocalEvent<ShipRepairToolComponent, AfterInteractEvent>(OnAfterInteract);
@@ -31,9 +34,16 @@ public sealed partial class ShipRepairSystem : EntitySystem
 
         var targetGrid = grids[0];
 
+        if (TryComp<ShipRepairRestrictComponent>(targetGrid, out var restrict)
+            && _whitelist.IsWhitelistFail(restrict.ToolWhitelist, ent))
+        {
+            _popup.PopupEntity(Loc.GetString("ship-repair-tool-fail-whitelist"), ent, args.User, PopupType.MediumCaution);
+            return;
+        }
+
         if (!TryComp<ShipRepairDataComponent>(targetGrid, out var repairData))
         {
-            _popup.PopupEntity(Loc.GetString("ship-repair-tool-no-data"), ent, args.User, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString("ship-repair-tool-no-data"), ent, args.User, PopupType.MediumCaution);
             return;
         }
 
@@ -65,8 +75,11 @@ public sealed partial class ShipRepairSystem : EntitySystem
         {
             foreach (var (id, spec) in chunk.Entities)
             {
+                // just fail the repair if it doesn't have the comp
                 if (!_proto.TryIndex(repairData.EntityPalette[spec.ProtoIndex], out var entProto)
                     || !entProto.TryGetComponent<ShipRepairableComponent>(out var repairable, Factory)
+                    || entProto.TryGetComponent<ShipRepairableRestrictComponent>(out var entRestrict, Factory)
+                        && _whitelist.IsWhitelistFail(entRestrict.ToolWhitelist, ent)
                 )
                     continue;
 
