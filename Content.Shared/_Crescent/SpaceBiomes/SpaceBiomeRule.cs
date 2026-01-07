@@ -7,8 +7,8 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Shared.Random;
 
-public sealed partial class InSpaceBiomeRule : RulesRule
+public sealed partial class InSpaceBiomeRule
 {
     [DataField]
-    public string Biome;
+    public string Biome = "";
 }
