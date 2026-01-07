@@ -42,9 +42,9 @@
 - type: soundCollection
   id: default
   files:
-   - /Audio/_Crescent/Ambient/fallback.ogg
+   - /Audio/_Crescent/Ambient/inner_ring_1.ogg
 
-#combat fallback, don't remove, but can change song
+#combat music for anyone who isn't PDV or TFSMC (for now)
 
 - type: ambientMusic
   id: combatmodedefault
@@ -56,6 +56,7 @@
   id: combatmodedefault
   files:
     - /Audio/_Crescent/CombatMode/default_1.ogg
+    - /Audio/_Crescent/CombatMode/default_2.ogg
 
 ## FACTION COMBAT MUSIC TRACKS
 ## ID MUST BE "combatmode<FACTION>"!
@@ -85,7 +86,10 @@
   files:
     - /Audio/_Crescent/Ambience/CombatMode/TSFMC_1.ogg
     - /Audio/_Crescent/Ambience/CombatMode/TSFMC_2.ogg
+    - /Audio/_Crescent/Ambience/CombatMode/TSFMC_3.ogg
 
+
+### BIOME AMBIENT
 # outer ring
 
 - type: ambientMusic
@@ -98,6 +102,7 @@
   id: outer_ring
   files:
    - /Audio/_Crescent/Ambient/OuterRing/outer_ring_1.ogg
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_2.ogg
 
 # middle ring
 
@@ -111,6 +116,8 @@
   id: middle_ring
   files:
    - /Audio/_Crescent/Ambient/MiddleRing/middle_ring_1.ogg
+   - /Audio/_Crescent/Ambient/MiddleRing/middle_ring_2.ogg
+   - /Audio/_Crescent/Ambient/MiddleRing/middle_ring_3.ogg
 
 # inner ring
 
@@ -124,6 +131,8 @@
   id: inner_ring
   files:
    - /Audio/_Crescent/Ambient/InnerRing/inner_ring_1.ogg
+   - /Audio/_Crescent/Ambient/InnerRing/inner_ring_2.ogg
+
 
 
 #STATIONS
@@ -142,6 +151,7 @@
   id: CamelotMusic
   files:
    - /Audio/_Crescent/Stations/Camelot/camelot_1.ogg
+   - /Audio/_Crescent/Stations/Camelot/camelot_2.ogg
 
 #Colossus Central
 - type: ambientMusic
@@ -154,4 +164,5 @@
   id: ColossusCentralMusic
   files:
    - /Audio/_Crescent/Stations/Colossus/colossus_1.ogg
+   - /Audio/_Crescent/Stations/Colossus/colossus_2.ogg
 
