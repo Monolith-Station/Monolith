@@ -3,23 +3,23 @@
   id: default
   name: Uncharted Space
   swapDuration: 2
-  parallax: AbyssParallax
+  parallax: ExoStation # nobody should be this far out anyway
 
 #actual biomes
 - type: ambientSpaceBiome
   id: outer_ring
   name: Outer Ring
   swapDuration: 2
-  parallax: AbyssParallax
+  parallax: ExoStation # looks fine
 
 - type: ambientSpaceBiome
   id: middle_ring
   name: Middle Ring
   swapDuration: 2
-  parallax: AbyssParallax
+  parallax: AspidParallax # green ig
 
 - type: ambientSpaceBiome
   id: inner_ring
   name: Inner Ring
   swapDuration: 2
-  parallax: AbyssParallax
+  parallax: KettleStation # blue ig
