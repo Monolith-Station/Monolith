@@ -2,7 +2,7 @@
   id: Carrion
   parent: BaseVesselAntag
   name: ELH Carrion
-  description: A small frigate armed with 4x 90mm DRAVON autocannons and a GPOB-L bomb bay, built for reconnaissance and extreme-speed skirmishing.
+  description: A small lightly-armored frigate armed with 4x 90mm DRAVON autocannons and a GPOB-L bomb bay, built for reconnaissance and extreme-speed skirmishing.
   price: 25000
   category: Small
   group: BlackMarket
@@ -33,3 +33,4 @@
           availableJobs:
             Pirate: [ 0, 0 ]
             PdvBorg: [ 0, 0 ]
+
