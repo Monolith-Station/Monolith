@@ -47,6 +47,18 @@ public sealed partial class CCVars
             CVarDef.Create("ambience.music_volume", 1.5f, CVar.ARCHIVE | CVar.CLIENTONLY);
 
         /// <summary>
+        ///     Ambience music volume.
+        /// </summary>
+        public static readonly CVarDef<float> CombatMusicVolume =
+            CVarDef.Create("ambience.combat_music_volume", 1.5f, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+        /// <summary>
+        ///     Ambience music volume.
+        /// </summary>
+        public static readonly CVarDef<bool> CombatMusicEnabled =
+            CVarDef.Create("ambience.combat_music_enabled", true, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+        /// <summary>
         ///     Lobby / round end music volume.
         /// </summary>
         public static readonly CVarDef<float> LobbyMusicVolume =
