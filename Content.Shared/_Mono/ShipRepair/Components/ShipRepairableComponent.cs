@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Mono.ShipRepair;
+namespace Content.Shared._Mono.ShipRepair.Components;
 
 /// <summary>
 /// Entity that is repairable via <see cref="ShipRepairToolComponent.cs"/>

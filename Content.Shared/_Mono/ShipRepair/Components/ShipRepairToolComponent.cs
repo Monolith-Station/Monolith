@@ -2,7 +2,7 @@ using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Mono.ShipRepair;
+namespace Content.Shared._Mono.ShipRepair.Components;
 
 /// <summary>
 /// Allows item to act as a tool that repairs missing tiles and entities of a grid with <see cref="ShipRepairDataComponent">.
@@ -54,4 +54,7 @@ public sealed partial class ShipRepairToolComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId ConstructEffect = "EffectRCDConstruct1";
+
+    [DataField]
+    public float GhostRenderRadius = 5f;
 }

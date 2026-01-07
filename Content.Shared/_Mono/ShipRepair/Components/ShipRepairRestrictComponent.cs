@@ -1,6 +1,6 @@
 using Content.Shared.Whitelist;
 
-namespace Content.Shared._Mono.ShipRepair;
+namespace Content.Shared._Mono.ShipRepair.Components;
 
 /// <summary>
 /// Add to grid to restrict tools that can repair it.

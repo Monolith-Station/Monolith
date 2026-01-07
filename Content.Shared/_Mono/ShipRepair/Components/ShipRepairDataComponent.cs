@@ -1,28 +1,30 @@
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using System.Numerics;
 
-namespace Content.Server._Mono.ShipRepair;
+namespace Content.Shared._Mono.ShipRepair.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ShipRepairDataComponent : Component
 {
     /// <summary>
     /// N to use for the NxN chunks.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int ChunkSize = 5;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public Dictionary<Vector2i, ShipRepairChunk> Chunks = new();
 
     /// <summary>
     /// A map of index to EntProtoId to not have to store a whole string for each repairable entity.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public List<EntProtoId> EntityPalette = new();
 }
 
-[DataDefinition]
+[DataDefinition, Serializable, NetSerializable]
 public sealed partial class ShipRepairChunk
 {
     /// <summary>
@@ -41,7 +43,7 @@ public sealed partial class ShipRepairChunk
     public int NextUid = 0;
 }
 
-[DataDefinition]
+[DataDefinition, Serializable, NetSerializable]
 public sealed partial class ShipRepairEntitySpecifier
 {
     /// <summary>
@@ -63,5 +65,5 @@ public sealed partial class ShipRepairEntitySpecifier
     /// Original entity this was snapshotted from.
     /// </summary>
     [DataField]
-    public EntityUid? OriginalEntity;
+    public NetEntity? OriginalEntity;
 }

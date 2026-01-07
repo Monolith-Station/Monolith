@@ -1,17 +1,16 @@
-using Content.Shared._Mono.ShipRepair;
+using Content.Shared._Mono.ShipRepair.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using System.Numerics;
 
-namespace Content.Server._Mono.ShipRepair;
+namespace Content.Shared._Mono.ShipRepair;
 
-public sealed partial class ShipRepairSystem : EntitySystem
+public abstract partial class SharedShipRepairSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    private List<DoAfterId> _toRemoveIds = new();
 
     private void InitTool()
     {
@@ -37,13 +36,13 @@ public sealed partial class ShipRepairSystem : EntitySystem
         if (TryComp<ShipRepairRestrictComponent>(targetGrid, out var restrict)
             && _whitelist.IsWhitelistFail(restrict.ToolWhitelist, ent))
         {
-            _popup.PopupEntity(Loc.GetString("ship-repair-tool-fail-whitelist"), ent, args.User, PopupType.MediumCaution);
+            _popup.PopupClient(Loc.GetString("ship-repair-tool-fail-whitelist"), ent, args.User, PopupType.MediumCaution);
             return;
         }
 
         if (!TryComp<ShipRepairDataComponent>(targetGrid, out var repairData))
         {
-            _popup.PopupEntity(Loc.GetString("ship-repair-tool-no-data"), ent, args.User, PopupType.MediumCaution);
+            _popup.PopupClient(Loc.GetString("ship-repair-tool-no-data"), ent, args.User, PopupType.MediumCaution);
             return;
         }
 
@@ -91,23 +90,24 @@ public sealed partial class ShipRepairSystem : EntitySystem
                     continue;
 
                 var needsRepair = true;
-                if (spec.OriginalEntity != null && !TerminatingOrDeleted(spec.OriginalEntity))
+                var origUid = spec.OriginalEntity == null ? (EntityUid?)null : GetEntity(spec.OriginalEntity.Value);
+                if (origUid != null && !TerminatingOrDeleted(origUid))
                 {
                     var ev = new ShipRepairReinstateQueryEvent(true);
-                    RaiseLocalEvent(spec.OriginalEntity.Value, ref ev);
+                    RaiseLocalEvent(origUid.Value, ref ev);
 
                     if (!ev.Handled)
                     {
                         // if it's still on a grid, don't repair, else delete it
-                        var origXform = Transform(spec.OriginalEntity.Value);
+                        var origXform = Transform(origUid.Value);
                         if (origXform.GridUid != null)
                         {
                             alreadyExists = true;
                             continue;
                         }
-                        else
+                        else if (_net.IsServer)
                         {
-                            QueueDel(spec.OriginalEntity);
+                            QueueDel(origUid); // Big PVS does not want us to predict this
                         }
                     }
                     needsRepair = ev.Repairable;
@@ -117,11 +117,15 @@ public sealed partial class ShipRepairSystem : EntitySystem
                 if (TryComp<DoAfterComponent>(args.User, out var doAfterComp))
                 {
                     var hasIdentical = false;
+                    _toRemoveIds.Clear();
                     foreach (var doAfterId in ent.Comp.DoAfters)
                     {
-                        var doAfter = doAfterComp.DoAfters[doAfterId.Index];
-                        if (doAfter.Args.Event is not ShipRepairDoAfterEvent repairEv)
+                        if (!doAfterComp.DoAfters.TryGetValue(doAfterId.Index, out var doAfter)
+                            || doAfter.Args.Event is not ShipRepairDoAfterEvent repairEv)
+                        {
+                            _toRemoveIds.Add(doAfterId);
                             continue;
+                        }
 
                         if (repairEv.TargetGridIndices == gridIndices && repairEv.RepairId == id)
                         {
@@ -129,6 +133,9 @@ public sealed partial class ShipRepairSystem : EntitySystem
                             break;
                         }
                     }
+                    foreach (var remove in _toRemoveIds)
+                        ent.Comp.DoAfters.Remove(remove);
+
                     if (hasIdentical)
                         continue;
                 }
@@ -143,8 +150,8 @@ public sealed partial class ShipRepairSystem : EntitySystem
             }
         }
         if (notEnoughCharges)
-            _popup.PopupEntity(Loc.GetString("ship-repair-tool-insufficient-ammo"), ent, args.User);
-        else if (alreadyExists)
+            _popup.PopupClient(Loc.GetString("ship-repair-tool-insufficient-ammo"), ent, args.User);
+        else if (alreadyExists && _net.IsServer) // else we show it once or twice depending on whether it's in PVS
             _popup.PopupEntity(Loc.GetString("ship-repair-tool-entity-exists"), ent, args.User, PopupType.SmallCaution);
     }
 
@@ -168,8 +175,10 @@ public sealed partial class ShipRepairSystem : EntitySystem
         if (_doAfter.TryStartDoAfter(args, out var id))
         {
             tool.Comp.DoAfters.Add(id.Value);
-            _audio.PlayPvs(tool.Comp.RepairSound, tool);
-            Spawn(tool.Comp.ConstructEffect, new EntityCoordinates(grid, tileIndices));
+            _audio.PlayPredicted(tool.Comp.RepairSound, tool, user);
+            // we don't need to spawn it on server, however this makes serverside failures make the effect anyway
+            if (_net.IsClient && _timing.IsFirstTimePredicted)
+                Spawn(tool.Comp.ConstructEffect, new EntityCoordinates(grid, tileIndices));
         }
     }
 
@@ -194,13 +203,15 @@ public sealed partial class ShipRepairSystem : EntitySystem
 
         if (args.RepairId != null)
         {
-            if (!chunk.Entities.TryGetValue(args.RepairId.Value, out var spec))
+            if (_net.IsClient || !chunk.Entities.TryGetValue(args.RepairId.Value, out var spec))
                 return;
 
-            if (spec.OriginalEntity != null && !TerminatingOrDeleted(spec.OriginalEntity))
+            // this is technically copypaste code but it's different each time
+            var origUid = spec.OriginalEntity == null ? (EntityUid?)null : GetEntity(spec.OriginalEntity.Value);
+            if (origUid != null && !TerminatingOrDeleted(origUid.Value))
             {
                 var ev = new ShipRepairReinstateQueryEvent(true);
-                RaiseLocalEvent(spec.OriginalEntity.Value, ref ev);
+                RaiseLocalEvent(origUid.Value, ref ev);
                 // abort if we can't repair now
                 if (!ev.Handled || !ev.Repairable)
                     return;
@@ -212,7 +223,10 @@ public sealed partial class ShipRepairSystem : EntitySystem
             var spawned = Spawn(protoId, coords);
             _transform.SetLocalRotation(spawned, spec.Rotation);
 
-            spec.OriginalEntity = spawned;
+            spec.OriginalEntity = GetNetEntity(spawned);
+
+            var dirtMsg = new RepairEntityMessage(GetNetEntity(targetGrid), args.TargetGridIndices, args.RepairId.Value, spec);
+            RaiseNetworkEvent(dirtMsg);
         }
         else
         {

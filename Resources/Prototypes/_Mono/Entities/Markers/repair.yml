@@ -1,0 +1,11 @@
+- type: entity
+  name: repair ghost
+  id: RepairGhost
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    gridTraversal: false
+    anchored: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: RepairGhost
