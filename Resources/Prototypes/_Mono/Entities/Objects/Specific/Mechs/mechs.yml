@@ -60,7 +60,7 @@
 # S2 Mechas
 - type: entity
   id: BaseAFInterceptor
-  parent: [ BaseMech, LightMechMount, BaseRestrictedContraband ]
+  parent: [ BaseMech, LightMechMount ]
   abstract: true
   categories: [ HideSpawnMenu ]
   name: AF-28 "Broadsword"
@@ -126,7 +126,6 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: RadarConsole
-    maxRange: 512
     followEntity: true
   - type: Appearance
   - type: GenericVisualizer
@@ -256,11 +255,10 @@
         acts: ["Destruction"]
   # Terrible radar, mostly good for navigating planets
   - type: RadarConsole
-    maxRange: 256
     followEntity: true
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 0.5 # from 1
-    visualMultiplier: 3 # from 4
+    infraredMultiplier: 0.5
+    visualMultiplier: 0.75
   # Only ground-based mecha so far. Don't use it in space. Can't move in space.
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
@@ -276,7 +274,7 @@
 #4x4 mechas
 - type: entity
   id: AFFlail
-  parent: [ BaseMech, HeavyMechMount, BaseRestrictedContraband ]
+  parent: [ BaseMech, HeavyMechMount ]
   name: ASF-59 "Flail"
   description: Newest mech on the market, the Armored Strike Frame is built to tackle ship-sized foes with it's oversized weapon mounts. Slow as a pig however, it tacks on generous armor plating to survive it's runs.
   components:
@@ -340,7 +338,6 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: RadarConsole
-    maxRange: 1024
     followEntity: true
   - type: Appearance
   - type: GenericVisualizer
@@ -408,11 +405,10 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: RadarConsole
-    maxRange: 2048 #It's a radar/EWAC platform.
     followEntity: true
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 1.5 # from 1
-    visualMultiplier: 8 # from 4
+    infraredMultiplier: 1.5
+    visualMultiplier: 2
   # EXTREMELY slow in gravity. Only really good to taxi, and that's about it. Even worse than S2s
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.25

@@ -64,7 +64,7 @@ public sealed class CryoPodSystem: SharedCryoPodSystem
         {
             args.Sprite.LayerSetState(CryoPodVisualLayers.Base, "pod-open");
             args.Sprite.LayerSetVisible(CryoPodVisualLayers.Cover, false);
-            args.Sprite.DrawDepth = (int) DrawDepth.Objects;
+            args.Sprite.DrawDepth = (int) DrawDepth.Mobs; //Mono: Objects >> Mobs: Fix sprite for collisions
         }
         else
         {

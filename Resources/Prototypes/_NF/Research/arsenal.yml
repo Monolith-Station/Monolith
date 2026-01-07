@@ -1,5 +1,6 @@
 # Tier 1
 
+# Mono edit
 - type: technology
   id: BountyHunting
   name: research-technology-bounty-hunting
@@ -18,6 +19,26 @@
   # - WeaponShotgunKammererNF # _Mono: Moved to merc weapon research
   - ForensicPad
   - FlashlightSecliteNF
+  - KatanaNF
+  - KukriKnifeNF
+  - MacheteNF
+  - ClothingEyesPunkInfoShades
+  - ClothingOuterArmorPunkRandomized
+  - ClothingOuterArmorPunkRed
+  - ClothingOuterArmorPunkGreen
+  - ClothingOuterArmorPunkOrange
+  - ClothingOuterArmorElitePunkRandomized
+  - ClothingBeltPunkRandomized
+  - ClothingShoesBootsPunkRandomized
+  - ClothingEyesPunkGoggles
+  - ClothingEyesPunkInfoShades
+  - ClothingMaskPunkHalf
+  - ClothingUniformRandomPunkTanktop
+  - ClothingUniformRandomPunkTanktopShorts
+  - ClothingUniformRandomPunkCroptop
+  - ClothingUniformRandomPunkCroptopShorts
+  - ClothingOuterCoatLettermanRandomized
+  - ClothingOuterCoatBomberRandomized
   technologyPrerequisites:
   - AdvancedRiotControl
   position: 3, 2
@@ -52,39 +73,40 @@
   technologyPrerequisites:
   - HardsuitsSpecialized
   - HardsuitsAdvanced
-  position: 4, 8
+  position: 2, 8
 
-- type: technology
-  id: ArsenalStyle
-  name: research-technology-arsenal-style
-  entityIcon: Katana
-  discipline: Arsenal
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - KatanaNF
-  - KukriKnifeNF
-  - MacheteNF
-  - ClothingEyesPunkInfoShades
-  - ClothingOuterArmorPunkRandomized
-  - ClothingOuterArmorPunkRed
-  - ClothingOuterArmorPunkGreen
-  - ClothingOuterArmorPunkOrange
-  - ClothingOuterArmorElitePunkRandomized
-  - ClothingBeltPunkRandomized
-  - ClothingShoesBootsPunkRandomized
-  - ClothingEyesPunkGoggles
-  - ClothingEyesPunkInfoShades
-  - ClothingMaskPunkHalf
-  - ClothingUniformRandomPunkTanktop
-  - ClothingUniformRandomPunkTanktopShorts
-  - ClothingUniformRandomPunkCroptop
-  - ClothingUniformRandomPunkCroptopShorts
-  - ClothingOuterCoatLettermanRandomized
-  - ClothingOuterCoatBomberRandomized
-  technologyPrerequisites:
-  - BountyHunting
-  position: 4, 2
+# Mono edit - research consolidation
+# - type: technology
+#   id: ArsenalStyle
+#   name: research-technology-arsenal-style
+#   entityIcon: Katana
+#   discipline: Arsenal
+#   tier: 2
+#   cost: 10000
+#   recipeUnlocks:
+#   - KatanaNF
+#   - KukriKnifeNF
+#   - MacheteNF
+#   - ClothingEyesPunkInfoShades
+#   - ClothingOuterArmorPunkRandomized
+#   - ClothingOuterArmorPunkRed
+#   - ClothingOuterArmorPunkGreen
+#   - ClothingOuterArmorPunkOrange
+#   - ClothingOuterArmorElitePunkRandomized
+#   - ClothingBeltPunkRandomized
+#   - ClothingShoesBootsPunkRandomized
+#   - ClothingEyesPunkGoggles
+#   - ClothingEyesPunkInfoShades
+#   - ClothingMaskPunkHalf
+#   - ClothingUniformRandomPunkTanktop
+#   - ClothingUniformRandomPunkTanktopShorts
+#   - ClothingUniformRandomPunkCroptop
+#   - ClothingUniformRandomPunkCroptopShorts
+#   - ClothingOuterCoatLettermanRandomized
+#   - ClothingOuterCoatBomberRandomized
+#   technologyPrerequisites:
+#   - BountyHunting
+#   position: 4, 2
 
 # Tier 3
 
@@ -102,4 +124,4 @@
   technologyPrerequisites:
   - HardsuitsArmored
   - SuperParts
-  position: 5, 8
+  position: 3, 7

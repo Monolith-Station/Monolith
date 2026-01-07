@@ -1,7 +1,7 @@
 - type: entity
   id: BaseCartridge556x45mm
   name: cartridge (5.56x45mm FMJ)
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseCartridge
   description: An extremely-common intermediate cartridge for rifles.
   abstract: true
   components:

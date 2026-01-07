@@ -1,7 +1,7 @@
 - type: entity
   id: BaseCartridge8x65mmSKR
   name: cartridge (8x65mm SKR)
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseCartridge
   description: An experimental high performance round. Standard round for high-power rifles across all branches of the TSF's armed forces.
   abstract: true
   components:

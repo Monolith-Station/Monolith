@@ -24,6 +24,12 @@ public sealed partial class ShipSteererComponent : Component
     public bool AlwaysFaceTarget = false;
 
     /// <summary>
+    /// Whether to avoid shipgun projectiles.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool AvoidProjectiles = false;
+
+    /// <summary>
     /// If AlwaysFaceTarget is true, how much of a difference in angle (in radians) to accept.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
@@ -32,7 +38,7 @@ public sealed partial class ShipSteererComponent : Component
     /// <summary>
     /// Whether to avoid obstacles.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool AvoidCollisions = true;
 
     /// <summary>
@@ -40,6 +46,12 @@ public sealed partial class ShipSteererComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float BrakeThreshold = 0.75f;
+
+    /// <summary>
+    /// How much larger to consider the ship for collision evasion purposes.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float EvasionBuffer = 6f;
 
     /// <summary>
     /// Whether to consider the movement finished if we collide with target.
@@ -68,8 +80,33 @@ public sealed partial class ShipSteererComponent : Component
     /// <summary>
     /// Check for obstacles for collision avoidance at most this far.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float MaxObstructorDistance = 800f;
+
+    /// <summary>
+    /// Ignore obstacles this close to our destination grid if moving to a grid, + other grid's radius.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float MinObstructorDistance = 20f;
+
+    /// <summary>
+    /// Don't finish early even if we've completed our order.
+    /// Use to keep doing collision detection when we're supposed to finish on plan finish.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool NoFinish = false;
+
+    /// <summary>
+    /// What movement behavior to use.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public ShipSteeringMode Mode = ShipSteeringMode.GoToRange;
+
+    /// <summary>
+    /// How much to angularly offset our movement target on orbit movement mode.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public Angle OrbitOffset = Angle.FromDegrees(30f);
 
     /// <summary>
     /// How close are we trying to get to the coordinates before being considered in range.
@@ -82,14 +119,6 @@ public sealed partial class ShipSteererComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float? RangeTolerance = null;
-
-    /// <summary>
-    /// Whether to require us to be anchored.
-    /// Here because HTN does not allow us to continuously check a condition by itself.
-    /// Ignored if we're not anchorable.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool RequireAnchored = true;
 
     /// <summary>
     /// Target rotation in relation to movement direction.
@@ -109,4 +138,10 @@ public enum ShipSteeringStatus : byte
     /// Are we currently in range of our target.
     /// </summary>
     InRange,
+}
+
+public enum ShipSteeringMode
+{
+    GoToRange,
+    Orbit
 }

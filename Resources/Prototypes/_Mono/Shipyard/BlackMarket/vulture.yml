@@ -12,7 +12,6 @@
   guidebookPage: Null
   class:
   - Pirate
-  - Capital
   - Frigate
   engine:
   - AME
@@ -34,3 +33,4 @@
         - type: StationJobs
           availableJobs:
             Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

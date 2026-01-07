@@ -13,7 +13,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Components;
-using Robust.Shared.Player;
+using Content.Shared.Movement.Events; // Mono
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -81,6 +81,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         SubscribeLocalEvent<ProjectileGridPhaseComponent, ComponentStartup>(OnProjectileGridPhaseStartup);
         // Subscribe to ensure MetaDataComponent on projectile entities for networking
         SubscribeLocalEvent<ProjectileComponent, ComponentStartup>(OnProjectileMetaStartup);
+
+        // Mono
+        SubscribeLocalEvent<ProjectileComponent, TileFrictionEvent>(OnTileFriction);
     }
 
     /// <summary>
@@ -551,6 +554,12 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     {
         if (TryComp<RequireProjectileTargetComponent>(args.OtherEntity, out var requireTarget) && requireTarget.IgnoreThrow && requireTarget.Active)
             args.Cancelled = true;
+    }
+
+    // Mono
+    private void OnTileFriction(Entity<ProjectileComponent> ent, ref TileFrictionEvent args)
+    {
+        args.Modifier = ent.Comp.LinearDampening;
     }
 
     public void SetShooter(EntityUid id, ProjectileComponent component, EntityUid shooterId)

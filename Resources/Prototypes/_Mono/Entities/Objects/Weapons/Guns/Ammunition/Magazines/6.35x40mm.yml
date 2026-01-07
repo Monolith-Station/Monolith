@@ -1,7 +1,7 @@
 - type: entity
   id: BaseMagazine635x40mmCaseless
   name: "magazine (635x40mm Caseless)"
-  parent: [ BaseCartridge, BaseC3SyndicateContrabandNoValue, RecyclableItemSteelTiny ] # Frontier: BaseSecurityContraband<BaseC3SyndicateContraband, added RecyclableItemSteelTiny
+  parent: [ BaseCartridge, RecyclableItemSteelTiny ]
   abstract: true
   components:
   - type: Tag

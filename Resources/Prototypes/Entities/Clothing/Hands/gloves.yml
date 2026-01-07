@@ -94,7 +94,7 @@
     mustBeEquippedToUse: true
 
 - type: entity
-  parent: ClothingHandsBase # remove BaseCommandContraband
+  parent: ClothingHandsBase
   id: ClothingHandsGlovesCaptain
   name: captain gloves
   description: Regal blue gloves, with a nice gold trim. Swanky.
@@ -204,7 +204,7 @@
   - type: FingerprintMask
 
 - type: entity
-  parent: [ClothingHandsBase, BaseToggleClothing, BaseC3Contraband, ContrabandClothing] # Frontier: BaseMajorContraband<BaseC3Contraband, added ContrabandClothing as parent
+  parent: [ClothingHandsBase, BaseToggleClothing]
   id: ClothingHandsGlovesSpaceNinja
   name: space ninja gloves
   description: These black nano-enhanced gloves insulate from electricity and provide fire resistance.
@@ -258,7 +258,7 @@
     #   - type: CriminalRecordsHacker # Frontier
 
 - type: entity
-  parent: [ ClothingHandsGlovesColorBlack, BaseC1Contraband ] # BaseSecurityEngineeringContraband<BaseC1Contraband
+  parent: ClothingHandsGlovesColorBlack
   id: ClothingHandsGlovesCombat
   name: combat gloves
   description: These tactical gloves are fireproof and shock resistant.
@@ -291,7 +291,7 @@
     coefficient: 0.95 # *grabs ur baton* nice knife
 
 - type: entity
-  parent: ClothingHandsGlovesCombat # Frontier: Removed BaseSecurityCargoContraband
+  parent: ClothingHandsGlovesCombat
   id: ClothingHandsMercenaryGlovesCombat # Frontier - Merc to Mercenary
   name: mercenary combat gloves
   description: High-quality combat gloves to protect hands from mechanical damage during combat.
@@ -365,7 +365,7 @@
 - type: entity
   # Intentionally named after regular gloves, they're meant to be sneaky.
   # This means they can also be butchered if you need to look un-sus before a very thorough search...
-  parent: [ClothingHandsGlovesColorBlack, BaseC3Contraband, ContrabandClothing] # Frontier: added BaseC3Contraband, ContrabandClothing as parents
+  parent: [ClothingHandsGlovesColorBlack]
   id: ThievingGloves
   suffix: Thieving
   components:
@@ -386,7 +386,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: [ClothingHandsButcherable, BaseC3SyndicateContraband, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband added ContrabandClothing as parent
+  parent: [ClothingHandsButcherable]
   id: ClothingHandsGlovesNorthStar
   name: gloves of the north star
   description: These gloves allow you to punch incredibly fast.
@@ -422,7 +422,7 @@
     price: 0
 
 - type: entity
-  parent: [ClothingHandsBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: ClothingHandsBase
   id: ClothingHandsGlovesForensic
   name: forensic gloves
   description: Do not leave fibers or fingerprints. If you work without them, you're A TERRIBLE DETECTIVE.

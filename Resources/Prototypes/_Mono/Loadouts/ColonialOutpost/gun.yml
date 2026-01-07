@@ -3,8 +3,9 @@
   name: loadout-group-weapon-civilian
   minLimit: 1
   loadouts:
-  - SecurityGuardDisablerSMGLoadout
-  - SecurityGuardEnergyGunLoadout
+  - StationRepWeaponEnergyShotgun
+  - StationRepWeaponRifleLecter
+  - StationRepWeaponRifleAk
 
 - type: loadoutGroup
   id: SecurityGuardFirearm

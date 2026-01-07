@@ -44,8 +44,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 30
-        Piercing: 50
+        Piercing: 75
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/50_armorpiercing_machinegun_casing.rsi
     layers:
@@ -63,9 +62,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 30
-        Blunt: 20
-        Piercing: 30
+        Piercing: 120
   - type: ShipWeaponProjectile
   - type: TimedDespawn
     lifetime: 3
@@ -78,19 +75,18 @@
     shape: arrow
     radarColor: "#1df1f5"
 
-# 57mm Dravon
+# 57mm 
 
 - type: entity
-  id: ShipDravonProjectile
-  name: DRAVON 57mm projectile
+  id: 57mmBullet
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Blunt: 20
-        Piercing: 20
+        Blunt: 35
+        Piercing: 25
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/57_shell.rsi
     layers:
@@ -109,9 +105,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 12
-    intensitySlope: 4
-    maxIntensity: 3
+    totalIntensity: 6 # totalIntensity goes first, please.
+    intensitySlope: 1
+    maxIntensity: 1
     maxTileBreak: 1
 
 # 90mm
@@ -143,7 +139,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 60
+        Piercing: 70
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
     layers:
@@ -151,9 +147,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 6 # totalIntensity goes first, please.
-    intensitySlope: 1
-    maxIntensity: 1
+    totalIntensity: 12
+    intensitySlope: 4
+    maxIntensity: 3
     maxTileBreak: 1
   - type: PointLight
     color: orange
@@ -224,7 +220,7 @@
     requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
-    lifetime: 5.5
+    lifetime: 7
   - type: PointLight
     color: "#fc5a03"
   - type: ExplodeOnTrigger
@@ -268,3 +264,39 @@
     proto: AdderBullet
     count: 6
     spread: 5
+
+# Drone
+
+- type: entity
+  id: ShipShardProjectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 300
+        Blunt: 50
+        Piercing: 50
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/57_shell.rsi
+    layers:
+    - state: 57-shell
+    scale: 1, 1
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 2.5
+    requireNoGrid: true
+    shape: triangle
+    radarColor: "#1df1f5"
+  - type: TimedDespawn
+    lifetime: 5
+  - type: PointLight
+    color: "#FCBA03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 12
+    intensitySlope: 2
+    maxIntensity: 2
+    maxTileBreak: 1

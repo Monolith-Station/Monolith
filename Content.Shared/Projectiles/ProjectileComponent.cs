@@ -105,15 +105,18 @@ public sealed partial class ProjectileComponent : Component
     [DataField]
     public FixedPoint2 PenetrationAmount = FixedPoint2.Zero;
 
-    /// <summary>
-    /// Frontier: Chance for a blind effect bonus to occur (1 = 100%).
-    /// </summary>
-    [DataField]
-    public float RandomBlindChance { get; set; } = 0;
-
     // Goobstation Start
     [DataField]
     public float ArmorPenetration;
     // Goobstation End
 
+    /// <summary>
+    ///     Mono - If true, when going at sufficient velocity to cause raycasts, will significantly decrease velocity to just below raycast threshold to increase stability.
+    /// </summary>
+    [DataField]
+    public bool RaycastResetVelocity = true;
+
+    // Mono
+    [DataField]
+    public float LinearDampening = 0f;
 }

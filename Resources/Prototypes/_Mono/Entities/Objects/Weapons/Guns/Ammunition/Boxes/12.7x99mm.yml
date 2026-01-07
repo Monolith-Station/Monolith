@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [ BaseItem, BaseC3PirateContraband ]
+  parent: BaseItem
   id: BaseAmmoBox127x99mm
   name: ammunition box (12.7x99mm anti-material)
   components:
