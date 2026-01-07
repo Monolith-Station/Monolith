@@ -1,15 +1,7 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 ScyronX
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.NPC.HTN;
 using Content.Shared._Mono.CCVar;
 using Robust.Shared.Configuration;
-using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.Cleanup;
@@ -17,20 +9,13 @@ namespace Content.Server._Mono.Cleanup;
 /// <summary>
 ///     Deletes all entities with SpaceGarbageComponent.
 /// </summary>
-public sealed class MobCleanupSystem : EntitySystem
+public sealed class MobCleanupSystem : BaseCleanupSystem<HTNComponent>
 {
     [Dependency] private readonly CleanupHelperSystem _cleanup = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private ISawmill _log = default!;
-    private TimeSpan _cleanupInterval = TimeSpan.FromSeconds(60);
     private float _maxDistance;
-
-    private Queue<EntityUid> _checkQueue = new();
-    private TimeSpan _nextCleanup = TimeSpan.Zero;
-    private int _delCount = 0;
+    private float _maxGridDistance;
 
     private EntityQuery<GhostRoleComponent> _ghostQuery;
     private EntityQuery<CleanupImmuneComponent> _immuneQuery;
@@ -38,58 +23,22 @@ public sealed class MobCleanupSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        _log = Logger.GetSawmill("mobcleanup");
 
         _ghostQuery = GetEntityQuery<GhostRoleComponent>();
         _immuneQuery = GetEntityQuery<CleanupImmuneComponent>();
 
         Subs.CVar(_cfg, MonoCVars.MobCleanupDistance, val => _maxDistance = val, true);
+        Subs.CVar(_cfg, MonoCVars.CleanupMaxGridDistance, val => _maxGridDistance = val, true);
     }
 
-    public override void Update(float frameTime)
+    protected override bool ShouldEntityCleanup(EntityUid uid)
     {
-        base.Update(frameTime);
+        var xform = Transform(uid);
 
-        // delete one queued entity per update
-        if (_checkQueue.Count != 0)
-        {
-            var uid = _checkQueue.Dequeue();
-
-            if (TerminatingOrDeleted(uid))
-                return;
-
-            var xform = Transform(uid);
-
-            if (xform.GridUid != null
-                || _immuneQuery.HasComp(uid)
-                || _ghostQuery.HasComp(uid)
-                || _cleanup.HasNearbyPlayers(xform.Coordinates, _maxDistance)
-            )
-                return;
-
-            // Adds entity to logging
-            _delCount += 1;
-            QueueDel(uid);
-            return;
-        }
-
-        if (_delCount != 0)
-        {
-            _log.Info($"Deleted {_delCount} mobs");
-            _delCount = 0;
-        }
-
-        // we appear to be done with previous queue so try get another
-        var curTime = _timing.CurTime;
-        if (curTime < _nextCleanup)
-            return;
-        _nextCleanup = curTime + _cleanupInterval;
-
-        // queue the next batch
-        var query = EntityQueryEnumerator<HTNComponent>();
-        while (query.MoveNext(out var uid, out _))
-        {
-            _checkQueue.Enqueue(uid);
-        }
+        return xform.GridUid == null
+            && !_immuneQuery.HasComp(uid)
+            && !_ghostQuery.HasComp(uid)
+            && !_cleanup.HasNearbyPlayers(xform.Coordinates, _maxDistance)
+            && !_cleanup.HasNearbyGrids(xform.Coordinates, _maxGridDistance);
     }
 }

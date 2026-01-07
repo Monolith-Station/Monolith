@@ -87,3 +87,51 @@
         visualType: Medium
         messages: [ "generic-reagent-effect-nauseous" ]
         probability: 0.5
+
+# Monolithic
+
+- type: reagent
+  id: Gestalzitine
+  name: reagent-name-gestalzitine
+  group: Toxins
+  desc: reagent-desc-gestalzitine
+  physicalDesc: reagent-physical-desc-translucent
+  color: "#6eebdd"
+  boilingPoint: 444.0
+  meltingPoint: 128.0
+  metabolisms:
+    Poison:
+      effects:
+      - !type:Emote
+        emote: Yawn
+        showInChat: true
+        probability: 0.1
+      - !type:MovespeedModifier
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        walkSpeedModifier: 0.35
+        sprintSpeedModifier: 0.45
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        key: Drowsiness
+        component: Drowsiness
+        time: 1
+        type: Add
+        refresh: false
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          reagent: Gestalzitine
+          min: 30 # Mono
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add

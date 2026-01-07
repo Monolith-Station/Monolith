@@ -1,36 +1,3 @@
-// SPDX-FileCopyrightText: 2021 20kdc
-// SPDX-FileCopyrightText: 2021 Acruid
-// SPDX-FileCopyrightText: 2021 DrSmugleaf
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin
-// SPDX-FileCopyrightText: 2022 CommieFlowers
-// SPDX-FileCopyrightText: 2022 EmoGarbage404
-// SPDX-FileCopyrightText: 2022 Flipp Syder
-// SPDX-FileCopyrightText: 2022 Paul Ritter
-// SPDX-FileCopyrightText: 2022 Rane
-// SPDX-FileCopyrightText: 2022 ShadowCommander
-// SPDX-FileCopyrightText: 2022 Visne
-// SPDX-FileCopyrightText: 2022 mirrorcult
-// SPDX-FileCopyrightText: 2022 rolfero
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 Jezithyr
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2023 PixelTK
-// SPDX-FileCopyrightText: 2023 Slava0135
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2025 ActiveMammmoth
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 SlamBamActionman
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry;

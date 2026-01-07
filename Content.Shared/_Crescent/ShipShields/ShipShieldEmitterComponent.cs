@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Audio;
 
 namespace Content.Shared._Crescent.ShipShields;
@@ -10,7 +5,10 @@ namespace Content.Shared._Crescent.ShipShields;
 [RegisterComponent]
 public sealed partial class ShipShieldEmitterComponent : Component
 {
+    [ViewVariables]
     public EntityUid? Shield;
+
+    [ViewVariables]
     public EntityUid? Shielded;
 
     [DataField]
@@ -71,7 +69,9 @@ public sealed partial class ShipShieldEmitterComponent : Component
     [DataField]
     public Color ShieldColor = Color.White;
 
+    [ViewVariables]
     public float OverloadAccumulator = 0f;
+
     /// <summary>
     /// On power up, players for all on vessel, pitched down.
     /// </summary>

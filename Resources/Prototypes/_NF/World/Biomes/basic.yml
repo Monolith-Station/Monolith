@@ -243,7 +243,7 @@
   id: NFAsteroidsFar
   parent: NFBiomeBase
   priority: 0
-  # no distanceRange, accepts all remaining distance
+  distanceRange: 9500, 18000 # Mono
   noiseRanges: {}
   chunkComponents:
   - type: SimpleDebrisSelector
@@ -361,4 +361,7 @@
       orGroup: wreck
     - id: NFWreckDebrisBrassExtraLarge
       prob: 0.1
+      orGroup: wreck
+    - id: MonoRamDroneSpawnerT1 # Mono
+      prob: 0.15
       orGroup: wreck

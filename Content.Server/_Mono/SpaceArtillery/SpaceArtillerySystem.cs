@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 RikuTheKiller
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using System.Numerics;
 using Content.Server._Mono.AmmoLoader;
 using Content.Server._Mono.FireControl;
@@ -188,8 +180,9 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
                 continue;
 
             var vector = _xform.GetWorldPosition(uid) - _xform.GetWorldPosition(playerEnt);
+            var normalized = float.IsNaN(vector.Normalized().X) ? Vector2.Zero : vector.Normalized();
 
-            _recoilSystem.KickCamera(playerEnt, vector.Normalized() * (float)hitEvent.Damage.GetTotal() / BIG_DAMAGE * BIG_DAMGE_KICK);
+            _recoilSystem.KickCamera(playerEnt, normalized * (float)hitEvent.Damage.GetTotal() / BIG_DAMAGE * BIG_DAMGE_KICK);
         }
     }
 

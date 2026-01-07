@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Cojoke
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 Preston Smith
-// SPDX-FileCopyrightText: 2024 TemporalOroboros
-// SPDX-FileCopyrightText: 2024 deltanedas
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2025 J
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Actions;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;

@@ -2085,7 +2085,7 @@
 - type: entity
   id: ClothingUniformJumpsuitMilitaryArcadiaTac
   name: arcadia tactical jumpsuit
-  parent: [ ClothingUniformBase, BaseC3ContrabandNoValue, ContrabandClothing ]
+  parent: [ ClothingUniformBase ]
   description: A tactical jumpsuit produced by Arcadia Industries.
   suffix: Military, Tac
   components:

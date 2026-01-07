@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Server._Mono.Projectiles.TargetSeeking;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Power;

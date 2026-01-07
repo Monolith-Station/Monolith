@@ -1,27 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Bixkitts
-// SPDX-FileCopyrightText: 2023 Checkraze
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 LankLTE
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 ShadowCommander
-// SPDX-FileCopyrightText: 2023 chromiumboy
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2024 Jajsha
-// SPDX-FileCopyrightText: 2024 Jake Huxell
-// SPDX-FileCopyrightText: 2024 LordCarve
-// SPDX-FileCopyrightText: 2024 Nim
-// SPDX-FileCopyrightText: 2024 ScarKy0
-// SPDX-FileCopyrightText: 2024 Simon
-// SPDX-FileCopyrightText: 2024 The Canned One
-// SPDX-FileCopyrightText: 2024 Zachary Higgs
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Errant
-// SPDX-FileCopyrightText: 2025 NazrinNya
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;

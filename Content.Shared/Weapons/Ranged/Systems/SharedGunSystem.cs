@@ -1,44 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Rane
-// SPDX-FileCopyrightText: 2022 Salex08
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2023 AJCM-git
-// SPDX-FileCopyrightText: 2023 Arendian
-// SPDX-FileCopyrightText: 2023 Errant
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 TaralGit
-// SPDX-FileCopyrightText: 2023 and_a
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Dakamakat
-// SPDX-FileCopyrightText: 2024 DrSmugleaf
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2024 I.K
-// SPDX-FileCopyrightText: 2024 MilenVolf
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 SlamBamActionman
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 TemporalOroboros
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 keronshb
-// SPDX-FileCopyrightText: 2024 nikthechampiongr
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Avalon
-// SPDX-FileCopyrightText: 2025 Aviu00
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 beck-thompson
-// SPDX-FileCopyrightText: 2025 bitcrushing
-// SPDX-FileCopyrightText: 2025 slarticodefast
-// SPDX-FileCopyrightText: 2025 sleepyyapril
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.ActionBlocker;
@@ -114,6 +73,9 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] protected readonly SharedGunPredictionSystem? _gunPrediction = default!;
 
+    protected EntityQuery<PhysicsComponent> _physQuery; // Mono
+    protected EntityQuery<ProjectileComponent> _projQuery; // Mono
+
     private const float InteractNextFire = 0.3f;
     private const double SafetyNextFire = 0.5;
     private const float EjectOffset = 0.4f;
@@ -121,6 +83,8 @@ public abstract partial class SharedGunSystem : EntitySystem
     protected const string AmmoExamineSpecialColor = "orange"; // Mono
     protected const string FireRateExamineColor = "yellow";
     public const string ModeExamineColor = "cyan";
+
+    private float _lastFrameTime = 0.05f;
 
     public override void Initialize()
     {
@@ -149,6 +113,9 @@ public abstract partial class SharedGunSystem : EntitySystem
         SubscribeLocalEvent<GunComponent, MapInitEvent>(OnMapInit);
 
         InitializeHolders(); // DeltaV
+
+        _physQuery = GetEntityQuery<PhysicsComponent>(); // Mono
+        _projQuery = GetEntityQuery<ProjectileComponent>(); // Mono
     }
 
     private void OnMapInit(Entity<GunComponent> gun, ref MapInitEvent args)
@@ -225,7 +192,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         gunComp.Target = GetEntity(target);
 
         AttemptShoot(user.Value, ent, gunComp);
-        
+
         // Check if shooting was successful by checking if ammo was consumed
         // This is a workaround since AttemptShoot returns void
         if (gunComp.ShotCounter == 0)
@@ -237,7 +204,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             foreach (var id in shot)
             {
                 var entity = new EntityUid(id);
-                if (TryComp<ProjectileComponent>(entity, out var projectile))
+                if (_projQuery.TryComp(entity, out var projectile))
                     projectiles.Add((entity, projectile));
             }
         }
@@ -294,6 +261,15 @@ public abstract partial class SharedGunSystem : EntitySystem
         {
             gunEntity = held;
             gunComp = gun;
+            return true;
+        }
+
+        // Mono edit - you can use gloves as guns now because its fucking amazing.
+        if (_inventory.TryGetSlotEntity(entity, "gloves", out var gloves) &&
+            TryComp<GunComponent>(gloves, out var glovesGun))
+        {
+            gunEntity = gloves.Value;
+            gunComp = glovesGun;
             return true;
         }
 
@@ -359,9 +335,20 @@ public abstract partial class SharedGunSystem : EntitySystem
         gun.ShotCounter = 0;
     }
 
-    private void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun)
+    /// <summary>
+    /// Mono - attempts to shoot at the target coordinates for specified duration, or refreshes duration if already shooting.
+    /// </summary>
+    public void AttemptShots(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates toCoordinates, TimeSpan duration)
     {
-        if (TryComp<AutoShootGunComponent>(gunUid, out var auto) && !auto.CanFire) // Frontier
+        gun.ShootCoordinates = toCoordinates;
+        var autoShoot = EnsureComp<AutoShootGunComponent>(gunUid);
+        if (autoShoot.RemainingTime < duration)
+            autoShoot.RemainingTime = duration;
+    }
+
+    protected void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun)
+    {
+        if (TryComp<AutoShootGunComponent>(gunUid, out var auto) && !auto.CanFire && auto.RemainingTime <= TimeSpan.FromSeconds(0)) // Frontier // Mono
             return; // Frontier
 
         if (gun.FireRateModified <= 0f ||
@@ -404,17 +391,13 @@ public abstract partial class SharedGunSystem : EntitySystem
         // First shot
         // Previously we checked shotcounter but in some cases all the bullets got dumped at once
         // curTime - fireRate is insufficient because if you time it just right you can get a 3rd shot out slightly quicker.
-        if (gun.NextFire < curTime - fireRate || gun.ShotCounter == 0 && gun.NextFire < curTime)
+        if (gun.NextFire < curTime - TimeSpan.FromSeconds(0.2)) // Mono - hack to let guns properly fire faster than tickrate because shotCounter is weird
             gun.NextFire = curTime;
 
-        var shots = 0;
         var lastFire = gun.NextFire;
-
-        while (gun.NextFire <= curTime)
-        {
-            gun.NextFire += fireRate;
-            shots++;
-        }
+        var catchupTime = curTime - gun.NextFire;
+        var shots = (int) Math.Max(Math.Floor(catchupTime.TotalSeconds / fireRate.TotalSeconds), 1);
+        gun.NextFire += fireRate * shots;
 
         // NextFire has been touched regardless so need to dirty the gun.
         EntityManager.DirtyField(gunUid, gun, nameof(GunComponent.NextFire));
@@ -436,7 +419,8 @@ public abstract partial class SharedGunSystem : EntitySystem
                 default:
                     throw new ArgumentOutOfRangeException($"No implemented shooting behavior for {gun.SelectedMode}!");
             }
-        } else
+        }
+        else
         {
             shots = Math.Min(shots, gun.ShotsPerBurstModified - gun.ShotCounter);
         }
@@ -454,6 +438,7 @@ public abstract partial class SharedGunSystem : EntitySystem
                 gun.Target = null;
             gun.BurstActivated = false;
             gun.BurstShotsCount = 0;
+            gun.ShotCounter = 0;
             gun.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.NextFire.TotalSeconds));
             return;
         }
@@ -485,6 +470,7 @@ public abstract partial class SharedGunSystem : EntitySystem
                 gun.Target = null;
             gun.BurstActivated = false;
             gun.BurstShotsCount = 0;
+            gun.ShotCounter = 0;
             gun.NextFire += TimeSpan.FromSeconds(gun.BurstCooldown);
 
             // Play empty gun sounds if relevant
@@ -521,19 +507,16 @@ public abstract partial class SharedGunSystem : EntitySystem
                     gun.Target = null;
                 gun.BurstActivated = false;
                 gun.BurstShotsCount = 0;
+                gun.ShotCounter = 0;
             }
         }
 
         // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
         Shoot(gunUid, gun, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
-        var shotEv = new GunShotEvent(user, ev.Ammo);
+        var shotEv = new GunShotEvent(user, ev.Ammo, toCoordinates.Value); // Mono - pass coordinates
         RaiseLocalEvent(gunUid, ref shotEv);
 
-        if (userImpulse && TryComp<PhysicsComponent>(user, out var userPhysics))
-        {
-            if (_gravity.IsWeightless(user, userPhysics))
-                CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
-        }
+        CauseImpulse(toCoordinates.Value, (gunUid, gun), ev.Ammo.Count);
     }
 
     public void Shoot(
@@ -560,26 +543,34 @@ public abstract partial class SharedGunSystem : EntitySystem
         EntityUid? user = null,
         bool throwItems = false);
 
-    public virtual void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid gunUid, EntityUid? user = null, float speed = 20f)
+    public virtual void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid gunUid, EntityUid? user = null, float speed = 20f,
+                                        float offset = 0f) // Mono - add offset
     {
-        var physics = EnsureComp<PhysicsComponent>(uid);
+        var physics = _physQuery.CompOrNull(uid) ?? EnsureComp<PhysicsComponent>(uid);
         Physics.SetBodyStatus(uid, physics, BodyStatus.InAir);
 
-        var targetMapVelocity = gunVelocity + direction.Normalized() * speed;
-        var currentMapVelocity = Physics.GetMapLinearVelocity(uid, physics);
-        var finalLinear = physics.LinearVelocity + targetMapVelocity - currentMapVelocity * 2; // Mono, multiples currentMapVelocity by 2
-        Physics.SetLinearVelocity(uid, finalLinear, body: physics);
-        // hullrot edit , do not let these slow down >:( SPCR 2025
-        Physics.SetAngularDamping(uid, physics, 0);
-        Physics.SetLinearDamping(uid, physics, 0);
-        //
+        var targetVelocity = gunVelocity + direction.Normalized() * speed;
+        Physics.SetLinearVelocity(uid, targetVelocity, body: physics);
+        // Mono
+        if (offset != 0f)
+        {
+            var bulletXform = Transform(uid);
+            var offsetVec = targetVelocity * offset * _lastFrameTime;
+            offsetVec = (-TransformSystem.GetWorldRotation(bulletXform.ParentUid)).RotateVec(offsetVec);
+            TransformSystem.SetCoordinates(uid, bulletXform.Coordinates.Offset(offsetVec));
+        }
 
-
-        var projectile = EnsureComp<ProjectileComponent>(uid);
+        var projectile = _projQuery.CompOrNull(uid) ?? EnsureComp<ProjectileComponent>(uid);
         Projectiles.SetShooter(uid, projectile, user ?? gunUid);
         projectile.Weapon = gunUid;
 
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
+    }
+
+    // Mono - used for multiple-per-frame projectile offset
+    public override void Update(float frameTime)
+    {
+        _lastFrameTime = frameTime;
     }
 
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
@@ -595,6 +586,10 @@ public abstract partial class SharedGunSystem : EntitySystem
             DirtyField(uid, cartridge, nameof(CartridgeAmmoComponent.Spent));
 
         cartridge.Spent = spent;
+
+        if (cartridge.DeleteOnSpawn) // Mono - No need to update appearance if cartridge is getting deleted anyways
+            return;
+
         Appearance.SetData(uid, AmmoVisuals.Spent, spent);
     }
 
@@ -662,27 +657,26 @@ public abstract partial class SharedGunSystem : EntitySystem
         CreateEffect(gun, ev, user);
     }
 
-    public void CauseImpulse(EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, EntityUid user, PhysicsComponent userPhysics)
+    // Mono - rewritten
+    public void CauseImpulse(EntityCoordinates toCoordinates, Entity<GunComponent> ent, float scale)
     {
-        var fromMap = fromCoordinates.ToMapPos(EntityManager, TransformSystem);
-        var toMap = toCoordinates.ToMapPos(EntityManager, TransformSystem);
-        var shotDirection = (toMap - fromMap).Normalized();
+        var totalImpulse = ent.Comp.Recoil * scale;
+        var selfXform = Transform(ent);
 
-        const float impulseStrength = 25.0f;
-        var impulseVector =  shotDirection * impulseStrength;
+        var impulseCoord = new EntityCoordinates(ent, Vector2.Zero);
 
-        // Frontier: apply impulse to buckled object if buckled
-        if (TryComp<BuckleComponent>(user, out var buckle) && buckle.BuckledTo is not null)
-        {
-            TryComp<PhysicsComponent>(buckle.BuckledTo, out var buckledPhys);
-            Physics.ApplyLinearImpulse(buckle.BuckledTo.Value, -impulseVector, body: buckledPhys);
-        }
-        else
-        {
-            Physics.ApplyLinearImpulse(user, -impulseVector, body: userPhysics);
-        }
-        // End Frontier
-        // Physics.ApplyLinearImpulse(user, -impulseVector, body: userPhysics); // Frontier: old implementation
+        if (Containers.TryGetContainingContainer(ent.Owner, out var container))
+            impulseCoord = TransformSystem.WithEntityId(impulseCoord, container.Owner);
+        else if (selfXform.Anchored && selfXform.ParentUid != selfXform.MapUid)
+            impulseCoord = TransformSystem.WithEntityId(impulseCoord, selfXform.ParentUid);
+
+        // velocity is in world-aligned coordinates so get vec based off that
+        var worldSource = TransformSystem.GetWorldPosition(impulseCoord.EntityId);
+        var worldTarget = TransformSystem.ToWorldPosition(toCoordinates);
+        var dirVec = worldTarget - worldSource;
+        dirVec.Normalize();
+
+        Physics.ApplyLinearImpulse(impulseCoord.EntityId, -dirVec * totalImpulse, impulseCoord.Position);
     }
 
     public void RefreshModifiers(Entity<GunComponent?> gun, EntityUid? User = null) // GoobStation change - User for NoWieldNeeded
@@ -803,7 +797,7 @@ public record struct AttemptShootEvent(EntityUid User, string? Message, bool Can
 /// </summary>
 /// <param name="User">The user that fired this gun.</param>
 [ByRefEvent]
-public record struct GunShotEvent(EntityUid User, List<(EntityUid? Uid, IShootable Shootable)> Ammo);
+public record struct GunShotEvent(EntityUid User, List<(EntityUid? Uid, IShootable Shootable)> Ammo, EntityCoordinates ToCoordinates); // Mono - pass coordinates
 
 public enum EffectLayers : byte
 {

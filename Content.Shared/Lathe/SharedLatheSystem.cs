@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 ubis1
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Cojoke
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 ScarKy0
-// SPDX-FileCopyrightText: 2025 deltanedas
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Emag.Systems;

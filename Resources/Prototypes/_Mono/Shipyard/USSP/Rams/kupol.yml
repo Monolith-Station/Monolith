@@ -1,17 +1,10 @@
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 Redrover1760
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vessel
   id: Kupol
   parent: BaseVesselAntag
   name: BYP Kupol
   description: A gunnery unit made to make up for the lacking fire-power of the Ledokol.
   limit: 1
-  price: 225000
+  price: 90000
   category: Small
   group: Custom
   access: USSP

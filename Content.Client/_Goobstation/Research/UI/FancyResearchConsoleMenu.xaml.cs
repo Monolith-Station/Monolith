@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Client.Parallax; // Frontier: Parallax control for the background
 using Content.Client.Research;

@@ -1,30 +1,11 @@
-# SPDX-FileCopyrightText: 2023 Cheackraze
-# SPDX-FileCopyrightText: 2023 Checkraze
-# SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 TsjipTsjip
-# SPDX-FileCopyrightText: 2024 checkraze
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 Cojoke
-# SPDX-FileCopyrightText: 2025 Honestly101
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 RikuTheKiller
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: MPL-2.0
-
 meta:
   format: 7
   category: Grid
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/18/2025 11:57:37
-  entityCount: 6195
+  time: 11/26/2025 22:31:03
+  entityCount: 6191
 maps: []
 grids:
 - 1
@@ -1803,6 +1784,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           immutable: True
           moles:
@@ -1818,9 +1803,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -1848,6 +1841,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -1863,6 +1860,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -1870,6 +1871,10 @@ entities:
           - 0
           - 0
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -31184,58 +31189,6 @@ entities:
     - type: Transform
       pos: -18.5,27.5
       parent: 1
-- proto: SpawnMechAFInterceptorFilled
-  entities:
-  - uid: 4448
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 13.5,54.5
-      parent: 1
-  - uid: 4449
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -16.5,54.5
-      parent: 1
-- proto: SpawnMechAFInterceptorGFilled
-  entities:
-  - uid: 4450
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -16.5,50.5
-      parent: 1
-- proto: SpawnMechAFInterceptorMFilled
-  entities:
-  - uid: 4451
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 13.5,50.5
-      parent: 1
-- proto: SpawnMechGygaxSyndieFilled
-  entities:
-  - uid: 4452
-    components:
-    - type: Transform
-      pos: -12.5,73.5
-      parent: 1
-  - uid: 4453
-    components:
-    - type: Transform
-      pos: 8.5,73.5
-      parent: 1
-  - uid: 4454
-    components:
-    - type: Transform
-      pos: 9.5,73.5
-      parent: 1
-  - uid: 4455
-    components:
-    - type: Transform
-      pos: -11.5,73.5
-      parent: 1
 - proto: SpawnPointLatejoin
   entities:
   - uid: 4456
@@ -31630,7 +31583,7 @@ entities:
     - type: Transform
       pos: -18.5,15.5
       parent: 1
-- proto: SuitStorageScaf
+- proto: SuitStorageMercenary
   entities:
   - uid: 4512
     components:
@@ -32512,12 +32465,36 @@ entities:
     - type: Transform
       pos: 10.661893,66.459984
       parent: 1
+- proto: ToyDurand
+  entities:
+  - uid: 4450
+    components:
+    - type: Transform
+      pos: 13.365756,50.593925
+      parent: 1
+  - uid: 4451
+    components:
+    - type: Transform
+      pos: -15.607017,54.434628
+      parent: 1
 - proto: ToyFigurineNukie
   entities:
   - uid: 4593
     components:
     - type: Transform
       pos: -7.277622,23.275648
+      parent: 1
+- proto: ToyGygax
+  entities:
+  - uid: 4448
+    components:
+    - type: Transform
+      pos: -12.217227,73.33943
+      parent: 1
+  - uid: 4449
+    components:
+    - type: Transform
+      pos: 8.979495,73.04256
       parent: 1
 - proto: TwoWayLever
   entities:

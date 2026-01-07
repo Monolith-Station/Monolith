@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 significant harassment
-# SPDX-FileCopyrightText: 2025 starch
-# SPDX-FileCopyrightText: 2025 tonotom
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: latheRecipe
   id: WeaponSubMachineGunKnallstock
   parent: BaseWeaponRecipeLong
@@ -148,9 +140,9 @@
     Plastic: 500
     
 - type: latheRecipe
-  id: WeaponShotgunHelopolis
+  id: WeaponShotgunHelepolis
   parent: BaseWeaponRecipeLong
-  result: WeaponShotgunHelopolis
+  result: WeaponShotgunHelepolis
   categories:
   - Shotguns
   - Ballistic
@@ -159,3 +151,28 @@
     Steel: 1500
     Plasteel: 600
     Plastic: 600
+
+- type: latheRecipe
+  id: WeaponRifleAk
+  parent: BaseWeaponRecipeLong
+  result: WeaponRifleAk
+  categories:
+  - Weapons
+  - Rifles
+  - Ballistic
+  materials:
+    Steel: 2500
+    Plasteel: 1000
+    Plastic: 1000
+
+- type: latheRecipe
+  id: WeaponRadAx
+  parent: BaseWeaponRecipeLong
+  result: WeaponRadAx
+  categories:
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 600
+    Uranium: 600
+

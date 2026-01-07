@@ -1,0 +1,44 @@
+# Author Info
+# GitHub: tonotom1
+# Discord: rws
+
+# Shuttle Notes:
+# hi
+
+- type: vessel
+  id: Medicus
+  parent: BaseVessel
+  name: UW Medicus #medisus
+  description: A trustworthy medical vessel equipped with cryogenics, botany, chemistry, and paramedic capabilities.
+  price: 76500 #appraises at 70000
+  category: Medium
+  group: Medical
+  shuttlePath: /Maps/_Mono/Shuttles/medicus.yml
+  guidebookPage: null
+  class:
+  - Medical
+  - Chemistry
+  - Botany
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Medicus
+  mapName: 'UW Medicus'
+  mapPath: /Maps/_Mono/Shuttles/medicus.yml
+  minPlayers: 0
+  stations:
+    Medicus:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Medicus MED{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            MdMedic: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

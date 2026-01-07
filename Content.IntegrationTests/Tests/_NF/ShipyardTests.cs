@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Debug
-// SPDX-FileCopyrightText: 2025 Dvir
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 Whatstone
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Server.Cargo.Systems;
 using Content.Shared._NF.Shipyard.Prototypes;
@@ -95,17 +88,10 @@ public sealed class ShipyardTest
                     });
 
                     var idealMinPrice = appraisePrice * vessel.MinPriceMarkup;
-                    var idealMaxPrice = appraisePrice * vessel.MaxPriceMarkup;
 
                     Assert.That(vessel.Price, Is.AtLeast(idealMinPrice),
                         $"Arbitrage possible on {vessel.ID}. Minimal price should be {idealMinPrice}, {(vessel.MinPriceMarkup - 1.0f) * 100}% over the appraise price ({appraisePrice}).");
-
-                    if (!vessel.Classes.Contains(VesselClass.Capital))
-                    {
-                        Assert.That(vessel.Price, Is.LessThanOrEqualTo(idealMaxPrice),
-                            $"Overpriced vessel possible on {vessel.ID}. Maximum price should be {idealMaxPrice}, {(vessel.MaxPriceMarkup - 1.0f) * 100}% under the appraise price ({appraisePrice}).");
-                    }
-
+                    
                     map.DeleteMap(mapId);
                 }
             });

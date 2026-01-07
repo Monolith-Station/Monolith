@@ -1,26 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Cheackraze
-// SPDX-FileCopyrightText: 2023 Checkraze
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Moony
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 Visne
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 ElectroJr
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 SlamBamActionman
-// SPDX-FileCopyrightText: 2024 Vasilis
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 checkraze
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using System.Threading;
 using Content.Server._NF.Salvage; // Frontier: graceful exped spawn failures

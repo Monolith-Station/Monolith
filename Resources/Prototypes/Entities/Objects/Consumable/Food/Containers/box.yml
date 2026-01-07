@@ -274,7 +274,7 @@
       prob: 0.10
       orGroup: Pizza
     - id: KnifePlastic
-  
+
 - type: entity
   name: pizza box
   parent: FoodBoxPizzaFilled
@@ -589,7 +589,7 @@
 
 - type: entity
   id: HappyHonkNukie
-  parent: [HappyHonk, BaseC3SyndicateContrabandUnredeemable] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContrabandUnredeemable
+  parent: HappyHonk
   name: robust nukie meal
   description: A sus meal with a potentially explosive surprise.
   suffix: Toy Unsafe

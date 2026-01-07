@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Qulibly
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Clutter
 - type: entity
   name: random clutter
@@ -490,10 +482,15 @@
     - CrateSecurityNonlethal
     - CrateSecureMercenaryHardsuitMagBoots
     - CrateSecureMercenaryPrivateSecHardsuitMagBoots
-    - CrateNanotrasenLootFilledT1 #Mono
     - CrateArmoryShotgunExpedition
     - CrateArmoryPistolsExpedition
     - CrateArmoryEnergyGunExpedition
+# Begin Mono Additions
+    - CrateNanotrasenLootFilledT1
+    - CrateNanotrasenLootFilledT1
+    - CrateNanotrasenLootFilledT2
+    - CrateNanotrasenLootFilledT3
+# End Mono Additions
     rareChance: 0.65
     chance: 1
     offset: 0.0

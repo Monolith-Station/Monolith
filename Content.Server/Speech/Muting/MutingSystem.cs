@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Scribbles0
-// SPDX-FileCopyrightText: 2023 brainfood1183
-// SPDX-FileCopyrightText: 2024 keronshb
-// SPDX-FileCopyrightText: 2025 themias
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Abilities.Mime;
 using Content.Server.Chat.Systems;
 using Content.Server._EinsteinEngines.Language;

@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Jezithyr
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 Visne
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2024 0x6273
-// SPDX-FileCopyrightText: 2024 slarticodefast
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Redrover1760
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Body.Components;
@@ -32,6 +17,9 @@ using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared.Inventory;
 using Content.Shared.Random;
+
+// Mono
+using Content.Shared._White.Standing;
 
 namespace Content.Shared.Body.Systems;
 
@@ -385,6 +373,8 @@ public partial class SharedBodySystem
             bodyEnt.Comp.LegEntities.Add(legEnt);
             UpdateMovementSpeed(bodyEnt);
             Dirty(bodyEnt, bodyEnt.Comp);
+            // Mono
+            Standing.Stand(bodyEnt, force: !HasComp<LayingDownComponent>(bodyEnt));
         }
     }
 
@@ -398,7 +388,8 @@ public partial class SharedBodySystem
             bodyEnt.Comp.LegEntities.Remove(legEnt);
             UpdateMovementSpeed(bodyEnt);
             Dirty(bodyEnt, bodyEnt.Comp);
-            Standing.Down(bodyEnt); // Shitmed Change
+            if (bodyEnt.Comp.LegEntities.Count == 0 && bodyEnt.Comp.RequiredLegs > 0) // Mono
+                Standing.Down(bodyEnt); // Shitmed Change
         }
     }
 

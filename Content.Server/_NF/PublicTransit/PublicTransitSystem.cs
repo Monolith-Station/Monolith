@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Checkraze
-// SPDX-FileCopyrightText: 2024 GreaseMonk
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Dvir
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 ScyronX
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Server._NF.PublicTransit.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
@@ -225,8 +215,11 @@ public sealed class PublicTransitSystem : EntitySystem
                 {
                     var destinationString = metadata.EntityName;
 
-                    _chat.TrySendInGameICMessage(consoleUid, Loc.GetString("public-transit-departure",
-                        ("destination", destinationString), ("flytime", FlyTime)),
+                    //public-transit-arrival >> public-transit-instant, use waittime arg instead of flytime arg: The system is currently bugged
+                    //_shuttles.FTLToDock is calling TryFTLDock, which bypasses the FTL delay and breaks OnShuttleArrival
+                    //Standard FTL also occasionally overlaps the bus into stations so I have resorted to just reappropriating the message
+                    _chat.TrySendInGameICMessage(consoleUid, Loc.GetString("public-transit-instant",
+                        ("destination", destinationString), /*("flytime", FlyTime),*/ ("waittime", _cfgManager.GetCVar(NFCCVars.PublicTransitWaitTime))),
                         InGameICChatType.Speak, ChatTransmitRange.HideChat, hideLog: true, checkRadioPrefix: false,
                         ignoreActionBlocker: true);
                 }

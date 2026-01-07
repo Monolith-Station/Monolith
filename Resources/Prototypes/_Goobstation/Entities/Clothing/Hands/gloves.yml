@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesChronoLegioneer
   name: futuristic gloves
@@ -19,3 +19,32 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesHeavyGoldenTrim
+  name: heavy gold-trimmed gloves
+  description: A pair of gold-trimmed gloves made for Winter Solstice staff. These ones are insulated.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-classified
+    fiberColor: fibers-white
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesGoldenTrim
+  name: gold-trimmed gloves
+  description: A pair of gold-trimmed gloves made for Winter Solstice staff. Not insulated.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
+  - type: Fiber
+    fiberMaterial: fibers-classified
+    fiberColor: fibers-white

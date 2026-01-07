@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 metalgearsloth
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Movement.Components;
 
 namespace Content.Shared.Movement.Systems;

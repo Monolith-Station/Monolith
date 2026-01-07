@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 Rouge2t7
-// SPDX-FileCopyrightText: 2025 metalgearsloth
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Server.Movement.Components;
 using Content.Server.Physics.Controllers;

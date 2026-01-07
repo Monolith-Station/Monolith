@@ -1,56 +1,21 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Hamblinius
-# SPDX-FileCopyrightText: 2024 VividPups
-# SPDX-FileCopyrightText: 2024 steinhauer.erhard
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 Whatstone
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-- type: loadoutGroup
-  id: StationRepJumpsuit
-  name: loadout-group-contractor-jumpsuit
-  loadouts:
-  - StationRepClothingUniformJumpsuitSr
-  - StationRepClothingUniformJumpskirtSr
-  - StationRepClothingUniformJumpsuitMilitarySr
-  fallbacks:
-  - StationRepClothingUniformJumpsuitSr
-  - StationRepClothingUniformJumpskirtSr
+# Mono edit.
 
 - type: loadoutGroup
   id: StationRepOuterClothing
   name: loadout-group-contractor-outerclothing
   minLimit: 0
   loadouts:
-  - StationRepClothingOuterArmorSrCarapace
-  - StationRepClothingOuterJacketSr
-  - ContractorClothingOuterCoatExpensive #We let them drip out a little if they want
-  - ContractorClothingOuterCoatSpaceAsshole
+  - StationRepClothingOuterHardsuitSecurityRed
+  subgroups:
+  - HeadofSecurityOuterClothing
 
 - type: loadoutGroup
   id: StationRepBackpack
   name: loadout-group-contractor-backpack
   loadouts:
-  - StationRepClothingBackpackMessengerSr
-  - StationRepClothingBackpackIan
+  - StationRepClothingModsuitHeadOfSecurityPowerCell
   subgroups:
-  - ContractorBackpack
-  fallbacks:
-  - StationRepClothingBackpackMessengerSr
-
-- type: loadoutGroup
-  id: StationRepHead
-  name: loadout-group-contractor-head
-  minLimit: 0
-  loadouts:
-  - StationRepClothingHeadHatSrCap
-  - StationRepClothingHeadHatSrBeret
-  subgroups:
-  - ContractorHead
+  - SecurityBackpack
 
 - type: loadoutGroup
   id: StationRepEars
@@ -71,15 +36,7 @@
   name: loadout-group-contractor-gloves
   minLimit: 0
   loadouts:
-  - StationRepClothingHandsGlovesSr
-
-- type: loadoutGroup
-  id: StationRepNeck
-  name: loadout-group-contractor-neck
-  minLimit: 0
-  loadouts:
-  - StationRepClothingNeckCloakSr
-  - StationRepClothingNeckMantleSr
+  - StationRepClothingHandsGlovesCombat # Mono
 
 - type: loadoutGroup
   id: StationRepPDA

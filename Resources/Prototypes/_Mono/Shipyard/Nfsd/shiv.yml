@@ -1,0 +1,36 @@
+- type: vessel
+  id: Shiv
+  parent: BaseVesselAntag
+  name: TSF-PIN Shiv
+  description: The workhorse of industry of the Solarian fleets, comes with an artifact research bay and good mining capabilities.
+  price: 60000
+  category: Small
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/shiv.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  - Science
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Shiv
+  mapName: 'Shiv'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/shiv.yml
+  minPlayers: 0
+  stations:
+    Shiv:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Shiv TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

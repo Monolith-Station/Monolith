@@ -1,23 +1,3 @@
-// SPDX-FileCopyrightText: 2021 JustinTime
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2021 metalgearsloth
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2022 Radrark
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Kesiath
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 checkraze
-// SPDX-FileCopyrightText: 2024 spacedwarf14
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 Winkarst
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using System.Numerics;
 using Content.Server._NF.M_Emp;
 using Content.Server.Shuttles.Systems;
@@ -47,10 +27,10 @@ namespace Content.Server.Shuttles.Components
 
         // Need to serialize this because RefreshParts isn't called on Init and this will break post-mapinit maps!
         [ViewVariables(VVAccess.ReadWrite), DataField("thrust")]
-        public float Thrust = 150f; // 100f->150f Mono
+        public float Thrust = 200f; // 100f->200f Mono
 
         [DataField("baseThrust"), ViewVariables(VVAccess.ReadWrite)]
-        public float BaseThrust = 150f; // 100f->150f Mono
+        public float BaseThrust = 200f; // 100f->200f Mono
 
         [DataField("thrusterType")]
         public ThrusterType Type = ThrusterType.Linear;

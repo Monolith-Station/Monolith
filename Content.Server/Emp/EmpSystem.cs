@@ -17,6 +17,7 @@ using Robust.Shared; // Frontier: EMP Blast PVS
 using Content.Shared.Verbs; // Frontier: examine verb
 using Robust.Shared.Utility; // Frontier: examine verb
 using Content.Server.Examine; // Frontier: examine verb
+using Content.Server._Mono.Emp; // Mono: EMP Shielding
 
 namespace Content.Server.Emp;
 
@@ -101,6 +102,11 @@ public sealed class EmpSystem : SharedEmpSystem
     /// <param name="duration">The duration of the EMP effects.</param>
     public void DoEmpEffects(EntityUid uid, float energyConsumption, float duration)
     {
+        // Mono edit start
+        if (TryComp<EmpResistanceComponent>(uid, out var res))
+            energyConsumption *= res.Coefficient;
+        // Mono edit end
+
         var ev = new EmpPulseEvent(energyConsumption, false, false, TimeSpan.FromSeconds(duration));
         RaiseLocalEvent(uid, ref ev);
         if (ev.Affected)
@@ -110,13 +116,14 @@ public sealed class EmpSystem : SharedEmpSystem
         if (ev.Disabled)
         {
             // Frontier: Upstream - #28984 start
-            //disabled.DisabledUntil = Timing.CurTime + TimeSpan.FromSeconds(duration);
             var disabled = EnsureComp<EmpDisabledComponent>(uid);
-            if (disabled.DisabledUntil == TimeSpan.Zero)
-            {
-                disabled.DisabledUntil = Timing.CurTime;
-            }
-            disabled.DisabledUntil = disabled.DisabledUntil + TimeSpan.FromSeconds(duration);
+            disabled.DisabledUntil = Timing.CurTime + TimeSpan.FromSeconds(duration);
+            // Mono - remove EMP effect stackup
+            // if (disabled.DisabledUntil == TimeSpan.Zero)
+            // {
+            //     disabled.DisabledUntil = Timing.CurTime;
+            // }
+            // disabled.DisabledUntil = disabled.DisabledUntil + TimeSpan.FromSeconds(duration);
 
             /// i tried my best to go through the Pow3r server code but i literally couldn't find in relation to PowerNetworkBatteryComponent that uses the event system
             /// the code is otherwise too esoteric for my innocent eyes

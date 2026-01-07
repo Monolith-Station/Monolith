@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 WallaceLordofOwls
-# SPDX-FileCopyrightText: 2025 kasature90
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # CHARON
 
 - type: entity
@@ -16,8 +9,9 @@
   - type: Projectile
     damage:
       types:
-        Structural: 90000
+        Structural: 9000
         Blunt: 5000
+    penetrationThreshold: 2500
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
@@ -36,10 +30,10 @@
     color: "#19AFFF"
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
-    totalIntensity: 7500
-    intensitySlope: 100
-    maxIntensity: 6000
+    explosionType: Default
+    totalIntensity: 1500
+    intensitySlope: 40
+    maxIntensity: 200
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -47,7 +41,7 @@
 - type: entity
   id: CharonSlugAmmo
   name: M381 CHARON 280mm 26.5kg slug cartridge
-  description: A all-in-one package containing the plasma gas for ionization in the linear accelerator and the slug itself.
+  description: An all-in-one package containing plasma gas accelerant and a high-density tungsten slug. Cheap, devastating, and long ranged.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -70,7 +64,8 @@
 
 - type: entity
   id: ShipRailgunProjectileSubnuclear
-  name: M381 CHARON 280mm 26.5 kg slug
+  name: M381 CHARON 280mm 1.5kt nuclear slug
+  description: Once the genie is out of the bottle, there's no putting it back inside, tarkhan.
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -87,7 +82,7 @@
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    radarColor: "#0DFF00"
+    radarColor: "#268521"
     scale: 4
     requireNoGrid: true
     shape: triangle
@@ -97,18 +92,18 @@
     color: "#19AFFF"
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
-    totalIntensity: 25000
-    intensitySlope: 100
-    maxIntensity: 11000
+    explosionType: Default
+    totalIntensity: 12000
+    intensitySlope: 30
+    maxIntensity: 400
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
 
 - type: entity
   id: CharonSubnuclearSlugAmmo
-  name: M381 CHARON 280mm 26.5kg subnuclear slug cartridge
-  description: A all-in-one package containing the plasma gas for ionization in the linear accelerator and the slug itself. This one carries a subnuclear payload.
+  name: M381 CHARON 280mm 1.5kt nuclear slug cartridge
+  description: NUCLEAR. CARNAGE. An all-in-one package containing plasma gas accelerant, and a low-yield fission warhead. May cause public outcry, but you *had* to use this, right?
   parent: BaseGrenade
   components:
   - type: Tag

@@ -1,38 +1,4 @@
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-// SPDX-FileCopyrightText: 2020 chairbender
-// SPDX-FileCopyrightText: 2021 Acruid
-// SPDX-FileCopyrightText: 2021 Galactic Chimp
-// SPDX-FileCopyrightText: 2021 Moony
-// SPDX-FileCopyrightText: 2021 Paul
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2021 ShadowCommander
-// SPDX-FileCopyrightText: 2021 Silver
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 AJCM-git
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2023 PixelTK
-// SPDX-FileCopyrightText: 2023 Slava0135
-// SPDX-FileCopyrightText: 2024 Arendian
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 LordCarve
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 Winkarst
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2024 nikthechampiongr
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 SlamBamActionman
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Administration.Logs;
-using Content.Server.Chat.Systems; // Frontier
 using Content.Server.Destructible;
 using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
@@ -41,8 +7,6 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
-using Content.Shared.Eye.Blinding.Components; // Frontier
-using Content.Shared.Eye.Blinding.Systems; // Frontier
 using Content.Shared.FixedPoint;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
@@ -50,12 +14,10 @@ using Content.Shared.StatusEffect;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Dynamics; // Mono
-using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Dynamics; // Mono;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Random; // Frontier
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
@@ -64,20 +26,9 @@ namespace Content.Server.Projectiles;
 
 public sealed class ProjectileSystem : SharedProjectileSystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
-    [Dependency] private readonly GunSystem _guns = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
-
-    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!; // Frontier
-    [Dependency] private readonly BlindableSystem _blindingSystem = default!; // Frontier
-    [Dependency] private readonly IRobustRandom _random = default!; // Frontier
-    [Dependency] private readonly ChatSystem _chat = default!; // Frontier
 
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
     // <Mono>
@@ -98,6 +49,9 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         // Mono
         _physQuery = GetEntityQuery<PhysicsComponent>();
         _fixQuery = GetEntityQuery<FixturesComponent>();
+
+        // Mono
+        UpdatesBefore.Add(typeof(SharedPhysicsSystem));
     }
 
     public override DamageSpecifier? ProjectileCollide(Entity<ProjectileComponent, PhysicsComponent> projectile, EntityUid target, MapCoordinates? collisionCoordinates, bool predicted = false)
@@ -170,11 +124,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             component.ProjectileSpent = true;
         }
 
-        if (component.RandomBlindChance > 0.0f && _random.Prob(component.RandomBlindChance)) // Frontier - bb make you go blind
-        {
-            TryBlind(target);
-        }
-
         return modifiedDamage;
     }
 
@@ -185,7 +134,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         var query = EntityQueryEnumerator<ProjectileComponent, PhysicsComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var projectileComp, out var physicsComp, out var xform))
         {
-            if (projectileComp.ProjectileSpent)
+            if (projectileComp.ProjectileSpent || TerminatingOrDeleted(uid))
                 continue;
 
             var currentVelocity = physicsComp.LinearVelocity;
@@ -200,7 +149,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 continue;
 
             if (!_fixQuery.TryComp(uid, out var fix) || !fix.Fixtures.TryGetValue(ProjectileFixture, out var projFix))
-                return;
+                continue;
 
             var hits = _physics.IntersectRay(xform.MapID,
                 new CollisionRay(lastPosition, rayDirection, projFix.CollisionMask),
@@ -248,31 +197,11 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 // teleport us so we hit it
                 // this is cursed but i don't think there's a better way to force a collision here
                 _transformSystem.SetWorldPosition(uid, _transformSystem.GetWorldPosition(closestHit.HitEntity));
+                if (projectileComp.RaycastResetVelocity)
+                    _physics.SetLinearVelocity(uid, rayDirection * MinRaycastVelocity * 0.99f);
+
                 continue;
             }
         }
-    }
-
-    private void TryBlind(EntityUid target) // Frontier - bb make you go blind
-    {
-        if (!TryComp<BlindableComponent>(target, out var blindable) || blindable.IsBlind)
-            return;
-
-        var eyeProtectionEv = new GetEyeProtectionEvent();
-        RaiseLocalEvent(target, eyeProtectionEv);
-
-        var time = (float)(TimeSpan.FromSeconds(2) - eyeProtectionEv.Protection).TotalSeconds;
-        if (time <= 0)
-            return;
-
-        var emoteId = "Scream";
-        _chat.TryEmoteWithoutChat(target, emoteId);
-
-        // Add permanent eye damage if they had zero protection, also somewhat scale their temporary blindness by
-        // how much damage they already accumulated.
-        _blindingSystem.AdjustEyeDamage((target, blindable), 1);
-        var statusTimeSpan = TimeSpan.FromSeconds(time * MathF.Sqrt(blindable.EyeDamage));
-        _statusEffectsSystem.TryAddStatusEffect(target, TemporaryBlindnessSystem.BlindingStatusEffect,
-            statusTimeSpan, false, TemporaryBlindnessSystem.BlindingStatusEffect);
     }
 }

@@ -17,6 +17,7 @@ research-technology-tsfmc-industrial-processing = Industrial Processing
 research-technology-tsfmc-portable-recharger = Portable Recharger
 research-technology-tsfmc-nvd = Night Vision Devices
 research-technology-tsfmc-motion-detector = Biosignature IFF Technology
+research-technology-tsfmc-basic-module = TSFMC Basic Cyborg Module Developpment
 
 # T2 TSFMC
 research-technology-tsfmc-annie = M-27 Annie
@@ -32,3 +33,4 @@ research-technology-tsfmc-flyssa-voucher = Flyssa Procurement LPC
 research-technology-tsfmc-mr8 = MARSOC Firearms Development
 research-technology-tsfmc-xlr556 = Infantry Combat Weapon System
 research-technology-tsfmc-synthalloy = Experimental Material Science
+research-technology-tsfmc-advanced-module = TSFMC Advanced Cyborg Module Developpment
