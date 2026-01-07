@@ -51,3 +51,5 @@
           - USSPCommand
         - type: StationDeadDrop
           maxDeadDrops: 2 # Fewer here, players start here.
+        - type: VesselMusic
+          ambientMusicPrototype: CamelotMusic
