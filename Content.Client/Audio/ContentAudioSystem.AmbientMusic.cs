@@ -30,6 +30,7 @@ using System.Diagnostics;
 using System.Threading;
 using Robust.Shared.Timing;
 using Content.Shared.NPC.Components;
+using Content.Shared._Crescent.RoleFaction;
 
 namespace Content.Client.Audio;
 
@@ -276,10 +277,10 @@ public sealed partial class ContentAudioSystem
 
         bool currentCombatState = _combatModeSystem.IsInCombatMode();
         string faction = "";
-        if (!TryComp<NpcFactionMemberComponent>(ev.Performer, out NpcFactionMemberComponent? factionComp))
-            _sawmill.Debug("NO NPC FACTION MEMBER COMPONENT FOUND! YOU NEED TO ADD A FACTION COMPONENT TO THIS ROLE!");
+        if (!TryComp<RoleFactionComponent>(ev.Performer, out RoleFactionComponent? factionComp))
+            _sawmill.Debug("NO ROLE FACTION COMPONENT FOUND! YOU NEED TO ADD A FACTION COMPONENT TO THIS ROLE!");
         else
-            faction = factionComp.Factions.FirstOrDefault();
+            faction = factionComp.Faction;
         if (currentCombatState)
             Timer.Spawn(_combatStartUpTime, () => SwitchCombatMusic(faction), _combatMusicCancelToken.Token);
         else

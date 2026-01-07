@@ -10,11 +10,14 @@
 ##
 ## combat music default/fallback is called "combatmusic"
 ## factional combat music must be called "combatmusic<FACTIONNAME>", and be a valid faction in the clientside character profile
-## this is because the way combat music is fetched is just adding that faction string to combatmusic, creating "combatmusicNCWL", "combatmusicDSM", etc.
+## this is because the way combat music is fetched is just adding that RoleFaction string to combatmusic, creating "combatmusicTSFMC", etc.
 ##
-## valid factions: ATH, DSM, NCWL, TFSC, SHI, TAP, SRM, TSP.
+## valid factions:
+## TSFMC
+## PDV
+## (everyone else gets combatmodedefault)
 ##
-## @.2, hullrot discord, 2025/6/23
+## @.2, 2025/6/23
 
 
 #example
@@ -57,351 +60,71 @@
 ## FACTION COMBAT MUSIC TRACKS
 ## ID MUST BE "combatmode<FACTION>"!
 
+### PDV
 - type: ambientMusic
-  id: combatmodePirateNF
+  id: combatmodePDV
   priority: 3
   sound:
-    collection: combatmodePirateNF
+    collection: combatmodePDV
 
 - type: soundCollection
-  id: combatmodePirateNF
+  id: combatmodePDV
   files:
-    - /Audio/_Crescent/Ambience/CombatMode/PirateNF_1.ogg
-    - /Audio/_Crescent/Ambience/CombatMode/PirateNF_2.ogg
+    - /Audio/_Crescent/Ambience/CombatMode/PDV_1.ogg
+    - /Audio/_Crescent/Ambience/CombatMode/PDV_2.ogg
 
-### TFSC (Balkanized) | STATE: redone by Baldy, needs custom tracks for each subfaction - leaving GSC with their Brigador OST
-
-#GSC | STATE: Has their Brigador OST
+### TSFMC
 - type: ambientMusic
-  id: combatmodeGSC
+  id: combatmodeTSFMC
   priority: 3
   sound:
-    collection: combatmodeGSC
+    collection: combatmodeTSFMC
 
 - type: soundCollection
-  id: combatmodeGSC
+  id: combatmodeTSFMC
   files:
-    - /Audio/_Crescent/Ambience/CombatMode/TFSC_1.ogg
-    - /Audio/_Crescent/Ambience/CombatMode/TFSC_2.ogg
+    - /Audio/_Crescent/Ambience/CombatMode/TSFMC_1.ogg
+    - /Audio/_Crescent/Ambience/CombatMode/TSFMC_2.ogg
 
-# SAW | STATE: Heavy industrial tracks
-- type: ambientMusic
-  id: combatmodeSAW
-  priority: 3
-  sound:
-    collection: combatmodeSAW
-
-- type: soundCollection
-  id: combatmodeSAW
-  files:
-    - /Audio/_Crescent/Ambience/CombatMode/SAW_1.ogg
-    - /Audio/_Crescent/Ambience/CombatMode/SAW_2.ogg
-
-#IPM | STATE: Left with default TFSC track, needs replacement
-- type: ambientMusic
-  id: combatmodeIPM
-  priority: 3
-  sound:
-    collection: combatmodeIPM
-
-- type: soundCollection
-  id: combatmodeIPM
-  files:
-    - /Audio/_Crescent/Ambience/CombatMode/IPM_1.ogg
-    - /Audio/_Crescent/Ambience/CombatMode/IPM_2.ogg
-
-#CD | STATE: Left with default TFSC track
-- type: ambientMusic
-  id: combatmodeCD
-  priority: 3
-  sound:
-    collection: combatmodeCD
-
-- type: soundCollection
-  id: combatmodeCD
-  files:
-    - /Audio/_Crescent/Ambience/CombatMode/TFSC_1.ogg
-    - /Audio/_Crescent/Ambience/CombatMode/TFSC_2.ogg
-
-
-# DSM | STATE: theyre ok
-- type: ambientMusic
-  id: combatmodeDSM
-  priority: 3
-  sound:
-    collection: combatmodeDSM
-
-- type: soundCollection
-  id: combatmodeDSM
-  files:
-    - /Audio/_Crescent/Ambience/CombatMode/DSM_1.ogg
-    - /Audio/_Crescent/Ambience/CombatMode/DSM_2.ogg
-
-# SHI | STATE: very good
-- type: ambientMusic
-  id: combatmodeSHI
-  priority: 3
-  sound:
-    collection: combatmodeSHI
-
-- type: soundCollection
-  id: combatmodeSHI
-  files:
-    - /Audio/_Crescent/Ambience/CombatMode/SHI_1.ogg
-    - /Audio/_Crescent/Ambience/CombatMode/SHI_2.ogg
-    - /Audio/_Crescent/Ambience/CombatMode/SHI_3.ogg
-    - /Audio/_Crescent/Ambience/CombatMode/SHI_4.ogg
-
-# TAP | STATE: not happy with em
-- type: ambientMusic
-  id: combatmodeTAP
-  priority: 3
-  sound:
-    collection: combatmodeTAP
-
-- type: soundCollection
-  id: combatmodeTAP
-  files:
-    - /Audio/_Crescent/Ambience/CombatMode/TAP_1.ogg
-    - /Audio/_Crescent/Ambience/CombatMode/TAP_2.ogg
-
-#Spacers/Independent | STATE: .2 approved
-- type: ambientMusic
-  id: combatmodeIND
-  priority: 3
-  sound:
-    collection: combatmodeIND
-
-- type: soundCollection
-  id: combatmodeIND
-  files:
-    - /Audio/_Crescent/Ambience/CombatMode/fallback.ogg
-
-#Gliess Santo | STATE: Could be better
-- type: ambientMusic
-  id: combatmodeGS
-  priority: 3
-  sound:
-    collection: combatmodeGS
-
-- type: soundCollection
-  id: combatmodeGS
-  files:
-    - /Audio/_Crescent/Ambience/CombatMode/GS_1.ogg
-    - /Audio/_Crescent/Ambience/CombatMode/GS_2.ogg
-    - /Audio/_Crescent/Ambience/CombatMode/GS_3.ogg
-
-## DEPRECATED!!! AMBIENT MUSIC TRACKS
-## ID MUST BE IDENTICAL TO BIOME ID FROM space_biomes.yml!
-
-
-## DEPRECATED!!!
-
-#imperial
+# outer ring
 
 - type: ambientMusic
-  id: imperialbiome
+  id: outer_ring
   priority: 1
   sound:
-    collection: imperialbiome
+    collection: outer_ring
 
 - type: soundCollection
-  id: imperialbiome
+  id: outer_ring
   files:
-   - /Audio/_Crescent/duduk.ogg
+   - /Audio/_Crescent/Biomes/OuterRing/outer_ring_1.ogg
 
-#hunter
+# middle ring
 
 - type: ambientMusic
-  id: hunterbiome
+  id: middle_ring
   priority: 1
   sound:
-    collection: hunterbiome
+    collection: middle_ring
 
 - type: soundCollection
-  id: hunterbiome
+  id: middle_ring
   files:
-   - /Audio/_Crescent/ludd.ogg
+   - /Audio/_Crescent/Biomes/MiddleRing/middle_ring_1.ogg
 
-#syndie
+# inner ring
 
 - type: ambientMusic
-  id: syndicatebiome
+  id: inner_ring
   priority: 1
   sound:
-    collection: syndicatebiome
+    collection: inner_ring
 
 - type: soundCollection
-  id: syndicatebiome
+  id: inner_ring
   files:
-   - /Audio/_Crescent/syndies.ogg
+   - /Audio/_Crescent/Biomes/InnerRing/inner_ring_1.ogg
 
-#corpie
-
-- type: ambientMusic
-  id: corpiebiome
-  priority: 1
-  sound:
-    collection: corpiebiome
-
-- type: soundCollection
-  id: corpiebiome
-  files:
-   - /Audio/_Crescent/the_insulindan_miracle.ogg
-
-#wilds
-
-- type: ambientMusic
-  id: wildbiome
-  priority: 1
-  sound:
-    collection: wildbiome
-
-
-- type: soundCollection
-  id: wildbiome
-  files:
-   - /Audio/_Crescent/Biomes/Wilds/wilds_1.ogg
-   - /Audio/_Crescent/Biomes/Wilds/wilds_2.ogg
-   - /Audio/_Crescent/Biomes/Wilds/wilds_3.ogg
-   - /Audio/_Crescent/Biomes/Wilds/wilds_4.ogg
-   - /Audio/_Crescent/Biomes/Wilds/wilds_5.ogg
-   - /Audio/_Crescent/Biomes/Wilds/wilds_6.ogg
-   - /Audio/_Crescent/Biomes/Wilds/wilds_7.ogg
-   - /Audio/_Crescent/Biomes/Wilds/wilds_8.ogg
-   - /Audio/_Crescent/Biomes/Wilds/wilds_9.ogg
-   - /Audio/_Crescent/Biomes/Wilds/wilds_10.ogg
-
-#deepwilds
-
-- type: ambientMusic
-  id: deepwildbiome
-  priority: 1
-  sound:
-    collection: deepwildbiome
-
-- type: soundCollection
-  id: deepwildbiome
-  files:
-   - /Audio/_Crescent/Biomes/Deepwilds/deepwilds_1.ogg
-   - /Audio/_Crescent/Biomes/Deepwilds/deepwilds_2.ogg
-   - /Audio/_Crescent/Biomes/Deepwilds/deepwilds_3.ogg
-   - /Audio/_Crescent/Biomes/Deepwilds/deepwilds_4.ogg
-   - /Audio/_Crescent/Biomes/Deepwilds/deepwilds_5.ogg
-
-#fracture / port vladzena. confusingly named hadalbiome??
-
-- type: ambientMusic
-  id: hadalbiome
-  priority: 1
-  sound:
-    collection: hadalbiome
-
-- type: soundCollection
-  id: hadalbiome
-  files:
-   - /Audio/_Crescent/surfacing.ogg
-
-#hadal deadspace
-
-- type: ambientMusic
-  id: hadaldeadspace
-  priority: 1
-  sound:
-    collection: hadaldeadspace
-
-- type: soundCollection
-  id: hadaldeadspace
-  files:
-   - /Audio/_Crescent/Biomes/HadalDeadspace/deadspace_1.ogg
-   - /Audio/_Crescent/Biomes/HadalDeadspace/deadspace_2.ogg
-
-#scrapyards, generic
-
-- type: ambientMusic
-  id: scrapyardbiome
-  priority: 1
-  sound:
-    collection: scrapyardbiome
-
-- type: soundCollection
-  id: scrapyardbiome
-  files:
-   - /Audio/_Crescent/Biomes/Scrapyard/scrapyard_1.ogg
-   - /Audio/_Crescent/Biomes/Scrapyard/scrapyard_2.ogg
-   - /Audio/_Crescent/Biomes/Scrapyard/scrapyard_3.ogg
-   - /Audio/_Crescent/Biomes/Scrapyard/scrapyard_4.ogg
-   - /Audio/_Crescent/Biomes/Scrapyard/scrapyard_5.ogg
-
-#asteroid fields, generic
-
-- type: ambientMusic
-  id: asteroidbiome
-  priority: 1
-  sound:
-    collection: asteroidbiome
-
-- type: soundCollection
-  id: asteroidbiome
-  files:
-   - /Audio/_Crescent/Biomes/AsteroidField/asteroid_1.ogg
-   - /Audio/_Crescent/Biomes/AsteroidField/asteroid_2.ogg
-   - /Audio/_Crescent/Biomes/AsteroidField/asteroid_3.ogg
-   - /Audio/_Crescent/Biomes/AsteroidField/asteroid_4.ogg
-   - /Audio/_Crescent/Biomes/AsteroidField/asteroid_5.ogg
-
-# graveyard
-
-- type: ambientMusic
-  id: graveyardbiome
-  priority: 1
-  sound:
-    collection: graveyardbiome
-
-- type: soundCollection
-  id: graveyardbiome
-  files:
-   - /Audio/_Crescent/Biomes/Graveyard/graveyard.ogg
-
-# gliess santo approach
-
-- type: ambientMusic
-  id: gliessbiome
-  priority: 1
-  sound:
-    collection: gliessbiome
-
-- type: soundCollection
-  id: gliessbiome
-  files:
-   - /Audio/_Crescent/Biomes/GliessApproach/gliess_approach_1.ogg
-
-# tatsumoto approach
-
-- type: ambientMusic
-  id: tatsumotobiome
-  priority: 1
-  sound:
-    collection: tatsumotobiome
-
-- type: soundCollection
-  id: tatsumotobiome
-  files:
-   - /Audio/_Crescent/Biomes/TatsumotoApproach/tatsumoto_approach_1.ogg
-   - /Audio/_Crescent/Biomes/TatsumotoApproach/tatsumoto_approach_2.ogg
-
-# balreska approach
-
-- type: ambientMusic
-  id: balreskabiome
-  priority: 1
-  sound:
-    collection: balreskabiome
-
-- type: soundCollection
-  id: balreskabiome
-  files:
-   - /Audio/_Crescent/Biomes/BalreskaApproach/balreska_approach_1.ogg
 
 #STATIONS
 #EXPLANATION: shuttle/station prototypes have a VesselMusic component.
@@ -421,136 +144,3 @@
    - /Audio/_Crescent/Stations/NCWL/PortBalreska/balreska_1.ogg
    - /Audio/_Crescent/Stations/NCWL/PortBalreska/balreska_2.ogg
    - /Audio/_Crescent/Stations/NCWL/PortBalreska/balreska_3.ogg
-
-#GLIESS SANTO
-- type: ambientMusic
-  id: GliessMusic
-  priority: 1
-  sound:
-    collection: GliessMusic
-
-- type: soundCollection
-  id: GliessMusic
-  files:
-   - /Audio/_Crescent/Stations/Gliess/gliess_1.ogg
-   - /Audio/_Crescent/Stations/Gliess/gliess_2.ogg
-   - /Audio/_Crescent/Stations/Gliess/gliess_3.ogg
-
-#JACKAL
-- type: ambientMusic
-  id: JackalMusic
-  priority: 1
-  sound:
-    collection: JackalMusic
-
-- type: soundCollection
-  id: JackalMusic
-  files:
-   - /Audio/_Crescent/Stations/TFSC/Jackal/jackal_1.ogg
-   - /Audio/_Crescent/Stations/TFSC/Jackal/jackal_2.ogg
-   - /Audio/_Crescent/Stations/TFSC/Jackal/jackal_3.ogg
-   - /Audio/_Crescent/Stations/TFSC/Jackal/jackal_4.ogg
-
-#DOCHENSKAYA
-- type: ambientMusic
-  id: DochenskayaMusic
-  priority: 1
-  sound:
-    collection: DochenskayaMusic
-
-- type: soundCollection
-  id: DochenskayaMusic
-  files:
-   - /Audio/_Crescent/Stations/TFSC/Dochenskaya/dochenskaya_1.ogg
-   - /Audio/_Crescent/Stations/TFSC/Dochenskaya/dochenskaya_2.ogg
-
-#COUNTSMAN
-- type: ambientMusic
-  id: CountsmanMusic
-  priority: 1
-  sound:
-    collection: CountsmanMusic
-
-- type: soundCollection
-  id: CountsmanMusic
-  files:
-   - /Audio/_Crescent/Stations/DSM/Countsman/countsman_1.ogg
-   - /Audio/_Crescent/Stations/DSM/Countsman/countsman_2.ogg
-   - /Audio/_Crescent/Stations/DSM/Countsman/countsman_3.ogg
-
-#TATSUMOTO
-
-- type: ambientMusic
-  id: TatsumotoMusic
-  priority: 1
-  sound:
-    collection: TatsumotoMusic
-
-- type: soundCollection
-  id: TatsumotoMusic
-  files:
-   - /Audio/_Crescent/Stations/SHI/Tatsumoto/tatsumoto_1.ogg
-   - /Audio/_Crescent/Stations/SHI/Tatsumoto/tatsumoto_2.ogg
-   - /Audio/_Crescent/Stations/SHI/Tatsumoto/tatsumoto_3.ogg
-
-#UNIONFALL
-
-#unionfall vlad
-
-- type: ambientMusic
-  id: unionfallVladzenaBiome
-  sound:
-    collection: unionfallvladzena
-
-- type: soundCollection
-  id: unionfallvladzena
-  files:
-   - /Audio/_Crescent/surfacing.ogg
-
-#unionfall grace period - NCWL
-
-- type: ambientMusic
-  id: unionfallGraceNCWLBiome
-  sound:
-    collection: unionfallGraceNCWLBiome
-
-- type: soundCollection
-  id: unionfallGraceNCWLBiome
-  files:
-   - /Audio/_Crescent/Ambience/Unionfall/NCWL_grace.ogg
-
-#unionfall fight period - NCWL
-
-- type: ambientMusic
-  id: unionfallApproachingNCWLBiome
-  sound:
-    collection: unionfallApproachingNCWLBiome
-
-- type: soundCollection
-  id: unionfallApproachingNCWLBiome
-  files:
-   - /Audio/_Crescent/Ambience/Unionfall/NCWL_fight.ogg
-
-#unionfall grace period - DSM
-
-- type: ambientMusic
-  id: unionfallGraceDSMBiome
-  sound:
-    collection: unionfallGraceDSMBiome
-
-- type: soundCollection
-  id: unionfallGraceDSMBiome
-  files:
-   - /Audio/_Crescent/Ambience/Unionfall/DSM_grace.ogg
-
-#unionfall fight period - DSM
-
-- type: ambientMusic
-  id: unionfallApproachingDSMBiome
-  sound:
-    collection: unionfallApproachingDSMBiome
-
-- type: soundCollection
-  id: unionfallApproachingDSMBiome
-  files:
-   - /Audio/_Crescent/Ambience/Unionfall/DSM_fight.ogg

@@ -31,6 +31,8 @@
     - type: NpcFactionMember
       factions:
       - PirateNF
+    - type: RoleFaction
+      faction: PDV
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages
