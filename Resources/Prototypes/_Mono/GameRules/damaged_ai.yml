@@ -6,7 +6,7 @@
       - id: UnknownShuttleRazor
       - id: UnknownShuttleNebula
       - id: UnknownShuttleArchangel
-  
+
 - type: entityTable
   id: DamagedAIShipsTableT2
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
@@ -109,17 +109,3 @@
   - type: LoadMapRule
     preloadedGrid: AIWyvern
 
-- type: entity
-  parent: BaseRandomShuttleRule
-  id: UnknownShuttleArchangel
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-ai-shuttle-detected
-    startAudio:
-      path: /Audio/Misc/notice1.ogg
-    weight: 4
-    maxOccurrences: 2
-  - type: GameRule
-    minPlayers: 40
-  - type: LoadMapRule
-    preloadedGrid: AIArchangel
