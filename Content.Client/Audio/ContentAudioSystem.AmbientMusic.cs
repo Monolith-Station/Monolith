@@ -111,6 +111,7 @@ public sealed partial class ContentAudioSystem
     {
         SubscribeNetworkEvent<SpaceBiomeSwapMessage>(OnBiomeChange);
         SubscribeNetworkEvent<NewVesselEnteredMessage>(OnVesselChange);
+        SubscribeNetworkEvent<SpaceEnteredMessage>(OnSpaceEntered);
         SubscribeLocalEvent<ToggleCombatActionEvent>(OnCombatModeToggle);
 
         Subs.CVar(_configManager, CCVars.AmbientMusicVolume, AmbienceCVarChanged, true);
@@ -259,6 +260,43 @@ public sealed partial class ContentAudioSystem
 
         _ambientMusicCancelToken.Cancel();
         _ambientMusicCancelToken = new CancellationTokenSource();
+
+        Timer.Spawn(_audio.GetAudioLength(path) + _timeUntilNextAmbientTrack, () => ReplayAmbientMusic(), _ambientMusicCancelToken.Token);
+    }
+
+    private void OnSpaceEntered(SpaceEnteredMessage ev)
+    {
+        _sawmill.Debug($"ENTERED SPACE, STOPPING MUSIC");
+
+        _validStationMusic = false;
+
+        if (_combatModeSystem.IsInCombatMode()) //we don't want to change music if we are in combat mode right now
+            return;
+
+        FadeOut(_ambientMusicStream);
+
+        if (_lastBiome == null) //this should never happen still
+        {
+            if (_player.LocalSession != null) //THIS LITERALLY CANNOT BE NULL!! BUT IT COMPLAINS IF I DONT PUT THIS HERE!!!
+            {
+                _entMan.TryGetComponent<SpaceBiomeTrackerComponent>(_player.LocalSession.AttachedEntity, out var comp);
+                if (comp != null)
+                {
+                    if (comp.Biome != null)
+                        _lastBiome = _proto.Index<SpaceBiomePrototype>(comp.Biome);
+                }
+            }
+        }
+
+        if (_lastBiome == null)
+            return;
+
+        _musicProto = _proto.Index<AmbientMusicPrototype>(_lastBiome.ID); //THIS CAN FUCK UP! BECAUSE THE ID MIGHT NOT HAVE MUSIC AND BE A FALLBACK!
+        SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
+
+        string path = _random.Pick(soundcol.PickFiles).ToString(); // THIS WILL PICK A RANDOM SOUND. WE MAY WANT TO SPECIFY ONE INSTEAD!!
+
+        PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
 
         Timer.Spawn(_audio.GetAudioLength(path) + _timeUntilNextAmbientTrack, () => ReplayAmbientMusic(), _ambientMusicCancelToken.Token);
     }

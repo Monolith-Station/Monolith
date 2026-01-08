@@ -22,3 +22,8 @@ public sealed class NewVesselEnteredMessage : EntityEventArgs
         AmbientMusicPrototype = ambientMusicPrototype;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class SpaceEnteredMessage : EntityEventArgs
+{
+}

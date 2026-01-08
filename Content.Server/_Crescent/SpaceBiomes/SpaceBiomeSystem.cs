@@ -156,8 +156,12 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
         var parentStation = _stationSystem.GetOwningStation(uid);
 
-        if (parentStation == null)
+        if (parentStation == null) //entered space, should tell music system to stop playing ship music
+        {
+            SpaceEnteredMessage spaceMsg = new SpaceEnteredMessage();
+            RaiseNetworkEvent(spaceMsg, actor.PlayerSession);
             return;
+        };
 
         // HULLROT EDIT: BoringStations and keeping track of what we've visited before is removed
         // because we want people to see the message each time you enter, coupled with music and flavor text
