@@ -36,7 +36,6 @@
 
 - type: ambientMusic
   id: default
-  priority: 1
   sound:
     collection: default
 
@@ -49,7 +48,6 @@
 
 - type: ambientMusic
   id: combatmodedefault
-  priority: 3
   sound:
     collection: combatmodedefault
 
@@ -65,7 +63,6 @@
 ### PDV
 - type: ambientMusic
   id: combatmodePDV
-  priority: 3
   sound:
     collection: combatmodePDV
 
@@ -78,7 +75,6 @@
 ### TSFMC
 - type: ambientMusic
   id: combatmodeTSFMC
-  priority: 3
   sound:
     collection: combatmodeTSFMC
 
@@ -95,7 +91,6 @@
 
 - type: ambientMusic
   id: outer_ring
-  priority: 1
   sound:
     collection: outer_ring
 
@@ -111,7 +106,6 @@
 
 - type: ambientMusic
   id: middle_ring
-  priority: 1
   sound:
     collection: middle_ring
 
@@ -129,7 +123,6 @@
 
 - type: ambientMusic
   id: inner_ring
-  priority: 1
   sound:
     collection: inner_ring
 
@@ -152,7 +145,6 @@
 #Camelot Station
 - type: ambientMusic
   id: CamelotMusic
-  priority: 1
   sound:
     collection: CamelotMusic
 
@@ -165,7 +157,6 @@
 #Colossus Central
 - type: ambientMusic
   id: ColossusCentralMusic
-  priority: 1
   sound:
     collection: ColossusCentralMusic
 
