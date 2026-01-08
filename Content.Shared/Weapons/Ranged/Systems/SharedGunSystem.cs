@@ -670,13 +670,19 @@ public abstract partial class SharedGunSystem : EntitySystem
         else if (selfXform.Anchored && selfXform.ParentUid != selfXform.MapUid)
             impulseCoord = TransformSystem.WithEntityId(impulseCoord, selfXform.ParentUid);
 
+        var toEnt = impulseCoord.EntityId;
+        if (!_physQuery.TryComp(toEnt, out var toBody))
+            return;
+
         // velocity is in world-aligned coordinates so get vec based off that
-        var worldSource = TransformSystem.GetWorldPosition(impulseCoord.EntityId);
+        var worldSource = TransformSystem.GetWorldPosition(toEnt);
         var worldTarget = TransformSystem.ToWorldPosition(toCoordinates);
         var dirVec = worldTarget - worldSource;
         dirVec.Normalize();
 
-        Physics.ApplyLinearImpulse(impulseCoord.EntityId, -dirVec * totalImpulse, impulseCoord.Position);
+        var pos = impulseCoord.Position;
+        pos = (pos - toBody.LocalCenter) * ent.Comp.RecoilRotation + toBody.LocalCenter;
+        Physics.ApplyLinearImpulse(toEnt, -dirVec * totalImpulse, pos);
     }
 
     public void RefreshModifiers(Entity<GunComponent?> gun, EntityUid? User = null) // GoobStation change - User for NoWieldNeeded

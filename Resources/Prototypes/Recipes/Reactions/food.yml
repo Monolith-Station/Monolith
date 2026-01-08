@@ -72,6 +72,24 @@
     - !type:CreateEntityReactionEffect
       entity: FoodDoughTortilla
 
+#Special Dough
+
+- type: reaction #frontier
+  id: CreateRiceDough
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Rice:
+      amount: 40
+    Water:
+      amount: 10
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodRiceDough
+
 - type: reaction
   id: CreateDoughCotton
   impact: Low
