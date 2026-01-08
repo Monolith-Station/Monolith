@@ -86,7 +86,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var maxArrivedVel = ent.Comp.InRangeMaxSpeed ?? float.PositiveInfinity;
         var maxArrivedAngVel = ent.Comp.MaxRotateRate ?? float.PositiveInfinity;
 
-        var targetAngleOffset = new Angle(ent.Comp.TargetRotation);
+        var targetAngleOffset = Angle.FromDegrees(ent.Comp.TargetRotation);
 
         var highRange = ent.Comp.Range + (ent.Comp.RangeTolerance ?? 0f);
         var lowRange = (ent.Comp.Range - ent.Comp.RangeTolerance) ?? 0f;
@@ -113,7 +113,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                     if (ent.Comp.AlwaysFaceTarget)
                     {
                         var shipNorthAngle = _transform.GetWorldRotation(shipXform);
-                        var wishRotateBy = targetAngleOffset + ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), toTargetVec.ToWorldAngle());
+                        var wishRotateBy = ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI) - targetAngleOffset, toTargetVec.ToWorldAngle());
                         good = MathF.Abs((float)wishRotateBy.Theta) < ent.Comp.AlwaysFaceTargetOffset;
                     }
                     if (good)
@@ -131,10 +131,13 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
                 break;
             }
+            case ShipSteeringMode.OrbitCW:
             case ShipSteeringMode.Orbit:
             {
+                var invert = ent.Comp.Mode == ShipSteeringMode.OrbitCW;
+                var rotateAngle = new Angle(ent.Comp.OrbitOffset * (invert ? -1 : 1));
                 // target a position slightly offset from ours, have maxArrivedVel handle having proper velocity
-                destMapPos = mapTarget.Offset(NormalizedOrZero(ent.Comp.OrbitOffset.RotateVec(-toTargetVec)) * midRange);
+                destMapPos = mapTarget.Offset(NormalizedOrZero(rotateAngle.RotateVec(-toTargetVec)) * midRange);
                 break;
             }
         }
@@ -144,6 +147,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                                      destMapPos, targetVel, targetUid, mapTarget,
                                      maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
                                      ent.Comp.AvoidCollisions, ent.Comp.AvoidProjectiles, ent.Comp.MaxObstructorDistance, ent.Comp.MinObstructorDistance, ent.Comp.EvasionBuffer,
+                                     ref ent.Comp.RotationCompensation, ent.Comp.RotationCompensationGain,
                                      targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
     }
 
@@ -152,6 +156,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                                          MapCoordinates destMapPos, Vector2 targetVel, EntityUid? targetUid, MapCoordinates targetEntPos,
                                          float maxArrivedVel, float brakeThreshold, float frameTime,
                                          bool avoidCollisions, bool avoidProjectiles, float maxObstructorDistance, float minObstructorDistance, float evasionBuffer,
+                                         ref float rotationCompensation, float rotationCompensationGain,
                                          Angle targetAngleOffset, Angle? angleOverride)
     {
 
@@ -334,19 +339,25 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         strafeInput = GetGoodThrustVector(strafeInput, shuttle);
 
 
-        Angle wishAngle;
+        Angle wishAngleActual;
         if (angleOverride != null)
-            wishAngle = angleOverride.Value;
+            wishAngleActual = angleOverride.Value;
         // try to face our thrust direction if we can
         // TODO: determine best thrust direction and face accordingly
         else if (wishInputVec.Length() > 0)
-            wishAngle = wishInputVec.ToWorldAngle();
+            wishAngleActual = wishInputVec.ToWorldAngle();
         else
-            wishAngle = toDestVec.ToWorldAngle();
+            wishAngleActual = toDestVec.ToWorldAngle();
+
+        wishAngleActual += targetAngleOffset;
+        var wishAngle = wishAngleActual + rotationCompensation;
 
         var angAccel = _mover.GetAngularAcceleration(shuttle, shipBody);
         // there's 500 different standards on how to count angles so needs the +PI
-        var wishRotateBy = targetAngleOffset + ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), wishAngle);
+        var wishRotateByActual = ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), wishAngleActual);
+        rotationCompensation += (float)wishRotateByActual * rotationCompensationGain * frameTime * angAccel;
+
+        var wishRotateBy = ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), wishAngle);
         var wishAngleVel = MathF.Sqrt(MathF.Abs((float)wishRotateBy) * 2f * angAccel) * Math.Sign(wishRotateBy);
         var wishDeltaAngleVel = wishAngleVel - angleVel;
         var rotationInput = angAccel == 0f ? 0f : -wishDeltaAngleVel / angAccel / frameTime;

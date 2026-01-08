@@ -96,6 +96,12 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public ShipSteeringMode Mode = ShipSteeringMode.GoToRange;
 
     /// <summary>
+    /// In Orbit mode, how much to angularly offset our destination.
+    /// </summary>
+    [DataField]
+    public float OrbitOffset = 30f;
+
+    /// <summary>
     /// How close we need to get before considering movement finished.
     /// </summary>
     [DataField]
@@ -167,6 +173,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         comp.MaxRotateRate = MaxRotateRate;
         comp.Mode = Mode;
         comp.NoFinish = ShutdownState == HTNPlanState.PlanFinished;
+        comp.OrbitOffset = Angle.FromDegrees(OrbitOffset);
         comp.Range = Range;
         comp.RangeTolerance = RangeTolerance;
         comp.TargetRotation = TargetRotation;

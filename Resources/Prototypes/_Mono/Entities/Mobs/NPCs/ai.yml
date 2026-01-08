@@ -124,18 +124,24 @@
 - type: entity
   id: NpcStationAiAttackerShortRange
   name: attacker core
-  parent: [NpcStationAiRammer, BaseFactionGearOtherFactionT2]
+  parent: [NpcStationAiAttacker, BaseFactionGearOtherFactionT2]
   description: Shoots at you.
   suffix: AI, Short-Range
   components:
-  - type: Sprite
-    layers:
-    - state: base
-    - state: green_t1
-      shader: unshaded
   - type: HTN
     rootTask:
       task: AttackerShuttleShortRangeCompound
+
+- type: entity
+  id: NpcDroneAiAssembly
+  parent: NpcStationAiAttacker
+  description: Shoots at you. Broadsides.
+  suffix: AI, Drone-Assembly
+  components:
+  - type: HTN
+    sleepPlayerCheckRangeOverride: 4000
+    rootTask:
+      task: DroneCompoundAssembly
 
 - type: entity
   name: rammer core spawner
@@ -245,6 +251,16 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcStationAiAttackerShortRange
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiAssembly
+  parent: SpawnMobAttackerCore
+  suffix: Broadside, Drone-Assembly
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiAssembly
 
 - type: entity
   name: smart attacker core spawner
