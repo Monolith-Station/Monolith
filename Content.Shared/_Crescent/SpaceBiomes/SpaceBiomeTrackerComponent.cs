@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._Crescent.SpaceBiomes;
 
 //attached to the player
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, AutoGenerateComponentState]
 public sealed partial class SpaceBiomeTrackerComponent : Component
 {
     //for ambience rule

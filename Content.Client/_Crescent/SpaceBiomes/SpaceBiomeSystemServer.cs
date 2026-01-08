@@ -159,13 +159,15 @@ public sealed class SpaceBiomeSystemServer : EntitySystem
             SpaceEnteredMessage spaceMsg = new SpaceEnteredMessage();
             RaiseLocalEvent(uid, spaceMsg);
             return;
-        };
+        }
 
         // HULLROT EDIT: BoringStations and keeping track of what we've visited before is removed
         // because we want people to see the message each time you enter, coupled with music and flavor text
 
-        if (!TryComp<VesselInfoComponent>(parentStation, out var desc))
-            return;
+        var description = ""; //fallback to "" in case we have none
+
+        if (TryComp<VesselInfoComponent>(parentStation, out var desc))
+            description = desc.Description;
 
         var musicPrototype = "";
 
@@ -174,7 +176,7 @@ public sealed class SpaceBiomeSystemServer : EntitySystem
 
         // var name = setup.StationNameTemplate.Replace("{1}", "").Trim();
 
-        NewVesselEnteredMessage message = new NewVesselEnteredMessage(parentStation.Id.ToString(), desc.Description, musicPrototype);
+        NewVesselEnteredMessage message = new NewVesselEnteredMessage(parentStation.Id.ToString(), description, musicPrototype);
         RaiseLocalEvent(uid, message);
     }
 

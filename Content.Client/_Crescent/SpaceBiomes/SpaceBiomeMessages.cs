@@ -2,13 +2,13 @@ using Robust.Shared.Serialization;
 
 namespace Content.Client._Crescent.SpaceBiomes;
 
-[Serializable, NetSerializable]
+[Serializable]
 public sealed class SpaceBiomeSwapMessage : EntityEventArgs
 {
     public string Biome = "";
 }
 
-[Serializable, NetSerializable]
+[Serializable]
 public sealed class NewVesselEnteredMessage : EntityEventArgs
 {
     public string Name = "";
@@ -23,7 +23,7 @@ public sealed class NewVesselEnteredMessage : EntityEventArgs
     }
 }
 
-[Serializable, NetSerializable]
+[Serializable]
 public sealed class SpaceEnteredMessage : EntityEventArgs
 {
 }
