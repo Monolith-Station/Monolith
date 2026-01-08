@@ -12,6 +12,8 @@ public abstract partial class SharedShipRepairSystem : EntitySystem
 {
     private List<DoAfterId> _toRemoveIds = new();
 
+    private Vector2 CenterVec = new Vector2(0.5f, 0.5f);
+
     private void InitTool()
     {
         SubscribeLocalEvent<ShipRepairToolComponent, AfterInteractEvent>(OnAfterInteract);
@@ -178,7 +180,7 @@ public abstract partial class SharedShipRepairSystem : EntitySystem
             _audio.PlayPredicted(tool.Comp.RepairSound, tool, user);
             // we don't need to spawn it on server, however this makes serverside failures make the effect anyway
             if (_net.IsClient && _timing.IsFirstTimePredicted)
-                Spawn(tool.Comp.ConstructEffect, new EntityCoordinates(grid, tileIndices));
+                Spawn(tool.Comp.ConstructEffect, new EntityCoordinates(grid, tileIndices + CenterVec));
         }
     }
 

@@ -173,7 +173,6 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
             foreach (var layer in sprite.AllLayers)
             {
                 sprite.LayerSetShader(i, "unshaded");
-                _sprite.LayerSetVisible(ent, i, true);
                 i++;
             }
 
