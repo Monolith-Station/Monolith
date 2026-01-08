@@ -5,6 +5,7 @@ using Content.Shared.Hands.EntitySystems;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
@@ -19,6 +20,7 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISerializationManager _serialization = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefs = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
@@ -26,6 +28,7 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
     // so Update() is less evil
+    private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<ShipRepairDataComponent> _dataQuery;
     private EntityQuery<SpriteComponent> _spriteQuery;
     private EntityQuery<ShipRepairToolComponent> _toolQuery;
@@ -37,6 +40,7 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
         SubscribeNetworkEvent<RepairEntityMessage>(OnRepairMessage);
 
         _dataQuery = GetEntityQuery<ShipRepairDataComponent>();
+        _gridQuery = GetEntityQuery<MapGridComponent>();
         _spriteQuery = GetEntityQuery<SpriteComponent>();
         _toolQuery = GetEntityQuery<ShipRepairToolComponent>();
     }

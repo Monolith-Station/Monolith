@@ -2,6 +2,7 @@ using Content.Client.IconSmoothing;
 using Content.Shared._Mono.ShipRepair;
 using Content.Shared._Mono.ShipRepair.Components;
 using Content.Shared.DrawDepth;
+using Content.Shared.Maps;
 using Robust.Client.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -82,6 +83,7 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
                     if (!data.Chunks.TryGetValue(chunkIndices, out var chunk))
                         continue;
 
+                    // process entity ghosts
                     foreach (var (specId, spec) in chunk.Entities)
                     {
                         var origUid = spec.OriginalEntity == null ? (EntityUid?)null : GetEntity(spec.OriginalEntity.Value);
@@ -98,7 +100,36 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
                         )
                             continue;
 
-                        _visibleGhosts.Add(new((grid, data), chunkIndices, specId));
+                        _visibleGhosts.Add(new((grid, data, grid.Comp), chunkIndices, specId, false));
+                    }
+
+                    // process tile ghosts
+                    for (int i = 0; i < chunk.Tiles.Length; i++)
+                    {
+                        var storedTileId = chunk.Tiles[i];
+                        if (storedTileId == Tile.Empty.TypeId)
+                            continue;
+
+                        var rx = i % data.ChunkSize;
+                        var ry = i / data.ChunkSize;
+                        var tileIndices = chunkIndices * data.ChunkSize + new Vector2i(rx, ry);
+
+                        // all good, no ghost
+                        var currentTile = _map.GetTileRef(grid, grid, tileIndices).Tile;
+                        if (currentTile.TypeId == storedTileId)
+                            continue;
+
+                        var tileLocal = _map.TileCenterToVector(grid, tileIndices);
+                        var tileCoords = new EntityCoordinates(grid, tileLocal);
+                        var tileMapPos = _transform.ToMapCoordinates(tileCoords);
+
+                        // check out of range
+                        if (tileMapPos.MapId != playerMapPos.MapId
+                            || (tileMapPos.Position - playerMapPos.Position).LengthSquared() > maxRange * maxRange
+                        )
+                            continue;
+
+                        _visibleGhosts.Add(new((grid, data, grid.Comp), chunkIndices, i, true));
                     }
                 }
             }
@@ -121,13 +152,24 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
             if (_activeGhosts.ContainsKey(key))
                 continue;
 
-            var (grid, chunkIdx, specId) = key;
+            var (grid, chunkIdx, id, isTile) = key;
 
-            if (grid.Comp.Chunks.TryGetValue(chunkIdx, out var chunk)
-                && chunk.Entities.TryGetValue(specId, out var spec))
+            if (grid.Comp1.Chunks.TryGetValue(chunkIdx, out var chunk))
             {
-                var protoId = grid.Comp.EntityPalette[spec.ProtoIndex];
-                SpawnGhost(key, grid, spec, protoId);
+                if (isTile)
+                {
+                    var tileId = chunk.Tiles[id];
+                    var rx = id % grid.Comp1.ChunkSize;
+                    var ry = id / grid.Comp1.ChunkSize;
+                    var tileIndices = chunkIdx * grid.Comp1.ChunkSize + new Vector2i(rx, ry);
+
+                    SpawnTileGhost(key, tileIndices, (ushort)tileId);
+                }
+                else if (chunk.Entities.TryGetValue(id, out var spec))
+                {
+                    var protoId = grid.Comp1.EntityPalette[spec.ProtoIndex];
+                    SpawnEntityGhost(key, spec, protoId);
+                }
             }
         }
     }
@@ -140,13 +182,14 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
         _activeGhosts.Clear();
     }
 
-    private void SpawnGhost(GhostPosData key, EntityUid grid, ShipRepairEntitySpecifier spec, EntProtoId protoId)
+    private void SpawnEntityGhost(GhostPosData key, ShipRepairEntitySpecifier spec, EntProtoId protoId)
     {
         if (_proto.TryIndex(protoId, out var proto)
             && proto.TryGetComponent<SpriteComponent>(out var specSprite, Factory))
         {
-            var ghost = Spawn(RepairGhostId, new EntityCoordinates(grid, Vector2.Zero));
-            _transform.SetParent(ghost, grid);
+            // needed so it doesn't fall off if offgrid
+            var ghost = Spawn(RepairGhostId, new EntityCoordinates(key.Grid, Vector2.Zero));
+            _transform.SetParent(ghost, key.Grid);
             _transform.SetLocalPositionNoLerp(ghost, spec.LocalPosition);
             _transform.SetLocalRotationNoLerp(ghost, spec.Rotation);
 
@@ -183,5 +226,35 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
         }
     }
 
-    private record struct GhostPosData(Entity<ShipRepairDataComponent> Grid, Vector2i ChunkIndices, int Id);
+    private void SpawnTileGhost(GhostPosData key, Vector2i indices, ushort tileId)
+    {
+        if (_tileDefs.TryGetDefinition(tileId, out var def)
+            && def is ContentTileDefinition tileDef)
+        {
+            var localPos = _map.TileCenterToVector((key.Grid, key.Grid.Comp2), indices);
+            var ghost = Spawn(RepairGhostId, new EntityCoordinates(key.Grid, Vector2.Zero));
+            _transform.SetParent(ghost, key.Grid);
+            _transform.SetLocalPositionNoLerp(ghost, localPos);
+
+            var sprite = EnsureComp<SpriteComponent>(ghost);
+            var ent = (ghost, sprite);
+
+            if (tileDef.Sprite != null)
+            {
+                var layer = _sprite.AddBlankLayer(ent, 0);
+                _sprite.LayerSetTexture(ent, 0, tileDef.Sprite.Value);
+                _sprite.LayerSetVisible(layer, true);
+                sprite.LayerSetShader(0, "unshaded");
+            }
+
+            _sprite.SetColor(ghost, ghostColor);
+            _sprite.SetDrawDepth(ghost, (int)Content.Shared.DrawDepth.DrawDepth.FloorObjects);
+
+            _metaData.SetEntityName(ghost, Loc.GetString("repair-ghost-name", ("proto", tileDef.Name)));
+
+            _activeGhosts[key] = ghost;
+        }
+    }
+
+    private record struct GhostPosData(Entity<ShipRepairDataComponent, MapGridComponent> Grid, Vector2i ChunkIndices, int Id, bool IsTile);
 }
