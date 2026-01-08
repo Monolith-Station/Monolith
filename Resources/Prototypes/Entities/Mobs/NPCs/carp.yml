@@ -96,6 +96,8 @@
   - type: NightVision # Goobstation - Nigthvision
     activateSound: null
     deactivateSound: null
+  - type: ContainableEntity # Monolith
+    multiplierDecay: 0.0025 # Not really a research interest.
 
 - type: entity
   parent: BaseMobCarp
