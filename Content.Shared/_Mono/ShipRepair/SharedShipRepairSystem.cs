@@ -1,3 +1,4 @@
+using Content.Shared._Mono.ForceParent;
 using Content.Shared._Mono.ShipRepair.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.DoAfter;
@@ -17,6 +18,7 @@ public abstract partial class SharedShipRepairSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly ForceParentSystem _parent = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly INetManager _net = default!; // .IsServer is kind of a crime but needed to not dupe code

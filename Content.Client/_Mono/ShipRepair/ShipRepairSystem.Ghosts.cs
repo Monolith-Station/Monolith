@@ -23,6 +23,13 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
 
     private EntProtoId RepairGhostId = "RepairGhost";
 
+    private ITileDefinition? PlatingDef = default!;
+
+    private void InitGhosts()
+    {
+        PlatingDef = _tileDefs["Plating"];
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -189,8 +196,7 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
         {
             // needed so it doesn't fall off if offgrid
             var ghost = Spawn(RepairGhostId, new EntityCoordinates(key.Grid, Vector2.Zero));
-            _transform.SetParent(ghost, key.Grid);
-            _transform.SetLocalPositionNoLerp(ghost, spec.LocalPosition);
+            _parent.SetForceParent(ghost, new EntityCoordinates(key.Grid, spec.LocalPosition));
             _transform.SetLocalRotationNoLerp(ghost, spec.Rotation);
 
             var sprite = _serialization.CreateCopy(specSprite, notNullableOverride: true);
@@ -233,16 +239,16 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
         {
             var localPos = _map.TileCenterToVector((key.Grid, key.Grid.Comp2), indices);
             var ghost = Spawn(RepairGhostId, new EntityCoordinates(key.Grid, Vector2.Zero));
-            _transform.SetParent(ghost, key.Grid);
-            _transform.SetLocalPositionNoLerp(ghost, localPos);
+            _parent.SetForceParent(ghost, new EntityCoordinates(key.Grid, localPos));
 
             var sprite = EnsureComp<SpriteComponent>(ghost);
             var ent = (ghost, sprite);
 
-            if (tileDef.Sprite != null)
+            // render everything with plating sprite because tile sprites are evil and are a string of their variants
+            if (PlatingDef?.Sprite != null)
             {
                 var layer = _sprite.AddBlankLayer(ent, 0);
-                _sprite.LayerSetTexture(ent, 0, tileDef.Sprite.Value);
+                _sprite.LayerSetTexture(ent, 0, PlatingDef.Sprite.Value);
                 _sprite.LayerSetVisible(layer, true);
                 sprite.LayerSetShader(0, "unshaded");
             }
@@ -250,7 +256,7 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
             _sprite.SetColor(ghost, ghostColor);
             _sprite.SetDrawDepth(ghost, (int)Content.Shared.DrawDepth.DrawDepth.FloorObjects);
 
-            _metaData.SetEntityName(ghost, Loc.GetString("repair-ghost-name", ("proto", tileDef.Name)));
+            _metaData.SetEntityName(ghost, Loc.GetString("repair-ghost-name", ("proto", Loc.GetString(tileDef.Name))));
 
             _activeGhosts[key] = ghost;
         }

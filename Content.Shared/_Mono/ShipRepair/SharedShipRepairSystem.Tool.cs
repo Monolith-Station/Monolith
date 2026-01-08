@@ -12,8 +12,6 @@ public abstract partial class SharedShipRepairSystem : EntitySystem
 {
     private List<DoAfterId> _toRemoveIds = new();
 
-    protected Vector2 CenterVec = new Vector2(0.5f, 0.5f);
-
     private void InitTool()
     {
         SubscribeLocalEvent<ShipRepairToolComponent, AfterInteractEvent>(OnAfterInteract);
@@ -157,7 +155,7 @@ public abstract partial class SharedShipRepairSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("ship-repair-tool-entity-exists"), ent, args.User, PopupType.SmallCaution);
     }
 
-    private void StartRepair(Entity<ShipRepairToolComponent> tool, EntityUid user, EntityUid grid, Vector2i tileIndices, float delay, int cost, int? repairId = null)
+    private void StartRepair(Entity<ShipRepairToolComponent> tool, EntityUid user, Entity<MapGridComponent> grid, Vector2i tileIndices, float delay, int cost, int? repairId = null)
     {
         var ev = new ShipRepairDoAfterEvent
         {
@@ -183,8 +181,7 @@ public abstract partial class SharedShipRepairSystem : EntitySystem
             {
                 // needed so it doesn't fall off if in space
                 var effect = Spawn(tool.Comp.ConstructEffect, new EntityCoordinates(grid, Vector2.Zero));
-                _transform.SetParent(effect, grid);
-                _transform.SetLocalPositionNoLerp(effect, tileIndices + CenterVec);
+                _parent.SetForceParent(effect, new EntityCoordinates(grid, _map.TileCenterToVector(grid, tileIndices)));
             }
         }
     }
