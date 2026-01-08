@@ -36,8 +36,8 @@ public sealed class SpaceBiomeTextOverlay : Overlay
     public SpaceBiomeTextOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _font = _cache.GetFont("/Fonts/Minecraftia.ttf", 25);
-        _descriptionfont = _cache.GetFont("/Fonts/Minecraftia.ttf", 15);
+        _font = _cache.GetFont("/Fonts/Iceberg/Iceberg-Regular.ttf", 25);
+        _descriptionfont = _cache.GetFont("/Fonts/Iceberg/Iceberg-Regular.ttf", 15);
     }
 
     public void Reset()
