@@ -1,3 +1,4 @@
+using Content.Client.IconSmoothing;
 using Content.Shared._Mono.ShipRepair;
 using Content.Shared._Mono.ShipRepair.Components;
 using Content.Shared.DrawDepth;
@@ -141,22 +142,45 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
 
     private void SpawnGhost(GhostPosData key, EntityUid grid, ShipRepairEntitySpecifier spec, EntProtoId protoId)
     {
-        var coords = new EntityCoordinates(grid, spec.LocalPosition);
-        var ghost = Spawn(RepairGhostId, coords);
-        _transform.SetLocalRotationNoLerp(ghost, spec.Rotation);
-
         if (_proto.TryIndex(protoId, out var proto)
             && proto.TryGetComponent<SpriteComponent>(out var specSprite, Factory))
         {
-            var newComp = _serialization.CreateCopy(specSprite, notNullableOverride: true);
-            AddComp(ghost, newComp);
-            _sprite.SetColor((ghost, newComp), ghostColor);
-            _sprite.SetVisible((ghost, newComp), true);
-            _sprite.SetDrawDepth((ghost, newComp), (int)Content.Shared.DrawDepth.DrawDepth.Objects);
-            _metaData.SetEntityName(ghost, Loc.GetString("repair-ghost-name", ("proto", proto.Name)));
-        }
+            var coords = new EntityCoordinates(grid, spec.LocalPosition);
+            var ghost = Spawn(RepairGhostId, coords);
+            _transform.SetLocalRotationNoLerp(ghost, spec.Rotation);
 
-        _activeGhosts[key] = ghost;
+            var sprite = _serialization.CreateCopy(specSprite, notNullableOverride: true);
+            AddComp(ghost, sprite);
+            var ent = (ghost, sprite);
+
+            // evil hacks to not trip debug asserts
+            var old = specSprite.Owner;
+            specSprite.Owner = ghost;
+            _sprite.CopySprite((ghost, specSprite), ent);
+            specSprite.Owner = old;
+
+            if (proto.TryGetComponent<IconSmoothComponent>(out var specSmooth, Factory))
+            {
+                var smooth = _serialization.CreateCopy(specSmooth, notNullableOverride: true);
+                AddComp(ghost, smooth);
+            }
+
+            _sprite.SetColor(ent, ghostColor);
+            _sprite.SetVisible(ent, true);
+            _sprite.SetDrawDepth(ent, (int)Content.Shared.DrawDepth.DrawDepth.Objects);
+
+            var i = 0;
+            foreach (var layer in sprite.AllLayers)
+            {
+                sprite.LayerSetShader(i, "unshaded");
+                _sprite.LayerSetVisible(ent, i, true);
+                i++;
+            }
+
+            _metaData.SetEntityName(ghost, Loc.GetString("repair-ghost-name", ("proto", proto.Name)));
+
+            _activeGhosts[key] = ghost;
+        }
     }
 
     private record struct GhostPosData(Entity<ShipRepairDataComponent> Grid, Vector2i ChunkIndices, int Id);

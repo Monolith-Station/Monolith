@@ -1,3 +1,4 @@
+using Content.Client.IconSmoothing;
 using Content.Shared._Mono.ShipRepair;
 using Content.Shared._Mono.ShipRepair.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -12,6 +13,7 @@ namespace Content.Client._Mono.ShipRepair;
 
 public sealed partial class ShipRepairSystem : SharedShipRepairSystem
 {
+    [Dependency] private readonly IconSmoothSystem _smooth = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
