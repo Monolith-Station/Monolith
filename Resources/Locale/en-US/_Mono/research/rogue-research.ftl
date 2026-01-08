@@ -26,7 +26,6 @@ research-technology-rogue-saintie-voucher = PDV Saintie Procurement LPC
 
 # T3 rogue
 research-technology-rogue-saturn-voucher = PDV Saturn Procurement LPC
-research-technology-rogue-prowler-voucher = Stealthcraft Technologies
 research-technology-rogue-energy-weapon = Advanced Plasma Weaponization
 research-technology-rogue-access-breaker = Advanced Hacking Procedures
 research-technology-rogue-hf-sword = Weaponised Resonance Technology
