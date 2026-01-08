@@ -138,7 +138,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         Timer.Spawn(TimeSpan.FromSeconds(10), () =>
         {
             Log.Info("title drop should happen now");
-            NewVesselEnteredMessage message = new NewVesselEnteredMessage(parentStation.Id.ToString(), vesselinfo.Description, musicPrototype);
+            NewVesselEnteredMessage message = new NewVesselEnteredMessage(Name(parentStation), vesselinfo.Description, musicPrototype);
             RaiseLocalEvent(uid, ref message, true);
         });
     }
@@ -176,7 +176,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
         // var name = setup.StationNameTemplate.Replace("{1}", "").Trim();
 
-        NewVesselEnteredMessage message = new NewVesselEnteredMessage(parentStation.Id.ToString(), description, musicPrototype);
+        NewVesselEnteredMessage message = new NewVesselEnteredMessage(Name(parentStation), description, musicPrototype);
         RaiseLocalEvent(uid, ref message, true);
     }
 
