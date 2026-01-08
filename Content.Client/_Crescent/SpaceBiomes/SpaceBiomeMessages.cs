@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Crescent.SpaceBiomes;
+namespace Content.Client._Crescent.SpaceBiomes;
 
 [Serializable, NetSerializable]
 public sealed class SpaceBiomeSwapMessage : EntityEventArgs

@@ -52,42 +52,37 @@ public sealed class SpaceBiomeSystemServer : EntitySystem
             return;
         _updTimer = 0;
 
-        foreach (ICommonSession session in _playerMan.Sessions)
+        if (_playerMan.LocalEntity == null) //this should never be null i thinky
+            return;
+
+        EntityUid localPlayerUid = _playerMan.LocalEntity.Value;
+
+        Vector2 playerPos = _formSys.GetWorldPosition(Transform(localPlayerUid));
+        SpaceBiomeTrackerComponent tracker = EnsureComp<SpaceBiomeTrackerComponent>(localPlayerUid);
+
+        SpaceBiomeSourceComponent? newSource = null;
+
+        var query = EntityQueryEnumerator<SpaceBiomeSourceComponent>();
+
+        while (query.MoveNext(out var sourceUid, out var comp))
         {
-            if (session.AttachedEntity == null)
+            Log.Info("running for source " + sourceUid.ToString());
+            if (PreciseRange && (_formSys.GetWorldPosition(sourceUid) - playerPos).Length() > comp.SwapDistance)
                 continue;
 
-            Vector2 playerPos = _formSys.GetWorldPosition(Transform(session.AttachedEntity.Value));
-            SpaceBiomeTrackerComponent tracker = EnsureComp<SpaceBiomeTrackerComponent>(session.AttachedEntity.Value);
-
-            HashSet<EntityUid> sourceUids = new();
-            if (_chunks.TryGetValue((playerPos / ChunkSize).Floored() * ChunkSize, out var uids))
-                sourceUids = uids;
-
-            SpaceBiomeSourceComponent? newSource = null;
-            foreach (EntityUid sourceUid in sourceUids)
+            if (newSource == null ||
+                    comp.Priority > newSource.Priority ||
+                    comp.Priority == newSource.Priority && comp == tracker.Source)
             {
-                SpaceBiomeSourceComponent source = Comp<SpaceBiomeSourceComponent>(sourceUid);
-
-                if (PreciseRange && (_formSys.GetWorldPosition(sourceUid) - playerPos).Length() > source.SwapDistance)
-                    continue;
-
-                if (newSource == null ||
-                    source.Priority > newSource.Priority ||
-                    source.Priority == newSource.Priority && source == tracker.Source)
-                {
-                    newSource = source;
-                }
+                newSource = comp;
             }
-
-            if (newSource == tracker.Source)
-                continue;
-
-            tracker.Source = newSource;
-            tracker.Biome = newSource?.Biome ?? "default";
-            Dirty(session.AttachedEntity.Value, tracker);
-            SwapBiome(session, session.AttachedEntity.Value, newSource);
         }
+        if (newSource == tracker.Source)
+            return;
+
+        tracker.Source = newSource;
+        tracker.Biome = newSource?.Biome ?? "default";
+        SwapBiome(localPlayerUid, newSource);
     }
 
     private void OnRestart(RoundRestartCleanupEvent ev)
@@ -142,6 +137,7 @@ public sealed class SpaceBiomeSystemServer : EntitySystem
 
         Timer.Spawn(TimeSpan.FromSeconds(10), () =>
         {
+            Log.Info("title drop should happen now");
             NewVesselEnteredMessage message = new NewVesselEnteredMessage(parentStation.Id.ToString(), vesselinfo.Description, musicPrototype);
             RaiseLocalEvent(uid, message);
         });
@@ -209,9 +205,9 @@ public sealed class SpaceBiomeSystemServer : EntitySystem
         }
     }
 
-    private void SwapBiome(ICommonSession session, EntityUid uid, SpaceBiomeSourceComponent? source)
+    private void SwapBiome(EntityUid uid, SpaceBiomeSourceComponent? source)
     {
-        EntityUid? mapUid = _formSys.GetMap(session.AttachedEntity ?? EntityUid.Invalid);
+        EntityUid? mapUid = _formSys.GetMap(uid);
         if (mapUid == null)
             return;
 

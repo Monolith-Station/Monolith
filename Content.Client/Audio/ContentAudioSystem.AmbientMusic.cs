@@ -5,6 +5,7 @@ using Content.Shared._Crescent.SpaceBiomes;
 using Content.Shared.Audio;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
+using Content.Client._Crescent.SpaceBiomes;
 using Content.Shared.Random;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
