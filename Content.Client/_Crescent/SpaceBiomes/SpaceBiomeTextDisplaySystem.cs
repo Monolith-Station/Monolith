@@ -14,10 +14,6 @@ public sealed class SpaceTextDisplaySystem : EntitySystem
 
     private SpaceBiomeTextOverlay _overlay = default!;
 
-    //TODO: undo timer setup, do float update accumulator instead
-    // private TimeSpan _cooldown = TimeSpan.FromMinutes(2); //used to prevent spamming
-    // private bool _canDisplayText = true; //used to prevent spamming
-
     public override void Initialize()
     {
         base.Initialize();
@@ -44,13 +40,6 @@ public sealed class SpaceTextDisplaySystem : EntitySystem
 
     private void OnNewVesselEntered(ref NewVesselEnteredMessage ev)
     {
-        // if (!_canDisplayText) //if we displayed during the last 2 min, don't do that
-        //     return;
-        // else
-        // {
-        //     _canDisplayText = false; //else, prevent displaying the next, and set up to clear this flag in _cooldown, which at the time of writing is 2 min
-        //     Timer.Spawn(_cooldown, () => { _canDisplayText = true; });
-        // }
         _overlay.Reset();             //these should be reset as well to match OnSwap
         _overlay.ResetDescription();
 

@@ -10,6 +10,7 @@ using Robust.Client.Player;
 using Robust.Client.GameObjects;
 using Content.Client.Parallax;
 using Content.Client.Station;
+using Content.Shared.Mind.Components;
 
 namespace Content.Client._Crescent.SpaceBiomes;
 
@@ -39,7 +40,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         SubscribeLocalEvent<SpaceBiomeSourceComponent, ComponentShutdown>(OnSourceShutdown);
         SubscribeLocalEvent<SpaceBiomeTrackerComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
-        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
+        SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerSpawn);
         _sawmill = IoCManager.Resolve<ILogManager>().GetSawmill("spacebiomes.server.notreally");
     }
 
@@ -104,11 +105,10 @@ public sealed class SpaceBiomeSystem : EntitySystem
     /// HULLROT: This specifically makes the station's designation show up 10 seconds after you spawn in. This is exclusively for music, and to show cool title at the top of ur screen.
     /// </summary>
     /// <param name="args"></param>
-    private void OnPlayerSpawn(PlayerSpawnCompleteEvent args)
+    private void OnPlayerSpawn(LocalPlayerAttachedEvent args)
     {
-
-        _sawmill.Debug("PLAYER SPAWN EVENT RAN!!!! STATION:" + args.Station);
-        var uid = args.Mob;
+        Log.Info("------------------PLAYER SPAWN EVENT RAN!!!!!!!!!");
+        EntityUid uid = args.Entity;
 
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
@@ -125,8 +125,9 @@ public sealed class SpaceBiomeSystem : EntitySystem
         // HULLROT EDIT: BoringStations and keeping track of what we've visited before is removed
         // because we want people to see the message each time you enter, coupled with music and flavor text
 
-        if (!TryComp<VesselInfoComponent>(parentStation, out var vesselinfo))
-            return;
+        var description = ""; //fallback for description is nothin'
+        if (TryComp<VesselInfoComponent>(parentStation, out var vesselinfo))
+            description = vesselinfo.Description;
 
         var musicPrototype = "";
 
@@ -138,7 +139,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         Timer.Spawn(TimeSpan.FromSeconds(10), () =>
         {
             Log.Info("title drop should happen now");
-            NewVesselEnteredMessage message = new NewVesselEnteredMessage(Name(parentStation), vesselinfo.Description, musicPrototype);
+            NewVesselEnteredMessage message = new NewVesselEnteredMessage(Name(parentStation), description, musicPrototype);
             RaiseLocalEvent(uid, ref message, true);
         });
     }
