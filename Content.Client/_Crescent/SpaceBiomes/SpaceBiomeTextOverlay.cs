@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Numerics;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using Content.Client.Resources;
 using Robust.Client.Graphics;
