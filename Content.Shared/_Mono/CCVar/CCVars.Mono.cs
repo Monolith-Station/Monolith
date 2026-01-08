@@ -82,6 +82,12 @@ public sealed partial class MonoCVars
         CVarDef.Create("mono.combat_music.enabled", true, CVar.ARCHIVE | CVar.CLIENTONLY);
 
     /// <summary>
+    /// HULLROT: Combat music volume.
+    /// </summary>
+    public static readonly CVarDef<float> CombatMusicVolume =
+        CVarDef.Create("mono.combat_music_volume", 1.5f, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    /// <summary>
     ///     Whether to render sounds with echo when they are in 'large' open, rooved areas.
     /// </summary>
     /// <seealso cref="AreaEchoSystem"/>

@@ -31,6 +31,7 @@ using System.Threading;
 using Robust.Shared.Timing;
 using Content.Shared.NPC.Components;
 using Content.Shared._Crescent.RoleFaction;
+using Content.Shared._Mono.CCVar;
 
 namespace Content.Client.Audio;
 
@@ -115,8 +116,8 @@ public sealed partial class ContentAudioSystem
         SubscribeLocalEvent<ToggleCombatActionEvent>(OnCombatModeToggle);
 
         Subs.CVar(_configManager, CCVars.AmbientMusicVolume, AmbienceCVarChanged, true);
-        Subs.CVar(_configManager, CCVars.CombatMusicVolume, CombatCVarChanged, true);
-        Subs.CVar(_configManager, CCVars.CombatMusicEnabled, CombatToggleChanged, true);
+        Subs.CVar(_configManager, MonoCVars.CombatMusicVolume, CombatCVarChanged, true);
+        Subs.CVar(_configManager, MonoCVars.CombatMusicEnabled, CombatToggleChanged, true);
         _sawmill = IoCManager.Resolve<ILogManager>().GetSawmill("audio.ambience");
 
         // Setup tracks to pull from. Runs once.

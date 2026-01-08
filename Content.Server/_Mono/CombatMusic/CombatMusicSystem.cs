@@ -1,104 +1,107 @@
-using Content.Shared._Mono.CombatMusic;
-using Robust.Shared.Audio;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
+// NUKED UNTIL RE-TOOLED TO WORK WITH ContentAudioSystem.AmbientMusic.cs
+// .2 - for mono - 8/1/2026
 
-namespace Content.Server._Mono.CombatMusic;
+// using Content.Shared._Mono.CombatMusic;
+// using Robust.Shared.Audio;
+// using Robust.Shared.Player;
+// using Robust.Shared.Random;
+// using Robust.Shared.Timing;
 
-/// <summary>
-/// System that manages combat music playback when gunnery control fires.
-/// </summary>
-public sealed class CombatMusicSystem : EntitySystem
-{
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
+// namespace Content.Server._Mono.CombatMusic;
 
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
+// /// <summary>
+// /// System that manages combat music playback when gunnery control fires.
+// /// </summary>
+// public sealed class CombatMusicSystem : EntitySystem
+// {
+//     [Dependency] private readonly IGameTiming _timing = default!;
+//     [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
-        var curTime = _timing.CurTime;
-        var query = AllEntityQuery<CombatMusicComponent>();
+//     public override void Update(float frameTime)
+//     {
+//         base.Update(frameTime);
 
-        while (query.MoveNext(out var gridUid, out var comp))
-        {
-            if (!comp.MusicPlaying)
-                continue;
+//         var curTime = _timing.CurTime;
+//         var query = AllEntityQuery<CombatMusicComponent>();
 
-            var timeSinceLastShot = curTime - comp.LastFiringTime;
-            var remainingTime = comp.MusicTimeout - timeSinceLastShot.TotalSeconds;
+//         while (query.MoveNext(out var gridUid, out var comp))
+//         {
+//             if (!comp.MusicPlaying)
+//                 continue;
 
-            if (!comp.FadeInitiated && remainingTime <= comp.FadeOutDuration && remainingTime > 0)
-            {
-                comp.FadeInitiated = true;
-                var filter = Filter.Empty().AddInGrid(gridUid, EntityManager);
-                RaiseNetworkEvent(new CombatMusicStopEvent(comp.FadeOutDuration), filter);
-            }
+//             var timeSinceLastShot = curTime - comp.LastFiringTime;
+//             var remainingTime = comp.MusicTimeout - timeSinceLastShot.TotalSeconds;
 
-            if (timeSinceLastShot.TotalSeconds >= comp.MusicTimeout)
-            {
-                StopCombatMusic(gridUid, comp);
-            }
-        }
-    }
+//             if (!comp.FadeInitiated && remainingTime <= comp.FadeOutDuration && remainingTime > 0)
+//             {
+//                 comp.FadeInitiated = true;
+//                 var filter = Filter.Empty().AddInGrid(gridUid, EntityManager);
+//                 RaiseNetworkEvent(new CombatMusicStopEvent(comp.FadeOutDuration), filter);
+//             }
 
-    /// <summary>
-    /// Triggers combat music for a grid, starting it if not already playing
-    /// </summary>
-    public void TriggerCombatMusic(EntityUid gridUid)
-    {
-        var comp = EnsureComp<CombatMusicComponent>(gridUid);
+//             if (timeSinceLastShot.TotalSeconds >= comp.MusicTimeout)
+//             {
+//                 StopCombatMusic(gridUid, comp);
+//             }
+//         }
+//     }
 
-        comp.LastFiringTime = _timing.CurTime;
+//     /// <summary>
+//     /// Triggers combat music for a grid, starting it if not already playing
+//     /// </summary>
+//     public void TriggerCombatMusic(EntityUid gridUid)
+//     {
+//         var comp = EnsureComp<CombatMusicComponent>(gridUid);
 
-        if (!comp.MusicPlaying)
-        {
-            StartCombatMusic(gridUid, comp);
-        }
-    }
+//         comp.LastFiringTime = _timing.CurTime;
 
-    /// <summary>
-    /// Starts playing combat music for all players on the grid.
-    /// </summary>
-    private void StartCombatMusic(EntityUid gridUid, CombatMusicComponent comp)
-    {
-        if (comp.CombatMusicSounds.Count == 0)
-        {
-            Logger.Warning($"CombatMusicComponent on {gridUid} has no sounds configured!");
-            return;
-        }
+//         if (!comp.MusicPlaying)
+//         {
+//             StartCombatMusic(gridUid, comp);
+//         }
+//     }
 
-        var selectedSound = comp.CombatMusicSounds[_robustRandom.Next(0, comp.CombatMusicSounds.Count)];
+//     /// <summary>
+//     /// Starts playing combat music for all players on the grid.
+//     /// </summary>
+//     private void StartCombatMusic(EntityUid gridUid, CombatMusicComponent comp)
+//     {
+//         if (comp.CombatMusicSounds.Count == 0)
+//         {
+//             Logger.Warning($"CombatMusicComponent on {gridUid} has no sounds configured!");
+//             return;
+//         }
 
-        var filter = Filter.Empty().AddInGrid(gridUid, EntityManager);
+//         var selectedSound = comp.CombatMusicSounds[_robustRandom.Next(0, comp.CombatMusicSounds.Count)];
 
-        var path = ((SoundPathSpecifier) selectedSound).Path.ToString();
-        RaiseNetworkEvent(new CombatMusicStartEvent(path, comp.Volume, true), filter);
+//         var filter = Filter.Empty().AddInGrid(gridUid, EntityManager);
 
-        comp.MusicPlaying = true;
-        comp.FadeInitiated = false;
-    }
+//         var path = ((SoundPathSpecifier) selectedSound).Path.ToString();
+//         RaiseNetworkEvent(new CombatMusicStartEvent(path, comp.Volume, true), filter);
 
-    /// <summary>
-    /// Stops combat music on the grid.
-    /// </summary>
-    private void StopCombatMusic(EntityUid gridUid, CombatMusicComponent comp)
-    {
-        if (comp.MusicStream != null && Exists(comp.MusicStream.Value))
-        {
-            Del(comp.MusicStream.Value);
-        }
+//         comp.MusicPlaying = true;
+//         comp.FadeInitiated = false;
+//     }
 
-        comp.MusicStream = null;
-        comp.MusicPlaying = false;
+//     /// <summary>
+//     /// Stops combat music on the grid.
+//     /// </summary>
+//     private void StopCombatMusic(EntityUid gridUid, CombatMusicComponent comp)
+//     {
+//         if (comp.MusicStream != null && Exists(comp.MusicStream.Value))
+//         {
+//             Del(comp.MusicStream.Value);
+//         }
 
-        if (!comp.FadeInitiated)
-        {
-            RaiseNetworkEvent(new CombatMusicStopEvent());
-        }
+//         comp.MusicStream = null;
+//         comp.MusicPlaying = false;
 
-        RemComp<CombatMusicComponent>(gridUid);
-    }
-}
+//         if (!comp.FadeInitiated)
+//         {
+//             RaiseNetworkEvent(new CombatMusicStopEvent());
+//         }
+
+//         RemComp<CombatMusicComponent>(gridUid);
+//     }
+// }
 

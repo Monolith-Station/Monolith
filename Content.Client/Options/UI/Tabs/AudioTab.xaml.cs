@@ -60,12 +60,17 @@ public sealed partial class AudioTab : Control
             _cfg.GetCVar(CCVars.MinMaxAmbientSourcesConfigured),
             _cfg.GetCVar(CCVars.MaxMaxAmbientSourcesConfigured));
 
+        Control.AddOptionPercentSlider(
+            MonoCVars.CombatMusicVolume,
+            SliderVolumeCombatMusic,
+            scale: ContentAudioSystem.CombatMultiplier);
+
+        Control.AddOptionCheckBox(MonoCVars.CombatMusicEnabled, CombatMusicCheckBox);
         Control.AddOptionCheckBox(CCVars.LobbyMusicEnabled, LobbyMusicCheckBox);
         Control.AddOptionCheckBox(CCVars.RestartSoundsEnabled, RestartSoundsCheckBox);
         Control.AddOptionCheckBox(CCVars.EventMusicEnabled, EventMusicCheckBox);
         Control.AddOptionCheckBox(CCVars.AdminSoundsEnabled, AdminSoundsCheckBox);
         Control.AddOptionCheckBox(CCVars.BwoinkSoundEnabled, BwoinkSoundCheckBox);
-        Control.AddOptionCheckBox(MonoCVars.CombatMusicEnabled, CombatMusicCheckBox);
 
         Control.Initialize();
     }
