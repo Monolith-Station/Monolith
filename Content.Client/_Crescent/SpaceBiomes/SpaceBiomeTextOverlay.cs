@@ -10,6 +10,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._Crescent.SpaceBiomes;
 
+/// <summary>
+/// this system handles the actual drawing of grid names, descriptions, and biome overlays & descriptions
+/// </summary>
 public sealed class SpaceBiomeTextOverlay : Overlay
 {
     [Dependency] private IResourceCache _cache = default!;
