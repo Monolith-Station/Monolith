@@ -241,7 +241,7 @@
       time: 18000 # 5 hrs
   - type: GhostTakeoverAvailable
   - type: ContainableEntity # Huge research interest
-    BasePoints: 150
+    basePoints: 150
     multiplierDecay: 0.0002
 
 # actual entity spawners
