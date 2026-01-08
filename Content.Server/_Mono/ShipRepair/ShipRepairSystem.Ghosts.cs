@@ -1,7 +1,7 @@
 using Content.Shared._Mono.ShipRepair.Components;
+using Content.Shared.Eye;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
-using Content.Shared.SubFloor;
 
 namespace Content.Server._Mono.ShipRepair;
 
@@ -14,11 +14,12 @@ public sealed partial class ShipRepairSystem
         SubscribeLocalEvent<ShipRepairToolComponent, GotUnequippedHandEvent>(OnScanHandUnequipped);
         SubscribeLocalEvent<ShipRepairToolComponent, GotEquippedEvent>(OnScanEquipped);
         SubscribeLocalEvent<ShipRepairToolComponent, GotUnequippedEvent>(OnScanUnequipped);
+        SubscribeLocalEvent<RepairDataEyeComponent, GetVisMaskEvent>(OnGetVis);
     }
 
     private void OnEquip(EntityUid user)
     {
-        var comp = EnsureComp<TrayScannerUserComponent>(user);
+        var comp = EnsureComp<RepairDataEyeComponent>(user);
         comp.Count++;
 
         if (comp.Count > 1)
@@ -29,7 +30,7 @@ public sealed partial class ShipRepairSystem
 
     private void OnUnequip(EntityUid user)
     {
-        if (!TryComp(user, out TrayScannerUserComponent? comp))
+        if (!TryComp(user, out RepairDataEyeComponent? comp))
             return;
 
         comp.Count--;
@@ -37,7 +38,7 @@ public sealed partial class ShipRepairSystem
         if (comp.Count > 0)
             return;
 
-        RemComp<TrayScannerUserComponent>(user);
+        RemComp<RepairDataEyeComponent>(user);
         _eye.RefreshVisibilityMask(user);
     }
 
@@ -59,5 +60,10 @@ public sealed partial class ShipRepairSystem
     private void OnScanEquipped(Entity<ShipRepairToolComponent> ent, ref GotEquippedEvent args)
     {
         OnEquip(args.Equipee);
+    }
+
+    private void OnGetVis(Entity<RepairDataEyeComponent> ent, ref GetVisMaskEvent args)
+    {
+        args.VisibilityMask |= (int)VisibilityFlags.Subfloor;
     }
 }

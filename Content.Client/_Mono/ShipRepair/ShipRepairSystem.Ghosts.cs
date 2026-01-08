@@ -1,5 +1,6 @@
 using Content.Shared._Mono.ShipRepair;
 using Content.Shared._Mono.ShipRepair.Components;
+using Content.Shared.DrawDepth;
 using Robust.Client.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -28,7 +29,7 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
             return;
 
         var player = _player.LocalEntity;
-        if (player == null)
+        if (player == null || !HasComp<RepairDataEyeComponent>(player))
         {
             ClearGhosts();
             return;
@@ -142,7 +143,7 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
     {
         var coords = new EntityCoordinates(grid, spec.LocalPosition);
         var ghost = Spawn(RepairGhostId, coords);
-        _transform.SetLocalRotation(ghost, spec.Rotation);
+        _transform.SetLocalRotationNoLerp(ghost, spec.Rotation);
 
         if (_proto.TryIndex(protoId, out var proto)
             && proto.TryGetComponent<SpriteComponent>(out var specSprite, Factory))
@@ -150,6 +151,9 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
             var newComp = _serialization.CreateCopy(specSprite, notNullableOverride: true);
             AddComp(ghost, newComp);
             _sprite.SetColor((ghost, newComp), ghostColor);
+            _sprite.SetVisible((ghost, newComp), true);
+            _sprite.SetDrawDepth((ghost, newComp), (int)Content.Shared.DrawDepth.DrawDepth.Objects);
+            _metaData.SetEntityName(ghost, Loc.GetString("repair-ghost-name", ("proto", proto.Name)));
         }
 
         _activeGhosts[key] = ghost;
