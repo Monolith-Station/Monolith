@@ -20,12 +20,6 @@
   - type: Physics
     bodyType: Static
     canCollide: true
-  - type: AmbientSound
-    enabled: false
-    sound:
-      path: /Audio/Machines/scan_loop.ogg
-    range: 5
-    volume: -8
   - type: Fixtures
     fixtures:
       fix1:
