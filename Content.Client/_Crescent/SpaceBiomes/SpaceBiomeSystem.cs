@@ -67,7 +67,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
         while (query.MoveNext(out var sourceUid, out var comp))
         {
-            Log.Info("running for source " + sourceUid.ToString());
+            // Log.Info("running for source " + sourceUid.ToString());
             if (PreciseRange && (_formSys.GetWorldPosition(sourceUid) - playerPos).Length() > comp.SwapDistance)
                 continue;
 
