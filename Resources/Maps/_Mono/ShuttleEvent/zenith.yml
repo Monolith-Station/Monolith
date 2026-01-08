@@ -35,6 +35,11 @@ entities:
     components:
     - type: MetaData
       name: ADS Zenith
+    - type: InitRepairSnapshot
+    - type: ShipRepairRestrict
+      toolWhitelist:
+        tags:
+        - ADSRepairTool
     - type: Transform
       pos: 0.5,0.5
       parent: invalid

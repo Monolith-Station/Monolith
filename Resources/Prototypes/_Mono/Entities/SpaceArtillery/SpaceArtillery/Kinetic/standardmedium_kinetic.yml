@@ -19,6 +19,7 @@
     range: 500
   - type: Gun
     fireRate: 3
+    recoil: 10 # 2/5x
     projectileSpeed: 170
     minAngle: 0
     maxAngle: 3
@@ -70,6 +71,9 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 60
 
 # Dravon
 
@@ -92,6 +96,7 @@
     range: 500
   - type: Gun
     fireRate: 1.5
+    recoil: 10 # 2/5x
     projectileSpeed: 250
     minAngle: 0
     maxAngle: 2
@@ -135,3 +140,6 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 60

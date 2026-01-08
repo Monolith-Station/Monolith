@@ -6776,14 +6776,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.2517176,-10.459884
       parent: 179
-- proto: ShipyardRCD
+- proto: ShipRepairDevice
   entities:
   - uid: 1248
     components:
     - type: Transform
       pos: -2.0677912,4.7188888
       parent: 179
-- proto: ShipyardRCDAmmo
+- proto: ShipRepairDeviceAmmo
   entities:
   - uid: 1249
     components:

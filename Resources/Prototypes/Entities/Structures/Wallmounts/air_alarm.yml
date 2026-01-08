@@ -116,6 +116,10 @@
     guides:
     - AirAlarms
     - DeviceMonitoringAndControl
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   id: AirAlarmAssembly

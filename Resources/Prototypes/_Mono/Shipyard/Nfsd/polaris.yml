@@ -12,7 +12,6 @@
   shuttlePath: /Maps/_Mono/Shuttles/Nfsd/polaris.yml
   guidebookPage: Null
   class:
-  - Capital
   - Frigate
   - Pursuit
   - Patrol
@@ -36,3 +35,4 @@
       - type: StationJobs
         availableJobs:
           Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
