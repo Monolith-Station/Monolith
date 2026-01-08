@@ -111,9 +111,9 @@ public sealed partial class ContentAudioSystem
 
     private void InitializeAmbientMusic()
     {
-        SubscribeNetworkEvent<SpaceBiomeSwapMessage>(OnBiomeChange);
-        SubscribeNetworkEvent<NewVesselEnteredMessage>(OnVesselChange);
-        SubscribeNetworkEvent<SpaceEnteredMessage>(OnSpaceEntered);
+        SubscribeLocalEvent<SpaceBiomeSwapMessage>(OnBiomeChange);
+        SubscribeLocalEvent<NewVesselEnteredMessage>(OnVesselChange);
+        SubscribeLocalEvent<SpaceEnteredMessage>(OnSpaceEntered);
         SubscribeLocalEvent<ToggleCombatActionEvent>(OnCombatModeToggle);
 
         Subs.CVar(_configManager, CCVars.AmbientMusicVolume, AmbienceCVarChanged, true);
@@ -158,7 +158,7 @@ public sealed partial class ContentAudioSystem
 
     }
 
-    private void OnBiomeChange(SpaceBiomeSwapMessage ev)
+    private void OnBiomeChange(ref SpaceBiomeSwapMessage ev)
     {
 
         SpaceBiomePrototype biome = _protMan.Index<SpaceBiomePrototype>(ev.Biome); //get the biome prototype
@@ -211,14 +211,17 @@ public sealed partial class ContentAudioSystem
     ///
     /// </summary>
     /// <param name="ev"></param>
-    private void OnVesselChange(NewVesselEnteredMessage ev)
+    private void OnVesselChange(ref NewVesselEnteredMessage ev)
     {
         _sawmill.Debug($"went to ship {ev.Name}"); //SHOULD BE ONE WORD. Jackal, Countsman, PortBalreska...
 
         if (ev.AmbientMusicPrototype == "")
         {
             if (_validStationMusic) //if we are currently playing station music, we want to clear it and play biome music.
-                OnSpaceEntered(new SpaceEnteredMessage()); //which we do by going "hey we moved to space". this is dirty but it works
+            {
+                SpaceEnteredMessage spaceMsg = new SpaceEnteredMessage();
+                OnSpaceEntered(ref spaceMsg);
+            } //which we do by going "hey we moved to space". this is dirty but it works
             _validStationMusic = false; //regardless of above, set it to false for combatmode purposes
             return;
         }
@@ -266,7 +269,7 @@ public sealed partial class ContentAudioSystem
         Timer.Spawn(_audio.GetAudioLength(path) + _timeUntilNextAmbientTrack, () => ReplayAmbientMusic(), _ambientMusicCancelToken.Token);
     }
 
-    private void OnSpaceEntered(SpaceEnteredMessage ev)
+    private void OnSpaceEntered(ref SpaceEnteredMessage ev)
     {
         _sawmill.Debug($"ENTERED SPACE, STOPPING MUSIC");
 

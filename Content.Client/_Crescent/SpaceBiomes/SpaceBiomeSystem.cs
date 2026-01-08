@@ -26,7 +26,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         _overMan.AddOverlay(_overlay);
     }
 
-    private void OnSwap(SpaceBiomeSwapMessage ev)
+    private void OnSwap(ref SpaceBiomeSwapMessage ev)
     {
         _audioSys.DisableAmbientMusic();
         SpaceBiomePrototype biome = _protMan.Index<SpaceBiomePrototype>(ev.Biome);
@@ -41,7 +41,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
             _overlay.CharIntervalDescription = TimeSpan.FromSeconds(2f / biome.Description.Length);      //this would throw an exception
     }
 
-    private void OnNewVesselEntered(NewVesselEnteredMessage ev)
+    private void OnNewVesselEntered(ref NewVesselEnteredMessage ev)
     {
         if (!_canDisplayText) //if we displayed during the last 2 min, don't do that
             return;

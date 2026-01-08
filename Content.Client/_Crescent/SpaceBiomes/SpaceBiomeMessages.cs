@@ -2,18 +2,22 @@ using Robust.Shared.Serialization;
 
 namespace Content.Client._Crescent.SpaceBiomes;
 
-[Serializable]
-public sealed class SpaceBiomeSwapMessage : EntityEventArgs
+[ByRefEvent]
+public readonly record struct SpaceBiomeSwapMessage
 {
-    public string Biome = "";
+    public readonly string Biome = "";
+    public SpaceBiomeSwapMessage(string biome)
+    {
+        Biome = biome;
+    }
 }
 
-[Serializable]
-public sealed class NewVesselEnteredMessage : EntityEventArgs
+[ByRefEvent]
+public readonly record struct NewVesselEnteredMessage
 {
-    public string Name = "";
-    public string Description = "";
-    public string AmbientMusicPrototype = "";
+    public readonly string Name = "";
+    public readonly string Description = "";
+    public readonly string AmbientMusicPrototype = "";
 
     public NewVesselEnteredMessage(string name, string description, string ambientMusicPrototype)
     {
@@ -23,7 +27,7 @@ public sealed class NewVesselEnteredMessage : EntityEventArgs
     }
 }
 
-[Serializable]
-public sealed class SpaceEnteredMessage : EntityEventArgs
+[ByRefEvent]
+public readonly record struct SpaceEnteredMessage
 {
 }

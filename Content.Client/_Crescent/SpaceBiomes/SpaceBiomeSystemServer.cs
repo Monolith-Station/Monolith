@@ -139,7 +139,7 @@ public sealed class SpaceBiomeSystemServer : EntitySystem
         {
             Log.Info("title drop should happen now");
             NewVesselEnteredMessage message = new NewVesselEnteredMessage(parentStation.Id.ToString(), vesselinfo.Description, musicPrototype);
-            RaiseLocalEvent(uid, message);
+            RaiseLocalEvent(uid, ref message, true);
         });
     }
 
@@ -157,7 +157,7 @@ public sealed class SpaceBiomeSystemServer : EntitySystem
         if (parentStation == null) //entered space, should tell music system to stop playing ship music
         {
             SpaceEnteredMessage spaceMsg = new SpaceEnteredMessage();
-            RaiseLocalEvent(uid, spaceMsg);
+            RaiseLocalEvent(uid, ref spaceMsg, true);
             return;
         }
 
@@ -177,7 +177,7 @@ public sealed class SpaceBiomeSystemServer : EntitySystem
         // var name = setup.StationNameTemplate.Replace("{1}", "").Trim();
 
         NewVesselEnteredMessage message = new NewVesselEnteredMessage(parentStation.Id.ToString(), description, musicPrototype);
-        RaiseLocalEvent(uid, message);
+        RaiseLocalEvent(uid, ref message, true);
     }
 
     public void AddBiome(EntityUid uid, SpaceBiomeSourceComponent source)
@@ -216,8 +216,8 @@ public sealed class SpaceBiomeSystemServer : EntitySystem
         SpaceBiomePrototype biome = _protMan.Index<SpaceBiomePrototype>(source?.Biome ?? "default");
         _parallaxSys.SwapParallax(uid, EnsureComp<ParallaxComponent>(uid), biome.Parallax, biome.SwapDuration);
 
-        SpaceBiomeSwapMessage msg = new() { Biome = source?.Biome ?? "default" };
-        RaiseLocalEvent(uid, msg);
+        SpaceBiomeSwapMessage msg = new SpaceBiomeSwapMessage(source?.Biome ?? "default");
+        RaiseLocalEvent(uid, ref msg, true);
     }
 
     private List<Vector2> GetCoveredChunks(Vector2 pos, int radius)
