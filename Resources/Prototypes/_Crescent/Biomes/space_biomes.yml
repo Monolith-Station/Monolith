@@ -9,17 +9,20 @@
 - type: ambientSpaceBiome
   id: outer_ring
   name: Outer Ring
+  description: "Far from radio range. Far from help. The stars here are dimmer."
   swapDuration: 2
   parallax: ExoStation # looks fine
 
 - type: ambientSpaceBiome
   id: middle_ring
   name: Middle Ring
+  description: "Homering of miners, explorers, and pirates."
   swapDuration: 2
   parallax: AspidParallax # green ig
 
 - type: ambientSpaceBiome
   id: inner_ring
   name: Inner Ring
+  description: "Civilised space. Through a window, you see Colossus Central drifting in the distance."
   swapDuration: 2
   parallax: KettleStation # blue ig

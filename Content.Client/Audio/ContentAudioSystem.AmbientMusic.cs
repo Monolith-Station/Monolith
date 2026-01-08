@@ -149,8 +149,8 @@ public sealed partial class ContentAudioSystem
 
         PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
 
-        _ambientMusicCancelToken.Cancel();
-        _ambientMusicCancelToken = new CancellationTokenSource();
+        _ambientMusicCancelToken.Cancel(); //this cancels the timer, not the music
+        _ambientMusicCancelToken = new CancellationTokenSource(); //and we refresh the token for the next play
 
         Timer.Spawn(_audio.GetAudioLength(path) + _timeUntilNextAmbientTrack, () => ReplayAmbientMusic(), _ambientMusicCancelToken.Token);
 
@@ -215,8 +215,9 @@ public sealed partial class ContentAudioSystem
 
         if (ev.AmbientMusicPrototype == "")
         {
-            _validStationMusic = false;
-            _sawmill.Debug("NO MUSIC FOUND FOR SHIP");
+            if (_validStationMusic) //if we are currently playing station music, we want to clear it and play biome music.
+                OnSpaceEntered(new SpaceEnteredMessage()); //which we do by going "hey we moved to space". this is dirty but it works
+            _validStationMusic = false; //regardless of above, set it to false for combatmode purposes
             return;
         }
         else
@@ -238,9 +239,9 @@ public sealed partial class ContentAudioSystem
 
         foreach (var ambient in _musicTracks)
         {
-            if (ev.AmbientMusicPrototype == ambient.ID) //if we find the biome that's matching the ambient's ID, we play that track!
+            if (ev.AmbientMusicPrototype == ambient.ID) //if we find the station that's matching the ambient's ID, we play that track!
             {
-                //_sawmill.Debug($"found biome match: {biome.ID} == {ambient.ID}");
+                //_sawmill.Debug($"found station match: {biome.ID} == {ambient.ID}");
                 _musicProto = ambient;
                 break;
             }
@@ -249,7 +250,6 @@ public sealed partial class ContentAudioSystem
         if (_musicProto == null) //if we don't find any, we play the default track.
         {
             _musicProto = _proto.Index<AmbientMusicPrototype>("default");
-            //_lastBiome = _proto.Index<SpaceBiomePrototype>("default");
         }
 
         SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
@@ -297,6 +297,9 @@ public sealed partial class ContentAudioSystem
         string path = _random.Pick(soundcol.PickFiles).ToString(); // THIS WILL PICK A RANDOM SOUND. WE MAY WANT TO SPECIFY ONE INSTEAD!!
 
         PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
+
+        _ambientMusicCancelToken.Cancel();
+        _ambientMusicCancelToken = new CancellationTokenSource();
 
         Timer.Spawn(_audio.GetAudioLength(path) + _timeUntilNextAmbientTrack, () => ReplayAmbientMusic(), _ambientMusicCancelToken.Token);
     }
