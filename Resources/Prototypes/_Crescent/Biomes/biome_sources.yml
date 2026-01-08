@@ -5,6 +5,7 @@
 # 5000-9500: middle ring
 # 9500-18000: outer ring
 # 18000+: uncharted space (fallback)
+# THESE MUST HAVE GLOBAL PVS OR THE CLIENT WON'T SEE THEM!!!!!!!!!!!!
 
 - type: entity
   id: FallbackBiomeSource
@@ -14,6 +15,7 @@
     biome: default
     swapDistance: 25000
     priority: 500
+  - type: GlobalPvs
 
 - type: entity
   id: OuterRingBiomeSource
@@ -23,6 +25,7 @@
     biome: outer_ring
     swapDistance: 18000
     priority: 1000
+  - type: GlobalPvs
 
 - type: entity
   id: MiddleRingBiomeSource
@@ -32,6 +35,7 @@
     biome: middle_ring
     swapDistance: 9500
     priority: 1500
+  - type: GlobalPvs
 
 - type: entity
   id: InnerRingBiomeSource
@@ -41,3 +45,4 @@
     biome: inner_ring
     swapDistance: 5000
     priority: 2000
+  - type: GlobalPvs

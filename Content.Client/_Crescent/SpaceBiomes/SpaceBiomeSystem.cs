@@ -20,8 +20,8 @@ public sealed class SpaceBiomeSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeNetworkEvent<SpaceBiomeSwapMessage>(OnSwap);
-        SubscribeNetworkEvent<NewVesselEnteredMessage>(OnNewVesselEntered);
+        SubscribeLocalEvent<SpaceBiomeSwapMessage>(OnSwap);
+        SubscribeLocalEvent<NewVesselEnteredMessage>(OnNewVesselEntered);
         _overlay = new();
         _overMan.AddOverlay(_overlay);
     }
