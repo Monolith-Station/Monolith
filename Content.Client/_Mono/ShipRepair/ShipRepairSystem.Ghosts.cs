@@ -145,8 +145,9 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
         if (_proto.TryIndex(protoId, out var proto)
             && proto.TryGetComponent<SpriteComponent>(out var specSprite, Factory))
         {
-            var coords = new EntityCoordinates(grid, spec.LocalPosition);
-            var ghost = Spawn(RepairGhostId, coords);
+            var ghost = Spawn(RepairGhostId, new EntityCoordinates(grid, Vector2.Zero));
+            _transform.SetParent(ghost, grid);
+            _transform.SetLocalPositionNoLerp(ghost, spec.LocalPosition);
             _transform.SetLocalRotationNoLerp(ghost, spec.Rotation);
 
             var sprite = _serialization.CreateCopy(specSprite, notNullableOverride: true);
