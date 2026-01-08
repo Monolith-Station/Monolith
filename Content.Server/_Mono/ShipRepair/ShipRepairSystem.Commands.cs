@@ -81,6 +81,8 @@ public sealed partial class ShipRepairSystem
                 spec.OriginalEntity = GetNetEntity(spawned);
             }
         }
+
+        Dirty(uid, data);
     }
 
     [AdminCommand(AdminFlags.Admin)]
