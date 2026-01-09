@@ -74,6 +74,10 @@
             max: 1
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  # Mono
+  - type: ShipRepairable
+    repairTime: 1
+    repairCost: 2
   placement:
     mode: SnapgridCenter
     snap:

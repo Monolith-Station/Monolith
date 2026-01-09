@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2023 Checkraze
+# SPDX-FileCopyrightText: 2023 Dvir
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
+#
+# SPDX-License-Identifier: MPL-2.0
+
 - type: playTimeTracker
   id: JobMailCarrier
 
@@ -5,7 +11,7 @@
   id: JobPrisoner
 
 - type: playTimeTracker
-  id: JobValet
+  id: JobCCServiceWorker
 
 - type: playTimeTracker
   id: JobPrisonGuard

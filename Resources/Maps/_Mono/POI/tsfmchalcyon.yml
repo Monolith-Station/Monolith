@@ -49498,14 +49498,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 5.696982,23.40262
       parent: 1
-- proto: ShipyardRCD
+- proto: ShipRepairDevice
   entities:
   - uid: 7391
     components:
     - type: Transform
       pos: 6.624542,-26.38359
       parent: 1
-- proto: ShipyardRCDAmmo
+- proto: ShipRepairDeviceAmmo
   entities:
   - uid: 7392
     components:

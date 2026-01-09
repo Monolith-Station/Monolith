@@ -1,12 +1,12 @@
 ﻿- type: job
-  id: Valet
-  name: job-name-valet
-  description: job-description-valet
-  playTimeTracker: JobValet
+  id: CCServiceWorker
+  name: job-name-service-worker
+  description: job-description-service-worker
+  playTimeTracker: JobCCServiceWorker
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 10800
-  startingGear: ValetGear
+  startingGear: CCServiceWorkerGear
   alwaysUseSpawner: true
   icon: "JobIconValet" # Frontier: JobIconServiceWorker<JobIconValet
   supervisors: job-supervisors-sr
@@ -27,11 +27,11 @@
 
 # Frontier: valet loadout
 - type: startingGear
-  id: ValetGear
+  id: CCServiceWorkerGear
   equipment:
     head: ClothingHeadHatBellhop
     gloves: ClothingHandsGlovesColorWhite
-    id: ValetPDA
+    id: CCServiceWorkerPDA
   storage:
     back:
     - EncryptionKeyService # Frontier
