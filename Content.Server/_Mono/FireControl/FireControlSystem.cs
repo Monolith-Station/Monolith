@@ -11,9 +11,6 @@ using Robust.Shared.Physics.Systems;
 using System.Linq;
 using Content.Shared.Physics;
 using System.Numerics;
-// NUKED UNTIL RE-TOOLED TO WORK WITH ContentAudioSystem.AmbientMusic.cs
-// .2 - for mono - 8/1/2026
-// using Content.Server._Mono.CombatMusic;
 using Content.Server._Mono.SpaceArtillery;
 using Content.Server._Mono.SpaceArtillery.Components;
 using Content.Server.Power.EntitySystems;
@@ -34,12 +31,6 @@ public sealed partial class FireControlSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PowerReceiverSystem _power = default!;
     [Dependency] private readonly RotateToFaceSystem _rotateToFace = default!;
-
-    // NUKED UNTIL RE-TOOLED TO WORK WITH ContentAudioSystem.AmbientMusic.cs
-    // .2 - for mono - 8/1/2026
-
-    // [Dependency] private readonly CombatMusicSystem _combatMusic = default!;
-
     /// <summary>
     /// Dictionary of entities that have visualization enabled
     /// </summary>
@@ -422,12 +413,6 @@ public sealed partial class FireControlSystem : EntitySystem
 
             artilleryFired |= _artilleryQuery.HasComp(localWeapon) && fired;
         }
-
-        // NUKED UNTIL RE-TOOLED TO WORK WITH ContentAudioSystem.AmbientMusic.cs
-        // .2 - for mono - 8/1/2026
-
-        // if (artilleryFired)
-        //     TriggerCombatMusic(server);
     }
 
     /// <summary>
@@ -733,21 +718,6 @@ public sealed partial class FireControlSystem : EntitySystem
         RaiseNetworkEvent(new FireControlVisualizationEvent(netEntity, directions));
         return true;
     }
-
-    // NUKED UNTIL RE-TOOLED TO WORK WITH ContentAudioSystem.AmbientMusic.cs
-    // .2 - for mono - 8/1/2026
-
-    // /// <summary>
-    // /// Triggers combat music for the grid that the console is on.
-    // /// </summary>
-    // private void TriggerCombatMusic(EntityUid consoleUid)
-    // {
-    //     var gridUid = _xform.GetGrid(consoleUid);
-    //     if (gridUid == null)
-    //         return;
-
-    //     _combatMusic.TriggerCombatMusic(gridUid.Value);
-    // }
 }
 
 public sealed class FireControllableStatusReportEvent : EntityEventArgs
