@@ -361,7 +361,7 @@
   name: Jump
   description: Activating the advanced propulsion system, you propel yourself a short distance in the direction of your gaze.
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 8
     icon: 
       sprite: Interface/Actions/jump.rsi
