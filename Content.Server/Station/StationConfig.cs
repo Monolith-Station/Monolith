@@ -17,8 +17,8 @@ public sealed partial class StationConfig
     public ComponentRegistry StationComponentOverrides = default!;
 
     // Crescent - used to add components to grid. rn used for music & biome sys
-    [DataField("gridComponents")]
-    public ComponentRegistry? gridComponents = default!;
+    [DataField]
+    public ComponentRegistry gridComponents = new();
     // Crescent
 }
 
