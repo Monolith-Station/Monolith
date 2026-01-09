@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/09/2026 05:03:04
-  entityCount: 8411
+  time: 01/09/2026 05:20:18
+  entityCount: 8416
 maps: []
 grids:
 - 1
@@ -25607,6 +25607,13 @@ entities:
     - type: Transform
       pos: -15.5,13.5
       parent: 1
+- proto: DefaultStationBeaconAI
+  entities:
+  - uid: 8415
+    components:
+    - type: Transform
+      pos: -6.5,82.5
+      parent: 1
 - proto: DefaultStationBeaconAME
   entities:
   - uid: 7581
@@ -25614,12 +25621,19 @@ entities:
     - type: Transform
       pos: -3.5,76.5
       parent: 1
+- proto: DefaultStationBeaconAnchor
+  entities:
+  - uid: 8416
+    components:
+    - type: Transform
+      pos: 0.5,36.5
+      parent: 1
 - proto: DefaultStationBeaconArmory
   entities:
   - uid: 7533
     components:
     - type: Transform
-      pos: -9.5,24.5
+      pos: -16.5,14.5
       parent: 1
 - proto: DefaultStationBeaconArtifactLab
   entities:
@@ -43287,6 +43301,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 14.5,35.5
       parent: 1
+  - uid: 8413
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,33.5
+      parent: 1
 - proto: Poweredlight
   entities:
   - uid: 2251
@@ -43696,6 +43716,17 @@ entities:
     components:
     - type: Transform
       pos: -17.5,10.5
+      parent: 1
+  - uid: 8412
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,35.5
+      parent: 1
+  - uid: 8414
+    components:
+    - type: Transform
+      pos: 1.5,37.5
       parent: 1
 - proto: PoweredlightRed
   entities:
