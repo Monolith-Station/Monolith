@@ -11,6 +11,8 @@ using Robust.Client.GameObjects;
 using Content.Client.Parallax;
 using Content.Client.Station;
 using Content.Shared.Mind.Components;
+using Content.Shared.Station.Components;
+using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Client._Crescent.SpaceBiomes;
 
@@ -116,11 +118,12 @@ public sealed class SpaceBiomeSystem : EntitySystem
         if (!TryComp<TransformComponent>(uid, out var transform)) //need transform comp to grab parent station clientside
             return;
 
-        // var parentStation = _stationSystem.GetOwningStation(uid);
-        var parentStation = transform.ParentUid;
+        var parentStation = CompOrNull<StationMemberComponent>(transform.GridUid)?.Station; //copied how serverside stationsystem did it. let's hope.
 
         if (parentStation == null)
             return;
+
+        var parentStationName = Name(transform.ParentUid); //this grabs the full name with the cool identifier rather than just Piva CIV
 
         // HULLROT EDIT: BoringStations and keeping track of what we've visited before is removed
         // because we want people to see the message each time you enter, coupled with music and flavor text
@@ -139,7 +142,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         Timer.Spawn(TimeSpan.FromSeconds(10), () =>
         {
             Log.Info("title drop should happen now");
-            NewVesselEnteredMessage message = new NewVesselEnteredMessage(Name(parentStation), description, musicPrototype);
+            NewVesselEnteredMessage message = new NewVesselEnteredMessage(parentStationName, description, musicPrototype);
             RaiseLocalEvent(uid, ref message, true);
         });
     }
@@ -152,8 +155,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         if (!TryComp<TransformComponent>(uid, out var transform)) //need transform comp to grab parent station clientside
             return;
 
-        // var parentStation = _stationSystem.GetOwningStation(uid);
-        var parentStation = transform.ParentUid;
+        var parentStation = CompOrNull<StationMemberComponent>(transform.GridUid)?.Station; //copied how serverside stationsystem did it. let's hope.
 
         if (parentStation == null) //entered space, should tell music system to stop playing ship music
         {
@@ -161,6 +163,9 @@ public sealed class SpaceBiomeSystem : EntitySystem
             RaiseLocalEvent(uid, ref spaceMsg, true);
             return;
         }
+
+        //SURPRISE!!!!!!!!!!! this actually grabs SPACE!!! and the GRID! NOT THE FUCKING STATION WITH THE THING I NEED ON IT!!!
+        var parentStationName = Name(transform.ParentUid); //this grabs the full name with the cool identifier rather than just Piva CIV
 
         // HULLROT EDIT: BoringStations and keeping track of what we've visited before is removed
         // because we want people to see the message each time you enter, coupled with music and flavor text
@@ -177,7 +182,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
         // var name = setup.StationNameTemplate.Replace("{1}", "").Trim();
 
-        NewVesselEnteredMessage message = new NewVesselEnteredMessage(Name(parentStation), description, musicPrototype);
+        NewVesselEnteredMessage message = new NewVesselEnteredMessage(parentStationName, description, musicPrototype);
         RaiseLocalEvent(uid, ref message, true);
     }
 

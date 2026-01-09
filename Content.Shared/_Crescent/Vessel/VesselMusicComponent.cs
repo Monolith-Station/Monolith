@@ -1,8 +1,10 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared._Crescent.Vessel;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class VesselMusicComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public string AmbientMusicPrototype = "";
 }

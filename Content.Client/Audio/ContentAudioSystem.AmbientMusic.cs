@@ -222,6 +222,7 @@ public sealed partial class ContentAudioSystem
                 SpaceEnteredMessage spaceMsg = new SpaceEnteredMessage();
                 OnSpaceEntered(ref spaceMsg);
             } //which we do by going "hey we moved to space". this is dirty but it works
+            _sawmill.Debug("NO MUSIC FOUND FOR SHIP!");
             _validStationMusic = false; //regardless of above, set it to false for combatmode purposes
             return;
         }
