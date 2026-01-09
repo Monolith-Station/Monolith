@@ -242,7 +242,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // convert wish-input to ship context
         var strafeInput = (-ctx.ShipNorthAngle).RotateVec(wishInputVec);
         strafeInput = GetGoodThrustVector(strafeInput, ctx.Shuttle) * MathF.Min(1f, wishInputVec.Length());
-        Log.Info($"input {strafeInput} norot {wishInputVec}");
 
         return new ShuttleInput(strafeInput, rotControl.RotationInput, brakeInput);
     }
@@ -396,12 +395,12 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 var k = 0.5f * Vector2.Dot(toObsDir, accel);
                 var m = -obsDistance;
                 var t = 4*k*m > l*l || k == 0f ? -1f : ((-l + MathF.Sqrt(l*l - 4*k*m)) * 0.5f / k);
+                t = MathF.Max(0f, t - ctx.FrameTime);
                 if (t < 0f || t > simTime)
                     continue;
 
                 var endAt = relVel*t + 0.5f*accel*t*t;
                 var proj = MathF.Abs(Vector2.Dot(endAt, new Vector2(-toObsDir.Y, toObsDir.X)));
-                Log.Info($"Avoid dir {aDir} time {t}, proj {proj}");
                 if (proj > sumRadius)
                     continue;
 
@@ -482,31 +481,31 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var toDestDir = NormalizedOrZero(toDestVec);
         var relVel = ctx.ShipBody.LinearVelocity - ctx.TargetVel;
 
+        // we're good
+        if (brake.LeftoverBrakePath <= 0f)
+            return Vector2.Zero;
+
         // check if we should just brake
-        if (brake.LeftoverBrakePath > destDistance && brake.BrakeAccel != 0f)
-        {
+        if (brake.LeftoverBrakePath > destDistance)
             return -relVel;
-        }
-        else
-        {
-            var linVelDir = NormalizedOrZero(relVel);
 
-            // mirror linVelDir in relation to toTargetDir
-            var adjustVec = -(linVelDir - toDestDir * Vector2.Dot(linVelDir, toDestDir));
-            var adjustDir = NormalizedOrZero(adjustVec);
+        var linVelDir = NormalizedOrZero(relVel);
 
-            var wishThrustDir = toDestDir + 2f * adjustVec;
+        // mirror linVelDir in relation to toTargetDir
+        var adjustVec = -(linVelDir - toDestDir * Vector2.Dot(linVelDir, toDestDir));
+        var adjustDir = NormalizedOrZero(adjustVec);
 
-            var wishThrustVec = _mover.GetDirectionThrust((-ctx.ShipNorthAngle).RotateVec(wishThrustDir), ctx.Shuttle, ctx.ShipBody);
-            var adjustAccel = Vector2.Dot(adjustDir, wishThrustVec) * ctx.ShipBody.InvMass;
+        var wishThrustDir = toDestDir + 2f * adjustVec;
 
-            var maxAdjust = Vector2.Dot(-adjustDir, relVel);
+        var wishThrustVec = _mover.GetDirectionThrust((-ctx.ShipNorthAngle).RotateVec(wishThrustDir), ctx.Shuttle, ctx.ShipBody);
+        var adjustAccel = Vector2.Dot(adjustDir, wishThrustVec) * ctx.ShipBody.InvMass;
 
-            adjustVec *= adjustAccel == 0f ? 0f : float.Clamp(maxAdjust / (adjustAccel * ctx.FrameTime), 0f, 1f);
+        var maxAdjust = Vector2.Dot(-adjustDir, relVel);
 
-            // do not yet process whether we can actually accelerate well in that direction
-            return toDestDir + 2f * adjustVec;
-        }
+        adjustVec *= adjustAccel == 0f ? 0f : float.Clamp(maxAdjust / (adjustAccel * ctx.FrameTime), 0f, 1f);
+
+        // do not yet process whether we can actually accelerate well in that direction
+        return toDestDir + 2f * adjustVec;
     }
 
     private readonly record struct RotationResult(float RotationInput, float WishAngleVel);
