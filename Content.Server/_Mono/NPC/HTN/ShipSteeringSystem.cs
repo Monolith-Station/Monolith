@@ -31,8 +31,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
     // collision evasion input consideration sectors: 24 outer, 12 inner, 1 zero-input
     private List<EvadeCandidate> _sectors = new();
-    private List<Vector2> _sectorsBase = new();
-    private int _sectorsCount = 24;
 
     public override void Initialize()
     {
@@ -45,18 +43,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         _phaseQuery = GetEntityQuery<ProjectileGridPhaseComponent>();
         _physQuery = GetEntityQuery<PhysicsComponent>();
         _shuttleQuery = GetEntityQuery<ShuttleComponent>();
-
-        InitSectors();
-    }
-
-    private void InitSectors()
-    {
-        _sectorsBase.Clear();
-        for (var i = 0; i < _sectorsCount; i++)
-        {
-            var angle = Angle.FromDegrees(360f * i / (float)_sectorsCount);
-            _sectorsBase.Add(angle.ToVec());
-        }
     }
 
     private void OnSteererGetInputs(Entity<ShipSteererComponent> ent, ref GetShuttleInputsEvent args)
@@ -119,6 +105,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             BaseEvasionTime = ent.Comp.BaseEvasionTime,
             AvoidCollisions = ent.Comp.AvoidCollisions,
             AvoidProjectiles = ent.Comp.AvoidProjectiles,
+            EvasionSectorCount = ent.Comp.EvasionSectorCount,
+            EvasionSectorDepth = ent.Comp.EvasionSectorDepth,
             MaxObstructorDistance = ent.Comp.MaxObstructorDistance,
             MinObstructorDistance = ent.Comp.MinObstructorDistance,
             EvasionBuffer = ent.Comp.EvasionBuffer,
@@ -259,7 +247,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // s = v^2 / 2a
         var brakePath = linVelLenSq / (2f * brakeAccel);
         // path we will pass if we keep braking until we reach our desired max velocity
-        var innerBrakePath = maxArrivedVel / (2f * brakeAccel);
+        var innerBrakePath = maxArrivedVel*maxArrivedVel / (2f * brakeAccel);
 
         // negative if we're already slow enough
         var leftoverBrakePath = brakeAccel == 0f ? 0f : brakePath - innerBrakePath;
@@ -347,9 +335,11 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         simTime += config.BaseEvasionTime;
 
         _sectors.Clear();
-        var isEven = false;
-        foreach (var dir in _sectorsBase)
+        for (var i = 0; i < config.EvasionSectorCount; i++)
         {
+            var angle = Angle.FromDegrees(360f * i / (float)config.EvasionSectorCount);
+            var dir = angle.ToVec();
+
             var rotated = (-ctx.ShipNorthAngle).RotateVec(dir);
             var dirAccel = _mover.GetDirectionThrust(rotated, ctx.Shuttle, ctx.ShipBody).Length();
             // if it's zero use a very rough approximation using our forward thrust
@@ -360,10 +350,11 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 dirAccel = _mover.GetDirectionThrust(upVec, ctx.Shuttle, ctx.ShipBody).Length() * penalty;
             }
 
-            _sectors.Add(new(dir, dirAccel, 1f));
-            if (isEven)
-                _sectors.Add(new(dir, dirAccel * 0.5f, 0.5f));
-            isEven = !isEven;
+            for (var depth = 1; depth <= config.EvasionSectorDepth; depth++)
+            {
+                if (i % depth == 0)
+                    _sectors.Add(new(dir, dirAccel / depth, 1f / depth));
+            }
         }
         // set scale to -1 to mark it as the wish-sector
         _sectors.Add(new(wishDir, _mover.GetDirectionThrust((-ctx.ShipNorthAngle).RotateVec(wishDir), ctx.Shuttle, ctx.ShipBody).Length(), -1f));
@@ -465,7 +456,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             {
                 var toWishSq = (wishDir - sector.Sector).LengthSquared();
                 // Log.Info($"NI dir [{i}] {sector.Sector}: sq: {toWishSq} vs {closestDistance}");
-                // accept if it's closer to our hysteresis-wish or if it's our real wish
                 if (toWishSq < closestDistance)
                 {
                     // Log.Info($"B: NI");
@@ -504,7 +494,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var relVel = ctx.ShipBody.LinearVelocity - ctx.TargetVel;
 
         // we're good
-        if (brake.LeftoverBrakePath < 0f)
+        if (brake.LeftoverBrakePath < 0f && destDistance == 0f)
             return Vector2.Zero;
 
         // check if we should just brake
@@ -706,6 +696,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // avoidance
         public bool AvoidCollisions;
         public bool AvoidProjectiles;
+        public int EvasionSectorCount;
+        public int EvasionSectorDepth;
         public float BaseEvasionTime;
         public float MaxObstructorDistance;
         public float MinObstructorDistance;

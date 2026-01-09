@@ -61,6 +61,18 @@ public sealed partial class ShipSteererComponent : Component
     public float EvasionBuffer = 6f;
 
     /// <summary>
+    /// How many evasion sectors to init on the outer ring.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int EvasionSectorCount = 24;
+
+    /// <summary>
+    /// How many layers of evasion sectors to have.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int EvasionSectorDepth = 2;
+
+    /// <summary>
     /// Whether to consider the movement finished if we collide with target.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]

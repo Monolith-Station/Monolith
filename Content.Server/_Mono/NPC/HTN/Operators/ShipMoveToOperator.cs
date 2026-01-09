@@ -165,7 +165,9 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
 
         // Need to remove the planning value for execution.
         blackboard.Remove<EntityCoordinates>(NPCBlackboard.OwnerCoordinates);
-        var targetCoordinates = blackboard.GetValue<EntityCoordinates>(TargetKey);
+        if (!blackboard.TryGetValue<EntityCoordinates>(TargetKey, out var targetCoordinates, _entManager))
+            return;
+
         var uid = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
         var comp = _steering.Steer(uid, targetCoordinates);
