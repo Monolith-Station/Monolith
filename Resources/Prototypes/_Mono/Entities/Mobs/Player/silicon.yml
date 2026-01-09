@@ -566,7 +566,8 @@
   - type: Access
     tags:
     - Pirate
-    - RogueCommander
+    - GrandVizier
+    - PDVCommand
 
 - type: entity
   id: AiHeldPDV
@@ -609,10 +610,11 @@
   - type: Access
     tags:
     - Pirate
-    - RogueCommander
+    - PDVCommand
+    - GrandVizier
     - Mercenary
   - type: AccessReader
-    access: [["RogueCommander"]]
+    access: [["GrandVizier"]]
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
