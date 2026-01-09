@@ -81,7 +81,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var shipXform = Transform(shipUid.Value);
         args.GotInput = true;
 
-        var targetGrid = Transform(targetUid).GridUid;
+        var targetXform = Transform(targetUid);
+        var targetGrid = targetXform.GridUid;
         var mapTarget = _transform.ToMapCoordinates(target);
         var shipPos = _transform.GetMapCoordinates(shipXform);
 
@@ -420,7 +421,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                     continue;
 
                 var endAt = relVel*t;
-                var proj = MathF.Abs(Vector2.Dot(endAt, new Vector2(-toObsDir.X, toObsDir.Y)));
+                var proj = MathF.Abs(Vector2.Dot(endAt, new Vector2(-toObsDir.Y, toObsDir.X)));
                 if (proj > sumRadius)
                     continue;
 
