@@ -124,18 +124,24 @@
 - type: entity
   id: NpcStationAiAttackerShortRange
   name: attacker core
-  parent: [NpcStationAiRammer, BaseFactionGearOtherFactionT2]
+  parent: [NpcStationAiAttacker, BaseFactionGearOtherFactionT2]
   description: Shoots at you.
   suffix: AI, Short-Range
   components:
-  - type: Sprite
-    layers:
-    - state: base
-    - state: green_t1
-      shader: unshaded
   - type: HTN
     rootTask:
       task: AttackerShuttleShortRangeCompound
+
+- type: entity
+  id: NpcStationAiAttackerStaticSmart
+  name: attacker core
+  parent: [NpcStationAiAttackerSmart, BaseFactionGearOtherFactionT3]
+  description: Shoots at you. Smart.
+  suffix: AI, Smart, Static
+  components:
+  - type: HTN
+    rootTask:
+      task: AttackerShuttleSmartStaticCompound
 
 - type: entity
   name: rammer core spawner
@@ -237,16 +243,6 @@
     - NpcStationAiAttacker
 
 - type: entity
-  name: attacker core spawner
-  id: SpawnMobAttackerCoreShortRange
-  parent: SpawnMobAttackerCore
-  suffix: Short-Range
-  components:
-  - type: ConditionalSpawner
-    prototypes:
-    - NpcStationAiAttackerShortRange
-
-- type: entity
   name: smart attacker core spawner
   id: SpawnMobAttackerCoreSmart
   parent: SpawnMobRammerCore
@@ -263,3 +259,22 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcStationAiAttackerSmart
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobAttackerCoreShortRange
+  parent: SpawnMobAttackerCore
+  suffix: Short-Range
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiAttackerShortRange
+
+- type: entity
+  name: smart static attacker core spawner
+  id: SpawnMobAttackerCoreStaticSmart
+  parent: SpawnMobAttackerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiAttackerStaticSmart

@@ -378,4 +378,7 @@
     shipType: Ballistic
   - type: StaticPrice
     price: 400
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 25
     # Mono End

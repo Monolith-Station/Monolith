@@ -7500,14 +7500,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.2517176,-10.459884
       parent: 2
-- proto: ShipyardRCD
+- proto: ShipRepairDevice
   entities:
   - uid: 1086
     components:
     - type: Transform
       pos: -2.0677912,4.7188888
       parent: 2
-- proto: ShipyardRCDAmmo
+- proto: ShipRepairDeviceAmmo
   entities:
   - uid: 1087
     components:
@@ -8010,7 +8010,7 @@ entities:
     - type: Transform
       pos: -3.5,2.5
       parent: 2
-- proto: SpawnPointValet
+- proto: SpawnPointCCServiceWorker
   entities:
   - uid: 1152
     components:

@@ -95,6 +95,7 @@ entities:
       protectedEntities: []
     - type: BecomesStation
       id: Frontier
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:
@@ -61833,7 +61834,7 @@ entities:
     - type: Transform
       pos: -15.5,48.5
       parent: 1
-- proto: SpawnPointValet
+- proto: SpawnPointCCServiceWorker
   entities:
   - uid: 9519
     components:
