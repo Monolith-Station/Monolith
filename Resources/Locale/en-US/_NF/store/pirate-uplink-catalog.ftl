@@ -59,4 +59,4 @@ uplink-pirate-graygrenade-desc = A solid grenade that feels like a cannonball.
 uplink-pirate-accessconfigurator-captain-name = Black Market Access Configurator
 uplink-pirate-accessconfigurator-captain-desc = An access Configurator only sold on the Colossus sector market. Lock TSF contraband behind PDV access, today!
 uplink-pirate-radio-implanter-name = Radio Implanter
-uplink-pirate-radio-implanter-desc = Implants a PDV Imperial radio, allowing covert communication without a headset.
+uplink-pirate-radio-implanter-desc = Implants a PDV Vanguard radio, allowing covert communication without a headset.

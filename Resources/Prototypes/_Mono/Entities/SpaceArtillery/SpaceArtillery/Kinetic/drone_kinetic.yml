@@ -28,8 +28,9 @@
     soundEmpty:
       path: /Audio/Weapons/click.ogg
   - type: SpaceArtillery
-    powerChargeRate: 2000
-    powerUsePassive: 2000
+    powerChargeRate: 1500
+    powerUsePassive: 1500
+    powerUseActive: 0
   - type: Battery
     maxCharge: 10000
     startingCharge: 10000
@@ -38,7 +39,10 @@
     fireCost: 1500
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 1500
+    autoRechargeRate: 3000
+  - type: ExtensionCableReceiver
+  - type: ApcPowerReceiver
+    powerLoad: 1500
   - type: Actions
   - type: Destructible
     thresholds:

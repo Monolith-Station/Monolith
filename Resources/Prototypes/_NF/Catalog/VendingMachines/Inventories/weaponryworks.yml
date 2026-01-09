@@ -69,6 +69,8 @@
 - type: vendingMachineInventory # Mono - this entire thing is mono
   id: WeaponryWorksVendPOIMercInventory
   startingInventory:
+# Sniper
+    WeaponRifleLeeEnfield: 4294967295
 # Rifles
     WeaponRifleVulcanFCMC: 4294967295
     WeaponRiflePrometheus: 4294967295

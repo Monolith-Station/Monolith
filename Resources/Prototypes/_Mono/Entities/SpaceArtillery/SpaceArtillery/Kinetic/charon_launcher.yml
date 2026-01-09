@@ -59,6 +59,9 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 45
+    repairCost: 300
 
 # Station one w/ infinite ammo
 
