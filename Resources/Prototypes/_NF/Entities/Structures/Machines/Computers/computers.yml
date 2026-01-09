@@ -10,7 +10,6 @@
     infraredMultiplier: 1.2
     visualMultiplier: 1.5
   - type: RadarConsole
-    maxRange: 1536
     maxIffRange: null # Frontier
   - type: Sprite
     layers:
@@ -402,7 +401,6 @@
   abstract: true
   components:
   - type: RadarConsole
-    maxRange: 1024 # Mono 350->768
   - type: DetectionRangeMultiplier
     infraredMultiplier: 1
     visualMultiplier: 3

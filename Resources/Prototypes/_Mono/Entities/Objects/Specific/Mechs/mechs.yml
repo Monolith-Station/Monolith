@@ -126,7 +126,6 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: RadarConsole
-    maxRange: 512
     followEntity: true
   - type: Appearance
   - type: GenericVisualizer
@@ -256,7 +255,6 @@
         acts: ["Destruction"]
   # Terrible radar, mostly good for navigating planets
   - type: RadarConsole
-    maxRange: 256
     followEntity: true
   - type: DetectionRangeMultiplier
     infraredMultiplier: 0.5
@@ -340,7 +338,6 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: RadarConsole
-    maxRange: 1024
     followEntity: true
   - type: Appearance
   - type: GenericVisualizer
@@ -408,7 +405,6 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: RadarConsole
-    maxRange: 2048 #It's a radar/EWAC platform.
     followEntity: true
   - type: DetectionRangeMultiplier
     infraredMultiplier: 1.5

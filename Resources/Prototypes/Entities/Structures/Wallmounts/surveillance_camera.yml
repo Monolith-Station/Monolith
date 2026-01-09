@@ -94,6 +94,10 @@
               collection: MetalBreak
               params:
                 volume: -8
+  # Mono
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 2
   placement:
     mode: SnapgridCenter
     snap:

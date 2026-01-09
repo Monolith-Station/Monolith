@@ -15416,3 +15416,534 @@ Entries:
   id: 1710
   time: '2025-12-31T07:29:45.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2910
+- author: EldritchPineapple
+  changes:
+    - type: Add
+      message: >-
+        Added the Hoplite, a sort of replacement to the Legionnaire, filling its
+        own niche
+    - type: Remove
+      message: Legionnaire and Legionnaire TOV, godspeed shippies o7
+  id: 1711
+  time: '2026-01-01T01:44:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2752
+- author: EldritchPineapple
+  changes:
+    - type: Add
+      message: >-
+        Added the Shiv, a new ship inspired bu the late Splinter to tsf
+        shipyards
+    - type: Remove
+      message: Removed the Splinter, good service, soldier o7
+  id: 1712
+  time: '2026-01-01T02:24:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2774
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: >-
+        Partially revamped the halcyon to be a little bit better (bash me with
+        rocks if it isn't please)
+    - type: Fix
+      message: Fixed a singular dispo pipe missing
+  id: 1713
+  time: '2026-01-01T04:49:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2831
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added a new type of rammer drone to the outer reaches.
+  id: 1714
+  time: '2026-01-01T05:18:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2865
+- author: Arcticular1
+  changes:
+    - type: Fix
+      message: Fixed the Andromeda's power issues and spacing issue.
+  id: 1715
+  time: '2026-01-01T06:33:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2917
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: >-
+        The HSS Saturn has entered the shipyard of the PDV. Built to rival the
+        might of a TSFN Flyssa.
+  id: 1716
+  time: '2026-01-01T13:50:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2683
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: All radar interfaces standartised to 3072 max zoomout.
+  id: 1717
+  time: '2026-01-01T14:08:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2911
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Projectiles now properly no longer have velocity falloff.
+    - type: Fix
+      message: Projectiles should no longer phase through armor.
+    - type: Fix
+      message: >-
+        Potentially fixed reported weirdness with projectiles inheriting grid
+        velocity.
+  id: 1718
+  time: '2026-01-01T14:13:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2919
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: >-
+        Reinforced plastitanium walls now actually more resistant than
+        plastitanium walls
+  id: 1719
+  time: '2026-01-01T14:28:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2913
+- author: Nope1356
+  changes:
+    - type: Tweak
+      message: I got bored so I buffed neutron repeater range from 600 to 900 meters
+  id: 1720
+  time: '2026-01-01T14:31:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2908
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added radar edge markers for mapping.
+  id: 1721
+  time: '2026-01-01T14:37:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2899
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: The smart rammer drone now tries to dodge projectiles.
+    - type: Tweak
+      message: >-
+        Far-drone cores can now be sold at contraband handin points by factions,
+        or for money.
+  id: 1722
+  time: '2026-01-01T14:51:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2914
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Reduced faction playtime requirements.
+  id: 1723
+  time: '2026-01-01T14:54:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2907
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Cryo chemicals will force hydrakins to sleep on low temperatures.
+    - type: Tweak
+      message: 'Gas interactions for hydrakins were improved '
+  id: 1724
+  time: '2026-01-01T15:02:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2903
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Laser rifle buffed to not be inferior to laser pistol
+  id: 1725
+  time: '2026-01-01T15:08:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2918
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Added new scrapyard salvaging vessel - Betelgeuse.
+  id: 1726
+  time: '2026-01-01T15:27:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2875
+- author: Helicaste
+  changes:
+    - type: Tweak
+      message: Changed Asakim rules/lore to focus on claiming POIs.
+  id: 1727
+  time: '2026-01-01T15:30:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2832
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Added actions that will remove your safezone effect to rule 7. Make sure
+        to read them!
+  id: 1728
+  time: '2026-01-01T15:32:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2906
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: Added the faction borg job along with some weapon modules in research.
+  id: 1729
+  time: '2026-01-01T16:10:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2796
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Added 3 combat vessels to security shipyard.
+  id: 1730
+  time: '2026-01-01T16:11:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2900
+- author: Redrover1760
+  changes:
+    - type: Remove
+      message: Removed the Grand Vizier slot from the Jupiter
+  id: 1731
+  time: '2026-01-01T16:50:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2879
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: DoC now answers directly to the Overseer.
+  id: 1732
+  time: '2026-01-01T18:49:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2921
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Apollo has been adjusted to act as mining laser.
+    - type: Tweak
+      message: PKA received burst mode.
+    - type: Tweak
+      message: Ore bags were buffed
+    - type: Tweak
+      message: Salvage lockers received extra gear
+  id: 1733
+  time: '2026-01-01T19:14:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2873
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: >-
+        The Colonel and Vizier now have unique items in their locker to give
+        them an edge in battle!
+    - type: Tweak
+      message: Colonel's hardsuit has gotten some stat changes
+  id: 1734
+  time: '2026-01-01T19:16:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2854
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Added new security capital mothership - Ravager.
+    - type: Remove
+      message: Arachnid has been removed. Fly farewell, friend.
+  id: 1735
+  time: '2026-01-01T19:20:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2684
+- author: OneZerooo0
+  changes:
+    - type: Add
+      message: Something wicked this way comes
+  id: 1736
+  time: '2026-01-01T19:21:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2866
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Security Guard is assigned to Colonial staff, as intended.
+    - type: Tweak
+      message: Monolith entities received NVGs
+    - type: Fix
+      message: Fixed directional fan on Ant
+  id: 1737
+  time: '2026-01-02T00:11:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2923
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: >-
+        some of the helios rooms have been a bit changed, a jani closet was
+        added, same as a dispos system, added more purple, also made the black
+        market atm charge 5% and not 20.
+  id: 1738
+  time: '2026-01-02T04:06:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2834
+- author: Arcticular1
+  changes:
+    - type: Fix
+      message: >-
+        Colonels suit has fire resistance and their glasses can now see in the
+        dark.
+  id: 1739
+  time: '2026-01-02T04:25:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2925
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: Medical assembler and borg recharger has been added on the Saturn
+    - type: Fix
+      message: Fixed the Saturn's buttons.
+  id: 1740
+  time: '2026-01-02T09:29:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2926
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added another new drone type to outer reaches.
+  id: 1741
+  time: '2026-01-02T14:41:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2927
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: EMP Disable duration no longer stacks up.
+  id: 1742
+  time: '2026-01-02T17:52:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2931
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: Colossus secfab access corrected
+  id: 1743
+  time: '2026-01-02T22:57:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2930
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: '"Fair play" rule received changes.'
+  id: 1744
+  time: '2026-01-03T02:19:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2933
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Borgs and chimeras no longer permanently lie down after being downed
+        once.
+  id: 1745
+  time: '2026-01-03T09:57:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2936
+- author: GOLDMASK990
+  changes:
+    - type: Add
+      message: >-
+        USSP headset (Includes Comms key) added to civilian loadouts. Headset
+        and key added to USSP Vendor. Bandit Radio is back.
+  id: 1746
+  time: '2026-01-04T02:01:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2944
+- author: burrrkeye
+  changes:
+    - type: Add
+      message: >-
+        Every faction ship with the sole exception of PDV Sable can now add
+        slots of Faction Cyborgs from their records console to allow Clankers to
+        latejoin them, similiarly as to how PDV Rahkshan and TSF Marine could
+        latejoin into ships. The Clanker uprising is now.
+  id: 1747
+  time: '2026-01-04T09:31:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2940
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Drone spawning distances are now differentiated. Scarier drones farther
+        out.
+    - type: Tweak
+      message: Drone loot tweaked.
+    - type: Tweak
+      message: >-
+        Medusa (outer drone) has been changed to an attacker drone and now has 2
+        blackboxes.
+    - type: Tweak
+      message: Buffed Shard, the drone gun.
+  id: 1748
+  time: '2026-01-04T21:05:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2948
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Monolithic entities are no longer ghost roles by default.
+    - type: Tweak
+      message: Monolithic entities have been slightly nerfed.
+    - type: Add
+      message: New sprites for Monolith fragments courtesy of Kyres.
+    - type: Add
+      message: Monolithic entities have a collective mind now.
+    - type: Fix
+      message: Fixed monolith fragment walls not rendering
+  id: 1749
+  time: '2026-01-04T21:50:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2932
+- author: EldritchPineapple
+  changes:
+    - type: Fix
+      message: the helios GV locker is now the correct prototype
+  id: 1750
+  time: '2026-01-05T08:13:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2949
+- author: Arcticular1
+  changes:
+    - type: Fix
+      message: >-
+        Hydra has been buffed to fire 3 rounds in a barrage (it was the same as
+        cyrexa before)
+  id: 1751
+  time: '2026-01-05T13:18:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2953
+- author: burrrkeye
+  changes:
+    - type: Add
+      message: >-
+        A new challanger! BT-Y Hazel enters the PDV Roster as a small-strafer in
+        place of the Vega featuring a 3 barreled 220m Battery! 
+    - type: Remove
+      message: PDV Vega is now gone, o7.
+  id: 1752
+  time: '2026-01-05T16:02:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2952
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Ravager has been fully remapped. Ravager LPC is moved to Overseer's
+        locker instead of being roundstart for them.
+  id: 1753
+  time: '2026-01-05T16:22:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2942
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: >-
+        Capital ships except for the Saturn, Ledokol and Flyssa now longer
+        require both a gunner and pilot to operate.
+    - type: Tweak
+      message: >-
+        The Europa is now a beefy capital ship with medical and cloning
+        capabilities. She is now restricted to two vessels active at a time, as
+        well as costing 240k. These changes come with the benefit of a heavy
+        upgrade. Glory to Phaethon. 
+  id: 1754
+  time: '2026-01-05T16:53:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2929
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: 'The Flyssa has gotten a new coat of paint! '
+  id: 1755
+  time: '2026-01-05T17:38:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2711
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Ships made about 1/3 faster.
+    - type: Tweak
+      message: Bofors projectile slowed down.
+  id: 1756
+  time: '2026-01-05T18:05:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2951
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Shipguns now have recoil.
+  id: 1757
+  time: '2026-01-05T18:24:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2947
+- author: Diggy0
+  changes:
+    - type: Add
+      message: More markings have been added to Hydrakin.
+    - type: Tweak
+      message: >-
+        Basic / Spatio / Vizier / TSF-Colonel / TSF-Experimental now have proper
+        / updated sprites for Hydrakin
+  id: 1758
+  time: '2026-01-05T18:39:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2955
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: >-
+        The Pantheon Collective has tuned their notorious RAC-30, so its
+        actually dangerous now
+  id: 1759
+  time: '2026-01-05T19:39:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2792
+- author: burrrkeye
+  changes:
+    - type: Tweak
+      message: >-
+        BT-Y Hazel has been outfitted with an AME generator replacing its
+        uranium burning pacman.
+  id: 1760
+  time: '2026-01-06T12:42:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2964
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Radar edge markers are no longer offset by half a tile.
+  id: 1761
+  time: '2026-01-07T09:09:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2975
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Shipgun recoil now rotates you much less and is smaller on big guns.
+  id: 1762
+  time: '2026-01-08T13:06:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2969
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Ported from Wizden: You can make pills from beaker with the Chem
+        Master!!! All credit to OnyxTheBrave.
+  id: 1763
+  time: '2026-01-08T20:18:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2971
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Added ship repair tool. You can buy it from engivend and use it to
+        repair ships to spec from basically any damage. Mind the charge usage.
+    - type: Add
+      message: Borgs now get a recharging ship repair tool in the RCD module.
+    - type: Fix
+      message: RCD should now less often refuse to work on moving ships.
+  id: 1764
+  time: '2026-01-08T20:24:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2968
+- author: tonotom1
+  changes:
+    - type: Add
+      message: The Svinya was added to the USSP shipyard to replace the Gadyuka!
+    - type: Remove
+      message: Goodnight, Gadyuka. You have served well.
+  id: 1765
+  time: '2026-01-08T20:53:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2941
+- author: thoughtlessuser
+  changes:
+    - type: Tweak
+      message: >-
+        Replaced the old Frontier Valet role with the Colossus sector service
+        worker role.
+  id: 1766
+  time: '2026-01-09T00:51:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2682
+- author: YazidDotExe
+  changes:
+    - type: Add
+      message: new militia gun called MI Lee Enfield Mk 98
+  id: 1767
+  time: '2026-01-09T00:53:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2860
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Velocity threshold for collisions was increased such that Baegs vaporize
+        at above 35m/s instead of 14m/s. This is about 2 seconds worth of
+        acceleration.
+    - type: Tweak
+      message: >-
+        Collision kinetic energy consumption increased to compensate for our
+        overall increased speeds. Ramming should still be lethal as fuck and
+        only slightly nerfed.
+  id: 1768
+  time: '2026-01-09T00:57:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2985

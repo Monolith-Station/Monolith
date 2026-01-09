@@ -132,7 +132,6 @@
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
   - type: RadarConsole
-    maxRange: 1024 #256->1024 Mono
     relativePanning: true # Mono
   - type: WorldLoader
     radius: 384 # Mono
@@ -170,6 +169,10 @@
     - device-button-6
     - device-button-7
     - device-button-8
+  # Mono
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 30
 
 - type: entity
   parent: [BaseComputerShuttle, BaseShuttleIntercom] # Frontier - BaseShuttleIntercom
@@ -233,7 +236,6 @@
     tags:
       - Syndicate
   - type: RadarConsole
-    maxRange: 1024 #384->1024 Mono
   - type: WorldLoader
     radius: 1536
   - type: PointLight
@@ -266,7 +268,6 @@
     components:
       - type: CargoShuttle
   - type: RadarConsole
-    maxRange: 256
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -459,6 +460,10 @@
   - type: GuideHelp
     guides:
     - Forensics
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -875,8 +880,6 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: RadarConsole
-    maxRange: 1024 #256->1024 Mono
-    maxIffRange: 1024 # Frontier
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
   - type: UserInterface
@@ -916,6 +919,10 @@
         params:
           loop: true
           volume: 1
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   id: ComputerCargoShuttle

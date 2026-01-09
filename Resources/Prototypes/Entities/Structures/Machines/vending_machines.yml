@@ -136,6 +136,10 @@
     containers:
       cash_slot: !type:ContainerSlot
   # End Frontier
+  # Mono
+  - type: ShipRepairable
+    repairTime: 5
+    repairCost: 10
 
 - type: entity
   parent: VendingMachine
