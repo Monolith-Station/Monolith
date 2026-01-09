@@ -152,6 +152,17 @@
     rootTask:
       task: AttackerShuttleSmartStaticCompound
 
+- type: entity
+  id: NpcStationAiAttackerBroadside
+  name: attacker core
+  parent: NpcStationAiAttacker
+  description: Shoots at you. Broadside.
+  suffix: AI, Broadside
+  components:
+  - type: HTN
+    rootTask:
+      task: AttackerShuttleBroadsideCompound
+
 #region Drone AIs
 
 - type: entity

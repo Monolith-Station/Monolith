@@ -297,12 +297,15 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                     var dodgeDir = NormalizedOrZero(sideVec);
                     // rotate 90deg left
                     var rotToObstacle = new Vector2(-toObstacle.Y, toObstacle.X);
-                    var dirSign = Vector2.Dot(rotToObstacle, dodgeDir) > 0f;
+                    var dirSign = Vector2.Dot(rotToObstacle, dodgeDir) > 0f; // true: left dodge, false: right dodge
+                    var inDirSign = Vector2.Dot(toDestVec, dodgeDir) > 0f; // true: dodge is to target, false: from it
+
                     if (lastAvoidDir == null)
                     {
-                        lastAvoidDir = dirSign;
+                        lastAvoidDir = dirSign ^ !inDirSign;
                     }
-                    else if (lastAvoidDir != dirSign)
+                    // if we last dodged in another side-direction, invert our dodge side
+                    if (lastAvoidDir != dirSign || !inDirSign)
                     {
                         dodgeDir *= -1f;
                         sideVec *= -1f;
