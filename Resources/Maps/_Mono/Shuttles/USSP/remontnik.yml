@@ -5914,14 +5914,14 @@ entities:
           - 633
           - 639
           - 638
-- proto: ShipyardRCD
+- proto: ShipRepairDevice
   entities:
   - uid: 857
     components:
     - type: Transform
       pos: 4.5254717,6.776931
       parent: 1
-- proto: ShipyardRCDAmmo
+- proto: ShipRepairDeviceAmmo
   entities:
   - uid: 858
     components:

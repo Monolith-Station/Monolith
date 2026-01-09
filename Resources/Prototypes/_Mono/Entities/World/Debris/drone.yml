@@ -15,6 +15,7 @@
     prototypes:
     - SpawnDroneWasp
     - SpawnDroneCrown
+    - SpawnDroneGust
 
 - type: entity
   id: MonoRamDroneSpawnerT2Middle
@@ -32,6 +33,8 @@
     - id: SpawnDroneWasp
       weight: 20
     - id: SpawnDroneCrown
+      weight: 20
+    - id: SpawnDroneGust
       weight: 20
     # T2 medium
     - id: SpawnDroneMedusa
@@ -102,6 +105,13 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/crown.yml
+
+- type: entity
+  id: SpawnDroneGust
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/gust.yml
 
 - type: entity
   id: SpawnDroneBasicSmall
