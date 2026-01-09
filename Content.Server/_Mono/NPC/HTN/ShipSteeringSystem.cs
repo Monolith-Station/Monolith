@@ -149,40 +149,22 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         args.Input = ProcessMovement(shipUid.Value,
                                      shipXform, shipBody, shuttle, shipGrid,
                                      destMapPos, targetVel, targetUid, mapTarget,
-<<<<<<< HEAD
-                                     maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
+                                     maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime, ent.Comp.TurnEaseIn,
                                      ent.Comp.AvoidCollisions, ent.Comp.AvoidProjectiles,
                                      ent.Comp.MaxObstructorDistance, ent.Comp.MinObstructorDistance,
                                      ent.Comp.EvasionBuffer, ref ent.Comp.LastAvoidDir,
                                      ref ent.Comp.RotationCompensation, ent.Comp.RotationCompensationGain,
-||||||| fe12d7be1c7
-                                     maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
-                                     ent.Comp.AvoidCollisions, ent.Comp.AvoidProjectiles, ent.Comp.MaxObstructorDistance, ent.Comp.MinObstructorDistance, ent.Comp.EvasionBuffer,
-=======
-                                     maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime, ent.Comp.TurnEaseIn,
-                                     ent.Comp.AvoidCollisions, ent.Comp.AvoidProjectiles, ent.Comp.MaxObstructorDistance, ent.Comp.MinObstructorDistance, ent.Comp.EvasionBuffer,
->>>>>>> monolith
                                      targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
     }
 
     private ShuttleInput ProcessMovement(EntityUid shipUid,
                                          TransformComponent shipXform, PhysicsComponent shipBody, ShuttleComponent shuttle, MapGridComponent shipGrid,
-<<<<<<< HEAD
                                          MapCoordinates destMapPos, Vector2 targetVel, EntityUid targetUid, MapCoordinates targetEntPos,
-                                         float maxArrivedVel, float brakeThreshold, float frameTime,
+                                         float maxArrivedVel, float brakeThreshold, float frameTime, float turnEaseIn,
                                          bool avoidCollisions, bool avoidProjectiles,
                                          float maxObstructorDistance, float minObstructorDistance,
                                          float evasionBuffer, ref bool? lastAvoidDir,
                                          ref float rotationCompensation, float rotationCompensationGain,
-||||||| fe12d7be1c7
-                                         MapCoordinates destMapPos, Vector2 targetVel, EntityUid? targetUid, MapCoordinates targetEntPos,
-                                         float maxArrivedVel, float brakeThreshold, float frameTime,
-                                         bool avoidCollisions, bool avoidProjectiles, float maxObstructorDistance, float minObstructorDistance, float evasionBuffer,
-=======
-                                         MapCoordinates destMapPos, Vector2 targetVel, EntityUid? targetUid, MapCoordinates targetEntPos,
-                                         float maxArrivedVel, float brakeThreshold, float frameTime, float turnEaseIn,
-                                         bool avoidCollisions, bool avoidProjectiles, float maxObstructorDistance, float minObstructorDistance, float evasionBuffer,
->>>>>>> monolith
                                          Angle targetAngleOffset, Angle? angleOverride)
     {
 
