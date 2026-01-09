@@ -140,11 +140,11 @@
       task: AttackerShuttleSmartCompound
 
 - type: entity
-  id: NpcStationAiAttackerShortRange
+  id: NpcDroneAiMedusa
   name: attacker core
   parent: [NpcStationAiRammer, BaseFactionGearOtherFactionT2]
   description: Shoots at you.
-  suffix: AI, Short-Range
+  suffix: AI, Drone-Medusa
   components:
   - type: Sprite
     layers:
@@ -256,13 +256,13 @@
 
 - type: entity
   name: attacker core spawner
-  id: SpawnMobAttackerCoreShortRange
+  id: SpawnMobDroneAiMedusa
   parent: SpawnMobAttackerCore
-  suffix: Short-Range
+  suffix: Short-Range, Drone-Medusa
   components:
   - type: ConditionalSpawner
     prototypes:
-    - NpcStationAiAttackerShortRange
+    - NpcDroneAiMedusa
 
 - type: entity
   name: smart attacker core spawner

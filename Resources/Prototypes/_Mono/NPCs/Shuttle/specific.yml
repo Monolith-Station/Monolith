@@ -1,15 +1,15 @@
 - type: htnCompound
-  id: AttackerShuttleShortRangeCompound
+  id: DroneCompoundMedusa
   branches:
   - tasks:
     - !type:HTNPrimitiveTask
       operator: !type:UtilityOperator
         proto: NearbyShuttleTargets
     - !type:HTNCompoundTask
-      task: ShuttleAttackShortRangeCompound
+      task: ShuttleAttackDroneCompoundMedusa
 
 - type: htnCompound
-  id: ShuttleAttackShortRangeCompound
+  id: ShuttleAttackDroneCompoundMedusa
   branches:
   - preconditions:
     - !type:KeyExistsPrecondition

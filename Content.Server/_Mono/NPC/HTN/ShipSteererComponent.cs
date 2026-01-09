@@ -128,6 +128,18 @@ public sealed partial class ShipSteererComponent : Component
     public float? RangeTolerance = null;
 
     /// <summary>
+    /// Accumulator for an integral of our rotational offset to target.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float RotationCompensation = 0f;
+
+    /// <summary>
+    /// How fast to accumulate the rotational offset integral, rad/s/rad (also affected by sqrt of angular acceleration).
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float RotationCompensationGain = 0.03f;
+
+    /// <summary>
     /// Target rotation in relation to movement direction.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
@@ -150,5 +162,6 @@ public enum ShipSteeringStatus : byte
 public enum ShipSteeringMode
 {
     GoToRange,
-    Orbit
+    Orbit,
+    OrbitCW
 }
