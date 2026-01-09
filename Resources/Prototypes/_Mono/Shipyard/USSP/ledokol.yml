@@ -27,6 +27,9 @@
   stations:
     Ledokol:
       stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+          description: "Why did I come to this sector?"
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Ledokol MIL{1}'
@@ -37,5 +40,3 @@
           availableJobs:
             Mercenary: [ 0, 0 ]
             Pilot: [ 0, 0 ]
-        - type: VesselInfo
-          description: "A hefty, yet veritable hull. She's old, but she'll carry your empire far with an iron will."

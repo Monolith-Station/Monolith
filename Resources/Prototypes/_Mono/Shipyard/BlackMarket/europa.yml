@@ -23,6 +23,9 @@
   minPlayers: 0
   stations:
     Europa:
+      gridComponents:
+      - type: VesselInfo
+        description: "The Saturn's Sister ship."
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
@@ -34,5 +37,3 @@
           availableJobs:
             Pirate: [ 0, 0 ]
             PdvBorg: [ 0, 0 ]
-        - type: VesselInfo
-          description: "The Saturn's Sister ship, she strikes fear in all who oppose her. Make her count."
