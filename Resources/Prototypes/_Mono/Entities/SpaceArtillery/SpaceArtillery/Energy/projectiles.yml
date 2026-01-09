@@ -330,6 +330,7 @@
   - type: PointLight
     color: "#ab0707"
   - type: ExplodeOnTrigger
+  - type: Explosive
     explosionType: Default
     totalIntensity: 120
     intensitySlope: 5
