@@ -167,6 +167,10 @@
   - type: StaticPrice
     price: 100 # Frontier: 150<100 - TODO: material value rework
   - type: PryUnpowered
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   id: BaseSecureWindoor

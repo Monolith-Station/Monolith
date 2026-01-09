@@ -43,8 +43,6 @@ public partial class BaseShuttleControl : MapGridControl
     private readonly List<(Vector2 Start, Vector2 End)> _edges = new();
     private readonly HashSet<Entity<GridEdgeMarkerComponent>> _edgeMarkers = new();
 
-    private Vector2 CenterVec = new Vector2(0.5f, 0.5f); // Mono
-
     private EntityQuery<TransformComponent> _xformQuery; // Mono
 
     private Vector2[] _allVertices = Array.Empty<Vector2>();
@@ -253,8 +251,8 @@ public partial class BaseShuttleControl : MapGridControl
 
                 var coord = xform.Coordinates.Position;
                 var rotation = xform.LocalRotation;
-                var begin = rotation.RotateVec(edge.Comp.Begin - CenterVec) + CenterVec;
-                var end = rotation.RotateVec(edge.Comp.End - CenterVec) + CenterVec;
+                var begin = rotation.RotateVec(edge.Comp.Begin);
+                var end = rotation.RotateVec(edge.Comp.End);
                 _edges.Add((coord + begin * tileSize, coord + end * tileSize));
             }
 

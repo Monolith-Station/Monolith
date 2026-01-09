@@ -1,3 +1,5 @@
+#region Merc
+
 - type: entity
   id: BorgModuleAdvancedWeapon
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
@@ -15,6 +17,8 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
 
+#region TSF
+
 - type: entity
   id: BorgModuleTSFStandardWeapon
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearTSFT2 ]
@@ -29,23 +33,6 @@
     items:
     - EnergySwordNfsd
     - WeaponEnergyRevolver
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
-
-- type: entity
-  id: BorgModulePDVStandardWeapon
-  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearPDVT2 ]
-  name: PDV weapon cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: syndicate
-    - state: icon-syndicate
-  - type: ItemBorgModule
-    moduleId: Security
-    items:
-    - EnergySword
-    - WeaponPistolAnaconda
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
 
@@ -66,6 +53,25 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
 
+#region PDV
+
+- type: entity
+  id: BorgModulePDVStandardWeapon
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearPDVT2 ]
+  name: PDV weapon cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - EnergySword
+    - WeaponPistolAnaconda
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+
 - type: entity
   id: BorgModulePDVAdvancedWeapon
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearPDVT3 ]
@@ -82,3 +88,22 @@
     - WeaponLightMachineGunL6C
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+
+#region ADS
+
+- type: entity
+  id: BorgModuleRedactedRCD
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
+  name: pre-fracture RCD module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-rcd
+  - type: ItemBorgModule
+    moduleId: RCD
+    items:
+    - RCDRecharging
+    - ShipRepairDeviceRedacted
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }

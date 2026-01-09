@@ -1,17 +1,18 @@
-using System.Numerics;
+using Content.Server.Power.Components;
 using Content.Shared._Crescent.ShipShields;
+using Content.Shared._Mono.SpaceArtillery;
 using Content.Shared.Physics;
-using Robust.Shared.Physics.Systems;
+using Content.Shared.Projectiles;
+using Robust.Server.GameObjects;
+using Robust.Server.GameStates;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Components;
-using Robust.Server.GameObjects;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
-using Robust.Server.GameStates;
-using Content.Server.Power.Components;
-using Robust.Shared.Physics;
-using Content.Shared._Mono.SpaceArtillery;
-using Content.Shared.Projectiles;
+using Robust.Shared.Physics.Systems;
+using System.Numerics;
 
 
 namespace Content.Server._Crescent.ShipShields;
@@ -73,7 +74,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
             var parent = Transform(uid).GridUid;
 
             if (parent == null)
-                return;
+                continue;
 
             var filter = _station.GetInOwningStation(uid);
 
@@ -82,7 +83,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
 
             if (!emitter.Recharging && emitter.Shield is null && emitter.OverloadAccumulator < 1)
             {
-                var shield = ShieldEntity(parent.Value, source: uid);
+                var shield = ShieldEntity(parent.Value, uid);
                 if (shield != EntityUid.Invalid)
                 {
                     emitter.Shield = shield;
@@ -184,7 +185,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
     /// <param name="mapGrid">The map grid component of the entity being shielded.</param>
     /// <param name="source">A shield generator or similar providing the shield for the entity</param>
     /// <returns>The shield entity.</returns>
-    private EntityUid ShieldEntity(EntityUid entity, MapGridComponent? mapGrid = null, EntityUid? source = null)
+    private EntityUid ShieldEntity(EntityUid entity, EntityUid? source = null, MapGridComponent? mapGrid = null)
     {
         if (TryComp<ShipShieldedComponent>(entity, out var existingShielded))
             return existingShielded.Shield;
@@ -208,9 +209,9 @@ public sealed partial class ShipShieldsSystem : EntitySystem
             Dirty(shield, shieldVisuals);
         }
 
-        _transformSystem.SetLocalPosition(shield, mapGrid.LocalAABB.Center);
+        var gridCenter = new EntityCoordinates(entity, mapGrid.LocalAABB.Center);
+        _transformSystem.SetCoordinates(shield, gridCenter);
         _transformSystem.SetWorldRotation(shield, _transformSystem.GetWorldRotation(entity));
-        _transformSystem.SetParent(shield, entity);
 
         var chain = GenerateOvalFixture(shield, "shield", shieldPhysics, mapGrid);
 

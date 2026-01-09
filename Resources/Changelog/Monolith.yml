@@ -15753,3 +15753,197 @@ Entries:
   id: 1748
   time: '2026-01-04T21:05:59.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2948
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Monolithic entities are no longer ghost roles by default.
+    - type: Tweak
+      message: Monolithic entities have been slightly nerfed.
+    - type: Add
+      message: New sprites for Monolith fragments courtesy of Kyres.
+    - type: Add
+      message: Monolithic entities have a collective mind now.
+    - type: Fix
+      message: Fixed monolith fragment walls not rendering
+  id: 1749
+  time: '2026-01-04T21:50:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2932
+- author: EldritchPineapple
+  changes:
+    - type: Fix
+      message: the helios GV locker is now the correct prototype
+  id: 1750
+  time: '2026-01-05T08:13:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2949
+- author: Arcticular1
+  changes:
+    - type: Fix
+      message: >-
+        Hydra has been buffed to fire 3 rounds in a barrage (it was the same as
+        cyrexa before)
+  id: 1751
+  time: '2026-01-05T13:18:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2953
+- author: burrrkeye
+  changes:
+    - type: Add
+      message: >-
+        A new challanger! BT-Y Hazel enters the PDV Roster as a small-strafer in
+        place of the Vega featuring a 3 barreled 220m Battery! 
+    - type: Remove
+      message: PDV Vega is now gone, o7.
+  id: 1752
+  time: '2026-01-05T16:02:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2952
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Ravager has been fully remapped. Ravager LPC is moved to Overseer's
+        locker instead of being roundstart for them.
+  id: 1753
+  time: '2026-01-05T16:22:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2942
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: >-
+        Capital ships except for the Saturn, Ledokol and Flyssa now longer
+        require both a gunner and pilot to operate.
+    - type: Tweak
+      message: >-
+        The Europa is now a beefy capital ship with medical and cloning
+        capabilities. She is now restricted to two vessels active at a time, as
+        well as costing 240k. These changes come with the benefit of a heavy
+        upgrade. Glory to Phaethon. 
+  id: 1754
+  time: '2026-01-05T16:53:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2929
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: 'The Flyssa has gotten a new coat of paint! '
+  id: 1755
+  time: '2026-01-05T17:38:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2711
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Ships made about 1/3 faster.
+    - type: Tweak
+      message: Bofors projectile slowed down.
+  id: 1756
+  time: '2026-01-05T18:05:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2951
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Shipguns now have recoil.
+  id: 1757
+  time: '2026-01-05T18:24:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2947
+- author: Diggy0
+  changes:
+    - type: Add
+      message: More markings have been added to Hydrakin.
+    - type: Tweak
+      message: >-
+        Basic / Spatio / Vizier / TSF-Colonel / TSF-Experimental now have proper
+        / updated sprites for Hydrakin
+  id: 1758
+  time: '2026-01-05T18:39:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2955
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: >-
+        The Pantheon Collective has tuned their notorious RAC-30, so its
+        actually dangerous now
+  id: 1759
+  time: '2026-01-05T19:39:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2792
+- author: burrrkeye
+  changes:
+    - type: Tweak
+      message: >-
+        BT-Y Hazel has been outfitted with an AME generator replacing its
+        uranium burning pacman.
+  id: 1760
+  time: '2026-01-06T12:42:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2964
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Radar edge markers are no longer offset by half a tile.
+  id: 1761
+  time: '2026-01-07T09:09:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2975
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Shipgun recoil now rotates you much less and is smaller on big guns.
+  id: 1762
+  time: '2026-01-08T13:06:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2969
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Ported from Wizden: You can make pills from beaker with the Chem
+        Master!!! All credit to OnyxTheBrave.
+  id: 1763
+  time: '2026-01-08T20:18:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2971
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Added ship repair tool. You can buy it from engivend and use it to
+        repair ships to spec from basically any damage. Mind the charge usage.
+    - type: Add
+      message: Borgs now get a recharging ship repair tool in the RCD module.
+    - type: Fix
+      message: RCD should now less often refuse to work on moving ships.
+  id: 1764
+  time: '2026-01-08T20:24:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2968
+- author: tonotom1
+  changes:
+    - type: Add
+      message: The Svinya was added to the USSP shipyard to replace the Gadyuka!
+    - type: Remove
+      message: Goodnight, Gadyuka. You have served well.
+  id: 1765
+  time: '2026-01-08T20:53:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2941
+- author: thoughtlessuser
+  changes:
+    - type: Tweak
+      message: >-
+        Replaced the old Frontier Valet role with the Colossus sector service
+        worker role.
+  id: 1766
+  time: '2026-01-09T00:51:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2682
+- author: YazidDotExe
+  changes:
+    - type: Add
+      message: new militia gun called MI Lee Enfield Mk 98
+  id: 1767
+  time: '2026-01-09T00:53:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2860
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Velocity threshold for collisions was increased such that Baegs vaporize
+        at above 35m/s instead of 14m/s. This is about 2 seconds worth of
+        acceleration.
+    - type: Tweak
+      message: >-
+        Collision kinetic energy consumption increased to compensate for our
+        overall increased speeds. Ramming should still be lethal as fuck and
+        only slightly nerfed.
+  id: 1768
+  time: '2026-01-09T00:57:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2985

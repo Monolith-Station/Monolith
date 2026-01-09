@@ -1,0 +1,41 @@
+# Author Info
+# GitHub: UnicornOnLSD
+# Discord: unicornonlsd
+
+# Shuttle Notes: base is around 59K with 12K added markup 
+#
+- type: vessel
+  id: caracara
+  parent: BaseVessel
+  name: MI-COR Caracara
+  description: A Militia Ironworks salvage frigate fitted with an Apollo super‑mining laser. Its forward cockpit offers a clear view of the dig site. Includes an  ultra‑efficient pinch reactor, basic FTL, and a compact galley for long shifts in the belt. When paired with the Apollo, its three 20 mm mounts provide adequate defensive fire. 
+  price: 71000
+  category: Medium
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/caracara.yml
+  guidebookPage: null
+  class:
+  - Salvage
+  - frigate 
+  engine:
+  - plasma 
+
+- type: gameMap
+  id: caracara
+  mapName: 'MI Caracara'
+  mapPath: /Maps/_Mono/Shuttles/caracara.yml
+  minPlayers: 0
+  stations:
+    caracara:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Caracara CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
