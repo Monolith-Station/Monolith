@@ -22,17 +22,17 @@
     selectedMode: Burst
     fireRate: 12
     projectileSpeed: 60
-    minAngle: 6
-    maxAngle: 12
-    shotsPerBurst: 3
+    minAngle: 8
+    maxAngle: 14
+    shotsPerBurst: 4
     availableModes:
     - Burst
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
   - type: BasicEntityAmmoProvider
     proto: BulletHailstorm
-    capacity: 18
-    count: 18
+    capacity: 16
+    count: 16
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 1.2
     rechargeSound:
