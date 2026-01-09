@@ -835,6 +835,13 @@
     shipType: Energy
   - type: ShipGunClass
     shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 60
+    repairCost: 200
+  - type: ShipRepairableRestrict
+    toolWhitelist:
+      tags:
+      - ADSRepairTool
 
 # Proton Cannon "Sunder"
 
