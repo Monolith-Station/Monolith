@@ -95,6 +95,7 @@ entities:
       protectedEntities: []
     - type: BecomesStation
       id: Frontier
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

@@ -49,6 +49,10 @@
     cost: 2
     delay: 0
     fx: EffectRCDConstruct0
+  # Mono
+  - type: ShipRepairable
+    repairTime: 0.5
+    repairCost: 1
 
 - type: entity
   parent: CableBase
