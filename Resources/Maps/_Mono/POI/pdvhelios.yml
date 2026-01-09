@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/09/2026 04:42:07
-  entityCount: 8407
+  time: 01/09/2026 05:03:04
+  entityCount: 8411
 maps: []
 grids:
 - 1
@@ -6129,14 +6129,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -13.5,-20.5
       parent: 1
-  - uid: 136
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -13.5,-15.5
-      parent: 1
-    - type: Docking
-      name: CIV-ARM1
   - uid: 137
     components:
     - type: Transform
@@ -6592,10 +6584,26 @@ entities:
     - type: Transform
       pos: 23.5,2.5
       parent: 1
+  - uid: 7811
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -13.5,-15.5
+      parent: 1
+    - type: Docking
+      name: CIV-ARM1
   - uid: 8028
     components:
     - type: Transform
       pos: 1.5,-4.5
+      parent: 1
+- proto: AlwaysPoweredlightRed
+  entities:
+  - uid: 4325
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -7.5,80.5
       parent: 1
 - proto: AmeControllerUnanchoredFlatpack
   entities:
@@ -8813,36 +8821,6 @@ entities:
     - type: Transform
       pos: 12.5,-6.5
       parent: 1
-  - uid: 7810
-    components:
-    - type: Transform
-      pos: 14.5,-25.5
-      parent: 1
-  - uid: 7811
-    components:
-    - type: Transform
-      pos: 17.5,-21.5
-      parent: 1
-  - uid: 7812
-    components:
-    - type: Transform
-      pos: 14.5,-20.5
-      parent: 1
-  - uid: 7813
-    components:
-    - type: Transform
-      pos: 14.5,-15.5
-      parent: 1
-  - uid: 7820
-    components:
-    - type: Transform
-      pos: -13.5,-15.5
-      parent: 1
-  - uid: 7821
-    components:
-    - type: Transform
-      pos: -16.5,-12.5
-      parent: 1
   - uid: 7822
     components:
     - type: Transform
@@ -10113,6 +10091,11 @@ entities:
       parent: 1
 - proto: CableApcExtension
   entities:
+  - uid: 136
+    components:
+    - type: Transform
+      pos: -6.5,78.5
+      parent: 1
   - uid: 424
     components:
     - type: Transform
@@ -11557,6 +11540,21 @@ entities:
     components:
     - type: Transform
       pos: -18.5,27.5
+      parent: 1
+  - uid: 4322
+    components:
+    - type: Transform
+      pos: -6.5,79.5
+      parent: 1
+  - uid: 4323
+    components:
+    - type: Transform
+      pos: -6.5,80.5
+      parent: 1
+  - uid: 4324
+    components:
+    - type: Transform
+      pos: -6.5,81.5
       parent: 1
   - uid: 4491
     components:
@@ -15622,6 +15620,11 @@ entities:
     components:
     - type: Transform
       pos: -10.5,56.5
+      parent: 1
+  - uid: 7810
+    components:
+    - type: Transform
+      pos: -6.5,77.5
       parent: 1
   - uid: 7836
     components:
@@ -23116,6 +23119,16 @@ entities:
     - type: Transform
       pos: -21.5,27.5
       parent: 1
+  - uid: 7812
+    components:
+    - type: Transform
+      pos: 16.5,-31.5
+      parent: 1
+  - uid: 7813
+    components:
+    - type: Transform
+      pos: 14.5,-31.5
+      parent: 1
   - uid: 7869
     components:
     - type: Transform
@@ -23375,6 +23388,16 @@ entities:
     components:
     - type: Transform
       pos: -25.5,4.5
+      parent: 1
+  - uid: 8408
+    components:
+    - type: Transform
+      pos: -15.5,-31.5
+      parent: 1
+  - uid: 8409
+    components:
+    - type: Transform
+      pos: -13.5,-31.5
       parent: 1
 - proto: CatwalkMono
   entities:
@@ -29091,7 +29114,6 @@ entities:
     - type: GasMixer
       inletTwoConcentration: 0.77
       inletOneConcentration: 0.23
-      enabled: True
     - type: AtmosPipeLayers
       pipeLayer: Secondary
 - proto: GasPassiveVent
@@ -54329,28 +54351,6 @@ entities:
     - type: Transform
       pos: -15.525641,17.641212
       parent: 1
-- proto: WeaponLaserTurretL1Phalanx
-  entities:
-  - uid: 4322
-    components:
-    - type: Transform
-      pos: 14.5,-31.5
-      parent: 1
-  - uid: 4323
-    components:
-    - type: Transform
-      pos: 16.5,-31.5
-      parent: 1
-  - uid: 4324
-    components:
-    - type: Transform
-      pos: -15.5,-31.5
-      parent: 1
-  - uid: 4325
-    components:
-    - type: Transform
-      pos: -13.5,-31.5
-      parent: 1
 - proto: WeaponTurretAdderScattercannon
   entities:
   - uid: 5784
@@ -54709,6 +54709,16 @@ entities:
       rot: 3.141592653589793 rad
       pos: -31.5,34.5
       parent: 1
+  - uid: 7820
+    components:
+    - type: Transform
+      pos: -15.5,-31.5
+      parent: 1
+  - uid: 7821
+    components:
+    - type: Transform
+      pos: -13.5,-31.5
+      parent: 1
   - uid: 7893
     components:
     - type: Transform
@@ -54746,6 +54756,16 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 32.5,34.5
+      parent: 1
+  - uid: 8410
+    components:
+    - type: Transform
+      pos: 14.5,-31.5
+      parent: 1
+  - uid: 8411
+    components:
+    - type: Transform
+      pos: 16.5,-31.5
       parent: 1
 - proto: WeldingFuelTankFull
   entities:
