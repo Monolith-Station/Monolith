@@ -15871,3 +15871,10 @@ Entries:
   id: 1760
   time: '2026-01-06T12:42:30.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2964
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Radar edge markers are no longer offset by half a tile.
+  id: 1761
+  time: '2026-01-07T09:09:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2975
