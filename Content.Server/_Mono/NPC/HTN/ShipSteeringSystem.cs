@@ -142,7 +142,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         args.Input = ProcessMovement(shipUid.Value,
                                      shipXform, shipBody, shuttle, shipGrid,
                                      destMapPos, targetVel, targetUid, mapTarget,
-                                     maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime,
+                                     maxArrivedVel, ent.Comp.BrakeThreshold, args.FrameTime, ent.Comp.TurnEaseIn,
                                      ent.Comp.AvoidCollisions, ent.Comp.AvoidProjectiles, ent.Comp.MaxObstructorDistance, ent.Comp.MinObstructorDistance, ent.Comp.EvasionBuffer,
                                      targetAngleOffset, ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
     }
@@ -150,7 +150,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     private ShuttleInput ProcessMovement(EntityUid shipUid,
                                          TransformComponent shipXform, PhysicsComponent shipBody, ShuttleComponent shuttle, MapGridComponent shipGrid,
                                          MapCoordinates destMapPos, Vector2 targetVel, EntityUid? targetUid, MapCoordinates targetEntPos,
-                                         float maxArrivedVel, float brakeThreshold, float frameTime,
+                                         float maxArrivedVel, float brakeThreshold, float frameTime, float turnEaseIn,
                                          bool avoidCollisions, bool avoidProjectiles, float maxObstructorDistance, float minObstructorDistance, float evasionBuffer,
                                          Angle targetAngleOffset, Angle? angleOverride)
     {
@@ -348,6 +348,12 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // there's 500 different standards on how to count angles so needs the +PI
         var wishRotateBy = targetAngleOffset + ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), wishAngle);
         var wishAngleVel = MathF.Sqrt(MathF.Abs((float)wishRotateBy) * 2f * angAccel) * Math.Sign(wishRotateBy);
+
+        var wishFrameRotate = wishAngleVel * frameTime; // how much we want to rotate in angle passed per frame
+        // if we want to rotate so fast that it'll overshoot target in a couple frames that's bad
+        if (MathF.Abs(wishFrameRotate) > MathF.Abs((float)wishRotateBy) * turnEaseIn && wishFrameRotate != 0f)
+            wishAngleVel *= MathF.Abs((float)wishRotateBy * turnEaseIn / wishFrameRotate);
+
         var wishDeltaAngleVel = wishAngleVel - angleVel;
         var rotationInput = angAccel == 0f ? 0f : -wishDeltaAngleVel / angAccel / frameTime;
 
