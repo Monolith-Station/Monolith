@@ -320,6 +320,10 @@ public sealed class StationSystem : EntitySystem
         foreach (var grid in gridIds ?? Array.Empty<EntityUid>())
         {
             AddGridToStation(station, grid, null, data, name);
+            if (stationConfig.gridComponents is null)
+                continue;
+            foreach (var (_, component) in stationConfig.gridComponents)
+                EntityManager.AddComponent(grid, component, true);
         }
 
         var ev = new StationPostInitEvent((station, data));
