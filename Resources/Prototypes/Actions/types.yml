@@ -366,5 +366,4 @@
     icon: 
       sprite: Interface/Actions/jump.rsi
       state: icon
-  - type: InstantAction
     event: !type:GravityJumpEvent {}
