@@ -29,6 +29,11 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     private List<(EntityUid Uid, bool IsGrid)> _avoidPotentialEnts = new();
     private List<ObstacleCandidate> _avoidEnts = new();
 
+    // collision evasion input consideration sectors: 24 outer, 12 inner, 1 zero-input
+    private List<EvadeCandidate> _sectors = new();
+    private List<Vector2> _sectorsBase = new();
+    private int _sectorsCount = 24;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -40,6 +45,18 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         _phaseQuery = GetEntityQuery<ProjectileGridPhaseComponent>();
         _physQuery = GetEntityQuery<PhysicsComponent>();
         _shuttleQuery = GetEntityQuery<ShuttleComponent>();
+
+        InitSectors();
+    }
+
+    private void InitSectors()
+    {
+        _sectorsBase.Clear();
+        for (var i = 0; i < _sectorsCount; i++)
+        {
+            var angle = Angle.FromDegrees(360f * i / (float)_sectorsCount);
+            _sectorsBase.Add(angle.ToVec());
+        }
     }
 
     private void OnSteererGetInputs(Entity<ShipSteererComponent> ent, ref GetShuttleInputsEvent args)
@@ -98,6 +115,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             BrakeThreshold = ent.Comp.BrakeThreshold,
             TurnEaseIn = ent.Comp.TurnEaseIn,
 
+            BaseEvasionTime = ent.Comp.BaseEvasionTime,
             AvoidCollisions = ent.Comp.AvoidCollisions,
             AvoidProjectiles = ent.Comp.AvoidProjectiles,
             MaxObstructorDistance = ent.Comp.MaxObstructorDistance,
@@ -201,26 +219,15 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     private ShuttleInput ProcessMovement(
         in SteeringContext ctx,
         in SteeringConfig config,
-        ref bool? lastAvoidDir,
+        ref Vector2? lastAvoidDir,
         ref float rotationCompensation)
     {
         // check our braking power
         var brakeCtx = GetBrakeContext(ctx, config.MaxArrivedVel);
 
         // check obstacle avoidance
-        var avoidanceVec = (Vector2?)null;
         ScanForObstacles(ctx, config, brakeCtx);
-        var avoidanceResult = CalculateAvoidanceVector(ctx, config, brakeCtx, lastAvoidDir);
-
-        if (avoidanceResult.AvoidVec != null)
-        {
-            avoidanceVec = avoidanceResult.AvoidVec;
-            lastAvoidDir = avoidanceResult.NewLastAvoidDir;
-        }
-        else
-        {
-            lastAvoidDir = null;
-        }
+        var avoidanceVec = CalculateAvoidanceVector(ctx, config, brakeCtx, ref lastAvoidDir);
 
         // use avoidance vector if available or proceed with thrust as normal
         var wishInputVec = avoidanceVec ?? CalculateNavigationVector(ctx, brakeCtx);
@@ -233,7 +240,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         // convert wish-input to ship context
         var strafeInput = (-ctx.ShipNorthAngle).RotateVec(wishInputVec);
-        strafeInput = GetGoodThrustVector(strafeInput, ctx.Shuttle);
+        strafeInput = GetGoodThrustVector(strafeInput, ctx.Shuttle) * MathF.Min(1f, wishInputVec.Length());
+        Log.Info($"input {strafeInput} norot {wishInputVec}");
 
         return new ShuttleInput(strafeInput, rotControl.RotationInput, brakeInput);
     }
@@ -273,7 +281,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var scanDistance = brake.BrakeAccel == 0f ?
                                config.MaxObstructorDistance
                                : MathF.Min(config.MaxObstructorDistance, brake.BrakePath * 2f);
-        scanDistance += shipAABB.Width * 0.5f + shipAABB.Height * 0.5f + ScanDistanceBuffer;
+        scanDistance += shipAABB.Size.Length() * 0.5f + ScanDistanceBuffer;
 
         var scanBoundsLocal = shipAABB
             .Enlarged(SearchBuffer)
@@ -302,7 +310,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 _avoidPotentialEnts.Add((proj, false));
 
         _avoidEnts.Clear();
-
         foreach (var (ent, isGrid) in _avoidPotentialEnts)
         {
             // don't avoid ourselves or the target
@@ -310,121 +317,160 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 continue;
 
             var otherXform = Transform(ent);
-            var toObstacle = _transform.GetWorldPosition(otherXform) - shipPosVec;
-            var obstacleRelVel = shipVel - obstacleBody.LinearVelocity;
+            _gridQuery.TryComp(ent, out var obsGrid);
+            var aabb = _physics.GetWorldAABB(ent, body: obstacleBody, xform: otherXform);
+            var obsPos = aabb.Center;
+            var obsRadius = (obsGrid?.LocalAABB ?? aabb).Size.Length() * 0.5f;
 
-            var dot = Vector2.Dot(obstacleRelVel, toObstacle);
-            // moving away, ignore
-            if (dot <= 0f)
-                continue;
-
-            var normRelVel = toObstacle * dot / toObstacle.LengthSquared();
-            var impactTimeScore = toObstacle.LengthSquared() / normRelVel.LengthSquared();
-
-            _avoidEnts.Add(new((ent, otherXform, obstacleBody), impactTimeScore, isGrid));
+            _avoidEnts.Add(new((ent, otherXform, obstacleBody), obsPos, obsRadius, isGrid));
         }
-
-        // sort primarily by whether we're a grid and secondarily by impact time
-        _avoidEnts.Sort((a, b) => (b.IsGrid, a.InTime).CompareTo((a.IsGrid, b.InTime)));
 
     }
 
-    private (Vector2? AvoidVec, bool? NewLastAvoidDir) CalculateAvoidanceVector(
+    private Vector2? CalculateAvoidanceVector(
         in SteeringContext ctx,
         in SteeringConfig config,
         in BrakeContext brake,
-        bool? lastAvoidDir)
+        ref Vector2? lastAvoidDir)
     {
-        var shipPosVec = ctx.ShipPos.Position;
-        var shipAABB = ctx.ShipGrid.LocalAABB;
-        var toDestVec = ctx.DestMapPos.Position - shipPosVec;
-        var toDestDir = NormalizedOrZero(toDestVec);
+        var shipPos = ctx.ShipPos.Position;
         var shipVel = ctx.ShipBody.LinearVelocity;
+        var shipRadius = ctx.ShipGrid.LocalAABB.Size.Length() / 2f + config.EvasionBuffer;
 
-        foreach (var cand in _avoidEnts)
+        var targetVec = ctx.DestMapPos.Position - shipPos;
+        var normTarget = NormalizedOrZero(targetVec);
+        // use an average
+        var wishDir = lastAvoidDir == null ? targetVec : normTarget + lastAvoidDir.Value;
+        wishDir.Normalize();
+
+        // ignore collisions more than this far into the future
+        // TODO: account for angular accel if we can't brake
+        var simTime = brake.BrakeAccel == 0f ? 10f : 2f * ctx.ShipBody.LinearVelocity.Length() / brake.BrakeAccel;
+        simTime += config.BaseEvasionTime;
+
+        _sectors.Clear();
+        var isEven = false;
+        foreach (var dir in _sectorsBase)
         {
-            var ent = cand.Ent.Owner;
-            var otherXform = cand.Ent.Comp1;
-            var obstacleBody = cand.Ent.Comp2;
-
-            var toObstacle = _transform.GetWorldPosition(otherXform) - shipPosVec;
-            var obstacleDistance = toObstacle.Length();
-
-            var obstacleRelVel = shipVel - obstacleBody.LinearVelocity;
-            var relVelDir = NormalizedOrZero(obstacleRelVel);
-
-            // check obstacle size
-            _gridQuery.TryComp(ent, out var otherGrid);
-            var otherBounds = otherGrid != null
-                ? otherGrid.LocalAABB
-                : _physics.GetWorldAABB(ent, body: obstacleBody, xform: otherXform);
-
-            var shipRadius = MathF.Sqrt(shipAABB.Width * shipAABB.Width + shipAABB.Height * shipAABB.Height) / 2f + config.EvasionBuffer;
-            var obstacleRadius = MathF.Sqrt(otherBounds.Width * otherBounds.Width + otherBounds.Height * otherBounds.Height) / 2f;
-            var sumRadius = shipRadius + obstacleRadius;
-
-            var targetEntDistance = (ctx.TargetEntPos.Position - shipPosVec).Length();
-
-            // if very close to target grid, ignore
-            if (ctx.TargetGridUid != null && obstacleDistance > targetEntDistance - sumRadius - config.MinObstructorDistance)
-                continue;
-
-            // check by how much we'll miss
-            var effectiveDist = MathF.Max(obstacleDistance - sumRadius, 1f);
-            var pathVec = relVelDir * obstacleDistance * obstacleDistance / Vector2.Dot(toObstacle, relVelDir);
-            var sideVec = pathVec - toObstacle;
-            sideVec *= effectiveDist / obstacleDistance;
-            var sideDist = sideVec.Length();
-
-            if (sideDist < sumRadius)
+            var rotated = (-ctx.ShipNorthAngle).RotateVec(dir);
+            var dirAccel = _mover.GetDirectionThrust(rotated, ctx.Shuttle, ctx.ShipBody).Length();
+            // if it's zero use a very rough approximation using our forward thrust
+            if (dirAccel == 0f)
             {
-                // if (colliding)
-                //     dont();
+                var upVec = new Vector2(0f, 1f);
+                var penalty = 0.5f * (Vector2.Dot(upVec, rotated) + 1f);
+                dirAccel = _mover.GetDirectionThrust(upVec, ctx.Shuttle, ctx.ShipBody).Length() * penalty;
+            }
 
-                var dodgeDir = NormalizedOrZero(sideVec);
-                // rotate 90deg left
-                var rotToObstacle = new Vector2(-toObstacle.Y, toObstacle.X);
-                var dirSign = Vector2.Dot(rotToObstacle, dodgeDir) > 0f; // true: we want to dodge left, false: right
-                var inDirSign = Vector2.Dot(toDestVec, dodgeDir) > 0f; // true: we want to dodge to target, false: away
+            _sectors.Add(new(dir, dirAccel, 1f));
+            if (isEven)
+                _sectors.Add(new(dir, dirAccel * 0.5f, 0.5f));
+            isEven = !isEven;
+        }
+        // set scale to -1 to mark it as the wish-sector
+        _sectors.Add(new(wishDir, _mover.GetDirectionThrust((-ctx.ShipNorthAngle).RotateVec(wishDir), ctx.Shuttle, ctx.ShipBody).Length(), -1f));
 
-                // dodge in a consistent direction to handle being around multiple grids better
-                if (lastAvoidDir == null)
-                    lastAvoidDir = dirSign ^ !inDirSign;
+        foreach (var obstacle in _avoidEnts)
+        {
+            var obsRadius = obstacle.Radius;
+            var sumRadius = obsRadius + shipRadius;
+            var obsXform = obstacle.Ent.Comp1;
+            var obsPos = obstacle.Pos;
+            var obsVel = obstacle.Ent.Comp2.LinearVelocity;
+            var relVel = shipVel - obsVel;
+            var toObsVec = obsPos - shipPos;
+            var toObsDir = toObsVec.Normalized();
+            var obsDistance = MathF.Max(toObsVec.Length() - sumRadius, 1f);
 
-                if (lastAvoidDir != dirSign)
+            // get time-to-collide with the accel of each sector
+            // this will take significantly longer to explain than it is long
+            // https://www.desmos.com/calculator/foyraxlzs7 if you really want to know
+            var l = Vector2.Dot(toObsDir, relVel);
+            for (var i = 0; i < _sectors.Count; i++)
+            {
+                var sector = _sectors[i];
+
+                var aDir = sector.Sector;
+                var accel = aDir * sector.Accel;
+                var k = 0.5f * Vector2.Dot(toObsDir, accel);
+                var m = -obsDistance;
+                var t = 4*k*m > l*l || k == 0f ? -1f : ((-l + MathF.Sqrt(l*l - 4*k*m)) * 0.5f / k);
+                if (t < 0f || t > simTime)
+                    continue;
+
+                var endAt = relVel*t + 0.5f*accel*t*t;
+                var proj = MathF.Abs(Vector2.Dot(endAt, new Vector2(-toObsDir.Y, toObsDir.X)));
+                Log.Info($"Avoid dir {aDir} time {t}, proj {proj}");
+                if (proj > sumRadius)
+                    continue;
+
+                var ctime = sector.ImpactTime;
+                if ((ctime == null || ctime > t) && (!sector.Priority || obstacle.IsGrid))
                 {
-                    dodgeDir *= -1f;
-                    sideVec *= -1f;
-                    sideDist *= -1f;
+                    var priority = obstacle.IsGrid || sector.Priority;
+                    _sectors[i] = new(sector.Sector, sector.Accel, sector.Scale, t, priority);
                 }
+            }
+            // specialcase 0, 0 wishInput
+            var last = _sectors[_sectors.Count - 1];
+            if (last.Sector.LengthSquared() == 0f)
+            {
+                var t = obsDistance / Vector2.Dot(relVel, toObsDir);
+                if (t < 0f || t > simTime)
+                    continue;
 
-                // check our dodge capabilities
-                var dodgeVec = GetGoodThrustVector((-ctx.ShipNorthAngle).RotateVec(sideVec), ctx.Shuttle);
-                var dodgeThrust = _mover.GetDirectionThrust(dodgeVec, ctx.Shuttle, ctx.ShipBody).Length();
-                var dodgeAccel = dodgeThrust * ctx.ShipBody.InvMass;
-                var dodgeLeft = sumRadius - sideDist;
-                var dodgeVel = Vector2.Dot(obstacleRelVel, dodgeDir);
+                var endAt = relVel*t;
+                var proj = MathF.Abs(Vector2.Dot(endAt, new Vector2(-toObsDir.X, toObsDir.Y)));
+                if (proj > sumRadius)
+                    continue;
 
-                // d = vt + 0.5at^2
-                // solve for t
-                var dodgeTime = (-dodgeVel + MathF.Sqrt(dodgeVel * dodgeVel + 2f * dodgeLeft * dodgeAccel)) / dodgeAccel;
-
-                // how much forward thrust can we still afford
-                var inVel = Vector2.Dot(toObstacle, obstacleRelVel) * toObstacle / toObstacle.LengthSquared();
-                var maxInAccel = 2f * (effectiveDist / dodgeTime - inVel.Length()) / dodgeTime;
-
-                var inAccelVec = GetGoodThrustVector((-ctx.ShipNorthAngle).RotateVec(toDestDir), ctx.Shuttle);
-                var inThrust = _mover.GetDirectionThrust(inAccelVec, ctx.Shuttle, ctx.ShipBody).Length();
-                var inAccel = inThrust * ctx.ShipBody.InvMass;
-
-                var inInput = dodgeAccel == 0f ? -1f : float.Clamp(maxInAccel / inAccel, -1f, 1f);
-
-                var wishInputVec = NormalizedOrZero(toDestDir * inInput + dodgeDir);
-                return (wishInputVec, lastAvoidDir);
+                var ctime = last.ImpactTime;
+                if ((ctime == null || ctime > t) && (!last.Priority || obstacle.IsGrid))
+                {
+                    var priority = obstacle.IsGrid || last.Priority;
+                    _sectors[_sectors.Count - 1] = new(last.Sector, last.Accel, last.Scale, t, priority);
+                }
             }
         }
 
-        return (null, null);
+        var closestSector = (int?)null;
+        var closestDistance = float.PositiveInfinity;
+
+        var bestSector = 0;
+        var bestTime = 0f;
+        for (var i = 0; i < _sectors.Count; i++)
+        {
+            var sector = _sectors[i];
+            if (sector.ImpactTime == null)
+            {
+                var toWishSq = (wishDir - sector.Sector).LengthSquared();
+                if (toWishSq < closestDistance)
+                {
+                    closestDistance = toWishSq;
+                    closestSector = i;
+                }
+            }
+            else
+            {
+                if (sector.ImpactTime.Value > bestTime)
+                {
+                    bestSector = i;
+                    bestTime = sector.ImpactTime.Value;
+                }
+            }
+        }
+
+        var chosenI = closestSector ?? bestSector;
+        var chosen = _sectors[chosenI];
+        // original wishDir is clear
+        if (chosen.Scale == -1f)
+        {
+            lastAvoidDir = null;
+            return null;
+        }
+
+        lastAvoidDir ??= chosen.Sector;
+        return chosen.Sector * chosen.Scale;
     }
 
     // navigation for if we aren't avoiding a collision
@@ -573,7 +619,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         if (vertThrust * wishY < horizThrust * threshold * wishX)
             res.Y = 0f;
 
-        return res;
+        return NormalizedOrZero(res);
     }
 
     /// <summary>
@@ -638,6 +684,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // avoidance
         public bool AvoidCollisions;
         public bool AvoidProjectiles;
+        public float BaseEvasionTime;
         public float MaxObstructorDistance;
         public float MinObstructorDistance;
         public float EvasionBuffer;
@@ -654,9 +701,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
     private readonly record struct BrakeContext(float BrakeAccel, float BrakePath, float LeftoverBrakePath);
 
-    private readonly record struct ObstacleCandidate(
-        Entity<TransformComponent, PhysicsComponent> Ent,
-        float InTime,
-        bool IsGrid
-    );
+    private readonly record struct ObstacleCandidate(Entity<TransformComponent, PhysicsComponent> Ent, Vector2 Pos, float Radius, bool IsGrid);
+
+    private record struct EvadeCandidate(Vector2 Sector, float Accel, float Scale, float? ImpactTime = null, bool Priority = false);
 }

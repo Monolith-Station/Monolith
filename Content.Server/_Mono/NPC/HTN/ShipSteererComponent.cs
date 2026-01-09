@@ -1,4 +1,5 @@
 using Robust.Shared.Map;
+using System.Numerics;
 
 namespace Content.Server._Mono.NPC.HTN;
 
@@ -42,6 +43,12 @@ public sealed partial class ShipSteererComponent : Component
     public bool AvoidCollisions = true;
 
     /// <summary>
+    /// Try to evade collisions this far into the future even if stationary.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float BaseEvasionTime = 10f;
+
+    /// <summary>
     /// How unwilling we are to use brake to adjust our velocity. Higher means less willing.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
@@ -78,11 +85,10 @@ public sealed partial class ShipSteererComponent : Component
     public float? InRangeMaxSpeed = null;
 
     /// <summary>
-    /// Direction we avoided collisions in previous update. Used to avoid edgecases of collision avoidance.
-    /// True means left, false means right.
+    /// The direction vector we chose to dodge in the last frame, if any, for hysteresis.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public bool? LastAvoidDir = null;
+    public Vector2? LastAvoidDir = null;
 
     /// <summary>
     /// Whether to try to match velocity with target.
