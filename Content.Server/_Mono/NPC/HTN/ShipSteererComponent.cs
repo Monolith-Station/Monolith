@@ -8,7 +8,7 @@ namespace Content.Server._Mono.NPC.HTN;
 [RegisterComponent]
 public sealed partial class ShipSteererComponent : Component
 {
-    [ViewVariables]
+    [ViewVariables(VVAccess.ReadWrite)]
     public ShipSteeringStatus Status = ShipSteeringStatus.Moving;
 
     /// <summary>
@@ -58,6 +58,18 @@ public sealed partial class ShipSteererComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public bool FinishOnCollide = true;
+
+    /// <summary>
+    /// How much to enlarge grid search bounds for collision evasion.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float GridSearchBuffer = 96f;
+
+    /// <summary>
+    /// How much to enlarge grid search forward distance for collision evasion.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float GridSearchDistanceBuffer = 96f;
 
     /// <summary>
     /// Up to how fast can we be going before being considered in range, if not null.
@@ -116,6 +128,12 @@ public sealed partial class ShipSteererComponent : Component
     public Angle OrbitOffset = Angle.FromDegrees(30f);
 
     /// <summary>
+    /// In what radius to search for projectiles in for collision evasion.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float ProjectileSearchBounds = 896f;
+
+    /// <summary>
     /// How close are we trying to get to the coordinates before being considered in range.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
@@ -155,14 +173,14 @@ public sealed partial class ShipSteererComponent : Component
 public enum ShipSteeringStatus : byte
 {
     /// <summary>
-    /// Are we moving towards our target
+    /// Moving towards target
     /// </summary>
     Moving,
 
     /// <summary>
-    /// Are we currently in range of our target.
+    /// Meeting set end conditions
     /// </summary>
-    InRange,
+    InRange
 }
 
 public enum ShipSteeringMode
