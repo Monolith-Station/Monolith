@@ -504,7 +504,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var relVel = ctx.ShipBody.LinearVelocity - ctx.TargetVel;
 
         // we're good
-        if (brake.LeftoverBrakePath <= 0f)
+        if (brake.LeftoverBrakePath < 0f)
             return Vector2.Zero;
 
         // check if we should just brake
