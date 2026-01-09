@@ -42,7 +42,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         SubscribeLocalEvent<SpaceBiomeSourceComponent, ComponentShutdown>(OnSourceShutdown);
         SubscribeLocalEvent<SpaceBiomeTrackerComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
-        //SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerSpawn);
+        SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerSpawn);
         _sawmill = IoCManager.Resolve<ILogManager>().GetSawmill("spacebiomes.server.notreally");
     }
 
@@ -107,45 +107,44 @@ public sealed class SpaceBiomeSystem : EntitySystem
     /// HULLROT: This specifically makes the station's designation show up 10 seconds after you spawn in. This is exclusively for music, and to show cool title at the top of ur screen.
     /// </summary>
     /// <param name="args"></param>
-    // private void OnPlayerSpawn(LocalPlayerAttachedEvent args)
-    // {
-    //     Log.Info("------------------PLAYER SPAWN EVENT RAN!!!!!!!!!");
-    //     EntityUid uid = args.Entity;
+    private void OnPlayerSpawn(LocalPlayerAttachedEvent args)
+    {
+        EntityUid uid = args.Entity;
 
-    //     if (!TryComp<ActorComponent>(uid, out var actor))
-    //         return;
+        if (!TryComp<TransformComponent>(uid, out var transform)) //need transform comp to grab parent station clientside
+            return;
 
-    //     if (!TryComp<TransformComponent>(uid, out var transform)) //need transform comp to grab parent station clientside
-    //         return;
+        var parentStation = transform.GridUid;
 
-    //     var parentStation = CompOrNull<StationMemberComponent>(transform.GridUid)?.Station; //copied how serverside stationsystem did it. let's hope.
+        if (parentStation == null)
+            return;
 
-    //     if (parentStation == null)
-    //         return;
+        // HULLROT EDIT: BoringStations and keeping track of what we've visited before is removed
+        // because we want people to see the message each time you enter, coupled with music and flavor text
 
-    //     var parentStationName = Name(transform.ParentUid); //this grabs the full name with the cool identifier rather than just Piva CIV
+        var name = "placeholder";
 
-    //     // HULLROT EDIT: BoringStations and keeping track of what we've visited before is removed
-    //     // because we want people to see the message each time you enter, coupled with music and flavor text
+        if (TryComp<MetaDataComponent>(parentStation, out var metadata))
+            name = metadata.EntityName;
 
-    //     var description = ""; //fallback for description is nothin'
-    //     if (TryComp<VesselInfoComponent>(parentStation, out var vesselinfo))
-    //         description = vesselinfo.Description;
+        var description = ""; //fallback for description is nothin'
+        if (TryComp<VesselInfoComponent>(parentStation, out var vesselinfo))
+            description = vesselinfo.Description;
 
-    //     var musicPrototype = "";
+        var musicPrototype = "";
 
-    //     if (TryComp<VesselMusicComponent>(parentStation, out var music)) //if this succeeds, we have custom music! if it fails,
-    //         musicPrototype = music.AmbientMusicPrototype;                                   //the component is missing and we just keep ""
+        if (TryComp<VesselMusicComponent>(parentStation, out var music)) //if this succeeds, we have custom music! if it fails,
+            musicPrototype = music.AmbientMusicPrototype;                                   //the component is missing and we just keep ""
 
-    //     // var name = setup.StationNameTemplate.Replace("{1}", "").Trim();
+        // var name = setup.StationNameTemplate.Replace("{1}", "").Trim();
 
-    //     Timer.Spawn(TimeSpan.FromSeconds(10), () =>
-    //     {
-    //         Log.Info("title drop should happen now");
-    //         NewVesselEnteredMessage message = new NewVesselEnteredMessage(parentStationName, description, musicPrototype);
-    //         RaiseLocalEvent(uid, ref message, true);
-    //     });
-    // }
+        Timer.Spawn(TimeSpan.FromSeconds(10), () =>
+        {
+            Log.Info("title drop should happen now");
+            NewVesselEnteredMessage message = new NewVesselEnteredMessage(name, description, musicPrototype);
+            RaiseLocalEvent(uid, ref message, true);
+        });
+    }
 
     private void OnParentChanged(EntityUid uid, SpaceBiomeTrackerComponent component, EntParentChangedMessage args)
     {
@@ -155,7 +154,6 @@ public sealed class SpaceBiomeSystem : EntitySystem
         if (!TryComp<TransformComponent>(uid, out var transform)) //need transform comp to grab parent station clientside
             return;
 
-        //var parentStation = CompOrNull<StationMemberComponent>(transform.GridUid)?.Station; //copied how serverside stationsystem did it. let's hope.
         var parentStation = transform.GridUid;
 
         if (parentStation == null) //entered space, should tell music system to stop playing ship music
