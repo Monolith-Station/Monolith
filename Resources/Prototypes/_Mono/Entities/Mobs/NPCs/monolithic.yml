@@ -13,6 +13,9 @@
   - type: Sprite
     sprite: _Mono/Mobs/monolithic.rsi
     state: gestalt_icon
+  - type: Icon
+    sprite: _Mono/Mobs/monolithic.rsi
+    state: gestalt_icon
   - type: Fixtures
     fixtures:
       portalFixture:
@@ -24,10 +27,10 @@
         layer:
         - WallLayer
         hard: false
-  - type: TimedDespawn
-    lifetime: 0.1
-  - type: SpawnOnDespawn
-    prototype: MobMonolithicGestalt
+  - type: RandomSpawner
+    prototypes:
+    - MobMonolithicGestalt
+    chance: 1
 
 - type: entity
   id: MobSpawnMonolithicRandomBasic
@@ -130,7 +133,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Dead
+      300: Critical
+      340: Dead
     allowRevives: false
   - type: SlowOnDamage
     speedModifierThresholds:
@@ -139,7 +143,9 @@
     states:
       Alive:
         Base: luminous_person
-        BaseUnshaded: glow
+      Critical:
+        Base: dead
+        BaseUnshaded: dead_unshaded
       Dead:
         Base: dead
         BaseUnshaded: dead_unshaded
@@ -171,25 +177,12 @@
   - type: ZombieImmune
   - type: NameIdentifier
     group: GenericNumber
-  - type: GhostRole
-    makeSentient: true
-    allowSpeech: false
-    allowMovement: true
-    name: ghost-role-information-monolithic-generic-name
-    description: ghost-role-information-monolithic-generic-description
-    rules: ghost-role-information-monolithic-generic-rules
-    raffle:
-      settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 # 5 hrs
-  - type: GhostTakeoverAvailable
   - type: PointLight
     radius: 1.0
     energy: 1.5
     color: "#91469e"
   - type: Speech
-    speechVerb: Ghost
+    enabled: false
   - type: ReplacementAccent
     accent: genericAggressive
   - type: Tag
@@ -225,10 +218,28 @@
     solution: chemicals
   - type: Bloodstream
     bloodReagent: Gestalzitine
-    bloodMaxVolume: 35
+    bloodMaxVolume: 0.01
   - type: NightVision
     activateSound: null
     deactivateSound: null
+  - type: CollectiveMind
+    channels:
+    - MonolithicMind
+    defaultChannel: MonolithicMind
+  - type: GhostRole
+    prob: 0.05
+    makeSentient: false
+    allowSpeech: false
+    allowMovement: true
+    name: ghost-role-information-monolithic-generic-name
+    description: ghost-role-information-monolithic-generic-description
+    rules: ghost-role-information-monolithic-generic-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5 hrs
+  - type: GhostTakeoverAvailable
 
 # actual entity spawners
 
@@ -241,8 +252,13 @@
   - type: Sprite
     sprite: _Mono/Mobs/monolithic.rsi
     state: gestalt_icon
-  - type: SpawnOnDespawn
-    prototype: MobMonolithicGestalt
+  - type: Icon
+    sprite: _Mono/Mobs/monolithic.rsi
+    state: gestalt_icon
+  - type: RandomSpawner
+    prototypes:
+    - MobMonolithicGestalt
+    chance: 1
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -262,8 +278,11 @@
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: luminous_entity
-        BaseUnshaded: glow
+        Base: gestalt
+        BaseUnshaded: gestalt
+      Critical:
+        Base: dead
+        BaseUnshaded: dead_unshaded
       Dead:
         Base: dead
         BaseUnshaded: dead_unshaded
@@ -281,21 +300,24 @@
     autoRecharge: true
     autoRechargeRate: 1000
   - type: Gun
-    fireRate: 1.5
-    minAngle: 5
-    maxAngle: 20
+    fireRate: 2
+    minAngle: 10
+    maxAngle: 40
     useKey: false
     showExamineText: false
-    selectedMode: FullAuto
+    selectedMode: Burst
     availableModes:
-    - FullAuto
+    - Burst
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
     soundEmpty:
       path: /Audio/Items/Lighters/lighter_off.ogg
+    burstCooldown: 4
+    burstFireRate: 14
+    shotsPerBurst: 6
   - type: Reflect # gigatroll, gotta use melee on these guys
-    reflectProb: 1
-    spread: 90
+    reflectProb: 0.95
+    spread: 20
   - type: Stealth
     minVisibility: 0.3
     maxVisibility: 0.4
@@ -315,7 +337,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      60: Dead
+      60: Critical
+      140: Dead
     allowRevives: false
   - type: Destructible
     thresholds:
@@ -345,8 +368,13 @@
     - type: Sprite
       sprite: _Mono/Mobs/monolithic.rsi
       state: golom_icon
-    - type: SpawnOnDespawn
-      prototype: MobMonolithicGolom
+    - type: Icon
+      sprite: _Mono/Mobs/monolithic.rsi
+      state: golom_icon
+    - type: RandomSpawner
+      prototypes:
+      - MobMonolithicGolom
+      chance: 1
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -367,7 +395,9 @@
     states:
       Alive:
         Base: golom
-        BaseUnshaded: glow
+      Critical:
+        Base: dead
+        BaseUnshaded: dead_unshaded
       Dead:
         Base: dead
         BaseUnshaded: dead_unshaded
@@ -387,7 +417,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 500
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -402,7 +432,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      500: Dead
+      400: Critical
+      490: Dead
   - type: MovementSpeedModifier
     baseSprintSpeed: 2
     baseWalkSpeed: 1.5
@@ -422,8 +453,13 @@
     - type: Sprite
       sprite: _Mono/Mobs/monolithic.rsi
       state: locust_icon
-    - type: SpawnOnDespawn
-      prototype: MobMonolithicHellLocust
+    - type: Icon
+      sprite: _Mono/Mobs/monolithic.rsi
+      state: locust_icon
+    - type: RandomSpawner
+      prototypes:
+      - MobMonolithicHellLocust
+      chance: 1
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -444,7 +480,9 @@
       states:
         Alive:
           Base: locust
-          BaseUnshaded: glow
+        Critical:
+          Base: dead
+          BaseUnshaded: dead_unshaded
         Dead:
           Base: dead
           BaseUnshaded: dead_unshaded
@@ -481,7 +519,8 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        200: Dead
+        200: Critical
+        240: Dead
     - type: MovementSpeedModifier
       baseSprintSpeed: 4.5
       baseWalkSpeed: 3
@@ -530,8 +569,13 @@
     - type: Sprite
       sprite: _Mono/Mobs/monolithic.rsi
       state: golom_icon
-    - type: SpawnOnDespawn
-      prototype: MobMonolithicGolomRanged
+    - type: Icon
+      sprite: _Mono/Mobs/monolithic.rsi
+      state: golom_icon
+    - type: RandomSpawner
+      prototypes:
+      - MobMonolithicGolomRanged
+      chance: 1
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -552,7 +596,9 @@
     states:
       Alive:
         Base: golom
-        BaseUnshaded: glow
+      Critical:
+        Base: dead
+        BaseUnshaded: dead_unshaded
       Dead:
         Base: dead
         BaseUnshaded: dead_unshaded
@@ -572,7 +618,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 500
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -587,7 +633,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      500: Dead
+      400: Critical
+      490: Dead
   - type: MovementSpeedModifier
     baseSprintSpeed: 2
     baseWalkSpeed: 1.5

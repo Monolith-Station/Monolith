@@ -113,7 +113,7 @@
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectOmnilaser #imp
   - type: StaminaDamageOnCollide
-    damage: 5 # Mono
+    damage: 15 # Mono
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
@@ -122,18 +122,6 @@
     soundHit:
       collection: WeakHit
     forceSound: true
-  - type: SolutionContainerManager
-    solutions:
-      ammo:
-        maxVol: 2
-        reagents:
-        - ReagentId: Gestalzitine
-          Quantity: 2
-  - type: SolutionInjectOnProjectileHit
-    transferAmount: 2
-    solution: ammo
-  - type: InjectableSolution
-    solution: ammo
 
 # golom ranged crystal attack
 

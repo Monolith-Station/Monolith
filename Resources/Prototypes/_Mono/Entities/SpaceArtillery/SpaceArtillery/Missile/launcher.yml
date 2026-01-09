@@ -23,6 +23,7 @@
     range: 500
   - type: Gun
     fireRate: 0.5
+    recoil: 10
     shootThermalSignature: 32000000 # ~5.6km
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
@@ -45,3 +46,6 @@
     shipType: Missile
   - type: ShipGunClass
     shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 120

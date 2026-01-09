@@ -29,6 +29,11 @@ entities:
     components:
     - type: MetaData
       name: ADS Razor
+    - type: InitRepairSnapshot
+    - type: ShipRepairRestrict
+      toolWhitelist:
+        tags:
+        - ADSRepairTool
     - type: Transform
       pos: -0.520576,-0.48353916
       parent: invalid

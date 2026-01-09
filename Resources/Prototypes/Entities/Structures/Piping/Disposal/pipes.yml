@@ -62,6 +62,10 @@
       DisposalTube: !type:Container
   - type: StaticPrice
     price: 22 # Frontier: 30<22 - TODO: material value rework
+  # Mono
+  - type: ShipRepairable
+    repairTime: 1
+    repairCost: 1
 
 - type: entity
   id: DisposalHolder

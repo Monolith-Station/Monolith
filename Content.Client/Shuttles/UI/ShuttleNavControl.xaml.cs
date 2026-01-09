@@ -851,7 +851,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             var count = chain.Count;
             var verticies = chain.Vertices;
 
-            var center = xform.LocalPosition;
+            var center = _transform.WithEntityId(xform.Coordinates, xform.GridUid.Value).Position;
 
             for (int i = 1; i < count; i++)
             {

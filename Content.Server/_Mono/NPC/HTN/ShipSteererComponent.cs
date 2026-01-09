@@ -125,6 +125,12 @@ public sealed partial class ShipSteererComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float TargetRotation = 0f;
+
+    /// <summary>
+    /// Controls how much to ease in when turning with really high angular accelerations.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float TurnEaseIn = 0.2f;
 }
 
 public enum ShipSteeringStatus : byte

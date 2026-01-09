@@ -1,0 +1,43 @@
+# Author Info
+# GitHub: tsunameme
+# Discord: tsunameme
+
+# Shuttle Notes:
+# 
+
+- type: vessel
+  id: Zeros
+  parent: BaseVessel
+  name: JIN Zeros
+  description: A truck stop diner ship designed to resemble a semi-truck, complete with a EVA accessable dining room and a small cargo bay.
+  price: 112500
+  category: Large
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/zeros.yml
+  guidebookPage: null
+  class:
+  - Civilian
+  - Kitchen
+  - Botany
+  engine:
+  - AME
+
+- type: gameMap
+  id: Zeros
+  mapName: 'JIN Zeros'
+  mapPath: /Maps/_Mono/Shuttles/zeros.yml
+  minPlayers: 0
+  stations:
+    Zeros:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Zeros CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
