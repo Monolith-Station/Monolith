@@ -150,7 +150,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             FrameTime = args.FrameTime
         };
 
-        args.Input = ProcessMovement(context, config, ref ent.Comp.LastAvoidDir, ref ent.Comp.RotationCompensation);
+        args.Input = ProcessMovement(context, config, ref ent.Comp.RotationCompensation);
     }
 
     /// <summary>
@@ -220,7 +220,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     private ShuttleInput ProcessMovement(
         in SteeringContext ctx,
         in SteeringConfig config,
-        ref Vector2? lastAvoidDir,
         ref float rotationCompensation)
     {
         // check our braking power
@@ -228,7 +227,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         // check obstacle avoidance
         ScanForObstacles(ctx, config, brakeCtx);
-        var avoidanceVec = CalculateAvoidanceVector(ctx, config, brakeCtx, ref lastAvoidDir);
+        var avoidanceVec = CalculateAvoidanceVector(ctx, config, brakeCtx);
 
         // use avoidance vector if available or proceed with thrust as normal
         var wishInputVec = avoidanceVec ?? CalculateNavigationVector(ctx, brakeCtx);
@@ -330,8 +329,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     private Vector2? CalculateAvoidanceVector(
         in SteeringContext ctx,
         in SteeringConfig config,
-        in BrakeContext brake,
-        ref Vector2? lastAvoidDir)
+        in BrakeContext brake)
     {
         var shipPos = ctx.ShipPos.Position;
         var shipVel = ctx.ShipBody.LinearVelocity;
@@ -339,8 +337,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         var targetVec = ctx.DestMapPos.Position - shipPos;
         var normTarget = NormalizedOrZero(targetVec);
-        // use an average
-        var wishDir = lastAvoidDir == null ? targetVec : normTarget + lastAvoidDir.Value;
+        var wishDir = targetVec;
         wishDir.Normalize();
 
         // ignore collisions more than this far into the future
@@ -444,6 +441,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             if (sector.ImpactTime == null)
             {
                 var toWishSq = (wishDir - sector.Sector).LengthSquared();
+                // accept if it's closer to our hysteresis-wish or if it's our real wish
                 if (toWishSq < closestDistance)
                 {
                     closestDistance = toWishSq;
@@ -464,12 +462,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var chosen = _sectors[chosenI];
         // original wishDir is clear
         if (chosen.Scale == -1f)
-        {
-            lastAvoidDir = null;
             return null;
-        }
 
-        lastAvoidDir ??= chosen.Sector;
         return chosen.Sector * chosen.Scale;
     }
 

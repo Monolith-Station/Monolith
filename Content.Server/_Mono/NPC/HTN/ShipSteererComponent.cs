@@ -85,12 +85,6 @@ public sealed partial class ShipSteererComponent : Component
     public float? InRangeMaxSpeed = null;
 
     /// <summary>
-    /// The direction vector we chose to dodge in the last frame, if any, for hysteresis.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public Vector2? LastAvoidDir = null;
-
-    /// <summary>
     /// Whether to try to match velocity with target.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
