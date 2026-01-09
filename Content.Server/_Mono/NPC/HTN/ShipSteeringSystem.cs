@@ -66,7 +66,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         var target = ent.Comp.Coordinates;
         var targetUid = target.EntityId;
-        var targetGrid = Transform(targetUid).GridUid;
 
         if (shipUid == null
             || TerminatingOrDeleted(targetUid)
@@ -82,6 +81,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var shipXform = Transform(shipUid.Value);
         args.GotInput = true;
 
+        var targetGrid = Transform(targetUid).GridUid;
         var mapTarget = _transform.ToMapCoordinates(target);
         var shipPos = _transform.GetMapCoordinates(shipXform);
 
