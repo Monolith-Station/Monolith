@@ -1,0 +1,2 @@
+containment-register-signal = Entity registration completed: {$entities_count} entities registered.
+containment-examine-verb = Active entity named {$entity_name} is being processed. Research point output: {$points} per second.
