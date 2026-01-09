@@ -70,16 +70,16 @@ public sealed class ArmorPlateSystem : SharedArmorPlateSystem
                 // Absorption value to plates for the purpose of damaging it.
                 if (ratio > 0f)
                 {
-                    absorbed = amount * FixedPoint2.New(ratio);
+                    absorbed = amount * ratio;
                     remainder = amount - absorbed;
                 }
                 else if (ratio < 0f)
                 {
-                    remainder = amount * FixedPoint2.New(1f + Math.Abs(ratio));
+                    remainder = amount * (1f + Math.Abs(ratio));
                 }
 
                 // Apply damage to plate
-                var plateDamage = amount * FixedPoint2.New(Math.Abs(ratio)) * FixedPoint2.New(multiplier);
+                var plateDamage = amount * Math.Abs(ratio) * multiplier;
                 if (absorbed > FixedPoint2.Zero)
                     AbsorbDamage(ent, equipped.Value, holder, plate, absorbed, plateDamage);
 
