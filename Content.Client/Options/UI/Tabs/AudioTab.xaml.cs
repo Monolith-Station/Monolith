@@ -60,12 +60,14 @@ public sealed partial class AudioTab : Control
             _cfg.GetCVar(CCVars.MinMaxAmbientSourcesConfigured),
             _cfg.GetCVar(CCVars.MaxMaxAmbientSourcesConfigured));
 
+        // Mono begin
         Control.AddOptionPercentSlider(
             MonoCVars.CombatMusicVolume,
             SliderVolumeCombatMusic,
             scale: ContentAudioSystem.CombatMultiplier);
 
         Control.AddOptionCheckBox(MonoCVars.CombatMusicEnabled, CombatMusicCheckBox);
+        // Mono end
         Control.AddOptionCheckBox(CCVars.LobbyMusicEnabled, LobbyMusicCheckBox);
         Control.AddOptionCheckBox(CCVars.RestartSoundsEnabled, RestartSoundsCheckBox);
         Control.AddOptionCheckBox(CCVars.EventMusicEnabled, EventMusicCheckBox);
