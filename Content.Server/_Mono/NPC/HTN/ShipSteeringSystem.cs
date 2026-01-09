@@ -241,6 +241,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // convert wish-input to ship context
         var strafeInput = (-ctx.ShipNorthAngle).RotateVec(wishInputVec);
         strafeInput = GetGoodThrustVector(strafeInput, ctx.Shuttle) * MathF.Min(1f, wishInputVec.Length());
+        // Log.Info($"input {strafeInput} norot {wishInputVec}");
 
         return new ShuttleInput(strafeInput, rotControl.RotationInput, brakeInput);
     }
@@ -378,10 +379,30 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             var toObsVec = obsPos - shipPos;
             var toObsDir = toObsVec.Normalized();
             var obsDistance = MathF.Max(toObsVec.Length() - sumRadius, 1f);
+            // Log.Info($"DR {ToPrettyString(ctx.ShipUid)} Avoiding {ToPrettyString(obstacle.Ent)}: dp {toObsVec} dv {relVel} dist {obsDistance} sr {sumRadius}");
 
             // get time-to-collide with the accel of each sector
-            // this will take significantly longer to explain than it is long
-            // https://www.desmos.com/calculator/foyraxlzs7 if you really want to know
+            //
+            // r = obsDistance
+            // d = sumRadius
+            // p = vt + at^2 / 2
+            // solve for: dot(p, toObsDir) = r
+            // condition for no hit: abs(dot(p, toObsVec.rotate(90))) > d
+            // p = (x, y)
+            // toObsDir = (u, v)
+            // ux + vy = r
+            // x = v_x*t + a_x * t^2 / 2
+            // y = v_y*t + a_y * t^2 / 2
+            // u(v_x*t + 0.5*a_x*t^2) + v(v_y*t + 0.5*a_y*t^2) = r
+            // t^2 * (0.5*(u*a_x + v*a_y)) + t * (u*v_x + v*v_y) - r = 0
+            // k = 0.5 * u*a_x + v*a_y = 0.5 * dot(toObsDir, a)
+            // l = u*v_x + v*v_y = dot(toObsDir, vel)
+            // m = -r
+            // t = (-l + sqrt(l^2 - 4km)) / (2k)
+            // if 4km > l^2, no hit
+            // if t<0, no hit
+            //
+            // https://www.desmos.com/calculator/foyraxlzs7 graphed version
             var l = Vector2.Dot(toObsDir, relVel);
             for (var i = 0; i < _sectors.Count; i++)
             {
@@ -392,12 +413,13 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 var k = 0.5f * Vector2.Dot(toObsDir, accel);
                 var m = -obsDistance;
                 var t = 4*k*m > l*l || k == 0f ? -1f : ((-l + MathF.Sqrt(l*l - 4*k*m)) * 0.5f / k);
-                t = MathF.Max(0f, t - ctx.FrameTime);
                 if (t < 0f || t > simTime)
                     continue;
+                t = MathF.Max(0f, t - ctx.FrameTime);
 
                 var endAt = relVel*t + 0.5f*accel*t*t;
                 var proj = MathF.Abs(Vector2.Dot(endAt, new Vector2(-toObsDir.Y, toObsDir.X)));
+                // Log.Info($"Avoid dir {aDir} time {t}, proj {proj} (k l m {k} {l} {m}) accel {accel}");
                 if (proj > sumRadius)
                     continue;
 
@@ -418,6 +440,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
                 var endAt = relVel*t;
                 var proj = MathF.Abs(Vector2.Dot(endAt, new Vector2(-toObsDir.Y, toObsDir.X)));
+                // Log.Info($"Avoid dir {last.Sector} time {t}, proj {proj}");
                 if (proj > sumRadius)
                     continue;
 
@@ -441,17 +464,21 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             if (sector.ImpactTime == null)
             {
                 var toWishSq = (wishDir - sector.Sector).LengthSquared();
+                // Log.Info($"NI dir [{i}] {sector.Sector}: sq: {toWishSq} vs {closestDistance}");
                 // accept if it's closer to our hysteresis-wish or if it's our real wish
                 if (toWishSq < closestDistance)
                 {
+                    // Log.Info($"B: NI");
                     closestDistance = toWishSq;
                     closestSector = i;
                 }
             }
             else
             {
+                // Log.Info($"IT dir [{i}] {sector.Sector}: impact time {sector.ImpactTime.Value} vs {bestTime}");
                 if (sector.ImpactTime.Value > bestTime)
                 {
+                    // Log.Info($"B: IT");
                     bestSector = i;
                     bestTime = sector.ImpactTime.Value;
                 }
@@ -460,6 +487,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         var chosenI = closestSector ?? bestSector;
         var chosen = _sectors[chosenI];
+        // Log.Info($"Chosen: [{chosenI}] {chosen.Sector}");
         // original wishDir is clear
         if (chosen.Scale == -1f)
             return null;
