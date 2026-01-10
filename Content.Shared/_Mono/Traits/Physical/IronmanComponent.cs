@@ -6,4 +6,11 @@ namespace Content.Shared._Mono.Traits.Physical;
 /// Component for the Ironman trait.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class IronmanComponent : Component;
+public sealed partial class IronmanComponent : Component
+{
+    [DataField]
+    public bool BlockWithdraw = true;
+
+    [DataField]
+    public bool BlockDeposit = false;
+}

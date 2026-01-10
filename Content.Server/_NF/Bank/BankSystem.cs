@@ -58,8 +58,9 @@ public sealed partial class BankSystem : SharedBankSystem
     /// </summary>
     /// <param name="mobUid">The UID that the bank account is attached to, typically the player controlled mob</param>
     /// <param name="amount">The integer amount of which to decrease the bank account</param>
+    /// <param name="force">Mono - Whether to ignore conditions that may block withdrawal</param>
     /// <returns>true if the transaction was successful, false if it was not</returns>
-    public bool TryBankWithdraw(EntityUid mobUid, int amount)
+    public bool TryBankWithdraw(EntityUid mobUid, int amount, bool force = false)
     {
         if (amount <= 0)
         {
@@ -74,7 +75,7 @@ public sealed partial class BankSystem : SharedBankSystem
         }
 
         // Mono
-        if (HasComp<IronmanComponent>(mobUid))
+        if (!force && TryComp<IronmanComponent>(mobUid, out var ironman) && ironman.BlockWithdraw)
         {
             _log.Info($"TryBankWithdraw: {mobUid} is blocked from withdrawals (Ironman)");
             return false;
@@ -113,8 +114,9 @@ public sealed partial class BankSystem : SharedBankSystem
     /// </summary>
     /// <param name="mobUid">The UID that the bank account is connected to, typically the player controlled mob</param>
     /// <param name="amount">The amount of spesos to remove from the bank account</param>
+    /// <param name="force">Mono - Whether to ignore conditions that may block withdrawal</param>
     /// <returns>true if the transaction was successful, false if it was not</returns>
-    public bool TryBankDeposit(EntityUid mobUid, int amount)
+    public bool TryBankDeposit(EntityUid mobUid, int amount, bool force = false)
     {
         if (amount <= 0)
         {
@@ -125,6 +127,13 @@ public sealed partial class BankSystem : SharedBankSystem
         if (!TryComp<BankAccountComponent>(mobUid, out var bank))
         {
             _log.Info($"TryBankDeposit: {mobUid} has no bank account");
+            return false;
+        }
+
+        // Mono
+        if (!force && TryComp<IronmanComponent>(mobUid, out var ironman) && ironman.BlockDeposit)
+        {
+            _log.Info($"TryBankWithdraw: {mobUid} is blocked from deposits (Ironman)");
             return false;
         }
 
@@ -331,11 +340,12 @@ public sealed partial class BankSystem : SharedBankSystem
     /// </summary>
     /// <param name="ent">The UID that the bank account is connected to, typically the player controlled mob</param>
     /// <param name="balance">When successful, contains the account balance in spesos. Otherwise, set to 0.</param>
+    /// <param name="force">Mono - Whether to ignore conditions that may block withdrawal. If false, any such will return 0.</param>
     /// <returns>true if the account was successfully queried.</returns>
-    public bool TryGetBalance(EntityUid ent, out int balance)
+    public bool TryGetBalance(EntityUid ent, out int balance, bool force = false)
     {
         // Mono
-        if (HasComp<IronmanComponent>(ent))
+        if (!force && TryComp<IronmanComponent>(ent, out var ironman) && ironman.BlockWithdraw)
         {
             balance = 0;
             return true;

@@ -357,7 +357,7 @@ namespace Content.Server.VendingMachines
             if (IsAuthorized(uid, sender, component))
             {
                 int bankBalance = 0;
-                if (!HasComp<IronmanComponent>(sender) && TryComp<BankAccountComponent>(sender, out var bank))
+                if (TryComp<BankAccountComponent>(sender, out var bank))
                     bankBalance = bank.Balance;
 
                 int cashSlotBalance = 0;
@@ -392,7 +392,7 @@ namespace Content.Server.VendingMachines
                         component.CashSlotBalance = newCashSlotBalance;
                         paidFully = true; // Either we paid fully with cash, or we need to withdraw the remainder
                     }
-                    if (totalPrice > cashSlotBalance && !HasComp<Content.Shared._Mono.Traits.Physical.IronmanComponent>(sender))
+                    if (totalPrice > cashSlotBalance)
                         paidFully = _bankSystem.TryBankWithdraw(sender, totalPrice - cashSlotBalance);
 
                     // If we paid completely, pay our station taxes
