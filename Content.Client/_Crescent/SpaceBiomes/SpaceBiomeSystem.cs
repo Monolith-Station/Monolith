@@ -79,34 +79,13 @@ public sealed class SpaceBiomeSystem : EntitySystem
     {
         EntityUid uid = args.Entity;
 
-        if (TerminatingOrDeleted(uid))
+        var gridData = GetGridInfo(uid);
+        if (gridData == null)
             return;
-
-        var parentStation = Transform(uid).GridUid;
-
-        if (parentStation == null)
-            return;
-
-        // HULLROT EDIT: BoringStations and keeping track of what we've visited before is removed
-        // because we want people to see the message each time you enter, coupled with music and flavor text
-
-        var name = "placeholder";
-
-        if (TryComp<MetaDataComponent>(parentStation, out var metadata))
-            name = metadata.EntityName;
-
-        var description = ""; //fallback for description is nothin'
-        if (TryComp<VesselInfoComponent>(parentStation, out var vesselinfo))
-            description = vesselinfo.Description;
-
-        var musicPrototype = "";
-
-        if (TryComp<VesselMusicComponent>(parentStation, out var music)) //if this succeeds, we have custom music! if it fails,
-            musicPrototype = music.AmbientMusicPrototype;                                   //the component is missing and we just keep ""
 
         Timer.Spawn(TimeSpan.FromSeconds(10), () =>
         {
-            NewVesselEnteredMessage message = new NewVesselEnteredMessage(name, description, musicPrototype);
+            NewVesselEnteredMessage message = new NewVesselEnteredMessage(gridData.Value.Item1, gridData.Value.Item2, gridData.Value.Item3);
             RaiseLocalEvent(uid, ref message, true);
         });
     }
@@ -116,34 +95,11 @@ public sealed class SpaceBiomeSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        if (TerminatingOrDeleted(uid))
+        var gridData = GetGridInfo(uid);
+        if (gridData == null)
             return;
 
-        var parentStation = Transform(uid).GridUid;
-
-        if (parentStation == null) //entered space, should tell music system to stop playing ship music
-        {
-            var spaceMsg = new SpaceEnteredMessage();
-            RaiseLocalEvent(uid, ref spaceMsg, true);
-            return;
-        }
-
-        // HULLROT EDIT: BoringStations and keeping track of what we've visited before is removed
-        // because we want people to see the message each time you enter, coupled with music and flavor text
-
-        var name = MetaData((EntityUid)parentStation).EntityName;
-
-        var description = ""; //fallback to "" in case we have none
-
-        if (TryComp<VesselInfoComponent>(parentStation, out var desc))
-            description = desc.Description;
-
-        var musicPrototype = "";
-
-        if (TryComp<VesselMusicComponent>(parentStation, out var music)) //if this succeeds, we have custom music! if it fails,
-            musicPrototype = music.AmbientMusicPrototype;                                   //the component is missing and we just keep ""
-
-        NewVesselEnteredMessage message = new NewVesselEnteredMessage(name, description, musicPrototype);
+        NewVesselEnteredMessage message = new NewVesselEnteredMessage(gridData.Value.Item1, gridData.Value.Item2, gridData.Value.Item3);
         RaiseLocalEvent(uid, ref message, true);
     }
 
@@ -158,5 +114,29 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
         SpaceBiomeSwapMessage msg = new SpaceBiomeSwapMessage(source?.Biome ?? "default");
         RaiseLocalEvent(uid, ref msg, true);
+    }
+
+    private (string, string, string)? GetGridInfo(EntityUid entity)
+    {
+        if (TerminatingOrDeleted(entity))
+            return null;
+
+        var parentStation = Transform(entity).GridUid;
+
+        if (parentStation == null)
+            return null;
+
+        var name = MetaData((EntityUid)parentStation).EntityName;
+
+        var description = ""; //fallback for description is nothin'
+        if (TryComp<VesselInfoComponent>(parentStation, out var vesselinfo))
+            description = vesselinfo.Description;
+
+        var musicPrototype = "";
+
+        if (TryComp<VesselMusicComponent>(parentStation, out var music)) //if this succeeds, we have custom music! if it fails,
+            musicPrototype = music.AmbientMusicPrototype;                                   //the component is missing and we just keep ""
+
+        return (name, description, musicPrototype);
     }
 }
