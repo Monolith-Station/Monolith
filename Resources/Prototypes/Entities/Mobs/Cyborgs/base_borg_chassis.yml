@@ -35,6 +35,10 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      80: 0.7
+      120: 0.5
   - type: Sprite
     sprite: Mobs/Silicon/chassis.rsi
   - type: RotationVisuals
@@ -239,7 +243,7 @@
   #  mask: /Textures/Effects/LightMasks/cone.png
   #  autoRot: true
   #  radius: 4
-  #  netsync: false 
+  #  netsync: false
   - type: Pullable
   - type: Puller
     needsHands: false
