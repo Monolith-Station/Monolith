@@ -20,18 +20,13 @@ public sealed class SpaceBiomeSystem : EntitySystem
     [Dependency] private readonly ParallaxSystem _parallaxSys = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private Dictionary<Vector2, HashSet<EntityUid>> _chunks = new();
     private float _updTimer;
-    private const int ChunkSize = 1000; //in meters
     private const float UpdateInterval = 5; //in seconds
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SpaceBiomeSourceComponent, ComponentInit>(OnSourceInit);
-        SubscribeLocalEvent<SpaceBiomeSourceComponent, ComponentShutdown>(OnSourceShutdown);
         SubscribeLocalEvent<SpaceBiomeTrackerComponent, EntParentChangedMessage>(OnParentChanged);
-        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
         SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerSpawn);
     }
 
@@ -74,21 +69,6 @@ public sealed class SpaceBiomeSystem : EntitySystem
         tracker.Source = newSource;
         tracker.Biome = newSource?.Biome ?? "default";
         SwapBiome(localPlayerUid, newSource);
-    }
-
-    private void OnRestart(RoundRestartCleanupEvent ev)
-    {
-        _chunks.Clear();
-    }
-
-    private void OnSourceInit(Entity<SpaceBiomeSourceComponent> uid, ref ComponentInit args)
-    {
-        AddBiome(uid, uid.Comp);
-    }
-
-    private void OnSourceShutdown(Entity<SpaceBiomeSourceComponent> uid, ref ComponentShutdown args)
-    {
-        RemoveBiome(uid, uid.Comp);
     }
 
     /// <summary>
@@ -167,33 +147,6 @@ public sealed class SpaceBiomeSystem : EntitySystem
         RaiseLocalEvent(uid, ref message, true);
     }
 
-    public void AddBiome(EntityUid uid, SpaceBiomeSourceComponent source)
-    {
-        foreach (Vector2 chunkPos in GetCoveredChunks(_formSys.GetWorldPosition(uid), source.SwapDistance))
-        {
-            if (!_chunks.ContainsKey(chunkPos))
-                _chunks[chunkPos] = new();
-            _chunks[chunkPos].Add(uid);
-        }
-    }
-
-    //works assuming that biome source position and range haven't changed
-    public void RemoveBiome(EntityUid uid, SpaceBiomeSourceComponent source)
-    {
-        foreach (Vector2 chunkPos in GetCoveredChunks(_formSys.GetWorldPosition(uid), source.SwapDistance))
-        {
-            if (_chunks.ContainsKey(chunkPos))
-            {
-                if (_chunks[chunkPos].Count == 1)
-                {
-                    _chunks.Remove(chunkPos);
-                    continue;
-                }
-                _chunks[chunkPos].Remove(uid);
-            }
-        }
-    }
-
     private void SwapBiome(EntityUid uid, SpaceBiomeSourceComponent? source)
     {
         EntityUid? mapUid = _formSys.GetMap(uid);
@@ -205,55 +158,5 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
         SpaceBiomeSwapMessage msg = new SpaceBiomeSwapMessage(source?.Biome ?? "default");
         RaiseLocalEvent(uid, ref msg, true);
-    }
-
-    private List<Vector2> GetCoveredChunks(Vector2 pos, int radius)
-    {
-        List<Vector2> result = new();
-        Vector2 posFloor = (pos / ChunkSize).Floored() * ChunkSize;
-
-        int chunks = (radius + ChunkSize - 1) / ChunkSize; //ceil of int division
-        for (int y = -chunks; y <= chunks; y++)
-        {
-            for (int x = -chunks; x <= chunks; x++)
-            {
-                Vector2 chunkPos = new Vector2(x * ChunkSize, y * ChunkSize) + posFloor;
-                if (RectCircleIntersect(
-                    new Box2(chunkPos, chunkPos + new Vector2(ChunkSize)),
-                    pos,
-                    radius))
-                {
-                    result.Add(chunkPos);
-                }
-            }
-        }
-
-        return result;
-    }
-
-    public void RegenerateChunks()
-    {
-        _chunks.Clear();
-        var query = EntityQueryEnumerator<SpaceBiomeSourceComponent>();
-
-        while (query.MoveNext(out var uid, out var source))
-        {
-            AddBiome(uid, source);
-        }
-    }
-    private static bool RectCircleIntersect(Box2 rect, Vector2 circPos, float circRadius)
-    {
-        Vector2 delta = circPos - rect.Center;
-
-        if (delta.X > rect.Width / 2 + circRadius || delta.Y > rect.Height / 2 + circRadius)
-            return false;
-
-        if (delta.X < rect.Width / 2 || delta.Y < rect.Height / 2)
-            return true;
-
-        delta.X -= rect.Width / 2;
-        delta.Y -= rect.Height / 2;
-
-        return delta.Length() < circRadius;
     }
 }
