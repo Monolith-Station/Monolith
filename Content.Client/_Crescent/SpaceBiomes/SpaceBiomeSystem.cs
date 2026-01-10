@@ -133,7 +133,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
             return;
 
         SpaceBiomePrototype biome = _protMan.Index<SpaceBiomePrototype>(source?.Id ?? "default");
-        _parallaxSys.SwapParallax(uid, EnsureComp<ParallaxComponent>(uid), biome.Parallax, biome.SwapDuration);
+        //note: this is where the parallax should swap. eventually. i couldnt figure out how to get it working
 
         SpaceBiomeSwapMessage msg = new SpaceBiomeSwapMessage(biome);
         RaiseLocalEvent(uid, ref msg, true);
