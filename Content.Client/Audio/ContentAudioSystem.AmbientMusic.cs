@@ -164,7 +164,7 @@ public sealed partial class ContentAudioSystem
     private void OnBiomeChange(ref SpaceBiomeSwapMessage ev)
     {
 
-        SpaceBiomePrototype biome = _protMan.Index<SpaceBiomePrototype>(ev.Biome); //get the biome prototype
+        SpaceBiomePrototype biome = _protMan.Index<SpaceBiomePrototype>(ev.Id); //get the biome prototype
         _lastBiome = biome; //save biome in case we are in combat mode
 
         if (_combatModeSystem.IsInCombatMode()) //we don't want to change music if we are in combat mode right now

@@ -26,7 +26,7 @@ public sealed class SpaceTextDisplaySystem : EntitySystem
     private void OnSwap(ref SpaceBiomeSwapMessage ev)
     {
         _audioSys.DisableAmbientMusic();
-        SpaceBiomePrototype biome = _protMan.Index<SpaceBiomePrototype>(ev.Biome);
+        SpaceBiomePrototype biome = _protMan.Index<SpaceBiomePrototype>(ev.Id);
         _overlay.Reset();
         _overlay.ResetDescription();
         _overlay.Text = biome.Name;

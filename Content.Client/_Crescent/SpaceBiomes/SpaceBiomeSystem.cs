@@ -21,7 +21,14 @@ public sealed class SpaceBiomeSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private float _updTimer;
-    private const float UpdateInterval = 5; //in seconds
+    private const float UpdateInterval = 5; //in seconds // THESE ARE NOT SECONDS LOL they're like 1/5 of a second
+
+    private bool _dropTitle = false;
+    private float _titleDropTimer = 0;
+    private const float TitleDropTime = 20; // in seconds
+
+    private EntityUid _playerUid; //used to keep playerUid for the initial title drop
+
 
     public override void Initialize()
     {
@@ -33,6 +40,25 @@ public sealed class SpaceBiomeSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        if (!_timing.IsFirstTimePredicted)
+            return;
+        Log.Info("update timer: " + _updTimer.ToString());
+        Log.Info("title drop timer: " + _titleDropTimer.ToString());
+        if (_dropTitle)
+        {
+            _titleDropTimer += frameTime;
+            if (_titleDropTimer > TitleDropTime)
+            {
+                _dropTitle = false;
+                var gridData = GetGridInfo(_playerUid);
+                if (gridData == null)
+                    return;
+                NewVesselEnteredMessage message = new NewVesselEnteredMessage(gridData.Value.Item1, gridData.Value.Item2, gridData.Value.Item3);
+                RaiseLocalEvent(_playerUid, ref message, true);
+            }
+        }
+
 
         _updTimer += frameTime;
         if (_updTimer < UpdateInterval)
@@ -72,22 +98,16 @@ public sealed class SpaceBiomeSystem : EntitySystem
     }
 
     /// <summary>
-    /// HULLROT: This specifically makes the station's designation show up 10 seconds after you spawn in. This is exclusively for music, and to show cool title at the top of ur screen.
+    /// This turns on the dropTitle thing in the update function above.
+    /// It's job is to make sure that, when you spawn in, the station you're on actually plays its music and shows its title as if you just entered
+    /// otherwise only biome music will play until you re-enter the grid.
     /// </summary>
     /// <param name="args"></param>
     private void OnPlayerSpawn(LocalPlayerAttachedEvent args)
     {
-        EntityUid uid = args.Entity;
-
-        var gridData = GetGridInfo(uid);
-        if (gridData == null)
-            return;
-
-        Timer.Spawn(TimeSpan.FromSeconds(10), () =>
-        {
-            NewVesselEnteredMessage message = new NewVesselEnteredMessage(gridData.Value.Item1, gridData.Value.Item2, gridData.Value.Item3);
-            RaiseLocalEvent(uid, ref message, true);
-        });
+        _playerUid = args.Entity;
+        _titleDropTimer = 0;
+        _dropTitle = true;
     }
 
     private void OnParentChanged(EntityUid uid, SpaceBiomeTrackerComponent component, EntParentChangedMessage args)
@@ -112,7 +132,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         SpaceBiomePrototype biome = _protMan.Index<SpaceBiomePrototype>(source?.Biome ?? "default");
         _parallaxSys.SwapParallax(uid, EnsureComp<ParallaxComponent>(uid), biome.Parallax, biome.SwapDuration);
 
-        SpaceBiomeSwapMessage msg = new SpaceBiomeSwapMessage(source?.Biome ?? "default");
+        SpaceBiomeSwapMessage msg = new SpaceBiomeSwapMessage(biome);
         RaiseLocalEvent(uid, ref msg, true);
     }
 
