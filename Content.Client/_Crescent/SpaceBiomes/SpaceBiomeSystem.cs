@@ -27,13 +27,8 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
     private Dictionary<Vector2, HashSet<EntityUid>> _chunks = new();
     private float _updTimer;
-
-    //if false, biomes will only be selected by chunks and not by their actual distance to the player
-    private const bool PreciseRange = true;
     private const int ChunkSize = 1000; //in meters
     private const float UpdateInterval = 5; //in seconds
-
-    private ISawmill _sawmill = default!; //used for logging | .2 2025
 
     public override void Initialize()
     {
@@ -43,7 +38,6 @@ public sealed class SpaceBiomeSystem : EntitySystem
         SubscribeLocalEvent<SpaceBiomeTrackerComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
         SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerSpawn);
-        _sawmill = IoCManager.Resolve<ILogManager>().GetSawmill("spacebiomes.server.notreally");
     }
 
     public override void Update(float frameTime)
@@ -69,8 +63,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
         while (query.MoveNext(out var sourceUid, out var comp))
         {
-            // Log.Info("running for source " + sourceUid.ToString());
-            if (PreciseRange && (_formSys.GetWorldPosition(sourceUid) - playerPos).Length() > comp.SwapDistance)
+            if ((_formSys.GetWorldPosition(sourceUid) - playerPos).Length() > comp.SwapDistance)
                 continue;
 
             if (newSource == null ||
@@ -136,11 +129,8 @@ public sealed class SpaceBiomeSystem : EntitySystem
         if (TryComp<VesselMusicComponent>(parentStation, out var music)) //if this succeeds, we have custom music! if it fails,
             musicPrototype = music.AmbientMusicPrototype;                                   //the component is missing and we just keep ""
 
-        // var name = setup.StationNameTemplate.Replace("{1}", "").Trim();
-
         Timer.Spawn(TimeSpan.FromSeconds(10), () =>
         {
-            Log.Info("title drop should happen now");
             NewVesselEnteredMessage message = new NewVesselEnteredMessage(name, description, musicPrototype);
             RaiseLocalEvent(uid, ref message, true);
         });
