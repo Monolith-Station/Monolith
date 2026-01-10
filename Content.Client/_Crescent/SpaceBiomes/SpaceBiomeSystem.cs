@@ -93,7 +93,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
             return;
 
         tracker.Source = newSource;
-        tracker.Biome = newSource?.Biome ?? "default";
+        tracker.Biome = newSource?.Id ?? "default";
         SwapBiome(localPlayerUid, newSource);
     }
 
@@ -129,7 +129,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         if (mapUid == null)
             return;
 
-        SpaceBiomePrototype biome = _protMan.Index<SpaceBiomePrototype>(source?.Biome ?? "default");
+        SpaceBiomePrototype biome = _protMan.Index<SpaceBiomePrototype>(source?.Id ?? "default");
         _parallaxSys.SwapParallax(uid, EnsureComp<ParallaxComponent>(uid), biome.Parallax, biome.SwapDuration);
 
         SpaceBiomeSwapMessage msg = new SpaceBiomeSwapMessage(biome);
