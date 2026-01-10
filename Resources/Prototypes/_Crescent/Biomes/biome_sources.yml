@@ -10,7 +10,6 @@
 - type: entity
   id: BaseBiomeSource
   name: base biome source
-  prefix: DO NOT MAP
   components:
   - type: GlobalPvs #needed so the client can see these past PVS range
 
