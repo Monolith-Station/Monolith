@@ -165,13 +165,6 @@
     lowPressureMultiplier: 1000
   - type: EyeProtection
     protectionTime: 15
-  - type: ThermalVision
-    pulseTime: 1.5
-    isEquipment: true
-    toggleAction: PulseThermalVision
-  - type: NightVision
-    flashDurationMultiplier: 2.75
-    isEquipment: true
 
 - type: entity
   parent: [NFClothingHeadHardsuitWithLightBaseNfsd, ShowMedicalIcons, ShowSecurityIcons]

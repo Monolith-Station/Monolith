@@ -126,6 +126,10 @@
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
         shader: unshaded
+      head-hydrakin:
+      - state: equipped-head-hydrakin
+      - state: equipped-head-unshaded-hydrakin
+        shader: unshaded
   - type: PointLight
     radius: 7 #6->7 Mono
   - type: PressureProtection

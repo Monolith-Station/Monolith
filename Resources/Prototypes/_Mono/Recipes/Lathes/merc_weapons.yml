@@ -164,9 +164,9 @@
     Plastic: 500
 
 - type: latheRecipe
-  id: WeaponShotgunHelopolis
+  id: WeaponShotgunHelepolis
   parent: BaseWeaponRecipeLong
-  result: WeaponShotgunHelopolis
+  result: WeaponShotgunHelepolis
   categories:
   - Shotguns
   - Ballistic
@@ -177,14 +177,26 @@
     Plastic: 600
 
 - type: latheRecipe
-  parent: BaseWeaponRecipeLong
   id: WeaponRifleAk
+  parent: BaseWeaponRecipeLong
   result: WeaponRifleAk
   categories:
+  - Weapons
   - Rifles
   - Ballistic
-  - Weapons
   materials:
     Steel: 2500
     Plasteel: 1000
     Plastic: 1000
+
+- type: latheRecipe
+  id: WeaponRadAx
+  parent: BaseWeaponRecipeLong
+  result: WeaponRadAx
+  categories:
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 600
+    Uranium: 600
+

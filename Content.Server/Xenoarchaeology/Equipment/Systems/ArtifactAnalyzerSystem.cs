@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.Construction; //Mono
 using Content.Server.Power.Components;
 using Content.Server.Research.Systems;
 using Content.Shared.UserInterface;
@@ -72,6 +73,10 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         SubscribeLocalEvent<AnalysisConsoleComponent, ResearchClientServerDeselectedMessage>((e, c, _) => UpdateUserInterface(e, c),
             after: new[] { typeof(ResearchSystem) });
         SubscribeLocalEvent<AnalysisConsoleComponent, BeforeActivatableUIOpenEvent>((e, c, _) => UpdateUserInterface(e, c));
+
+        //Mono: Upgradeable scan speed
+        SubscribeLocalEvent<ArtifactAnalyzerComponent, RefreshPartsEvent>(OnRefreshParts);
+        SubscribeLocalEvent<ArtifactAnalyzerComponent, UpgradeExamineEvent>(OnUpgradeExamine);
     }
 
     public override void Update(float frameTime)
@@ -553,5 +558,20 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             apc.Load = 1;
     }
     // End Frontier
+
+    //MONO: Upgradeable scan speed
+    private void OnRefreshParts(EntityUid uid, ArtifactAnalyzerComponent component, RefreshPartsEvent args)
+    {
+        var rating = args.PartRatings[component.MachinePartDuration];
+        component.AnalysisDuration = TimeSpan.FromSeconds(component.BaseAnalysisDuration.TotalSeconds * MathF.Pow(component.PartRatingDurationMultiplier, rating - 1));
+    }
+
+    private void OnUpgradeExamine(EntityUid uid, ArtifactAnalyzerComponent component, ref UpgradeExamineEvent args)
+    {
+        var displaypercent = (float)(component.AnalysisDuration.TotalSeconds / component.BaseAnalysisDuration.TotalSeconds);
+
+        args.AddPercentageUpgrade("artifact-analyzer-upgrade-duration", displaypercent);
+    }
+    //Mono end
 }
 

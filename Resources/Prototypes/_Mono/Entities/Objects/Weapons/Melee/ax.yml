@@ -1,0 +1,74 @@
+- type: entity
+  parent: BaseMeleeWeaponEnergy
+  id: WeaponRadAx
+  name: axium
+  description: A one handed ax with an ampable uranium blade, favored by IPC soldiers the galaxy round.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Melee/radax.rsi
+    layers:
+    - state: e_sword
+    - state: e_sword_blade
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: "#1eff00"
+    netsync: false
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Melee/radax.rsi
+    size: Large
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Melee/radax.rsi
+    slots:
+    - Back
+    - Belt
+    - SuitStorage
+  - type: EnergySword
+    colorOptions:
+      - "#1eff00" # Mono
+    blockHacking: true
+  - type: ComponentToggler
+    components:
+    - type: RadiationSource
+      enabled: true
+  - type: ItemToggleSize
+    activatedSize: Large
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 20
+        Radiation: 20
+        Heat: 5
+        Structural: 45
+  - type: MeleeWeapon
+    heavyStaminaCost: 3
+    wideAnimationRotation: 135
+    swingLeft: true
+    attackRate: .90
+    damage:
+      types:
+        Slash: 20
+        Radiation: 10
+        Structural: 40
+  - type: Sharp
+  - type: DisarmMalus
+    malus: 0.6
+  - type: Execution
+    doAfterDuration: 3.0

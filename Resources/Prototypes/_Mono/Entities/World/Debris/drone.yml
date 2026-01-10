@@ -1,12 +1,44 @@
 - type: entity
-  id: MonoRamDroneSpawner
+  id: MonoRamDroneSpawnerT1
   parent: MarkerBase
   components:
   - type: RandomSpawner
     prototypes:
-      - SpawnDroneWasp
-      - SpawnDroneBasicSmall
-      - SpawnDroneBasicMedium
+    - SpawnDroneBasicSmall
+    - SpawnDroneBasicMedium
+
+- type: entity
+  id: MonoRamDroneSpawnerT2Inner
+  parent: MarkerBase
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - SpawnDroneWasp
+    - SpawnDroneCrown
+    - SpawnDroneGust
+
+- type: entity
+  id: MonoRamDroneSpawnerT2Middle
+  parent: MarkerBase
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: DroneSpawnTableT2Middle
+
+- type: entityTable
+  id: DroneSpawnTableT2Middle
+  table: !type:GroupSelector
+    children:
+    # T2 small
+    - id: SpawnDroneWasp
+      weight: 20
+    - id: SpawnDroneCrown
+      weight: 20
+    - id: SpawnDroneGust
+      weight: 20
+    # T2 medium
+    - id: SpawnDroneMedusa
+      weight: 20
 
 - type: entity
   id: SpawnDroneBase
@@ -15,28 +47,25 @@
   components:
   - type: GridSpawner
     addComponents:
-      - type: IFF
-        flags: AlwaysShowColor
-        color: "#9a2020"
-      - type: Tag
-        tags:
-        - ShuttleAIIgnore
-      - type: GridCleanupGrid
-        cleanupAcceleration: 3
-        ignorePowered: true
-        ignoreIFF: true
-        ignorePrice: true
-      - type: RandomMetadata
-        nameSeparator: ""
-        nameSegments:
-        - DroneTitle
-        - " 0x"
-        - DroneHex
-        - DroneHex
-        - DroneHex
-        - DroneHex
-        - DroneHex
-        - DroneHex
+    - type: IFF
+      flags: AlwaysShowColor
+      color: "#9a2020"
+    - type: GridCleanupGrid
+      cleanupAcceleration: 3
+      ignorePowered: true
+      ignoreIFF: true
+      ignorePrice: true
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - DroneTitle
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
     nameGrid: false
 
 - type: entity
@@ -59,6 +88,27 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/wasp.yml
+
+- type: entity
+  id: SpawnDroneMedusa
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/medusa.yml
+
+- type: entity
+  id: SpawnDroneCrown
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/crown.yml
+
+- type: entity
+  id: SpawnDroneGust
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/gust.yml
 
 - type: entity
   id: SpawnDroneBasicSmall

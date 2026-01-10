@@ -49,6 +49,10 @@
     cost: 2
     delay: 0
     fx: EffectRCDConstruct0
+  # Mono
+  - type: ShipRepairable
+    repairTime: 0.5
+    repairCost: 1
 
 - type: entity
   parent: CableBase
@@ -75,13 +79,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 500
       behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 300
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -134,13 +138,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 500
       behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 250
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -189,13 +193,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 500
       behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 150
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:

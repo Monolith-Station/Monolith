@@ -1,0 +1,131 @@
+
+- type: entity
+  name: small monolithic crystal
+  parent: [BaseItem, BaseMonolithContrabandT1]
+  id: MonolithicCrystalSmall
+  suffix: 15 FMC/Data
+  description: A mysterious crystalline solid. Seems highly energetic, but fragile. Local factions and researchers are very interested in this.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/monolith_crystal.rsi
+    layers:
+    - state: crystal_small
+      shader: unshaded
+  - type: Item
+    sprite: Objects/Specific/Syndicate/telecrystal.rsi
+    size: Small
+  - type: StaticPrice
+    price: 10000
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:ExplodeBehavior
+  - type: Explosive
+    totalIntensity: 5
+    explosionType: Default
+    maxIntensity: 10
+    intensitySlope: 2
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 50
+
+- type: entity
+  name: medium monolithic crystal
+  parent: [BaseItem, BaseMonolithContrabandT2]
+  id: MonolithicCrystalMedium
+  suffix: 25 FMC/Data
+  description: A mysterious crystalline solid. Seems highly energetic, but fragile. Notably large. Local factions and researchers are very interested in this.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/monolith_crystal.rsi
+    layers:
+    - state: crystal_small
+      shader: unshaded
+    - state: crystal_medium
+      shader: unshaded
+  - type: Item
+    sprite: Objects/Specific/Syndicate/telecrystal.rsi
+    size: Normal
+  - type: StaticPrice
+    price: 20000
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:ExplodeBehavior
+  - type: Explosive
+    totalIntensity: 15
+    explosionType: Default
+    maxIntensity: 10
+    intensitySlope: 2
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 50
+
+- type: entity
+  name: large monolithic crystal
+  parent: [BaseItem, BaseMonolithContrabandT3]
+  id: MonolithicCrystalLarge
+  suffix: 50 FMC/Data
+  description: A mysterious crystalline solid. Seems highly energetic, but fragile. It is of rare size! Local factions and researchers are very interested in this.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/monolith_crystal.rsi
+    layers:
+    - state: crystal_small
+      shader: unshaded
+    - state: crystal_medium
+      shader: unshaded
+    - state: crystal_large
+      shader: unshaded
+  - type: Item
+    sprite: Objects/Specific/Syndicate/telecrystal.rsi
+    size: Huge
+  - type: StaticPrice
+    price: 40000
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:ExplodeBehavior
+  - type: Explosive
+    totalIntensity: 30
+    explosionType: Default
+    maxIntensity: 15
+    intensitySlope: 2
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 50
+
+

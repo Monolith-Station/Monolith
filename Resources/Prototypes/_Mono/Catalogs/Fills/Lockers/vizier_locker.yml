@@ -4,7 +4,7 @@
   name: grand vizier's locker
   components:
   - type: AccessReader
-    access: [["RogueCommander"]]
+    access: [["GrandVizier"]]
   - type: StorageFill
     contents:
     - id: WeaponVizierShamshir
@@ -14,5 +14,6 @@
     - id: ClothingNeckCloakVizier
     - id: ClothingNeckMantleVizier
     - id: ClothingHeadHatNfsdBeretCream
+    - id: ClothingShoesBootsMagPDVAdvanced
     - id: FlippoEngravedLighter
     - id: CigPackSyndicate

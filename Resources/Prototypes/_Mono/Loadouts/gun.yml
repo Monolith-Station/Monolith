@@ -140,7 +140,14 @@
     back:
     - WeaponRifleVulcanFCMC
 
-- type: loadout #Vulcan-C Ammo
+- type: loadout #Lee Enfield
+  id: MercenaryLeeEnfieldLoadout
+  price: 15000
+  storage:
+    back:
+    - WeaponRifleLeeEnfield
+
+- type: loadout #Vulcan-C / Lee Enfield Ammo
   id: Mercenary762x51mmAmmoLoadout
   price: 1000
   storage:
@@ -183,6 +190,13 @@
   storage:
    back:
     - WeaponShotgunEnforcerPMC
+
+- type: loadout #Helepolis Sidearm
+  id: MercenaryHelepolisLoadout
+  price: 3000
+  storage:
+    back:
+    - WeaponShotgunHelepolis
 
 - type: loadout #Buckshot Shells
   id: MercenaryBuckshotAmmoLoadout
@@ -469,6 +483,29 @@
   storage:
     back:
     - BoxMagazine45_ACPRubber
+    
+#region Station Rep
+
+- type: loadout #Lecter
+  id: StationRepWeaponEnergyShotgun
+  price: 0
+  storage:
+    back:
+    - WeaponEnergyShotgun
+
+- type: loadout #Lecter
+  id: StationRepWeaponRifleLecter
+  price: 0
+  storage:
+    back:
+    - WeaponRifleLecter
+
+- type: loadout #Lecter
+  id: StationRepWeaponRifleAk
+  price: 0
+  storage:
+    back:
+    - WeaponRifleAk
 
 #region Factions
 

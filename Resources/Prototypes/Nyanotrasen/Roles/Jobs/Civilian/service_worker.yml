@@ -1,0 +1,39 @@
+﻿- type: job
+  id: CCServiceWorker
+  name: job-name-service-worker
+  description: job-description-service-worker
+  playTimeTracker: JobCCServiceWorker
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 10800
+  startingGear: CCServiceWorkerGear
+  alwaysUseSpawner: true
+  icon: "JobIconValet" # Frontier: JobIconServiceWorker<JobIconValet
+  supervisors: job-supervisors-sr
+  weight: 60 # Frontier
+  displayWeight: 10 # Frontier
+  canBeAntag: false
+  access:
+  - Maintenance
+  - External # Frontier
+  - Service
+  - Frontier # Frontier
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:GiveItemOnHolidaySpecial # Frontier
+    holiday: FrontierBirthday # Frontier
+    prototype: FrontierBirthdayGift # Frontier
+
+# Frontier: valet loadout
+- type: startingGear
+  id: CCServiceWorkerGear
+  equipment:
+    head: ClothingHeadHatBellhop
+    gloves: ClothingHandsGlovesColorWhite
+    id: CCServiceWorkerPDA
+  storage:
+    back:
+    - EncryptionKeyService # Frontier
+    - ShipVoucherFrontierValet
+# End Frontier

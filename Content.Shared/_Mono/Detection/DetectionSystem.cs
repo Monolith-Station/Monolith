@@ -1,3 +1,5 @@
+using Content.Shared._Mono.CCVar;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map.Components;
 using System;
 
@@ -8,6 +10,19 @@ namespace Content.Shared._Mono.Detection;
 /// </summary>
 public sealed class DetectionSystem : EntitySystem
 {
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+
+    private float _thermalMul;
+    private float _visualMul;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        Subs.CVar(_cfg, MonoCVars.ThermalDetectionMultiplier, value => _thermalMul = value, true);
+        Subs.CVar(_cfg, MonoCVars.VisualDetectionMultiplier, value => _visualMul = value, true);
+    }
+
     public DetectionLevel IsGridDetected(Entity<MapGridComponent?> grid, EntityUid byUid)
     {
         if (!Resolve(grid, ref grid.Comp))
@@ -21,10 +36,10 @@ public sealed class DetectionSystem : EntitySystem
         var gridAABB = grid.Comp.LocalAABB;
         var gridDiagonal = MathF.Sqrt(gridAABB.Width * gridAABB.Width + gridAABB.Height * gridAABB.Height);
         var visualSig = gridDiagonal;
-        var visualRadius = visualSig * comp.VisualMultiplier;
+        var visualRadius = visualSig * comp.VisualMultiplier * _visualMul;
 
         var thermalSig = TryComp<ThermalSignatureComponent>(grid, out var sigComp) ? MathF.Max(sigComp.TotalHeat, 0f) : 0f;
-        var thermalRadius = MathF.Sqrt(thermalSig) * comp.InfraredMultiplier;
+        var thermalRadius = MathF.Sqrt(thermalSig) * comp.InfraredMultiplier * _thermalMul;
 
         if (TryComp<DetectedAtRangeMultiplierComponent>(grid, out var compAt))
         {
@@ -51,11 +66,26 @@ public sealed class DetectionSystem : EntitySystem
         // maybe make this also take IFF being on into account?
         return level;
     }
+
+    public DetectionLevel IsGridDetected(Entity<MapGridComponent?> grid, IEnumerable<EntityUid> byUids)
+    {
+        var bestLevel = DetectionLevel.Undetected;
+        foreach (var uid in byUids)
+        {
+            var level = IsGridDetected(grid, uid);
+            if (level == DetectionLevel.Detected)
+                return level;
+
+            if ((int)level < (int)bestLevel)
+                bestLevel = level;
+        }
+        return bestLevel;
+    }
 }
 
-public enum DetectionLevel
+public enum DetectionLevel : int
 {
-    Detected,
-    PartialDetected,
-    Undetected
+    Detected = 0,
+    PartialDetected = 1,
+    Undetected = 2
 }
