@@ -42,7 +42,7 @@ namespace Content.Server._NF.Bank.Commands
             {
                 // Get the server-side BankSystem for online players
                 var bankSystem = _entitySystemManager.GetEntitySystem<BankSystem>();
-                if (bankSystem.TryGetBalance(onlinePlayer, out var balance))
+                if (bankSystem.TryGetBalance(onlinePlayer, out var balance, true))
                 {
                     shell.WriteLine($"Player {username} has a bank balance of {balance} credits.");
                     return;

@@ -39,6 +39,7 @@
       - PirateNF
     - type: Ironman
       blockDeposit: true
+      blockBypassStack: FactionCredit
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddImplantSpecial

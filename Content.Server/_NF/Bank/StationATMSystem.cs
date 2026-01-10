@@ -98,7 +98,7 @@ public sealed partial class BankSystem
 
         _adminLogger.Add(LogType.ATMUsage, LogImpact.Low, $"{ToPrettyString(player):actor} withdrew {args.Amount} from {component.Account} station bank account. '{args.Reason}': {args.Description}");
         //spawn the cash stack of whatever cash type the ATM is configured to.
-        var stackPrototype = _prototypeManager.Index<StackPrototype>(component.CashType);
+        var stackPrototype = _prototypeManager.Index(component.PrimaryCashType);
         _stackSystem.Spawn(args.Amount, stackPrototype, uid.ToCoordinates());
 
         _uiSystem.SetUiState(uid, args.UiKey,
@@ -168,9 +168,9 @@ public sealed partial class BankSystem
         }
 
         // and then check them against the ATM's CashType
-        if (_prototypeManager.Index<StackPrototype>(component.CashType) != _prototypeManager.Index<StackPrototype>(stackComponent.StackTypeId))
+        if (!component.CashTypes.Contains(stackComponent.StackTypeId))
         {
-            _log.Info($"{stackComponent.StackTypeId} is not {component.CashType}");
+            _log.Info($"{stackComponent.StackTypeId} is not in valid types");
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-wrong-cash"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
@@ -288,7 +288,7 @@ public sealed partial class BankSystem
 
         // Invalid item inserted (data chits, FMC, telecrystals...): amount should be negative (to denote an error)
         if (!TryComp<StackComponent>(cashEntity, out var cashStack) ||
-            cashStack.StackTypeId != component.CashType)
+            !component.CashTypes.Contains(cashStack.StackTypeId))
         {
             amount = -1;
             return;
@@ -306,7 +306,7 @@ public sealed partial class BankSystem
         var cashEntity = component.CashSlot.ContainerSlot?.ContainedEntity;
 
         if (!TryComp<StackComponent>(cashEntity, out var cashStack) ||
-            cashStack.StackTypeId != component.CashType)
+            !component.CashTypes.Contains(cashStack.StackTypeId))
         {
             return;
         }

@@ -35,6 +35,7 @@
       - PirateNF
     - type: Ironman
       blockDeposit: true
+      blockBypassStack: FactionCredit
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages

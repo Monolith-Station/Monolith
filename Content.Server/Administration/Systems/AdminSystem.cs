@@ -240,7 +240,7 @@ public sealed class AdminSystem : EntitySystem
             identityName = Identity.Name(session.AttachedEntity.Value, EntityManager);
 
             // Frontier
-            if (!_bank.TryGetBalance(session.AttachedEntity.Value, out balance))
+            if (!_bank.TryGetBalance(session.AttachedEntity.Value, out balance, true))
                 balance = int.MinValue; // Reset value to "no balance" flag value.
             // Frontier
         }

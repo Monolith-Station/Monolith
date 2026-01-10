@@ -36,6 +36,7 @@
       - TSFMC
     - type: Ironman
       blockDeposit: true
+      blockBypassStack: FactionCredit
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial

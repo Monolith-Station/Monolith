@@ -1,4 +1,6 @@
+using Content.Shared.Stacks;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Mono.Traits.Physical;
 
@@ -13,4 +15,10 @@ public sealed partial class IronmanComponent : Component
 
     [DataField]
     public bool BlockDeposit = false;
+
+    /// <summary>
+    /// If not null, what stack type can bypass our deposit block.
+    /// </summary>
+    [DataField]
+    public ProtoId<StackPrototype>? BlockBypassStack = null;
 }

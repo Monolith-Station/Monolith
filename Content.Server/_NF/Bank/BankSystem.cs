@@ -5,6 +5,7 @@ using Content.Server.GameTicking;
 using Content.Shared._NF.Bank;
 using Content.Shared._NF.Bank.Components;
 using Content.Shared.Preferences;
+using Content.Shared.Stacks;
 using Robust.Shared.Player;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using Content.Shared._Mono.Traits.Physical;
 using Content.Shared._NF.Bank.Events;
 using Content.Shared.GameTicking;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._NF.Bank;
 
@@ -116,7 +118,7 @@ public sealed partial class BankSystem : SharedBankSystem
     /// <param name="amount">The amount of spesos to remove from the bank account</param>
     /// <param name="force">Mono - Whether to ignore conditions that may block withdrawal</param>
     /// <returns>true if the transaction was successful, false if it was not</returns>
-    public bool TryBankDeposit(EntityUid mobUid, int amount, bool force = false)
+    public bool TryBankDeposit(EntityUid mobUid, int amount, bool force = false, ProtoId<StackPrototype>? stackProto = null)
     {
         if (amount <= 0)
         {
@@ -131,7 +133,11 @@ public sealed partial class BankSystem : SharedBankSystem
         }
 
         // Mono
-        if (!force && TryComp<IronmanComponent>(mobUid, out var ironman) && ironman.BlockDeposit)
+        var ironmanBypass = false;
+        if (!force
+            && TryComp<IronmanComponent>(mobUid, out var ironman)
+            && ironman.BlockDeposit
+            && !(ironmanBypass = !(ironman.BlockBypassStack == null || ironman.BlockBypassStack == stackProto)))
         {
             _log.Info($"TryBankWithdraw: {mobUid} is blocked from deposits (Ironman)");
             return false;
@@ -374,14 +380,15 @@ public sealed partial class BankSystem : SharedBankSystem
     /// </summary>
     /// <param name="session">The session of the player character to query.</param>
     /// <param name="balance">When successful, contains the account balance in spesos. Otherwise, set to 0.</param>
+    /// <param name="force">Mono - Whether to ignore conditions that may block withdrawal. If false, any such will return 0.</param>
     /// <returns>true if the account was successfully queried.</returns>
-    public bool TryGetBalance(ICommonSession session, out int balance)
+    public bool TryGetBalance(ICommonSession session, out int balance, bool force = false)
     {
         // Mono
-        if (session.AttachedEntity is { } attached && HasComp<IronmanComponent>(attached))
+        if (!force && session.AttachedEntity is { } ent && TryComp<IronmanComponent>(ent, out var ironman) && ironman.BlockWithdraw)
         {
             balance = 0;
-            return true;
+            return false;
         }
         if (!_prefsManager.TryGetCachedPreferences(session.UserId, out var prefs))
         {

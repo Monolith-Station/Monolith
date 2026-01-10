@@ -140,7 +140,7 @@ public sealed class BankCommand : IConsoleCommand
                 if (success)
                 {
                     // Get updated balance after deposit
-                    success = bankSystem.TryGetBalance(targetSession, out int updatedBalance);
+                    success = bankSystem.TryGetBalance(targetSession, out int updatedBalance, true);
                     if (success)
                         newBalance = updatedBalance;
                 }
@@ -151,7 +151,7 @@ public sealed class BankCommand : IConsoleCommand
                 if (success)
                 {
                     // Get updated balance after withdrawal
-                    success = bankSystem.TryGetBalance(targetSession, out int updatedBalance);
+                    success = bankSystem.TryGetBalance(targetSession, out int updatedBalance, true);
                     if (success)
                         newBalance = updatedBalance;
                 }

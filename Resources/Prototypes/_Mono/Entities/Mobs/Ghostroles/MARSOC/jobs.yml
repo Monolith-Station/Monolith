@@ -23,6 +23,7 @@
       - TSFMC
     - type: Ironman
       blockDeposit: true
+      blockBypassStack: FactionCredit
   - !type:AddLanguageSpecial
     languagesSpoken:
     - SolCommon
@@ -57,6 +58,7 @@
       - TSFMC
     - type: Ironman
       blockDeposit: true
+      blockBypassStack: FactionCredit
   - !type:AddLanguageSpecial
     languagesSpoken:
     - SolCommon

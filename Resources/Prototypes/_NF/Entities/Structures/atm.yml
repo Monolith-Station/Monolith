@@ -280,6 +280,7 @@
   components:
   - type: StationBankATM
     account: Nfsd
+    primaryCashType: FactionCredit
   - type: CompanyAccessReader
     requiredCompany: TSF
 
@@ -318,5 +319,6 @@
   - type: LitOnPowered
   - type: StationBankATM
     account: BlackMarket
+    primaryCashType: FactionCredit
   - type: AccessReader
     access: [["Pirate"]]

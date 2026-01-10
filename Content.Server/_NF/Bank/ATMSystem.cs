@@ -85,7 +85,7 @@ public sealed partial class BankSystem
         _adminLogger.Add(LogType.ATMUsage, LogImpact.Low, $"{ToPrettyString(player):actor} withdrew {args.Amount} from {ToPrettyString(component.Owner)}");
 
         //spawn the cash stack of whatever cash type the ATM is configured to.
-        var stackPrototype = _prototypeManager.Index<StackPrototype>(component.CashType);
+        var stackPrototype = _prototypeManager.Index<StackPrototype>(component.PrimaryCashType);
         _stackSystem.Spawn(args.Amount, stackPrototype, uid.ToCoordinates());
 
         _uiSystem.SetUiState(uid, args.UiKey,
@@ -136,9 +136,9 @@ public sealed partial class BankSystem
         }
 
         // and then check them against the ATM's CashType
-        if (_prototypeManager.Index<StackPrototype>(component.CashType) != _prototypeManager.Index<StackPrototype>(stackComponent.StackTypeId))
+        if (!component.CashTypes.Contains(stackComponent.StackTypeId))
         {
-            _log.Info($"{stackComponent.StackTypeId} is not {component.CashType}");
+            _log.Info($"{stackComponent.StackTypeId} is not in allowed types");
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-wrong-cash"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
@@ -158,7 +158,7 @@ public sealed partial class BankSystem
         deposit = int.Max(0, deposit);
 
         // try to deposit the inserted cash into a player's bank acount. Validation happens on the banking system but we still indicate error.
-        if (!TryBankDeposit(player, deposit))
+        if (!TryBankDeposit(player, deposit, stackProto: stackComponent.StackTypeId))
         {
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-transaction-denied"));
             PlayDenySound(uid, component);
@@ -191,14 +191,15 @@ public sealed partial class BankSystem
             if (user is not { Valid: true } player)
                 continue;
 
-            if (!TryComp<BankAccountComponent>(player, out var bank))
+            // get our real balance even if ironman
+            if (!TryGetBalance(player, out var balance, true))
                 continue;
 
             BankATMMenuInterfaceState newState;
             if (component.CashSlot.ContainerSlot?.ContainedEntity is not { Valid : true } cash)
-                newState = new BankATMMenuInterfaceState(bank.Balance, true, 0);
+                newState = new BankATMMenuInterfaceState(balance, true, 0);
             else
-                newState = new BankATMMenuInterfaceState(bank.Balance, true, deposit);
+                newState = new BankATMMenuInterfaceState(balance, true, deposit);
 
             _uiSystem.SetUiState(uid, uiComp.Key, newState);
         }
@@ -235,7 +236,7 @@ public sealed partial class BankSystem
 
         // Invalid item inserted (doubloons, FMC, telecrystals...): amount should be negative (to denote an error)
         if (!TryComp<StackComponent>(cashEntity, out var cashStack) ||
-            cashStack.StackTypeId != component.CashType)
+            !component.CashTypes.Contains(cashStack.StackTypeId))
         {
             amount = -1;
             return;

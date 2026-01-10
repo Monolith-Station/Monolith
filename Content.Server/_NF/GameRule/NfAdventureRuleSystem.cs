@@ -110,7 +110,7 @@ public sealed class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRuleCompon
         {
             var endBalance = playerInfo.EndBalance;
 
-            if (_bank.TryGetBalance(player, out var bankBalance))
+            if (_bank.TryGetBalance(player, out var bankBalance, true))
             {
                 endBalance = bankBalance;
             }
@@ -231,7 +231,7 @@ public sealed class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRuleCompon
 
         // get the players balance
         if (value.UserId == ev.Player.UserId &&
-            _bank.TryGetBalance(ev.Player, out var bankBalance))
+            _bank.TryGetBalance(ev.Player, out var bankBalance, true))
         {
             value.EndBalance = bankBalance;
         }
@@ -252,7 +252,7 @@ public sealed class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRuleCompon
 
         // get the players balance
         if (value.UserId == e.Session.UserId &&
-            _bank.TryGetBalance(e.Session, out var bankBalance))
+            _bank.TryGetBalance(e.Session, out var bankBalance, true))
         {
             value.EndBalance = bankBalance;
         }
@@ -279,7 +279,7 @@ public sealed class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRuleCompon
         var endBalance = playerInfo.EndBalance;
 
         // Try to get current balance if end balance wasn't set
-        if (_bank.TryGetBalance(playerEntry.Key, out var bankBalance))
+        if (_bank.TryGetBalance(playerEntry.Key, out var bankBalance, true))
         {
             endBalance = bankBalance;
         }
