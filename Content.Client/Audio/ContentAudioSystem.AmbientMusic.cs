@@ -51,7 +51,7 @@ public sealed partial class ContentAudioSystem
     [Dependency] private readonly CombatModeSystem _combatModeSystem = default!; //CLIENT ONE. WHY ARE THERE 3???
     [Dependency] private readonly IPrototypeManager _protMan = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IClientPreferencesManager _prefsManager = default!;
+    [Dependency] private readonly SpaceBiomeSystem _spaceBiome = default!;
 
     //options menu ---
     private static float _volumeSliderAmbient;
@@ -288,11 +288,9 @@ public sealed partial class ContentAudioSystem
         {
             if (_player.LocalSession != null) //THIS LITERALLY CANNOT BE NULL!! BUT IT COMPLAINS IF I DONT PUT THIS HERE!!!
             {
-                _entMan.TryGetComponent<SpaceBiomeTrackerComponent>(_player.LocalSession.AttachedEntity, out var comp);
-                if (comp != null)
+                if (_spaceBiome.currentSource != null)
                 {
-                    if (comp.Biome != null)
-                        _lastBiome = _proto.Index<SpaceBiomePrototype>(comp.Biome);
+                    _lastBiome = _proto.Index<SpaceBiomePrototype>(_spaceBiome.currentSource.Id);
                 }
             }
         }
@@ -393,11 +391,9 @@ public sealed partial class ContentAudioSystem
             {
                 if (_player.LocalSession != null) //THIS LITERALLY CANNOT BE NULL!! BUT IT COMPLAINS IF I DONT PUT THIS HERE!!!
                 {
-                    _entMan.TryGetComponent<SpaceBiomeTrackerComponent>(_player.LocalSession.AttachedEntity, out var comp);
-                    if (comp != null)
+                    if (_spaceBiome.currentSource != null)
                     {
-                        if (comp.Biome != null)
-                            _lastBiome = _proto.Index<SpaceBiomePrototype>(comp.Biome);
+                        _lastBiome = _proto.Index<SpaceBiomePrototype>(_spaceBiome.currentSource.Id);
                     }
                 }
             }
@@ -525,11 +521,9 @@ public sealed partial class ContentAudioSystem
         {
             if (_player.LocalSession != null) //THIS LITERALLY CANNOT BE NULL!! BUT IT COMPLAINS IF I DONT PUT THIS HERE!!!
             {
-                _entMan.TryGetComponent<SpaceBiomeTrackerComponent>(_player.LocalSession.AttachedEntity, out var comp);
-                if (comp != null)
+                if (_spaceBiome.currentSource != null)
                 {
-                    if (comp.Biome != null)
-                        _lastBiome = _proto.Index<SpaceBiomePrototype>(comp.Biome);
+                    _lastBiome = _proto.Index<SpaceBiomePrototype>(_spaceBiome.currentSource.Id);
                 }
             }
         }

@@ -8,41 +8,48 @@
 # THESE MUST HAVE GLOBAL PVS OR THE CLIENT WON'T SEE THEM!!!!!!!!!!!!
 
 - type: entity
+  id: BaseBiomeSource
+  name: base biome source
+  prefix: DO NOT MAP
+  components:
+  - type: GlobalPvs #needed so the client can see these past PVS range
+
+- type: entity
   id: FallbackBiomeSource
+  parent: BaseBiomeSource
   name: fallback (uncharted space) biome source
   components:
   - type: SpaceBiomeSource
-    biome: default
+    id: default
     swapDistance: 25000
     priority: 500
-  - type: GlobalPvs
 
 - type: entity
   id: OuterRingBiomeSource
+  parent: BaseBiomeSource
   name: outer ring biome source
   components:
   - type: SpaceBiomeSource
-    biome: outer_ring
+    id: outer_ring
     swapDistance: 18000
     priority: 1000
-  - type: GlobalPvs
 
 - type: entity
   id: MiddleRingBiomeSource
+  parent: BaseBiomeSource
   name: middle ring biome source
   components:
   - type: SpaceBiomeSource
-    biome: middle_ring
+    id: middle_ring
     swapDistance: 9500
     priority: 1500
-  - type: GlobalPvs
 
 - type: entity
   id: InnerRingBiomeSource
+  parent: BaseBiomeSource
   name: inner ring biome source
   components:
   - type: SpaceBiomeSource
-    biome: inner_ring
+    id: inner_ring
     swapDistance: 5000
     priority: 2000
-  - type: GlobalPvs

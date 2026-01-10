@@ -9,6 +9,7 @@ using Content.Shared._Crescent.Vessel;
 using Robust.Client.Player;
 using Robust.Client.GameObjects;
 using Content.Client.Parallax;
+using Content.Shared.Roles;
 
 namespace Content.Client._Crescent.SpaceBiomes;
 
@@ -21,7 +22,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private float _updTimer;
-    private const float UpdateInterval = 5; //in seconds // THESE ARE NOT SECONDS LOL they're like 1/5 of a second
+    private const float UpdateInterval = 5; //in seconds //
 
     private bool _dropTitle = false;
     private float _titleDropTimer = 0;
@@ -29,11 +30,13 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
     private EntityUid _playerUid; //used to keep playerUid for the initial title drop
 
+    public SpaceBiomeSourceComponent? currentSource;
+
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SpaceBiomeTrackerComponent, EntParentChangedMessage>(OnParentChanged);
+        SubscribeLocalEvent<EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerSpawn);
     }
 
@@ -41,8 +44,9 @@ public sealed class SpaceBiomeSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (!_timing.IsFirstTimePredicted)
+        if (!_timing.IsFirstTimePredicted) //otherwise this will tick like 5x faster on client. thanks prediction
             return;
+
         Log.Info("update timer: " + _updTimer.ToString());
         Log.Info("title drop timer: " + _titleDropTimer.ToString());
         if (_dropTitle)
@@ -71,7 +75,6 @@ public sealed class SpaceBiomeSystem : EntitySystem
         var localPlayerUid = _playerMan.LocalEntity.Value;
 
         var playerPos = _formSys.GetWorldPosition(Transform(localPlayerUid));
-        var tracker = EnsureComp<SpaceBiomeTrackerComponent>(localPlayerUid);
 
         SpaceBiomeSourceComponent? newSource = null;
 
@@ -84,16 +87,15 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
             if (newSource == null ||
                     comp.Priority > newSource.Priority ||
-                    comp.Priority == newSource.Priority && comp == tracker.Source)
+                    comp.Priority == newSource.Priority && comp == currentSource)
             {
                 newSource = comp;
             }
         }
-        if (newSource == tracker.Source)
+        if (newSource == currentSource)
             return;
 
-        tracker.Source = newSource;
-        tracker.Biome = newSource?.Id ?? "default";
+        currentSource = newSource;
         SwapBiome(localPlayerUid, newSource);
     }
 
@@ -110,17 +112,17 @@ public sealed class SpaceBiomeSystem : EntitySystem
         _dropTitle = true;
     }
 
-    private void OnParentChanged(EntityUid uid, SpaceBiomeTrackerComponent component, EntParentChangedMessage args)
+    private void OnParentChanged(ref EntParentChangedMessage args)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        var gridData = GetGridInfo(uid);
+        var gridData = GetGridInfo(args.Entity);
         if (gridData == null)
             return;
 
         NewVesselEnteredMessage message = new NewVesselEnteredMessage(gridData.Value.Item1, gridData.Value.Item2, gridData.Value.Item3);
-        RaiseLocalEvent(uid, ref message, true);
+        RaiseLocalEvent(args.Entity, ref message, true);
     }
 
     private void SwapBiome(EntityUid uid, SpaceBiomeSourceComponent? source)
