@@ -140,6 +140,34 @@
     back:
     - WeaponRifleLeeEnfield
 
+- type: loadout #Jetfire 950
+  id: MercenaryJetfire950Loadout
+  price: 1250
+  storage:
+    back:
+    - WeaponPistolMIJetfire950
+
+- type: loadout #MI Johnson Rifle
+  id: MercenaryJohnsonRifleOldLoadout
+  price: 10000
+  storage:
+    back:
+    - WeaponRifleMIJohnsonOld
+
+- type: loadout #MI M2 Carbine Old
+  id: MercenaryM2CarbineOldLoadout
+  price: 7500
+  storage:
+    back:
+    - WeaponRifleMIM2CarbineOld
+
+- type: loadout #MI M2 Carbine Old MM
+  id: MercenaryM2CarbineMMLoadout
+  price: 12000
+  storage:
+    back:
+    - WeaponRifleMIM2CarbineMM
+
 - type: loadout #Vulcan-C / Lee Enfield Ammo
   id: Mercenary762x51mmAmmoLoadout
   price: 1000

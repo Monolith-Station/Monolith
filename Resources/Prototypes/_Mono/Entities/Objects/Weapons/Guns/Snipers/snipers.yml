@@ -73,6 +73,7 @@
   - type: PirateBountyItem # Mono
     id: StandardFactionLongarm
 
+# Militia Ironworks
 - type: entity
   id: WeaponRifleLeeEnfield
   name: MI Lee Enfield Mk 98 (7.62x51mm)
@@ -150,3 +151,106 @@
   - type: StaticPrice
     price: 800
     vendPrice: 12500
+
+- type: entity
+  name: MI M1941 Johnson Rifle (7.62x54mmR)
+  parent: [BaseWeaponSniper, BaseGunWieldable]
+  id: WeaponRifleMIJohnsonOld
+  description: A full-size semi-automatic 7.62x54mm rifle returned to production and rechambered from its original .30-06 by Militia Ironworks. Features a 10-round integral rotary magazine with short-recoil operation. Loadable by stripper clip or by hand. Its rotating bolt design would later inspire the bolts of the widely adopted AR-10 and AR-15 platforms.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/mi_johnson_rifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item # Mono
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/mi_johnson_rifle_32x.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/mi_johnson_rifle_32x.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: GunWieldBonus
+    minAngle: -10
+    maxAngle: -25
+  - type: Gun
+    minAngle: 15
+    maxAngle: 42
+    angleIncrease: 6
+    angleDecay: 12
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - Cartridge762x54mmRFMJ
+    capacity: 10
+    proto: Cartridge762x54mmRFMJ
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 0.3
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: StaticPrice
+    price: 1250
+    vendPrice: 10000
+
+- type: entity
+  name: MI M1941 Johnson Rifle MM (7.62x54mmR)
+  parent: [BaseWeaponSniper, BaseGunWieldable]
+  id: WeaponMIRifleJohnsonMM
+  description: A modernized production of the classic M1941, featuring improved materials and tolerances for reduced recoil, increased accuracy, and faster reloads. Retains the original 10-round rotary magazine and recoil-operated rotating bolt design.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/mi_johnson_rifle_mm.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item # Mono
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/mi_johnson_rifle_mm_32x.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/mi_johnson_rifle_mm_32x.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: GunWieldBonus
+    minAngle: -6
+    maxAngle: -12
+  - type: Gun
+    minAngle: 15
+    maxAngle: 30
+    angleIncrease: 6
+    angleDecay: 12
+    fireRate: 2.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - Cartridge762x54mmRFMJ
+    capacity: 10
+    proto: Cartridge762x54mmRFMJ
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 0.3
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: StaticPrice
+    price: 1250

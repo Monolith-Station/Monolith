@@ -61,3 +61,77 @@
     rsi:
       sprite: _RMC14/Interface/MousePointer/smartgun_mouse.rsi
       state: all
+
+# Militia Ironworks
+- type: entity
+  name: MI Jetfire 950 (4.6x30mm)
+  parent: BaseWeaponShotgun # Uses shotgun because reload not using catridges rather than putting it one by one
+  id: WeaponPistolMIJetfire950
+  description: A revived ultra-compact pocket pistol design from a renowned Terran Italian manufacturer, returned to production by Militia Ironworks. Intended as a last-ditch defensive weapon, easily concealed in a vest, boot, or belt, or issued to covert operatives. Holds 10 rounds of 4.6mm, with a modified feed allowing single-round loading through the ejection port to reduce reliance on spare magazines.
+  components:
+  - type: Sprite
+    scale: 0.75 , 0.75
+    sprite: _Mono/Objects/Weapons/Guns/Pistols/mi_jetfire_950.rsi
+  - type: Item
+    size: Small
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/mk_fire.ogg
+  - type: StaticPrice
+    price: 350
+    vendPrice: 5000
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - Cartridge46x30mmFMJ
+    capacity: 10
+    proto: Cartridge46x30mmFMJ
+
+- type: entity
+  name: MI Jetfire 950 MM (9x19mm)
+  parent: BaseWeaponPistol
+  id: WeaponPistolMIJetfire950MM
+  description: A compact pocket pistol upgraded with bluespace compression technology, allowing it to accept full-size 9mm magazines despite its small frame. Retains its role as a discreet last-ditch or covert sidearm, now with greatly improved ammunition capacity and availability.
+  components:
+  - type: Sprite
+    scale: 0.75 , 0.75
+    sprite: _Mono/Objects/Weapons/Guns/Pistols/mi_jetfire_950_mm.rsi
+  - type: Item
+    size: Small
+  - type: Gun
+    fireRate: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/mk_fire.ogg
+  - type: StaticPrice
+    price: 750
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine9x19mmPistolFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - Magazine9x19mmPistolFMJ
+            - Magazine9x19mmPistolHighCapacityFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge9x19mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge9x19mmFMJ
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot

@@ -474,3 +474,207 @@
     price: 750
   - type: PirateBountyItem
     id: StandardFactionLongarm
+
+#Military Ironwork
+- type: entity
+  name: MI M2 Carbine (.45 ACP)
+  parent: BaseWeaponRifle
+  id: WeaponRifleMIM2CarbineOld
+  description: An early Terran select-fire carbine rechambered in .45 ACP. Compact and controllable at close range, it predates later intermediate-cartridge variants and reflects early attempts to arm support personnel with more than a pistol.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/m2_carbine_old.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/m2_carbine_old_32x.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/m2_carbine_old_32x.rsi
+  - type: GunWieldBonus
+    minAngle: -8
+    maxAngle: -15
+  - type: Gun
+    minAngle: 21
+    maxAngle: 60
+    angleIncrease: 8
+    angleDecay: 12
+    fireRate: 7
+    selectedMode: SemiAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg # Mono
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine45_ACPSubMachineGunFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - Magazine45_ACPSubMachineGunFMJ
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge45_ACPFMJ
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge45_ACPFMJ
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 1200
+    vendPrice: 7500
+
+- type: entity
+  name: MI M2 Carbine MM (7.62x39mm)
+  parent: BaseWeaponRifle
+  id: WeaponRifleMIM2CarbineMM
+  description: A dependable select-fire intermediate-cartridge carbine from an early Terran conflict, rechambered in 7.62x39mm by Militia Ironworks. Lightweight, compact, and reliable. Commonly issued to ship crews, medics, and support personnel requiring more capability than a sidearm.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/m2_carbine_mm.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/m2_carbine_mm_32x.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/m2_carbine_mm_32x.rsi
+  - type: GunWieldBonus
+    minAngle: -15
+    maxAngle: -27
+  - type: Gun
+    minAngle: 21
+    maxAngle: 52
+    angleIncrease: 4
+    angleDecay: 24
+    fireRate: 5
+    selectedMode: SemiAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg # Mono
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine762x39mmFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine762x39mmFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge762x39mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge762x39mmFMJ
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 1200
+    vendPrice: 12000
+
+- type: entity
+  name: MI PPT-27 (4.6x30mm)
+  parent: BaseWeaponRifle
+  id: WeaponRifleMIPPT27
+  description: An ancient terran carbine submachine gun adapted to fire 4.6mm ammunition. Designed for close-quarters defense and shipboard use by the predecessors to the USSP, it offers high-fire-rate automatic fire in a lightweight package, firing at 1200 RPM.  Takes 4.6mm pistol magazines.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/ppt_27.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item # Mono
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/ppt_27_32x.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/ppt_27_32x.rsi
+  - type: GunWieldBonus
+    minAngle: -8
+    maxAngle: -12
+  - type: Gun
+    minAngle: 12
+    maxAngle: 60
+    angleIncrease: 6
+    angleDecay: 12
+    fireRate: 12
+    selectedMode: FullAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg # Mono
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine46x30mmPistolFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine46x30mmPistolFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge46x30mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge46x30mmFMJ
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 1650
+    vendPrice: 7500

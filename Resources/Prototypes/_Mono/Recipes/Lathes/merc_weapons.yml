@@ -176,3 +176,130 @@
     Plasteel: 600
     Uranium: 600
 
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleMIM2CarbineMM
+  result: WeaponRifleMIM2CarbineMM
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 800
+    Plastic: 200
+    Wood: 800
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleMIPPT27
+  result: WeaponRifleMIPPT27
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 800
+    Plastic: 200
+    Wood: 1000
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleMIJohnsonOld
+  result: WeaponRifleMIJohnsonOld
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 800
+    Plastic: 200
+    Wood: 1000
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponMIRifleJohnsonMM
+  result: WeaponMIRifleJohnsonMM
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 800
+    Plastic: 200
+    Wood: 1000
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLMGMIBrenMK3
+  result: WeaponLMGMIBrenMK3
+  categories:
+  - Rifles
+  - MGs
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 2500
+    Plasteel: 1500
+    Plastic: 500
+    Wood: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLMGMIBrenL4A5
+  result: WeaponLMGMIBrenL4A5
+  categories:
+  - Rifles
+  - MGs
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3200
+    Plasteel: 3000
+    Plastic: 1200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLMGMIM1941Old
+  result: WeaponLMGMIM1941Old
+  categories:
+  - Rifles
+  - MGs
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 2500
+    Plasteel: 1500
+    Plastic: 500
+    Wood: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLMGMIM1941MM
+  result: WeaponLMGMIM1941MM
+  categories:
+  - Rifles
+  - MGs
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 2500
+    Plasteel: 1500
+    Plastic: 500
+    Wood: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponPistolMIJetfire950MM
+  result: WeaponPistolMIJetfire950MM
+  categories:
+  - Sidearms
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 800
+    Plasteel: 200
+    Plastic: 500
