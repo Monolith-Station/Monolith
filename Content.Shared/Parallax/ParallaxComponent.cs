@@ -12,16 +12,6 @@ public sealed partial class ParallaxComponent : Component
     // I wish I could use a typeserializer here but parallax is extremely client-dependent.
     [DataField, AutoNetworkedField]
     public string Parallax = "Default";
-    // hullrot edit
-    //for smooth change between old and new parallax
-    [DataField, AutoNetworkedField]
-    public string? SwappedParallax;
-
-    [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public float SwapDuration; //in seconds
-
-    [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public float SwapTimer;
 
     [UsedImplicitly, ViewVariables(VVAccess.ReadWrite)]
     // ReSharper disable once InconsistentNaming

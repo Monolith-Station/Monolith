@@ -70,14 +70,6 @@ public sealed class ParallaxSystem : SharedParallaxSystem
     {
         return TryComp<ParallaxComponent>(mapUid, out var parallax) ? parallax.Parallax : Fallback;
     }
-    public void SwapParallax(EntityUid uid, ParallaxComponent parallax, string newParallax, float duration)
-    {
-        parallax.SwappedParallax = parallax.Parallax;
-        parallax.Parallax = newParallax;
-        parallax.SwapTimer = 0;
-        parallax.SwapDuration = duration;
-        Dirty(uid, parallax);
-    }
 
     /// <summary>
     /// Draws a texture as parallax in the specified world handle.
