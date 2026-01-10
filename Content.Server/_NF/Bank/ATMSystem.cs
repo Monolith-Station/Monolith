@@ -214,7 +214,7 @@ public sealed partial class BankSystem
 
         GetInsertedCashAmount(component, out var deposit);
 
-        if (!TryComp<BankAccountComponent>(player, out var bank))
+        if (!TryGetBalance(player, out var balance))
         {
             _log.Info($"{player} has no bank account");
             _uiSystem.SetUiState(uid, args.UiKey,
@@ -223,7 +223,7 @@ public sealed partial class BankSystem
         }
 
         _uiSystem.SetUiState(uid, args.UiKey,
-            new BankATMMenuInterfaceState(bank.Balance, true, deposit));
+            new BankATMMenuInterfaceState(balance, true, deposit));
     }
 
     private void GetInsertedCashAmount(BankATMComponent component, out int amount)

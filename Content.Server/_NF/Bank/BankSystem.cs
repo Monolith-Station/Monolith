@@ -164,7 +164,8 @@ public sealed partial class BankSystem : SharedBankSystem
 
         if (TryBankDeposit(session, prefs, profile, amount, out var newBalance))
         {
-            bank.Balance = newBalance.Value;
+            if (!ironmanBypass)
+                bank.Balance = newBalance.Value;
             Dirty(mobUid, bank);
             _log.Info($"{mobUid} deposited {amount}");
             return true;
