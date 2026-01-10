@@ -10,7 +10,7 @@
 # Basic Cargo Depot selling point for economy and great wealth
 - type: pointOfInterest
   id: CargoDepot
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: Cargo Depot
   minimumDistance: 8000
   maximumDistance: 10000
@@ -34,7 +34,7 @@
 
 - type: pointOfInterest
   id: CargoDepotAlt
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: Cargo Depot
   minimumDistance: 8000
   maximumDistance: 10000
