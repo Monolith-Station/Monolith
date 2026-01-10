@@ -3,31 +3,13 @@ using Robust.Shared.Serialization;
 namespace Content.Client._Crescent.SpaceBiomes;
 
 [ByRefEvent]
-public readonly record struct SpaceBiomeSwapMessage
-{
-    public readonly string Biome = "";
-    public SpaceBiomeSwapMessage(string biome)
-    {
-        Biome = biome;
-    }
-}
+public readonly record struct SpaceBiomeSwapMessage(string Biome = "") { }
 
 [ByRefEvent]
-public readonly record struct NewVesselEnteredMessage
-{
-    public readonly string Name = "";
-    public readonly string Description = "";
-    public readonly string AmbientMusicPrototype = "";
-
-    public NewVesselEnteredMessage(string name, string description, string ambientMusicPrototype)
-    {
-        Name = name;
-        Description = description;
-        AmbientMusicPrototype = ambientMusicPrototype;
-    }
-}
+public readonly record struct NewVesselEnteredMessage(
+    string Name = "",
+    string Description = "",
+    string AmbientMusicPrototype = "") { }
 
 [ByRefEvent]
-public readonly record struct SpaceEnteredMessage
-{
-}
+public readonly record struct SpaceEnteredMessage { }
