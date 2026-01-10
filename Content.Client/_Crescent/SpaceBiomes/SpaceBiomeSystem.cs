@@ -47,10 +47,10 @@ public sealed class SpaceBiomeSystem : EntitySystem
         if (_playerMan.LocalEntity == null) //this should never be null i thinky
             return;
 
-        EntityUid localPlayerUid = _playerMan.LocalEntity.Value;
+        var localPlayerUid = _playerMan.LocalEntity.Value;
 
-        Vector2 playerPos = _formSys.GetWorldPosition(Transform(localPlayerUid));
-        SpaceBiomeTrackerComponent tracker = EnsureComp<SpaceBiomeTrackerComponent>(localPlayerUid);
+        var playerPos = _formSys.GetWorldPosition(Transform(localPlayerUid));
+        var tracker = EnsureComp<SpaceBiomeTrackerComponent>(localPlayerUid);
 
         SpaceBiomeSourceComponent? newSource = null;
 
