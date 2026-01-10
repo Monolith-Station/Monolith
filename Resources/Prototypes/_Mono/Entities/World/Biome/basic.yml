@@ -182,7 +182,7 @@
   id: MonoWorldgenVeryFarT2Middle
   parent: MonoWorldgenVeryFarT1
   priority: -3
-  # no distanceRange, accepts all remaining distance
+  distanceRange: null
   chunkComponents:
   - type: NoiseDrivenDebrisSelector
     noiseChannel: WreckRare

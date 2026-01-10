@@ -37,3 +37,19 @@
     - state: sec_label
   - type: PirateBountyItem
     id: EncryptionKeyFaction
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyVanguardCommand
+  name: vanguard command encryption key # mono
+  description: An encryption key used by officers in the vanguard. # Mono
+  components:
+    - type: EncryptionKey
+      channels:
+        - VanguardCommand
+      defaultChannel: VanguardCommand
+    - type: Sprite
+      layers:
+        - state: crypt_blue
+        - state: pirate_label
+

@@ -170,7 +170,7 @@
   suffix: BlackMarket
   parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerBankATMDeposit]
   id: ComputerBlackMarketBankATM
-  description: Has some sketchy looking modifications and a sticker that says DEPOSIT FEE 20%
+  description: Has some sketchy looking modifications and a sticker that says DEPOSIT FEE 5%
   components:
   - type: Sprite
     netsync: false
@@ -195,7 +195,7 @@
   suffix: Wallmount, BlackMarket
   parent: [BaseStructureDisableToolUse, BaseStructureDestructible, BaseStructureComputerWallmount, ComputerBankATMDeposit]
   id: ComputerWallmountBlackMarketBankATM
-  description: Has some sketchy looking modifications and a sticker that says DEPOSIT FEE 20%
+  description: Has some sketchy looking modifications and a sticker that says DEPOSIT FEE 5%
   components:
   - type: Sprite
     netsync: false

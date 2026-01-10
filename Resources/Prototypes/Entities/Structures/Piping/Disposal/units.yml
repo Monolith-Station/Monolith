@@ -93,6 +93,10 @@
       - DisposalEject
       sources:
       - DisposalReady
+  # Mono
+  - type: ShipRepairable
+    repairTime: 5
+    repairCost: 5
 
 - type: entity
   id: DisposalUnit
