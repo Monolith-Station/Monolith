@@ -128,15 +128,15 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      450: Critical
-      550: Dead
+      300: Critical
+      400: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
   - type: SlowOnDamage
     speedModifierThresholds:
-      250: 0.7
-      350: 0.5
+      180: 0.7
+      250: 0.5
   - type: Damageable
     damageModifierSet: MilitaryBorgChassis
   - type: NpcFactionMember
