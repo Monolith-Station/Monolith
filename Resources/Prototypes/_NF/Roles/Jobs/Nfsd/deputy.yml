@@ -21,8 +21,6 @@
     - type: NpcFactionMember
       factions:
       - TSFMC
-    - type: RoleFaction
-      faction: TSFMC
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages

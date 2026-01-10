@@ -9,12 +9,12 @@
 ## the music selected from the sound collection will be chosen randomly whenever the appropriate music is required to be played
 ##
 ## combat music default/fallback is called "combatmusic"
-## factional combat music must be called "combatmusic<FACTIONNAME>", and be a valid faction in the clientside character profile
-## this is because the way combat music is fetched is just adding that RoleFaction string to combatmusic, creating "combatmusicTSFMC", etc.
+## factional combat music must be called "combatmusic<FACTIONNAME>"
+## this is because the way combat music is fetched is just adding that NpcFactionMember string to combatmusic, creating "combatmusicTSFMC", etc.
 ##
 ## valid factions:
 ## TSFMC
-## PDV
+## PDV (PirateNF in factions until i fucking fix this)
 ## (everyone else gets combatmodedefault)
 ##
 ## ALSO!! UPDATE attributions.txt OR I WILL FIND YOU!!!!!!!!!!!!

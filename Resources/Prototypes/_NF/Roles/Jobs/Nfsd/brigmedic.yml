@@ -28,8 +28,6 @@
     - type: NpcFactionMember
       factions:
       - TSFMC
-    - type: RoleFaction
-      faction: TSFMC
     - type: SurgerySpeedModifier
       SpeedModifier: 1.65
   - !type:AddImplantSpecial

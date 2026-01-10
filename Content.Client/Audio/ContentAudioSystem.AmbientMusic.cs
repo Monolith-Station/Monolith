@@ -31,8 +31,8 @@ using System.Diagnostics;
 using System.Threading;
 using Robust.Shared.Timing;
 using Content.Shared.NPC.Components;
-using Content.Shared._Crescent.RoleFaction;
 using Content.Shared._Mono.CCVar;
+using Content.Shared.Abilities.Mime;
 
 namespace Content.Client.Audio;
 
@@ -58,6 +58,9 @@ public sealed partial class ContentAudioSystem
     private static float _volumeSliderCombat;
     private static bool _combatMusicToggle;
     //options menu ---
+
+    private const string NpcFactionPDV = "PirateNF"; //we should really fucking change these on monolith. wtf
+    private const string NpcFactionTSFMC = "TSFMC";
 
     // This stores the music stream. It's used to start/stop the music on the fly.
     private EntityUid? _ambientMusicStream;
@@ -324,10 +327,8 @@ public sealed partial class ContentAudioSystem
 
         bool currentCombatState = _combatModeSystem.IsInCombatMode();
         string faction = "";
-        if (!TryComp<RoleFactionComponent>(ev.Performer, out RoleFactionComponent? factionComp))
-            _sawmill.Debug("NO ROLE FACTION COMPONENT FOUND! YOU NEED TO ADD A FACTION COMPONENT TO THIS ROLE!");
-        else
-            faction = factionComp.Faction;
+        if (TryComp<NpcFactionMemberComponent>(ev.Performer, out NpcFactionMemberComponent? factionComp))
+            faction = factionComp.Factions.FirstOrDefault("");
         if (currentCombatState)
             Timer.Spawn(_combatStartUpTime, () => SwitchCombatMusic(faction), _combatMusicCancelToken.Token);
         else
@@ -352,8 +353,19 @@ public sealed partial class ContentAudioSystem
 
         if (currentCombatState) //true = we toggled combat ON.
         {
-            string combatFactionSuffix = ""; //this is added to "combatmode" to create "combatmodePirateNF", etc, to fetch combat tracks.
-            combatFactionSuffix = factionComponentString;
+            string combatFactionSuffix = ""; //this is added to "combatmode" to create "combatmodePDV", etc, to fetch combat tracks.
+            switch (factionComponentString) //this will hardcode the valid factions but until someone cleans up the frontier tags this looks way nicer
+            {
+                case NpcFactionPDV:
+                    combatFactionSuffix = "PDV";
+                    break;
+                case NpcFactionTSFMC:
+                    combatFactionSuffix = "TSFMC";
+                    break;
+                default:
+                    combatFactionSuffix = factionComponentString;
+                    break;
+            }
 
             //if we find a ambient music prototype for our faction, then pick that one!
             if (_proto.TryIndex<AmbientMusicPrototype>("combatmode" + combatFactionSuffix, out var factionCombatMusicPrototype))
