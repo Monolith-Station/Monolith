@@ -122,6 +122,8 @@
   abstract: true
   components:
   - type: ShuttleConsole
+  - type: ShipNpcTarget # Mono
+    needPower: true
   - type: ShuttleConsoleLock
   - type: ActivatableUI
     key: enum.ShuttleConsoleUiKey.Key

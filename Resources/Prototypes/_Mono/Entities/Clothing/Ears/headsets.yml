@@ -98,7 +98,7 @@
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetUSSP
   name: USSP headset
-  description: The standard-issue headset of the USSP Defensive Navy for decades. This headset will accept standard encryption keys and comes prefitted with a key for USSP Tactical Communications. 
+  description: The standard-issue headset of the USSP Defensive Navy for decades. This headset will accept standard encryption keys and comes prefitted with a key for USSP Tactical Communications.
   components:
   - type: Sprite
     sprite: Clothing/Ears/Headsets/security.rsi
@@ -109,3 +109,23 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyUssp
+
+
+- type: entity
+  parent: [ClothingHeadsetAlt]
+  id: ClothingHeadsetAltVanguardCommand
+  name: vanguard command over-ear headset
+  components:
+    - type: Headset
+  #  - type: EncryptionKeyHolder #Mono parity with ClothingHeadset key capacity.
+  #      keySlots: 5
+    - type: ContainerFill
+      containers:
+        key_slots:
+          - EncryptionKeyFreelance
+          - EncryptionKeyVanguardCommand
+          - EncryptionKeyCommon # Mono
+    - type: Sprite
+      sprite: Clothing/Ears/Headsets/freelance.rsi
+    - type: Clothing
+      sprite: Clothing/Ears/Headsets/freelance.rsi

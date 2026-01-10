@@ -15947,3 +15947,73 @@ Entries:
   id: 1768
   time: '2026-01-09T00:57:18.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2985
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Caput has been remapped.
+  id: 1769
+  time: '2026-01-09T13:56:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2994
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: Added command comms and access to the PDV.
+    - type: Add
+      message: Helios now has an AI and a dedicated civilian dock.
+    - type: Tweak
+      message: >-
+        Helios has had it's defenses and shipguns changed and nerfed, outer
+        turrets have also been replaced with standard ballistic ones.
+  id: 1770
+  time: '2026-01-09T14:12:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2992
+- author: Arcticular1
+  changes:
+    - type: Remove
+      message: Removed the prowler and sable.
+    - type: Add
+      message: Hazel is now in the Jupiter shipyard
+  id: 1771
+  time: '2026-01-09T14:21:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2990
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Drone control consoles can now autolink docked drones by altclicking the
+        console.
+    - type: Add
+      message: Drone control consoles now have a max range.
+    - type: Add
+      message: >-
+        Drone control consoles now detect from their linked drones. You can use
+        them to scout.
+    - type: Tweak
+      message: Ship AI will now target gunnery consoles.
+    - type: Fix
+      message: >-
+        Outer reach ships converted to a piloted ship will now be targeted by
+        drones.
+    - type: Fix
+      message: >-
+        Crown (the shooting outer-drone) will no longer keep firing even without
+        power.
+  id: 1772
+  time: '2026-01-09T17:56:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2943
+- author: Greenwall-Exe
+  changes:
+    - type: Add
+      message: Added Baeg Voucher to the Ironman Trait
+    - type: Remove
+      message: The 10k credits from the Ironman Trait
+  id: 1773
+  time: '2026-01-10T02:01:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3000
+- author: Ilya246
+  changes:
+    - type: Add
+      message: A new core rule has been added.
+  id: 1774
+  time: '2026-01-10T09:59:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3007

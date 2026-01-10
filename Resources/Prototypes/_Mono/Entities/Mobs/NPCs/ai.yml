@@ -1,3 +1,5 @@
+#region Generic AIs
+
 - type: entity
   id: NpcStationAiRammer
   name: rammer core
@@ -37,6 +39,9 @@
       task: RammerShuttleCompound
   - type: StaticPrice
     price: 20000
+  - type: ApcPowerReceiver
+    powerLoad: 1000 # suspiciously low power-using AI
+  - type: ExtensionCableReceiver
 
 - type: entity
   id: NpcStationAiApproacher
@@ -106,6 +111,21 @@
       task: AttackerShuttleCompound
 
 - type: entity
+  id: NpcStationAiShooter
+  name: shooter core
+  parent: NpcStationAiRammer
+  description: Shoots at you. Doesn't move.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_t1
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: ShooterShuttleCompound
+
+- type: entity
   id: NpcStationAiAttackerSmart
   name: attacker core
   parent: [NpcStationAiRammer, BaseFactionGearOtherFactionT3]
@@ -122,17 +142,6 @@
       task: AttackerShuttleSmartCompound
 
 - type: entity
-  id: NpcStationAiAttackerShortRange
-  name: attacker core
-  parent: [NpcStationAiAttacker, BaseFactionGearOtherFactionT2]
-  description: Shoots at you.
-  suffix: AI, Short-Range
-  components:
-  - type: HTN
-    rootTask:
-      task: AttackerShuttleShortRangeCompound
-
-- type: entity
   id: NpcStationAiAttackerStaticSmart
   name: attacker core
   parent: [NpcStationAiAttackerSmart, BaseFactionGearOtherFactionT3]
@@ -142,6 +151,32 @@
   - type: HTN
     rootTask:
       task: AttackerShuttleSmartStaticCompound
+
+- type: entity
+  id: NpcStationAiAttackerBroadside
+  name: attacker core
+  parent: NpcStationAiAttacker
+  description: Shoots at you. Broadside.
+  suffix: AI, Broadside
+  components:
+  - type: HTN
+    rootTask:
+      task: AttackerShuttleBroadsideCompound
+
+#region Drone AIs
+
+- type: entity
+  id: NpcDroneAiMedusa
+  name: attacker core
+  parent: [NpcStationAiAttacker, BaseFactionGearOtherFactionT2]
+  description: Shoots at you.
+  suffix: AI, Drone-Medusa
+  components:
+  - type: HTN
+    rootTask:
+      task: DroneCompoundMedusa
+
+#region Spawners
 
 - type: entity
   name: rammer core spawner
@@ -182,17 +217,8 @@
 - type: entity
   name: smart dodging rammer core spawner
   id: SpawnMobRammerCoreSmartDodging
-  parent: SpawnMobRammerCore
+  parent: SpawnMobRammerCoreSmart
   components:
-  - type: Sprite
-    layers:
-    - sprite: _Mono/Mobs/Core/drone.rsi
-      state: base
-    - sprite: _Mono/Mobs/Core/drone.rsi
-      state: red_t2
-      shader: unshaded
-    - state: green
-    - state: ai
   - type: ConditionalSpawner
     prototypes:
     - NpcStationAiRammerSmartDodging
@@ -205,24 +231,6 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcStationAiRammerStraight
-
-- type: entity
-  name: approacher core spawner
-  id: SpawnMobApproacherCore
-  parent: SpawnMobRammerCore
-  components:
-  - type: Sprite
-    layers:
-    - sprite: _Mono/Mobs/Core/drone.rsi
-      state: base
-    - sprite: _Mono/Mobs/Core/drone.rsi
-      state: green_t1
-      shader: unshaded
-    - state: green
-    - state: ai
-  - type: ConditionalSpawner
-    prototypes:
-    - NpcStationAiApproacher
 
 - type: entity
   name: attacker core spawner
@@ -261,16 +269,6 @@
     - NpcStationAiAttackerSmart
 
 - type: entity
-  name: attacker core spawner
-  id: SpawnMobAttackerCoreShortRange
-  parent: SpawnMobAttackerCore
-  suffix: Short-Range
-  components:
-  - type: ConditionalSpawner
-    prototypes:
-    - NpcStationAiAttackerShortRange
-
-- type: entity
   name: smart static attacker core spawner
   id: SpawnMobAttackerCoreStaticSmart
   parent: SpawnMobAttackerCore
@@ -278,3 +276,24 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcStationAiAttackerStaticSmart
+
+- type: entity
+  name: approacher core spawner
+  id: SpawnMobApproacherCore
+  parent: SpawnMobAttackerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiApproacher
+
+#region Drone AI spawners
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiMedusa
+  parent: SpawnMobAttackerCore
+  suffix: Short-Range, Drone-Medusa
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiMedusa
