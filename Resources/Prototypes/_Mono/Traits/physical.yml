@@ -373,8 +373,25 @@
   description: trait-nanite-repair-drones-desc
   category: Physical
   cost: 8
-  speciesWhitelist:
-  - IPC
+  speciesBlacklist:
+  - Human
+  - Chitinid
+  - Oni
+  - Vulpkanin
+  - Vox
+  - Diona
+  - Moth Person
+  - Goblin
+  - Arachnid
+  - Resomi
+  - Harpy
+  - Reptilian
+  - Hydrakin
+  - Rodentia
+  - Tarjaran
+  - Dwarf
+  - Slime Person
+  - Felinid
   blacklist:
     components:
     - BorgChassis
