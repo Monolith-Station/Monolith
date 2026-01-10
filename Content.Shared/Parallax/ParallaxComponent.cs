@@ -22,9 +22,6 @@ public sealed partial class ParallaxComponent : Component
 
     [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public float SwapTimer;
-    // Hullrot edit end
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool IsSwapping => SwappedParallax != null;
 
     [UsedImplicitly, ViewVariables(VVAccess.ReadWrite)]
     // ReSharper disable once InconsistentNaming

@@ -36,7 +36,6 @@ public sealed partial class ContentAudioSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly CombatModeSystem _combatModeSystem = default!; //CLIENT ONE. WHY ARE THERE 3???
     [Dependency] private readonly IPrototypeManager _protMan = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly SpaceBiomeSystem _spaceBiome = default!;
 
     //options menu ---
@@ -97,10 +96,6 @@ public sealed partial class ContentAudioSystem
     private bool _combatWindUpBool = false;
     private float _combatWindDownTimer = 0;
     private bool _combatWindDownBool = false;
-
-
-    private CancellationTokenSource _combatMusicCancelToken = new CancellationTokenSource();
-    private CancellationTokenSource _ambientMusicCancelToken = new CancellationTokenSource();
 
     //used for logging, don't touch this
     private ISawmill _sawmill = default!;
@@ -512,14 +507,6 @@ public sealed partial class ContentAudioSystem
 
         if (_combatMusicToggle)
             return;
-
-        // if we are turning combat music OFF, then do all this bullshit to turn music off and get ambient music back on
-        _combatMusicCancelToken.Cancel();
-        _combatMusicCancelToken = new CancellationTokenSource();
-
-        _ambientMusicCancelToken.Cancel();
-        _ambientMusicCancelToken = new CancellationTokenSource();
-
 
         bool currentCombatState = _combatModeSystem.IsInCombatMode();
 

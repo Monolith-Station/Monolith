@@ -26,7 +26,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
     private bool _dropTitle = false;
     private float _titleDropTimer = 0;
-    private const float TitleDropTime = 7; // in seconds
+    private const float TitleDropTime = 10; // in seconds
 
     private EntityUid _playerUid; //used to keep playerUid for the initial title drop
 
