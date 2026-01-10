@@ -41,6 +41,10 @@
     price: 100
   - type: Machine
     board: SmallThrusterMachineCircuitboard
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 4
 
 - type: entity
   id: SmallGyroscope
@@ -84,3 +88,6 @@
     price: 100
   - type: Machine
     board: SmallGyroscopeMachineCircuitboard
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 4

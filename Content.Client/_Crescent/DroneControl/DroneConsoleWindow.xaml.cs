@@ -23,6 +23,8 @@ public sealed partial class DroneConsoleWindow : FancyWindow
     public Action<EntityCoordinates>? OnMoveOrder;
     public Action<EntityCoordinates>? OnAttackOrder;
 
+    private EntityUid? _consoleEntity = null;
+
     public HashSet<NetEntity> SelectedDrones = new();
 
     private readonly Dictionary<NetEntity, Button> _droneButtons = new();
@@ -77,9 +79,17 @@ public sealed partial class DroneConsoleWindow : FancyWindow
         DroneListContainer.DisposeAllChildren();
         _droneButtons.Clear();
 
-        foreach (var (netEnt, gridEnt) in state.LinkedDrones)
+        NavRadar.Detectors = new();
+        if (_consoleEntity != null)
+            NavRadar.Detectors.Add(_consoleEntity.Value);
+
+        foreach (var (netEnt, gridNEnt) in state.LinkedDrones)
         {
-            var label = _shuttles.GetIFFLabel(_entity.GetEntity(gridEnt), self: false);
+            var gridEnt = _entity.GetEntity(gridNEnt);
+
+            NavRadar.Detectors.Add(gridEnt);
+
+            var label = _shuttles.GetIFFLabel(gridEnt, self: false);
             var btn = new Button
             {
                 Text = label,
@@ -100,6 +110,7 @@ public sealed partial class DroneConsoleWindow : FancyWindow
 
     public void SetConsole(EntityUid consoleEntity)
     {
+        _consoleEntity = consoleEntity;
         NavRadar.SetConsole(consoleEntity);
     }
 

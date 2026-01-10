@@ -1,6 +1,8 @@
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
+using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
 using Content.Shared.Construction.Components;
 using Robust.Shared.Map;
 using System.Threading;
@@ -14,6 +16,7 @@ namespace Content.Server._Mono.NPC.HTN.Operators;
 public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShutdown
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
+    private PowerReceiverSystem _power = default!;
     private ShipSteeringSystem _steering = default!;
 
     /// <summary>
@@ -96,6 +99,12 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public ShipSteeringMode Mode = ShipSteeringMode.GoToRange;
 
     /// <summary>
+    /// In Orbit mode, how much to angularly offset our destination.
+    /// </summary>
+    [DataField]
+    public float OrbitOffset = 30f;
+
+    /// <summary>
     /// How close we need to get before considering movement finished.
     /// </summary>
     [DataField]
@@ -116,6 +125,12 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public bool RequireAnchored = true;
 
     /// <summary>
+    /// Whether to require us to be powered, if we have ApcPowerReceiver.
+    /// </summary>
+    [DataField]
+    public bool RequirePowered = true;
+
+    /// <summary>
     /// Rotation to move at relative to direction to target.
     /// </summary>
     [DataField]
@@ -126,6 +141,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
+        _power = sysManager.GetEntitySystem<PowerReceiverSystem>();
         _steering = sysManager.GetEntitySystem<ShipSteeringSystem>();
     }
 
@@ -149,7 +165,9 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
 
         // Need to remove the planning value for execution.
         blackboard.Remove<EntityCoordinates>(NPCBlackboard.OwnerCoordinates);
-        var targetCoordinates = blackboard.GetValue<EntityCoordinates>(TargetKey);
+        if (!blackboard.TryGetValue<EntityCoordinates>(TargetKey, out var targetCoordinates, _entManager))
+            return;
+
         var uid = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
         var comp = _steering.Steer(uid, targetCoordinates);
@@ -167,6 +185,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         comp.MaxRotateRate = MaxRotateRate;
         comp.Mode = Mode;
         comp.NoFinish = ShutdownState == HTNPlanState.PlanFinished;
+        comp.OrbitOffset = Angle.FromDegrees(OrbitOffset);
         comp.Range = Range;
         comp.RangeTolerance = RangeTolerance;
         comp.TargetRotation = TargetRotation;
@@ -180,8 +199,10 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
             || !blackboard.TryGetValue<EntityCoordinates>(TargetKey, out var target, _entManager)
             || !_entManager.TryGetComponent<TransformComponent>(owner, out var xform)
             // also fail if we're anchorable but are unanchored and require to be anchored
-            || _entManager.TryGetComponent<AnchorableComponent>(owner, out var anchorable)
-                && !xform.Anchored && RequireAnchored
+            || RequireAnchored
+                && _entManager.TryGetComponent<AnchorableComponent>(owner, out var anchorable) && !xform.Anchored
+            || RequirePowered
+                && _entManager.TryGetComponent<ApcPowerReceiverComponent>(owner, out var receiver) && !_power.IsPowered(owner, receiver)
         )
             return HTNOperatorStatus.Failed;
 
@@ -220,5 +241,12 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
             blackboard.Remove<EntityCoordinates>(TargetKey);
 
         _steering.Stop(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner));
+    }
+
+    public override void PlanShutdown(NPCBlackboard blackboard)
+    {
+        base.PlanShutdown(blackboard);
+
+        ConditionalShutdown(blackboard);
     }
 }

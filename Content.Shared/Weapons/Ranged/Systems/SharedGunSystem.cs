@@ -567,6 +567,30 @@ public abstract partial class SharedGunSystem : EntitySystem
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
     }
 
+    // Mono
+    public bool TryNextShootPrototype(Entity<GunComponent?> gun, [NotNullWhen(true)] out EntityPrototype? proto)
+    {
+        proto = null;
+        if (!Resolve(gun, ref gun.Comp))
+            return false;
+
+        var checkEv = new CheckShootPrototypeEvent();
+        RaiseLocalEvent(gun, ref checkEv);
+        proto = checkEv.ShootPrototype;
+
+        return proto != null;
+    }
+
+    // Mono
+    public EntityPrototype GetBulletPrototype(EntityPrototype cartridge)
+    {
+        if (cartridge.TryGetComponent<CartridgeAmmoComponent>(out var cartComp, Factory))
+        {
+            return ProtoManager.Index(cartComp.Prototype);
+        }
+        return cartridge;
+    }
+
     // Mono - used for multiple-per-frame projectile offset
     public override void Update(float frameTime)
     {
@@ -670,13 +694,19 @@ public abstract partial class SharedGunSystem : EntitySystem
         else if (selfXform.Anchored && selfXform.ParentUid != selfXform.MapUid)
             impulseCoord = TransformSystem.WithEntityId(impulseCoord, selfXform.ParentUid);
 
+        var toEnt = impulseCoord.EntityId;
+        if (!_physQuery.TryComp(toEnt, out var toBody))
+            return;
+
         // velocity is in world-aligned coordinates so get vec based off that
-        var worldSource = TransformSystem.GetWorldPosition(impulseCoord.EntityId);
+        var worldSource = TransformSystem.GetWorldPosition(toEnt);
         var worldTarget = TransformSystem.ToWorldPosition(toCoordinates);
         var dirVec = worldTarget - worldSource;
         dirVec.Normalize();
 
-        Physics.ApplyLinearImpulse(impulseCoord.EntityId, -dirVec * totalImpulse, impulseCoord.Position);
+        var pos = impulseCoord.Position;
+        pos = (pos - toBody.LocalCenter) * ent.Comp.RecoilRotation + toBody.LocalCenter;
+        Physics.ApplyLinearImpulse(toEnt, -dirVec * totalImpulse, pos);
     }
 
     public void RefreshModifiers(Entity<GunComponent?> gun, EntityUid? User = null) // GoobStation change - User for NoWieldNeeded

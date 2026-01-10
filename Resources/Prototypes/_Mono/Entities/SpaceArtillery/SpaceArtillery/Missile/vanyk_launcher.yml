@@ -57,3 +57,6 @@
     shipType: Missile
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 100

@@ -1,5 +1,6 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Fluids.EntitySystems;
+using Content.Server._Mono.NPC.HTN; // Mono
 using Content.Server.NPC.Queries;
 using Content.Server.NPC.Queries.Considerations;
 using Content.Server.NPC.Queries.Curves;
@@ -497,20 +498,20 @@ public sealed class NPCUtilitySystem : EntitySystem
             {
                 var xform = Transform(owner);
                 var ownGrid = xform.GridUid;
-                foreach (var (console, consoleComp) in _lookup.GetEntitiesInRange<ShuttleConsoleComponent>(_transform.GetMapCoordinates(xform), shuttlesQuery.Range))
+                foreach (var (target, targetComp) in _lookup.GetEntitiesInRange<ShipNpcTargetComponent>(_transform.GetMapCoordinates(xform), shuttlesQuery.Range))
                 {
-                    var consoleXform = Transform(console);
-                    var consGrid = consoleXform.GridUid;
-                    if (consGrid == null ||
-                        consGrid == ownGrid ||
-                        (_transform.GetWorldPosition(consGrid.Value) - _transform.GetWorldPosition(xform)).Length() > shuttlesQuery.Range ||
-                        !this.IsPowered(console, EntityManager) ||
-                        _whitelistSystem.IsBlacklistPass(shuttlesQuery.Blacklist, consGrid.Value))
+                    var targetXform = Transform(target);
+                    var targetGrid = targetXform.GridUid;
+                    if (targetComp.NeedGrid && targetGrid == null ||
+                        targetGrid == ownGrid ||
+                        (_transform.GetWorldPosition(target) - _transform.GetWorldPosition(xform)).Length() > shuttlesQuery.Range ||
+                        targetComp.NeedPower && !this.IsPowered(target, EntityManager) ||
+                        targetGrid != null && _whitelistSystem.IsBlacklistPass(shuttlesQuery.Blacklist, targetGrid.Value))
                     {
                         continue;
                     }
 
-                    entities.Add(consGrid.Value);
+                    entities.Add(target);
                 }
                 break;
             }

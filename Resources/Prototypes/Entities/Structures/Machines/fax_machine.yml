@@ -77,6 +77,10 @@
     receiveFrequencyId: Fax
     transmitFrequencyId: Fax
   - type: RequireProjectileTarget
+  # Mono
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 4
 
 # Special
 - type: entity

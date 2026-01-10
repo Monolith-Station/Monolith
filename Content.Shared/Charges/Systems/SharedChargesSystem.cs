@@ -3,7 +3,8 @@ using Content.Shared.Examine;
 
 namespace Content.Shared.Charges.Systems;
 
-public abstract class SharedChargesSystem : EntitySystem
+// Mono - make partial
+public abstract partial class SharedChargesSystem : EntitySystem
 {
     protected EntityQuery<LimitedChargesComponent> Query;
 
@@ -14,6 +15,8 @@ public abstract class SharedChargesSystem : EntitySystem
         Query = GetEntityQuery<LimitedChargesComponent>();
 
         SubscribeLocalEvent<LimitedChargesComponent, ExaminedEvent>(OnExamine);
+
+        InitializeAmmo(); // Mono
     }
 
     protected virtual void OnExamine(EntityUid uid, LimitedChargesComponent comp, ExaminedEvent args)
