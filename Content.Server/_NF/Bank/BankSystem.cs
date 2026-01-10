@@ -137,7 +137,8 @@ public sealed partial class BankSystem : SharedBankSystem
         if (!force
             && TryComp<IronmanComponent>(mobUid, out var ironman)
             && ironman.BlockDeposit
-            && !(ironmanBypass = !(ironman.BlockBypassStack == null || ironman.BlockBypassStack == stackProto)))
+            && ironman.BlockBypassStack == null
+            && !(ironmanBypass = ironman.BlockBypassStack == stackProto))
         {
             _log.Info($"TryBankWithdraw: {mobUid} is blocked from deposits (Ironman)");
             return false;

@@ -19,6 +19,6 @@ public sealed partial class IronmanComponent : Component
     /// <summary>
     /// If not null, what stack type can bypass our deposit block.
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<StackPrototype>? BlockBypassStack = null;
 }
