@@ -49,6 +49,7 @@ public sealed partial class BankSystem
         // to keep the window stateful
         GetInsertedCashAmount(component, out var deposit);
 
+        TryGetBalance(player, out var realBalance, true);
         // check for a bank account
         if (!TryComp<BankAccountComponent>(player, out var bank))
         {
@@ -56,7 +57,7 @@ public sealed partial class BankSystem
             ConsolePopup(player, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit));
+                new BankATMMenuInterfaceState(realBalance, false, deposit));
             return;
         }
 
@@ -66,7 +67,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-insufficient-funds"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(bank.Balance, true, deposit));
+                new BankATMMenuInterfaceState(realBalance, true, deposit));
             return;
         }
 
@@ -101,6 +102,7 @@ public sealed partial class BankSystem
         // Dynamically knows what kind of cash to look for according to BankATMComponent
         GetInsertedCashAmount(component, out var deposit);
 
+        TryGetBalance(player, out var realBalance, true);
         // make sure the user actually has a bank
         if (!TryComp<BankAccountComponent>(player, out var bank))
         {
@@ -108,7 +110,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit));
+                new BankATMMenuInterfaceState(realBalance, false, deposit));
             return;
         }
 
@@ -119,7 +121,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit));
+                new BankATMMenuInterfaceState(realBalance, false, deposit));
             return;
         }
 
@@ -131,7 +133,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-wrong-cash"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit));
+                new BankATMMenuInterfaceState(realBalance, false, deposit));
             return;
         }
 
@@ -142,7 +144,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-wrong-cash"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit));
+                new BankATMMenuInterfaceState(realBalance, false, deposit));
             return;
         }
 
@@ -163,7 +165,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-transaction-denied"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(bank.Balance, true, deposit));
+                new BankATMMenuInterfaceState(realBalance, true, deposit));
             return;
         }
 
@@ -174,7 +176,7 @@ public sealed partial class BankSystem
         // yeet and delete the stack in the cash slot after success
         _containerSystem.CleanContainer(cashSlot);
         _uiSystem.SetUiState(uid, args.UiKey,
-            new BankATMMenuInterfaceState(bank.Balance, true, 0));
+            new BankATMMenuInterfaceState(realBalance + deposit, true, 0));
         return;
     }
 
@@ -214,7 +216,8 @@ public sealed partial class BankSystem
 
         GetInsertedCashAmount(component, out var deposit);
 
-        if (!TryGetBalance(player, out var balance))
+        // force get balance
+        if (!TryGetBalance(player, out var balance, true))
         {
             _log.Info($"{player} has no bank account");
             _uiSystem.SetUiState(uid, args.UiKey,

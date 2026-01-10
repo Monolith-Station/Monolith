@@ -356,7 +356,7 @@ public sealed partial class BankSystem : SharedBankSystem
         if (!force && TryComp<IronmanComponent>(ent, out var ironman) && ironman.BlockWithdraw)
         {
             balance = 0;
-            return true;
+            return false;
         }
         if (!_playerManager.TryGetSessionByEntity(ent, out var session) ||
             !_prefsManager.TryGetCachedPreferences(session.UserId, out var prefs))
