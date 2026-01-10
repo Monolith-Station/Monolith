@@ -7,7 +7,7 @@
 # Discord: ???
 - type: pointOfInterest
   id: HeliosFortress
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'PDV Helios Fortress'
   minimumDistance: 7500
   maximumDistance: 9500
