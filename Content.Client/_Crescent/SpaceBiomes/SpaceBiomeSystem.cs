@@ -9,10 +9,6 @@ using Content.Shared._Crescent.Vessel;
 using Robust.Client.Player;
 using Robust.Client.GameObjects;
 using Content.Client.Parallax;
-using Content.Client.Station;
-using Content.Shared.Mind.Components;
-using Content.Shared.Station.Components;
-using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Client._Crescent.SpaceBiomes;
 
@@ -22,7 +18,6 @@ public sealed class SpaceBiomeSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protMan = default!;
     [Dependency] private readonly TransformSystem _formSys = default!;
     [Dependency] private readonly ParallaxSystem _parallaxSys = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private Dictionary<Vector2, HashSet<EntityUid>> _chunks = new();
@@ -104,10 +99,10 @@ public sealed class SpaceBiomeSystem : EntitySystem
     {
         EntityUid uid = args.Entity;
 
-        if (!TryComp<TransformComponent>(uid, out var transform)) //need transform comp to grab parent station clientside
+        if (TerminatingOrDeleted(uid))
             return;
 
-        var parentStation = transform.GridUid;
+        var parentStation = Transform(uid).GridUid;
 
         if (parentStation == null)
             return;
@@ -141,14 +136,14 @@ public sealed class SpaceBiomeSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        if (!TryComp<TransformComponent>(uid, out var transform)) //need transform comp to grab parent station clientside
+        if (TerminatingOrDeleted(uid))
             return;
 
-        var parentStation = transform.GridUid;
+        var parentStation = Transform(uid).GridUid;
 
         if (parentStation == null) //entered space, should tell music system to stop playing ship music
         {
-            SpaceEnteredMessage spaceMsg = new SpaceEnteredMessage();
+            var spaceMsg = new SpaceEnteredMessage();
             RaiseLocalEvent(uid, ref spaceMsg, true);
             return;
         }
@@ -156,10 +151,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         // HULLROT EDIT: BoringStations and keeping track of what we've visited before is removed
         // because we want people to see the message each time you enter, coupled with music and flavor text
 
-        var name = "placeholder";
-
-        if (TryComp<MetaDataComponent>(parentStation, out var metadata))
-            name = metadata.EntityName;
+        var name = MetaData((EntityUid)parentStation).EntityName;
 
         var description = ""; //fallback to "" in case we have none
 
