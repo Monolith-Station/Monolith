@@ -98,9 +98,6 @@ uplink-syndicate-applicator-desc = Advanced nanite applicator with a heavily upg
 
 # MARK: Weapons
 
-uplink-pirate-energy-cutlass-name = Energy Cutlass
-uplink-pirate-energy-cutlass-desc = An exotic energy weapon.
-
 uplink-pirate-energy-sword-name = Energy Sword
 uplink-pirate-energy-sword-desc = Courtesy of the Gorlex Marauders. Make your mark, leave no witnesses.
 
