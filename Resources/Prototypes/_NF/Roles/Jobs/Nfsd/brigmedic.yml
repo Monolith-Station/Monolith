@@ -30,6 +30,8 @@
       - TSFMC
     - type: SurgerySpeedModifier
       SpeedModifier: 1.65
+    - type: Ironman
+      blockDeposit: true
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages

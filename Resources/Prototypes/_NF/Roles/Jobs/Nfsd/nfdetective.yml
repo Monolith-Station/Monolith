@@ -31,6 +31,8 @@
     - type: NpcFactionMember
       factions:
       - TSFMC
+    - type: Ironman
+      blockDeposit: true
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages
