@@ -26,7 +26,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
     private bool _dropTitle = false;
     private float _titleDropTimer = 0;
-    private const float TitleDropTime = 20; // in seconds
+    private const float TitleDropTime = 7; // in seconds
 
     private EntityUid _playerUid; //used to keep playerUid for the initial title drop
 
@@ -47,8 +47,6 @@ public sealed class SpaceBiomeSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted) //otherwise this will tick like 5x faster on client. thanks prediction
             return;
 
-        Log.Info("update timer: " + _updTimer.ToString());
-        Log.Info("title drop timer: " + _titleDropTimer.ToString());
         if (_dropTitle)
         {
             _titleDropTimer += frameTime;
@@ -115,6 +113,9 @@ public sealed class SpaceBiomeSystem : EntitySystem
     private void OnParentChanged(ref EntParentChangedMessage args)
     {
         if (!_timing.IsFirstTimePredicted)
+            return;
+
+        if (!(args.Entity == _playerMan.LocalEntity)) //so music only changes when the player swaps parent
             return;
 
         var gridData = GetGridInfo(args.Entity);
