@@ -82,7 +82,7 @@ public sealed partial class ContentAudioSystem : SharedContentAudioSystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        //UpdateAmbientMusic(); //Mono
+        UpdateAmbientMusic(frameTime);
         UpdateLobbyMusic();
         UpdateFades(frameTime);
     }

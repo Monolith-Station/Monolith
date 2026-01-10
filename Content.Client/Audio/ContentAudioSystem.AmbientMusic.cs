@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Content.Client.Gameplay;
 using Content.Shared._Crescent.SpaceBiomes;
@@ -6,33 +5,20 @@ using Content.Shared.Audio;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Client._Crescent.SpaceBiomes;
-using Content.Shared.Random;
-using Robust.Client.Animations;
-using Robust.Client.GameObjects;
 using Robust.Client.Player;
-using Robust.Client.ResourceManagement;
 using Robust.Client.State;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Timer = Robust.Shared.Timing.Timer;
-using Robust.Shared.Utility;
 using Content.Client.CombatMode;
 using Content.Shared.CombatMode;
-using System.IO;
-using Robust.Shared.Toolshed.Commands.Values;
-using Content.Shared.Preferences;
-using Content.Client.Lobby;
-using System.Diagnostics;
 using System.Threading;
 using Robust.Shared.Timing;
 using Content.Shared.NPC.Components;
 using Content.Shared._Mono.CCVar;
-using Content.Shared.Abilities.Mime;
 
 namespace Content.Client.Audio;
 
@@ -72,7 +58,7 @@ public sealed partial class ContentAudioSystem
     private SpaceBiomePrototype? _lastBiome;
 
     // Time to wait in between replaying ambient music tracks. Should be at least 1-2 seconds to prevent possible overlapping.
-    private TimeSpan _timeUntilNextAmbientTrack = TimeSpan.FromSeconds(10);
+    private float _timeUntilNextAmbientTrack = 1; //value doesnt matter cuz itll be overridden
 
     // List of available ambient music tracks to sift through.
     private List<AmbientMusicPrototype>? _musicTracks;
@@ -84,10 +70,10 @@ public sealed partial class ContentAudioSystem
     private float _combatMusicFadeInTime = 2f;
 
     // Time that combat mode needs to be on to start playing music. Set to 0 to play immediately.
-    private TimeSpan _combatStartUpTime = TimeSpan.FromSeconds(3.0);
+    private float _combatMusicTimeToStart = 3; //TODO: MAKE ME A CVAR
 
     // Time that combat mode needs to be off to stop combat mode. Set to 0 to turn off as soon as combat mode is off.
-    private TimeSpan _combatWindDownTime = TimeSpan.FromSeconds(30.0);
+    private float _combatMusicTimeToEnd = 30; //TODO: MAKE ME A CVAR
 
     // Combat mode state before checking to switch combat music off/on.
     // 1. We toggle combat mode. We fire SwitchCombatMusic in (timer) seconds.
@@ -105,12 +91,57 @@ public sealed partial class ContentAudioSystem
     // really stupid - i need this to check if the volume changes when you change the options menu options.
     private bool _isCombatMusicPlaying = false;
 
+    private float _replayAmbientMusicTimer = 0;
+    private bool _replayAmbientMusicBool;
+    private float _combatWindUpTimer = 0;
+    private bool _combatWindUpBool = false;
+    private float _combatWindDownTimer = 0;
+    private bool _combatWindDownBool = false;
+
 
     private CancellationTokenSource _combatMusicCancelToken = new CancellationTokenSource();
     private CancellationTokenSource _ambientMusicCancelToken = new CancellationTokenSource();
 
     //used for logging, don't touch this
     private ISawmill _sawmill = default!;
+
+    public void UpdateAmbientMusic(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (!_timing.IsFirstTimePredicted) //otherwise this will tick like 5x faster on client. thanks prediction
+            return;
+
+        if (_replayAmbientMusicBool)
+        {
+            _replayAmbientMusicTimer += frameTime;
+            if (_replayAmbientMusicTimer > _timeUntilNextAmbientTrack)
+            {
+                ReplayAmbientMusic();
+                _replayAmbientMusicTimer = 0;
+            }
+        }
+        if (_combatWindUpBool)
+        {
+            _combatWindUpTimer += frameTime;
+            if (_combatWindUpTimer > _combatMusicTimeToStart)
+            {
+                SwitchCombatMusic();
+                _combatWindUpBool = false;
+                _combatWindUpTimer = 0;
+            }
+        }
+        if (_combatWindDownBool)
+        {
+            _combatWindDownTimer += frameTime;
+            if (_combatWindDownTimer > _combatMusicTimeToEnd)
+            {
+                SwitchCombatMusic();
+                _combatWindDownBool = false;
+                _combatWindDownTimer = 0;
+            }
+        }
+    }
 
     private void InitializeAmbientMusic()
     {
@@ -153,12 +184,6 @@ public sealed partial class ContentAudioSystem
         string path = _random.Pick(soundcol.PickFiles).ToString(); // THIS WILL PICK A RANDOM SOUND. WE MAY WANT TO SPECIFY ONE INSTEAD!!
 
         PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
-
-        _ambientMusicCancelToken.Cancel(); //this cancels the timer, not the music
-        _ambientMusicCancelToken = new CancellationTokenSource(); //and we refresh the token for the next play
-
-        Timer.Spawn(_audio.GetAudioLength(path) + _timeUntilNextAmbientTrack, () => ReplayAmbientMusic(), _ambientMusicCancelToken.Token);
-
     }
 
     private void OnBiomeChange(ref SpaceBiomeSwapMessage ev)
@@ -202,11 +227,6 @@ public sealed partial class ContentAudioSystem
         string path = _random.Pick(soundcol.PickFiles).ToString(); // THIS WILL PICK A RANDOM SOUND. WE MAY WANT TO SPECIFY ONE INSTEAD!!
 
         PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
-
-        _ambientMusicCancelToken.Cancel();
-        _ambientMusicCancelToken = new CancellationTokenSource();
-
-        Timer.Spawn(_audio.GetAudioLength(path) + _timeUntilNextAmbientTrack, () => ReplayAmbientMusic(), _ambientMusicCancelToken.Token);
     }
 
 
@@ -216,7 +236,7 @@ public sealed partial class ContentAudioSystem
     /// <param name="ev"></param>
     private void OnVesselChange(ref NewVesselEnteredMessage ev)
     {
-        _sawmill.Debug($"went to ship {ev.Name}"); //SHOULD BE ONE WORD. Jackal, Countsman, PortBalreska...
+        //_sawmill.Debug($"went to ship {ev.Name}"); //SHOULD BE ONE WORD. Jackal, Countsman, PortBalreska...
 
         if (ev.AmbientMusicPrototype == "")
         {
@@ -225,7 +245,7 @@ public sealed partial class ContentAudioSystem
                 SpaceEnteredMessage spaceMsg = new SpaceEnteredMessage();
                 OnSpaceEntered(ref spaceMsg);
             } //which we do by going "hey we moved to space". this is dirty but it works
-            _sawmill.Debug("NO MUSIC FOUND FOR SHIP!");
+            //_sawmill.Debug("NO MUSIC FOUND FOR SHIP!");
             _validStationMusic = false; //regardless of above, set it to false for combatmode purposes
             return;
         }
@@ -233,7 +253,7 @@ public sealed partial class ContentAudioSystem
         {
             _validStationMusic = true;
             _lastStationMusic = ev.AmbientMusicPrototype;
-            _sawmill.Debug("MUSIC FOUND FOR SHIP! " + ev.AmbientMusicPrototype);
+            //_sawmill.Debug("MUSIC FOUND FOR SHIP! " + ev.AmbientMusicPrototype);
         }
 
         if (_combatModeSystem.IsInCombatMode()) //we don't want to change music if we are in combat mode right now
@@ -266,16 +286,11 @@ public sealed partial class ContentAudioSystem
         string path = _random.Pick(soundcol.PickFiles).ToString(); // THIS WILL PICK A RANDOM SOUND. WE MAY WANT TO SPECIFY ONE INSTEAD!!
 
         PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
-
-        _ambientMusicCancelToken.Cancel();
-        _ambientMusicCancelToken = new CancellationTokenSource();
-
-        Timer.Spawn(_audio.GetAudioLength(path) + _timeUntilNextAmbientTrack, () => ReplayAmbientMusic(), _ambientMusicCancelToken.Token);
     }
 
     private void OnSpaceEntered(ref SpaceEnteredMessage ev)
     {
-        _sawmill.Debug($"ENTERED SPACE, STOPPING MUSIC");
+        //_sawmill.Debug($"ENTERED SPACE, STOPPING MUSIC");
 
         _validStationMusic = false;
 
@@ -304,11 +319,6 @@ public sealed partial class ContentAudioSystem
         string path = _random.Pick(soundcol.PickFiles).ToString(); // THIS WILL PICK A RANDOM SOUND. WE MAY WANT TO SPECIFY ONE INSTEAD!!
 
         PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
-
-        _ambientMusicCancelToken.Cancel();
-        _ambientMusicCancelToken = new CancellationTokenSource();
-
-        Timer.Spawn(_audio.GetAudioLength(path) + _timeUntilNextAmbientTrack, () => ReplayAmbientMusic(), _ambientMusicCancelToken.Token);
     }
 
 
@@ -319,27 +329,24 @@ public sealed partial class ContentAudioSystem
         if (!_timing.IsFirstTimePredicted == true) //needed, because combat mode is predicted, and triggers 7 times otherwise.
             return;
 
-        // Without this, there's inconsistent behaviour to when combat mode toggles on/off.
-        _combatMusicCancelToken.Cancel();
-        _combatMusicCancelToken = new CancellationTokenSource();
-
         bool currentCombatState = _combatModeSystem.IsInCombatMode();
-        string faction = "";
-        if (TryComp<NpcFactionMemberComponent>(ev.Performer, out NpcFactionMemberComponent? factionComp))
-            faction = factionComp.Factions.FirstOrDefault("");
-        if (currentCombatState)
-            Timer.Spawn(_combatStartUpTime, () => SwitchCombatMusic(faction), _combatMusicCancelToken.Token);
+        if (currentCombatState) //if combat mode is being turned ON
+        {
+            _combatWindUpBool = true;
+            _combatWindUpTimer = 0;
+        }
         else
-            Timer.Spawn(_combatWindDownTime, () => SwitchCombatMusic(faction), _combatMusicCancelToken.Token);
+        {
+            _combatWindDownBool = true;
+            _combatWindDownTimer = 0;
+        }
 
     }
-    private void SwitchCombatMusic(string factionComponentString)
+    private void SwitchCombatMusic()
     {
-
-        _ambientMusicCancelToken.Cancel();
-        _ambientMusicCancelToken = new CancellationTokenSource();
-
-
+        string factionComponentString = "";
+        if (TryComp<NpcFactionMemberComponent>(_player.LocalEntity, out NpcFactionMemberComponent? factionComp))
+            factionComponentString = factionComp.Factions.FirstOrDefault("");
         bool currentCombatState = _combatModeSystem.IsInCombatMode();
 
         if (_lastCombatState == currentCombatState)
@@ -417,8 +424,6 @@ public sealed partial class ContentAudioSystem
 
             PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
 
-            Timer.Spawn(_audio.GetAudioLength(path) + _timeUntilNextAmbientTrack, () => ReplayAmbientMusic(), _ambientMusicCancelToken.Token);
-
         }
     }
 
@@ -431,12 +436,18 @@ public sealed partial class ContentAudioSystem
     private void PlayMusicTrack(string path, float volume, float fadein, bool combatMode)
     {
         _isCombatMusicPlaying = combatMode;
-        _sawmill.Debug($"NOW PLAYING: {path}" + " | COMBAT MODE: " + _isCombatMusicPlaying);
+        //_sawmill.Debug($"NOW PLAYING: {path}" + " | COMBAT MODE: " + _isCombatMusicPlaying);
 
         if (combatMode)
+        {
             volume += _volumeSliderCombat;
+            _replayAmbientMusicBool = false;
+        }
         else
+        {
             volume += _volumeSliderAmbient;
+            _replayAmbientMusicBool = true;
+        }
 
         var strim = _audio.PlayGlobal(
             path,
@@ -448,6 +459,8 @@ public sealed partial class ContentAudioSystem
 
         if (fadein != 0)
             FadeIn(_ambientMusicStream, strim.Value.Component, fadein);
+
+        _timeUntilNextAmbientTrack = (float)_audio.GetAudioLength(path).TotalSeconds;
     }
 
     private List<AmbientMusicPrototype> GetTracks()
@@ -457,7 +470,7 @@ public sealed partial class ContentAudioSystem
         bool fallback = true;
         foreach (var ambience in _proto.EnumeratePrototypes<AmbientMusicPrototype>())
         {
-            _sawmill.Debug($"logged ambient sound {ambience.ID}");
+            //_sawmill.Debug($"logged ambient sound {ambience.ID}");
             musictracks.Add(ambience);
             fallback = false;
         }
@@ -546,9 +559,6 @@ public sealed partial class ContentAudioSystem
         string path = _random.Pick(soundcol.PickFiles).ToString(); // THIS WILL PICK A RANDOM SOUND. WE MAY WANT TO SPECIFY ONE INSTEAD!!
 
         PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
-
-        Timer.Spawn(_audio.GetAudioLength(path) + _timeUntilNextAmbientTrack, () => ReplayAmbientMusic(), _ambientMusicCancelToken.Token);
-
     }
 
     private void ShutdownAmbientMusic()
@@ -575,7 +585,7 @@ public sealed partial class ContentAudioSystem
     {
         if (_ambientMusicStream == null)
         {
-            _sawmill.Debug("AMBIENT MUSIC STREAM WAS NULL? FROM OnRoundEndMessage()");
+            //_sawmill.Debug("AMBIENT MUSIC STREAM WAS NULL? FROM OnRoundEndMessage()");
             return;
         }
         // If scoreboard shows then just stop the music
@@ -585,7 +595,7 @@ public sealed partial class ContentAudioSystem
     {
         if (_ambientMusicStream == null)
         {
-            _sawmill.Debug("AMBIENT MUSIC STREAM WAS NULL? FROM DisableAmbientMusic()");
+            //_sawmill.Debug("AMBIENT MUSIC STREAM WAS NULL? FROM DisableAmbientMusic()");
             return;
         }
         FadeOut(_ambientMusicStream);
