@@ -10,6 +10,7 @@ using Robust.Client.Player;
 using Robust.Client.GameObjects;
 using Content.Client.Parallax;
 using Content.Shared.Roles;
+using Robust.Shared.Map;
 
 namespace Content.Client._Crescent.SpaceBiomes;
 
@@ -22,7 +23,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private float _updTimer;
-    private const float UpdateInterval = 5; //in seconds //
+    private const float UpdateInterval = 0.5f; // in seconds - how often the checks for this system run
 
     private bool _dropTitle = false;
     private float _titleDropTimer = 0;
@@ -30,13 +31,14 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
     private EntityUid _playerUid; //used to keep playerUid for the initial title drop
 
-    public SpaceBiomeSourceComponent? currentSource;
+    private SpaceBiomeSourceComponent? _cachedSource;
+    private EntityUid? _cachedGrid;
+    private EntityUid? _cachedMap;
 
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerSpawn);
     }
 
@@ -47,54 +49,80 @@ public sealed class SpaceBiomeSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted) //otherwise this will tick like 5x faster on client. thanks prediction
             return;
 
-        if (_dropTitle)
-        {
-            _titleDropTimer += frameTime;
-            if (_titleDropTimer > TitleDropTime)
-            {
-                _dropTitle = false;
-                var gridData = GetGridInfo(_playerUid);
-                if (gridData == null)
-                    return;
-                NewVesselEnteredMessage message = new NewVesselEnteredMessage(gridData.Value.Item1, gridData.Value.Item2, gridData.Value.Item3);
-                RaiseLocalEvent(_playerUid, ref message, true);
-            }
-        }
+        // //section purely for dropping da title of the station ur in, AFTER the biome drop
+        // if (_dropTitle)
+        // {
+        //     _titleDropTimer += frameTime;
+        //     if (_titleDropTimer > TitleDropTime)
+        //     {
+        //         _dropTitle = false;
+        //         var gridData = GetGridInfo(_playerUid);
+        //         if (gridData == null)
+        //             return;
+        //         NewVesselEnteredMessage message = new NewVesselEnteredMessage(gridData.Value.Item1, gridData.Value.Item2, gridData.Value.Item3);
+        //         RaiseLocalEvent(_playerUid, ref message, true);
+        //     }
+        // }
 
-
+        //update timer
         _updTimer += frameTime;
         if (_updTimer < UpdateInterval)
             return;
-        _updTimer = 0;
+        _updTimer -= UpdateInterval;
 
+        // 0. grab the local player ent
         if (_playerMan.LocalEntity == null) //this should never be null i thinky
             return;
 
         var localPlayerUid = _playerMan.LocalEntity.Value;
+        var xform = Transform(localPlayerUid);
+        var ourCoord = xform.Coordinates;
 
-        var playerPos = _formSys.GetWorldPosition(Transform(localPlayerUid));
-
+        // 1. grab the local grid, if any. if not, send msg signalling we entered space
+        var newGrid = xform.GridUid;
+        if (newGrid != _cachedGrid) //if true, we have changed grids since last update
+        {
+            _cachedGrid = newGrid;
+            if (newGrid == null || TerminatingOrDeleted(newGrid))
+            {
+                SpaceEnteredMessage spaceMsg = new SpaceEnteredMessage();
+                RaiseLocalEvent(localPlayerUid, ref spaceMsg, true);
+            }
+            else
+            {
+                var gridData = GetGridInfo((EntityUid)newGrid);
+                NewVesselEnteredMessage message = new NewVesselEnteredMessage(gridData.Item1, gridData.Item2, gridData.Item3);
+                RaiseLocalEvent(localPlayerUid, ref message, true);
+            }
+        }
+        // 2. grab the biome & check if its different than the cached biome from last update
         SpaceBiomeSourceComponent? newSource = null;
-
         var query = EntityQueryEnumerator<SpaceBiomeSourceComponent>();
-
         while (query.MoveNext(out var sourceUid, out var comp))
         {
-            if ((_formSys.GetWorldPosition(sourceUid) - playerPos).Length() > comp.SwapDistance)
+            var otherCoord = Transform(sourceUid).Coordinates;
+            if (!ourCoord.TryDistance(EntityManager, otherCoord, out var distance) || distance > comp.SwapDistance) //we're too far from this source, move on
                 continue;
 
-            if (newSource == null ||
+            if (newSource == null || //this whole shebang picks the highest priority source from the EQE
                     comp.Priority > newSource.Priority ||
-                    comp.Priority == newSource.Priority && comp == currentSource)
+                    comp.Priority == newSource.Priority && comp == newSource)
             {
                 newSource = comp;
             }
         }
-        if (newSource == currentSource)
-            return;
-
-        currentSource = newSource;
-        SwapBiome(localPlayerUid, newSource);
+        // 3. check the mapid and check if its different than the cached mapid from the last update
+        EntityUid? newMap = _formSys.GetMap(localPlayerUid);
+        // 4. this is the actual checking bit
+        // if the map changed then it cant be the same source from last update, so we do _cachedSource = newSource anyway.
+        if (_cachedMap != newMap || _cachedSource != newSource)
+        {
+            _cachedSource = newSource;
+            SpaceBiomePrototype biome = _protMan.Index<SpaceBiomePrototype>(_cachedSource?.Id ?? "default");
+            //note: this is where the parallax should swap. eventually.
+            SpaceBiomeSwapMessage msg = new SpaceBiomeSwapMessage(biome);
+            RaiseLocalEvent(localPlayerUid, ref msg, true);
+        }
     }
 
     /// <summary>
@@ -109,55 +137,17 @@ public sealed class SpaceBiomeSystem : EntitySystem
         _titleDropTimer = 0;
         _dropTitle = true;
     }
-
-    private void OnParentChanged(ref EntParentChangedMessage args)
+    private (string, string, string) GetGridInfo(EntityUid grid) //we feed this the grid and it gives us the music data ezpz
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
-        if (!(args.Entity == _playerMan.LocalEntity)) //so music only changes when the player swaps parent
-            return;
-
-        var gridData = GetGridInfo(args.Entity);
-        if (gridData == null)
-            return;
-
-        NewVesselEnteredMessage message = new NewVesselEnteredMessage(gridData.Value.Item1, gridData.Value.Item2, gridData.Value.Item3);
-        RaiseLocalEvent(args.Entity, ref message, true);
-    }
-
-    private void SwapBiome(EntityUid uid, SpaceBiomeSourceComponent? source)
-    {
-        EntityUid? mapUid = _formSys.GetMap(uid);
-        if (mapUid == null)
-            return;
-
-        SpaceBiomePrototype biome = _protMan.Index<SpaceBiomePrototype>(source?.Id ?? "default");
-        //note: this is where the parallax should swap. eventually. i couldnt figure out how to get it working
-
-        SpaceBiomeSwapMessage msg = new SpaceBiomeSwapMessage(biome);
-        RaiseLocalEvent(uid, ref msg, true);
-    }
-
-    private (string, string, string)? GetGridInfo(EntityUid entity)
-    {
-        if (TerminatingOrDeleted(entity))
-            return null;
-
-        var parentStation = Transform(entity).GridUid;
-
-        if (parentStation == null)
-            return null;
-
-        var name = MetaData((EntityUid)parentStation).EntityName;
+        var name = MetaData(grid).EntityName;
 
         var description = ""; //fallback for description is nothin'
-        if (TryComp<VesselInfoComponent>(parentStation, out var vesselinfo))
+        if (TryComp<VesselInfoComponent>(grid, out var vesselinfo))
             description = vesselinfo.Description;
 
         var musicPrototype = "";
 
-        if (TryComp<VesselMusicComponent>(parentStation, out var music)) //if this succeeds, we have custom music! if it fails,
+        if (TryComp<VesselMusicComponent>(grid, out var music)) //if this succeeds, we have custom music! if it fails,
             musicPrototype = music.AmbientMusicPrototype;                                   //the component is missing and we just keep ""
 
         return (name, description, musicPrototype);
