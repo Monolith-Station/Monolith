@@ -31,7 +31,7 @@ public abstract partial class SharedShipRepairSystem : EntitySystem
         if (grids.Count == 0 && ourXform.GridUid == null)
             return;
 
-        var targetGrid = ourXform.GridUid ?? grids[0];
+        var targetGrid = ourXform.GridUid == null ? grids[0] : (ourXform.GridUid.Value, Comp<MapGridComponent>(ourXform.GridUid.Value));
 
         if (TryComp<ShipRepairRestrictComponent>(targetGrid, out var restrict)
             && _whitelist.IsWhitelistFail(restrict.ToolWhitelist, ent))
