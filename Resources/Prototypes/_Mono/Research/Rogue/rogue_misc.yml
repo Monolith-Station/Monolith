@@ -95,7 +95,7 @@
 - type: technology
   id: PDVBasicBorgModule
   name: research-technology-pdv-basic-module
-  entityIcon: BorgModuleSecurity
+  entityIcon: BorgModulePDVStandardWeapon
   discipline: RogueGear
   tier: 1
   cost: 10000
@@ -108,7 +108,7 @@
 - type: technology
   id: PDVAdvancedBorgModule
   name: research-technology-pdv-advanced-module
-  entityIcon: BorgModuleSecurity
+  entityIcon: BorgModulePDVAdvancedWeapon
   discipline: RogueGear
   tier: 3
   cost: 65000
