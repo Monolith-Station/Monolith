@@ -674,6 +674,8 @@
     cost: 6 #Frontier
     delay: 8 #Frontier
     fx: EffectRCDDeconstruct8 #Frontier
+  - type: StaticPrice
+    price: 95 # This shit is decorative anyways
 
 - type: entity
   parent: BaseWallTierTwo # Mono
