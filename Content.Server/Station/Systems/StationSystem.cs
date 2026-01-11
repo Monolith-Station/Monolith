@@ -321,8 +321,6 @@ public sealed class StationSystem : EntitySystem
         {
             AddGridToStation(station, grid, null, data, name);
             // Crescent - used to add components directly to a grid from yaml
-            if (stationConfig.gridComponents is null)
-                continue;
             foreach (var (_, component) in stationConfig.gridComponents)
                 EntityManager.AddComponent(grid, component, true);
             // Crescent
