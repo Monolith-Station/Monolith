@@ -10,7 +10,7 @@
 # I want to lie, shipwrecked and comatose, drinking fresh mango juice.
 - type: pointOfInterest
   id: Bahama
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: "Bahama Mama's"
   minimumDistance: 3400
   maximumDistance: 5800

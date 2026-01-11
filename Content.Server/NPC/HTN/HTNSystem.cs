@@ -404,7 +404,11 @@ public sealed class HTNSystem : EntitySystem
 
     public void ShutdownPlan(HTNComponent component)
     {
-        DebugTools.Assert(component.Plan != null);
+        // Mono
+        if (component.Plan == null)
+            return;
+
+        // DebugTools.Assert(component.Plan != null);
         var blackboard = component.Blackboard;
 
         foreach (var task in component.Plan.Tasks)

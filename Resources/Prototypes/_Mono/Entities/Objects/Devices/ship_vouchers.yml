@@ -9,6 +9,22 @@
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpc.rsi
 
+#Ironman Voucher
+- type: entity
+  parent: BaseShipVoucher
+  id: ShipVoucherFrontierIronMan
+  name: Baeg Voucher
+  description: Allows for one free Baeg purchase from the Shipyard. Destroyed on sale.
+  components:
+  - type: Sprite
+    layers:
+    - state: blue
+  - type: ShipyardVoucher
+    vessels:
+    - Baeg
+    consoleType: Shipyard
+
+
 #Ussp
 
 - type: entity
@@ -185,25 +201,6 @@
     vendPrice: 300000
 
 # PDV
-- type: entity
-  parent: BaseShipLPC
-  id: ShipVoucherProwler
-  name: PDV prowler LPC
-  description: A small card that authorizes the procurement of a Prowler.
-  components:
-  - type: Sprite
-    layers:
-    - state: mtech
-    - state: stripepdv
-    - state: vouchermilitary
-  - type: ShipyardVoucher
-    destroyOnEmpty: true
-    consoleType: BlackMarket
-    companyName: PDV
-    vessels:
-    - Prowler
-  - type: StaticPrice
-    vendPrice: 250000
 
 - type: entity
   parent: BaseShipLPC
