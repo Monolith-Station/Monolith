@@ -69,10 +69,10 @@ public sealed partial class ContentAudioSystem
     private float _combatMusicFadeInTime = 2f;
 
     // Time that combat mode needs to be on to start playing music. Set to 0 to play immediately.
-    private float _combatMusicTimeToStart = 3; //TODO: MAKE ME A CVAR
+    private float _combatMusicTimeToStart;
 
     // Time that combat mode needs to be off to stop combat mode. Set to 0 to turn off as soon as combat mode is off.
-    private float _combatMusicTimeToEnd = 30; //TODO: MAKE ME A CVAR
+    private float _combatMusicTimeToEnd;
 
     // Combat mode state before checking to switch combat music off/on.
     // 1. We toggle combat mode. We fire SwitchCombatMusic in (timer) seconds.
@@ -148,6 +148,8 @@ public sealed partial class ContentAudioSystem
         Subs.CVar(_configManager, CCVars.AmbientMusicVolume, AmbienceCVarChanged, true);
         Subs.CVar(_configManager, MonoCVars.CombatMusicVolume, CombatCVarChanged, true);
         Subs.CVar(_configManager, MonoCVars.CombatMusicEnabled, CombatToggleChanged, true);
+        Subs.CVar(_configManager, MonoCVars.CombatMusicWindUpTime, CombatWindUpChanged, true);
+        Subs.CVar(_configManager, MonoCVars.CombatMusicWindDownTime, CombatWindDownChanged, true);
         _sawmill = IoCManager.Resolve<ILogManager>().GetSawmill("audio.ambience");
 
         // Setup tracks to pull from. Runs once.
@@ -499,6 +501,14 @@ public sealed partial class ContentAudioSystem
         {
             _audio.SetVolume(_ambientMusicStream, _musicProto.Sound.Params.Volume + _volumeSliderCombat);
         }
+    }
+    private void CombatWindUpChanged(int obj)
+    {
+        _combatMusicTimeToStart = obj;
+    }
+    private void CombatWindDownChanged(int obj)
+    {
+        _combatMusicTimeToEnd = obj;
     }
 
     private void CombatToggleChanged(bool obj)
