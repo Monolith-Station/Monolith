@@ -126,6 +126,7 @@ public sealed class SpreaderSystem : EntitySystem
             return;
 
         var spreaderGrid = EnsureComp<SpreaderGridComponent>(uid);
+        spreaderGrid.SpreadQueues.Clear();
         foreach (var key in _prototypeUpdates.Keys)
             spreaderGrid.SpreadQueues.Add(key, new());
 
