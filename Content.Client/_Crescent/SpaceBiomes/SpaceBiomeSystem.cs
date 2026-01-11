@@ -85,13 +85,12 @@ public sealed class SpaceBiomeSystem : EntitySystem
             _cachedGrid = newGrid;
             if (newGrid == null || TerminatingOrDeleted(newGrid))
             {
-                SpaceEnteredMessage spaceMsg = new SpaceEnteredMessage();
+                var spaceMsg = new PlayerParentChangedMessage(null);
                 RaiseLocalEvent(localPlayerUid, ref spaceMsg, true);
             }
             else
             {
-                var gridData = GetGridInfo((EntityUid)newGrid);
-                NewVesselEnteredMessage message = new NewVesselEnteredMessage(gridData.Item1, gridData.Item2, gridData.Item3);
+                var message = new PlayerParentChangedMessage((EntityUid)newGrid);
                 RaiseLocalEvent(localPlayerUid, ref message, true);
             }
         }
@@ -118,7 +117,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         if (_cachedMap != newMap || _cachedSource != newSource)
         {
             _cachedSource = newSource;
-            SpaceBiomePrototype biome = _protMan.Index<SpaceBiomePrototype>(_cachedSource?.Id ?? "default");
+            var biome = _protMan.Index<SpaceBiomePrototype>(_cachedSource?.Id ?? "default");
             //note: this is where the parallax should swap. eventually.
             SpaceBiomeSwapMessage msg = new SpaceBiomeSwapMessage(biome);
             RaiseLocalEvent(localPlayerUid, ref msg, true);
@@ -136,20 +135,5 @@ public sealed class SpaceBiomeSystem : EntitySystem
         _playerUid = args.Entity;
         _titleDropTimer = 0;
         _dropTitle = true;
-    }
-    private (string, string, string) GetGridInfo(EntityUid grid) //we feed this the grid and it gives us the music data ezpz
-    {
-        var name = MetaData(grid).EntityName;
-
-        var description = ""; //fallback for description is nothin'
-        if (TryComp<VesselInfoComponent>(grid, out var vesselinfo))
-            description = vesselinfo.Description;
-
-        var musicPrototype = "";
-
-        if (TryComp<VesselMusicComponent>(grid, out var music)) //if this succeeds, we have custom music! if it fails,
-            musicPrototype = music.AmbientMusicPrototype;                                   //the component is missing and we just keep ""
-
-        return (name, description, musicPrototype);
     }
 }

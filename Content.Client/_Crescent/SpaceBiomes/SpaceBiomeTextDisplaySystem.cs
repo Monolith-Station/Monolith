@@ -3,6 +3,7 @@ using Robust.Shared.Prototypes;
 using Content.Client.Audio;
 using Robust.Client.Graphics;
 using Robust.Shared.Timing;
+using Content.Shared._Crescent.Vessel;
 
 namespace Content.Client._Crescent.SpaceBiomes;
 
@@ -18,7 +19,7 @@ public sealed class SpaceTextDisplaySystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<SpaceBiomeSwapMessage>(OnSwap);
-        SubscribeLocalEvent<NewVesselEnteredMessage>(OnNewVesselEntered);
+        SubscribeLocalEvent<PlayerParentChangedMessage>(OnNewVesselEntered);
         _overlay = new();
         _overMan.AddOverlay(_overlay);
     }
@@ -38,16 +39,25 @@ public sealed class SpaceTextDisplaySystem : EntitySystem
             _overlay.CharIntervalDescription = TimeSpan.FromSeconds(2f / biome.Description.Length);      //this would throw an exception
     }
 
-    private void OnNewVesselEntered(ref NewVesselEnteredMessage ev)
+    private void OnNewVesselEntered(ref PlayerParentChangedMessage ev)
     {
+        if (ev.Grid == null) //player walked into space so we dont care
+            return;
+
+        var name = MetaData((EntityUid)ev.Grid).EntityName; //this should never be null. i hope
+        var description = ""; //fallback for description is nothin'
+        if (TryComp<VesselInfoComponent>((EntityUid)ev.Grid, out var vesselinfo))
+            description = vesselinfo.Description;
+
+
         _overlay.Reset();             //these should be reset as well to match OnSwap
         _overlay.ResetDescription();
 
         if (_overlay.Text != null) //i dont know why this is here but im not touching it
             return;
 
-        _overlay.Text = ev.Name;
-        _overlay.TextDescription = ev.Description; // fallback is "" if no description is found.
+        _overlay.Text = name;
+        _overlay.TextDescription = description; // fallback is "" if no description is found.
         _overlay.CharInterval = TimeSpan.FromSeconds(2f / _overlay.Text.Length);
 
         if (_overlay.TextDescription == "")

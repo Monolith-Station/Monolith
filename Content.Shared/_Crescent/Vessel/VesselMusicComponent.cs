@@ -1,4 +1,6 @@
+using Content.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Crescent.Vessel;
 
@@ -6,5 +8,5 @@ namespace Content.Shared._Crescent.Vessel;
 public sealed partial class VesselMusicComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public string AmbientMusicPrototype = "";
+    public ProtoId<AmbientMusicPrototype> AmbientMusicPrototype;
 }
