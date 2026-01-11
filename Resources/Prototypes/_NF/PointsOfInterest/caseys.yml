@@ -10,7 +10,7 @@
 # Down at your local saloon
 - type: pointOfInterest
   id: CaseysCasino
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: "Crazy Casey's Casino"
   minimumDistance: 4250
   maximumDistance: 5600

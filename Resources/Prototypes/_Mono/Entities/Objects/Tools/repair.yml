@@ -1,0 +1,116 @@
+- type: entity
+  name: SRD
+  parent: BaseItem
+  id: ShipRepairDeviceBase
+  description: A Ship Repair Device that can reconstruct destroyed sections of ships.
+  abstract: true
+  components:
+  - type: ShipRepairTool
+  - type: Sprite
+    scale: 0.8, 0.8
+    sprite: _Mono/Objects/Tools/repair_device_item.rsi
+    state: item
+  - type: Item
+    sprite: _Mono/Objects/Tools/repair_device.rsi
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+      Plastic: 400
+      Plasma: 200
+      Gold: 200
+  - type: StaticPrice
+    price: 10000
+    vendPrice: 15000
+  - type: Tag
+    tags:
+    - ShipRepairTool
+
+- type: entity
+  id: ShipRepairDevice
+  description: A Ship Repair Device that can reconstruct destroyed sections of ships. Holds 300 charges.
+  parent: ShipRepairDeviceBase
+  components:
+  - type: LimitedCharges
+    maxCharges: 300
+    charges: 100
+
+- type: entity
+  id: ShipRepairDeviceEmpty
+  parent: ShipRepairDevice
+  suffix: Empty
+  components:
+  - type: LimitedCharges
+    charges: 0
+
+- type: entity
+  id: ShipRepairDeviceRecharging
+  description: A Ship Repair Device that can reconstruct destroyed sections of ships. Holds 300 charges and slowly recharges.
+  parent: ShipRepairDeviceBase
+  suffix: Recharging
+  components:
+  - type: LimitedCharges
+    maxCharges: 300
+    charges: 50
+  - type: AutoRecharge
+    rechargeDuration: 5
+
+- type: entity
+  id: ShipRepairDeviceAdmin
+  parent: ShipRepairDeviceBase
+  suffix: Admin
+  components:
+  - type: ShipRepairTool
+    repairTimeMultiplier: 0
+  - type: Tag
+    tags:
+    - ShipRepairTool
+    - ADSRepairTool
+
+- type: entity
+  id: ShipRepairDeviceRedacted
+  name: pre-fracture SRD
+  description: An arcane repair device that can repair ADS ships.
+  parent: ShipRepairDeviceRecharging
+  suffix: Recharging
+  components:
+  - type: Sprite
+    scale: 0.6, 0.6
+    sprite: _Mono/Objects/Tools/repair_device_item.rsi
+    state: prefracture
+  - type: LimitedCharges
+    maxCharges: 300
+    charges: 50
+  - type: AutoRecharge
+    rechargeDuration: 3
+  - type: Tag
+    tags:
+    - ShipRepairTool
+    - ADSRepairTool
+
+- type: entity
+  name: ship repair matter
+  parent: BaseItem
+  id: ShipRepairDeviceAmmo
+  description: Ammo cartridge for a ship repair device.
+  components:
+  - type: LimitedChargesAmmo
+    charges: 100
+    whitelist:
+      tags:
+      - ShipRepairTool
+  - type: Sprite
+    sprite: _NF/Objects/Tools/rcd.rsi
+    state: ammo-shipyard
+  - type: Item
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
+  - type: StaticPrice
+    price: 2000
+    vendPrice: 8000

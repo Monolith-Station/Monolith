@@ -7,7 +7,7 @@
 # Discord: ???
 - type: pointOfInterest
   id: HeliosFortress
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'PDV Helios Fortress'
   minimumDistance: 7500
   maximumDistance: 9500
@@ -43,7 +43,7 @@
             Pirate: [ -1, -1 ]
             PdvBorg: [ 2, 2 ]
           tags:
-          - RogueCommander
+          - GrandVizier
         - type: StationDeadDropReporting
           messageSet: Pirate
         - type: StationDeadDropHintExempt

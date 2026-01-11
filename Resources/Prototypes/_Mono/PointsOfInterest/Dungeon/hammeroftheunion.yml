@@ -9,7 +9,7 @@
 # Notes: upgraded zenith as a ruin w/ tech disks
 - type: pointOfInterest
   id: HammerOfTheUnion
-  parent: BaseMobilePOI
+  parent: [BaseMobilePOI, BaseRepairablePOI]
   name: 'Hammer Of The Union'
   minimumDistance: 10000
   maximumDistance: 15000
