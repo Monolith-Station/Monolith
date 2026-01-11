@@ -353,6 +353,9 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     {
         var entPos = queued.Epicenter;
         // Mono
+        if (TerminatingOrDeleted(entPos.EntityId))
+            return null;
+
         var pos = _transformSystem.ToMapCoordinates(entPos);
         if (!_mapManager.MapExists(pos.MapId))
             return null;
