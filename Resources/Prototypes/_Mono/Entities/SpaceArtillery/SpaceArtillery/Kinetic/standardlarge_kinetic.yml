@@ -78,6 +78,9 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 150
 
 # Bofors 255mm
 
@@ -153,6 +156,9 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 150
 
 # HADES 255mm
 
@@ -234,6 +240,9 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 45
+    repairCost: 300
 
 # Longbow
 
@@ -317,3 +326,6 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 150

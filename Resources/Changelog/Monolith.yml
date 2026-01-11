@@ -15885,3 +15885,167 @@ Entries:
   id: 1762
   time: '2026-01-08T13:06:43.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2969
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Ported from Wizden: You can make pills from beaker with the Chem
+        Master!!! All credit to OnyxTheBrave.
+  id: 1763
+  time: '2026-01-08T20:18:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2971
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Added ship repair tool. You can buy it from engivend and use it to
+        repair ships to spec from basically any damage. Mind the charge usage.
+    - type: Add
+      message: Borgs now get a recharging ship repair tool in the RCD module.
+    - type: Fix
+      message: RCD should now less often refuse to work on moving ships.
+  id: 1764
+  time: '2026-01-08T20:24:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2968
+- author: tonotom1
+  changes:
+    - type: Add
+      message: The Svinya was added to the USSP shipyard to replace the Gadyuka!
+    - type: Remove
+      message: Goodnight, Gadyuka. You have served well.
+  id: 1765
+  time: '2026-01-08T20:53:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2941
+- author: thoughtlessuser
+  changes:
+    - type: Tweak
+      message: >-
+        Replaced the old Frontier Valet role with the Colossus sector service
+        worker role.
+  id: 1766
+  time: '2026-01-09T00:51:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2682
+- author: YazidDotExe
+  changes:
+    - type: Add
+      message: new militia gun called MI Lee Enfield Mk 98
+  id: 1767
+  time: '2026-01-09T00:53:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2860
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Velocity threshold for collisions was increased such that Baegs vaporize
+        at above 35m/s instead of 14m/s. This is about 2 seconds worth of
+        acceleration.
+    - type: Tweak
+      message: >-
+        Collision kinetic energy consumption increased to compensate for our
+        overall increased speeds. Ramming should still be lethal as fuck and
+        only slightly nerfed.
+  id: 1768
+  time: '2026-01-09T00:57:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2985
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Caput has been remapped.
+  id: 1769
+  time: '2026-01-09T13:56:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2994
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: Added command comms and access to the PDV.
+    - type: Add
+      message: Helios now has an AI and a dedicated civilian dock.
+    - type: Tweak
+      message: >-
+        Helios has had it's defenses and shipguns changed and nerfed, outer
+        turrets have also been replaced with standard ballistic ones.
+  id: 1770
+  time: '2026-01-09T14:12:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2992
+- author: Arcticular1
+  changes:
+    - type: Remove
+      message: Removed the prowler and sable.
+    - type: Add
+      message: Hazel is now in the Jupiter shipyard
+  id: 1771
+  time: '2026-01-09T14:21:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2990
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Drone control consoles can now autolink docked drones by altclicking the
+        console.
+    - type: Add
+      message: Drone control consoles now have a max range.
+    - type: Add
+      message: >-
+        Drone control consoles now detect from their linked drones. You can use
+        them to scout.
+    - type: Tweak
+      message: Ship AI will now target gunnery consoles.
+    - type: Fix
+      message: >-
+        Outer reach ships converted to a piloted ship will now be targeted by
+        drones.
+    - type: Fix
+      message: >-
+        Crown (the shooting outer-drone) will no longer keep firing even without
+        power.
+  id: 1772
+  time: '2026-01-09T17:56:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2943
+- author: Greenwall-Exe
+  changes:
+    - type: Add
+      message: Added Baeg Voucher to the Ironman Trait
+    - type: Remove
+      message: The 10k credits from the Ironman Trait
+  id: 1773
+  time: '2026-01-10T02:01:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3000
+- author: Ilya246
+  changes:
+    - type: Add
+      message: A new core rule has been added.
+  id: 1774
+  time: '2026-01-10T09:59:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3007
+- author: NazrinNya
+  changes:
+    - type: Remove
+      message: Protogens were removed from roundstart species option.
+    - type: Remove
+      message: Felinids were removed from roundstart species option.
+  id: 1775
+  time: '2026-01-10T13:59:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2957
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: You can now use the SRD on stations.
+  id: 1776
+  time: '2026-01-10T14:41:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3006
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Topology guidebook entry modernized
+  id: 1777
+  time: '2026-01-10T21:44:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3002
+- author: thoughtlessuser
+  changes:
+    - type: Fix
+      message: >-
+        Deletes the duplicate turret in PDV Helios locker room and runs a
+        FixGridAtmos for any missing air in the fortress.
+  id: 1778
+  time: '2026-01-10T22:52:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3005

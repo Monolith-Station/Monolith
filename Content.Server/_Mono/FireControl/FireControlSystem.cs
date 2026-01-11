@@ -382,25 +382,29 @@ public sealed partial class FireControlSystem : EntitySystem
         }
     }
 
+    public bool CanFireWeapons(EntityUid grid)
+    {
+        if (TerminatingOrDeleted(grid)
+            || HasComp<FTLComponent>(grid)
+            || HasComp<SpaceArtilleryDisabledGridComponent>(grid)
+        )
+            return false;
+
+        var gridXform = Transform(grid);
+        // Check if the weapon is an expedition
+        if (gridXform.MapUid != null && HasComp<SalvageExpeditionComponent>(gridXform.MapUid.Value))
+            return false;
+
+        return true;
+    }
+
     public void FireWeapons(EntityUid server, List<NetEntity> weapons, NetCoordinates coordinates, FireControlServerComponent? component = null)
     {
         if (!Resolve(server, ref component))
             return;
 
-        // Check if the weapon's grid is in FTL
         var grid = component.ConnectedGrid;
-        if (grid != null && TryComp<FTLComponent>((EntityUid)grid, out var ftlComp))
-            return;
-
-        // Check if the weapon's grid is pacified
-        if (grid != null && TryComp<SpaceArtilleryDisabledGridComponent>((EntityUid)grid, out var pacifiedComp))
-            return;
-
-        // Check if the weapon is an expedition
-        if (grid != null &&
-            TryComp(grid, out TransformComponent? gridXform) &&
-            gridXform.MapUid != null &&
-            HasComp<SalvageExpeditionComponent>(gridXform.MapUid.Value))
+        if (grid != null && !CanFireWeapons(grid.Value))
             return;
 
         var targetCoords = GetCoordinates(coordinates);

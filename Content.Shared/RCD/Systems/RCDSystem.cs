@@ -29,6 +29,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Robust.Shared.Audio;
 
+// Mono
+using System.Numerics;
+
 namespace Content.Shared.RCD.Systems;
 
 [Virtual]
@@ -260,7 +263,12 @@ public class RCDSystem : EntitySystem
         #endregion
 
         // Try to start the do after
-        var effect = Spawn(effectPrototype, mapGridData.Value.Location);
+        // <Mono>
+        var gridData = mapGridData.Value;
+        var effect = Spawn(effectPrototype, new EntityCoordinates(gridData.GridUid, Vector2.Zero));
+        _transform.SetParent(effect, gridData.GridUid);
+        _transform.SetLocalPositionNoLerp(effect, gridData.Position + new Vector2(0.5f, 0.5f));
+        // </Mono>
         var ev = new RCDDoAfterEvent(GetNetCoordinates(mapGridData.Value.Location), component.ConstructionDirection, component.ProtoId, cost, EntityManager.GetNetEntity(effect));
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: args.Target, used: uid)
