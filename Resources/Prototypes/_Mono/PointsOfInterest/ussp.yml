@@ -10,7 +10,7 @@
 #
 - type: pointOfInterest
   id: USSPCamelot
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'Camelot Station'
   minimumDistance: 10650
   maximumDistance: 12400

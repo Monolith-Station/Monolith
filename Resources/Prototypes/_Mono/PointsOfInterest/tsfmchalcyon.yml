@@ -12,7 +12,7 @@
 #
 - type: pointOfInterest
   id: TSFMCHalcyon
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'TSFMC Flagship Halcyon'
   minimumDistance: 2500 # Mono
   maximumDistance: 4000 # Mono
