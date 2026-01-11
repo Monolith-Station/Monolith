@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/11/2026 12:09:12
-  entityCount: 583
+  time: 01/11/2026 12:16:45
+  entityCount: 584
 maps: []
 grids:
 - 1
@@ -139,24 +139,19 @@ entities:
             270: -4,-7
         - node:
             color: '#FFFFFFFF'
-            id: BrickTileSteelCornerNe
-          decals:
-            348: -1,5
-        - node:
-            color: '#FFFFFFFF'
             id: BrickTileSteelInnerNe
           decals:
             357: -2,5
         - node:
             color: '#FFFFFFFF'
-            id: BrickTileSteelLineE
+            id: BrickTileSteelInnerSw
           decals:
-            355: -2,6
+            369: -1,6
         - node:
-            color: '#FFFFFFFF'
-            id: BrickTileSteelLineW
+            color: '#355A7396'
+            id: BrickTileWhiteCornerSe
           decals:
-            345: -1,6
+            363: -1,5
         - node:
             color: '#355A7396'
             id: BrickTileWhiteCornerSw
@@ -170,13 +165,16 @@ entities:
             298: -2,-2
         - node:
             color: '#355A7396'
+            id: BrickTileWhiteInnerNw
+          decals:
+            367: -1,5
+        - node:
+            color: '#355A7396'
             id: BrickTileWhiteInnerSe
           decals:
             285: -2,0
-            350: -1,5
-            351: -1,5
-            352: -1,5
             358: -2,5
+            368: -2,6
         - node:
             color: '#355A7396'
             id: BrickTileWhiteLineE
@@ -186,6 +184,7 @@ entities:
             301: -2,-1
             324: -2,4
             325: -2,3
+            364: -1,6
         - node:
             color: '#355A7396'
             id: BrickTileWhiteLineN
@@ -193,11 +192,6 @@ entities:
             289: -1,-2
             290: 0,-2
             291: 1,-2
-        - node:
-            color: '#355A7396'
-            id: BrickTileWhiteLineS
-          decals:
-            349: -1,5
         - node:
             color: '#EFB34196'
             id: Delivery
@@ -319,7 +313,7 @@ entities:
             id: TrimlineNorth
           decals:
             251: -1,-7
-            347: -1,6
+            362: -1,6
         - node:
             color: '#355A7396'
             id: TrimlineNorthEastCorner
@@ -329,8 +323,7 @@ entities:
             color: '#355A7396'
             id: TrimlineNorthWest
           decals:
-            346: -2,6
-            359: -2,6
+            361: -2,6
         - node:
             color: '#355A7396'
             id: TrimlineSouthEastCorner
@@ -401,8 +394,8 @@ entities:
             color: '#FFFFFFFF'
             id: WoodTrimThinLineE
           decals:
-            353: -1,6
-            354: -1,5
+            365: -1,5
+            366: -1,6
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinLineN
@@ -620,6 +613,18 @@ entities:
       - 324
       - 259
       - 20
+  - uid: 367
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,5.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 17
+      - 331
+      - 326
+      - 259
 - proto: AirlockExternalGlassNfsdLocked
   entities:
   - uid: 6
@@ -688,8 +693,8 @@ entities:
       pos: 0.5,6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      deviceLists:
+      - 367
       address: SNS-4747-24BE
       transmitFrequency: 1621
       receiveFrequency: 1621
@@ -2321,6 +2326,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 5
+      - 367
   - uid: 261
     components:
     - type: Transform
@@ -2393,7 +2399,7 @@ entities:
       - 4
 - proto: FloorDrain
   entities:
-  - uid: 260
+  - uid: 269
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -2986,8 +2992,8 @@ entities:
     - type: AtmosPipeColor
       color: '#0055CCFF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      deviceLists:
+      - 367
     - type: GasVentPump
       manualLockoutReenabledAt: 20992.9505119
     - type: AtmosPipeLayers
@@ -3054,8 +3060,8 @@ entities:
     - type: AtmosPipeColor
       color: '#990000FF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      deviceLists:
+      - 367
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
 - proto: GravityGeneratorMini
@@ -3370,6 +3376,12 @@ entities:
       parent: 1
 - proto: PoweredlightBlue
   entities:
+  - uid: 226
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,2.5
+      parent: 1
   - uid: 227
     components:
     - type: Transform
@@ -3381,12 +3393,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,-8.5
-      parent: 1
-  - uid: 364
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,3.5
       parent: 1
 - proto: PoweredlightGreen
   entities:
@@ -3441,15 +3447,13 @@ entities:
     - type: Transform
       pos: -7.5,-7.5
       parent: 1
-- proto: PoweredSmallLight
+- proto: PoweredWarmSmallLight
   entities:
-  - uid: 226
+  - uid: 260
     components:
     - type: Transform
       pos: -0.5,6.5
       parent: 1
-- proto: PoweredWarmSmallLight
-  entities:
   - uid: 362
     components:
     - type: Transform
@@ -3664,17 +3668,11 @@ entities:
       parent: 1
 - proto: WallPlastitanium
   entities:
-  - uid: 269
+  - uid: 364
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,5.5
-      parent: 1
-  - uid: 367
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,6.5
       parent: 1
   - uid: 399
     components:
@@ -3793,7 +3791,7 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 1.5,4.5
+      pos: 1.5,6.5
       parent: 1
   - uid: 430
     components:
@@ -3837,40 +3835,40 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -2.5,5.5
+      pos: 1.5,4.5
       parent: 1
   - uid: 438
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -2.5,6.5
+      pos: -2.5,5.5
       parent: 1
   - uid: 439
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -2.5,3.5
+      pos: -2.5,6.5
       parent: 1
   - uid: 443
     components:
     - type: Transform
-      pos: 0.5,7.5
+      rot: -1.5707963267948966 rad
+      pos: -2.5,3.5
       parent: 1
   - uid: 451
     components:
     - type: Transform
-      pos: -0.5,7.5
+      pos: 0.5,7.5
       parent: 1
   - uid: 458
     components:
     - type: Transform
-      pos: -1.5,7.5
+      pos: -0.5,7.5
       parent: 1
   - uid: 462
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -2.5,4.5
+      pos: -1.5,7.5
       parent: 1
   - uid: 475
     components:
@@ -3878,6 +3876,12 @@ entities:
       pos: -2.5,7.5
       parent: 1
   - uid: 477
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,4.5
+      parent: 1
+  - uid: 480
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
