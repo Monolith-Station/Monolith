@@ -20,7 +20,7 @@
   components:
   - type: SpaceBiomeSource
     id: default
-    swapDistance: 25000
+    swapDistance: null #infinite
     priority: 500
 
 - type: entity

@@ -14,7 +14,7 @@ public sealed partial class SpaceBiomeSourceComponent : Component
     /// Since system is updated once in several seconds it may happen significantly later, so set this to atleast 100-150m
     /// </summary>
     [DataField(required: true)]
-    public float SwapDistance;
+    public float? SwapDistance; // if null - infinite swap distance
 
     /// <summary>
     /// If multiple biomes are overlapping, biome with the highest priority is applied

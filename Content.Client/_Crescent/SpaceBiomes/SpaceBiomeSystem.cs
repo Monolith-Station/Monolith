@@ -100,7 +100,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         while (query.MoveNext(out var sourceUid, out var comp))
         {
             var otherCoord = Transform(sourceUid).Coordinates;
-            if (!ourCoord.TryDistance(EntityManager, otherCoord, out var distance) || distance > comp.SwapDistance) //we're too far from this source, move on
+            if (!ourCoord.TryDistance(EntityManager, otherCoord, out var distance) || distance > (comp.SwapDistance ?? float.MaxValue)) //we're too far from this source, move on
                 continue;
 
             if (newSource == null || //this whole shebang picks the highest priority source from the EQE

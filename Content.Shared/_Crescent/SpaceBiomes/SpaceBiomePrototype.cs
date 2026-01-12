@@ -13,11 +13,4 @@ public sealed class SpaceBiomePrototype : IPrototype
 
     [DataField(required: false)]
     public string Description = "";
-
-    /// <summary>
-    /// Time of interpolation between current parallax and a new one in seconds
-    /// Does not include time to load new parallax textures
-    /// </summary>
-    [DataField(required: true)]
-    public int SwapDuration;
 }
