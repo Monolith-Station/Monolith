@@ -457,8 +457,10 @@
     maxCharge: 50000
     startingCharge: 50000
   - type: BatterySelfRecharger
+    autoRechargePause: true
+    autoRechargePauseTime: 45
     autoRecharge: true
-    autoRechargeRate: 800
+    autoRechargeRate: 50000
   - type: FireControlRotate
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
@@ -547,7 +549,7 @@
           bounds: "-0.75,-0.75,0.75,0.75"
         density: 1500
   - type: Gun
-    projectileSpeed: 70
+    projectileSpeed: 170
     fireRate: 13
     recoil: 0
     minAngle: 0
