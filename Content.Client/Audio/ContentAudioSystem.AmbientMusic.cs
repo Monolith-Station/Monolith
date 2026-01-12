@@ -229,7 +229,6 @@ public sealed partial class ContentAudioSystem
     private void SetMusic(EntityUid? newGrid, ProtoId<SpaceBiomePrototype>? newBiome, bool newCombatState)
     {
         Log.Info("SETMUSIC: - GRID: " + newGrid.ToString() + " BIOME: " + newBiome.ToString() + " COMBAT: " + newCombatState.ToString());
-        bool passPriorityToNext = false; // if we need to cache data but let the next priority level down still run, set this to true.
         // priority list:
         // 1. (not implemented yet :godo:) ship combat music
         // 2. combat music
@@ -243,10 +242,9 @@ public sealed partial class ContentAudioSystem
             Log.Info("REACHED COMBAT MUSIC - newCombatState: " + newCombatState.ToString());
             _lastCombatState = newCombatState;
 
-            // 2.2 figure out if we turn combat music ON or OFF
             if (newCombatState) //true = we toggled combat ON.
             {
-                // 2.3a figure out the faction we should play combat music for
+                // figure out the faction we should play combat music for
                 string factionComponentString = "";
                 if (TryComp<NpcFactionMemberComponent>(_player.LocalEntity, out NpcFactionMemberComponent? factionComp))
                     factionComponentString = factionComp.Factions.FirstOrDefault("");
@@ -264,7 +262,7 @@ public sealed partial class ContentAudioSystem
                         break;
                 }
 
-                // 2.4aif we find a ambient music prototype for our faction, then pick that one!
+                // if we find a ambient music prototype for our faction, then pick that one!
                 if (_proto.TryIndex<AmbientMusicPrototype>("combatmode" + combatFactionSuffix, out var factionCombatMusicPrototype))
                 {
                     _musicProto = factionCombatMusicPrototype;
@@ -275,7 +273,7 @@ public sealed partial class ContentAudioSystem
                     PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _combatMusicFadeInTime, true);
                     return;
                 }
-                else // 2.5a if the faction combat music prototype does not exist, instead fall back to the default.
+                else // if the faction combat music prototype does not exist, instead fall back to the default.
                 {
                     _musicProto = _proto.Index<AmbientMusicPrototype>("combatmodedefault");
                     SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
@@ -286,89 +284,93 @@ public sealed partial class ContentAudioSystem
                     return;
                 }
             }
-            //false = we toggled combat OFF, therefore we should play music from our other data we have. easiest way is to just let them run with the pass bool.
-            else //2.1b
-                passPriorityToNext = true;
+            else
+            {
+                //false = we toggled combat OFF, therefore we should play music from our other data we have in this current request.
+                // the easiest way to do this is to set lastgrid & lastbiome to null.
+                _lastBiome = null;
+                _lastGrid = null;
+            }
         }
         #endregion
 
         if (newCombatState) //if we are in combatmode, we still want to cache info, but we want to return here so that we dont stop playing combatmode music
         {
+            Log.Info("MUSIC CHANGE REQUESTED WHILE COMBATMODE IS ACTIVE - CACHE AND RETURN");
             _lastGrid = newGrid;
             _lastBiome = newBiome;
             return;
         }
 
         #region grid music
-        if (newGrid != _lastGrid || passPriorityToNext == true)
+
+        if (newGrid != null) //if newGrid is null, we just pass onto biome code below
         {
-            Log.Info("REACHED GRID MUSIC - newGrid: " + newGrid.ToString() + " PASSPRIO: " + passPriorityToNext.ToString());
-            passPriorityToNext = false;
-            // issue: if you go into space and walk back onto a grid that has no biome music, it'll replay the biome music. this sucks, so,
-            if (newGrid == null) //if we just moved onto space, we should play biome music. pass priority to next.
+            Log.Info("REACHED GRID, GRID IS NOT NULL");
+            // if (newGrid == _lastGrid) //if the new grid is null, and it is the same as the grid from before, cache biome but return. edge case: ship with music changes biomes, want to keep ship music
+            // {
+            //     Log.Info("GRID IS THE SAME AS LAST GRID. LOG CACHE AND DO NOTHING");
+            // }
+            if (TryComp<VesselMusicComponent>(newGrid, out var music)) //case 1: vessel did have music
             {
-                passPriorityToNext = true;
+                Log.Info("GRID IS NOT THE SAME AS LAST GRID - PCACHE AND PLAY GRID MUSIC");
+                _lastGrid = newGrid; //need to set this here cuz it returns right after
+                _lastBiome = newBiome;
+                _musicProto = _proto.Index<AmbientMusicPrototype>(music.AmbientMusicPrototype);
+                SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
+                string path = _random.Pick(soundcol.PickFiles).ToString();
+                PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
+                return;
             }
-            else //if we just moved onto a grid, get the vesselmusic comp and play that music.
-            {
-                if (TryComp<VesselMusicComponent>(newGrid, out var music)) //case 1: vessel did have music
-                {
-                    _lastGrid = newGrid; //need to set this here cuz it returns right after
-                    _musicProto = _proto.Index<AmbientMusicPrototype>(music.AmbientMusicPrototype);
-                    SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
-                    string path = _random.Pick(soundcol.PickFiles).ToString();
-                    PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
-                    return;
-                }
-                else //case 2: vessel did not have music.
-                {
-                    if (_lastGrid == null) //if our last grid was null (empty space), it'd replay biome music if we let it continue, so...
-                    {
-                        return; //...just don't do anything music wise!
-                    }
-                    else
-                        passPriorityToNext = true; // otherwise, if we're moving from musical grid to boring grid, let the biome music take over.
-                }
-            }
+        }
+        else //if newgrid is null - we should log it and let the biome music section play
+        {
             _lastGrid = newGrid;
         }
         #endregion
         #region biome music
-        if (newBiome != _lastBiome || passPriorityToNext)
+
+        if (newBiome != null) //if newBiome is null, we go to fallback
         {
-            Log.Info("REACHED BIOME MUSIC - newBiome: " + newBiome.ToString() + " PASSPRIO: " + passPriorityToNext.ToString());
-            _lastBiome = newBiome; // free to set this here instead of at the end because we don't return
+            Log.Info("REACHED BIOME - BIOME IS NOT NULL");
+            _lastBiome = newBiome; // update cache
 
             if (_musicTracks == null) // if this is null we have way bigger issues
                 return;
 
             _musicProto = null;
-
-            if (newBiome == null) // if we have no biome in range anymore, we should play the fallback track
+            foreach (var ambient in _musicTracks)
             {
-                _musicProto = _proto.Index<AmbientMusicPrototype>("default");
-            }
-            else // if we do have a biome, which should always be the case
-            {
-                foreach (var ambient in _musicTracks)
+                if (newBiome.Value.Id == ambient.ID) //if we find the biome that's matching an ambientMusic prototype's ID, we play that set.
                 {
-                    if (newBiome.Value.Id == ambient.ID) //if we find the biome that's matching an ambientMusic prototype's ID, we play that set.
-                    {
-                        _musicProto = ambient;
-                        break;
-                    }
+                    _musicProto = ambient;
+                    break;
                 }
             }
-            if (_musicProto == null) //if we don't find any biome matching an ambient music set in _musicTracks, we play the default track.
+            if (_musicProto == null) //if we don't find any ambient music matching our current biome in _musicTracks, we play the fallback track.
             {
+                Log.Info("BIOME - MUSICPROTO IS NULL, WE FOUND NO BIOME MUSIC. PLAY FALLBACK");
                 _musicProto = _proto.Index<AmbientMusicPrototype>("default");
             }
 
             SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
 
-            string path = _random.Pick(soundcol.PickFiles).ToString(); // THIS WILL PICK A RANDOM SOUND. WE MAY WANT TO SPECIFY ONE INSTEAD!!
+            string path = _random.Pick(soundcol.PickFiles).ToString();
+
+            Log.Info("PLAYING BIOME MUSIC");
+            PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
+            return;
+        }
+        else // (newBiome == null) if we have no biome in range anymore, we should play the fallback track
+        {
+            _lastBiome = newBiome;
+            _musicProto = _proto.Index<AmbientMusicPrototype>("default");
+            SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
+
+            string path = _random.Pick(soundcol.PickFiles).ToString();
 
             PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
+            return;
         }
         #endregion
 
