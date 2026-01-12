@@ -458,7 +458,7 @@
     startingCharge: 50000
   - type: BatterySelfRecharger
     autoRechargePause: true
-    autoRechargePauseTime: 45
+    autoRechargePauseTime: 30
     autoRecharge: true
     autoRechargeRate: 50000
   - type: FireControlRotate
@@ -479,7 +479,7 @@
     shipClass: Heavy
   - type: HitscanBatteryAmmoProvider
     proto: ApolloLaser
-    fireCost: 250
+    fireCost: 150
   - type: Destructible
     thresholds:
     - trigger:
