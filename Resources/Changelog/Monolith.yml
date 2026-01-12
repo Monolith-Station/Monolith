@@ -16049,3 +16049,99 @@ Entries:
   id: 1778
   time: '2026-01-10T22:52:14.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3005
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: SRDs should now be better at identifying the grid you want to repair.
+  id: 1779
+  time: '2026-01-11T19:49:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3014
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed a few bugs with kudzu.
+  id: 1780
+  time: '2026-01-11T19:50:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3012
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Made more things repairable via SRD.
+    - type: Fix
+      message: Diagonal walls are now repairable via SRD.
+  id: 1781
+  time: '2026-01-11T19:52:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3009
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed being able to spoof unknown ship names by filtering ship IFF in
+        navigation console.
+  id: 1782
+  time: '2026-01-11T19:53:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3018
+- author: NazrinNya
+  changes:
+    - type: Remove
+      message: Lizard scream got removed, hopefully.
+    - type: Tweak
+      message: >-
+        Lizard laugh got replaced with better alternative to match other lizard
+        emotes.
+  id: 1783
+  time: '2026-01-11T22:08:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3020
+- author: tonotom1
+  changes:
+    - type: Add
+      message: >-
+        Adds SRD and its ammo to research, in Advanced Tools. Print it from
+        protolathe and engifab.
+    - type: Add
+      message: Adds SRD and its ammo to scrap processor gacha. Enjoy your gamble.
+    - type: Add
+      message: >-
+        Adds SRD ammo production to scrap processor. This requires no science
+        but is extremely inefficient compared to what it would have costed if
+        materials were printed for the research recipe instead.
+  id: 1784
+  time: '2026-01-11T22:09:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3019
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Hopefully fixed all ship projectile tunneling.
+  id: 1785
+  time: '2026-01-12T13:25:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3016
+- author: tsunameme
+  changes: []
+  id: 1786
+  time: '2026-01-12T13:26:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2997
+- author: Helicaste
+  changes:
+    - type: Add
+      message: >-
+        New guidebook pages for S1, S2, and S4 mechs exist. Read them if you're
+        a nerd.
+  id: 1787
+  time: '2026-01-12T13:33:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3015
+- author: Greenwall-Exe
+  changes:
+    - type: Add
+      message: Hardlight Shield
+  id: 1788
+  time: '2026-01-12T20:48:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2945
+- author: Honestly101
+  changes:
+    - type: Add
+      message: Added damage slowdown thresholds to faction cyborgs
+    - type: Tweak
+      message: Faction cyborg health/resistance buffs.
+  id: 1789
+  time: '2026-01-12T21:32:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3004
