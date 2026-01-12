@@ -204,17 +204,20 @@ public sealed partial class ContentAudioSystem
             return;
         if (!_timing.IsFirstTimePredicted == true) //needed, because combat mode is predicted, and triggers 7 times otherwise.
             return;
-
         bool currentCombatState = _combatModeSystem.IsInCombatMode();
         if (currentCombatState) //if combat mode is being turned ON
         {
             _combatWindUpBool = true;
             _combatWindUpTimer = 0;
+            _combatWindDownBool = false;
+            _combatWindDownTimer = 0;
         }
-        else
+        else //if combat mode is being turned OFF
         {
             _combatWindDownBool = true;
             _combatWindDownTimer = 0;
+            _combatWindUpBool = false;
+            _combatWindUpTimer = 0;
         }
 
     }
