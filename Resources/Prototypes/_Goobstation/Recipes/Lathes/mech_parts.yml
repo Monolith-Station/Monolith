@@ -65,6 +65,24 @@
     Silver: 1500
 
 - type: latheRecipe
+  id: DurandHarnessTSF
+  result: DurandHarnessTSF
+  completetime: 10
+  materials:
+    Steel: 2500
+    Glass: 2000
+    Silver: 1500
+
+- type: latheRecipe
+  id: DurandHarnessPDV
+  result: DurandHarnessPDV
+  completetime: 10
+  materials:
+    Steel: 2500
+    Glass: 2000
+    Silver: 1500
+
+- type: latheRecipe
   id: DurandArmor
   result: DurandArmorPlate
   completetime: 10
@@ -118,6 +136,22 @@
 - type: latheRecipe
   id: GygaxHarness
   result: GygaxHarness
+  completetime: 10
+  materials:
+    Steel: 2500
+    Glass: 2000
+
+- type: latheRecipe
+  id: GygaxHarnessTSF
+  result: GygaxHarnessTSF
+  completetime: 10
+  materials:
+    Steel: 2500
+    Glass: 2000
+
+- type: latheRecipe
+  id: GygaxHarnessPDV
+  result: GygaxHarnessPDV
   completetime: 10
   materials:
     Steel: 2500

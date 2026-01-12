@@ -269,6 +269,96 @@
     noRot: true
 
 - type: entity
+  parent: BaseDurandPart
+  id: DurandHarnessTSF
+  name: tsf durand harness
+  description: The core of the Durand.
+  components:
+  - type: Appearance
+  - type: ItemMapper
+    mapLayers:
+      durand_head+o:
+        whitelist:
+          tags:
+          - DurandHead
+      durand_l_arm+o:
+        whitelist:
+          tags:
+          - DurandLArm
+      durand_r_arm+o:
+        whitelist:
+          tags:
+          - DurandRArm
+      durand_l_leg+o:
+        whitelist:
+          tags:
+          - DurandLLeg
+      durand_r_leg+o:
+        whitelist:
+          tags:
+          - DurandRLeg
+    sprite: _Goobstation/Objects/Specific/Mech/durand_construction.rsi
+  - type: ContainerContainer
+    containers:
+      mech-assembly-container: !type:Container
+  - type: MechAssembly
+    finishedPrototype: DurandChassisTSF
+    requiredParts:
+      DurandHead: false
+      DurandLArm: false
+      DurandRArm: false
+      DurandLLeg: false
+      DurandRLeg: false
+  - type: Sprite
+    state: durand_harness+o
+    noRot: true
+
+- type: entity
+  parent: BaseDurandPart
+  id: DurandHarnessPDV
+  name: pdv durand harness
+  description: The core of the Durand.
+  components:
+  - type: Appearance
+  - type: ItemMapper
+    mapLayers:
+      durand_head+o:
+        whitelist:
+          tags:
+          - DurandHead
+      durand_l_arm+o:
+        whitelist:
+          tags:
+          - DurandLArm
+      durand_r_arm+o:
+        whitelist:
+          tags:
+          - DurandRArm
+      durand_l_leg+o:
+        whitelist:
+          tags:
+          - DurandLLeg
+      durand_r_leg+o:
+        whitelist:
+          tags:
+          - DurandRLeg
+    sprite: _Goobstation/Objects/Specific/Mech/durand_construction.rsi
+  - type: ContainerContainer
+    containers:
+      mech-assembly-container: !type:Container
+  - type: MechAssembly
+    finishedPrototype: DurandChassisPDV
+    requiredParts:
+      DurandHead: false
+      DurandLArm: false
+      DurandRArm: false
+      DurandLLeg: false
+      DurandRLeg: false
+  - type: Sprite
+    state: durand_harness+o
+    noRot: true
+
+- type: entity
   parent: BaseDurandPartItem
   id: DurandHead
   name: durand head
@@ -348,6 +438,46 @@
     node: start
     defaultTarget: durand
 
+- type: entity
+  id: DurandChassisTSF
+  parent: BaseDurandPart
+  name: tsf durand chassis
+  description: An in-progress construction of the Durand mech.
+  components:
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      battery-container: !type:Container
+  - type: MechAssemblyVisuals
+    statePrefix: durand
+  - type: Sprite
+    noRot: true
+    state: durand0
+  - type: Construction
+    graph: TsfDurand
+    node: start
+    defaultTarget: durand
+
+- type: entity
+  id: DurandChassisPDV
+  parent: BaseDurandPart
+  name: pdv durand chassis
+  description: An in-progress construction of the Durand mech.
+  components:
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      battery-container: !type:Container
+  - type: MechAssemblyVisuals
+    statePrefix: durand
+  - type: Sprite
+    noRot: true
+    state: durand0
+  - type: Construction
+    graph: PdvDurand
+    node: start
+    defaultTarget: durand
+
 # Gygax
 
 - type: entity
@@ -403,6 +533,96 @@
       mech-assembly-container: !type:Container
   - type: MechAssembly
     finishedPrototype: GygaxChassis
+    requiredParts:
+      GygaxHead: false
+      GygaxLArm: false
+      GygaxRArm: false
+      GygaxLLeg: false
+      GygaxRLeg: false
+  - type: Sprite
+    state: gygax_harness+o
+    noRot: true
+
+- type: entity
+  parent: BaseGygaxPart
+  id: GygaxHarnessTSF
+  name: tsf gygax harness
+  description: The core of the Gygax.
+  components:
+  - type: Appearance
+  - type: ItemMapper
+    mapLayers:
+      gygax_head+o:
+        whitelist:
+          tags:
+          - GygaxHead
+      gygax_l_arm+o:
+        whitelist:
+          tags:
+          - GygaxLArm
+      gygax_r_arm+o:
+        whitelist:
+          tags:
+          - GygaxRArm
+      gygax_l_leg+o:
+        whitelist:
+          tags:
+          - GygaxLLeg
+      gygax_r_leg+o:
+        whitelist:
+          tags:
+          - GygaxRLeg
+    sprite: _Goobstation/Objects/Specific/Mech/gygax_construction.rsi
+  - type: ContainerContainer
+    containers:
+      mech-assembly-container: !type:Container
+  - type: MechAssembly
+    finishedPrototype: GygaxChassisTSF
+    requiredParts:
+      GygaxHead: false
+      GygaxLArm: false
+      GygaxRArm: false
+      GygaxLLeg: false
+      GygaxRLeg: false
+  - type: Sprite
+    state: gygax_harness+o
+    noRot: true
+
+- type: entity
+  parent: BaseGygaxPart
+  id: GygaxHarnessPDV
+  name: pdv gygax harness
+  description: The core of the Gygax.
+  components:
+  - type: Appearance
+  - type: ItemMapper
+    mapLayers:
+      gygax_head+o:
+        whitelist:
+          tags:
+          - GygaxHead
+      gygax_l_arm+o:
+        whitelist:
+          tags:
+          - GygaxLArm
+      gygax_r_arm+o:
+        whitelist:
+          tags:
+          - GygaxRArm
+      gygax_l_leg+o:
+        whitelist:
+          tags:
+          - GygaxLLeg
+      gygax_r_leg+o:
+        whitelist:
+          tags:
+          - GygaxRLeg
+    sprite: _Goobstation/Objects/Specific/Mech/gygax_construction.rsi
+  - type: ContainerContainer
+    containers:
+      mech-assembly-container: !type:Container
+  - type: MechAssembly
+    finishedPrototype: GygaxChassisPDV
     requiredParts:
       GygaxHead: false
       GygaxLArm: false
@@ -490,5 +710,45 @@
     state: gygax0
   - type: Construction
     graph: Gygax
+    node: start
+    defaultTarget: gygax
+
+- type: entity
+  id: GygaxChassisTSF
+  parent: BaseGygaxPart
+  name: tsf gygax chassis
+  description: An in-progress construction of the Gygax mech.
+  components:
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      battery-container: !type:Container
+  - type: MechAssemblyVisuals
+    statePrefix: gygax
+  - type: Sprite
+    noRot: true
+    state: gygax0
+  - type: Construction
+    graph: TsfGygax
+    node: start
+    defaultTarget: gygax
+
+- type: entity
+  id: GygaxChassisPDV
+  parent: BaseGygaxPart
+  name: pdv gygax chassis
+  description: An in-progress construction of the Gygax mech.
+  components:
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      battery-container: !type:Container
+  - type: MechAssemblyVisuals
+    statePrefix: gygax
+  - type: Sprite
+    noRot: true
+    state: gygax0
+  - type: Construction
+    graph: PdvGygax
     node: start
     defaultTarget: gygax

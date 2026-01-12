@@ -12,6 +12,30 @@
     Plastic: 2000
 
 - type: latheRecipe
+  id: BroadswordHarnessTSF
+  result: BroadswordHarnessTSF
+  categories:
+  - S2Mechs
+  completetime: 25
+  materials:
+    Steel: 7000
+    Glass: 3000
+    Plasteel: 3000
+    Plastic: 2000
+
+- type: latheRecipe
+  id: BroadswordHarnessPDV
+  result: BroadswordHarnessPDV
+  categories:
+  - S2Mechs
+  completetime: 25
+  materials:
+    Steel: 7000
+    Glass: 3000
+    Plasteel: 3000
+    Plastic: 2000
+
+- type: latheRecipe
   id: BroadswordHead
   result: BroadswordHead
   categories:
@@ -81,8 +105,56 @@
     Plastic: 2000
 
 - type: latheRecipe
+  id: HalberdHarnessTSF
+  result: HalberdHarnessTSF
+  categories:
+  - S2Mechs
+  completetime: 25
+  materials:
+    Steel: 7000
+    Glass: 3000
+    Plasteel: 3000
+    Plastic: 2000
+
+- type: latheRecipe
+  id: HalberdHarnessPDV
+  result: HalberdHarnessPDV
+  categories:
+  - S2Mechs
+  completetime: 25
+  materials:
+    Steel: 7000
+    Glass: 3000
+    Plasteel: 3000
+    Plastic: 2000
+
+- type: latheRecipe
   id: SabreHarness
   result: SabreHarness
+  categories:
+  - S2Mechs
+  completetime: 25
+  materials:
+    Steel: 7000
+    Glass: 3000
+    Plasteel: 3000
+    Plastic: 2000
+
+- type: latheRecipe
+  id: SabreHarnessTSF
+  result: SabreHarnessTSF
+  categories:
+  - S2Mechs
+  completetime: 25
+  materials:
+    Steel: 7000
+    Glass: 3000
+    Plasteel: 3000
+    Plastic: 2000
+
+- type: latheRecipe
+  id: SabreHarnessPDV
+  result: SabreHarnessPDV
   categories:
   - S2Mechs
   completetime: 25
@@ -96,6 +168,30 @@
 - type: latheRecipe
   id: FlailHarness
   result: FlailHarness
+  categories:
+  - S4Mechs
+  completetime: 40
+  materials:
+    Steel: 12000
+    Glass: 3000
+    Plasteel: 3000
+    Plastic: 3000
+
+- type: latheRecipe
+  id: FlailHarnessTSF
+  result: FlailHarnessTSF
+  categories:
+  - S4Mechs
+  completetime: 40
+  materials:
+    Steel: 12000
+    Glass: 3000
+    Plasteel: 3000
+    Plastic: 3000
+
+- type: latheRecipe
+  id: FlailHarnessPDV
+  result: FlailHarnessPDV
   categories:
   - S4Mechs
   completetime: 40
@@ -176,8 +272,58 @@
     Diamond: 100
 
 - type: latheRecipe
+  id: SpyglassHarnessTSF
+  result: SpyglassHarnessTSF
+  categories:
+  - S4Mechs
+  completetime: 40
+  materials:
+    Steel: 12000
+    Glass: 3000
+    Plasteel: 3000
+    Plastic: 3000
+    Diamond: 100
+
+- type: latheRecipe
+  id: SpyglassHarnessPDV
+  result: SpyglassHarnessPDV
+  categories:
+  - S4Mechs
+  completetime: 40
+  materials:
+    Steel: 12000
+    Glass: 3000
+    Plasteel: 3000
+    Plastic: 3000
+    Diamond: 100
+
+- type: latheRecipe
   id: MaceHarness
   result: MaceHarness
+  categories:
+  - S4Mechs
+  completetime: 40
+  materials:
+    Steel: 12000
+    Glass: 3000
+    Plasteel: 1500
+    Plastic: 3000
+
+- type: latheRecipe
+  id: MaceHarnessTSF
+  result: MaceHarnessTSF
+  categories:
+  - S4Mechs
+  completetime: 40
+  materials:
+    Steel: 12000
+    Glass: 3000
+    Plasteel: 1500
+    Plastic: 3000
+
+- type: latheRecipe
+  id: MaceHarnessPDV
+  result: MaceHarnessPDV
   categories:
   - S4Mechs
   completetime: 40

@@ -11,6 +11,8 @@
   id: DurandMechParts
   recipes:
   - DurandHarness
+  - DurandHarnessTSF
+  - DurandHarnessPDV
   - DurandArmor
   - DurandHead
   - DurandLArm
@@ -22,6 +24,8 @@
   id: GygaxMechParts
   recipes:
   - GygaxHarness
+  - GygaxHarnessTSF
+  - GygaxHarnessPDV
   - GygaxArmor
   - GygaxHead
   - GygaxLArm
@@ -74,27 +78,40 @@
   - WeaponMechCombatDisabler
   - WeaponMechCombatFlashbangLauncher
   - WeaponMechCombatMissileRack8
+  - WeaponMechChainSword
 
 #Space Mecha stuff
 - type: latheRecipePack
   id: S2Mechs
   recipes:
   - BroadswordHarness
+  - BroadswordHarnessPDV
+  - BroadswordHarnessTSF
   - BroadswordHead
   - BroadswordLArm
   - BroadswordLLeg
   - BroadswordRArm
   - BroadswordRLeg
   - HalberdHarness
+  - HalberdHarnessPDV
+  - HalberdHarnessTSF
   - SabreHarness
+  - SabreHarnessPDV
+  - SabreHarnessTSF
   - FlailHarness
+  - FlailHarnessPDV
+  - FlailHarnessTSF
   - FlailHead
   - FlailLArm
   - FlailRArm
   - FlailLLeg
   - FlailRLeg
   - SpyglassHarness
+  - SpyglassHarnessPDV
+  - SpyglassHarnessTSF
   - MaceHarness
+  - MaceHarnessTSF
+  - MaceHarnessPDV
   - PowerCageMech
 
 - type: latheRecipePack
