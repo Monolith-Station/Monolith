@@ -19,17 +19,10 @@ public sealed class SpaceBiomeSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly IPrototypeManager _protMan = default!;
     [Dependency] private readonly TransformSystem _formSys = default!;
-    [Dependency] private readonly ParallaxSystem _parallaxSys = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private float _updTimer;
     private const float UpdateInterval = 0.5f; // in seconds - how often the checks for this system run
-
-    private bool _dropTitle = false;
-    private float _titleDropTimer = 0;
-    private const float TitleDropTime = 10; // in seconds
-
-    private EntityUid _playerUid; //used to keep playerUid for the initial title drop
 
     private SpaceBiomeSourceComponent? _cachedSource;
     private EntityUid? _cachedGrid;
@@ -39,7 +32,6 @@ public sealed class SpaceBiomeSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerSpawn);
     }
 
     public override void Update(float frameTime)
@@ -49,22 +41,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted) //otherwise this will tick like 5x faster on client. thanks prediction
             return;
 
-        // //section purely for dropping da title of the station ur in, AFTER the biome drop
-        // if (_dropTitle)
-        // {
-        //     _titleDropTimer += frameTime;
-        //     if (_titleDropTimer > TitleDropTime)
-        //     {
-        //         _dropTitle = false;
-        //         var gridData = GetGridInfo(_playerUid);
-        //         if (gridData == null)
-        //             return;
-        //         NewVesselEnteredMessage message = new NewVesselEnteredMessage(gridData.Value.Item1, gridData.Value.Item2, gridData.Value.Item3);
-        //         RaiseLocalEvent(_playerUid, ref message, true);
-        //     }
-        // }
-
-        //update timer
+        //update timers
         _updTimer += frameTime;
         if (_updTimer < UpdateInterval)
             return;
@@ -80,19 +57,13 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
         // 1. grab the local grid, if any. if not, send msg signalling we entered space
         var newGrid = xform.GridUid;
+
         if (newGrid != _cachedGrid) //if true, we have changed grids since last update
         {
             _cachedGrid = newGrid;
-            if (newGrid == null || TerminatingOrDeleted(newGrid))
-            {
-                var spaceMsg = new PlayerParentChangedMessage(null);
-                RaiseLocalEvent(localPlayerUid, ref spaceMsg, true);
-            }
-            else
-            {
-                var message = new PlayerParentChangedMessage((EntityUid)newGrid);
-                RaiseLocalEvent(localPlayerUid, ref message, true);
-            }
+            var message = new PlayerParentChangedMessage(newGrid); //if this is null it notifies that we're in space
+            RaiseLocalEvent(localPlayerUid, ref message, true);
+
         }
         // 2. grab the biome & check if its different than the cached biome from last update
         SpaceBiomeSourceComponent? newSource = null;
@@ -123,18 +94,5 @@ public sealed class SpaceBiomeSystem : EntitySystem
             SpaceBiomeSwapMessage msg = new SpaceBiomeSwapMessage(biome);
             RaiseLocalEvent(localPlayerUid, ref msg, true);
         }
-    }
-
-    /// <summary>
-    /// This turns on the dropTitle thing in the update function above.
-    /// It's job is to make sure that, when you spawn in, the station you're on actually plays its music and shows its title as if you just entered
-    /// otherwise only biome music will play until you re-enter the grid.
-    /// </summary>
-    /// <param name="args"></param>
-    private void OnPlayerSpawn(LocalPlayerAttachedEvent args)
-    {
-        _playerUid = args.Entity;
-        _titleDropTimer = 0;
-        _dropTitle = true;
     }
 }
