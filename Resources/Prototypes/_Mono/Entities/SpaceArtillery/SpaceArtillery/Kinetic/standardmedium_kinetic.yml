@@ -71,6 +71,9 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 60
 
 # Dravon
 
@@ -137,3 +140,6 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 60

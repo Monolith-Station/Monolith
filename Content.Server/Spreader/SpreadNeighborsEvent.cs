@@ -11,8 +11,8 @@ namespace Content.Server.Spreader;
 [ByRefEvent]
 public record struct SpreadNeighborsEvent
 {
-    public ValueList<(MapGridComponent Grid, TileRef Tile)> NeighborFreeTiles;
-    public ValueList<EntityUid> Neighbors;
+    public List<(MapGridComponent Grid, TileRef Tile)> NeighborFreeTiles;
+    public List<EntityUid> Neighbors;
 
     /// <summary>
     /// How many updates allowed are remaining.

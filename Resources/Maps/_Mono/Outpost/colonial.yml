@@ -1,3 +1,23 @@
+# SPDX-FileCopyrightText: 2023 Cheackraze
+# SPDX-FileCopyrightText: 2023 RealIHaveANameOfficial
+# SPDX-FileCopyrightText: 2024 Dvir
+# SPDX-FileCopyrightText: 2024 TsjipTsjip
+# SPDX-FileCopyrightText: 2024 Whatstone
+# SPDX-FileCopyrightText: 2025 Ark
+# SPDX-FileCopyrightText: 2025 Avalon
+# SPDX-FileCopyrightText: 2025 Blu
+# SPDX-FileCopyrightText: 2025 Checkraze
+# SPDX-FileCopyrightText: 2025 LukeZurg22
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 RikuTheKiller
+# SPDX-FileCopyrightText: 2025 gus
+# SPDX-FileCopyrightText: 2025 starch
+# SPDX-FileCopyrightText: 2025 the-hivequeen
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
+# SPDX-FileCopyrightText: 2025 tonotom1
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 meta:
   format: 7
   category: Map
@@ -29513,7 +29533,7 @@ entities:
     - type: Transform
       pos: -14.5,38.5
       parent: 2
-- proto: SpawnPointValet
+- proto: SpawnPointCCServiceWorker
   entities:
   - uid: 4028
     components:

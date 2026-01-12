@@ -81,6 +81,36 @@
     - !type:HTNCompoundTask
       task: ShuttleAttackSmartCompound
 
+- type: htnCompound
+  id: AttackerShuttleBroadsideCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleAttackBroadsideCompound
+
+- type: htnCompound
+  id: ShooterShuttleCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipFireGunsOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        leadingAccuracy: 0.4 # stupid
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
+
 - type: utilityQuery
   id: NearbyShuttleTargets
   query:
@@ -276,6 +306,37 @@
         shutdownState: TaskFinished
         removeKeyOnFinish: false
         leadingAccuracy: 1
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
+
+- type: htnCompound
+  id: ShuttleAttackBroadsideCompound
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: PlanFinished
+        removeKeyOnFinish: false
+        alwaysFaceTarget: true
+        inRangeMaxSpeed: null # orbit at top velocity
+        range: 450
+        rangeTolerance: 50
+        targetKey: TargetCoordinates
+        mode: OrbitCW
+        targetRotation: 90
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipFireGunsOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        leadingAccuracy: 0.4 # stupid
         targetKey: TargetCoordinates
       services:
       - !type:UtilityService
