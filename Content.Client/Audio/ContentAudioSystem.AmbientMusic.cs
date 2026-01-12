@@ -225,6 +225,7 @@ public sealed partial class ContentAudioSystem
 
     private void SetMusic(EntityUid? newGrid, ProtoId<SpaceBiomePrototype>? newBiome, bool newCombatState)
     {
+        Log.Info("SETMUSIC: - GRID: " + newGrid.ToString() + " BIOME: " + newBiome.ToString() + " COMBAT: " + newCombatState.ToString());
         bool passPriorityToNext = false; // if we need to cache data but let the next priority level down still run, set this to true.
         // priority list:
         // 1. (not implemented yet :godo:) ship combat music
@@ -236,6 +237,7 @@ public sealed partial class ContentAudioSystem
         #region combat music
         if (newCombatState != _lastCombatState) //we switch combat music on or off now
         {
+            Log.Info("REACHED COMBAT MUSIC - newCombatState: " + newCombatState.ToString());
             _lastCombatState = newCombatState;
 
             // 2.2 figure out if we turn combat music ON or OFF
@@ -293,6 +295,7 @@ public sealed partial class ContentAudioSystem
         #region grid music
         if (newGrid != _lastGrid || passPriorityToNext == true)
         {
+            Log.Info("REACHED GRID MUSIC - newGrid: " + newGrid.ToString() + " PASSPRIO: " + passPriorityToNext.ToString());
             passPriorityToNext = false;
             // issue: if you go into space and walk back onto a grid that has no biome music, it'll replay the biome music. this sucks, so,
             if (newGrid == null) //if we just moved onto space, we should play biome music. pass priority to next.
@@ -303,6 +306,7 @@ public sealed partial class ContentAudioSystem
             {
                 if (TryComp<VesselMusicComponent>(newGrid, out var music)) //case 1: vessel did have music
                 {
+                    _lastGrid = newGrid; //need to set this here cuz it returns right after
                     _musicProto = _proto.Index<AmbientMusicPrototype>(music.AmbientMusicPrototype);
                     SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
                     string path = _random.Pick(soundcol.PickFiles).ToString();
@@ -313,19 +317,20 @@ public sealed partial class ContentAudioSystem
                 {
                     if (_lastGrid == null) //if our last grid was null (empty space), it'd replay biome music if we let it continue, so...
                     {
-                        _lastGrid = newGrid;
                         return; //...just don't do anything music wise!
                     }
                     else
                         passPriorityToNext = true; // otherwise, if we're moving from musical grid to boring grid, let the biome music take over.
                 }
             }
+            _lastGrid = newGrid;
         }
         #endregion
         #region biome music
         if (newBiome != _lastBiome || passPriorityToNext)
         {
-            _lastBiome = newBiome;
+            Log.Info("REACHED BIOME MUSIC - newBiome: " + newBiome.ToString() + " PASSPRIO: " + passPriorityToNext.ToString());
+            _lastBiome = newBiome; // free to set this here instead of at the end because we don't return
 
             if (_musicTracks == null) // if this is null we have way bigger issues
                 return;
