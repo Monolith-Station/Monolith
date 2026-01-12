@@ -294,6 +294,7 @@ public sealed partial class ContentAudioSystem
         if (newGrid != _lastGrid || passPriorityToNext == true)
         {
             passPriorityToNext = false;
+            // issue: if you go into space and walk back onto a grid that has no biome music, it'll replay the biome music. this sucks, so,
             if (newGrid == null) //if we just moved onto space, we should play biome music. pass priority to next.
             {
                 passPriorityToNext = true;
@@ -301,9 +302,23 @@ public sealed partial class ContentAudioSystem
             else //if we just moved onto a grid, get the vesselmusic comp and play that music.
             {
                 if (TryComp<VesselMusicComponent>(newGrid, out var music)) //case 1: vessel did have music
+                {
                     _musicProto = _proto.Index<AmbientMusicPrototype>(music.AmbientMusicPrototype);
-                else //case 2: vessel did not have music. pass priority to biome below and play biome music
-                    passPriorityToNext = true;
+                    SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
+                    string path = _random.Pick(soundcol.PickFiles).ToString();
+                    PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
+                    return;
+                }
+                else //case 2: vessel did not have music.
+                {
+                    if (_lastGrid == null) //if our last grid was null (empty space), it'd replay biome music if we let it continue, so...
+                    {
+                        _lastGrid = newGrid;
+                        return; //...just don't do anything music wise!
+                    }
+                    else
+                        passPriorityToNext = true; // otherwise, if we're moving from musical grid to boring grid, let the biome music take over.
+                }
             }
         }
         #endregion
