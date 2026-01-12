@@ -116,6 +116,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         // if the map changed then it cant be the same source from last update, so we do _cachedSource = newSource anyway.
         if (_cachedMap != newMap || _cachedSource != newSource)
         {
+            _cachedMap = newMap;
             _cachedSource = newSource;
             var biome = _protMan.Index<SpaceBiomePrototype>(_cachedSource?.Id ?? "default");
             //note: this is where the parallax should swap. eventually.

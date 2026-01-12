@@ -55,7 +55,7 @@ public sealed partial class ContentAudioSystem
     private AmbientMusicPrototype? _musicProto;
 
     // Time to wait in between replaying ambient music tracks. Should be at least 1-2 seconds to prevent possible overlapping.
-    private float _timeUntilNextAmbientTrack = 1; //value doesnt matter cuz itll be overridden
+    private float _timeUntilNextAmbientTrack = 1;
 
     // List of available ambient music tracks to sift through.
     private List<AmbientMusicPrototype>? _musicTracks;
@@ -76,7 +76,7 @@ public sealed partial class ContentAudioSystem
     // 1. We toggle combat mode. We fire SwitchCombatMusic in (timer) seconds.
     // 2. We save the state from step 1 in _lastCombatState
     // 3. When SwitchCombatMusic fires, we check if the current combat state is different than _lastCombatState. If it is, then we change music. If not, we keep it.
-    bool _lastCombatState = false;
+    private bool _lastCombatState = false;
 
     private ProtoId<SpaceBiomePrototype>? _lastBiome;
     private EntityUid? _lastGrid;
@@ -238,9 +238,6 @@ public sealed partial class ContentAudioSystem
         {
             _lastCombatState = newCombatState;
 
-            // 2.1 kill the current music
-            FadeOut(_ambientMusicStream);
-
             // 2.2 figure out if we turn combat music ON or OFF
             if (newCombatState) //true = we toggled combat ON.
             {
@@ -297,8 +294,6 @@ public sealed partial class ContentAudioSystem
         if (newGrid != _lastGrid || passPriorityToNext == true)
         {
             passPriorityToNext = false;
-
-            FadeOut(_ambientMusicStream);
             if (newGrid == null) //if we just moved onto space, we should play biome music. pass priority to next.
             {
                 passPriorityToNext = true;
@@ -316,8 +311,6 @@ public sealed partial class ContentAudioSystem
         if (newBiome != _lastBiome || passPriorityToNext)
         {
             _lastBiome = newBiome;
-
-            FadeOut(_ambientMusicStream);
 
             if (_musicTracks == null) // if this is null we have way bigger issues
                 return;
@@ -364,7 +357,8 @@ public sealed partial class ContentAudioSystem
     private void PlayMusicTrack(string path, float volume, float fadein, bool combatMode)
     {
         _isCombatMusicPlaying = combatMode;
-        //_sawmill.Debug($"NOW PLAYING: {path}" + " | COMBAT MODE: " + _isCombatMusicPlaying);
+        _sawmill.Debug($"NOW PLAYING: {path}" + " | COMBAT MODE: " + _isCombatMusicPlaying);
+        FadeOut(_ambientMusicStream);
 
         if (combatMode)
         {
