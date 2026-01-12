@@ -101,7 +101,6 @@
     projectileSpeed: 170
     minAngle: 0
     maxAngle: 6
-    selectedMode: SemiAuto
     shootThermalSignature: 2000000 # ~4.5km signature if firing continuously
     soundGunshot:
       path: /Audio/Magic/forcewall.ogg
@@ -166,7 +165,6 @@
     projectileSpeed: 170
     minAngle: 0
     maxAngle: 6
-    selectedMode: SemiAuto
     shootThermalSignature: 2000000 # ~4.5km signature if firing continuously
     soundGunshot:
       path: /Audio/Magic/rumble.ogg
@@ -241,7 +239,6 @@
     minAngle: 0
     maxAngle: 0
     fireRate: 0.2
-    selectedMode: SemiAuto
     shootThermalSignature: 160000000 # now all of china knows you're here (12.6km)
     soundGunshot:
       path: /Audio/Magic/staff_chaos.ogg
