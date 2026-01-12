@@ -86,6 +86,7 @@
 # Spawner for lathe: yield random mats if processed in ore processor
 - type: entity
   name: refined scrap
+  description: Comb through the scrap for intact boards, tools, and native materials. Results vary. #Mono
   id: SpawnRandomRefinedScrap
   parent: MarkerBasePlaceFree
   categories: [ HideSpawnMenu ]

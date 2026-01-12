@@ -64,7 +64,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     /// <summary>
     ///   If present, called for every IFF. Must determine if it should or should not be shown.
     /// </summary>
-    public Func<EntityUid, MapGridComponent, IFFComponent?, bool>? IFFFilter { get; set; } = null;
+    public Func<EntityUid, MapGridComponent, IFFComponent?, bool, string, bool>? IFFFilter { get; set; } = null;
 
     /// <summary>
     /// Raised if the user left-clicks on the radar control with the relevant entitycoordinates.
@@ -72,6 +72,9 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     public Action<EntityCoordinates>? OnRadarClick;
 
     private List<Entity<MapGridComponent>> _grids = new();
+
+    // Mono - set if we want this to detect not from itself
+    public List<EntityUid>? Detectors = null;
 
     #region Mono
     public bool RelativePanning = false;
@@ -372,7 +375,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
             var hideLabel = iff != null && (iff.Flags & IFFFlags.HideLabel) != 0x0;
             var noLabel = iff != null && (iff.Flags & IFFFlags.HideLabelAlways) != 0x0;
-            var detectionLevel = _consoleEntity == null ? DetectionLevel.Detected : _detection.IsGridDetected(grid.Owner, _consoleEntity.Value);
+            var detectionLevel = _consoleEntity == null ? DetectionLevel.Detected : GetGridDetected(grid.Owner);
             var detected = detectionLevel != DetectionLevel.Undetected || !hideLabel;
             var blipOnly = detectionLevel != DetectionLevel.Detected; // don't show outline outside of detection radius even if IFF on
             if (!detected)
@@ -397,13 +400,12 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 : _shuttles.GetIFFLabel(grid, self: false, component: iff);
 
             var shouldDrawIFF = ShowIFF && labelName != null;
-            if (IFFFilter != null)
+            if (shouldDrawIFF)
             {
-                shouldDrawIFF &= IFFFilter(gUid, grid.Comp, iff);
-            }
-            if (isPlayerShuttle)
-            {
-                shouldDrawIFF &= ShowIFFShuttles;
+                if (IFFFilter != null)
+                    shouldDrawIFF &= IFFFilter(gUid, grid.Comp, iff, hideLabel, labelName!);
+                if (isPlayerShuttle)
+                    shouldDrawIFF &= ShowIFFShuttles;
             }
 
             //var mapCenter = curGridToWorld. * gridBody.LocalCenter;
@@ -649,6 +651,14 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         #endregion
     }
 
+    protected DetectionLevel GetGridDetected(EntityUid grid)
+    {
+        if (Detectors != null)
+            return _detection.IsGridDetected(grid, Detectors);
+
+        return _consoleEntity == null ? DetectionLevel.Undetected : _detection.IsGridDetected(grid, _consoleEntity.Value);
+    }
+
     private void DrawBlipShape(DrawingHandleScreen handle, Vector2 position, float size, Color color, RadarBlipShape shape)
     {
         switch (shape)
@@ -837,7 +847,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             if (EntManager.HasComponent<FTLComponent>(parentXform.Owner))
                 continue;
 
-            var detectionLevel = _consoleEntity == null ? DetectionLevel.Detected : _detection.IsGridDetected(parentXform.Owner, _consoleEntity.Value);
+            var detectionLevel = _consoleEntity == null ? DetectionLevel.Detected : GetGridDetected(parentXform.Owner);
             if (detectionLevel != DetectionLevel.Detected)
                 continue;
 

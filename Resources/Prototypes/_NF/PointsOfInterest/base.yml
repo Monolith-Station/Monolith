@@ -18,3 +18,10 @@
   - type: IFF
     color: "#ffa600"
     readOnly: true
+
+- type: pointOfInterest
+  parent: BaseMobilePOI
+  id: BaseRepairablePOI
+  abstract: true
+  addComponents:
+  - type: InitRepairSnapshot

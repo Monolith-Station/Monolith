@@ -92,10 +92,12 @@
   params:
     variation: 0.125
   sounds:
-    Scream:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+    # Mono edit start
+    # Scream:
+    #   path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+    # Mono edit end
     Laugh:
-      path: /Audio/Animals/lizard_happy.ogg
+      path: /Audio/_Mono/Voice/Reptilian/laugh_1.ogg # Mono - unhugboxing operation.
     ReptilianHiss: # Imp
       collection: ReptilianHiss # Imp
     Honk:
@@ -124,10 +126,12 @@
   params:
     variation: 0.125
   sounds:
-    Scream:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+    # Mono edit start
+    # Scream:
+    #   path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+    # Mono edit end
     Laugh:
-      path: /Audio/Animals/lizard_happy.ogg
+      path: /Audio/_Mono/Voice/Reptilian/laugh_1.ogg # Mono - unhugboxing operation.
     ReptilianHiss: # Imp
       collection: ReptilianHiss # Imp
     Honk:
