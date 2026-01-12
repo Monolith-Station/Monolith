@@ -289,8 +289,12 @@ public sealed partial class ContentAudioSystem
         }
         #endregion
 
-        if (newCombatState) // don't wanna change music if we are in combat mode
+        if (newCombatState) //if we are in combatmode, we still want to cache info, but we want to return here so that we dont stop playing combatmode music
+        {
+            _lastGrid = newGrid;
+            _lastBiome = newBiome;
             return;
+        }
 
         #region grid music
         if (newGrid != _lastGrid || passPriorityToNext == true)
