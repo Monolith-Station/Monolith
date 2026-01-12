@@ -1112,8 +1112,6 @@ entities:
     - type: AtmosPipeColor
       color: '#FF1212FF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 139
 - proto: GravityGeneratorMini
