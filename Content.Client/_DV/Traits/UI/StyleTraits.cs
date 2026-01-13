@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Robust.Client.Graphics;
