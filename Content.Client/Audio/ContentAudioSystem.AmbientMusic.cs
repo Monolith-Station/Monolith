@@ -81,14 +81,16 @@ public sealed partial class ContentAudioSystem
     private ProtoId<SpaceBiomePrototype>? _lastBiome;
     private EntityUid? _lastGrid;
 
+    private enum MusicType : byte //used to deal with edgecases of when music should not be overridden
+    {
+        None = 0,
+        Fallback = 1,
+        Biome = 2,
+        Grid = 3,
+        Combat = 4
+    }
+    private MusicType? _currentlyPlaying = MusicType.None;
 
-    // This is for checking if we play station or biome music after combat mode turns off.
-    // There's probably a better way to do this but nobody will care until this code gets refactored again
-    // .2 | 2025
-    bool _validStationMusic = false;
-
-    // This stores the last station music we were in, so that we can play it when combat mode turns off.
-    private string _lastStationMusic = "";
     // really stupid - i need this to check if the volume changes when you change the options menu options.
     private bool _isCombatMusicPlaying = false;
 
@@ -186,18 +188,10 @@ public sealed partial class ContentAudioSystem
     {
         SetMusic(_lastGrid, ev.Id, _lastCombatState);
     }
-
-
-    /// <summary>
-    ///
-    /// </summary>
-    /// <param name="ev"></param>
     private void OnPlayerParentChange(ref PlayerParentChangedMessage ev)
     {
         SetMusic(ev.Grid, _lastBiome, _lastCombatState);
     }
-
-
     private void OnCombatModeToggle(ToggleCombatActionEvent ev)
     {
         if (_combatMusicToggle == false)
@@ -236,19 +230,44 @@ public sealed partial class ContentAudioSystem
         // 4. biome music
         // therefore we check these top 2 bottom
 
+        // logic:
+        /*
+        1a. combat state different than cached - on
+            play combat music
+            update cache
+            return
+        1b. combat state different than cached - off
+            null cache
+            continue
+        ---- check - is combat music on? if yes, update cache then return ----
+        2a. grid music available
+            play grid music
+            update cache
+            return
+        2b. grid music unavailable
+            continue
+        3a. biome music available
+            play biome music
+            update cache
+            return
+        3b. biome music unavailable
+            play fallback music
+            update cache
+            return
+        */
+
         #region combat music
         if (newCombatState != _lastCombatState) //we switch combat music on or off now
         {
             Log.Info("REACHED COMBAT MUSIC - newCombatState: " + newCombatState.ToString());
-            _lastCombatState = newCombatState;
-
+            _lastCombatState = newCombatState; // cache combat state since its different than the last
             if (newCombatState) //true = we toggled combat ON.
             {
                 // figure out the faction we should play combat music for
                 string factionComponentString = "";
                 if (TryComp<NpcFactionMemberComponent>(_player.LocalEntity, out NpcFactionMemberComponent? factionComp))
                     factionComponentString = factionComp.Factions.FirstOrDefault("");
-                string combatFactionSuffix = ""; //this is added to "combatmode" to create "combatmodePDV", etc, to fetch combat tracks.
+                string combatFactionSuffix; //this is added to "combatmode" to create "combatmodePDV", etc, to fetch combat tracks.
                 switch (factionComponentString) //this will hardcode the valid factions but until someone cleans up the frontier tags this looks way nicer
                 {
                     case NpcFactionPDV:
@@ -258,43 +277,36 @@ public sealed partial class ContentAudioSystem
                         combatFactionSuffix = "TSFMC";
                         break;
                     default:
-                        combatFactionSuffix = factionComponentString;
+                        combatFactionSuffix = "default";
                         break;
                 }
 
                 // if we find a ambient music prototype for our faction, then pick that one!
                 if (_proto.TryIndex<AmbientMusicPrototype>("combatmode" + combatFactionSuffix, out var factionCombatMusicPrototype))
-                {
                     _musicProto = factionCombatMusicPrototype;
-                    SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
-
-                    string path = _random.Pick(soundcol.PickFiles).ToString();
-
-                    PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _combatMusicFadeInTime, true);
-                    return;
-                }
-                else // if the faction combat music prototype does not exist, instead fall back to the default.
-                {
+                else //if we don't ,set it to the default
                     _musicProto = _proto.Index<AmbientMusicPrototype>("combatmodedefault");
-                    SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
 
-                    string path = _random.Pick(soundcol.PickFiles).ToString();
+                SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
 
-                    PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _combatMusicFadeInTime, true);
-                    return;
-                }
+                string path = _random.Pick(soundcol.PickFiles).ToString();
+
+                _currentlyPlaying = MusicType.Combat;
+                PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _combatMusicFadeInTime, true);
+                return;
             }
             else
             {
                 //false = we toggled combat OFF, therefore we should play music from our other data we have in this current request.
                 // the easiest way to do this is to set lastgrid & lastbiome to null.
+                _currentlyPlaying = MusicType.None;
                 _lastBiome = null;
                 _lastGrid = null;
             }
         }
         #endregion
 
-        if (newCombatState) //if we are in combatmode, we still want to cache info, but we want to return here so that we dont stop playing combatmode music
+        if (_currentlyPlaying >= MusicType.Combat) //if we are in combatmode, we still want to cache info, but we want to return here so that we dont stop playing combatmode music
         {
             Log.Info("MUSIC CHANGE REQUESTED WHILE COMBATMODE IS ACTIVE - CACHE AND RETURN");
             _lastGrid = newGrid;
@@ -307,26 +319,42 @@ public sealed partial class ContentAudioSystem
         if (newGrid != null) //if newGrid is null, we just pass onto biome code below
         {
             Log.Info("REACHED GRID, GRID IS NOT NULL");
-            // if (newGrid == _lastGrid) //if the new grid is null, and it is the same as the grid from before, cache biome but return. edge case: ship with music changes biomes, want to keep ship music
-            // {
-            //     Log.Info("GRID IS THE SAME AS LAST GRID. LOG CACHE AND DO NOTHING");
-            // }
-            if (TryComp<VesselMusicComponent>(newGrid, out var music)) //case 1: vessel did have music
+            if (TryComp<VesselMusicComponent>(newGrid, out var music)) //vessel did have music and it's different than the last vessel
             {
-                Log.Info("GRID IS NOT THE SAME AS LAST GRID - PCACHE AND PLAY GRID MUSIC");
-                _lastGrid = newGrid; //need to set this here cuz it returns right after
-                _lastBiome = newBiome;
-                _musicProto = _proto.Index<AmbientMusicPrototype>(music.AmbientMusicPrototype);
-                SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
-                string path = _random.Pick(soundcol.PickFiles).ToString();
-                PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
-                return;
+                if (newGrid != _lastGrid) //EDGE CASE: we must check if it has music AND its different than last vessel, otherwise when we switch biomes music will reset
+                {
+                    Log.Info("GRID IS NOT THE SAME AS LAST GRID - CACHE AND PLAY GRID MUSIC");
+                    _lastGrid = newGrid;
+                    _lastBiome = newBiome;
+                    _musicProto = _proto.Index<AmbientMusicPrototype>(music.AmbientMusicPrototype);
+                    SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
+                    string path = _random.Pick(soundcol.PickFiles).ToString();
+                    _currentlyPlaying = MusicType.Grid;
+                    PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
+                    return;
+                }
+            }
+            else //if we can't find music for the grid, we want to let the biome system take over and play music
+            {
+                Log.Info("CASE 1");
+                _currentlyPlaying = MusicType.None;
             }
         }
-        else //if newgrid is null - we should log it and let the biome music section play
+        else //if newgrid is null, we want to let the biome system take over and play music
         {
-            _lastGrid = newGrid;
+            Log.Info("CASE 2");
+            _currentlyPlaying = MusicType.None;
         }
+
+        if (_currentlyPlaying >= MusicType.Grid) //
+        {
+            Log.Info("BIOME MUSIC REQUEST WHILE GRID MUSIC IS PLAYING - CACHE AND RETURN");
+            _lastGrid = newGrid;
+            _lastBiome = newBiome;
+            return;
+        }
+
+        // else if newgrid is null - we should do nothing and let biome code take over
         #endregion
         #region biome music
 
@@ -334,6 +362,7 @@ public sealed partial class ContentAudioSystem
         {
             Log.Info("REACHED BIOME - BIOME IS NOT NULL");
             _lastBiome = newBiome; // update cache
+            _lastGrid = newGrid;
 
             if (_musicTracks == null) // if this is null we have way bigger issues
                 return;
@@ -357,22 +386,26 @@ public sealed partial class ContentAudioSystem
 
             string path = _random.Pick(soundcol.PickFiles).ToString();
 
-            Log.Info("PLAYING BIOME MUSIC");
+            _currentlyPlaying = MusicType.Biome;
             PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
             return;
         }
-        else // (newBiome == null) if we have no biome in range anymore, we should play the fallback track
+        else // if (newBiome == null) //if we have no biome in range anymore, we should play the fallback track
         {
             _lastBiome = newBiome;
+            _lastGrid = newGrid;
             _musicProto = _proto.Index<AmbientMusicPrototype>("default");
             SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
 
             string path = _random.Pick(soundcol.PickFiles).ToString();
-
+            _currentlyPlaying = MusicType.Fallback;
             PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
             return;
         }
+
         #endregion
+
+        //if we reached here, that means we got a music request with the exact same parameters as the last request, and we should do nothing
 
     }
 
@@ -505,15 +538,17 @@ public sealed partial class ContentAudioSystem
             return;
         }
         // If scoreboard shows then just stop the music
+        Log.Debug("ROUNDEND, KILLING MUSIC");
         _ambientMusicStream = _audio.Stop(_ambientMusicStream);
     }
     public void DisableAmbientMusic()
     {
         if (_ambientMusicStream == null)
         {
-            //_sawmill.Debug("AMBIENT MUSIC STREAM WAS NULL? FROM DisableAmbientMusic()");
+            _sawmill.Debug("AMBIENT MUSIC STREAM WAS NULL? FROM DisableAmbientMusic()");
             return;
         }
+        Log.Debug("DISABLEAMBIENTMUSIC RAN??");
         FadeOut(_ambientMusicStream);
         _ambientMusicStream = null;
     }
