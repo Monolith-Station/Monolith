@@ -1,16 +1,8 @@
-using System.Numerics;
-using Content.Shared.GameTicking;
-using Content.Shared.Parallax;
 using Content.Shared._Crescent.SpaceBiomes;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared._Crescent.Vessel;
 using Robust.Client.Player;
 using Robust.Client.GameObjects;
-using Content.Client.Parallax;
-using Content.Shared.Roles;
-using Robust.Shared.Map;
 using Content.Shared.Shuttles.Components;
 using Content.Client.Salvage;
 
@@ -22,6 +14,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protMan = default!;
     [Dependency] private readonly TransformSystem _formSys = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IEntityManager _entMan = default!;
 
     private float _updTimer;
     private const float UpdateInterval = 0.5f; // in seconds - how often the checks for this system run
@@ -94,35 +87,38 @@ public sealed class SpaceBiomeSystem : EntitySystem
             Log.Info("biomesyssys: map swap");
             var mapSwapMsg = new SpaceBiomeMapChangeMessage();
             if (newMap != null) //if the new map is null then :godo: we are borked anyway
-                RaiseLocalEvent((EntityUid)newMap, ref mapSwapMsg, false);
+            {
+                Log.Info("mapswap logged");
+                RaiseLocalEvent((EntityUid)newMap, ref mapSwapMsg, true);
+            }
             _cachedMap = newMap;
             _cachedSource = newSource;
-            var biome = _protMan.Index<SpaceBiomePrototype>(_cachedSource?.Id ?? "BiomeDefault");
-            //note: this is where the parallax should swap. eventually.
-            var biomeSwapMsg = new SpaceBiomeSwapMessage(biome);
-            RaiseLocalEvent(localPlayerUid, ref biomeSwapMsg, true);
+            if (newSource != null) //on expeditions & FTL, there is no source and we use OnFTLMapCahnged and OnSalvageMapChanged to do music. we don't want this to fire and override it
+            {
+                var biome = _protMan.Index<SpaceBiomePrototype>(newSource?.Id ?? "BiomeDefault");
+                //note: this is where the parallax should swap. eventually.
+                var biomeSwapMsg = new SpaceBiomeSwapMessage(biome);
+                RaiseLocalEvent(localPlayerUid, ref biomeSwapMsg, true);
+            }
         }
     }
 
     private void OnFTLMapChanged(Entity<FTLMapComponent> ent, ref SpaceBiomeMapChangeMessage args)
     {
-        if (!TryComp<SpaceBiomeSourceComponent>(ent, out var sourceComp)) // if the FTL map does not have a source applied to it yet
-        {
-            var newSourceComp = AddComp<SpaceBiomeSourceComponent>(ent);
-            newSourceComp.Priority = 2500;
-            newSourceComp.SwapDistance = null; //infinite
-            newSourceComp.Id = _protMan.Index<SpaceBiomePrototype>("BiomeFTL");
-        }
+        Log.Info("ftl map changed");
+        if (!TryComp<FTLMapComponent>(ent, out var ftlcomp))
+            return;
+        var biomeSwapMsg = new SpaceBiomeSwapMessage(ftlcomp.Biome);
+        RaiseLocalEvent(ent, ref biomeSwapMsg, true); // not localplayeruid but its probably fine
+
     }
 
     private void OnSalvageMapChanged(Entity<SalvageExpeditionComponent> ent, ref SpaceBiomeMapChangeMessage args)
     {
-        if (!TryComp<SpaceBiomeSourceComponent>(ent, out var sourceComp)) // if the FTL map does not have a source applied to it yet
-        {
-            var newSourceComp = AddComp<SpaceBiomeSourceComponent>(ent);
-            newSourceComp.Priority = 2500;
-            newSourceComp.SwapDistance = null; //infinite
-            newSourceComp.Id = _protMan.Index<SpaceBiomePrototype>("BiomeExpedition");
-        }
+        Log.Info("ftl map changed");
+        if (!TryComp<SalvageExpeditionComponent>(ent, out var expcomp))
+            return;
+        var biomeSwapMsg = new SpaceBiomeSwapMessage(expcomp.Biome);
+        RaiseLocalEvent(ent, ref biomeSwapMsg, true); // not localplayeruid but its probably fine
     }
 }

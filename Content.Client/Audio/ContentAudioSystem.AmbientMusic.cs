@@ -15,12 +15,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Client.CombatMode;
 using Content.Shared.CombatMode;
-using System.Threading;
 using Robust.Shared.Timing;
 using Content.Shared.NPC.Components;
 using Content.Shared._Mono.CCVar;
 using Content.Shared._Crescent.Vessel;
-using System.Net.Http.Headers;
 
 namespace Content.Client.Audio;
 
