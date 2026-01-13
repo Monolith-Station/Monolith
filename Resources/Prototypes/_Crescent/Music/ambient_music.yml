@@ -64,7 +64,7 @@
 - type: soundCollection
   id: expedition_biome
   files:
-    - /Audio/_Crescent/Expedition/exped_1.ogg
+    - /Audio/_Crescent/Expedition/expedition_1.ogg
 
 #combat music for anyone who isn't PDV or TFSMC (for now)
 
@@ -109,6 +109,49 @@
 
 
 ### BIOME AMBIENT
+
+# far reaches III
+- type: ambientMusic
+  id: far_reaches_iii
+  sound:
+    collection: far_reaches_iii
+
+- type: soundCollection
+  id: far_reaches_iii
+  files:
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_1.ogg
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_2.ogg
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_3.ogg
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_4.ogg
+
+# far reaches II
+- type: ambientMusic
+  id: far_reaches_ii
+  sound:
+    collection: far_reaches_ii
+
+- type: soundCollection
+  id: far_reaches_ii
+  files:
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_1.ogg
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_2.ogg
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_3.ogg
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_4.ogg
+
+# far reaches I
+- type: ambientMusic
+  id: far_reaches_i
+  sound:
+    collection: far_reaches_i
+
+- type: soundCollection
+  id: far_reaches_i
+  files:
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_1.ogg
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_2.ogg
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_3.ogg
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_4.ogg
+
 # outer ring
 
 - type: ambientMusic

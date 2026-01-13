@@ -16,12 +16,12 @@
 - type: entity
   id: FallbackBiomeSource
   parent: BaseBiomeSource
-  name: fallback (uncharted space) biome source
+  name: fallback biome source
   components:
   - type: SpaceBiomeSource
     id: default
     swapDistance: null #infinite
-    priority: 500
+    priority: 1
 
 
 # hardcoded in SalvageSystem.Expeditions.cs
@@ -39,7 +39,35 @@
 #   priority: 2500 #should not matter, but big enough to override all the rest
 
 
+- type: entity
+  id: FarReachesIIBiomeSource
+  parent: BaseBiomeSource
+  name: far reaches III biome source
+  components:
+  - type: SpaceBiomeSource
+    id: far_reaches_iii
+    swapDistance: 28000 #beyond this is fallback
+    priority: 250
 
+- type: entity
+  id: FarReachesIIBiomeSource
+  parent: BaseBiomeSource
+  name: far reaches II biome source
+  components:
+  - type: SpaceBiomeSource
+    id: far_reaches_ii
+    swapDistance: 25000
+    priority: 500
+
+- type: entity
+  id: FarReachesIBiomeSource
+  parent: BaseBiomeSource
+  name: far reaches I biome source
+  components:
+  - type: SpaceBiomeSource
+    id: far_reaches_i
+    swapDistance: 22000
+    priority: 750
 
 - type: entity
   id: OuterRingBiomeSource
@@ -58,7 +86,7 @@
   components:
   - type: SpaceBiomeSource
     id: middle_ring
-    swapDistance: 9500
+    swapDistance: 10000
     priority: 1500
 
 - type: entity

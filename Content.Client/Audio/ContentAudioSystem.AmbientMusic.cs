@@ -20,6 +20,7 @@ using Robust.Shared.Timing;
 using Content.Shared.NPC.Components;
 using Content.Shared._Mono.CCVar;
 using Content.Shared._Crescent.Vessel;
+using System.Net.Http.Headers;
 
 namespace Content.Client.Audio;
 
@@ -340,53 +341,41 @@ public sealed partial class ContentAudioSystem
 
         #region grid music
 
-        if (newGrid != _lastGrid)
+        if (newGrid != _lastGrid || _currentlyPlaying != MusicType.Grid)
         {
-            if (TryComp<VesselMusicComponent>(newGrid, out var music)) //do we have grid music? also this gives false if null
+            if (newGrid != null && TryComp<VesselMusicComponent>(newGrid, out var music)) //do we have grid music? also this gives false if null
             {
                 Log.Info("REACHED GRID, GRID HAS MUSIC");
-                if (newGrid != _lastGrid) //EDGE CASE: we must check if it has music AND its different than last vessel, otherwise when we switch biomes music will reset
-                {
-                    Log.Info("GRID IS NOT THE SAME AS LAST GRID - CACHE AND PLAY GRID MUSIC");
-                    _lastGrid = newGrid;
-                    _lastBiome = newBiome;
-                    _musicProto = _proto.Index<AmbientMusicPrototype>(music.AmbientMusicPrototype);
-                    SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
-                    string path = _random.Pick(soundcol.PickFiles).ToString();
-                    _currentlyPlaying = MusicType.Grid;
-                    PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
-                    return;
-                }
+                Log.Info("GRID IS NOT THE SAME AS LAST GRID - CACHE AND PLAY GRID MUSIC");
+                _lastGrid = newGrid;
+                _lastBiome = newBiome;
+                _musicProto = _proto.Index<AmbientMusicPrototype>(music.AmbientMusicPrototype);
+                SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
+                string path = _random.Pick(soundcol.PickFiles).ToString();
+                _currentlyPlaying = MusicType.Grid;
+                PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
+                return;
             }
             else
             {
-                if (_currentlyPlaying == MusicType.Biome) //and we are currently playing biome music, we are walking from a musicless grid to space or vice versa. cache and return
-                { //this fails specifically when we are on a musical grid
-                    _lastBiome = newBiome;
-                    _lastGrid = newGrid;
-                    return;
-                }
-                else //we are moving from a musical grid to space / musicless grid, so biome music should take over.
-                {
-                    Log.Info("NEW GRID IS NULL, NULL BIOME & MOVE ONTO BIOME CODE");
-                    _lastBiome = null; // the behavior for playing biome music is the same as if your last biome was null, so we force it here
-                    _currentlyPlaying = MusicType.None;
-                }
+                // pass onto next
             }
         }
-
-        if (_currentlyPlaying >= MusicType.Grid) // edge case: grid with music like halcyon is moving across biomes, we log the change and return
-        {
-            Log.Info("BIOME MUSIC REQUEST WHILE GRID MUSIC IS PLAYING - CACHE AND RETURN");
-            _lastGrid = newGrid;
-            _lastBiome = newBiome;
+        else
             return;
-        }
+
+        // if (_currentlyPlaying >= MusicType.Grid) // edge case: grid with music like halcyon is moving across biomes, we log the change and return
+        // {
+        //     Log.Info("BIOME MUSIC REQUEST WHILE GRID MUSIC IS PLAYING - CACHE AND RETURN");
+        //     _lastGrid = newGrid;
+        //     _lastBiome = newBiome;
+        //     return;
+        // }
 
         #endregion
         #region biome music
 
-        if (_lastBiome != newBiome) //if newBiome is null, we go to fallback
+        if (_lastBiome != newBiome || _currentlyPlaying != MusicType.Biome) //if newBiome is null, we go to fallback
         {
             if (newBiome == null)
             {
@@ -423,6 +412,8 @@ public sealed partial class ContentAudioSystem
             PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
             return;
         }
+        else
+            return;
 
         #endregion
     }

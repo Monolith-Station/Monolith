@@ -15,6 +15,23 @@
   name: Hyperspace
   description: "Upon the pale horse, with Hell behind you."
 
+#far reaches
+
+- type: ambientSpaceBiome
+  id: far_reaches_iii
+  name: Far Reaches III
+  description: "Beyond."
+
+- type: ambientSpaceBiome
+  id: far_reaches_ii
+  name: Far Reaches II
+  description: "I know it's here."
+
+- type: ambientSpaceBiome
+  id: far_reaches_i
+  name: Far Reaches I
+  description: "I need to keep going."
+
 #actual biomes
 - type: ambientSpaceBiome
   id: outer_ring
