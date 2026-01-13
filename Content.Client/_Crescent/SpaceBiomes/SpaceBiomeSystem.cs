@@ -11,6 +11,8 @@ using Robust.Client.GameObjects;
 using Content.Client.Parallax;
 using Content.Shared.Roles;
 using Robust.Shared.Map;
+using Content.Shared.Shuttles.Components;
+using Content.Client.Salvage;
 
 namespace Content.Client._Crescent.SpaceBiomes;
 
@@ -32,6 +34,8 @@ public sealed class SpaceBiomeSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<FTLMapComponent, SpaceBiomeMapChangeMessage>(OnFTLMapChanged);
+        SubscribeLocalEvent<SalvageExpeditionComponent, SpaceBiomeMapChangeMessage>(OnSalvageMapChanged);
     }
 
     public override void Update(float frameTime)
@@ -87,12 +91,37 @@ public sealed class SpaceBiomeSystem : EntitySystem
         // if the map changed then it cant be the same source from last update, so we do _cachedSource = newSource anyway.
         if (_cachedMap != newMap || _cachedSource != newSource)
         {
+            var mapSwapMsg = new SpaceBiomeMapChangeMessage();
+            if (newMap != null) //if the new map is null then :godo: we are borked anyway
+                RaiseLocalEvent((EntityUid)newMap, ref mapSwapMsg, false);
             _cachedMap = newMap;
             _cachedSource = newSource;
             var biome = _protMan.Index<SpaceBiomePrototype>(_cachedSource?.Id ?? "BiomeDefault");
             //note: this is where the parallax should swap. eventually.
-            SpaceBiomeSwapMessage msg = new SpaceBiomeSwapMessage(biome);
-            RaiseLocalEvent(localPlayerUid, ref msg, true);
+            var biomeSwapMsg = new SpaceBiomeSwapMessage(biome);
+            RaiseLocalEvent(localPlayerUid, ref biomeSwapMsg, true);
+        }
+    }
+
+    private void OnFTLMapChanged(Entity<FTLMapComponent> ent, ref SpaceBiomeMapChangeMessage args)
+    {
+        if (!TryComp<SpaceBiomeSourceComponent>(ent, out var sourceComp)) // if the FTL map does not have a source applied to it yet
+        {
+            var newSourceComp = AddComp<SpaceBiomeSourceComponent>(ent);
+            newSourceComp.Priority = 2500;
+            newSourceComp.SwapDistance = null; //infinite
+            newSourceComp.Id = _protMan.Index<SpaceBiomePrototype>("BiomeFTL");
+        }
+    }
+
+    private void OnSalvageMapChanged(Entity<SalvageExpeditionComponent> ent, ref SpaceBiomeMapChangeMessage args)
+    {
+        if (!TryComp<SpaceBiomeSourceComponent>(ent, out var sourceComp)) // if the FTL map does not have a source applied to it yet
+        {
+            var newSourceComp = AddComp<SpaceBiomeSourceComponent>(ent);
+            newSourceComp.Priority = 2500;
+            newSourceComp.SwapDistance = null; //infinite
+            newSourceComp.Id = _protMan.Index<SpaceBiomePrototype>("BiomeExpedition");
         }
     }
 }

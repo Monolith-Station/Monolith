@@ -221,13 +221,6 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
 
         // Setup expedition
         var expedition = _entManager.AddComponent<SalvageExpeditionComponent>(mapUid);
-        // Mono Begin - adding biome for ambient music setup. this is hardcoded and sucks
-        var biome_marker = _entManager.AddComponent<SpaceBiomeSourceComponent>(mapUid);
-        biome_marker.Priority = 2500;
-        biome_marker.SwapDistance = null; //infinite
-        biome_marker.Id = _prototypeManager.Index<SpaceBiomePrototype>("BiomeExpedition");
-
-        // Mono End
         expedition.Station = Station;
         expedition.EndTime = _timing.CurTime + mission.Duration;
         expedition.MissionParams = _missionParams;

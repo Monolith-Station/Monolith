@@ -152,12 +152,6 @@ public sealed partial class ShuttleSystem
 
         var mapUid = _mapSystem.CreateMap(out var mapId);
         var ftlMap = AddComp<FTLMapComponent>(mapUid);
-        // Mono Begin - adding spaceambientbiome to ftl map for cool music
-        var biome_marker = _entManager.AddComponent<SpaceBiomeSourceComponent>(mapUid);
-        biome_marker.Priority = 2500;
-        biome_marker.SwapDistance = null; //infinite
-        biome_marker.Id = _protManager.Index<SpaceBiomePrototype>("BiomeFTL");
-        // Mono End
 
         _metadata.SetEntityName(mapUid, "FTL");
         Log.Debug($"Setup hyperspace map at {mapUid}");
