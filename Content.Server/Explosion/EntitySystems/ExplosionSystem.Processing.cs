@@ -922,7 +922,8 @@ sealed class Explosion
 /// </summary>
 public sealed class QueuedExplosion
 {
-    public MapCoordinates Epicenter;
+    // Mono - MapCoordinates -> EntityCoordinates
+    public EntityCoordinates Epicenter;
     public ExplosionPrototype Proto = new();
     public float TotalIntensity, Slope, MaxTileIntensity, TileBreakScale;
     public int MaxTileBreak;
