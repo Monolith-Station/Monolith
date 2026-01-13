@@ -38,6 +38,7 @@
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.TailExtras" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "enum.HumanoidVisualLayers.Wings" ] # For IPC wings porting from SimpleStation
     - map: [ "mask" ]
@@ -355,6 +356,7 @@
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.TailExtras" ] # Starlight
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "helmetcover" ]
     - map: [ "helmetattachment" ]
