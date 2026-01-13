@@ -53,7 +53,7 @@
 - type: soundCollection
   id: ftl_biome
   files:
-    - /Audio/_Crescent/FTL/ftl_1.ogg
+    - /Audio/_Crescent/Ambient/FTL/ftl_1.ogg
 
 # HARDCODED - EXPEDITION
 - type: ambientMusic
@@ -64,7 +64,9 @@
 - type: soundCollection
   id: expedition_biome
   files:
-    - /Audio/_Crescent/Expedition/expedition_1.ogg
+    - /Audio/_Crescent/Ambient/Expedition/expedition_1.ogg
+    - /Audio/_Crescent/Ambient/Expedition/expedition_2.ogg
+    - /Audio/_Crescent/Ambient/Expedition/expedition_3.ogg
 
 #combat music for anyone who isn't PDV or TFSMC (for now)
 

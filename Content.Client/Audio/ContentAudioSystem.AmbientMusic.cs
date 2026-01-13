@@ -231,56 +231,6 @@ public sealed partial class ContentAudioSystem
         // 4. biome music
         // therefore we check these top 2 bottom
 
-        // logic:
-        /*
-        1a. combat state different than cached - on // case: we turned on combatmode, we should update our cache and play
-            play combat music
-            update cache
-            return
-        1b. combat state different than cached - off // case: we turned off combatmode, and we should play either grid or biome music
-            null cache
-            continue
-        ---- check ---- //case: biome or grid changes while combatmode is on
-        is combat music on?
-            update cache
-            return
-        ---- check ----
-        2. are grids different - yes
-            is grid music available - yes // case - moving from space/nonmusic grid to music grid
-                play grid music
-                update cache
-                return
-            is grid music available - no
-                are we playing biome music - yes // case - moving from space/nonmusic grid to space/nonmusic grid
-                    update cache
-                    return
-                are we playing biome music - no // case - moving from music grid to non-music grid
-                    null biome cache
-                    continue
-        ---- check ---- //case: biome changes while grid music is on, ex: flagship halcyon moving across biomes
-        is grid music on?
-            update cache
-            return
-        ---- check ----
-        3. are biomes different - yes
-            is new biome null - yes
-                set musicproto to default/fallback
-            is newbiome null - no
-                determine musicproto based on biome
-                    if musicproto could not be found, set it to default/fallback (case: biome is defined but ambient music proto does not exist for it)
-            play biome music
-            update cache
-            return
-
-            play fallback music
-            update cache
-            return
-
-        we should not be able to reach this point without any of the cases being caught
-        fuck this code man - .2 | 2026
-
-        */
-
         #region combat music
         if (newCombatState != _lastCombatState) //we switch combat music on or off now
         {
