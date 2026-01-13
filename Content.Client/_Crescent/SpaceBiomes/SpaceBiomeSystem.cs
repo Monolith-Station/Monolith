@@ -91,6 +91,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         // if the map changed then it cant be the same source from last update, so we do _cachedSource = newSource anyway.
         if (_cachedMap != newMap || _cachedSource != newSource)
         {
+            Log.Info("biomesyssys: map swap");
             var mapSwapMsg = new SpaceBiomeMapChangeMessage();
             if (newMap != null) //if the new map is null then :godo: we are borked anyway
                 RaiseLocalEvent((EntityUid)newMap, ref mapSwapMsg, false);

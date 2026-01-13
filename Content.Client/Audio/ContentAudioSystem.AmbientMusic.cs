@@ -198,7 +198,7 @@ public sealed partial class ContentAudioSystem
     /// <param name="ev"></param>
     private void OnPlayerSpawn(LocalPlayerAttachedEvent ev)
     {
-        Log.Info("----------------player spawn ticked-----------------");
+        //Log.Info("----------------player spawn ticked-----------------");
         _initialStationMusicBool = true;
         _initialStationMusicTimer = 0f;
 
@@ -225,14 +225,17 @@ public sealed partial class ContentAudioSystem
 
     private void OnBiomeChange(ref SpaceBiomeSwapMessage ev)
     {
+        Log.Info("received spacebiomeswapmsg");
         SetMusic(_lastGrid, ev.Id, _lastCombatState);
     }
     private void OnPlayerParentChange(ref PlayerParentChangedMessage ev)
     {
+        Log.Info("received playerparentchangedmsg");
         SetMusic(ev.Grid, _lastBiome, _lastCombatState);
     }
     private void SwitchCombatMusic(bool currentCombatState)
     {
+        Log.Info("combatmode swapped");
         SetMusic(_lastGrid, _lastBiome, currentCombatState);
     }
     private void OnCombatModeToggle(ToggleCombatActionEvent ev)
@@ -266,7 +269,7 @@ public sealed partial class ContentAudioSystem
     /// <param name="newCombatState"></param>
     private void SetMusic(EntityUid? newGrid, ProtoId<SpaceBiomePrototype>? newBiome, bool newCombatState)
     {
-        //Log.Info("SETMUSIC: - GRID: " + newGrid.ToString() + " BIOME: " + newBiome.ToString() + " COMBAT: " + newCombatState.ToString());
+        Log.Info("SETMUSIC: - GRID: " + newGrid.ToString() + " BIOME: " + newBiome.ToString() + " COMBAT: " + newCombatState.ToString());
         // priority list:
         // 1. (not implemented yet :godo:) ship combat music
         // 2. combat music
@@ -304,11 +307,10 @@ public sealed partial class ContentAudioSystem
                 else //if we don't ,set it to the default
                     _musicProto = _proto.Index<AmbientMusicPrototype>("CombatModeDefault");
 
-                SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
-
-                string path = _random.Pick(soundcol.PickFiles).ToString();
-
                 _currentlyPlaying = MusicType.Combat;
+
+                SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
+                string path = _random.Pick(soundcol.PickFiles).ToString();
                 PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _combatMusicFadeInTime, true);
                 return;
             }
@@ -338,10 +340,11 @@ public sealed partial class ContentAudioSystem
             {
                 _lastGrid = newGrid;
                 _lastBiome = newBiome;
+                _currentlyPlaying = MusicType.Grid;
+
                 _musicProto = _proto.Index<AmbientMusicPrototype>(music.AmbientMusicPrototype);
                 SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
                 string path = _random.Pick(soundcol.PickFiles).ToString();
-                _currentlyPlaying = MusicType.Grid;
                 PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
                 return;
             }
@@ -351,7 +354,11 @@ public sealed partial class ContentAudioSystem
             }
         }
         else
+        {
+            _lastGrid = newGrid;
+            _lastBiome = newBiome;
             return;
+        }
 
         #endregion
         #region biome music
@@ -383,18 +390,21 @@ public sealed partial class ContentAudioSystem
                 }
             }
 
-            SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
-
-            string path = _random.Pick(soundcol.PickFiles).ToString();
-
             _lastBiome = newBiome; // update cache
             _lastGrid = newGrid;
             _currentlyPlaying = MusicType.Biome;
+
+            SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
+            string path = _random.Pick(soundcol.PickFiles).ToString();
             PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
             return;
         }
         else
+        {
+            _lastGrid = newGrid;
+            _lastBiome = newBiome;
             return;
+        }
 
         #endregion
     }
