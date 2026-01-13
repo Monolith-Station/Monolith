@@ -106,6 +106,7 @@ public sealed partial class ContentAudioSystem
     private const float InitialStationMusicTimeToDrop = 5f;
     private float _initialStationMusicTimer = 0f;
     private bool _initialStationMusicBool = false;
+    private ISawmill _sawmill = default!; //lobbymusic.cs has a sawmill call so i can't remove this????
 
     private ProtoId<SpaceBiomePrototype> _defaultBiomeProto = "BiomeDefault"; //which biome proto is the fallback for null?
 

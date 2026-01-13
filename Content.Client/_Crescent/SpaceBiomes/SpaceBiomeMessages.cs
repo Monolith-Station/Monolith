@@ -23,4 +23,4 @@ public readonly record struct PlayerParentChangedMessage(EntityUid? Grid); //nul
 /// </summary>
 /// <param name="Id"></param>
 [ByRefEvent]
-public readonly record struct SpaceBiomeMapChangeMessage;
+public record struct SpaceBiomeMapChangeMessage(ProtoId<SpaceBiomePrototype>? Biome);

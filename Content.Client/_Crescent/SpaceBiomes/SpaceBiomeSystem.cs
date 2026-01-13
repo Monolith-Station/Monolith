@@ -91,30 +91,25 @@ public sealed class SpaceBiomeSystem : EntitySystem
             }
             _cachedMap = newMap;
             _cachedSource = newSource;
-            if (newSource != null) //on expeditions & FTL, there is no source and we use OnFTLMapCahnged and OnSalvageMapChanged to do music. we don't want this to fire and override it
-            {
-                var biome = _protMan.Index<SpaceBiomePrototype>(newSource?.Id ?? "BiomeDefault");
-                //note: this is where the parallax should swap. eventually.
-                var biomeSwapMsg = new SpaceBiomeSwapMessage(biome);
-                RaiseLocalEvent(localPlayerUid, ref biomeSwapMsg, true);
-            }
+            SpaceBiomePrototype biome;
+            if (mapSwapMsg.Biome != null)
+                biome = _protMan.Index<SpaceBiomePrototype>(mapSwapMsg.Biome);
+            else
+                biome = _protMan.Index<SpaceBiomePrototype>(newSource?.Id ?? "BiomeDefault");
+            //note: this is where the parallax should swap. eventually.
+            var biomeSwapMsg = new SpaceBiomeSwapMessage(biome);
+            RaiseLocalEvent(localPlayerUid, ref biomeSwapMsg, true);
+
         }
     }
 
     private void OnFTLMapChanged(Entity<FTLMapComponent> ent, ref SpaceBiomeMapChangeMessage args)
     {
-        if (!TryComp<FTLMapComponent>(ent, out var ftlcomp))
-            return;
-        var biomeSwapMsg = new SpaceBiomeSwapMessage(ftlcomp.Biome);
-        RaiseLocalEvent(ent, ref biomeSwapMsg, true); // not localplayeruid but its probably fine
-
+        args.Biome = ent.Comp.Biome;
     }
 
     private void OnSalvageMapChanged(Entity<SalvageExpeditionComponent> ent, ref SpaceBiomeMapChangeMessage args)
     {
-        if (!TryComp<SalvageExpeditionComponent>(ent, out var expcomp))
-            return;
-        var biomeSwapMsg = new SpaceBiomeSwapMessage(expcomp.Biome);
-        RaiseLocalEvent(ent, ref biomeSwapMsg, true); // not localplayeruid but its probably fine
+        args.Biome = ent.Comp.Biome;
     }
 }
