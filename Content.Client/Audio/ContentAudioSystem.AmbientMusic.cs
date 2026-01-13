@@ -316,11 +316,11 @@ public sealed partial class ContentAudioSystem
 
         #region grid music
 
-        if (newGrid != null) //if newGrid is null, we just pass onto biome code below
+        if (newGrid != _lastGrid)
         {
-            Log.Info("REACHED GRID, GRID IS NOT NULL");
-            if (TryComp<VesselMusicComponent>(newGrid, out var music)) //vessel did have music and it's different than the last vessel
+            if (TryComp<VesselMusicComponent>(newGrid, out var music)) //do we have grid music? also this gives false if null
             {
+                Log.Info("REACHED GRID, GRID HAS MUSIC");
                 if (newGrid != _lastGrid) //EDGE CASE: we must check if it has music AND its different than last vessel, otherwise when we switch biomes music will reset
                 {
                     Log.Info("GRID IS NOT THE SAME AS LAST GRID - CACHE AND PLAY GRID MUSIC");
@@ -334,19 +334,24 @@ public sealed partial class ContentAudioSystem
                     return;
                 }
             }
-            else //if we can't find music for the grid, we want to let the biome system take over and play music
+            else
             {
-                Log.Info("CASE 1");
-                _currentlyPlaying = MusicType.None;
+                if (_currentlyPlaying == MusicType.Biome) //and we are currently playing biome music, we are walking from a musicless grid to space or vice versa. cache and return
+                { //this fails specifically when we are on a musical grid
+                    _lastBiome = newBiome;
+                    _lastGrid = newGrid;
+                    return;
+                }
+                else //we are moving from a musical grid to space / musicless grid, so biome music should take over.
+                {
+                    Log.Info("NEW GRID IS NULL, NULL BIOME & MOVE ONTO BIOME CODE");
+                    _lastBiome = null; // the behavior for playing biome music is the same as if your last biome was null, so we force it here
+                    _currentlyPlaying = MusicType.None;
+                }
             }
         }
-        else //if newgrid is null, we want to let the biome system take over and play music
-        {
-            Log.Info("CASE 2");
-            _currentlyPlaying = MusicType.None;
-        }
 
-        if (_currentlyPlaying >= MusicType.Grid) //
+        if (_currentlyPlaying >= MusicType.Grid) // edge case: grid with music like halcyon is moving across biomes, we log the change and return
         {
             Log.Info("BIOME MUSIC REQUEST WHILE GRID MUSIC IS PLAYING - CACHE AND RETURN");
             _lastGrid = newGrid;
@@ -354,44 +359,49 @@ public sealed partial class ContentAudioSystem
             return;
         }
 
-        // else if newgrid is null - we should do nothing and let biome code take over
         #endregion
         #region biome music
 
-        if (newBiome != null) //if newBiome is null, we go to fallback
+        if (_lastBiome != newBiome) //if newBiome is null, we go to fallback
         {
-            Log.Info("REACHED BIOME - BIOME IS NOT NULL");
-            _lastBiome = newBiome; // update cache
-            _lastGrid = newGrid;
-
-            if (_musicTracks == null) // if this is null we have way bigger issues
-                return;
-
-            _musicProto = null;
-            foreach (var ambient in _musicTracks)
+            if (newBiome == null)
             {
-                if (newBiome.Value.Id == ambient.ID) //if we find the biome that's matching an ambientMusic prototype's ID, we play that set.
-                {
-                    _musicProto = ambient;
-                    break;
-                }
-            }
-            if (_musicProto == null) //if we don't find any ambient music matching our current biome in _musicTracks, we play the fallback track.
-            {
-                Log.Info("BIOME - MUSICPROTO IS NULL, WE FOUND NO BIOME MUSIC. PLAY FALLBACK");
                 _musicProto = _proto.Index<AmbientMusicPrototype>("default");
+            }
+            else
+            {
+                if (_musicTracks == null) // if this is null we have way bigger issues
+                    return;
+                _musicProto = null;
+                //else
+                foreach (var ambient in _musicTracks)
+                {
+                    if (newBiome.Value.Id == ambient.ID) //if we find the biome that's matching an ambientMusic prototype's ID, we play that set.
+                    {
+                        _musicProto = ambient;
+                        break;
+                    }
+                }
+                if (_musicProto == null) //if we don't find any ambient music matching our current biome in _musicTracks, we play the fallback track.
+                {
+                    Log.Info("BIOME - MUSICPROTO IS NULL, WE FOUND NO BIOME MUSIC. PLAY FALLBACK");
+                    _musicProto = _proto.Index<AmbientMusicPrototype>("default");
+                }
             }
 
             SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
 
             string path = _random.Pick(soundcol.PickFiles).ToString();
 
+            _lastBiome = newBiome; // update cache
+            _lastGrid = newGrid;
             _currentlyPlaying = MusicType.Biome;
             PlayMusicTrack(path, _musicProto.Sound.Params.Volume, _ambientMusicFadeInTime, false);
             return;
         }
-        else // if (newBiome == null) //if we have no biome in range anymore, we should play the fallback track
+        else if (newBiome == null) //if we have no biome in range anymore, we should play the fallback track
         {
+            Log.Info("NEW BIOME IS NULL");
             _lastBiome = newBiome;
             _lastGrid = newGrid;
             _musicProto = _proto.Index<AmbientMusicPrototype>("default");
@@ -405,7 +415,10 @@ public sealed partial class ContentAudioSystem
 
         #endregion
 
-        //if we reached here, that means we got a music request with the exact same parameters as the last request, and we should do nothing
+        //if we reached here, that means:
+        // 1. moved from grid to grid and both grids have no music
+        // 2. moved from grid to space and grid has no music
+        // 3. moved from space to grid and grid has no music
 
     }
 
@@ -461,7 +474,7 @@ public sealed partial class ContentAudioSystem
 
         if (fallback) //if we somehow FOUND NO MUSIC TRACKS
         {
-            _sawmill.Debug($"NO MUSIC FOUND, SOMETHING IS WRONG!");
+            throw new NullReferenceException("found no music tracks defined");
         }
 
         return musictracks;
