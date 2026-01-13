@@ -109,9 +109,6 @@ public sealed partial class ContentAudioSystem
 
     private ProtoId<SpaceBiomePrototype> _defaultBiomeProto = "BiomeDefault"; //which biome proto is the fallback for null?
 
-    //used for logging, don't touch this
-    private ISawmill _sawmill = default!;
-
     public void UpdateAmbientMusic(float frameTime)
     {
         base.Update(frameTime);
@@ -174,7 +171,6 @@ public sealed partial class ContentAudioSystem
         Subs.CVar(_configManager, MonoCVars.CombatMusicEnabled, CombatToggleChanged, true);
         Subs.CVar(_configManager, MonoCVars.CombatMusicWindUpTime, CombatWindUpChanged, true);
         Subs.CVar(_configManager, MonoCVars.CombatMusicWindDownTime, CombatWindDownChanged, true);
-        _sawmill = IoCManager.Resolve<ILogManager>().GetSawmill("audio.ambience");
 
         // Setup tracks to pull from. Runs once.
         _musicTracks = GetTracks();
@@ -196,7 +192,6 @@ public sealed partial class ContentAudioSystem
     /// <param name="ev"></param>
     private void OnPlayerSpawn(LocalPlayerAttachedEvent ev)
     {
-        //Log.Info("----------------player spawn ticked-----------------");
         _initialStationMusicBool = true;
         _initialStationMusicTimer = 0f;
 
@@ -223,17 +218,14 @@ public sealed partial class ContentAudioSystem
 
     private void OnBiomeChange(ref SpaceBiomeSwapMessage ev)
     {
-        Log.Info("received spacebiomeswapmsg");
         SetMusic(_lastGrid, ev.Id, _lastCombatState);
     }
     private void OnPlayerParentChange(ref PlayerParentChangedMessage ev)
     {
-        Log.Info("received playerparentchangedmsg");
         SetMusic(ev.Grid, _lastBiome, _lastCombatState);
     }
     private void SwitchCombatMusic(bool currentCombatState)
     {
-        Log.Info("combatmode swapped");
         SetMusic(_lastGrid, _lastBiome, currentCombatState);
     }
     private void OnCombatModeToggle(ToggleCombatActionEvent ev)
@@ -267,7 +259,7 @@ public sealed partial class ContentAudioSystem
     /// <param name="newCombatState"></param>
     private void SetMusic(EntityUid? newGrid, ProtoId<SpaceBiomePrototype>? newBiome, bool newCombatState)
     {
-        Log.Info("SETMUSIC: - GRID: " + newGrid.ToString() + " BIOME: " + newBiome.ToString() + " COMBAT: " + newCombatState.ToString());
+        //Log.Info("SETMUSIC: - GRID: " + newGrid.ToString() + " BIOME: " + newBiome.ToString() + " COMBAT: " + newCombatState.ToString());
         // priority list:
         // 1. (not implemented yet :godo:) ship combat music
         // 2. combat music
@@ -383,7 +375,6 @@ public sealed partial class ContentAudioSystem
                 }
                 if (_musicProto == null) //if we don't find any ambient music matching our current biome in _musicTracks, we play the fallback track.
                 {
-                    Log.Info("BIOME - MUSICPROTO IS NULL, WE FOUND NO BIOME MUSIC. PLAY FALLBACK");
                     _musicProto = _proto.Index<AmbientMusicPrototype>(_defaultBiomeProto);
                 }
             }
@@ -417,7 +408,6 @@ public sealed partial class ContentAudioSystem
     private void PlayMusicTrack(string path, float volume, float fadein, bool combatMode)
     {
         _isCombatMusicPlaying = combatMode;
-        _sawmill.Debug($"NOW PLAYING: {path}"  + " | COMBAT MODE: " + _isCombatMusicPlaying);
         FadeOut(_ambientMusicStream);
 
         if (combatMode)
@@ -457,7 +447,6 @@ public sealed partial class ContentAudioSystem
         bool fallback = true;
         foreach (var ambience in _proto.EnumeratePrototypes<AmbientMusicPrototype>())
         {
-            //_sawmill.Debug($"logged ambient sound {ambience.ID}");
             musictracks.Add(ambience);
             fallback = false;
         }

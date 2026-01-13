@@ -84,11 +84,9 @@ public sealed class SpaceBiomeSystem : EntitySystem
         // if the map changed then it cant be the same source from last update, so we do _cachedSource = newSource anyway.
         if (_cachedMap != newMap || _cachedSource != newSource)
         {
-            Log.Info("biomesyssys: map swap");
             var mapSwapMsg = new SpaceBiomeMapChangeMessage();
             if (newMap != null) //if the new map is null then :godo: we are borked anyway
             {
-                Log.Info("mapswap logged");
                 RaiseLocalEvent((EntityUid)newMap, ref mapSwapMsg, true);
             }
             _cachedMap = newMap;
@@ -105,7 +103,6 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
     private void OnFTLMapChanged(Entity<FTLMapComponent> ent, ref SpaceBiomeMapChangeMessage args)
     {
-        Log.Info("ftl map changed");
         if (!TryComp<FTLMapComponent>(ent, out var ftlcomp))
             return;
         var biomeSwapMsg = new SpaceBiomeSwapMessage(ftlcomp.Biome);
@@ -115,7 +112,6 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
     private void OnSalvageMapChanged(Entity<SalvageExpeditionComponent> ent, ref SpaceBiomeMapChangeMessage args)
     {
-        Log.Info("ftl map changed");
         if (!TryComp<SalvageExpeditionComponent>(ent, out var expcomp))
             return;
         var biomeSwapMsg = new SpaceBiomeSwapMessage(expcomp.Biome);
