@@ -38,6 +38,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.GameObjects;
+using Content.Shared._Crescent.SpaceBiomes;
 
 namespace Content.Server.Salvage;
 
@@ -220,6 +221,13 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
 
         // Setup expedition
         var expedition = _entManager.AddComponent<SalvageExpeditionComponent>(mapUid);
+        // Mono Begin - adding biome for ambient music setup. this is hardcoded and sucks
+        var biome_marker = _entManager.AddComponent<SpaceBiomeSourceComponent>(mapUid);
+        biome_marker.Priority = 2500;
+        biome_marker.SwapDistance = null; //infinite
+        biome_marker.Id = _prototypeManager.Index<SpaceBiomePrototype>("expedition_biome");
+
+        // Mono End
         expedition.Station = Station;
         expedition.EndTime = _timing.CurTime + mission.Duration;
         expedition.MissionParams = _missionParams;

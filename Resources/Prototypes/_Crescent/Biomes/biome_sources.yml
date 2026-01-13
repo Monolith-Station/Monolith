@@ -23,6 +23,24 @@
     swapDistance: null #infinite
     priority: 500
 
+
+# hardcoded in SalvageSystem.Expeditions.cs
+# components:
+# - type: SpaceBiomeSource
+#   id: expedition_biome
+#   swapDistance: null # infinite
+#   priority: 2500 #should not matter, but big enough to override all the rest
+
+# hardcoded in ShuttleSystem.FasterThanLight.cs
+# components:
+# - type: SpaceBiomeSource
+#   id: ftl_biome
+#   swapDistance: null # infinite
+#   priority: 2500 #should not matter, but big enough to override all the rest
+
+
+
+
 - type: entity
   id: OuterRingBiomeSource
   parent: BaseBiomeSource

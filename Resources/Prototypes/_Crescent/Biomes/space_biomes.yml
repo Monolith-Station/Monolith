@@ -3,6 +3,12 @@
   id: default
   name: Uncharted Space
 
+#expedition biome - hardcoded in SpawnSalvageMissionJob.cs
+- type: ambientSpaceBiome
+  id: expedition_biome
+  name: Expedition
+  description: "Uncharted land."
+
 #actual biomes
 - type: ambientSpaceBiome
   id: outer_ring
