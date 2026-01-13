@@ -19,6 +19,7 @@ using Robust.Shared.Timing;
 using Content.Shared.NPC.Components;
 using Content.Shared._Mono.CCVar;
 using Content.Shared._Crescent.Vessel;
+using Content.Shared.Ghost;
 
 namespace Content.Client.Audio;
 
@@ -165,6 +166,8 @@ public sealed partial class ContentAudioSystem
         SubscribeLocalEvent<PlayerParentChangedMessage>(OnPlayerParentChange);
         SubscribeLocalEvent<ToggleCombatActionEvent>(OnCombatModeToggle);
 
+        SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetach); //in case u die in combatmode
+
         SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerSpawn);
 
         Subs.CVar(_configManager, CCVars.AmbientMusicVolume, AmbienceCVarChanged, true);
@@ -196,6 +199,16 @@ public sealed partial class ContentAudioSystem
         _initialStationMusicBool = true;
         _initialStationMusicTimer = 0f;
 
+    }
+
+
+    /// <summary>
+    /// This makes sure that combatmode turns OFF when u ghost, or when ur in aghost and return to ur character.
+    /// </summary>
+    /// <param name="ev"></param>
+    private void OnPlayerDetach(LocalPlayerDetachedEvent ev)
+    {
+        SetMusic(_lastGrid, _lastBiome, false);
     }
 
 
