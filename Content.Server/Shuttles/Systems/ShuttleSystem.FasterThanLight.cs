@@ -156,7 +156,7 @@ public sealed partial class ShuttleSystem
         var biome_marker = _entManager.AddComponent<SpaceBiomeSourceComponent>(mapUid);
         biome_marker.Priority = 2500;
         biome_marker.SwapDistance = null; //infinite
-        biome_marker.Id = _protManager.Index<SpaceBiomePrototype>("ftl_biome");
+        biome_marker.Id = _protManager.Index<SpaceBiomePrototype>("BiomeFTL");
         // Mono End
 
         _metadata.SetEntityName(mapUid, "FTL");

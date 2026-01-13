@@ -102,12 +102,14 @@ public sealed partial class ContentAudioSystem
     private bool _combatWindDownBool = false;
 
 
-    private const float InitialStationMusicTimeToDrop = 5f;
-    private float _initialStationMusicTimer = 0f;
-    private bool _initialStationMusicBool = false;
     // ok so - the parent change for the station happens too early and something fucks up
     // so the music system plays the music but you can't hear it. this is for OnPlayerSpawn to set the replayambientmusictimer to replay it, which fixes it
     // its hacky, but itll do for now. inb4 this line is still here 2 years later
+    private const float InitialStationMusicTimeToDrop = 5f;
+    private float _initialStationMusicTimer = 0f;
+    private bool _initialStationMusicBool = false;
+
+    private ProtoId<SpaceBiomePrototype> _defaultBiomeProto = "BiomeDefault"; //which biome proto is the fallback for null?
 
     //used for logging, don't touch this
     private ISawmill _sawmill = default!;
@@ -127,16 +129,6 @@ public sealed partial class ContentAudioSystem
                 ReplayAmbientMusic();
                 _initialStationMusicBool = false;
                 _initialStationMusicTimer = 0;
-                _replayAmbientMusicTimer = 0;
-            }
-        }
-
-        if (_replayAmbientMusicBool)
-        {
-            _replayAmbientMusicTimer += frameTime;
-            if (_replayAmbientMusicTimer > _timeUntilNextAmbientTrack)
-            {
-                ReplayAmbientMusic();
                 _replayAmbientMusicTimer = 0;
             }
         }
@@ -220,8 +212,8 @@ public sealed partial class ContentAudioSystem
     {
         if (_musicProto == null) //if we don't find any, we play the default track.
         {
-            _musicProto = _proto.Index<AmbientMusicPrototype>("default");
-            _lastBiome = _proto.Index<SpaceBiomePrototype>("default");
+            _musicProto = _proto.Index<AmbientMusicPrototype>(_defaultBiomeProto);
+            _lastBiome = _proto.Index<SpaceBiomePrototype>(_defaultBiomeProto);
         }
 
         SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
@@ -302,15 +294,15 @@ public sealed partial class ContentAudioSystem
                         combatFactionSuffix = "TSFMC";
                         break;
                     default:
-                        combatFactionSuffix = "default";
+                        combatFactionSuffix = "Default";
                         break;
                 }
 
                 // if we find a ambient music prototype for our faction, then pick that one!
-                if (_proto.TryIndex<AmbientMusicPrototype>("combatmode" + combatFactionSuffix, out var factionCombatMusicPrototype))
+                if (_proto.TryIndex<AmbientMusicPrototype>("CombatMode" + combatFactionSuffix, out var factionCombatMusicPrototype))
                     _musicProto = factionCombatMusicPrototype;
                 else //if we don't ,set it to the default
-                    _musicProto = _proto.Index<AmbientMusicPrototype>("combatmodedefault");
+                    _musicProto = _proto.Index<AmbientMusicPrototype>("CombatModeDefault");
 
                 SoundCollectionPrototype soundcol = _proto.Index<SoundCollectionPrototype>(_musicProto.ID);
 
@@ -368,7 +360,7 @@ public sealed partial class ContentAudioSystem
         {
             if (newBiome == null)
             {
-                _musicProto = _proto.Index<AmbientMusicPrototype>("default");
+                _musicProto = _proto.Index<AmbientMusicPrototype>(_defaultBiomeProto);
             }
             else
             {
@@ -387,7 +379,7 @@ public sealed partial class ContentAudioSystem
                 if (_musicProto == null) //if we don't find any ambient music matching our current biome in _musicTracks, we play the fallback track.
                 {
                     Log.Info("BIOME - MUSICPROTO IS NULL, WE FOUND NO BIOME MUSIC. PLAY FALLBACK");
-                    _musicProto = _proto.Index<AmbientMusicPrototype>("default");
+                    _musicProto = _proto.Index<AmbientMusicPrototype>(_defaultBiomeProto);
                 }
             }
 

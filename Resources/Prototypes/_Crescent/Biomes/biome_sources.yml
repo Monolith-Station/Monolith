@@ -14,12 +14,12 @@
   - type: GlobalPvs #needed so the client can see these past PVS range
 
 - type: entity
-  id: FallbackBiomeSource
+  id: BiomeSourceFallback
   parent: BaseBiomeSource
   name: fallback biome source
   components:
   - type: SpaceBiomeSource
-    id: default
+    id: BiomeDefault
     swapDistance: null #infinite
     priority: 1
 
@@ -40,61 +40,61 @@
 
 
 - type: entity
-  id: FarReachesIIIBiomeSource
+  id: BiomeSourceFarReachesIII
   parent: BaseBiomeSource
   name: far reaches III biome source
   components:
   - type: SpaceBiomeSource
-    id: far_reaches_iii
+    id: BiomeFarReachesIII
     swapDistance: 28000 #beyond this is fallback
     priority: 250
 
 - type: entity
-  id: FarReachesIIBiomeSource
+  id: BiomeSourceFarReachesII
   parent: BaseBiomeSource
   name: far reaches II biome source
   components:
   - type: SpaceBiomeSource
-    id: far_reaches_ii
+    id: BiomeFarReachesII
     swapDistance: 25000
     priority: 500
 
 - type: entity
-  id: FarReachesIBiomeSource
+  id: BiomeSourceFarReachesI
   parent: BaseBiomeSource
   name: far reaches I biome source
   components:
   - type: SpaceBiomeSource
-    id: far_reaches_i
+    id: BiomeFarReachesI
     swapDistance: 22000
     priority: 750
 
 - type: entity
-  id: OuterRingBiomeSource
+  id: BiomeSourceOuterRing
   parent: BaseBiomeSource
   name: outer ring biome source
   components:
   - type: SpaceBiomeSource
-    id: outer_ring
+    id: BiomeOuterRing
     swapDistance: 18000
     priority: 1000
 
 - type: entity
-  id: MiddleRingBiomeSource
+  id: BiomeSourceMiddleRing
   parent: BaseBiomeSource
   name: middle ring biome source
   components:
   - type: SpaceBiomeSource
-    id: middle_ring
+    id: BiomeMiddleRing
     swapDistance: 10000
     priority: 1500
 
 - type: entity
-  id: InnerRingBiomeSource
+  id: BiomeSourceInnerRing
   parent: BaseBiomeSource
   name: inner ring biome source
   components:
   - type: SpaceBiomeSource
-    id: inner_ring
+    id: BiomeInnerRing
     swapDistance: 5000
     priority: 2000

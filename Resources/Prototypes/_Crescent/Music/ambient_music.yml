@@ -35,34 +35,34 @@
 #fallback, don't remove, but can change songs
 
 - type: ambientMusic
-  id: default
+  id: BiomeDefault
   sound:
-    collection: default
+    collection: BiomeDefault
 
 - type: soundCollection
-  id: default
+  id: BiomeDefault
   files:
    - /Audio/_Crescent/Ambient/InnerRing/inner_ring_1.ogg
 
 # HARDCODED - FTL
 - type: ambientMusic
-  id: ftl_biome
+  id: BiomeFTL
   sound:
-    collection: ftl_biome
+    collection: BiomeFTL
 
 - type: soundCollection
-  id: ftl_biome
+  id: BiomeFTL
   files:
     - /Audio/_Crescent/Ambient/FTL/ftl_1.ogg
 
 # HARDCODED - EXPEDITION
 - type: ambientMusic
-  id: expedition_biome
+  id: BiomeExpedition
   sound:
-    collection: expedition_biome
+    collection: BiomeExpedition
 
 - type: soundCollection
-  id: expedition_biome
+  id: BiomeExpedition
   files:
     - /Audio/_Crescent/Ambient/Expedition/expedition_1.ogg
     - /Audio/_Crescent/Ambient/Expedition/expedition_2.ogg
@@ -71,12 +71,12 @@
 #combat music for anyone who isn't PDV or TFSMC (for now)
 
 - type: ambientMusic
-  id: combatmodedefault
+  id: CombatModeDefault
   sound:
-    collection: combatmodedefault
+    collection: CombatModeDefault
 
 - type: soundCollection
-  id: combatmodedefault
+  id: CombatModeDefault
   files:
     - /Audio/_Crescent/CombatMode/default_1.ogg
     - /Audio/_Crescent/CombatMode/default_2.ogg
@@ -86,24 +86,24 @@
 
 ### PDV
 - type: ambientMusic
-  id: combatmodePDV
+  id: CombatModePDV
   sound:
-    collection: combatmodePDV
+    collection: CombatModePDV
 
 - type: soundCollection
-  id: combatmodePDV
+  id: CombatModePDV
   files:
     - /Audio/_Crescent/CombatMode/PDV_1.ogg
     - /Audio/_Crescent/CombatMode/PDV_2.ogg
 
 ### TSFMC
 - type: ambientMusic
-  id: combatmodeTSFMC
+  id: CombatModeTSFMC
   sound:
-    collection: combatmodeTSFMC
+    collection: CombatModeTSFMC
 
 - type: soundCollection
-  id: combatmodeTSFMC
+  id: CombatModeTSFMC
   files:
     - /Audio/_Crescent/CombatMode/TSFMC_1.ogg
     - /Audio/_Crescent/CombatMode/TSFMC_2.ogg
@@ -114,46 +114,46 @@
 
 # far reaches III
 - type: ambientMusic
-  id: far_reaches_iii
+  id: BiomeFarReachesIII
   sound:
-    collection: far_reaches_iii
+    collection: BiomeFarReachesIII
 
 - type: soundCollection
-  id: far_reaches_iii
+  id: BiomeFarReachesIII
   files:
    - /Audio/_Crescent/Ambient/FarReaches/far_reaches_iii.ogg
 
 # far reaches II
 - type: ambientMusic
-  id: far_reaches_ii
+  id: BiomeFarReachesII
   sound:
-    collection: far_reaches_ii
+    collection: BiomeFarReachesII
 
 - type: soundCollection
-  id: far_reaches_ii
+  id: BiomeFarReachesII
   files:
    - /Audio/_Crescent/Ambient/FarReaches/far_reaches_ii.ogg
 
 # far reaches I
 - type: ambientMusic
-  id: far_reaches_i
+  id: BiomeFarReachesI
   sound:
-    collection: far_reaches_i
+    collection: BiomeFarReachesI
 
 - type: soundCollection
-  id: far_reaches_i
+  id: BiomeFarReachesI
   files:
    - /Audio/_Crescent/Ambient/FarReaches/far_reaches_i.ogg
 
 # outer ring
 
 - type: ambientMusic
-  id: outer_ring
+  id: BiomeOuterRing
   sound:
-    collection: outer_ring
+    collection: BiomeOuterRing
 
 - type: soundCollection
-  id: outer_ring
+  id: BiomeOuterRing
   files:
    - /Audio/_Crescent/Ambient/OuterRing/outer_ring_1.ogg
    - /Audio/_Crescent/Ambient/OuterRing/outer_ring_2.ogg
@@ -163,12 +163,12 @@
 # middle ring
 
 - type: ambientMusic
-  id: middle_ring
+  id: BiomeMiddleRing
   sound:
-    collection: middle_ring
+    collection: BiomeMiddleRing
 
 - type: soundCollection
-  id: middle_ring
+  id: BiomeMiddleRing
   files:
    - /Audio/_Crescent/Ambient/MiddleRing/middle_ring_1.ogg
    - /Audio/_Crescent/Ambient/MiddleRing/middle_ring_2.ogg
@@ -180,12 +180,12 @@
 # inner ring
 
 - type: ambientMusic
-  id: inner_ring
+  id: BiomeInnerRing
   sound:
-    collection: inner_ring
+    collection: BiomeInnerRing
 
 - type: soundCollection
-  id: inner_ring
+  id: BiomeInnerRing
   files:
    - /Audio/_Crescent/Ambient/InnerRing/inner_ring_1.ogg
    - /Audio/_Crescent/Ambient/InnerRing/inner_ring_2.ogg

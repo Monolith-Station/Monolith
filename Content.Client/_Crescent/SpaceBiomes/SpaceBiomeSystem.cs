@@ -76,7 +76,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
             if (newSource == null || //this whole shebang picks the highest priority source from the EQE
                     comp.Priority > newSource.Priority ||
-                    comp.Priority == newSource.Priority && comp == newSource)
+                    comp.Priority == newSource.Priority && comp == _cachedSource)
             {
                 newSource = comp;
             }
@@ -89,7 +89,7 @@ public sealed class SpaceBiomeSystem : EntitySystem
         {
             _cachedMap = newMap;
             _cachedSource = newSource;
-            var biome = _protMan.Index<SpaceBiomePrototype>(_cachedSource?.Id ?? "default");
+            var biome = _protMan.Index<SpaceBiomePrototype>(_cachedSource?.Id ?? "BiomeDefault");
             //note: this is where the parallax should swap. eventually.
             SpaceBiomeSwapMessage msg = new SpaceBiomeSwapMessage(biome);
             RaiseLocalEvent(localPlayerUid, ref msg, true);

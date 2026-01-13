@@ -36007,28 +36007,28 @@ entities:
     - type: Transform
       pos: -30.5,13.5
       parent: 2
-- proto: FallbackBiomeSource
+- proto: BiomeSourceFallback
   entities:
   - uid: 4909
     components:
     - type: Transform
       pos: -24.50074,50.5032
       parent: 2
-- proto: FarReachesIBiomeSource
+- proto: BiomeSourceFarReachesI
   entities:
   - uid: 10661
     components:
     - type: Transform
       pos: -24.533276,50.53837
       parent: 2
-- proto: FarReachesIIBiomeSource
+- proto: BiomeSourceFarReachesII
   entities:
   - uid: 10662
     components:
     - type: Transform
       pos: -24.51765,50.50712
       parent: 2
-- proto: FarReachesIIIBiomeSource
+- proto: BiomeSourceFarReachesIII
   entities:
   - uid: 10663
     components:
@@ -54005,7 +54005,7 @@ entities:
     - type: Transform
       pos: 17.5,49.5
       parent: 2
-- proto: InnerRingBiomeSource
+- proto: BiomeSourceInnerRing
   entities:
   - uid: 7121
     components:
@@ -54525,7 +54525,7 @@ entities:
     - type: Transform
       pos: 6.3013744,53.766754
       parent: 2
-- proto: MiddleRingBiomeSource
+- proto: BiomeSourceMiddleRing
   entities:
   - uid: 7192
     components:
@@ -54835,7 +54835,7 @@ entities:
     - type: Transform
       pos: 22.5,62.5
       parent: 2
-- proto: OuterRingBiomeSource
+- proto: BiomeSourceOuterRing
   entities:
   - uid: 7235
     components:

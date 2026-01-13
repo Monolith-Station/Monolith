@@ -225,7 +225,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         var biome_marker = _entManager.AddComponent<SpaceBiomeSourceComponent>(mapUid);
         biome_marker.Priority = 2500;
         biome_marker.SwapDistance = null; //infinite
-        biome_marker.Id = _prototypeManager.Index<SpaceBiomePrototype>("expedition_biome");
+        biome_marker.Id = _prototypeManager.Index<SpaceBiomePrototype>("BiomeExpedition");
 
         // Mono End
         expedition.Station = Station;
