@@ -85,10 +85,9 @@ public sealed partial class ContentAudioSystem
     private enum MusicType : byte //used to deal with edgecases of when music should not be overridden
     {
         None = 0,
-        Fallback = 1,
-        Biome = 2,
-        Grid = 3,
-        Combat = 4
+        Biome = 1,
+        Grid = 2,
+        Combat = 3
     }
     private MusicType? _currentlyPlaying = MusicType.None;
 
@@ -102,6 +101,14 @@ public sealed partial class ContentAudioSystem
     private float _combatWindDownTimer = 0;
     private bool _combatWindDownBool = false;
 
+
+    private const float InitialStationMusicTimeToDrop = 5f;
+    private float _initialStationMusicTimer = 0f;
+    private bool _initialStationMusicBool = false;
+    // ok so - the parent change for the station happens too early and something fucks up
+    // so the music system plays the music but you can't hear it. this is for OnPlayerSpawn to set the replayambientmusictimer to replay it, which fixes it
+    // its hacky, but itll do for now. inb4 this line is still here 2 years later
+
     //used for logging, don't touch this
     private ISawmill _sawmill = default!;
 
@@ -112,6 +119,27 @@ public sealed partial class ContentAudioSystem
         if (!_timing.IsFirstTimePredicted) //otherwise this will tick like 5x faster on client. thanks prediction
             return;
 
+        if (_initialStationMusicBool)
+        {
+            _initialStationMusicTimer += frameTime;
+            if (_replayAmbientMusicTimer > InitialStationMusicTimeToDrop)
+            {
+                ReplayAmbientMusic();
+                _initialStationMusicBool = false;
+                _initialStationMusicTimer = 0;
+                _replayAmbientMusicTimer = 0;
+            }
+        }
+
+        if (_replayAmbientMusicBool)
+        {
+            _replayAmbientMusicTimer += frameTime;
+            if (_replayAmbientMusicTimer > _timeUntilNextAmbientTrack)
+            {
+                ReplayAmbientMusic();
+                _replayAmbientMusicTimer = 0;
+            }
+        }
         if (_replayAmbientMusicBool)
         {
             _replayAmbientMusicTimer += frameTime;
@@ -147,8 +175,9 @@ public sealed partial class ContentAudioSystem
     {
         SubscribeLocalEvent<SpaceBiomeSwapMessage>(OnBiomeChange);
         SubscribeLocalEvent<PlayerParentChangedMessage>(OnPlayerParentChange);
-        //SubscribeLocalEvent<SpaceEnteredMessage>(OnSpaceEntered);
         SubscribeLocalEvent<ToggleCombatActionEvent>(OnCombatModeToggle);
+
+        SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerSpawn);
 
         Subs.CVar(_configManager, CCVars.AmbientMusicVolume, AmbienceCVarChanged, true);
         Subs.CVar(_configManager, MonoCVars.CombatMusicVolume, CombatCVarChanged, true);
@@ -170,6 +199,23 @@ public sealed partial class ContentAudioSystem
         SubscribeNetworkEvent<RoundEndMessageEvent>(OnRoundEndMessage);
     }
 
+    /// <summary>
+    /// Tracks player spawning in to replay ambient music 5 seconds in, making sure station music plays.
+    /// Currently, there is a bug that I can't fix, where after spawning in, station music won't kick in despite the PlayMusic function firing.
+    /// </summary>
+    /// <param name="ev"></param>
+    private void OnPlayerSpawn(LocalPlayerAttachedEvent ev)
+    {
+        Log.Info("----------------player spawn ticked-----------------");
+        _initialStationMusicBool = true;
+        _initialStationMusicTimer = 0f;
+
+    }
+
+
+    /// <summary>
+    /// Helper function to replay ambient music after it's done.
+    /// </summary>
     private void ReplayAmbientMusic()
     {
         if (_musicProto == null) //if we don't find any, we play the default track.
@@ -193,9 +239,13 @@ public sealed partial class ContentAudioSystem
     {
         SetMusic(ev.Grid, _lastBiome, _lastCombatState);
     }
+    private void SwitchCombatMusic(bool currentCombatState)
+    {
+        SetMusic(_lastGrid, _lastBiome, currentCombatState);
+    }
     private void OnCombatModeToggle(ToggleCombatActionEvent ev)
     {
-        if (_combatMusicToggle == false)
+        if (_combatMusicToggle == false) // if cvar is off, don't bother
             return;
         if (!_timing.IsFirstTimePredicted == true) //needed, because combat mode is predicted, and triggers 7 times otherwise.
             return;
@@ -214,16 +264,17 @@ public sealed partial class ContentAudioSystem
             _combatWindUpBool = false;
             _combatWindUpTimer = 0;
         }
-
-    }
-    private void SwitchCombatMusic(bool currentCombatState)
-    {
-        SetMusic(_lastGrid, _lastBiome, currentCombatState);
     }
 
+    /// <summary>
+    /// Function that takes in data from requests to change music and determines what music to play / if it should play it.
+    /// </summary>
+    /// <param name="newGrid"></param>
+    /// <param name="newBiome"></param>
+    /// <param name="newCombatState"></param>
     private void SetMusic(EntityUid? newGrid, ProtoId<SpaceBiomePrototype>? newBiome, bool newCombatState)
     {
-        Log.Info("SETMUSIC: - GRID: " + newGrid.ToString() + " BIOME: " + newBiome.ToString() + " COMBAT: " + newCombatState.ToString());
+        //Log.Info("SETMUSIC: - GRID: " + newGrid.ToString() + " BIOME: " + newBiome.ToString() + " COMBAT: " + newCombatState.ToString());
         // priority list:
         // 1. (not implemented yet :godo:) ship combat music
         // 2. combat music
@@ -234,7 +285,6 @@ public sealed partial class ContentAudioSystem
         #region combat music
         if (newCombatState != _lastCombatState) //we switch combat music on or off now
         {
-            Log.Info("REACHED COMBAT MUSIC - newCombatState: " + newCombatState.ToString());
             _lastCombatState = newCombatState; // cache combat state since its different than the last
             if (newCombatState) //true = we toggled combat ON.
             {
@@ -283,7 +333,6 @@ public sealed partial class ContentAudioSystem
 
         if (_currentlyPlaying >= MusicType.Combat) //if we are in combatmode, we still want to cache info, but we want to return here so that we dont stop playing combatmode music
         {
-            Log.Info("MUSIC CHANGE REQUESTED WHILE COMBATMODE IS ACTIVE - CACHE AND RETURN");
             _lastGrid = newGrid;
             _lastBiome = newBiome;
             return;
@@ -295,8 +344,6 @@ public sealed partial class ContentAudioSystem
         {
             if (newGrid != null && TryComp<VesselMusicComponent>(newGrid, out var music)) //do we have grid music? also this gives false if null
             {
-                Log.Info("REACHED GRID, GRID HAS MUSIC");
-                Log.Info("GRID IS NOT THE SAME AS LAST GRID - CACHE AND PLAY GRID MUSIC");
                 _lastGrid = newGrid;
                 _lastBiome = newBiome;
                 _musicProto = _proto.Index<AmbientMusicPrototype>(music.AmbientMusicPrototype);
@@ -313,14 +360,6 @@ public sealed partial class ContentAudioSystem
         }
         else
             return;
-
-        // if (_currentlyPlaying >= MusicType.Grid) // edge case: grid with music like halcyon is moving across biomes, we log the change and return
-        // {
-        //     Log.Info("BIOME MUSIC REQUEST WHILE GRID MUSIC IS PLAYING - CACHE AND RETURN");
-        //     _lastGrid = newGrid;
-        //     _lastBiome = newBiome;
-        //     return;
-        // }
 
         #endregion
         #region biome music
@@ -370,7 +409,7 @@ public sealed partial class ContentAudioSystem
 
 
     /// <summary>
-    /// This is a helper function that actually plays the music tracks.
+    /// Helper function that sets up parameters, audio stream, fadein, and music volume.
     /// </summary>
     /// <param name="path"> Path to music to play.</param>
     /// <param name="volume"> Volume modifier (put 0 to keep original volume).</param>
@@ -378,7 +417,7 @@ public sealed partial class ContentAudioSystem
     private void PlayMusicTrack(string path, float volume, float fadein, bool combatMode)
     {
         _isCombatMusicPlaying = combatMode;
-        _sawmill.Debug($"NOW PLAYING: {path}" + " | COMBAT MODE: " + _isCombatMusicPlaying);
+        _sawmill.Debug($"NOW PLAYING: {path}"  + " | COMBAT MODE: " + _isCombatMusicPlaying);
         FadeOut(_ambientMusicStream);
 
         if (combatMode)
@@ -406,6 +445,11 @@ public sealed partial class ContentAudioSystem
         _timeUntilNextAmbientTrack = (float)_audio.GetAudioLength(path).TotalSeconds;
     }
 
+    /// <summary>
+    /// Helper function that fetches music tracks to set up the list to pull from on initialize.
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="NullReferenceException"></exception>
     private List<AmbientMusicPrototype> GetTracks()
     {
         List<AmbientMusicPrototype> musictracks = new List<AmbientMusicPrototype>();
@@ -457,15 +501,22 @@ public sealed partial class ContentAudioSystem
         _combatMusicTimeToEnd = obj;
     }
 
+    /// <summary>
+    /// Handles the combat mode music cvar being toggled on/off.
+    /// </summary>
+    /// <param name="obj"></param>
     private void CombatToggleChanged(bool obj)
     {
         _combatMusicToggle = obj;
 
         if (_combatMusicToggle) // if the player turned combat music back ON, then we don't really care anymore and the system works as usual
             return;
+        if (_state.CurrentState is not GameplayState)
+            return; //catches this throwing a null reference exception if u had this cvar toggled, in lobby
+                    //cuz this next setmusic plays music. and well. we havent collected the music yet when we join in
+                    //and we dont need to change music if we're not ingame anyway
 
         //otherwise we should kill combat music thats playing rn if they turned it off, otherwise it gets STUCK on.
-        // TODO: MAKE SURE THIS ACTUALLY WORKS
         SetMusic(_lastGrid, _lastBiome, false);
     }
 
@@ -497,17 +548,14 @@ public sealed partial class ContentAudioSystem
             return;
         }
         // If scoreboard shows then just stop the music
-        Log.Debug("ROUNDEND, KILLING MUSIC");
         _ambientMusicStream = _audio.Stop(_ambientMusicStream);
     }
     public void DisableAmbientMusic()
     {
         if (_ambientMusicStream == null)
         {
-            _sawmill.Debug("AMBIENT MUSIC STREAM WAS NULL? FROM DisableAmbientMusic()");
             return;
         }
-        Log.Debug("DISABLEAMBIENTMUSIC RAN??");
         FadeOut(_ambientMusicStream);
         _ambientMusicStream = null;
     }
