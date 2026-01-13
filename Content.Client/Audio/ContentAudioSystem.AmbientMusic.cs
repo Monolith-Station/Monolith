@@ -245,17 +245,17 @@ public sealed partial class ContentAudioSystem
             return
         ---- check ----
         2. are grids different - yes
-                is grid music available - yes // case - moving from space/nonmusic grid to music grid
-                    play grid music
+            is grid music available - yes // case - moving from space/nonmusic grid to music grid
+                play grid music
+                update cache
+                return
+            is grid music available - no
+                are we playing biome music - yes // case - moving from space/nonmusic grid to space/nonmusic grid
                     update cache
                     return
-                is grid music available - no
-                    are we playing biome music - yes // case - moving from space/nonmusic grid to space/nonmusic grid
-                        update cache
-                        return
-                    are we playing biome music - no // case - moving from music grid to non-music grid
-                        null biome cache
-                        continue
+                are we playing biome music - no // case - moving from music grid to non-music grid
+                    null biome cache
+                    continue
         ---- check ---- //case: biome changes while grid music is on, ex: flagship halcyon moving across biomes
         is grid music on?
             update cache

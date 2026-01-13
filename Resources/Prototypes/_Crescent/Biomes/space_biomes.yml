@@ -9,6 +9,12 @@
   name: Expedition
   description: "Uncharted land."
 
+#ftl biome - hardcoded in ShuttleSystem.FasterThanLight.cs
+- type: ambientSpaceBiome
+  id: ftl_biome
+  name: Hyperspace
+  description: "Upon the pale horse, with Hell behind you."
+
 #actual biomes
 - type: ambientSpaceBiome
   id: outer_ring

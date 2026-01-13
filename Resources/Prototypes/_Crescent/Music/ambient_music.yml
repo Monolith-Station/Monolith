@@ -32,7 +32,7 @@
   files:
    - /Audio/_Crescent/Ambient/InnerRing/inner_ring_1.ogg
 
-#ambient fallback, don't remove, but can change song
+#fallback, don't remove, but can change songs
 
 - type: ambientMusic
   id: default
@@ -43,6 +43,28 @@
   id: default
   files:
    - /Audio/_Crescent/Ambient/InnerRing/inner_ring_1.ogg
+
+# HARDCODED - FTL
+- type: ambientMusic
+  id: ftl_biome
+  sound:
+    collection: ftl_biome
+
+- type: soundCollection
+  id: ftl_biome
+  files:
+    - /Audio/_Crescent/FTL/ftl_1.ogg
+
+# HARDCODED - EXPEDITION
+- type: ambientMusic
+  id: expedition_biome
+  sound:
+    collection: expedition_biome
+
+- type: soundCollection
+  id: expedition_biome
+  files:
+    - /Audio/_Crescent/Expedition/exped_1.ogg
 
 #combat music for anyone who isn't PDV or TFSMC (for now)
 
