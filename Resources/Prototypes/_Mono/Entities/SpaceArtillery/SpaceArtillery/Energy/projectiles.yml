@@ -442,11 +442,11 @@
     maxDistance: 600
   - type: HitscanGathering
 
-# Helios
+# Prometheus
 
 - type: entity
   parent: ApolloLaser
-  id: HeliosLaser
+  id: PrometheusLaser
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -455,7 +455,7 @@
        Heat: 120
        Structural: 500
   - type: HitscanSpawnEntity
-    spawnedEntity: HeliosExplosion
+    spawnedEntity: PrometheusExplosion
   - type: HitscanBasicRaycast
     maxDistance: 1000
 
@@ -573,7 +573,7 @@
     maxIntensity: 5
 
 - type: entity
-  id: HeliosExplosion
+  id: PrometheusExplosion
   categories: [ HideSpawnMenu ]
   components:
   - type: TriggerOnSpawn

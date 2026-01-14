@@ -587,18 +587,18 @@
     repairTime: 15
     repairCost: 40
 
-# Helios
+# Prometheus
 
 - type: entity
-  id: WeaponLaserTurretHelios
-  name: TPC Helios Laser Cannon
+  id: WeaponLaserTurretPrometheus
+  name: TPC Prometheus Laser Cannon
   parent: BallisticArtillery
-  description: A heavier laser cannon mount, after the relative failure of the Apollo and its subsequent conversion into a mining laser, the Helios comes to the field as the new laser on the field, perfect for melting through hostile hulls.
+  description: A heavier laser cannon mount, after the relative failure of the Apollo and its subsequent conversion into a mining laser, the Prometheus comes to the field as the new heavy laser cannon, perfect for melting through hostile hulls.
   components:
   - type: StaticPrice
     price: 17500
   - type: Sprite
-    sprite:  _Mono/Objects/ShuttleWeapons/helios.rsi
+    sprite:  _Mono/Objects/ShuttleWeapons/prometheus.rsi
     layers:
     - state: space_artillery
   - type: Appearance
@@ -629,8 +629,8 @@
   - type: FireControlRotate
   - type: Actions
   - type: HitscanBatteryAmmoProvider
-    proto: HeliosLaser
-    fireCost: 25
+    proto: PrometheusLaser
+    fireCost: 5000
   - type: Destructible
     thresholds:
     - trigger:
