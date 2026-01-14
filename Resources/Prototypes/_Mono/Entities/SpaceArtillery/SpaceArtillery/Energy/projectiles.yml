@@ -36,6 +36,18 @@
     maxIntensity: 15
     maxTileBreak: 1
 
+# Cerberus
+
+- type: entity
+  name: cerberus spread
+  parent: ShipMediumPlasmaProjectile
+  id: CerberusSpread
+  components:
+  - type: ProjectileSpread
+    proto: ShipMediumPlasmaProjectile
+    count: 3
+    spread: 8
+
 # Autopulser
 
 - type: entity
@@ -73,6 +85,43 @@
     totalIntensity: 7
     intensitySlope: 2
     maxIntensity: 4
+    maxTileBreak: 1
+
+# Scylla
+
+- type: entity
+  id: ShipPlasmaProjectileScylla
+  name: plasma projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 10
+        Structural: 80
+        Heat: 40
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: mediumstun
+    scale: 1.2, 1.2
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#00e5ff"
+    scale: 1.45
+    requireNoGrid: true
+    shape: arrow
+  - type: TimedDespawn
+    lifetime: 4.2
+  - type: PointLight
+    radarColor: "#00e5ff"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 15
+    intensitySlope: 3
+    maxIntensity: 5
     maxTileBreak: 1
 
 # Type 241
@@ -358,6 +407,23 @@
     maxDistance: 600
   - type: HitscanGathering
 
+# Helios
+
+- type: entity
+  parent: ApolloLaser
+  id: HeliosLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+     types:
+       Heat: 120
+       Structural: 500
+  - type: HitscanSpawnEntity
+    spawnedEntity: HeliosExplosion
+  - type: HitscanBasicRaycast
+    maxDistance: 1000
+
 # Reaper
 
 - type: entity
@@ -470,3 +536,15 @@
     totalIntensity: 22
     intensitySlope: 2
     maxIntensity: 5
+
+- type: entity
+  id: HeliosExplosion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 50
+    intensitySlope: 10
+    maxIntensity: 25

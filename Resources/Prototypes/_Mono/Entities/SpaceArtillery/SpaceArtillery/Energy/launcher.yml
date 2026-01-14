@@ -26,7 +26,7 @@
     recoil: 5 # 1/5x
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 65
+    projectileSpeed: 200
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -71,6 +71,79 @@
   - type: ShipRepairable
     repairTime: 15
     repairCost: 60
+
+# Cerbrus
+
+- type: entity
+  id: WeaponTurretCerberus
+  name: TPC Cerberus Plasma scattercannon
+  parent: BallisticArtillery
+  description: Borrowing from the design of the Marauder, the Cerberus fires very similar shots, but in a tight spread of 3 blasts
+  components:
+  - type: StaticPrice
+    price: 2000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/cerberus.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.75
+    recoil: 8
+    minAngle: 0
+    maxAngle: 0
+    projectileSpeed: 175
+    shootThermalSignature: 4000000 # ~2.8km with continuous fire
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 350
+  - type: SpaceArtillery
+    powerChargeRate: 350
+    powerUsePassive: 500
+    powerUseActive: 0
+  - type: FireControlRotate
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: CerberusSpread
+    fireCost: 500
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 8000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 2.5
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 50
+    repairCost: 120
 
 # Type 54 autopulser
 
@@ -290,6 +363,83 @@
     repairTime: 30
     repairCost: 60
 
+- type: entity
+  id: WeaponTurretScylla
+  name: TPC Scylla plasma impulse driver
+  parent: BallisticArtilleryUnanchorable
+  suffix: TSF ONLY, ADS ONLY
+  description: A more specialized energy weapon, the Scylla fires a massive burst of plasma projectiles down range, in a huge spew to erase large and small targets alike.
+  components:
+  - type: StaticPrice
+    price: 50000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/scylla.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 200000
+    startingCharge: 200000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    projectileSpeed: 290
+    minAngle: 0
+    maxAngle: 7
+    fireRate: 11
+    recoil: 10 # 2/5x
+    burstCooldown: 10
+    burstFireRate: 50
+    shotsPerBurst: 50
+    selectedMode: Burst
+    availableModes: Burst
+    shootThermalSignature: 500000 # ~5.6km with continuous fire
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/autopulse_laser_fire_01.ogg
+    soundEmpty:
+      path: /Audio/Weapons/click.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 300
+  - type: SpaceArtillery
+    powerChargeRate: 700
+    powerUsePassive: 100
+    powerUseActive: 0
+  - type: FireControlRotate
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipPlasmaProjectileScylla
+    fireCost: 200
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 6000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 3000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 1.5
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 70
+    repairCost: 150
+
 # DYMERE
 
 - type: entity
@@ -436,6 +586,75 @@
   - type: ShipRepairable
     repairTime: 15
     repairCost: 40
+
+# Helios
+
+- type: entity
+  id: WeaponLaserTurretHelios
+  name: TPC Helios Laser Cannon
+  parent: BallisticArtillery
+  description: A heavier laser cannon mount, after the relative failure of the Apollo and its subsequent conversion into a mining laser, the Helios comes to the field as the new laser on the field, perfect for melting through hostile hulls.
+  components:
+  - type: StaticPrice
+    price: 17500
+  - type: Sprite
+    sprite:  _Mono/Objects/ShuttleWeapons/helios.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 50000
+    startingCharge: 50000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 500
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: .2
+    recoil: 5
+    minAngle: 0
+    maxAngle: 0
+    shootThermalSignature: 2000000
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 200
+    powerUsePassive: 300
+    powerUseActive: 0
+  - type: FireControlRotate
+  - type: Actions
+  - type: HitscanBatteryAmmoProvider
+    proto: HeliosLaser
+    fireCost: 25
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 9000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 100
 
 # Apollo
 
