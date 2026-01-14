@@ -4,7 +4,7 @@
   parent: BaseMeleeWeaponEnergy
   id: WeaponOverseerMace
   name: heavy maul "Honor"
-  description: A large, weighty maul, designed to deal the paina nd disabling targets. But when activated, becomes an energy axe made of searing plasma, cleaving through anything in its way.
+  description: A large, weighty maul, designed to deal the pain, alongside disabling targets. But when activated, becomes an energy axe made of searing plasma, cleaving through anything in its way.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Melee/honormace.rsi
@@ -18,11 +18,10 @@
     enabled: false
     radius: 2
     energy: 2
-    color: "#ff0019"
-    netsync: false
+    color: red
   - type: Item
     sprite: _Mono/Objects/Weapons/Melee/honormace.rsi
-    size: Medium
+    size: Normal
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Melee/honormace.rsi
     slots:
@@ -67,6 +66,6 @@
         Piercing: 15
         Structural: 50
     soundHit:
-        path: /Audio/Weapons/bladeslice.ogg
+      collection: MetalThud
   - type: DisarmMalus
     malus: 0.6

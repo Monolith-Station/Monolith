@@ -6,10 +6,13 @@
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Battery/dignity_shotgun.rsi
-    state: base
+    state: icon
   - type: Appearance
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Guns/Battery/dignity_shotgun.rsi
+    slots:
+    - Back
+    - SuitStorage
   - type: Gun
     fireRate: 2
     soundGunshot:
@@ -28,7 +31,6 @@
     shape:
     - 0,0,3,0
     sprite: _Mono/Objects/Weapons/Guns/Battery/dignity_shotgun.rsi
-    heldPrefix: energy
   - type: Battery
     maxCharge: 1200
     startingCharge: 1200
@@ -36,4 +38,4 @@
     autoRecharge: true
     autoRechargeRate: 24
   - type: GunSpreadModifier
-    spread: 0.5
+    spread: 0.8
