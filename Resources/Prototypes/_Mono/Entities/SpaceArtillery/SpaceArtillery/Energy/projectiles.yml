@@ -25,7 +25,7 @@
     requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
-    lifetime: 12.2
+    lifetime: 7
   - type: PointLight
     color: "#FF0040"
   - type: ExplodeOnTrigger
@@ -39,12 +39,47 @@
 # Cerberus
 
 - type: entity
+  id: ShipCerberusPlasma
+  name: plasma projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 20
+        Structural: 350
+        Heat: 80
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
+    layers:
+    - state: plasmashot
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectPlasmaPulser
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 2.5
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 12.2
+  - type: PointLight
+    color: "#FF0040"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 25
+    intensitySlope: 10
+    maxIntensity: 15
+
+- type: entity
   name: cerberus spread
   parent: ShipMediumPlasmaProjectile
   id: CerberusSpread
   components:
   - type: ProjectileSpread
-    proto: ShipMediumPlasmaProjectile
+    proto: ShipCerberusPlasma
     count: 3
     spread: 8
 
