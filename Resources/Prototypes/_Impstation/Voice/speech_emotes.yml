@@ -49,8 +49,8 @@
   category: Vocal
   icon: _Impstation/Interface/Emotes/hiss.png
   whitelist:
-    components:
-    - Vocal
+    tags:
+      - ReptilianEmotes
   blacklist:
     components:
     - BorgChassis
