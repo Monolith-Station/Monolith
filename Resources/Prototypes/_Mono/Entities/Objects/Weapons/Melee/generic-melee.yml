@@ -67,5 +67,7 @@
         Structural: 50
     soundHit:
       collection: MetalThud
+  - type: StaminaDamageOnHit
+    damage: 80
   - type: DisarmMalus
     malus: 0.6
