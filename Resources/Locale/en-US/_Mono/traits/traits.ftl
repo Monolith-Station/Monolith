@@ -82,3 +82,6 @@ trait-alcohol-tolerance-desc = Your body shrugs off the visual effects of booze.
 
 trait-platelet-factories-name = Platelet Factories
 trait-platelet-factories-desc = Your body has been augmented with a series of bio-tailored organs that enhance long-term survivability. These organs attempt to keep you alive even in the face of advanced trauma, all the way up until—but not including—death. Your natural healing slowly repairs any damage type, including exotic injuries like radiation exposure or cellular damage.
+
+trait-nanite-repair-drones-name = Nanite Repair Drones
+trait-nanite-repair-drones-desc = Your Chassis has Nanite Repair Drones coursing through it that respond to physical trauma. While not as quick as manual repair, these will cut down significantly on day to day maintainance.
