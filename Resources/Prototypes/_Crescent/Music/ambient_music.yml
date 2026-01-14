@@ -1,6 +1,6 @@
 ##
 ## PLEASE READ BEFORE CONTRIBUTING! also, for clarity, check ContentAudioSystem.AmbientMusic.cs. i added comments!
-## for biome IDs, check space_biomes.yml for crescentFactionBiomes.
+## for biome IDs, check space_biomes.yml
 ##
 ## for your ambient music to be valid, you need two prototypes
 ## first, an ambientMusic prototype. the id !!!!MUST MATCH THE BIOME ID!!!! that you are making ambient music for, and it must have a sound collection
@@ -8,9 +8,10 @@
 ## second, a soundCollection prototype. its id can be different, but please keep it the same as the biome for consistency
 ## the music selected from the sound collection will be chosen randomly whenever the appropriate music is required to be played
 ##
-## combat music default/fallback is called "combatmusic"
-## factional combat music must be called "combatmusic<FACTIONNAME>"
-## this is because the way combat music is fetched is just adding that NpcFactionMember string to combatmusic, creating "combatmusicTSFMC", etc.
+## combat music default/fallback is called "CombatMusicDefault"
+## factional combat music must be called "CombatMusic<Faction>"
+## this is because the way combat music is fetched is ContentAudioSystem.AmbientMusic.cs filtering for NPCFactionComponent and turning them into faction IDs,
+## then combining them with CombatMusic to get CombatMusicPDV.
 ##
 ## valid factions:
 ## TSFMC
@@ -223,4 +224,8 @@
   files:
    - /Audio/_Crescent/Stations/Colossus/colossus_1.ogg
    - /Audio/_Crescent/Stations/Colossus/colossus_2.ogg
+   - /Audio/_Crescent/Stations/Colossus/colossus_3.ogg
+   - /Audio/_Crescent/Stations/Colossus/colossus_4.ogg
+   - /Audio/_Crescent/Stations/Colossus/colossus_5.ogg
+   - /Audio/_Crescent/Stations/Colossus/colossus_6.ogg
 
