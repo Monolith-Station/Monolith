@@ -10,6 +10,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.Traits;
@@ -53,7 +54,7 @@ public sealed class TraitSystem : EntitySystem
             speciesId = humanoid.Species;
 
         // Validate and collect valid traits
-        var validTraits = ValidateTraits(args.Mob, args.Profile.TraitPreferences, args.JobId, speciesId);
+        var validTraits = ValidateTraits(args.Mob, args.Profile.TraitPreferences, args.Player, args.JobId, speciesId);
 
         // Apply valid traits
         foreach (var traitId in validTraits)
@@ -71,6 +72,7 @@ public sealed class TraitSystem : EntitySystem
     private HashSet<ProtoId<TraitPrototype>> ValidateTraits(
         EntityUid player,
         IReadOnlySet<ProtoId<TraitPrototype>> selectedTraits,
+        ICommonSession session,
         string? jobId,
         string? speciesId)
     {
@@ -84,7 +86,7 @@ public sealed class TraitSystem : EntitySystem
         var conditionCtx = new TraitConditionContext
         {
             Player = player,
-            Session = null, // Not available at spawn time
+            Session = session,
             EntMan = EntityManager,
             Proto = _prototype,
             CompFactory = _factory,
