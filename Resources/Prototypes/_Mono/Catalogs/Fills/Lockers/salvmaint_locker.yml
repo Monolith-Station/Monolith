@@ -291,7 +291,7 @@
 #Unused but probably useful to have
 - type: entity
   name: Mono Maint Loot Spawner
-  suffix: Fluff+Clothes
+  suffix: UNUSED,Fluff+Clothes
   id: MonoMaintenanceFluffSpawner
   parent: MarkerBase
   components:
@@ -528,7 +528,7 @@
 #Unused but probably useful to have
 - type: entity
   name: Mono Maint Loot Spawner
-  suffix: Tools+Cells+Mats
+  suffix: UNUSED,Tools+Cells+Mats
   id: MonoMaintenanceToolSpawner
   parent: MarkerBase
   components:
@@ -641,7 +641,7 @@
 #Unused but probably useful to have
 - type: entity
   name: Mono Maint Loot Spawner
-  suffix: Scrap+Weapons
+  suffix: UNUSED,Scrap+Weapons
   id: MonoMaintenanceWeaponSpawner
   parent: MarkerBase
   components:
