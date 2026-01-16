@@ -4,7 +4,7 @@
   name: grand vizier's locker
   components:
   - type: AccessReader
-    access: [["RogueCommander"]]
+    access: [["GrandVizier"]]
   - type: StorageFill
     contents:
     - id: WeaponVizierShamshir

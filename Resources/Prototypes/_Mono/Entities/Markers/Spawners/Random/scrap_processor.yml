@@ -123,6 +123,8 @@
      - id: FlashPayload
      - id: ModularGrenade
      - id: RCDAmmo
+     - id: ShipRepairDeviceAmmo
+       weight: 0.75
    - !type:GroupSelector
      weight: 2
      children:
@@ -156,6 +158,7 @@
      - id: JawsOfLife
      - id: WelderExperimental
      - id: RCD
+     - id: ShipRepairDeviceEmpty
 # Scrap
 - type: entityTable
   id: ScrapSalvageTrashBranch

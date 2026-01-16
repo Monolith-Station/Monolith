@@ -15,6 +15,7 @@
     prototypes:
     - SpawnDroneWasp
     - SpawnDroneCrown
+    - SpawnDroneGust
 
 - type: entity
   id: MonoRamDroneSpawnerT2Middle
@@ -33,6 +34,8 @@
       weight: 20
     - id: SpawnDroneCrown
       weight: 20
+    - id: SpawnDroneGust
+      weight: 20
     # T2 medium
     - id: SpawnDroneMedusa
       weight: 20
@@ -47,9 +50,6 @@
     - type: IFF
       flags: AlwaysShowColor
       color: "#9a2020"
-    - type: Tag
-      tags:
-      - ShuttleAIIgnore
     - type: GridCleanupGrid
       cleanupAcceleration: 3
       ignorePowered: true
@@ -102,6 +102,13 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/crown.yml
+
+- type: entity
+  id: SpawnDroneGust
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/gust.yml
 
 - type: entity
   id: SpawnDroneBasicSmall

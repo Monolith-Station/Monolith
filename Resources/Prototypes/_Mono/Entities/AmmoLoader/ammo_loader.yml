@@ -60,6 +60,10 @@
     range: 100
     ports:
     - AmmoLoaderLoad
+  # Mono
+  - type: ShipRepairable
+    repairTime: 6
+    repairCost: 16
 
 - type: entity
   id: AmmoLoaderSmall

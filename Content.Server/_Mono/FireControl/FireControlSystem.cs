@@ -11,7 +11,6 @@ using Robust.Shared.Physics.Systems;
 using System.Linq;
 using Content.Shared.Physics;
 using System.Numerics;
-using Content.Server._Mono.CombatMusic;
 using Content.Server._Mono.SpaceArtillery;
 using Content.Server._Mono.SpaceArtillery.Components;
 using Content.Server.Power.EntitySystems;
@@ -32,8 +31,6 @@ public sealed partial class FireControlSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PowerReceiverSystem _power = default!;
     [Dependency] private readonly RotateToFaceSystem _rotateToFace = default!;
-    [Dependency] private readonly CombatMusicSystem _combatMusic = default!;
-
     /// <summary>
     /// Dictionary of entities that have visualization enabled
     /// </summary>
@@ -382,25 +379,29 @@ public sealed partial class FireControlSystem : EntitySystem
         }
     }
 
+    public bool CanFireWeapons(EntityUid grid)
+    {
+        if (TerminatingOrDeleted(grid)
+            || HasComp<FTLComponent>(grid)
+            || HasComp<SpaceArtilleryDisabledGridComponent>(grid)
+        )
+            return false;
+
+        var gridXform = Transform(grid);
+        // Check if the weapon is an expedition
+        if (gridXform.MapUid != null && HasComp<SalvageExpeditionComponent>(gridXform.MapUid.Value))
+            return false;
+
+        return true;
+    }
+
     public void FireWeapons(EntityUid server, List<NetEntity> weapons, NetCoordinates coordinates, FireControlServerComponent? component = null)
     {
         if (!Resolve(server, ref component))
             return;
 
-        // Check if the weapon's grid is in FTL
         var grid = component.ConnectedGrid;
-        if (grid != null && TryComp<FTLComponent>((EntityUid)grid, out var ftlComp))
-            return;
-
-        // Check if the weapon's grid is pacified
-        if (grid != null && TryComp<SpaceArtilleryDisabledGridComponent>((EntityUid)grid, out var pacifiedComp))
-            return;
-
-        // Check if the weapon is an expedition
-        if (grid != null &&
-            TryComp(grid, out TransformComponent? gridXform) &&
-            gridXform.MapUid != null &&
-            HasComp<SalvageExpeditionComponent>(gridXform.MapUid.Value))
+        if (grid != null && !CanFireWeapons(grid.Value))
             return;
 
         var targetCoords = GetCoordinates(coordinates);
@@ -416,9 +417,6 @@ public sealed partial class FireControlSystem : EntitySystem
 
             artilleryFired |= _artilleryQuery.HasComp(localWeapon) && fired;
         }
-
-        if (artilleryFired)
-            TriggerCombatMusic(server);
     }
 
     /// <summary>
@@ -723,18 +721,6 @@ public sealed partial class FireControlSystem : EntitySystem
         var directions = CheckAllDirections(entityUid);
         RaiseNetworkEvent(new FireControlVisualizationEvent(netEntity, directions));
         return true;
-    }
-
-    /// <summary>
-    /// Triggers combat music for the grid that the console is on.
-    /// </summary>
-    private void TriggerCombatMusic(EntityUid consoleUid)
-    {
-        var gridUid = _xform.GetGrid(consoleUid);
-        if (gridUid == null)
-            return;
-
-        _combatMusic.TriggerCombatMusic(gridUid.Value);
     }
 }
 
