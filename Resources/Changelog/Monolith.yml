@@ -16165,3 +16165,63 @@ Entries:
   id: 1791
   time: '2026-01-15T12:30:33.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3035
+- author: TheRex191
+  changes:
+    - type: Tweak
+      message: Guns now show no bullet in the chamber until cocked.
+  id: 1792
+  time: '2026-01-15T19:05:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3043
+- author: alin-but-real
+  changes:
+    - type: Add
+      message: support for combat mode music + faction-specific combatmode music
+    - type: Add
+      message: support for grid-specific music
+    - type: Add
+      message: support for biomes on space, FTL and expeditions
+    - type: Add
+      message: support for biome/grid descriptions, not just titles
+    - type: Add
+      message: option for separate volume for combat music
+    - type: Add
+      message: >-
+        option for varying seconds before combat mode music activates /
+        deactivates
+    - type: Add
+      message: inner/middle/outer ring biomes + music
+    - type: Add
+      message: CC and camelot music
+    - type: Add
+      message: combatmode basic, PDV and TSFMC music
+    - type: Add
+      message: FTL music
+    - type: Add
+      message: expedition music
+    - type: Add
+      message: descriptions for some select vessels
+    - type: Remove
+      message: >-
+        ship combat music (will come back at a later point when made to work
+        with this system & not overlapping)
+    - type: Remove
+      message: CombatMusicSystem.cs + friends (see above)
+    - type: Remove
+      message: GridNameSystem.cs (superceded by SpaceBiomeTextOverlay.cs)
+  id: 1793
+  time: '2026-01-15T21:03:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2981
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Sector alerts are now much more thematic.
+  id: 1794
+  time: '2026-01-15T23:13:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3028
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Pouch storage blacklist removed. Capacity increased by 2 squares.
+  id: 1795
+  time: '2026-01-16T13:17:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3042

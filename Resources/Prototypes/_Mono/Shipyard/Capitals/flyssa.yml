@@ -29,6 +29,9 @@
   stations:
     Flyssa:
       stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "The pride and joy of the TSFN, and a shining star in the sector. Sol invictus."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Flyssa TSFN{1}'
