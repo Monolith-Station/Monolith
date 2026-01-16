@@ -1,4 +1,5 @@
 
+<<<<<<< Updated upstream
 # Corporate War Era - Syndicate
 
 # Adder Scattercannon
@@ -147,6 +148,8 @@
     repairCost: 80
 
 - type: entity
+=======
+>>>>>>> Stashed changes
   id: WeaponTurretHydra
   name: Hydra 220mm battery
   parent: BallisticArtilleryUnanchorable
@@ -182,9 +185,9 @@
     projectileSpeed: 325
     recoil: 50 # 2x
     minAngle: 0
-    maxAngle: 3
+    maxAngle: 1
     fireRate: 0.2
-    burstCooldown: 12
+    burstCooldown: 10
     burstFireRate: 2
     shotsPerBurst: 3
     selectedMode: Burst
