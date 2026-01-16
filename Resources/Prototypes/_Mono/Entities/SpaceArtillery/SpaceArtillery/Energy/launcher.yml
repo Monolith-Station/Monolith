@@ -363,6 +363,8 @@
     repairTime: 30
     repairCost: 60
 
+# Scylla 
+
 - type: entity
   id: WeaponTurretScylla
   name: TPC Scylla plasma impulse driver
@@ -385,10 +387,10 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    projectileSpeed: 290
+    projectileSpeed: 240
     minAngle: 0
-    maxAngle: 7
-    fireRate: 11
+    maxAngle: 12
+    fireRate: 1
     recoil: 10 # 2/5x
     burstCooldown: 10
     burstFireRate: 50
