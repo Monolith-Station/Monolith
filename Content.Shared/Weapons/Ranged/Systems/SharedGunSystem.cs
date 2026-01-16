@@ -811,6 +811,11 @@ public abstract partial class SharedGunSystem : EntitySystem
 }
 
 /// <summary>
+/// Raised when a chamber-mag gun's bolt is opened or closed.
+/// </summary>
+public record struct BoltStateChangedEvent(EntityUid User, bool Closed); //Mono
+
+/// <summary>
 ///     Raised directed on the gun before firing to see if the shot should go through.
 /// </summary>
 /// <remarks>

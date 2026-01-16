@@ -38,6 +38,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.GameObjects;
+using Content.Shared._Crescent.SpaceBiomes;
 
 namespace Content.Server.Salvage;
 

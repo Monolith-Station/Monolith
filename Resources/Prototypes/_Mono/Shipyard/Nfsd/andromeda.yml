@@ -23,6 +23,9 @@
   stations:
     Andromeda:
       stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Enough guns to blot out the stars."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Andromeda TSF{1}'

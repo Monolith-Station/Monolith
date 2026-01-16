@@ -37,7 +37,7 @@ public sealed partial class VocalComponent : Component
 
     [DataField("screamAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     [AutoNetworkedField]
-    public string? ScreamAction = "ActionScream";
+    public string? ScreamAction; // Mono edit - kill hotbar scream action.
 
     [DataField("screamActionEntity")]
     [AutoNetworkedField]
