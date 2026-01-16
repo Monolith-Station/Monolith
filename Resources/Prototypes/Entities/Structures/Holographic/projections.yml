@@ -121,13 +121,13 @@
   id: HolosignForcefieldTSF
   parent: HolosignWetFloor
   name: tsf holographic force field
-  description: A powerful temporal containment field that doesn't let anything through, not even a tesla or singularity.
+  description: A powerful hard light field that can withstand a bullet hailstorm and block movement, while allowing lasers to pass through.
   components:
   - type: Physics
     bodyType: Static
     canCollide: true
   - type: Sprite
-    sprite: Structures/Holo/redfield.rsi
+    sprite: Structures/Holo/fieldtact.rsi
     state: icon
   - type: Fixtures
     fixtures:
