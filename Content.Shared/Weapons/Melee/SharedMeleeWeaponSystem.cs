@@ -134,6 +134,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
     private void OnGetBonusMeleeDamage(EntityUid uid, BonusMeleeDamageComponent component, ref GetMeleeDamageEvent args)
     {
+        if (args.User == args.Weapon && !component.ApplyIfUser) // Mono edit
+            return; // Mono
         if (component.BonusDamage != null)
             args.Damage += component.BonusDamage;
         if (component.DamageModifierSet != null)
@@ -922,5 +924,15 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         Dirty(uid, meleeWeapon);
+    }
+
+    /// <summary>
+    /// Mono - Apparently you cant edit this component outside SharedMeleeWeapon system.
+    /// </summary>
+    /// <param name="damageSet"></param>
+    /// <param name="component"></param>
+    public void ModifyBonusDamage(DamageModifierSet damageSet, BonusMeleeDamageComponent component)
+    {
+        component.DamageModifierSet = damageSet;
     }
 }
