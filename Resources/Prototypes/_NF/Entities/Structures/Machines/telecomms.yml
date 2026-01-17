@@ -13,8 +13,8 @@
       - EncryptionKeyScience
       - EncryptionKeySecurity
       - EncryptionKeyService
-      - EncryptionKeyCommand
-      - EncryptionKeyNfsd
+#      - EncryptionKeyCommand #Mono
+#      - EncryptionKeyNfsd #Mono
       - EncryptionKeyTraffic
 
 - type: entity
