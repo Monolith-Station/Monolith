@@ -206,19 +206,15 @@ public sealed partial class ShuttleSystem
 
             // Mono Edit - partial credit to https://github.com/Sector-Crescent/Hullrot/pull/692
             //ShipShieldedComp is removed when shields are broken, only reduces energy delivered when shields are active. ShipShieldsSystem ln 256.
-            if (TryComp<ShipShieldedComponent>(args.OurEntity, out var ShipShieldedComponent)) //Our ship collision resistance
-            {
-                TryComp<ShipShieldEmitterComponent>(ShipShieldedComponent.Source, out var ShipShieldEmitterComponent);
-                if(ShipShieldEmitterComponent != null)
-                    toUsEnergy *= ShipShieldEmitterComponent.CollisionResistanceMultiplier;
-            }
-
-            if (TryComp<ShipShieldedComponent>(args.OtherEntity, out var OtherShipShieldedComponent)) //Other ship collision resistance
-            {
-                TryComp<ShipShieldEmitterComponent>(OtherShipShieldedComponent.Source, out var OtherShipShieldEmitterComponent);
-                if (OtherShipShieldEmitterComponent != null)
-                    toOtherEnergy *= OtherShipShieldEmitterComponent.CollisionResistanceMultiplier;
-            }
+            if (TryComp<ShipShieldedComponent>(args.OurEntity, out var ShipShieldedComponent) //Our ship collision resistance
+                && TryComp<ShipShieldEmitterComponent>(ShipShieldedComponent.Source, out var ShipShieldEmitterComponent)
+            )
+                toUsEnergy *= ShipShieldEmitterComponent.CollisionResistanceMultiplier;
+            
+            if (TryComp<ShipShieldedComponent>(args.OtherEntity, out var OtherShipShieldedComponent) //Other ship collision resistance
+                && TryComp<ShipShieldEmitterComponent>(OtherShipShieldedComponent.Source, out var OtherShipShieldEmitterComponent)
+            ) 
+                toOtherEnergy *= OtherShipShieldEmitterComponent.CollisionResistanceMultiplier;
             // Mono Edit end
 
             DoGridImpact((args.OurEntity, ourGrid, ourXform, ourBody), args.OurFixture, inelasticVel, ourVelocity, ourTile, ourTiles, toUsEnergy);
