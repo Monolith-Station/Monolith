@@ -1,13 +1,5 @@
+using Content.Shared._Mono.Claws;
+
 namespace Content.Client._Mono.Claws;
 
-/// <summary>
-/// This handles...
-/// </summary>
-public sealed class ClawsSystem : EntitySystem
-{
-    /// <inheritdoc/>
-    public override void Initialize()
-    {
-        
-    }
-}
+public sealed class ClawsSystem : SharedClawsSystem;
