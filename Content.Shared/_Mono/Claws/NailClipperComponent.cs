@@ -6,7 +6,7 @@ namespace Content.Shared._Mono.Claws;
 /// This is used for clipping nails (Claws). See <see cref="NailClipperDoAfterEvent"/>
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class NailCutterComponent : Component
+public sealed partial class NailClipperComponent : Component
 {
     [DataField]
     public TimeSpan ClipDoAfter = TimeSpan.FromSeconds(10);

@@ -9,12 +9,12 @@ public abstract partial class SharedClawsSystem
 {
     private void InitializeNailClippers()
     {
-        SubscribeLocalEvent<NailCutterComponent, UseInHandEvent>(OnUse);
-        SubscribeLocalEvent<NailCutterComponent, AfterInteractEvent>(OnTargetUse);
+        SubscribeLocalEvent<NailClipperComponent, UseInHandEvent>(OnUse);
+        SubscribeLocalEvent<NailClipperComponent, AfterInteractEvent>(OnTargetUse);
         SubscribeLocalEvent<ClawsComponent, NailClipperDoAfterEvent>(ClipNails);
     }
 
-    private void OnUse(EntityUid uid, NailCutterComponent component, UseInHandEvent args)
+    private void OnUse(EntityUid uid, NailClipperComponent component, UseInHandEvent args)
     {
         if (args.Handled)
             return;
@@ -22,9 +22,9 @@ public abstract partial class SharedClawsSystem
         args.Handled = TryClipNails(component, args.User);
     }
 
-    private void OnTargetUse(EntityUid uid, NailCutterComponent component, AfterInteractEvent args)
+    private void OnTargetUse(EntityUid uid, NailClipperComponent component, AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach || args.Target == null)
+        if (args.Handled || !args.CanReach || !args.Target.HasValue)
             return;
 
         args.Handled = TryClipNails(component, args.User, args.Target.Value);
@@ -32,16 +32,14 @@ public abstract partial class SharedClawsSystem
 
     /// <summary>
     /// Used to handle nail clipping action, either from user itself or on the target.
-    /// Reduces stage based on <see cref="NailCutterComponent"/>
+    /// Reduces stage based on <see cref="NailClipperComponent"/>
     /// </summary>
     /// <param name="component"></param>
     /// <param name="user"></param>
     /// <param name="target"></param>
     /// <returns></returns>
-    public bool TryClipNails(NailCutterComponent component, EntityUid user, EntityUid? target = null)
+    public bool TryClipNails(NailClipperComponent component, EntityUid user, EntityUid? target = null)
     {
-        target ??= user;
-
         if (!TryComp<ClawsComponent>(user, out var claws))
         {
             _popup.PopupClient(Loc.GetString("has-no-claws-popup"), Transform(user).Coordinates, user);

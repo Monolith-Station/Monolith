@@ -132,6 +132,11 @@
   - type: Tag # Goobstation-WelderSword
     tags:
     - Welder
+  - type: EntityRadiusHeater # Mono
+    thermalEnergy: 1300
+    radius: 0.5
+    limit: 390 # Too dangerous to hold it for long.
+    requireActivation: true
 
 - type: entity
   name: industrial welding tool

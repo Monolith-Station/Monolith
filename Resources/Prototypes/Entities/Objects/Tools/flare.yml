@@ -98,3 +98,8 @@
           Quantity: 2
         - ReagentId: Sulfur
           Quantity: 2
+  - type: EntityRadiusHeater # Mono
+    thermalEnergy: 1250
+    radius: 0.2
+    limit: 350
+    requireActivation: true
