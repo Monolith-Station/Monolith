@@ -7,7 +7,7 @@ namespace Content.Server._Mono.Claws;
 /// </summary>
 public sealed class ClawsSystem : SharedClawsSystem
 {
-    private readonly float _updateCooldown = 10f;
+    private readonly float _updateCooldown = 1f;
     private TimeSpan _updateTimer = TimeSpan.Zero;
 
     public override void Update(float frameTime)
@@ -22,10 +22,12 @@ public sealed class ClawsSystem : SharedClawsSystem
 
         while (ents.MoveNext(out var uid, out var comp))
         {
+            if (comp.ClawStage >= comp.Stages.Count - 1)
+                continue;
+
             comp.GrowTimer += TimeSpan.FromSeconds(_updateCooldown);
 
-            if (comp.GrowTimer < comp.GrowCooldown ||
-                comp.ClawStage >= comp.Stages.Count - 1)
+            if (comp.GrowTimer < comp.GrowCooldown)
             {
                 UpdateClaws(uid, comp); // Pretty sure we can afford that.
                 Dirty(uid, comp);
