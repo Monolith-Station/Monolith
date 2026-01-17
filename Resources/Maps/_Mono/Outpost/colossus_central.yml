@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/17/2026 16:42:30
+  time: 01/17/2026 17:48:53
   entityCount: 10726
 maps:
 - 1
@@ -303,8 +303,8 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         MetalFoam: []
-        Smoke: []
         Kudzu: []
+        Smoke: []
         Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -62923,19 +62923,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -20.5,65.5
       parent: 2
-- proto: SurveillanceCameraCommand
-  entities:
-  - uid: 10668
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -11.5,75.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraCommand
-      nameSet: True
-      id: Surveillance Routers
 - proto: SurveillanceCameraEngineering
   entities:
   - uid: 10673
@@ -63256,6 +63243,17 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Courtroom
+  - uid: 10668
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -13.5,71.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Vault
   - uid: 10669
     components:
     - type: Transform
