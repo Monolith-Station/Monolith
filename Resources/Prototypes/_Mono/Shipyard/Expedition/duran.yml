@@ -5,31 +5,31 @@
 # Shuttle Notes:
 #
 - type: vessel
-  id: Chitterbug
+  id: Duran
   parent: BaseVessel
-  name: SRA Chitterbug
-  description: A tiny expeditionary vessel built off of a scrapped NanoTrasen cargo chassis. Feels like home.
-  price: 17500
-  category: Small
+  name: SKR Duran
+  description: A general-purpose expeditionary vessel with a complementary kitchen.
+  price: 36005
+  category: Medium
   group: Expedition
-  shuttlePath: /Maps/_Mono/Shuttles/Expedition/chitterbug.yml
+  shuttlePath: /Maps/_Mono/Shuttles/Expedition/duran.yml
   guidebookPage: null
   class:
   - Expedition
   engine:
-  - Plasma
+  - Uranium
 
 - type: gameMap
-  id: Chitterbug
-  mapName: 'Chitterbug'
+  id: Duran
+  mapName: 'Duran'
   mapPath: /Maps/_Mono/Shuttles/Expedition/duran.yml
   minPlayers: 0
   stations:
-    Chitterbug:
+    Duran:
       stationProto: StandardFrontierExpeditionVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Chitterbug EXP{1}'
+          mapNameTemplate: 'Duran EXP{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

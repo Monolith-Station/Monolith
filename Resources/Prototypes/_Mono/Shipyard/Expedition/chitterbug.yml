@@ -1,0 +1,40 @@
+﻿# Author Info
+# GitHub: FloatingFeeling
+# Discord: FloatingFeeling
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Chitterbug
+  parent: BaseVessel
+  name: SRA Chitterbug
+  description: A tiny expeditionary vessel built off of a scrapped NanoTrasen cargo chassis. Feels like home.
+  price: 17500
+  category: Small
+  group: Expedition
+  shuttlePath: /Maps/_Mono/Shuttles/Expedition/chitterbug.yml
+  guidebookPage: null
+  class:
+  - Expedition
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Chitterbug
+  mapName: 'Chitterbug'
+  mapPath: /Maps/_Mono/Shuttles/Expedition/duran.yml
+  minPlayers: 0
+  stations:
+    Chitterbug:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Chitterbug EXP{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Contractor: [ 0, 0 ]
+          Pilot: [ 0, 0 ]
+          Mercenary: [ 0, 0 ]
