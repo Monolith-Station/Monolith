@@ -4,13 +4,13 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/18/2026 10:33:08
-  entityCount: 1175
+  time: 01/18/2026 11:18:22
+  entityCount: 1182
 maps: []
 grids:
-- 2
+- 1
 orphans:
-- 2
+- 1
 nullspace: []
 tilemap:
   2: Space
@@ -103,10 +103,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        Kudzu: []
         MetalFoam: []
-        Smoke: []
     - type: Shuttle
     - type: GridPathfinding
     - type: Gravity
@@ -756,6 +753,14 @@ entities:
     - type: Transform
       pos: -0.5,7.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        97:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
+        202:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
 - proto: AmmoTechFab
   entities:
   - uid: 510
@@ -2471,6 +2476,41 @@ entities:
     components:
     - type: Transform
       pos: 5.5,27.5
+      parent: 2
+  - uid: 1176
+    components:
+    - type: Transform
+      pos: 4.5,7.5
+      parent: 2
+  - uid: 1177
+    components:
+    - type: Transform
+      pos: -0.5,8.5
+      parent: 2
+  - uid: 1178
+    components:
+    - type: Transform
+      pos: -0.5,7.5
+      parent: 2
+  - uid: 1179
+    components:
+    - type: Transform
+      pos: 1.5,8.5
+      parent: 2
+  - uid: 1180
+    components:
+    - type: Transform
+      pos: 1.5,7.5
+      parent: 2
+  - uid: 1181
+    components:
+    - type: Transform
+      pos: -3.5,8.5
+      parent: 2
+  - uid: 1182
+    components:
+    - type: Transform
+      pos: -3.5,7.5
       parent: 2
 - proto: CableHV
   entities:
