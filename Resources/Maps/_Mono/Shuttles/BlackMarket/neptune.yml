@@ -5394,11 +5394,15 @@ entities:
     - type: Transform
       pos: 1.5,5.5
       parent: 1
+    - type: FuelGenerator
+      targetPower: 50000
   - uid: 361
     components:
     - type: Transform
       pos: -0.5,5.5
       parent: 1
+    - type: FuelGenerator
+      targetPower: 50000
 - proto: PowerCageRecharger
   entities:
   - uid: 568
