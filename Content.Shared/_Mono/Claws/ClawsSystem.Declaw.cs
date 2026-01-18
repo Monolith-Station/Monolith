@@ -35,10 +35,16 @@ public abstract partial class SharedClawsSystem
 
             comp.ItemHoldingTime += TimeSpan.FromSeconds(_updateCooldown);
 
-            if (comp.ItemHoldingTime >= comp.MaxItemHoldingTime / 2)
-                _jitter.DoJitter(uid, TimeSpan.FromSeconds(_updateCooldown), true);
+            if (comp.ItemHoldingTime.Seconds >= comp.MaxItemHoldingTime.Seconds / 2)
+            {
+                _jitter.DoJitter(uid,
+                    TimeSpan.FromSeconds(_updateCooldown),
+                    true,
+                    3,
+                    0.1f * comp.ItemHoldingTime.Seconds - comp.MaxItemHoldingTime.Seconds / 2);
+            }
 
-            if (comp.ItemHoldingTime < comp.MaxItemHoldingTime)
+            if (comp.ItemHoldingTime.Seconds < comp.MaxItemHoldingTime.Seconds)
                 continue;
 
             foreach (var item in itemEnum)
@@ -55,6 +61,9 @@ public abstract partial class SharedClawsSystem
 
     private void OnAttack(Entity<DeclawedComponent> ent, ref MeleeAttackEvent args)
     {
+        if (ent.Owner == args.Weapon)
+            return;
+
         var r = _random.NextFloat();
 
         if (!(r < ent.Comp.DropChanceOnMelee))
@@ -94,6 +103,7 @@ public abstract partial class SharedClawsSystem
 
     private void DeclawDrop(EntityUid uid, EntityUid item)
     {
+        _hands.TryDrop(uid);
         _throw.TryThrow(item, _random.NextVector2(), 1, uid);
         _popup.PopupEntity(Loc.GetString("declaw-item-drop"), uid, PopupType.MediumCaution);
     }
