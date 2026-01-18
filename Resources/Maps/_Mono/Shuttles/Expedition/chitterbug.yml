@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/18/2026 21:49:46
-  entityCount: 222
+  time: 01/18/2026 22:18:37
+  entityCount: 227
 maps: []
 grids:
 - 1
@@ -61,8 +61,8 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
         MetalFoam: []
+        Puddle: []
         Kudzu: []
         Smoke: []
     - type: Shuttle
@@ -250,7 +250,7 @@ entities:
   - uid: 191
     components:
     - type: Transform
-      pos: -0.5,-2.5
+      pos: 1.5,-2.5
       parent: 1
 - proto: AtmosDeviceFanDirectional
   entities:
@@ -544,12 +544,12 @@ entities:
   - uid: 111
     components:
     - type: Transform
-      pos: -0.5,-2.5
+      pos: -1.5,-1.5
       parent: 1
   - uid: 112
     components:
     - type: Transform
-      pos: -1.5,-2.5
+      pos: -0.5,-1.5
       parent: 1
   - uid: 113
     components:
@@ -565,6 +565,16 @@ entities:
     components:
     - type: Transform
       pos: -2.5,-4.5
+      parent: 1
+  - uid: 226
+    components:
+    - type: Transform
+      pos: -2.5,-1.5
+      parent: 1
+  - uid: 227
+    components:
+    - type: Transform
+      pos: 1.5,-2.5
       parent: 1
 - proto: CableHV
   entities:
@@ -593,7 +603,7 @@ entities:
   - uid: 190
     components:
     - type: Transform
-      pos: -0.5,-2.5
+      pos: 1.5,-2.5
       parent: 1
   - uid: 192
     components:
@@ -839,6 +849,8 @@ entities:
       pos: 0.5,3.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 58
       - 188
@@ -848,6 +860,8 @@ entities:
       pos: 0.5,-2.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 58
       - 188
@@ -857,6 +871,8 @@ entities:
       pos: -1.5,2.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 58
       - 188
@@ -1074,6 +1090,27 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-4.5
+      parent: 1
+- proto: PosterContrabandMissingGloves
+  entities:
+  - uid: 225
+    components:
+    - type: Transform
+      pos: -0.5,-2.5
+      parent: 1
+- proto: PosterLegitNanotrasenLogo
+  entities:
+  - uid: 223
+    components:
+    - type: Transform
+      pos: 1.5,3.5
+      parent: 1
+- proto: PosterLegitPDAAd
+  entities:
+  - uid: 224
+    components:
+    - type: Transform
+      pos: 3.5,1.5
       parent: 1
 - proto: PowerCellRecharger
   entities:
