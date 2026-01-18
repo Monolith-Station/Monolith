@@ -1,36 +1,37 @@
 # Author Info
-# GitHub: starch70
-# Discord: _starch_
+# GitHub: NazrinNya
+# Discord: NaztinNya
 
 # Shuttle Notes:
 #
 - type: vessel
-  id: Taichi
+  id: Phantom
   parent: BaseVessel
-  name: SKR Taichi
-  description: A extremely compact medical ship, with a full chemistry setup.
-  price: 33500
+  name: IB Phantom
+  description: Experimental ship with enormous thruster power. CTLA-25s included.
+  price: 45000
   category: Small
   group: Medical
-  shuttlePath: /Maps/_Mono/Shuttles/taichi.yml
+  access: Command # DoC exclusive.
+  limit: 2
+  shuttlePath: /Maps/_Mono/Shuttles/phantom.yml
   guidebookPage: null
   class:
   - Medical
-  - Chemistry
   engine:
-  - Uranium
+  - Bananium
 
 - type: gameMap
-  id: Taichi
-  mapName: 'SKR Taichi'
-  mapPath: /Maps/_Mono/Shuttles/taichi.yml
+  id: Phantom
+  mapName: 'IB Phantom'
+  mapPath: /Maps/_Mono/Shuttles/phantom.yml
   minPlayers: 0
   stations:
-    Taichi:
+    Phantom:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Taichi MED{1}'
+          mapNameTemplate: 'Phantom MED{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
