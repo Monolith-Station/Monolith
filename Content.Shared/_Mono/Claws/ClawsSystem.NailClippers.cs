@@ -19,7 +19,7 @@ public abstract partial class SharedClawsSystem
         if (args.Handled)
             return;
 
-        args.Handled = TryClipNails(component, args.User);
+        args.Handled = TryClipNails(component, uid, args.User);
     }
 
     private void OnTargetUse(EntityUid uid, NailClipperComponent component, AfterInteractEvent args)
@@ -27,7 +27,7 @@ public abstract partial class SharedClawsSystem
         if (args.Handled || !args.CanReach || !args.Target.HasValue)
             return;
 
-        args.Handled = TryClipNails(component, args.User, args.Target.Value);
+        args.Handled = TryClipNails(component, uid, args.User, args.Target.Value);
     }
 
     /// <summary>
@@ -35,10 +35,11 @@ public abstract partial class SharedClawsSystem
     /// Reduces stage based on <see cref="NailClipperComponent"/>
     /// </summary>
     /// <param name="component"></param>
+    /// <param name="nailClipper"></param>
     /// <param name="user"></param>
     /// <param name="target"></param>
     /// <returns></returns>
-    public bool TryClipNails(NailClipperComponent component, EntityUid user, EntityUid? target = null)
+    public bool TryClipNails(NailClipperComponent component, EntityUid nailClipper, EntityUid user, EntityUid? target = null)
     {
         target ??= user;
         if (!TryComp<ClawsComponent>(target, out var claws))
@@ -60,7 +61,8 @@ public abstract partial class SharedClawsSystem
             component.ClipDoAfter,
             new NailClipperDoAfterEvent(),
             target,
-            target)
+            target,
+            nailClipper)
         {
             NeedHand = true,
             BreakOnMove = true,
@@ -74,6 +76,15 @@ public abstract partial class SharedClawsSystem
     {
         if (args.Cancelled)
             return;
+
+        if (args.Used == null || !TryComp<NailClipperComponent>(args.Used, out var nailClipper))
+            return;
+
+        if (nailClipper.DeclawChance > _random.NextFloat())
+        {
+            Declaw(uid,component);
+            return;
+        }
 
         component.ClawStage -= 1;
         _popup.PopupClient(Loc.GetString("claws-clipping-success"), Transform(uid).Coordinates, uid);

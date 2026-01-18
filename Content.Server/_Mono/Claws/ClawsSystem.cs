@@ -22,7 +22,8 @@ public sealed class ClawsSystem : SharedClawsSystem
 
         while (ents.MoveNext(out var uid, out var comp))
         {
-            if (comp.ClawStage >= comp.Stages.Count - 1)
+            if (comp.ClawStage >= comp.Stages.Count - 1 ||
+                HasComp<DeclawedComponent>(uid))
                 continue;
 
             comp.GrowTimer += TimeSpan.FromSeconds(_updateCooldown);

@@ -1,5 +1,6 @@
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Mono.Claws;
@@ -16,14 +17,20 @@ public sealed partial class ClawsComponent : Component
     [DataField, AutoNetworkedField]
     public Dictionary<int, ClawStage> Stages = new();
 
-    [DataField, AutoNetworkedField]
-    public bool Declawed;
-
     [DataField]
     public TimeSpan GrowCooldown = TimeSpan.FromSeconds(1200);
 
     [DataField, AutoPausedField]
     public TimeSpan GrowTimer = TimeSpan.Zero;
+
+    [DataField]
+    public EntProtoId ClawPrototype = "ItemCutClaws";
+
+    [DataField]
+    public DamageSpecifier DeclawedMeleeDamage = new DamageSpecifier();
+
+    [DataField]
+    public DamageSpecifier DamageOnDeclaw = new DamageSpecifier();
 }
 
 [DataDefinition, Serializable, NetSerializable]

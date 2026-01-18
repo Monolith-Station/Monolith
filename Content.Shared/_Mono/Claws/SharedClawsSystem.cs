@@ -1,11 +1,21 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._DV.Weapons.Ranged.Components;
+using Content.Shared.Chat;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.Emoting;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Jittering;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Speech;
+using Content.Shared.StatusEffect;
+using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Random;
 
 namespace Content.Shared._Mono.Claws;
 
@@ -18,6 +28,13 @@ public abstract partial class SharedClawsSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doafter = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly ThrowingSystem _throw = default!;
+    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
+    [Dependency] private readonly MobStateSystem _state = default!;
+    [Dependency] private readonly StatusEffectsSystem _effects = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
 
 
     public override void Initialize()
@@ -27,6 +44,7 @@ public abstract partial class SharedClawsSystem : EntitySystem
         SubscribeLocalEvent<ClawsComponent, ShotAttemptedEvent>(TryShoot);
 
         InitializeNailClippers();
+        InitializeDeclaw();
     }
     /// <summary>
     /// Used for claw attacks - applies predicted bonus damage from stage to target.
@@ -37,9 +55,16 @@ public abstract partial class SharedClawsSystem : EntitySystem
     /// <param name="args"></param>
     private void OnAttack(EntityUid uid, ClawsComponent component, MeleeHitEvent args)
     {
-        if (!TryGetCurrentClawStage(component, out var stage) ||
+        if (!TryGetCurrentClawStage(component, uid, out var stage) ||
             stage.Damage == null)
+        {
+            if (!TryComp<DeclawedComponent>(uid, out var declawed) ||
+                declawed.RawMeleeDamage == null)
+                return;
+
+            args.BonusDamage += declawed.RawMeleeDamage;
             return;
+        }
 
         args.BonusDamage += stage.Damage;
     }
@@ -70,7 +95,7 @@ public abstract partial class SharedClawsSystem : EntitySystem
     /// <param name="component"></param>
     public void UpdateClaws(EntityUid uid, ClawsComponent component)
     {
-        if (!TryGetCurrentClawStage(component, out var stage) ||
+        if (!TryGetCurrentClawStage(component, uid, out var stage) ||
             !TryComp<MeleeWeaponComponent>(uid, out var melee))
             return;
 
@@ -80,12 +105,19 @@ public abstract partial class SharedClawsSystem : EntitySystem
         melee.CanWideSwing = stage.CanWideSwing;
         melee.AltDisarm = !stage.CanWideSwing;
         gunAccuracyComp.SpreadMultiplier = stage.GunSpreadMultiplier;
-        _melee.ModifyBonusDamage(stage.MeleeDamageModifiers, meleeBonusComp);
+        _melee.ModifyBonusDamage(stage.MeleeDamageModifiers, uid, meleeBonusComp);
     }
 
-    public bool TryGetCurrentClawStage(ClawsComponent comp, [NotNullWhen(true)] out ClawStage? stage)
+    public bool TryGetCurrentClawStage(ClawsComponent comp, EntityUid uid, [NotNullWhen(true)] out ClawStage? stage)
     {
-        stage = comp.Declawed ? null : comp.Stages.GetValueOrDefault(comp.ClawStage);
+        stage = HasComp<DeclawedComponent>(uid)? null : comp.Stages.GetValueOrDefault(comp.ClawStage);
+
+        return stage != null;
+    }
+
+    public bool TryGetCurrentClawStage(Entity<ClawsComponent> ent, [NotNullWhen(true)] out ClawStage? stage)
+    {
+        stage = HasComp<DeclawedComponent>(ent)? null : ent.Comp.Stages.GetValueOrDefault(ent.Comp.ClawStage);
 
         return stage != null;
     }
