@@ -38,9 +38,9 @@ public abstract partial class SharedChargesSystem : EntitySystem
         if (args.Handled || !_timing.IsFirstTimePredicted)
             return;
 
-        if (args.Used is not { Valid: true } Used
-            || !TryComp<LimitedChargesComponent>(Used, out var charges)
-            || _whitelist.IsWhitelistFail(ent.Comp.Whitelist, Used)
+        if (args.Used is not { Valid: true } used
+            || !TryComp<LimitedChargesComponent>(used, out var charges)
+            || _whitelist.IsWhitelistFail(ent.Comp.Whitelist, used)
         )
             return;
 
@@ -50,12 +50,12 @@ public abstract partial class SharedChargesSystem : EntitySystem
         var count = Math.Min(charges.MaxCharges - charges.Charges, GetAmmoCharges(ent));
         if (count <= 0)
         {
-            _popup.PopupClient(Loc.GetString("limited-charges-ammo-component-after-interact-full"), Used, user);
+            _popup.PopupClient(Loc.GetString("limited-charges-ammo-component-after-interact-full"), used, user);
             return;
         }
 
-        _popup.PopupClient(Loc.GetString("limited-charges-ammo-component-after-interact-refilled"), Used, user);
-        AddCharges(Used, TakeCharges(ent, count), charges);
+        _popup.PopupClient(Loc.GetString("limited-charges-ammo-component-after-interact-refilled"), used, user);
+        AddCharges(used, TakeCharges(ent, count), charges);
     }
 
     private void OnAmmoAfterInteract(Entity<LimitedChargesAmmoComponent> ent, ref AfterInteractEvent args)
@@ -90,11 +90,11 @@ public abstract partial class SharedChargesSystem : EntitySystem
         return ent.Comp.Charges;
     }
 
-    public int TakeCharges(Entity<LimitedChargesAmmoComponent> ent, int UpTo)
+    public int TakeCharges(Entity<LimitedChargesAmmoComponent> ent, int upTo)
     {
         if (!TryComp<StackComponent>(ent, out var stack))
         {
-            var took = Math.Min(ent.Comp.Charges, UpTo);
+            var took = Math.Min(ent.Comp.Charges, upTo);
             ent.Comp.Charges -= took;
             Dirty(ent);
             if (ent.Comp.Charges == 0 && _net.IsServer)
@@ -102,7 +102,7 @@ public abstract partial class SharedChargesSystem : EntitySystem
             return took;
         }
 
-        var takeAmount = Math.Min(stack.Count, UpTo / ent.Comp.Charges);
+        var takeAmount = Math.Min(stack.Count, upTo / ent.Comp.Charges);
         _stack.SetCount(ent, stack.Count - takeAmount, stack);
         return takeAmount * ent.Comp.Charges;
     }
