@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/18/2026 10:07:11
+  time: 01/18/2026 16:03:12
   entityCount: 263
 maps: []
 grids:
@@ -78,10 +78,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Puddle: []
-        MetalFoam: []
         Kudzu: []
+        MetalFoam: []
+        Puddle: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -101,31 +101,29 @@ entities:
             24: 1,-26
         - node:
             color: '#FFFFFFFF'
+            id: ShiptestAltHalfTileOverlayGreyscale
+          decals:
+            50: -2,-29
+            51: -1,-29
+            55: 1,-29
+            59: 2,-29
+        - node:
+            color: '#FFFFFFFF'
+            id: ShiptestAltHalfTileOverlayGreyscale270
+          decals:
+            57: 1,-29
+            58: 1,-30
+        - node:
+            color: '#FFFFFFFF'
+            id: ShiptestAltHalfTileOverlayGreyscale90
+          decals:
+            52: -1,-29
+            53: -1,-30
+        - node:
+            color: '#FFFFFFFF'
             id: TechE
           decals:
             31: 4,-27
-        - node:
-            color: '#FFFFFFFF'
-            id: TechNE
-          decals:
-            26: 2,-29
-            28: -1,-29
-        - node:
-            color: '#FFFFFFFF'
-            id: TechNW
-          decals:
-            25: 1,-29
-            29: -2,-29
-        - node:
-            color: '#FFFFFFFF'
-            id: TechSE
-          decals:
-            30: -1,-30
-        - node:
-            color: '#FFFFFFFF'
-            id: TechSW
-          decals:
-            27: 1,-30
         - node:
             color: '#37789BFF'
             id: TrimWarnEast
