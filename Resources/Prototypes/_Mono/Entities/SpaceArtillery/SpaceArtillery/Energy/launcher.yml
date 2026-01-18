@@ -363,13 +363,13 @@
     repairTime: 30
     repairCost: 60
 
-# Scylla 
+# Scylla
 
 - type: entity
   id: WeaponTurretScylla
   name: TPC Scylla plasma impulse driver
   parent: BallisticArtilleryUnanchorable
-  suffix: TSF ONLY, ADS ONLY
+  suffix: TSF ONLY
   description: A more specialized energy weapon, the Scylla fires a massive burst of plasma projectiles down range, in a huge spew to erase large and small targets alike.
   components:
   - type: StaticPrice
@@ -389,7 +389,7 @@
   - type: Gun
     projectileSpeed: 240
     minAngle: 0
-    maxAngle: 12
+    maxAngle: 8
     fireRate: 1
     recoil: 10 # 2/5x
     burstCooldown: 10
