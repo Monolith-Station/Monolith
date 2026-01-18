@@ -111,7 +111,7 @@
     requireNoGrid: true
     shape: arrow
   - type: TimedDespawn
-    lifetime: 4.2
+    lifetime: 2.8
   - type: PointLight
     radarColor: "#FF0040"
   - type: ExplodeOnTrigger
@@ -148,7 +148,7 @@
     requireNoGrid: true
     shape: arrow
   - type: TimedDespawn
-    lifetime: 4.2
+    lifetime: 2.1
   - type: PointLight
     radarColor: "#00e5ff"
   - type: ExplodeOnTrigger
