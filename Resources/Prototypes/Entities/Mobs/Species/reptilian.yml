@@ -130,6 +130,17 @@
     shiveringHeatRegulation: 690
     updateInterval: 2
   - type: ExchangeHeatOnInteraction
+  - type: TemperatureStatusEffects
+    temperatureEffects:
+    - maximumTemperature: 298
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "lizard-cold-popup" ]
+        probability: 0.66
+
+
   # Mono edit end
 
 - type: entity
@@ -178,8 +189,16 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Claws
+    declawedMeleeDamage:
+      types:
+        Slash: -8
+        Blunt: 3
+    damageOnDeclaw:
+      types:
+        Slash: 20
     stages:
       0:
+        gunSpreadMultiplier: 1
       1:
         damage:
           types:

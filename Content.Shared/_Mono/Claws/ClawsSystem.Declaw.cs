@@ -99,6 +99,7 @@ public abstract partial class SharedClawsSystem
 
         UpdateClaws(uid, claws);
         Dirty(uid, claws);
+        Dirty(uid, declaw);
     }
 
     private void DeclawDrop(EntityUid uid, EntityUid item)
