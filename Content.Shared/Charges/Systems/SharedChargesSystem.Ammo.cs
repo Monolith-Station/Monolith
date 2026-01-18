@@ -22,6 +22,7 @@ public abstract partial class SharedChargesSystem : EntitySystem
     {
         SubscribeLocalEvent<LimitedChargesAmmoComponent, ExaminedEvent>(OnAmmoExamine);
         SubscribeLocalEvent<LimitedChargesAmmoComponent, AfterInteractEvent>(OnAmmoAfterInteract);
+        SubscribeLocalEvent<LimitedChargesAmmoComponent, InteractUsingEvent>(OnAmmoUsingInteract);
     }
 
     private void OnAmmoExamine(Entity<LimitedChargesAmmoComponent> ent, ref ExaminedEvent args)
@@ -31,6 +32,30 @@ public abstract partial class SharedChargesSystem : EntitySystem
 
         var examineMessage = Loc.GetString("limited-charges-ammo-component-on-examine", ("charges", GetAmmoCharges(ent)));
         args.PushText(examineMessage);
+    }
+    private void OnAmmoUsingInteract(Entity<LimitedChargesAmmoComponent> ent, ref InteractUsingEvent args)
+    {
+        if (args.Handled || !_timing.IsFirstTimePredicted)
+            return;
+
+        if (args.Used is not { Valid: true } Used
+            || !TryComp<LimitedChargesComponent>(Used, out var charges)
+            || _whitelist.IsWhitelistFail(ent.Comp.Whitelist, Used)
+        )
+            return;
+
+        var user = args.User;
+
+        args.Handled = true;
+        var count = Math.Min(charges.MaxCharges - charges.Charges, GetAmmoCharges(ent));
+        if (count <= 0)
+        {
+            _popup.PopupClient(Loc.GetString("limited-charges-ammo-component-after-interact-full"), Used, user);
+            return;
+        }
+
+        _popup.PopupClient(Loc.GetString("limited-charges-ammo-component-after-interact-refilled"), Used, user);
+        AddCharges(Used, TakeCharges(ent, count), charges);
     }
 
     private void OnAmmoAfterInteract(Entity<LimitedChargesAmmoComponent> ent, ref AfterInteractEvent args)
