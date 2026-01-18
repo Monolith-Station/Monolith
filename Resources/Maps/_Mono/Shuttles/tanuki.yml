@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/18/2026 15:34:27
+  time: 01/18/2026 18:29:27
   entityCount: 669
 maps: []
 grids:
@@ -708,7 +708,7 @@ entities:
       pos: -4.5,12.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -3402.4802
+      secondsUntilStateChange: -13902.236
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -736,7 +736,7 @@ entities:
       pos: -1.5,10.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -3402.047
+      secondsUntilStateChange: -13901.804
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -787,7 +787,7 @@ entities:
       pos: -5.5,9.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -3405.0137
+      secondsUntilStateChange: -13904.77
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4872,6 +4872,20 @@ entities:
       parent: 1
 - proto: WeaponLaserTurretPrometheus
   entities:
+  - uid: 668
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -6.5,19.5
+      parent: 1
+  - uid: 669
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,19.5
+      parent: 1
+- proto: WeaponTurretCerberus
+  entities:
   - uid: 665
     components:
     - type: Transform
@@ -4884,24 +4898,10 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 9.5,6.5
       parent: 1
-- proto: WeaponTurretCerberus
-  entities:
   - uid: 667
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 0.5,16.5
-      parent: 1
-  - uid: 668
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 7.5,19.5
-      parent: 1
-  - uid: 669
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -6.5,19.5
       parent: 1
 ...
