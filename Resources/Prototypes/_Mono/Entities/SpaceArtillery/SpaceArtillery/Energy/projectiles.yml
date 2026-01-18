@@ -326,7 +326,7 @@
     requireNoGrid: true
     shape: circle
   - type: TimedDespawn
-    lifetime: 1.75
+    lifetime: 4.5
   - type: PointLight
     color: "#ab0707"
   - type: ExplodeOnTrigger
