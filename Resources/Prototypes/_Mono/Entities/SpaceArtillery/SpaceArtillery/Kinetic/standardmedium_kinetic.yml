@@ -67,10 +67,14 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1.5
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 60
 
 # Dravon
 
@@ -133,7 +137,11 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1.5
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 60

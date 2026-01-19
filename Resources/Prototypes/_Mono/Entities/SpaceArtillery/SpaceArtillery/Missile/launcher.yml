@@ -42,7 +42,11 @@
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 2.75
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Missile
   - type: ShipGunClass
     shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 120

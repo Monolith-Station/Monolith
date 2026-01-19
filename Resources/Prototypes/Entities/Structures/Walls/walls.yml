@@ -357,7 +357,7 @@
     node: plastitaniumWall
 
 - type: entity
-  parent: BaseWallTierTwo # Mono
+  parent: [ WallPlastitaniumDiagonalIndestructible, BaseWallTierTwo ] # Mono
   id: WallPlastitaniumDiagonal
   name: plastitanium wall
   suffix: diagonal
@@ -366,17 +366,6 @@
     snap:
     - Wall
   components:
-  - type: Sprite
-    drawdepth: Walls
-    sprite: Structures/Walls/plastitanium_diagonal.rsi
-    state: state0
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
-  - type: Icon
-    sprite: Structures/Walls/plastitanium_diagonal.rsi
-    state: state0
   - type: RCDDeconstructable # Frontier
     deconstructable: false # Frontier
   - type: StaticPrice
@@ -553,6 +542,9 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 3
 
 # Riveting
 - type: entity
@@ -625,6 +617,7 @@
 - type: entity
   id: WallShuttleDiagonal
   name: shuttle wall
+  parent: BaseWallTierOne
   suffix: Diagonal
   description: Keeps the air in and the greytide out.
   placement:
@@ -672,33 +665,8 @@
         layer:
         - WallLayer
         density: 2000
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
   - type: Physics
     bodyType: Static
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 1000 # Mono - wall buff
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-    - trigger:
-        !type:DamageTrigger
-        damage: 800 # Mono - wall buff
-      behaviors:
-      - !type:ChangeConstructionNodeBehavior
-        node: girder
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
   - type: Construction
     graph: Girder
     node: diagonalshuttleWall
@@ -852,6 +820,9 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 2
   - type: StaticPrice
     price: 95
 

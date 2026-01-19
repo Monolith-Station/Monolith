@@ -55,6 +55,7 @@
     - FireExtinguisher
     - GasDepositLocator
     - RPED # Mono
+    - MetalFoamGrenade #Mono
   ## Parts
     - MicroManipulatorStockPart
     - MatterBinStockPart
@@ -131,8 +132,10 @@
     - RPED
     - MiningDrill
     - MiningDrillDiamond
-    - RCD # Mono
-    - RCDAmmo # Mono
+    - RCD # Mono start
+    - RCDAmmo
+    - ShipRepairDevice
+    - ShipRepairDeviceAmmo #Mono end
     - SignallerAdvanced
     - ClothingOuterHardsuitBasic
     - ClothingOuterHardsuitAtmos

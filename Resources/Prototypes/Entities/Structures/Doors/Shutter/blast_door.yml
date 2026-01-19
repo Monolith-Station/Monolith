@@ -56,6 +56,10 @@
     messagePerceivedByOthers: comp-window-knock
     interactSuccessSound:
       path: /Audio/Effects/glass_knock.ogg
+  # Mono
+  - type: ShipRepairable
+    repairTime: 6
+    repairCost: 8
 
 - type: entity
   id: BlastDoorOpen

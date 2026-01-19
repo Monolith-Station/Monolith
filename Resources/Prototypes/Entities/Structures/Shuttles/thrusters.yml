@@ -115,10 +115,14 @@
   - type: PirateBountyItem # Frontier
     id: Thruster # Frontier
   - type: RadarBlip # Mono
-    visibleFromOtherGrids: false
+    visibleFromOtherGrids: true
     radarColor: "#99FF99"
     scale: 1
     shape: diamond
+  # Mono
+  - type: ShipRepairable
+    repairTime: 5
+    repairCost: 10
 
 - type: entity
   id: ThrusterUnanchored
@@ -225,6 +229,10 @@
     price: 300 # Frontier - 2000<300
   - type: PirateBountyItem # Frontier
     id: Gyroscope # Frontier
+  # Mono
+  - type: ShipRepairable
+    repairTime: 6
+    repairCost: 12
 
 - type: entity
   id: GyroscopeUnanchored
@@ -307,3 +315,8 @@
     - type: PhysicalComposition
       materialComposition:
         Steel: 1200 # 12 sheets
+    # Mono
+    - type: ShipRepairable
+      repairTo: Thruster
+      repairTime: 6
+      repairCost: 12

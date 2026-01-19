@@ -15,6 +15,7 @@
     prototypes:
     - SpawnDroneWasp
     - SpawnDroneCrown
+    - SpawnDroneGust
 
 - type: entity
   id: MonoRamDroneSpawnerT2Middle
@@ -33,9 +34,13 @@
       weight: 20
     - id: SpawnDroneCrown
       weight: 20
+    - id: SpawnDroneGust
+      weight: 20
     # T2 medium
     - id: SpawnDroneMedusa
-      weight: 20
+      weight: 10
+    - id: SpawnDroneAssembly
+      weight: 10
 
 - type: entity
   id: SpawnDroneBase
@@ -47,9 +52,6 @@
     - type: IFF
       flags: AlwaysShowColor
       color: "#9a2020"
-    - type: Tag
-      tags:
-      - ShuttleAIIgnore
     - type: GridCleanupGrid
       cleanupAcceleration: 3
       ignorePowered: true
@@ -68,6 +70,8 @@
       - DroneHex
     nameGrid: false
 
+#region Debug
+
 - type: entity
   id: SpawnDroneNeedle
   parent: SpawnDroneBase
@@ -82,26 +86,14 @@
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/wedge.yml
 
-- type: entity
-  id: SpawnDroneWasp
-  parent: SpawnDroneBase
-  components:
-  - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/wasp.yml
+#region T1
 
 - type: entity
-  id: SpawnDroneMedusa
+  id: SpawnDroneGust
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/medusa.yml
-
-- type: entity
-  id: SpawnDroneCrown
-  parent: SpawnDroneBase
-  components:
-  - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/crown.yml
+    path: /Maps/_Mono/Shuttles/World/gust.yml
 
 - type: entity
   id: SpawnDroneBasicSmall
@@ -116,3 +108,35 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/ramdronemedium.yml
+
+#region T2-1
+
+- type: entity
+  id: SpawnDroneWasp
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/wasp.yml
+
+- type: entity
+  id: SpawnDroneCrown
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/crown.yml
+
+#region T2-2
+
+- type: entity
+  id: SpawnDroneMedusa
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/medusa.yml
+
+- type: entity
+  id: SpawnDroneAssembly
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/assembly.yml

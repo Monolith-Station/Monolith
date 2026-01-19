@@ -52,6 +52,10 @@
     guides:
     - AtmosphericAlertsComputer
     - DeviceMonitoringAndControl
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -89,6 +93,10 @@
     guides:
     - AtmosphericNetworkMonitor
     - DeviceMonitoringAndControl
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: BaseComputer
@@ -122,6 +130,8 @@
   abstract: true
   components:
   - type: ShuttleConsole
+  - type: ShipNpcTarget # Mono
+    needPower: true
   - type: ShuttleConsoleLock
   - type: ActivatableUI
     key: enum.ShuttleConsoleUiKey.Key
@@ -169,6 +179,15 @@
     - device-button-6
     - device-button-7
     - device-button-8
+  # Mono
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 30
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#03f8fc"
+    scale: 1.5
+    shape: diamond
 
 - type: entity
   parent: [BaseComputerShuttle, BaseShuttleIntercom] # Frontier - BaseShuttleIntercom
@@ -367,6 +386,10 @@
         type: PowerMonitoringConsoleBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -392,6 +415,10 @@
     color: "#1f8c28"
   - type: Computer
     board: MedicalRecordsComputerCircuitboard
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: [BaseStructureIndestructible, BaseComputerAiAccess] # Frontier: added BaseStructureIndestructible
@@ -431,6 +458,10 @@
   - type: GuideHelp
     guides:
     - CriminalRecords
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -456,6 +487,10 @@
   - type: GuideHelp
     guides:
     - Forensics
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -495,6 +530,10 @@
     receiveFrequencyId: CrewMonitor
 #  - type: WirelessNetworkConnection
 #    range: 1200
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -543,6 +582,10 @@
   - type: GuideHelp
     guides:
     - Science
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -593,6 +636,10 @@
   - type: GuideHelp
     guides:
     - Xenoarchaeology
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: [BaseStructureIndestructible, BaseComputerAiAccess] # Frontier: added BaseStructureIndestructible
@@ -656,6 +703,10 @@
       board: !type:Container
       IdCardConsole-privilegedId: !type:ContainerSlot
       IdCardConsole-targetId: !type:ContainerSlot
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -671,6 +722,10 @@
     radius: 1.5
     energy: 1.6
     color: "#1f8c28"
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -715,6 +770,10 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: ComputerComms
@@ -852,6 +911,10 @@
     guides:
     - SolarPanels
     - Power
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -911,6 +974,10 @@
         params:
           loop: true
           volume: 1
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   id: ComputerCargoShuttle
@@ -1007,6 +1074,10 @@
   # - type: GuideHelp # Frontier: guidebook removed
   #   guides: # Frontier: guidebook removed
   #   - Cargo # Frontier: guidebook removed
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   id: ComputerCargoBounty
@@ -1154,6 +1225,10 @@
 #      access: [["Salvage"]]
     - type: StealTarget
       stealGroup: SalvageExpeditionsComputerCircuitboard
+    # Mono
+    - type: ShipRepairable
+      repairTime: 4
+      repairCost: 8
 
 - type: entity
   parent: BaseComputer
@@ -1193,6 +1268,10 @@
           type: SurveillanceCameraMonitorBoundUserInterface
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: BaseComputer
@@ -1234,6 +1313,10 @@
           type: SurveillanceCameraMonitorBoundUserInterface
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   id: ComputerPalletConsole
@@ -1451,3 +1534,7 @@
     containers:
       circuit_holder: !type:ContainerSlot
       board: !type:Container
+  # Mono
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 25

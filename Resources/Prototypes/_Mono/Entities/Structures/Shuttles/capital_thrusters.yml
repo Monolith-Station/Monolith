@@ -53,7 +53,10 @@
   - type: StaticPrice
     price: 1500
   - type: RadarBlip
-    visibleFromOtherGrids: false
+    visibleFromOtherGrids: true
     radarColor: "#99FF99"
     scale: 2
     shape: diamond
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 30

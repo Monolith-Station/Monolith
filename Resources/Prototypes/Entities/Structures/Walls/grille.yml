@@ -85,6 +85,10 @@
             True: { visible: True }
             False: { visible: False }
     - type: AnimationPlayer
+    # Mono
+    - type: ShipRepairable
+      repairTime: 2
+      repairCost: 2
 
 - type: entity
   id: ClockworkGrille

@@ -26,7 +26,7 @@
     recoil: 5 # 1/5x
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 65
+    projectileSpeed: 200
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -62,12 +62,89 @@
         sound:
           collection: MetalBreak
   - type: RadarBlip
+    visibleFromOtherGrids: true
     radarColor: "#C92BCC"
     scale: 2
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 60
+
+# Cerbrus
+
+- type: entity
+  id: WeaponTurretCerberus
+  name: TPC Cerberus Plasma scattercannon
+  parent: BallisticArtillery
+  description: Borrowing from the design of the Marauder, the Cerberus fires very similar shots, but in a tight spread of 3 blasts
+  components:
+  - type: StaticPrice
+    price: 2000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/cerberus.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.75
+    recoil: 8
+    minAngle: 0
+    maxAngle: 0
+    projectileSpeed: 175
+    shootThermalSignature: 4000000 # ~2.8km with continuous fire
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 350
+  - type: SpaceArtillery
+    powerChargeRate: 350
+    powerUsePassive: 500
+    powerUseActive: 0
+  - type: FireControlRotate
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: CerberusSpread
+    fireCost: 500
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 8000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 2.5
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 50
+    repairCost: 120
 
 # Type 54 autopulser
 
@@ -135,10 +212,14 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 1.5
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
     shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 25
+    repairCost: 100
 
 
  # M25
@@ -212,10 +293,14 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 1
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
     shipClass: Superlight
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 20
 
 # RUBICON
 
@@ -273,10 +358,93 @@
   - type: RadarBlip
     radarColor: "#035EFC"
     scale: 2
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 60
+
+# Scylla
+
+- type: entity
+  id: WeaponTurretScylla
+  name: TPC Scylla plasma impulse driver
+  parent: BallisticArtilleryUnanchorable
+  suffix: TSF ONLY
+  description: A more specialized energy weapon, the Scylla fires a massive burst of plasma projectiles down range, in a huge spew to erase large and small targets alike.
+  components:
+  - type: StaticPrice
+    price: 50000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/scylla.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 200000
+    startingCharge: 200000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    projectileSpeed: 240
+    minAngle: 0
+    maxAngle: 8
+    fireRate: 1
+    recoil: 10 # 2/5x
+    burstCooldown: 10
+    burstFireRate: 50
+    shotsPerBurst: 50
+    selectedMode: Burst
+    availableModes: Burst
+    shootThermalSignature: 500000 # ~5.6km with continuous fire
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/autopulse_laser_fire_01.ogg
+    soundEmpty:
+      path: /Audio/Weapons/click.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 300
+  - type: SpaceArtillery
+    powerChargeRate: 700
+    powerUsePassive: 100
+    powerUseActive: 0
+  - type: FireControlRotate
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipPlasmaProjectileScylla
+    fireCost: 200
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 6000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 3000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 1.5
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 70
+    repairCost: 150
 
 # DYMERE
 
@@ -346,10 +514,14 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 3
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
     shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 45
+    repairCost: 250
 
 # Laser Hitscan
 
@@ -418,6 +590,78 @@
     shipType: Energy
   - type: ShipGunClass
     shipClass: Light
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 40
+
+# Prometheus
+
+- type: entity
+  id: WeaponLaserTurretPrometheus
+  name: TPC Prometheus Laser Cannon
+  parent: BallisticArtillery
+  description: A heavier laser cannon mount, after the relative failure of the Apollo and its subsequent conversion into a mining laser, the Prometheus comes to the field as the new heavy laser cannon, perfect for melting through hostile hulls.
+  components:
+  - type: StaticPrice
+    price: 17500
+  - type: Sprite
+    sprite:  _Mono/Objects/ShuttleWeapons/prometheus.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 50000
+    startingCharge: 50000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 500
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: .2
+    recoil: 5
+    minAngle: 0
+    maxAngle: 0
+    shootThermalSignature: 2000000
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 200
+    powerUsePassive: 300
+    powerUseActive: 0
+  - type: FireControlRotate
+  - type: Actions
+  - type: HitscanBatteryAmmoProvider
+    proto: PrometheusLaser
+    fireCost: 5000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 9000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 100
 
 # Apollo
 
@@ -480,6 +724,7 @@
   - type: RadarBlip
     radarColor: "#e67a22"
     scale: 2
+    visibleFromOtherGrids: true
   - type: Fixtures
     fixtures:
       fix1:
@@ -489,6 +734,9 @@
         density: 1500
   - type: ShipGunType
     shipType: Energy
+  - type: ShipRepairable
+    repairTime: 25
+    repairCost: 100
 
 # PRE- FRACTURE
 
@@ -568,10 +816,18 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 3
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
     shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 60
+    repairCost: 300
+  - type: ShipRepairableRestrict
+    toolWhitelist:
+      tags:
+      - ADSRepairTool
 
 
 # Tachyon Lance "Reaper"
@@ -644,10 +900,18 @@
   - type: RadarBlip
     radarColor: "#5bc65d"
     scale: 3
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
     shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 60
+    repairCost: 300
+  - type: ShipRepairableRestrict
+    toolWhitelist:
+      tags:
+      - ADSRepairTool
 
 # Ion Cannnon "Harbringer"
 
@@ -720,10 +984,18 @@
   - type: RadarBlip
     radarColor: "#450089"
     scale: 3
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
     shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 60
+    repairCost: 300
+  - type: ShipRepairableRestrict
+    toolWhitelist:
+      tags:
+      - ADSRepairTool
 
 # Proton Cannon "Sunder"
 
@@ -790,10 +1062,18 @@
   - type: RadarBlip
     radarColor: "#ff9d00"
     scale: 2
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 100
+  - type: ShipRepairableRestrict
+    toolWhitelist:
+      tags:
+      - ADSRepairTool
 
 # Neutron Repeater "Scythe"
 
@@ -861,10 +1141,18 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 1.5
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
     shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 120
+  - type: ShipRepairableRestrict
+    toolWhitelist:
+      tags:
+      - ADSRepairTool
 
 # Auto-Coil "Flayer"
 
@@ -932,3 +1220,10 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Light
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 80
+  - type: ShipRepairableRestrict
+    toolWhitelist:
+      tags:
+      - ADSRepairTool

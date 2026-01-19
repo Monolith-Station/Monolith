@@ -6,4 +6,12 @@ namespace Content.Shared._Crescent.DroneControl;
 [RegisterComponent]
 public sealed partial class DroneControlComponent : Component
 {
+    [DataField]
+    public bool Autolinked = false;
+
+    [DataField]
+    public string OrderKey = "DroneCommand";
+
+    [DataField]
+    public string TargetKey = "DroneTarget";
 }
