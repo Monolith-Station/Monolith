@@ -162,7 +162,8 @@ public sealed class ExecutionSystem : EntitySystem
         _doAfterSystem.TryStartDoAfter(doAfter);
     }
 
-    private bool OnDoafterChecks(EntityUid uid, DoAfterEvent args)
+    // Mono - unused
+    /*private bool OnDoafterChecks(EntityUid uid, DoAfterEvent args)
     {
         if (args.Handled || args.Cancelled || args.Used == null || args.Target == null)
             return false;
@@ -172,7 +173,7 @@ public sealed class ExecutionSystem : EntitySystem
 
         // All checks passed
         return true;
-    }
+    }*/
 
     // TODO: This repeats a lot of the code of the serverside GunSystem, make it not do that
     private void OnDoafterGun(EntityUid uid, GunComponent component, DoAfterEvent args)
