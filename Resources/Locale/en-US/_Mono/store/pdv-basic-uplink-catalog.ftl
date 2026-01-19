@@ -28,7 +28,11 @@ uplink-pdv-esword-desc = a pure concentrated plasma blade. Cuts enemies and door
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # MARK: Utility
+=======
+# MARK: Utility Basic
+>>>>>>> Stashed changes
 =======
 # MARK: Utility Basic
 >>>>>>> Stashed changes
@@ -56,6 +60,10 @@ uplink-pdv-hoverbike-desc = A flatpack containing an illegal hoverbike. Comes wi
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+# MARK: Utility Standard
+>>>>>>> Stashed changes
 =======
 # MARK: Utility Standard
 >>>>>>> Stashed changes
@@ -76,7 +84,11 @@ uplink-pdv-radio-jammer-desc = This device will disrupt any nearby outgoing radi
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # MARK: Equipment
+=======
+# MARK: Equipment Basic
+>>>>>>> Stashed changes
 =======
 # MARK: Equipment Basic
 >>>>>>> Stashed changes
@@ -98,6 +110,11 @@ uplink-pdv-bullet-vest-heavy-desc = a simple kevlar vest. Good protection agains
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+# MARK: Equipment Standard
+
+>>>>>>> Stashed changes
 =======
 # MARK: Equipment Standard
 

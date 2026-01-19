@@ -10,7 +10,10 @@ uplink-pdv-esword-name = Energy Sword
 uplink-pdv-esword-desc = a pure concentrated plasma blade. Cuts enemies and doors down with ease.
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -73,6 +76,9 @@ uplink-pdv-jackal-hardsuit-name = JACKAL Viper Hardsuit
 uplink-pdv-jackal-hardsuit-desc = A heavy combat hardsuit that comes with night vision goggles installed.
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
