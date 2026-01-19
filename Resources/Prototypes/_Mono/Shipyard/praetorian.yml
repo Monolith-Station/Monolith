@@ -7,9 +7,9 @@
 - type: vessel
   id: Praetorian
   parent: BaseVessel
-  name: TSF-SKR Praetorian
-  description: A more compact and advanced Archer, outfitted with a shield gen, 4 AK570s, 2 L85s, and 2 MARAUDERS. This ship has a military IFF designation.
-  price: 101520
+  name: Praetorian
+  description: A high tech escort ship with all of its weapon systems based around plasma and energy weaponary. 4 marauders, 2 cerberus, 2 phalanx, 1 prometheus.
+  price: 90000
   category: Medium
   group: Shipyard
   access: Mercenary
@@ -18,11 +18,11 @@
   class:
   - Pursuit
   engine:
-  - Uranium
+  - Plasma
 
 - type: gameMap
   id: Praetorian
-  mapName: 'TSF-SKR Praetorian'
+  mapName: 'Praetorian'
   mapPath: /Maps/_Mono/Shuttles/praetorian.yml
   minPlayers: 0
   stations:
