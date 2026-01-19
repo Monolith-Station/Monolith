@@ -436,7 +436,7 @@ public class RCDSystem : EntitySystem
                 foreach (var fixture in fixtures.Fixtures.Values)
                 {
                     // Continue if no collision is possible
-                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int) component.CachedPrototype.CollisionMask) == 0)
+                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int)component.CachedPrototype.CollisionMask) == 0)
                         continue;
 
                     // Continue if our custom collision bounds are not intersected
@@ -480,7 +480,7 @@ public class RCDSystem : EntitySystem
             }
 
             // The tile cannot be destroyed
-            var tileDef = (ContentTileDefinition) _tileDefMan[mapGridData.Tile.Tile.TypeId];
+            var tileDef = (ContentTileDefinition)_tileDefMan[mapGridData.Tile.Tile.TypeId];
 
             if (tileDef.Indestructible)
             {
