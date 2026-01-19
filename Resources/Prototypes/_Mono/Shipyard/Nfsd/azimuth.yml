@@ -1,0 +1,34 @@
+- type: vessel
+  id: Azimuth
+  parent: BaseVesselAntag
+  name: TSF-ELH Azimuth
+  description: A medium salvage ship subcontracted for construction by the TSFMC within the Coloussus Sector. Carries two L-20 Apollo Mining Lasers and light point defense.
+  price: 116000 #Appraised at 80502
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/azimuth.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Azimuth
+  mapName: 'Azimuth'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/azimuth.yml
+  minPlayers: 0
+  stations:
+    Azimuth:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Azimuth TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
