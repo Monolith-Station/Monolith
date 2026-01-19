@@ -33,45 +33,14 @@ public abstract partial class SharedChargesSystem : EntitySystem
         var examineMessage = Loc.GetString("limited-charges-ammo-component-on-examine", ("charges", GetAmmoCharges(ent)));
         args.PushText(examineMessage);
     }
-    private void OnAmmoUsingInteract(Entity<LimitedChargesAmmoComponent> ent, ref InteractUsingEvent args)
+
+    private void RefillAmmo(Entity<LimitedChargesAmmoComponent> ent, EntityUid target, EntityUid user)
     {
-        if (args.Handled || !_timing.IsFirstTimePredicted)
-            return;
-
-        if (args.Used is not { Valid: true } used
-            || !TryComp<LimitedChargesComponent>(used, out var charges)
-            || _whitelist.IsWhitelistFail(ent.Comp.Whitelist, used)
-        )
-            return;
-
-        var user = args.User;
-
-        args.Handled = true;
-        var count = Math.Min(charges.MaxCharges - charges.Charges, GetAmmoCharges(ent));
-        if (count <= 0)
-        {
-            _popup.PopupClient(Loc.GetString("limited-charges-ammo-component-after-interact-full"), used, user);
-            return;
-        }
-
-        _popup.PopupClient(Loc.GetString("limited-charges-ammo-component-after-interact-refilled"), used, user);
-        AddCharges(used, TakeCharges(ent, count), charges);
-    }
-
-    private void OnAmmoAfterInteract(Entity<LimitedChargesAmmoComponent> ent, ref AfterInteractEvent args)
-    {
-        if (args.Handled || !args.CanReach || !_timing.IsFirstTimePredicted)
-            return;
-
-        if (args.Target is not { Valid: true } target
+        if (target is not { Valid: true }
             || !TryComp<LimitedChargesComponent>(target, out var charges)
             || _whitelist.IsWhitelistFail(ent.Comp.Whitelist, target)
         )
             return;
-
-        var user = args.User;
-
-        args.Handled = true;
         var count = Math.Min(charges.MaxCharges - charges.Charges, GetAmmoCharges(ent));
         if (count <= 0)
         {
@@ -81,6 +50,25 @@ public abstract partial class SharedChargesSystem : EntitySystem
 
         _popup.PopupClient(Loc.GetString("limited-charges-ammo-component-after-interact-refilled"), target, user);
         AddCharges(target, TakeCharges(ent, count), charges);
+    }
+
+    private void OnAmmoUsingInteract(Entity<LimitedChargesAmmoComponent> ent, ref InteractUsingEvent args)
+    {
+        if (args.Handled || !_timing.IsFirstTimePredicted)
+            return;
+
+        args.Handled = true;
+        RefillAmmo(ent, args.Used, args.User);
+    }
+
+    private void OnAmmoAfterInteract(Entity<LimitedChargesAmmoComponent> ent, ref AfterInteractEvent args)
+    {
+        if (args.Handled || !args.CanReach || !_timing.IsFirstTimePredicted)
+            return;
+        if (args.Target is not { } target)
+            return;
+        args.Handled = true;
+        RefillAmmo(ent, target, args.User);
     }
 
     public int GetAmmoCharges(Entity<LimitedChargesAmmoComponent> ent)
