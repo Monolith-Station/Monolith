@@ -6,6 +6,8 @@
     prototypes:
     - SpawnDroneBasicSmall
     - SpawnDroneBasicMedium
+    - SpawnDroneMPulsar
+    - SpawnDroneLance
 
 - type: entity
   id: MonoRamDroneSpawnerT2Inner
@@ -16,6 +18,7 @@
     - SpawnDroneWasp
     - SpawnDroneCrown
     - SpawnDroneGust
+    - SpawnDronePiercer
 
 - type: entity
   id: MonoRamDroneSpawnerT2Middle
@@ -109,6 +112,20 @@
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/ramdronemedium.yml
 
+- type: entity
+  id: SpawnDroneMPulsar
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/mpulsar.yml
+
+- type: entity
+  id: SpawnDroneLance
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/lance.yml
+
 #region T2-1
 
 - type: entity
@@ -124,6 +141,13 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/crown.yml
+
+- type: entity
+  id: SpawnDronePiercer
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/piercer.yml
 
 #region T2-2
 
