@@ -26,7 +26,11 @@ uplink-pdv-bulldog-desc = a devastating automatic mag fed shotgun. Fires 12 gaug
 uplink-pdv-esword-name = Energy Sword
 uplink-pdv-esword-desc = a pure concentrated plasma blade. Cuts enemies and doors down with ease.
 
+<<<<<<< Updated upstream
 # MARK: Utility
+=======
+# MARK: Utility Basic
+>>>>>>> Stashed changes
 
 uplink-pdv-empty-implanter-name = Empty Implanter
 uplink-pdv-empty-implanter-desc = A spare, empty implanter to remove implants with, including faction tracking implants. It does not backfire on you.
@@ -46,6 +50,10 @@ uplink-pdv-jaws-desc = A modified jaws of life that passes safety restrictions, 
 uplink-pdv-hoverbike-name = Illegal Hoverbike
 uplink-pdv-hoverbike-desc = A flatpack containing an illegal hoverbike. Comes with extra luggage capacity.
 
+<<<<<<< Updated upstream
+=======
+# MARK: Utility Standard
+>>>>>>> Stashed changes
 uplink-pdv-nanite-applicator-name = Advanced Nanite Applicator
 uplink-pdv-nanite-applicator-desc = An advanced tool that allows for swift nanotechnology reconstruction to repair structures.
 
@@ -58,7 +66,11 @@ uplink-pdv-emag-desc = A multipurpose hacking device that can configure the ways
 uplink-pdv-radio-jammer-name = Radio Jammer
 uplink-pdv-radio-jammer-desc = This device will disrupt any nearby outgoing radio communication as well as suit sensors when activated.
 
+<<<<<<< Updated upstream
 # MARK: Equipment
+=======
+# MARK: Equipment Basic
+>>>>>>> Stashed changes
 
 uplink-pdv-scaf-hardsuit-name = PDV SCAF Hardsuit
 uplink-pdv-scaf-hardsuit-desc = A basic protective hardsuit used by the PDV.
@@ -72,6 +84,11 @@ uplink-pdv-bullet-vest-medium-desc = a simple kevlar vest. Good protection again
 uplink-pdv-bullet-vest-heavy-name = Heavy Bulletproof Vest
 uplink-pdv-bullet-vest-heavy-desc = a simple kevlar vest. Good protection against small arms.
 
+<<<<<<< Updated upstream
+=======
+# MARK: Equipment Standard
+
+>>>>>>> Stashed changes
 uplink-pdv-tactical-magboots-name = Tactical Magboots
 uplink-pdv-tactical-magboots-desc = A pair of combat magboots that come additionally with jetpack functionality that come fueled, but dont last long.
 
