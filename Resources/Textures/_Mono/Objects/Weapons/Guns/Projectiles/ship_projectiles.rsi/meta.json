@@ -1,32 +1,38 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Sprites By Avalon-Proto",
+    "copyright": "Sprites by Avalon-Proto",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
-            "name": "zeus_projectile"
+            "name": "ion_blast"
         },
         {
             "name": "neutron_bolt"
         },
         {
-            "name": "ion_blast"
+            "name": "shard_shot"
         },
         {
-            "name": "shard_shot"
+            "name": "wave_shot"
+        },
+        {
+            "name": "zeus_projectile"
+        },
+        {
+            "name": "electron-torpedo"
+        },
+        {
+            "name": "antimatter-particle"
         },
         {
             "name": "corrupter_shot"
         },
         {
             "name": "initiate_drone_bullet"
-        },
-        {
-            "name": "wave_shot"
         }
     ]
 }

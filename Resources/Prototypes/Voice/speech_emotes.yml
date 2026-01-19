@@ -350,6 +350,9 @@
   category: Vocal
   icon: Interface/Emotes/buzz.png
   chatMessages: ["chat-emote-msg-buzz"]
+  whitelist: # Mono
+    components:
+    - BorgChassis
   chatTriggers:
     - buzzing
     - buzz
@@ -362,15 +365,9 @@
   category: Vocal
   icon: Interface/Emotes/weh.png
   chatMessages: ["chat-emote-msg-weh"]
-  whitelist:
-    tags:
-      - ReptilianEmotes # Goob - restrict wehs to the OG lizz
   blacklist:
     components:
       - BorgChassis
-  chatTriggers: # Floof - you can weh now
-    - weh
-    - wehs
 
 - type: emote
   id: Hew

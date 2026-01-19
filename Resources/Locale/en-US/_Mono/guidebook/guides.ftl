@@ -4,6 +4,7 @@ guide-entry-shipyard-judiciary = Judiciary
 guide-entry-shipyard-sabine = Sabine
 guide-entry-shipyard-takeaway = Takeaway
 guide-entry-shipyard-ruby = Ruby
+guide-entry-shipyard-motley-anne = Motley Anne
 
 # Gunnery Guides
 guide-entry-gunnery = Ship Gunnery

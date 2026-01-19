@@ -1,0 +1,100 @@
+# these are what actually decides a biome's spread.
+# as of 8/1/2026, these have all been placed on top of the station anchor on Colossus Central.
+# TODO: make an exped prototype & autoplace it on expeditions with a higher priority than 2k
+# 0-5000: inner ring
+# 5000-9500: middle ring
+# 9500-18000: outer ring
+# 18000+: uncharted space (fallback)
+# THESE MUST HAVE GLOBAL PVS OR THE CLIENT WON'T SEE THEM!!!!!!!!!!!!
+
+- type: entity
+  id: BaseBiomeSource
+  name: base biome source
+  components:
+  - type: GlobalPvs #needed so the client can see these past PVS range
+
+- type: entity
+  id: BiomeSourceFallback
+  parent: BaseBiomeSource
+  name: fallback biome source
+  components:
+  - type: SpaceBiomeSource
+    id: BiomeDefault
+    swapDistance: null #infinite
+    priority: 1
+
+
+# hardcoded in SalvageSystem.Expeditions.cs
+# components:
+# - type: SpaceBiomeSource
+#   id: expedition_biome
+#   swapDistance: null # infinite
+#   priority: 2500 #should not matter, but big enough to override all the rest
+
+# hardcoded in ShuttleSystem.FasterThanLight.cs
+# components:
+# - type: SpaceBiomeSource
+#   id: ftl_biome
+#   swapDistance: null # infinite
+#   priority: 2500 #should not matter, but big enough to override all the rest
+
+
+- type: entity
+  id: BiomeSourceFarReachesIII
+  parent: BaseBiomeSource
+  name: far reaches III biome source
+  components:
+  - type: SpaceBiomeSource
+    id: BiomeFarReachesIII
+    swapDistance: 28000 #beyond this is fallback
+    priority: 250
+
+- type: entity
+  id: BiomeSourceFarReachesII
+  parent: BaseBiomeSource
+  name: far reaches II biome source
+  components:
+  - type: SpaceBiomeSource
+    id: BiomeFarReachesII
+    swapDistance: 25000
+    priority: 500
+
+- type: entity
+  id: BiomeSourceFarReachesI
+  parent: BaseBiomeSource
+  name: far reaches I biome source
+  components:
+  - type: SpaceBiomeSource
+    id: BiomeFarReachesI
+    swapDistance: 22000
+    priority: 750
+
+- type: entity
+  id: BiomeSourceOuterRing
+  parent: BaseBiomeSource
+  name: outer ring biome source
+  components:
+  - type: SpaceBiomeSource
+    id: BiomeOuterRing
+    swapDistance: 18000
+    priority: 1000
+
+- type: entity
+  id: BiomeSourceMiddleRing
+  parent: BaseBiomeSource
+  name: middle ring biome source
+  components:
+  - type: SpaceBiomeSource
+    id: BiomeMiddleRing
+    swapDistance: 10000
+    priority: 1500
+
+- type: entity
+  id: BiomeSourceInnerRing
+  parent: BaseBiomeSource
+  name: inner ring biome source
+  components:
+  - type: SpaceBiomeSource
+    id: BiomeInnerRing
+    swapDistance: 5000
+    priority: 2000
