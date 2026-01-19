@@ -79,7 +79,7 @@
        weight: 2
      - id: MaterialDiamond1
      - id: MaterialBluespace1
-    
+
 # Tools
 - type: entityTable
   id: ScrapProcessToolFluffBranch
@@ -235,6 +235,7 @@
     - id: SolarTrackerElectronics
     - id: ContainmentFieldGeneratorCircuitboard
     - id: SolarAssemblyFlatpack
+    - id: CentrifugeLatheMiniCircuitboard # Mono: Economy
     #Atmos
     - !type:GroupSelector
       weight: 2

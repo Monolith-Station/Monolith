@@ -18,6 +18,18 @@
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.23,-0.45,0.23,0.45"
+        density: 115
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
   - type: InteractionOutline
   - type: Sprite
     sprite: _Mono/Mobs/Core/drone.rsi
@@ -176,6 +188,17 @@
     rootTask:
       task: DroneCompoundMedusa
 
+- type: entity
+  id: NpcDroneAiAssembly
+  parent: NpcStationAiAttacker
+  description: Shoots at you. Broadsides.
+  suffix: AI, Drone-Assembly
+  components:
+  - type: HTN
+    sleepPlayerCheckRangeOverride: 4000
+    rootTask:
+      task: DroneCompoundAssembly
+
 #region Spawners
 
 - type: entity
@@ -297,3 +320,13 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcDroneAiMedusa
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiAssembly
+  parent: SpawnMobAttackerCore
+  suffix: Broadside, Drone-Assembly
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiAssembly

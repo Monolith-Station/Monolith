@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 starch
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
+#
+# SPDX-License-Identifier: MPL-2.0
+
+
+- type: vessel
+  id: Mock
+  parent: BaseVessel
+  name: IED Brawler Drone 'Mock'
+  description: A lightly armored fighter equipped with 2 90mm autocannons for harassing targets and taking down enemy fighters.
+  price: 13500
+  purchasable: false #voucher only
+  category: Small
+  group: Custom
+  mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes
+  shuttlePath: /Maps/_Mono/Shuttles/Carrier/mock.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  - Fighter
+  engine:
+  - APU
+
+- type: gameMap
+  id: Mock
+  mapName: 'Mock'
+  mapPath: /Maps/_Mono/Shuttles/Carrier/mock.yml
+  minPlayers: 0
+  stations:
+    Mock:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Mock PDV{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs: {}

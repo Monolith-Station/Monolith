@@ -219,3 +219,155 @@
   components:
   - type: Stack
     count: 5
+
+# Enriched uranium products
+
+- type: material
+  id: UraniumFissile
+  stackEntity: SheetUraniumFissile1
+  name: materials-uraniumfissile
+  unit: materials-unit-sheet
+  icon: { sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi, state: uranium }
+  color: "#8a8568"
+  price: 250 # 25000/sheet
+
+- type: entity
+  parent: MaterialBase
+  id: SheetUraniumFissile
+  name: fissile uranium
+  description: Ingots of pure, unadulterated weapons-grade uranium isotopes. Expect some trouble with this.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi
+    state: uranium_3
+    layers:
+    - state: uranium_3
+      map: ["base"]
+  - type: Tag
+    tags:
+    - Sheet
+  - type: Item
+    sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi
+    heldPrefix: fissile uranium
+    inhandVisuals:
+      left:
+      - state: uranium-inhand-left
+      right:
+      - state: uranium-inhand-right
+  - type: Stack
+    stackType: UraniumFissile
+    count: 5
+    baseLayer: base
+    layerStates:
+    - uranium
+    - uranium_2
+    - uranium_3
+  - type: Material
+  - type: RadiationSource
+    intensity: 0.5
+  - type: Appearance
+  - type: PhysicalComposition
+    materialComposition:
+      UraniumFissile: 100
+  - type: Explosive
+    explosionType: Radioactive
+    totalIntensity: 20.0
+    intensitySlope: 5
+    maxIntensity: 4
+  - type: ExplodeOnTrigger
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Radiation
+        damage: 25
+      behaviors:
+      - !type:ExplodeBehavior
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ThermalSignature
+  - type: PassiveThermalSignature
+    signature: 1500000
+  - type: PointLight
+    color: "#8a8568"
+    radius: 2
+    energy: 1
+  - type: DamageOnLand
+    damage:
+      types:
+        Radiation: 5
+
+- type: entity
+  parent: SheetUraniumFissile
+  id: SheetUraniumFissile1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+# depleted uranium
+
+- type: material
+  id: UraniumDepleted
+  stackEntity: SheetUraniumDepleted1
+  name: materials-uraniumdepleted
+  unit: materials-unit-sheet
+  icon: { sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi, state: depleted }
+  color: "#14211d"
+  price: 20 # 250/sheet
+
+- type: entity
+  parent: MaterialBase
+  id: SheetUraniumDepleted
+  name: depleted uranium
+  description: Ingots of durable, dense and ridiculously heavy depleted uranium, no longer fissile - but nonetheless useful for things unrelated to warcrimes.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi
+    state: depleted_3
+    layers:
+    - state: depleted_3
+      map: ["base"]
+  - type: Tag
+    tags:
+    - Sheet
+  - type: Item
+    sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi
+    heldPrefix: depleted uranium
+    size: Ginormous
+    inhandVisuals:
+      left:
+      - state: depleted-inhand-left
+      right:
+      - state: depleted-inhand-right
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: HeldSpeedModifier
+  - type: Stack
+    stackType: UraniumDepleted
+    count: 5
+    baseLayer: base
+    layerStates:
+    - depleted
+    - depleted_2
+    - depleted_3
+  - type: Material
+  - type: Appearance
+  - type: PhysicalComposition
+    materialComposition:
+      UraniumDepleted: 100
+
+- type: entity
+  parent: SheetUraniumDepleted
+  id: SheetUraniumDepleted1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
