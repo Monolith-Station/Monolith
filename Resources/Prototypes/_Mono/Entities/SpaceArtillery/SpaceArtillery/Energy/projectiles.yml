@@ -555,7 +555,7 @@
   - type: TriggerOnSpawn
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
+    explosionType: Default
     totalIntensity: 6000
     intensitySlope: 35
     maxIntensity: 700
@@ -567,7 +567,7 @@
   - type: TriggerOnSpawn
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
+    explosionType: Default
     totalIntensity: 22
     intensitySlope: 2
     maxIntensity: 5
