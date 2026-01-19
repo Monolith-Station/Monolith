@@ -36,8 +36,7 @@ public abstract partial class SharedChargesSystem : EntitySystem
 
     private void RefillAmmo(Entity<LimitedChargesAmmoComponent> ent, EntityUid target, EntityUid user)
     {
-        if (target is not { Valid: true }
-            || !TryComp<LimitedChargesComponent>(target, out var charges)
+        if (!TryComp<LimitedChargesComponent>(target, out var charges)
             || _whitelist.IsWhitelistFail(ent.Comp.Whitelist, target)
         )
             return;
