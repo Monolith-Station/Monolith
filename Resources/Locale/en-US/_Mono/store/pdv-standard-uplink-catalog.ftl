@@ -9,7 +9,10 @@ uplink-pdv-bulldog-desc = a devastating automatic mag fed shotgun. Fires 12 gaug
 uplink-pdv-esword-name = Energy Sword
 uplink-pdv-esword-desc = a pure concentrated plasma blade. Cuts enemies and doors down with ease.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 
 # MARK: Utility
 
@@ -69,4 +72,7 @@ uplink-pdv-imp-hardsuit-desc = a lightweight combat medical suit, often used by 
 uplink-pdv-jackal-hardsuit-name = JACKAL Viper Hardsuit
 uplink-pdv-jackal-hardsuit-desc = A heavy combat hardsuit that comes with night vision goggles installed.
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

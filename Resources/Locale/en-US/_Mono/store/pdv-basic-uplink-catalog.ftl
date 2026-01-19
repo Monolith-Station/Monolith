@@ -27,7 +27,11 @@ uplink-pdv-esword-name = Energy Sword
 uplink-pdv-esword-desc = a pure concentrated plasma blade. Cuts enemies and doors down with ease.
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # MARK: Utility
+=======
+# MARK: Utility Basic
+>>>>>>> Stashed changes
 =======
 # MARK: Utility Basic
 >>>>>>> Stashed changes
@@ -51,6 +55,10 @@ uplink-pdv-hoverbike-name = Illegal Hoverbike
 uplink-pdv-hoverbike-desc = A flatpack containing an illegal hoverbike. Comes with extra luggage capacity.
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+# MARK: Utility Standard
+>>>>>>> Stashed changes
 =======
 # MARK: Utility Standard
 >>>>>>> Stashed changes
@@ -67,7 +75,11 @@ uplink-pdv-radio-jammer-name = Radio Jammer
 uplink-pdv-radio-jammer-desc = This device will disrupt any nearby outgoing radio communication as well as suit sensors when activated.
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # MARK: Equipment
+=======
+# MARK: Equipment Basic
+>>>>>>> Stashed changes
 =======
 # MARK: Equipment Basic
 >>>>>>> Stashed changes
@@ -85,6 +97,11 @@ uplink-pdv-bullet-vest-heavy-name = Heavy Bulletproof Vest
 uplink-pdv-bullet-vest-heavy-desc = a simple kevlar vest. Good protection against small arms.
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+# MARK: Equipment Standard
+
+>>>>>>> Stashed changes
 =======
 # MARK: Equipment Standard
 
