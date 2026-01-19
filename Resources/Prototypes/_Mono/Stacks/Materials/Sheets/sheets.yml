@@ -25,3 +25,17 @@
   icon: { sprite: /Textures/_Mono/Objects/Materials/plastitanium.rsi, state: plastitanium }
   spawn: SheetPlastitanium1
   maxCount: 100
+
+- type: stack
+  id: UraniumFissile
+  name: fissile uranium
+  icon: { sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi, state: uranium }
+  spawn: SheetUraniumFissile1
+  maxCount: 5
+
+- type: stack
+  id: UraniumDepleted
+  name: depleted uranium
+  icon: { sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi, state: depleted }
+  spawn: SheetUraniumDepleted1
+  maxCount: 5

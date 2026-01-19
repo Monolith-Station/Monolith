@@ -1,0 +1,73 @@
+# Overseer's Maul "Honor"
+
+- type: entity
+  parent: BaseMeleeWeaponEnergy
+  id: WeaponOverseerMace
+  name: heavy maul "Honor"
+  description: A large, weighty maul, designed to deal the pain, alongside disabling targets. But when activated, becomes an energy axe made of searing plasma, cleaving through anything in its way.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Melee/honormace.rsi
+    layers:
+    - state: e_sword
+    - state: e_sword_blade
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: red
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Melee/honormace.rsi
+    size: Normal
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Melee/honormace.rsi
+    slots:
+    - Back
+    - Belt
+    - SuitStorage
+  - type: ComponentToggler
+    components:
+    - type: Reflect
+      reflectProb: 0.5
+    - type: Sharp
+    - type: Execution
+      doAfterDuration: 4.0
+  - type: ItemToggleSize
+    activatedSize: Large
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 30
+        Heat: 30
+        Structural: 150
+  - type: MeleeWeapon
+    heavyStaminaCost: 1
+    wideAnimationRotation: -135
+    attackRate: 1.25
+    damage:
+      types:
+        Blunt: 15
+        Piercing: 5
+        Structural: 50
+    soundHit:
+      collection: MetalThud
+  - type: StaminaDamageOnHit
+    damage: 80
+  - type: DisarmMalus
+    malus: 0.6
