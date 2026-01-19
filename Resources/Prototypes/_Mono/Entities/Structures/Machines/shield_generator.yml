@@ -129,7 +129,7 @@
     damageLimit: 10000
     damageOverloadTimePunishment: 30
     shieldColor: "#FF9933"
-    CollisionResistanceMultiplier: 0.0
+    collisionResistanceMultiplier: 0.0
   - type: Sprite
     sprite: _Mono/Structures/ShuttleComponents/fobshield.rsi
     snapCardinals: true
@@ -203,7 +203,7 @@
     damageLimit: 8000
     damageOverloadTimePunishment: 35
     shieldColor: "#FF0A70"
-    CollisionResistanceMultiplier: 0.05
+    collisionResistanceMultiplier: 0.05
   - type: Sprite
     sprite: _Mono/Structures/ShuttleComponents/fobshield.rsi
     snapCardinals: true
@@ -270,7 +270,7 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 300
-    CollisionResistanceMultiplier: 0.1
+    collisionResistanceMultiplier: 0.1
   - type: ShipRepairableRestrict
     toolWhitelist:
       tags:
@@ -292,7 +292,7 @@
     damageLimit: 40000
     damageOverloadTimePunishment: 100
     shieldColor: "#9933FF"
-    CollisionResistanceMultiplier: 0.6
+    collisionResistanceMultiplier: 0.6
   - type: Sprite
     sprite: _Mono/Structures/ShuttleComponents/shield.rsi
     snapCardinals: true
@@ -378,7 +378,7 @@
     damageLimit: 5000 # Mono
     damageOverloadTimePunishment: 80
     shieldColor: "#3399FF"
-    CollisionResistanceMultiplier: 0.5
+    collisionResistanceMultiplier: 0.5
   - type: Sprite
     sprite: _Mono/Structures/ShuttleComponents/shield.rsi
     snapCardinals: true
