@@ -49,10 +49,6 @@ public sealed class ExecutionSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly GunSystem _gunSystem = default!;
 
-    private const float GunExecutionTime = 6.0f;
-    private const float GunSuicideTime = 2.0f; // Mono
-    private const float DamageModifier = 9.0f;
-
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -82,7 +78,7 @@ public sealed class ExecutionSystem : EntitySystem
         {
             Act = () =>
             {
-                TryStartGunExecutionDoafter(weapon, victim, attacker);
+                TryStartGunExecutionDoafter((weapon, component), victim, attacker); // Mono - pass in component
             },
             Impact = LogImpact.High,
             Text = Loc.GetString("execution-verb-name"),
@@ -132,18 +128,18 @@ public sealed class ExecutionSystem : EntitySystem
         return true;
     }
 
-    private void TryStartGunExecutionDoafter(EntityUid weapon, EntityUid victim, EntityUid attacker)
+    private void TryStartGunExecutionDoafter(Entity<GunComponent> weapon, EntityUid victim, EntityUid attacker) // Mono - pass in component
     {
         if (!CanExecuteWithGun(weapon, victim, attacker))
             return;
 
-        var executionTime = GunExecutionTime; // Mono
+        var executionTime = weapon.Comp.ExecutionTime; // Mono
 
         if (attacker == victim)
         {
             ShowExecutionPopup("suicide-popup-gun-initial-internal", Filter.Entities(attacker), PopupType.Medium, attacker, victim, weapon);
             ShowExecutionPopup("suicide-popup-gun-initial-external", Filter.PvsExcept(attacker), PopupType.MediumCaution, attacker, victim, weapon);
-            executionTime = GunSuicideTime; // Mono
+            executionTime = weapon.Comp.SuicideTime; // Mono
         }
         else
         {
@@ -283,7 +279,7 @@ public sealed class ExecutionSystem : EntitySystem
         }
 
         // Gun successfully fired, deal damage
-        _damageableSystem.TryChangeDamage(victim, damage * DamageModifier, true, targetPart: TargetBodyPart.Head);
+        _damageableSystem.TryChangeDamage(victim, damage * component.ExecutionModifier, true, targetPart: TargetBodyPart.Head); // Mono - ExecutionModifier
         _audioSystem.PlayEntity(component.SoundGunshot, Filter.Pvs(weapon), weapon, false, AudioParams.Default);
 
         // Popups
