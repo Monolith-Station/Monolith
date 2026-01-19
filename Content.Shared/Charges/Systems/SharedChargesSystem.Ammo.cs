@@ -66,6 +66,7 @@ public abstract partial class SharedChargesSystem : EntitySystem
             return;
         if (args.Target is not { } target)
             return;
+
         args.Handled = true;
         RefillAmmo(ent, target, args.User);
     }
