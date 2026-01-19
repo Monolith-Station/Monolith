@@ -12,7 +12,6 @@
   guidebookPage: Null
   class:
   - Pirate
-  - Capital
   - Frigate
   engine:
   - AME
@@ -25,6 +24,9 @@
   stations:
     Vulture:
       stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Its rumored that a Vulture razed a small planet on its own. Now its your turn to find out for yourself."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Vulture PDV{1}'
@@ -34,3 +36,4 @@
         - type: StationJobs
           availableJobs:
             Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

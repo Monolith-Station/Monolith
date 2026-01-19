@@ -38,7 +38,7 @@
   description: A flatpack used for constructing an M381 CHARON mass driver. How the fuck did they make this into a flatpack?
   components:
   - type: Flatpack
-    entity: WeaponTurretCharon
+    entity: WeaponTurretCharonReload
   - type: StaticPrice
     price: 700
 

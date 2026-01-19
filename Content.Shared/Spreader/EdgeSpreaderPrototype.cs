@@ -9,6 +9,11 @@ namespace Content.Shared.Spreader;
 public sealed partial class EdgeSpreaderPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = string.Empty;
+
+    /// <summary>
+    /// How many updates to perform every time a grid's spreaders are processed.
+    /// What counts as an "update" is determined by the specific spreader.
+    /// </summary>
     [DataField(required:true)] public int UpdatesPerSecond;
 
     /// <summary>

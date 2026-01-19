@@ -210,6 +210,9 @@
   - type: FuelGradeAdapter
     inputMaterial: Plasma
     outputMaterial: FuelGradePlasma
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 100 # expensive
 
 - type: entity
   parent:

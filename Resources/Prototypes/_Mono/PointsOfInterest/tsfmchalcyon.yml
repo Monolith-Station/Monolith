@@ -12,7 +12,7 @@
 #
 - type: pointOfInterest
   id: TSFMCHalcyon
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'TSFMC Flagship Halcyon'
   minimumDistance: 2500 # Mono
   maximumDistance: 4000 # Mono
@@ -35,6 +35,9 @@
   stations:
     TSFMCHalcyon:
       stationProto: SecurityFrontierOutpost
+      gridComponents:
+      - type: VesselInfo
+        description: "A mothballed battleship-turned-FOB, and Home of the TSFMC operations."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'TSFMC Flagship Halcyon'

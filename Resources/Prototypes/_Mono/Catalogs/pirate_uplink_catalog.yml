@@ -1199,21 +1199,6 @@
 # Misc
 
 - type: listing
-  id: UplinkPirateProwlerVoucher
-  name: uplink-pirate-prowler-voucher-name
-  description: uplink-pirate-prowler-voucher-desc
-  productEntity: ShipVoucherProwler
-  cost:
-    Doubloon: 300
-  categories:
-  - UplinkPirateUtility
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - PirateUplink
-
-- type: listing
   id: UplinkPirateFactionRDServer
   name: uplink-faction-server-name
   description: uplink-faction-server-desc

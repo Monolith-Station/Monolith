@@ -1,0 +1,231 @@
+##
+## PLEASE READ BEFORE CONTRIBUTING! also, for clarity, check ContentAudioSystem.AmbientMusic.cs. i added comments!
+## for biome IDs, check space_biomes.yml
+##
+## for your ambient music to be valid, you need two prototypes
+## first, an ambientMusic prototype. the id !!!!MUST MATCH THE BIOME ID!!!! that you are making ambient music for, and it must have a sound collection
+## otherwise it will play the fallback track.
+## second, a soundCollection prototype. its id can be different, but please keep it the same as the biome for consistency
+## the music selected from the sound collection will be chosen randomly whenever the appropriate music is required to be played
+##
+## combat music default/fallback is called "CombatMusicDefault"
+## factional combat music must be called "CombatMusic<Faction>"
+## this is because the way combat music is fetched is ContentAudioSystem.AmbientMusic.cs filtering for NPCFactionComponent and turning them into faction IDs,
+## then combining them with CombatMusic to get CombatMusicPDV.
+##
+## valid factions:
+## TSFMC
+## PDV (PirateNF in factions until i fucking fix this)
+## (everyone else gets combatmodedefault)
+##
+## ALSO!! UPDATE attributions.txt OR I WILL FIND YOU!!!!!!!!!!!!
+## @.2, 2025/6/23
+
+
+#example
+- type: ambientMusic
+  id: test
+  sound:
+    collection: test
+
+- type: soundCollection
+  id: test
+  files:
+   - /Audio/_Crescent/Ambient/InnerRing/inner_ring_1.ogg
+
+#fallback, don't remove, but can change songs
+
+- type: ambientMusic
+  id: BiomeDefault
+  sound:
+    collection: BiomeDefault
+
+- type: soundCollection
+  id: BiomeDefault
+  files:
+   - /Audio/_Crescent/Ambient/InnerRing/inner_ring_1.ogg
+
+# HARDCODED - FTL
+- type: ambientMusic
+  id: BiomeFTL
+  sound:
+    collection: BiomeFTL
+
+- type: soundCollection
+  id: BiomeFTL
+  files:
+    - /Audio/_Crescent/Ambient/FTL/ftl_1.ogg
+
+# HARDCODED - EXPEDITION
+- type: ambientMusic
+  id: BiomeExpedition
+  sound:
+    collection: BiomeExpedition
+
+- type: soundCollection
+  id: BiomeExpedition
+  files:
+    - /Audio/_Crescent/Ambient/Expedition/expedition_1.ogg
+    - /Audio/_Crescent/Ambient/Expedition/expedition_2.ogg
+    - /Audio/_Crescent/Ambient/Expedition/expedition_3.ogg
+
+#combat music for anyone who isn't PDV or TFSMC (for now)
+
+- type: ambientMusic
+  id: CombatModeDefault
+  sound:
+    collection: CombatModeDefault
+
+- type: soundCollection
+  id: CombatModeDefault
+  files:
+    - /Audio/_Crescent/CombatMode/default_1.ogg
+    - /Audio/_Crescent/CombatMode/default_2.ogg
+
+## FACTION COMBAT MUSIC TRACKS
+## ID MUST BE "combatmode<FACTION>"!
+
+### PDV
+- type: ambientMusic
+  id: CombatModePDV
+  sound:
+    collection: CombatModePDV
+
+- type: soundCollection
+  id: CombatModePDV
+  files:
+    - /Audio/_Crescent/CombatMode/PDV_1.ogg
+    - /Audio/_Crescent/CombatMode/PDV_2.ogg
+
+### TSFMC
+- type: ambientMusic
+  id: CombatModeTSFMC
+  sound:
+    collection: CombatModeTSFMC
+
+- type: soundCollection
+  id: CombatModeTSFMC
+  files:
+    - /Audio/_Crescent/CombatMode/TSFMC_1.ogg
+    - /Audio/_Crescent/CombatMode/TSFMC_2.ogg
+
+
+### BIOME AMBIENT
+
+# far reaches III
+- type: ambientMusic
+  id: BiomeFarReachesIII
+  sound:
+    collection: BiomeFarReachesIII
+
+- type: soundCollection
+  id: BiomeFarReachesIII
+  files:
+   - /Audio/_Crescent/Ambient/FarReaches/far_reaches_iii.ogg
+
+# far reaches II
+- type: ambientMusic
+  id: BiomeFarReachesII
+  sound:
+    collection: BiomeFarReachesII
+
+- type: soundCollection
+  id: BiomeFarReachesII
+  files:
+   - /Audio/_Crescent/Ambient/FarReaches/far_reaches_ii.ogg
+
+# far reaches I
+- type: ambientMusic
+  id: BiomeFarReachesI
+  sound:
+    collection: BiomeFarReachesI
+
+- type: soundCollection
+  id: BiomeFarReachesI
+  files:
+   - /Audio/_Crescent/Ambient/FarReaches/far_reaches_i.ogg
+
+# outer ring
+
+- type: ambientMusic
+  id: BiomeOuterRing
+  sound:
+    collection: BiomeOuterRing
+
+- type: soundCollection
+  id: BiomeOuterRing
+  files:
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_1.ogg
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_2.ogg
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_3.ogg
+   - /Audio/_Crescent/Ambient/OuterRing/outer_ring_4.ogg
+
+# middle ring
+
+- type: ambientMusic
+  id: BiomeMiddleRing
+  sound:
+    collection: BiomeMiddleRing
+
+- type: soundCollection
+  id: BiomeMiddleRing
+  files:
+   - /Audio/_Crescent/Ambient/MiddleRing/middle_ring_1.ogg
+   - /Audio/_Crescent/Ambient/MiddleRing/middle_ring_2.ogg
+   - /Audio/_Crescent/Ambient/MiddleRing/middle_ring_3.ogg
+   - /Audio/_Crescent/Ambient/MiddleRing/middle_ring_4.ogg
+   - /Audio/_Crescent/Ambient/MiddleRing/middle_ring_5.ogg
+   - /Audio/_Crescent/Ambient/MiddleRing/middle_ring_6.ogg
+
+# inner ring
+
+- type: ambientMusic
+  id: BiomeInnerRing
+  sound:
+    collection: BiomeInnerRing
+
+- type: soundCollection
+  id: BiomeInnerRing
+  files:
+   - /Audio/_Crescent/Ambient/InnerRing/inner_ring_1.ogg
+   - /Audio/_Crescent/Ambient/InnerRing/inner_ring_2.ogg
+   - /Audio/_Crescent/Ambient/InnerRing/inner_ring_3.ogg
+   - /Audio/_Crescent/Ambient/InnerRing/inner_ring_4.ogg
+   - /Audio/_Crescent/Ambient/InnerRing/inner_ring_5.ogg
+   - /Audio/_Crescent/Ambient/InnerRing/inner_ring_6.ogg
+
+
+
+#STATIONS
+#EXPLANATION: shuttle/station prototypes have a VesselMusic component.
+#They point to an ambientMusicPrototype and that prototype MUST be here, otherwise it does nothing.
+#so for example, in balreska.yml, it's VesselMusic component points to PortBalreskaMusic, which is the first item here.
+
+#Camelot Station
+- type: ambientMusic
+  id: CamelotMusic
+  sound:
+    collection: CamelotMusic
+
+- type: soundCollection
+  id: CamelotMusic
+  files:
+   - /Audio/_Crescent/Stations/Camelot/camelot_1.ogg
+   - /Audio/_Crescent/Stations/Camelot/camelot_2.ogg
+
+#Colossus Central
+- type: ambientMusic
+  id: ColossusCentralMusic
+  sound:
+    collection: ColossusCentralMusic
+
+- type: soundCollection
+  id: ColossusCentralMusic
+  files:
+   - /Audio/_Crescent/Stations/Colossus/colossus_1.ogg
+   - /Audio/_Crescent/Stations/Colossus/colossus_2.ogg
+   - /Audio/_Crescent/Stations/Colossus/colossus_3.ogg
+   - /Audio/_Crescent/Stations/Colossus/colossus_4.ogg
+   - /Audio/_Crescent/Stations/Colossus/colossus_5.ogg
+   - /Audio/_Crescent/Stations/Colossus/colossus_6.ogg
+

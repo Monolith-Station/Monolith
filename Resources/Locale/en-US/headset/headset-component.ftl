@@ -16,7 +16,8 @@ chat-radio-security = Colonial Security
 chat-radio-service = Colonial Staff
 chat-radio-supply = Supply
 chat-radio-syndicate = Syndicate
-chat-radio-freelance = Imperial
+chat-radio-freelance = Vanguard
+chat-radio-vanguard-command = Vanguard Command
 
 # not headset but whatever
 chat-radio-handheld = Handheld

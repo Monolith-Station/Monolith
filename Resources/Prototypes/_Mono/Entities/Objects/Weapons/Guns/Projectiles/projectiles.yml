@@ -73,10 +73,56 @@
         Structural: 4500 # So it can break shuttles
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
+    explosionType: Default
     totalIntensity: 50
     intensitySlope: 2
     maxIntensity: 5
+
+- type: entity
+  id: BulletLaserSlug
+  parent: BulletEnergyGunLaser
+  name: energy slug
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: heavy
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 50
+        Structural: 250
+
+- type: entity
+  id: BulletLaserPellet
+  parent: BulletEnergyGunLaser
+  name: energy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: light
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 20
+        Structural: 12
+
+- type: entity
+  id: BulletLaserSpreadMono
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaserPellet
+  components:
+  - type: ProjectileSpread
+    proto: BulletLaserPellet
+    count: 5
+    spread: 15
 
 # Monolithic projectiles
 
@@ -113,7 +159,7 @@
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectOmnilaser #imp
   - type: StaminaDamageOnCollide
-    damage: 5 # Mono
+    damage: 15 # Mono
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
@@ -122,18 +168,6 @@
     soundHit:
       collection: WeakHit
     forceSound: true
-  - type: SolutionContainerManager
-    solutions:
-      ammo:
-        maxVol: 2
-        reagents:
-        - ReagentId: Gestalzitine
-          Quantity: 2
-  - type: SolutionInjectOnProjectileHit
-    transferAmount: 2
-    solution: ammo
-  - type: InjectableSolution
-    solution: ammo
 
 # golom ranged crystal attack
 

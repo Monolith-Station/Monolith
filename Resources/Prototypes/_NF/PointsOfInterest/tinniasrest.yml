@@ -10,7 +10,7 @@
 # Down at your local saloon
 - type: pointOfInterest
   id: Tinnia
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: "Tinnia's Rest"
   minimumDistance: 3400
   maximumDistance: 5800

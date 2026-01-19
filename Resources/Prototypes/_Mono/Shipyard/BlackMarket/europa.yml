@@ -1,9 +1,10 @@
 - type: vessel
   id: Europa
   parent: BaseVesselAntag
-  name: PDV Europa
-  description: A multipurpose corvette, with a focus on broadside firepower and shields.
-  price: 160750
+  name: IDY Europa
+  description: A repurposed interdyne medical frigate, with a focus on broadside firepower and shields.
+  limit: 3
+  price: 280650
   category: Large
   group: BlackMarket
   access: Pirate
@@ -11,7 +12,7 @@
   guidebookPage: Null
   class:
   - Pirate
-  - Corvette
+  - frigate
   engine:
   - AME
 
@@ -22,6 +23,9 @@
   minPlayers: 0
   stations:
     Europa:
+      gridComponents:
+      - type: VesselInfo
+        description: "The Saturn's Sister ship."
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
@@ -32,3 +36,4 @@
         - type: StationJobs
           availableJobs:
             Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

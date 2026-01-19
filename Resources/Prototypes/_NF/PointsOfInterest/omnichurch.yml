@@ -10,7 +10,7 @@
 #
 - type: pointOfInterest
   id: Omnichurch
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: "Omnichurch Beacon"
   minimumDistance: 4200
   maximumDistance: 6900

@@ -133,7 +133,14 @@
     back:
     - WeaponRifleVulcanFCMC
 
-- type: loadout #Vulcan-C Ammo
+- type: loadout #Lee Enfield
+  id: MercenaryLeeEnfieldLoadout
+  price: 15000
+  storage:
+    back:
+    - WeaponRifleLeeEnfield
+
+- type: loadout #Vulcan-C / Lee Enfield Ammo
   id: Mercenary762x51mmAmmoLoadout
   price: 1000
   storage:

@@ -12,7 +12,6 @@
   guidebookPage: Null
   class:
   - Patrol
-  - Capital
   - Frigate
   engine:
   - AME
@@ -25,6 +24,9 @@
   stations:
     Tunguska:
       stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Outdated, yet still reliable."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Tunguska MIL{1}'
@@ -35,3 +37,4 @@
           availableJobs:
             Mercenary: [ 0, 0 ]
             Pilot: [ 0, 0 ]
+

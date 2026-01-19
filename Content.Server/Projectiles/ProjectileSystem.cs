@@ -1,24 +1,15 @@
-using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
-using Content.Server.Effects;
-using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared.Camera;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
-using Content.Shared.StatusEffect;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics; // Mono;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Player;
-using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
 
@@ -28,19 +19,23 @@ public sealed class ProjectileSystem : SharedProjectileSystem
 {
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
 
+    [Dependency] private readonly IMapManager _mapMan = default!; // Mono
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
     // <Mono>
     private EntityQuery<PhysicsComponent> _physQuery;
     private EntityQuery<FixturesComponent> _fixQuery;
-    // </Mono>
 
     /// <summary>
     /// Minimum velocity for a projectile to be considered for raycast hit detection.
     /// Projectiles slower than this will rely on standard StartCollideEvent.
     /// </summary>
-    private const float MinRaycastVelocity = 75f; // 100->75 Mono
+    private const float MinRaycastVelocity = 75f;
+    private const float RaycastResetVelocity = 20f; // velocity to reset to if we want to reset it
+    private const float GridLookupRange = 6f;
+    private List<Entity<MapGridComponent>> _grids = new();
+    // </Mono>
 
     public override void Initialize()
     {
@@ -131,20 +126,22 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<ProjectileComponent, PhysicsComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var projectileComp, out var physicsComp, out var xform))
+        var query = EntityQueryEnumerator<ProjectileComponent, PhysicsComponent>();
+        while (query.MoveNext(out var uid, out var projectileComp, out var physicsComp))
         {
             if (projectileComp.ProjectileSpent || TerminatingOrDeleted(uid))
                 continue;
 
             var currentVelocity = physicsComp.LinearVelocity;
-            if (currentVelocity.Length() < MinRaycastVelocity)
+            var velLen = currentVelocity.Length();
+            if (velLen < MinRaycastVelocity)
                 continue;
 
+            var xform = Transform(uid);
             var lastPosition = _transformSystem.GetWorldPosition(xform);
-            var rayDirection = currentVelocity.Normalized();
+            var rayDirection = currentVelocity / velLen;
             // Ensure rayDistance is not zero to prevent issues with IntersectRay if frametime or velocity is zero.
-            var rayDistance = currentVelocity.Length() * frameTime;
+            var rayDistance = velLen * frameTime;
             if (rayDistance <= 0f)
                 continue;
 
@@ -155,52 +152,104 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 new CollisionRay(lastPosition, rayDirection, projFix.CollisionMask),
                 rayDistance,
                 uid, // Entity to ignore (self)
-                false) // IncludeNonHard = false
-                .ToList();
+                false); // IncludeNonHard = false
 
-            hits.RemoveAll(hit => {
-                var hitEnt = hit.HitEntity;
+            // do not process other grid velocity if we are gridded
+            if (ProcessHits(hits) || xform.GridUid != null)
+                continue;
 
-                if (!_physQuery.TryComp(hitEnt, out var otherBody) || !_fixQuery.TryComp(hitEnt, out var otherFix))
-                    return true;
+            // no hit, but a grid might still phase into *us*
+            var rayBox = new Box2(new Vector2(-GridLookupRange, -GridLookupRange) + lastPosition,
+                                    new Vector2(GridLookupRange, rayDistance + GridLookupRange) + lastPosition);
 
-                Fixture? hitFix = null;
-                foreach (var kv in otherFix.Fixtures)
-                {
-                    if (kv.Value.Hard)
-                    {
-                        hitFix = kv.Value;
-                        break;
-                    }
-                }
-                if (hitFix == null)
-                    return true;
+            var rayBoxRotated = new Box2Rotated(rayBox, rayDirection.ToWorldAngle() - new Angle(Math.PI), lastPosition);
+            _grids.Clear();
+            _mapMan.FindGridsIntersecting(xform.MapID, rayBoxRotated, ref _grids);
 
-                // this is cursed but necessary
-                var ourEv = new PreventCollideEvent(uid, hitEnt, physicsComp, otherBody, projFix, hitFix);
-                RaiseLocalEvent(uid, ref ourEv);
-                if (ourEv.Cancelled)
-                    return true;
+            // raycast but in terms relative to the grid, basically: temporarily pretend we have -gridVel velocity added to us, and the grid is stationary
+            foreach (var grid in _grids)
+            {
+                if (!_physQuery.TryComp(grid, out var gridBody))
+                    continue;
 
-                var otherEv = new PreventCollideEvent(hitEnt, uid, otherBody, physicsComp, hitFix, projFix);
-                RaiseLocalEvent(hitEnt, ref otherEv);
-                return otherEv.Cancelled;
-            });
+                var gridVel = gridBody.LinearVelocity;
+                var relVel = currentVelocity - gridVel;
+                // raycast from us into the grid
+                var relVelLen = relVel.Length();
+                if (relVelLen < MinRaycastVelocity)
+                    continue;
 
-            if (hits.Count > 0)
+                var gridRayDir = relVel / relVelLen;
+                var gridRayLen = relVelLen * frameTime;
+
+                var gridHits = _physics.IntersectRay(xform.MapID,
+                    new CollisionRay(lastPosition, gridRayDir, projFix.CollisionMask),
+                    gridRayLen,
+                    uid, // Entity to ignore (self)
+                    false); // IncludeNonHard = false
+
+                if (ProcessHits(gridHits, grid))
+                    break;
+            }
+
+            bool ProcessHits(IEnumerable<RayCastResults> hits, EntityUid? gridNeeded = null)
             {
                 // Process the closest hit
-                // IntersectRay results are not guaranteed to be sorted by distance, so we sort them.
-                hits.Sort((a, b) => a.Distance.CompareTo(b.Distance));
-                var closestHit = hits.First();
+                // IntersectRay results are not guaranteed to be sorted by distance, so we go through them all.
+                (EntityUid? Uid, float Distance) minHit = (null, float.MaxValue);
+                foreach (var hit in hits)
+                {
+                    var hitEnt = hit.HitEntity;
+
+                    if (!_physQuery.TryComp(hitEnt, out var otherBody) || !_fixQuery.TryComp(hitEnt, out var otherFix))
+                        continue;
+
+                    Fixture? hitFix = null;
+                    foreach (var kv in otherFix.Fixtures)
+                    {
+                        if (kv.Value.Hard)
+                        {
+                            hitFix = kv.Value;
+                            break;
+                        }
+                    }
+                    if (hitFix == null)
+                        continue;
+
+                    // this is cursed but necessary
+                    var ourEv = new PreventCollideEvent(uid, hitEnt, physicsComp, otherBody, projFix, hitFix);
+                    RaiseLocalEvent(uid, ref ourEv);
+                    if (ourEv.Cancelled)
+                        continue;
+
+                    var otherEv = new PreventCollideEvent(hitEnt, uid, otherBody, physicsComp, hitFix, projFix);
+                    RaiseLocalEvent(hitEnt, ref otherEv);
+                    if (otherEv.Cancelled)
+                        continue;
+
+                    var thisHitXform = Transform(hitEnt);
+                    if (gridNeeded != null && thisHitXform.GridUid != gridNeeded)
+                        continue;
+
+                    if (hit.Distance < minHit.Distance)
+                        minHit = (hitEnt, hit.Distance);
+                }
+                if (minHit.Uid == null)
+                    return false;
 
                 // teleport us so we hit it
                 // this is cursed but i don't think there's a better way to force a collision here
-                _transformSystem.SetWorldPosition(uid, _transformSystem.GetWorldPosition(closestHit.HitEntity));
-                if (projectileComp.RaycastResetVelocity)
-                    _physics.SetLinearVelocity(uid, rayDirection * MinRaycastVelocity * 0.99f);
+                var hitXform = Transform(minHit.Uid.Value);
+                var hitPos = hitXform.Coordinates;
+                // if we somehow hit something not directly parented to space or a grid
+                if (hitXform.Coordinates.EntityId != hitXform.GridUid && hitXform.GridUid != null)
+                    hitPos = _transformSystem.WithEntityId(hitPos, hitXform.GridUid.Value);
 
-                continue;
+                _transformSystem.SetCoordinates(uid, hitPos);
+                if (projectileComp.RaycastResetVelocity)
+                    _physics.SetLinearVelocity(uid, rayDirection * RaycastResetVelocity);
+
+                return true;
             }
         }
     }

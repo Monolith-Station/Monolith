@@ -246,8 +246,11 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         var mapPos = _transformSystem.GetMapCoordinates(pos);
 
         var posFound = _transformSystem.TryGetMapOrGridCoordinates(uid, out var gridPos, pos);
+        if (!posFound)
+            return;
 
-        QueueExplosion(mapPos, typeId, totalIntensity, slope, maxTileIntensity, uid, tileBreakScale, maxTileBreak, canCreateVacuum, addLog: false);
+        // Mono - MapCoordinates -> EntityCoordinates
+        QueueExplosion(gridPos!.Value, typeId, totalIntensity, slope, maxTileIntensity, uid, tileBreakScale, maxTileBreak, canCreateVacuum, addLog: false);
 
         if (!addLog)
             return;
@@ -267,10 +270,26 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         }
     }
 
+    // Mono
+    public void QueueExplosion(MapCoordinates epicenter,
+        string typeId,
+        float totalIntensity,
+        float slope,
+        float maxTileIntensity,
+        EntityUid? cause,
+        float tileBreakScale = 1f,
+        int maxTileBreak = int.MaxValue,
+        bool canCreateVacuum = true,
+        bool addLog = true)
+    {
+        QueueExplosion(_transformSystem.ToCoordinates(epicenter), typeId, totalIntensity, slope, maxTileIntensity, cause, tileBreakScale, maxTileBreak, canCreateVacuum, addLog);
+    }
+
+    // Mono - MapCoordinates -> EntityCoordinates
     /// <summary>
     ///     Queue an explosion, with a specified epicenter and set of starting tiles.
     /// </summary>
-    public void QueueExplosion(MapCoordinates epicenter,
+    public void QueueExplosion(EntityCoordinates epicenter,
         string typeId,
         float totalIntensity,
         float slope,
@@ -297,12 +316,11 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         foreach (var queued in _queuedExplosions)
         {
             // ignore different types or those on different maps
-            if (queued.Proto.ID != type.ID || queued.Epicenter.MapId != epicenter.MapId)
+            if (queued.Proto.ID != type.ID)
                 continue;
 
-            var dst2 = queued.Proto.MaxCombineDistance * queued.Proto.MaxCombineDistance;
-            var direction = queued.Epicenter.Position - epicenter.Position;
-            if (direction.LengthSquared() > dst2)
+            var dst = queued.Proto.MaxCombineDistance;
+            if (!epicenter.TryDistance(EntityManager, queued.Epicenter, out var distance) || distance > dst)
                 continue;
 
             // they are close enough to combine so just add total intensity and prevent queuing another one
@@ -333,7 +351,12 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     /// </summary>
     private Explosion? SpawnExplosion(QueuedExplosion queued)
     {
-        var pos = queued.Epicenter;
+        var entPos = queued.Epicenter;
+        // Mono
+        if (TerminatingOrDeleted(entPos.EntityId))
+            return null;
+
+        var pos = _transformSystem.ToMapCoordinates(entPos);
         if (!_mapManager.MapExists(pos.MapId))
             return null;
 
@@ -344,30 +367,15 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
 
         var (area, iterationIntensity, spaceData, gridData, spaceMatrix) = results.Value;
 
-        // Frontier - Block explosions on safe zone
-        var location = EntityCoordinates.FromMap(_mapManager.GetMapEntityId(pos.MapId), pos, _transformSystem, EntityManager);
-        var gridId = location.GetGridUid(EntityManager);
-        if (!HasComp<MapGridComponent>(gridId))
-        {
-            location = location.AlignWithClosestGridTile();
-            gridId = location.GetGridUid(EntityManager);
-            // Check if fixing it failed / get final grid ID
-            if (EntityManager.TryGetComponent<MapGridComponent>(gridId, out var mapGrid))
-            {
-                var ev = new FloorTileAttemptEvent();
-                if ((TryComp<ProtectedGridComponent>(gridId, out var prot) && prot.PreventExplosions) || ev.Cancelled)
-                    return null;
-            }
-        }
+        // Frontier - Block explosions on safe zone // Mono - make this actually work
+        if (TryComp<ProtectedGridComponent>(entPos.EntityId, out var prot) && prot.PreventExplosions)
+            return null;
         // Frontier - Block explosions on safe zone
 
         var visualEnt = CreateExplosionVisualEntity(pos, queued.Proto.ID, spaceMatrix, spaceData, gridData.Values, iterationIntensity);
 
         // camera shake
         CameraShake(iterationIntensity.Count * 4f, pos, queued.TotalIntensity);
-
-        //For whatever bloody reason, sound system requires ENTITY coordinates.
-        var mapEntityCoords = _transformSystem.ToCoordinates(_mapSystem.GetMap(pos.MapId), pos);
 
         // play sound.
         // for the normal audio, we want everyone in pvs range
@@ -385,7 +393,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             ? queued.Proto.SmallSound
             : queued.Proto.Sound;
 
-        _audio.PlayStatic(sound, filter, mapEntityCoords, true, sound.Params);
+        _audio.PlayStatic(sound, filter, entPos, true, sound.Params);
 
         // play far sound
         // far sound should play for anyone who wasn't in range of any of the effects of the bomb
