@@ -98,6 +98,8 @@
       path: /Audio/Animals/lizard_happy.ogg
     ReptilianHiss: # Imp
       collection: ReptilianHiss # Imp
+    ReptilianSnicker: # Mono
+      path: /Audio/_Mono/Voice/Reptilian/laugh_1.ogg  # Mono
     Honk:
       collection: BikeHorn
     Whistle:
@@ -114,10 +116,6 @@
       collection: DeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
-    # Floof
-    Yip:
-      collection: Yip
-    # Floof end
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -130,6 +128,8 @@
       path: /Audio/Animals/lizard_happy.ogg
     ReptilianHiss: # Imp
       collection: ReptilianHiss # Imp
+    ReptilianSnicker: # Mono
+      path: /Audio/_Mono/Voice/Reptilian/laugh_1.ogg  # Mono
     Honk:
       collection: BikeHorn
     Whistle:
@@ -146,10 +146,6 @@
       collection: FemaleDeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
-    # Floof
-    Yip:
-      collection: Yip
-    # Floof end
 
 - type: emoteSounds
   id: MaleSlime

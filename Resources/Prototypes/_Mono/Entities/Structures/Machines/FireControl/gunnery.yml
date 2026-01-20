@@ -303,6 +303,11 @@
   - type: ShipRepairable
     repairTime: 7
     repairCost: 25
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#fc9403"
+    scale: 1.5
+    shape: diamond
 
 - type: entity
   parent: [BaseStructureComputerTabletop, ComputerGunneryConsole]
