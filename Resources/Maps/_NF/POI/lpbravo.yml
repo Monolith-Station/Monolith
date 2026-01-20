@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/15/2026 17:28:12
+  time: 01/20/2026 04:26:12
   entityCount: 6324
 maps: []
 grids:
@@ -203,10 +203,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Puddle: []
-        MetalFoam: []
         Kudzu: []
+        Smoke: []
+        MetalFoam: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1624,7 +1624,7 @@ entities:
       pos: 2.5,-36.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -14988.087
+      secondsUntilStateChange: -15033.143
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1692,7 +1692,7 @@ entities:
       pos: 13.5,-18.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -10947.44
+      secondsUntilStateChange: -10992.496
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1704,7 +1704,7 @@ entities:
       pos: 12.5,-18.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -10947.24
+      secondsUntilStateChange: -10992.296
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1716,7 +1716,7 @@ entities:
       pos: 12.5,-15.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -10946.207
+      secondsUntilStateChange: -10991.263
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1728,7 +1728,7 @@ entities:
       pos: 13.5,-15.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -10946.541
+      secondsUntilStateChange: -10991.597
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1740,7 +1740,7 @@ entities:
       pos: 24.5,-18.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -10945.174
+      secondsUntilStateChange: -10990.2295
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1752,7 +1752,7 @@ entities:
       pos: 23.5,-18.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -10944.974
+      secondsUntilStateChange: -10990.029
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1764,7 +1764,7 @@ entities:
       pos: 23.5,-15.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -10945.641
+      secondsUntilStateChange: -10990.696
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1776,7 +1776,7 @@ entities:
       pos: 24.5,-15.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -10945.44
+      secondsUntilStateChange: -10990.496
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2418,6 +2418,20 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
+- proto: BaseComputerAiAccess
+  entities:
+  - uid: 1910
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.5,19.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 5
+    - type: ApcPowerReceiverBattery
+      enabled: True
 - proto: Bed
   entities:
   - uid: 162
@@ -12962,18 +12976,6 @@ entities:
     components:
     - type: Transform
       pos: -19.5,1.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-- proto: ComputerIFFPOI
-  entities:
-  - uid: 1910
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 20.5,19.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
