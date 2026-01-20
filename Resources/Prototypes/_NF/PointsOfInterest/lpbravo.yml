@@ -20,7 +20,7 @@
   addComponents:
   - type: IFF
     color: "#C83737"
-    flags: [HideLabel, Hide]
+    flags: [HideLabel]
     readOnly: false
   - type: SyndicateFOB # For pinpointer
   - type: SolarPoweredGrid
