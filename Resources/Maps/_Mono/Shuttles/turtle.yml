@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/20/2026 15:15:18
-  entityCount: 586
+  time: 01/20/2026 17:00:02
+  entityCount: 598
 maps: []
 grids:
 - 1
@@ -96,9 +96,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
-        MetalFoam: []
-        Kudzu: []
         Puddle: []
+        Kudzu: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -612,6 +612,48 @@ entities:
     - type: RadiationGridResistance
     - type: ShipGridLock
       locked: False
+- proto: AirAlarm
+  entities:
+  - uid: 588
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,8.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 526
+      - 527
+      - 524
+      - 525
+      - 593
+      - 591
+      - 592
+  - uid: 589
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,2.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 529
+      - 528
+      - 595
+      - 597
+      - 598
+      - 596
+  - uid: 590
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,13.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 522
+      - 523
+      - 594
 - proto: AirCanister
   entities:
   - uid: 256
@@ -1850,6 +1892,80 @@ entities:
     - type: Transform
       pos: 1.5,13.5
       parent: 1
+- proto: Firelock
+  entities:
+  - uid: 591
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,7.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 588
+  - uid: 592
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,9.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 588
+  - uid: 593
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,9.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 588
+  - uid: 594
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,10.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 590
+  - uid: 595
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,5.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 589
+  - uid: 596
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,3.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 589
+  - uid: 597
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,2.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 589
+  - uid: 598
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,3.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 589
 - proto: GasPipeBend
   entities:
   - uid: 545
@@ -2253,6 +2369,9 @@ entities:
     - type: Transform
       pos: -0.5,12.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 590
     - type: AtmosPipeColor
       color: '#0000BBFF'
   - uid: 525
@@ -2261,6 +2380,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 6.5,6.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 588
     - type: AtmosPipeColor
       color: '#0000BBFF'
   - uid: 527
@@ -2269,6 +2391,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,8.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 588
     - type: AtmosPipeColor
       color: '#0000BBFF'
   - uid: 528
@@ -2277,6 +2402,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,3.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 589
     - type: AtmosPipeColor
       color: '#0000BBFF'
 - proto: GasVentScrubber
@@ -2286,6 +2414,9 @@ entities:
     - type: Transform
       pos: 1.5,12.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 590
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -2296,6 +2427,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 6.5,7.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 588
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -2306,6 +2440,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,9.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 588
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -2316,6 +2453,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,3.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 589
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -4065,6 +4205,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 9.5,4.5
+      parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 587
+    components:
+    - type: Transform
+      pos: 0.5,9.5
       parent: 1
 - proto: WeaponBrassKnuckles
   entities:
