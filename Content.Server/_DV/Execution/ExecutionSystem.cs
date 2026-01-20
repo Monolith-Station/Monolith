@@ -122,7 +122,7 @@ public sealed class ExecutionSystem : EntitySystem
         if (!CanExecuteWithAny(weapon, victim, user)) return false;
 
         // We must be able to actually fire the gun
-        if (!TryComp<GunComponent>(weapon, out var gun) || !_gunSystem.CanShoot(gun!))
+        if (!TryComp<GunComponent>(weapon, out var gun) || !_gunSystem.CanShoot(gun!)) // Mono - or + !CanShoot
             return false;
 
         return true;
