@@ -27,7 +27,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Server.Execution;
+namespace Content.Server._DV.Execution; // Mono - fix namespace
 
 /// <summary>
 /// Verb for violently murdering cuffed creatures using guns.
