@@ -268,10 +268,19 @@
   name: MS-500 "Titan" Shield Generator
   suffix: ADS ONLY
   components:
+  - type: ShipShieldEmitter
+    damageLimit: 8000
+    damageOverloadTimePunishment: 40
+    healPerSecond: 120 # Base is 250
+    damageExp: 1.15 # Base is 1.1
+    baseDraw: 40000 # Base is 50000
+    maxDraw: 100000 # Base is 150000
+    unpoweredBonus: 7 # Base is 6
+    shieldColor: "#FF3333"
+    collisionResistanceMultiplier: 0.05
   - type: ShipRepairable
     repairTime: 30
     repairCost: 300
-    collisionResistanceMultiplier: 0.1
   - type: ShipRepairableRestrict
     toolWhitelist:
       tags:
