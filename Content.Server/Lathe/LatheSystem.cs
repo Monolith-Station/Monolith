@@ -186,19 +186,17 @@ namespace Content.Server.Lathe
         {
             if (args.Storage != uid)
                 return;
-            var materialWhitelist = new List<ProtoId<MaterialPrototype>>();
+            var materialWhitelist = new HashSet<ProtoId<MaterialPrototype>>();
             var recipes = GetAvailableRecipes(uid, component, true);
             foreach (var id in recipes)
             {
                 if (!_proto.TryIndex(id, out var proto))
                     continue;
                 foreach (var (mat, _) in proto.Materials)
-                {
-                    if (!materialWhitelist.Contains(mat))
-                    {
-                        materialWhitelist.Add(mat);
-                    }
-                }
+                    materialWhitelist.Add(mat);
+                // Mono
+                foreach (var (mat, _) in proto.MaterialResult)
+                    materialWhitelist.Add(mat);
             }
 
             var combined = args.Whitelist.Union(materialWhitelist).ToList();
@@ -337,6 +335,9 @@ namespace Content.Server.Lathe
 
                     _stack.TryMergeToContacts(result);
                 }
+
+                // Mono
+                _materialStorage.TryChangeMaterialAmount(uid, comp.CurrentRecipe.MaterialResult.ToDictionary()); // copy
 
                 if (comp.CurrentRecipe.ResultReagents is { } resultReagents &&
                     comp.ReagentOutputSlotId is { } slotId)

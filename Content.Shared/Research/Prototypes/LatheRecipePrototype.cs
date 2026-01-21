@@ -43,6 +43,12 @@ namespace Content.Shared.Research.Prototypes
         [DataField]
         public EntProtoId? Result;
 
+        /// <summary>
+        ///     Mono - Materials created by processing this recipe, deposited directly into the lathe.
+        /// </summary>
+        [DataField]
+        public Dictionary<ProtoId<MaterialPrototype>, int> MaterialResult = new();
+
         [DataField]
         public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>? ResultReagents;
 
