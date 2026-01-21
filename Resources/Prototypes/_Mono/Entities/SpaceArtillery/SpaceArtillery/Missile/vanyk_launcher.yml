@@ -53,6 +53,7 @@
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 1.5
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Missile
   - type: ShipGunClass

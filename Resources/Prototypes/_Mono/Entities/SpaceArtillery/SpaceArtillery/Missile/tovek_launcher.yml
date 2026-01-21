@@ -31,6 +31,7 @@
   - type: RadarBlip
     radarColor: "#035EFC"
     scale: 2
+    visibleFromOtherGrids: true
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
     whitelist:

@@ -31,7 +31,6 @@
   - type: Icon
     sprite: _Mono/Effects/processing.rsi
     state: processing_2
-
 # reprocessing
 
 - type: latheRecipe
@@ -46,6 +45,7 @@
   icon:
     sprite: _Mono/Effects/processing.rsi
     state: processing
+  applyMaterialDiscount: false
 
 - type: entity
   name: uranium re-processing
@@ -55,8 +55,7 @@
   components:
   - type: RandomSpawner
     prototypes:
-    - SheetUraniumDepleted1
-    - SheetUranium30
+    - SheetUranium10
     rarePrototypes:
     - SheetUraniumFissile1
     rareChance: 0.15
