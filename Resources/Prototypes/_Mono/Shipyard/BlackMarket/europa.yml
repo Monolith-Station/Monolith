@@ -23,6 +23,9 @@
   minPlayers: 0
   stations:
     Europa:
+      gridComponents:
+      - type: VesselInfo
+        description: "The Saturn's Sister ship."
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup

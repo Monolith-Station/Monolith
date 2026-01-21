@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 starch
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
+#
+# SPDX-License-Identifier: MPL-2.0
+
+
+- type: vessel
+  id: Inertia
+  parent: BaseVessel
+  name: IED Interceptor Drone 'Inertia'
+  description: A fighter equipped with high mobility and two RAC-30 Draupnirs for shooting down artillery fire.
+  price: 15000
+  purchasable: false #voucher only
+  category: Small
+  group: Custom
+  mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes
+  shuttlePath: /Maps/_Mono/Shuttles/Carrier/inertia.yml
+  guidebookPage: Null
+  class:
+  - Fighter
+  - Pursuit
+  engine:
+  - APU
+
+- type: gameMap
+  id: Inertia
+  mapName: 'QJ-490'
+  mapPath: /Maps/_Mono/Shuttles/Carrier/inertia.yml
+  minPlayers: 0
+  stations:
+    Inertia:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Inertia PDV{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs: {}

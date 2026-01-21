@@ -25,6 +25,7 @@
   - type: WirelessNetworkConnection
     range: 200
   - type: DeviceList
+  - type: NoSignalOnLink # Mono
   - type: DeviceNetworkRequiresPower
   - type: DeviceLinkSource
     ports:

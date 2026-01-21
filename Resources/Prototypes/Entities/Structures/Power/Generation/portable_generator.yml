@@ -33,6 +33,11 @@
             - MachineMask
           layer:
             - MachineLayer
+    - type: RadarBlip
+      visibleFromOtherGrids: true
+      radarColor: "#fcba03"
+      scale: 1
+      shape: square
 
     # Visuals
     - type: Appearance
@@ -200,6 +205,7 @@
     - type: ShipRepairable
       repairTime: 10
       repairCost: 35
+
 
 - type: entity
   name: S.U.P.E.R.P.A.C.M.A.N.-type portable generator

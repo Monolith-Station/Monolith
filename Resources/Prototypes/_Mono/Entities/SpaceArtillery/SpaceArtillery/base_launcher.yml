@@ -63,7 +63,7 @@
       ballistic-ammo: !type:Container
   - type: FireControllable
   - type: RadarBlip
-    visibleFromOtherGrids: false
+    visibleFromOtherGrids: true
     radarColor: "#9999FF"
     scale: 1
   - type: ShipGunType
