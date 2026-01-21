@@ -3918,8 +3918,6 @@ entities:
       pos: 2.5,3.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 5
       - 6
@@ -3930,8 +3928,6 @@ entities:
       pos: -2.5,3.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 5
       - 7
@@ -3942,8 +3938,6 @@ entities:
       pos: -4.5,6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 5
       - 3
@@ -3954,8 +3948,6 @@ entities:
       pos: 0.5,6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 5
   - uid: 436
@@ -3965,8 +3957,6 @@ entities:
       pos: 5.5,6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4
       - 5
@@ -3977,8 +3967,6 @@ entities:
       pos: 5.5,3.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 5
   - uid: 438
