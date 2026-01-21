@@ -1,8 +1,8 @@
 
 - type: latheRecipe
   id: UraniumCentrifugeProcessingMini
-  name: uranium processing
-  description: Seperate fissile isotopes from uranium ingots. High probability of producing depleted uranium.
+  name: recipe-uranium-processing-name
+  description: recipe-uranium-processing-description
   categories:
   - Explosive
   materialResult:
@@ -20,8 +20,8 @@
 
 - type: latheRecipe
   id: UraniumCentrifugeReprocessingMini
-  name: uranium re-processing
-  description: Use depleted uranium to produce unfiltered uranium.
+  name: recipe-uranium-reprocessing-name
+  description: recipe-uranium-reprocessing-description
   categories:
   - Explosive
   materialResult:
@@ -38,8 +38,8 @@
 
 - type: latheRecipe
   id: UraniumCentrifugeEnrichedProcessingMini
-  name: plasma enriched uranium processing
-  description: Use a mixture of uranium and plasma to produce fissile uranium with a higher probability.
+  name: recipe-uranium-processing-advanced-name
+  description: recipe-uranium-processing-advanced-description
   categories:
   - Explosive
   materialResult:
