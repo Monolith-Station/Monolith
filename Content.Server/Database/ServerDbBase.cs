@@ -945,6 +945,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
             existing.Flags = rank.Flags;
             existing.Name = rank.Name;
+            existing.ShortName = rank.ShortName; // Mono
 
             await db.DbContext.SaveChangesAsync(cancel);
         }
