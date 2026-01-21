@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/20/2026 06:24:58
+  time: 01/21/2026 07:55:40
   entityCount: 971
 maps: []
 grids:
@@ -89,10 +89,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         MetalFoam: []
-        Puddle: []
         Smoke: []
+        Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1105,13 +1105,12 @@ entities:
     - type: Transform
       pos: 3.5,-8.5
       parent: 1
-- proto: AirSensor
+- proto: AirSensorDistroStore
   entities:
   - uid: 189
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 10.5,-22.5
+      pos: 10.5,-20.5
       parent: 1
     - type: DeviceNetwork
       deviceLists:
@@ -1119,8 +1118,7 @@ entities:
   - uid: 305
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 10.5,-20.5
+      pos: 10.5,-22.5
       parent: 1
     - type: DeviceNetwork
       deviceLists:
