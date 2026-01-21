@@ -10,6 +10,7 @@
   icon:
     sprite: _Mono/Effects/processing.rsi
     state: processing_2
+  materialDiscountScale: 0.5
 
 - type: entity
   name: uranium processing
@@ -40,12 +41,11 @@
   result: UraniumReprocessingSpawner
   completetime: 20
   materials:
-    UraniumDepleted: 150 # 1.5 ingots
-    UraniumFissile: 10 # 0.1 ingots
+    UraniumDepleted: 300 # 3 ingots
   icon:
     sprite: _Mono/Effects/processing.rsi
     state: processing
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
 
 - type: entity
   name: uranium re-processing
@@ -58,7 +58,7 @@
     - SheetUranium10
     rarePrototypes:
     - SheetUraniumFissile1
-    rareChance: 0.15
+    rareChance: 0.1
     offset: 0.0
     chance: 1
   - type: Sprite
@@ -82,6 +82,7 @@
   icon:
     sprite: _Mono/Effects/processing.rsi
     state: processing_3
+  materialDiscountScale: 0.5
 
 - type: entity
   name: plasma enriched uranium processing

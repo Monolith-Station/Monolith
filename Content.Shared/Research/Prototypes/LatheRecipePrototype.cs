@@ -63,7 +63,7 @@ namespace Content.Shared.Research.Prototypes
         public Dictionary<ProtoId<MaterialPrototype>, int> Materials = new();
 
         [DataField]
-        public bool ApplyMaterialDiscount = true;
+        public float MaterialDiscountScale = 1f; // Mono - changed from bool to float
 
         /// <summary>
         /// List of categories used for visually sorting lathe recipes in the UI.
