@@ -8,6 +8,7 @@ using Content.Shared.Actions;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Examine;
+using Content.Shared.Explosion.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
@@ -345,6 +346,8 @@ namespace Content.Server.Atmos.EntitySystems
                 // !1984
                 range = Math.Min(Math.Min(range, GasTankComponent.MaxExplosionRange), _maxExplosionRange);
 
+                if (TryComp<ExplosiveComponent>(owner, out var explosive)) // Monolith - pressure wave scaling
+                    explosive.MaxIntensity *= MathF.sqrt(range);
                 _explosions.TriggerExplosive(owner, radius: range);
 
                 return;
