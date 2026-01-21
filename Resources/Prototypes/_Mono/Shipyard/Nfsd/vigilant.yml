@@ -1,0 +1,35 @@
+- type: vessel
+  id: Vigilant
+  parent: BaseVesselAntag
+  name: TSF-BNN Vigilant
+  description: 
+  price: 160000
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/vigilant.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Corvette
+  engine:
+  - AME
+
+- type: gameMap
+  id: Vigilant
+  mapName: 'Vigilant'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/vigilant.yml
+  minPlayers: 0
+  stations:
+    Vigilant:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Vigilant TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+
