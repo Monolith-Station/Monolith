@@ -10,6 +10,8 @@
     Slash: 0.9
     Piercing: 0.9
 
+# Cyborgs
+
 - type: damageModifierSet # Mono
   id: BaseBorgChassis
   coefficients:
@@ -19,6 +21,18 @@
     Blunt: 0.6
     Slash: 0.7
     Piercing: 0.7
+
+- type: damageModifierSet # Mono
+  id: FactionBorgChassis
+  coefficients:
+    Heat: 0.8
+    Cold: 0
+    Shock: 2.5
+    Blunt: 0.4
+    Slash: 0.5
+    Piercing: 0.5
+
+# Walls
 
 - type: damageModifierSet
   id: StructuralMetallicHeatReinforced

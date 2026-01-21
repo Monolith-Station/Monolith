@@ -224,6 +224,86 @@
 
 - type: entity
   parent: BaseShipLPC
+  id: ShipVoucherMotleyAnne
+  name: PDV motley anne LPC
+  description: A small card that authorizes the procurement of a Motley Anne.
+  components:
+  - type: Sprite
+    layers:
+    - state: mtech
+    - state: stripepdv
+    - state: vouchermilitary
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: BlackMarket
+    companyName: PDV
+    vessels:
+    - MotleyAnne
+  - type: StaticPrice
+    vendPrice: 195000
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherMock
+  name: PDV mock LPC
+  description: A small card that authorizes the procurement of a Mock aboard the Motley Anne.
+  components:
+  - type: Sprite
+    layers:
+    - state: mtech
+    - state: stripepdv
+    - state: vouchermilitary
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Custom
+    companyName: PDV
+    vessels:
+    - Mock
+  - type: StaticPrice
+    vendPrice: 30000
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherInertia
+  name: PDV inertia LPC
+  description: A small card that authorizes the procurement of an Inertia aboard the Motley Anne.
+  components:
+  - type: Sprite
+    layers:
+    - state: mtech
+    - state: stripepdv
+    - state: vouchermilitary
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Custom
+    companyName: PDV
+    vessels:
+    - Inertia
+  - type: StaticPrice
+    vendPrice: 30000
+    
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherSnakelet
+  name: PDV snakelet LPC
+  description: A small card that authorizes the procurement of a Snakelet aboard the Motley Anne.
+  components:
+  - type: Sprite
+    layers:
+    - state: mtech
+    - state: stripepdv
+    - state: vouchermilitary
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Custom
+    companyName: PDV
+    vessels:
+    - Snakelet
+  - type: StaticPrice
+    vendPrice: 30000
+
+- type: entity
+  parent: BaseShipLPC
   id: ShipVoucherSaturn
   name: PDV saturn LPC
   description: A small card that authorizes the procurement of the Saturn.
@@ -241,7 +321,6 @@
     - Saturn
   - type: StaticPrice
     vendPrice: 1555000
-
 # CC
 
 - type: entity

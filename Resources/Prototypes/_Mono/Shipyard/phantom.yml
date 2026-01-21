@@ -1,0 +1,43 @@
+# Author Info
+# GitHub: NazrinNya
+# Discord: NaztinNya
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Phantom
+  parent: BaseVessel
+  name: IB Phantom
+  description: Experimental ship with enormous thruster power. CTLA-25s included.
+  price: 90000
+  category: Small
+  group: Medical
+  access: Command # DoC exclusive.
+  limit: 2
+  shuttlePath: /Maps/_Mono/Shuttles/phantom.yml
+  guidebookPage: null
+  class:
+  - Medical
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Phantom
+  mapName: 'IB Phantom'
+  mapPath: /Maps/_Mono/Shuttles/phantom.yml
+  minPlayers: 0
+  stations:
+    Phantom:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Phantom MED{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            MdMedic: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
