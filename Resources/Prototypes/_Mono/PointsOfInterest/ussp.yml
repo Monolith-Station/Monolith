@@ -29,6 +29,11 @@
   stations:
     USSPCamelot:
       stationProto: RecordsFrontierOutpostCargo
+      gridComponents:
+        - type: VesselMusic
+          ambientMusicPrototype: CamelotMusic
+        - type: VesselInfo
+          description: "A rickety old station once owned by a now decrepit interstellar power. Cold and dark."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Camelot Station'

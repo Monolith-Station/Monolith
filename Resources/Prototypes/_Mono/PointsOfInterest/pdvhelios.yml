@@ -27,6 +27,9 @@
   stations:
     HeliosFortress:
       stationProto: RecordsFrontierOutpostCargo
+      gridComponents:
+      - type: VesselInfo
+        description: "An oppressive imperial aura lurks here. Glory to the Sultan."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'PDV Helio Fortress'

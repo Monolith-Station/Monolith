@@ -36,6 +36,28 @@
     Glass: 50
     Plastic: 200
 
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: CleanerGrenade
+  result: CleanerGrenade
+  categories:
+  - Tools
+  completetime: 5
+  materials:
+    Steel: 500
+    Plastic: 1000
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: MetalFoamGrenade
+  result: MetalFoamGrenade
+  categories:
+  - Tools
+  completetime: 5
+  materials:
+    Steel: 1500
+    Plastic: 1000
+
 # Pods + Driver
 
 - type: latheRecipe
@@ -70,20 +92,6 @@
     Plastic: 1000
     Gold: 300
     Silver: 300
-
-- type: latheRecipe
-  parent: BaseToolRecipe
-  id: LargePod
-  result: LargePod
-  completetime: 15
-  categories:
-  - Tools
-  materials:
-    Steel: 2000
-    Plasteel: 3500
-    Plastic: 1500
-    Gold: 500
-    Silver: 500
 
 - type: latheRecipe
   parent: BaseToolRecipe

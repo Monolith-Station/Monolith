@@ -92,14 +92,14 @@
   params:
     variation: 0.125
   sounds:
-    # Mono edit start
-    # Scream:
-    #   path: /Audio/Voice/Reptilian/reptilian_scream.ogg
-    # Mono edit end
+    Scream:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
-      path: /Audio/_Mono/Voice/Reptilian/laugh_1.ogg # Mono - unhugboxing operation.
+      path: /Audio/Animals/lizard_happy.ogg
     ReptilianHiss: # Imp
       collection: ReptilianHiss # Imp
+    ReptilianSnicker: # Mono
+      path: /Audio/_Mono/Voice/Reptilian/laugh_1.ogg  # Mono
     Honk:
       collection: BikeHorn
     Whistle:
@@ -116,24 +116,20 @@
       collection: DeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
-    # Floof
-    Yip:
-      collection: Yip
-    # Floof end
 
 - type: emoteSounds
   id: FemaleReptilian
   params:
     variation: 0.125
   sounds:
-    # Mono edit start
-    # Scream:
-    #   path: /Audio/Voice/Reptilian/reptilian_scream.ogg
-    # Mono edit end
+    Scream:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
-      path: /Audio/_Mono/Voice/Reptilian/laugh_1.ogg # Mono - unhugboxing operation.
+      path: /Audio/Animals/lizard_happy.ogg
     ReptilianHiss: # Imp
       collection: ReptilianHiss # Imp
+    ReptilianSnicker: # Mono
+      path: /Audio/_Mono/Voice/Reptilian/laugh_1.ogg  # Mono
     Honk:
       collection: BikeHorn
     Whistle:
@@ -150,10 +146,6 @@
       collection: FemaleDeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
-    # Floof
-    Yip:
-      collection: Yip
-    # Floof end
 
 - type: emoteSounds
   id: MaleSlime

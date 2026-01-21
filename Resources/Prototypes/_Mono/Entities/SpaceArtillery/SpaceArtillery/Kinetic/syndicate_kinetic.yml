@@ -68,6 +68,7 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
@@ -138,6 +139,7 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1.5
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
@@ -184,7 +186,7 @@
     minAngle: 0
     maxAngle: 3
     fireRate: 0.2
-    burstCooldown: 12
+    burstCooldown: 10
     burstFireRate: 2
     shotsPerBurst: 3
     selectedMode: Burst
@@ -208,6 +210,7 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 2.5
+    visibleFromOtherGrids: true
   - type: Destructible
     thresholds:
     - trigger:

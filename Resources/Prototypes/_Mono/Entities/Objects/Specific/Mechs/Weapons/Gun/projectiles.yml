@@ -83,7 +83,7 @@
     requireNoGrid: true
     shape: triangle
   - type: Explosive
-    explosionType: HardBombShipGun
+    explosionType: Default
     totalIntensity: 10
     intensitySlope: 5
     maxIntensity: 25
@@ -297,7 +297,7 @@
     intensitySlope: 4
     maxIntensity: 3
     maxTileBreak: 1
-    
+
 - type: entity
   id: MechMediumPlasmaProjectile
   name: plasma projectile

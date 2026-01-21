@@ -7,7 +7,7 @@ using Robust.Shared.Timing;
 namespace Content.Server._Mono.Cleanup;
 
 /// <summary>
-///     Deletes all entities with SpaceGarbageComponent.
+///     Deletes mobs too far from players.
 /// </summary>
 public sealed class MobCleanupSystem : BaseCleanupSystem<HTNComponent>
 {
