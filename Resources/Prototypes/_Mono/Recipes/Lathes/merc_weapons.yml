@@ -176,3 +176,15 @@
     Plasteel: 600
     Uranium: 600
 
+- type: latheRecipe
+  id: HardlightShield
+  parent: BaseWeaponRecipeLong
+  result: HardlightShield
+  categories:
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 6500
+    Plastic: 800
+    Plasma: 4000
+

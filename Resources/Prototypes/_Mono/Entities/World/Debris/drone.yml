@@ -38,7 +38,9 @@
       weight: 20
     # T2 medium
     - id: SpawnDroneMedusa
-      weight: 20
+      weight: 10
+    - id: SpawnDroneAssembly
+      weight: 10
 
 - type: entity
   id: SpawnDroneBase
@@ -68,6 +70,8 @@
       - DroneHex
     nameGrid: false
 
+#region Debug
+
 - type: entity
   id: SpawnDroneNeedle
   parent: SpawnDroneBase
@@ -82,26 +86,7 @@
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/wedge.yml
 
-- type: entity
-  id: SpawnDroneWasp
-  parent: SpawnDroneBase
-  components:
-  - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/wasp.yml
-
-- type: entity
-  id: SpawnDroneMedusa
-  parent: SpawnDroneBase
-  components:
-  - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/medusa.yml
-
-- type: entity
-  id: SpawnDroneCrown
-  parent: SpawnDroneBase
-  components:
-  - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/crown.yml
+#region T1
 
 - type: entity
   id: SpawnDroneGust
@@ -123,3 +108,35 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/ramdronemedium.yml
+
+#region T2-1
+
+- type: entity
+  id: SpawnDroneWasp
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/wasp.yml
+
+- type: entity
+  id: SpawnDroneCrown
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/crown.yml
+
+#region T2-2
+
+- type: entity
+  id: SpawnDroneMedusa
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/medusa.yml
+
+- type: entity
+  id: SpawnDroneAssembly
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/assembly.yml

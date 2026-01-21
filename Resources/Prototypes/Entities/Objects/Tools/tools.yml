@@ -403,6 +403,11 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RcdUiKey.Key
+  # Monolith changes start
+  - type: Tag
+    tags:
+    - RapidConstructionTool
+  # Monolith changes end
 
 - type: entity
   id: RCDEmpty
@@ -441,7 +446,13 @@
   id: RCDAmmo
   description: A cartridge of raw matter compacted by bluespace technology. Used in rapid construction devices.
   components:
-  - type: RCDAmmo
+  # Monolith changes start
+  - type: LimitedChargesAmmo
+    charges: 30
+    whitelist:
+      tags:
+      - RapidConstructionTool
+  # Monolith changes end
   - type: Sprite
     sprite: _NF/Objects/Tools/rcd.rsi # Frontier
     state: ammo

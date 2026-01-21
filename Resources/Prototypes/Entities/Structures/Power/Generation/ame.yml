@@ -115,6 +115,11 @@
   - type: ShipRepairable
     repairTime: 15
     repairCost: 50
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#fcba03"
+    scale: 2
+    shape: diamond
 
 - type: entity
   categories: [ HideSpawnMenu ]

@@ -274,6 +274,22 @@
           - SecurityUplink
 
 - type: listing
+  id: UplinkForcefieldTSF
+  name:  uplink-security-forcefield-name
+  description: uplink-security-forcefield-desc
+  productEntity: HoloprojectorFieldTSF
+  icon: { sprite: _NF/Objects/Devices/Holoprojectors/nfsd.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 55
+  categories:
+    - UplinkSecurityUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+
+- type: listing
   id: UplinkSecurityJetpack
   name:  uplink-security-jetpack-name
   description: uplink-security-jetpack-desc
