@@ -2,7 +2,7 @@
   id: Vigilant
   parent: BaseVesselAntag
   name: TSF-BNN Vigilant
-  description: 
+  description: A design using two TPC Cerberus Plasma Scattercannons and a TPC Scylla plasma impulse driver alongside 4 Phalanx laser PD. Some say it has enough armor, some say it's not enough, the debate to this day is not concluded.
   price: 160000
   group: Security
   access: Security
@@ -12,7 +12,7 @@
   - Patrol
   - Corvette
   engine:
-  - AME
+  - Plasma
 
 - type: gameMap
   id: Vigilant
