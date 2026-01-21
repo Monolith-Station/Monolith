@@ -84,7 +84,7 @@
     shipClass: Heavy
   - type: DragDropTargetable
 
-# BoardingPods
+# Boarding Pods
 
 - type: entity
   id: BasePod
@@ -108,7 +108,7 @@
     fixtures:
       fix1:
         shape: !type:PhysShapeCircle
-          radius: 0.2
+          radius: 0.5
         density: 5
         mask:
         - ItemMask
@@ -137,7 +137,7 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Structural: 10000
+        Structural: 25000
   - type: EntityStorage
     capacity: 2
     itemCanStoreMobs: true
@@ -219,40 +219,6 @@
     requireNoGrid: true
     radarColor: "#0080ff"
     scale: 3
-
-- type: entity
-  parent: BasePod
-  id: LargePod
-  name: heavy boarding pod
-  description: A heavy duty boarding pod, with a larger drill and tougher armor
-  components:
-  - type: Sprite
-    sprite: _Mono/Objects/Specific/Boarding_pods/large_pod.rsi
-    layers:
-    - state: base
-      map: ["enum.StorageVisualLayers.Base"]
-    - state: closed
-      map: ["enum.StorageVisualLayers.Door"]
-    - state: welded
-      visible: false
-      map: ["enum.WeldableLayers.BaseWelded"]
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 1000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-  - type: Projectile
-    deleteOnCollide: false
-    onlyCollideWhenShot: true
-    damage:
-      types:
-        Structural: 20000
 
 - type: entity
   parent: BasePod
