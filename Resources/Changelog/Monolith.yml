@@ -16447,3 +16447,12 @@ Entries:
   id: 1821
   time: '2026-01-20T17:26:42.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3082
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed entity cleanup sometimes mistakenly deleting items like beakers on
+        hotplates.
+  id: 1822
+  time: '2026-01-21T08:11:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3086
