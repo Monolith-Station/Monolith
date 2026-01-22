@@ -99,8 +99,8 @@ public sealed class ExecutionSystem : EntitySystem
             return false;
 
         // You're not allowed to execute dead people (no fun allowed)
-        if (_mobStateSystem.IsDead(victim, mobState))
-            return false;
+        //if (_mobStateSystem.IsDead(victim, mobState))
+        //    return false; // Mono - fun allowed
 
         // You must be able to attack people to execute
         if (!_actionBlockerSystem.CanAttack(attacker, victim))
