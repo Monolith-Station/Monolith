@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/15/2026 17:19:16
-  entityCount: 1121
+  time: 01/22/2026 02:34:35
+  entityCount: 1123
 maps: []
 grids:
 - 1
@@ -88,9 +88,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         MetalFoam: []
-        Smoke: []
-        Kudzu: []
         Puddle: []
+        Kudzu: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -5088,6 +5088,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 8.5,-12.5
       parent: 1
+- proto: PoweredStrobeGreenEnabled
+  entities:
+  - uid: 1123
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,-9.5
+      parent: 1
 - proto: PoweredStrobeIncandescent
   entities:
   - uid: 657
@@ -5109,6 +5117,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -2.5,1.5
+      parent: 1
+- proto: PoweredStrobeRedEnabled
+  entities:
+  - uid: 1122
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,-9.5
       parent: 1
 - proto: PoweredWarmSmallLight
   entities:
