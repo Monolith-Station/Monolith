@@ -16456,3 +16456,32 @@ Entries:
   id: 1822
   time: '2026-01-21T08:11:08.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3086
+- author: router
+  changes:
+    - type: Tweak
+      message: >-
+        Gas tank explosion maximum intensity now scales with the square root of
+        its radius. You can now maxcap Jupiter if you really want to.
+  id: 1823
+  time: '2026-01-21T17:57:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3092
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: >-
+        The PDW Neptune has hit the PDV shipyard. It's a heavy corvette with 4
+        torpedoes, heavy armor and lots of Fangs.
+  id: 1824
+  time: '2026-01-21T18:17:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3061
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Nerfed uranium reprocessing.
+    - type: Tweak
+      message: >-
+        Uranium processing is no longer RNG and now instead makes fractional
+        amounts of uranium per recipe completion.
+  id: 1825
+  time: '2026-01-21T18:53:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3090
