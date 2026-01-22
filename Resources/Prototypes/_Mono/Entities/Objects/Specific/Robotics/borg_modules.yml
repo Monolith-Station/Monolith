@@ -1,4 +1,4 @@
-#region Merc
+# Mercenary Modules
 
 - type: entity
   id: BorgModuleAdvancedWeapon
@@ -6,18 +6,19 @@
   name: advanced weapon cyborg module
   components:
   - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
     layers:
-    - state: syndicate
-    - state: icon-syndicate
+    - state: mercenary
+    - state: icon-mercenary
   - type: ItemBorgModule
     moduleId: Security
     items:
     - EnergySword
     - WeaponPistolAnaconda
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: mercenary-weapon-module }
 
-#region TSF
+# TSF Modules
 
 - type: entity
   id: BorgModuleTSFStandardWeapon
@@ -25,16 +26,17 @@
   name: TSFMC weapon cyborg module
   components:
   - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
     layers:
-    - state: syndicate
-    - state: icon-syndicate
+    - state: tsf
+    - state: icon-tsf
   - type: ItemBorgModule
     moduleId: Security
     items:
     - EnergySwordNfsd
     - WeaponEnergyRevolver
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: tsfstandard-weapon-module }
 
 - type: entity
   id: BorgModuleTSFAdvancedWeapon
@@ -42,18 +44,19 @@
   name: TSFMC advanced weapon cyborg module
   components:
   - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
     layers:
-    - state: syndicate
-    - state: icon-syndicate
+    - state: tsf
+    - state: icon-tsf
   - type: ItemBorgModule
     moduleId: Security
     items:
     - WeaponHFKatana
     - WeaponBorgPulseRifle
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: tsfadvanced-weapon-module }
 
-#region PDV
+# PDV Modules
 
 - type: entity
   id: BorgModulePDVStandardWeapon
@@ -61,16 +64,17 @@
   name: PDV weapon cyborg module
   components:
   - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
     layers:
-    - state: syndicate
-    - state: icon-syndicate
+    - state: pdv
+    - state: icon-pdv
   - type: ItemBorgModule
     moduleId: Security
     items:
     - EnergySword
     - WeaponPistolAnaconda
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: pdvstandard-weapon-module }
 
 - type: entity
   id: BorgModulePDVAdvancedWeapon
@@ -78,18 +82,19 @@
   name: PDV advanced weapon cyborg module
   components:
   - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
     layers:
-    - state: syndicate
-    - state: icon-syndicate
+    - state: pdv
+    - state: icon-pdv
   - type: ItemBorgModule
     moduleId: Security
     items:
     - WeaponVT7
     - WeaponLightMachineGunL6C
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: pdvadvanced-weapon-module }
 
-#region ADS
+# ADS Modules
 
 - type: entity
   id: BorgModuleRedactedRCD
