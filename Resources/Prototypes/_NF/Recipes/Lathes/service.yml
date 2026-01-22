@@ -39,14 +39,14 @@
   id: NapkinDrum
   result: NapkinDrum
   parent: BaseServiceItemsRecipe
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
 
 - type: latheRecipe
   id: Napkin
   result: Napkin
   parent: BaseServiceItemsRecipe
   completetime: 0.1
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
   materials:
     Paper: 10
 
@@ -63,14 +63,14 @@
   id: CondimentCupDispenser
   result: CondimentCupDispenser
   parent: BaseServiceItemsRecipe
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
 
 - type: latheRecipe
   id: CondimentCup
   result: CondimentCup
   parent: BaseServiceItemsRecipe
   completetime: 0.1
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
   materials:
     Steel: 10
 
@@ -78,7 +78,7 @@
   id: FoodCondimentSqueezeBottleClear
   result: FoodCondimentSqueezeBottleClear
   parent: BaseServiceItemsRecipe
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
   materials:
     Plastic: 50
 

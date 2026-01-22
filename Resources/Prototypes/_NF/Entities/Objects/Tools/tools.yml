@@ -1,36 +1,4 @@
 - type: entity
-  name: shipyard RCD
-  parent: RCD
-  id: ShipyardRCD
-  description: An advanced construction device which can place/remove walls, floors, and airlocks quickly. It has a slot to swipe ID cards.
-  components:
-  - type: RCD
-    isShipyardRCD: true
-  - type: Sprite
-    state: icon-shipyard
-
-- type: entity
-  id: ShipyardRCDEmpty
-  parent: ShipyardRCD
-  suffix: Empty
-  components:
-    - type: LimitedCharges
-      charges: 0
-
-- type: entity
-  name: shipyard compressed matter
-  parent: RCDAmmo
-  id: ShipyardRCDAmmo
-  description: Ammo cartridge for a shipyard RCD.
-  components:
-  - type: RCDAmmo
-    isShipyardRCDAmmo: true
-  - type: Sprite
-    state: ammo-shipyard
-  - type: Item
-    heldPrefix: ammo-shipyard
-
-- type: entity
   name: maintenance jack
   parent: BaseItem
   id: MaintenanceJack
@@ -54,7 +22,7 @@
       path: /Audio/Items/crowbar_drop.ogg
       params:
         volume: 2
-  - type: Wieldable 
+  - type: Wieldable
     unwieldOnUse: false
   - type: IncreaseDamageOnWield
     damage:
@@ -62,11 +30,11 @@
         Blunt: 18
         Structural: 5
   - type: PhysicalComposition
-    materialComposition: 
+    materialComposition:
       Steel: 200 #Mono end
   - type: Item
     size: Large #Mono: Huge > Large
-    shape: 
+    shape:
     - 0,0,1,2 #Mono
   - type: Clothing
     sprite: Objects/Weapons/Melee/fireaxe.rsi
@@ -165,7 +133,7 @@
           path: /Audio/Items/ratchet.ogg
         changeSound:
           path: /Audio/Items/shovel_dig.ogg
-      - behavior: 
+      - behavior:
         - Prying
         - Axing
         sprite:
@@ -175,7 +143,7 @@
           path: /Audio/Items/crowbar.ogg
         changeSound:
           path: /Audio/Items/shovel_dig.ogg
-      - behavior: 
+      - behavior:
         - Cutting
         - Slicing
         - Sawing

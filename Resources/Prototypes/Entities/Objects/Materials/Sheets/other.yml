@@ -244,6 +244,24 @@
   #   color: "#9be792" # Frontier
   - type: UraniumMaterials # Frontier
 
+- type: entity # Mono - added stack of 30
+  parent: SheetUranium
+  id: SheetUranium30
+  name: uranium
+  suffix: 30
+  components:
+  - type: Stack
+    count: 30
+
+- type: entity # Mono - added stack of 20
+  parent: SheetUranium
+  id: SheetUranium10
+  name: uranium
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
 - type: entity
   parent: SheetUranium
   id: SheetUranium1
