@@ -13,6 +13,7 @@
       state: eye
   - type: Item
     storedRotation: 90
+    pickupStatic: true
   - type: Stickable
   - type: GooglyEyes
     radius: 0.1
@@ -21,3 +22,29 @@
   - type: Construction
     graph: GooglyEyes
     node: eyes
+
+- type: entity
+  id: GooglyEyesAdmeme
+  parent: GooglyEyes
+  suffix: Admeme
+  components:
+  - type: Stickable
+    reuseProto: GooglyEyes
+
+- type: entity
+  id: GooglyEyesWatchful
+  parent: GooglyEyes
+  suffix: Watchful
+  components:
+  - type: GooglyEyes
+    lookProb: 1
+    lookMaxVelocity: 0.1
+    friction: 10
+
+- type: entity
+  id: GooglyEyesWatchfulAdmeme
+  parent: GooglyEyesWatchful
+  suffix: Admeme, Watchful
+  components:
+  - type: Stickable
+    reuseProto: GooglyEyesWatchful
