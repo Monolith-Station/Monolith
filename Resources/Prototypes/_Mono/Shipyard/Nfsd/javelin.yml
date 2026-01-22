@@ -1,10 +1,10 @@
 - type: vessel
-  id: Fracture
+  id: Javelin
   parent: BaseVesselAntag
-  name: TSF-SKR Fracture
-  description: A beefed up hull similar in signature to the Legionnaire. Carries weapons suitable for hunting and disabling ships quite larger than it. Does not come with ammo for 150mm TARNYXs.
-  price: 108200
-  category: Medium
+  name: TSF-PIN Javelin
+  description: A beefed up hull and the light frontline mainstay of the TSF fleets. A suprising weapons package in a small frame, made to engage larger targets.
+  price: 85000
+  category: Small
   group: Security
   access: Security
   shuttlePath: /Maps/_Mono/Shuttles/Nfsd/fracture.yml
@@ -13,19 +13,19 @@
   - Patrol
   - Pursuit
   engine:
-  - Uranium
+  - Bananium
 
 - type: gameMap
-  id: Fracture
-  mapName: 'Fracture'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/fracture.yml
+  id: Javelin
+  mapName: 'Javelin'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/javelin.yml
   minPlayers: 0
   stations:
-    Fracture:
+    Javelin:
       stationProto: StandardFrontierSecurityVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Fracture TSF{1}'
+        mapNameTemplate: 'Javelin TSF{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
@@ -33,4 +33,3 @@
         availableJobs:
           Deputy: [ 0, 0 ]
           TsfBorg: [ 0, 0 ]
-
