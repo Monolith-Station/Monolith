@@ -4,6 +4,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using System.Numerics;
@@ -19,12 +20,16 @@ public sealed partial class StickableSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
+    private EntityQuery<PhysicsComponent> _bodyQuery;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<StickableComponent, AfterInteractEvent>(OnInteract);
         SubscribeLocalEvent<StickableComponent, EntParentChangedMessage>(OnParentChange);
+
+        _bodyQuery = GetEntityQuery<PhysicsComponent>();
     }
 
     private void OnInteract(Entity<StickableComponent> ent, ref AfterInteractEvent args)
@@ -54,19 +59,22 @@ public sealed partial class StickableSystem : EntitySystem
 
     private void OnParentChange(Entity<StickableComponent> ent, ref EntParentChangedMessage args)
     {
-        if (args.Transform.ParentUid == ent.Comp.AttachedParent)
+        if (args.Transform.ParentUid == ent.Comp.AttachedParent || !_bodyQuery.TryComp(ent, out var body))
             return;
 
         ent.Comp.AttachedParent = null;
-        _physics.SetBodyType(ent, BodyType.Dynamic);
+        _physics.SetBodyType(ent, BodyType.Dynamic, body: body);
     }
 
     private void AttachTo(Entity<StickableComponent> ent, EntityCoordinates to)
     {
+        if (!_bodyQuery.TryComp(ent, out var body))
+            return;
+
         ent.Comp.AttachedParent = to.EntityId;
 
         _transform.SetCoordinates(ent, to);
-        _physics.SetLinearVelocity(ent, Vector2.Zero);
-        _physics.SetBodyType(ent, BodyType.Static);
+        _physics.SetLinearVelocity(ent, Vector2.Zero, body: body);
+        _physics.SetBodyType(ent, BodyType.Static, body: body);
     }
 }
