@@ -5,15 +5,16 @@ using Content.Server._Mono.Ships.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._Mono.FireControl;
+using Content.Shared._Mono.Ships.Components;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
-using Content.Shared._Mono.Ships.Components;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.UserInterface;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -321,6 +322,15 @@ public sealed partial class FireControlSystem : EntitySystem
                     return (magazineBasicAmmo.Count, !hasRecharge);
                 }
             }
+        }
+
+        if (TryComp<ProjectileBatteryAmmoProviderComponent>(weaponEntity, out _)
+            || TryComp<HitscanBatteryAmmoProviderComponent>(weaponEntity, out _)
+            )
+        {
+            var amm = new GetAmmoCountEvent();
+            RaiseLocalEvent(weaponEntity, ref amm, false);
+            return (amm.Count, true);
         }
 
         return (null, false);
