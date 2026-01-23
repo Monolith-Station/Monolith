@@ -291,6 +291,7 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 3.5
+    shape: star
     visibleFromOtherGrids: true
   - type: Destructible
     thresholds:
