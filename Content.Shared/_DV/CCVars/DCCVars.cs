@@ -45,4 +45,21 @@ public sealed class DCCVars
     /// </summary>
     //public static readonly CVarDef<bool> Shipyard =
     //    CVarDef.Create("shuttle.shipyard", true, CVar.SERVERONLY);
+
+    /*
+     * Traits
+     */
+
+    /// <summary>
+    /// Maximum number of traits that can be selected globally.
+    /// </summary>
+    public static readonly CVarDef<int> MaxTraitCount =
+        CVarDef.Create("traits.max_count", 5, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Maximum trait points available to spend.
+    /// Traits with positive cost consume points, negative cost traits grant points.
+    /// </summary>
+    public static readonly CVarDef<int> MaxTraitPoints =
+        CVarDef.Create("traits.max_points", 10, CVar.SERVER | CVar.REPLICATED);
 }

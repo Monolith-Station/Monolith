@@ -25,45 +25,24 @@ public sealed partial class TraitPreferenceSelector : Control
 
     public event Action<bool>? PreferenceChanged;
 
-    public TraitPreferenceSelector(TraitPrototype trait)
-    {
-        RobustXamlLoader.Load(this);
-
-        Cost = trait.Cost;
-
-        // Set the trait name
-        NameLabel.Text = Loc.GetString(trait.Name);
-
-        // Set the cost text and color
-        string costText = "";
-        if (trait.Cost > 0)
-        {
-            costText = $"-{trait.Cost}";
-            CostLabel.FontColorOverride = Color.Red;
-        }
-        else if (trait.Cost < 0)
-        {
-            costText = $"+{-trait.Cost}";
-            CostLabel.FontColorOverride = Color.Green;
-        }
-        else
-        {
-            costText = $"{trait.Cost}";
-            CostLabel.FontColorOverride = Color.Gray;
-        }
-
-        CostLabel.Text = costText;
-
-        // Set up button event
-        TraitButton.OnPressed += OnTraitButtonPressed;
-
-        if (trait.Description is { } desc)
-        {
-            TraitButton.ToolTip = Loc.GetString(desc);
-        }
-
-        UpdateButtonState();
-    }
+    // DV - This whole control is generally unused but the compiler wouldn't compile if I removed it
+    // So I'm just gonna comment this part out
+    // public TraitPreferenceSelector(TraitPrototype trait)
+    // {
+    //     RobustXamlLoader.Load(this);
+    //
+    //     var text = trait.Cost != 0 ? $"[{trait.Cost}] " : "";
+    //     text += Loc.GetString(trait.Name);
+    //
+    //     Cost = trait.Cost;
+    //     Checkbox.Text = text;
+    //     Checkbox.OnToggled += OnCheckBoxToggled;
+    //
+    //     if (trait.Description is { } desc)
+    //     {
+    //         Checkbox.ToolTip = Loc.GetString(desc);
+    //     }
+    // }
 
         public void SetTooltip(string tooltip)
         {
