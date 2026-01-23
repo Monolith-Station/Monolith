@@ -564,21 +564,16 @@ namespace Content.Client.Lobby.UI
             if (Profile is null)
                 return;
 
-            // Clear all existing trait preferences and add new ones
-            // We need to rebuild the profile with the new traits
-            var newTraitPreferences = new HashSet<string>(traits.Select(t => t.Id));
-
-            // First, remove all existing traits
-            var existingTraits = Profile.TraitPreferences.ToList();
-            foreach (var existingTrait in existingTraits)
+            // Remove all existing traits - iterate directly over readonly collection
+            foreach (var existingTrait in Profile.TraitPreferences)
             {
                 Profile = Profile.WithoutTraitPreference(existingTrait, _prototypeManager);
             }
 
-            // Then add all newly selected traits
-            foreach (var traitId in newTraitPreferences)
+            // Add newly selected traits
+            foreach (var trait in traits)
             {
-                Profile = Profile.WithTraitPreference(traitId, _prototypeManager);
+                Profile = Profile.WithTraitPreference(trait.Id, _prototypeManager);
             }
 
             SetDirty();
@@ -596,7 +591,7 @@ namespace Content.Client.Lobby.UI
             }
 
             // Convert profile's trait preferences (strings) to ProtoId<TraitPrototype>
-            var selectedTraits = new HashSet<ProtoId<TraitPrototype>>();
+            var selectedTraits = new HashSet<ProtoId<TraitPrototype>>(Profile.TraitPreferences.Count);
             foreach (var traitId in Profile.TraitPreferences)
             {
                 // Validate that the trait still exists in prototypes

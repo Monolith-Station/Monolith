@@ -7,7 +7,7 @@ namespace Content.Shared._Mono.Traits.Effects;
 /// <summary>
 /// Base class for all effects that handle a list of languages
 /// </summary>
-public abstract partial class LanguageTraitEffect : TraitEffect
+public abstract partial class BaseLanguageTraitEffect : BaseTraitEffect
 {
     /// <summary>
     /// The entity prototype to spawn.
@@ -27,19 +27,19 @@ public abstract partial class LanguageTraitEffect : TraitEffect
 /// <summary>
 /// Effect that gives spoken languages to a a player.
 /// </summary>
-public sealed partial class AddLanguagesSpokenEffect : LanguageTraitEffect;
+public sealed partial class AddLanguagesSpokenEffect : BaseLanguageTraitEffect;
 
 /// <summary>
 /// Effect that gives understood languages to a a player.
 /// </summary>
-public sealed partial class AddLanguagesUnderstoodEffect : LanguageTraitEffect;
+public sealed partial class AddLanguagesUnderstoodEffect : BaseLanguageTraitEffect;
 
 /// <summary>
 /// Effect that removes spoken languages from a player.
 /// </summary>
-public sealed partial class RemoveLanguagesSpokenEffect : LanguageTraitEffect;
+public sealed partial class RemoveLanguagesSpokenEffect : BaseLanguageTraitEffect;
 
 /// <summary>
 /// Effect that removes understood languages from a player.
 /// </summary>
-public sealed partial class RemoveLanguagesUnderstoodEffect : LanguageTraitEffect;
+public sealed partial class RemoveLanguagesUnderstoodEffect : BaseLanguageTraitEffect;
