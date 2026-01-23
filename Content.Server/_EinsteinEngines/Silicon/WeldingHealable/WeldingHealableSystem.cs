@@ -36,7 +36,7 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
             || !HasDamage((args.Target.Value, damageable), component, args.User)
             || !TryComp<WelderComponent>(args.Used, out var welder)
             || !TryComp<SolutionContainerManagerComponent>(args.Used, out var solutionContainer)
-            || !_solutionContainer.TryGetSolution(((EntityUid) args.Used, solutionContainer), welder.FuelSolutionName, out var solution))
+            || !_solutionContainer.TryGetSolution(((EntityUid)args.Used, solutionContainer), welder.FuelSolutionName, out var solution))
             return;
 
         _damageableSystem.TryChangeDamage(uid, component.Damage, true, false, origin: args.User);
@@ -48,7 +48,8 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
             ("tool", args.Used!));
         _popup.PopupEntity(str, uid, args.User);
 
-        if (!args.Used.HasValue)
+        if (!args.Used.HasValue
+            || _toolSystem.GetWelderFuelAndCapacity(args.Used.Value).fuel < component.FuelCost) //Mono: Nanite applicator
             return;
 
         args.Handled = _toolSystem.UseTool
@@ -71,7 +72,8 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
             || !component.DamageContainers.Contains(damageable.DamageContainerID)
             || !HasDamage((args.Target, damageable), component, args.User)
             || !_toolSystem.HasQuality(args.Used, component.QualityNeeded)
-            || args.User == args.Target && !component.AllowSelfHeal)
+            || args.User == args.Target && !component.AllowSelfHeal
+            || _toolSystem.GetWelderFuelAndCapacity(args.Used).fuel < component.FuelCost) //Mono: Nanite applicator again
             return;
 
         float delay = args.User == args.Target
