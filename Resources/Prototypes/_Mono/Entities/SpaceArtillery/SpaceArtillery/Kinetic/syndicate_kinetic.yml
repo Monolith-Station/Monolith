@@ -6,6 +6,7 @@
 - type: entity
   id: WeaponTurretAdderScattercannon
   name: Adder scattercannon
+  suffix: PDV ONLY, SYN ONLY
   parent: BallisticArtillery
   description: A large, twin-barrelled scatter cannon, firing bursts of canister shot to shred any incoming missiles or potential boarders. Uses a self loading mechanism similar to the anaconda handgun.
   components:
@@ -80,6 +81,7 @@
 - type: entity
   id: WeaponTurretFang
   name: Fang heavy 90mm autocannon
+  suffix: PDV ONLY, SYN ONLY
   parent: BallisticArtillery
   description: A heavy 90mm autocannon of syndicate design, created during the corporate war. Made for shattering opponent destroyers. Uses a self loading mechanism similar to the anaconda handgun.
   components:
@@ -151,6 +153,7 @@
 - type: entity
   id: WeaponTurretHydra
   name: Hydra 220mm battery
+  suffix: PDV ONLY, SYN ONLY
   parent: BallisticArtilleryUnanchorable
   description: A main cannonade of syndicate origin, the hydra is a monstrous tri-barreled battery of 220-millimeter pain, designed to shatter corpations' toughest vessels. Loads with a similar mechanism as the anaconda handgun.
   components:
@@ -232,7 +235,8 @@
 
 - type: entity
   id: WeaponTurretDragoon
-  name: Dragoon 520mm howitzer
+  name: DRAGOON 520mm howitzer
+  suffix: PDV ONLY, SYN ONLY
   parent: BallisticArtilleryUnanchorable
   description: A heavy artillery gun of syndicate origin, the dragoon is tyrannic testiment of Syndicate ingenuity, designed to send a message, able to crack NanoTrasen battleships. Loads with a similar mechanism as the anaconda handgun.
   components:

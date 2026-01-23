@@ -265,11 +265,11 @@
     count: 6
     spread: 5
 
-# 520mm Dragoon Shells
+# 520mm DRAGOON Shells
 
 - type: entity
   id: ShipDragoonProjectile
-  name: Dragoon 520mm projectile
+  name: DRAGOON 520mm projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
