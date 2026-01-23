@@ -43,14 +43,14 @@
   - type: Projectile
     damage:
       types:
-        Structural: 300
+        Structural: 250
         Blunt: 200
         Heat: 100
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
     layers:
     - state: mini-rocket
-    scale: 3, 3
+    scale: 1, 2
   - type: Ammo
     muzzleFlash: null
   - type: ShipWeaponProjectile
@@ -67,7 +67,7 @@
     energy: 2
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
+    explosionType: Default
     maxIntensity: 150
     intensitySlope: 30
     totalIntensity: 1000
@@ -134,9 +134,9 @@
       - !type:ExplodeBehavior
   - type: Explosive
     explosionType: Default
-    maxIntensity: 100
-    intensitySlope: 3
-    totalIntensity: 75
+    maxIntensity: 50
+    intensitySlope: 30
+    totalIntensity: 50
   - type: ExplodeOnTrigger
   - type: Damageable
     damageContainer: Inorganic
@@ -160,7 +160,7 @@
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
     layers:
     - state: mini-rocket
-    scale: 3, 3
+    scale: 1, 2
   - type: Ammo
     muzzleFlash: null
   - type: ShipWeaponProjectile
@@ -185,10 +185,10 @@
     maxSpeed: 250
     trackDelay: 1
   - type: Explosive
-    explosionType: HardBombShipGun
-    maxIntensity: 1000
+    explosionType: Default
+    maxIntensity: 30
     intensitySlope: 100
-    totalIntensity: 200
+    totalIntensity: 100
   # destructible components below
   - type: Fixtures
     fixtures:
@@ -209,12 +209,12 @@
   - type: Meteor
     damageTypes:
       types:
-        Blunt: 50
+        Blunt: 5
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2400
+        damage: 28800
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -282,7 +282,7 @@
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
     layers:
     - state: mini-rocket
-    scale: 3, 3
+    scale: 1, 2
   - type: Ammo
     muzzleFlash: null
   - type: ShipWeaponProjectile
@@ -299,7 +299,7 @@
     energy: 2
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
+    explosionType: Default
     maxIntensity: 50
     intensitySlope: 4
     totalIntensity: 150
@@ -360,7 +360,7 @@
   - type: Appearance
   - type: SpentAmmoVisuals
   - type: EmpDescription
-    range: 7
+    range: 12
     energyConsumption: 2900000
     disableDuration: 10
   - type: Destructible

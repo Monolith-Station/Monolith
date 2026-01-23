@@ -1,13 +1,13 @@
 - type: vessel
-  id: Mercury
+  id: Neptune
   parent: BaseVesselAntag
-  name: PDV Mercury
-  description: Equipped with heavy frontal armor, 4 swarm missile pods, and a shield system. Good for dealing with smaller faster targets, but the firepower may be weaker against larger ones.
-  price: 126800
+  name: PDW Neptune
+  description: Equipped with heavy frontal armor, 6 Fang heavy 90mms, and 2 Trident torpedoes. Good for dealing with heavier targets in head on brawls, but it lacks capabilities to fight nimble and small targets.
+  price: 152555 #126k appraisal
   category: Medium
   group: BlackMarket
   access: Pirate
-  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/mercury.yml
+  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/neptune.yml
   guidebookPage: Null
   class:
   - Pirate
@@ -17,16 +17,16 @@
   - Uranium
 
 - type: gameMap
-  id: Mercury
-  mapName: 'PDV Mercury'
-  mapPath: /Maps/_Mono/Shuttles/BlackMarket/mercury.yml
+  id: Neptune
+  mapName: 'PDV Neptune'
+  mapPath: /Maps/_Mono/Shuttles/BlackMarket/neptune.yml
   minPlayers: 0
   stations:
-    Mercury:
+    Neptune:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Mercury PDV{1}'
+          mapNameTemplate: 'Neptune PDV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

@@ -16225,3 +16225,291 @@ Entries:
   id: 1795
   time: '2026-01-16T13:17:25.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3042
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Far ring ship cores had their collisions shrunk. This prevents couch
+        moving problems and thus facilitates unimpeded collection of your
+        trophies.
+  id: 1796
+  time: '2026-01-16T19:46:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3048
+- author: Avalon-Proto
+  changes:
+    - type: Add
+      message: >-
+        The Pantheon Collective has pushed 3 new weapons to market- Cerberus,
+        Prometheus, and Scylla
+  id: 1797
+  time: '2026-01-17T01:24:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3038
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed minor radar rendering errors involving half-tilt and half-width
+        tile variants.
+  id: 1798
+  time: '2026-01-17T17:02:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3049
+- author: Onezero0
+  changes:
+    - type: Fix
+      message: Bullets clean themselves up over time now. (maybe less lag?)
+  id: 1799
+  time: '2026-01-18T02:02:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3056
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Scylla and Autopulsers now have a 500m range
+  id: 1800
+  time: '2026-01-18T20:31:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3060
+- author: thoughtlessuser
+  changes:
+    - type: Add
+      message: >-
+        The Dynasty has manufactured a new mothership; Motley Anne and its'
+        three fighter drones!
+  id: 1801
+  time: '2026-01-19T12:11:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2747
+- author: thoughtlessuser
+  changes:
+    - type: Fix
+      message: Fixed black market ATM descriptions and name.
+  id: 1802
+  time: '2026-01-19T12:16:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2998
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Added new DoC-only shuttle - Phantom.
+  id: 1803
+  time: '2026-01-19T13:00:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3057
+- author: AthrunZala33092
+  changes:
+    - type: Add
+      message: Added Tactical forcefield projector to the TSFMC uplink for 55 FMC.
+    - type: Tweak
+      message: Captains now get 100 FMC in their uplink instead of the base 75.
+    - type: Add
+      message: TSFMC dress uniform added to cryo wardrobe vendor.
+  id: 1804
+  time: '2026-01-19T16:13:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3040
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: All torpedoes and fighter bombs have been improved.
+    - type: Tweak
+      message: LOSATs no longer require synthalloy to make
+    - type: Fix
+      message: LOSATs now work properly.
+  id: 1805
+  time: '2026-01-19T16:17:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3071
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Andromeda has had an armament buff and armor nerf
+  id: 1806
+  time: '2026-01-19T16:17:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3058
+- author: thoughtlessuser
+  changes:
+    - type: Tweak
+      message: >-
+        Removed the ability to call emergency shuttle from TSFMC and redescribed
+        PDV comms console.
+  id: 1807
+  time: '2026-01-19T16:18:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3031
+- author: Arcticular1
+  changes:
+    - type: Fix
+      message: Fixed up the PDV lore and Monolith lore! Rejoice!
+  id: 1808
+  time: '2026-01-19T16:22:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2630
+- author: Helicaste
+  changes:
+    - type: Add
+      message: >-
+        Cleanades and Metal Foam Nades are now available for printing at the
+        Service Techfab and Engineering Techfab respectively.
+    - type: Tweak
+      message: Air Alarms no longer instantly detonate linked grenades.
+  id: 1809
+  time: '2026-01-19T16:22:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3030
+- author: Onezero0
+  changes:
+    - type: Add
+      message: >-
+        Added uranium processing. Start by making a bulk centrifuge mini after
+        researching relevant tech in the universal faction tree.
+    - type: Tweak
+      message: Some advanced recipes now take depleted and fissile uranium to make
+  id: 1810
+  time: '2026-01-19T16:55:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2905
+- author: Onezero0
+  changes:
+    - type: Add
+      message: Power generators have radar blips now.
+  id: 1811
+  time: '2026-01-19T17:35:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3021
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Europa has received some minor improvements
+  id: 1812
+  time: '2026-01-19T18:07:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3052
+- author: deltarune2103
+  changes:
+    - type: Tweak
+      message: >-
+        RCD and SRD are now able to refill by clicking on their cartridges.
+        (Cyborgs are included)
+    - type: Remove
+      message: Frontier RCD removed completely.
+  id: 1813
+  time: '2026-01-19T18:16:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3064
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The Duran has been updated the current mapping standards.
+  id: 1814
+  time: '2026-01-19T18:26:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3062
+- author: Avalon-Proto
+  changes:
+    - type: Add
+      message: Adds 2 new Pre-fracture weapons for mappers
+  id: 1815
+  time: '2026-01-19T18:27:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2972
+- author: cloudyias
+  changes:
+    - type: Tweak
+      message: Polished silicon ion laws to fit the setting more.
+  id: 1816
+  time: '2026-01-19T18:30:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3026
+- author: Helicaste
+  changes:
+    - type: Tweak
+      message: >-
+        Curio-8640 Plasma Lances have had their magnetic coils re-tuned by the
+        ADS Overmind. They now propel plasma much faster, though not much
+        further.
+    - type: Tweak
+      message: >-
+        L-20 Apollo Mining Lasers have received a proprietary software patch,
+        forcing it to disperse heat and cool down after continuous firing. This
+        has improved its overall recharge rate to further adapt to its role as a
+        Mining implement.
+  id: 1817
+  time: '2026-01-19T18:36:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3023
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Entity cleanup system made significantly more aggressive to combat lag.
+  id: 1818
+  time: '2026-01-20T12:04:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3081
+- author: Honestly101
+  changes:
+    - type: Add
+      message: Added new textures for faction cyborg modules and action menu icons.
+  id: 1819
+  time: '2026-01-20T12:16:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3001
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Buffed Hydra's firerate to be on par with Cyrexa
+  id: 1820
+  time: '2026-01-20T13:06:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3047
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Uranium processing has been tweaked.
+  id: 1821
+  time: '2026-01-20T17:26:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3082
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed entity cleanup sometimes mistakenly deleting items like beakers on
+        hotplates.
+  id: 1822
+  time: '2026-01-21T08:11:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3086
+- author: router
+  changes:
+    - type: Tweak
+      message: >-
+        Gas tank explosion maximum intensity now scales with the square root of
+        its radius. You can now maxcap Jupiter if you really want to.
+  id: 1823
+  time: '2026-01-21T17:57:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3092
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: >-
+        The PDW Neptune has hit the PDV shipyard. It's a heavy corvette with 4
+        torpedoes, heavy armor and lots of Fangs.
+  id: 1824
+  time: '2026-01-21T18:17:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3061
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Nerfed uranium reprocessing.
+    - type: Tweak
+      message: >-
+        Uranium processing is no longer RNG and now instead makes fractional
+        amounts of uranium per recipe completion.
+  id: 1825
+  time: '2026-01-21T18:53:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3090
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Nerfed marauder's range and projectile speed.
+  id: 1826
+  time: '2026-01-22T05:30:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3103
+- author: kotobdev
+  changes:
+    - type: Add
+      message: You can now execute people, including yourself, with firearms!
+  id: 1827
+  time: '2026-01-22T07:10:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3072
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Possibly fixed leftover problems with entities randomly deleting.
+  id: 1828
+  time: '2026-01-22T20:52:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3107
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Andromeda's armor has received a considerable nerf.
+  id: 1829
+  time: '2026-01-23T02:22:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3102

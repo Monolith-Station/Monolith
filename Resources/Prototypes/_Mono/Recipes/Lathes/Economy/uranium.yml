@@ -1,0 +1,55 @@
+
+- type: latheRecipe
+  id: UraniumCentrifugeProcessingMini
+  name: recipe-uranium-processing-name
+  description: recipe-uranium-processing-description
+  categories:
+  - Explosive
+  materialResult:
+    UraniumDepleted: 97 # 0.97 ingots
+    UraniumFissile: 3 # 0.03 ingots
+  completetime: 20
+  materials:
+    Uranium: 1000 # 10 ingots
+  icon:
+    sprite: _Mono/Effects/processing.rsi
+    state: processing_2
+  materialDiscountScale: 0.5
+
+# reprocessing
+
+- type: latheRecipe
+  id: UraniumCentrifugeReprocessingMini
+  name: recipe-uranium-reprocessing-name
+  description: recipe-uranium-reprocessing-description
+  categories:
+  - Explosive
+  materialResult:
+    Uranium: 1000 # 10 ingots
+  completetime: 20
+  materials:
+    UraniumDepleted: 250 # 2.5 ingots
+  icon:
+    sprite: _Mono/Effects/processing.rsi
+    state: processing
+  materialDiscountScale: 0
+
+# plasma enriched processing
+
+- type: latheRecipe
+  id: UraniumCentrifugeEnrichedProcessingMini
+  name: recipe-uranium-processing-advanced-name
+  description: recipe-uranium-processing-advanced-description
+  categories:
+  - Explosive
+  materialResult:
+    UraniumDepleted: 94 # 0.94 ingots
+    UraniumFissile: 6 # 0.06 ingots
+  completetime: 20
+  materials:
+    Uranium: 1000 # 10 ingots
+    Plasma: 1000 # 10 ingots
+  icon:
+    sprite: _Mono/Effects/processing.rsi
+    state: processing_3
+  materialDiscountScale: 0.5

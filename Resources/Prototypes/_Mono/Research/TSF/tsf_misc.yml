@@ -173,7 +173,7 @@
 - type: technology
   id: TSFBasicBorgModule
   name: research-technology-tsfmc-basic-module
-  entityIcon: BorgModuleSecurity
+  entityIcon: BorgModuleTSFStandardWeapon
   discipline: TsfmcGear
   tier: 1
   cost: 10000
@@ -186,7 +186,7 @@
 - type: technology
   id: TSFAdvancedBorgModule
   name: research-technology-tsfmc-advanced-module
-  entityIcon: BorgModuleSecurity
+  entityIcon: BorgModuleTSFAdvancedWeapon
   discipline: TsfmcGear
   tier: 3
   cost: 65000

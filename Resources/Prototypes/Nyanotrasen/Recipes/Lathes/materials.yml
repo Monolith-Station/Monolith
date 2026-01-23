@@ -4,7 +4,7 @@
     sprite: Objects/Materials/Sheets/other.rsi
     state: plasma
   result: SheetPlasma1
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
   completetime: 2
   materials:
     Plasma: 100
@@ -15,7 +15,7 @@
     sprite: Objects/Materials/Sheets/metal.rsi
     state: plasteel
   result: SheetPlasteel1
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
   completetime: 2
   materials:
     Steel: 100

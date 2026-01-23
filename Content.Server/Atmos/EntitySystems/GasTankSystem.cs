@@ -8,6 +8,7 @@ using Content.Shared.Actions;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Examine;
+using Content.Shared.Explosion.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
@@ -340,6 +341,12 @@ namespace Content.Server.Atmos.EntitySystems
 
                 pressure = component.Air.Pressure;
                 var range = MathF.Sqrt((pressure - component.TankFragmentPressure) / component.TankFragmentScale);
+
+                if (TryComp<ExplosiveComponent>(owner, out var explosive)) // Monolith - pressure wave scaling
+                {
+                    explosive.MaxIntensity *= MathF.Sqrt(range); // technically pointless but guarantees it's a full cone instead of an octagonal frustum
+                    explosive.IntensitySlope *= MathF.Sqrt(range);
+                }
 
                 // Let's cap the explosion, yeah?
                 // !1984
