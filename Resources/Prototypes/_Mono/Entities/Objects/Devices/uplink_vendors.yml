@@ -1,0 +1,65 @@
+- type: entity
+  parent: [ BaseMachinePowered, StorePresetSecurityUplink ]
+  id: SecurityUplinkVendor
+  name: TSFMC Uplink Vendor
+  description: An anchored, stationary TSFMC Uplink.
+  suffix: POI, Empty
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Machines/VendingMachines/nfsdtech.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Tag
+    tags:
+    - SecurityUplink
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: DisableToolUse
+    anchoring: true
+
+- type: entity
+  parent: [ BaseMachinePowered, StorePresetPirateUplink ]
+  id: PDVUplinkVendor
+  name: PDV Uplink Vendor
+  description: An anchored, stationary Dynasty Vanguard Uplink.
+  suffix: POI, Empty
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Machines/VendingMachines/nfsdtech.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Tag
+    tags:
+    - PirateUplink
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: DisableToolUse
+    anchoring: true
