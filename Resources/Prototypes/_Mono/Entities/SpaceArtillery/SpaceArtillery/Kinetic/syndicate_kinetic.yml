@@ -238,12 +238,12 @@
   name: LEVIATHAN 520mm howitzer
   suffix: PDV ONLY, SYN ONLY
   parent: BallisticArtilleryUnanchorable
-  description: A heavy artillery gun of syndicate origin, the dragoon is tyrannic testiment of Syndicate ingenuity, designed to send a message, able to crack NanoTrasen battleships. Loads with a similar mechanism as the anaconda handgun.
+  description: A heavy artillery gun of syndicate origin, the leviathan is tyrannic testiment of Syndicate ingenuity, designed to send a message, able to crack NanoTrasen battleships. Loads with a similar mechanism as the anaconda handgun.
   components:
   - type: StaticPrice
     price: 35000
   - type: Sprite
-    sprite: _Mono/Objects/ShuttleWeapons/dragoon.rsi
+    sprite: _Mono/Objects/ShuttleWeapons/leviathan.rsi
     layers:
     - state: space_artillery
     scale: 1.5, 1.5
@@ -287,7 +287,7 @@
     powerUseActive: 0
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
-    proto: ShipDragoonProjectile
+    proto: ShipLeviathanProjectile
     fireCost: 15000
   - type: RadarBlip
     radarColor: "#FF0000"
