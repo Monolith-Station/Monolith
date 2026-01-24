@@ -292,7 +292,7 @@
     requireNoGrid: true
     shape: star
   - type: TimedDespawn
-    lifetime: 7
+    lifetime: 8.5 #2.km
   - type: PointLight
     color: "#fc5a03"
   - type: ExplodeOnTrigger
