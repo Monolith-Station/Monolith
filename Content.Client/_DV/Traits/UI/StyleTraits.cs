@@ -12,9 +12,9 @@ namespace Content.Client._DV.Traits.UI;
 // Mono: This is a backport of the original Sheetlet to a Stylesheet. Replace it if Sheetlets get added
 public sealed class StyleTraits : StyleBase
 {
-    public StyleTraits(IResourceCache resCache) : base(resCache)
+    public StyleTraits(IResourceCache resCache, Stylesheet baseStyle) : base(resCache)
     {
-        Stylesheet = new Stylesheet(BaseRules.Concat(GetRules(resCache)).ToArray());
+        Stylesheet = new Stylesheet(baseStyle.Rules.Concat(GetRules(resCache)).ToArray());
     }
 
     public override Stylesheet Stylesheet { get; }

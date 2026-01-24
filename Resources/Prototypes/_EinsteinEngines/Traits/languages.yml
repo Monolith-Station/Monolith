@@ -18,12 +18,15 @@
   description: trait-language-SiikMaas-desc
   category: LanguageTraits
   cost: 1
-  components:
-  - type: LanguageSpeaker
-  languagesSpoken:
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: LanguageSpeaker
+  - !type:AddLanguagesEffect
+    understood: true
+    spoken: true
+    languages:
     - SiikMaas
-  languagesUnderstood:
-   - SiikMaas
 
 - type: trait
   id: Foreigner
@@ -31,9 +34,11 @@
   description: trait-language-foreigner-desc
   category: LanguageTraits
   cost: -2
-  components:
-  - type: ForeignerTrait
-    baseTranslator: TranslatorForeigner
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: ForeignerTrait
+      baseTranslator: TranslatorForeigner
 
 - type: trait
   id: SignLanguage
@@ -41,26 +46,37 @@
   description: trait-language-signlanguage-desc
   category: LanguageTraits
   cost: 1
-  components:
-  - type: LanguageSpeaker
-  languagesSpoken:
-    - Sign
-  languagesUnderstood:
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: LanguageSpeaker
+  - !type:AddLanguagesEffect
+    understood: true
+    spoken: true
+    languages:
     - Sign
 
-# Uncomment when loadout points let you actually equip this w/ foreigner.
-#- type: trait
-#  id: SolCommon
-#  name: trait-language-solcommon-name
-#  description: trait-language-solcommon-desc
-#  category: LanguageTraits
-#  cost: 3 # Mono - TSF faction language, needs a trade-off (of having to use foreigner)
-#  components:
-#  - type: LanguageSpeaker
-#  languagesSpoken:
-#    - SolCommon
-#  languagesUnderstood:
-#    - SolCommon
+- type: trait
+  id: SolCommon
+  name: trait-language-solcommon-name
+  description: trait-language-solcommon-desc
+  category: LanguageTraits
+  cost: 3 # Mono - TSF faction language, needs a trade-off (of having to use foreigner)
+  requirements:
+  - Foreigner
+  conditions:
+  - !type:InCompanyCondition
+    companyName: PDV
+    invert: true
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: LanguageSpeaker
+  - !type:AddLanguagesEffect
+    understood: true
+    spoken: true
+    languages:
+    - SolCommon
 
 - type: trait
   id: Tradeband
@@ -68,53 +84,53 @@
   description: trait-language-tradeband-desc
   category: LanguageTraits
   cost: 1
-  components:
-  - type: LanguageSpeaker
-  languagesSpoken:
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: LanguageSpeaker
+  - !type:AddLanguagesEffect
+    understood: true
+    spoken: true
+    languages:
     - Tradeband
-  languagesUnderstood:
-    - Tradeband
 
-# Uncomment when loadout points let you actually equip this w/ foreigner.
-#- type: trait
-#  id: Freespeak
-#  name: trait-language-freespeak-name
-#  description: trait-language-freespeak-desc
-#  category: LanguageTraits
-#  cost: 3 # Mono - PDV faction language, needs a trade-off (of having to use foreigner)
-#  components:
-#  - type: LanguageSpeaker
-#  languagesSpoken:
-#    - Freespeak
-#  languagesUnderstood:
-#    - Freespeak
+- type: trait
+  id: Freespeak
+  name: trait-language-freespeak-name
+  description: trait-language-freespeak-desc
+  category: LanguageTraits
+  cost: 3 # Mono - PDV faction language, needs a trade-off (of having to use foreigner)
+  requirements:
+  - Foreigner
+  conditions:
+  - !type:InCompanyCondition
+    companyName: TSF
+    invert: true
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: LanguageSpeaker
+  - !type:AddLanguagesEffect
+    understood: true
+    spoken: true
+    languages:
+    - Freespeak
 
-#- type: trait
-#  id: Elyran
-#  name: trait-language-elyran-name
-#  description: trait-language-elyran-desc
-#  category: LanguageTraits
-#  cost: 1
-#  components:
-#  - type: LanguageSpeaker
-#  languagesSpoken:
-#    - Elyran
-#  languagesUnderstood:
-#    - Elyran
-
-# Commented out since it's species-specific.
-# - type: trait
-#   id: ValyrianStandard
-#   name: trait-language-valyrianstandard-name
-#   description: trait-language-valyrianstandard-desc
-#   category: LanguageTraits
-#   cost: 1
-#   functions:
-#     - !type:TraitModifyLanguages
-#       languagesSpoken:
-#         - ValyrianStandard
-#       languagesUnderstood:
-#         - ValyrianStandard
+- type: trait
+  id: Elyran
+  name: trait-language-elyran-name
+  description: trait-language-elyran-desc
+  category: LanguageTraits
+  cost: 1
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: LanguageSpeaker
+  - !type:AddLanguagesEffect
+    understood: true
+    spoken: true
+    languages:
+    - Elyran
 
 - type: trait
   id: NovuNederic
@@ -122,27 +138,12 @@
   description: trait-language-novunederic-desc
   category: LanguageTraits
   cost: 1
-  components:
-  - type: LanguageSpeaker
-  languagesSpoken:
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: LanguageSpeaker
+  - !type:AddLanguagesEffect
+    understood: true
+    spoken: true
+    languages:
     - NovuNederic
-  languagesUnderstood:
-    - NovuNederic
-
-# Commented out since it's species-specific.
-# - type: trait
-#   id: Azaziba
-#   name:
-#   description: trait-language-azaziba-desc
-#   category: LanguageTraits
-#   cost: 1
-#   # requirements:
-#   #   - !type:CharacterSpeciesRequirement
-#   #     species:
-#   #       - Reptilian
-#   functions:
-#     - !type:TraitModifyLanguages
-#       languagesSpoken:
-#         - Azaziba
-#       languagesUnderstood:
-#         - Azaziba

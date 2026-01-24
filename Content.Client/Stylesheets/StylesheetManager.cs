@@ -18,7 +18,7 @@ namespace Content.Client.Stylesheets
         {
             SheetNano = new StyleNano(_resourceCache).Stylesheet;
             SheetSpace = new StyleSpace(_resourceCache).Stylesheet;
-            SheetTraits = new StyleTraits(_resourceCache).Stylesheet; // Mono - Backport of Delta V trait style sheetlet
+            SheetTraits = new StyleTraits(_resourceCache, SheetNano).Stylesheet; // Mono - Backport of Delta V trait style sheetlet
 
             _userInterfaceManager.Stylesheet = SheetNano;
         }

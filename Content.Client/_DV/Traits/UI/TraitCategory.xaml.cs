@@ -166,21 +166,6 @@ public sealed partial class TraitCategory : BoxContainer
     }
 
     /// <summary>
-    /// Updates condition states for all trait entries based on current job/species.
-    /// Traits that don't meet conditions are disabled but still visible.
-    /// </summary>
-    public void UpdateConditions(string? jobId, string? speciesId)
-    {
-        foreach (var (_, entry) in _traitEntries)
-        {
-            entry.UpdateConditionsMet(jobId, speciesId);
-        }
-
-        // Update stats since some traits may have been deselected
-        UpdateStats();
-    }
-
-    /// <summary>
     /// Checks if a trait in this category meets its conditions.
     /// </summary>
     public bool TraitMeetsConditions(ProtoId<TraitPrototype> traitId)

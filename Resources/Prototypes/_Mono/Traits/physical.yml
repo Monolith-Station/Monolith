@@ -4,8 +4,10 @@
   description: trait-prybar-prosthetics-desc
   category: Physical
   cost: 2
-  components:
-  - type: PrybarProsthetics
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: PrybarProsthetics
 
 - type: trait
   id: Vigor
@@ -13,13 +15,19 @@
   description: trait-vigor-desc
   category: Physical
   cost: 6
-  mutuallyExclusiveTraits:
+  conflicts:
   - Lethargy
-  speciesBlacklist:
-  - Oni
-  - IPC
-  components:
-  - type: Vigor
+  conditions:
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Oni
+    invert: true
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Vigor
 
 - type: trait
   id: Lethargy
@@ -27,16 +35,22 @@
   description: trait-lethargy-desc
   category: Physical
   cost: -4
-  mutuallyExclusiveTraits:
+  conflicts:
   - Vigor
-  speciesBlacklist:
-  - Felinid
-  - Tajaran
-  blacklist:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: Felinid
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Tajaran
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
-  - type: Lethargy
+    - type: Lethargy
 
 - type: trait
   id: GlassJaw
@@ -44,12 +58,16 @@
   description: trait-glass-jaw-desc
   category: Physical
   cost: -2
-  mutuallyExclusiveTraits:
+  conflicts:
   - Tenacity
-  speciesBlacklist:
-  - IPC
-  components:
-  - type: GlassJaw
+  conditions:
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: GlassJaw
 
 - type: trait
   id: Tenacity
@@ -57,13 +75,17 @@
   description: trait-tenacity-desc
   category: Physical
   cost: 1
-  mutuallyExclusiveTraits:
+  conflicts:
   - GlassJaw
   - OsteogenesisImperfecta
-  speciesBlacklist:
-  - IPC
-  components:
-  - type: Tenacity
+  conditions:
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Tenacity
 
 - type: trait
   id: WillToLive
@@ -71,16 +93,20 @@
   description: trait-will-to-live-desc
   category: Physical
   cost: 1
-  mutuallyExclusiveTraits:
+  conflicts:
   - WillToDie
   - Redshirt
-  speciesBlacklist:
-  - IPC
-  blacklist:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
-  - type: WillToLive
+    - type: WillToLive
 
 - type: trait
   id: WillToDie
@@ -88,15 +114,19 @@
   description: trait-will-to-die-desc
   category: Physical
   cost: -1
-  mutuallyExclusiveTraits:
+  conflicts:
   - WillToLive
-  speciesBlacklist:
-  - IPC
-  blacklist:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
-  - type: WillToDie
+    - type: WillToDie
 
 - type: trait
   id: Thieving
@@ -104,13 +134,17 @@
   description: trait-thieving-desc
   category: Physical
   cost: 3
-  speciesBlacklist:
-  - Felinid
-  components:
-  - type: Thieving
-    stealthy: true
-    timeMultiplier: 0.67
-    identifyHidden: true
+  conditions:
+  - !type:IsSpeciesCondition
+    species: Felinid
+    invert: true
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Thieving
+      stealthy: true
+      timeMultiplier: 0.67
+      identifyHidden: true
 
 - type: trait
   id: BionicLegs
@@ -118,8 +152,10 @@
   description: trait-bionic-legs-desc
   category: Physical
   cost: 2
-  components:
-  - type: BionicLegs
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: BionicLegs
 
 - type: trait
   id: OsteogenesisImperfecta
@@ -127,16 +163,20 @@
   description: trait-osteogenesis-imperfecta-desc
   category: Physical
   cost: -6
-  mutuallyExclusiveTraits:
+  conflicts:
   - Tenacity
-  speciesBlacklist:
-  - IPC
-  blacklist:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
-  - type: GlassJaw
-    critDecrease: 50
+    - type: GlassJaw
+      critDecrease: 50
 
 - type: trait
   id: Hemophilia
@@ -144,13 +184,17 @@
   description: trait-hemophilia-desc
   category: Physical
   cost: -4
-  speciesBlacklist:
-  - IPC
-  blacklist:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
-  - type: Hemophilia
+    - type: Hemophilia
 
 - type: trait
   id: Voracious
@@ -158,12 +202,16 @@
   description: trait-voracious-desc
   category: Physical
   cost: 1
-  speciesBlacklist:
-    - IPC
-  blacklist:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
     - type: Voracious
       consumptionSpeedMultiplier: 2.0
 
@@ -173,13 +221,19 @@
   description: trait-bionic-spinarette-desc
   category: Physical
   cost: 2
-  speciesBlacklist:
-    - IPC
-    - Arachnid
-  blacklist:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Arachnid
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
     - type: Sericulture
       action: ActionSericulture
       productionLength: 2
@@ -192,12 +246,18 @@
   description: trait-feeble-desc
   category: Physical
   cost: -4
-  mutuallyExclusiveTraits:
+  conflicts:
    - Steadfast
-  speciesBlacklist:
-   - Felinid
-   - Tajaran
-  components:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: Felinid
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Tajaran
+    invert: true
+  effects:
+  - !type:AddCompsEffect
+    components:
     - type: SlowOnDamage
       speedModifierThresholds:
         "45": 0.70
@@ -209,11 +269,19 @@
   description: trait-trap-avoider-desc
   category: Physical
   cost: 3
-  speciesBlacklist:
-    - Felinid
-    - Tajaran
-    - Harpy
-  components:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: Felinid
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Tajaran
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Harpy
+    invert: true
+  effects:
+  - !type:AddCompsEffect
+    components:
     - type: TrapAvoider
 
 - type: trait
@@ -222,8 +290,10 @@
   description: trait-self-aware-desc
   category: Physical
   cost: 2
-  components:
-  - type: SelfAware
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: SelfAware
 
 - type: trait
   id: LiquorLifeline
@@ -231,16 +301,22 @@
   description: trait-liquor-lifeline-desc
   category: Physical
   cost: 6
-  mutuallyExclusiveTraits:
+  conflicts:
   - AlcoholTolerance
-  speciesBlacklist:
-  - IPC
-  - Dwarf
-  blacklist:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Dwarf
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
-  - type: LiquorLifeline
+    - type: LiquorLifeline
 
 - type: trait
   id: Redshirt
@@ -248,16 +324,20 @@
   description: trait-redshirt-desc
   category: Physical
   cost: -8
-  mutuallyExclusiveTraits:
+  conflicts:
   - WillToLive
-  speciesBlacklist:
-  - IPC
-  blacklist:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
-  - type: WillToDie
-    deadDecrease: 100
+    - type: WillToDie
+      deadDecrease: 100
 
 - type: trait
   id: StrikingCalluses
@@ -265,11 +345,14 @@
   description: trait-striking-calluses-desc
   category: Physical
   cost: 2
-  blacklist:
+  conditions:
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
-  - type: StrikingCalluses
+    - type: StrikingCalluses
 
 - type: trait
   id: Steadfast
@@ -277,19 +360,25 @@
   description: trait-steadfast-desc
   category: Physical
   cost: 3
-  mutuallyExclusiveTraits:
+  conflicts:
   - Feeble
-  speciesBlacklist:
-  - Felinid
-  - Tajaran
-  blacklist:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: Felinid
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Tajaran
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      "70": 0.83
-      "90": 0.70
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        "70": 0.83
+        "90": 0.70
 
 - type: trait
   id: DermalArmor
@@ -297,17 +386,19 @@
   description: trait-dermal-armor-desc
   category: Physical
   cost: 6
-  components:
-  - type: DamageProtectionBuff
-    modifiers:
-      dermal:
-        id: DermalArmorTrait
-        coefficients:
-          Shock: 1.25
-        flatReductions:
-          Blunt: 1.5
-          Slash: 1.5
-          Piercing: 1.5
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: DamageProtectionBuff
+      modifiers:
+        dermal:
+          id: DermalArmorTrait
+          coefficients:
+            Shock: 1.25
+          flatReductions:
+            Blunt: 1.5
+            Slash: 1.5
+            Piercing: 1.5
 
 - type: trait
   id: Ironman
@@ -315,9 +406,12 @@
   description: trait-ironman-desc
   category: Physical
   cost: -5 # This shit was FREE for factions practically
-  components:
-  - type: Ironman
-  traitGear: ShipVoucherFrontierIronMan
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Ironman
+  - !type:SpawnItemInHandEffect
+    item: ShipVoucherFrontierIronMan
 
 - type: trait
   id: TemperatureTolerance
@@ -325,9 +419,11 @@
   description: trait-temperature-tolerance-desc
   category: Physical
   cost: 1
-  components:
-  - type: TemperatureProtection
-    coolingCoefficient: 0.6
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: TemperatureProtection
+      coolingCoefficient: 0.6
 
 - type: trait
   id: AlcoholTolerance
@@ -335,18 +431,24 @@
   description: trait-alcohol-tolerance-desc
   category: Physical
   cost: 1
-  mutuallyExclusiveTraits:
+  conflicts:
   - LightweightDrunk
   - LiquorLifeline
-  speciesBlacklist:
-  - Dwarf
-  - IPC
-  blacklist:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: Dwarf
+    invert: true
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
-  - type: AlcoholTolerance
-    visualScaleMultiplier: 0.35
+    - type: AlcoholTolerance
+      visualScaleMultiplier: 0.35
 
 - type: trait
   id: PlateletFactories
@@ -354,18 +456,22 @@
   description: trait-platelet-factories-desc
   category: Physical
   cost: 10
-  mutuallyExclusiveTraits:
+  conflicts:
   - Hemophilia
-  speciesBlacklist:
-  - IPC
-  blacklist:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
-  - type: PlateletFactories
-    intervalSeconds: 1
-    healPerSecond: .5
-    critMultiplier: .25
+    - type: PlateletFactories
+      intervalSeconds: 1
+      healPerSecond: .5
+      critMultiplier: .25
 
 - type: trait
   id: NaniteRepairDrones
@@ -373,29 +479,67 @@
   description: trait-nanite-repair-drones-desc
   category: Physical
   cost: 8
-  speciesBlacklist:
-  - Human
-  - Chitinid
-  - Oni
-  - Vulpkanin
-  - Vox
-  - Diona
-  - Moth
-  - Goblin
-  - Arachnid
-  - Resomi
-  - Harpy
-  - Reptilian
-  - Hydrakin
-  - Rodentia
-  - Dwarf
-  - SlimePerson
-  - Felinid
-  - Tajaran
-  blacklist:
+  conditions:
+  - !type:IsSpeciesCondition
+    species: Human
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Chitinid
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Oni
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Vulpkanin
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Vox
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Diona
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Moth
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Goblin
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Arachnid
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Resomi
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Harpy
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Reptilian
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Hydrakin
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Rodentia
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Dwarf
+    invert: true
+  - !type:IsSpeciesCondition
+    species: SlimePerson
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Felinid
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Tajaran
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
-  - type: PlateletFactories
-    intervalSeconds: 1
-    healPerSecond: .5
+    - type: PlateletFactories
+      intervalSeconds: 1
+      healPerSecond: .5

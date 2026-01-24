@@ -125,6 +125,20 @@ public sealed class TraitSystem : EntitySystem
                 continue;
             }
 
+            var hasRequirements = true;
+            foreach (var requiredTraitId in trait.Requirements)
+            {
+                if (!validTraits.Contains(requiredTraitId))
+                {
+                    Log.Warning($"Trait {traitId} rejected: missing required trait {requiredTraitId}");
+                    hasRequirements = false;
+                    break;
+                }
+            }
+
+            if (!hasRequirements)
+                continue;
+
             // Check conflicts with already selected traits
             var hasConflict = false;
             foreach (var validTraitId in validTraits)
@@ -240,21 +254,13 @@ public sealed class TraitSystem : EntitySystem
                     case SpawnItemInHandEffect spawnEffect:
                         ApplySpawnItemEffect(player, spawnEffect, transform);
                         break;
-                    case AddLanguagesSpokenEffect learnLanguagesSpokenEffect:
-                        foreach (var language in learnLanguagesSpokenEffect.Languages)
-                            _language.AddLanguage(player, language, true, false);
+                    case AddLanguagesEffect addLanguagesEffect:
+                        foreach (var language in addLanguagesEffect.Languages)
+                            _language.AddLanguage(player, language, addLanguagesEffect.Spoken, addLanguagesEffect.Understood);
                         break;
-                    case AddLanguagesUnderstoodEffect learnLanguagesUnderstoodEffect:
-                        foreach (var language in learnLanguagesUnderstoodEffect.Languages)
-                            _language.AddLanguage(player, language, false, true);
-                        break;
-                    case RemoveLanguagesSpokenEffect removeLanguagesSpokenEffect:
-                        foreach (var language in removeLanguagesSpokenEffect.Languages)
-                            _language.RemoveLanguage(player, language, true, false);
-                        break;
-                    case RemoveLanguagesUnderstoodEffect removeLanguagesUnderstoodEffect:
-                        foreach (var language in removeLanguagesUnderstoodEffect.Languages)
-                            _language.RemoveLanguage(player, language, false, true);
+                    case RemoveLanguagesEffect removeLanguagesEffect:
+                        foreach (var language in removeLanguagesEffect.Languages)
+                            _language.RemoveLanguage(player, language, removeLanguagesEffect.Spoken, removeLanguagesEffect.Understood);
                         break;
                     default:
                         effect.Apply(effectCtx);

@@ -154,10 +154,30 @@ public sealed partial class TraitsTab : BoxContainer
                 }
             }
 
+            // Check requirements
+            foreach (var required in trait.Requirements)
+            {
+                if (_selectedTraits.Contains(required))
+                    continue;
+
+                RevertTraitToggle(traitId);
+                return;
+            }
+
             // Check conflicts
             foreach (var conflict in trait.Conflicts)
             {
                 if (!_selectedTraits.Contains(conflict))
+                    continue;
+
+                RevertTraitToggle(traitId);
+                return;
+            }
+
+            foreach (var selectedTraitId in _selectedTraits)
+            {
+                var selectedTrait = _prototype.Index(selectedTraitId);
+                if (!selectedTrait.Conflicts.Contains(traitId))
                     continue;
 
                 RevertTraitToggle(traitId);
@@ -211,7 +231,7 @@ public sealed partial class TraitsTab : BoxContainer
             // If parent width is 0 (not laid out yet), defer until layout happens
             if (parentWidth > 0)
             {
-                GlobalPointsBar.SetWidth = (int)(parentWidth * percentage);
+                GlobalPointsBar.SetWidth = (int)((parentWidth - 2) * percentage);
                 _awaitingLayoutUpdate = false;
             }
             else if (!_awaitingLayoutUpdate)

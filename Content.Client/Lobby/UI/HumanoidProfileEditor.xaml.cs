@@ -951,6 +951,7 @@ namespace Content.Client.Lobby.UI
             UpdateCMarkingsFacialHair();
 
             UpdateCompanyControls();
+            UpdateTraitsSelection(); // DeltaV - Traits
 
             RefreshAntags();
             RefreshJobs();

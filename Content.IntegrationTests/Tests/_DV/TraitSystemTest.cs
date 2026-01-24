@@ -162,7 +162,7 @@ public sealed partial class TraitSystemTest
     #region Condition Tests
 
     [RegisterComponent]
-    private sealed partial class TestComponent : Component;
+    private sealed partial class TraitTestComponent : Component;
 
     [Test]
     public async Task HasCompCondition_WithComponent_ReturnsTrue()

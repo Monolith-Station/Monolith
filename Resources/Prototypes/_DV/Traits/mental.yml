@@ -16,25 +16,6 @@
         collection: Paracusia
 
 - type: trait
-  id: Depression
-  name: trait-depression-name
-  description: trait-depression-desc
-  category: Mental
-  effects:
-  - !type:SpawnItemInHandEffect
-    item: PillCanisterNeurozenium
-
-- type: trait
-  id: Addicted
-  name: trait-addicted-name
-  description: trait-addicted-desc
-  category: Mental
-  effects:
-  - !type:AddCompsEffect
-    components:
-    - type: Addicted
-
-- type: trait
   id: Liar
   name: trait-liar-name
   description: trait-liar-desc
@@ -50,6 +31,8 @@
   name: trait-pacifist-name
   description: trait-pacifist-desc
   category: Mental
+  conflicts:
+  - Pious
   effects:
   - !type:AddCompsEffect
     components:

@@ -1,4 +1,6 @@
 - type: traitCategory
   id: LanguageTraits
   name: trait-category-languages
-  maxTraitPoints: 1 # Leaving this at 1 in case we add nationalities that give languages as well.
+  priority: 29
+  maxPoints: 1 # Leaving this at 1 in case we add nationalities that give languages as well.
+  maxTraits: 2

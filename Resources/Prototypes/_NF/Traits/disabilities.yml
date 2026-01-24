@@ -3,7 +3,9 @@
   name: trait-stinky-name
   description: trait-stinky-desc
   category: Disabilities
-  components:
+  effects:
+  - !type:AddCompsEffect
+    components:
     - type: StinkyTrait
 
 - type: trait
@@ -11,7 +13,9 @@
   name: trait-clumsy-name
   description: trait-clumsy-desc
   category: Disabilities
-  components:
+  effects:
+  - !type:AddCompsEffect
+    components:
     - type: Clumsy
       gunShootFailDamage:
         types:
@@ -26,10 +30,13 @@
   name: trait-wheelchair-bound-name
   description: trait-wheelchair-bound-desc
   category: Disabilities
-  blacklist:
+  conditions:
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-      - BorgChassis
-  components:
     - type: BuckleOnMapInit
       prototype: VehicleWheelchair
     - type: LegsParalyzed
@@ -39,5 +46,7 @@
   name: trait-uncloneable-name
   description: trait-uncloneable-desc
   category: Disabilities
-  components:
+  effects:
+  - !type:AddCompsEffect
+    components:
     - type: Uncloneable

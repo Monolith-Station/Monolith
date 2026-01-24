@@ -4,9 +4,11 @@
   id: BoganAccent
   name: trait-bogan-accent-name
   description: trait-bogan-accent-desc
-  category: SpeechTraits
+  category: Accents
   cost: 1
-  components:
+  effects:
+  - !type:AddCompsEffect
+    components:
     - type: BoganAccent
 
 # 1 Cost - Languages
@@ -17,25 +19,15 @@
   description: trait-language-nekomimetic-desc
   category: LanguageTraits
   cost: 1
-  components:
-  - type: LanguageSpeaker
-  languagesSpoken:
-  - Nekomimetic
-  languagesUnderstood:
-  - Nekomimetic
-
-- type: trait
-  id: MonoElyran
-  name: trait-language-elyran-name
-  description: trait-language-elyran-desc
-  category: LanguageTraits
-  cost: 1
-  components:
-  - type: LanguageSpeaker
-  languagesSpoken:
-  - Elyran
-  languagesUnderstood:
-  - Elyran
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: LanguageSpeaker
+  - !type:AddLanguagesEffect
+    understood: true
+    spoken: true
+    languages:
+    - Nekomimetic
 
 - type: trait
   id: MonoGary
@@ -43,12 +35,15 @@
   description: trait-language-gary-desc
   category: LanguageTraits
   cost: 1
-  components:
-  - type: LanguageSpeaker
-  languagesSpoken:
-  - Gary
-  languagesUnderstood:
-  - Gary
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: LanguageSpeaker
+  - !type:AddLanguagesEffect
+    understood: true
+    spoken: true
+    languages:
+    - Gary
 
 - type: trait
   id: MonoNovaCygniBasic
@@ -56,9 +51,12 @@
   description: trait-language-NovaCygni-desc
   category: LanguageTraits
   cost: 1
-  components:
-  - type: LanguageSpeaker
-  languagesSpoken:
-  - NovaCygniBasic
-  languagesUnderstood:
-  - NovaCygniBasic
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: LanguageSpeaker
+  - !type:AddLanguagesEffect
+    understood: true
+    spoken: true
+    languages:
+    - NovaCygniBasic

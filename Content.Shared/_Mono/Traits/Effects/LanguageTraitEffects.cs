@@ -15,6 +15,18 @@ public abstract partial class BaseLanguageTraitEffect : BaseTraitEffect
     [DataField(required: true)]
     public List<ProtoId<LanguagePrototype>> Languages = default!;
 
+    /// <summary>
+    /// Whether to affect understanding of the language.
+    /// </summary>
+    [DataField(required: true)]
+    public bool Understood = default!;
+
+    /// <summary>
+    /// Whether to affect speech of the language.
+    /// </summary>
+    [DataField(required: true)]
+    public bool Spoken = default!;
+
     public override void Apply(TraitEffectContext ctx)
     {
         // This effect needs to be applied server-side where we have access to LanguageSystem.
@@ -25,21 +37,11 @@ public abstract partial class BaseLanguageTraitEffect : BaseTraitEffect
 }
 
 /// <summary>
-/// Effect that gives spoken languages to a a player.
+/// Effect that gives languages to a player.
 /// </summary>
-public sealed partial class AddLanguagesSpokenEffect : BaseLanguageTraitEffect;
+public sealed partial class AddLanguagesEffect : BaseLanguageTraitEffect;
 
 /// <summary>
-/// Effect that gives understood languages to a a player.
+/// Effect that removes languages from a player.
 /// </summary>
-public sealed partial class AddLanguagesUnderstoodEffect : BaseLanguageTraitEffect;
-
-/// <summary>
-/// Effect that removes spoken languages from a player.
-/// </summary>
-public sealed partial class RemoveLanguagesSpokenEffect : BaseLanguageTraitEffect;
-
-/// <summary>
-/// Effect that removes understood languages from a player.
-/// </summary>
-public sealed partial class RemoveLanguagesUnderstoodEffect : BaseLanguageTraitEffect;
+public sealed partial class RemoveLanguagesEffect : BaseLanguageTraitEffect;

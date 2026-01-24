@@ -4,9 +4,11 @@
   id: StreetpunkAccent
   name: trait-streetpunk-accent-name
   description: trait-streetpunk-accent-desc
-  category: SpeechTraits
+  category: Accents
   cost: 1
-  components:
+  effects:
+  - !type:AddCompsEffect
+    components:
     - type: StreetpunkAccent
 
 # 2 Cost
@@ -15,7 +17,9 @@
   id: GoblinAccent
   name: trait-goblin-accent-name
   description: trait-goblin-accent-desc
-  category: SpeechTraits
+  category: Accents
   cost: 2
-  components:
+  effects:
+  - !type:AddCompsEffect
+    components:
     - type: GoblinAccent

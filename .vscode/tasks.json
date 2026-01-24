@@ -44,7 +44,7 @@
         {
             "label": "build-yaml-linter",
             "command": "dotnet",
-            "type": "process",
+            "type": "shell",
             "args": [
                 "build",
                 "${workspaceFolder}/Content.YAMLLinter/Content.YAMLLinter.csproj",
