@@ -319,27 +319,6 @@
     - type: LiquorLifeline
 
 - type: trait
-  id: Redshirt
-  name: trait-redshirt-name
-  description: trait-redshirt-desc
-  category: Physical
-  cost: -8
-  conflicts:
-  - WillToLive
-  conditions:
-  - !type:IsSpeciesCondition
-    species: IPC
-    invert: true
-  - !type:HasCompCondition
-    component: BorgChassis
-    invert: true
-  effects:
-  - !type:AddCompsEffect
-    components:
-    - type: WillToDie
-      deadDecrease: 100
-
-- type: trait
   id: StrikingCalluses
   name: trait-striking-calluses-name
   description: trait-striking-calluses-desc

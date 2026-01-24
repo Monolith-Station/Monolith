@@ -32,3 +32,66 @@
   - !type:AddCompsEffect
     components:
     - type: Unrevivable
+
+- type: trait
+  id: Uncloneable
+  name: trait-uncloneable-name
+  description: trait-uncloneable-desc
+  category: Medical
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Uncloneable
+
+# Mono: Unimplemented
+# - type: trait
+#   id: Unborgable
+#   name: trait-unborgable-name
+#   description: trait-unborgable-desc
+#   category: Medical
+#   effects:
+#   - !type:AddCompsEffect
+#     components:
+#     - type: Unborgable
+
+- type: trait
+  id: Redshirt
+  name: trait-redshirt-name
+  description: trait-redshirt-desc
+  category: Physical
+  cost: -8
+  conflicts:
+  - WillToLive
+  conditions: # Mono: no silicon redshirts
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects: # Mono: Add a custom component instead of overriding MobThresholds manually
+  - !type:AddCompsEffect
+    components:
+    - type: WillToDie
+      deadDecrease: 100
+
+# Mono: Unimplemented
+# - type: trait
+#   id: Synthetic
+#   name: trait-synth-name
+#   description: trait-synth-desc
+#   category: Medical
+#   conditions:
+#   - !type:HasCompCondition
+#     component: Silicon
+#     invert: true
+#   - !type:HasCompCondition
+#     component: BorgChassis
+#     invert: true
+#   - !type:IsSpeciesCondition
+#     species: IPC
+#     invert: true
+#   effects:
+#   - !type:AddCompsEffect
+#     components:
+#     - type: Synth
