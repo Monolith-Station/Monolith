@@ -135,9 +135,6 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
                 var split = overflow.SplitSolution(spillAmount);
                 TrySpillAt(_map.GridTileToLocal(neighbor.Tile.GridUid, neighbor.Grid, neighbor.Tile.GridIndices), split, out _, false);
                 args.Updates--;
-
-                if (args.Updates <= 0)
-                    break;
             }
 
             RemCompDeferred<ActiveEdgeSpreaderComponent>(entity);
@@ -209,7 +206,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             {
                 var wishTake = entity.Comp.OverflowVolume - averageTo;
                 var take = wishTake > maxBorrow ? maxBorrow : wishTake;
-                overflow.AddSolution(ourSolution.Comp.Solution.SplitSolution(take), _prototypeManager);
+                overflow.AddSolution(_solutionContainerSystem.SplitSolution(ourSolution, take), _prototypeManager);
             }
 
             foreach (var (to, solution, uid) in wishTransfers)
@@ -230,9 +227,6 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
                 }
 
                 args.Updates--;
-
-                if (args.Updates <= 0)
-                    break;
             }
 
             // Mono - go to sleep if there's nobody to give solution to
