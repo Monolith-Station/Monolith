@@ -72,7 +72,7 @@
   fireColor: Blue
   texturePath: /Textures/Effects/fire_greyscale.rsi
   fireStates: 3
-  throwEntitiesOnExplosion: false
+  throwEntitiesOnExplosion: false # Mono
 
 - type: explosion
   id: Minibomb
