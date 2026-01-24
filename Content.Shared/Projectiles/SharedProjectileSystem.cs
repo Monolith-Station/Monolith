@@ -125,6 +125,12 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     public virtual DamageSpecifier? ProjectileCollide(Entity<ProjectileComponent, PhysicsComponent> projectile, EntityUid target, MapCoordinates? collisionCoordinates, bool predicted = false)
     {
         var (uid, component, ourBody) = projectile;
+
+        var ev = new ProjectileHitEvent(component.Damage, target, component.Shooter);
+        RaiseLocalEvent(uid, ref ev);
+        if (ev.Handled)
+            return null;
+
         if (projectile.Comp1.DamagedEntity)
         {
             if (_net.IsServer && component.DeleteOnCollide)
@@ -141,11 +147,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             SetShooter(uid, component, target);
             return null;
         }
-
-        var ev = new ProjectileHitEvent(component.Damage, target, component.Shooter);
-        RaiseLocalEvent(uid, ref ev);
-        if (ev.Handled)
-            return null;
 
         var coordinates = collisionCoordinates != null
             ? _transform.ToCoordinates(collisionCoordinates.Value)
@@ -207,7 +208,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         component.DamagedEntity = true;
         Dirty(uid, component);
-
         if (!predicted && component.DeleteOnCollide && (_net.IsServer || IsClientSide(uid)))
             QueueDel(uid);
         else if (_net.IsServer && component.DeleteOnCollide)

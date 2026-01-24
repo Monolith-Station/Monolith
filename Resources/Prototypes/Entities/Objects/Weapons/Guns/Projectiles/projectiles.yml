@@ -436,6 +436,7 @@
     - state: chronobolt
       shader: unshaded
   - type: Projectile
+    noDamageDelete: false
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
@@ -445,6 +446,7 @@
   - type: TimedDespawn
     lifetime: 0.4
   - type: GatheringProjectile
+    amount: 3
   - type: MiningGatheringSoft # Frontier
 
 - type: entity
