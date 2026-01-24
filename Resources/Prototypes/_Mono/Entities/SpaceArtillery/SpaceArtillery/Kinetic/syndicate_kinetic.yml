@@ -234,8 +234,8 @@
     repairCost: 250
 
 - type: entity
-  id: WeaponTurretDragoon
-  name: DRAGOON 520mm howitzer
+  id: WeaponTurretLeviathan
+  name: LEVIATHAN 520mm howitzer
   suffix: PDV ONLY, SYN ONLY
   parent: BallisticArtilleryUnanchorable
   description: A heavy artillery gun of syndicate origin, the dragoon is tyrannic testiment of Syndicate ingenuity, designed to send a message, able to crack NanoTrasen battleships. Loads with a similar mechanism as the anaconda handgun.
@@ -246,6 +246,7 @@
     sprite: _Mono/Objects/ShuttleWeapons/dragoon.rsi
     layers:
     - state: space_artillery
+    scale: 1.5, 1.5
   - type: Appearance
   - type: FireControlRotate
   - type: AmmoCounter

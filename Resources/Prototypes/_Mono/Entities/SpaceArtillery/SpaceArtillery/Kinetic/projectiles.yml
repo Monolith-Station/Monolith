@@ -268,8 +268,8 @@
 # 520mm DRAGOON Shells
 
 - type: entity
-  id: ShipDragoonProjectile
-  name: DRAGOON 520mm projectile
+  id: ShipLeviathanProjectile
+  name: LEVIATHAN 520mm projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
