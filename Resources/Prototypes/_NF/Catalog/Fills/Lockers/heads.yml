@@ -39,7 +39,8 @@
   - type: StorageFill
     contents:
       - id: SrIDCard
-      - id: ClothingHeadsetCentCom # Frontier
+      #- id: ClothingHeadsetCentCom # Frontier - Mono out
+      - id: ClothingHeadsetAltCentComSR #Mono in
       - id: BoxHandcuff # Frontier
       - id: IDComputerCircuitboard
       - id: CommsComputerCircuitboard # Frontier
