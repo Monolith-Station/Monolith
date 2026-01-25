@@ -56,6 +56,7 @@
   - !type:HasCompCondition
     component: BorgChassis
     invert: true
+    tooltip: trait-condition-borg-not
   effects:
   - !type:AddCompsEffect
     components:
@@ -147,3 +148,32 @@
   - !type:AddCompsEffect
     components:
     - type: FrontalLisp
+
+# Mono: Unimplemented trait
+# - type: trait
+#   id: Hushed
+#   name: trait-hushed-name
+#   description: trait-hushed-desc
+#   category: Accents
+#   cost: 0
+#   conditions:
+#   - !type:HasCompCondition
+#     component: BorgChassis
+#     invert: true
+#     tooltip: trait-condition-borg-not
+#   effects:
+#   - !type:AddCompsEffect
+#     components:
+#     - type: Hushed
+
+# Mono: Unimplemented trait
+# - type: trait
+#   id: AnglishTung
+#   name: trait-anglish-name
+#   description: trait-anglish-desc
+#   category: Accents
+#   cost: 2
+#   effects:
+#   - !type:AddCompsEffect
+#     components:
+#     - type: AnglishAccent

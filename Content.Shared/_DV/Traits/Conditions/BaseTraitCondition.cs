@@ -31,7 +31,7 @@ public abstract partial class BaseTraitCondition
     /// Generates a human-readable tooltip describing this condition's requirements.
     /// </summary>
     [PublicAPI]
-    public abstract string GetTooltip(IPrototypeManager proto, ILocalizationManager loc);
+    public abstract string GetTooltip(IPrototypeManager proto, ILocalizationManager loc, int depth);
 
     protected abstract bool EvaluateImplementation(TraitConditionContext ctx);
 }
@@ -58,4 +58,9 @@ public sealed class TraitConditionContext
     /// The species ID of the player, if available.
     /// </summary>
     public string? SpeciesId { get; init; }
+
+    /// <summary>
+    /// The <see cref="HumanoidCharacterProfile"/> of the player, if available.
+    /// </summary>
+    public HumanoidCharacterProfile? Profile { get; init; }
 }

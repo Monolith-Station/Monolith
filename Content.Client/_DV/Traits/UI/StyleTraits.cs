@@ -87,6 +87,14 @@ public sealed class StyleTraits : StyleBase
         };
         entrySelectedBox.SetContentMarginOverride(StyleBox.Margin.All, 0);
 
+        var entryDisabledBox = new StyleBoxFlat
+        {
+            BackgroundColor = Color.FromHex("#1a1a22"),
+            BorderColor = Color.FromHex("#2a2a2a"),
+            BorderThickness = new Thickness(1)
+        };
+        entryDisabledBox.SetContentMarginOverride(StyleBox.Margin.All, 0);
+
         var progressBarBgBox = new StyleBoxFlat
         {
             BackgroundColor = bgDark,
@@ -222,9 +230,14 @@ public sealed class StyleTraits : StyleBase
                 .Prop(PanelContainer.StylePropertyPanel, entryPanelBox),
 
             Element<PanelContainer>()
-                .Class("TraitsEntryPanel")
-                .Class("TraitsEntrySelected")
+                .Class("TraitsEntryPanel", "TraitsEntrySelected")
                 .Prop(PanelContainer.StylePropertyPanel, entrySelectedBox),
+
+            // Disabled entry styling
+            Element<PanelContainer>()
+                .Class("TraitsEntryPanel", "TraitsEntryDisabled")
+                .Prop(PanelContainer.StylePropertyPanel, entryDisabledBox)
+                .Prop(Control.StylePropertyModulateSelf, new Color(1f, 1f, 1f, 0.5f)),
 
             Element<Label>()
                 .Class("TraitsEntryNameLabel")

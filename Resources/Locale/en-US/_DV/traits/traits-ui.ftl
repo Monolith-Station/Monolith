@@ -5,6 +5,21 @@ trait-editor-search-placeholder = Search traits...
 trait-editor-footer-hint = Hover over traits for details
 trait-editor-footer-info = Negative costs grant bonus points
 
+## Disabled Traits Popup
+disabled-traits-popup-title = Traits Disabled
+disabled-traits-popup-label = Traits Disabled
+disabled-traits-popup-message = Some of your selected traits could not be applied because they did not meet the required conditions.
+disabled-traits-popup-list-header = The following traits were disabled:
+disabled-traits-popup-skip-checkbox = Don't show this again
+disabled-traits-popup-close-button = Close
+
+## Disabled Traits Reasons
+disabled-traits-reason-global-limit = Global trait limit reached
+disabled-traits-reason-points-limit = Not enough trait points remaining
+disabled-traits-reason-category-limit = Category "{$category}" trait limit reached
+disabled-traits-reason-category-points = Category "{$category}" points limit reached
+disabled-traits-reason-conflict = Conflicts with selected trait: {$trait}
+
 ## Category suffixes
 trait-category-traits = {$selected} / {$max} traits
 trait-category-traits-unlimited = {$selected} traits
@@ -25,16 +40,20 @@ trait-conflicts-met-tooltip = Conflicting traits:
 ## Condition tooltips
 trait-conditions-tooltip = [bold]Conditions:[/bold]
     {$conditions}
-trait-conditions-not-met-tooltip = Conditions not met:
+trait-conditions-not-met-tooltip = [bold]Conditions not met:[/bold]
     {$conditions}
 
+## Composite conditions
+trait-condition-any-of = Any of the following must be true:
+    {$requirements}
+
 ## Species conditions
-trait-condition-species-is = You must be a [color=yellow]{$species}[/color].
-trait-condition-species-not = You must not be a [color=yellow]{$species}[/color].
+trait-condition-species-is = You must be {INDEFINITE($species)} [color=yellow]{$species}[/color].
+trait-condition-species-not = You must not be {INDEFINITE($species)} [color=yellow]{$species}[/color].
 
 ## Job conditions
-trait-condition-job-is = You must be a [color={$color}]{$job}[/color].
-trait-condition-job-not = You must not be a [color={$color}]{$job}[/color].
+trait-condition-job-is = You must be {INDEFINITE($job)} [color={$color}]{$job}[/color].
+trait-condition-job-not = You must not be {INDEFINITE($job)} [color={$color}]{$job}[/color].
 
 ## Trait conditions
 trait-condition-trait-has = You must have the trait [color=yellow]{$trait}[color=yellow].
@@ -44,6 +63,5 @@ trait-condition-trait-has-not = You must not have the trait [color=yellow]{$trai
 trait-condition-department-is = You must be in the [color={$color}]{$department}[/color] department.
 trait-condition-department-not = You must not be in the [color={$color}]{$department}[/color] department.
 
-## Faction conditions
-trait-condition-faction-is = You must be in the faction [color=yellow]{$faction}[/color].
-trait-condition-faction-not = You must not be in the faction [color=yellow]{$faction}[/color].
+## HasComp borg conditions
+trait-condition-borg-not = You must not be a [color=yellow]borg[/color].

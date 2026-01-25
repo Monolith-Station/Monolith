@@ -15,6 +15,12 @@ public sealed partial class HasCompCondition : BaseTraitCondition
     [DataField(required: true, customTypeSerializer: typeof(ComponentNameSerializer))]
     public string Component = string.Empty;
 
+    /// <summary>
+    /// The tooltip text to display, if any.
+    /// </summary>
+    [DataField]
+    public LocId? Tooltip;
+
     protected override bool EvaluateImplementation(TraitConditionContext ctx)
     {
         if (string.IsNullOrEmpty(Component))
@@ -33,8 +39,12 @@ public sealed partial class HasCompCondition : BaseTraitCondition
         }
     }
 
-    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc)
+    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc, int depth)
     {
+        // If there's a custom tooltip supplied, use that
+        if (Tooltip is not null)
+            return new string(' ', depth * 2) + "- " + loc.GetString(Tooltip) + Environment.NewLine;
+
         // No tooltip for this condition since we're dealing with comps
         return string.Empty;
     }

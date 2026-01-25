@@ -43,7 +43,7 @@
     components:
     - type: Uncloneable
 
-# Mono: Unimplemented
+# Mono: Unimplemented trait
 # - type: trait
 #   id: Unborgable
 #   name: trait-unborgable-name
@@ -63,11 +63,12 @@
   conflicts:
   - WillToLive
   conditions: # Mono: no silicon redshirts
-  - !type:IsSpeciesCondition
-    species: IPC
-    invert: true
   - !type:HasCompCondition
     component: BorgChassis
+    invert: true
+    tooltip: trait-condition-borg-not
+  - !type:IsSpeciesCondition
+    species: IPC
     invert: true
   effects: # Mono: Add a custom component instead of overriding MobThresholds manually
   - !type:AddCompsEffect
@@ -75,7 +76,7 @@
     - type: WillToDie
       deadDecrease: 100
 
-# Mono: Unimplemented
+# Mono: Unimplemented trait
 # - type: trait
 #   id: Synthetic
 #   name: trait-synth-name

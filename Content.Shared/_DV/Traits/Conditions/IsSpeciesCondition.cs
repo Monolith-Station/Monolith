@@ -23,7 +23,7 @@ public sealed partial class IsSpeciesCondition : BaseTraitCondition
         return ctx.SpeciesId == Species;
     }
 
-    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc)
+    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc, int depth)
     {
         var speciesName = Species.Id;
         if (proto.TryIndex(Species, out var speciesProto))
@@ -31,8 +31,10 @@ public sealed partial class IsSpeciesCondition : BaseTraitCondition
             speciesName = loc.GetString(speciesProto.Name);
         }
 
-        return Invert
+        var tooltip = Invert
             ? loc.GetString("trait-condition-species-not", ("species", speciesName))
             : loc.GetString("trait-condition-species-is", ("species", speciesName));
+
+        return new string(' ', depth * 2) + "- " + tooltip + Environment.NewLine;
     }
 }

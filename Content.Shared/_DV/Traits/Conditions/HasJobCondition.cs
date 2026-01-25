@@ -23,7 +23,7 @@ public sealed partial class HasJobCondition : BaseTraitCondition
         return ctx.JobId == Job;
     }
 
-    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc)
+    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc, int depth)
     {
         var jobName = Job.Id;
         var jobColor = "#ffffff";
@@ -43,8 +43,10 @@ public sealed partial class HasJobCondition : BaseTraitCondition
             }
         }
 
-        return Invert
+        var tooltip = Invert
             ? loc.GetString("trait-condition-job-not", ("job", jobName), ("color", jobColor))
             : loc.GetString("trait-condition-job-is", ("job", jobName), ("color", jobColor));
+
+        return new string(' ', depth * 2) + "- " + tooltip + Environment.NewLine;
     }
 }

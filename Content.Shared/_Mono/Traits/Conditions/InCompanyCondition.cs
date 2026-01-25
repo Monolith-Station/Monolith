@@ -27,10 +27,12 @@ public sealed partial class InCompanyCondition : BaseTraitCondition
         return string.Equals(company.CompanyName, CompanyName);
     }
 
-    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc)
+    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc, int depth)
     {
-        return Invert
+        var tooltip = Invert
             ? loc.GetString("trait-condition-company-not", ("company", CompanyName))
             : loc.GetString("trait-condition-company-is", ("company", CompanyName));
+
+        return new string(' ', depth * 2) + "- " + tooltip + Environment.NewLine;
     }
 }

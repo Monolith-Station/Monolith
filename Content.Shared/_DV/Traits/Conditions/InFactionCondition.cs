@@ -31,11 +31,13 @@ public sealed partial class InFactionCondition : BaseTraitCondition
         return playerFactions.Contains(Faction);
     }
 
-    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc)
+    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc, int depth)
     {
         // TODO: Add player-friendly names to factions
-        return Invert
+        var tooltip = Invert
             ? loc.GetString("trait-condition-faction-not", ("faction", Faction))
             : loc.GetString("trait-condition-faction-is", ("faction", Faction));
+
+        return new string(' ', depth * 2) + "- " + tooltip + Environment.NewLine;
     }
 }
