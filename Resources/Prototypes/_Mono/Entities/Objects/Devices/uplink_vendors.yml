@@ -6,15 +6,9 @@
   suffix: POI, Empty
   components:
   - type: Sprite
-    sprite: _NF/Structures/Machines/VendingMachines/nfsdtech.rsi
+    sprite: _Mono/Structures/Machines/tsfuplinkvendor.rsi
     layers:
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.Base"]
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
-      shader: unshaded
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - state: base
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
@@ -39,15 +33,9 @@
   suffix: POI, Empty
   components:
   - type: Sprite
-    sprite: _NF/Structures/Machines/VendingMachines/nfsdtech.rsi
+    sprite: _Mono/Structures/Machines/pdvuplinkvendor.rsi
     layers:
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.Base"]
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
-      shader: unshaded
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - state: base
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
