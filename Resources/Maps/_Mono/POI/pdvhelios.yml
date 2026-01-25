@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/10/2026 07:34:41
-  entityCount: 8415
+  time: 01/25/2026 06:10:52
+  entityCount: 8416
 maps: []
 grids:
 - 1
@@ -4141,6 +4141,11 @@ entities:
           decals:
             470: 4,49
     - type: SpreaderGrid
+      spreadQueues:
+        Kudzu: []
+        Smoke: []
+        MetalFoam: []
+        Puddle: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -42103,6 +42108,13 @@ entities:
     components:
     - type: Transform
       pos: 7.5,43.5
+      parent: 1
+- proto: PDVUplinkVendor
+  entities:
+  - uid: 5808
+    components:
+    - type: Transform
+      pos: -14.5,15.5
       parent: 1
 - proto: PlasmaReinforcedWindowDirectional
   entities:

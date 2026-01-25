@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/13/2026 03:42:20
+  time: 01/25/2026 06:09:42
   entityCount: 10044
 maps: []
 grids:
@@ -225,6 +225,11 @@ entities:
       fixtures: {}
     - type: OccluderTree
     - type: SpreaderGrid
+      spreadQueues:
+        Kudzu: []
+        Smoke: []
+        MetalFoam: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -4412,7 +4417,7 @@ entities:
       pos: -32.5,-11.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -74601.625
+      secondsUntilStateChange: -74707.72
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4568,7 +4573,7 @@ entities:
       pos: 31.5,29.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -28249.041
+      secondsUntilStateChange: -28355.133
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4787,7 +4792,7 @@ entities:
       pos: -14.5,-3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -116437.7
+      secondsUntilStateChange: -116543.8
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4836,7 +4841,7 @@ entities:
       pos: 22.5,-2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -118251.805
+      secondsUntilStateChange: -118357.9
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4859,7 +4864,7 @@ entities:
       pos: 20.5,-11.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -15100.34
+      secondsUntilStateChange: -15206.433
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4938,7 +4943,7 @@ entities:
       pos: 13.5,-1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -115994.44
+      secondsUntilStateChange: -116100.53
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4969,7 +4974,7 @@ entities:
       pos: 11.5,-2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -73011.6
+      secondsUntilStateChange: -73117.695
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4980,7 +4985,7 @@ entities:
       pos: 9.5,-2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -86822.13
+      secondsUntilStateChange: -86928.23
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5006,7 +5011,7 @@ entities:
       pos: 8.5,-12.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -114522.77
+      secondsUntilStateChange: -114628.87
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5043,7 +5048,7 @@ entities:
       pos: -0.5,-12.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -85801.43
+      secondsUntilStateChange: -85907.52
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5289,7 +5294,7 @@ entities:
       pos: -3.5,15.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -78559.21
+      secondsUntilStateChange: -78665.305
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6383,11 +6388,6 @@ entities:
       parent: 1
 - proto: AmmoTechFab
   entities:
-  - uid: 341
-    components:
-    - type: Transform
-      pos: 1.5,7.5
-      parent: 1
   - uid: 342
     components:
     - type: Transform
@@ -33604,6 +33604,11 @@ entities:
       parent: 1
 - proto: FactionLathe
   entities:
+  - uid: 341
+    components:
+    - type: Transform
+      pos: 1.5,7.5
+      parent: 1
   - uid: 5178
     components:
     - type: Transform
@@ -45795,11 +45800,6 @@ entities:
       parent: 1
 - proto: NfsdTechFab
   entities:
-  - uid: 6752
-    components:
-    - type: Transform
-      pos: 0.5,7.5
-      parent: 1
   - uid: 6753
     components:
     - type: Transform
@@ -49383,6 +49383,13 @@ entities:
     components:
     - type: Transform
       pos: 34.309944,-15.3486805
+      parent: 1
+- proto: SecurityUplinkVendor
+  entities:
+  - uid: 6752
+    components:
+    - type: Transform
+      pos: 0.5,7.5
       parent: 1
 - proto: ServiceTechFabCircuitboard
   entities:
