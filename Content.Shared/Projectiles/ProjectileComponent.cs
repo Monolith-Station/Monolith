@@ -106,7 +106,7 @@ public sealed partial class ProjectileComponent : Component
     public FixedPoint2 PenetrationAmount = FixedPoint2.Zero;
 
     /// <summary>
-    ///     Mono: Determites either should be entity deleted on collision if damage == null or not.
+    ///     Mono: Determines either should be entity deleted on collision if damage == null or not.
     /// </summary>
     [DataField]
     public bool NoDamageDelete = true;
