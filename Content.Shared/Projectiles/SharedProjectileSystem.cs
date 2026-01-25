@@ -126,6 +126,15 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     {
         var (uid, component, ourBody) = projectile;
 
+        // it's here so this check is only done once before possible hit
+        var attemptEv = new ProjectileReflectAttemptEvent(uid, component, false);
+        RaiseLocalEvent(target, ref attemptEv);
+        if (attemptEv.Cancelled)
+        {
+            SetShooter(uid, component, target);
+            return null;
+        }
+        
         var ev = new ProjectileHitEvent(component.Damage, target, component.Shooter);
         RaiseLocalEvent(uid, ref ev);
         if (ev.Handled)
@@ -136,15 +145,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             if (_net.IsServer && component.DeleteOnCollide)
                 QueueDel(uid);
 
-            return null;
-        }
-
-        // it's here so this check is only done once before possible hit
-        var attemptEv = new ProjectileReflectAttemptEvent(uid, component, false);
-        RaiseLocalEvent(target, ref attemptEv);
-        if (attemptEv.Cancelled)
-        {
-            SetShooter(uid, component, target);
             return null;
         }
 
