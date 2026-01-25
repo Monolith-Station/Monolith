@@ -16485,3 +16485,63 @@ Entries:
   id: 1825
   time: '2026-01-21T18:53:17.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3090
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Nerfed marauder's range and projectile speed.
+  id: 1826
+  time: '2026-01-22T05:30:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3103
+- author: kotobdev
+  changes:
+    - type: Add
+      message: You can now execute people, including yourself, with firearms!
+  id: 1827
+  time: '2026-01-22T07:10:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3072
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Possibly fixed leftover problems with entities randomly deleting.
+  id: 1828
+  time: '2026-01-22T20:52:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3107
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Andromeda's armor has received a considerable nerf.
+  id: 1829
+  time: '2026-01-23T02:22:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3102
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Refactored puddle code, likely decreased server lag.
+  id: 1830
+  time: '2026-01-24T15:28:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3116
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: Ore silo range gigabuffed to 125m from 20m
+  id: 1831
+  time: '2026-01-24T19:25:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3098
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Metal foam is now strong as a solid wall.
+    - type: Tweak
+      message: Nanolaminate foam is now strong as a reinforced wall.
+  id: 1832
+  time: '2026-01-24T19:28:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3101
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed PDV SCAF hardsuit being marked as other-faction and not PDV for
+        contraband purposes.
+  id: 1833
+  time: '2026-01-25T17:36:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3113
