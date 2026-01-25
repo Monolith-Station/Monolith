@@ -26,19 +26,7 @@ uplink-pdv-bulldog-desc = a devastating automatic mag fed shotgun. Fires 12 gaug
 uplink-pdv-esword-name = Energy Sword
 uplink-pdv-esword-desc = a pure concentrated plasma blade. Cuts enemies and doors down with ease.
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-# MARK: Utility
-=======
 # MARK: Utility Basic
->>>>>>> Stashed changes
-=======
-# MARK: Utility Basic
->>>>>>> Stashed changes
-=======
-# MARK: Utility Basic
->>>>>>> Stashed changes
 
 uplink-pdv-empty-implanter-name = Empty Implanter
 uplink-pdv-empty-implanter-desc = A spare, empty implanter to remove implants with, including faction tracking implants. It does not backfire on you.
@@ -58,18 +46,8 @@ uplink-pdv-jaws-desc = A modified jaws of life that passes safety restrictions, 
 uplink-pdv-hoverbike-name = Illegal Hoverbike
 uplink-pdv-hoverbike-desc = A flatpack containing an illegal hoverbike. Comes with extra luggage capacity.
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 # MARK: Utility Standard
->>>>>>> Stashed changes
-=======
-# MARK: Utility Standard
->>>>>>> Stashed changes
-=======
-# MARK: Utility Standard
->>>>>>> Stashed changes
+
 uplink-pdv-nanite-applicator-name = Advanced Nanite Applicator
 uplink-pdv-nanite-applicator-desc = An advanced tool that allows for swift nanotechnology reconstruction to repair structures.
 
