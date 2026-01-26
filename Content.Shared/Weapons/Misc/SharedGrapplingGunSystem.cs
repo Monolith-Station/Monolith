@@ -17,17 +17,23 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
+// Mono
+using Robust.Shared.Player;
+using Robust.Shared.GameStates;
+
 namespace Content.Shared.Weapons.Misc;
 
 public abstract class SharedGrapplingGunSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedPvsOverrideSystem _pvsOverride = default!; // Mono
 
     public const string GrapplingJoint = "grappling";
 
@@ -54,18 +60,22 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
     {
         foreach (var (shotUid, _) in args.Ammo)
         {
-            if (!HasComp<GrapplingProjectileComponent>(shotUid))
+            if (shotUid is not { } shot || !HasComp<GrapplingProjectileComponent>(shotUid))
                 continue;
 
             //todo: this doesn't actually support multigrapple
             // At least show the visuals.
-            component.Projectile = shotUid.Value;
+            component.Projectile = shot;
             Dirty(uid, component);
-            var visuals = EnsureComp<JointVisualsComponent>(shotUid.Value);
+            var visuals = EnsureComp<JointVisualsComponent>(shot);
             visuals.Sprite = component.RopeSprite;
             visuals.OffsetA = new Vector2(0f, 0.5f);
             visuals.Target = GetNetEntity(uid);
-            Dirty(shotUid.Value, visuals);
+            Dirty(shot, visuals);
+
+            // Mono
+            if (_player.TryGetSessionByEntity(args.User, out var session))
+                _pvsOverride.AddSessionOverride(shot, session);
         }
 
         TryComp<AppearanceComponent>(uid, out var appearance);

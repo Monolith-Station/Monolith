@@ -257,7 +257,7 @@
     - type: GrapplingGun
     - type: Gun
       soundGunshot: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
-      fireRate: 0.5
+      fireRate: 1 # Mono - 0.5 -> 1
       clumsyProof: true
     - type: BasicEntityAmmoProvider
       proto: GrapplingHook
@@ -269,8 +269,9 @@
         - state: base-unshaded
           map: [ "unshaded" ]
           visible: true
-    - type: UseDelay
-      delay: 1.5
+    # Mono
+    #- type: UseDelay
+    #  delay: 0 # Mono
     - type: Appearance
     - type: GenericVisualizer
       visuals:
