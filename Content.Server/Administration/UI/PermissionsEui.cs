@@ -83,7 +83,8 @@ namespace Content.Server.Administration.UI
                 AdminRanks = _adminRanks.ToDictionary(a => a.Id, a => new PermissionsEuiState.AdminRankData
                 {
                     Flags = AdminFlagsHelper.NamesToFlags(a.Flags.Select(p => p.Flag)),
-                    Name = a.Name
+                    Name = a.Name,
+                    ShortName = a.ShortName
                 })
             };
         }
@@ -178,6 +179,7 @@ namespace Content.Server.Administration.UI
 
             rank.Flags = GenRankFlagList(ur.Flags);
             rank.Name = ur.Name;
+            rank.ShortName = ur.ShortName; // Mono
 
             await _db.UpdateAdminRankAsync(rank);
 
@@ -198,6 +200,7 @@ namespace Content.Server.Administration.UI
             var rank = new DbAdminRank
             {
                 Name = ar.Name,
+                ShortName = ar.ShortName, // Mono
                 Flags = GenRankFlagList(ar.Flags)
             };
 

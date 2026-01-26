@@ -16447,3 +16447,160 @@ Entries:
   id: 1821
   time: '2026-01-20T17:26:42.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3082
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed entity cleanup sometimes mistakenly deleting items like beakers on
+        hotplates.
+  id: 1822
+  time: '2026-01-21T08:11:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3086
+- author: router
+  changes:
+    - type: Tweak
+      message: >-
+        Gas tank explosion maximum intensity now scales with the square root of
+        its radius. You can now maxcap Jupiter if you really want to.
+  id: 1823
+  time: '2026-01-21T17:57:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3092
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: >-
+        The PDW Neptune has hit the PDV shipyard. It's a heavy corvette with 4
+        torpedoes, heavy armor and lots of Fangs.
+  id: 1824
+  time: '2026-01-21T18:17:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3061
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Nerfed uranium reprocessing.
+    - type: Tweak
+      message: >-
+        Uranium processing is no longer RNG and now instead makes fractional
+        amounts of uranium per recipe completion.
+  id: 1825
+  time: '2026-01-21T18:53:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3090
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Nerfed marauder's range and projectile speed.
+  id: 1826
+  time: '2026-01-22T05:30:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3103
+- author: kotobdev
+  changes:
+    - type: Add
+      message: You can now execute people, including yourself, with firearms!
+  id: 1827
+  time: '2026-01-22T07:10:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3072
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Possibly fixed leftover problems with entities randomly deleting.
+  id: 1828
+  time: '2026-01-22T20:52:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3107
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Andromeda's armor has received a considerable nerf.
+  id: 1829
+  time: '2026-01-23T02:22:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3102
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Refactored puddle code, likely decreased server lag.
+  id: 1830
+  time: '2026-01-24T15:28:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3116
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: Ore silo range gigabuffed to 125m from 20m
+  id: 1831
+  time: '2026-01-24T19:25:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3098
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Metal foam is now strong as a solid wall.
+    - type: Tweak
+      message: Nanolaminate foam is now strong as a reinforced wall.
+  id: 1832
+  time: '2026-01-24T19:28:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3101
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed PDV SCAF hardsuit being marked as other-faction and not PDV for
+        contraband purposes.
+  id: 1833
+  time: '2026-01-25T17:36:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3113
+- author: Helicaste
+  changes:
+    - type: Tweak
+      message: >-
+        Ship shielding now offers protection from ramming attacks based on what
+        shield you have. Break the shield before going for a kamikaze strike.
+  id: 1834
+  time: '2026-01-25T18:29:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3051
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Fissile uranium now radiates more depending on received radiation.
+    - type: Add
+      message: Fissile uranium now explodes upon crossing a radiation threshold.
+  id: 1835
+  time: '2026-01-25T18:35:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3084
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Colossus touchups: Cameras added, entertainment camera server added,
+        comms server has keys now, inaccessible lights don't get btfoed by solar
+        flares, atmos room improved to cram more gas in the cans, and post
+        office touched up.
+    - type: Tweak
+      message: TSF Comms server only has TSF keys now
+    - type: Fix
+      message: Overseer properly starts with comms keys now
+  id: 1836
+  time: '2026-01-25T18:44:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3054
+- author: Helicaste
+  changes:
+    - type: Tweak
+      message: >-
+        Breaching Charges and Seismic Charges can no longer be instantly
+        detonated using signal linking.
+  id: 1837
+  time: '2026-01-25T18:52:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3079
+- author: doktor-gonz0
+  changes:
+    - type: Tweak
+      message: >-
+        Hydrakin tail markings were updated, now you can add additional overlay
+        colours to some of them. The miscellaneous head markings were moved to
+        Head(Side) section, so you can actually combine eyes and other markings
+        now.
+    - type: Add
+      message: Hydrakin can trill and wurble now.
+    - type: Add
+      message: Hydrakin cooldown action has a proper icon now.
+    - type: Add
+      message: All hydrakin emotes have sounds now.
+  id: 1838
+  time: '2026-01-25T19:06:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3080
