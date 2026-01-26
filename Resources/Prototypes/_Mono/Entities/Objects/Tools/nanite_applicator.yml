@@ -40,10 +40,22 @@
     materialComposition:
       Steel: 100
   - type: StaticPrice
-    price: 11
+    price: 20
   - type: GuideHelp
     guides:
     - Construction
+  - type: WeldingHealing #For IPCs
+    qualityNeeded: Applicating
+    damageContainers:
+      - Silicon
+    fuelCost: 5
+    damage:
+      types:
+        Blunt: -12.5
+        Piercing: -12.5
+        Slash: -12.5
+        Heat: -6
+        Shock: -6
 
 - type: entity
   name: experimental nanite applicator

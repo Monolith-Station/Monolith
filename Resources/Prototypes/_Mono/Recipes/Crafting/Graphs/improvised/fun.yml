@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: GooglyEyes
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: eyes
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2
+  - node: eyes
+    entity: GooglyEyes
