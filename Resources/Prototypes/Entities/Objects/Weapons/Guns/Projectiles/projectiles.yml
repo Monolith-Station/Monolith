@@ -961,6 +961,9 @@
             - Impassable
             - BulletImpassable # Mono
     - type: GrapplingProjectile
+    # Mono - so you can grapple asteroids
+    - type: ChunkLoader
+      loadingDistance: 32
 
 - type: entity
   name : disabler bolt smg
