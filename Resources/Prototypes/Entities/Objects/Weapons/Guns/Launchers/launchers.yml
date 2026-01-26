@@ -261,6 +261,7 @@
     - type: Gun
       soundGunshot: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
       fireRate: 2 # Mono - 0.5 -> 2
+      projectileSpeed: 60 # Mono
       clumsyProof: true
     - type: BasicEntityAmmoProvider
       proto: GrapplingHook
