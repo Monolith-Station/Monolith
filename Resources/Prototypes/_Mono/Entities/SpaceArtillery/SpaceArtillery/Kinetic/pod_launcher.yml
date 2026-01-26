@@ -254,9 +254,9 @@
       types:
         Structural: 15000
   - type: TargetSeeking
-    acceleration: 0.0000001
-    detectionRange: 1000
-    scanArc: 35
+    acceleration: 20
+    detectionRange: 2000
+    scanArc: 90
     launchSpeed: 0
     maxSpeed: 650
     trackDelay: 0.1
