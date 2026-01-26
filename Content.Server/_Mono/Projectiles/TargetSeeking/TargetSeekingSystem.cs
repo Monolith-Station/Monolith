@@ -70,7 +70,7 @@ public sealed class TargetSeekingSystem : EntitySystem
 
     /// <summary>
     /// Sets a target-seeking projectile's <see cref="TargetSeekingComponent.CurrentTarget"/>, and raises
-    /// the appropriate events. 
+    /// the appropriate events.
     /// </summary>
     // NOTE: In the future, someone could want to change this to separate whether `CurrentTarget` is null with whether the seeker is actually targeting something.
     //       If so, change this to take in whether the seeker should be targeting something, rather than whether the target exists.
@@ -140,6 +140,9 @@ public sealed class TargetSeekingSystem : EntitySystem
         var query = EntityQueryEnumerator<TargetSeekingComponent, PhysicsComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var seekingComp, out var body, out var xform))
         {
+            if (seekingComp.ShotOnly && _projectileQuery.TryComp(uid, out var projectile) && projectile.Weapon == null)
+                continue;
+
             var acceleration = seekingComp.Acceleration * frameTime;
             // Initialize launch speed.
             if (seekingComp.Launched == false)

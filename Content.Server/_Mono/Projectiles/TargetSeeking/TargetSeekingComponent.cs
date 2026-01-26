@@ -82,6 +82,12 @@ public sealed partial class TargetSeekingComponent : Component
     /// Whether seeking has been disabled (e.g., after entering an enemy grid).
     /// </summary>
     public bool SeekingDisabled;
+
+    /// <summary>
+    /// Only apply homing if we're a projectile and have been shot (weapon is not null).
+    /// </summary>
+    [DataField]
+    public bool ShotOnly = true;
 }
 
 /// <summary>
