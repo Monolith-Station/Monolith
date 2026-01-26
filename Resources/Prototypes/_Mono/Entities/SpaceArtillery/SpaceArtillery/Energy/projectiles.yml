@@ -1,3 +1,41 @@
+# Gnomon
+
+- type: entity
+  id: ShipSmallPlasmaProjectile
+  name: plasma projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 15
+        Heat: 35
+        Structural: 70
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
+    layers:
+    - state: plasmashot
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectPlasmaPulser
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 2.3
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 10
+  - type: PointLight
+    color: "#FF0040"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 10
+    intensitySlope: 1
+    maxIntensity: 1
+    maxTileBreak: 1
+
 # MARAUDER
 
 - type: entity
@@ -35,6 +73,46 @@
     intensitySlope: 12
     maxIntensity: 15
     maxTileBreak: 1
+
+# Meridian
+
+- type: entity
+  id: ShipLargePlasmaProjectile
+  name: Ionized Gas Projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 300
+        Heat: 100
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/turbolaser_shot.rsi
+    layers:
+    - state: turbolaser-shot
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 3.5
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 10
+  - type: PointLight
+    color: "#6BC1FF"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 60
+    intensitySlope: 10
+    maxIntensity: 35
+    maxTileBreak: 3
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
 
 # Cerberus
 
@@ -620,3 +698,4 @@
     totalIntensity: 50
     intensitySlope: 10
     maxIntensity: 25
+

@@ -72,7 +72,7 @@
     repairTime: 15
     repairCost: 60
 
-# Cerbrus
+# Cerberus
 
 - type: entity
   id: WeaponTurretCerberus
@@ -219,6 +219,165 @@
   - type: ShipRepairable
     repairTime: 25
     repairCost: 100
+
+# Gnomon
+
+- type: entity
+  id: WeaponTurretEVI3Gnomon
+  name: EVI-3 Gnomon Plasma Pulsar
+  parent: BallisticArtillery
+  description: Propels rapidly formed magnetically contained balls of superheated plasma. Has a long recharge between bursts after depleting its internal reservoire.
+  suffix: TSF ONLY
+  components:
+  - type: StaticPrice
+    price: 2000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/evi3.rsi
+    layers:
+    - state: base
+  - type: Appearance
+  - type: AmmoCounter
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 3
+    recoil: 5 # 1/5x
+    minAngle: 0
+    maxAngle: 0
+    projectileSpeed: 150
+    shootThermalSignature: 4000000 # ~2.8km with continuous fire
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: Battery
+    maxCharge: 50000
+    startingCharge: 50000
+  - type: BatterySelfRecharger
+    autoRechargePause: true
+    autoRechargePauseTime: 30 #30 second reload
+    autoRecharge: true
+    autoRechargeRate: 50000
+  - type: SpaceArtillery
+    powerChargeRate: 350
+    powerUsePassive: 500
+    powerUseActive: 0
+  - type: FireControlRotate
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipSmallPlasmaProjectile
+    fireCost: 1000 #50 shots
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 6000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 3000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#C92BCC"
+    scale: 2
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 60
+
+# Meridian
+
+- type: entity
+  id: WeaponTurretEVI7Meridian
+  name: EVI-7 Meridian
+  parent: BallisticArtillery
+  description: Launches large lances of ionized gas that vaporize nearly anything in their way.
+  suffix: TSF ONLY
+  components:
+  - type: StaticPrice
+    price: 2000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/evi7.rsi
+    layers:
+    - state: base
+  - type: Appearance
+  - type: AmmoCounter
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    projectileSpeed: 300
+    minAngle: 0
+    maxAngle: 1
+    fireRate: 0.2
+    recoil: 5
+    burstCooldown: 9
+    burstFireRate: 2
+    shotsPerBurst: 2
+    selectedMode: Burst
+    availableModes: Burst
+    shootThermalSignature: 48000000 # ~7km with continuous fire
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/laserfire.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: Battery
+    maxCharge: 50000
+    startingCharge: 50000
+  - type: BatterySelfRecharger
+    autoRechargePause: true
+    autoRechargePauseTime: 30 #30 second reload
+    autoRecharge: true
+    autoRechargeRate: 50000
+  - type: SpaceArtillery
+    powerChargeRate: 350
+    powerUsePassive: 500
+    powerUseActive: 0
+  - type: FireControlRotate
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipLargePlasmaProjectile
+    fireCost: 5000 #10 shots
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 6000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 3000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#C92BCC"
+    scale: 2
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 180
 
 
  # M25
@@ -1305,3 +1464,162 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+
+# Gnomon
+
+- type: entity
+  id: WeaponTurretEVI3Gnomon
+  name: EVI-3 Gnomon Pulsar
+  parent: BallisticArtillery
+  description: Launches magnetically contained balls of plasma at targets. Can be remotely activated, or linked up to a GCS.
+  suffix: TSF ONLY
+  components:
+  - type: StaticPrice
+    price: 2000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/evi3.rsi
+    layers:
+    - state: base
+  - type: Appearance
+  - type: AmmoCounter
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 3
+    recoil: 5 # 1/5x
+    minAngle: 0
+    maxAngle: 0
+    projectileSpeed: 150
+    shootThermalSignature: 4000000 # ~2.8km with continuous fire
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: Battery
+    maxCharge: 50000
+    startingCharge: 50000
+  - type: BatterySelfRecharger
+    autoRechargePause: true
+    autoRechargePauseTime: 30 #30 second reload
+    autoRecharge: true
+    autoRechargeRate: 50000
+  - type: SpaceArtillery
+    powerChargeRate: 350
+    powerUsePassive: 500
+    powerUseActive: 0
+  - type: FireControlRotate
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipSmallPlasmaProjectile
+    fireCost: 1000 #50 shots
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 6000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 3000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#C92BCC"
+    scale: 2
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 60
+
+# Meridian
+
+- type: entity
+  id: WeaponTurretEVI7Meridian
+  name: EVI-7 Meridian
+  parent: BallisticArtillery
+  description: Launches magnetically contained balls of plasma at targets. Can be remotely activated, or linked up to a GCS.
+  suffix: TSF ONLY
+  components:
+  - type: StaticPrice
+    price: 2000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/evi7.rsi
+    layers:
+    - state: base
+  - type: Appearance
+  - type: AmmoCounter
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    projectileSpeed: 300
+    minAngle: 0
+    maxAngle: 1
+    fireRate: 0.2
+    recoil: 5
+    burstCooldown: 9
+    burstFireRate: 2
+    shotsPerBurst: 2
+    selectedMode: Burst
+    availableModes: Burst
+    shootThermalSignature: 48000000 # ~7km with continuous fire
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/laserfire.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: Battery
+    maxCharge: 50000
+    startingCharge: 50000
+  - type: BatterySelfRecharger
+    autoRechargePause: true
+    autoRechargePauseTime: 30 #30 second reload
+    autoRecharge: true
+    autoRechargeRate: 50000
+  - type: SpaceArtillery
+    powerChargeRate: 350
+    powerUsePassive: 500
+    powerUseActive: 0
+  - type: FireControlRotate
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipLargePlasmaProjectile
+    fireCost: 5000 #10 shots
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 6000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 3000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#C92BCC"
+    scale: 2
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 180
