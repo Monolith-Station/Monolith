@@ -177,6 +177,17 @@
     Uranium: 600
 
 - type: latheRecipe
+  id: WeaponShockMaul
+  parent: BaseWeaponRecipeLong
+  result: WeaponShockMaul
+  categories:
+  - Weapons
+  materials:
+    Steel: 2000
+    Plasteel: 800
+    Plasma: 800
+
+- type: latheRecipe
   id: HardlightShield
   parent: BaseWeaponRecipeLong
   result: HardlightShield
