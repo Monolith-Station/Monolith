@@ -41,6 +41,9 @@
   - type: ExaminableDamage
     messages: WindowMessages
   - type: Repairable
+    qualities:
+    - Welding #Mono
+    - Applicating #Mono
   - type: RCDDeconstructable
     cost: 6
     delay: 4

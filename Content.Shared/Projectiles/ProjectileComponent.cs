@@ -105,6 +105,12 @@ public sealed partial class ProjectileComponent : Component
     [DataField]
     public FixedPoint2 PenetrationAmount = FixedPoint2.Zero;
 
+    /// <summary>
+    ///     Mono: Determines either should be entity deleted on collision if damage == null or not.
+    /// </summary>
+    [DataField]
+    public bool NoDamageDelete = true;
+
     // Goobstation Start
     [DataField]
     public float ArmorPenetration;
