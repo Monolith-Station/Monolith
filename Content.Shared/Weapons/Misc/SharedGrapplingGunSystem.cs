@@ -179,9 +179,9 @@ public abstract class SharedGrapplingGunSystem : VirtualController
         if (value)
         {
             // We null-coalesce here because playing the sound again will cause it to become eternally stuck playing
-            component.Stream = _audio.PlayPredicted(component.ReelSound, uid, user)?.Entity ?? component.Stream;
+            component.Stream ??= _audio.PlayPredicted(component.ReelSound, uid, user)?.Entity ?? component.Stream;
         }
-        else if (!value && component.Stream.HasValue)
+        else if (!value && component.Stream.HasValue && Timing.IsFirstTimePredicted)
         {
             component.Stream = _audio.Stop(component.Stream);
         }
@@ -270,14 +270,12 @@ public abstract class SharedGrapplingGunSystem : VirtualController
                 var grapplerUidA = _container.TryGetOuterContainer(physicalHook, Transform(physicalHook), out var containerA) ? containerA.Owner : physicalHook;
                 var grapplerBodyA = Comp<PhysicsComponent>(grapplerUidA);
 
-                var massFactorA = MathF.Min(grapplerBodyA.InvMass * grappling.ReelMassCoefficient, 1f);
-                _physics.ApplyLinearImpulse(grapplerUidA, targetDirection * grappling.ReelForce * massFactorA * frameTime * -1, body: grapplerBodyA);
+                _physics.ApplyLinearImpulse(grapplerUidA, targetDirection * grappling.ReelForce * frameTime * -1, body: grapplerBodyA);
 
                 var grapplerUidB = _container.TryGetOuterContainer(physicalGrapple, Transform(physicalGrapple), out var containerB) ? containerB.Owner : physicalGrapple;
                 var grapplerBodyB = Comp<PhysicsComponent>(grapplerUidB);
 
-                var massFactorB = MathF.Min(grapplerBodyB.InvMass * grappling.ReelMassCoefficient, 1f);
-                _physics.ApplyLinearImpulse(grapplerUidB, targetDirection * grappling.ReelForce * massFactorB * frameTime, body: grapplerBodyB);
+                _physics.ApplyLinearImpulse(grapplerUidB, targetDirection * grappling.ReelForce * frameTime, body: grapplerBodyB);
             }
 
             Dirty(uid, jointComp);

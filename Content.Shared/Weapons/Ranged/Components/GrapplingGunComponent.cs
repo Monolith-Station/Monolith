@@ -22,12 +22,6 @@ public sealed partial class GrapplingGunComponent : Component
     public float ReelForce = 4000f;
 
     /// <summary>
-    /// Highest mass that can be reeled in without resistance
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float ReelMassCoefficient = 80f;
-
-    /// <summary>
     /// Margin between max length and the grappling gun when reeling the grappling hook in.
     /// </summary>
     [DataField, AutoNetworkedField]
