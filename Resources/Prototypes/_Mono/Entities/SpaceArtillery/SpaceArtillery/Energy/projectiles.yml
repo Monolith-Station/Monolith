@@ -86,7 +86,7 @@
     damage:
       types:
         Structural: 300
-        Heat: 100
+        Heat: 250
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/turbolaser_shot.rsi
     layers:
@@ -96,7 +96,7 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     radarColor: "#C92BCC"
-    scale: 3.5
+    scale: 3.0
     requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
