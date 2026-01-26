@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: UnicornOnLSD
+# Discord: unicornonlsd
+
+# Shuttle Notes:
+#                Price marker is x150%; has an FTL drive, camera system, front minigun
+- type: vessel
+  id: Tapir
+  parent: BaseVessel
+  name: DIS-MI Tapir
+  description: A heavy-weight jack-of-all-trades geared with a basic FTL drive, point defense turrets and some basic internal security features. The Tapir stems from a cooperative commission from the Civil Defense Militia to Drake Industries as a mean to carry out deep space operations independantly using the low-scale crew support.
+  price: 69500
+  category: Medium
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/tapir.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  - Civilian
+  - Medical
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Tapir
+  mapName: 'DIS-MI Tapir'
+  mapPath: /Maps/_Mono/Shuttles/tapir.yml
+  minPlayers: 0
+  stations:
+    Tapir:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Tapir CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
