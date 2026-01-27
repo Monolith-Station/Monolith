@@ -33,6 +33,11 @@
             - MachineMask
           layer:
             - MachineLayer
+    - type: RadarBlip
+      visibleFromOtherGrids: true
+      radarColor: "#fcba03"
+      scale: 1
+      shape: square
 
     # Visuals
     - type: Appearance
@@ -196,6 +201,11 @@
     - type: FuelGradeAdapter # Frontier
       inputMaterial: Plasma # Frontier
       outputMaterial: FuelGradePlasma # Frontier
+    # Mono
+    - type: ShipRepairable
+      repairTime: 10
+      repairCost: 35
+
 
 - type: entity
   name: S.U.P.E.R.P.A.C.M.A.N.-type portable generator
@@ -260,6 +270,10 @@
     - type: FuelGradeAdapter # Frontier
       inputMaterial: Uranium # Frontier
       outputMaterial: FuelGradeUranium # Frontier
+    # Mono
+    - type: ShipRepairable
+      repairTime: 15
+      repairCost: 50
 
 - type: entity
   name: J.R.P.A.C.M.A.N.-type portable generator
@@ -379,3 +393,7 @@
           behaviors:
             - !type:SolutionExplosionBehavior
               solution: tank
+    # Mono
+    - type: ShipRepairable
+      repairTime: 5
+      repairCost: 20

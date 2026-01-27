@@ -39,6 +39,11 @@ entities:
     components:
     - type: MetaData
       name: ADS Wyvern
+    - type: InitRepairSnapshot
+    - type: ShipRepairRestrict
+      toolWhitelist:
+        tags:
+        - ADSRepairTool
     - type: Transform
       parent: invalid
     - type: MapGrid

@@ -25,6 +25,7 @@
   - type: WirelessNetworkConnection
     range: 200
   - type: DeviceList
+  - type: NoSignalOnLink # Mono
   - type: DeviceNetworkRequiresPower
   - type: DeviceLinkSource
     ports:
@@ -116,6 +117,10 @@
     guides:
     - AirAlarms
     - DeviceMonitoringAndControl
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   id: AirAlarmAssembly

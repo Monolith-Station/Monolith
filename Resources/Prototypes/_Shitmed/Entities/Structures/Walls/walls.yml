@@ -74,6 +74,10 @@
   #  pathStage: 10 # Ascension
   - type: ArmorThickness
     thickness: 10
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   parent: BaseWallTierFour

@@ -65,6 +65,9 @@
     idleLoad: 5
     batteryRechargeRate: 300
     batteryRechargeEfficiency: 0.95
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 25
 
 - type: entity
   id: GunneryServerMedium
@@ -87,6 +90,9 @@
     idleLoad: 10
     batteryRechargeRate: 600
     batteryRechargeEfficiency: 0.95
+  - type: ShipRepairable
+    repairTime: 13
+    repairCost: 40
 
 - type: entity
   id: GunneryServerHigh
@@ -109,6 +115,9 @@
     idleLoad: 20
     batteryRechargeRate: 1200
     batteryRechargeEfficiency: 0.95
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 70
 
 - type: entity
   id: GunneryServerUltra
@@ -133,6 +142,9 @@
     batteryRechargeEfficiency: 0.95
 #  - type: Anchorable # Sorry Tunguska, but I am NOT risking this being used for a missile bus. - "what could go wrong" says redrover
 #    flags: Anchorable
+  - type: ShipRepairable
+    repairTime: 25
+    repairCost: 100
 
 - type: entity
   id: GunneryServerOmega
@@ -157,6 +169,9 @@
     batteryRechargeEfficiency: 0.95
   - type: Anchorable # Sorry Flyssa, but I am NOT risking this being used for a missile bus.
     flags: Anchorable
+  - type: ShipRepairable
+    repairTime: 40
+    repairCost: 150
 
 - type: entity
   id: GunneryServerStation
@@ -180,6 +195,9 @@
     batteryRechargeEfficiency: 0.95
   - type: Anchorable
     flags: Anchorable
+  - type: ShipRepairable
+    repairTime: 40
+    repairCost: 150
 
 - type: entity
   id: GunneryServerStationConsolesEnforced
@@ -204,6 +222,9 @@
     batteryRechargeEfficiency: 0.95
   - type: Anchorable
     flags: Anchorable
+  - type: ShipRepairable
+    repairTime: 40
+    repairCost: 150
 
 # Monolith : Gunnery Computer
 - type: entity
@@ -232,6 +253,8 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: FireControlConsole
+  - type: ShipNpcTarget
+    needPower: true
   - type: ActivatableUI
     key: enum.FireControlConsoleUiKey.Key
   - type: UserInterface
@@ -277,6 +300,14 @@
           volume: 1.2
           pitch: 1.05
           variation: 0.05
+  - type: ShipRepairable
+    repairTime: 7
+    repairCost: 25
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#fc9403"
+    scale: 1.5
+    shape: diamond
 
 - type: entity
   parent: [BaseStructureComputerTabletop, ComputerGunneryConsole]

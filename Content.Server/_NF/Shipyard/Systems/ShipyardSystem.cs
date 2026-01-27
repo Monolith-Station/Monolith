@@ -150,6 +150,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         }
 
         _sawmill.Info($"Shuttle {shuttlePath} was purchased at {ToPrettyString(stationUid)} for {price:f2}");
+        var ev = new ShipBoughtEvent();
+        RaiseLocalEvent(shuttleGrid.Value, ev);
         //can do TryFTLDock later instead if we need to keep the shipyard map paused
         _shuttle.TryFTLDock(shuttleGrid.Value, shuttleComponent, targetGrid.Value);
         shuttleEntityUid = shuttleGrid;

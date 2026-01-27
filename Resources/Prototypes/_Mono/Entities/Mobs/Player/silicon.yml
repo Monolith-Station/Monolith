@@ -78,6 +78,53 @@
   - ADS-Evasion
   - ADS-Apprehension
 
+# base stats for faction borgs
+
+- type: entity
+  parent: BaseBorgChassis
+  id: BaseFactionBorgChassis
+  abstract: true
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      250: Critical
+      350: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4.5
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      125: 0.7
+      200: 0.5
+  - type: Damageable
+    damageModifierSet: FactionBorgChassis
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 125
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+         damage: 450
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - borg_module
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
 - type: entity
   id: AiHeldMono
   description: Components added / removed from an entity that gets inserted into an AI core.
@@ -122,7 +169,7 @@
 
 - type: entity
   id: BaseBorgChassisRedacted
-  parent: BaseBorgChassis
+  parent: BaseFactionBorgChassis
   abstract: true
   components:
   - type: NpcFactionMember
@@ -225,7 +272,7 @@
       - BorgModuleAdvancedTool
       - BorgModuleConstruction
       - BorgModuleCable
-      - BorgModuleRCD
+      - BorgModuleRedactedRCD
       - BorgModuleGPS
   - type: ItemSlots
     slots:
@@ -566,7 +613,8 @@
   - type: Access
     tags:
     - Pirate
-    - RogueCommander
+    - GrandVizier
+    - PDVCommand
 
 - type: entity
   id: AiHeldPDV
@@ -600,7 +648,7 @@
 
 - type: entity
   id: BaseBorgChassisPDV
-  parent: BaseBorgChassis
+  parent: BaseFactionBorgChassis
   abstract: true
   components:
   - type: NpcFactionMember
@@ -609,10 +657,11 @@
   - type: Access
     tags:
     - Pirate
-    - RogueCommander
+    - PDVCommand
+    - GrandVizier
     - Mercenary
   - type: AccessReader
-    access: [["RogueCommander"]]
+    access: [["GrandVizier"]]
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
@@ -714,7 +763,7 @@
 
 - type: entity
   id: BaseBorgChassisTSF
-  parent: BaseBorgChassis
+  parent: BaseFactionBorgChassis
   abstract: true
   components:
   - type: NpcFactionMember

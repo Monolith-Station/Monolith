@@ -1,4 +1,7 @@
 - type: Tag
+  id: ADSRepairTool
+
+- type: Tag
   id: AdvancedLaserPistol
 
 - type: Tag
@@ -26,11 +29,17 @@
   id: PointDisk
 
 - type: Tag
+  id: RapidConstructionTool
+
+- type: Tag
   id: SugarBiscuit
 
 - type: Tag
   id: SimpleBiscuit
-  
+
+- type: Tag
+  id: ShipRepairTool
+
 - type: Tag # Prevents a crash and makes future cherry-picks hurt less but not actually implemented
   id: TurretCompatibleWeapon # Used in the construction of sentry turrets
 

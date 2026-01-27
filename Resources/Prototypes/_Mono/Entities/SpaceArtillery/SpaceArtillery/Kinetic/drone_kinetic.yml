@@ -6,7 +6,7 @@
   suffix: DRONE ONLY
   components:
   - type: StaticPrice
-    price: 1500
+    price: 10000
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/shard.rsi
     layers:
@@ -18,7 +18,7 @@
     range: 500
   - type: Gun
     fireRate: 0.4
-    recoil: 25 # 1x
+    recoil: 10 # 2/5x
     projectileSpeed: 350
     minAngle: 0
     maxAngle: 0
@@ -28,8 +28,9 @@
     soundEmpty:
       path: /Audio/Weapons/click.ogg
   - type: SpaceArtillery
-    powerChargeRate: 2000
-    powerUsePassive: 2000
+    powerChargeRate: 1500
+    powerUsePassive: 1500
+    powerUseActive: 0
   - type: Battery
     maxCharge: 10000
     startingCharge: 10000
@@ -38,13 +39,16 @@
     fireCost: 1500
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 1500
+    autoRechargeRate: 3000
+  - type: ExtensionCableReceiver
+  - type: ApcPowerReceiver
+    powerLoad: 1500
   - type: Actions
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 9000
+        damage: 6000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -54,7 +58,74 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1.5
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Light
+
+- type: entity
+  id: WeaponTurretPinhole
+  name: Pinhole-class railgun
+  parent: BallisticArtillery
+  description: Mass driver weapon of unknown origin. Reverse engineering attempts have indicated extremely high projectile velocity and high-mass projectiles with unresolved ship-pushing payload.
+  suffix: DRONE ONLY
+  components:
+  - type: StaticPrice
+    price: 30000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/pinhole.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.1
+    recoil: 25 # 1x
+    projectileSpeed: 600
+    minAngle: 0
+    maxAngle: 0
+    shootThermalSignature: 1200000
+    burstCooldown: 10
+    burstFireRate: 2
+    shotsPerBurst: 3
+    selectedMode: Burst
+    availableModes: Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+    soundEmpty:
+      path: /Audio/Weapons/click.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 5000
+    powerUsePassive: 5000
+  - type: Battery
+    maxCharge: 20000
+    startingCharge: 20000
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipPinholeProjectile
+    fireCost: 5000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 8000
+  - type: Actions
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 2.5
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Medium

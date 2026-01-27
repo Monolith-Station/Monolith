@@ -111,6 +111,15 @@
     highVoltageNode: input
     mediumVoltageNode: ame
   - type: DragDropTargetable # Mono
+  # Mono
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 50
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#fcba03"
+    scale: 2
+    shape: diamond
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -239,3 +248,7 @@
     onBump: false
     requirePower: true
     highVoltageNode: ame
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 15

@@ -255,9 +255,13 @@
   components:
     - type: AmmoCounter
     - type: GrapplingGun
+      ropeBreakPoint: 100000 # Mono
+      reelRate: 8 # Mono
+      reelForce: 12000 # Mono
     - type: Gun
       soundGunshot: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
-      fireRate: 0.5
+      fireRate: 2 # Mono - 0.5 -> 2
+      projectileSpeed: 60 # Mono
       clumsyProof: true
     - type: BasicEntityAmmoProvider
       proto: GrapplingHook
@@ -269,8 +273,9 @@
         - state: base-unshaded
           map: [ "unshaded" ]
           visible: true
-    - type: UseDelay
-      delay: 1.5
+    # Mono
+    #- type: UseDelay
+    #  delay: 0 # Mono
     - type: Appearance
     - type: GenericVisualizer
       visuals:

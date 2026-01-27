@@ -210,6 +210,14 @@
   - type: FuelGradeAdapter
     inputMaterial: Plasma
     outputMaterial: FuelGradePlasma
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 100 # expensive
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#fcba03"
+    scale: 2
+    shape: square
 
 - type: entity
   parent:

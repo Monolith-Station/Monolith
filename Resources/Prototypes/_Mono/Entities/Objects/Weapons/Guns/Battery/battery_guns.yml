@@ -1,0 +1,41 @@
+- type: entity
+  name: energy shotgun "Dignity"
+  parent: BaseWeaponBattery
+  id: WeaponEnergyShotgunOverseer
+  description: A weapon that has been the last thing seen by many pirates, "Dignity" is a 1-handed energy shotgun often used by pirate hunting overseers.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Battery/dignity_shotgun.rsi
+    state: icon
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Battery/dignity_shotgun.rsi
+    slots:
+    - Back
+    - SuitStorage
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserSpreadMono
+    fireCost: 150
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletLaserSpreadMono
+      fireCost: 120
+    - proto: BulletLaserSlug
+      fireCost: 200
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,0
+    sprite: _Mono/Objects/Weapons/Guns/Battery/dignity_shotgun.rsi
+  - type: Battery
+    maxCharge: 1200
+    startingCharge: 1200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 24
+  - type: GunSpreadModifier
+    spread: 0.8

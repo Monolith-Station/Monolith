@@ -31,6 +31,7 @@
   - type: RadarBlip
     radarColor: "#035EFC"
     scale: 2
+    visibleFromOtherGrids: true
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
     whitelist:
@@ -44,3 +45,6 @@
     shipType: Missile
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 35
+    repairCost: 120

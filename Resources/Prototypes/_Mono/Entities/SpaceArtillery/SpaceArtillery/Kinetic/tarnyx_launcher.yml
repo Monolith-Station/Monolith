@@ -44,10 +44,14 @@
   - type: RadarBlip
     radarColor: "#035EFC"
     scale: 2.5
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
     shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 100
 
 # limited ammo for ships
 
@@ -86,6 +90,7 @@
   - type: RadarBlip
     radarColor: "#035EFC"
     scale: 2.5
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
@@ -98,3 +103,6 @@
     proto: 150mmEmpShell
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 100

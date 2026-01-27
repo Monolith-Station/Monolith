@@ -55,6 +55,34 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformCcCBRN
+  name: CBURN Type B Protective Suit
+  description: A heavily modified protective suit. It'll slow you down a bit, but it'll make sure nothing you don't want gets in your body. Also comes with the bonus of flame resistance! Be the bane of all borers!
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/mopp-tsfmc.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/mopp-tsfmc.rsi
+    equipDelay: 0.3
+    unequipDelay: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Poison: 0.6
+        Radiation: 0.8
+        Caustic: 0.6
+        Heat: .85
+  - type: StaminaDamageResistance
+    coefficient: 0.85 # its pretty thick, i think it'd do something
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: SuitSensor
+    randomMode: false
+    mode: SensorVitals
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformTSFMCEngi
   name: TSFMC engineer uniform
   description: A combat uniform in TSF Type-45U urban camouflage. It has high-vis markings for engineers.

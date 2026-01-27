@@ -41,6 +41,9 @@
   - type: ExaminableDamage
     messages: WindowMessages
   - type: Repairable
+    qualities:
+    - Welding #Mono
+    - Applicating #Mono
   - type: RCDDeconstructable
     cost: 6
     delay: 4
@@ -92,6 +95,9 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 3
 
 - type: entity
   parent: Window
@@ -213,6 +219,9 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: StaticPrice
     price: 15
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 2
 
 - type: entity
   id: WindowDirectionalRCDResistant

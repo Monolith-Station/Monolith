@@ -371,11 +371,14 @@
   - type: ShipGunClass
     shipClass: Superlight
   - type: RadarBlip
-    visibleFromOtherGrids: false
+    visibleFromOtherGrids: true
     radarColor: "#FF0040"
     scale: 1.25
   - type: ShipGunType
     shipType: Ballistic
   - type: StaticPrice
     price: 400
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 25
     # Mono End

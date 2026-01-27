@@ -54,6 +54,7 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 2
+    visibleFromOtherGrids: true
   - type: Destructible
     thresholds:
     - trigger:
@@ -78,6 +79,9 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 150
 
 # Bofors 255mm
 
@@ -149,10 +153,14 @@
   - type: RadarBlip
     radarColor: "#03FC9D"
     scale: 3.5
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 150
 
 # HADES 255mm
 
@@ -219,6 +227,7 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 2.5
+    visibleFromOtherGrids: true
   - type: Destructible
     thresholds:
     - trigger:
@@ -234,6 +243,9 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 45
+    repairCost: 300
 
 # Longbow
 
@@ -290,6 +302,7 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1.5
+    visibleFromOtherGrids: true
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -317,3 +330,6 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 150
