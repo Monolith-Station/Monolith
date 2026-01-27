@@ -15,6 +15,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
+// Mono
+using Content.Shared.Destructible;
+
 namespace Content.Server.Materials;
 
 /// <summary>
@@ -33,6 +36,7 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
     {
         base.Initialize();
         SubscribeLocalEvent<MaterialStorageComponent, MachineDeconstructedEvent>(OnDeconstructed);
+        SubscribeLocalEvent<MaterialStorageComponent, DestructionEventArgs>(OnDestroyed); // Mono
         SubscribeLocalEvent<MaterialStorageComponent, PriceCalculationEvent>(OnPriceCalculation); // Frontier
 
         SubscribeAllEvent<EjectMaterialMessage>(OnEjectMessage);
@@ -43,10 +47,25 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         if (!component.DropOnDeconstruct)
             return;
 
-        foreach (var (material, amount) in component.Storage)
-        {
-            SpawnMultipleFromMaterial(amount, material, Transform(uid).Coordinates);
-        }
+        DropAll((uid, component));
+    }
+
+    // Mono
+    private void OnDestroyed(Entity<MaterialStorageComponent> ent, ref DestructionEventArgs args)
+    {
+        if (!ent.Comp.DropOnDestroy)
+            return;
+
+        DropAll(ent);
+    }
+
+    // Mono
+    public void DropAll(Entity<MaterialStorageComponent> ent)
+    {
+        var coord = Transform(ent).Coordinates;
+
+        foreach (var (material, amount) in ent.Comp.Storage)
+            SpawnMultipleFromMaterial(amount, material, coord);
     }
 
     // Start Frontier: add value of contents to appraisal price
