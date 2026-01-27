@@ -53,10 +53,18 @@
 - type: entity
   parent: ScrapOre
   id: ScrapOre4
-  suffix: 3
+  suffix: 4
   components:
   - type: Stack
     count: 4
+
+- type: entity
+  parent: ScrapOre10
+  id: ScrapOre4
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
 
 - type: entity
   parent: ScrapOre
