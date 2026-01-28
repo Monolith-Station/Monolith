@@ -680,9 +680,8 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
     private (Vector2 Top, Vector2 Left, Vector2 Offset) GetSize(Box2Rotated bounds)
     {
-        var top = bounds.Origin + bounds.Rotation.RotateVec((bounds.TopLeft + bounds.TopRight) * 0.5f - bounds.Origin);
-        var left = bounds.Origin + bounds.Rotation.RotateVec((bounds.TopLeft + bounds.BottomLeft) * 0.5f - bounds.Origin);
-
+        var top = (bounds.TopLeft + bounds.TopRight) * 0.5f;
+        var left = (bounds.TopLeft + bounds.BottomLeft) * 0.5f;
         var offset = (bounds.TopRight + bounds.BottomLeft) * 0.5f;
 
         return (top - offset, left - offset, offset);
