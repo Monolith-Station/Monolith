@@ -49,7 +49,7 @@
       types:
         Radiation: 20
         Structural: 120
-        Heat: 80
+        Heat: 60
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
     layers:
@@ -70,7 +70,7 @@
   - type: Explosive
     explosionType: Default
     totalIntensity: 10
-    intensitySlope: 10
+    intensitySlope: 15
     maxIntensity: 15
 
 - type: entity
