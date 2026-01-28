@@ -627,6 +627,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 // otherwise check if we want to draw a box
                 if (blip.GridAlignedBox is { } box)
                 {
+                    // TODO: make DrawBlipShape take in rotation and a scale vector instead of just a scale float, use that
                     var rotation = _transform.GetWorldRotation(grid);
                     var rotatedBox = new Box2Rotated(box.Scale(MinimapScale), ourEntRot - rotation - blip.Rotation);
 

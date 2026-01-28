@@ -99,10 +99,10 @@ public sealed partial class RadarBlipsSystem : EntitySystem
 
             var box = (Box2?)null;
             // hijack our shape if we're on a grid and we want to do that
-            if (_map.TryFindGridAt(predictedMap, out var grid, out _))
+            if (_map.TryFindGridAt(predictedMap, out var grid, out _) && grid != EntityUid.Invalid)
                 box = blip.OnGridBox;
 
-            result.Add(new(blip.Uid, predictedPos, blip.Scale, blip.Color, blip.Shape, grid, box, blip.Rotation));
+            result.Add(new(blip.Uid, predictedPos, blip.Scale, blip.Color, blip.Shape, grid == EntityUid.Invalid ? null : grid, box, blip.Rotation));
         }
 
         return result;
