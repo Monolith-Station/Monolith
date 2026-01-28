@@ -248,7 +248,7 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     radarColor: "#035EFC"
-    scale: 6
+    scale: 2
     shape: circle
   - type: TimedDespawn
     lifetime: 6.6
@@ -357,7 +357,7 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     radarColor: "#9507fa"
-    scale: 9
+    scale: 3
     shape: circle
   - type: TimedDespawn
     lifetime: 10
@@ -396,7 +396,7 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     radarColor: "#ab0707"
-    scale: 9
+    scale: 3
     shape: circle
   - type: TimedDespawn
     lifetime: 4.5
