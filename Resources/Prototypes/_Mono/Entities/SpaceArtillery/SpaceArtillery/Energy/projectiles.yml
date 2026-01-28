@@ -134,8 +134,8 @@
     damage:
       types:
         Radiation: 5
-        Structural: 60
-        Heat: 30
+        Structural: 10
+        Heat: 10
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
     layers:
@@ -154,7 +154,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 15
+    totalIntensity: 5
     intensitySlope: 3
     maxIntensity: 5
     maxTileBreak: 1
