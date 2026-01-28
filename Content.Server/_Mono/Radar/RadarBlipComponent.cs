@@ -46,10 +46,11 @@ public sealed partial class RadarBlipComponent : Component
     [DataField("radarColor")]
     public Color _radarColor { set => Config.Color = value; get => Config.Color; }
 
+    // note that the original code arbitrarily *3'd the size
     [DataField("scale")]
     public float _scale {
-        set => Config.Bounds = new Box2(-value * 0.5f, -value * 0.5f, value * 0.5f, value * 0.5f);
-        get => (Config.Bounds.Width + Config.Bounds.Height) * 0.5f;
+        set => Config.Bounds = new Box2(-value * 1.5f, -value * 1.5f, value * 1.5f, value * 1.5f);
+        get => (Config.Bounds.Width + Config.Bounds.Height) / 6f;
     }
 
     [DataField("shape")]
