@@ -1,0 +1,716 @@
+- action: !type:InstantActionComponent
+    icon: /Textures/Tiles/cropped_parallax.png
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: AlignTileAny
+      tileId: Space
+  assignments:
+  - 0: 1
+  name: space
+- action: !type:InstantActionComponent
+    icon: Interface/VerbIcons/delete.svg.192dpi.png
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      eraser: True
+  assignments:
+  - 0: 2
+  name: action-name-mapping-erase
+- action: !type:InstantActionComponent
+    icon:
+      entity: AtmosFixBlockerMarker
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: AtmosFixBlockerMarker
+  assignments:
+  - 0: 4
+  name: Atmos Fix Vacuum Marker
+- action: !type:InstantActionComponent
+    icon: /Textures/Tiles/plating.png
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: AlignTileAny
+      tileId: Plating
+  assignments:
+  - 0: 3
+  name: plating
+- action: !type:InstantActionComponent
+    icon: /Textures/Tiles/hull_reinforced.png
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: AlignTileAny
+      tileId: FloorHullReinforced
+  assignments:
+  - 0: 3
+  name: Exterior Reinforced Hull Plating
+- action: !type:InstantActionComponent
+    icon:
+      entity: Grille
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: Grille
+  assignments:
+  - 0: 4
+  name: Grille
+- action: !type:InstantActionComponent
+    icon:
+      entity: GrilleDiagonal
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GrilleDiagonal
+  assignments:
+  - 0: 4
+  name: GrilleDiagonal
+- action: !type:InstantActionComponent
+    icon:
+      entity: Catwalk
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: Catwalk
+  assignments:
+  - 0: 4
+  name: Catwalk
+- action: !type:InstantActionComponent
+    icon:
+      entity: WallSolid
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: WallSolid
+  assignments:
+  - 0: 5
+  name: WallSolid
+- action: !type:InstantActionComponent
+    icon:
+      entity: Window
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: Window
+  assignments:
+  - 0: 6
+  name: Window
+- action: !type:InstantActionComponent
+    icon:
+      entity: WallReinforced
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: WallReinforced
+  assignments:
+  - 0: 7
+  name: WallReinforced
+- action: !type:InstantActionComponent
+    icon:
+      entity: WallReinforcedDiagonal
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: WallReinforcedDiagonal
+  assignments:
+  - 0: 7
+  name: WallReinforcedDiagonal
+- action: !type:InstantActionComponent
+    icon:
+      entity: ReinforcedWindow
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: ReinforcedWindow
+  assignments:
+  - 0: 8
+  name: ReinforcedWindow
+- action: !type:InstantActionComponent
+    icon:
+      entity: ReinforcedPlasmaWindow
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: ReinforcedPlasmaWindow
+  assignments:
+  - 0: 8
+  name: ReinforcedPlasmaWindow
+- action: !type:InstantActionComponent
+    icon:
+      entity: WallPlastitanium
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: WallPlastitanium
+  assignments:
+  - 0: 8
+  name: WallPlastitanium
+- action: !type:InstantActionComponent
+    icon:
+      entity: WallPlastitaniumDiagonal
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: WallPlastitaniumDiagonal
+  assignments:
+  - 0: 8
+  name: WallPlastitaniumDiagonal
+- action: !type:InstantActionComponent
+    icon:
+      entity: PlastitaniumWindow
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: PlastitaniumWindow
+  assignments:
+  - 0: 8
+  name: PlastitaniumWindow
+- action: !type:InstantActionComponent
+    icon:
+      entity: PlastitaniumWindowDiagonal
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: PlastitaniumWindowDiagonal
+  assignments:
+  - 0: 8
+  name: PlastitaniumWindowDiagonal
+- action: !type:InstantActionComponent
+    icon:
+      entity: Thruster
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: Thruster
+  assignments:
+  - 0: 8
+  name: Thruster
+- action: !type:InstantActionComponent
+    icon:
+      entity: ThrusterLarge
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: ThrusterLarge
+  assignments:
+  - 0: 8
+  name: ThrusterLarge
+- action: !type:InstantActionComponent
+    icon:
+      entity: Gyroscope
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: Gyroscope
+  assignments:
+  - 0: 8
+  name: Gyroscope
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasPipeStraight
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasPipeStraight
+  assignments:
+  - 1: 0
+  name: GasPipeStraight
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasPipeBend
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasPipeBend
+  assignments:
+  - 1: 1
+  name: GasPipeBend
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasPipeTJunction
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasPipeTJunction
+  assignments:
+  - 1: 2
+  name: GasPipeTJunction
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasPipeFourway
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasPipeFourway
+  assignments:
+  - 1: 3
+  name: GasPipeFourway
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasVentScrubber
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasVentScrubber
+  assignments:
+  - 1: 4
+  name: GasVentScrubber
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasVentPump
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasVentPump
+  assignments:
+  - 1: 5
+  name: GasVentPump
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasPort
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasPort
+  assignments:
+  - 1: 5
+  name: GasPort
+- action: !type:InstantActionComponent
+    icon:
+      entity: AirAlarm
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: AirAlarm
+  assignments:
+  - 1: 6
+  name: AirAlarm
+- action: !type:InstantActionComponent
+    icon:
+      entity: AtmosDeviceFanDirectional
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: AtmosDeviceFanDirectional
+  assignments:
+  - 1: 6
+  name: Directional Fan
+- action: !type:InstantActionComponent
+    icon:
+      entity: CableApcExtension
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: CableApcExtension
+  assignments:
+  - 2: 1
+  name: CableApcExtension
+- action: !type:InstantActionComponent
+    icon:
+      entity: CableMV
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: CableMV
+  assignments:
+  - 2: 2
+  name: CableMV
+- action: !type:InstantActionComponent
+    icon:
+      entity: CableHV
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: CableHV
+  assignments:
+  - 2: 3
+  name: CableHV
+- action: !type:InstantActionComponent
+    icon:
+      entity: SMESBasic
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: SMESBasic
+  assignments:
+  - 2: 7
+  name: SMESBasic
+- action: !type:InstantActionComponent
+    icon:
+      entity: SubstationBasic
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: SubstationBasic
+  assignments:
+  - 2: 4
+  name: SubstationBasic
+- action: !type:InstantActionComponent
+    icon:
+      entity: SubstationWallBasic
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: SubstationWallBasic
+  assignments:
+  - 2: 4
+  name: SubstationWallBasic
+- action: !type:InstantActionComponent
+    icon:
+      entity: APCBasic
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: APCBasic
+  assignments:
+  - 2: 0
+  name: APCBasic
+- action: !type:InstantActionComponent
+    icon:
+      entity: Poweredlight
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: Poweredlight
+  assignments:
+  - 2: 5
+  name: Poweredlight
+- action: !type:InstantActionComponent
+    icon:
+      entity: Table
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: Table
+  assignments:
+  - 3: 1
+  name: Table
+- action: !type:InstantActionComponent
+    icon:
+      entity: Rack
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: Rack
+  assignments:
+  - 3: 8
+  name: Rack
+- action: !type:InstantActionComponent
+    icon:
+      entity: Windoor
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: Windoor
+  assignments:
+  - 5: 0
+  name: Windoor
+- action: !type:InstantActionComponent
+    icon:
+      entity: WindowReinforcedDirectional
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: WindowReinforcedDirectional
+  assignments:
+  - 5: 1
+  name: WindowReinforcedDirectional
+- action: !type:InstantActionComponent
+    icon:
+      entity: UraniumReinforcedWindowDirectional
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: UraniumReinforcedWindowDirectional
+  assignments:
+  - 5: 2
+  name: UraniumReinforcedWindowDirectional
+- action: !type:InstantActionComponent
+    icon:
+      entity: Railing
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: Railing
+  assignments:
+  - 5: 3
+  name: Railing
+- action: !type:InstantActionComponent
+    icon:
+      entity: RailingCorner
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: RailingCorner
+  assignments:
+  - 5: 4
+  name: RailingCorner
+- action: !type:InstantActionComponent
+    icon:
+      entity: RailingCornerSmall
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: RailingCornerSmall
+  assignments:
+  - 5: 5
+  name: RailingCornerSmall
+- action: !type:InstantActionComponent
+    icon:
+      entity: RailingRound
+    name: RailingRound
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: RailingRound
+  assignments:
+  - 5: 6
+- action: !type:InstantActionComponent
+    icon:
+      entity: Firelock
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: Firelock
+  assignments:
+  - 0: 9
+  name: Firelock
+...
