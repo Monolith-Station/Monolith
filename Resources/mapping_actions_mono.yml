@@ -130,7 +130,7 @@
   name: WallSolid
 - action: !type:InstantActionComponent
     icon:
-      entity: Window
+      entity: ReinforcedWindow
     keywords: []
     checkCanInteract: False
     checkConsciousness: False
@@ -139,10 +139,25 @@
     temporary: True
     event: !type:StartPlacementActionEvent
       placementOption: SnapgridCenter
-      entityType: Window
+      entityType: ReinforcedWindow
   assignments:
-  - 0: 6
-  name: Window
+  - 0: 8
+  name: ReinforcedWindow
+- action: !type:InstantActionComponent
+    icon:
+      entity: ReinforcedWindowDiagonal
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: ReinforcedWindowDiagonal
+  assignments:
+  - 0: 8
+  name: ReinforcedWindowDiagonal
 - action: !type:InstantActionComponent
     icon:
       entity: WallReinforced
@@ -173,21 +188,6 @@
   assignments:
   - 0: 7
   name: WallReinforcedDiagonal
-- action: !type:InstantActionComponent
-    icon:
-      entity: ReinforcedWindow
-    keywords: []
-    checkCanInteract: False
-    checkConsciousness: False
-    clientExclusive: True
-    autoPopulate: False
-    temporary: True
-    event: !type:StartPlacementActionEvent
-      placementOption: SnapgridCenter
-      entityType: ReinforcedWindow
-  assignments:
-  - 0: 8
-  name: ReinforcedWindow
 - action: !type:InstantActionComponent
     icon:
       entity: ReinforcedPlasmaWindow
@@ -565,6 +565,21 @@
   name: Poweredlight
 - action: !type:InstantActionComponent
     icon:
+      entity: PoweredSmallLight
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: PoweredSmallLight
+  assignments:
+  - 2: 5
+  name: Small Light
+- action: !type:InstantActionComponent
+    icon:
       entity: Table
     keywords: []
     checkCanInteract: False
@@ -595,7 +610,7 @@
   name: Rack
 - action: !type:InstantActionComponent
     icon:
-      entity: Windoor
+      entity: WindoorSecure
     keywords: []
     checkCanInteract: False
     checkConsciousness: False
@@ -604,10 +619,10 @@
     temporary: True
     event: !type:StartPlacementActionEvent
       placementOption: SnapgridCenter
-      entityType: Windoor
+      entityType: WindoorSecure
   assignments:
   - 5: 0
-  name: Windoor
+  name: Secure Windoor
 - action: !type:InstantActionComponent
     icon:
       entity: WindowReinforcedDirectional
@@ -700,7 +715,7 @@
   - 5: 6
 - action: !type:InstantActionComponent
     icon:
-      entity: Firelock
+      entity: AirlockShuttle
     keywords: []
     checkCanInteract: False
     checkConsciousness: False
@@ -709,8 +724,83 @@
     temporary: True
     event: !type:StartPlacementActionEvent
       placementOption: SnapgridCenter
-      entityType: Firelock
+      entityType: AirlockShuttle
   assignments:
   - 0: 9
-  name: Firelock
+  name: Shuttle Airlock
+- action: !type:InstantActionComponent
+    icon:
+      entity: AirlockGlassShuttle
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: AirlockGlassShuttle
+  assignments:
+  - 0: 9
+  name: Glass Shuttle Airlock
+- action: !type:InstantActionComponent
+    icon:
+      entity: AirlockExternal
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: AirlockExternal
+  assignments:
+  - 0: 9
+  name: AirlockExternal
+- action: !type:InstantActionComponent
+    icon:
+      entity: AirlockExternalGlass
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: AirlockExternalGlass
+  assignments:
+  - 0: 9
+  name: AirlockExternalGlass
+- action: !type:InstantActionComponent
+    icon:
+      entity: FirelockGlass
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: FirelockGlass
+  assignments:
+  - 0: 9
+  name: FirelockGlass
+- action: !type:InstantActionComponent
+    icon:
+      entity: FirelockEdge
+    keywords: []
+    checkCanInteract: False
+    checkConsciousness: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: FirelockEdge
+  assignments:
+  - 0: 9
+  name: FirelockEdge
 ...
