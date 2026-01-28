@@ -16656,3 +16656,47 @@ Entries:
   id: 1844
   time: '2026-01-26T15:41:18.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3097
+- author: KeiKiyomi
+  changes:
+    - type: Tweak
+      message: Changed CentComm CBURN gear
+  id: 1845
+  time: '2026-01-26T15:53:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3122
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: Diagonaled the Shiv because i could
+  id: 1846
+  time: '2026-01-26T16:06:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2965
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Mini-hypos are generally better now.
+    - type: Tweak
+      message: >-
+        Advanced chemicals now have 0.15u metabolism rate. Pyrazine healing was
+        buffed to 2. 
+    - type: Tweak
+      message: Overseer's heavy maul sprite received changes.
+  id: 1847
+  time: '2026-01-26T16:06:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3095
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Ported grappling hook update from Wizden. Grappling hooks now obey
+        physics.
+    - type: Fix
+      message: Fixed a lot of grappling hook bugs (same Wizden port).
+    - type: Fix
+      message: Grappling hook now works at long range.
+    - type: Tweak
+      message: Grappling hook significantly buffed.
+    - type: Tweak
+      message: Grappling hook can now pull in mobs (including people) and crates.
+  id: 1848
+  time: '2026-01-26T16:18:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3124
