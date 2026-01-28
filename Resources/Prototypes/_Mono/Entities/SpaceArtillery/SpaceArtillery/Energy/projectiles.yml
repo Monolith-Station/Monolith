@@ -48,7 +48,7 @@
     damage:
       types:
         Radiation: 20
-        Structural: 350
+        Structural: 120
         Heat: 80
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
@@ -69,7 +69,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 18
+    totalIntensity: 10
     intensitySlope: 10
     maxIntensity: 15
 
