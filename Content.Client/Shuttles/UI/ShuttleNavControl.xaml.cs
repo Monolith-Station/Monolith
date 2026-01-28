@@ -619,7 +619,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             var color = blip.Config.Color.WithAlpha(0.8f);
             var box = new Box2Rotated(blip.Config.Bounds, 0);
             if (blip.Config.RespectZoom)
-                box.Box = box.Box.Scale(MinimapScale);
+                box.Box = new Box2(box.Box.BottomLeft * MinimapScale, box.Box.TopRight * MinimapScale);
             if (blip.Config.Rotate)
                 box.Rotation = ourEntRot - blip.Rotation;
 
@@ -794,10 +794,10 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
         var vertices = new Vector2[]
         {
-            offsetPos - size.Top,           // Tip
-            offsetPos + size.Left * 0.5f,    // Left wing
-            offsetPos + size.Top * 0.5f,     // Bottom
-            offsetPos - size.Left * 0.5f      // Right wing
+            offsetPos - size.Top,                    // Tip
+            offsetPos + size.Left + size.Top * 0.5f, // Left wing
+            offsetPos + size.Top,                    // Bottom
+            offsetPos - size.Left + size.Top * 0.5f  // Right wing
         };
 
         handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, vertices, color);

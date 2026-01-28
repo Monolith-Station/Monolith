@@ -90,7 +90,7 @@ public sealed partial class RadarBlipSystem : EntitySystem
                     coord = _xform.WithEntityId(coord, blipGrid ?? blipXform.MapUid!.Value);
 
                 var gridCfg = (BlipConfig?)null;
-                var rotation = Angle.Zero;
+                var rotation = _xform.GetWorldRotation(blipXform);
 
                 // we're parented to either the map or a grid and this is relative velocity so account for grid movement
                 if (blipGrid != null)
@@ -103,7 +103,6 @@ public sealed partial class RadarBlipSystem : EntitySystem
 
                     // and hijack our shape if we want to
                     gridCfg = blip.GridConfig;
-                    rotation = _xform.GetWorldRotation(blipXform);
                 }
 
                 // ideally we would handle blips being culled by detection on server but detection grid culling is already clientside so might as well
