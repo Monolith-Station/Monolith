@@ -74,9 +74,28 @@ public record struct BlipNetData
     NetEntity Uid,
     NetCoordinates Position,
     Vector2 Vel,
-    float Scale,
-    Color Color,
-    RadarBlipShape Shape,
-    Box2? OnGridBox,
-    Angle Rotation
+    Angle Rotation,
+    BlipConfig Config,
+    BlipConfig? OnGridConfig
 );
+
+[Serializable, NetSerializable, DataDefinition]
+public partial record struct BlipConfig
+{
+    [DataField]
+    public Box2 Bounds = new Box2(-0.5f, -0.5f, 0.5f, 0.5f);
+
+    [DataField]
+    public Color Color = Color.OrangeRed;
+
+    [DataField]
+    public RadarBlipShape Shape = RadarBlipShape.Circle;
+
+    [DataField]
+    public bool RespectZoom = false;
+
+    [DataField]
+    public bool Rotate = false;
+
+    public BlipConfig() { }
+}

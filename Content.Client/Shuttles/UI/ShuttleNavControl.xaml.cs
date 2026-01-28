@@ -616,39 +616,24 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         foreach (var blip in rawBlips)
         {
             var position = Vector2.Transform(_transform.ToMapCoordinates(blip.Position).Position, worldToView);
-            var color = blip.Color.WithAlpha(0.8f);
+            var color = blip.Config.Color.WithAlpha(0.8f);
+            var box = new Box2Rotated(blip.Config.Bounds, 0);
+            if (blip.Config.RespectZoom)
+                box.Box = box.Box.Scale(MinimapScale);
+            if (blip.Config.Rotate)
+                box.Rotation = ourEntRot - blip.Rotation;
 
             if (blip.GridUid is { } grid)
             {
                 // check detection if we're on a grid and that grid isn't our grid
                 if (!visibleGrids.Contains(grid) && grid != ourGridId)
                     continue;
-
-                // otherwise check if we want to draw a box
-                if (blip.GridAlignedBox is { } box)
-                {
-                    // TODO: make DrawBlipShape take in rotation and a scale vector instead of just a scale float, use that
-                    var rotation = _transform.GetWorldRotation(grid);
-                    var rotatedBox = new Box2Rotated(box.Scale(MinimapScale), ourEntRot - rotation - blip.Rotation);
-
-                    // note: this intentionally ignores scale, just define the box to be a different size
-                    var boxPoints = new Vector2[]
-                    {
-                        position + rotatedBox.BottomLeft,
-                        position + rotatedBox.BottomRight,
-                        position + rotatedBox.TopLeft,
-                        position + rotatedBox.TopRight
-                    };
-                    handle.DrawPrimitives(DrawPrimitiveTopology.TriangleStrip, boxPoints, color);
-
-                    continue;
-                }
             }
 
             // Check if this blip is within view bounds before drawing
             if (monoViewBounds.Contains(position))
             {
-                DrawBlipShape(handle, position, blip.Scale * 3f, color, blip.Shape);
+                DrawBlipShape(handle, position, box, color, blip.Config.Shape);
             }
         }
 
@@ -693,96 +678,127 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         return _consoleEntity == null ? DetectionLevel.Undetected : _detection.IsGridDetected(grid, _consoleEntity.Value);
     }
 
-    private void DrawBlipShape(DrawingHandleScreen handle, Vector2 position, float size, Color color, RadarBlipShape shape)
+    private (Vector2 Top, Vector2 Left, Vector2 Offset) GetSize(Box2Rotated bounds)
+    {
+        var top = bounds.Origin + bounds.Rotation.RotateVec((bounds.TopLeft + bounds.TopRight) * 0.5f - bounds.Origin);
+        var left = bounds.Origin + bounds.Rotation.RotateVec((bounds.TopLeft + bounds.BottomLeft) * 0.5f - bounds.Origin);
+
+        var offset = (bounds.TopRight + bounds.BottomLeft) * 0.5f;
+
+        return (top - offset, left - offset, offset);
+    }
+
+    private void DrawBlipShape(DrawingHandleScreen handle, Vector2 position, Box2Rotated bounds, Color color, RadarBlipShape shape)
     {
         switch (shape)
         {
             case RadarBlipShape.Circle:
-                handle.DrawCircle(position, size, color);
+                DrawCircle(handle, position, bounds, color);
                 break;
             case RadarBlipShape.Square:
-                var halfSize = size / 2;
-                var rect = new UIBox2(
-                    position.X - halfSize,
-                    position.Y - halfSize,
-                    position.X + halfSize,
-                    position.Y + halfSize
-                );
-                handle.DrawRect(rect, color);
+                var boxPoints = new Vector2[]
+                {
+                    position + bounds.TopLeft,
+                    position + bounds.TopRight,
+                    position + bounds.BottomRight,
+                    position + bounds.BottomLeft
+                };
+                handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, boxPoints, color);
                 break;
             case RadarBlipShape.Triangle:
                 var points = new Vector2[]
                 {
-                    position + new Vector2(0, -size),
-                    position + new Vector2(-size * 0.866f, size * 0.5f),
-                    position + new Vector2(size * 0.866f, size * 0.5f)
+                    position + bounds.Origin + bounds.Rotation.RotateVec((bounds.TopLeft + bounds.TopRight) * 0.5f - bounds.Origin),
+                    position + bounds.BottomLeft,
+                    position + bounds.BottomRight
                 };
                 handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, points, color);
                 break;
             case RadarBlipShape.Star:
-                DrawStar(handle, position, size, color);
+                DrawStar(handle, position, bounds, color);
                 break;
             case RadarBlipShape.Diamond:
+                var size = GetSize(bounds);
                 var diamondPoints = new Vector2[]
                 {
-                    position + new Vector2(0, -size),
-                    position + new Vector2(size, 0),
-                    position + new Vector2(0, size),
-                    position + new Vector2(-size, 0)
+                    position + size.Offset + size.Top,
+                    position + size.Offset + size.Left,
+                    position + size.Offset - size.Top,
+                    position + size.Offset - size.Left
                 };
                 handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, diamondPoints, color);
                 break;
             case RadarBlipShape.Hexagon:
-                DrawHexagon(handle, position, size, color);
+                DrawHexagon(handle, position, bounds, color);
                 break;
             case RadarBlipShape.Arrow:
-                DrawArrow(handle, position, size, color);
+                DrawArrow(handle, position, bounds, color);
                 break;
         }
     }
 
-    private void DrawStar(DrawingHandleScreen handle, Vector2 position, float size, Color color)
+    private void DrawCircle(DrawingHandleScreen handle, Vector2 position, Box2Rotated bounds, Color color)
+    {
+        const int segments = 64;
+        var buffer = new Vector2[segments + 1];
+        var size = GetSize(bounds);
+        var offsetPos = position + size.Offset;
+
+        for (var i = 0; i <= segments; i++)
+        {
+            var angle = i * MathF.Tau / segments;
+            var pos = size.Left * MathF.Sin(angle) + size.Top * MathF.Cos(angle);
+
+            buffer[i] = offsetPos + pos;
+        }
+
+        handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, buffer, color);
+    }
+
+    private void DrawStar(DrawingHandleScreen handle, Vector2 position, Box2Rotated bounds, Color color)
     {
         const int points = 5;
         const float innerRatio = 0.4f;
         var vertices = new Vector2[points * 2];
+        var size = GetSize(bounds);
+        var offsetPos = position + size.Offset;
 
         for (var i = 0; i < points * 2; i++)
         {
-            var angle = i * Math.PI / points;
-            var radius = i % 2 == 0 ? size : size * innerRatio;
-            vertices[i] = position + new Vector2(
-                (float)Math.Sin(angle) * radius,
-                -(float)Math.Cos(angle) * radius
-            );
+            var angle = i * MathF.PI / points;
+            var radius = i % 2 == 0 ? 1f : innerRatio;
+            vertices[i] = offsetPos + radius * MathF.Sin(angle) * size.Left - radius * MathF.Cos(angle) * size.Top;
         }
 
         handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, vertices, color);
     }
 
-    private void DrawHexagon(DrawingHandleScreen handle, Vector2 position, float size, Color color)
+    private void DrawHexagon(DrawingHandleScreen handle, Vector2 position, Box2Rotated bounds, Color color)
     {
         var vertices = new Vector2[6];
+        var size = GetSize(bounds);
+        var offsetPos = position + size.Offset;
+
         for (var i = 0; i < 6; i++)
         {
-            var angle = i * Math.PI / 3;
-            vertices[i] = position + new Vector2(
-                (float)Math.Sin(angle) * size,
-                -(float)Math.Cos(angle) * size
-            );
+            var angle = i * MathF.PI / 3;
+            vertices[i] = offsetPos + MathF.Sin(angle) * size.Top - MathF.Cos(angle) * size.Left;
         }
 
         handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, vertices, color);
     }
 
-    private void DrawArrow(DrawingHandleScreen handle, Vector2 position, float size, Color color)
+    private void DrawArrow(DrawingHandleScreen handle, Vector2 position, Box2Rotated bounds, Color color)
     {
+        var size = GetSize(bounds);
+        var offsetPos = position + size.Offset;
+
         var vertices = new Vector2[]
         {
-            position + new Vector2(0, -size),           // Tip
-            position + new Vector2(-size * 0.5f, 0),    // Left wing
-            position + new Vector2(0, size * 0.5f),     // Bottom
-            position + new Vector2(size * 0.5f, 0)      // Right wing
+            offsetPos - size.Top,           // Tip
+            offsetPos + size.Left * 0.5f,    // Left wing
+            offsetPos + size.Top * 0.5f,     // Bottom
+            offsetPos - size.Left * 0.5f      // Right wing
         };
 
         handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, vertices, color);

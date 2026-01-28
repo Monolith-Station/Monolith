@@ -218,7 +218,11 @@
     radarColor: "#fcba03"
     scale: 2
     shape: square
-    gridBox: "-0.5,-1.5,0.5,0.5"
+    gridConfig:
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.5,-1.5,0.5,0.5"
 
 - type: entity
   parent:

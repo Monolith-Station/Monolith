@@ -374,7 +374,11 @@
     visibleFromOtherGrids: true
     radarColor: "#FF0040"
     scale: 1.25
-    gridBox: "-0.7,-0.7,0.7,0.7"
+    gridConfig:
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.7,-0.7,0.7,0.7"
   - type: ShipGunType
     shipType: Ballistic
   - type: StaticPrice

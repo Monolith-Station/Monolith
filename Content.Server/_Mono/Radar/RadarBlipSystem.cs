@@ -89,7 +89,7 @@ public sealed partial class RadarBlipSystem : EntitySystem
                 if (blipXform.ParentUid != blipXform.MapUid && blipXform.ParentUid != blipGrid)
                     coord = _xform.WithEntityId(coord, blipGrid ?? blipXform.MapUid!.Value);
 
-                var box = (Box2?)null;
+                var gridCfg = (BlipConfig?)null;
                 var rotation = Angle.Zero;
 
                 // we're parented to either the map or a grid and this is relative velocity so account for grid movement
@@ -102,19 +102,17 @@ public sealed partial class RadarBlipSystem : EntitySystem
                     blipVelocity = (-gridXform.LocalRotation).RotateVec(blipVelocity);
 
                     // and hijack our shape if we want to
-                    box = blip.GridBox;
-                    rotation = _xform.GetWorldRotation(blipXform) - gridXform.LocalRotation;
+                    gridCfg = blip.GridConfig;
+                    rotation = _xform.GetWorldRotation(blipXform);
                 }
 
                 // ideally we would handle blips being culled by detection on server but detection grid culling is already clientside so might as well
                 blips.Add(new(netBlipUid,
                               GetNetCoordinates(coord),
                               blipVelocity,
-                              blip.Scale,
-                              blip.RadarColor,
-                              blip.Shape,
-                              box,
-                              rotation));
+                              rotation,
+                              blip.Config,
+                              gridCfg));
             }
         }
 

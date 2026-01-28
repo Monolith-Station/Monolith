@@ -97,12 +97,13 @@ public sealed partial class RadarBlipsSystem : EntitySystem
 
             var predictedMap = _xform.ToMapCoordinates(predictedPos);
 
-            var box = (Box2?)null;
+            var config = blip.Config;
             // hijack our shape if we're on a grid and we want to do that
-            if (_map.TryFindGridAt(predictedMap, out var grid, out _) && grid != EntityUid.Invalid)
-                box = blip.OnGridBox;
+            if (_map.TryFindGridAt(predictedMap, out var grid, out _) && grid != EntityUid.Invalid && blip.OnGridConfig != null)
+                config = blip.OnGridConfig.Value;
+            var maybeGrid = grid != EntityUid.Invalid ? grid : (EntityUid?)null;
 
-            result.Add(new(blip.Uid, predictedPos, blip.Scale, blip.Color, blip.Shape, grid == EntityUid.Invalid ? null : grid, box, blip.Rotation));
+            result.Add(new(blip.Uid, predictedPos, blip.Rotation, maybeGrid, config));
         }
 
         return result;
@@ -134,10 +135,7 @@ public record struct BlipData
 (
     NetEntity NetUid,
     EntityCoordinates Position,
-    float Scale,
-    Color Color,
-    RadarBlipShape Shape,
+    Angle Rotation,
     EntityUid? GridUid,
-    Box2? GridAlignedBox,
-    Angle Rotation
+    BlipConfig Config
 );
