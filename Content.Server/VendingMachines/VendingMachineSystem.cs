@@ -494,7 +494,7 @@ namespace Content.Server.VendingMachines
             else
                 TryEjectVendorItem(uid, item.Type, item.ID, throwItem, vendComponent);
 
-            //Mono: allow max vends below 2, add probability for extra freebies
+            //Mono: revise frontier vend protection, allow max vends below 2, add probability for extra freebies
             if (_random.Prob(vendComponent.EjectNoCountChance))
                 return;
 
