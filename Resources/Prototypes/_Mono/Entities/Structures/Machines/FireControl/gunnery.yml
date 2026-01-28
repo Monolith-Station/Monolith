@@ -308,6 +308,7 @@
     radarColor: "#fc9403"
     scale: 1.5
     shape: diamond
+    gridBox: "-0.5,-0.5,0.5,0.5"
 
 - type: entity
   parent: [BaseStructureComputerTabletop, ComputerGunneryConsole]

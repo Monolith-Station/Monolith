@@ -10,6 +10,7 @@ public enum RadarBlipShape
 {
     Circle,
     Square,
+    GridAlignedBox,
     Triangle,
     Star,
     Diamond,
@@ -24,21 +25,21 @@ public sealed class GiveBlipsEvent : EntityEventArgs
     /// <summary>
     /// Blips are now (position, velocity, scale, color, shape).
     /// </summary>
-    public readonly List<(NetEntity uid, NetCoordinates Position, Vector2 Vel, float Scale, Color Color, RadarBlipShape Shape)> Blips;
+    public readonly List<BlipNetData> Blips;
 
     /// <summary>
     /// Hitscan lines to display on the radar as (start position, end position, thickness, color).
     /// </summary>
     public readonly List<(Vector2 Start, Vector2 End, float Thickness, Color Color)> HitscanLines;
 
-    public GiveBlipsEvent(List<(NetEntity uid, NetCoordinates Position, Vector2 Vel, float Scale, Color Color, RadarBlipShape Shape)> blips)
+    public GiveBlipsEvent(List<BlipNetData> blips)
     {
         Blips = blips;
         HitscanLines = new List<(Vector2 Start, Vector2 End, float Thickness, Color Color)>();
     }
 
     public GiveBlipsEvent(
-        List<(NetEntity uid, NetCoordinates Position, Vector2 Vel, float Scale, Color Color, RadarBlipShape Shape)> blips,
+        List<BlipNetData> blips,
         List<(Vector2 Start, Vector2 End, float Thickness, Color Color)> hitscans)
     {
         Blips = blips;
@@ -66,3 +67,16 @@ public sealed class BlipRemovalEvent : EntityEventArgs
         NetBlipUid = netBlipUid;
     }
 }
+
+[Serializable, NetSerializable]
+public record struct BlipNetData
+(
+    NetEntity Uid,
+    NetCoordinates Position,
+    Vector2 Vel,
+    float Scale,
+    Color Color,
+    RadarBlipShape Shape,
+    Box2? OnGridBox,
+    Angle Rotation
+);

@@ -55,6 +55,7 @@
     radarColor: "#FF0000"
     scale: 2
     visibleFromOtherGrids: true
+    gridBox: "-1.5,-1.5,1.5,1.5"
   - type: Destructible
     thresholds:
     - trigger:
@@ -154,6 +155,7 @@
     radarColor: "#03FC9D"
     scale: 3.5
     visibleFromOtherGrids: true
+    gridBox: "-1.5,-1.5,1.5,1.5"
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
@@ -228,6 +230,7 @@
     radarColor: "#FF0000"
     scale: 2.5
     visibleFromOtherGrids: true
+    gridBox: "-2,-2,2,2"
   - type: Destructible
     thresholds:
     - trigger:
@@ -303,6 +306,7 @@
     radarColor: "#FF0000"
     scale: 1.5
     visibleFromOtherGrids: true
+    gridBox: "-1.5,-1.5,1.5,1.5"
   - type: ItemSlots
     slots:
       gun_magazine:

@@ -188,6 +188,7 @@
     radarColor: "#03f8fc"
     scale: 1.5
     shape: diamond
+    gridBox: "-0.5,-0.5,0.5,0.5"
 
 - type: entity
   parent: [BaseComputerShuttle, BaseShuttleIntercom] # Frontier - BaseShuttleIntercom

@@ -52,4 +52,13 @@ public sealed partial class RadarBlipComponent : Component
     /// </summary>
     [DataField]
     public float MaxDistance = 1024f;
+
+    [DataField]
+    public bool RespectDetection = true;
+
+    /// <summary>
+    /// If not null, show up as a grid-aligned box of this size if on a grid.
+    /// </summary>
+    [DataField]
+    public Box2? GridBox = null;
 }

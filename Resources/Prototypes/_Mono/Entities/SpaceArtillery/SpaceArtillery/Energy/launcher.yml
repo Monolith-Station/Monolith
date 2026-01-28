@@ -293,6 +293,7 @@
     radarColor: "#C92BCC"
     scale: 1
     visibleFromOtherGrids: true
+    gridBox: "-0.7,-0.7,0.7,0.7"
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
@@ -437,6 +438,7 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 1.5
+    gridBox: "-1.4,-1.4,1.4,1.4"
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
@@ -514,6 +516,7 @@
     radarColor: "#C92BCC"
     scale: 3
     visibleFromOtherGrids: true
+    gridBox: "-2,-2,2,2"
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
@@ -818,6 +821,7 @@
     radarColor: "#C92BCC"
     scale: 3
     visibleFromOtherGrids: true
+    gridBox: "-2.5,-2.5,2.5,2.5"
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
@@ -902,6 +906,7 @@
     radarColor: "#5bc65d"
     scale: 3
     visibleFromOtherGrids: true
+    gridBox: "-1.5,-2.5,1.5,2.5"
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
@@ -986,6 +991,7 @@
     radarColor: "#450089"
     scale: 3
     visibleFromOtherGrids: true
+    gridBox: "-1.5,-2.5,1.5,2.5"
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass

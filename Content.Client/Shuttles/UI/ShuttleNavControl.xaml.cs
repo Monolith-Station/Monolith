@@ -317,6 +317,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
         Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);
         var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
+        var worldToView = worldToShuttle * shuttleToView;
 
         // Draw shields
         DrawShields(handle, xform, worldToShuttle);
@@ -360,6 +361,8 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         // Frontier - collect blip location data outside foreach - more changes ahead
         var blipDataList = new List<BlipData>();
 
+        var visibleGrids = new HashSet<EntityUid>();
+
         // Draw other grids... differently
         foreach (var grid in _grids)
         {
@@ -381,8 +384,11 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             if (!detected)
                 continue;
 
+            if (!blipOnly)
+                visibleGrids.Add(grid);
+
             var curGridToWorld = _transform.GetWorldMatrix(gUid);
-            var curGridToView = curGridToWorld * worldToShuttle * shuttleToView;
+            var curGridToView = curGridToWorld * worldToView;
 
             var hideColor = hideLabel && iff != null && (iff.Flags & IFFFlags.AlwaysShowColor) == 0x0;
             var labelColor = hideColor ? blipOnly ? Color.Orange : Color.White : _shuttles.GetIFFColor(grid, self: false, iff);
@@ -586,7 +592,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             if (consoleXform.ParentUid != _coordinates.Value.EntityId)
             {
                 var consolePositionWorld = _transform.GetWorldPosition((EntityUid)_consoleEntity);
-                var p = Vector2.Transform(consolePositionWorld, worldToShuttle * shuttleToView);
+                var p = Vector2.Transform(consolePositionWorld, worldToView);
                 handle.DrawCircle(p, 5, Color.ToSrgb(Color.Cyan), true);
             }
         }
@@ -609,12 +615,39 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         // Draw blips using the same grid-relative transformation approach as docks
         foreach (var blip in rawBlips)
         {
-            var blipPosInView = Vector2.Transform(_transform.ToMapCoordinates(blip.Position).Position, worldToShuttle * shuttleToView);
+            var position = Vector2.Transform(_transform.ToMapCoordinates(blip.Position).Position, worldToView);
+            var color = blip.Color.WithAlpha(0.8f);
+
+            if (blip.GridUid is { } grid)
+            {
+                // check detection if we're on a grid and that grid isn't our grid
+                if (!visibleGrids.Contains(grid) && grid != ourGridId)
+                    continue;
+
+                // otherwise check if we want to draw a box
+                if (blip.GridAlignedBox is { } box)
+                {
+                    var rotation = _transform.GetWorldRotation(grid);
+                    var rotatedBox = new Box2Rotated(box.Scale(MinimapScale), ourEntRot - rotation - blip.Rotation);
+
+                    // note: this intentionally ignores scale, just define the box to be a different size
+                    var boxPoints = new Vector2[]
+                    {
+                        position + rotatedBox.BottomLeft,
+                        position + rotatedBox.BottomRight,
+                        position + rotatedBox.TopLeft,
+                        position + rotatedBox.TopRight
+                    };
+                    handle.DrawPrimitives(DrawPrimitiveTopology.TriangleStrip, boxPoints, color);
+
+                    continue;
+                }
+            }
 
             // Check if this blip is within view bounds before drawing
-            if (monoViewBounds.Contains(blipPosInView))
+            if (monoViewBounds.Contains(position))
             {
-                DrawBlipShape(handle, blipPosInView, blip.Scale * 3f, blip.Color.WithAlpha(0.8f), blip.Shape);
+                DrawBlipShape(handle, position, blip.Scale * 3f, color, blip.Shape);
             }
         }
 
@@ -622,8 +655,8 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         var hitscanLines = _blips.GetHitscanLines();
         foreach (var line in hitscanLines)
         {
-            var startPosInView = Vector2.Transform(line.Start, worldToShuttle * shuttleToView);
-            var endPosInView = Vector2.Transform(line.End, worldToShuttle * shuttleToView);
+            var startPosInView = Vector2.Transform(line.Start, worldToView);
+            var endPosInView = Vector2.Transform(line.End, worldToView);
 
             // Only draw lines if at least one endpoint is within view
             if (monoViewBounds.Contains(startPosInView) || monoViewBounds.Contains(endPosInView))
