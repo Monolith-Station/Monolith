@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/28/2026 04:24:02
+  time: 01/28/2026 04:35:24
   entityCount: 1695
 maps: []
 grids:
@@ -4940,56 +4940,6 @@ entities:
       parent: 1
 - proto: ClosetWall
   entities:
-  - uid: 304
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 5.5,-19.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 305
-  - uid: 349
-    components:
-    - type: Transform
-      pos: 5.5,-14.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 351
-  - uid: 383
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -6.5,-19.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 399
-  - uid: 530
-    components:
-    - type: Transform
-      pos: -6.5,-14.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 647
   - uid: 1658
     components:
     - type: Transform
@@ -7829,6 +7779,70 @@ entities:
       parent: 1
 - proto: LockerSyndicate
   entities:
+  - uid: 304
+    components:
+    - type: Transform
+      pos: -6.5,-15.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 305
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+  - uid: 349
+    components:
+    - type: Transform
+      pos: -6.5,-18.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 351
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+  - uid: 383
+    components:
+    - type: Transform
+      pos: 5.5,-18.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 399
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+  - uid: 530
+    components:
+    - type: Transform
+      pos: 5.5,-15.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 647
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
   - uid: 679
     components:
     - type: Transform
@@ -8103,7 +8117,7 @@ entities:
         stampedColor: '#00BE00FF'
         stampedName: stamp-component-stamped-name-approved
       content: >-
-        For his soverignty's sake. The blasted shield generator wont work on this hunk of shit. We added reinforced plating around the reactor and bridge, including reactive armor in the surrounding hull. The ship barely survives against Federation fighters.. let alone anything bigger than a corvette. 
+        For his soverignty's sake. The blasted shield generator wont work on this hunk of shit. We added reinforced plating around the reactor and bridge, including reactive armor in the surrounding hull. The ship barely survives against Federation fighters.. let alone anything bigger than a corvette.
 
 
         The added reinforced plating should help keep the bastard ship alive long enough for a firefight. Cant really say the same for the 220mm battery. These modifications will have to do.
