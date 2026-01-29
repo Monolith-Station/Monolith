@@ -137,20 +137,6 @@
       sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
       state: impact_blue
 
-#Mono Start
-- type: entity
-  parent: Pulse
-  id: RiflePulse
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: HitscanBasicDamage
-    damage:
-      types:
-        Heat: 25 # Mono
-        Shock: 10
-        Structural: 70
-#Mono End
-
 - type: entity
   parent: BasicHitscan
   id: RedShuttleLaser
