@@ -25,7 +25,7 @@ internal sealed class MonoMappingClientSideSetupCommand : LocalizedCommands
             _entitySystemManager.GetEntitySystem<MarkerSystem>().MarkersVisible = true;
             _lightManager.Enabled = false;
             shell.ExecuteCommand("showsubfloorforever");
-            _entitySystemManager.GetEntitySystem<ActionsSystem>().LoadActionAssignments("/mapping_actions_mono.yml", false);
+            _entitySystemManager.GetEntitySystem<ActionsSystem>().LoadActionAssignments("/Prototypes/_Mono/mapping_actions_mono.yml", false);
         }
     }
 }
