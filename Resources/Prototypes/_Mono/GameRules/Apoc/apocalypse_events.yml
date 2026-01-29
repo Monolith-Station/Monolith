@@ -57,7 +57,7 @@
 
 - type: entity
   parent: BaseRandomShuttleRule
-  id: UnknownShuttleRazorApoc
+  id: UnknownShuttleWyrmApoc
   components:
   - type: StationEvent
     startAnnouncement: station-event-ai-shuttle-detected
@@ -68,7 +68,7 @@
   - type: GameRule
     minPlayers: 10
   - type: LoadMapRule
-    preloadedGrid: AIRazor
+    preloadedGrid: AIRWyrm
 
 - type: entity
   parent: BaseRandomShuttleRule
