@@ -16700,3 +16700,55 @@ Entries:
   id: 1848
   time: '2026-01-26T16:18:51.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3124
+- author: mikusssssss
+  changes:
+    - type: Fix
+      message: Printed welding tools should now have the proper capacities.
+  id: 1849
+  time: '2026-01-28T20:21:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3130
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Now all mechs receive speed penalty on low charge (<=5%). Penalty is
+        0.65 by default, 0.5 for gygax, 0.4 for sabre and 0.85 for other S2/S4.
+  id: 1850
+  time: '2026-01-29T12:29:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2806
+- author: Helicaste
+  changes:
+    - type: Tweak
+      message: >-
+        Pulse Rifle damage types tweaked. Now also does some structural damage.
+        (Buff) (Huge)
+  id: 1851
+  time: '2026-01-29T12:32:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3114
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: >-
+        Added new method of research - Entity Containment. Currently
+        mapping-only.
+  id: 1852
+  time: '2026-01-29T12:34:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2989
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: >-
+        Shipgun energy weapons have been re-balanced to the same TTK as their
+        ballistic counterparts (this is a nerf)
+  id: 1853
+  time: '2026-01-29T12:51:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3135
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Lathes now drop material on destruction.
+    - type: Tweak
+      message: Materials (except glass) are no longer destructible.
+  id: 1854
+  time: '2026-01-29T12:58:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3131
