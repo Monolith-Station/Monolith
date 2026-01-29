@@ -44,6 +44,10 @@
   category: Disabilities
   conflicts:
   - Blindness
+  conditions:
+  - !type:IsSpeciesCondition
+    species: Vulpkanin
+    invert: true
   effects:
   - !type:AddCompsEffect
     components:
@@ -56,6 +60,10 @@
   category: Disabilities
   conflicts:
   - Blindness
+  conditions:
+  - !type:IsSpeciesCondition
+    species: Harpy
+    invert: true
   effects:
   - !type:AddCompsEffect
     components:

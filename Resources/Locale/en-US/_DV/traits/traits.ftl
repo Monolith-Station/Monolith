@@ -12,11 +12,11 @@ trait-mobster-accent-desc = Fugeddaboutit! Yous talk numhally, capiche?
 
 trait-ultravision-name = Ultraviolet vision
 trait-ultravision-desc = Whether through custom bionic eyes, random mutation,
-                         or being a Harpy, you perceive the world with ultraviolet light.
+                         or a bad organ replacement, you perceive the world with ultraviolet light.
 
 trait-deuteranopia-name = Deuteranopia
 trait-deuteranopia-desc = Whether through custom bionic eyes, random mutation,
-                          or being a Vulpkanin, you have red-green colour blindness.
+                          or a bad organ replacement, you have red-green colour blindness.
 
 trait-uncloneable-name = Uncloneable
 trait-uncloneable-desc = Cannot be cloned
