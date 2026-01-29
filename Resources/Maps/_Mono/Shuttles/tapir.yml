@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/28/2026 19:47:08
+  time: 01/29/2026 18:48:17
   entityCount: 770
 maps: []
 grids:
@@ -87,10 +87,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        Kudzu: []
-        MetalFoam: []
         Smoke: []
+        MetalFoam: []
+        Kudzu: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -498,9 +498,9 @@ entities:
       - 36
       - 378
       - 646
-      - 807
       - 361
       - 223
+      - 762
   - uid: 344
     components:
     - type: Transform
@@ -523,8 +523,9 @@ entities:
     - type: DeviceList
       devices:
       - 403
-      - 284
       - 271
+      - 11
+      - 284
   - uid: 382
     components:
     - type: Transform
@@ -549,7 +550,7 @@ entities:
       - 588
       - 607
       - 321
-      - 807
+      - 762
 - proto: AirlockCargo
   entities:
   - uid: 670
@@ -630,11 +631,9 @@ entities:
   - uid: 284
     components:
     - type: Transform
-      pos: -4.5,-1.5
+      pos: -1.5,-3.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 374
   - uid: 303
@@ -2491,14 +2490,12 @@ entities:
       deviceLists:
       - 27
       - 212
-  - uid: 807
+  - uid: 762
     components:
     - type: Transform
       pos: 2.5,5.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 397
       - 212
@@ -3200,6 +3197,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -3.5,-0.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 374
     - type: AtmosPipeColor
       color: '#990000FF'
     - type: Construction
