@@ -639,7 +639,7 @@ public sealed partial class TraitSystemTest
                 BindingFlags.NonPublic | BindingFlags.Instance);
 
             var validTraits = (HashSet<ProtoId<TraitPrototype>>)method?.Invoke(traitSys,
-                new object[] { player, selectedTraits, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>()});
+                new object[] { player, selectedTraits, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>() });
 
             Assert.That(validTraits?.Count, Is.EqualTo(2), "Should respect category maxTraits limit");
 
@@ -760,8 +760,8 @@ public sealed partial class TraitSystemTest
         IPrototypeManager protoMan,
         IComponentFactory factory,
         EntityUid player,
-        string? jobId = null,
-        string? speciesId = null)
+        string jobId = null,
+        string speciesId = null)
     {
         return new TraitConditionContext
         {
