@@ -3,7 +3,7 @@
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
       - id: UnknownShuttleZenith
-      - id: UnknownShuttleRazor
+      - id: UnknownShuttleWyrm
       - id: UnknownShuttleNebula
 
 - type: entityTable
@@ -12,7 +12,7 @@
     children:
     - id: UnknownShuttleZenith
     - id: UnknownShuttleZenithE
-    - id: UnknownShuttleRazor
+    - id: UnknownShuttleWyrm
     - id: UnknownShuttleRazorN
     - id: UnknownShuttleNebula
     - id: UnknownShuttleWyvern
@@ -64,7 +64,7 @@
 
 - type: entity
   parent: BaseRandomShuttleRule
-  id: UnknownShuttleRazor
+  id: UnknownShuttleWyrm
   components:
   - type: StationEvent
     startAnnouncement: station-event-ai-shuttle-detected
@@ -75,7 +75,7 @@
   - type: GameRule
     minPlayers: 15
   - type: LoadMapRule
-    preloadedGrid: AIRazor
+    preloadedGrid: AIWyrm
 
 - type: entity
   parent: BaseRandomShuttleRule
