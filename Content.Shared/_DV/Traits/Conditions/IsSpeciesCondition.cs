@@ -17,10 +17,10 @@ public sealed partial class IsSpeciesCondition : BaseTraitCondition
 
     protected override bool EvaluateImplementation(TraitConditionContext ctx)
     {
-        if (string.IsNullOrEmpty(ctx.SpeciesId))
+        if (ctx.SpeciesId is not { } speciesId)
             return false;
 
-        return ctx.SpeciesId == Species;
+        return speciesId == Species;
     }
 
     public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc, int depth)

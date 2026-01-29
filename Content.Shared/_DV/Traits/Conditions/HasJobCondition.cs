@@ -17,10 +17,10 @@ public sealed partial class HasJobCondition : BaseTraitCondition
 
     protected override bool EvaluateImplementation(TraitConditionContext ctx)
     {
-        if (string.IsNullOrEmpty(ctx.JobId))
+        if (ctx.JobId is not { } jobId)
             return false;
 
-        return ctx.JobId == Job;
+        return jobId == Job;
     }
 
     public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc, int depth)

@@ -17,13 +17,13 @@ public sealed partial class InDepartmentCondition : BaseTraitCondition
 
     protected override bool EvaluateImplementation(TraitConditionContext ctx)
     {
-        if (string.IsNullOrEmpty(ctx.JobId))
+        if (ctx.JobId is not { } jobId)
             return false;
 
         if (!ctx.Proto.TryIndex(Department, out var department))
             return false;
 
-        return department.Roles.Contains(ctx.JobId);
+        return department.Roles.Contains(jobId);
     }
 
     public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc, int depth)

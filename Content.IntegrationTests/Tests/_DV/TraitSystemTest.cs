@@ -6,7 +6,9 @@ using Content.Shared._DV.Traits.Conditions;
 using Content.Shared._DV.Traits.Effects;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Roles;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Log;
@@ -20,7 +22,7 @@ namespace Content.IntegrationTests.Tests._DV;
 /// Tests all conditions, effects, and validation logic.
 /// </summary>
 [TestFixture]
-[TestOf(typeof(TraitSystemTest))]
+[TestOf(typeof(TraitSystem))]
 public sealed partial class TraitSystemTest
 {
     [TestPrototypes]
@@ -304,7 +306,7 @@ public sealed partial class TraitSystemTest
             var player = entMan.SpawnEntity(null, MapCoordinates.Nullspace);
 
             var condition = new InDepartmentCondition { Department = "Medical" };
-            var ctx = CreateContext(entMan, protoMan, factory, player, "MedicalDoctor");
+            var ctx = CreateContext(entMan, protoMan, factory, player, "DirectorOfCare"); // Mono - No Medical Doctors
 
             Assert.That(condition.Evaluate(ctx),
                 Is.True,
@@ -598,7 +600,7 @@ public sealed partial class TraitSystemTest
                 BindingFlags.NonPublic | BindingFlags.Instance);
 
             var validTraits = (HashSet<ProtoId<TraitPrototype>>)method?.Invoke(traitSys,
-                new object[] { player, selectedTraits, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>() });
+                new object[] { player, selectedTraits, null, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>() });
 
             Assert.Multiple(() =>
             {
@@ -639,7 +641,7 @@ public sealed partial class TraitSystemTest
                 BindingFlags.NonPublic | BindingFlags.Instance);
 
             var validTraits = (HashSet<ProtoId<TraitPrototype>>)method?.Invoke(traitSys,
-                new object[] { player, selectedTraits, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>() });
+                new object[] { player, selectedTraits, null, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>() });
 
             Assert.That(validTraits?.Count, Is.EqualTo(2), "Should respect category maxTraits limit");
 
@@ -669,11 +671,12 @@ public sealed partial class TraitSystemTest
             };
 
             var traitSys = entMan.System<TraitSystem>();
+
             var method = typeof(TraitSystem).GetMethod("ValidateTraits",
                 BindingFlags.NonPublic | BindingFlags.Instance);
 
             var validTraits = (HashSet<ProtoId<TraitPrototype>>)method?.Invoke(traitSys,
-                new object[] { player, selectedTraits, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>() });
+                new object[] { player, selectedTraits, null, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>() });
 
             Assert.That(validTraits?.Count, Is.EqualTo(2), "Should respect category maxPoints limit");
 
@@ -706,7 +709,7 @@ public sealed partial class TraitSystemTest
                 BindingFlags.NonPublic | BindingFlags.Instance);
 
             var validTraits = (HashSet<ProtoId<TraitPrototype>>)method?.Invoke(traitSys,
-                new object[] { player, selectedTraits, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>() });
+                new object[] { player, selectedTraits, null, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>() });
 
             Assert.That(validTraits?.Contains("TestTraitHasComp"), Is.True, "Trait with met condition should be valid");
 
@@ -739,7 +742,7 @@ public sealed partial class TraitSystemTest
                 BindingFlags.NonPublic | BindingFlags.Instance);
 
             var validTraits = (HashSet<ProtoId<TraitPrototype>>)method?.Invoke(traitSys,
-                new object[] { player, selectedTraits, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>() });
+                new object[] { player, selectedTraits, null, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>() });
 
             Assert.That(validTraits?.Contains("TestTraitHasComp"),
                 Is.False,
@@ -760,8 +763,8 @@ public sealed partial class TraitSystemTest
         IPrototypeManager protoMan,
         IComponentFactory factory,
         EntityUid player,
-        string jobId = null,
-        string speciesId = null)
+        ProtoId<JobPrototype>? jobId = null,
+        ProtoId<SpeciesPrototype>? speciesId = null)
     {
         return new TraitConditionContext
         {

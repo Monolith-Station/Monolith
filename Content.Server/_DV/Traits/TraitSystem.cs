@@ -84,8 +84,8 @@ public sealed class TraitSystem : EntitySystem
         EntityUid player,
         IReadOnlySet<ProtoId<TraitPrototype>> selectedTraits,
         ICommonSession? session,
-        string? jobId,
-        string? speciesId,
+        ProtoId<JobPrototype>? jobId,
+        ProtoId<SpeciesPrototype>? speciesId,
         HumanoidCharacterProfile? profile,
         Dictionary<ProtoId<TraitPrototype>, List<string>> disabledTraits)
     {

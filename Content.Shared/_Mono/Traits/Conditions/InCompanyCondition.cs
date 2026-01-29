@@ -18,9 +18,6 @@ public sealed partial class InCompanyCondition : BaseTraitCondition
 
     protected override bool EvaluateImplementation(TraitConditionContext ctx)
     {
-        if (string.IsNullOrEmpty(ctx.JobId))
-            return false;
-
         if (!ctx.EntMan.TryGetComponent<CompanyComponent>(ctx.Player, out var company))
             return false;
 
