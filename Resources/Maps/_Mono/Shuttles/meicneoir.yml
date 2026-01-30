@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/30/2026 02:13:47
-  entityCount: 243
+  time: 01/30/2026 17:10:22
+  entityCount: 261
 maps: []
 grids:
 - 1
@@ -233,8 +233,7 @@ entities:
             1: 18005
           -2,0:
             1: 19522
-            2: 4
-            0: 8
+            2: 12
           -2,-1:
             1: 19524
           -2,1:
@@ -385,30 +384,15 @@ entities:
     - type: Transform
       pos: -3.5,-2.5
       parent: 1
-  - uid: 187
-    components:
-    - type: Transform
-      pos: -3.5,-1.5
-      parent: 1
   - uid: 188
     components:
     - type: Transform
       pos: -3.5,-0.5
       parent: 1
-  - uid: 189
-    components:
-    - type: Transform
-      pos: -3.5,0.5
-      parent: 1
   - uid: 190
     components:
     - type: Transform
       pos: -3.5,1.5
-      parent: 1
-  - uid: 191
-    components:
-    - type: Transform
-      pos: -3.5,2.5
       parent: 1
   - uid: 192
     components:
@@ -540,20 +524,10 @@ entities:
     - type: Transform
       pos: 4.5,3.5
       parent: 1
-  - uid: 218
-    components:
-    - type: Transform
-      pos: 4.5,2.5
-      parent: 1
   - uid: 219
     components:
     - type: Transform
       pos: 4.5,1.5
-      parent: 1
-  - uid: 220
-    components:
-    - type: Transform
-      pos: 4.5,0.5
       parent: 1
   - uid: 221
     components:
@@ -669,6 +643,11 @@ entities:
     components:
     - type: Transform
       pos: -1.5,5.5
+      parent: 1
+  - uid: 244
+    components:
+    - type: Transform
+      pos: -4.5,0.5
       parent: 1
 - proto: BlastDoor
   entities:
@@ -1393,6 +1372,137 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -0.5,3.5
+      parent: 1
+- proto: RadarEdgeMarkerDiagonal
+  entities:
+  - uid: 187
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,-2.5
+      parent: 1
+  - uid: 189
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 6.5,3.5
+      parent: 1
+  - uid: 191
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,6.5
+      parent: 1
+  - uid: 218
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,6.5
+      parent: 1
+  - uid: 220
+    components:
+    - type: Transform
+      pos: -5.5,-2.5
+      parent: 1
+  - uid: 245
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,3.5
+      parent: 1
+  - uid: 246
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,3.5
+      parent: 1
+  - uid: 247
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,3.5
+      parent: 1
+  - uid: 248
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,1.5
+      parent: 1
+  - uid: 249
+    components:
+    - type: Transform
+      pos: -0.5,1.5
+      parent: 1
+  - uid: 250
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,-0.5
+      parent: 1
+  - uid: 251
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-0.5
+      parent: 1
+  - uid: 252
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,-2.5
+      parent: 1
+  - uid: 253
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,6.5
+      parent: 1
+  - uid: 254
+    components:
+    - type: Transform
+      pos: -1.5,-2.5
+      parent: 1
+  - uid: 255
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -3.5,6.5
+      parent: 1
+  - uid: 256
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,2.5
+      parent: 1
+  - uid: 257
+    components:
+    - type: Transform
+      pos: -5.5,-1.5
+      parent: 1
+  - uid: 258
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,-1.5
+      parent: 1
+  - uid: 259
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 6.5,2.5
+      parent: 1
+- proto: RadarEdgeMarkerStraight
+  entities:
+  - uid: 260
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,0.5
+      parent: 1
+  - uid: 261
+    components:
+    - type: Transform
+      pos: 2.5,0.5
       parent: 1
 - proto: Railing
   entities:
