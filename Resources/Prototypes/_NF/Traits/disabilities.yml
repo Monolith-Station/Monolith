@@ -30,10 +30,6 @@
   name: trait-wheelchair-bound-name
   description: trait-wheelchair-bound-desc
   category: Disabilities
-  conditions:
-  - !type:HasCompCondition
-    component: BorgChassis
-    invert: true
   effects:
   - !type:AddCompsEffect
     components:

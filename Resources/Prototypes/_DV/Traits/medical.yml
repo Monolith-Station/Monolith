@@ -63,10 +63,6 @@
   conflicts:
   - WillToLive
   conditions: # Mono: no silicon redshirts
-  - !type:HasCompCondition
-    component: BorgChassis
-    invert: true
-    tooltip: trait-condition-borg-not
   - !type:IsSpeciesCondition
     species: IPC
     invert: true
@@ -85,9 +81,6 @@
 #   conditions:
 #   - !type:HasCompCondition
 #     component: Silicon
-#     invert: true
-#   - !type:HasCompCondition
-#     component: BorgChassis
 #     invert: true
 #   - !type:IsSpeciesCondition
 #     species: IPC

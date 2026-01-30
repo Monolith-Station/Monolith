@@ -40,8 +40,6 @@ trait-conflicts-met-tooltip = Conflicting traits:
 ## Condition tooltips
 trait-conditions-tooltip = [bold]Conditions:[/bold]
     {$conditions}
-trait-conditions-not-met-tooltip = [bold]Conditions not met:[/bold]
-    {$conditions}
 
 ## Composite conditions
 trait-condition-any-of = Any of the following must be true:
@@ -63,9 +61,10 @@ trait-condition-trait-has-not = You must not have the trait [color=yellow]{$trai
 trait-condition-department-is = You must be in the [color={$color}]{$department}[/color] department.
 trait-condition-department-not = You must not be in the [color={$color}]{$department}[/color] department.
 
-## HasComp borg conditions
-trait-condition-borg-not = You must not be a [color=yellow]borg[/color].
-
 # Antag conditions
 trait-condition-antag-is = Must be eligible for [color=red]{$antag}[/color] antag role.
 trait-condition-antag-not = Must not be eligible for [color=red]{$antag}[/color] antag role.
+
+# Trait requirements and conflicts
+trait-condition-trait-has-not = Must not have the trait [color=yellow]{$trait}[/color].
+trait-condition-trait-has = Must have the trait [color=yellow]{$trait}[/color].

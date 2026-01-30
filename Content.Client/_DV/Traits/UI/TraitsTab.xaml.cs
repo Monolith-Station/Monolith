@@ -157,30 +157,10 @@ public sealed partial class TraitsTab : BoxContainer
                 }
             }
 
-            // Check requirements
-            foreach (var required in trait.Requirements)
-            {
-                if (_selectedTraits.Contains(required))
-                    continue;
-
-                RevertTraitToggle(traitId);
-                return;
-            }
-
             // Check conflicts
             foreach (var conflict in trait.Conflicts)
             {
                 if (!_selectedTraits.Contains(conflict))
-                    continue;
-
-                RevertTraitToggle(traitId);
-                return;
-            }
-
-            foreach (var selectedTraitId in _selectedTraits)
-            {
-                var selectedTrait = _prototype.Index(selectedTraitId);
-                if (!selectedTrait.Conflicts.Contains(traitId))
                     continue;
 
                 RevertTraitToggle(traitId);
@@ -304,7 +284,7 @@ public sealed partial class TraitsTab : BoxContainer
         foreach (var (_, categoryUi) in _categoryUis)
         {
             // If some fork wants to use the top selected job as well, just add that to the UpdateConditions method in the editor
-            categoryUi.UpdateConditions(null, _profile?.Species, _profile?.AntagPreferences, _profile?.Company);
+            categoryUi.UpdateConditions(null, _profile?.Species, _profile?.AntagPreferences, _profile?.Company); // Mono - Company condition
         }
 
         RecalculateStats();

@@ -145,20 +145,6 @@ public sealed class TraitSystem : EntitySystem
                 continue;
             }
 
-            var hasRequirements = true;
-            foreach (var requiredTraitId in trait.Requirements)
-            {
-                if (!validTraits.Contains(requiredTraitId))
-                {
-                    Log.Warning($"Trait {traitId} rejected: missing required trait {requiredTraitId}");
-                    hasRequirements = false;
-                    break;
-                }
-            }
-
-            if (!hasRequirements)
-                continue;
-
             // Check conflicts with already selected traits
             var hasConflict = false;
             foreach (var validTraitId in validTraits)

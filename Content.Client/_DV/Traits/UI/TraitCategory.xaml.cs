@@ -171,16 +171,11 @@ public sealed partial class TraitCategory : BoxContainer
     /// Updates condition states for all trait entries based on current job/species.
     /// Traits that don't meet conditions are disabled but still visible.
     /// </summary>
-    public void UpdateConditions(
-        ProtoId<JobPrototype>? jobId,
-        ProtoId<SpeciesPrototype>? speciesId,
-        IReadOnlySet<ProtoId<AntagPrototype>>? antagPreferences,
-        string? companyName // Mono - Company condition
-    )
+    public void UpdateConditions(ProtoId<JobPrototype>? jobId, ProtoId<SpeciesPrototype>? speciesId, IReadOnlySet<ProtoId<AntagPrototype>>? antagPreferences, IReadOnlySet<ProtoId<TraitPrototype>>? traits, string? companyName)  // Mono - Company condition
     {
         foreach (var (_, entry) in _traitEntries)
         {
-            entry.UpdateConditionsMet(jobId, speciesId, antagPreferences, companyName); // Mono - Company conditions
+            entry.UpdateConditionsMet(jobId, speciesId, antagPreferences, traits, companyName); // Mono - Company condition
         }
 
         // Update stats since some traits may have been deselected
