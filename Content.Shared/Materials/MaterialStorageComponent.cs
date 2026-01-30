@@ -38,6 +38,12 @@ public sealed partial class MaterialStorageComponent : Component
     public bool DropOnDeconstruct = true;
 
     /// <summary>
+    /// Mono - Whether or not to drop contained materials when destroyed.
+    /// </summary>
+    [DataField]
+    public bool DropOnDestroy = true;
+
+    /// <summary>
     /// Whitelist generated on runtime for what specific materials can be inserted into this entity.
     /// </summary>
     [DataField, AutoNetworkedField]

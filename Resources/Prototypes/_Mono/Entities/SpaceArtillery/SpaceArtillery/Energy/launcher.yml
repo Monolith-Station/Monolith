@@ -95,11 +95,11 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 0.75
+    fireRate: 0.5
     recoil: 8
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 175
+    projectileSpeed: 100
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -181,7 +181,7 @@
       path: /Audio/Weapons/click.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 300
+    autoRechargeRate: 220
   - type: SpaceArtillery
     powerChargeRate: 700
     powerUsePassive: 100
@@ -395,7 +395,7 @@
     maxAngle: 8
     fireRate: 1
     recoil: 10 # 2/5x
-    burstCooldown: 10
+    burstCooldown: 16
     burstFireRate: 50
     shotsPerBurst: 50
     selectedMode: Burst
@@ -619,7 +619,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: .2
+    fireRate: .15
     recoil: 5
     minAngle: 0
     maxAngle: 0
