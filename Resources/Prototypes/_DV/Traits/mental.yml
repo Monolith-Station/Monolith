@@ -31,8 +31,10 @@
   name: trait-pacifist-name
   description: trait-pacifist-desc
   category: Mental
-  conflicts:
-  - Pious
+  conditions:
+  - !type:HasTraitCondition
+    trait: Pious
+    invert: true
   effects:
   - !type:AddCompsEffect
     components:

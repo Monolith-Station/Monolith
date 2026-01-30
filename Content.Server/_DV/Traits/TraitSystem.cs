@@ -145,41 +145,6 @@ public sealed class TraitSystem : EntitySystem
                 continue;
             }
 
-            // Check conflicts with already selected traits
-            var hasConflict = false;
-            foreach (var validTraitId in validTraits)
-            {
-                // Check if current trait conflicts with valid trait
-                if (trait.Conflicts.Contains(validTraitId))
-                {
-                    Log.Warning($"Trait {traitId} rejected: conflicts with {validTraitId}");
-                    if (_prototype.TryIndex(validTraitId, out var conflictTrait))
-                    {
-                        rejectionReasons.Add(Loc.GetString("disabled-traits-reason-conflict",
-                            ("trait", Loc.GetString(conflictTrait.Name))));
-                    }
-                    hasConflict = true;
-                    break;
-                }
-
-                // Check if valid trait conflicts with current trait
-                if (_prototype.TryIndex(validTraitId, out var validTrait) &&
-                    validTrait.Conflicts.Contains(traitId))
-                {
-                    Log.Warning($"Trait {traitId} rejected: {validTraitId} conflicts with it");
-                    rejectionReasons.Add(Loc.GetString("disabled-traits-reason-conflict",
-                        ("trait", Loc.GetString(validTrait.Name))));
-                    hasConflict = true;
-                    break;
-                }
-            }
-
-            if (hasConflict)
-            {
-                disabledTraits[traitId] = rejectionReasons;
-                continue;
-            }
-
             // Check all conditions
             if (!CheckConditions(trait, conditionCtx, rejectionReasons))
             {

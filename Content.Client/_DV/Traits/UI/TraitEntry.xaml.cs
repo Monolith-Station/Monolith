@@ -106,7 +106,7 @@ public sealed partial class TraitEntry : PanelContainer
                 IsAntagEligibleCondition antagEligibleCond => CheckAntagEligibleCondition(antagEligibleCond, antagPreferences),
                 HasTraitCondition hasTrait => CheckHasTraitCondition(hasTrait, traits),
                 InCompanyCondition inCompanyCond => CheckInCompanyCondition(inCompanyCond, companyName), // Mono - Company condition
-                AnyOfCondition anyOfCond => CheckAnyOfCondition(anyOfCond, jobId, speciesId, antagPreferences, traits),
+                AnyOfCondition anyOfCond => CheckAnyOfCondition(anyOfCond, jobId, speciesId, antagPreferences, traits, companyName),
                 _ => true,
             };
 
@@ -166,13 +166,13 @@ public sealed partial class TraitEntry : PanelContainer
     }
 
     // Begin Mono - Company condition
-    private bool CheckInCompanyCondition(InCompanyCondition condition, string? companyName)
+    private bool CheckInCompanyCondition(InCompanyCondition condition, string? companyName) // Mono - Company condition
     {
         return string.Equals(condition.CompanyName, companyName);
     }
     // End Mono
 
-    private bool CheckAnyOfCondition(AnyOfCondition condition, ProtoId<JobPrototype>? jobId, ProtoId<SpeciesPrototype>? speciesId, IReadOnlySet<ProtoId<AntagPrototype>>? antagPreferences, IReadOnlySet<ProtoId<TraitPrototype>>? traits)
+    private bool CheckAnyOfCondition(AnyOfCondition condition, ProtoId<JobPrototype>? jobId, ProtoId<SpeciesPrototype>? speciesId, IReadOnlySet<ProtoId<AntagPrototype>>? antagPreferences, IReadOnlySet<ProtoId<TraitPrototype>>? traits, string? companyName) // Mono - Company condition
     {
         if (condition.Conditions.Count == 0)
             return false;
@@ -189,7 +189,7 @@ public sealed partial class TraitEntry : PanelContainer
                 IsAntagEligibleCondition antagEligibleCond => CheckAntagEligibleCondition(antagEligibleCond, antagPreferences),
                 HasTraitCondition hasTrait => CheckHasTraitCondition(hasTrait, traits),
                 InCompanyCondition inCompanyCond => CheckInCompanyCondition(inCompanyCond, companyName), // Mono - Company condition
-                AnyOfCondition nestedAnyOf => CheckAnyOfCondition(nestedAnyOf, jobId, speciesId, antagPreferences, traits), // Recursive!
+                AnyOfCondition nestedAnyOf => CheckAnyOfCondition(nestedAnyOf, jobId, speciesId, antagPreferences, traits, companyName), // Recursive!
                 _ => true,
             };
 

@@ -53,10 +53,6 @@ trait-condition-species-not = You must not be {INDEFINITE($species)} [color=yell
 trait-condition-job-is = You must be {INDEFINITE($job)} [color={$color}]{$job}[/color].
 trait-condition-job-not = You must not be {INDEFINITE($job)} [color={$color}]{$job}[/color].
 
-## Trait conditions
-trait-condition-trait-has = You must have the trait [color=yellow]{$trait}[color=yellow].
-trait-condition-trait-has-not = You must not have the trait [color=yellow]{$trait}[color=yellow].
-
 ## Department conditions
 trait-condition-department-is = You must be in the [color={$color}]{$department}[/color] department.
 trait-condition-department-not = You must not be in the [color={$color}]{$department}[/color] department.

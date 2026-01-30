@@ -60,11 +60,12 @@
   description: trait-redshirt-desc
   category: Physical
   cost: -8
-  conflicts:
-  - WillToLive
-  conditions: # Mono: no silicon redshirts
-  - !type:IsSpeciesCondition
+  conditions:
+  - !type:IsSpeciesCondition # Mono: no silicon redshirts
     species: IPC
+    invert: true
+  - !type:HasTraitCondition
+    trait: WillToLive
     invert: true
   effects: # Mono: Add a custom component instead of overriding MobThresholds manually
   - !type:AddCompsEffect

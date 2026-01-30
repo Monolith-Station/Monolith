@@ -62,9 +62,9 @@
   description: trait-language-solcommon-desc
   category: LanguageTraits
   cost: 3 # Mono - TSF faction language, needs a trade-off (of having to use foreigner)
-  requirements:
-  - Foreigner
   conditions:
+  - !type:HasTraitCondition
+    trait: Foreigner
   - !type:InCompanyCondition
     companyName: PDV
     invert: true
@@ -100,9 +100,9 @@
   description: trait-language-freespeak-desc
   category: LanguageTraits
   cost: 3 # Mono - PDV faction language, needs a trade-off (of having to use foreigner)
-  requirements:
-  - Foreigner
   conditions:
+  - !type:HasTraitCondition
+    trait: Foreigner
   - !type:InCompanyCondition
     companyName: TSF
     invert: true

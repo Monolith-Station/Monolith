@@ -15,9 +15,10 @@
   description: trait-vigor-desc
   category: Physical
   cost: 6
-  conflicts:
-  - Lethargy
   conditions:
+  - !type:HasTraitCondition
+    trait: Lethargy
+    invert: true
   - !type:IsSpeciesCondition
     species: IPC
     invert: true
@@ -35,9 +36,10 @@
   description: trait-lethargy-desc
   category: Physical
   cost: -4
-  conflicts:
-  - Vigor
   conditions:
+  - !type:HasTraitCondition
+    trait: Vigor
+    invert: true
   - !type:IsSpeciesCondition
     species: Felinid
     invert: true
@@ -55,9 +57,10 @@
   description: trait-glass-jaw-desc
   category: Physical
   cost: -2
-  conflicts:
-  - Tenacity
   conditions:
+  - !type:HasTraitCondition
+    trait: Tenacity
+    invert: true
   - !type:IsSpeciesCondition
     species: IPC
     invert: true
@@ -72,10 +75,13 @@
   description: trait-tenacity-desc
   category: Physical
   cost: 1
-  conflicts:
-  - GlassJaw
-  - OsteogenesisImperfecta
   conditions:
+  - !type:HasTraitCondition
+    trait: GlassJaw
+    invert: true
+  - !type:HasTraitCondition
+    trait: OsteogenesisImperfecta
+    invert: true
   - !type:IsSpeciesCondition
     species: IPC
     invert: true
@@ -90,10 +96,13 @@
   description: trait-will-to-live-desc
   category: Physical
   cost: 1
-  conflicts:
-  - WillToDie
-  - Redshirt
   conditions:
+  - !type:HasTraitCondition
+    trait: WillToDie
+    invert: true
+  - !type:HasTraitCondition
+    trait: Redshirt
+    invert: true
   - !type:IsSpeciesCondition
     species: IPC
     invert: true
@@ -108,9 +117,10 @@
   description: trait-will-to-die-desc
   category: Physical
   cost: -1
-  conflicts:
-  - WillToLive
   conditions:
+  - !type:HasTraitCondition
+    trait: WillToLive
+    invert: true
   - !type:IsSpeciesCondition
     species: IPC
     invert: true
@@ -154,9 +164,10 @@
   description: trait-osteogenesis-imperfecta-desc
   category: Physical
   cost: -6
-  conflicts:
-  - Tenacity
   conditions:
+  - !type:HasTraitCondition
+    trait: Tenacity
+    invert: true
   - !type:IsSpeciesCondition
     species: IPC
     invert: true
@@ -225,9 +236,10 @@
   description: trait-feeble-desc
   category: Physical
   cost: -4
-  conflicts:
-   - Steadfast
   conditions:
+  - !type:HasTraitCondition
+    trait: Steadfast
+    invert: true
   - !type:IsSpeciesCondition
     species: Felinid
     invert: true
@@ -280,9 +292,10 @@
   description: trait-liquor-lifeline-desc
   category: Physical
   cost: 6
-  conflicts:
-  - AlcoholTolerance
   conditions:
+  - !type:HasTraitCondition
+    trait: AlcoholTolerance
+    invert: true
   - !type:IsSpeciesCondition
     species: IPC
     invert: true
@@ -311,9 +324,10 @@
   description: trait-steadfast-desc
   category: Physical
   cost: 3
-  conflicts:
-  - Feeble
   conditions:
+  - !type:HasTraitCondition
+    trait: Feeble
+    invert: true
   - !type:IsSpeciesCondition
     species: Felinid
     invert: true
@@ -379,10 +393,13 @@
   description: trait-alcohol-tolerance-desc
   category: Physical
   cost: 1
-  conflicts:
-  - LightweightDrunk
-  - LiquorLifeline
   conditions:
+  - !type:HasTraitCondition
+    trait: LightweightDrunk
+    invert: true
+  - !type:HasTraitCondition
+    trait: LiquorLifeline
+    invert: true
   - !type:IsSpeciesCondition
     species: Dwarf
     invert: true
@@ -401,9 +418,10 @@
   description: trait-platelet-factories-desc
   category: Physical
   cost: 10
-  conflicts:
-  - Hemophilia
   conditions:
+  - !type:HasTraitCondition
+    trait: Hemophilia
+    invert: true
   - !type:IsSpeciesCondition
     species: IPC
     invert: true

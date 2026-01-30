@@ -3,8 +3,10 @@
   name: trait-pious-name
   description: trait-pious-desc
   category: Mental
-  conflicts:
-  - Pacifist
+  conditions:
+  - !type:HasTraitCondition
+    trait: Pacifist
+    invert: true
   effects:
   - !type:AddCompsEffect
     components:
