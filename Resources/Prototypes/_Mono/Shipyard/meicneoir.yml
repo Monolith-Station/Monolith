@@ -1,0 +1,34 @@
+- type: vessel
+  id: Meicneoir
+  parent: BaseVessel
+  name: Z-22 Meicneoir
+  description: Ironically named it's tiny, compact and primarily used for short excursions or small time mining operations by IPCs...or organics that misunderstand its name, or are just desperate.
+  price: 42000
+  category: Small
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/meicneoir.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Meicneoir
+  mapName: 'Z-22 Meicneoir'
+  mapPath: /Maps/_Mono/Shuttles/Meicneoir.yml
+  minPlayers: 0
+  stations:
+    Meicneoir:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Meicneoir MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
