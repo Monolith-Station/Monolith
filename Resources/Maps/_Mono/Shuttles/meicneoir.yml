@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/30/2026 17:10:22
-  entityCount: 261
+  time: 01/31/2026 21:18:51
+  entityCount: 263
 maps: []
 grids:
 - 1
@@ -84,10 +84,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Smoke: []
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
+        Smoke: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -931,8 +931,7 @@ entities:
   - uid: 61
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.7540221,-1.5462065
+      pos: 1.7582418,-1.3353038
       parent: 1
 - proto: CigaretteSpent
   entities:
@@ -954,6 +953,13 @@ entities:
       parent: 62
     - type: Physics
       canCollide: False
+- proto: CircuitImprinter
+  entities:
+  - uid: 262
+    components:
+    - type: Transform
+      pos: 1.5,-1.5
+      parent: 1
 - proto: ClothingBackpackDuffelEVABundleEngineer
   entities:
   - uid: 67
@@ -1042,7 +1048,7 @@ entities:
   - uid: 74
     components:
     - type: Transform
-      pos: 1.3321471,-1.2024565
+      pos: -1.8118012,1.2244048
       parent: 1
   - uid: 76
     components:
@@ -1078,6 +1084,13 @@ entities:
       parent: 75
     - type: Physics
       canCollide: False
+- proto: DrinkHotCoffee
+  entities:
+  - uid: 122
+    components:
+    - type: Transform
+      pos: 2.3340328,2.7660718
+      parent: 1
 - proto: DrinkWhiskeyBottleFull
   entities:
   - uid: 81
@@ -1277,8 +1290,7 @@ entities:
   - uid: 62
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.7696471,-1.5618315
+      pos: 1.7269918,-1.4134288
       parent: 1
     - type: Storage
       storedItems:
@@ -1300,6 +1312,75 @@ entities:
           - 63
           - 64
           - 65
+- proto: Paper
+  entities:
+  - uid: 498
+    components:
+    - type: Transform
+      pos: 1.9769918,0.44594622
+      parent: 1
+    - type: Paper
+      content: >2-
+
+                                  [head=1]Militia Ironworks                        
+                   Preflight  Checklist[/head]
+        [color=#f39f27]▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀[/color] 
+
+
+        [bold]Z-22 Leopard:[/bold] [form]
+
+
+        [bold]Preflight Check Items:[/bold]
+
+        - < ✔ > External Inspection
+
+        - < ✔ > Fuel Level Check
+
+        - < ✔ > Hydraulic Systems Check
+
+        - < ✔ > Electrical Systems Check
+
+        - < ✔ > Navigation Systems Check
+
+        - < ✔ > Communication Systems Check
+
+        - < ✔ > Engine Start Procedure
+
+        - < ✔ > Flight Controls Check
+
+        - < ✔ > Weapon Systems Check
+
+        - < ✔ > Safety Equipment Check
+
+
+        [bold]Notes:[/bold]
+
+        I made sure that the bay doors are properly linked to Port 1 on the shuttle console, the hazard lights function properly, and the emergency power APU functions fine as well.
+         [italic][form][/italic]
+        [italic][bold][color=#f39f27]‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾[/color][/bold][/italic]
+
+        [italic]I certify that I have completed all the preflight checks listed above, and that the aircraft is deemed airworthy in accordance with MI regulations and safety protocols. 
+
+        Any discrepancies found have been reported and addressed.[/italic]
+
+
+        [bold]Signed,[/bold] [head=2][italic][color=Black]Jade Aves[/color][/italic][/head]
+
+        [head=3][color=#AA8760][italic][signature][/italic][/color][/head]
+
+        [italic][bold][color=#f39f27]‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾[/color][/bold][/italic]
+
+        [color=#AAAAAA][italic][bullet]This Preflight Checklist must be completed and signed before every flight operation. 
+
+        [bullet]Failure to comply with preflight procedures may result in disciplinary action and grounding of the aircraft.
+
+        [bullet]Any issues found during the preflight check must be reported to the maintenance crew and resolved before flight clearance is granted.
+
+        [bullet]This document is to be kept on record for the duration of the flight and for five years thereafter for audit and review purposes.[/italic][/color]
+
+        [color=#E41B1B]Use of this document inconsistent with MI regulations and MI policy PFC-S is a violation of military law and will result in prosecution.[/color][/italic]
+
+        [italic][bold][color=#eb7a23]‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾[/color][/bold][/italic]
 - proto: PortableGeneratorPacmanShuttle
   entities:
   - uid: 99
@@ -1631,14 +1712,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 2.5,0.5
-      parent: 1
-- proto: TableFolding
-  entities:
-  - uid: 122
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.5196471,-1.4837065
       parent: 1
 - proto: Thruster
   entities:
