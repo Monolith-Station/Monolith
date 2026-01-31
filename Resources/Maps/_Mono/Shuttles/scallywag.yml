@@ -55,7 +55,7 @@ entities:
       name: grid
     - type: Transform
       pos: -0.515625,-0.23688152
-      parent: invalid
+      parent: 
     - type: MapGrid
       chunks:
         0,0:
@@ -1954,8 +1954,7 @@ entities:
       pos: 0.5,12.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      
       deviceLists:
       - 12
       - 10
@@ -4964,3 +4963,4 @@ entities:
           - 5
           - 6
 ...
+
