@@ -48,8 +48,8 @@
     damage:
       types:
         Radiation: 20
-        Structural: 350
-        Heat: 80
+        Structural: 120
+        Heat: 60
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
     layers:
@@ -69,8 +69,8 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 18
-    intensitySlope: 10
+    totalIntensity: 10
+    intensitySlope: 15
     maxIntensity: 15
 
 - type: entity
@@ -95,8 +95,8 @@
     damage:
       types:
         Radiation: 6
-        Structural: 65
-        Heat: 35
+        Structural: 20
+        Heat: 15
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
     layers:
@@ -120,7 +120,6 @@
     totalIntensity: 7
     intensitySlope: 2
     maxIntensity: 4
-    maxTileBreak: 1
 
 # Scylla
 
@@ -134,8 +133,8 @@
     damage:
       types:
         Radiation: 5
-        Structural: 60
-        Heat: 30
+        Structural: 10
+        Heat: 10
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
     layers:
@@ -154,10 +153,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 15
+    totalIntensity: 5
     intensitySlope: 3
     maxIntensity: 5
-    maxTileBreak: 1
 
 # Type 241
 
@@ -490,7 +488,7 @@
     damage:
      types:
        Heat: 120
-       Structural: 500
+       Structural: 125
   - type: HitscanSpawnEntity
     spawnedEntity: PrometheusExplosion
   - type: HitscanBasicRaycast
