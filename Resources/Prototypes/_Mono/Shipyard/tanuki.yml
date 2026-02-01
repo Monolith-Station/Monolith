@@ -1,0 +1,41 @@
+# Author Info
+# GitHub: Corrupt142
+# Discord: Corrupt
+
+# Shuttle Notes: Made under commision
+
+- type: vessel
+  id: Tanuki
+  parent: BaseVessel
+  name: MI-COR Tanuki
+  description: The Tanuki is a rugged, Militarised cargo shuttle from Militia Ironworks. Featuring an easily modifiable cargo bay and heavy-duty armor, it is designed to be the ultimate framework (and drone hunter) for Militia and Independent operators. It carries a healthy amount of laser firepower for its size, sporting 2 Prometheus Laser Cannons for long-range effective fire and 3 Cerberus Plasma Scattercannons for melting hostiles in close range. Houses a small galley and medbay, standard for militia ships, and is FTL capable.
+  price: 115000 # 95K base + 20K for medical/galley.
+  category: medium
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/tanuki.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Tanuki
+  mapName: 'MI-COR Tanuki'
+  mapPath: /Maps/_Mono/Shuttles/tanuki.yml
+  minPlayers: 0
+  stations:
+    Tanuki:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Tanuki MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
