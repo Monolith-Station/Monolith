@@ -22,7 +22,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 10
@@ -48,8 +47,8 @@
     damage:
       types:
         Radiation: 20
-        Structural: 350
-        Heat: 80
+        Structural: 120
+        Heat: 60
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
     layers:
@@ -60,7 +59,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 12.2
@@ -69,8 +67,8 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 18
-    intensitySlope: 10
+    totalIntensity: 10
+    intensitySlope: 15
     maxIntensity: 15
 
 - type: entity
@@ -95,8 +93,8 @@
     damage:
       types:
         Radiation: 6
-        Structural: 65
-        Heat: 35
+        Structural: 20
+        Heat: 15
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
     layers:
@@ -108,7 +106,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 1.45
-    requireNoGrid: true
     shape: arrow
   - type: TimedDespawn
     lifetime: 2.8
@@ -120,7 +117,6 @@
     totalIntensity: 7
     intensitySlope: 2
     maxIntensity: 4
-    maxTileBreak: 1
 
 # Scylla
 
@@ -134,8 +130,8 @@
     damage:
       types:
         Radiation: 5
-        Structural: 60
-        Heat: 30
+        Structural: 10
+        Heat: 10
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
     layers:
@@ -145,7 +141,6 @@
   - type: RadarBlip
     radarColor: "#00e5ff"
     scale: 1.45
-    requireNoGrid: true
     shape: arrow
   - type: TimedDespawn
     lifetime: 2.1
@@ -154,10 +149,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 15
+    totalIntensity: 5
     intensitySlope: 3
     maxIntensity: 5
-    maxTileBreak: 1
 
 # Type 241
 
@@ -184,7 +178,6 @@
   - type: RadarBlip
     radarColor: "#FF00AA"
     scale: 2.4
-    requireNoGrid: true
     shape: arrow
   - type: TimedDespawn
     lifetime: 24
@@ -222,7 +215,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 0.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 3
@@ -255,7 +247,6 @@
   - type: RadarBlip
     radarColor: "#035EFC"
     scale: 2
-    requireNoGrid: true
     shape: circle
   - type: TimedDespawn
     lifetime: 6.6
@@ -289,7 +280,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 3.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 10
@@ -331,7 +321,6 @@
   - type: RadarBlip
     radarColor: "#ffffff"
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 6
@@ -367,7 +356,6 @@
   - type: RadarBlip
     radarColor: "#9507fa"
     scale: 3
-    requireNoGrid: true
     shape: circle
   - type: TimedDespawn
     lifetime: 10
@@ -407,7 +395,6 @@
   - type: RadarBlip
     radarColor: "#ab0707"
     scale: 3
-    requireNoGrid: true
     shape: circle
   - type: TimedDespawn
     lifetime: 4.5
@@ -490,7 +477,7 @@
     damage:
      types:
        Heat: 120
-       Structural: 500
+       Structural: 125
   - type: HitscanSpawnEntity
     spawnedEntity: PrometheusExplosion
   - type: HitscanBasicRaycast

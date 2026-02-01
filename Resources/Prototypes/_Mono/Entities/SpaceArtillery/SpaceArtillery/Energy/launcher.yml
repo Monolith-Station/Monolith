@@ -95,11 +95,11 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 0.75
+    fireRate: 0.5
     recoil: 8
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 175
+    projectileSpeed: 100
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -181,7 +181,7 @@
       path: /Audio/Weapons/click.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 300
+    autoRechargeRate: 220
   - type: SpaceArtillery
     powerChargeRate: 700
     powerUsePassive: 100
@@ -293,6 +293,12 @@
     radarColor: "#C92BCC"
     scale: 1
     visibleFromOtherGrids: true
+    gridConfig:
+      color: "#C92BCC"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.7,-0.7,0.7,0.7"
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
@@ -395,7 +401,7 @@
     maxAngle: 8
     fireRate: 1
     recoil: 10 # 2/5x
-    burstCooldown: 10
+    burstCooldown: 16
     burstFireRate: 50
     shotsPerBurst: 50
     selectedMode: Burst
@@ -437,6 +443,12 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 1.5
+    gridConfig:
+      color: "#C92BCC"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1.4,-1.4,1.4,1.4"
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
@@ -514,6 +526,12 @@
     radarColor: "#C92BCC"
     scale: 3
     visibleFromOtherGrids: true
+    gridConfig:
+      color: "#C92BCC"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-2,-2,2,2"
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
@@ -619,7 +637,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: .2
+    fireRate: .15
     recoil: 5
     minAngle: 0
     maxAngle: 0
@@ -818,6 +836,12 @@
     radarColor: "#C92BCC"
     scale: 3
     visibleFromOtherGrids: true
+    gridConfig:
+      color: "#C92BCC"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-2.5,-2.5,2.5,2.5"
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
@@ -902,6 +926,12 @@
     radarColor: "#5bc65d"
     scale: 3
     visibleFromOtherGrids: true
+    gridConfig:
+      color: "#5bc65d"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1.5,-2.5,1.5,2.5"
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
@@ -986,6 +1016,12 @@
     radarColor: "#450089"
     scale: 3
     visibleFromOtherGrids: true
+    gridConfig:
+      color: "#450089"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1.5,-2.5,1.5,2.5"
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass

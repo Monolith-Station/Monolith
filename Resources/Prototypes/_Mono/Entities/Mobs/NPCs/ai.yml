@@ -199,6 +199,28 @@
     rootTask:
       task: DroneCompoundAssembly
 
+- type: entity
+  id: NpcDroneAiMPulsar
+  name: attacker core
+  parent: [NpcStationAiAttacker, BaseFactionGearOtherFactionT2]
+  description: Shoots at you, up-close.
+  suffix: AI, Drone-MPulsar
+  components:
+  - type: HTN
+    rootTask:
+      task: DroneCompoundMPulsar
+
+- type: entity
+  id: NpcDroneAiLance
+  name: attacker core
+  parent: [NpcStationAiAttacker, BaseFactionGearOtherFactionT2]
+  description: Shoots at you, close-by.
+  suffix: AI, Drone-Lance
+  components:
+  - type: HTN
+    rootTask:
+      task: DroneCompoundLance
+
 #region Spawners
 
 - type: entity
@@ -301,6 +323,15 @@
     - NpcStationAiAttackerStaticSmart
 
 - type: entity
+  name: broadside attacker core spawner
+  id: SpawnMobNpcStationAiAttackerBroadside
+  parent: SpawnMobAttackerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiAttackerBroadside
+
+- type: entity
   name: approacher core spawner
   id: SpawnMobApproacherCore
   parent: SpawnMobAttackerCore
@@ -330,3 +361,23 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcDroneAiAssembly
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiMPulsar
+  parent: SpawnMobAttackerCore
+  suffix: Short-Range, Drone-MPulsar
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiMPulsar
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiLance
+  parent: SpawnMobAttackerCore
+  suffix: Short-Range, Drone-Lance
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiLance
