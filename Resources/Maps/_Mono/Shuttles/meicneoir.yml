@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/31/2026 21:18:51
+  time: 02/01/2026 19:42:30
   entityCount: 263
 maps: []
 grids:
@@ -1048,7 +1048,7 @@ entities:
   - uid: 74
     components:
     - type: Transform
-      pos: -1.8118012,1.2244048
+      pos: -1.4642451,1.1015944
       parent: 1
   - uid: 76
     components:
@@ -1112,7 +1112,7 @@ entities:
   - uid: 83
     components:
     - type: Transform
-      pos: -1.5,2.5
+      pos: -1.5,0.5
       parent: 1
 - proto: GasPassiveVent
   entities:
@@ -1397,8 +1397,7 @@ entities:
   - uid: 100
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,0.5
+      pos: -1.5,2.5
       parent: 1
 - proto: PoweredlightExterior
   entities:
