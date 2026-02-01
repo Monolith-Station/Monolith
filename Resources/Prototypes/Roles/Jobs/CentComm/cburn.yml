@@ -1,3 +1,4 @@
+# Start base CBURN (Rifleman)
 - type: job
   id: CBURN
   name: job-name-cburn
@@ -57,4 +58,261 @@
     - BluespaceLifelineImplanter # Stops stealing of their gear
     - RadioImplanterCentcomm # Headset theft means nothing!
     - HandHeldMassScannerBorg # Just for the infiniste battery
-    
+
+# End base CBURN (Rifleman)
+
+# Start CBURN Leader (FTL)
+
+- type: job
+  id: CBURN-LEAD
+  name: job-name-cburn-leader
+  description: job-description-cburn
+  playTimeTracker: JobCBURN
+  setPreference: false
+  startingGear: CBURNGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+
+- type: startingGear
+  id: CBURNGear
+  equipment:
+    jumpsuit: ClothingUniformCcCBRN
+    back: ClothingBackpackDuffelCBURN
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesCentComm
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesMopp
+    neck: ClothingNeckIFFGreen
+    outerClothing: ClothingOuterHardsuitCBURN
+    shoes: ClothingShoesBootsMagAdv
+    id: CBURNPDA
+    pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
+    pocket2: WeaponLaserPistolNF # Frontier: WeaponLaserGun<WeaponLaserPistolNF
+    belt: ClothingBeltWebbingsBigRangerGreen
+    # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
+  inhand:
+  - PortableRecharger
+  storage:
+    back:
+    - WeaponShotgunDoubleBarreled
+    - GrenadeFlashBang
+    - MedkitCombatFilled
+    - MedkitCombatFilled
+    - ShipVoucherFrontierGuard
+    - GrenadeIncendiaryNfsd
+    - WeaponEnergyShotgun # NT Energy Shotgun
+    - SyringeCaseAltFilled
+    - PillMesotaxinide # Meso 15u
+    - PillMesotaxinide # Meso 15u
+    - Handcuffs
+    - Handcuffs
+    - TrackingImplanter # TSFMC tracker
+    - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
+    belt:
+    - AmmoBox12_gaugeIncendiary
+    - AmmoBox12_gaugeIncendiary
+    - SyndicateJawsOfLife
+    - PowerDrill
+    - WelderExperimental
+    - BluespaceLifelineImplanter # Stops stealing of their gear
+    - RadioImplanterCentcomm # Headset theft means nothing!
+    - HandHeldMassScannerBorg # Just for the infiniste battery
+
+# End CBURN Leader (FTL)
+
+# Start CBURN Medic (VICT-C)
+
+- type: job
+  id: CBURN-LEAD
+  name: job-name-cburn-meidc
+  description: job-description-cburn
+  playTimeTracker: JobCBURN
+  setPreference: false
+  startingGear: CBURNGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+
+- type: startingGear
+  id: CBURNGear
+  equipment:
+    jumpsuit: ClothingUniformCcCBRN
+    back: ClothingBackpackDuffelCBURN
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesCentComm
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesMopp
+    neck: ClothingNeckIFFGreen
+    outerClothing: ClothingOuterHardsuitCBURN
+    shoes: ClothingShoesBootsMagAdv
+    id: CBURNPDA
+    pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
+    pocket2: WeaponLaserPistolNF # Frontier: WeaponLaserGun<WeaponLaserPistolNF
+    belt: ClothingBeltWebbingsBigRangerGreen
+    # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
+  inhand:
+  - PortableRecharger
+  storage:
+    back:
+    - WeaponShotgunDoubleBarreled
+    - GrenadeFlashBang
+    - MedkitCombatFilled
+    - MedkitCombatFilled
+    - ShipVoucherFrontierGuard
+    - GrenadeIncendiaryNfsd
+    - WeaponEnergyShotgun # NT Energy Shotgun
+    - SyringeCaseAltFilled
+    - PillMesotaxinide # Meso 15u
+    - PillMesotaxinide # Meso 15u
+    - Handcuffs
+    - Handcuffs
+    - TrackingImplanter # TSFMC tracker
+    - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
+    belt:
+    - AmmoBox12_gaugeIncendiary
+    - AmmoBox12_gaugeIncendiary
+    - SyndicateJawsOfLife
+    - PowerDrill
+    - WelderExperimental
+    - BluespaceLifelineImplanter # Stops stealing of their gear
+    - RadioImplanterCentcomm # Headset theft means nothing!
+    - HandHeldMassScannerBorg # Just for the infiniste battery
+
+# End CBURN Medic (VICT-C)
+
+# Start CBURN Engineer (VICT-TAT)
+
+- type: job
+  id: CBURN-LEAD
+  name: job-name-cburn-engineer
+  description: job-description-cburn
+  playTimeTracker: JobCBURN
+  setPreference: false
+  startingGear: CBURNGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+
+- type: startingGear
+  id: CBURNGear
+  equipment:
+    jumpsuit: ClothingUniformCcCBRN
+    back: ClothingBackpackDuffelCBURN
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesCentComm
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesMopp
+    neck: ClothingNeckIFFGreen
+    outerClothing: ClothingOuterHardsuitCBURN
+    shoes: ClothingShoesBootsMagAdv
+    id: CBURNPDA
+    pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
+    pocket2: WeaponLaserPistolNF # Frontier: WeaponLaserGun<WeaponLaserPistolNF
+    belt: ClothingBeltWebbingsBigRangerGreen
+    # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
+  inhand:
+  - PortableRecharger
+  storage:
+    back:
+    - WeaponShotgunDoubleBarreled
+    - GrenadeFlashBang
+    - MedkitCombatFilled
+    - MedkitCombatFilled
+    - ShipVoucherFrontierGuard
+    - GrenadeIncendiaryNfsd
+    - WeaponEnergyShotgun # NT Energy Shotgun
+    - SyringeCaseAltFilled
+    - PillMesotaxinide # Meso 15u
+    - PillMesotaxinide # Meso 15u
+    - Handcuffs
+    - Handcuffs
+    - TrackingImplanter # TSFMC tracker
+    - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
+    belt:
+    - AmmoBox12_gaugeIncendiary
+    - AmmoBox12_gaugeIncendiary
+    - SyndicateJawsOfLife
+    - PowerDrill
+    - WelderExperimental
+    - BluespaceLifelineImplanter # Stops stealing of their gear
+    - RadioImplanterCentcomm # Headset theft means nothing!
+    - HandHeldMassScannerBorg # Just for the infiniste battery
+
+# End CBURN Engineer (VICT-TAT)
+
+# Start CBURN Shotgunner/Breacher (VICT-Point)
+
+- type: job
+  id: CBURN-LEAD
+  name: job-name-cburn-point
+  description: job-description-cburn
+  playTimeTracker: JobCBURN
+  setPreference: false
+  startingGear: CBURNGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+
+- type: startingGear
+  id: CBURNGear
+  equipment:
+    jumpsuit: ClothingUniformCcCBRN
+    back: ClothingBackpackDuffelCBURN
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesCentComm
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesMopp
+    neck: ClothingNeckIFFGreen
+    outerClothing: ClothingOuterHardsuitCBURN
+    shoes: ClothingShoesBootsMagAdv
+    id: CBURNPDA
+    pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
+    pocket2: WeaponLaserPistolNF # Frontier: WeaponLaserGun<WeaponLaserPistolNF
+    belt: ClothingBeltWebbingsBigRangerGreen
+    # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
+  inhand:
+  - PortableRecharger
+  storage:
+    back:
+    - WeaponShotgunDoubleBarreled
+    - GrenadeFlashBang
+    - MedkitCombatFilled
+    - MedkitCombatFilled
+    - ShipVoucherFrontierGuard
+    - GrenadeIncendiaryNfsd
+    - WeaponEnergyShotgun # NT Energy Shotgun
+    - SyringeCaseAltFilled
+    - PillMesotaxinide # Meso 15u
+    - PillMesotaxinide # Meso 15u
+    - Handcuffs
+    - Handcuffs
+    - TrackingImplanter # TSFMC tracker
+    - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
+    belt:
+    - AmmoBox12_gaugeIncendiary
+    - AmmoBox12_gaugeIncendiary
+    - SyndicateJawsOfLife
+    - PowerDrill
+    - WelderExperimental
+    - BluespaceLifelineImplanter # Stops stealing of their gear
+    - RadioImplanterCentcomm # Headset theft means nothing!
+    - HandHeldMassScannerBorg # Just for the infiniste battery
+
+# End CBURN Shotgunner/Breacher (VICT-Point)
