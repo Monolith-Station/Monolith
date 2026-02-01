@@ -73,7 +73,7 @@
         Structural: 4500 # So it can break shuttles
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
+    explosionType: Default
     totalIntensity: 50
     intensitySlope: 2
     maxIntensity: 5
@@ -99,7 +99,7 @@
 - type: entity
   id: BulletLaserPellet
   parent: BulletEnergyGunLaser
-  name: energy 
+  name: energy
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

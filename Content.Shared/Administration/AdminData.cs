@@ -23,6 +23,11 @@ namespace Content.Shared.Administration
         public string? Title;
 
         /// <summary>
+        ///     Mono - a shortened title.
+        /// </summary>
+        public string? ShortTitle;
+
+        /// <summary>
         ///     The admin's permission flags.
         /// </summary>
         public AdminFlags Flags;

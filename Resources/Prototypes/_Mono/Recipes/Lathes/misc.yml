@@ -35,3 +35,25 @@
     Steel: 600
     Glass: 50
     Plastic: 200
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: CleanerGrenade
+  result: CleanerGrenade
+  categories:
+  - Tools
+  completetime: 5
+  materials:
+    Steel: 500
+    Plastic: 1000
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: MetalFoamGrenade
+  result: MetalFoamGrenade
+  categories:
+  - Tools
+  completetime: 5
+  materials:
+    Steel: 1500
+    Plastic: 1000

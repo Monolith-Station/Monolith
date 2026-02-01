@@ -28,7 +28,7 @@
     lifetime: 30
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
+    explosionType: Default
     totalIntensity: 2000
     intensitySlope: 30
     maxIntensity: 1500
@@ -141,7 +141,7 @@
     energy: 2
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
+    explosionType: Default
     totalIntensity: 100
     intensitySlope: 10
     maxIntensity: 150
@@ -260,7 +260,7 @@
     energy: 2
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: HardBombShipGun
+    explosionType: Default
     maxIntensity: 25
     intensitySlope: 1000
     totalIntensity: 25

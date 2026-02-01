@@ -7,7 +7,7 @@
   id: BaseMaterialsNoDiscountRecipe
   categories:
   - Materials
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
   completetime: 0.06
 
 #Mono fun installation
@@ -100,7 +100,7 @@
   result: CableApcStack1
   parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 20 # ~0.3 of steel sheet #Mono - 300 > 20 
+    RawScrap: 20 # ~0.3 of steel sheet #Mono - 300 > 20
 
 - type: latheRecipe
   id: ScrapPartRodMetal1
