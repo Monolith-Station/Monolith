@@ -231,8 +231,8 @@
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: MovementSpeedModifier # Mono
-    baseWalkSpeed: 2
-    baseSprintSpeed: 3.25
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4.5
     baseWeightlessModifier: 5
   - type: StaticPrice
     price: 3000
