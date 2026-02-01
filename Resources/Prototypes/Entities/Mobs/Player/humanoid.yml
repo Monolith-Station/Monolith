@@ -491,11 +491,46 @@
       roleLoadout: [ RoleSurvivalEVA ]
 
 ## CBURN, dont know if this needs change, we will see
+## future me, you fucking had to change it
 
+# Start base CBURN (Rifleman)
 - type: entity
   id: RandomHumanoidSpawnerCBURNUnit
   name: CBURN Agent
   suffix: ERTRole
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: cburn
+    - type: RandomHumanoidSpawner
+      settings: CBURNAgent
+
+- type: randomHumanoidSettings
+  id: VICTAgent
+  parent: EventHumanoidMindShielded
+  components:
+    - type: Loadout
+      prototypes: [CBURNGear]
+      roleLoadout: [ RoleSurvivalEVA ]
+    - type: GhostRole
+      name: ghost-role-information-cburn-agent-name
+      description: ghost-role-information-cburn-agent-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - NamesLastMilitary
+
+# End base CBURN (Rifleman)
+
+# Start CBURN Leader (FTL)
+
+- type: entity
+  id: RandomHumanoidSpawnerCBURNUnit
+  name: VICT Fire Team LEader
+  suffix: Viral Infection Control Team
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi
@@ -520,6 +555,107 @@
       nameSegments:
       - NamesFirstMilitary
       - NamesLastMilitary
+
+# End CBURN Leader (FTL)
+
+# Start CBURN Medic (VICT-C)
+
+- type: entity
+  id: RandomHumanoidSpawnerCBURNUnit
+  name: VICT Corpsman
+  suffix: Viral Infection Control Team
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: cburn
+    - type: RandomHumanoidSpawner
+      settings: CBURNAgent
+
+- type: randomHumanoidSettings
+  id: VICTAgentMedic
+  parent: EventHumanoidMindShielded
+  components:
+    - type: Loadout
+      prototypes: [CBURNGear]
+      roleLoadout: [ RoleSurvivalEVA ]
+    - type: GhostRole
+      name: ghost-role-information-cburn-agent-name
+      description: ghost-role-information-cburn-agent-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - NamesLastMilitary
+
+# End CBURN Medic (VICT-C)
+
+# Start CBURN Engineer (VICT-TAT)
+
+- type: entity
+  id: RandomHumanoidSpawnerCBURNUnit
+  name: VICT Technical Assist Team
+  suffix: Viral Infection Control Team
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: cburn
+    - type: RandomHumanoidSpawner
+      settings: CBURNAgent
+
+- type: randomHumanoidSettings
+  id: VICTTAT
+  parent: EventHumanoidMindShielded
+  components:
+    - type: Loadout
+      prototypes: [CBURNGear]
+      roleLoadout: [ RoleSurvivalEVA ]
+    - type: GhostRole
+      name: ghost-role-information-cburn-agent-name
+      description: ghost-role-information-cburn-agent-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - NamesLastMilitary
+
+# End CBURN Engineer (VICT-TAT)
+
+# Start CBURN Shotgunner/Breacher (VICT-Point)
+
+- type: entity
+  id: RandomHumanoidSpawnerCBURNUnit
+  name: VICT Pointman
+  suffix: Viral Infection Control Team
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: cburn
+    - type: RandomHumanoidSpawner
+      settings: CBURNAgent
+
+- type: randomHumanoidSettings
+  id: VICTPOINT
+  parent: EventHumanoidMindShielded
+  components:
+    - type: Loadout
+      prototypes: [CBURNGear]
+      roleLoadout: [ RoleSurvivalEVA ]
+    - type: GhostRole
+      name: ghost-role-information-cburn-agent-name
+      description: ghost-role-information-cburn-agent-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - NamesLastMilitary
+
+# End CBURN Shotgunner/Breacher (VICT-Point)
 
 ## Central Command
 
