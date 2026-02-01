@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: Corrupt142
+# Discord: Corrupt
+
+# Shuttle Notes: Undermainained, and extremely cramped, anyone with claustrofobia beware!
+
+- type: vessel
+  id: eshkiya
+  parent: BaseVessel
+  name:  RSC-Eshkiya
+  description: A smaller and more affordable counterpart of the Scallywag. Armed with 2x draupnir 30mm cannon,2x TPC cerberus and 2x L-1 PD lasers.
+  price: 66000 # 33K base + 33K markup,can be lowered if needed as i feel it is too high.
+  category: small
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/eshkiya.yml
+  guidebookPage: Null
+  class:
+  - pursuit
+
+  engine:
+  - uranium
+
+- type: gameMap
+  id: Eshkiya
+  mapName: 'RSC-Eshkiya'
+  mapPath: /Maps/_Mono/Shuttles/eshkiya.yml
+  minPlayers: 0
+  stations:
+    Eshkiya:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Eshkiya MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
