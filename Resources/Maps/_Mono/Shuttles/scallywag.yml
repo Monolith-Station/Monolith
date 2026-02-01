@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/31/2026 10:15:21
-  entityCount: 788
+  time: 01/31/2026 17:08:57
+  entityCount: 791
 maps: []
 grids:
 - 1
@@ -19,7 +19,6 @@ tilemap:
   25: FloorMetalDiamond
   16: FloorMining
   14: FloorMiningDark
-  15: FloorMiningLight
   18: FloorRedCircuit
   28: FloorReinforcedHardened
   4: FloorTechMaint
@@ -310,17 +309,17 @@ entities:
     - type: Transform
       pos: 0.5,4.5
       parent: 1
-- proto: AirlockGlassShuttle
+- proto: AirlockGlassShuttleSyndicate
   entities:
   - uid: 14
     components:
     - type: Transform
-      pos: 0.5,1.5
+      pos: 1.5,1.5
       parent: 1
   - uid: 15
     components:
     - type: Transform
-      pos: 1.5,1.5
+      pos: 0.5,1.5
       parent: 1
 - proto: AirlockHatch
   entities:
@@ -417,6 +416,18 @@ entities:
     components:
     - type: Transform
       pos: 3.5,12.5
+      parent: 1
+- proto: AtmosDeviceFanDirectional
+  entities:
+  - uid: 789
+    components:
+    - type: Transform
+      pos: 0.5,1.5
+      parent: 1
+  - uid: 790
+    components:
+    - type: Transform
+      pos: 1.5,1.5
       parent: 1
 - proto: AtmosFixBlockerMarker
   entities:
@@ -2602,6 +2613,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: KitchenSpike
+  entities:
+  - uid: 791
+    components:
+    - type: Transform
+      pos: 2.5,5.5
+      parent: 1
 - proto: LockerWallMaterialsFuelUraniumFilled2
   entities:
   - uid: 777
@@ -3687,10 +3705,10 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        14:
+        15:
         - - Pressed
           - DoorBolt
-        15:
+        14:
         - - Pressed
           - DoorBolt
 - proto: SMESBasic
@@ -4963,5 +4981,3 @@ entities:
           - 5
           - 6
 ...
-
-
