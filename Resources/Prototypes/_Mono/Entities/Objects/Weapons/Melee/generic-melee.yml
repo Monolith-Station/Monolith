@@ -71,3 +71,8 @@
     damage: 80
   - type: DisarmMalus
     malus: 0.6
+  - type: EnergySword
+    colorOptions:
+    - "#FFFFFF85"
+    activatedColor: "#FFFFFF85"
+    blockHacking: true

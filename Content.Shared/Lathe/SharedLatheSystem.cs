@@ -78,7 +78,7 @@ public abstract class SharedLatheSystem : EntitySystem
             var recipe = batch.Recipe;
             foreach (var (material, needed) in recipe.Materials)
             {
-                var adjustedAmount = AdjustMaterial(needed, recipe.ApplyMaterialDiscount, ent.Comp.FinalMaterialUseMultiplier);
+                var adjustedAmount = AdjustMaterial(needed, recipe.MaterialDiscountScale, ent.Comp.FinalMaterialUseMultiplier);
                 currentMaterial[material] -= adjustedAmount * (batch.ItemsRequested - batch.ItemsPrinted);
             }
         }
@@ -100,7 +100,7 @@ public abstract class SharedLatheSystem : EntitySystem
 
         foreach (var (material, needed) in recipe.Materials)
         {
-            var adjustedAmount = AdjustMaterial(needed, recipe.ApplyMaterialDiscount, ent.Comp.FinalMaterialUseMultiplier);
+            var adjustedAmount = AdjustMaterial(needed, recipe.MaterialDiscountScale, ent.Comp.FinalMaterialUseMultiplier);
 
             if (endAmts.GetValueOrDefault(material) < adjustedAmount * amount)
                 return false;
@@ -117,7 +117,7 @@ public abstract class SharedLatheSystem : EntitySystem
 
         foreach (var (material, needed) in recipe.Materials)
         {
-            var adjustedAmount = AdjustMaterial(needed, recipe.ApplyMaterialDiscount, component.FinalMaterialUseMultiplier);
+            var adjustedAmount = AdjustMaterial(needed, recipe.MaterialDiscountScale, component.FinalMaterialUseMultiplier);
 
             if (_materialStorage.GetMaterialAmount(uid, material) < adjustedAmount * amount)
                 return false;
@@ -149,8 +149,8 @@ public abstract class SharedLatheSystem : EntitySystem
     }
     // End Frontier: demag
 
-    public static int AdjustMaterial(int original, bool reduce, float multiplier)
-        => reduce ? (int) MathF.Ceiling(original * multiplier) : original;
+    public static int AdjustMaterial(int original, float multScale, float multiplier)
+        => (int) MathF.Ceiling(original * MathF.Pow(multiplier, multScale));
 
     protected abstract bool HasRecipe(EntityUid uid, LatheRecipePrototype recipe, LatheComponent component);
 

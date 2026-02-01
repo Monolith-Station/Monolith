@@ -264,8 +264,16 @@
     - uranium_2
     - uranium_3
   - type: Material
+  - type: RadiationReceiver
   - type: RadiationSource
-    intensity: 0.5
+    intensity: 0.4
+  - type: ChainRadiation
+    baseIntensity: 0.4
+    coefficient: 0.1 # critical mass at 25
+    explosionThreshold: 10 # let it cook a bit
+    totalIntensity: 100000
+    intensitySlope: 100
+    maxIntensity: 1200
   - type: Appearance
   - type: PhysicalComposition
     materialComposition:
@@ -275,20 +283,6 @@
     totalIntensity: 20.0
     intensitySlope: 5
     maxIntensity: 4
-  - type: ExplodeOnTrigger
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Radiation
-        damage: 25
-      behaviors:
-      - !type:ExplodeBehavior
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: ThermalSignature
   - type: PassiveThermalSignature
     signature: 1500000

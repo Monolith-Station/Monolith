@@ -584,7 +584,7 @@ public abstract class SharedMechSystem : EntitySystem
         _eye.SetZoom(uid, component.Zoom);
     }
     // Mono edit end
-    
+
     private void OnCanDragDrop(EntityUid uid, MechComponent component, ref CanDropTargetEvent args)
     {
         args.Handled = true;

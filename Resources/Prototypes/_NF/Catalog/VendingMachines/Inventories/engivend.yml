@@ -7,15 +7,17 @@
     Multitool: 4294967295 # Infinite
     ClothingEyesGlassesMeson: 4294967295 # Infinite
     ClothingHeadHatWelding: 4294967295 # Infinite
-    HolofanProjector: 4294967295 # Mono: 10 >> Infinite
+    HolofanProjector: 4294967295 # Mono
     InflatableWallStack1: 4294967295 # Infinite
     InflatableDoorStack1: 4294967295 # Infinite
     GeigerCounter: 4294967295 # Infinite
     PowerCellMedium: 4294967295 # Infinite
 #    NetworkConfigurator: 5
-    ShipRepairDevice: 4294967295 # Infinite
-    ShipRepairDeviceAmmo: 4294967295 # Infinite
+    ShipRepairDevice: 4294967295 # Mono
+    ShipRepairDeviceAmmo: 4294967295 # Mono
     ClothingHeadHatCone: 10 # 4<10
+    JerryCanNaniteFuel: 4294967295 # Mono
+    NaniteApplicator: 4294967295 # Mono
   contrabandInventory: # For consistency
     CowToolboxFilled: 1
     DrinkBeerCan: 3
