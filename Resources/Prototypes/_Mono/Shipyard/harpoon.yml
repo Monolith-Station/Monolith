@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: Corrupt142
+# Discord: Corrupt
+
+# Shuttle Notes: Romania...
+
+- type: vessel
+  id: Harpoon
+  parent: BaseVessel
+  name: RSC-Harpoon
+  description: Small, lightly armoured ship designed for docking and exfiltrating with valuable ships. armed with 2x prometheus and 2x L-1 phalanx PD laser
+  price: 62K # 60K base + 2K.
+  category: small
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/harpoon.yml
+  guidebookPage: Null
+  class:
+  - pursuit
+
+  engine:
+  - uranium
+
+- type: gameMap
+  id: Harpoon
+  mapName: 'RSC-Harpoon'
+  mapPath: /Maps/_Mono/Shuttles/harpoon.yml
+  minPlayers: 0
+  stations:
+    Harpoon:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Harpoon MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
