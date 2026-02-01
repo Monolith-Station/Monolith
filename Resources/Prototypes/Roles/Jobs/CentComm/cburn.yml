@@ -67,7 +67,7 @@
   id: CBURN-LEAD
   name: job-name-cburn-leader
   description: job-description-cburn-leader
-  playTimeTracker: JobCBURN
+  playTimeTracker: JobCBURNFTL
   setPreference: false
   startingGear: CBURNGearLEAD
   icon: "JobIconNanotrasen"
@@ -131,7 +131,7 @@
   id: CBURN-MEDIC
   name: job-name-cburn-medic
   description: job-description-cburn-medic
-  playTimeTracker: JobCBURN
+  playTimeTracker: JobCBURNMEDIC
   setPreference: false
   startingGear: CBURNGearMEDIC
   icon: "JobIconNanotrasen"
@@ -195,7 +195,7 @@
   id: CBURN-TAT
   name: job-name-cburn-engineer
   description: job-description-cburn-engineer
-  playTimeTracker: JobCBURN
+  playTimeTracker: JobCBURNTAT
   setPreference: false
   startingGear: CBURNGearTAT
   icon: "JobIconNanotrasen"
@@ -259,7 +259,7 @@
   id: CBURN-POINT
   name: job-name-cburn-point
   description: job-description-cburn-point
-  playTimeTracker: JobCBURN
+  playTimeTracker: JobCBURNPOINT
   setPreference: false
   startingGear: CBURNGearPOINT
   icon: "JobIconNanotrasen"
