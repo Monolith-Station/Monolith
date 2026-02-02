@@ -495,7 +495,7 @@
 
 # Start base CBURN (Rifleman)
 - type: entity
-  id: RandomHumanoidSpawnerCBURNUnit
+  id: RandomHumanoidSpawnerVICTunit
   name: CBURN Agent
   suffix: ERTRole
   components:
@@ -528,7 +528,7 @@
 # Start CBURN Leader (FTL)
 
 - type: entity
-  id: RandomHumanoidSpawnerCBURNUnit
+  id: RandomHumanoidSpawnerVICTFTL
   name: VICT Fire Team LEader
   suffix: Viral Infection Control Team
   components:
@@ -561,7 +561,7 @@
 # Start CBURN Medic (VICT-C)
 
 - type: entity
-  id: RandomHumanoidSpawnerCBURNUnit
+  id: RandomHumanoidSpawnerVICTMEDIC
   name: VICT Corpsman
   suffix: Viral Infection Control Team
   components:
@@ -594,7 +594,7 @@
 # Start CBURN Engineer (VICT-TAT)
 
 - type: entity
-  id: RandomHumanoidSpawnerCBURNUnit
+  id: RandomHumanoidSpawnerVICTTAT
   name: VICT Technical Assist Team
   suffix: Viral Infection Control Team
   components:
@@ -627,7 +627,7 @@
 # Start CBURN Shotgunner/Breacher (VICT-Point)
 
 - type: entity
-  id: RandomHumanoidSpawnerCBURNUnit
+  id: RandomHumanoidSpawnerVICTPOINT
   name: VICT Pointman
   suffix: Viral Infection Control Team
   components:
