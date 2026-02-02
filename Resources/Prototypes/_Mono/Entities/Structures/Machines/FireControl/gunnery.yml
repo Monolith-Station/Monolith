@@ -308,6 +308,12 @@
     radarColor: "#fc9403"
     scale: 1.5
     shape: diamond
+    gridConfig:
+      color: "#fc9403"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.5,-0.5,0.5,0.5"
 
 - type: entity
   parent: [BaseStructureComputerTabletop, ComputerGunneryConsole]
