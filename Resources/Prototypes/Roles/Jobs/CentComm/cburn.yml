@@ -32,32 +32,35 @@
     belt: ClothingBeltWebbingsBigRangerGreen
     # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
   inhand:
-  - PortableRecharger
+    - WeaponRifleNtsfLtr # Takes 5.556x45mm or 6.8x52mm
   storage:
     back:
-    - WeaponShotgunDoubleBarreled
     - GrenadeFlashBang
     - MedkitCombatFilled
     - MedkitCombatFilled
     - ShipVoucherFrontierGuard
     - GrenadeIncendiaryNfsd
-    - WeaponEnergyShotgun # NT Energy Shotgun
+    - GrenadeIncendiaryNfsd
     - SyringeCaseAltFilled
-    - PillMesotaxinide # Meso 15u
-    - PillMesotaxinide # Meso 15u
-    - Handcuffs
-    - Handcuffs
-    - TrackingImplanter # TSFMC tracker
-    - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
+    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
+    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
+    - AmmoBox556x45mmIncendiary
+    - AmmoBox556x45mmIncendiary
+    - AmmoBox556x45mmPlasteelAP
+    - AmmoBox556x45mmIncendiary
     belt:
-    - AmmoBox12_gaugeIncendiary
-    - AmmoBox12_gaugeIncendiary
-    - SyndicateJawsOfLife
-    - PowerDrill
-    - WelderExperimental
     - BluespaceLifelineImplanter # Stops stealing of their gear
     - RadioImplanterCentcomm # Headset theft means nothing!
     - HandHeldMassScannerBorg # Just for the infiniste battery
+    - TrackingImplanter # TSFMC tracker
+    - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
+    - Magazine556x45mmFMJ
+    - Magazine556x45mmIncendiary
+    - Magazine556x45mmIncendiary
+    - Magazine556x45mmIncendiary
+    - Magazine556x45mmPlasteelAP
+    - Handcuffs
+    - Handcuffs
 
 # End base CBURN (Rifleman)
 
@@ -96,33 +99,35 @@
     belt: ClothingBeltWebbingsBigRangerGreen
     # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
   inhand:
-  - PortableRecharger
+    - WeaponRifleNtsfLtr # Takes 5.556x45mm or 6.8x52mm
   storage:
     back:
-    - WeaponShotgunDoubleBarreled
     - GrenadeFlashBang
     - MedkitCombatFilled
     - MedkitCombatFilled
     - ShipVoucherFrontierGuard
     - GrenadeIncendiaryNfsd
-    - WeaponEnergyShotgun # NT Energy Shotgun
+    - GrenadeIncendiaryNfsd
     - SyringeCaseAltFilled
-    - PillMesotaxinide # Meso 15u
-    - PillMesotaxinide # Meso 15u
-    - Handcuffs
-    - Handcuffs
-    - TrackingImplanter # TSFMC tracker
-    - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
+    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
+    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
+    - AmmoBox556x45mmIncendiary
+    - AmmoBox556x45mmIncendiary
+    - AmmoBox556x45mmPlasteelAP
+    - AmmoBox556x45mmIncendiary
     belt:
-    - AmmoBox12_gaugeIncendiary
-    - AmmoBox12_gaugeIncendiary
-    - SyndicateJawsOfLife
-    - PowerDrill
-    - WelderExperimental
     - BluespaceLifelineImplanter # Stops stealing of their gear
     - RadioImplanterCentcomm # Headset theft means nothing!
-    - HandHeldMassScannerBorg # Just for the infiniste battery
-
+    - HandHeldMassScannerBorg # Just for the infinite battery
+    - TrackingImplanter # TSFMC tracker
+    - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
+    - Magazine556x45mmFMJ
+    - Magazine556x45mmIncendiary
+    - Magazine556x45mmIncendiary
+    - Magazine556x45mmIncendiary
+    - Magazine556x45mmPlasteelAP
+    - Handcuffs
+    - Handcuffs
 # End CBURN Leader (FTL)
 
 # Start CBURN Medic (VICT-C)
@@ -156,35 +161,38 @@
     shoes: ClothingShoesBootsMagAdv
     id: CBURNPDA
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
-    pocket2: WeaponLaserPistolNF # Frontier: WeaponLaserGun<WeaponLaserPistolNF
+    pocket2: WeaponAdvancedLaser
     belt: ClothingBeltWebbingsBigRangerGreen
     # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
   inhand:
-  - PortableRecharger
+  - WeaponSubMachineGunVectorNtsfHclm
   storage:
     back:
-    - WeaponShotgunDoubleBarreled
-    - GrenadeFlashBang
+    - MedkitCombatFilled
+    - MedkitCombatFilled
     - MedkitCombatFilled
     - MedkitCombatFilled
     - ShipVoucherFrontierGuard
-    - GrenadeIncendiaryNfsd
-    - WeaponEnergyShotgun # NT Energy Shotgun
     - SyringeCaseAltFilled
-    - PillMesotaxinide # Meso 15u
-    - PillMesotaxinide # Meso 15u
-    - Handcuffs
-    - Handcuffs
-    - TrackingImplanter # TSFMC tracker
-    - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
+    - SyringeCaseAltFilled
+    - SyringeCaseAltFilled
+    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
+    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
+    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
+    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
+    - SyringeBluespace
+    - SyringeBluespace
+    - Jug
     belt:
-    - AmmoBox12_gaugeIncendiary
-    - AmmoBox12_gaugeIncendiary
-    - SyndicateJawsOfLife
-    - PowerDrill
-    - WelderExperimental
+    - Magazine45_ACPSubMachineGunIncendiary
+    - Magazine45_ACPSubMachineGunIncendiary
+    - Magazine45_ACPSubMachineGunIncendiary
+    - Magazine45_ACPSubMachineGunPlasteelAP
+    - Magazine45_ACPSubMachineGunFMJ
     - BluespaceLifelineImplanter # Stops stealing of their gear
     - RadioImplanterCentcomm # Headset theft means nothing!
+    - TrackingImplanter # TSFMC tracker
+    - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
     - HandHeldMassScannerBorg # Just for the infiniste battery
 
 # End CBURN Medic (VICT-C)
@@ -224,29 +232,31 @@
     belt: ClothingBeltWebbingsBigRangerGreen
     # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
   inhand:
-  - PortableRecharger
+  - WeaponShotgunEnforcer
   storage:
     back:
-    - WeaponShotgunDoubleBarreled
-    - GrenadeFlashBang
-    - MedkitCombatFilled
     - MedkitCombatFilled
     - ShipVoucherFrontierGuard
     - GrenadeIncendiaryNfsd
-    - WeaponEnergyShotgun # NT Energy Shotgun
+    - GrenadeIncendiaryNfsd
+    - GrenadeIncendiaryNfsd
+    - ExGrenadeNfsd
+    - ExGrenadeNfsd
+  - NanolaminateFoamGrenade
+  - NanolaminateFoamGrenade
     - SyringeCaseAltFilled
-    - PillMesotaxinide # Meso 15u
-    - PillMesotaxinide # Meso 15u
-    - Handcuffs
-    - Handcuffs
     - TrackingImplanter # TSFMC tracker
-    - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
+    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
+    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
+    - RCDRecharging
+    - ShipRepairDeviceRecharging
     belt:
     - AmmoBox12_gaugeIncendiary
     - AmmoBox12_gaugeIncendiary
     - SyndicateJawsOfLife
     - PowerDrill
     - WelderExperimental
+    - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
     - BluespaceLifelineImplanter # Stops stealing of their gear
     - RadioImplanterCentcomm # Headset theft means nothing!
     - HandHeldMassScannerBorg # Just for the infiniste battery
@@ -284,35 +294,31 @@
     shoes: ClothingShoesBootsMagAdv
     id: CBURNPDA
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
-    pocket2: WeaponLaserPistolNF # Frontier: WeaponLaserGun<WeaponLaserPistolNF
-    belt: ClothingBeltWebbingsBigRangerGreen
+    pocket2: HandHeldMassScannerBorg # Just for the infiniste battery
+    belt: PortableRecharger
     # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
   inhand:
-  - PortableRecharger
+    - WeaponEnergyShotgun # NT Energy Shotgun
   storage:
     back:
     - WeaponShotgunDoubleBarreled
+    - WeaponShotgunHelepolis
+    - AmmoBox12_gaugeIncendiary
+    - AmmoBox12_gaugeSlug
     - GrenadeFlashBang
-    - MedkitCombatFilled
     - MedkitCombatFilled
     - ShipVoucherFrontierGuard
     - GrenadeIncendiaryNfsd
-    - WeaponEnergyShotgun # NT Energy Shotgun
     - SyringeCaseAltFilled
-    - PillMesotaxinide # Meso 15u
-    - PillMesotaxinide # Meso 15u
-    - Handcuffs
+    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
+    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
     - Handcuffs
     - TrackingImplanter # TSFMC tracker
     - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
+    - BluespaceLifelineImplanter # Stops stealing of their gear
+    - RadioImplanterCentcomm # Headset theft means nothing!
     belt:
     - AmmoBox12_gaugeIncendiary
     - AmmoBox12_gaugeIncendiary
-    - SyndicateJawsOfLife
-    - PowerDrill
-    - WelderExperimental
-    - BluespaceLifelineImplanter # Stops stealing of their gear
-    - RadioImplanterCentcomm # Headset theft means nothing!
-    - HandHeldMassScannerBorg # Just for the infiniste battery
 
 # End CBURN Shotgunner/Breacher (VICT-Point)

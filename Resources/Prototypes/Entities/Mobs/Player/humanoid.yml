@@ -496,8 +496,8 @@
 # Start base CBURN (Rifleman)
 - type: entity
   id: RandomHumanoidSpawnerVICTunit
-  name: CBURN Agent
-  suffix: ERTRole
+  name: VICT Assaulter
+  suffix: Viral Infection Control Team - 2
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi
@@ -529,8 +529,8 @@
 
 - type: entity
   id: RandomHumanoidSpawnerVICTFTL
-  name: VICT Fire Team LEader
-  suffix: Viral Infection Control Team
+  name: VICT Fire Team Leader
+  suffix: Viral Infection Control Team - 1
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi
@@ -563,7 +563,7 @@
 - type: entity
   id: RandomHumanoidSpawnerVICTMEDIC
   name: VICT Corpsman
-  suffix: Viral Infection Control Team
+  suffix: Viral Infection Control Team - 1
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi
@@ -596,7 +596,7 @@
 - type: entity
   id: RandomHumanoidSpawnerVICTTAT
   name: VICT Technical Assist Team
-  suffix: Viral Infection Control Team
+  suffix: Viral Infection Control Team - 1
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi
@@ -629,7 +629,7 @@
 - type: entity
   id: RandomHumanoidSpawnerVICTPOINT
   name: VICT Pointman
-  suffix: Viral Infection Control Team
+  suffix: Viral Infection Control Team - 1
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi
