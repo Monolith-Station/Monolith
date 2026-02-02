@@ -1,0 +1,41 @@
+# Author Info
+# GitHub: Corrupt142
+# Discord: Corrupt
+
+# Shuttle Notes: so mutch soul...
+
+- type: vessel
+  id: Dervish
+  parent: BaseVessel
+  name: RSC-Dervish
+  description: The biggest and the baddest of them all, while its drone manufactory has been degraded beyond repair, it makes up for it with heavy armour, Mech bay and a decent armament.
+  price: 270000 # 214K base + 53K markup.
+  category: large
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/dervish.yml
+  guidebookPage: Null
+  class:
+  - pursuit
+  engine:
+  - AME
+
+- type: gameMap
+  id: Dervish
+  mapName: 'RSC-Dervish'
+  mapPath: /Maps/_Mono/Shuttles/dervish.yml
+  minPlayers: 0
+  stations:
+    Dervish:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Dervish MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
