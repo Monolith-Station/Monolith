@@ -454,9 +454,6 @@
     - type: Battery
       maxCharge: 60
       startingCharge: 60
-    - type: BatterySelfRecharger
-      autoRecharge: true
-      autoRechargeRate: 5
     - type: RechargeableBlocking
       # WD EDIT END
 
