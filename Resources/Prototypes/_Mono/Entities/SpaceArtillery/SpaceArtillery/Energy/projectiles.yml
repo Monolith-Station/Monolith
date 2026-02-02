@@ -22,7 +22,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 10
@@ -60,7 +59,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 12.2
@@ -108,7 +106,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 1.45
-    requireNoGrid: true
     shape: arrow
   - type: TimedDespawn
     lifetime: 2.8
@@ -144,7 +141,6 @@
   - type: RadarBlip
     radarColor: "#00e5ff"
     scale: 1.45
-    requireNoGrid: true
     shape: arrow
   - type: TimedDespawn
     lifetime: 2.1
@@ -182,7 +178,6 @@
   - type: RadarBlip
     radarColor: "#FF00AA"
     scale: 2.4
-    requireNoGrid: true
     shape: arrow
   - type: TimedDespawn
     lifetime: 24
@@ -220,7 +215,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 0.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 3
@@ -253,7 +247,6 @@
   - type: RadarBlip
     radarColor: "#035EFC"
     scale: 2
-    requireNoGrid: true
     shape: circle
   - type: TimedDespawn
     lifetime: 6.6
@@ -287,7 +280,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 3.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 10
@@ -329,7 +321,6 @@
   - type: RadarBlip
     radarColor: "#ffffff"
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 6
@@ -365,7 +356,6 @@
   - type: RadarBlip
     radarColor: "#9507fa"
     scale: 3
-    requireNoGrid: true
     shape: circle
   - type: TimedDespawn
     lifetime: 10
@@ -405,7 +395,6 @@
   - type: RadarBlip
     radarColor: "#ab0707"
     scale: 3
-    requireNoGrid: true
     shape: circle
   - type: TimedDespawn
     lifetime: 4.5

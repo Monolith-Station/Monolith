@@ -226,10 +226,10 @@
 # Gallóglach
 
 - type: entity
-  parent: [ ClothingOuterBase, EnergyShieldClothing ] # Mono - add soft-shield
+  parent: [ ClothingOuterBase ] # Mono 
   id: ClothingModsuitChestplateMercenary
   name: mercenary modsuit chestplate
-  description: Lightweight modsuit that sacrifices explosion and heat protection for energy shield and speed.
+  description: A well rounded modsuit that focuses on mobility with its Actuator Enhancement System allowing its wearer to leap across the battlefield for rapid redeployment.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -245,9 +245,6 @@
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
-  - type: ClothingSpeedModifier
-    walkModifier: 0.90
-    sprintModifier: 0.90
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -259,14 +256,14 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
   - type: ExplosionResistance
-    damageCoefficient: 0.8 # Mono
+    damageCoefficient: 0.70 # Mono
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.75
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.6
         Caustic: 0.45 # Mono
         Radiation: .75 # Mono
   - type: ComponentToggler
@@ -281,33 +278,3 @@
     coefficient: 0.7 # Mono
   - type: FireProtection
     reduction: 0.5 # Mono
-  # Mono - Shielding comps
-  - type: Blocking
-    passiveBlockModifier:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.6
-        Heat: 1.5 # Trash againt heat.
-    activeBlockModifier:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.6
-        Heat: 1.5
-      flatReductions:
-        Piercing: 5
-    passiveBlockFraction: 0.5
-    activeBlockFraction: 0.5
-    isClothing: true
-  - type: Damageable
-    damageContainer: Shield
-  - type: Battery
-    maxCharge: 50
-    startingCharge: 50
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 0.1
-  - type: RechargeableBlocking
-  - type: UseDelay
-    delay: 20
