@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Content.MapRenderer.Extensions;
+using Robust.Shared.Utility;
 
 namespace Content.MapRenderer;
 
 public sealed class CommandLineArguments
 {
     public List<string> Maps { get; set; } = new();
+    public List<string> Grids = new(); // Mono
     public OutputFormat Format { get; set; } = OutputFormat.png;
     public bool ExportViewerJson { get; set; } = false;
     public string OutputPath { get; set; } = DirectoryExtensions.MapImages().FullName;
@@ -65,6 +67,17 @@ public sealed class CommandLineArguments
                     return false;
 
                 default:
+                    if (argument.Contains('/'))
+                    {
+                        var path = argument;
+                        if (path.StartsWith("/Resources"))
+                            path = path.Remove(0, 10);
+                        else if (path.StartsWith("Resources"))
+                            path = path.Remove(0, 9);
+
+                        parsed.Grids.Add(path);
+                        break;
+                    }
                     parsed.Maps.Add(argument);
                     break;
             }

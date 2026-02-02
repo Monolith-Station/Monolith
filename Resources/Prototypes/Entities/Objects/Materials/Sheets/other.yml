@@ -12,6 +12,17 @@
   - type: Tag
     tags:
     - Sheet
+  - type: SolutionContainerManager
+    solutions:
+      paper:
+        canReact: false
+
+# Mono - extract from SheetOtherBase
+- type: entity
+  abstract: true
+  parent: SheetOtherBase
+  id: SheetOtherBaseDestructible
+  components:
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -22,10 +33,6 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: SolutionContainerManager
-    solutions:
-      paper:
-        canReact: false
 
 - type: entity
   parent: SheetOtherBase
