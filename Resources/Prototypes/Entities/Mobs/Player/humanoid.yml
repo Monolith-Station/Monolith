@@ -497,13 +497,13 @@
 - type: entity
   id: RandomHumanoidSpawnerVICTunit
   name: VICT Assaulter
-  suffix: Viral Infection Control Team - 2
+  suffix: (CBURN) Viral Infection Control Team - 2
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi
       state: cburn
     - type: RandomHumanoidSpawner
-      settings: CBURNAgent
+      settings: VICTAgent
 
 - type: randomHumanoidSettings
   id: VICTAgent
@@ -530,13 +530,13 @@
 - type: entity
   id: RandomHumanoidSpawnerVICTFTL
   name: VICT Fire Team Leader
-  suffix: Viral Infection Control Team - 1
+  suffix: (CBURN) Viral Infection Control Team - 1
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi
       state: cburn
     - type: RandomHumanoidSpawner
-      settings: CBURNAgent
+      settings: VICTAGENTFTL
 
 - type: randomHumanoidSettings
   id: VICTAGENTFTL
@@ -563,13 +563,13 @@
 - type: entity
   id: RandomHumanoidSpawnerVICTMEDIC
   name: VICT Corpsman
-  suffix: Viral Infection Control Team - 1
+  suffix: (CBURN) Viral Infection Control Team - 1
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi
       state: cburn
     - type: RandomHumanoidSpawner
-      settings: CBURNAgent
+      settings: VICTAgentMedic
 
 - type: randomHumanoidSettings
   id: VICTAgentMedic
@@ -596,13 +596,13 @@
 - type: entity
   id: RandomHumanoidSpawnerVICTTAT
   name: VICT Technical Assist Team
-  suffix: Viral Infection Control Team - 1
+  suffix: (CBURN) Viral Infection Control Team - 1
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi
       state: cburn
     - type: RandomHumanoidSpawner
-      settings: CBURNAgent
+      settings: VICTTAT
 
 - type: randomHumanoidSettings
   id: VICTTAT
@@ -629,13 +629,13 @@
 - type: entity
   id: RandomHumanoidSpawnerVICTPOINT
   name: VICT Pointman
-  suffix: Viral Infection Control Team - 1
+  suffix: (CBURN) Viral Infection Control Team - 1
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi
       state: cburn
     - type: RandomHumanoidSpawner
-      settings: CBURNAgent
+      settings: VICTPOINT
 
 - type: randomHumanoidSettings
   id: VICTPOINT
