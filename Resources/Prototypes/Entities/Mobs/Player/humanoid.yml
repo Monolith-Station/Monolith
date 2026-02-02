@@ -539,11 +539,11 @@
       settings: CBURNAgent
 
 - type: randomHumanoidSettings
-  id: CBURNAgent
+  id: VICTAGENTFTL
   parent: EventHumanoidMindShielded
   components:
     - type: Loadout
-      prototypes: [CBURNGear]
+      prototypes: [CBURNGearLEAD]
       roleLoadout: [ RoleSurvivalEVA ]
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name
@@ -576,7 +576,7 @@
   parent: EventHumanoidMindShielded
   components:
     - type: Loadout
-      prototypes: [CBURNGear]
+      prototypes: [CBURNGearMEDIC]
       roleLoadout: [ RoleSurvivalEVA ]
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name
@@ -609,7 +609,7 @@
   parent: EventHumanoidMindShielded
   components:
     - type: Loadout
-      prototypes: [CBURNGear]
+      prototypes: [CBURNGearTAT]
       roleLoadout: [ RoleSurvivalEVA ]
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name
@@ -642,7 +642,7 @@
   parent: EventHumanoidMindShielded
   components:
     - type: Loadout
-      prototypes: [CBURNGear]
+      prototypes: [CBURNGearPOINT]
       roleLoadout: [ RoleSurvivalEVA ]
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name
