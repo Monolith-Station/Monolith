@@ -1,0 +1,442 @@
+- type: entity
+  parent: MobHuman
+  id: MobHumanRandom
+  name: Urist McHuman
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobDiona
+  id: MobDionaRandom
+  name: Urist McPlants
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesDionaFirst
+    - NamesDionaLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobFelinid
+  id: MobFelinidRandom
+  name: Urist McFelinid
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobGingerbread
+  id: MobGingerbreadRandom
+  name: Urist McCookie
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobMoth
+  id: MobMothRandom
+  name: Urist McFluff
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMothFirstFemale
+    - NamesMothLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobDwarf
+  id: MobDwarfRandom
+  name: Urist McDwarf
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobHarpy
+  id: MobHarpyRandom
+  name: Urist McHarpy
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobRodentia
+  id: MobRodentiaRandom
+  name: Urist McRat
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesRodentiaMale
+    - NamesRodentiaLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobReptilian
+  id: MobReptilianRandom
+  name: Urist McScales
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesReptilianMale
+
+- type: entity
+  parent: MobVulpkanin
+  id: MobVulpkaninRandom
+  name: Urist McVulp
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesVulpakinMale
+    - NamesVulpakinLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobSlimePerson
+  id: MobSlimePersonRandom
+  name: Urist McSlime
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobYowie
+  id: MobYowieRandom
+  name: Urist McYow
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesYowieMale
+
+- type: entity
+  parent: MobVox
+  id: MobVoxRandom
+  name: Uristiti McVox
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesVox
+
+- type: entity # mono
+  parent: MobResomi
+  id: MobResomiRandom
+  name: Urist McRaptor
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobGoblin
+  id: MobGoblinRandom
+  name: Urist McGoblin
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobChitinid
+  id: MobChitinidRandom
+  name: Urist McAnt
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobProtogen
+  id: MobProtogenRandom
+  name: Urist McHardDrive
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard # mono end
+
+- type: entity
+  parent: MobTajaran
+  id: MobTajaranRandom
+  name: Urist McTajaran
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_tajaran_first
+    - names_tajaran_last
+
+# Goob Central Command!
+
+# Navy Officer
+
+- type: entity
+  id: RandomHumanoidSpawnerNavyOfficer
+  name: Navy Officer
+  suffix: Winter Solstice
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryLeader
+    - NamesLastMilitary
+  - type: RandomHumanoidSpawner
+    settings: NavyOfficer
+
+- type: randomHumanoidSettings
+  id: NavyOfficer
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-navy-officer-name
+    description: ghost-role-information-navy-officer-description
+    rules: ghost-role-information-navy-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ NavyOfficerGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryLeader
+    - NamesLastMilitary
+  - type: LanguageKnowledge
+    speaks:
+    - SolCommon
+    - TauCetiBasic
+    understands:
+    - SolCommon
+    - TauCetiBasic
+
+    
+# Navy Captain
+
+- type: entity
+  id: RandomHumanoidSpawnerNavyCaptain
+  name: Navy Captain
+  suffix: ADMIN ONLY, DO FUCKING NOT, Winter Solstice
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryFirstHighRank
+    - NamesLastMilitary
+  - type: RandomHumanoidSpawner
+    settings: NavyCaptain
+
+- type: randomHumanoidSettings
+  id: NavyCaptain
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-navy-captain-name
+    description: ghost-role-information-navy-captain-description
+    rules: ghost-role-information-navy-captain-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ NavyCaptainGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryFirstHighRank
+    - NamesLastMilitary
+  - type: LanguageKnowledge
+    speaks:
+    - SolCommon
+    - TauCetiBasic
+    understands:
+    - SolCommon
+    - TauCetiBasic
+
+# Navy Undercover Officer
+
+- type: entity
+  id: RandomHumanoidSpawnerNavyOfficerUndercover
+  name: Undercover Navy Officer
+  suffix: Winter Solstice
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomHumanoidSpawner
+    settings: NavyOfficerUndercover
+
+- type: randomHumanoidSettings
+  id: NavyOfficerUndercover
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-navy-officer-undercover-name
+    description: ghost-role-information-navy-officer-undercover-description
+    rules: ghost-role-information-navy-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ NavyOfficerUndercoverGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryFirstPolitical
+    - NamesLastMilitary
+  - type: LanguageKnowledge
+    speaks:
+    - SolCommon
+    - TauCetiBasic
+    understands:
+    - SolCommon
+    - TauCetiBasic
+
+
+
+# Special Operations Officer
+
+- type: entity
+  id: RandomHumanoidSpawnerSpecialOperationsOfficers
+  name: Special Operations Officer
+  suffix: Winter Solstice
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryFirstHighRank
+    - NamesLastMilitary
+  - type: RandomHumanoidSpawner
+    settings: SpecialOperationsOfficer
+
+- type: randomHumanoidSettings
+  id: SpecialOperationsOfficer
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-special-operations-officer-name
+    description: ghost-role-information-special-operations-officer-description
+    rules: ghost-role-information-special-operations-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ SpecialOperationsOfficerGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryFirstHighRank
+    - NamesLastMilitary
+  - type: LanguageKnowledge
+    speaks:
+    - SolCommon
+    - TauCetiBasic
+    understands:
+    - SolCommon
+    - TauCetiBasic
+
+
+# Diplomat
+
+- type: entity
+  id: RandomHumanoidSpawnerDiplomat
+  name: Diplomat
+  suffix: Winter Solstice
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryFirstPolitical
+    - names_last
+  - type: RandomHumanoidSpawner
+    settings: DiplomatGear
+
+- type: randomHumanoidSettings
+  id: DiplomatGear
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-diplomat-name
+    description: ghost-role-information-diplomat-description
+    rules: ghost-role-information-diplomat-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ DiplomatGear ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryFirstPolitical
+    - names_last
+  - type: LanguageKnowledge
+    speaks:
+    - SolCommon
+    - TauCetiBasic
+    understands:
+    - SolCommon
+    - TauCetiBasic
