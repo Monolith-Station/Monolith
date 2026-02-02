@@ -1,5 +1,5 @@
 - type: entity
-  id: MonoRamDroneSpawnerT1
+  id: MonoDroneSpawnerT1
   parent: MarkerBase
   components:
   - type: RandomSpawner
@@ -10,7 +10,7 @@
     - SpawnDroneLance
 
 - type: entity
-  id: MonoRamDroneSpawnerT2Inner
+  id: MonoDroneSpawnerT2Inner
   parent: MarkerBase
   components:
   - type: RandomSpawner
@@ -21,7 +21,7 @@
     - SpawnDronePiercer
 
 - type: entity
-  id: MonoRamDroneSpawnerT2Middle
+  id: MonoDroneSpawnerT2Middle
   parent: MarkerBase
   components:
   - type: EntityTableSpawner

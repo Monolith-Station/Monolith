@@ -30,7 +30,7 @@
     Plasteel: 1600
     Plasma: 2000
     Gold: 2000
-    
+
 - type: latheRecipe
   parent: BaseToolRecipe
   id: ShipRepairDeviceAmmo
@@ -40,10 +40,10 @@
     Plastic: 800
     Glass: 800
     Plasteel: 1600
-    
+
 - type: latheRecipe
   parent: BaseToolRecipe
   id: ScrapShipRepairDeviceAmmo
   result: ShipRepairDeviceAmmo
   materials:
-    RawScrap: 50000
+    RawScrap: 10000
