@@ -211,7 +211,7 @@
     baseState: gygax
     openState: gygax-open
     brokenState: gygax-broken
-    mechToPilotDamageMultiplier: 0.1 # Mono
+    mechToPilotDamageMultiplier: 0.4 # Mono
     criticalPowerStateSpeedPenalty: 0.5 # Mono
     maxIntegrity: 500 # Mono
     airtight: true
@@ -232,7 +232,7 @@
   - type: MovementAlwaysTouching
   - type: MovementSpeedModifier # Mono
     baseWalkSpeed: 3
-    baseSprintSpeed: 4.5
+    baseSprintSpeed: 4.0
     baseWeightlessModifier: 5
   - type: StaticPrice
     price: 3000
@@ -304,8 +304,8 @@
         Blunt: 60
         Structural: 250
   - type: MovementSpeedModifier
-    baseWalkSpeed: 1.5
-    baseSprintSpeed: 2
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3
     baseWeightlessModifier: 3 # Mono
   - type: Damageable
     damageModifierSet: MechArmorHeavy
