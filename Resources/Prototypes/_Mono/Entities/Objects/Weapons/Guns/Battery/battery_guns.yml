@@ -45,7 +45,7 @@
   parent: WeaponLaserGun
   name: type-b laser pistol
   suffix: CBURN/VICT
-  description: An improved version of the type-a on the chasisis of an older laser pistol whoever made this must be really lazy, kills Chimera quickly though!
+  description: An improved version of the type-a laser pistol, built on the chassis of an older Juliette type laser pistol, kills Chimera quickly!
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
@@ -86,9 +86,9 @@
 - type: entity # Weapon based off ID: laser_pistol and then given buffed stats, uses AntiqueLaser for stats currently
   id: WeaponLaserPistolVICTAdv
   parent: WeaponLaserGun
-  name: type-b laser pistol advanced
+  name: Advanced type-b laser pistol
   suffix: CBURN/VICT
-  description: An advanced version of the type-b laser pistol this thing is crazy lethal!
+  description: An advanced version of the type-b laser pistol, featuring a built in recharger to kill Chimera even faster@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
