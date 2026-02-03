@@ -58,4 +58,3 @@ names-xenoborg-dataset-57 = Piece De Destruction
 names-xenoborg-dataset-58 = Talos
 names-xenoborg-dataset-59 = Aggrobot
 names-xenoborg-dataset-60 = Backstabber
-names-xenoborg-dataset-61 = Decimus
