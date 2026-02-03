@@ -1201,7 +1201,54 @@
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
 
-#CBURN Hardsuit
+#VICT Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitCBURNOld
+  name: CBURN exosuit
+  description: An outdated CBURN Exo Suit, good protection at the cost of speed and mobility.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/cburn.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/cburn.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.1
+        Cold: 0.1
+        Shock: 0.1
+        Radiation: 0.1
+        Caustic: 0.1
+        Poison: 0.1
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: StaminaDamageResistance # Mono - Stamres
+    coefficient: 0.15
+  - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetCBURN
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+
+
+#VICT Hardsuit
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitCBURN
@@ -1223,20 +1270,21 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.6
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.35
         Heat: 0.1
-        Cold: 0.1
+        Cold: 0.5
         Shock: 0.1
         Radiation: 0.1
         Caustic: 0.1
+        Poison: 0.1
   - type: ClothingSpeedModifier
-    walkModifier: 1.0
-    sprintModifier: 1.0
+    walkModifier: 1.2
+    sprintModifier: 1.2
   - type: HeldSpeedModifier
   - type: StaminaDamageResistance # Mono - Stamres
-    coefficient: 0.15
+    coefficient: 0.1
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
     blockUnequipWhenAttached: false

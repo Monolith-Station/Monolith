@@ -39,3 +39,89 @@
     autoRechargeRate: 24
   - type: GunSpreadModifier
     spread: 0.8
+
+- type: entity # Weapon based off ID: laser_pistol and then given buffed stats, uses AntiqueLaser for stats currently
+  id: WeaponLaserPistolVICT
+  parent: WeaponLaserGun
+  name: type-b laser pistol
+  suffix: CBURN/VICT
+  description: An improved version of the type-a on the chasisis of an older laser pistol whoever made this must be really lazy, kills Chimera quickly though!
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: RedMediumLaser
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRecharge: false
+    autoRechargeRate: 40
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded
+  - type: StaticPrice # Mono
+    price: 150
+
+- type: entity # Weapon based off ID: laser_pistol and then given buffed stats, uses AntiqueLaser for stats currently
+  id: WeaponLaserPistolVICTAdv
+  parent: WeaponLaserGun
+  name: type-b laser pistol advanced
+  suffix: CBURN/VICT
+  description: An advanced version of the type-b laser pistol this thing is crazy lethal!
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: RedMediumLaser
+    fireCost: 25
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 80
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded
+  - type: StaticPrice # Mono
+    price: 150
