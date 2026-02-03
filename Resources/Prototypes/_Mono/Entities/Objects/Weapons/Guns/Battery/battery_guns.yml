@@ -70,16 +70,6 @@
     magState: mag
     steps: 5
     zeroVisible: true
-  - type: Appearance
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      - state: inhand-left-unshaded
-        shader: unshaded
-      right:
-      - state: inhand-right
-      - state: inhand-right-unshaded
-        shader: unshaded
   - type: StaticPrice # Mono
     price: 150
 
@@ -113,15 +103,5 @@
     magState: mag
     steps: 5
     zeroVisible: true
-  - type: Appearance
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      - state: inhand-left-unshaded
-        shader: unshaded
-      right:
-      - state: inhand-right
-      - state: inhand-right-unshaded
-        shader: unshaded
   - type: StaticPrice # Mono
     price: 150
