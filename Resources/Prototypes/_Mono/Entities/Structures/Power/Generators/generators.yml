@@ -84,9 +84,9 @@
         acts: ["Destruction"]
   - type: Explosive # Mono
     explosionType: Default
-    maxIntensity: 3000
-    intensitySlope: 5
-    totalIntensity: 2000
+    maxIntensity: 5000
+    intensitySlope: 45
+    totalIntensity: 4000
   - type: GuideHelp
     guides:
     - PortableGenerator
