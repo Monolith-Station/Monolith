@@ -370,7 +370,7 @@
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetMercenary
   name: mercenary modsuit helmet
-  description: The visor is sky blue, so your enemies don't realize you haven't put them on their backs yet.
+  description: The visor is sky blue, so your enemies don't realize you haven't put them on their backs yet. Comes with a built in Mass Scanner in its HUD.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -384,6 +384,18 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: RadarConsole
+    followEntity: true
+  - type: DetectionRangeMultiplier
+    infraredMultiplier: 0.5
+    visualMultiplier: 0.75
+  - type: ActivatableUI
+    key: enum.RadarConsoleUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet

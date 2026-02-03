@@ -53,8 +53,8 @@
       90: 0.9
       40: 0.75
       10: 0.6
-  - type: HumanoidAppearance
-    species: Hydrakin
+  #- type: HumanoidAppearance
+  #  species: Hydrakin
   - type: ThermalRegulator #Todo, implement hydrakin thermal movement generation
     metabolismHeat: 800
     radiatedHeat: 100
@@ -100,15 +100,16 @@
             state: head
   - type: Carriable # Frontier: Carrying system from nyanotrasen.
   - type: Speech
-    speechSounds: Lizard
+    speechSounds: Hydrakin
     speechVerb: Reptilian
+    allowedEmotes: ['Trill', 'Wurble',]
   - type: Vocal
     sounds:
       Male: UnisexHydrakin
       Female: UnisexHydrakin
       Unsexed: UnisexHydrakin
   - type: TypingIndicator
-    proto: robot
+    proto: hydrakin
   - type: Hydrakin
 
 - type: entity

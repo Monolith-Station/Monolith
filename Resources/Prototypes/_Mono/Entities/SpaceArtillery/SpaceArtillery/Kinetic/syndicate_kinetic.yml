@@ -142,6 +142,12 @@
     radarColor: "#FF0000"
     scale: 1.5
     visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1.5,-1.5,1.5,1.5"
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
@@ -214,6 +220,12 @@
     radarColor: "#FF0000"
     scale: 2.5
     visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-2,-2,2,2"
   - type: Destructible
     thresholds:
     - trigger:
