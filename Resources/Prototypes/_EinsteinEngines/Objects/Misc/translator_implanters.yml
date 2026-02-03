@@ -133,3 +133,11 @@
   components:
   - type: Implanter
     implant: NovaCygniTranslatorImplant
+
+- type: entity # voxslop
+  id: NewKinPidginTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Ka'Rakk translator implant
+  components:
+  - type: Implanter
+    implant: NewKinPidginTranslatorImplant
