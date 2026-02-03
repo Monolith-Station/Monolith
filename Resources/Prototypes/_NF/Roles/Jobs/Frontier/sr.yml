@@ -43,5 +43,7 @@
     - RubberStampSr
     - DoorRemoteCommand
     - EncryptionKeyCentCom
-    - ShipVoucherFrontierGuard # Mono
-   #- EncryptionKeyStationMaster # Mono - comment out to seperate from TSFMC
+    - EncryptionKeyStationMasterSR #Mono start
+    - EncryptionKeyDiplomacy
+    - ShipVoucherFrontierGuard
+   #- EncryptionKeyStationMaster # Mono end

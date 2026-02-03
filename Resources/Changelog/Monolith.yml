@@ -16513,3 +16513,437 @@ Entries:
   id: 1829
   time: '2026-01-23T02:22:49.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3102
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Refactored puddle code, likely decreased server lag.
+  id: 1830
+  time: '2026-01-24T15:28:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3116
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: Ore silo range gigabuffed to 125m from 20m
+  id: 1831
+  time: '2026-01-24T19:25:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3098
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Metal foam is now strong as a solid wall.
+    - type: Tweak
+      message: Nanolaminate foam is now strong as a reinforced wall.
+  id: 1832
+  time: '2026-01-24T19:28:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3101
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed PDV SCAF hardsuit being marked as other-faction and not PDV for
+        contraband purposes.
+  id: 1833
+  time: '2026-01-25T17:36:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3113
+- author: Helicaste
+  changes:
+    - type: Tweak
+      message: >-
+        Ship shielding now offers protection from ramming attacks based on what
+        shield you have. Break the shield before going for a kamikaze strike.
+  id: 1834
+  time: '2026-01-25T18:29:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3051
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Fissile uranium now radiates more depending on received radiation.
+    - type: Add
+      message: Fissile uranium now explodes upon crossing a radiation threshold.
+  id: 1835
+  time: '2026-01-25T18:35:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3084
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Colossus touchups: Cameras added, entertainment camera server added,
+        comms server has keys now, inaccessible lights don't get btfoed by solar
+        flares, atmos room improved to cram more gas in the cans, and post
+        office touched up.
+    - type: Tweak
+      message: TSF Comms server only has TSF keys now
+    - type: Fix
+      message: Overseer properly starts with comms keys now
+  id: 1836
+  time: '2026-01-25T18:44:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3054
+- author: Helicaste
+  changes:
+    - type: Tweak
+      message: >-
+        Breaching Charges and Seismic Charges can no longer be instantly
+        detonated using signal linking.
+  id: 1837
+  time: '2026-01-25T18:52:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3079
+- author: doktor-gonz0
+  changes:
+    - type: Tweak
+      message: >-
+        Hydrakin tail markings were updated, now you can add additional overlay
+        colours to some of them. The miscellaneous head markings were moved to
+        Head(Side) section, so you can actually combine eyes and other markings
+        now.
+    - type: Add
+      message: Hydrakin can trill and wurble now.
+    - type: Add
+      message: Hydrakin cooldown action has a proper icon now.
+    - type: Add
+      message: All hydrakin emotes have sounds now.
+  id: 1838
+  time: '2026-01-25T19:06:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3080
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Mass scanners now may be used outside of your active hand.
+  id: 1839
+  time: '2026-01-26T15:34:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3125
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Union Wrightworks ships (Svinya, Stubby, Medicus, Sellsword, Takeaway)
+        and Spessbite received edge markers
+    - type: Tweak
+      message: >-
+        Medicus atmos room improved: added air sensors for measuring reserve
+        contents.
+  id: 1840
+  time: '2026-01-26T15:36:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3089
+- author: Greenwall-Exe
+  changes:
+    - type: Add
+      message: Added Jump Boots and the ability to Jump
+  id: 1841
+  time: '2026-01-26T15:37:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2973
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: PKA projectiles can now pierce up to 5 rocks in a row.
+    - type: Tweak
+      message: Seismic charges no longer throw entities around on explosion.
+  id: 1842
+  time: '2026-01-26T15:39:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3115
+- author: Greenwall-Exe
+  changes:
+    - type: Add
+      message: The Tintreach
+  id: 1843
+  time: '2026-01-26T15:40:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3111
+- author: thoughtlessuser
+  changes:
+    - type: Add
+      message: The Comet, a retired utility ship, has hit the exped shelves.
+    - type: Remove
+      message: Explodes your Meteor with mind.
+  id: 1844
+  time: '2026-01-26T15:41:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3097
+- author: KeiKiyomi
+  changes:
+    - type: Tweak
+      message: Changed CentComm CBURN gear
+  id: 1845
+  time: '2026-01-26T15:53:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3122
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: Diagonaled the Shiv because i could
+  id: 1846
+  time: '2026-01-26T16:06:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2965
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Mini-hypos are generally better now.
+    - type: Tweak
+      message: >-
+        Advanced chemicals now have 0.15u metabolism rate. Pyrazine healing was
+        buffed to 2. 
+    - type: Tweak
+      message: Overseer's heavy maul sprite received changes.
+  id: 1847
+  time: '2026-01-26T16:06:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3095
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Ported grappling hook update from Wizden. Grappling hooks now obey
+        physics.
+    - type: Fix
+      message: Fixed a lot of grappling hook bugs (same Wizden port).
+    - type: Fix
+      message: Grappling hook now works at long range.
+    - type: Tweak
+      message: Grappling hook significantly buffed.
+    - type: Tweak
+      message: Grappling hook can now pull in mobs (including people) and crates.
+  id: 1848
+  time: '2026-01-26T16:18:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3124
+- author: mikusssssss
+  changes:
+    - type: Fix
+      message: Printed welding tools should now have the proper capacities.
+  id: 1849
+  time: '2026-01-28T20:21:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3130
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Now all mechs receive speed penalty on low charge (<=5%). Penalty is
+        0.65 by default, 0.5 for gygax, 0.4 for sabre and 0.85 for other S2/S4.
+  id: 1850
+  time: '2026-01-29T12:29:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2806
+- author: Helicaste
+  changes:
+    - type: Tweak
+      message: >-
+        Pulse Rifle damage types tweaked. Now also does some structural damage.
+        (Buff) (Huge)
+  id: 1851
+  time: '2026-01-29T12:32:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3114
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: >-
+        Added new method of research - Entity Containment. Currently
+        mapping-only.
+  id: 1852
+  time: '2026-01-29T12:34:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2989
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: >-
+        Shipgun energy weapons have been re-balanced to the same TTK as their
+        ballistic counterparts (this is a nerf)
+  id: 1853
+  time: '2026-01-29T12:51:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3135
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Lathes now drop material on destruction.
+    - type: Tweak
+      message: Materials (except glass) are no longer destructible.
+  id: 1854
+  time: '2026-01-29T12:58:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3131
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: Fixed Cyrexa Sprite so its centered
+  id: 1855
+  time: '2026-01-31T22:15:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3156
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: Directional glass can be repaired with welding tool again.
+    - type: Tweak
+      message: >-
+        IPC can now heal 9 radiation damage per nanite applicator use. Shock and
+        heat damage also buffed to 9 from 6.
+  id: 1856
+  time: '2026-01-31T22:18:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3152
+- author: Ghost581X
+  changes:
+    - type: Tweak
+      message: Combat magboots are slightly more mobile now.
+  id: 1857
+  time: '2026-01-31T22:24:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3127
+- author: Helicaste
+  changes:
+    - type: Add
+      message: >-
+        The Double-Bladed Energy Sword has been added to the uplinks of Denasvar
+        and above. Not accessible to Rahks or Spasaka.
+  id: 1858
+  time: '2026-01-31T22:38:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3143
+- author: KeiKiyomi
+  changes:
+    - type: Tweak
+      message: Buffed Durand health and speed
+    - type: Tweak
+      message: Added extra equipment slot to Durand
+  id: 1859
+  time: '2026-02-01T18:26:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3162
+- author: tonotom1
+  changes:
+    - type: Add
+      message: >-
+        Ported air grenades from Wizden: you get one from engineer and atmos
+        lockers, and can buy them for 1k each at engivends. All credit to
+        ArtisticRoomba and slarticodefast.
+  id: 1860
+  time: '2026-02-01T18:30:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3150
+- author: WaldenStn
+  changes:
+    - type: Tweak
+      message: >-
+        Replaced Jupiter shipyard console's Spyglass with the newer PDV Spyglass
+        MKII variant.
+  id: 1861
+  time: '2026-02-01T18:31:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3148
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Grid component radar blips now display more compactly.
+    - type: Fix
+      message: Fixed radar blips not respecting IFF.
+  id: 1862
+  time: '2026-02-01T18:32:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3138
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: make law 6 actually exist
+    - type: Tweak
+      message: Cleaned up ADS laws.
+    - type: Tweak
+      message: >-
+        ADS is now less encouraged to use non-damaging methods and may attack
+        you for more reasons (like broadband banter), but may choose to leave
+        drone or chimera hunters alone.
+    - type: Fix
+      message: ADS law 6 now actually shows up.
+  id: 1863
+  time: '2026-02-01T18:35:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3132
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Significantly buffed outer reach drone loot.
+    - type: Tweak
+      message: T2 outer reach drone spawnrates decreased.
+    - type: Tweak
+      message: Scrap now has 5x less yield but is used 5x less.
+    - type: Tweak
+      message: Plastitanium wall plastitanium cos halved.
+  id: 1864
+  time: '2026-02-01T18:46:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3129
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Vendors now lock up randomly (70% of the time) when hacked instead of on
+        the third item and now unlock in 12 minutes instead of replenishing one
+        freebie per 30 minutes.
+  id: 1865
+  time: '2026-02-01T18:47:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3133
+- author: Helicaste
+  changes:
+    - type: Add
+      message: >-
+        Big Ammo Boxes are now printable, gated behind T2 Matsci prerequisite
+        technology or the applicable faction technology.
+  id: 1866
+  time: '2026-02-01T18:48:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3142
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Europa has gotten it's shield removed for better plating.
+  id: 1867
+  time: '2026-02-01T18:58:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3136
+- author: doktor-gonz0
+  changes:
+    - type: Tweak
+      message: The volume of hydrakin talk sounds has been lowered.
+    - type: Fix
+      message: 'Hydrakin eye markings now layer over other markings. '
+  id: 1868
+  time: '2026-02-01T19:06:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3144
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: 'Added new Milmed ship to MD shipyard: Odenta'
+  id: 1869
+  time: '2026-02-01T19:10:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3085
+- author: Isratosh
+  changes: []
+  id: 1870
+  time: '2026-02-01T19:11:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3147
+- author: crazy1112345
+  changes:
+    - type: Tweak
+      message: >-
+        Horizon Energy has begun sale of modernized versions of the Windreign to
+        the Colossus Sector. 
+  id: 1871
+  time: '2026-02-01T19:28:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3141
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: 25 Fissiles no longer delete Halcyon.
+  id: 1872
+  time: '2026-02-01T19:39:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3134
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: 'Added new ship to the CC shipyard: Tanuki'
+  id: 1873
+  time: '2026-02-01T19:41:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3063
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: Radiation suit textures have been fully ported and are now unified.
+  id: 1874
+  time: '2026-02-01T19:50:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3149
+- author: DuneTemplar
+  changes:
+    - type: Add
+      message: Added the DWI Kuldi.
+    - type: Remove
+      message: Taichi is no more.
+  id: 1875
+  time: '2026-02-02T13:16:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2746
+- author: Hverabrao
+  changes:
+    - type: Add
+      message: added buran to ussp shipyard
+    - type: Remove
+      message: removed tunguska from ussp shipyard
+  id: 1876
+  time: '2026-02-02T13:27:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2988
