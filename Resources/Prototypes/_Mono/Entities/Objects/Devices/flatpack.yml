@@ -55,6 +55,28 @@
 
 - type: entity
   parent: BaseFlatpack
+  id: WeaponTurretShardFlatpack
+  name: Shard flatpack
+  description: A flatpack used for constructing an "Shard"-designation ultralight mass driver.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretShard
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  parent: BaseFlatpack
+  id: WeaponTurretPinholeFlatpack
+  name: Pinhole flatpack
+  description: A flatpack used for constructing an "Pinhole"-designation mass driver.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretPinhole
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseFlatpack
   id: FTLDriveFlatpack
   name: CTLA-25 bluespace drive flatpack
   description: A flatpack used for constructing a CTLA-25 bluespace drive.

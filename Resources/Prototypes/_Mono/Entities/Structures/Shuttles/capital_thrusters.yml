@@ -57,6 +57,12 @@
     radarColor: "#99FF99"
     scale: 2
     shape: diamond
+    gridConfig:
+      color: "#99FF99"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.5,-1.5,1.5,0.5"
   - type: ShipRepairable
     repairTime: 15
     repairCost: 30
