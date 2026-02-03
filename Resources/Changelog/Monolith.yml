@@ -16975,3 +16975,12 @@ Entries:
   id: 1879
   time: '2026-02-03T14:58:43.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3179
+- author: Corrupt142
+  changes:
+    - type: Fix
+      message: >-
+        Fixed grave mistakes on odenta/tanuki causing spacing if docking
+        airlocks were opened.
+  id: 1880
+  time: '2026-02-03T19:12:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3175
