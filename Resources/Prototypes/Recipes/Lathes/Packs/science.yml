@@ -10,13 +10,6 @@
   - CutterMachineCircuitboard
   - BorgChargerCircuitboard
 
-- type: latheRecipePack
-  id: CircuitFloorsStatic
-  recipes:
-  - FloorGreenCircuit
-  - FloorBlueCircuit
-  - FloorRedCircuit
-
 ## Dynamic
 
 - type: latheRecipePack
@@ -28,16 +21,18 @@
   - AnomalyLocatorWide
   - HoloprojectorField
   - SignallerAdvanced
-  # - DeviceQuantumSpinInverter # Frontier
+  - DeviceQuantumSpinInverter
+  - DeviceDesynchronizer
+  - ClothingBackpackHarmpack
 
 - type: latheRecipePack
   id: ScienceClothing
   recipes:
   - ClothingShoesBootsMagSci
-  - NFClothingShoesBootsMoon # Frontier: use NF variant
+  - ClothingShoesBootsMoon
   - ClothingShoesBootsSpeed
-  - ClothingBackpackHolding
   - ClothingShoesBootsJump
+  - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
 
@@ -45,28 +40,20 @@
   id: PowerCells
   recipes:
   - PowerCellMicroreactor
-  - PowerCellCombat # Mono edit
   - PowerCellHigh
+  - PowerCellHyper
 
 - type: latheRecipePack
   id: ScienceWeapons
   recipes:
   - WeaponPistolCHIMP
-  # - WeaponForceGun # Frontier
-  - WeaponLaserSvalinn
+  - WeaponForceGun
   - WeaponProtoKineticAccelerator
-  # - WeaponTetherGun # Frontier
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
+  - WeaponTetherGun
   - WeaponGauntletGorilla
-
-- type: latheRecipePack
-  id: FauxTiles
-  recipes:
-  - FauxTileAstroGrass
-  - FauxTileMowedAstroGrass
-  - FauxTileJungleAstroGrass
-  - FauxTileAstroIce
-  - FauxTileAstroSnow
-  - FauxTileAstroAsteroidSand
 
 # Only contains parts for making basic modular grenades, no actual explosives
 - type: latheRecipePack
@@ -82,12 +69,10 @@
   id: ScienceBoards
   recipes:
   - TurboItemRechargerCircuitboard
+  - AutolatheHyperConvectionMachineCircuitboard
+  - ProtolatheHyperConvectionMachineCircuitboard
+  - CircuitImprinterHyperConvectionMachineCircuitboard
   - TechDiskComputerCircuitboard
-  # Begin DeltaV Removals - replaced by techfabs/upgrade kits
-  #- AutolatheHyperConvectionMachineCircuitboard
-  #- ProtolatheHyperConvectionMachineCircuitboard
-  #- CircuitImprinterHyperConvectionMachineCircuitboard
-  # End DeltaV Removals
   - FlatpackerMachineCircuitboard
   - SheetifierMachineCircuitboard
   - PowerCageRechargerCircuitboard
@@ -105,7 +90,7 @@
   - SurveillanceCameraRouterCircuitboard
   - SurveillanceCameraMonitorCircuitboard
   - SurveillanceWirelessCameraMonitorCircuitboard
-  # - SurveillanceCameraWirelessRouterCircuitboard # Frontier
+  - SurveillanceCameraWirelessRouterCircuitboard
   - ComputerTelevisionCircuitboard
   - SurveillanceWirelessCameraMovableCircuitboard
   - SurveillanceWirelessCameraAnchoredCircuitboard
@@ -129,8 +114,3 @@
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
-
-- type: latheRecipePack
-  id: AiCoreBoard
-  recipes:
-  - AiCoreElectronics

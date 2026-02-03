@@ -2,14 +2,12 @@
   id: InitialInfected
   name: roles-antag-initial-infected-name
   antagonist: true
-  setPreference: false
+  setPreference: true
   objective: roles-antag-initial-infected-objective
+  guides: [ Zombies ]
   requirements:
-  - !type:SpeciesRequirement
-    inverted: true
-    species:
-    - IPC
-  # guides: [ Zombies ] # Frontier: removed, irrelevant
+  - !type:OverallPlaytimeRequirement
+    time: 1h
 
 - type: antag
   id: Zombie
@@ -17,9 +15,4 @@
   antagonist: true
   setPreference: false
   objective: roles-antag-zombie-objective
-  requirements:
-  - !type:SpeciesRequirement
-    inverted: true
-    species:
-    - IPC
-  # guides: [ Zombies ] # Frontier: removed, irrelevant
+  guides: [ Zombies ]

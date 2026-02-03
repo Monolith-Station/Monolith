@@ -2,9 +2,12 @@
   id: HeadRev
   name: roles-antag-rev-head-name
   antagonist: true
-  setPreference: false
+  setPreference: true
   objective: roles-antag-rev-head-objective
-  # guides: [ Revolutionaries ] # Frontier: removed, irrelevant
+  guides: [ Revolutionaries ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 1h
 
 - type: antag
   id: Rev
@@ -12,7 +15,7 @@
   antagonist: true
   setPreference: false
   objective: roles-antag-rev-objective
-  # guides: [ Revolutionaries ] # Frontier: removed, irrelevant
+  guides: [ Revolutionaries ]
 
 - type: startingGear
   id: HeadRevGear

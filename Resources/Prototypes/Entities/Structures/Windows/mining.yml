@@ -18,13 +18,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500 # Mono
+        damage: 200
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 250 # 100->250 - Mono
+        damage: 100
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -67,9 +67,10 @@
   - type: Tag
     tags:
     - Diagonal
+    - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Frontier: windows<walls
+    key: windows
     base: state
   - type: Icon
     sprite: Structures/Windows/mining_diagonal.rsi

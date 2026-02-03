@@ -35,6 +35,11 @@
   - ClothingHeadHatHopcap
   - ClothingUniformJumpsuitHoP
   - ClothingUniformJumpskirtHoP
+  # Generic
+  - ClothingHeadHatBeretCommand
+  - ClothingHeadHatCommandSoft
+  - ClothingUniformJumpskirtCommandGeneric
+  - ClothingUniformJumpsuitCommandGeneric
 
 - type: latheRecipePack
   id: ClothingEngineering
@@ -84,34 +89,32 @@
   recipes:
   - ClothingUniformJumpsuitDetective
   - ClothingUniformJumpskirtDetective
-  # - ClothingHeadHatBeretHoS # Frontier
-  # - ClothingHeadHatHoshat # Frontier
-  # - ClothingUniformJumpsuitHoS # Frontier
-  # - ClothingUniformJumpskirtHoS # Frontier
-  # - ClothingUniformJumpsuitHosFormal # Frontier
-  # - ClothingUniformJumpskirtHosFormal # Frontier
-  # - ClothingUniformJumpsuitHoSAlt # Frontier
-  # - ClothingUniformJumpskirtHoSAlt # Frontier
-  # - ClothingUniformJumpsuitHoSBlue # Frontier
-  # - ClothingUniformJumpsuitHoSGrey # Frontier
-  # - ClothingUniformJumpsuitHoSParadeMale # Frontier
-  # - ClothingUniformJumpskirtHoSParadeMale # Frontier
+  - ClothingHeadHatBeretHoS
+  - ClothingHeadHatHoshat
+  - ClothingUniformJumpsuitHoS
+  - ClothingUniformJumpskirtHoS
+  - ClothingUniformJumpsuitHosFormal
+  - ClothingUniformJumpskirtHosFormal
+  - ClothingUniformJumpsuitHoSAlt
+  - ClothingUniformJumpskirtHoSAlt
+  - ClothingUniformJumpsuitHoSBlue
+  - ClothingUniformJumpsuitHoSGrey
+  - ClothingUniformJumpsuitHoSParadeMale
+  - ClothingUniformJumpskirtHoSParadeMale
   - ClothingUniformJumpsuitSeniorOfficer
   - ClothingUniformJumpskirtSeniorOfficer
   - ClothingUniformJumpsuitPrisoner
   - ClothingUniformJumpskirtPrisoner
-  # - ClothingHeadHatBeretSecurity # Frontier
-  # - ClothingUniformJumpsuitSec # Frontier
-  # - ClothingUniformJumpskirtSec # Frontier
-  # - ClothingHeadHatBeretBrigmedic # Frontier
-  # - ClothingUniformJumpsuitBrigmedic # Frontier
-  # - ClothingUniformJumpskirtBrigmedic # Frontier
-  # - ClothingHeadHatBeretWarden # Frontier
-  # - ClothingHeadHatWarden # Frontier
-  # - ClothingUniformJumpsuitWarden # Frontier
-  # - ClothingUniformJumpskirtWarden # Frontier
-  - ClothingUniformJumpsuitPrivateSec # Frontier
-  - ClothingUniformJumpskirtPrivateSec # Frontier
+  - ClothingHeadHatBeretSecurity
+  - ClothingUniformJumpsuitSec
+  - ClothingUniformJumpskirtSec
+  - ClothingHeadHatBeretBrigmedic
+  - ClothingUniformJumpsuitBrigmedic
+  - ClothingUniformJumpskirtBrigmedic
+  - ClothingHeadHatBeretWarden
+  - ClothingHeadHatWarden
+  - ClothingUniformJumpsuitWarden
+  - ClothingUniformJumpskirtWarden
 
 - type: latheRecipePack
   id: ClothingService
@@ -123,11 +126,13 @@
   - ClothingUniformJumpsuitChef
   - ClothingUniformJumpskirtChef
   - ClothingUniformJumpsuitClown
+  - ClothingUniformJumpskirtClown
   - ClothingUniformJumpsuitHydroponics
   - ClothingUniformJumpskirtHydroponics
   - ClothingUniformJumpsuitJanitor
   - ClothingUniformJumpskirtJanitor
   - ClothingUniformJumpsuitLawyerBlack
+  - ClothingUniformJumpskirtLawyerBlack
   - ClothingUniformJumpsuitLibrarian
   - ClothingUniformJumpskirtColorLightBrown
   - ClothingUniformJumpsuitMime
@@ -141,8 +146,8 @@
   - ClothingOuterWinterCE
   - ClothingOuterWinterCMO
   - ClothingOuterWinterHoP
-  # - ClothingOuterWinterHoSUnarmored # Frontier
-  # - ClothingOuterWinterWardenUnarmored # Frontier
+  - ClothingOuterWinterHoSUnarmored
+  - ClothingOuterWinterWardenUnarmored
   - ClothingOuterWinterQM
   - ClothingOuterWinterRD
   - ClothingOuterWinterMusician
@@ -164,8 +169,7 @@
   - ClothingOuterWinterViro
   - ClothingOuterWinterSci
   - ClothingOuterWinterRobo
-  # - ClothingOuterWinterSec # Frontier
-  - ClothingOuterWinterCoatMail # Frontier
+  - ClothingOuterWinterSec
 
 - type: latheRecipePack
   id: Ties
@@ -187,18 +191,6 @@
   - ClothingNeckScarfStripedPurple
 
 - type: latheRecipePack
-  id: Ponchos
-  recipes:
-  - ClothingNeckPonchoBlack
-  - ClothingNeckPonchoArctic
-  - ClothingNeckPonchoSmallPurple
-  - ClothingNeckPonchoSmallRed
-  - ClothingNeckPonchoSmallPink
-  - ClothingNeckPonchoSmallOrange
-  - ClothingNeckPonchoSmallWhite
-  - ClothingNeckPonchoSmallBlack
-
-- type: latheRecipePack
   id: Carpets
   recipes:
   - Carpet
@@ -208,9 +200,9 @@
   - CarpetGreen
   - CarpetOrange
   - CarpetPurple
-  - FloorCarpetItemSkyBlue # Frontier
   - CarpetCyan
   - CarpetWhite
+  - CarpetSkyBlue
 
 - type: latheRecipePack
   id: ClothingCentComm
@@ -238,7 +230,7 @@
   - ClothingUniformJumpsuitPyjamaSyndicatePink
   - ClothingHeadPyjamaSyndicateRed
   - ClothingUniformJumpsuitPyjamaSyndicateRed
-  # - ClothingOuterWinterCentcom # Frontier
+  - ClothingOuterWinterCentcom
   - ClothingOuterWinterSyndie
   - ClothingOuterWinterSyndieCap
   - BedsheetSyndie

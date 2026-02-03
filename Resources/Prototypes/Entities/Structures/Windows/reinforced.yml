@@ -1,7 +1,7 @@
 - type: entity
   id: ReinforcedWindow
   name: reinforced window
-  parent: Window
+  parent: [BaseDeltaPressureReinforcedGlass, Window]
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -22,7 +22,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300 #excess damage (nuke?). avoid computational cost of spawning entities.
+        damage: 150 #excess damage (nuke?). avoid computational cost of spawning entities.
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -31,7 +31,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 150 # Mono 75->150
+        damage: 75
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -55,13 +55,10 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
-  - type: ShipRepairable
-    repairTime: 5
-    repairCost: 5
 
 - type: entity
   id: WindowReinforcedDirectional
-  parent: WindowDirectional
+  parent: [BaseDeltaPressureReinforcedGlassQuarter, WindowDirectional]
   name: directional reinforced window
   description: Don't smudge up the glass down there.
   placement:
@@ -95,7 +92,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150 # Mono
+        damage: 75
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -104,7 +101,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 75 # Mono 37->75
+        damage: 37
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -117,10 +114,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: StaticPrice
-    price: 10 # Frontier: 22.5<10
-  - type: ShipRepairable
-    repairTime: 3
-    repairCost: 3
+    price: 22.5
 
 - type: entity
   parent: ReinforcedWindow
@@ -138,9 +132,10 @@
   - type: Tag
     tags:
     - Diagonal
+    - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Frontier: windows<walls
+    key: windows
     base: state
   - type: Icon
     sprite: Structures/Windows/reinforced_window_diagonal.rsi

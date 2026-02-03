@@ -1,7 +1,7 @@
 - type: entity
   id: ShuttleWindow
   name: shuttle window
-  parent: Window # Frontier: WindowRCDResistant<Window
+  parent: [BaseDeltaPressureReinforcedGlass, WindowRCDResistant]
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -18,13 +18,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 4000 # Mono
+        damage: 1000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 2000 # Mono
+        damage: 500
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -52,10 +52,7 @@
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
-    price: 70 # Frontier: 150<70
-  - type: ShipRepairable
-    repairTime: 6
-    repairCost: 6
+    price: 150
 
 - type: entity
   parent: ShuttleWindow
@@ -73,9 +70,10 @@
   - type: Tag
     tags:
     - Diagonal
+    - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Frontier: windows<walls
+    key: windows
     base: state
   - type: Icon
     sprite: Structures/Windows/shuttle_window_diagonal.rsi

@@ -652,7 +652,7 @@ entities:
           showEnts: False
           occludes: True
           ents: []
-- proto: AmmoBox12_gaugeBuckshot
+- proto: BoxLethalshot
   entities:
   - uid: 34
     components:
@@ -3060,14 +3060,14 @@ entities:
       parent: 1
     - type: Physics
       canCollide: False
-- proto: AmmoBox145x114mm
+- proto: MagazineBoxAntiMateriel
   entities:
   - uid: 464
     components:
     - type: Transform
       pos: -4.7390633,3.4536512
       parent: 1
-- proto: AmmoBox45_magnumFMJ
+- proto: MagazineBoxMagnum
   entities:
   - uid: 465
     components:

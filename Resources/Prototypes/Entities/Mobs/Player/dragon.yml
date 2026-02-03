@@ -6,10 +6,11 @@
   description: A flying leviathan, loosely related to space carps.
   abstract: true
   components:
-  - type: Body # Shitmed
-    prototype: SpaceDragon
   - type: Bloodstream
-    bloodMaxVolume: 800 # Mono
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 650
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -41,21 +42,9 @@
   - type: MobMover
   - type: InputMover
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4 # 3->4
-    baseSprintSpeed: 6 # 5->6
-    baseWeightlessModifier: 2 # 1.5>2 - Mono "I hope you like going fast"
-  - type: UserInterface
-    interfaces:
-      enum.RadarConsoleUiKey.Key:
-        type: RadarConsoleBoundUserInterface
-  - type: IntrinsicUI
-    uis:
-      enum.RadarConsoleUiKey.Key:
-        toggleAction: ActionObserverShowRadar
-  - type: RadarConsole # Mono
-    followEntity: true
-    maxIffRange: 0
-    hideCoords: false
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
+    baseWeightlessModifier: 1.5
   - type: RandomSprite
     available:
     - enum.DamageStateVisualLayers.Base:
@@ -114,25 +103,19 @@
       types: {}
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
-    - SlowedDown
-    - Stutter
     - Electrocution
-    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - RadiationProtection
-    - Drowsiness
     - Adrenaline
   - type: Temperature
-    heatDamageThreshold: 800
+  - type: TemperatureDamage
+    heatDamageThreshold: 2400
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
-    groups:
-    - id: Medicine
-    - id: Cryogenic # Frontier
-    - id: Poison
+    stages: [ Digestion, Bloodstream ]
   - type: Butcherable
     spawned:
     - id: FoodMeatDragon
@@ -150,14 +133,17 @@
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     damage:
       types:
-        Piercing: 20
-        Slash: 20
-        Structural: 200
+        Piercing: 15
+        Slash: 15
   - type: Devourer
-    foodPreference: Humanoid
-    shouldStoreDevoured: true
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidProfile
+    stomachStorageWhitelist:
+      components:
+      - MobState
     chemical: Ichor
-    healRate: 15.0
+    healRate: 7.5
     whitelist:
       components:
       - MobState
@@ -168,11 +154,20 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
+    - StunImmune
   - type: Puller
     needsHands: false
-  - type: NightVision # Goobstation - Nigthvision
-    activateSound: null
-    deactivateSound: null
+  - type: RandomMetadata
+    nameSegments:
+    - NamesDragon
+    - NamesDragonTitle
+    nameFormat: name-format-dragon
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5 # fast because dragon strong
+    useSound:
+      path: /Audio/Items/crowbar.ogg
 
 - type: entity
   parent: BaseMobDragon
@@ -180,24 +175,15 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
+  - type: GhostRole
+    mindRoles:
+    - MindRoleDragon
   - type: ActionGun
     action: ActionDragonsBreath
     gunProto: DragonsBreathGun
-  # - type: GuideHelp # Frontier: removed from guidebook
-  #   guides: # Frontier: removed from guidebook
-  #   - MinorAntagonists # Frontier: removed from guidebook
-
-- type: entity # Mono Admeme Tool
-  parent: BaseMobDragon
-  id: MobDragonRiftless
-  suffix: Riftless
-  components:
-  - type: ActionGun
-    action: ActionDragonsBreath
-    gunProto: DragonsBreathGun
-  # - type: GuideHelp # Frontier: removed from guidebook
-  #   guides: # Frontier: removed from guidebook
-  #   - MinorAntagonists # Frontier: removed from guidebook
+  - type: GuideHelp
+    guides:
+    - MinorAntagonists
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -220,13 +206,13 @@
     projectileSpeed: 5
 
 - type: entity
-  parent: [NFMobRestrictions, BaseMobDragon, MobNonHumanHostileBase, NFMobBossRestrictions ] # Frontier: add NFMobRestrictions, MobNonHumanHostileBase, NFMobBossRestrictions
+  parent: BaseMobDragon
   id: MobDragonDungeon
   suffix: Dungeon
   components:
   - type: GhostRole
     description: ghost-role-information-space-dragon-dungeon-description
-    rules: ghost-role-information-dungeon-boss-rules # Frontier: ghost-role-information-space-dragon-dungeon-rules<ghost-role-information-dungeon-boss-rules
+    rules: ghost-role-information-space-dragon-dungeon-rules
     raffle:
       settings: default
   - type: SlowOnDamage
@@ -235,59 +221,67 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      250: Dead # Frontier: 200<250
+      200: Dead
   # less meat spawned since it's a lot easier to kill
   - type: Butcherable
     spawned:
     - id: FoodMeatDragon
-      amount: 3
-    - id: DragonEgg #Frontier
-      amount: 1 #Frontier
-      prob: 0.3 #Frontier
-  # half damage, spread evenly
+      amount: 1
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 15 # Frontier: 12<15
-  - type: ActionGun #Frontier
-    action: ActionDragonsBreath #Frontier
-    gunProto: DragonsBreathGun #Frontier
+        Brute: 12
 
 - type: entity
+  parent: BaseAction
   id: ActionSpawnRift
   name: Summon Carp Rift
   description: Summons a carp rift that will periodically spawns carps.
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: Interface/Actions/carp_rift.rsi
       state: icon
-    event: !type:DragonSpawnRiftActionEvent
     useDelay: 1
     priority: 3
+  - type: InstantAction
+    event: !type:DragonSpawnRiftActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionDevour
   name: "[color=red]Devour[/color]"
   description: Attempt to break a structure with your jaws or swallow a creature.
   components:
-  - type: EntityTargetAction
+  - type: Action
     icon: { sprite : Interface/Actions/devour.rsi, state: icon }
     iconOn: { sprite : Interface/Actions/devour.rsi, state: icon-on }
-    event: !type:DevourActionEvent
+    itemIconStyle: BigAction
     priority: 1
+  - type: TargetAction
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - MobState
+      - Door
+      tags:
+      - Wall
+    event: !type:DevourActionEvent
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
+  parent: BaseAction
   id: ActionDragonsBreath
   name: "[color=orange]Dragon's Breath[/color]"
   description: Spew out flames at anyone foolish enough to attack you!
   components:
-  - type: WorldTargetAction
-    # TODO: actual sprite
+  - type: Action
+    # TODO: actual sprite and iconOn
     icon: { sprite : Objects/Weapons/Guns/Projectiles/magic.rsi, state: fireball }
-    event: !type:ActionGunShootEvent
+    itemIconStyle: BigAction
     priority: 2
+  - type: TargetAction
     checkCanAccess: false
     range: 0
-    itemIconStyle: BigAction
+  - type: WorldTargetAction
+    event: !type:ActionGunShootEvent

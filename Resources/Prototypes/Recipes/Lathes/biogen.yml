@@ -1,20 +1,20 @@
-#- type: latheRecipe # Mono removed to prevent redundancy in Biogenerator
-# id: BioGenMonkeyCube
-# #result: MonkeyCube
-# #categories:
-#  - Food
-# completetime: 3
-# materials:
-#  Biomass: 16 # Mono
+- type: latheRecipe
+  id: BioGenMonkeyCube
+  result: MonkeyCube
+  categories:
+  - Food
+  completetime: 3
+  materials:
+    Biomass: 70
 
-#- type: latheRecipe # Mono removed to prevent redundancy in Biogenerator
-# id: BioGenKoboldCube
-# result: KoboldCube
-# categories:
-# - Food
-# completetime: 3
-# materials:
-#   Biomass: 16 # Mono
+- type: latheRecipe
+  id: BioGenKoboldCube
+  result: KoboldCube
+  categories:
+  - Food
+  completetime: 3
+  materials:
+    Biomass: 70
 
 - type: latheRecipe
   id: BioGenMaterialCloth1
@@ -249,5 +249,24 @@
   materials:
     Biomass: 18
 
+- type: latheRecipe
+  id: BioGenDiseaseSwab
+  result: DiseaseSwab
+  categories:
+  - Materials
+  completetime: 3
+  materials:
+    Biomass: 2
 
-
+- type: latheRecipe
+  id: BioGenUnstableMutagen
+  resultReagents:
+    UnstableMutagen: 10
+  categories:
+  - Chemicals
+  icon:
+    sprite: Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 5
+  materials:
+    Biomass: 20

@@ -31,8 +31,8 @@
     interactSuccessSound:
       path: /Audio/Effects/glass_knock.ogg
   - type: Appearance
-  # - type: StaticPrice # Frontier
-  #   price: 100 # Frontier
+  - type: StaticPrice
+    price: 100
   - type: BlockWeather
   - type: Fixtures
     fixtures:
@@ -45,9 +45,6 @@
         layer:
         - WallLayer
         density: 4000
-  - type: ShipRepairable
-    repairTime: 8
-    repairCost: 8
 
 - type: entity
   id: PlastitaniumWindowSquareBase
@@ -62,7 +59,7 @@
     sprite: Structures/Windows/plastitanium_window.rsi
     state: full
   - type: IconSmooth
-    key: walls # Frontier: windows<walls
+    key: windows
     base: ptwindow
   - type: Airtight
   - type: Fixtures
@@ -80,9 +77,9 @@
   name: plastitanium window
   parent: PlastitaniumWindowSquareBase
   suffix: indestructible
-  # Frontier: colored indestructible windows
-  description: Skub knows this window is too hard to destroy.
-  # End Frontier
+  components:
+  - type: ExaminableDamage
+    messages: null
 
 - type: entity
   id: PlastitaniumWindow
@@ -93,13 +90,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 3600 # Backup
+        damage: 1000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 3500 # Mono
+        damage: 500
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -126,11 +123,6 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
-  - type: StaticPrice # Frontier
-    price: 100 # Frontier
-  - type: Construction # Frontier - Harder to break into
-    graph: Plastitanium # Frontier - Harder to break into
-    node: plastitaniumWindow # Frontier - Harder to break into
 
 - type: entity
   id: PlastitaniumWindowDiagonalBase
@@ -146,12 +138,13 @@
   - type: Tag
     tags:
     - Diagonal
+    - Window
   - type: Icon
     sprite: Structures/Windows/plastitanium_window_diagonal.rsi
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Frontier: windows<walls
+    key: windows
     base: state
   - type: Fixtures
     fixtures:
@@ -178,9 +171,9 @@
   name: plastitanium window
   parent: PlastitaniumWindowDiagonalBase
   suffix: diagonal, indestructible
-  # Frontier: colored indestructible windows
-  description: Skub knows this window is too hard to destroy.
-  # End Frontier
+  components:
+  - type: ExaminableDamage
+    messages: null
 
 - type: entity
   id: PlastitaniumWindowDiagonal
@@ -192,13 +185,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 3600 # Mono
+        damage: 1000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 3500 # Mono
+        damage: 500
       behaviors:
       - !type:PlaySoundBehavior
         sound:

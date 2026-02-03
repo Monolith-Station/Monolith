@@ -64,6 +64,15 @@
 
 - type: latheRecipe
   parent: BasePartRecipe
+  id: VoiceSensor
+  result: voicesensor
+  materials:
+    Steel: 100
+    Plastic: 200
+    Glass: 100
+
+- type: latheRecipe
+  parent: BasePartRecipe
   id: SignallerAdvanced
   result: RemoteSignallerAdvanced
   materials:
@@ -108,7 +117,6 @@
   materials:
     Steel: 500
     Glass: 400
-    Bananium: 1000
 
 - type: latheRecipe
   id: WeaponGauntletGorilla
@@ -130,9 +138,8 @@
   materials:
     Steel: 2000
     Silver: 750
-    Plasma: 1250 #Higher Plasma due to it needing less bluespace
-    UraniumFissile: 200
-    Bluespace: 300 #DeltaV: Bluespace Exists
+    Plasma: 1500
+    Uranium: 150
 
 - type: latheRecipe
   parent: ClothingBackpackHolding
@@ -148,12 +155,6 @@
   parent: ClothingBackpackHolding
   id: OreBagOfHolding
   result: OreBagOfHolding
-  completetime: 5
-  materials:
-    Steel: 2000
-    Silver: 750
-    Plasma: 1000 #DeltaV: Bluespace Exists so less plasma used, no uranium
-    Bluespace: 200 #DeltaV: Bluespace Exists
 
 - type: latheRecipe
   id: ClothingMaskWeldingGas
@@ -181,7 +182,16 @@
   materials:
     Steel: 700
     Glass: 100
-    UraniumFissile: 100
+    Uranium: 100
+
+- type: latheRecipe
+  id: DeviceDesynchronizer
+  result: DeviceDesynchronizer
+  completetime: 5
+  materials:
+    Steel: 700
+    Glass: 100
+    Uranium: 200
 
 - type: latheRecipe
   id: WeaponProtoKineticAccelerator
@@ -215,3 +225,23 @@
     Steel: 500
     Glass: 400
     Gold: 100
+
+- type: latheRecipe
+  id: CableDetStack1
+  result: CableDetStack1
+  categories:
+  - Weapons
+  completetime: 2
+  materials:
+    Plastic: 50
+    Plasma: 25
+    Gold: 20
+
+- type: latheRecipe
+  id: EmptyDetonator
+  result: EmptyDetonator
+  categories:
+  - Weapons
+  completetime: 3
+  materials:
+    Steel: 100

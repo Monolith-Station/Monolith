@@ -1,7 +1,7 @@
 - type: entity
   id: PlasmaWindow
   name: plasma window
-  parent: WindowRCDResistant
+  parent: [BaseDeltaPressurePlasma, WindowRCDResistant]
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -15,7 +15,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600 # Mono
+        damage: 150
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -24,7 +24,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 300 # Mono 75->300
+        damage: 75
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -49,17 +49,13 @@
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
-    price: 50 # Frontier: 100<50
+    price: 100
   - type: RadiationBlocker
     resistance: 2
-  - type: HitscanDiffractTarget # Mono - Causes diffraction
-  - type: ShipRepairable
-    repairTime: 4
-    repairCost: 4
 
 - type: entity
   id: PlasmaWindowDirectional
-  parent: WindowDirectionalRCDResistant
+  parent: [BaseDeltaPressurePlasmaQuarter, WindowDirectionalRCDResistant]
   name: directional plasma window
   description: Don't smudge up the glass down there.
   placement:
@@ -87,7 +83,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300 # Mono
+        damage: 75
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -96,7 +92,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 150 # Mono 37->150
+        damage: 37
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -109,13 +105,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: StaticPrice
-    price: 25 # Frontier:50<25
+    price: 50
   - type: RadiationBlocker
     resistance: 1
-  - type: HitscanDiffractTarget # Mono - Causes diffraction
-  - type: ShipRepairable
-    repairTime: 2
-    repairCost: 2
 
 - type: entity
   parent: PlasmaWindow
@@ -133,9 +125,10 @@
   - type: Tag
     tags:
     - Diagonal
+    - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Frontier: windows<walls
+    key: windows
     base: state
   - type: Icon
     sprite: Structures/Windows/plasma_diagonal.rsi
@@ -164,4 +157,3 @@
   - type: Construction
     graph: WindowDiagonal
     node: plasmaWindowDiagonal
-  - type: HitscanDiffractTarget # Mono - Causes diffraction

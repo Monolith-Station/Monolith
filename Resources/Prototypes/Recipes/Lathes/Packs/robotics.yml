@@ -11,29 +11,11 @@
 - type: latheRecipePack
   id: BorgModulesStatic
   recipes:
+  - BorgModuleTool
   - BorgModuleCable
   - BorgModuleFireExtinguisher
-  - BorgModuleRadiationDetection
-  - BorgModuleTool
-  - BorgModuleSurgery # Shitmed Change
-
-- type: latheRecipePack
-  id: BorgModulesDynamic
-  recipes:
-  - BorgModuleAdvancedSurgery
-
-- type: latheRecipePack
-  id: SMCybernetics
-  recipes:
-  - JawsOfLifeLeftArm
-  - JawsOfLifeRightArm
-  - SpeedLeftLeg
-  - SpeedRightLeg
-  - BasicCyberneticEyes
-  - SecurityCyberneticEyes
-  - MedicalCyberneticEyes
-  - DexLeftHand
-  - DexRightHand
+  - BorgModuleInflatable
+  - BorgModuleArtistry
 
 - type: latheRecipePack
   id: BorgLimbsStatic
@@ -57,18 +39,10 @@
   recipes:
   - BorgModuleAdvancedCleaning
   - BorgModuleAdvancedTool
-  - BorgModuleGPS
-  - BorgModuleArtifact
-  - BorgModuleAnomaly
-  - BorgModuleGardening
-  - BorgModuleHarvesting
-  - BorgModuleDefibrillator
-  - BorgModuleAdvancedTreatment
-  - BorgModuleJetpack # Frontier
-  - BorgModuleAdvancedParamedic # Frontier
-  - BorgModuleAdvancedMining # Frontier
+  - BorgModuleAdvancedClowning
+  - BorgModuleAdvancedTopical
+  - BorgModuleAdvancedMining
 
-# Mono/Goob changes start
 - type: latheRecipePack
   id: MechParts
   recipes:
@@ -95,15 +69,3 @@
     - MechEquipmentGrabber
     - MechEquipmentHorn
     - MechEquipmentGrabberSmall
-
-- type: latheRecipePack
-  id: Modsuits
-  recipes:
-  - ModsuitChestplate
-  - ModsuitBoots
-  - ModsuitHelmet
-  - ModsuitGauntlets
-  - ModsuitShell
-  - ModsuitPlatingExternal
-  - ModsuitCoreStandard
-# Mono/Goob changes end

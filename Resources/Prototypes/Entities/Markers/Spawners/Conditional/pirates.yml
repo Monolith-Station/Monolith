@@ -2,7 +2,6 @@
   id: SpawnPointPirates
   parent: MarkerBase
   name: Pirate spawn point
-  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnPoint
   - type: Sprite

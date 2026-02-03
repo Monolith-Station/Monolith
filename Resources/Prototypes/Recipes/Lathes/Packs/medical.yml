@@ -15,6 +15,9 @@
   - Syringe
   - PillCanister
   - HandLabeler
+  - ChemistryEmptyVial
+  - ChemistryEmptyVialSmall
+  - Dropper
 
 - type: latheRecipePack
   parent: BasicChemistryStatic
@@ -43,6 +46,9 @@
   - DiseaseSwab
   - BodyBag
   - WhiteCane
+  - OffsetCane
+  - OffsetCaneWood
+  - JetInjector
 
 - type: latheRecipePack
   id: RollerBedsStatic
@@ -70,44 +76,16 @@
   - MedkitAdvanced
   - MedkitRadiation
   - MedkitCombat
-  - SyringeCase
-  - SyringeCaseAlt
 
 - type: latheRecipePack
   id: MedicalBoardsStatic
   recipes:
   - ElectrolysisUnitMachineCircuitboard
   - CentrifugeMachineCircuitboard
-  # - ChemDispenserMachineCircuitboard # Frontier: dynamic
-  # - ChemMasterMachineCircuitboard # Frontier: dynamic
+  - ChemDispenserMachineCircuitboard
+  - ChemMasterMachineCircuitboard
   - CondenserMachineCircuitBoard
-  # - HotplateMachineCircuitboard # Frontier: dynamic
-  - OperatingTableCircuitboard # Shitmed Change
-
-# Shitmed
-- type: latheRecipePack
-  id: MedicalSynthLimbsStatic
-  recipes:
-  - SynthLiver
-  - SynthHeart
-  - SynthLungs
-  - SynthEyes
-  - SynthHeadEmpty
-  - SynthLeftLeg
-  - SynthRightLeg
-  - SynthLeftFoot
-  - SynthRightFoot
-  - SynthLeftArm
-  - SynthRightArm
-  - SynthLeftHand
-  - SynthRightHand
-
-# Shitmed
-- type: latheRecipePack
-  id: MedicalPizzaLimbsStatic
-  recipes:
-  - PizzaLeftArm
-  - PizzaRightArm
+  - HotplateMachineCircuitboard
 
 ## Dynamic
 
@@ -120,6 +98,9 @@
   - SyringeCryostasis
   - BluespaceBeaker
   - SyringeBluespace
+  - LauncherSyringe
+  - MiniSyringe
+  - AdvancedJetInjector
 
 - type: latheRecipePack
   id: MedicalBoards

@@ -3,8 +3,6 @@
 - type: latheRecipePack
   id: FriendlyCubesStatic
   recipes:
-  - ChickenCube #mono
-  - PigCube #mono
   - MonkeyCube
   - KoboldCube
   - CowCube
@@ -19,24 +17,3 @@
   - AbominationCube
   - SpaceCarpCube
   - SpaceTickCube
-
-- type: latheRecipePack
-  id: SpeciesCubesStatic
-  recipes:
-  - HumanCube
-  - DionaCube
-  - FelinidCube
-  - GingerbreadCube
-  - MothCube
-  - DwarfCube
-  - HarpyCube
-  - RodentiaCube
-  - ReptilianCube
-  - VulpkaninCube
-  - SlimePersonCube
-  - YowieCube
-  - VoxCube
-  - ResomiCube
-  - GoblinCube
-  - ChitinidCube
-#  - ProtogenCube #mono: retired

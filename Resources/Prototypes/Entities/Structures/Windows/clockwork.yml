@@ -19,7 +19,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300 # Mono
+        damage: 150
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -28,7 +28,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 150 # Mono 75->150
+        damage: 75
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -85,7 +85,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150 # Mono
+        damage: 75
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -94,7 +94,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 75 # Mono 37->75
+        damage: 37
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -125,9 +125,10 @@
   - type: Tag
     tags:
     - Diagonal
+    - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Frontier: windows<walls
+    key: windows
     base: state
   - type: Icon
     sprite: Structures/Windows/clockwork_diagonal.rsi

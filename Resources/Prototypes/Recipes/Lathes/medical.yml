@@ -74,7 +74,7 @@
 
 - type: latheRecipe
   id: HandheldHealthAnalyzer
-  result: HandheldHealthAnalyzerEmpty
+  result: HandheldHealthAnalyzer
   categories:
   - Tools
   completetime: 4
@@ -189,15 +189,7 @@
   result: Jug
   completetime: 4
   materials:
-    Plastic: 200 # Frontier: 400<200
-
-- type: latheRecipe
-  id: VehicleWheelchairFolded
-  result: VehicleWheelchairFolded
-  completetime: 1
-  materials:
-    Steel: 500
-    Plastic: 300
+    Plastic: 400
 
 - type: latheRecipe
   id: RollerBedSpawnFolded
@@ -225,61 +217,62 @@
     Steel: 100
     Plastic: 100
 
-# Shitmed Recipes
-
 - type: latheRecipe
-  id: BoneGel
-  result: BoneGel
+  id: OffsetCane
+  result: OffsetCane
   completetime: 2
   materials:
-    Plastic: 200
-    Plasma: 200
+    Steel: 100
+    Plastic: 100
 
 - type: latheRecipe
-  id: MedicalCyberneticEyes
-  result: MedicalCyberneticEyes
+  id: OffsetCaneWood
+  result: OffsetCaneWood
+  completetime: 2
+  materials:
+    Steel: 100
+    Wood: 100
+
+- type: latheRecipe
+  id: LauncherSyringe
+  result: LauncherSyringe
+  completetime: 10
+  materials:
+    Silver: 200
+    Steel: 1000
+    Plastic: 200
+    Glass: 100
+
+- type: latheRecipe
+  id: MiniSyringe
+  result: MiniSyringe
+  completetime: 2
+  materials:
+    Steel: 200
+    Glass: 100
+    Plastic: 100
+
+- type: latheRecipe
+  id: JetInjector
+  result: JetInjector
+  categories:
+  - Tools
   completetime: 5
   materials:
-    Steel: 1000
+    Steel: 500
     Glass: 500
-    Plastic: 500
-    Gold: 300
-    Silver: 300
-
-- type: latheRecipe
-  id: EnergyScalpel
-  result: EnergyScalpel
-  completetime: 2
-  materials:
-    Steel: 600
-    Glass: 150
-    Gold: 150
-
-- type: latheRecipe
-  id: AdvancedRetractor
-  result: AdvancedRetractor
-  completetime: 2
-  materials:
-    Steel: 600
-    Glass: 150
-    Silver: 150
-
-- type: latheRecipe
-  id: EnergyCautery
-  result: EnergyCautery
-  completetime: 2
-  materials:
-    Steel: 600
-    Glass: 150
-    Plasma: 150
-
-- type: latheRecipe
-  id: DefibrillatorCompact
-  result: DefibrillatorCompact
-  completetime: 2
-  materials:
-    Steel: 1000
-    Glass: 350
     Plastic: 250
-    Gold: 250
-    Silver: 150
+    Silver: 250
+
+- type: latheRecipe
+  id: AdvancedJetInjector
+  result: AdvancedJetInjector
+  categories:
+  - Tools
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Silver: 400
+    Gold: 50 # A bit of gold for the gold ornaments on it!

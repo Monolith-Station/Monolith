@@ -1,7 +1,7 @@
 - type: entity
   id: ReinforcedPlasmaWindow
   name: reinforced plasma window
-  parent: WindowRCDResistant
+  parent: [BaseDeltaPressureReinforcedPlasma, WindowRCDResistant]
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -17,7 +17,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1500 # Mono
+        damage: 300
       behaviors: #excess damage, don't spawn entities.
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -26,7 +26,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 750 # Mono 150->750
+        damage: 150
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -54,26 +54,11 @@
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
-    price: 65
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-        density: 2000
-  - type: HitscanDiffractTarget # Mono - Causes diffraction
-  - type: ShipRepairable
-    repairTime: 6
-    repairCost: 6
+    price: 132
 
 - type: entity
   id: PlasmaReinforcedWindowDirectional
-  parent: WindowDirectionalRCDResistant
+  parent: [BaseDeltaPressureReinforcedPlasmaQuarter, WindowDirectionalRCDResistant]
   name: directional reinforced plasma window
   description: Don't smudge up the glass down there.
   placement:
@@ -97,19 +82,21 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
+  - type: Damageable
+    damageModifierSet: RGlass
   - type: RadiationBlocker
     resistance: 2
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 700 # Mono
+        damage: 150
       behaviors: #excess damage, don't spawn entities.
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 350 # Mono
+        damage: 75
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -125,11 +112,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: StaticPrice
-    price: 30
-  - type: HitscanDiffractTarget # Mono - Causes diffraction
-  - type: ShipRepairable
-    repairTime: 4
-    repairCost: 4
+    price: 66
 
 - type: entity
   parent: ReinforcedPlasmaWindow
@@ -147,22 +130,23 @@
   - type: Tag
     tags:
     - Diagonal
+    - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Frontier: windows<walls
+    key: windows
     base: state
   - type: Icon
-    sprite: Structures/Windows/plasma_diagonal.rsi
+    sprite: Structures/Windows/reinforced_plasma_diagonal.rsi
     state: state0
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PolygonShape
-          vertices:
-          - "-0.5,-0.5"
-          - "0.5,0.5"
-          - "0.5,-0.5"
+            vertices:
+            - "-0.5,-0.5"
+            - "0.5,0.5"
+            - "0.5,-0.5"
         mask:
         - FullTileMask
         layer:
@@ -179,4 +163,3 @@
   - type: Construction
     graph: WindowDiagonal
     node: reinforcedPlasmaWindowDiagonal
-  - type: HitscanDiffractTarget # Mono - Causes diffraction

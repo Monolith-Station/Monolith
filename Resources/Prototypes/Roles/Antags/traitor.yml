@@ -2,17 +2,23 @@
   id: Traitor
   name: roles-antag-syndicate-agent-name
   antagonist: true
-  setPreference: false # Frontier: true<false
+  setPreference: true
   objective: roles-antag-syndicate-agent-objective
-  # guides: [ Traitors ] # Frontier: removed, irrelevant
+  guides: [ Traitors ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 1h
 
 - type: antag
   id: TraitorSleeper
   name: roles-antag-syndicate-agent-sleeper-name
   antagonist: true
-  setPreference: false # Frontier: true<false
+  setPreference: true
   objective: roles-antag-syndicate-agent-sleeper-objective
-  # guides: [ Traitors ] # Frontier: removed, irrelevant
+  guides: [ Traitors ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 1h
 
 # Syndicate Operative Outfit - Monkey
 - type: startingGear
@@ -78,5 +84,5 @@
   equipment:
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
-    pocket1: BaseUplinkRadio200TC # Mono
+    pocket1: BaseUplinkRadio40TC
     id: SyndiPDA

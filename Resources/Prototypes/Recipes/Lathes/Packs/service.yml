@@ -4,6 +4,7 @@
   id: ServiceStatic
   recipes:
   - Bucket
+  - Ashtray
   - DrinkMug
   - DrinkMugMetal
   - DrinkGlass
@@ -19,21 +20,24 @@
   - FoodPlateMuffinTin
   - FoodKebabSkewer
   - SprayBottle
+  - TrashBag
+  - LightReplacer
   - MopItem
   - Holoprojector
   - WetFloorSign
+  - WireBrush
 
 - type: latheRecipePack
   id: ServiceBoardsStatic
   recipes:
-  # - BiogeneratorMachineCircuitboard # Frontier: dynamic
+  - BiogeneratorMachineCircuitboard
   - UniformPrinterMachineCircuitboard
-  - SmartfridgeCircuitboard # Mono
-  # - MicrowaveMachineCircuitboard # Frontier: dynamic
-  # - ReagentGrinderMachineCircuitboard # Frontier: dynamic
-  # - ElectricGrillMachineCircuitboard # Frontier: dynamic
-  # - BoozeDispenserMachineCircuitboard # Frontier: dynamic
-  # - SodaDispenserMachineCircuitboard # Frontier: dynamic
+  - MicrowaveMachineCircuitboard
+  - ReagentGrinderMachineCircuitboard
+  - ElectricGrillMachineCircuitboard
+  - BoozeDispenserMachineCircuitboard
+  - SodaDispenserMachineCircuitboard
+  - SmartFridgeCircuitboard
 
 ## Dynamic
 
@@ -49,11 +53,12 @@
   id: Instruments
   recipes:
   - SynthesizerInstrument
+  - PushHorn
 
 - type: latheRecipePack
   id: ServiceBoards
   recipes:
-  - BiofabricatorMachineCircuitboard # Mono
+  - BiofabricatorMachineCircuitboard
   - FatExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard # roundstart gear being unlocked roundstart when
   - SeedExtractorMachineCircuitboard # ^

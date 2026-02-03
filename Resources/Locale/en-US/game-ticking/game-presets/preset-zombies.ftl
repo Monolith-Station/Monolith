@@ -9,8 +9,8 @@ zombie-no-one-ready = No players readied up! Can't start Zombies.
 
 zombie-patientzero-role-greeting = You are an initial infected. Get supplies and prepare for your eventual transformation. Your goal is to overtake the station while infecting as many people as possible.
 zombie-healing = You feel a stirring in your flesh
-zombie-infection-warning = You feel a strong urge in your mind.
-zombie-infection-underway = Your blood feels thicker
+zombie-infection-warning = You feel the zombie virus take hold
+zombie-infection-underway = Your blood begins to thicken
 
 zombie-alone = You feel entirely alone.
 
