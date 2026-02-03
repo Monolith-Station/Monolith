@@ -162,3 +162,17 @@
     clothingVisuals:
       back:
       - state: equipped-BACKPACK
+
+- type: entity
+  parent: NFClothingDuffel # Frontier: ClothingBackpackDuffel<NFClothingDuffel
+  id: ClothingBackpackDuffelVICT
+  name: VICT duffel bag
+  description: A duffel bag containing a variety of Viral and Biological containment equipment, reeks of chemicals.
+  components:
+  - type: Storage
+    maxItemSize: Huge
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: HeldSpeedModifier
+
