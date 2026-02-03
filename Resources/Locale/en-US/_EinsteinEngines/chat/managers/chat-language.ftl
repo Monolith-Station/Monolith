@@ -57,3 +57,6 @@ chat-language-DroneTalk-name = Drone
 
 # Added here by Mono
 chat-language-Blob-name = Blob
+
+# Ported from Floofstation:
+chat-language-NewKinPidgin-name = Ka'rakk

@@ -16,7 +16,8 @@
   - NovaCygniTranslator # Mono
   # - SiikMaasTranslator
   # - MarishTranslator
-
+  - NewKinPidginTranslator
+  
 - type: latheRecipePack
   id: TranslatorImplanters
   recipes:
@@ -35,3 +36,4 @@
   - NovaCygniTranslatorImplanter # Mono
 #  - SiikMaasTranslatorImplanter
 #  - MarishTranslatorImplanter
+  - NewKinPidginTranslatorImplanter
