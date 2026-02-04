@@ -1,13 +1,13 @@
 - type: vessel
-  id: Drochshúil
+  id: Balor
   parent: BaseVessel
-  name: Z-22 Drochshúil
+  name: Z-22 Balor
   description: Directly translated to the common tongue, the 'Evil Eye' is a drone hunter, meant to patrol the deep periphery until its prey reveals itself, then parks and unleashes its malicious intent.
   price: 80000 
   category: Small
   group: Shipyard
   access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/drochshúil.yml
+  shuttlePath: /Maps/_Mono/Shuttles/balor.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -15,16 +15,16 @@
   - Uranium
 
 - type: gameMap
-  id: Drochshúil
-  mapName: 'Z-22 Drochshúil'
-  mapPath: /Maps/_Mono/Shuttles/drochshúil.yml
+  id: Balor
+  mapName: 'Z-22 Balor'
+  mapPath: /Maps/_Mono/Shuttles/balor.yml
   minPlayers: 0
   stations:
-    Drochshúil:
+    Balor:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Drochshúil MIL{1}'
+          mapNameTemplate: 'Balor MIL{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
