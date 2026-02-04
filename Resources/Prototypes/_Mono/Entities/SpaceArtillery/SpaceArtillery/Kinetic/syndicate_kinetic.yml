@@ -304,8 +304,13 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 3.5
-    shape: star
     visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-2,-2,2,2"
   - type: Destructible
     thresholds:
     - trigger:
