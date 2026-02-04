@@ -1,7 +1,7 @@
-{
+﻿{
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Sprites by Avalon-Proto",
+    "copyright": "Sprites by Avalon-Proto. e_sword_blade modified by NazrinNya",
     "size": {
         "x": 32,
         "y": 32
@@ -12,7 +12,17 @@
             "directions": 4
         },
         {
-            "name": "e_sword_blade"
+            "name": "e_sword_blade",
+            "delays": [
+            [
+              0.15,
+              0.15,
+              0.15,
+              0.15,
+              0.15,
+              0.15
+            ]
+          ]
         },
         {
             "name": "icon"

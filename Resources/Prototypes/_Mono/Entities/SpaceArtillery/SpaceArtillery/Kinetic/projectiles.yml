@@ -21,7 +21,6 @@
     energy: 0.5
   - type: RadarBlip
     scale: 0.85
-    requireNoGrid: true
     shape: triangle
     radarColor: "#1df1f5"
   - type: Fixtures
@@ -71,7 +70,6 @@
     energy: 0.5
   - type: RadarBlip
     scale: 1.15
-    requireNoGrid: true
     shape: arrow
     radarColor: "#1df1f5"
 
@@ -95,7 +93,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
     radarColor: "#1df1f5"
   - type: TimedDespawn
@@ -127,7 +124,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 1.5
-    requireNoGrid: true
     shape: triangle
     radarColor: "#1df1f5"
 
@@ -177,7 +173,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 3.25
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 5.15
@@ -217,7 +212,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 7
@@ -286,7 +280,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
     radarColor: "#1df1f5"
   - type: TimedDespawn
@@ -320,7 +313,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 2.5
-    requireNoGrid: true
     shape: arrow
     radarColor: "#1df1f5"
   - type: TimedDespawn

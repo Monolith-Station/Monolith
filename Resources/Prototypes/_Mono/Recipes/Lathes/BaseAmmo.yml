@@ -824,3 +824,36 @@
   materials:
     Steel: 560
     Plasteel: 565
+
+#pistol caliber big
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJPistolCaliberBigAmmoBoxRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 3400
+
+#intermediate big
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJIntermediateBigAmmoBoxRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 4300
+
+#fully powered big
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJFullyPoweredBigAmmoBoxRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 5200

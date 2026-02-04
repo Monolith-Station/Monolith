@@ -111,6 +111,12 @@ public sealed partial class ExplosionPrototype : IPrototype
     public int FireStates = 3;
 
     /// <summary>
+    ///     Mono - Should we throw items around on explosion?
+    /// </summary>
+    [DataField]
+    public bool ThrowEntitiesOnExplosion = true;
+
+    /// <summary>
     ///     Basic function for linear interpolation of the _tileBreakChance and _tileBreakIntensity arrays
     /// </summary>
     public float TileBreakChance(float intensity)

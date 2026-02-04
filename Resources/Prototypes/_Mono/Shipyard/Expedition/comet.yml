@@ -1,0 +1,36 @@
+- type: vessel
+  id: Comet
+  parent: BaseVessel
+  name: CDM Comet
+  description: A de-militarized, jack-of-all-trades, utility vessel with expeditionary functionality.
+  price: 110000
+  category: Large
+  group: Expedition
+  shuttlePath: /Maps/_Mono/Shuttles/Expedition/comet.yml
+  guidebookPage: null
+  class:
+  - Expedition
+  - Science
+  - Salvage
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Comet
+  mapName: 'CDM Comet'
+  mapPath: /Maps/_Mono/Shuttles/Expedition/comet.yml
+  minPlayers: 0
+  stations:
+    Comet:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Comet EXP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

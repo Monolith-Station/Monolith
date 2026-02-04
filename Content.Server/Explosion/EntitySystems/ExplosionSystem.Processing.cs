@@ -771,7 +771,7 @@ sealed class Explosion
             _currentDamage = ExplosionType.DamagePerIntensity * _currentIntensity;
 
             // only throw if either the explosion is small, or if this is the outer ring of a large explosion.
-            var doThrow = Area < _system.ThrowLimit || CurrentIteration > _tileSetIntensity.Count - 6;
+            var doThrow = (Area < _system.ThrowLimit || CurrentIteration > _tileSetIntensity.Count - 6) && ExplosionType.ThrowEntitiesOnExplosion; // mono
             _currentThrowForce = doThrow ? 10 * MathF.Sqrt(_currentIntensity) : 0;
 
             // for each grid/space tile set
