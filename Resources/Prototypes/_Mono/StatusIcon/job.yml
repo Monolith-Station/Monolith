@@ -10,7 +10,7 @@
   parent: JobIcon
   id: JobIconCBURNLeader
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: CBURNLeader
   jobName: job-name-cburn-leader
   allowSelection: false # Frontier
@@ -19,7 +19,7 @@
   parent: JobIcon
   id: JobIconCBURNSpecialist
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: CBURNSpecialist
   jobName: job-name-cburn
   allowSelection: false # Frontier
