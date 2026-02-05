@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/05/2026 19:26:57
-  entityCount: 377
+  time: 02/05/2026 21:06:49
+  entityCount: 374
 maps: []
 grids:
 - 1
@@ -68,10 +68,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
+        Kudzu: []
+        Puddle: []
         Smoke: []
         MetalFoam: []
-        Puddle: []
-        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -863,7 +863,7 @@ entities:
       parent: 1
 - proto: CMSemioticAmmunition
   entities:
-  - uid: 184
+  - uid: 199
     components:
     - type: Transform
       pos: 5.5,-0.5
@@ -967,48 +967,6 @@ entities:
         path: /Audio/Effects/closetclose.ogg
       openSound: !type:SoundPathSpecifier
         path: /Audio/Effects/closetopen.ogg
-- proto: CrateAmmoGeneric
-  entities:
-  - uid: 199
-    components:
-    - type: Transform
-      pos: 5.5,-1.5
-      parent: 1
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14923
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 319
-          - 320
-          - 321
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: DarkCatwalkMono
   entities:
   - uid: 292
@@ -1726,6 +1684,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,-1.5
       parent: 1
+- proto: MercenaryTechFab
+  entities:
+  - uid: 184
+    components:
+    - type: Transform
+      pos: 5.5,-1.5
+      parent: 1
 - proto: NFHolopadShip
   entities:
   - uid: 164
@@ -2328,29 +2293,6 @@ entities:
     - type: Transform
       pos: -0.35242677,-2.417729
       parent: 1
-- proto: VesperaMagazine
-  entities:
-  - uid: 319
-    components:
-    - type: Transform
-      parent: 199
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 320
-    components:
-    - type: Transform
-      parent: 199
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 321
-    components:
-    - type: Transform
-      parent: 199
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: WallPlastitanium
   entities:
   - uid: 176
@@ -2727,16 +2669,14 @@ entities:
   - uid: 265
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,2.5
+      pos: 1.5,2.5
       parent: 1
   - uid: 266
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,2.5
+      pos: 2.5,2.5
       parent: 1
-  - uid: 335
+  - uid: 319
     components:
     - type: Transform
       pos: 0.5,2.5
