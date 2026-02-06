@@ -1201,10 +1201,10 @@
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
 
-#VICT Hardsuit
+#CBURN Hardsuit, only used by ERT, CBURN uses VICT Exosuit now
 - type: entity
   parent: ClothingOuterHardsuitBase
-  id: ClothingOuterHardsuitCBURNOld
+  id: ClothingOuterHardsuitCBURN
   name: CBURN exosuit
   description: An outdated CBURN Exo Suit, good protection at the cost of speed and mobility.
   components:
@@ -1226,12 +1226,12 @@
         Blunt: 0.5
         Slash: 0.5
         Piercing: 0.6
-        Heat: 0.1
-        Cold: 0.1
-        Shock: 0.1
-        Radiation: 0.1
-        Caustic: 0.1
-        Poison: 0.1
+        Heat: 0.4
+        Cold: 0.4
+        Shock: 0.4
+        Radiation: 0.4
+        Caustic: 0.4
+        Poison: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -1248,6 +1248,7 @@
       helmetattachment: ClothingHeadHelmetAttachmentBlock
 
 
+<<<<<<< HEAD
 #VICT Hardsuit
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -1331,6 +1332,8 @@
     energy: 2
     color: "#5dd439"
 
+=======
+>>>>>>> ab122959de827efdcf5932c8eb0fce53f0158040
 #MISC. HARDSUITS
 #Clown Hardsuit
 - type: entity

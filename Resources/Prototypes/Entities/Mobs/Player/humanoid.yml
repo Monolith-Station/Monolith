@@ -536,10 +536,10 @@
       sprite: Markers/jobs.rsi
       state: cburn
     - type: RandomHumanoidSpawner
-      settings: VICTAGENTFTL
+      settings: VICTAgentFTL
 
 - type: randomHumanoidSettings
-  id: VICTAGENTFTL
+  id: VICTAgentFTL
   parent: EventHumanoidMindShielded
   components:
     - type: Loadout
@@ -561,7 +561,7 @@
 # Start CBURN Medic (VICT-C)
 
 - type: entity
-  id: RandomHumanoidSpawnerVICTMEDIC
+  id: RandomHumanoidSpawnerVICTMedic
   name: VICT Corpsman
   suffix: (CBURN) Viral Infection Control Team - 1
   components:
@@ -576,7 +576,7 @@
   parent: EventHumanoidMindShielded
   components:
     - type: Loadout
-      prototypes: [CBURNGearMEDIC]
+      prototypes: [CBURNGearMedic]
       roleLoadout: [ RoleSurvivalEVA ]
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name

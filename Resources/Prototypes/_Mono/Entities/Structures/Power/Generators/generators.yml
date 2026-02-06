@@ -52,6 +52,9 @@
     requirePower: true
     highVoltageNode: output
 
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
   - type: Destructible
     thresholds:
     - trigger:
@@ -60,15 +63,30 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:SpawnGasBehavior
+        gasMixture:
+          volume: 1000
+          moles:
+          - 194 # oxygen
+          - 0 # nitrogen
+          - 0 # carbon dioxide
+          - 6 # plasma
+          temperature: 752.48
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 1800
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: Explosive # Mono
+    explosionType: Default
+    maxIntensity: 4000
+    intensitySlope: 50
+    totalIntensity: 3000
   - type: GuideHelp
     guides:
     - PortableGenerator
