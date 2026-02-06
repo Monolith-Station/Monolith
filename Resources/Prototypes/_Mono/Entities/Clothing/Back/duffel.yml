@@ -165,7 +165,7 @@
 
 - type: entity
   parent: NFClothingDuffel # Frontier: ClothingBackpackDuffel<NFClothingDuffel
-  id: ClothingBackpackDuffelVICT
+  id: ClothingBackpackDuffelCBURN
   name: VICT duffel bag
   description: A duffel bag containing a variety of biological containment equipment.
   components:
@@ -175,3 +175,7 @@
     - 0,0,13,5
   - type: ExplosionResistance # Goobstation
     damageCoefficient: 0.1
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: HeldSpeedModifier
