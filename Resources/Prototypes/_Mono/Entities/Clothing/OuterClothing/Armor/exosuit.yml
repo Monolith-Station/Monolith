@@ -52,7 +52,7 @@
 
 #VICT Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing ]
   id: ClothingOuterHardsuitCBURN
   name: VICT exosuit
   description: An improved version of the outdated CBURN Exo Suit, comes with better mobility and protection.
