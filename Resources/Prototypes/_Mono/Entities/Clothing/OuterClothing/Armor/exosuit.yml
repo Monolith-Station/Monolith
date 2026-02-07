@@ -95,12 +95,44 @@
       head: ClothingHeadHelmetCBURN
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
-  - type: StaticPrice
-    price: 250000
-    vendPrice: 300000
   #- type: ClothingGrantComponent
     #component:
      #- type: PressureImmunity
 # Shielding
-    #color: "#5e652c"
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.1 #90%
+        Slash: 0.1 #90%
+        Piercing: 0.1 #90%
+        Heat: 0.1 #90%
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.1 #90%
+        Slash: 0.1 #90%
+        Piercing: 0.1 #90%
+        Heat: 0.1 #90%
+      flatReductions:
+        Heat: 5
+    passiveBlockFraction: 1.0
+    activeBlockFraction: 1.0
+    isClothing: true
+  - type: Damageable
+    damageContainer: Shield
+  - type: Battery
+    maxCharge: 50
+    startingCharge: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
+  - type: RechargeableBlocking
+    chargedRechargeRate: 0
+    dischargedRechargeRate: 0.3 #70%
+  - type: UseDelay
+    delay: 5
+  - type: PointLight
+    enabled: false
+    radius: 1.4
+    energy: 2
+    color: "#5e652c"
 
