@@ -357,10 +357,10 @@
       reagents:
       - ReagentId: Mesotaxinide
         Quantity: 5
-  - type: SolutionPurge
-    solution: absorbed
-    preserve:
-    - Mesotaxinide
+  #- type: SolutionPurge
+   # solution: absorbed
+    #preserve:
+    #- Mesotaxinide
   - type: Item
     sprite: Objects/Weapons/Melee/katana.rsi
   - type: DisarmMalus
