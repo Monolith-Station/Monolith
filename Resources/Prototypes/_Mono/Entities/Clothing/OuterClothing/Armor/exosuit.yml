@@ -72,21 +72,21 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.35
-        Slash: 0.35a
-        Piercing: 0.35
-        Heat: 0.1
-        Cold: 0.5
-        Shock: 0.1
-        Radiation: 0.1
-        Caustic: 0.1
-        Poison: 0.1
+        Blunt: 0.35 #65%
+        Slash: 0.35 #65%
+        Piercing: 0.35 #65%
+        Heat: 0.1 #90%
+        Cold: 0.5 #90%
+        Shock: 0.1 #90%
+        Radiation: 0.1 #90%
+        Caustic: 0.1 #90%
+        Poison: 0.1 #90%
   - type: ClothingSpeedModifier
     walkModifier: 1.2
     sprintModifier: 1.2
   - type: HeldSpeedModifier
   - type: StaminaDamageResistance # Mono - Stamres
-    coefficient: 0.1
+    coefficient: 0.1 #90%
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
     blockUnequipWhenAttached: false
@@ -95,5 +95,47 @@
       head: ClothingHeadHelmetCBURN
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
-  # Shielding
+  - type: StaticPrice
+    price: 100000
+    vendPrice: 200000
+  #- type: ClothingGrantComponent
+    #component:
+     #- type: PressureImmunity
+# Shielding
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+      flatReductions:
+        Heat: 5
+    passiveBlockFraction: 1.0
+    activeBlockFraction: 1.0
+    isClothing: true
+  - type: Damageable
+    damageContainer: Shield
+  - type: Battery
+    maxCharge: 10
+    startingCharge: 10
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1
+  - type: RechargeableBlocking
+    chargedRechargeRate: 0
+    dischargedRechargeRate: 0.3
+  - type: UseDelay
+    delay: 10
+  - type: PointLight
+    enabled: false
+    radius: 1.4
+    energy: 2
+    color: "#5dd439"
 
