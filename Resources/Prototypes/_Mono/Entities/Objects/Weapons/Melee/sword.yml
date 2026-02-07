@@ -341,6 +341,7 @@
   - type: MeleeWeapon
     damage:
       types:
+        Pierce: -50 # Does halve+suit armor damage 
         Slash: 50 # Due to Chimera having 500HP its quite needed, god forbid some merc try to box VICT
         Heat: 20 # Fuck Chimera lol
         Poison: 10 # They never clean the blades of Chimera blood or medicine, would make sense for it to poison a little
