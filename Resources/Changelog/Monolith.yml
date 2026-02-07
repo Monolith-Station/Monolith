@@ -16984,3 +16984,20 @@ Entries:
   id: 1880
   time: '2026-02-03T19:12:24.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3175
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: The plate system was expanded upon to allow for a lot more customization
+    - type: Add
+      message: >-
+        New plates! Steel: a cheap and sturdy solution that provides all-round
+        protection at the cost of being heavy and stuncritting, and
+        plas-uranium: a plate that counters energy weapons but gets ruined by
+        physical damage
+    - type: Add
+      message: Plates now have comprehensive examine tooltips so you know what they do.
+    - type: Fix
+      message: Plates no longer absorb chem damage, like from when you use arithrazine.
+  id: 1881
+  time: '2026-02-05T21:41:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2970
