@@ -52,7 +52,7 @@
 
 #VICT Hardsuit
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing ]
+  parent: [ClothingOuterBaseLarge, ]
   id: ClothingOuterHardsuitVICT
   name: VICT exosuit
   description: An improved version of the outdated CBURN Exo Suit, comes with better mobility and protection.
@@ -73,7 +73,7 @@
     modifiers:
       coefficients:
         Blunt: 0.35 #65%
-        Slash: 0.35 #65%
+        Slash: 0.40 #60%
         Piercing: 0.35 #65%
         Heat: 0.1 #90%
         Cold: 0.5 #50%
@@ -123,11 +123,11 @@
   - type: Damageable
     damageContainer: Shield
   - type: Battery
-    maxCharge: 30
-    startingCharge: 30
+    maxCharge: 50
+    startingCharge: 50
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 1
+    autoRechargeRate: 5
   - type: RechargeableBlocking
     chargedRechargeRate: 0
     dischargedRechargeRate: 0.3 #70%
@@ -137,5 +137,5 @@
     enabled: false
     radius: 1.4
     energy: 2
-    color: "#5dd439"
+    color: "#5e652c"
 
