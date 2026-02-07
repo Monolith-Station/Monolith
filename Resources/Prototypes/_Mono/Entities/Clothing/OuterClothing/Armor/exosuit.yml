@@ -57,6 +57,7 @@
   name: VICT exosuit
   description: An improved version of the outdated CBURN Exo Suit, comes with better mobility and protection.
   components:
+  - type: ContainerContainer
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/cburn.rsi
   - type: Clothing
@@ -95,6 +96,9 @@
       head: ClothingHeadHelmetCBURN
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: StaticPrice
+    price: 250000
+    vendPrice: 300000
   #- type: ClothingGrantComponent
     #component:
      #- type: PressureImmunity
