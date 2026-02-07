@@ -39,6 +39,33 @@
           9.5
         ]
 		  ]
+		},
+    {
+      "name": "equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+		{
+		  "name": "equipped-OUTERCLOTHING-sealed-vox",
+      "directions": 4,
+		  "delays": [
+        [
+          8,
+          1.5
+        ],
+		    [
+				  8.8,
+				  0.3,
+				  0.2,
+				  0.2
+				],
+        [
+          7.5,
+          2
+        ],
+        [
+          9.5
+        ]
+		  ]
 		}
   ]
 }
