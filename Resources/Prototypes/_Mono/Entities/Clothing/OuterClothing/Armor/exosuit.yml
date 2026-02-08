@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing ]
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, ]
   id: ClothingOuterExosuitAurora
   name: M-320X AURORA exosuit
   suffix: SelfUnremovable
@@ -52,7 +52,7 @@
 
 #VICT Hardsuit
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing ]
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, EnergyShieldClothing ]
   id: ClothingOuterHardsuitVICT
   name: VICT exosuit
   description: An improved version of the outdated CBURN Exo Suit, comes with better mobility and protection.
@@ -93,6 +93,8 @@
   - type: HeldSpeedModifier
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.1 #90%
+  - type: FireProtection # STOP FUCKING FRIENDLY FIRING
+    reduction: 0.2
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
     blockUnequipWhenAttached: false

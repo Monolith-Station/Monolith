@@ -92,6 +92,7 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Heat: 250 # Mono
-        Shock: 50
-        Caustic: 20
+        Heat: 300 # Mono
+        Shock: 60
+        Caustic: 45
+        Structural: 125
