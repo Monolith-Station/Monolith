@@ -70,6 +70,7 @@ public abstract class SharedGasTileOverlaySystem : EntitySystem
     {
         [ViewVariables] public readonly byte FireState;
         [ViewVariables] public readonly byte[] Opacity;
+        [ViewVariables] public readonly byte FireType;
         // TODO change fire color based on ByteTemp
 
         /// <summary>
@@ -79,12 +80,12 @@ public abstract class SharedGasTileOverlaySystem : EntitySystem
         [ViewVariables]
         public readonly ThermalByte ByteGasTemperature;
 
-
-        public GasOverlayData(byte fireState, byte[] opacity, ThermalByte byteTemp)
+        public GasOverlayData(byte fireState, byte[] opacity, ThermalByte byteTemp, byte type)
         {
             FireState = fireState;
             Opacity = opacity;
             ByteGasTemperature = byteTemp;
+            FireType = type;
         }
 
         public bool Equals(GasOverlayData other)
