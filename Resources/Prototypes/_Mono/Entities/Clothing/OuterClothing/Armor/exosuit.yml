@@ -58,6 +58,11 @@
   description: An improved version of the outdated CBURN Exo Suit, comes with better mobility and protection.
   components:
   - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/cburn.rsi
   - type: Clothing
