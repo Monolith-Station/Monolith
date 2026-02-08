@@ -142,14 +142,6 @@
     implant: NovaCygniTranslatorImplant
 
 - type: entity
-  id: SchechiTranslatorImplanter
-  parent: [ BaseTranslatorImplanter ]
-  name: schechi translator implant
-  components:
-  - type: Implanter
-    implant: SchechiTranslatorImplant
-
-- type: entity
   id: NewKinPidginTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
   name: ka'rakk translator implant
