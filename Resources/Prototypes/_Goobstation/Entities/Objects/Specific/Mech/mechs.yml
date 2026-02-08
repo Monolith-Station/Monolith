@@ -62,7 +62,7 @@
     baseState: ripleymkii
     openState: ripleymkii-open
     brokenState: ripleymkii-broken
-    mechToPilotDamageMultiplier: 0.2
+    mechToPilotDamageMultiplier: 0.4
     airtight: true
     pilotWhitelist:
       components:
@@ -127,7 +127,7 @@
     baseState: clarke
     openState: clarke-open
     brokenState: clarke-broken
-    mechToPilotDamageMultiplier: 0.25 # Mono
+    mechToPilotDamageMultiplier: 0.5 # Mono
     airtight: true
     pilotWhitelist:
       components:
@@ -231,7 +231,7 @@
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: MovementSpeedModifier # Mono
-    baseWalkSpeed: 3
+    baseWalkSpeed: 3.75
     baseSprintSpeed: 4.5
     baseWeightlessModifier: 5
   - type: StaticPrice
@@ -288,7 +288,7 @@
     baseState: durand
     openState: durand-open
     brokenState: durand-broken
-    mechToPilotDamageMultiplier: 0.9
+    mechToPilotDamageMultiplier: 0
     airtight: true
     maxIntegrity: 1375
     maxEquipmentAmount: 3
