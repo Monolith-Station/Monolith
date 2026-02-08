@@ -90,6 +90,18 @@
 
 - type: entity
   parent: BasicHitscan
+  id: RedFuckoffLaserVICTAdvSuper
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 250 # Mono
+        Shock: 50
+        Caustic: 20
+
+- type: entity
+  parent: BasicHitscan
   id: RedHeavyLaser
   categories: [ HideSpawnMenu ]
   components:

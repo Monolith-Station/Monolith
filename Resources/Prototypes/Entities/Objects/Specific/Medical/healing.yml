@@ -1098,6 +1098,36 @@
         reagents:
         - ReagentId: Letoferol
           Quantity: 15
+
+- type: entity
+  parent: PrefilledSyringe
+  suffix: mesotaxinide
+  id: SyringeMesotaxinide
+  components:
+  - type: Label
+    currentLabel: reagent-name-mesotaxinide
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Mesotaxinide
+          Quantity: 15
+
+- type: entity
+  parent: PrefilledSyringe
+  suffix: mesophenerol
+  id: SyringeMesophenerol
+  components:
+  - type: Label
+    currentLabel: reagent-name-mesophenerol
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: mesophenerol
+          Quantity: 15
 # Mono end
 
 - type: entity

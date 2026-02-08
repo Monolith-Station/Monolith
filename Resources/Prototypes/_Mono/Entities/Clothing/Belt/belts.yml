@@ -202,6 +202,27 @@
 
 - type: entity
   parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
+  id: ClothingBeltWebbingsBigVICT
+  name: Expanded Tactical VICT Webbing
+  description: A ranger green chest rig expanded with more pouches around the waist, some say its a fanny pack, others say its tacticool!
+  components:
+  - type: StaticPrice
+    price: 70000
+    vendPrice: 75000
+  - type: Sprite
+    sprite: _Mono/Clothing/Belt/webbings_big_ranger_green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Belt/webbings_big_ranger_green.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1 # 90%
+  - type: Storage
+    grid:
+    - 0,0,13,1
+  - type: ClothingSpeedModifier
+    sprintModifier: 1.0
+
+- type: entity
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltWebbingsBigOlive
   name: olive large chest rig
   description: A set of tactical webbing worn by boarding parties.

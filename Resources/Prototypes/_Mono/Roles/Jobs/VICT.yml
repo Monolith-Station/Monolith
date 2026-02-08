@@ -28,9 +28,9 @@
     shoes: ClothingShoesBootsMagAdv
     id: CBURNPDA
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
-    pocket2: WeaponLaserPistolNF # Frontier: WeaponLaserGun<WeaponLaserPistolNF
-    belt: ClothingBeltWebbingsBigRangerGreen
-    # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
+    pocket2: WeaponLaserPistolVICT # Frontier: WeaponLaserGun<WeaponLaserPistolNF
+    belt: ClothingBeltWebbingsBigVICT
+    suitStorage: AirTankFilled
   inhand:
     - WeaponRifleNtsfLtr # Takes 5.556x45mm or 6.8x52mm
   storage:
@@ -41,13 +41,23 @@
     - ShipVoucherFrontierGuard
     - GrenadeIncendiaryNfsd
     - GrenadeIncendiaryNfsd
+    - ExGrenadeNfsd
+    - ExGrenadeNfsd
     - SyringeCaseAltFilled
+    - SyringeCaseAltFilled
+    - PowerCellMicroreactor
+    - PowerCellMicroreactor
+    - SpaceCash25000
     - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
-    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
+    - AmmoBox556x45mmIncendiary
+    - AmmoBox556x45mmIncendiary
     - AmmoBox556x45mmIncendiary
     - AmmoBox556x45mmIncendiary
     - AmmoBox556x45mmPlasteelAP
-    - AmmoBox556x45mmIncendiary
+    - AmmoBox556x45mmPlasteelAP
+    - AmmoBox556x45mmPlasteelAP
+    - VICTKatana
+    - JetpackVoidFilled
     belt:
     - BluespaceLifelineImplanter # Stops stealing of their gear
     - RadioImplanterCentcomm # Headset theft means nothing!
@@ -58,6 +68,8 @@
     - Magazine556x45mmIncendiary
     - Magazine556x45mmIncendiary
     - Magazine556x45mmIncendiary
+    - Magazine556x45mmIncendiary
+    - Magazine556x45mmPlasteelAP
     - Magazine556x45mmPlasteelAP
     - Handcuffs
     - Handcuffs
@@ -95,9 +107,9 @@
     shoes: ClothingShoesBootsMagAdv
     id: CBURNPDA
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
-    pocket2: WeaponAdvancedLaser
-    belt: ClothingBeltWebbingsBigRangerGreen
-    # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
+    pocket2: WeaponLaserPistolVICTAdv
+    belt: ClothingBeltWebbingsBigVICT
+    suitStorage: AirTankFilled
   inhand:
     - WeaponRifleNtsfLtr # Takes 5.556x45mm or 6.8x52mm
   storage:
@@ -108,25 +120,37 @@
     - ShipVoucherFrontierGuard
     - GrenadeIncendiaryNfsd
     - GrenadeIncendiaryNfsd
+    - ExGrenadeNfsd
+    - ExGrenadeNfsd
     - SyringeCaseAltFilled
+    - SyringeCaseAltFilled
+    - PowerCellMicroreactor
+    - PowerCellMicroreactor
+    - SpaceCash75000
     - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
-    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
+    - AmmoBox556x45mmIncendiary
+    - AmmoBox556x45mmIncendiary
     - AmmoBox556x45mmIncendiary
     - AmmoBox556x45mmIncendiary
     - AmmoBox556x45mmPlasteelAP
-    - AmmoBox556x45mmIncendiary
+    - AmmoBox556x45mmPlasteelAP
+    - AmmoBox556x45mmPlasteelAP
+    - VICTKatana
+    - JetpackVoidFilled
     belt:
     - BluespaceLifelineImplanter # Stops stealing of their gear
     - RadioImplanterCentcomm # Headset theft means nothing!
-    - HandHeldMassScannerBorg # Just for the infinite battery
+    - HandHeldMassScannerBorg # Just for the infiniste battery
     - TrackingImplanter # TSFMC tracker
     - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
     - Magazine556x45mmFMJ
     - Magazine556x45mmIncendiary
     - Magazine556x45mmIncendiary
     - Magazine556x45mmIncendiary
+    - Magazine556x45mmIncendiary
     - Magazine556x45mmPlasteelAP
-    - Handcuffs
+    - Magazine556x45mmPlasteelAP
+    - Magazine556x45mmRIP
     - Handcuffs
 # End CBURN Leader (FTL)
 
@@ -161,9 +185,9 @@
     shoes: ClothingShoesBootsMagAdv
     id: CBURNPDA
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
-    pocket2: WeaponAdvancedLaser
-    belt: ClothingBeltWebbingsBigRangerGreen
-    # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
+    pocket2: WeaponLaserPistolVICTAdv
+    belt: ClothingBeltWebbingsBigVICT
+    suitStorage: AirTankFilled
   inhand:
   - WeaponSubMachineGunVectorNtsfHclm
   storage:
@@ -171,7 +195,10 @@
     - MedkitCombatFilled
     - MedkitCombatFilled
     - MedkitCombatFilled
-    - MedkitCombatFilled
+    - CentcommStimpack
+    - CentcommStimpack
+    - CentcommStimpack
+    - CentcommStimpack
     - ShipVoucherFrontierGuard
     - SyringeCaseAltFilled
     - SyringeCaseAltFilled
@@ -182,12 +209,22 @@
     - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
     - SyringeBluespace
     - SyringeBluespace
-    - Jug
+    - SyringeMesotaxinide
+    - SyringeMesotaxinide
+    - SyringeMesotaxinide
+    - SyringeMesotaxinide
+    - JugBluespace
+    - VICTKatana
+    - OmnimedTool
+    - MedkitCombatStasiziumFilled
+    - JetpackVoidFilled
     belt:
     - Magazine45_ACPSubMachineGunIncendiary
     - Magazine45_ACPSubMachineGunIncendiary
     - Magazine45_ACPSubMachineGunIncendiary
     - Magazine45_ACPSubMachineGunPlasteelAP
+    - Magazine45_ACPSubMachineGunPlasteelAP
+    - Magazine45_ACPSubMachineGunEmp
     - Magazine45_ACPSubMachineGunFMJ
     - BluespaceLifelineImplanter # Stops stealing of their gear
     - RadioImplanterCentcomm # Headset theft means nothing!
@@ -228,11 +265,12 @@
     shoes: ClothingShoesBootsMagAdv
     id: CBURNPDA
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
-    pocket2: WeaponLaserPistolNF # Frontier: WeaponLaserGun<WeaponLaserPistolNF
-    belt: ClothingBeltWebbingsBigRangerGreen
-    # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
+    pocket2: WeaponLaserPistolVICT # Frontier: WeaponLaserGun<WeaponLaserPistolNF
+    belt: ClothingBeltWebbingsBigVICT
+    suitStorage: AirTankFilled
   inhand:
   - WeaponShotgunEnforcer
+  - JetpackVoidFilled
   storage:
     back:
     - MedkitCombatFilled
@@ -242,6 +280,11 @@
     - GrenadeIncendiaryNfsd
     - ExGrenadeNfsd
     - ExGrenadeNfsd
+    - ClusterGrenadeNfsd
+    - ClusterGrenadeNfsd
+    - ClusterGrenadeNfsd
+    - ClusterBangFull
+    - ClusterBangFull
     - NanolaminateFoamGrenade
     - NanolaminateFoamGrenade
     - SyringeCaseAltFilled
@@ -250,12 +293,22 @@
     - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
     - RCDRecharging
     - ShipRepairDeviceRecharging
+    - VICTKatana
+    - C4
+    - C4
+    - C4
+    - C4
+    - C4
+    - SignalTrigger
+    - TimerTrigger
+    - VoiceTrigger
     belt:
     - AmmoBox12_gaugeIncendiary
     - AmmoBox12_gaugeIncendiary
     - SyndicateJawsOfLife
     - PowerDrill
     - WelderExperimental
+    - Multitool
     - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
     - BluespaceLifelineImplanter # Stops stealing of their gear
     - RadioImplanterCentcomm # Headset theft means nothing!
@@ -294,17 +347,15 @@
     shoes: ClothingShoesBootsMagAdv
     id: CBURNPDA
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
-    pocket2: HandHeldMassScannerBorg # Just for the infiniste battery
-    belt: PortableRecharger
-    # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
+    pocket2: WeaponLaserPistolVICT
+    belt: ClothingBeltWebbingsBigVICT
+    suitStorage: PortableRecharger # lol fixed it for pointman, fuck everyone else ig
   inhand:
     - WeaponEnergyShotgun # NT Energy Shotgun
   storage:
     back:
-    - WeaponShotgunDoubleBarreled
+    - WeaponShotgunKammerer
     - WeaponShotgunHelepolis
-    - AmmoBox12_gaugeIncendiary
-    - AmmoBox12_gaugeSlug
     - GrenadeFlashBang
     - MedkitCombatFilled
     - ShipVoucherFrontierGuard
@@ -317,5 +368,14 @@
     - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
     - BluespaceLifelineImplanter # Stops stealing of their gear
     - RadioImplanterCentcomm # Headset theft means nothing!
+    - HandHeldMassScannerBorg # Just for the infiniste battery
+    - VICTKatana
+    belt:
+    - AmmoBox12_gaugeIncendiary
+    - AmmoBox12_gaugeIncendiary
+    - AmmoBox12_gaugeIncendiary
+    - AmmoBox12_gaugeIncendiary
+    - AmmoBox12_gaugeSlug
+    - AmmoBox12_gaugeSlugAP
 
 # End CBURN Shotgunner/Breacher (VICT-Point)

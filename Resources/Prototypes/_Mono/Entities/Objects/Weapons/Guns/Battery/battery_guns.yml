@@ -42,66 +42,137 @@
 
 - type: entity # Weapon based off ID: laser_pistol and then given buffed stats, uses AntiqueLaser for stats currently
   id: WeaponLaserPistolVICT
-  parent: WeaponLaserGun
+  parent: BaseWeaponBatterySmall
   name: type-b laser pistol
   suffix: CBURN/VICT
   description: An improved version of the type-a laser pistol, built on the chassis of an older Juliette type laser pistol, kills Chimera quickly!
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
+    quickEquip: false # Frontier
+    slots: # Frontier
+    - Back # Frontier
+    - suitStorage # Frontier
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
   - type: Gun
+    fireRate: 2.5
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaserVICTAlt
-    fireCost: 50
-  - type: BatterySelfRecharger
-    autoRecharge: false
-    autoRechargeRate: 40
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 1000 # Mono 2000->3750
+    startingCharge: 1000 # Mono 2000->3750
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 25
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 25
+      name: disable
+      state: disabler
+    - proto: RedMediumLaserVICTAlt
+      fireCost: 50
+      name: lethal
+      state: lethal
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-ion }
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
   - type: StaticPrice # Mono
-    price: 150
+    price: 15000
 
 - type: entity # Weapon based off ID: laser_pistol and then given buffed stats, uses AntiqueLaser for stats currently
   id: WeaponLaserPistolVICTAdv
-  parent: WeaponLaserGun
+  parent: BaseWeaponBatterySmall
   name: Advanced type-b laser pistol
   suffix: CBURN/VICT
-  description: An advanced version of the type-b laser pistol, featuring a built in recharger to kill Chimera even faster@
+  description: An advanced version of the type-b laser pistol, featuring a built in recharger to kill Chimera even faster! Now featuring all new "fuck-off" mode! Uses all energy for one POWERFUL shot!
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
+    quickEquip: false # Frontier
+    slots: # Frontier
+    - Back # Frontier
+    - suitStorage # Frontier
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
   - type: Gun
+    fireRate: 2.5
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaserVICTAdvAlt
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
     fireCost: 25
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 20
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 25
+      name: disable
+      state: disabler
+    - proto: RedMediumLaserVICTAlt
+      fireCost: 50
+      name: lethal
+      state: lethal
+    - proto: RedFuckoffLaserVICTAdvSuper
+      firecost: 995
+      name: ion
+      state: special
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-ion }
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
   - type: StaticPrice # Mono
-    price: 150
+    price: 25000
