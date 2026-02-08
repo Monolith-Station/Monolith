@@ -1,11 +1,13 @@
 - type: typingIndicator
   id: goblin
   spritePath: /Textures/_NF/Effects/speech.rsi
-  typingState: goblin0
+  typingState: mono_goblin0 # Mono: goblin0 >> mono_goblin0
+  idleState: mono_goblin3 # Mono 
   offset: 0, 0.2
 
 - type: typingIndicator
   id: pal
   spritePath: /Textures/_NF/Effects/speech.rsi
   typingState: pal0
+  idleState: pal0 #Mono
   offset: 0, 0.125
