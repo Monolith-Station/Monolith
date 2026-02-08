@@ -61,7 +61,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+    proto: RedMediumLaserVICTAlt
     fireCost: 50
   - type: BatterySelfRecharger
     autoRecharge: false
@@ -94,11 +94,11 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+    proto: RedMediumLaserVICTAdvAlt
     fireCost: 25
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 80
+    autoRechargeRate: 20
   - type: MagazineVisuals
     magState: mag
     steps: 5
