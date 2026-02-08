@@ -2,6 +2,7 @@
 
 winter-solstice-description = All three branches of the Trans-Solar Marines Federation fall under the direction of the Federation's unified high command, known as Winter Solstice.
 
+central-command-description = The higher authorities ruling over Colossus Central, sending assets and handling the paperwork for the sector. Every step you take is heavily watched....
 
 # Core companies
 

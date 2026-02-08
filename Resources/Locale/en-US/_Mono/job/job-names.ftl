@@ -17,3 +17,11 @@ job-name-tsf-borg = TSFMC Cyborg
 
 # MARK: PDV
 job-name-pdv-borg = PDV Cyborg
+
+# MARK: CentComm
+job-name-cburn = Viral Infection Control Team
+job-name-cburn-assaulter = VICT Assaulter
+job-name-cburn-leader = VICT Fire Team Leader
+job-name-cburn-medic = Viral Infection Control Team Corpsman
+job-name-cburn-engineer = VICT Technical Assist Team
+job-name-cburn-point = VICT Assaulter

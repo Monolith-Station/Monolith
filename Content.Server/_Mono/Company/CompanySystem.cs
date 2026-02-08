@@ -67,6 +67,15 @@ public sealed class CompanySystem : EntitySystem
         "Valet",
     };
 
+    private readonly HashSet<string> _centcommJobs =new()
+    {
+        "CBURN",
+        "CBURN-LEAD",
+        "CBURN-MEDIC",
+        "CBURN-TAT",
+        "CBURN-POINT",
+
+    };
     private readonly HashSet<string> _mdJobs = new()
     {
         "DirectorOfCare",
@@ -125,8 +134,13 @@ public sealed class CompanySystem : EntitySystem
         //}
         else if (args.JobId != null && _colonialJobs.Contains(args.JobId))
         {
-            // Assign MD company
+            // Assign Colonial company
             companyComp.CompanyName = "Colonial";
+        }
+        else if (args.JobId != null && _centcommJobs.Contains(args.JobId))
+        {
+            // Assign CentComm company
+            companyComp.CompanyName = "CentComm";
         }
         else if (args.JobId != null && _mdJobs.Contains(args.JobId))
         {

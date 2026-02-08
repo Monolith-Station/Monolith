@@ -137,3 +137,67 @@
       state: robot
     - sprite: Mobs/Silicon/chassis.rsi
       state: robot_e
+
+# CentComm
+
+- type: entity
+  id: SpawnPointCcVICTAssault
+  parent: SpawnPointJobBase
+  name: VICT Assaulter
+  components:
+  - type: SpawnPoint
+    job_id: CBURN
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  id: SpawnPointCcVICTLead
+  parent: SpawnPointJobBase
+  name: VICT FTL
+  components:
+  - type: SpawnPoint
+    job_id: CBURN-LEAD
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  id: SpawnPointCcVICTMedic
+  parent: SpawnPointJobBase
+  name: VICT Medic
+  components:
+  - type: SpawnPoint
+    job_id: CBURN-MEDIC
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  id: SpawnPointCcVICTTAT
+  parent: SpawnPointJobBase
+  name: VICT Engineer
+  components:
+  - type: SpawnPoint
+    job_id: CBURN-TAT
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  id: SpawnPointCcVICTPoint
+  parent: SpawnPointJobBase
+  name: VICT Pointman
+  components:
+  - type: SpawnPoint
+    job_id: CBURN-POINT
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+
