@@ -176,9 +176,6 @@ ghost-role-information-ert-security-description = Assist with security efforts t
 ghost-role-information-ert-medical-name = ERT Medical
 ghost-role-information-ert-medical-description = Assist with medical efforts to resolve the station's issues.
 
-ghost-role-information-cburn-agent-name = VICT Specialist
-ghost-role-information-cburn-agent-description = A highly trained CentComm agent, capable of dealing with various viral, infectious, radiological, or biological threats.
-
 ghost-role-information-centcom-official-name = CentComm Official
 ghost-role-information-centcom-official-description = Perform CentComm related duties such as inspect the station, jotting down performance reviews for heads of staff, and managing the fax machine.
 
