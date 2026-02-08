@@ -1,0 +1,13 @@
+- type: entity
+  parent: CentcomIDCard
+  id: VICTIDcard
+  name: VICT ID card
+  suffix: VICT
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+  - type: Item
+    heldPrefix: blue
+  - type: PresetIdCard
+    job: CBURN

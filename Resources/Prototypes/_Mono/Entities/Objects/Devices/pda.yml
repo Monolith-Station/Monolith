@@ -369,3 +369,16 @@
     showControl: true
     isEnabled: true
     attachedToSuit: true # Mono
+
+- type: entity
+  parent: ERTLeaderPDA
+  id: VICTPDA
+  name: VICT PDA
+  description: Smells like toasted Chimera and Borer tears.
+  components:
+  - type: Pda
+    id: CBURNIDcard
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentHColor: "#447987"
+    accentVColor: "#447987"

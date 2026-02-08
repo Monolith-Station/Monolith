@@ -490,6 +490,37 @@
       prototypes: [ ERTMedicalGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
 
+## CBURN
+
+- type: entity
+  id: RandomHumanoidSpawnerCBURNUnit
+  name: CBURN Agent
+  suffix: ERTRole
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: cburn
+    - type: RandomHumanoidSpawner
+      settings: CBURNAgent
+
+- type: randomHumanoidSettings
+  id: CBURNAgent
+  parent: EventHumanoidMindShielded
+  components:
+    - type: Loadout
+      prototypes: [CBURNGear]
+      roleLoadout: [ RoleSurvivalEVA ]
+    - type: GhostRole
+      name: ghost-role-information-cburn-agent-name
+      description: ghost-role-information-cburn-agent-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - NamesLastMilitary
+      
 ## Central Command
 
 - type: entity

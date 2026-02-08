@@ -16,7 +16,7 @@ job-description-tsf-borg = Half-human, Half-machine. Follow your laws, serve the
 job-description-pdv-borg = Half-human, Half-machine. Follow your laws, serve the PDV, and beg dynasty troops for upgrades.
 
 # MARK: CentralComm
-job-description-cburn = Rifleman
+job-description-cburn-vict = Rifleman
 job-description-cburn-leader = Fireteam LEader
 job-description-cburn-medic = Medic
 job-description-cburn-engineer = Engineer

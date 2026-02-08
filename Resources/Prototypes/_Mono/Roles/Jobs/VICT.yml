@@ -1,8 +1,8 @@
 # Start base CBURN (Rifleman)
 - type: job
-  id: CBURN
-  name: job-name-cburn
-  description: job-description-cburn
+  id: CBURN-ASSAULT
+  name: job-name-vict
+  description: job-description-vict
   playTimeTracker: JobCBURN
   setPreference: false
   startingGear: CBURNGear
@@ -26,7 +26,7 @@
     neck: ClothingNeckIFFGreen
     outerClothing: ClothingOuterHardsuitVICT
     shoes: ClothingShoesBootsMagAdv
-    id: CBURNPDA
+    id: VICTPDA
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
     pocket2: WeaponLaserPistolVICT # Frontier: WeaponLaserGun<WeaponLaserPistolNF
     belt: ClothingBeltWebbingsBigVICT
@@ -105,7 +105,7 @@
     neck: ClothingNeckIFFGreen
     outerClothing: ClothingOuterHardsuitVICT
     shoes: ClothingShoesBootsMagAdv
-    id: CBURNPDA
+    id: VICTPDA
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
     pocket2: WeaponLaserPistolVICTAdv
     belt: ClothingBeltWebbingsBigVICT
@@ -183,7 +183,7 @@
     neck: ClothingNeckIFFGreen
     outerClothing: ClothingOuterHardsuitVICT
     shoes: ClothingShoesBootsMagAdv
-    id: CBURNPDA
+    id: VICTPDA
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
     pocket2: WeaponLaserPistolVICTAdv
     belt: ClothingBeltWebbingsBigVICT
@@ -263,7 +263,7 @@
     neck: ClothingNeckIFFGreen
     outerClothing: ClothingOuterHardsuitVICT
     shoes: ClothingShoesBootsMagAdv
-    id: CBURNPDA
+    id: VICTPDA
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
     pocket2: WeaponLaserPistolVICT # Frontier: WeaponLaserGun<WeaponLaserPistolNF
     belt: ClothingBeltWebbingsBigVICT
@@ -345,7 +345,7 @@
     neck: ClothingNeckIFFGreen
     outerClothing: ClothingOuterHardsuitVICT
     shoes: ClothingShoesBootsMagAdv
-    id: CBURNPDA
+    id: VICTPDA
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
     pocket2: WeaponLaserPistolVICT
     belt: ClothingBeltWebbingsBigVICT

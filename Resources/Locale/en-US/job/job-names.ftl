@@ -20,6 +20,7 @@ job-name-hop = Head of Personnel
 job-name-captain = Captain
 job-name-serviceworker = Service Worker
 job-name-centcomoff = CentComm Official
+job-name-cburn = Centcomm Quarantine Officer
 job-name-deathsquad = Centcomm Agent
 job-name-reporter = Reporter
 job-name-musician = Musician
