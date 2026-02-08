@@ -212,7 +212,7 @@
     openState: gygax-open
     brokenState: gygax-broken
     mechToPilotDamageMultiplier: 0.4 # Mono
-    criticalPowerStateSpeedPenalty: 0.5 # Mono
+    criticalPowerStateSpeedPenalty: 1.5 # Mono
     maxIntegrity: 500 # Mono
     airtight: true
     pilotWhitelist:
@@ -232,7 +232,7 @@
   - type: MovementAlwaysTouching
   - type: MovementSpeedModifier # Mono
     baseWalkSpeed: 3
-    baseSprintSpeed: 4.0
+    baseSprintSpeed: 4.5
     baseWeightlessModifier: 5
   - type: StaticPrice
     price: 3000
@@ -288,9 +288,9 @@
     baseState: durand
     openState: durand-open
     brokenState: durand-broken
-    mechToPilotDamageMultiplier: 0.25
+    mechToPilotDamageMultiplier: 0.9
     airtight: true
-    maxIntegrity: 1350
+    maxIntegrity: 1375
     maxEquipmentAmount: 3
     pilotWhitelist:
       components:
@@ -301,11 +301,11 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 60
-        Structural: 250
+        Blunt: 70
+        Structural: 350
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
-    baseSprintSpeed: 3
+    baseSprintSpeed: 3.75
     baseWeightlessModifier: 3 # Mono
   - type: Damageable
     damageModifierSet: MechArmorHeavy
