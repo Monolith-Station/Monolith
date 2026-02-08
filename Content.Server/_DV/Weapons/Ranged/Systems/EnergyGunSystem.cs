@@ -147,6 +147,11 @@ public sealed class EnergyGunSystem : EntitySystem
                     case "special":
                         UpdateAppearance(uid, EnergyGunFireModeState.Special);
                         break;
+                    // Monolith: readd ion firemode
+                     case "ion":
+                        UpdateAppearance(uid, EnergyGunFireModeState.ion);
+                        break;
+                    // End Monolith
                     // Frontier: holoflare modes
                     case "cyan":
                         UpdateAppearance(uid, EnergyGunFireModeState.Cyan);
