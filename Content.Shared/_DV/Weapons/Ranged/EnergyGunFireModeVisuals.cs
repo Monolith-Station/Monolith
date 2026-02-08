@@ -14,6 +14,9 @@ public enum EnergyGunFireModeState : byte
     Disabler,
     Lethal,
     Special,
+    // Monolith: readd ion mode
+    ion,
+    // End Monolith
     // Frontier: holoflare modes
     Cyan,
     Red,
