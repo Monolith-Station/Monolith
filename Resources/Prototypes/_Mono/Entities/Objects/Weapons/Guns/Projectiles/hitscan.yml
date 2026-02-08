@@ -71,3 +71,27 @@
         Heat: 25 # Mono
         Shock: 10
         Structural: 70
+
+- type: entity
+  parent: BasicHitscan
+  id: RedMediumLaserVICTAdvAlt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 45 # Mono
+        Shock: 20
+        Caustic: 5
+
+- type: entity
+  parent: BasicHitscan
+  id: RedFuckoffLaserVICTAdvSuper
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 250 # Mono
+        Shock: 50
+        Caustic: 20
