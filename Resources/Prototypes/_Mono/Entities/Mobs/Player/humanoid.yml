@@ -15,7 +15,7 @@
   parent: EventHumanoidMindShielded
   components:
     - type: Loadout
-      prototypes: [CBURNGear]
+      prototypes: [VICTGear]
       roleLoadout: [ RoleSurvivalExtended ]
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name

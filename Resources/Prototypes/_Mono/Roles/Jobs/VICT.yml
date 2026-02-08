@@ -5,7 +5,7 @@
   description: job-description-vict
   playTimeTracker: JobCBURN
   setPreference: false
-  startingGear: CBURNGear
+  startingGear: VICTGear
   icon: "JobIconCBURNSpecialist"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -15,7 +15,7 @@
   - CentralCommand
 
 - type: startingGear
-  id: CBURNGear
+  id: VICTGear
   equipment:
     jumpsuit: ClothingUniformCcVICT
     back: ClothingBackpackDuffelVICT
