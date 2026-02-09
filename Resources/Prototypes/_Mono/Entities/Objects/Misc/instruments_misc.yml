@@ -3,3 +3,12 @@
   id: PhoneInstrumentHigh
   name: command relay device
   description: Should any request be needed to higher command... this is your friend, best not lose it
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: Prayable
+    sentMessage: prayer-popup-notify-request-sent
+    notificationPrefix: prayer-chat-notify-high
+    verb: prayer-verbs-request
+    verbImage: null
