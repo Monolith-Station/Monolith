@@ -45,12 +45,9 @@ id-card-access-level-syndicate-agent = Syndicate Agent
 id-card-access-level-central-command = Central Command
 
 id-card-access-level-wizard = Wizard
-<<<<<<< HEAD
-=======
 
 id-card-access-level-station-ai = Artifical Intelligence
 id-card-access-level-borg = Cyborg
 id-card-access-level-basic-silicon = Robot
 
 id-card-access-level-basic-xenoborg = Xenoborg
->>>>>>> 6ef03b082f (Xenoborgs part 1 (#36830))

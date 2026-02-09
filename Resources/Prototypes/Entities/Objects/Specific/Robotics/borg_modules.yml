@@ -944,7 +944,6 @@
         - SelfDestructSeq
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-martyr-module }
-<<<<<<< HEAD
 
 # Shitmed Modules
 
@@ -1249,9 +1248,6 @@
     - CloakingDevice
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye-module }
-<<<<<<< HEAD
->>>>>>> 02b5592d69 (Xenoborgs part 2 (#36844))
-=======
 
 - type: entity
   parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]

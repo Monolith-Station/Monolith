@@ -9,13 +9,10 @@ device-frequency-prototype-name-fax = Fax
 device-frequency-prototype-name-basic-device = Basic Devices
 device-frequency-prototype-name-cyborg-control = Cyborg Control
 device-frequency-prototype-name-robotics-console = Robotics Console
-<<<<<<< HEAD
-=======
 device-frequency-prototype-name-turret = Sentry Turret
 device-frequency-prototype-name-turret-control = Sentry Turret Control
 device-frequency-prototype-name-xenoborg = Xenoborg
 device-frequency-prototype-name-mothership = Mothership
->>>>>>> 6ef03b082f (Xenoborgs part 1 (#36830))
 
 ## camera frequencies
 device-frequency-prototype-name-surveillance-camera-test = Subnet Test

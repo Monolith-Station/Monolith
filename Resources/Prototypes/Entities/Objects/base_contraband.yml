@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Frontier: keep these commented out - helps highlight errors that need to be fixed when pulling in upstream changes
-=======
 ﻿# used by the unique items of xenoborgs (like modules and stuff)
 - type: entity
   id: BaseXenoborgContraband
@@ -16,7 +13,6 @@
   components:
   - type: Contraband
     severity: Magical
->>>>>>> 6ef03b082f (Xenoborgs part 1 (#36830))
 
 # # any type of magical items used by wizards and similiar
 # - type: entity

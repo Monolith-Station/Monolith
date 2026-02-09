@@ -935,8 +935,6 @@
     autoRechargeRate: 24
     autoRechargePause: true
     autoRechargePauseTime: 30
-<<<<<<< HEAD
-=======
 
 - type: entity
   name: temperature gun
@@ -994,4 +992,3 @@
   components:
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
->>>>>>> 02b5592d69 (Xenoborgs part 2 (#36844))

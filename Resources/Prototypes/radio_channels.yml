@@ -98,18 +98,6 @@
   frequency: 1984
   color: "#f6ce64"
   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
-<<<<<<< HEAD
-  #longRange: true # Frontier - Move to server on cove
-
-- type: radioChannel
-  id: VanguardCommand
-  name: chat-radio-vanguard-command
-  keycode: 'r'
-  frequency: 1985
-  color: "#BF94E4"
-  # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
-  #longRange: true # Frontier - Move to server on cove
-=======
   longRange: true
 
 - type: radioChannel
@@ -129,4 +117,3 @@
   color: "#ff2222"
   # long range since I don't wanna make a special xenoborg telecomm server
   longRange: true
->>>>>>> 6ef03b082f (Xenoborgs part 1 (#36830))
