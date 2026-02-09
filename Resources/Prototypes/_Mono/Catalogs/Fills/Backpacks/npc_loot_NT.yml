@@ -100,6 +100,7 @@
       prob: 0.2
     - id: WeaponEnergyShotgun
       prob: 0.1
+    - id: VICTKatana
     #Clothings
     - id: NTLootT2Clothing
       amount: 1
@@ -176,6 +177,12 @@
       prob: 0.01
     - id: MedkitCombatFilled
       prob: 0.5
+    - id: WeaponLaserPistolVICT
+      prob: 0.1
+    - id: VICTKatana
+      prob: 0.1
+    - id: WeaponLaserPistolVICTAdv
+      prob: 0.01
     #Clothings
     - id: NTLootT3Clothing
       amount: 1
