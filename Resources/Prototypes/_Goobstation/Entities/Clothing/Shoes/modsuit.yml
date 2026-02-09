@@ -123,6 +123,15 @@
     components:
     - type: NoSlip
   - type: Magboots
+  - type: JumpAbility
+    jumpDistance: 4
+    jumpSound: /Audio/Effects/Footsteps/suitstep2.ogg
+  - type: ActionGrant
+    actions:
+    - ActionGravityJump 
+  - type: ItemActionGrant
+    actions:
+    - ActionGravityJump
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:

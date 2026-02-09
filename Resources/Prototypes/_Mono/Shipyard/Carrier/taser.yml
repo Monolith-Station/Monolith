@@ -7,32 +7,32 @@
 # # Discord: NazrinNya
 
 - type: vessel
-  id: Ant
+  id: Taser
   parent: BaseVessel
-  name: Ant
-  description: Fragile but powerful combat vessel. Equipped with charonette and EMP launchers.
-  price: 75000
+  name: Taser
+  description: Micro-fighter equipped with EMP Launcher. Drone server included.
+  price: 12500
   category: Small
   group: Custom
   access: Brig
   mapchecker_group_override: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Carrier/ant.yml
+  shuttlePath: /Maps/_Mono/Shuttles/Carrier/taser.yml
   guidebookPage: Null
   class:
   - Pursuit
   engine:
-  - Plasma
+  - APU
 
 - type: gameMap
-  id: Ant
-  mapName: 'Ant'
-  mapPath: /Maps/_Mono/Shuttles/Carrier/ant.yml
+  id: Taser
+  mapName: 'Taser'
+  mapPath: /Maps/_Mono/Shuttles/Carrier/taser.yml
   minPlayers: 0
   stations:
-    Ant:
+    Taser:
       stationProto: StandardFrontierVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Ant SEC{1}'
+        mapNameTemplate: 'Taser SEC{1}'
         nameGenerator: !type:NanotrasenNameGenerator
           prefixCreator: '14'

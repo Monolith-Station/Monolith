@@ -94,11 +94,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.45
-        Heat: 0.6
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
         Radiation: 0.6
+        Poison: 0.5
+        Caustic: 0.5
   - type: ComponentToggler
     components:
     - type: PressureProtection
@@ -151,12 +153,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.45
+        Blunt: 0.4
         Slash: 0.5
-        Piercing: 0.38
+        Piercing: 0.4
         Heat: 0.45
-        Caustic: 0.5
-        Radiation: 0.4
+        Radiation: 0.5
+        Poison: 0.35
+        Caustic: 0.35
   - type: ComponentToggler
     components:
     - type: PressureProtection
