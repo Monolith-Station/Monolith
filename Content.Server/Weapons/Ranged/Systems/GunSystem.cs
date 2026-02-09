@@ -169,8 +169,21 @@ public sealed partial class GunSystem : SharedGunSystem
                 case HitscanAmmoComponent:
                     if (ent == null)
                         break;
-
-                    CreateAndFireHitscans(ent.Value);
+                    // mono
+                    //var hitscanEv = new HitscanTraceEvent
+                    //{
+                    //   FromCoordinates = fromCoordinates,
+                    //    ShotDirection = mapDirection.Normalized(),
+                    //    Gun = gunUid,
+                    //    Shooter = user,
+                    //    Target = gun.Target,
+                    //};
+                    //RaiseLocalEvent(ent.Value, ref hitscanEv);
+                    
+                    //Del(ent);
+                    //Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
+                    
+                    CreateAndFireHitscans(ent.Value); // mono
 
                     break;
                 default:
@@ -212,7 +225,8 @@ public sealed partial class GunSystem : SharedGunSystem
             MuzzleFlash(gunUid, ammoComp, mapDirection.ToAngle(), user);
             Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
         }
-
+        
+        // Mono - handle hitscan spread
         void CreateAndFireHitscans(EntityUid ammoEnt)
         {
             if (TryComp<HitscanSpreadComponent>(ammoEnt, out var ammoSpreadComp))
