@@ -5,6 +5,7 @@ using Content.Server.Cargo.Systems;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Weapons.Ranged.Components;
 using Content.Shared._Mono;
+using Content.Shared._Mono.Weapons.Hitscan.Components;
 using Content.Shared._RMC14.Weapons.Ranged.Prediction;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -169,19 +170,8 @@ public sealed partial class GunSystem : SharedGunSystem
                     if (ent == null)
                         break;
 
-                    var hitscanEv = new HitscanTraceEvent
-                    {
-                        FromCoordinates = fromCoordinates,
-                        ShotDirection = mapDirection.Normalized(),
-                        Gun = gunUid,
-                        Shooter = user,
-                        Target = gun.Target,
-                    };
-                    RaiseLocalEvent(ent.Value, ref hitscanEv);
+                    CreateAndFireHitscans(ent.Value);
 
-                    Del(ent);
-
-                    Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -220,6 +210,48 @@ public sealed partial class GunSystem : SharedGunSystem
             }
 
             MuzzleFlash(gunUid, ammoComp, mapDirection.ToAngle(), user);
+            Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
+        }
+
+        void CreateAndFireHitscans(EntityUid ammoEnt)
+        {
+            if (TryComp<HitscanSpreadComponent>(ammoEnt, out var ammoSpreadComp))
+            {
+                var spreadEvent = new GunGetAmmoSpreadEvent(ammoSpreadComp.Spread);
+                RaiseLocalEvent(gunUid, ref spreadEvent);
+
+                var angles = LinearSpread(mapAngle - spreadEvent.Spread / 2,
+                    mapAngle + spreadEvent.Spread / 2, ammoSpreadComp.Count);
+
+                for (var i = 0; i < ammoSpreadComp.Count; i++)
+                {
+                    var newUid = Spawn(ammoSpreadComp.Proto, fromEnt);
+
+                    var hitscanEv = new HitscanTraceEvent
+                    {
+                        FromCoordinates = fromCoordinates,
+                        ShotDirection = angles[i].ToVec().Normalized(),
+                        Gun = gunUid,
+                        Shooter = user,
+                        Target = gun.Target,
+                    };
+                    RaiseLocalEvent(newUid, ref hitscanEv);
+                }
+            }
+            else
+            {
+                var hitscanEv = new HitscanTraceEvent
+                {
+                    FromCoordinates = fromCoordinates,
+                    ShotDirection = mapDirection.Normalized(),
+                    Gun = gunUid,
+                    Shooter = user,
+                    Target = gun.Target,
+                };
+                RaiseLocalEvent(ammoEnt, ref hitscanEv);
+            }
+
+            Del(ammoEnt);
             Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
         }
     }
