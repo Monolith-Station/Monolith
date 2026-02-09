@@ -1,33 +1,5 @@
 - type: entity # Faction request thingi by kenyap1026 (KeiKiyomi)
-  parent: BaseHandheldInstrument
-  id: RedPhone
+  parent: PhoneInstrument
+  id: PhoneInstrumentHigh
   name: command relay device
   description: Should any request be needed to higher command... this is your friend, best not lose it
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
-    state: standard
-  # Goobstation edit start
-  - type: EmitSoundOnPickup
-    sound:
-      path: /Audio/_Goobstation/Items/handling/phone_pickup.ogg
-      params:
-        volume: -2
-  - type: EmitSoundOnDrop
-    sound:
-      path: /Audio/_Goobstation/Items/handling/phone_drop.ogg
-      params:
-        volume: -2
-  # Goobstation edit end
-  - type: EmitSoundOnLand
-    sound:
-       path: /Audio/Items/ring.ogg
-  - type: Instrument
-    program: 167
-  - type: Item
-    size: Small
-  - type: Prayable
-    sentMessage: prayer-popup-notify-request-sent
-    notificationPrefix: prayer-chat-notify-high
-    verb: prayer-verbs-request
-    verbImage: null
