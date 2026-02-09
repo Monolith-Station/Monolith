@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/08/2026 06:10:52
-  entityCount: 1361
+  time: 02/09/2026 18:32:08
+  entityCount: 1363
 maps: []
 grids:
 - 1
@@ -118,10 +118,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        Kudzu: []
-        MetalFoam: []
         Smoke: []
+        Puddle: []
+        MetalFoam: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1429,6 +1429,17 @@ entities:
       - 1230
       - 1192
       - 1191
+  - uid: 1363
+    components:
+    - type: MetaData
+      name: secure chamber air alarm
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 18.5,0.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 1362
 - proto: AirCanister
   entities:
   - uid: 1138
@@ -1555,12 +1566,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 10.5,16.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -52034.64
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 632
     components:
     - type: MetaData
@@ -1569,12 +1574,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 11.5,16.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -52087.31
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 796
     components:
     - type: MetaData
@@ -1619,12 +1618,6 @@ entities:
       parent: 1
     - type: PaintableAirlock
       department: null
-    - type: Door
-      secondsUntilStateChange: -47966.727
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
 - proto: AirlockScienceGlass
   entities:
   - uid: 50
@@ -1671,6 +1664,14 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 889
+  - uid: 1362
+    components:
+    - type: Transform
+      pos: 16.5,-3.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1363
 - proto: APCBasic
   entities:
   - uid: 457
@@ -4550,9 +4551,6 @@ entities:
     - type: Transform
       pos: 14.5,14.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -26866.516
-      state: Closing
   - uid: 713
     components:
     - type: Transform
@@ -6244,8 +6242,6 @@ entities:
     - type: AtmosPipeColor
       color: '#0335FCFF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 240
   - uid: 451
