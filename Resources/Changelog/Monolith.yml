@@ -17001,3 +17001,22 @@ Entries:
   id: 1881
   time: '2026-02-05T21:41:03.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2970
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Maints jack now does 32 blunt 30 structural while wielded but had its
+        stamina cost increased to match the cost of swinging a crowbar. Can be
+        used for tidecraft hammering in pry mode.
+    - type: Tweak
+      message: >-
+        You can do surgery with the People's Shovel. No, it's not good at it.
+        People's Shovel tool speed increased to 0.7 and you can use it for
+        tidecraft hammering in pry mode.
+    - type: Fix
+      message: >-
+        Maints jack no longer looks like a fireaxe when equipped in the backpack
+        slot.
+  id: 1882
+  time: '2026-02-09T17:45:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3192
