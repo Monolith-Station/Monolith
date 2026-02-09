@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/09/2026 18:32:08
-  entityCount: 1363
+  time: 02/09/2026 19:44:20
+  entityCount: 1364
 maps: []
 grids:
 - 1
@@ -7780,6 +7780,18 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 10.5,9.5
       parent: 1
+  - uid: 635
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,15.5
+      parent: 1
+  - uid: 1364
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,13.5
+      parent: 1
 - proto: RailingCornerSmall
   entities:
   - uid: 379
@@ -8245,13 +8257,6 @@ entities:
     components:
     - type: Transform
       pos: 12.5,15.5
-      parent: 1
-- proto: SuitStorageSalv
-  entities:
-  - uid: 635
-    components:
-    - type: Transform
-      pos: 12.5,14.5
       parent: 1
 - proto: SuitStorageWallmountSalv
   entities:
