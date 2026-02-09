@@ -357,3 +357,83 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 150
+
+# SC Kinetic Launcher
+
+- type: entity
+  id: WeaponTurretSCKL
+  name: SC Kinetic Launcher
+  parent: BallisticArtilleryUnanchorableCartridge
+  description: Retrofitted artillery cannon designed to break down asteroids with ease.
+  components:
+  - type: StaticPrice
+    price: 8500
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/sckl.rsi
+    layers:
+    - state: space_artillery
+    scale: 1, 1
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Gun
+    projectileSpeed: 65
+    minAngle: 0
+    maxAngle: 1
+    fireRate: 0.5
+    recoil: 10
+    shootThermalSignature: 1200000
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 12000
+    powerUsePassive: 2000
+    powerUseActive: 0
+  - type: Actions
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: true
+    capacity: 35
+    proto: ShipSCKLProjectile
+  - type: RadarBlip
+    radarColor: "#AB600A"
+    scale: 2.0
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#AB600A"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1.5,-1.5,1.5,1.5"
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 100
