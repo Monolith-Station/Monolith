@@ -354,6 +354,10 @@ namespace Content.Server.VendingMachines
             if (priceVend > 0.0) // if vending price exists, overwrite it.
                 totalPrice = (int) priceVend;
 
+            if (!component.RequiresCash){ // mono
+                totalPrice = 0;
+            }
+
             if (IsAuthorized(uid, sender, component))
             {
                 int bankBalance = 0;
