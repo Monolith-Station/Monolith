@@ -70,7 +70,7 @@ public sealed class CompanySystem : EntitySystem
     private readonly HashSet<string> _councilJobs =new()
     {
         "CBURN",
-        "VICT",
+        "CBURN-ASSAULT",
         "CBURN-LEAD",
         "CBURN-MEDIC",
         "CBURN-TAT",
