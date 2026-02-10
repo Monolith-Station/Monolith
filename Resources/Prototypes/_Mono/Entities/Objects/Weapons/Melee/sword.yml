@@ -331,7 +331,7 @@
   parent: BaseSword
   id: VICTKatana
   suffix: VICT/CBURN, DO NOT MAP
-  description: With modifications made to the blade to contain an internal bluespace chamber, and holes in the blade, this sword cuts down any Chimera that stand in VICTs way. However due to the bluespace chamber, it performs worse when used on armor targets
+  description: With modifications made to the blade to contain an internal bluespace chamber, and holes in the blade, this sword cuts down any Chimera that stand in VICTs way. A staple of Inyara Dynamics advanced warfare line.
   components:
   - type: Tag
     tags:
@@ -341,8 +341,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Pierce: -70 # Does number+suit armor less damage
         Slash: 50 # Due to Chimera having 500HP its quite needed, god forbid some merc try to box VICT
+        Pierce: 5
         Heat: 20 # Fuck Chimera lol
         Poison: 10 # They never clean the blades of Chimera blood or medicine, would make sense for it to poison a little
     soundHit:
