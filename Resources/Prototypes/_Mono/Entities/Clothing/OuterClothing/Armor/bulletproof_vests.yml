@@ -107,18 +107,18 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.65
+        Blunt: 0.6
+        Slash: 0.6
         Piercing: 0.55
-        Heat: 0.7
+        Heat: 0.6
         Caustic: 0.9 # Frontier
   - type: Tag  # Mono
     tags:
     - Kevlar
   - type: StaminaDamageResistance # Mono - Stamres
-    coefficient: 0.8
+    coefficient: 0.7
   - type: ExplosionResistance
-    damageCoefficient: 0.90
+    damageCoefficient: 0.85
   - type: StaticPrice
     price: 4000
     vendPrice: 7000
