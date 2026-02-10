@@ -15,7 +15,8 @@ public sealed partial class XenoborgComponent : Component
     /// <summary>
     /// The mindrole associated with the xenoborg
     /// </summary>
-    [DataField]
+    //[DataField] seems to error out with this, changing to below to see if it fixes - KeiKiyomi
+    [RegisterComponet]
     public EntProtoId<MindRoleComponent> MindRole = "MindRoleXenoborg";
 
     /// <summary>
