@@ -69,7 +69,7 @@ public sealed class CompanySystem : EntitySystem
 
     private readonly HashSet<string> _councilJobs =new()
     {
-        "CBURN",
+        "CBURN", // just in case someone uses default CBURN instead of VICT
         "CBURN-ASSAULT",
         "CBURN-LEAD",
         "CBURN-MEDIC",
