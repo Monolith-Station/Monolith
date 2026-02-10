@@ -339,13 +339,14 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/katana.rsi
   - type: MeleeWeapon
+    attackRate: 1.25
     damage:
       types:
         Slash: 50 # Due to Chimera having 500HP its quite needed, god forbid some merc try to box VICT
         Pierce: 5
         Heat: 20 # Fuck Chimera lol
         Poison: 10 # They never clean the blades of Chimera blood or medicine, would make sense for it to poison a little
-      armorPenetration: -0.9
+      #armorPenetration: -0.9 (sadly does not work on melee's it seems)
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: SolutionContainerManager
