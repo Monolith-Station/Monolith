@@ -138,7 +138,7 @@ public sealed class CompanySystem : EntitySystem
             // Assign Colonial company
             companyComp.CompanyName = "Colonial";
         }
-        else if (args.JobId != null && _centcommJobs.Contains(args.JobId))
+        else if (args.JobId != null && _councilJobs.Contains(args.JobId))
         {
             // Assign Council of Overseers company
             companyComp.CompanyName = "CoO";
