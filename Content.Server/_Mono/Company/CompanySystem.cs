@@ -67,9 +67,10 @@ public sealed class CompanySystem : EntitySystem
         "Valet",
     };
 
-    private readonly HashSet<string> _centcommJobs =new()
+    private readonly HashSet<string> _councilJobs =new()
     {
         "CBURN",
+        "VICT",
         "CBURN-LEAD",
         "CBURN-MEDIC",
         "CBURN-TAT",
@@ -139,8 +140,8 @@ public sealed class CompanySystem : EntitySystem
         }
         else if (args.JobId != null && _centcommJobs.Contains(args.JobId))
         {
-            // Assign CentComm company
-            companyComp.CompanyName = "CentComm";
+            // Assign Council of Overseers company
+            companyComp.CompanyName = "CoO";
         }
         else if (args.JobId != null && _mdJobs.Contains(args.JobId))
         {
