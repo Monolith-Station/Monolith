@@ -154,7 +154,6 @@
 
 - type: cargoProduct
   id: CrateVendingMachineRestockSalvageEquipment
-  abstract: true # Frontier
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
@@ -197,7 +196,6 @@
 
 - type: cargoProduct
   id: CrateVendingMachineRestockVendomat
-  abstract: true # Frontier
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
@@ -208,7 +206,6 @@
 
 - type: cargoProduct
   id: CrateVendingMachineRestockRobotics
-  abstract: true # Frontier
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
