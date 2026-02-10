@@ -9,6 +9,14 @@
 
 - type: npcFaction
   id: NanoTrasen
+  neutral:
+  - SimpleNeutral
+  - PetsNT
+  - TSFMC
+  - TSFMCTurret
+  - MD
+  - Passive
+  - ContrabandDetection
   hostile:
   - SimpleHostile
   - Syndicate
@@ -18,6 +26,8 @@
   - Dragon
   - AllHostile
   - Wizard
+  - Xenoborg
+  defaultHostile: true
 
 - type: npcFaction
   id: Mouse
@@ -44,19 +54,20 @@
   neutral:
   - Dragon
   - Passive
-  - PetsNT
-  - Zombie
-  - Revolutionary
-  - Dragon
   - Xeno
   - AllHostile
   - Wizard
+  - Xenoborg
+  defaultHostile: true
 
 - type: npcFaction
   id: SimpleNeutral
 
 - type: npcFaction
   id: Syndicate
+  friendly: # Frontier
+  - SyndicateNF # Frontier
+  - Passive
   hostile:
   - NanoTrasen
   - SimpleHostile
@@ -66,72 +77,49 @@
   - Dragon
   - AllHostile
   - Wizard
+  - Xenoborg
+  defaultHostile: true
 
 - type: npcFaction
   id: Xeno
-  hostile:
-  - NanoTrasen
-  - Syndicate
-  - Passive
-  - PetsNT
-  - Zombie
-  - Revolutionary
-  - AllHostile
-  - Wizard
-  - Dragon
+  defaultHostile: true
 
 - type: npcFaction
   id: Zombie
-  hostile:
-  - NanoTrasen
-  - SimpleNeutral
-  - SimpleHostile
-  - Syndicate
-  - Passive
-  - PetsNT
-  - Revolutionary
-  - AllHostile
-  - Wizard
-  - Dragon
+  defaultHostile: true
 
 - type: npcFaction
   id: Revolutionary
-  hostile:
-  - NanoTrasen
-  - Zombie
-  - SimpleHostile
-  - Dragon
-  - AllHostile
-  - Wizard
+  neutral:
+  - Syndicate
+  - SyndicateNF # Frontier
+  defaultHostile: true
 
 - type: npcFaction
-  id: AllHostile
-  hostile:
-  - NanoTrasen
-  - Dragon
-  - Mouse
-  - Passive
-  - PetsNT
-  - SimpleHostile
-  - SimpleNeutral
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - Wizard
+  id: AllHostile # Frontier: use HostileUniversally
+  defaultHostile: true
 
 - type: npcFaction
   id: Wizard
+  defaultHostile: true
+
+- type: npcFaction
+  id: Monolithic
+  defaultHostile: true
+
+# Mono edit end.
+- type: npcFaction
+  id: Xenoborg
   hostile:
+  # they have brains
   - NanoTrasen
-  - Dragon
-  - Mouse
-  - Passive
-  - PetsNT
-  - SimpleHostile
-  - SimpleNeutral
   - Syndicate
-  - Xeno
   - Zombie
   - Revolutionary
+  - Wizard
+
+  - Xeno # rivalry
+
+  # cause they are hostile to them
+  - SimpleHostile 
   - AllHostile
