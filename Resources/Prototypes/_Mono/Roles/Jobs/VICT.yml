@@ -53,8 +53,8 @@
     - AmmoBox556x45mmIncendiary
     - AmmoBox556x45mmIncendiary
     - AmmoBox556x45mmIncendiary
-    - AmmoBox556x45mmPlasteelAP
-    - AmmoBox556x45mmPlasteelAP
+    - AmmoBox556x45mmIncendiary
+    - AmmoBox556x45mmIncendiary
     - AmmoBox556x45mmPlasteelAP
     - VICTKatana
     - JetpackVoidFilled
@@ -62,14 +62,14 @@
     - BluespaceLifelineImplanter # Stops stealing of their gear
     - RadioImplanterCentcomm # Headset theft means nothing!
     - HandHeldMassScannerBorg # Just for the infiniste battery
-    - TrackingImplanter # TSFMC tracker
+
     - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
+    - Magazine556x45mmFMJ
     - Magazine556x45mmFMJ
     - Magazine556x45mmIncendiary
     - Magazine556x45mmIncendiary
     - Magazine556x45mmIncendiary
-    - Magazine556x45mmIncendiary
-    - Magazine556x45mmPlasteelAP
+    - Magazine556x45mmFMJ
     - Magazine556x45mmPlasteelAP
     - Handcuffs
     - Handcuffs
@@ -132,8 +132,8 @@
     - AmmoBox556x45mmIncendiary
     - AmmoBox556x45mmIncendiary
     - AmmoBox556x45mmIncendiary
-    - AmmoBox556x45mmPlasteelAP
-    - AmmoBox556x45mmPlasteelAP
+    - AmmoBox556x45mmIncendiary
+    - AmmoBox556x45mmFMJ
     - AmmoBox556x45mmPlasteelAP
     - VICTKatana
     - JetpackVoidFilled
@@ -141,14 +141,13 @@
     - BluespaceLifelineImplanter # Stops stealing of their gear
     - RadioImplanterCentcomm # Headset theft means nothing!
     - HandHeldMassScannerBorg # Just for the infiniste battery
-    - TrackingImplanter # TSFMC tracker
     - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
+    - Magazine556x45mmFMJ
     - Magazine556x45mmFMJ
     - Magazine556x45mmIncendiary
     - Magazine556x45mmIncendiary
     - Magazine556x45mmIncendiary
     - Magazine556x45mmIncendiary
-    - Magazine556x45mmPlasteelAP
     - Magazine556x45mmPlasteelAP
     - Magazine556x45mmRIP
     - Handcuffs
@@ -195,6 +194,7 @@
     - MedkitCombatFilled
     - MedkitCombatFilled
     - MedkitCombatFilled
+    - MedkitCombatFilled
     - CentcommStimpack
     - CentcommStimpack
     - CentcommStimpack
@@ -216,7 +216,6 @@
     - JugBluespace
     - VICTKatana
     - OmnimedTool
-    - MedkitCombatStasiziumFilled
     - JetpackVoidFilled
     belt:
     - Magazine45_ACPSubMachineGunIncendiary
@@ -280,28 +279,28 @@
     - GrenadeIncendiaryNfsd
     - ExGrenadeNfsd
     - ExGrenadeNfsd
-    - ClusterGrenadeNfsd
-    - ClusterGrenadeNfsd
+    - C4
+    - C4
+    - C4
     - ClusterGrenadeNfsd
     - ClusterBangFull
     - ClusterBangFull
-    - NanolaminateFoamGrenade
+    - MetalFoamGrenade
     - NanolaminateFoamGrenade
     - SyringeCaseAltFilled
-    - TrackingImplanter # TSFMC tracker
+
     - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
     - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
     - RCDRecharging
     - ShipRepairDeviceRecharging
     - VICTKatana
-    - C4
-    - C4
-    - C4
-    - C4
-    - C4
-    - SignalTrigger
-    - TimerTrigger
-    - VoiceTrigger
+    - SheetSteel
+    - SheetSteel
+    - SheetGlass
+    - SheetGlass
+    - SheetPlasteel
+    - SheetPlasteel
+    - SheetPlastic
     belt:
     - AmmoBox12_gaugeIncendiary
     - AmmoBox12_gaugeIncendiary
@@ -309,6 +308,7 @@
     - PowerDrill
     - WelderExperimental
     - Multitool
+    - RemoteSignallerAdvanced
     - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
     - BluespaceLifelineImplanter # Stops stealing of their gear
     - RadioImplanterCentcomm # Headset theft means nothing!
@@ -351,25 +351,28 @@
     belt: ClothingBeltWebbingsBigVICT
     suitStorage: PortableRecharger # lol fixed it for pointman, fuck everyone else ig
   inhand:
-    - WeaponEnergyShotgun # NT Energy Shotgun
+    - WeaponImprovedEnergyShotgun
   storage:
     back:
-    - WeaponShotgunKammerer
+    - WeaponShotgunEnforcer
     - WeaponShotgunHelepolis
-    - GrenadeFlashBang
     - MedkitCombatFilled
     - ShipVoucherFrontierGuard
-    - GrenadeIncendiaryNfsd
     - SyringeCaseAltFilled
     - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
-    - PillCanisterMesotaxinide # Bottle of 10 15u Mesotaxinide pills
     - Handcuffs
-    - TrackingImplanter # TSFMC tracker
+    - ClusterBangFull
+    - ClusterBangFull
+    - ClusterBangFull
+    - ClusterBangFull
     - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
     - BluespaceLifelineImplanter # Stops stealing of their gear
     - RadioImplanterCentcomm # Headset theft means nothing!
     - HandHeldMassScannerBorg # Just for the infiniste battery
     - VICTKatana
+    - EnergyShield
+    - EnergySword
+    - JetpackVoidFilled
     belt:
     - AmmoBox12_gaugeIncendiary
     - AmmoBox12_gaugeIncendiary
@@ -377,5 +380,6 @@
     - AmmoBox12_gaugeIncendiary
     - AmmoBox12_gaugeSlug
     - AmmoBox12_gaugeSlugAP
+    - AmmoBox12_gaugeBuckshot
 
 # End CBURN Shotgunner/Breacher (VICT-Point)

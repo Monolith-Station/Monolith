@@ -78,12 +78,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.35 #65%
-        Slash: 0.40 #60%
-        Piercing: 0.35 #65%
+        Blunt: 0.8 #20%
+        Slash: 0.1 #90%
+        Piercing: 0.8 #20%
         Heat: 0.1 #90%
-        Cold: 0.5 #50%
-        Shock: 0.1 #90%
+        Cold: 0.8 #20%
+        Shock: 0.9 #10%
         Radiation: 0.1 #90%
         Caustic: 0.1 #90%
         Poison: 0.1 #90%
@@ -94,7 +94,7 @@
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.1 #90%
   - type: FireProtection # STOP FUCKING FRIENDLY FIRING
-    reduction: 0.2
+    reduction: 0.2 #80%
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
     blockUnequipWhenAttached: false
@@ -131,8 +131,8 @@
   - type: Damageable
     damageContainer: Shield
   - type: Battery
-    maxCharge: 50
-    startingCharge: 50
+    maxCharge: 10
+    startingCharge: 10
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
