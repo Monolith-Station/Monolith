@@ -1,13 +1,14 @@
 using Content.Shared.Armor;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
+using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Storage;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Utility;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared._Mono.ArmorPlate;
 
@@ -26,6 +27,8 @@ public abstract class SharedArmorPlateSystem : EntitySystem
 
         SubscribeLocalEvent<ArmorPlateHolderComponent, EntInsertedIntoContainerMessage>(OnPlateInserted);
         SubscribeLocalEvent<ArmorPlateHolderComponent, EntRemovedFromContainerMessage>(OnPlateRemoved);
+        SubscribeLocalEvent<ArmorPlateHolderComponent, GotEquippedEvent>(OnEquippedArmor);
+        SubscribeLocalEvent<ArmorPlateHolderComponent, GotUnequippedEvent>(OnUnequippedArmor);
         SubscribeLocalEvent<ArmorPlateHolderComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ArmorPlateHolderComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<ArmorPlateItemComponent, GetVerbsEvent<ExamineVerb>>(OnPlateVerbExamine);
@@ -142,6 +145,7 @@ public abstract class SharedArmorPlateSystem : EntitySystem
 
         Dirty(holderUid, holder);
         RefreshMovementSpeed(holderUid);
+        RefreshPlateProtection(holderUid);
     }
 
     /// <summary>
@@ -156,6 +160,7 @@ public abstract class SharedArmorPlateSystem : EntitySystem
 
         Dirty(holderUid, holder);
         RefreshMovementSpeed(holderUid);
+        RefreshPlateProtection(holderUid);
     }
 
     /// <summary>
@@ -187,6 +192,46 @@ public abstract class SharedArmorPlateSystem : EntitySystem
 
         plate = (holder.Comp.ActivePlate.Value, plateComp);
         return true;
+    }
+
+    /// <summary>
+    /// Calculate numbers used for damaging plate and player
+    /// </summary>
+    public void CalcPlateDamages(DamageSpecifier incoming, ArmorPlateItemComponent plate, out DamageSpecifier remainder, out FixedPoint2 absorbedTotal, out FixedPoint2 plateDamageTotal)
+    {
+        remainder = new DamageSpecifier();
+        absorbedTotal = FixedPoint2.Zero;
+        plateDamageTotal = FixedPoint2.Zero;
+
+        foreach (var (type, amount) in incoming.DamageDict)
+        {
+            if (amount <= FixedPoint2.Zero)
+                continue;
+
+            var multiplier = plate.DamageMultipliers.GetValueOrDefault(type, 1.0f);
+            var ratio = plate.AbsorptionRatios.GetValueOrDefault(type, 0f);
+
+            FixedPoint2 absorbed = FixedPoint2.Zero;
+            FixedPoint2 remainderAmt = amount;
+
+            if (ratio > 0f)
+            {
+                absorbed = amount * ratio;
+                remainderAmt = amount - absorbed;
+            }
+            else if (ratio < 0f)
+            {
+                remainderAmt = amount * (1f + Math.Abs(ratio));
+            }
+
+            var plateDamage = amount * Math.Abs(ratio) * multiplier;
+
+            absorbedTotal = absorbedTotal + absorbed;
+            plateDamageTotal = plateDamageTotal + plateDamage;
+
+            if (remainderAmt > FixedPoint2.Zero)
+                remainder.DamageDict.Add(type, remainderAmt);
+        }
     }
 
     /// <summary>
@@ -276,4 +321,58 @@ public abstract class SharedArmorPlateSystem : EntitySystem
 
         return msg;
     }
+
+    /// <summary>
+    /// Starts listening to damage instances for plate evaluation on equip of a plate-bearing item.
+    /// </summary>
+    private void OnEquippedArmor(Entity<ArmorPlateHolderComponent> armor, ref GotEquippedEvent args)
+    {
+        if (!_inventory.TryGetContainingEntity(armor.Owner, out var wearer))
+        {
+            return;
+        }
+
+        if (TryGetActivePlate((armor.Owner, armor.Comp), out _))
+        {
+            EnsureComp<PlateProtectedComponent>(wearer.Value);
+        }
+    }
+
+    /// <summary>
+    /// Stops listening to damage instances for plate evaluation on unequip.
+    /// </summary>
+    private void OnUnequippedArmor(Entity<ArmorPlateHolderComponent> armor, ref GotUnequippedEvent args)
+    {
+        var wearer = args.Equipee;
+
+        if (TryGetActivePlate((armor.Owner, armor.Comp), out _))
+        {
+            RemComp<PlateProtectedComponent>(wearer);
+        }
+    }
+
+    /// <summary>
+    /// Re-evaluates plate holder status.
+    /// </summary>
+    private void RefreshPlateProtection(EntityUid armorUid)
+    {
+        if (!_inventory.TryGetContainingEntity(armorUid, out var wearer))
+            return;
+
+        var wearerUid = wearer.Value;
+
+        if (!TryComp<ArmorPlateHolderComponent>(armorUid, out var holder))
+            return;
+
+        if (TryGetActivePlate((armorUid, holder), out _))
+        {
+            EnsureComp<PlateProtectedComponent>(wearerUid);
+        }
+
+        else
+        {
+            RemComp<PlateProtectedComponent>(wearerUid);
+        }
+    }
+
 }

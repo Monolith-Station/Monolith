@@ -1,4 +1,5 @@
 using Content.Shared._Mono.ArmorPlate;
+using Content.Shared.Armor;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Explosion;
@@ -26,14 +27,17 @@ public sealed class ArmorPlateSystem : SharedArmorPlateSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<InventoryComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
+        SubscribeLocalEvent<PlateProtectedComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
         SubscribeLocalEvent<ArmorPlateHolderComponent, GetExplosionResistanceEvent>(OnExplosionResistance);
         SubscribeLocalEvent<ArmorPlateItemComponent, EntityTerminatingEvent>(OnPlateDestroyed);
     }
 
-    private void OnBeforeDamageChanged(Entity<InventoryComponent> ent, ref BeforeDamageChangedEvent args)
+    private void OnBeforeDamageChanged(Entity<PlateProtectedComponent> ent, ref BeforeDamageChangedEvent args)
     {
         if (args.Cancelled || !args.Damage.AnyPositive())
+            return;
+
+        if (!TryComp<InventoryComponent>(ent.Owner, out var inv))
             return;
 
         if (!_inventory.TryGetSlots(ent, out var slots))
@@ -44,7 +48,7 @@ public sealed class ArmorPlateSystem : SharedArmorPlateSystem
             var explosionExists = false;
             foreach (var slot in slots)
             {
-                if (!_inventory.TryGetSlotEntity(ent, slot.Name, out var equipped, ent.Comp))
+                if (!_inventory.TryGetSlotEntity(ent, slot.Name, out var equipped, inv))
                     continue;
 
                 if (!TryComp<ArmorPlateHolderComponent>(equipped, out var holder))
@@ -61,16 +65,9 @@ public sealed class ArmorPlateSystem : SharedArmorPlateSystem
                 return;
         }
 
-        var rawDamage = new List<(string type, FixedPoint2 amount)>();
-        foreach (var (type, amount) in args.Damage.DamageDict)
-        {
-            if (amount > FixedPoint2.Zero)
-                rawDamage.Add((type, amount));
-        }
-
         foreach (var slot in slots)
         {
-            if (!_inventory.TryGetSlotEntity(ent, slot.Name, out var equipped, ent.Comp))
+            if (!_inventory.TryGetSlotEntity(ent, slot.Name, out var equipped, inv))
                 continue;
 
             if (!TryComp<ArmorPlateHolderComponent>(equipped, out var holder))
@@ -79,43 +76,13 @@ public sealed class ArmorPlateSystem : SharedArmorPlateSystem
             if (!TryGetActivePlate((equipped.Value, holder), out var plate))
                 continue;
 
-            var remainderSpec = new DamageSpecifier();
+            CalcPlateDamages( args.Damage, plate.Comp, out var remainder, out var absorbed, out var plateDamage);
 
-            foreach (var (type, amount) in rawDamage)
-            {
-                // Damage values handled for plate and wearer
-                var multiplier = plate.Comp.DamageMultipliers.GetValueOrDefault(type, 1.0f);
-                var ratio = plate.Comp.AbsorptionRatios.GetValueOrDefault(type, 0f);
-
-                FixedPoint2 absorbed = FixedPoint2.Zero;
-                FixedPoint2 remainder = amount;
-
-                // Handler for protection penalties: negative absorption ratios have a positive
-                // Absorption value to plates for the purpose of damaging it.
-                if (ratio > 0f)
-                {
-                    absorbed = amount * ratio;
-                    remainder = amount - absorbed;
-                }
-                else if (ratio < 0f)
-                {
-                    remainder = amount * (1f + Math.Abs(ratio));
-                }
-
-                // Apply damage to plate
-                var plateDamage = amount * Math.Abs(ratio) * multiplier;
-                if (absorbed > FixedPoint2.Zero)
-                    AbsorbDamage(ent, equipped.Value, holder, plate, absorbed, plateDamage);
-
-                // Prepare wearer remainder
-                if (remainder > FixedPoint2.Zero)
-                    remainderSpec.DamageDict.Add(type, remainder);
-            }
-
+            AbsorbDamage(ent, equipped.Value, holder, plate, absorbed, plateDamage);
 
             // Replace raw damage with remaining damage post-absorption
             args.Damage.DamageDict.Clear();
-            foreach (var (type, amt) in remainderSpec.DamageDict)
+            foreach (var (type, amt) in remainder.DamageDict)
                 args.Damage.DamageDict.Add(type, amt);
 
             if (args.Damage.Empty)
@@ -172,5 +139,4 @@ public sealed class ArmorPlateSystem : SharedArmorPlateSystem
     {
         comp.LastExplosionTick = _timing.CurTick;
     }
-
 }
