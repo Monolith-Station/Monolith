@@ -146,7 +146,7 @@
     - id: NFWreckDebrisBrassExtraLarge
       prob: 3
       orGroup: wreck
-    - id: MonoRamDroneSpawnerT1
+    - id: MonoDroneSpawnerT1
       prob: 3
       orGroup: wreck
 
@@ -174,8 +174,8 @@
     - id: NFWreckDebrisBrassExtraLarge
       prob: 0.3
       orGroup: wreck
-    - id: MonoRamDroneSpawnerT2Inner
-      prob: 4
+    - id: MonoDroneSpawnerT2Inner
+      prob: 2.5
       orGroup: wreck
 
 - type: spaceBiome
@@ -202,6 +202,6 @@
     - id: NFWreckDebrisBrassExtraLarge
       prob: 0.3
       orGroup: wreck
-    - id: MonoRamDroneSpawnerT2Middle
-      prob: 4
+    - id: MonoDroneSpawnerT2Middle
+      prob: 2.5
       orGroup: wreck

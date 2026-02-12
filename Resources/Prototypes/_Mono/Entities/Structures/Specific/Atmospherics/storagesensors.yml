@@ -1,0 +1,57 @@
+- type: entity
+  abstract: true
+  parent: AirSensorBase
+  id: AirSensorDistroStoreBase
+  suffix: Distro Storage
+  components:
+    - type: AtmosMonitor
+      temperatureThresholdId: stationTemperature
+      pressureThresholdId: storageChamberPressure
+      gasThresholdPrototypes:
+        Oxygen: ignore
+        Nitrogen: ignore
+        CarbonDioxide: stationCO2
+        Plasma: stationPlasma
+        Tritium: stationTritium
+        WaterVapor: stationWaterVapor
+        Ammonia: stationAmmonia
+        NitrousOxide: stationNO
+        Frezon: danger
+        BZ: danger
+        Healium: stationNO
+        Nitrium: danger
+        Pluoxium: ignore
+        
+- type: entity
+  abstract: true
+  parent: AirSensorBase
+  id: AirSensorIndustrialStoreBase
+  suffix: Industrial Storage
+  components:
+    - type: AtmosMonitor
+      temperatureThresholdId: ignore
+      pressureThresholdId: storageChamberPressure
+      gasThresholdPrototypes:
+        Oxygen: ignore
+        Nitrogen: ignore
+        CarbonDioxide: ignore
+        Plasma: ignore
+        Tritium: ignore
+        WaterVapor: ignore
+        Ammonia: ignore
+        NitrousOxide: ignore
+        Frezon: ignore
+        BZ: ignore
+        Healium: ignore
+        Nitrium: ignore
+        Pluoxium: ignore
+
+#gas mining/general atmos work storage
+- type: entity
+  parent: [AirSensorDistroStoreBase, AirSensor]
+  id: AirSensorDistroStore
+
+#distro storage chambers
+- type: entity
+  parent: [AirSensorIndustrialStoreBase, AirSensor]
+  id: AirSensorIndustrialStore

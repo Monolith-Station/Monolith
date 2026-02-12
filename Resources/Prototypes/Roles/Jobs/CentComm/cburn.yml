@@ -16,7 +16,7 @@
 - type: startingGear
   id: CBURNGear
   equipment:
-    jumpsuit: ClothingUniformTsfmcMopp
+    jumpsuit: ClothingUniformCcCBRN
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesCentComm
@@ -29,7 +29,7 @@
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
     pocket2: WeaponLaserPistolNF # Frontier: WeaponLaserGun<WeaponLaserPistolNF
     belt: ClothingBeltWebbingsBigRangerGreen
-    suitStorage: PortableRecharger
+    # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
   inhand:
   - PortableRecharger
   storage:
