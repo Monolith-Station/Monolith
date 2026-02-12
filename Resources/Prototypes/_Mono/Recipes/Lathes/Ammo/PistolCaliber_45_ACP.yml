@@ -143,3 +143,8 @@
   parent: BaseAmmoRIPPistolCaliberAmmoBoxRecipe
   id: AmmoBox45_ACPRIP
   result: AmmoBox45_ACPRIP
+
+- type: latheRecipe
+  parent: BaseAmmoFMJPistolCaliberBigAmmoBoxRecipe
+  id: AmmoBox45_ACPBigFMJ
+  result: AmmoBox45_ACPBigFMJ
