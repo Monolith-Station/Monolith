@@ -36,6 +36,21 @@
   position: 0, 16
 
 - type: technology
+  id: BluespaceParts
+  name: research-technology-bluespace-parts
+  entityIcon: QuadraticCapacitorStockPart
+  discipline: Experimental
+  tier: 4
+  cost: 225000
+  recipeUnlocks:
+  - QuadraticCapacitorStockPart
+  - BluespaceMatterBinStockPart
+  - FemtoManipulatorStockPart
+  technologyPrerequisites:
+  - SuperParts
+  position: 0, 19
+
+- type: technology
   id: MagnetsTechAdvanced
   name: research-technology-magnets-tech-advanced
   entityIcon: ClothingShoesBootsMagAdv
