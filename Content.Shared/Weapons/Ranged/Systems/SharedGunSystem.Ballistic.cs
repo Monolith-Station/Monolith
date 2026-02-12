@@ -23,6 +23,7 @@ public abstract partial class SharedGunSystem
         SubscribeLocalEvent<BallisticAmmoProviderComponent, ComponentInit>(OnBallisticInit);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, MapInitEvent>(OnBallisticMapInit);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, TakeAmmoEvent>(OnBallisticTakeAmmo);
+        SubscribeLocalEvent<BallisticAmmoProviderComponent, CheckShootPrototypeEvent>(OnBallisticCheckProto); // Mono
         SubscribeLocalEvent<BallisticAmmoProviderComponent, GetAmmoCountEvent>(OnBallisticAmmoCount);
 
         SubscribeLocalEvent<BallisticAmmoProviderComponent, ExaminedEvent>(OnBallisticExamine);
@@ -323,6 +324,21 @@ public abstract partial class SharedGunSystem
         }
 
         UpdateBallisticAppearance(uid, component);
+    }
+
+    // Mono
+    private void OnBallisticCheckProto(Entity<BallisticAmmoProviderComponent> ent, ref CheckShootPrototypeEvent args)
+    {
+        if (ent.Comp.Entities.Count > 0)
+        {
+            var ammo = ent.Comp.Entities[^1];
+            args.ShootPrototype = MetaData(ammo).EntityPrototype;
+        }
+        else if (ent.Comp.UnspawnedCount > 0 || ent.Comp.InfiniteUnspawned)
+        {
+            ProtoManager.TryIndex(ent.Comp.Proto, out var proto);
+            args.ShootPrototype = proto;
+        }
     }
 
     private void OnBallisticAmmoCount(EntityUid uid, BallisticAmmoProviderComponent component, ref GetAmmoCountEvent args)

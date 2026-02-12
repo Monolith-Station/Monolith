@@ -72,7 +72,7 @@ trait-dermal-armor-name = Dermal Armor
 trait-dermal-armor-desc = Your skin has been replaced with a flexible, yet sturdy, hard-polymer shell wrapped in a layer of synthetic flesh. Provides 1.5 flat reduction to Blunt, Slash, and Piercing damage, but you take 25% more Shock damage.
 
 trait-ironman-name = Ironman
-trait-ironman-desc = You live strictly on hard cash. You can't withdraw from your bank account, but you start the shift with extra credits in hand.
+trait-ironman-desc = You live strictly on hard cash. You can't withdraw from your bank account, but you start the shift with a Baeg Voucher to make your way.
 
 trait-temperature-tolerance-name = Temperature Tolerance
 trait-temperature-tolerance-desc = You have a notable tolerance for lower temperatures. You can stand for extended periods in conditions just below freezing, like a walk-in fridge or the sunlit slopes of Glacier.
@@ -82,3 +82,6 @@ trait-alcohol-tolerance-desc = Your body shrugs off the visual effects of booze.
 
 trait-platelet-factories-name = Platelet Factories
 trait-platelet-factories-desc = Your body has been augmented with a series of bio-tailored organs that enhance long-term survivability. These organs attempt to keep you alive even in the face of advanced trauma, all the way up until—but not including—death. Your natural healing slowly repairs any damage type, including exotic injuries like radiation exposure or cellular damage.
+
+trait-nanite-repair-drones-name = Nanite Repair Drones
+trait-nanite-repair-drones-desc = Your Chassis has Nanite Repair Drones coursing through it that respond to physical trauma. While not as quick as manual repair, these will cut down significantly on day to day maintainance.

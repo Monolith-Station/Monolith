@@ -17,6 +17,7 @@
     range: 500
   - type: Gun
     fireRate: 16
+    recoil: 1
     minAngle: 4
     maxAngle: 35
     burstCooldown: 20
@@ -50,7 +51,11 @@
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 2
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Missile
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 100

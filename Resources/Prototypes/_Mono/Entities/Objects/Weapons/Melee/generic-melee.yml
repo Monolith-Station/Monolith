@@ -1,0 +1,86 @@
+# Overseer's Maul "Honor"
+
+- type: entity
+  parent: BaseMeleeWeaponEnergy
+  id: WeaponOverseerMace
+  name: heavy maul "Honor"
+  description: A large, weighty maul, designed to deal the pain, alongside disabling targets. But when activated, becomes an energy axe made of searing plasma, cleaving through anything in its way.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Melee/honormace.rsi
+    layers:
+    - state: e_sword
+    - state: e_sword_blade
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/on.ogg
+    soundDeactivate:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/off.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/hum.ogg
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: red
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Melee/honormace.rsi
+    size: Normal
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Melee/honormace.rsi
+    slots:
+    - Back
+    - Belt
+    - SuitStorage
+  - type: ComponentToggler
+    components:
+    - type: Reflect
+      reflectProb: 0.4
+    - type: Sharp
+    - type: Execution
+      doAfterDuration: 4.0
+  - type: ItemToggleSize
+    activatedSize: Large
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/swing.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 25
+        Heat: 25
+        Structural: 150
+  - type: MeleeWeapon
+    heavyStaminaCost: 1
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 55
+        Piercing: 10
+        Structural: 250
+    soundHit:
+      collection: MetalThud
+  - type: StaminaDamageOnHit
+    damage: 80
+  - type: DisarmMalus
+    malus: 0.6
+  - type: EnergySword
+    colorOptions:
+    - "#FFFFFF85"
+    activatedColor: "#FFFFFF85"
+    blockHacking: true

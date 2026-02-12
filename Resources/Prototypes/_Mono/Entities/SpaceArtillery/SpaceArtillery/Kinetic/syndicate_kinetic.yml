@@ -30,6 +30,7 @@
     - Toggle
   - type: Gun
     fireRate: 5
+    recoil: 10 # 2/5x
     projectileSpeed: 200
     minAngle: 0
     maxAngle: 5
@@ -67,10 +68,14 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Light
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 30
 
 - type: entity
   id: WeaponTurretFang
@@ -95,6 +100,7 @@
     range: 500
   - type: Gun
     fireRate: 2
+    recoil: 10 # 2/5x
     projectileSpeed: 170
     minAngle: 0
     maxAngle: 6
@@ -133,10 +139,20 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1.5
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1.5,-1.5,1.5,1.5"
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 80
 
 - type: entity
   id: WeaponTurretHydra
@@ -172,10 +188,11 @@
         - MachineLayer
   - type: Gun
     projectileSpeed: 325
+    recoil: 50 # 2x
     minAngle: 0
     maxAngle: 3
     fireRate: 0.2
-    burstCooldown: 12
+    burstCooldown: 10
     burstFireRate: 2
     shotsPerBurst: 3
     selectedMode: Burst
@@ -199,6 +216,13 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 2.5
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-2,-2,2,2"
   - type: Destructible
     thresholds:
     - trigger:
@@ -214,3 +238,6 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: SuperHeavy
+  - type: ShipRepairable
+    repairTime: 40
+    repairCost: 250

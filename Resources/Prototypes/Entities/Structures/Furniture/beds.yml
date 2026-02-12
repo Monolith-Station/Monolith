@@ -56,6 +56,10 @@
     noRot: true
   - type: Anchorable
   - type: Pullable
+  # Mono
+  - type: ShipRepairable
+    repairTime: 1
+    repairCost: 2
 
 
 - type: entity

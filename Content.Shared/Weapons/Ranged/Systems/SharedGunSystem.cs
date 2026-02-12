@@ -40,6 +40,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Spawners; // Mono
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -513,14 +514,10 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
         Shoot(gunUid, gun, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
-        var shotEv = new GunShotEvent(user, ev.Ammo);
+        var shotEv = new GunShotEvent(user, ev.Ammo, toCoordinates.Value); // Mono - pass coordinates
         RaiseLocalEvent(gunUid, ref shotEv);
 
-        if (userImpulse && _physQuery.TryComp(user, out var userPhysics))
-        {
-            if (_gravity.IsWeightless(user, userPhysics))
-                CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
-        }
+        CauseImpulse(toCoordinates.Value, (gunUid, gun), ev.Ammo.Count);
     }
 
     public void Shoot(
@@ -571,6 +568,30 @@ public abstract partial class SharedGunSystem : EntitySystem
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
     }
 
+    // Mono
+    public bool TryNextShootPrototype(Entity<GunComponent?> gun, [NotNullWhen(true)] out EntityPrototype? proto)
+    {
+        proto = null;
+        if (!Resolve(gun, ref gun.Comp))
+            return false;
+
+        var checkEv = new CheckShootPrototypeEvent();
+        RaiseLocalEvent(gun, ref checkEv);
+        proto = checkEv.ShootPrototype;
+
+        return proto != null;
+    }
+
+    // Mono
+    public EntityPrototype GetBulletPrototype(EntityPrototype cartridge)
+    {
+        if (cartridge.TryGetComponent<CartridgeAmmoComponent>(out var cartComp, Factory))
+        {
+            return ProtoManager.Index(cartComp.Prototype);
+        }
+        return cartridge;
+    }
+
     // Mono - used for multiple-per-frame projectile offset
     public override void Update(float frameTime)
     {
@@ -593,6 +614,10 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         if (cartridge.DeleteOnSpawn) // Mono - No need to update appearance if cartridge is getting deleted anyways
             return;
+
+        if (cartridge.AutoTimedDespawn != 0)
+            EnsureComp<TimedDespawnComponent>(uid).Lifetime = cartridge.AutoTimedDespawn;
+        // End mono
 
         Appearance.SetData(uid, AmmoVisuals.Spent, spent);
     }
@@ -661,27 +686,32 @@ public abstract partial class SharedGunSystem : EntitySystem
         CreateEffect(gun, ev, user);
     }
 
-    public void CauseImpulse(EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, EntityUid user, PhysicsComponent userPhysics)
+    // Mono - rewritten
+    public void CauseImpulse(EntityCoordinates toCoordinates, Entity<GunComponent> ent, float scale)
     {
-        var fromMap = fromCoordinates.ToMapPos(EntityManager, TransformSystem);
-        var toMap = toCoordinates.ToMapPos(EntityManager, TransformSystem);
-        var shotDirection = (toMap - fromMap).Normalized();
+        var totalImpulse = ent.Comp.Recoil * scale;
+        var selfXform = Transform(ent);
 
-        const float impulseStrength = 25.0f;
-        var impulseVector =  shotDirection * impulseStrength;
+        var impulseCoord = new EntityCoordinates(ent, Vector2.Zero);
 
-        // Frontier: apply impulse to buckled object if buckled
-        if (TryComp<BuckleComponent>(user, out var buckle) && buckle.BuckledTo is not null)
-        {
-            TryComp<PhysicsComponent>(buckle.BuckledTo, out var buckledPhys);
-            Physics.ApplyLinearImpulse(buckle.BuckledTo.Value, -impulseVector, body: buckledPhys);
-        }
-        else
-        {
-            Physics.ApplyLinearImpulse(user, -impulseVector, body: userPhysics);
-        }
-        // End Frontier
-        // Physics.ApplyLinearImpulse(user, -impulseVector, body: userPhysics); // Frontier: old implementation
+        if (Containers.TryGetContainingContainer(ent.Owner, out var container))
+            impulseCoord = TransformSystem.WithEntityId(impulseCoord, container.Owner);
+        else if (selfXform.Anchored && selfXform.ParentUid != selfXform.MapUid)
+            impulseCoord = TransformSystem.WithEntityId(impulseCoord, selfXform.ParentUid);
+
+        var toEnt = impulseCoord.EntityId;
+        if (!_physQuery.TryComp(toEnt, out var toBody))
+            return;
+
+        // velocity is in world-aligned coordinates so get vec based off that
+        var worldSource = TransformSystem.GetWorldPosition(toEnt);
+        var worldTarget = TransformSystem.ToWorldPosition(toCoordinates);
+        var dirVec = worldTarget - worldSource;
+        dirVec.Normalize();
+
+        var pos = impulseCoord.Position;
+        pos = (pos - toBody.LocalCenter) * ent.Comp.RecoilRotation + toBody.LocalCenter;
+        Physics.ApplyLinearImpulse(toEnt, -dirVec * totalImpulse, pos);
     }
 
     public void RefreshModifiers(Entity<GunComponent?> gun, EntityUid? User = null) // GoobStation change - User for NoWieldNeeded
@@ -786,6 +816,11 @@ public abstract partial class SharedGunSystem : EntitySystem
 }
 
 /// <summary>
+/// Raised when a chamber-mag gun's bolt is opened or closed.
+/// </summary>
+public record struct BoltStateChangedEvent(EntityUid User, bool Closed); //Mono
+
+/// <summary>
 ///     Raised directed on the gun before firing to see if the shot should go through.
 /// </summary>
 /// <remarks>
@@ -802,7 +837,7 @@ public record struct AttemptShootEvent(EntityUid User, string? Message, bool Can
 /// </summary>
 /// <param name="User">The user that fired this gun.</param>
 [ByRefEvent]
-public record struct GunShotEvent(EntityUid User, List<(EntityUid? Uid, IShootable Shootable)> Ammo);
+public record struct GunShotEvent(EntityUid User, List<(EntityUid? Uid, IShootable Shootable)> Ammo, EntityCoordinates ToCoordinates); // Mono - pass coordinates
 
 public enum EffectLayers : byte
 {

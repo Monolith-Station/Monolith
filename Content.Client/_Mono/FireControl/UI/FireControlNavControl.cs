@@ -7,7 +7,6 @@ using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Content.Client._Mono.Radar;
-using Content.Shared._Mono.Detection;
 using Content.Shared._Mono.Radar;
 using Content.Shared._Crescent.ShipShields;
 using Robust.Shared.Physics.Collision.Shapes;
@@ -80,7 +79,7 @@ public sealed class FireControlNavControl : ShuttleNavControl
         var blips = _blips.GetCurrentBlips();
         var colors = new Dictionary<NetEntity, Color>();
         foreach (var blip in blips)
-            colors[blip.NetUid] = blip.Color;
+            colors[blip.NetUid] = blip.Config.Color;
 
         if (_controllables != null)
         {

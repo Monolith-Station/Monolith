@@ -106,6 +106,7 @@
       - id: ClothingBeltUtilityEngineering # Frontier
 #     - id: RCD # Frontier
 #     - id: RCDAmmo # Frontier
+      - id: AirGrenade
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -126,6 +127,7 @@
       - id: ClothingBeltUtilityEngineering # Frontier
 #      - id: RCD
 #      - id: RCDAmmo
+      - id: AirGrenade
 
 - type: entity
   id: LockerEngineerFilledHardsuit
@@ -141,6 +143,7 @@
       - id: ClothingMaskGas
       - id: ClothingShoesBootsMag
       - id: ConstructionBag # Mono
+      - id: AirGrenade # Mono
       - id: trayScanner # Frontier
       - id: JetpackMiniFilled # Frontier
       - id: ClothingBeltUtilityEngineering # Frontier
@@ -154,6 +157,7 @@
     contents:
       - id: ClothingHandsGlovesColorYellow
       - id: ConstructionBag # Mono
+      - id: AirGrenade # Mono
       - id: ClothingMaskGas
       - id: trayScanner
       - id: ClothingBeltUtilityEngineering # Frontier

@@ -320,6 +320,10 @@ public sealed class StationSystem : EntitySystem
         foreach (var grid in gridIds ?? Array.Empty<EntityUid>())
         {
             AddGridToStation(station, grid, null, data, name);
+            // Crescent - used to add components directly to a grid from yaml
+            foreach (var (_, component) in stationConfig.gridComponents)
+                EntityManager.AddComponent(grid, component, true);
+            // Crescent
         }
 
         var ev = new StationPostInitEvent((station, data));

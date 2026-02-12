@@ -3,15 +3,14 @@
   parent: BaseVesselAntag
   name: TSF-CRSW Andromeda
   description: A experimental heavy frigate, with heavy burst frontal firepower and fast maneuveability.
-  limit: 2
-  price: 272250
+  limit: 3
+  price: 320000
   category: Large
   group: Security
   access: Armory
   shuttlePath: /Maps/_Mono/Shuttles/Nfsd/andromeda.yml
   guidebookPage: Null
   class:
-  - Capital
   - Frigate
   engine:
   - Plasma
@@ -24,6 +23,9 @@
   stations:
     Andromeda:
       stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Enough guns to blot out the stars."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Andromeda TSF{1}'

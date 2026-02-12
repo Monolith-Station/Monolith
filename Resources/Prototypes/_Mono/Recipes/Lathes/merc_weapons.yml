@@ -176,3 +176,26 @@
     Plasteel: 600
     Uranium: 600
 
+- type: latheRecipe
+  id: WeaponShockMaul
+  parent: BaseWeaponRecipeLong
+  result: WeaponShockMaul
+  categories:
+  - Weapons
+  materials:
+    Steel: 2000
+    Plasteel: 800
+    Plasma: 800
+
+- type: latheRecipe
+  id: HardlightShield
+  parent: BaseWeaponRecipeLong
+  result: HardlightShield
+  categories:
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 6500
+    Plastic: 800
+    Plasma: 4000
+

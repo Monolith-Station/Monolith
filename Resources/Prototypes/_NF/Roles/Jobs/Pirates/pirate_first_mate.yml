@@ -22,6 +22,7 @@
   guides: [ BasicLore, PhaethonDynasty] # Mono
   access:
   - Pirate
+  - PDVCommand
   - Mercenary
   accessGroups:
   - GeneralAccess
@@ -45,9 +46,9 @@
 - type: startingGear
   id: PirateFirstMateNFGear
   equipment:
-    ears: ClothingHeadsetAltFreelancer
+    ears: ClothingHeadsetAltVanguardCommand
     #belt: ClothingBeltUtility
-    pocket1: BasePirateUplinkPirateCrew
+    pocket1: BasePirateUplinkAsvaran
     #pocket2: AppraisalTool
   storage:
     back:
