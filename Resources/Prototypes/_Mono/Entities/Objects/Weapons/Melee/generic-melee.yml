@@ -14,6 +14,14 @@
       visible: false
       shader: unshaded
       map: [ "blade" ]
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/on.ogg
+    soundDeactivate:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/off.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/hum.ogg
   - type: PointLight
     enabled: false
     radius: 2
@@ -31,7 +39,7 @@
   - type: ComponentToggler
     components:
     - type: Reflect
-      reflectProb: 0.5
+      reflectProb: 0.4
     - type: Sharp
     - type: Execution
       doAfterDuration: 4.0
@@ -39,32 +47,32 @@
     activatedSize: Large
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
-      path: /Audio/Weapons/eblade1.ogg
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
       params:
         variation: 0.250
     activatedSoundOnHitNoDamage:
-      path: /Audio/Weapons/eblade1.ogg
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
       params:
         variation: 0.250
         volume: -10
     activatedSoundOnSwing:
-      path: /Audio/Weapons/eblademiss.ogg
+      path: /Audio/_Goobstation/Weapons/EswordWelder/swing.ogg
       params:
         variation: 0.125
     activatedDamage:
       types:
-        Slash: 30
-        Heat: 30
+        Slash: 25
+        Heat: 25
         Structural: 150
   - type: MeleeWeapon
     heavyStaminaCost: 1
     wideAnimationRotation: -135
-    attackRate: 1.25
+    attackRate: 1
     damage:
       types:
-        Blunt: 15
-        Piercing: 5
-        Structural: 50
+        Blunt: 55
+        Piercing: 10
+        Structural: 250
     soundHit:
       collection: MetalThud
   - type: StaminaDamageOnHit
