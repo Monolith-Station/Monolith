@@ -270,7 +270,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 8000
+        Structural: 12000
         Blunt: 2000
         penetrationThreshold: 2500
   - type: Sprite
@@ -286,7 +286,7 @@
     requireNoGrid: true
     shape: star
   - type: TimedDespawn
-    lifetime: 8.5 #2.km
+    lifetime: 3.6 #2.5km
   - type: PointLight
     color: "#fc5a03"
   - type: ExplodeOnTrigger

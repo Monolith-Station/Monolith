@@ -280,11 +280,11 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 300
+    projectileSpeed: 720
     recoil: 100 # 4x
     minAngle: 0
-    maxAngle: 2
-    fireRate: 0.08
+    maxAngle: 1
+    fireRate: 0.05
     shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
