@@ -45,12 +45,12 @@
 - type: technology
   id: MagnetTacticalApplications
   name: research-technology-tactical-mags
-  entityIcon: ClothingShoesBootsMagAshen
+  entityIcon: ClothingShoesTacBootsMagCivil
   discipline: Experimental
   tier: 2
   cost: 55000
   recipeUnlocks:
-  - ClothingShoesBootsMagAshen
+  - ClothingShoesTacBootsMagCivil
   technologyPrerequisites:
   - SuperParts
   - AdvancedPersonalPropulsion
@@ -105,3 +105,18 @@
   technologyPrerequisites:
   - BasicResearch
   position: -1, -2
+
+- type: technology
+  id: BluespaceParts
+  name: research-technology-bluespace-parts
+  entityIcon: QuadraticCapacitorStockPart
+  discipline: Experimental
+  tier: 4
+  cost: 225000
+  recipeUnlocks:
+  - QuadraticCapacitorStockPart
+  - BluespaceMatterBinStockPart
+  - FemtoManipulatorStockPart
+  technologyPrerequisites:
+  - SuperParts
+  position: 0, 19

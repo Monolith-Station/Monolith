@@ -85,11 +85,16 @@
     drawRate: 10
 
 - type: entity
-  parent: ClothingShoesBootsMagAshen
+  parent: ClothingShoesBootsMagSyndie
   id: ClothingShoesTacBootsMagCivil
   name: Civil Grade tactical magboots
   description: Civilian grade magnetic boots that have a heavy magnetic pull and integrated thrusters for basic EVA use. It can hold 0.375 L of gas.
   components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Shoes/Boots/magboots-ashen.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Mono/Clothing/Shoes/Boots/magboots-ashen.rsi
   - type: GasTank
     outputPressure: 41.6
     air:
