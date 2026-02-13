@@ -279,7 +279,7 @@
 
 - type: entity
   id: CrateFunWaterGuns
-  parent: CratePlasticBiodegradable # Frontier: CratePlastic<CratePlasticBiodegradable
+  parent: CratePlastic
   name: water gun crate
   description: A summer special with a variety of brightly colored water guns. Water not included.
   components:
@@ -376,7 +376,7 @@
 
 - type: entity
   id: CrateFunMysteryFigurines
-  parent: CratePlasticBiodegradable # Frontier: CratePlastic<CratePlasticBiodegradable
+  parent: CratePlastic
   name: mystery figure crate
   description: A collection of 10 Mystery Figurine boxes. Duplicates non refundable.
   components:
@@ -392,7 +392,7 @@
   name: dartboard box set
   description: A box with everything you need for a fun game of darts.
   id: CrateFunDartsSet
-  parent: CratePlasticBiodegradable # Frontier: CratePlastic<CratePlasticBiodegradable
+  parent: CratePlastic
   components:
   - type: StorageFill
     contents:
