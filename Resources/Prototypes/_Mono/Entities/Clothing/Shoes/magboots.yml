@@ -72,3 +72,21 @@
       - 0.153853429 # oxygen
       - 0.153853429 # nitrogen
 
+- type: entity
+  parent: ClothingShoesBootsSpeed
+  id: ClothingShoesBootsSpeedCivi
+  name: Substandard Speed Boots
+  description: High-tech boots with interwoven bluespace fibers, able to convert electricity into pure speed!
+  components:
+  - type: ClothingSpeedModifier
+    walkModifier: 1.20 # Mono
+    sprintModifier: 1.20 # Mono
+  - type: PowerCellDraw
+    drawRate: 10
+
+- type: entity
+  parent: ClothingShoesBootsMagAshen
+  id: ClothingShoesBootsMagAshen
+  name: Civil Grade tactical magboots
+  description: Civilian grade magnetic boots that have a heavy magnetic pull and integrated thrusters for basic EVA use. It can hold 0.75 L of gas.
+  components:
