@@ -4,3 +4,6 @@ research-technology-basic-parts = Basic Components
 
 research-technology-basic-research = Basic Research
 research-technology-advanced-research = Advanced Research
+
+research-technology-bluespace-parts = Bluespace Parts
+research-technology-magnets-speed-tech = Magnetic Speed Tech
