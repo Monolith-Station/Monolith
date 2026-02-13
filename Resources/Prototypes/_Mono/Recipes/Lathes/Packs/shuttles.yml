@@ -1,17 +1,26 @@
 - type: latheRecipePack
   id: MonoAdvancedShuttleComponents
   recipes:
-#  - ShieldControlComputerCircuitboard
   - GunneryControlComputerCircuitboard
-#  - MachineShieldMS225Circuitboard
   - MachineDriveCTLA25Circuitboard
   - MachineDriveCTLA25sCircuitboard
   - MachineDriveCTLA50Circuitboard
   - MachineGCSLowCircuitboard
   - MachineGCSMediumCircuitboard
-  - MachineGCSHighCircuitboard
   - AdvancedRadarConsoleCircuitboard
   - ComputerIFFCircuitboard
+
+- type: latheRecipePack
+  id: MonoAdvancedShuttleGunnery
+  recipes:
+  - MachineGCSHighCircuitboard
+  - MachineGCSUltraCircuitboard
+
+  - type: latheRecipePack
+  id: MonoShuttleShielding
+  recipes:
+#  - ShieldControlComputerCircuitboard
+#  - MachineShieldMS225Circuitboard
   - MachineShieldMS100Circuitboard
   - MachineShieldMS250Circuitboard
   - MachineShieldMS500Circuitboard
