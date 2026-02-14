@@ -199,3 +199,20 @@
     UraniumDepleted: 5000
     Silver: 10000
     Gold: 10000
+
+# Merc
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: BalorDroneVoucherMerc
+  result: ShipVoucherBalor
+  completetime: 10
+  materials:
+    Steel: 2500
+    Plasteel: 1000
+    Plastic: 3000
+    Glass: 1000
+    Plasma: 2000
+    Uranium: 1500
+    Silver: 500
+    Gold: 500

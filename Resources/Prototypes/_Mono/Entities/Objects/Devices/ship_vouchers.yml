@@ -342,3 +342,25 @@
     - Ravager
   - type: StaticPrice
     vendPrice: 325000
+
+# Mercenary
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherBalor
+  name: balor drone LPC
+  description: A small card that contains the data for the procurement of a small commercially available anti-drone defense drone.
+  components:
+  - type: Sprite
+    layers:
+    - state: mtech
+    - state: stripeussp
+    - state: vouchermilitary
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Custom
+    vessels:
+    - Rac-Man
+    - Bow-Man
+  - type: StaticPrice
+    vendPrice: 30000
