@@ -21,6 +21,7 @@
   - PDVClothingNeckCloakCommander
   - PDVClothingNeckCloakVizier
   - PDVClothingNeckMantleVizier
+  - PDVClothingNeckCloakPdvPurple
 
 - type: loadoutGroup
   id: PDVOuterClothing
@@ -90,6 +91,7 @@
   loadouts:
   - PDVCommanderBeret
   - PDVCapVizier
+  - PDVCapVizierPurple
   fallbacks:
   - PDVCommanderBeret
 - type: loadoutGroup
