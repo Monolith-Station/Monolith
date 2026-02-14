@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/11/2026 18:55:11
+  time: 02/14/2026 22:27:29
   entityCount: 2165
 maps: []
 grids:
@@ -142,9 +142,9 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         MetalFoam: []
         Puddle: []
+        Kudzu: []
         Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -7049,26 +7049,6 @@ entities:
     - type: Transform
       pos: 0.5,1.5
       parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        14:
-        - - device-button-1
-          - DoorBolt
-        15:
-        - - device-button-1
-          - DoorBolt
-        13:
-        - - device-button-1
-          - DoorBolt
-        12:
-        - - device-button-1
-          - DoorBolt
-        541:
-        - - device-button-1
-          - Toggle
-        542:
-        - - device-button-1
-          - Toggle
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery
