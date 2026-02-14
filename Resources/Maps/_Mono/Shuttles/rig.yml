@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/14/2026 16:26:15
-  entityCount: 695
+  time: 02/14/2026 16:41:35
+  entityCount: 698
 maps: []
 grids:
 - 1
@@ -87,10 +87,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
-        Puddle: []
-        Smoke: []
         Kudzu: []
+        Puddle: []
+        MetalFoam: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -4112,6 +4112,40 @@ entities:
     - type: Transform
       pos: 0.5,16.5
       parent: 1
+- proto: SurveillanceCameraGeneral
+  entities:
+  - uid: 690
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.5,3.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Docking port
+  - uid: 695
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,0.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Engineering
+  - uid: 696
+    components:
+    - type: Transform
+      pos: 1.5,19.5
+      parent: 1
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Bow
 - proto: SurveillanceCameraRouterGeneral
   entities:
   - uid: 523
