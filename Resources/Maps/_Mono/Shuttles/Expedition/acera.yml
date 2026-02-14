@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/14/2026 11:58:26
+  time: 02/14/2026 12:07:47
   entityCount: 969
 maps: []
 grids:
@@ -771,7 +771,7 @@ entities:
       pos: -2.5,6.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -15154.281
+      secondsUntilStateChange: -15236.499
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3285,6 +3285,8 @@ entities:
     - type: Transform
       pos: 12.5,6.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 141
     components:
     - type: Transform
@@ -3369,6 +3371,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: 12.5,5.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
 - proto: GasPipeBendAlt1
   entities:
   - uid: 169
@@ -4059,6 +4063,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,6.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
     - type: DeviceNetwork
       deviceLists:
       - 605
@@ -4068,6 +4074,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 13.5,5.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
     - type: DeviceNetwork
       deviceLists:
       - 566
@@ -4147,6 +4155,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5,6.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#990000FF'
     - type: DeviceNetwork
       deviceLists:
       - 605
@@ -4170,6 +4180,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 13.5,6.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#990000FF'
     - type: DeviceNetwork
       deviceLists:
       - 566
@@ -4638,6 +4650,19 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,3.5
       parent: 1
+- proto: Poweredlight
+  entities:
+  - uid: 606
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,2.5
+      parent: 1
+  - uid: 671
+    components:
+    - type: Transform
+      pos: -0.5,3.5
+      parent: 1
 - proto: PoweredlightExterior
   entities:
   - uid: 581
@@ -4682,19 +4707,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,5.5
-      parent: 1
-- proto: PoweredlightSodium
-  entities:
-  - uid: 606
-    components:
-    - type: Transform
-      pos: -0.5,3.5
-      parent: 1
-  - uid: 671
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 5.5,2.5
       parent: 1
 - proto: PoweredSmallLight
   entities:
@@ -5697,7 +5709,7 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        606:
+        671:
         - - Off
           - Off
         - - On
@@ -6762,7 +6774,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -15151.382
+      secondsUntilStateChange: -15233.6
       state: Opening
     - type: Airlock
       autoClose: False
