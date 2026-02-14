@@ -1,0 +1,38 @@
+# Author Info
+# GitHub: kyres1, maintainted & overhauled by UnicornOnLSD
+#
+- type: vessel
+  id: Acera
+  parent: BaseVessel
+  name: SHM-DIS Acera
+  description: A lightly-armored and nimble pursuit vessel commonly used by not-so recommendable people, finding utility in its EMP torpedo armament, energy shield, low-caliber rotary cannon and IFF console for one. Also possessing a built in holding cell. Requires a suit to board and embark through EVA. Rumors circulate the original blueprint was replaced by one originating from the DIS, making it a meaner, civilian hunter. All allegations were denied, of course.
+  price: 115,900
+  category: Medium
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/acera.yml
+  guidebookPage: null
+  class:
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Acera
+  mapName: 'Acera'
+  mapPath: /Maps/_Mono/Shuttles/acera.yml
+  minPlayers: 0
+  stations:
+    Acera:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Acera MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
