@@ -13,3 +13,4 @@ welder-component-suicide-unlit-others-message = {$victim} bashes themselves with
 welder-component-suicide-unlit-message = You bash yourself with the unlit welding torch!
 welder-component-after-interact-refueled-message = Refueled!
 welder-component-already-full = The welder is already full.
+welder-component-incompatible-fuel = { $owner } contains incorrect or contaminated fuel!

@@ -79,7 +79,7 @@ public sealed class FireControlNavControl : ShuttleNavControl
         var blips = _blips.GetCurrentBlips();
         var colors = new Dictionary<NetEntity, Color>();
         foreach (var blip in blips)
-            colors[blip.NetUid] = blip.Color;
+            colors[blip.NetUid] = blip.Config.Color;
 
         if (_controllables != null)
         {

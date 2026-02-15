@@ -8,20 +8,18 @@ namespace Content.Client._Mono.Radar;
 
 public sealed partial class RadarBlipsSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IMapManager _map = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
+
     private const double BlipStaleSeconds = 3.0;
-    private static readonly List<(Vector2, float, Color, RadarBlipShape)> EmptyBlipList = new();
-    private static readonly List<(NetEntity netUid, NetCoordinates Position, Vector2 Vel, float Scale, Color Color, RadarBlipShape Shape)> EmptyRawBlipList = new();
     private static readonly List<(Vector2 Start, Vector2 End, float Thickness, Color Color)> EmptyHitscanList = new();
     private TimeSpan _lastRequestTime = TimeSpan.Zero;
     private static readonly TimeSpan RequestThrottle = TimeSpan.FromMilliseconds(250);
 
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-
     private TimeSpan _lastUpdatedTime;
-    private List<(NetEntity netUid, NetCoordinates Position, Vector2 Vel, float Scale, Color Color, RadarBlipShape Shape)> _blips = new();
+    private List<BlipNetData> _blips = new();
     private List<(Vector2 Start, Vector2 End, float Thickness, Color Color)> _hitscans = new();
-    private Vector2 _radarWorldPosition;
 
     public override void Initialize()
     {
@@ -34,7 +32,7 @@ public sealed partial class RadarBlipsSystem : EntitySystem
     {
         if (ev?.Blips == null)
         {
-            _blips = EmptyRawBlipList;
+            _blips.Clear();
         }
         else
         {
@@ -55,7 +53,7 @@ public sealed partial class RadarBlipsSystem : EntitySystem
 
     private void RemoveBlip(BlipRemovalEvent args)
     {
-        var blipid = _blips.FirstOrDefault(x => x.netUid == args.NetBlipUid);
+        var blipid = _blips.FirstOrDefault(x => x.Uid == args.NetBlipUid);
         _blips.Remove(blipid);
     }
 
@@ -71,12 +69,6 @@ public sealed partial class RadarBlipsSystem : EntitySystem
 
         _lastRequestTime = _timing.CurTime;
 
-        // Cache the radar position for distance culling
-        if (TryComp<TransformComponent>(console, out var xform))
-        {
-            _radarWorldPosition = _xform.GetWorldPosition(console);
-        }
-
         var netConsole = GetNetEntity(console);
         var ev = new RequestBlipsEvent(netConsole);
         RaiseNetworkEvent(ev);
@@ -85,14 +77,14 @@ public sealed partial class RadarBlipsSystem : EntitySystem
     /// <summary>
     /// Gets the current blips as world positions with their scale, color and shape.
     /// </summary>
-    public List<(NetEntity NetUid, EntityCoordinates Position, float Scale, Color Color, RadarBlipShape Shape)> GetCurrentBlips()
+    public List<BlipData> GetCurrentBlips()
     {
         // If it's been more than the stale threshold since our last update,
         // the data is considered stale - return an empty list
         if (_timing.CurTime.TotalSeconds - _lastUpdatedTime.TotalSeconds > BlipStaleSeconds)
             return new();
 
-        var result = new List<(NetEntity, EntityCoordinates, float, Color, RadarBlipShape)>(_blips.Count);
+        var result = new List<BlipData>(_blips.Count);
 
         foreach (var blip in _blips)
         {
@@ -103,7 +95,15 @@ public sealed partial class RadarBlipsSystem : EntitySystem
 
             var predictedPos = new EntityCoordinates(coord.EntityId, coord.Position + blip.Vel * (float)(_timing.CurTime - _lastUpdatedTime).TotalSeconds);
 
-            result.Add((blip.netUid, predictedPos, blip.Scale, blip.Color, blip.Shape));
+            var predictedMap = _xform.ToMapCoordinates(predictedPos);
+
+            var config = blip.Config;
+            // hijack our shape if we're on a grid and we want to do that
+            if (_map.TryFindGridAt(predictedMap, out var grid, out _) && grid != EntityUid.Invalid && blip.OnGridConfig != null)
+                config = blip.OnGridConfig.Value;
+            var maybeGrid = grid != EntityUid.Invalid ? grid : (EntityUid?)null;
+
+            result.Add(new(blip.Uid, predictedPos, blip.Rotation, maybeGrid, config));
         }
 
         return result;
@@ -130,3 +130,12 @@ public sealed partial class RadarBlipsSystem : EntitySystem
         return result;
     }
 }
+
+public record struct BlipData
+(
+    NetEntity NetUid,
+    EntityCoordinates Position,
+    Angle Rotation,
+    EntityUid? GridUid,
+    BlipConfig Config
+);

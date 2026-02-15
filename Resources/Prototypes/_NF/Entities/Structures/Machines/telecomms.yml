@@ -13,27 +13,28 @@
       - EncryptionKeyScience
       - EncryptionKeySecurity
       - EncryptionKeyService
-      - EncryptionKeyCommand
-      - EncryptionKeyNfsd
+#      - EncryptionKeyCommand #Mono
+#      - EncryptionKeyNfsd #Mono
       - EncryptionKeyTraffic
 
 - type: entity
   parent: TelecomServer
   id: TelecomServerFilledNfsd
-  suffix: Ship, TSFMC
+  suffix: TSFMC #Mono: Ship suffix out
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyCommon
-      - EncryptionKeyCargo
-      - EncryptionKeyEngineering
-      - EncryptionKeyMedical
-      - EncryptionKeyScience
-      - EncryptionKeySecurity
-      - EncryptionKeyService
+#      - EncryptionKeyCommon #Mono start
+#      - EncryptionKeyCargo
+#      - EncryptionKeyEngineering
+#      - EncryptionKeyMedical
+#      - EncryptionKeyScience
+#      - EncryptionKeySecurity
+#      - EncryptionKeyService #Mono end
+      - EncryptionKeyCommand #Mono
       - EncryptionKeyNfsd
-      - EncryptionKeyTraffic
+#      - EncryptionKeyTraffic #Mono
 
 - type: entity
   parent: TelecomServer

@@ -1,0 +1,10 @@
+- type: alarmThreshold
+  id: storageChamberPressure
+  upperBound: !type:AlarmThresholdSetting
+    threshold: 8900 # Approximately 100kpa below injector limit
+  lowerBound: !type:AlarmThresholdSetting
+    threshold: 625
+  upperWarnAround: !type:AlarmThresholdSetting
+    threshold: 0.9 # 8010kPa, good to tell them we're reaching max capacity
+  lowerWarnAround: !type:AlarmThresholdSetting
+    threshold: 2.0 # 1250kPa, whine when emptying out too
