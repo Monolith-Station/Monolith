@@ -60,7 +60,7 @@ public sealed class SharedExecutionSystem : EntitySystem
         {
             Act = () => TryStartExecutionDoAfter(weapon, victim, attacker, comp),
             Impact = LogImpact.High,
-            Text = Loc.GetString("execution-verb-name"),
+            Text = Loc.GetString(VerbDisplay(attacker, victim)), //Mono: VerbDisplay
             Message = Loc.GetString("execution-verb-message"),
         };
 
@@ -213,8 +213,8 @@ public sealed class SharedExecutionSystem : EntitySystem
             var suicideEvent = new SuicideEvent(victim);
             RaiseLocalEvent(victim, suicideEvent);
 
-            var suicideGhostEvent = new SuicideGhostEvent(victim);
-            RaiseLocalEvent(victim, suicideGhostEvent);
+            //var suicideGhostEvent = new SuicideGhostEvent(victim); Mono out: Mistake recovery possible without admins
+            //RaiseLocalEvent(victim, suicideGhostEvent);
         }
         else
         {
@@ -230,5 +230,20 @@ public sealed class SharedExecutionSystem : EntitySystem
             _execution.ShowExecutionInternalPopup(internalMsg, attacker, victim, entity);
             _execution.ShowExecutionExternalPopup(externalMsg, attacker, victim, entity);
         }
+    }
+
+    /// <summary>
+    /// Mono in: Label the actions better to avoid self-oopsy. If attacker equals the victim, diffrentiates the verb.
+    /// </summary>
+    public static string VerbDisplay(EntityUid attacker, EntityUid victim)
+    {
+        string verbTarget;
+
+        if (attacker == victim)
+            verbTarget = "execution-self-verb-name";
+        else
+            verbTarget = "execution-verb-name";
+
+        return verbTarget;
     }
 }

@@ -81,7 +81,7 @@ public sealed class ExecutionSystem : EntitySystem
                 TryStartGunExecutionDoafter((weapon, component), victim, attacker); // Mono - pass in component
             },
             Impact = LogImpact.High,
-            Text = Loc.GetString("execution-verb-name"),
+            Text = Loc.GetString(SharedExecutionSystem.VerbDisplay(attacker, victim)), //Mono: VerbDisplay
             Message = Loc.GetString("execution-verb-message"),
         };
 
