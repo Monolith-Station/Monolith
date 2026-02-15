@@ -4,7 +4,7 @@
   graph:
   - node: start
     edges:
-    - to: sabre
+    - to: finish
       steps:
       - tool: Anchoring
         doAfter: 1
@@ -155,6 +155,30 @@
           key: "enum.MechAssemblyVisuals.State"
           data: 17
 
+  - node: finish
+    edges:
+    - to: sabre
+      steps:
+      - tool: Welding
+        doAfter: 1
+    - to: tsfsabre
+      steps:
+      - tag: MechIFFTSF
+        name: TSF Mech IFF
+        icon:
+          sprite: Objects/Specific/Mech/mecha_equipment.rsi
+          state: tesla
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
+    - to: pdvsabre
+      steps:
+      - tag: MechIFFPDV
+        name: PDV Mech IFF
+        icon:
+          sprite: Objects/Specific/Mech/mecha_equipment.rsi
+          state: tesla
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
@@ -162,3 +186,13 @@
     actions:
     - !type:BuildMech
       mechPrototype: AFInterceptorG
+
+  - node: tsfsabre
+    actions:
+    - !type:BuildMech
+      mechPrototype: AFInterceptorGTSF
+
+  - node: pdvsabre
+    actions:
+    - !type:BuildMech
+      mechPrototype: AFInterceptorGPDV

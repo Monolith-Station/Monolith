@@ -17001,3 +17001,113 @@ Entries:
   id: 1881
   time: '2026-02-05T21:41:03.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2970
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Maints jack now does 32 blunt 30 structural while wielded but had its
+        stamina cost increased to match the cost of swinging a crowbar. Can be
+        used for tidecraft hammering in pry mode.
+    - type: Tweak
+      message: >-
+        You can do surgery with the People's Shovel. No, it's not good at it.
+        People's Shovel tool speed increased to 0.7 and you can use it for
+        tidecraft hammering in pry mode.
+    - type: Fix
+      message: >-
+        Maints jack no longer looks like a fireaxe when equipped in the backpack
+        slot.
+  id: 1882
+  time: '2026-02-09T17:45:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3192
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Nanite applicator nanites can now be produced by shaking nanites with
+        welding fuel. Nanites can revert back into welding fuel when heated up
+        (in a hotplate, microwave, etc)
+  id: 1883
+  time: '2026-02-09T19:57:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3185
+- author: NazrinNya
+  changes:
+    - type: Remove
+      message: Bell collar has been removed from the game
+  id: 1884
+  time: '2026-02-10T12:41:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3198
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Security guard firearm choice was heavily expanded - Added Lecter, AKM,
+        Vector (45 apc), Vulcan.
+    - type: Tweak
+      message: >-
+        Overseer mace now deals 55 blunt and 10 pierce while disabled. 25 slash
+        and 25 heat while enabled, along with 40% reflect chance.
+    - type: Tweak
+      message: >-
+        Overseer shotgun spread now deals 15 damage per pellet (75 in total)
+        compared to 20 (100 in total). Slug now deals 5 more heat damage and 50
+        more structural damage.
+    - type: Tweak
+      message: >-
+        Head of security armor received heavy buff - 55% piercing, 40%
+        blunt/slash, 50% heat.
+    - type: Tweak
+      message: >-
+        Polyvalent vest received minor buff - 40% blunt, slash and heat. 45%
+        piercing.
+  id: 1885
+  time: '2026-02-10T12:43:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3197
+- author: Kiithnaras
+  changes:
+    - type: Fix
+      message: Fixed diamond exo-drills not drilling hard rocks.
+  id: 1886
+  time: '2026-02-10T15:03:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3194
+- author: Loldaddy5676
+  changes:
+    - type: Add
+      message: >-
+        the local syndicate outpost has finally invested in some automated
+        defenses. woe be the raider who tries to illegally park their ship right
+        in front of the outpost. 
+  id: 1887
+  time: '2026-02-11T01:31:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3044
+- author: Kiithnaras
+  changes:
+    - type: Tweak
+      message: Updated CDM Comet interior and gun layout.
+  id: 1888
+  time: '2026-02-11T02:13:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3189
+- author: AthrunZala33092
+  changes:
+    - type: Add
+      message: >-
+        Special TSF/PDV Mech IFF items can be researched under faction advanced
+        equipment and added to the base mech right before the final weld.
+    - type: Remove
+      message: >-
+        Old Mech IFF strobes have been removed from S2 mech research and thus
+        the exosuit lathe.
+    - type: Tweak
+      message: TSF/PDV Mechs now show up on radar as blue/yellow squares.
+    - type: Add
+      message: Chainsword added to S1 Mech research.
+  id: 1889
+  time: '2026-02-12T19:53:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3024
+- author: AthrunZala33092
+  changes:
+    - type: Add
+      message: Some new drip options for Vizier, Colonel, and Captain.
+  id: 1890
+  time: '2026-02-14T15:23:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3145

@@ -56,6 +56,116 @@
       - LightMechMount
       - IFFMechMount
 
+# S1 TSF/PDV Mechs
+
+# TSF Gygax
+- type: entity
+  id: MechGygaxTSF
+  parent: MechGygax
+  name: TSF Gygax
+  description: While lightly armored, the Gygax has incredible mobility thanks to its ability to punch through walls at high speeds.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: tsfgygax
+    - map: ["enum.PaperLabelVisuals.Layer"]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: Mech
+    baseState: tsfgygax
+    openState: tsfgygax-open
+    brokenState: tsfgygax-broken
+  - type: RadarBlip # Mono
+    radarColor: "#047ABD"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+
+# PDV Gygax
+- type: entity
+  id: MechGygaxPDV
+  parent: MechGygax
+  name: PDV Gygax
+  description: While lightly armored, the Gygax has incredible mobility thanks to its ability to punch through walls at high speeds.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: pdvgygax
+    - map: ["enum.PaperLabelVisuals.Layer"]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: Mech
+    baseState: pdvgygax
+    openState: pdvgygax-open
+    brokenState: pdvgygax-broken
+  - type: RadarBlip # Mono
+    radarColor: "#ffde21"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+
+# TSF Durand
+- type: entity
+  id: MechDurandTSF
+  parent: MechDurand
+  name: TSF Durand
+  description: A slow but beefy combat exosuit that is extra scary in confined spaces due to its punches. Xenos hate it!
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: tsfdurand
+    - map: ["enum.PaperLabelVisuals.Layer"]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: Mech
+    baseState: tsfdurand
+    openState: tsfdurand-open
+    brokenState: tsfdurand-broken
+  - type: RadarBlip # Mono
+    radarColor: "#047ABD"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+
+# PDV Durand
+- type: entity
+  id: MechDurandPDV
+  parent: MechDurand
+  name: PDV Durand
+  description: A slow but beefy combat exosuit that is extra scary in confined spaces due to its punches. Xenos hate it!
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: pdvdurand
+    - map: ["enum.PaperLabelVisuals.Layer"]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: Mech
+    baseState: pdvdurand
+    openState: pdvdurand-open
+    brokenState: pdvdurand-broken
+  - type: RadarBlip # Mono
+    radarColor: "#ffde21"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+
 
 # S2 Mechas
 - type: entity
@@ -175,6 +285,42 @@
       mech-battery-slot:
       - PowerCageHigh
 
+#TSF Broadsword
+- type: entity
+  id: AFInterceptorTSF
+  parent: AFInterceptor
+  name: TSF AF-28 "Broadsword"
+  description: One of the first purpose built Armored Frames, made to engage light targets and other Armored Frames.
+  components:
+  - type: Mech
+    baseState: tsfbroadsword
+    openState: tsfbroadsword-open
+    brokenState: tsfbroadsword-broken
+  - type: RadarBlip
+    radarColor: "#047ABD"
+    scale: 3
+    requireNoGrid: true
+    shape: square
+
+#PDV Broadsword
+- type: entity
+  id: AFInterceptorPDV
+  parent: AFInterceptor
+  name: PDV AF-28 "Broadsword"
+  description: One of the first purpose built Armored Frames, made to engage light targets and other Armored Frames.
+  components:
+  - type: Mech
+    baseState: pdvbroadsword
+    openState: pdvbroadsword-open
+    brokenState: pdvbroadsword-broken
+  - type: RadarBlip
+    radarColor: "#ffde21"
+    scale: 3
+    requireNoGrid: true
+    shape: square
+
+#Halberd
+
 - type: entity
   id: AFInterceptorM
   parent: [LightMultiroleMount, AFInterceptor]
@@ -222,7 +368,41 @@
     - Halberd
     - MilitaryMechBounty
 
+#TSF Halberd
+- type: entity
+  id: AFInterceptorMTSF
+  parent: AFInterceptorM
+  name: TSF AF-28-M "Halberd"
+  description: A modification of the Broadsword, the Halberd sacrifices armor and speed for heavier weapon mounts.
+  components:
+  - type: Mech
+    baseState: tsfbroadsword
+    openState: tsfbroadsword-open
+    brokenState: tsfbroadsword-broken
+  - type: RadarBlip
+    radarColor: "#047ABD"
+    scale: 3
+    requireNoGrid: true
+    shape: square
 
+#PDV Halberd
+- type: entity
+  id: AFInterceptorMPDV
+  parent: AFInterceptorM
+  name: PDV AF-28-M "Halberd"
+  description: A modification of the Broadsword, the Halberd sacrifices armor and speed for heavier weapon mounts.
+  components:
+  - type: Mech
+    baseState: pdvbroadsword
+    openState: pdvbroadsword-open
+    brokenState: pdvbroadsword-broken
+  - type: RadarBlip
+    radarColor: "#ffde21"
+    scale: 3
+    requireNoGrid: true
+    shape: square
+
+#Sabre
 - type: entity
   id: AFInterceptorG
   parent: [LightMultiroleMount, AFInterceptor]
@@ -273,6 +453,40 @@
     - FootstepSound
     - Sabre
     - MilitaryMechBounty
+
+#TSF Sabre
+- type: entity
+  id: AFInterceptorGTSF
+  parent: AFInterceptorG
+  name: TSF AF-28-G "Sabre"
+  description: A modification of the Broadsword, the Sabre sacrifices it's jetpack and spaceproof shielding to function on planets. Has two hardpoints, which can carry Light or Medium hardpoints.
+  components:
+  - type: Mech
+    baseState: tsfbroadsword
+    openState: tsfbroadsword-open
+    brokenState: tsfbroadsword-broken
+  - type: RadarBlip
+    radarColor: "#047ABD"
+    scale: 3
+    requireNoGrid: true
+    shape: square
+
+#PDV Sabre
+- type: entity
+  id: AFInterceptorGPDV
+  parent: AFInterceptorG
+  name: PDV AF-28-G "Sabre"
+  description: A modification of the Broadsword, the Sabre sacrifices it's jetpack and spaceproof shielding to function on planets. Has two hardpoints, which can carry Light or Medium hardpoints.
+  components:
+  - type: Mech
+    baseState: pdvbroadsword
+    openState: pdvbroadsword-open
+    brokenState: pdvbroadsword-broken
+  - type: RadarBlip
+    radarColor: "#ffde21"
+    scale: 3
+    requireNoGrid: true
+    shape: square
 
 #4x4 mechas
 - type: entity
@@ -376,6 +590,57 @@
     useSound:
       path: /Audio/Items/jaws_pry.ogg
 
+- type: entity
+  id: AFFlailTSF
+  parent: AFFlail
+  name: TSF ASF-59 "Flail"
+  description: Newest mech on the market, the Armored Strike Frame is built to tackle ship-sized foes with it's oversized weapon mounts. Slow as a pig however, it tacks on generous armor plating to survive it's runs.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: _Mono/Objects/Specific/Mech/mechaS4.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: tsfflail
+    - map: ["enum.PaperLabelVisuals.Layer"]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: Mech
+    baseState: tsfflail
+    openState: tsfflail-open
+    brokenState: tsfflail-broken
+  - type: RadarBlip
+    radarColor: "#047ABD"
+    scale: 3
+    requireNoGrid: true
+    shape: square
+
+- type: entity
+  id: AFFlailPDV
+  parent: AFFlail
+  name: PDV ASF-59 "Flail"
+  description: Newest mech on the market, the Armored Strike Frame is built to tackle ship-sized foes with it's oversized weapon mounts. Slow as a pig however, it tacks on generous armor plating to survive it's runs.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: _Mono/Objects/Specific/Mech/mechaS4.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: pdvflail
+    - map: ["enum.PaperLabelVisuals.Layer"]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: Mech
+    baseState: pdvflail
+    openState: pdvflail-open
+    brokenState: pdvflail-broken
+  - type: RadarBlip
+    radarColor: "#ffde21"
+    scale: 3
+    requireNoGrid: true
+    shape: square
 
 - type: entity
   id: AFFlailE
@@ -427,6 +692,38 @@
     - MilitaryMechBounty
 
 - type: entity
+  id: AFFlailETSF
+  parent: AFFlailE
+  name: TSF ASF-59-E "Spyglass"
+  description: An extremely specialized mech based off the Flail Chassis. Uses sophisticated radar systems to provide command and control capabilities, in addition to employing advanced EWAR weaponry.
+  components:
+  - type: Mech
+    baseState: tsfflail
+    openState: tsfflail-open
+    brokenState: tsfflail-broken
+  - type: RadarBlip
+    radarColor: "#047ABD"
+    scale: 3
+    requireNoGrid: true
+    shape: square
+
+- type: entity
+  id: AFFlailEPDV
+  parent: AFFlailE
+  name: PDV ASF-59-E "Spyglass"
+  description: An extremely specialized mech based off the Flail Chassis. Uses sophisticated radar systems to provide command and control capabilities, in addition to employing advanced EWAR weaponry.
+  components:
+  - type: Mech
+    baseState: pdvflail
+    openState: pdvflail-open
+    brokenState: pdvflail-broken
+  - type: RadarBlip
+    radarColor: "#ffde21"
+    scale: 3
+    requireNoGrid: true
+    shape: square
+
+- type: entity
   id: AFMace
   parent: AFFlail
   name: ASF-59-B "Mace"
@@ -468,3 +765,35 @@
     - FootstepSound
     - Mace
     - MilitaryMechBounty
+
+- type: entity
+  id: AFMaceTSF
+  parent: AFMace
+  name: TSF ASF-59-B "Mace"
+  description: A haphazard refit, armor plating is stripped off to add oversized boosters to the machine. Due to the power constraints, it can only equip a single weapon, limiting versatilty. Fits Heavy Mounts.
+  components:
+  - type: Mech
+    baseState: tsfflail
+    openState: tsfflail-open
+    brokenState: tsfflail-broken
+  - type: RadarBlip
+    radarColor: "#047ABD"
+    scale: 3
+    requireNoGrid: true
+    shape: square
+
+- type: entity
+  id: AFMacePDV
+  parent: AFMace
+  name: PDV ASF-59-B "Mace"
+  description: A haphazard refit, armor plating is stripped off to add oversized boosters to the machine. Due to the power constraints, it can only equip a single weapon, limiting versatilty. Fits Heavy Mounts.
+  components:
+  - type: Mech
+    baseState: pdvflail
+    openState: pdvflail-open
+    brokenState: pdvflail-broken
+  - type: RadarBlip
+    radarColor: "#ffde21"
+    scale: 3
+    requireNoGrid: true
+    shape: square
