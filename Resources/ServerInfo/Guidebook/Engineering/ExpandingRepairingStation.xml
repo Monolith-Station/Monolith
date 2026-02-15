@@ -1,6 +1,6 @@
 ﻿<Document>
   # Expanding and Repairing Shuttles or Stations
-  In Colossus Sector, it is common for spacers or engineers to want to expand the stations or their shuttles, or repair holes left by meteors, combat, or a really angry Security shuttle
+  In Colossus Sector, it is common for spacers or engineers to want to expand a station or shuttle, or most likely repair holes left by meteors, combat, or a really angry Security shuttle
 
   ## Lattice
   Lattice is bare rodwork placed in empty space. It's used as a foundation for building and anchoring objects onto the station.
@@ -43,16 +43,16 @@
     <GuideEntityEmbed Entity="ShipRepairDeviceAmmo"/>
   </Box>
 
-  SRD's can repair any damaged part of ships or stations, when bought from a [color=#f39f27]Engi-Vend[/color] or made from a Lathe and loaded with Ship Repair Matter (SRM) when used on a grid that is destroyed, or apart from a valid grid it will replace missing objects, tiles, and walls. It can even fix wiring, gas pipes, and gun systems! However some parts take more SRM to make.
+  Ship Repair Device's can repair any damaged part of a grid, when bought from a [color=#f39f27]Engi-Vend[/color] or made from a Lathe and loaded with Ship Repair Matter (SRM) when used on a grid that is destroyed, or apart from a valid grid it will replace missing objects, tiles, and walls. It can even fix wiring, gas pipes, and gun systems! However some parts take more SRM to repair.
 
-  SRD's along with its ammo can be acquired through [color=#c96dbf]Researcing[/color] [color=#f39f27]Advanced Tools[/color] and then making it at a
+  Ship Repair Device's and its ammo can be acquired through [color=#c96dbf]Researcing[/color] [color=#f39f27]Advanced Tools[/color] and then making it at a
 
   <Box>
     <GuideEntityEmbed Entity="EngineeringTechFab"/>
     <GuideEntityEmbed Entity="Protolathe"/>
   </Box>
 
-You can make SRD ammo without research however it is more expensive then researching it and making it normally, you can acquire SRM at a 
+You can make Ship Repair Device's ammo without research however it is more expensive then researching it and making it normally, you can acquire Ship Repair Matter at a 
 
   <Box>
     <GuideEntityEmbed Entity="ScrapProcessor"/>

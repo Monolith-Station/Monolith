@@ -16,7 +16,6 @@ Each technology costs [color=#a4885c]Research Points[/color] and unlocks recipes
 In order to do some research you need a different [color=#c96dbf]Research and Devlopment Server[/color] such as 
 
   <Box>
-    <GuideEntityEmbed Entity="ResearchAndDevelopmentServerMerc"/>
     <GuideEntityEmbed Entity="ResearchAndDevelopmentServerRogues"/>
     <GuideEntityEmbed Entity="ResearchAndDevelopmentServerTSFMC"/>
     <GuideEntityEmbed Entity="ResearchAndDevelopmentServerUssp"/>
@@ -24,26 +23,9 @@ In order to do some research you need a different [color=#c96dbf]Research and De
 
 [textlink="Click here to see a list of technologies." link="Technologies"].
 
-## Disciplines
-Technologies are spread over 7 different Disciplines:
-  <Box>
-    <GuideEntityEmbed Entity="Wrench" Caption="Industrial"/>
-    <GuideEntityEmbed Entity="WeaponTetherGun" Caption="Experimental"/>
-    <GuideEntityEmbed Entity="ComputerTelevision" Caption="Civil Services"/>
-    <GuideEntityEmbed Entity="WeaponXrayCannon" Caption="Arsenal"/>
-    <GuideEntityEmbed Entity="BannerNfsd" Caption="TSFMC"/>
-    <GuideEntityEmbed Entity="BannerYellow" Caption="PDV"/>
-    <GuideEntityEmbed Entity="BannerRed" Caption="USSP"/>
-  </Box>
-
-<GuideEntityEmbed Entity="ComputerResearchAndDevelopment"/> Use your nearest R&D console to take note of which kind of research is locked behind each Discipline tree.
 
 ## Server Specific Tech
-Some servers have access to different tree's, and you need to have that server selected in order to do research into that tree, for example USSP, PDV (Rogues), and TSFMC all have their own research tree's that can be accessed using their R&D server
-
-TSFMC have their own lathe which is required to print researched TSFMC tech. USSP and PDV can print their tech using a 
-
-<GuideEntityEmbed Entity="FactionLathe"/>
+Some servers have access to different tree's, and you need to have that server selected in order to do research into that tree, for example USSP, PDV, and TSFMC all have their own research tree's that can be accessed using their R&D server
 
 ## Lathes
   <Box>
