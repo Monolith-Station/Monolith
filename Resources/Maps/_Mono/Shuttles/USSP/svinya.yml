@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/15/2026 08:41:59
-  entityCount: 286
+  time: 02/15/2026 08:45:32
+  entityCount: 288
 maps: []
 grids:
 - 1
@@ -934,6 +934,20 @@ entities:
     - type: Transform
       pos: 2.5,0.5
       parent: 1
+- proto: FoodMeatBacon
+  entities:
+  - uid: 214
+    components:
+    - type: Transform
+      parent: 213
+    - type: Physics
+      canCollide: False
+  - uid: 244
+    components:
+    - type: Transform
+      parent: 213
+    - type: Physics
+      canCollide: False
 - proto: GasMixerOnFlipped
   entities:
   - uid: 142
@@ -1644,6 +1658,22 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,3.5
       parent: 1
+    - type: Storage
+      storedItems:
+        214:
+          position: 0,0
+          _rotation: South
+        244:
+          position: 1,0
+          _rotation: South
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 214
+          - 244
 - proto: SinkWide
   entities:
   - uid: 102
