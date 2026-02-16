@@ -21,6 +21,8 @@
     state: full
   - type: BodyEmotes
     soundsId: ReptilianBodyEmotes
+  - type: Hunger
+  - type: Thirst
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Hydrakin
