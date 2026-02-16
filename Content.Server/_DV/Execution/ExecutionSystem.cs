@@ -11,7 +11,7 @@ using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Execution;
 using Content.Shared.Interaction.Components;
-using Content.Shared.Interaction.Events;
+using Content.Shared.Interaction.Events; // Mono
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -27,7 +27,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
+using Robust.Shared.Timing; // Mono
 
 namespace Content.Server._DV.Execution; // Mono - fix namespace
 
@@ -50,7 +50,7 @@ public sealed class ExecutionSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly GunSystem _gunSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // Mono
 
     /// <inheritdoc/>
     public override void Initialize()

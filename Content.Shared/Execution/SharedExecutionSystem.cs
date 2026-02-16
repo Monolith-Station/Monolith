@@ -14,9 +14,9 @@ using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
+using Robust.Shared.Network; // Mono
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
+using Robust.Shared.Timing; // Mono
 
 namespace Content.Shared.Execution;
 
@@ -61,7 +61,7 @@ public sealed class SharedExecutionSystem : EntitySystem
         if (!CanBeExecuted(victim, attacker))
             return;
 
-        bool guardRail = attacker == victim ? true : false;
+        bool guardRail = attacker == victim ? true : false; // Mono - guardrail
 
         UtilityVerb verb = new()
         {
