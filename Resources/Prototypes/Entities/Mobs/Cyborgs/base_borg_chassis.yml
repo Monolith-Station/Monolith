@@ -330,7 +330,9 @@
   - type: Access
     enabled: false
     groups:
-    - AllAccess
+     - External # Mono
+     - Mercenary # Mono
+#    - AllAccess # Mono
 #  - type: AccessReader
 #    access: [["Command"], ["Research"]]
   - type: ShowJobIcons
@@ -397,7 +399,9 @@
   - type: Access
     enabled: false
     groups:
-    - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
+     - External # Mono
+     - Mercenary # Mono
+#    - AllAccess # Mono
   # - type: AccessReader # Frontier
   #   access: [["Command"], ["Research"]] # Frontier
   - type: StartIonStormed
