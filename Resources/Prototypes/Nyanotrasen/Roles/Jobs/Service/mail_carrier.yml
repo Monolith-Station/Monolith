@@ -13,6 +13,7 @@
   weight: 90 # Frontier
   displayWeight: 30 # Frontier
   canBeAntag: false
+  guides: [ ColonialStaff, MailCarrier ] # Mono
   access:
   - External # Frontier
   - Maintenance

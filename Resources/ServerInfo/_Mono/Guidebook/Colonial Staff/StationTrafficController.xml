@@ -1,0 +1,57 @@
+<Document>
+  # Station Traffic Controller
+
+[mono][head=3]Introduction[/head][/mono]
+Congratulations, Staff! You've been given the ability to work as a Traffic Controller for Colossus Central, right in the middle of the Colossus Sector! This document will give you the minimum of what you should know as a S.T.C. (Station Traffic Controller), and how to enforce it!
+
+Incase you just woke up dizzy from Cryosleep; as a Colonial Staff, and specifically a Station Traffic Controller, you work under the interests of your Colonial Overseer, working to improve the livelihood of residents in the sector!
+
+## Deployment Organization of the Colonial Staff
+As a staffing member of the Colonial Efforts, you have to get to know your peers! Including;
+- [color=#1b67a5]Colonial Overseer.[/color]
+This is your boss! They control the entirety of the Colonial Efforts for this shift, and work alongside Medical Dispatch. Report any offenses that the TSF or PDV do straight to them! Consult them if you don't know what to do, or if you want any changes done to your usual works![/italic]
+- [color=#1b67a5]Station Traffic Controller[/color]
+[italic]This is you! A lovely staff member here to help Colossus Central stay ORGANIZED! Isn't it wonderful?[/italic]
+- [color=#cb0000]Colonial Security[/color]
+[italic]These guys are the long-arms of the law here in Colonial Space; they protect the station, keep the peace, and help YOU do your job, as long as you help them do theirs and aren't too mean to them.[/italic]
+
+
+## Setting Up Your Station!
+Once you get to the bridge (located just south of the shipyard and [color=#1b67a5]Colonial Overseer.[/color] office), it's time to get familiar with your work area, take a few minutes to look around, look at the monitors, and figure out what you need to do. Remember the fax machine uses a special printer inside of it so it can keep printing papers; even without things inside of it!
+
+<GuideEntityEmbed Entity="FaxMachineNFOutpostSTC"/>
+
+Once you're ready to sit down and start working, make sure you find your stamp (located in your backpack usually!) and check that your pen is in your PDA! (To eject the pen either press [color=yellow]Right Click[/color] and eject the pen, or open the UI and click the pen button in the topright of your PDA).
+
+After making sure you have all your equipment and you have familiarized yourself with the Colossus Central Bridge
+
+## Communications
+
+As an STC when you deploy you are the pinnacle of communication and radio traffic within the sector. You acheive this strength through your
+
+  <Box>
+    <GuideEntityEmbed Entity="ClothingHeadsetCommand" Caption="Your Headset"/>
+    <GuideEntityEmbed Entity="EncryptionKeyStationMaster"/>
+  </Box>
+
+Your [color=#1b67a5]Station Master Encryption Key[/color] grants you access to the following radio channels: Broadband(;), [color=#CC6633]shortband (:d)[/color], Medical(:m), Cargo(:u), Engineering(:e), Science(:n), [color=#cb0000]Colonial Security (:g)[/color], [color=#1b67a5]Colonial Staff (:v)[/color],  [color=#526875]TSFMC (:s)[/color], and [color=#526875]TSFMC Command (:c)[/color].
+
+You are NOT able to remove a specific encryption from your headset, as they all come with the [color=#1b67a5]Station Master Encryption Key[/color]. Do be careful though as unfavorable travellers may try to rob you of your Encryption Key due to its highly desired [color=#526875]TSFMC[/color] access, and since Colonial Staff (which includes you) do not get firearms on spawn, you are rather undefended unless you acquire a form of defense.
+
+When establishing that STC is active at your station a simple message over broadband is required (you may send a message over [color=#CC6633]Shortband (:d)[/color] if you wish, or your [color=#1b67a5]Colonial Overseer.[/color] requires it) you are NOT required to put a message over a Communications Terminal to announce which station you are at, or if you are switching stations.
+
+Heres a simple message you can use to establish STC at Colossus Central "Good day sector, Station Traffic Control is active at Colossus Central, IFF's must be enabled within 300 meters of the station, and you must hail by 200 meters, do not approach without clearance. Traffic clear."
+
+## Computer systems
+
+As an STC you have access to the following consoles at Colossus Central
+
+<GuideEntityEmbed Entity="ComputerStationRadar" Caption="Station Radar"/>
+<GuideEntityEmbed Entity="ComputerShuttleTradeOutpostRemote" Caption="Trade Mall Radar"/>
+
+these two terminals (and their variants) allow you to see the ships around Colossus Central and Trademall. Due to there being at most 2 controllers at once, one of you can infact control Trade Mall and the other control Colossus Central. However a small issue with this is that [color=#CC6633]Shortband (:d)[/color] is not available from Trade Mall if you attempt to control it from Colossus Central, using channels such as Cargo may work, but its better to just get a small shuttle and head over there!
+
+## Final Words
+Hopefully this orientation helps you get comfortable with your role as [color=#1b67a5]Station Traffic Controller[/color]! Remember to ask your [color=#1b67a5]Colonial Overseer.[/color] for questions, and don't pocket the fines! I will know.
+
+</Document>

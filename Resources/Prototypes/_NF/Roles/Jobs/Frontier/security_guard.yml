@@ -13,6 +13,7 @@
   weight: 80
   displayWeight: 20 # Second from the bottom
   canBeAntag: false
+  guides: [ ColonialStaff, ColonialSecurity ] # Mono
   access:
   - Security
   - Brig

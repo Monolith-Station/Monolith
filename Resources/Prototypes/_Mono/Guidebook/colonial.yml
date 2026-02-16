@@ -1,0 +1,57 @@
+- type: guideEntry
+  id: Colonial
+  name: guide-entry-colonial
+  text: "/ServerInfo/Guidebook/ColonialStaff/ColonialStaff.xml"
+  children:
+  - Overseer # Monolith, what even is a frontier
+  - StationTrafficController
+  - ColonialSecurity
+  - Janitor
+  - ColonialServiceWorker
+  - MailCarrier
+
+- type: guideEntry
+  id: Overseer
+  name: guide-entry-colonialoverseer
+  text: "/ServerInfo/Guidebook/ColonialStaff/Overseer.xml"
+
+- type: guideEntry
+  id: StationTrafficController
+  name: guide-entry-colonialstc
+  text: "/ServerInfo/Guidebook/ColonialStaff/StationTrafficController.xml" # originial guide written by NotSpooky "chitter chitter", edited by kenya0151 "Inyara the finer"
+  children:
+  - Fines
+  - AlternateStations
+
+- type: guideEntry
+  id: ColonialSecurity
+  name: guide-entry-colonialsecurity
+  text: "/ServerInfo/Guidebook/ColonialStaff/ColonialSecurity.xml" # copied from vanilla security
+  #children:
+
+- type: guideEntry
+  id: ColonialServiceWorker
+  name: guide-entry-colonialserviceworker
+  text: "/ServerInfo/Guidebook/ColonialStaff/ColonialServiceWorker.xml" # copied from vanilla service
+
+- type: guideEntry
+  id: Janitor
+  name: guide-entry-colonialjanitor
+  text: "/ServerInfo/Guidebook/ColonialStaff/Janitor.xml" # copied from vanilla janitor
+  filterEnabled: True
+
+- type: guideEntry
+  id: Fines
+  name: guide-entry-stcfines
+  text: "/ServerInfo/Guidebook/ColonialStaff/STCFines.xml"
+  filterEnabled: True
+
+- type: guideEntry
+  id: AlternateStations
+  name: guide-entry-alternatestations
+  text: "/ServerInfo/Guidebook/ColonialStaff/AltStations.xml"
+
+- type: guideEntry
+  id: MailCarrier
+  name: guide-entry-colonialmail
+  text: "/ServerInfo/Guidebook/ColonialStaff/MailCarrier.xml"

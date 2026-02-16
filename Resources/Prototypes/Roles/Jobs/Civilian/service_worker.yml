@@ -10,6 +10,7 @@
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service
+  guides: [ ColonialStaff, ColonialServiceWorker ] # Mono
   accessGroups: # Frontier
   - GeneralAccess # Frontier
   # access: # Frontier
