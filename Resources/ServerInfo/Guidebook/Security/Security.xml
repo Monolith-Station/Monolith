@@ -2,7 +2,7 @@
 # Trans-Solar Federation Marine Corps (TSFMC)
 Ensuring the safety and security of Colussus Sector the [color=#526875]TSFMC[/color]. They are ready for any situation, and the [color=#526875]TSFMC[/color] are on hand to maintain order and control crowds, and stop smuggling
 
-They face Phaethon Dynasty (PDV), Chimera, ADS and unruly travelers of the sector (i.e. smugglers).
+They face Phaethon Dynasty (PDV), Chimera, Automatic Defense System (ADS), and unruly travelers of the sector (i.e. smugglers).
 
 ## Personnel
 [color=#526875]TSFMC[/color]'s staff is made up of TSFMC Cyborg, TSFMC Engineers, TSFMC Marine, TSFMC, Corspman, and TSFMC Fire Team Leader. [color=#526875]TSFMC[/color] is run by the Captain and Colonel.
@@ -20,17 +20,17 @@ They face Phaethon Dynasty (PDV), Chimera, ADS and unruly travelers of the secto
 First we have non-lethals a step above simply telling someone to cooperate with instructions. Both the stunbaton and disabler are capable of limiting the movement of an assailant, whereas handcuffs can be applied to deny a criminal free movement and access to their hands.
   <Box>
     <GuideEntityEmbed Entity="Stunbaton"/>
+    <GuideEntityEmbed Entity="WeaponDisabler"/>
     <GuideEntityEmbed Entity="Handcuffs"/>
-   <GuideEntityEmbed Entity="WeaponDisabler"/>
   </Box>
 
 ## Flashes
 [color=#a4885c]Flashes[/color] are an effective tool for dispersing crowds and apprehending particularly evasive targets, with a large area of effect blinding all those without protection.
 It is worth noting that flashes can be both used in a large area ([color=yellow]Z[/color] hotkey) and if you attack somebody with it while [color=red]harm mode[/color] is active. Important to note that localized flashes last [color=yellow]2.5[/color] times as long as large area ones.
-[color=#526875]TSFMC[/color] and [color=#a4885c]some[/color] other members of staff have eye protection from flashbangs and flashes.
+[color=#526875]TSFMC[/color] and [color=#a4885c]some[/color] others have eye protection from flashbangs and flashes.
   <Box>
     <GuideEntityEmbed Entity="Flash"/>
-    <GuideEntityEmbed Entity="ClothingEyesGlassesSunglasses"/>
+    <GuideEntityEmbed Entity="ClothingEyesTSFOfficerGlasses"/>
     <GuideEntityEmbed Entity="GrenadeFlashBang"/>
   </Box>
   
