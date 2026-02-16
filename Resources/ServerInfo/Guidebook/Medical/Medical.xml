@@ -3,16 +3,14 @@
 This is the department where people go to when they're hurt, it's up to the folks working here to fix them.
 
 ## Personnel
-[color=#5b97bc]Medical[/color]'s staff is made up of Medical Interns, Medical Doctors, Paramedics and Chemists. [color=#5b97bc]Medical[/color] is run by the Chief Medical Officer.
+[color=#5b97bc]Medical[/color]'s staff is made up of Emergency Responders, Armed Trauma Unit, and Hired Staff. [color=#5b97bc]Medical Dispatch[/color] is ran by the Director of Care.
 
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineMedicalDoctor" Caption="Doctor"/>
-    <GuideEntityEmbed Entity="ToyFigurineParamedic" Caption="Paramedic"/>
-    <GuideEntityEmbed Entity="ToyFigurineChemist" Caption="Chemist"/>
-    <GuideEntityEmbed Entity="ToyFigurineChiefMedicalOfficer" Caption="CMO"/>
+    <GuideEntityEmbed Entity="ToyFigurineMedicalDoctor" Caption="Emergency Responder"/>
+    <GuideEntityEmbed Entity="ToyFigurineChiefMedicalOfficer" Caption="DoC"/>
   </Box>
   
-Right now, medbay is divided into two different sets of care:
+Medical treatment is divided into four different sets of care, with easiest at the top, and hardest at the bottom:
 
 ## Medical Treatment
   <Box>
@@ -28,5 +26,20 @@ Right now, medbay is divided into two different sets of care:
     <GuideEntityEmbed Entity="LargeBeaker"/>
     <GuideEntityEmbed Entity="PillCanister"/>
     <GuideEntityEmbed Entity="ChemMaster"/>
+  </Box>
+## Cryogenic Treatment
+  <Box>
+    <GuideEntityEmbed Entity="CryoPod"/>
+    <GuideEntityEmbed Entity="GasThermoMachineFreezerEnabled"/>
+    <GuideEntityEmbed Entity="CryoxadoneBeakerSmall"/>
+    <GuideEntityEmbed Entity="GasFilter"/>
+  </Box>
+## Cloning
+  <Box>
+    <GuideEntityEmbed Entity="CloningPod"/>
+    <GuideEntityEmbed Entity="MedicalScanner"/>
+    <GuideEntityEmbed Entity="ComputerCloningConsole"/>
+    <GuideEntityEmbed Entity="BiomassReclaimer"/>
+    <GuideEntityEmbed Entity="MaterialBiomass"/>
   </Box>
 </Document>

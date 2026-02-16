@@ -1,24 +1,23 @@
 <Document>
-This page shouldnt be displaying in game, and the EmergencyResponder page should be displaying, if you see this page make a report in the discord, thanks
-
-# Medical Doctor
-It's time to heal. Or at least, try to heal, anyway. Medical Doctors are the primary caretakers of every boo boo and ouchie crewmembers get on the station, be it a small scratch, or boiled skin.
+# Emergency Responder
+It's time to heal. Or at least, try to heal, anyway. Emergency Responders are the primary caretakers of every boo boo and ouchie inhabitants of Colossus Sector get on the travelling the sector, be it a small scratch, or boiled skin.
 
 This guide will give you a basic outline of the treatment options you have available, triage, and other avenues of care.
 
 ## The Basics
-There are two ways to tell what's ailing someone: Taking a scan (with a health analyzer or a medical PDA), or examining them, with a shift-click, and clicking the heart symbol.
+There are two ways to tell what's ailing someone: Take a scan with a health analyzer or installing a Medtek cartridge into your PDA. You can also examine them. Shift-click, and clicking the heart symbol on the subject. This will not show you exact damage and is very vague.
 
-Using a health analyzer is often more powerful than examination, as some things (such as poison, or radiation) don't show up on examination. However, using an analyzer has its drawbacks, as it makes noise and uses up a battery.
+Using a health analyzer or a medtek cartridge is often more powerful than examination, using an analyzer has its drawbacks, as it makes noise and uses up a battery. Your PDA however, does not have battery, and works while in its slot.
 <Box>
 <GuideEntityEmbed Entity="SignExamroom" Caption="examine patient"/>
 <GuideEntityEmbed Entity="MedicalPDA"/>
 <GuideEntityEmbed Entity="MedicalInternPDA" Caption="intern PDA"/>
 <GuideEntityEmbed Entity="HandheldHealthAnalyzer"/>
+<GuideEntityEmbed Entity="MedTekCartridge"/>
 </Box>
 
 ## Medication and Treatment Options
-Before we go any further, it's probably a good idea to go over damage types, and what will heal them. The wiki has more extensive info available, but these are commonly used.
+Before we go any further, it's probably a good idea to go over damage types, and what will heal them. The wiki and guidebook has more extensive info available, but these are commonly used.
 
 An important note: Most medication has an overdose level, which will cause harm to your patient. Chemicals also take time to metabolise in pill form, if you want things to act quickly, use a syringe.
 
@@ -30,7 +29,7 @@ An important note: Most medication has an overdose level, which will cause harm 
 - Bloodloss: Dexaline (Examine the patient, if pale, they still need blood or iron.)
 - Bleeding: Tranexamic acid and Gauze (Bleeding can also be cauterized with burn damage.)
 
-Many stations are stocked with kits in storage, and all medics have some equipment in their starting belt.
+Many stations (like Camelot, or Colossus Central) are stocked with kits in storage, and all medics have some equipment in their medical or EMT belts.
 
 <Box>
 <GuideEntityEmbed Entity="MedkitFilled"/>
@@ -53,6 +52,8 @@ Examine your patient, and note down the important details: Are they alive? Bleed
 
 If alive, treat them as best as you can. Patients are in critical condition at 100 damage, and dead at 200. Keep this in mind when choosing how to treat them. Emergency Pens and Epinephrine are often used to keep patients stable.
 
+Emergency pens found in every spacer's survival box only work while Critical it fixes airloss, and heals minor amount of damage! Epinephrine works by increasing heart rate, making the patient hyper, but causes bloodloss to decrease quickly.
+
 If possible, buckle them to a medical bed, if you need time to treat them, strap them to a stasis bed instead. Just keep in mind that metabolism (and by extension, healing chemicals) are slowed to a crawl when on stasis, they'll need to be taken off of it for the medicine to be effective. (But Blood Packs, Ointment, and Brute packs all work as normal.)
 <Box>
 <GuideEntityEmbed Entity="MedicalBed"/>
@@ -61,14 +62,22 @@ If possible, buckle them to a medical bed, if you need time to treat them, strap
 ## Assessing Corpses
 You can't save them all, sometimes, death happens. Depending on the [color=#a4885c]status[/color] of the body, there are a few things that can be done.
 
-1. Do they have a soul attached? You can tell if, when examining, the following phrase is displayed: "Their soul has departed." If this isn't displayed, there is still a player who can be revived.
+1. Do they have a soul attached? You can tell when you shift-clicke, if their soul has departed there is no one to revive.
 
-2. Is the body rotting? If it is, sadly, they'll have to be cloned. A rotting body can't be brought back with a defibrillator. (See Cloning)
+2. Is the body rotting? If it is, they'll have to be cloned, cryo'd, or need surgery. A rotting body can't be brought back with a defibrillator. (See Cloning)
+
+    2.1 Rot can be reversed by using Cryochems refer to [textlink="types of chemicals guidebook entry" link="Chemicals"]
 
 3. If they have a soul, and aren't rotten, it's possible to revive them. Consider storing the body in a morgue tray if you don't have enough time to revive someone, as the body will rot if you wait too long.
 
 ## Revival
-Not counting airloss, Defibrillator's can be used to revive patients under 200 total damage. Chemicals don't metabolise in the dead, but brute packs and ointment can still patch them up. Use them to bring their numbers down enough for revival.
+Not counting airloss, defibrillator's can be used to revive patients under 200 total damage, however is it more ideal to Defibrilate a patinet at under 100 damage so they dont die again however using a defibrillator on a IPC causes an explosion! 
+
+Chemicals DO metabolise in the dead if injected however the effects they bring do not apply to dead people, but will eventually exit their boodstream
+
+Brute packs and ointment can also be used to patch someone up. Use them to bring their numbers down enough for revival.
+
+If they have suffered damage in the Genetic (Celluar, Genetic, etc) or Poison (Radiation, Poison, Caustic, etc) category they will need chems, or cryo mediicne if dead
 
 <Box>
 <GuideEntityEmbed Entity="Brutepack"/>

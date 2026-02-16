@@ -20,6 +20,8 @@ While chemists primarily make medications, there's a very wide variety of chemic
     <GuideEntityEmbed Entity="HandLabeler"/>
     <GuideEntityEmbed Entity="Syringe"/>
     <GuideEntityEmbed Entity="PillCanister"/>
+    <GuideEntityEmbed Entity="Jug"/>
+    <GuideEntityEmbed Entity="ReinforcedJug"/>
   </Box>
 
 ## The Basics:
@@ -34,9 +36,13 @@ Chemistry is fairly straightforward once you know what to expect. Here's a simpl
 - Alt-click the Chem Master to get the pill bottle out. You may have to remove the beaker first.
 - Click on a table, crate, or another surface to empty the pill bottle if desired. Alternatively, store or empty it into another storage container.
 
-That's it, you've made your first set of pills! Consider checking with Medical Doctors and other crew to see what else may be requested, refilling the medical kits in medbay storage, or just experimenting!
+That's it, you've made your first set of pills! Consider checking with Emergency Responders or the Director of Care to see what else may be requested, refilling the medical kits in medbay storage, or just experimenting!
 
-You can also use the hand labeler to organize individual bottles or bags without using the Chem Master labeling system.
+And now you can ignore all of that, making pills is great for some chems but will often go unused! Due to most shuttles coming with basic medical supplies.
+
+You can also use the hand labeler to organize individual bottles or bags without using the Chem Master labeling system. 
+
+Inputting a beaker or jug into the Cehmical Dispenser while its "Autolabel" feature is enabled will name the beaker or jug with the respective chemical inside of it, if its a mix it will label it with the higher percentage chemical contained.
 
 ## Extra Content:
 

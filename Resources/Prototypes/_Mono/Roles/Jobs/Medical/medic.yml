@@ -13,6 +13,7 @@
   weight: 170
   displayWeight: 55 # Second from the top
   canBeAntag: false
+  guides: [ Medical, EmergencyResponder ] # Mono
   accessGroups:
   - GeneralAccess
   - Medical

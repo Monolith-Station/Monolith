@@ -34,3 +34,6 @@ guide-entry-mechs = Mechs
 guide-entry-s1mechs = Series 1 Mechs
 guide-entry-s2mechs = Series 2 Mechs
 guide-entry-s4mechs = Series 4 Mechs
+
+# Medical Dispatch
+guide-entry-emergencyresponder = Emergency Responder
