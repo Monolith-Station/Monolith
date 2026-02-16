@@ -61,12 +61,15 @@ public sealed class SharedExecutionSystem : EntitySystem
         if (!CanBeExecuted(victim, attacker))
             return;
 
+        bool guardRail = attacker == victim ? true : false;
+
         UtilityVerb verb = new()
         {
             Act = () => TryStartExecutionDoAfter(weapon, victim, attacker, comp),
             Impact = LogImpact.High,
-            Text = Loc.GetString(VerbDisplay(attacker, victim)), //Mono: VerbDisplay
-            Message = Loc.GetString("execution-verb-message"),
+            Text = Loc.GetString(VerbName(attacker, victim)), // Mono: VerbName
+            Message = Loc.GetString(VerbMessage(attacker, victim)), // Mono: VerbMessage
+            ConfirmationPopup = guardRail, // Mono - guardrail
         };
 
         args.Verbs.Add(verb);
@@ -79,13 +82,6 @@ public sealed class SharedExecutionSystem : EntitySystem
 
         if (!_timing.IsFirstTimePredicted) //Mono: unjank prediction spam
             return;
-
-        // Mono: Require confirmation
-        if (attacker == victim && !VerbConfirmationSystem.Check(attacker, "suicide_melee", _timing))
-        {
-            _popup.PopupClient(Loc.GetString("confirm-self-execute-popup"), attacker, attacker, PopupType.MediumCaution);
-            return;
-        }
 
         if (attacker == victim)
         {
@@ -250,8 +246,11 @@ public sealed class SharedExecutionSystem : EntitySystem
     /// <summary>
     /// Mono in: Label the actions better to avoid self-oopsy. If attacker equals the victim, diffrentiates the verb.
     /// </summary>
-    public static string VerbDisplay(EntityUid attacker, EntityUid victim)
-    {
-        return attacker == victim ? "execution-self-verb-name" : "execution-verb-name";
-    }
+    public static string VerbName(EntityUid attacker, EntityUid victim)
+        => attacker == victim ? "execution-self-verb-name" : "execution-verb-name";
+
+    public static string VerbMessage(EntityUid attacker, EntityUid victim)
+        => attacker == victim ? "execution-self-verb-message" : "execution-verb-message";
+
+
 }

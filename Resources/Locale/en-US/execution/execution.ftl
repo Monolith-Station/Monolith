@@ -1,6 +1,7 @@
 execution-verb-name = Execute
 execution-self-verb-name = Execute Self
 execution-verb-message = Use your weapon to execute someone.
+execution-self-verb-message = End your shift with your weapon.
 
 # All the below localisation strings have access to the following variables
 # attacker (the person committing the execution)

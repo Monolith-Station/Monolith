@@ -77,6 +77,8 @@ public sealed class ExecutionSystem : EntitySystem
         if (!CanExecuteWithGun(weapon, victim, attacker))
             return;
 
+        bool guardRail = attacker == victim ? true : false; // Mono - guardrail
+
         UtilityVerb verb = new()
         {
             Act = () =>
@@ -84,8 +86,9 @@ public sealed class ExecutionSystem : EntitySystem
                 TryStartGunExecutionDoafter((weapon, component), victim, attacker); // Mono - pass in component
             },
             Impact = LogImpact.High,
-            Text = Loc.GetString(SharedExecutionSystem.VerbDisplay(attacker, victim)), //Mono: VerbDisplay
-            Message = Loc.GetString("execution-verb-message"),
+            Text = Loc.GetString(SharedExecutionSystem.VerbName(attacker, victim)), // Mono: VerbName
+            Message = Loc.GetString(SharedExecutionSystem.VerbMessage(attacker, victim)), // Mono: VerbMessage
+            ConfirmationPopup = guardRail, //Mono - guardrail
         };
 
         args.Verbs.Add(verb);
@@ -135,13 +138,6 @@ public sealed class ExecutionSystem : EntitySystem
     {
         if (!CanExecuteWithGun(weapon, victim, attacker))
             return;
-
-        // Mono: Require confirmation
-        if (attacker == victim && !VerbConfirmationSystem.Check(attacker, "suicide_gun", _timing))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("confirm-self-execute-popup"), attacker, attacker, PopupType.MediumCaution);
-            return;
-        }
 
         var executionTime = weapon.Comp.ExecutionTime; // Mono
 
