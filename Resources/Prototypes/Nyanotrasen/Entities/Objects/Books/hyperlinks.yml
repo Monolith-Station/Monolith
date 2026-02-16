@@ -39,8 +39,11 @@
     sprite: Nyanotrasen/Objects/Misc/books.rsi
     layers:
     - state: nfsd_sop
+  - type: GuideHelp
+    guides:
+    - TSFSOP
   #- type: HyperlinkBook
-  #  url: https://frontierstation.wiki.gg/wiki/NFSDSOP  #Frontier
+  #  url: /ServerInfo/Guidebook/Security/TSFMCSOP.xml # dont know if this works just gonna comment it out to save me time and shit, SAAAAAAAAAAITAAAAAAAAAAAAAA
   - type: Tag
     tags:
     - Book
