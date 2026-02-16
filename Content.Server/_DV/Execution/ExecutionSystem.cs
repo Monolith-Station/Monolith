@@ -11,6 +11,7 @@ using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Execution;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -26,6 +27,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server._DV.Execution; // Mono - fix namespace
 
@@ -48,6 +50,7 @@ public sealed class ExecutionSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly GunSystem _gunSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -132,6 +135,13 @@ public sealed class ExecutionSystem : EntitySystem
     {
         if (!CanExecuteWithGun(weapon, victim, attacker))
             return;
+
+        // Mono: Require confirmation
+        if (attacker == victim && !VerbConfirmationSystem.Check(attacker, "suicide_gun", _timing))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("confirm-self-execute-popup"), attacker, attacker, PopupType.MediumCaution);
+            return;
+        }
 
         var executionTime = weapon.Comp.ExecutionTime; // Mono
 
@@ -281,6 +291,17 @@ public sealed class ExecutionSystem : EntitySystem
         // Gun successfully fired, deal damage
         _damageableSystem.TryChangeDamage(victim, damage * component.ExecutionModifier, true, targetPart: TargetBodyPart.Head); // Mono - ExecutionModifier
         _audioSystem.PlayEntity(component.SoundGunshot, Filter.Pvs(weapon), weapon, false, AudioParams.Default);
+
+        // Mono: RR parity
+        if (attacker == victim)
+        {
+            // Needs to be delayed to occur after gunshot sound
+            Timer.Spawn(TimeSpan.Zero, () =>
+            {
+                var ghostEv = new SuicideGhostEvent(victim);
+                RaiseLocalEvent(victim, ghostEv);
+            });
+        }
 
         // Popups
         if (attacker != victim)

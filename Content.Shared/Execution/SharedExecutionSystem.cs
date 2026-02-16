@@ -5,16 +5,18 @@ using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Mind;
-using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
+using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Execution;
 
@@ -32,6 +34,9 @@ public sealed class SharedExecutionSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedExecutionSystem _execution = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
+
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -71,6 +76,16 @@ public sealed class SharedExecutionSystem : EntitySystem
     {
         if (!CanBeExecuted(victim, attacker))
             return;
+
+        if (!_timing.IsFirstTimePredicted) //Mono: unjank prediction spam
+            return;
+
+        // Mono: Require confirmation
+        if (attacker == victim && !VerbConfirmationSystem.Check(attacker, "suicide_melee", _timing))
+        {
+            _popup.PopupClient(Loc.GetString("confirm-self-execute-popup"), attacker, attacker, PopupType.MediumCaution);
+            return;
+        }
 
         if (attacker == victim)
         {
@@ -213,8 +228,8 @@ public sealed class SharedExecutionSystem : EntitySystem
             var suicideEvent = new SuicideEvent(victim);
             RaiseLocalEvent(victim, suicideEvent);
 
-            //var suicideGhostEvent = new SuicideGhostEvent(victim); Mono out: Mistake recovery possible without admins
-            //RaiseLocalEvent(victim, suicideGhostEvent);
+            var suicideGhostEvent = new SuicideGhostEvent(victim);
+            RaiseLocalEvent(victim, suicideGhostEvent);
         }
         else
         {
@@ -237,13 +252,6 @@ public sealed class SharedExecutionSystem : EntitySystem
     /// </summary>
     public static string VerbDisplay(EntityUid attacker, EntityUid victim)
     {
-        string verbTarget;
-
-        if (attacker == victim)
-            verbTarget = "execution-self-verb-name";
-        else
-            verbTarget = "execution-verb-name";
-
-        return verbTarget;
+        return attacker == victim ? "execution-self-verb-name" : "execution-verb-name";
     }
 }
