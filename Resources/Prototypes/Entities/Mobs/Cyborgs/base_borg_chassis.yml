@@ -328,10 +328,11 @@
     factions:
     - NanoTrasen
   - type: Access
-    enabled: false
-    groups:
+    tags:
      - External # Mono
      - Mercenary # Mono
+    enabled: false
+#   groups:
 #    - AllAccess # Mono
 #  - type: AccessReader
 #    access: [["Command"], ["Research"]]
@@ -397,11 +398,12 @@
     factions:
     - NanoTrasen #The seemingly best fit. It was a regular NT cyborg once, after all.
   - type: Access
-    enabled: false
-    groups:
+    tags:
      - External # Mono
      - Mercenary # Mono
-#    - AllAccess # Mono
+    enabled: false
+  # groups:
+  #   - AllAccess # Mono
   # - type: AccessReader # Frontier
   #   access: [["Command"], ["Research"]] # Frontier
   - type: StartIonStormed
