@@ -295,6 +295,8 @@
     account: Medical
   - type: CompanyAccessReader
     requiredCompany: MD
+  - type: AccessReader
+    access: ["ChiefMedicalOfficer"]
 
 - type: entity
   parent: BaseStationAdminBankATM
