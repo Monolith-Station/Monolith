@@ -15,7 +15,7 @@
   description: AAAAAAAAAAAAAAAAAAAAAAAAA
   components:
   - type: InstantAction
-    useDelay: 1 # 10->1
+    useDelay: 3 # 10->3
     icon: Interface/Actions/scream.png
     event: !type:ScreamActionEvent
     checkCanInteract: false
