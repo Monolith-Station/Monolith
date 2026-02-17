@@ -3975,7 +3975,7 @@ entities:
     - type: Transform
       pos: -13.5,7.5
       parent: 1
-- proto: AirlockCommandLocked
+- proto: AirlockChiefMedicalOfficerLocked
   entities:
   - uid: 41
     components:
@@ -3996,6 +3996,13 @@ entities:
       access:
       - - Armory
       - - ChiefMedicalOfficer
+  - uid: 2907
+    components:
+    - type: Transform
+      pos: 5.5,39.5
+      parent: 1
+    missingComponents:
+    - Destructible
 - proto: AirlockEngineering
   entities:
   - uid: 44
@@ -23345,18 +23352,6 @@ entities:
     - type: Transform
       pos: -22.595062,10.905408
       parent: 1
-- proto: HighSecCommandLocked
-  entities:
-  - uid: 2907
-    components:
-    - type: Transform
-      pos: 5.5,39.5
-      parent: 1
-    - type: AccessReader
-      access:
-      - - ChiefMedicalOfficer
-    missingComponents:
-    - Destructible
 - proto: HighSecDoor
   entities:
   - uid: 2916
