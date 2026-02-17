@@ -130,7 +130,7 @@
 - type: entity
   parent: BallisticTurretHeavyBase
   id: WeaponTurretHeavyMDAntiChimera
-  suffix: Medical
+  suffix: Anti-Chimera
   description: A massively reinforced turret, firing a barrage of Incendiary 5.56x45mm-TC rounds that rip up targets. Specifically designed to tear through Chimera.
   components:
   - type: NpcFactionMember
@@ -138,15 +138,22 @@
     - InfectionControl
   - type: ProjectileBatteryAmmoProvider
     proto: Bullet556x45mmTCIncendiary
-    fireCost: 25
-  - type: Gun
-    fireRate: 15
-    projectileSpeed: 100
-    maxAngle: 12
-    minAngle: 0
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
+    fireCost: 75
+
+
+- type: entity
+  parent: BaseWeaponBallisticTurret
+  id: WeaponTurretHeavyMDAntiChimera
+  suffix: Anti-Chimera
+  description: A massively reinforced turret, firing a barrage of 5.56x45mm-TC rounds that rip up targets. Specifically designed to tear through Chimera.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - InfectionControl
+  - type: ProjectileBatteryAmmoProvider
+    proto: Bullet556x45mmTC
+    fireCost: 50
+
 
 - type: entity
   parent: BallisticTurretHeavyBase
