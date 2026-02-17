@@ -136,9 +136,6 @@
   - type: NpcFactionMember
     factions:
     - InfectionControl
-  - type: ProjectileBatteryAmmoProvider
-    proto: Bullet556x45mmTCIncendiary
-    fireCost: 75
 
 
 - type: entity
@@ -150,9 +147,6 @@
   - type: NpcFactionMember
     factions:
     - InfectionControl
-  - type: ProjectileBatteryAmmoProvider
-    proto: Bullet556x45mmTC
-    fireCost: 50
 
 
 - type: entity
