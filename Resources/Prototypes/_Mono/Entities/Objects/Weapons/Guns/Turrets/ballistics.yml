@@ -131,18 +131,21 @@
   parent: BallisticTurretHeavyBase
   id: WeaponTurretHeavyMDAntiChimera
   suffix: Anti-Chimera
-  description: A massively reinforced turret, firing a barrage of Incendiary 5.56x45mm-TC rounds that rip up targets. Specifically designed to tear through Chimera.
+  description: A massively reinforced turret, firing a barrage of Incendiary 8x65mm SKR rounds that rip up targets. Specifically designed to tear through Chimera.
   components:
   - type: NpcFactionMember
     factions:
     - InfectionControl
+  - type: ProjectileBatteryAmmoProvider
+    proto: Bullet8x65mmSKRIncendiary
+    fireCost: 75
 
 
 - type: entity
   parent: BaseWeaponBallisticTurret
   id: WeaponTurretHeavyMDAntiChimera
   suffix: Anti-Chimera
-  description: A massively reinforced turret, firing a barrage of 5.56x45mm-TC rounds that rip up targets. Specifically designed to tear through Chimera.
+  description: A massively reinforced turret, firing a barrage of 8x65mm SKR rounds that rip up targets. Specifically designed to tear through Chimera.
   components:
   - type: NpcFactionMember
     factions:
