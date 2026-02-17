@@ -53,3 +53,21 @@
   friendly:
   - AberrantFleshExpeditionNF
   defaultHostile: true
+
+- type: npcFaction
+  id: InfectionControl
+  friendly:
+  - NanoTrasen
+  - SimpleNeutral
+  - Cat
+  - PetsNT
+  - TSFMC
+  - TSFMCTurret
+  - MD
+  neutral:
+  - USSP
+  - PirateNF
+  - SimpleNeutral
+  hostile:
+  - Chimera
+  - AberrantFleshExpeditionNF
