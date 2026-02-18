@@ -274,21 +274,23 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         if (!addLog)
             return;
 
+        var gridFound = _mapManager.TryFindGridAt(mapPos, out var gridUid, out _); // Mono, sanity. Grid ID included with alerts, and mapPos is always used for coords.
+
         if (user == null)
         {
             _adminLogger.Add(LogType.Explosion, LogImpact.High,
-                $"{ToPrettyString(uid):entity} exploded ({typeId}) at Pos:{(posFound ? $"{mapPos:coordinates}" : "[Grid or Map not found]")} with intensity {totalIntensity} slope {slope}");
+                $"{ToPrettyString(uid):entity} exploded ({typeId}) at Pos:{(posFound ? $"{mapPos:coordinates}" : "[Grid or Map not found]")} at GridUid:{(gridFound ? $"{gridUid}" : "Grid Not Found)}")} with intensity {totalIntensity} slope {slope}");
         }
         else
         {
             _adminLogger.Add(LogType.Explosion, LogImpact.High,
-                $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at Pos:{(posFound ? $"{mapPos:coordinates}" : "[Grid or Map not found]")} with intensity {totalIntensity} slope {slope}");
+                $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at Pos:{(posFound ? $"{mapPos:coordinates}" : "[Grid or Map not found]")} at GridUid:{(gridFound ? $"{gridUid}" : "Grid Not Found)}")} with intensity {totalIntensity} slope {slope}");
             var alertMinExplosionIntensity = _cfg.GetCVar(CCVars.AdminAlertExplosionMinIntensity);
             if (alertMinExplosionIntensity > -1
             && totalIntensity >= alertMinExplosionIntensity
             && curTime > NextAlertTime) // Mono
             {
-                _chat.SendAdminAlert(user.Value, $"caused {ToPrettyString(uid)} to explode ({typeId}:{totalIntensity}) at Pos:{(posFound ? $"{mapPos:coordinates}" : "[Grid or Map not found]")}");
+                _chat.SendAdminAlert(user.Value, $"caused {ToPrettyString(uid)} to explode ({typeId}:{totalIntensity}) at Pos:{(posFound ? $"{mapPos:coordinates}" : "[Grid or Map not found]")} at GridUid:{(gridFound ? $"{gridUid}" : "Grid Not Found)}")}");
                 NextAlertTime = curTime + AlertCooldown; // Mono
             }
         }
