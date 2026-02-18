@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/18/2026 09:36:08
-  entityCount: 189
+  time: 02/18/2026 19:59:11
+  entityCount: 190
 maps: []
 grids:
 - 1
@@ -96,10 +96,10 @@ entities:
             5: 0,-3
     - type: SpreaderGrid
       spreadQueues:
+        Puddle: []
+        Kudzu: []
         MetalFoam: []
         Smoke: []
-        Kudzu: []
-        Puddle: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -826,6 +826,30 @@ entities:
       parent: 1
 - proto: RadarEdgeMarkerDiagonal
   entities:
+  - uid: 168
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,-2.5
+      parent: 1
+  - uid: 172
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-1.5
+      parent: 1
+  - uid: 173
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,1.5
+      parent: 1
+  - uid: 174
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,-2.5
+      parent: 1
   - uid: 175
     components:
     - type: Transform
@@ -848,6 +872,17 @@ entities:
     components:
     - type: Transform
       pos: 2.5,-0.5
+      parent: 1
+  - uid: 185
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-1.5
+      parent: 1
+  - uid: 186
+    components:
+    - type: Transform
+      pos: 0.5,1.5
       parent: 1
 - proto: RadarEdgeMarkerStraight
   entities:
@@ -937,11 +972,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,-3.5
       parent: 1
-  - uid: 168
-    components:
-    - type: Transform
-      pos: -0.5,1.5
-      parent: 1
   - uid: 169
     components:
     - type: Transform
@@ -956,25 +986,7 @@ entities:
   - uid: 171
     components:
     - type: Transform
-      pos: 1.5,-1.5
-      parent: 1
-  - uid: 172
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 1.5,-1.5
-      parent: 1
-  - uid: 173
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,1.5
-      parent: 1
-  - uid: 174
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -2.5,-1.5
+      pos: 0.5,-1.5
       parent: 1
   - uid: 179
     components:
@@ -985,8 +997,8 @@ entities:
   - uid: 180
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,-1.5
+      rot: 3.141592653589793 rad
+      pos: -1.5,-1.5
       parent: 1
   - uid: 183
     components:
@@ -994,23 +1006,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 1.5,-0.5
       parent: 1
-  - uid: 185
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,1.5
-      parent: 1
-  - uid: 186
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,-1.5
-      parent: 1
   - uid: 187
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -2.5,-1.5
+      pos: -0.5,0.5
       parent: 1
   - uid: 188
     components:
@@ -1023,6 +1023,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,-3.5
+      parent: 1
+  - uid: 190
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,1.5
       parent: 1
 - proto: SubstationWallBasic
   entities:
