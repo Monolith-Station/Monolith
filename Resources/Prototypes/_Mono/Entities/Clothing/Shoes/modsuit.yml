@@ -169,6 +169,12 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: NoSlip
+  - type: ItemToggle
+    onUse: false
+    onActivate: false
+  - type: ToggleClothing
+    action: ActionToggleMagboots
+    mustEquip: false
   - type: Magboots
   - type: SealableClothingVisuals
     spriteLayer: sealed
@@ -223,7 +229,7 @@
     jumpSound: /Audio/Effects/Footsteps/suitstep2.ogg
   - type: ActionGrant
     actions:
-    - ActionGravityJump 
+    - ActionGravityJump
   - type: ItemActionGrant
     actions:
     - ActionGravityJump

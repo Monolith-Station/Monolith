@@ -1,3 +1,27 @@
+#Small Weapons
+- type: entity
+  id: WeaponMechCombatPulseRifleTSF
+  name: CL-94 Pulse Emitter
+  description: Fires a heavy pulse laser.
+  suffix: Mech Weapon, Gun, Combat, Pulse
+  parent: [ BaseMechWeaponRange, CombatMechEquipment ]
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_pulse
+  - type: Gun
+    fireRate: 1.5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: RiflePulse # Pulse Rifle
+    fireCost: 30
+  - type: Appearance
+  - type: AmmoCounter
+
 #Light Weapons
 - type: entity
   id: LightMechaAutocannon
