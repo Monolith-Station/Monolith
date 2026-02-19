@@ -311,7 +311,7 @@
   id: PowerCageSmall
   parent: BasePowerCage
   name: small-capacity power cage
-  description: A rechargeable power cage for big devices. This is the cheapest kind you can find.
+  description: A rechargeable power cage for big devices. This is the cheapest kind you can find, but it comes with some moderate EMP shielding.
   components:
   - type: Sprite
     sprite: Objects/Power/power_cages.rsi
@@ -324,6 +324,8 @@
   - type: Battery
     maxCharge: 2800
     startingCharge: 2800
+  - type: EmpResistance
+    coefficient: 0.25
 
 - type: entity
   id: PowerCageMedium
@@ -358,11 +360,13 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 9001 # memes
-    startingCharge: 9001
+    maxCharge: 7200
+    startingCharge: 7200
   - type: BatterySelfRecharger
+    autoRechargePause: true
+    autoRechargePauseTime: 12 # Prevent continuous fire, but not a huge delay
     autoRecharge: true
-    autoRechargeRate: 30 # 5 minutes to fully recharge, 2.5x recharge rate of micro-reactor
+    autoRechargeRate: 30 # 4 minutes to fully recharge, 2.5x recharge rate of micro-reactor
 
 - type: entity
   id: PowerCageHigh
