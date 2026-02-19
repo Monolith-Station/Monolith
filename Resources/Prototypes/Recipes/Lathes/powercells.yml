@@ -48,31 +48,35 @@
   id: PowerCageSmall
   result: PowerCageSmall
   completetime: 10
-  materials:
+  materials: # Mono
     Steel: 500
+    Plasteel: 200
     Glass: 200
     Plastic: 200
+    Uranium: 200
+    Gold: 200
+    Diamond: 50
 
 - type: latheRecipe
   id: PowerCageMedium
   result: PowerCageMedium
   completetime: 15
-  materials:
-    Steel: 800
-    Glass: 400
-    Plastic: 400
-    Silver: 200
-    Gold: 200
+  materials: # Mono
+    Steel: 1000
+    Glass: 500
+    Plastic: 500
+    Silver: 250
+    Gold: 500
 
 - type: latheRecipe
   id: PowerCageHigh
   result: PowerCageHigh
   completetime: 20
-  materials:
-    Steel: 400
-    Plasteel: 800
-    Glass: 400
-    Plasma: 400
-    Plastic: 400
-    Silver: 400
-    Gold: 400
+  materials: # Mono
+    Steel: 500
+    Plasteel: 1000
+    Glass: 500
+    Plasma: 500
+    Plastic: 500
+    Silver: 500
+    Gold: 500

@@ -322,9 +322,9 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 2800
+    maxCharge: 2800 # Mono: 1400 >> 2800
     startingCharge: 2800
-  - type: EmpResistance
+  - type: EmpResistance # Mono also
     coefficient: 0.000112
 
 - type: entity
@@ -342,7 +342,7 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 4600
+    maxCharge: 4600 # Mono: 2700 >> 4600
     startingCharge: 4600
 
 - type: entity
@@ -383,7 +383,7 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 6400
+    maxCharge: 6400 # Mono: 6100 >> 6400
     startingCharge: 6400
 
 - type: entity
