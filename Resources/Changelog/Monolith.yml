@@ -17142,3 +17142,30 @@ Entries:
   id: 1893
   time: '2026-02-17T05:04:36.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3236
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Hydrakin Character Creation visual displacements fixed.
+    - type: Fix
+      message: Hydrakin get hungry and thirsty now
+  id: 1894
+  time: '2026-02-18T00:09:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3243
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: NLR rule clarifications.
+  id: 1895
+  time: '2026-02-18T00:12:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3238
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: >-
+        Scream action re-added. Does not populate the hotbar by default, but can
+        be equipped from the actions menu as usual.
+    - type: Tweak
+      message: Scream cooldown set to 3 seconds from 1.
+  id: 1896
+  time: '2026-02-18T00:26:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3242
