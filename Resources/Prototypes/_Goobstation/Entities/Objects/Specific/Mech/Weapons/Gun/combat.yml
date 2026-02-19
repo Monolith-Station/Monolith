@@ -24,7 +24,7 @@
 - type: entity
   id: WeaponMechCombatImmolationGun
   name: ZFI Immolation Beam Gun
-  description: A mech-mounted Xray cannon.
+  description: A mech-mounted Xray cannon. # Mono
   suffix: Mech Weapon, Gun, Combat, Laser
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:
@@ -47,7 +47,7 @@
 - type: entity
   id: WeaponMechCombatSolarisLaser
   name: CH-LC "Solaris" laser cannon
-  description: A mech-mounted Laser Cannon.
+  description: A mech-mounted Laser Cannon. # Mono
   suffix: Mech Weapon, Gun, Combat, Laser
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:
@@ -70,7 +70,7 @@
 - type: entity
   id: WeaponMechCombatFiredartLaser
   name: CH-PS "Firedart" Laser
-  description: A fast-firing mech-mounted laser rifle.
+  description: A fast-firing mech-mounted laser rifle. # Mono
   suffix: Mech Weapon, Gun, Combat, Laser
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:
