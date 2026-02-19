@@ -47,27 +47,32 @@
 - type: latheRecipe
   id: PowerCageSmall
   result: PowerCageSmall
-  completetime: 3
+  completetime: 10
   materials:
     Steel: 200
+    Glass: 100
     Plastic: 100
 
 - type: latheRecipe
   id: PowerCageMedium
   result: PowerCageMedium
-  completetime: 6
+  completetime: 15
   materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 250
+    Steel: 400
+    Glass: 200
+    Plastic: 200
+    Silver: 20
     Gold: 40
 
 - type: latheRecipe
   id: PowerCageHigh
   result: PowerCageHigh
-  completetime: 10
+  completetime: 20
   materials:
-    Steel: 600
-    Glass: 800
-    Plastic: 400
+    Steel: 200
+    Plasteel: 200
+    Glass: 400
+    Uranium: 40
+    Plastic: 200
+    Silver: 80
     Gold: 100
