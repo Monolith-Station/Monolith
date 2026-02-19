@@ -54,6 +54,7 @@
   - type: ApcPowerReceiver
     powerLoad: 1000 # suspiciously low power-using AI
   - type: ExtensionCableReceiver
+  - type: TargetSeekingTarget
 
 - type: entity
   id: NpcStationAiApproacher
