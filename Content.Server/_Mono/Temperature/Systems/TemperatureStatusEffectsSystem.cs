@@ -10,7 +10,7 @@ namespace Content.Server._Mono.Temperature.Systems;
 
 public sealed class TemperatureStatusEffectsSystem : EntitySystem
 {
-    private readonly float _updateCooldown = 5f;
+    private readonly float _updateCooldown = 1f;
     private TimeSpan _updateTimer = TimeSpan.Zero;
 
     [Dependency] private readonly StatusEffectsSystem _effects = default!;

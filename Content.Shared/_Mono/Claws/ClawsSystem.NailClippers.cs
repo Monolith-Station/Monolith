@@ -42,13 +42,13 @@ public abstract partial class SharedClawsSystem
     public bool TryClipNails(NailClipperComponent component, EntityUid nailClipper, EntityUid user, EntityUid? target = null)
     {
         target ??= user;
-        if (!TryComp<ClawsComponent>(target, out var claws))
+        if (!TryComp<ClawsComponent>(target, out var claws) || HasComp<DeclawedComponent>(target))
         {
             _popup.PopupClient(Loc.GetString("has-no-claws-popup"), Transform(user).Coordinates, user);
             return false;
         }
 
-        if (claws.ClawStage == 0)
+        if ((claws.ClawStage == 0) & (component.DeclawChance < 1))
         {
             _popup.PopupClient(Loc.GetString("claws-too-short-popup"), Transform(user).Coordinates, user);
             return false;
@@ -86,7 +86,7 @@ public abstract partial class SharedClawsSystem
             return;
         }
 
-        component.ClawStage -= 1;
+        component.ClawStage = Math.Clamp(component.ClawStage - 1, 0, int.MaxValue);
         _popup.PopupClient(Loc.GetString("claws-clipping-success"), Transform(uid).Coordinates, uid);
 
         UpdateClaws(uid, component);

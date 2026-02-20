@@ -1,4 +1,5 @@
 using Content.Shared._Mono.Claws;
+using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Server._Mono.Claws;
 
@@ -9,6 +10,13 @@ public sealed class ClawsSystem : SharedClawsSystem
 {
     private readonly float _updateCooldown = 1f;
     private TimeSpan _updateTimer = TimeSpan.Zero;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<DeclawedComponent, MeleeAttackEvent>(OnAttack);
+    }
 
     public override void Update(float frameTime)
     {
@@ -22,8 +30,11 @@ public sealed class ClawsSystem : SharedClawsSystem
 
         while (ents.MoveNext(out var uid, out var comp))
         {
+            if (TryComp<DeclawedComponent>(uid, out var declawed))
+                UpdateDeclaw(uid, declawed, _updateCooldown);
+
             if (comp.ClawStage >= comp.Stages.Count - 1 ||
-                HasComp<DeclawedComponent>(uid))
+                declawed != null)
                 continue;
 
             comp.GrowTimer += TimeSpan.FromSeconds(_updateCooldown);
@@ -44,5 +55,16 @@ public sealed class ClawsSystem : SharedClawsSystem
 
         _updateTimer = TimeSpan.Zero;
 
+    }
+
+    private void OnAttack(Entity<DeclawedComponent> ent, ref MeleeAttackEvent args)
+    {
+        if (ent.Owner == args.Weapon)
+            return;
+
+        var r = _random.NextFloat();
+
+        if (r < ent.Comp.DropChanceOnMelee)
+            DeclawDrop(ent, args.Weapon);
     }
 }

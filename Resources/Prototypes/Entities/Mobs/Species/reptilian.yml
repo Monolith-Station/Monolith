@@ -132,14 +132,22 @@
   - type: ExchangeHeatOnInteraction
   - type: TemperatureStatusEffects
     temperatureEffects:
-    - maximumTemperature: 298
+    - maximumTemperature: 295
       effects:
-      - !type:PopupMessage
-        type: Local
-        visualType: Large
-        messages: [ "lizard-cold-popup" ]
-        probability: 0.66
-
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        time: 2
+        type: Add
+        refresh: true
+      - !type:Drunk
+        boozePower: 1
+    - minimumTemperature: 322
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.10
+        sprintSpeedModifier: 1.10
+        refresh: true
 
   # Mono edit end
 
@@ -226,7 +234,7 @@
           types:
             Slash: 7
             Piercing: 5
-        gunSpreadMultiplier: 1.6
+        gunSpreadMultiplier: 1.45
         meleeDamageModifiers:
           coefficients:
             Blunt: 0.75
@@ -245,4 +253,3 @@
             Piercing: 0.5
         canShoot: false
         canWideSwing: true
-  

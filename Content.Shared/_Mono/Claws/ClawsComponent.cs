@@ -31,6 +31,9 @@ public sealed partial class ClawsComponent : Component
 
     [DataField]
     public DamageSpecifier DamageOnDeclaw = new DamageSpecifier();
+
+    [DataField]
+    public string ClawsExaminationString = "claws-lizard";
 }
 
 [DataDefinition, Serializable, NetSerializable]

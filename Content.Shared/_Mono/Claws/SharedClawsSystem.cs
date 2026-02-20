@@ -4,6 +4,7 @@ using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Emoting;
+using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Jittering;
 using Content.Shared.Mobs.Systems;
@@ -11,6 +12,7 @@ using Content.Shared.Popups;
 using Content.Shared.Speech;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
+using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
@@ -28,7 +30,7 @@ public abstract partial class SharedClawsSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doafter = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] protected readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
@@ -42,12 +44,11 @@ public abstract partial class SharedClawsSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<ClawsComponent, MeleeHitEvent>(OnAttack);
         SubscribeLocalEvent<ClawsComponent, ShotAttemptedEvent>(TryShoot);
+        SubscribeLocalEvent<ClawsComponent, ExaminedEvent>(OnExamine);
 
         InitializeNailClippers();
-        InitializeDeclaw();
     }
     /// <summary>
-    /// Used for claw attacks - applies predicted bonus damage from stage to target.
     /// Bonus melee changes are handled in <see cref="UpdateClaws"/>
     /// </summary>
     /// <param name="uid"></param>
@@ -70,7 +71,6 @@ public abstract partial class SharedClawsSystem : EntitySystem
     }
 
     /// <summary>
-    /// Used to prevent shooting user from guns if his claws don't allow so.
     /// Gun accuracy is handled in <see cref="UpdateClaws"/>
     /// </summary>
     /// <param name="ent"></param>
@@ -87,9 +87,14 @@ public abstract partial class SharedClawsSystem : EntitySystem
         args.Cancel();
     }
 
+    private void OnExamine(EntityUid uid, ClawsComponent component, ExaminedEvent args)
+    {
+        args.AddMarkup(Loc.GetString(component.ClawsExaminationString + "-" + component.ClawStage));
+    }
+
     /// <summary>
     /// Instead of capturing both melee and guns events - we will apply
-    /// already existing components each stage change to our clawed entities to ensure effective ECS usage.
+    /// already existing components each stage change to our clawed entities.
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="component"></param>
