@@ -148,6 +148,12 @@
         walkSpeedModifier: 1.10
         sprintSpeedModifier: 1.10
         refresh: true
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -1
+            Brute: -1
+
 
   # Mono edit end
 
