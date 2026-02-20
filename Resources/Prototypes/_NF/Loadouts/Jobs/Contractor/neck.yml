@@ -262,6 +262,15 @@
     neck: ClothingNeckUllimanOvercoat
 
 - type: loadout
+  id: ContractorClothingNeckHeavyUIOvercoat # Monolith
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 0 # Mono
+  equipment:
+    neck: ClothingNeckHeavyUllimanOvercoat
+
+- type: loadout
   id: ContractorClothingNeckCloakMiner
   effects:
   - !type:GroupLoadoutEffect
