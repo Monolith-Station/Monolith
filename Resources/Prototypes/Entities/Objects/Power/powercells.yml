@@ -364,7 +364,7 @@
     startingCharge: 7200
   - type: BatterySelfRecharger
     autoRechargePause: true
-    autoRechargePauseTime: 12 # Prevent continuous fire, but not a huge delay
+    autoRechargePauseTime: 30 # Prevent continuous fire, but not a huge delay
     autoRecharge: true
     autoRechargeRate: 30 # 4 minutes to fully recharge, 2.5x recharge rate of micro-reactor
 

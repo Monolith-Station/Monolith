@@ -13,9 +13,9 @@
     projectileSpeed: 110
     fireRate: 5
     minAngle: 0
-    maxAngle: 20
-    angleIncrease: 4
-    angleDecay: 20
+    maxAngle: 15
+    angleIncrease: 1
+    angleDecay: 15
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -25,7 +25,7 @@
     maxCharge: 180
   - type: ProjectileBatteryAmmoProvider
     proto: 20mmBullet
-    fireCost: 60
+    fireCost: 45
   - type: Appearance
   - type: AmmoCounter
 
@@ -44,7 +44,7 @@
     fireRate: 14
     minAngle: 0
     maxAngle: 20
-    angleIncrease: 2
+    angleIncrease: 0.5
     angleDecay: 20
     selectedMode: FullAuto
     availableModes:
@@ -109,7 +109,7 @@
     fireRate: 2
     minAngle: 0
     maxAngle: 10
-    angleIncrease: 2
+    angleIncrease: 1.5
     angleDecay: 10
     selectedMode: FullAuto
     availableModes:
@@ -120,7 +120,7 @@
     maxCharge: 200
   - type: ProjectileBatteryAmmoProvider
     proto: Mech90mmBullet
-    fireCost: 200
+    fireCost: 120
   - type: Appearance
   - type: AmmoCounter
 
@@ -176,7 +176,7 @@
     maxCharge: 500
   - type: ProjectileBatteryAmmoProvider
     proto: ShipMissileASM302
-    fireCost: 500
+    fireCost: 300
   - type: Appearance
   - type: AmmoCounter
 
@@ -227,8 +227,8 @@
     shotsPerBurst: 3
     burstCooldown: 5
     minAngle: 0
-    maxAngle: 15
-    angleIncrease: 10
+    maxAngle: 12
+    angleIncrease: 1
     angleDecay: 20
     selectedMode: Burst
     availableModes:
@@ -271,7 +271,7 @@
     maxCharge: 300
   - type: ProjectileBatteryAmmoProvider
     proto: MechMediumPlasmaProjectile
-    fireCost: 70
+    fireCost: 100
   - type: Appearance
   - type: AmmoCounter
 
