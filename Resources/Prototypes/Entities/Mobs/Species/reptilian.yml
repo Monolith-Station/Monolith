@@ -147,7 +147,6 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 1.10
         sprintSpeedModifier: 1.10
-        refresh: true
       - !type:HealthChange
         damage:
           groups:
