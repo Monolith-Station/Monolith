@@ -205,7 +205,7 @@
   id: TargetHuman
   result: TargetHuman
   completetime: 5
-  applyMaterialDiscount: false # ingredients dropped when destroyed
+  materialDiscountScale: 0 # ingredients dropped when destroyed
   materials:
     Steel: 500
 
@@ -321,7 +321,7 @@
   completetime: 15
   materials:
     Steel: 2000
-    Uranium: 2000
+    UraniumFissile: 100
     Plastic: 1000
     Plasma: 500
     Glass: 500

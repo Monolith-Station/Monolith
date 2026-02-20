@@ -289,7 +289,7 @@
   name: double-bladed energy sword
   parent: BaseMeleeWeaponEnergy
   id: EnergySwordDouble
-  description: This energy sword has been modified to have blades on both ends, it's unwieldy and dangerous... This can be stored in pockets.
+  description: A variant of the classic Energy Sword with blades on both ends.
   components:
   - type: ItemToggle
     onUse: false # wielding events control it instead
@@ -348,7 +348,7 @@
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
   - type: Reflect
-    reflectProb: .75
+    reflectProb: .5
     spread: 75
   - type: PirateBountyItem # Mono
     id: TSFEnergyWeapon

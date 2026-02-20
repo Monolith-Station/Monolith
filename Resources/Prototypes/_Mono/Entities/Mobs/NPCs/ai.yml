@@ -18,6 +18,18 @@
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.23,-0.45,0.23,0.45"
+        density: 115
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
   - type: InteractionOutline
   - type: Sprite
     sprite: _Mono/Mobs/Core/drone.rsi
@@ -42,6 +54,7 @@
   - type: ApcPowerReceiver
     powerLoad: 1000 # suspiciously low power-using AI
   - type: ExtensionCableReceiver
+  - type: TargetSeekingTarget
 
 - type: entity
   id: NpcStationAiApproacher
@@ -176,6 +189,39 @@
     rootTask:
       task: DroneCompoundMedusa
 
+- type: entity
+  id: NpcDroneAiAssembly
+  parent: NpcStationAiAttacker
+  description: Shoots at you. Broadsides.
+  suffix: AI, Drone-Assembly
+  components:
+  - type: HTN
+    sleepPlayerCheckRangeOverride: 4000
+    rootTask:
+      task: DroneCompoundAssembly
+
+- type: entity
+  id: NpcDroneAiMPulsar
+  name: attacker core
+  parent: [NpcStationAiAttacker, BaseFactionGearOtherFactionT2]
+  description: Shoots at you, up-close.
+  suffix: AI, Drone-MPulsar
+  components:
+  - type: HTN
+    rootTask:
+      task: DroneCompoundMPulsar
+
+- type: entity
+  id: NpcDroneAiLance
+  name: attacker core
+  parent: [NpcStationAiAttacker, BaseFactionGearOtherFactionT2]
+  description: Shoots at you, close-by.
+  suffix: AI, Drone-Lance
+  components:
+  - type: HTN
+    rootTask:
+      task: DroneCompoundLance
+
 #region Spawners
 
 - type: entity
@@ -278,6 +324,15 @@
     - NpcStationAiAttackerStaticSmart
 
 - type: entity
+  name: broadside attacker core spawner
+  id: SpawnMobNpcStationAiAttackerBroadside
+  parent: SpawnMobAttackerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiAttackerBroadside
+
+- type: entity
   name: approacher core spawner
   id: SpawnMobApproacherCore
   parent: SpawnMobAttackerCore
@@ -297,3 +352,33 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcDroneAiMedusa
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiAssembly
+  parent: SpawnMobAttackerCore
+  suffix: Broadside, Drone-Assembly
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiAssembly
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiMPulsar
+  parent: SpawnMobAttackerCore
+  suffix: Short-Range, Drone-MPulsar
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiMPulsar
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiLance
+  parent: SpawnMobAttackerCore
+  suffix: Short-Range, Drone-Lance
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiLance

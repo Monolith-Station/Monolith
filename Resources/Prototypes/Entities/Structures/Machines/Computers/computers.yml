@@ -130,6 +130,7 @@
   abstract: true
   components:
   - type: ShuttleConsole
+  - type: TargetSeekingTarget # Mono
   - type: ShipNpcTarget # Mono
     needPower: true
   - type: ShuttleConsoleLock
@@ -183,6 +184,17 @@
   - type: ShipRepairable
     repairTime: 10
     repairCost: 30
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#03f8fc"
+    scale: 1.5
+    shape: diamond
+    gridConfig:
+      color: "#03f8fc"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.5,-0.5,0.5,0.5"
 
 - type: entity
   parent: [BaseComputerShuttle, BaseShuttleIntercom] # Frontier - BaseShuttleIntercom

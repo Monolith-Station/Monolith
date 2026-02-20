@@ -40,6 +40,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Spawners; // Mono
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -613,6 +614,10 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         if (cartridge.DeleteOnSpawn) // Mono - No need to update appearance if cartridge is getting deleted anyways
             return;
+
+        if (cartridge.AutoTimedDespawn != 0)
+            EnsureComp<TimedDespawnComponent>(uid).Lifetime = cartridge.AutoTimedDespawn;
+        // End mono
 
         Appearance.SetData(uid, AmmoVisuals.Spent, spent);
     }

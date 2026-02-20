@@ -198,3 +198,27 @@
     Glass: 800
     Plastic: 400
     Gold: 100
+
+#IFFs
+
+- type: latheRecipe
+  id: MechIFFTSF
+  result: MechIFFTSF
+  categories:
+  - MonoMechGear
+  completetime: 5
+  materials:
+    Steel: 400
+    Plastic: 50
+    Glass: 50
+
+- type: latheRecipe
+  id: MechIFFPDV
+  result: MechIFFPDV
+  categories:
+  - MonoMechGear
+  completetime: 5
+  materials:
+    Steel: 400
+    Plastic: 50
+    Glass: 50

@@ -21,7 +21,6 @@
     energy: 0.5
   - type: RadarBlip
     scale: 0.85
-    requireNoGrid: true
     shape: triangle
     radarColor: "#1df1f5"
   - type: Fixtures
@@ -71,11 +70,10 @@
     energy: 0.5
   - type: RadarBlip
     scale: 1.15
-    requireNoGrid: true
     shape: arrow
     radarColor: "#1df1f5"
 
-# 57mm 
+# 57mm
 
 - type: entity
   id: 57mmBullet
@@ -95,7 +93,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
     radarColor: "#1df1f5"
   - type: TimedDespawn
@@ -127,7 +124,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 1.5
-    requireNoGrid: true
     shape: triangle
     radarColor: "#1df1f5"
 
@@ -177,7 +173,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 3.25
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 5.15
@@ -217,7 +212,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 7
@@ -286,7 +280,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
     radarColor: "#1df1f5"
   - type: TimedDespawn
@@ -300,3 +293,38 @@
     intensitySlope: 2
     maxIntensity: 2
     maxTileBreak: 1
+
+- type: entity
+  id: ShipPinholeProjectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 400
+        Blunt: 200
+        Piercing: 100
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/57_shell.rsi
+    layers:
+    - state: 57-shell
+    scale: 0.8, 2
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 2.5
+    shape: arrow
+    radarColor: "#1df1f5"
+  - type: TimedDespawn
+    lifetime: 4
+  - type: PointLight
+    color: "#FCBA03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 20
+    intensitySlope: 5
+    maxIntensity: 5
+    maxTileBreak: 1
+  - type: ProjectileKnockback
+    knockback: 75 # giga evil
