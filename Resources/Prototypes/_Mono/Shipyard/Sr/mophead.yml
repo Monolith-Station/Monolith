@@ -1,13 +1,13 @@
 - type: vessel
-  id: Bucket
+  id: Mophead
   parent: BaseVessel
-  name: Bucket
-  description: The janitorial wing of the combined service ship.
-  price: 18000
+  name: Mophead
+  description: A janitor ship containing all of your cleaning needs, for a sanitary space, across the stars.
+  price: 22000
   category: Micro
   group: Sr
   access: Janitor
-  shuttlePath: /Maps/_Mono/Shuttles/bucket.yml
+  shuttlePath: /Maps/_Mono/Shuttles/mophead.yml
   guidebookPage: Null
   class:
   - Civilian
@@ -15,16 +15,16 @@
   - Plasma
 
 - type: gameMap
-  id: Bucket
-  mapName: 'Bucket'
-  mapPath: /Maps/_Mono/Shuttles/bucket.yml
+  id: Mophead
+  mapName: 'Mophead'
+  mapPath: /Maps/_Mono/Shuttles/mophead.yml
   minPlayers: 0
   stations:
-    Bucket:
+    Mophead:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Bucket SRV{1}'
+          mapNameTemplate: 'Mophead SRV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
