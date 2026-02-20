@@ -47,6 +47,12 @@ public sealed partial class MonoCVars
         CVarDef.Create("mono.cleanup.grid.max_value", 30000.0f, CVar.SERVERONLY);
 
     /// <summary>
+    ///     At most how many tiles for a grid to have for it to be cleaned up more aggressively.
+    /// </summary>
+    public static readonly CVarDef<int> GridCleanupAggressiveTiles =
+        CVarDef.Create("mono.grid_cleanup_aggressive_tiles", 10, CVar.SERVERONLY);
+
+    /// <summary>
     ///     Duration, in seconds, for how long a grid has to fulfill cleanup conditions to get cleaned up.
     /// </summary>
     public static readonly CVarDef<float> GridCleanupDuration =

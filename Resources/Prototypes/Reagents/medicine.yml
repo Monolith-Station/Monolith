@@ -1146,7 +1146,7 @@
   color: "#283332"
   metabolisms:
     Medicine:
-      metabolismRate: 0.35 # Mono change - Chem rebalance
+      metabolismRate: 0.15 # Mono change - Chem rebalance
       effects:
       - !type:HealthChange
         damage:
@@ -1173,13 +1173,13 @@
   color: "#b9bf93"
   metabolisms:
     Medicine:
-      metabolismRate: 0.35 # Mono change - Chem rebalance
+      metabolismRate: 0.15 # Mono change - Chem rebalance
       effects:
       - !type:HealthChange
         damage:
           types:
             Piercing: -2.1 # 6 per u. Mono change - Chem rebalance
-            Blunt: 0.15 # Mono change - Chem rebalance
+            Blunt: 0.08 # Mono change - Chem rebalance
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -1201,7 +1201,7 @@
   color: "#ff3636"
   metabolisms:
     Medicine:
-      metabolismRate: 0.35
+      metabolismRate: 0.15
       effects:
       - !type:HealthChange
         damage:
@@ -1275,12 +1275,12 @@
   color: "#aa4308"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1 # slow metabolism to not be a godly combat med, its for treating burn victims efficiently
+      metabolismRate: 0.15 # slow metabolism to not be a godly combat med, its for treating burn victims efficiently # Mono 0.1 -> 0.15
       effects:
       - !type:HealthChange
         damage:
           types:
-            Heat: -1
+            Heat: -2.1 # Mono -1 -> -2.1
       # od causes massive bleeding
       - !type:HealthChange
         conditions:
@@ -1321,13 +1321,13 @@
   color: "#8147ff"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.15 # 0.1 -> 0.15
       effects:
       # heals shocks and removes shock chems
       - !type:HealthChange
         damage:
           types:
-            Shock: -0.5 # 5 per u
+            Shock: -1.5 # Mono 0.5 -> 1.5
       - !type:AdjustReagent
         reagent: Licoxide
         amount: -4

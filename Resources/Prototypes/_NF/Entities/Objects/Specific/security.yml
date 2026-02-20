@@ -102,6 +102,15 @@
 
 - type: entity
   parent: BaseSecurityUplinkRadio
+  id: BaseSecurityUplinkRadioCaptain
+  suffix: Captain 100
+  components:
+  - type: Store
+    balance:
+      FederationMilitaryCredit: 100
+
+- type: entity
+  parent: BaseSecurityUplinkRadio
   id: BaseSecurityUplinkRadioOfficer
   suffix: Officer 75
   components:

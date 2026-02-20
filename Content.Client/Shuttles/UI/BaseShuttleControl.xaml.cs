@@ -37,9 +37,10 @@ public partial class BaseShuttleControl : MapGridControl
     public readonly Dictionary<EntityUid, GridDrawData> GridData = new();
 
     // Per-draw caching
-    private readonly List<(Vector2i, ContentTileDefinition)> _gridTileList = new(); // Mono
+    private readonly Dictionary<Vector2i, ContentTileDefinition> _gridTileList = new(); // Mono
+    // Mono - tile mapped to vector lying along each of 4 directions, if any
+    private readonly Dictionary<Vector2i, Box2?[]> _gridDirEdges = new();
     // stores inward directions of borders
-    private readonly Dictionary<Vector2i, DirectionFlag> _gridNeighborSet = new(); // Mono
     private readonly List<(Vector2 Start, Vector2 End)> _edges = new();
     private readonly HashSet<Entity<GridEdgeMarkerComponent>> _edgeMarkers = new();
 
@@ -152,7 +153,7 @@ public partial class BaseShuttleControl : MapGridControl
         {
             gridData.Vertices.Clear();
             _gridTileList.Clear();
-            _gridNeighborSet.Clear();
+            _gridDirEdges.Clear();
 
             // Okay so there's 2 steps to this
             // 1. Is that get we get a set of all tiles. This is used to decompose into triangle-strips
@@ -163,7 +164,8 @@ public partial class BaseShuttleControl : MapGridControl
 
                 // Mono - drawing logic rewritten
                 var def = (ContentTileDefinition)_tileDef[tileRef.Value.Tile.TypeId];
-                _gridTileList.Add((index, def));
+                _gridTileList[index] = def;
+                _gridDirEdges[index] = new Box2?[4];
 
                 // since our shape has to be convex, just draw it by taking our first vertex as origin
                 var bl = Maps.TileToVector(grid, index);
@@ -178,27 +180,30 @@ public partial class BaseShuttleControl : MapGridControl
                     prev = vert;
                 }
 
-                // also check our neighbours
-                var dirFlag = DirectionFlag.None;
-                prev = def.Vertices[def.Vertices.Count - 1];
+                prev = def.Vertices[^1];
                 for (var i = 0; i < def.Vertices.Count; i++)
                 {
                     var vert = def.Vertices[i];
-
-                    // check if this line is adjacent to any cardinal direction edge
-                    // note that this stores inward directions, so they're inverted here
-                    if (prev.X == 0 && vert.X == 0)
-                        dirFlag |= DirectionFlag.East;
-                    else if (prev.X == 1 && vert.X == 1)
-                        dirFlag |= DirectionFlag.West;
-                    else if (prev.Y == 0 && vert.Y == 0)
-                        dirFlag |= DirectionFlag.North;
-                    else if (prev.Y == 1 && vert.Y == 1)
-                        dirFlag |= DirectionFlag.South;
-
+                    var wasPrev = prev;
                     prev = vert;
+
+                    var dirFlag = DirectionFlag.None;
+                    if (wasPrev.X == 0 && vert.X == 0)
+                        dirFlag = DirectionFlag.West;
+                    else if (wasPrev.X == 1 && vert.X == 1)
+                        dirFlag = DirectionFlag.East;
+                    else if (wasPrev.Y == 0 && vert.Y == 0)
+                        dirFlag = DirectionFlag.South;
+                    else if (wasPrev.Y == 1 && vert.Y == 1)
+                        dirFlag = DirectionFlag.North;
+
+                    if (dirFlag != DirectionFlag.None)
+                    {
+                        var idxVec = dirFlag.AsDir().ToIntVec();
+                        var arrIdx = GetDirIndex(idxVec);
+                        _gridDirEdges[index][arrIdx] = new Box2(wasPrev, vert);
+                    }
                 }
-                _gridNeighborSet[index] = dirFlag;
             }
 
             gridData.EdgeIndex = gridData.Vertices.Count;
@@ -210,34 +215,90 @@ public partial class BaseShuttleControl : MapGridControl
                 var bl = Maps.TileToVector(grid, index);
 
                 // start from drawing the end->start line
-                var prev = def.Vertices[def.Vertices.Count - 1];
+                var prev = def.Vertices[^1];
                 for (var i = 0; i < def.Vertices.Count; i++)
                 {
                     var vert = def.Vertices[i];
+                    var wasPrev = prev;
+                    prev = vert;
 
-                    // if this line is adjacent to any cardinal direction edge
-                    // and we have a neighbour there,
-                    // then that's not an edge
+                    // check if this edge is on any direction - we do have _gridDirEdges to cache this, but it's more feasible to just do this again
                     var dirFlag = DirectionFlag.None;
-                    if (prev.X == 0 && vert.X == 0)
+                    if (wasPrev.X == 0 && vert.X == 0)
                         dirFlag = DirectionFlag.West;
-                    else if (prev.X == 1 && vert.X == 1)
+                    else if (wasPrev.X == 1 && vert.X == 1)
                         dirFlag = DirectionFlag.East;
-                    else if (prev.Y == 0 && vert.Y == 0)
+                    else if (wasPrev.Y == 0 && vert.Y == 0)
                         dirFlag = DirectionFlag.South;
-                    else if (prev.Y == 1 && vert.Y == 1)
+                    else if (wasPrev.Y == 1 && vert.Y == 1)
                         dirFlag = DirectionFlag.North;
 
-                    if (dirFlag != DirectionFlag.None
-                        && _gridNeighborSet.TryGetValue(index + dirFlag.AsDir().ToIntVec(), out var otherNeighbours)
-                        && (otherNeighbours & dirFlag) != 0)
+                    if (dirFlag != DirectionFlag.None)
                     {
-                        prev = vert;
-                        continue;
+                        var dirDir = dirFlag.AsDir();
+                        var dirVec = dirDir.ToIntVec();
+                        if (_gridDirEdges.TryGetValue(index + dirVec, out var otherEdges))
+                        {
+                            var oppositeDir = dirDir.GetOpposite().ToIntVec();
+                            var arrIdx = GetDirIndex(oppositeDir);
+                            var otherEdge = otherEdges[arrIdx];
+                            if (otherEdge is { } neighbor)
+                            {
+                                var offset = (Vector2)dirVec;
+
+                                // offset into our coordinate space: tile relative to us + point relative to tile
+                                var otherPrev = neighbor.BottomLeft + offset;
+                                var otherVert = neighbor.TopRight + offset;
+                                var otherEdgeVec = otherVert - otherPrev;
+                                // so we can map points onto the parametric form of our line
+                                var otherEdgeAdj = otherEdgeVec / otherEdgeVec.LengthSquared();
+
+                                var relPrev = wasPrev - otherPrev;
+                                var relVert = vert - otherPrev;
+                                var relPrevPos = Vector2.Dot(relPrev, otherEdgeAdj);
+                                var relVertPos = Vector2.Dot(relVert, otherEdgeAdj);
+                                // swap us around for ease of checks if needed
+                                if (relPrevPos > relVertPos)
+                                    (relVertPos, relPrevPos) = (relPrevPos, relVertPos);
+
+                                // we're fully inside the other edge: do not draw us
+                                if (relPrevPos >= 0 && relVertPos <= 1)
+                                    continue;
+
+                                // if we do not intersect, just draw us
+                                if (!(relPrevPos >= 1 || relVertPos <= 0))
+                                {
+                                    // we end somewhere inside it
+                                    if (relPrevPos >= 0 || relVertPos <= 1)
+                                    {
+                                        // draw the non-overlapping part
+                                        if (relVertPos <= 1)
+                                            relVertPos = 0;
+                                        if (relPrevPos >= 0)
+                                            relPrevPos = 1;
+
+                                        var p1 = otherPrev + otherEdgeVec * relPrevPos;
+                                        var p2 = otherPrev + otherEdgeVec * relVertPos;
+                                        if (p2 - p1 != Vector2.Zero)
+                                            _edges.Add((bl + p1 * tileSize, bl + p2 * tileSize));
+                                    }
+                                    // we fully encompass it, have to draw 2 parts
+                                    else
+                                    {
+                                        var p1 = otherPrev + otherEdgeVec * relPrevPos;
+                                        var p2 = otherPrev;
+                                        var p3 = otherVert;
+                                        var p4 = otherPrev + otherEdgeVec * relVertPos;
+                                        _edges.Add((bl + p1 * tileSize, bl + p2 * tileSize));
+                                        _edges.Add((bl + p3 * tileSize, bl + p4 * tileSize));
+                                    }
+                                    continue;
+                                }
+                            }
+                        }
                     }
 
-                    _edges.Add((bl + prev * tileSize, bl + vert * tileSize));
-                    prev = vert;
+                    _edges.Add((bl + wasPrev * tileSize, bl + vert * tileSize));
                 }
             }
 
@@ -333,6 +394,15 @@ public partial class BaseShuttleControl : MapGridControl
         }
 
         handle.DrawPrimitives(DrawPrimitiveTopology.LineList, new Span<Vector2>(_allVertices, gridData.EdgeIndex, edgeCount), color);
+    }
+
+    private static int GetDirIndex(Vector2i dir)
+    {
+        // 1,  0 -> 1
+        // 0,  1 -> 3
+        // -1, 0 -> 0
+        // 0, -1 -> 2
+        return Math.Abs(dir.Y) * 2 + (dir.X + dir.Y + 1) / 2;
     }
 
     private record struct GridDrawJob : IParallelRobustJob

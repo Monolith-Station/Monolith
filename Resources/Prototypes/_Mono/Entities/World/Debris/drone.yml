@@ -1,14 +1,16 @@
 - type: entity
-  id: MonoRamDroneSpawnerT1
+  id: MonoDroneSpawnerT1
   parent: MarkerBase
   components:
   - type: RandomSpawner
     prototypes:
     - SpawnDroneBasicSmall
     - SpawnDroneBasicMedium
+    - SpawnDroneMPulsar
+    - SpawnDroneLance
 
 - type: entity
-  id: MonoRamDroneSpawnerT2Inner
+  id: MonoDroneSpawnerT2Inner
   parent: MarkerBase
   components:
   - type: RandomSpawner
@@ -16,9 +18,10 @@
     - SpawnDroneWasp
     - SpawnDroneCrown
     - SpawnDroneGust
+    - SpawnDronePiercer
 
 - type: entity
-  id: MonoRamDroneSpawnerT2Middle
+  id: MonoDroneSpawnerT2Middle
   parent: MarkerBase
   components:
   - type: EntityTableSpawner
@@ -36,9 +39,13 @@
       weight: 20
     - id: SpawnDroneGust
       weight: 20
+    - id: SpawnDronePiercer
+      weight: 20
     # T2 medium
     - id: SpawnDroneMedusa
-      weight: 20
+      weight: 10
+    - id: SpawnDroneAssembly
+      weight: 10
 
 - type: entity
   id: SpawnDroneBase
@@ -55,6 +62,7 @@
       ignorePowered: true
       ignoreIFF: true
       ignorePrice: true
+      distanceOverride: 1024 # so it doesn't despawn while in view
     - type: RandomMetadata
       nameSeparator: ""
       nameSegments:
@@ -67,6 +75,8 @@
       - DroneHex
       - DroneHex
     nameGrid: false
+
+#region Debug
 
 - type: entity
   id: SpawnDroneNeedle
@@ -82,26 +92,7 @@
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/wedge.yml
 
-- type: entity
-  id: SpawnDroneWasp
-  parent: SpawnDroneBase
-  components:
-  - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/wasp.yml
-
-- type: entity
-  id: SpawnDroneMedusa
-  parent: SpawnDroneBase
-  components:
-  - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/medusa.yml
-
-- type: entity
-  id: SpawnDroneCrown
-  parent: SpawnDroneBase
-  components:
-  - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/crown.yml
+#region T1
 
 - type: entity
   id: SpawnDroneGust
@@ -123,3 +114,56 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/ramdronemedium.yml
+
+- type: entity
+  id: SpawnDroneMPulsar
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/mpulsar.yml
+
+- type: entity
+  id: SpawnDroneLance
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/lance.yml
+
+#region T2-1
+
+- type: entity
+  id: SpawnDroneWasp
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/wasp.yml
+
+- type: entity
+  id: SpawnDroneCrown
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/crown.yml
+
+- type: entity
+  id: SpawnDronePiercer
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/piercer.yml
+
+#region T2-2
+
+- type: entity
+  id: SpawnDroneMedusa
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/medusa.yml
+
+- type: entity
+  id: SpawnDroneAssembly
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/assembly.yml
