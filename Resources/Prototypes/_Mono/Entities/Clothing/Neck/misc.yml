@@ -31,3 +31,14 @@
   - type: TemperatureProtection
     heatingCoefficient: 1.1
     coolingCoefficient: 0.5
+
+- type: entity
+  parent: ClothingNeckUllimanOvercoat
+  id: ClothingNeckHeavyUllimanOvercoat
+  name: heavy U.I. overcoat
+  description: A thicker, heavier verison of the U.I. overcoat, with even more synthetic fur for style.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Misc/heavyovercoat.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Misc/heavyovercoat.rsi
