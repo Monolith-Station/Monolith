@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/14/2026 13:53:19
-  entityCount: 314
+  time: 02/21/2026 16:34:57
+  entityCount: 315
 maps: []
 grids:
 - 1
@@ -74,10 +74,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
         Smoke: []
-        Kudzu: []
+        Puddle: []
         MetalFoam: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -2069,6 +2069,11 @@ entities:
     components:
     - type: Transform
       pos: 2.5,10.5
+      parent: 1
+  - uid: 315
+    components:
+    - type: Transform
+      pos: 0.5,10.5
       parent: 1
 - proto: Thruster
   entities:
