@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/10/2026 20:34:10
-  entityCount: 1356
+  time: 02/18/2026 00:42:15
+  entityCount: 1359
 maps: []
 grids:
 - 1
@@ -119,9 +119,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Puddle: []
-        MetalFoam: []
         Kudzu: []
         Smoke: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -4744,6 +4744,28 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 5.5,8.5
       parent: 1
+- proto: DisposalPipe
+  entities:
+  - uid: 548
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 19.5,12.5
+      parent: 1
+  - uid: 857
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 20.5,12.5
+      parent: 1
+- proto: DisposalTrunk
+  entities:
+  - uid: 546
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 18.5,12.5
+      parent: 1
 - proto: DrinkCanPack
   entities:
   - uid: 607
@@ -8406,8 +8428,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 1.5,6.5
       parent: 1
-    - type: Thruster
-      enabled: False
     - type: ApcPowerReceiver
       powerLoad: 1
 - proto: ThrusterLarge
