@@ -292,7 +292,7 @@
         Poison: 0.8 # Mono
   - type: ClothingSpeedModifier # Mono - Armor Value Changes
     walkModifier: 0.9
-    sprintModifier: 0.9
+    sprintModifier: 1
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.35
   - type: PirateBountyItem # Mono
