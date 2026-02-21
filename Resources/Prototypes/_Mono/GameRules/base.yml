@@ -42,9 +42,9 @@
     scheduledGameRules: !type:NestedSelector
       tableId: ChimeraShipsTable
     minimumTimeUntilFirstEvent: 10800 # 3 hours
-    minMaxEventTiming:
-      min: 3600 # 60 minutes between events
-      max: 7200 # 120 minutes between events
+    minMaxEventTiming: #2-4
+      min: 2400 # 40 minutes between events
+      max: 4800 # 80 minutes between events
 
 - type: entity
   abstract: true
