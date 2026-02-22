@@ -106,21 +106,10 @@ public sealed class DetectionSystem : EntitySystem
 
     public string HandleUnknownMassLabel(Entity<MapGridComponent?> grid)
     {
-        switch (CheckMass(grid))
-        {
-            case MassLevel.Supermassive:
-                return Loc.GetString($"shuttle-console-signature-unknown-supermassive");
-            case MassLevel.Huge:
-                return Loc.GetString($"shuttle-console-signature-unknown-huge");
-            case MassLevel.Large:
-                return Loc.GetString($"shuttle-console-signature-unknown-large");
-            case MassLevel.Medium:
-                return Loc.GetString($"shuttle-console-signature-unknown-medium");
-            case MassLevel.Small:
-                return Loc.GetString($"shuttle-console-signature-unknown-small");
-            default:
-                return Loc.GetString($"shuttle-console-signature-unknown");
-        }
+        var massLevel = CheckMass(grid);
+        var massLevelKey = massLevel.ToString().ToLowerInvariant();
+
+        return Loc.GetString("shuttle-console-signature-unknown", ("mass", massLevelKey));
     }
 }
 

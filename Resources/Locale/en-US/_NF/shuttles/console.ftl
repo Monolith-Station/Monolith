@@ -13,12 +13,15 @@ shuttle-console-force-anchored = You are not able to FTL an outpost.
 shuttle-console-signature-infrared = Thermal Signature
 
 # Mono - Unknowns
-shuttle-console-signature-unknown = Unknown
-shuttle-console-signature-unknown-small = Small Unknown
-shuttle-console-signature-unknown-medium = Medium Unknown
-shuttle-console-signature-unknown-large = Large Unknown
-shuttle-console-signature-unknown-huge = Huge Unknown
-shuttle-console-signature-unknown-supermassive = Supermassive Unknown
+shuttle-console-signature-unknown =
+    { $mass ->
+        [small] Small Unknown
+        [medium] Medium Unknown
+        [large] Large Unknown
+        [huge] Huge Unknown
+        [supermassive] Supermassive Unknown
+       *[other] Unknown
+    }
 
 # Network Port Buttons
 shuttle-console-network-ports = Network Ports
