@@ -91,15 +91,15 @@ public sealed class DetectionSystem : EntitySystem
     {
         var physics = Comp<PhysicsComponent>(grid);
 
-        if (physics.Mass >= _supermassiveMass)
+        if (physics.FixturesMass >= _supermassiveMass)
             return MassLevel.Supermassive;
-        if (physics.Mass >= _hugeMass)
+        if (physics.FixturesMass >= _hugeMass)
             return MassLevel.Huge;
-        if (physics.Mass >= _largeMass)
+        if (physics.FixturesMass >= _largeMass)
             return MassLevel.Large;
-        if (physics.Mass >= _mediumMass)
+        if (physics.FixturesMass >= _mediumMass)
             return MassLevel.Medium;
-        if (physics.Mass >= 0)
+        if (physics.FixturesMass >= 0)
             return MassLevel.Small;
         return MassLevel.Unknown;
     }
