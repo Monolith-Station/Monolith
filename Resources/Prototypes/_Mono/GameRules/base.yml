@@ -17,7 +17,7 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: DamagedAIShipsTableT2
-    minimumTimeUntilFirstEvent: 18000 # 5 hours
+    minimumTimeUntilFirstEvent: 14400 # 4 hours
     minMaxEventTiming:
       min: 3600 # 60 minutes between events
       max: 3600 # 60 minutes between events
@@ -29,7 +29,7 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: AsakimShipsTable
-    minimumTimeUntilFirstEvent: 10800 # 180 minutes
+    minimumTimeUntilFirstEvent: 7200 # 2 hours
     minMaxEventTiming:
       min: 3600 # 60 minutes between events
       max: 7200 # 120 minutes between events
@@ -41,10 +41,10 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: ChimeraShipsTable
-    minimumTimeUntilFirstEvent: 14400 # 240 minutes
-    minMaxEventTiming:
-      min: 3600 # 60 minutes between events
-      max: 3600 # 60 minutes between events
+    minimumTimeUntilFirstEvent: 10800 # 3 hours
+    minMaxEventTiming: #2-4
+      min: 2400 # 40 minutes between events
+      max: 4800 # 80 minutes between events
 
 - type: entity
   abstract: true
