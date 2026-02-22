@@ -5,6 +5,7 @@
       - id: UnknownShuttleZenith
       - id: UnknownShuttleRazor
       - id: UnknownShuttleNebula
+      - id: UnknownShuttlePhobos
 
 - type: entityTable
   id: DamagedAIShipsTableT2
@@ -16,7 +17,8 @@
     - id: UnknownShuttleRazorN
     - id: UnknownShuttleNebula
     - id: UnknownShuttleWyvern
-
+    - id: UnknownShuttlePhobos
+    
 - type: entity
   parent: BaseRandomShuttleRule
   id: UnknownShuttleZenith
@@ -106,3 +108,18 @@
     minPlayers: 60
   - type: LoadMapRule
     preloadedGrid: AIWyvern
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttlePhobos
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-ai-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 2
+    maxOccurrences: 2
+  - type: GameRule
+    minPlayers: 32
+  - type: LoadMapRule
+    preloadedGrid: AIPhobos
