@@ -86,6 +86,10 @@
   minOreYield: 1
   maxOreYield: 3
 
+- type: ore # Mono
+  id: OreAnomalySpawner
+  oreEntity: RandomAnomalySpawner
+
 - type: weightedRandomOre
   id: RandomOreDistributionStandard
   weights:

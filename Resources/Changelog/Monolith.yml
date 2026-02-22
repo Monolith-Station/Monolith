@@ -17232,3 +17232,65 @@ Entries:
   id: 1903
   time: '2026-02-21T16:48:54.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3255
+- author: Redrover1760
+  changes:
+    - type: Remove
+      message: New players are no longer pacified on CC/MD
+  id: 1904
+  time: '2026-02-22T01:16:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3248
+- author: Helicaste
+  changes:
+    - type: Add
+      message: Anomalies can now show up on asteroids in place of artifact fragments.
+  id: 1905
+  time: '2026-02-22T01:23:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3259
+- author: Helicaste
+  changes:
+    - type: Tweak
+      message: >-
+        Shuttle event spawns (ADS, Asakim, Chimera) have had their spawn timers
+        tweaked. You will now see the Wyvern, Asakim, and Chimera earlier into
+        each round. Prepare carefully, for the horde is coming.
+  id: 1906
+  time: '2026-02-22T02:35:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3265
+- author: tonotom1
+  changes:
+    - type: Add
+      message: Ported colored paper and sticky notes from DV. All credit to densetsu
+    - type: Add
+      message: Added manila envelopes by skye1803
+    - type: Tweak
+      message: The Janitorial supplies crate now has cleanades again!
+  id: 1907
+  time: '2026-02-22T03:05:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3210
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Seeds, botany supplies, portable fuel and water tanks, some useful
+        restocks, emotional support pets, all chem element barrels (except
+        silver and gold), toy box, and P S D chem crates were made available at
+        cargo. Party crate once again comes with a cake.
+    - type: Tweak
+      message: >-
+        Barrels now sell for 100 down from 1000. This is to make the price of a
+        barrel less stupid (150 down from 2000)
+  id: 1908
+  time: '2026-02-22T04:04:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3205
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: A tiny tick has appeared on the scrapyard console!
+  id: 1909
+  time: '2026-02-22T04:21:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3183
+- author: UnicornOnLSD
+  changes: []
+  id: 1910
+  time: '2026-02-22T05:36:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3254
