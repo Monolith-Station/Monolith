@@ -367,6 +367,9 @@
     deconstructable: false # Frontier
   - type: StaticPrice
     price: 95 # Mono
+  - type: Construction # Mono
+    graph: Girder
+    node: wallPlastitaniumDiagonal
 
 - type: entity
   id: WallPlastitaniumDiagonalIndestructible

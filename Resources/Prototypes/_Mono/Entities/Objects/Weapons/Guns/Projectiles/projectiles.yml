@@ -93,8 +93,8 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 50
-        Structural: 250
+        Heat: 55
+        Structural: 300
 
 - type: entity
   id: BulletLaserPellet
@@ -111,7 +111,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 20
+        Heat: 15
         Structural: 12
 
 - type: entity
