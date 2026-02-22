@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/21/2026 19:56:40
+  time: 02/22/2026 11:59:51
   entityCount: 208
 maps: []
 grids:
@@ -70,10 +70,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        MetalFoam: []
         Smoke: []
+        Kudzu: []
         Puddle: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -92,6 +92,8 @@ entities:
     - type: RadiationGridResistance
     - type: ShipGridLock
       locked: False
+    - type: Roof
+      data: {}
 - proto: APCBasic
   entities:
   - uid: 81
