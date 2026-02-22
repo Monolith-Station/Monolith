@@ -169,7 +169,7 @@
     - id: SnowElementalSpawner
       weight: 0.07
     - id: WallRockSnowArtifactAnomaly # Mono
-      weight: 0.008
+      weight: 0.006
 
 - type: entity
   id: NFIceMineralSoft
@@ -309,7 +309,7 @@
     - id: AndesiteElementalSpawner
       weight: 0.08
     - id: WallRockAndesiteArtifactAnomaly # Mono
-      weight: 0.005
+      weight: 0.00075
 
 - type: entity
   id: NFAndesiteMineralSoft
@@ -449,7 +449,7 @@
     - id: BasaltElementalSpawner
       weight: 0.05
     - id: WallRockBasaltArtifactAnomaly # Mono
-      weight: 0.005
+      weight: 0.00075
 
 - type: entity
   id: NFBasaltMineralSoft
@@ -589,7 +589,7 @@
     - id: SandElementalSpawner
       weight: 0.05
     - id: WallRockSandArtifactAnomaly # Mono
-      weight: 0.005
+      weight: 0.00075
 
 - type: entity
   id: NFSandMineralSoft
@@ -729,7 +729,7 @@
     - id: ChromiteElementalSpawner
       weight: 0.05
     - id: WallRockChromiteArtifactAnomaly # Mono
-      weight: 0.005
+      weight: 0.00075
 
 - type: entity
   id: NFChromiteMineralSoft
@@ -869,7 +869,7 @@
     - id: AsteroidRockElementalSpawner
       weight: 0.08
     - id: AsteroidRockArtifactAnomaly # Mono
-      weight: 0.0005
+      weight: 0.00035
 
 - type: entity
   id: NFAsteroidMineralSoft
