@@ -17216,3 +17216,33 @@ Entries:
   id: 1901
   time: '2026-02-19T19:50:27.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3218
+- author: Helicaste
+  changes:
+    - type: Tweak
+      message: >-
+        Smuggling crates have radar blips. Smugglesloppers despair, pirates
+        rejoice.
+  id: 1902
+  time: '2026-02-21T14:33:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3264
+- author: 10kee
+  changes:
+    - type: Fix
+      message: Fixes a missing layer on the Vox Thrasher tail
+  id: 1903
+  time: '2026-02-21T16:48:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3255
+- author: Redrover1760
+  changes:
+    - type: Remove
+      message: New players are no longer pacified on CC/MD
+  id: 1904
+  time: '2026-02-22T01:16:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3248
+- author: Helicaste
+  changes:
+    - type: Add
+      message: Anomalies can now show up on asteroids in place of artifact fragments.
+  id: 1905
+  time: '2026-02-22T01:23:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3259
