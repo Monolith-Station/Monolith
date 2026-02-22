@@ -676,9 +676,9 @@
         acts: ["Destruction"]
   - type: RadarConsole
     followEntity: true
-  - type: DetectionRangeMultiplier
-    infraredMultiplier: 1.5
-    visualMultiplier: 2
+  - type: DetectionRangeMultiplier #In exchange for its otherwise completely ass stats and the tradeoff of needing someone *in* the mech to use it, this is an overwatch computer.
+    infraredMultiplier: 2
+    visualMultiplier: 4
   # EXTREMELY slow in gravity. Only really good to taxi, and that's about it. Even worse than S2s
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.25
