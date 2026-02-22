@@ -59,7 +59,12 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: grid
+      name: ADS Phobos
+    - type: InitRepairSnapshot
+    - type: ShipRepairRestrict
+      toolWhitelist:
+        tags:
+        - ADSRepairTool
     - type: Transform
       pos: -0.517591,-0.359375
       parent: 
