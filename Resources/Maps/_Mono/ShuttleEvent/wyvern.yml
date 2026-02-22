@@ -79,7 +79,15 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: grid
+      name: ADS Wyvern
+    - type: InitRepairSnapshot
+    - type: ShipRepairRestrict
+      toolWhitelist:
+        tags:
+        - ADSRepairTool
+    - type: Transform
+      parent: invalid
+    - type: MapGrid
     - type: Transform
       pos: -0.515625,-0.5
       parent: 
@@ -217,6 +225,8 @@ entities:
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+    - type: IFF
+      color: '#00CCFFFF'
     - type: DecalGrid
       chunkCollection:
         version: 2
