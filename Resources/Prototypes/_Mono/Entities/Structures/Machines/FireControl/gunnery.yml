@@ -255,6 +255,7 @@
   - type: FireControlConsole
   - type: ShipNpcTarget
     needPower: true
+  - type: TargetSeekingTarget
   - type: ActivatableUI
     key: enum.FireControlConsoleUiKey.Key
   - type: UserInterface
