@@ -14,14 +14,19 @@
   copies: 12
 
 - type: preloadedGrid
-  id: AIRazor
-  path: /Maps/_Mono/ShuttleEvent/razor.yml
+  id: AILancer
+  path: /Maps/_Mono/ShuttleEvent/lancer.yml
   copies: 12
 
 - type: preloadedGrid
-  id: AIRazorN
-  path: /Maps/_Mono/ShuttleEvent/razorn.yml
+  id: AILancerN
+  path: /Maps/_Mono/ShuttleEvent/lancern.yml
   copies: 3
+
+- type: preloadedGrid
+  id: AIFencer
+  path: /Maps/_Mono/ShuttleEvent/fencer.yml
+  copies: 6
 
 - type: preloadedGrid
   id: AIWyvern

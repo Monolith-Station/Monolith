@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/22/2026 10:26:00
-  entityCount: 194
+  time: 02/22/2026 10:25:06
+  entityCount: 176
 maps: []
 grids:
 - 1
@@ -42,7 +42,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: ADS Lancer
+      name: ADS Lancer-N
     - type: Transform
       pos: -1.2604167,1.8534133
       parent: invalid
@@ -98,11 +98,6 @@ entities:
       locked: False
 - proto: APCBasic
   entities:
-  - uid: 127
-    components:
-    - type: Transform
-      pos: 0.5,5.5
-      parent: 1
   - uid: 128
     components:
     - type: Transform
@@ -114,11 +109,6 @@ entities:
     components:
     - type: Transform
       pos: 0.5,5.5
-      parent: 1
-  - uid: 152
-    components:
-    - type: Transform
-      pos: 0.5,4.5
       parent: 1
   - uid: 153
     components:
@@ -339,25 +329,8 @@ entities:
     - type: Transform
       pos: 0.5,3.5
       parent: 1
-  - uid: 150
-    components:
-    - type: Transform
-      pos: 0.5,4.5
-      parent: 1
 - proto: Catwalk
   entities:
-  - uid: 99
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 0.5,8.5
-      parent: 1
-  - uid: 100
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 0.5,9.5
-      parent: 1
   - uid: 101
     components:
     - type: Transform
@@ -478,32 +451,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: DarkCatwalkMono
-  entities:
-  - uid: 95
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -3.5,-2.5
-      parent: 1
-  - uid: 96
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 4.5,-2.5
-      parent: 1
-  - uid: 97
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -2.5,3.5
-      parent: 1
-  - uid: 98
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 3.5,3.5
-      parent: 1
 - proto: GeneratorWallmountAPU
   entities:
   - uid: 121
@@ -541,6 +488,20 @@ entities:
     - type: Transform
       pos: 0.5,-0.5
       parent: 1
+- proto: Grille
+  entities:
+  - uid: 5
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,-2.5
+      parent: 1
+  - uid: 6
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,-2.5
+      parent: 1
 - proto: GrilleDiagonal
   entities:
   - uid: 81
@@ -566,17 +527,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,7.5
       parent: 1
-- proto: GunneryServerHigh
-  entities:
-  - uid: 119
-    components:
-    - type: Transform
-      pos: -0.5,0.5
-      parent: 1
-    - type: Battery
-      startingCharge: 0
-    - type: ApcPowerReceiver
-      powerLoad: 20
 - proto: GyroscopeSecurity
   entities:
   - uid: 120
@@ -586,7 +536,7 @@ entities:
       parent: 1
 - proto: MachineFTLDrive25S
   entities:
-  - uid: 114
+  - uid: 4
     components:
     - type: Transform
       pos: 0.5,3.5
@@ -650,7 +600,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,6.5
       parent: 1
-  - uid: 180
+  - uid: 100
     components:
     - type: Transform
       pos: 0.5,3.5
@@ -662,12 +612,12 @@ entities:
     - type: Transform
       pos: 0.5,0.5
       parent: 1
-- proto: ShieldGenerator
+- proto: ScuttleDeviceRazorN
   entities:
-  - uid: 113
+  - uid: 3
     components:
     - type: Transform
-      pos: 0.5,4.5
+      pos: -0.5,0.5
       parent: 1
 - proto: SpawnRedactedBorg
   entities:
@@ -682,77 +632,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-0.5
-      parent: 1
-- proto: SurveillanceCameraAssembly
-  entities:
-  - uid: 183
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,4.5
-      parent: 1
-  - uid: 184
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,1.5
-      parent: 1
-  - uid: 185
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 1.5,1.5
-      parent: 1
-  - uid: 186
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -2.5,3.5
-      parent: 1
-  - uid: 187
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 3.5,3.5
-      parent: 1
-  - uid: 188
-    components:
-    - type: Transform
-      pos: 0.5,8.5
-      parent: 1
-  - uid: 189
-    components:
-    - type: Transform
-      pos: -1.5,6.5
-      parent: 1
-  - uid: 190
-    components:
-    - type: Transform
-      pos: 2.5,6.5
-      parent: 1
-  - uid: 191
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 5.5,0.5
-      parent: 1
-  - uid: 192
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -4.5,0.5
-      parent: 1
-  - uid: 193
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,-1.5
-      parent: 1
-  - uid: 194
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 3.5,-1.5
       parent: 1
 - proto: ThrusterSecurity
   entities:
@@ -826,6 +705,11 @@ entities:
       parent: 1
 - proto: WallPlastitanium
   entities:
+  - uid: 2
+    components:
+    - type: Transform
+      pos: 0.5,4.5
+      parent: 1
   - uid: 7
     components:
     - type: Transform
@@ -1162,6 +1046,28 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,-0.5
       parent: 1
+  - uid: 95
+    components:
+    - type: Transform
+      pos: 3.5,3.5
+      parent: 1
+  - uid: 96
+    components:
+    - type: Transform
+      pos: -2.5,3.5
+      parent: 1
+  - uid: 97
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,9.5
+      parent: 1
+  - uid: 113
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,8.5
+      parent: 1
 - proto: WallPlastitaniumDiagonal
   entities:
   - uid: 75
@@ -1199,45 +1105,22 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-0.5
       parent: 1
+  - uid: 98
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,4.5
+      parent: 1
+  - uid: 99
+    components:
+    - type: Transform
+      pos: -2.5,4.5
+      parent: 1
 - proto: WarpPointAdmin
   entities:
   - uid: 182
     components:
     - type: Transform
       pos: 0.5,1.5
-      parent: 1
-- proto: WeaponLaserTurretFlayer
-  entities:
-  - uid: 5
-    components:
-    - type: Transform
-      pos: -3.5,-2.5
-      parent: 1
-  - uid: 6
-    components:
-    - type: Transform
-      pos: 4.5,-2.5
-      parent: 1
-- proto: WeaponTurretSunder
-  entities:
-  - uid: 2
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,3.5
-      parent: 1
-  - uid: 4
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 3.5,3.5
-      parent: 1
-- proto: WeaponTurretTartarus
-  entities:
-  - uid: 3
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,8.5
       parent: 1
 ...

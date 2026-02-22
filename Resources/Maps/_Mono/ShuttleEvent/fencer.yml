@@ -39,11 +39,6 @@ entities:
     components:
     - type: MetaData
       name: ADS Fencer
-    - type: InitRepairSnapshot
-    - type: ShipRepairRestrict
-      toolWhitelist:
-        tags:
-        - ADSRepairTool
     - type: Transform
       pos: -0.38541666,-0.67199516
       parent: invalid
