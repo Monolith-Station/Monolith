@@ -86,11 +86,8 @@ entities:
         tags:
         - ADSRepairTool
     - type: Transform
-      parent: invalid
-    - type: MapGrid
-    - type: Transform
       pos: -0.515625,-0.5
-      parent: 
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
