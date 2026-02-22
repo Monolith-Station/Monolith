@@ -1,25 +1,33 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "From tgstation - https://github.com/tgstation/tgstation/pull/59109, remade for USSP by BlueHNT",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "boots"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "From tgstation - https://github.com/tgstation/tgstation/pull/59109, remade for USSP by BlueHNT, Vox modifications by 10KE",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-		{
-		  "name": "boots-sealed"
-		},
-		{
-			"name": "equipped-FEET",
-			"directions": 4
-		},
-		{
-			"name": "equipped-FEET-sealed",
-			"directions": 4
-		}
-  ]
+    "states": [
+        {
+            "name": "boots"
+        },
+        {
+            "name": "boots-sealed"
+        },
+        {
+            "name": "equipped-FEET",
+            "directions": 4
+        },
+        {
+            "name": "equipped-FEET-sealed",
+            "directions": 4
+        },
+        {
+            "name": "equipped-FEET-vox",
+            "directions": 4
+        },
+        {
+            "name": "equipped-FEET-sealed-vox",
+            "directions": 4
+        }
+    ]
 }

@@ -34,6 +34,8 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
 
 - type: entity
   parent: ClothingHandsBase
@@ -71,6 +73,8 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
 
 - type: entity
   parent: ClothingHandsBase
@@ -108,6 +112,8 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
 
 # Volta
 # Uses exact same gloves as sapper ones, feel free to make them more unique
@@ -147,6 +153,8 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
       gloves-resomi:
       - state: equipped-HAND-sealed-resomi
 
@@ -187,6 +195,8 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
       gloves-resomi:
       - state: equipped-HAND-sealed-resomi
   - type: Gun
