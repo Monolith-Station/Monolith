@@ -73,6 +73,7 @@
   - DurandTargetingElectronics
   - WeaponMechCombatShotgun
   - WeaponMechCombatShotgunIncendiary
+  - WeaponMechChainSword
   technologyPrerequisites:
   - SuperParts
   - MechBasic
@@ -99,18 +100,18 @@
   - LightMechaSMG
   - LightMechaShotgun
   - PowerCageMech
-  - IFFMechaBlueSquare
-  - IFFMechaBlueCircle
-  - IFFMechaBlueTriangle
-  - IFFMechaRedSquare
-  - IFFMechaRedCircle
-  - IFFMechaRedTriangle
-  - IFFMechaYellowSquare
-  - IFFMechaYellowCircle
-  - IFFMechaYellowTriangle
-  - IFFMechaGreenSquare
-  - IFFMechaGreenCircle
-  - IFFMechaGreenTriangle
+  #- IFFMechaBlueSquare
+  #- IFFMechaBlueCircle
+  #- IFFMechaBlueTriangle
+  #- IFFMechaRedSquare
+  #- IFFMechaRedCircle
+  #- IFFMechaRedTriangle
+  #- IFFMechaYellowSquare
+  #- IFFMechaYellowCircle
+  #- IFFMechaYellowTriangle
+  #- IFFMechaGreenSquare
+  #- IFFMechaGreenCircle
+  #- IFFMechaGreenTriangle
   technologyPrerequisites:
   - MechCombat
   position: 3, 11
@@ -131,7 +132,7 @@
   technologyPrerequisites:
   - Broadsword
   position: 3, 12
-  
+
 - type: technology
   id: Flail
   name: research-technology-flail

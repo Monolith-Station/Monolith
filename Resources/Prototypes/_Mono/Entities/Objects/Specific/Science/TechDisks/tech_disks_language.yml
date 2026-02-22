@@ -30,6 +30,7 @@
     - NovaCygniTranslator # Trait language
     #- SiikMaasTranslator # No tajara here
     #- MarishTranslator # No shadowkin here
+    - NewKinPidginTranslator # Vox
 
 - type: entity
   parent: TechDiskBase
@@ -78,3 +79,5 @@
     #- MarishTranslatorImplanter # No shadowkin here
     - AnimalTranslator
     - XenoTranslator
+    - NewKinPidginTranslator # Vox
+    - NewKinPidginTranslatorImplanter # Vox

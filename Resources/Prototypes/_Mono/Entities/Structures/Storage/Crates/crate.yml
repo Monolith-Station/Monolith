@@ -60,3 +60,13 @@
     sprite: _Mono/Structures/Storage/Crates/nt_ds.rsi
   - type: Sprite
     sprite: _Mono/Structures/Storage/Crates/nt_ds.rsi
+    
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateMilitaryEquipment
+  name: military equipment crate
+  components:
+  - type: Icon
+    sprite: _Mono/Structures/Storage/Crates/milequipment.rsi
+  - type: Sprite
+    sprite: _Mono/Structures/Storage/Crates/milequipment.rsi
