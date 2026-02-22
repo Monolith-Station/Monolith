@@ -60,7 +60,7 @@ public sealed partial class ResearchSystem
             return;
 
         // R&D Console Rework Start
-        var allTechs = PrototypeManager.EnumeratePrototypes<TechnologyPrototype>().ToList();
+        var allTechs = PrototypeManager.EnumeratePrototypes<TechnologyPrototype>(); // Mono
         Dictionary<string, ResearchAvailability> techList;
         var points = 0;
 
@@ -68,7 +68,7 @@ public sealed partial class ResearchSystem
             TryComp<TechnologyDatabaseComponent>(serverUid, out var db))
         {
             var unlockedTechs = new HashSet<string>(db.UnlockedTechnologies);
-            techList = allTechs.ToDictionary(
+            techList = allTechs.Where(tech => tech.GetAllDisciplines().Any(d => db.SupportedDisciplines.Contains(d))).ToDictionary( // Mono - .Where() filter
                 proto => proto.ID,
                 proto =>
                 {
@@ -88,7 +88,7 @@ public sealed partial class ResearchSystem
         }
         else
         {
-            techList = allTechs.ToDictionary(proto => proto.ID, _ => ResearchAvailability.Unavailable);
+            techList = []; // Mono
         }
 
         _uiSystem.SetUiState(uid, ResearchConsoleUiKey.Key,
