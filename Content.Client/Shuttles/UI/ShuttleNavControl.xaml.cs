@@ -402,7 +402,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             var labelName = noLabel ? null : hideLabel ?
                 detectionLevel == DetectionLevel.PartialDetected ?
                     Loc.GetString($"shuttle-console-signature-infrared")
-                    : Loc.GetString($"shuttle-console-signature-unknown")
+                    : _detection.HandleUnknownMassLabel(grid.Owner)
                 : _shuttles.GetIFFLabel(grid, self: false, component: iff);
 
             var shouldDrawIFF = ShowIFF && labelName != null;
