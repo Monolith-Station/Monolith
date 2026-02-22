@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/22/2026 10:09:13
-  entityCount: 990
+  time: 02/22/2026 10:13:26
+  entityCount: 991
 maps: []
 grids:
 - 1
@@ -138,6 +138,11 @@ entities:
             12: 3,1
             13: 3,0
         - node:
+            color: '#FFFFFFFF'
+            id: Bot
+          decals:
+            136: 2,-1
+        - node:
             color: '#355A73FF'
             id: BrickTileWhiteCornerNe
           decals:
@@ -221,7 +226,7 @@ entities:
             color: '#FFFFFFFF'
             id: TechSW
           decals:
-            103: 0,-1
+            137: 0,-1
         - node:
             color: '#FFFFFFFF'
             id: TechW
@@ -3990,6 +3995,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.5,1.5
+      parent: 1
+- proto: GravityGeneratorMini
+  entities:
+  - uid: 991
+    components:
+    - type: Transform
+      pos: 2.5,-0.5
       parent: 1
 - proto: Grille
   entities:
