@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/21/2026 10:15:51
-  entityCount: 586
+  time: 02/23/2026 20:11:42
+  entityCount: 587
 maps: []
 grids:
 - 1
@@ -97,9 +97,9 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
         Smoke: []
         Puddle: []
+        MetalFoam: []
         Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -125,51 +125,51 @@ entities:
             1: 7,1
             2: 8,1
         - node:
-            color: '#52B4E996'
-            id: BrickTileWhiteCornerNw
+            color: '#F1B223FF'
+            id: Bot
           decals:
-            96: 11,0
+            126: 16,-1
+            127: 18,-2
+            128: 17,-1
         - node:
-            color: '#FA750096'
-            id: BrickTileWhiteCornerNw
+            color: '#FA7500FF'
+            id: Bot
           decals:
-            89: 14,0
+            139: 13,-1
+            140: 14,-1
         - node:
             color: '#355A7396'
             id: BrickTileWhiteCornerSw
           decals:
             106: 3,0
         - node:
-            color: '#FA750096'
+            color: '#FA7500FF'
             id: BrickTileWhiteInnerSe
           decals:
-            97: 11,0
+            138: 12,-1
         - node:
-            color: '#FA750096'
-            id: BrickTileWhiteLineE
-          decals:
-            93: 11,-1
-        - node:
-            color: '#52B4E996'
+            color: '#37789BFF'
             id: BrickTileWhiteLineN
           decals:
-            95: 13,0
+            129: 11,0
+            130: 13,0
         - node:
             color: '#355A7396'
             id: BrickTileWhiteLineS
           decals:
             107: 4,0
         - node:
-            color: '#FA750096'
+            color: '#37789BFF'
             id: BrickTileWhiteLineS
           decals:
-            90: 13,0
-            91: 12,0
+            131: 11,1
+            132: 13,1
         - node:
-            color: '#52B4E996'
-            id: BrickTileWhiteLineW
+            color: '#FA7500FF'
+            id: BrickTileWhiteLineS
           decals:
-            98: 11,-1
+            136: 13,-1
+            137: 14,-1
         - node:
             color: '#4D9BE6FF'
             id: DeliveryGreyscale
@@ -185,19 +185,6 @@ entities:
             id: HalfTileOverlayGreyscale
           decals:
             108: 4,0
-        - node:
-            color: '#52B4E996'
-            id: HalfTileOverlayGreyscale180
-          decals:
-            101: 11,1
-            102: 13,1
-        - node:
-            color: '#FA750096'
-            id: HalfTileOverlayGreyscale180
-          decals:
-            103: 14,-1
-            104: 13,-1
-            105: 12,-1
         - node:
             color: '#FFFFFFFF'
             id: TechCornerS
@@ -296,10 +283,25 @@ entities:
           decals:
             83: 7,-3
         - node:
+            color: '#37789BFF'
+            id: TrimlineNorth
+          decals:
+            133: 11,-1
+        - node:
+            color: '#37789BFF'
+            id: TrimlineNorthWestCorner
+          decals:
+            134: 12,-1
+        - node:
             color: '#355A7396'
             id: TrimlineWest
           decals:
             125: 4,-5
+        - node:
+            color: '#37789BFF'
+            id: TrimlineWest
+          decals:
+            135: 12,0
         - node:
             color: '#F1B223FF'
             id: WarnCornerSmallGreyscaleSE
@@ -358,6 +360,132 @@ entities:
     - type: GridAtmosphere
       version: 2
       data:
+        tiles:
+          0,0:
+            0: 57600
+            1: 204
+          -1,0:
+            0: 2161
+            2: 1024
+          1,0:
+            1: 52441
+            0: 4096
+          1,-1:
+            1: 52685
+          2,0:
+            1: 13241
+            0: 32768
+          2,-1:
+            1: 46011
+          3,0:
+            1: 55
+            0: 30720
+          3,-1:
+            1: 28784
+          4,0:
+            0: 488
+            2: 512
+          -2,0:
+            0: 12
+          -2,-1:
+            0: 16861
+            2: 8192
+          -1,-1:
+            1: 52960
+          -2,-2:
+            0: 4352
+          -1,-3:
+            2: 4096
+          -1,-2:
+            0: 49665
+          0,-2:
+            0: 13440
+            1: 32768
+          0,-1:
+            1: 3624
+          1,-2:
+            1: 56712
+            0: 2
+          1,-3:
+            1: 32768
+          2,-3:
+            1: 4096
+          2,-2:
+            1: 45841
+            0: 4
+          3,-2:
+            0: 49680
+          4,-2:
+            0: 13320
+          4,-1:
+            1: 14192
+          4,-3:
+            2: 32768
+          5,-1:
+            0: 10427
+            2: 16384
+          5,0:
+            0: 3
+          5,-2:
+            0: 34816
+        uniqueMixes:
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.824879
+          - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          immutable: True
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -365,6 +493,8 @@ entities:
       locked: False
     - type: CloakHeat
       lastUpdateTime: 0
+    - type: Roof
+      data: {}
 - proto: ActionToggleInternals
   entities:
   - uid: 5
@@ -1012,13 +1142,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -1.5,-0.5
-      parent: 1
-- proto: BoxBodyBag
-  entities:
-  - uid: 494
-    components:
-    - type: Transform
-      pos: 14.630835,0.7985245
       parent: 1
 - proto: CableApcExtension
   entities:
@@ -1946,6 +2069,8 @@ entities:
       pos: 10.5,-0.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 444
       - 445
@@ -2457,6 +2582,8 @@ entities:
       pos: 12.5,-0.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 445
     - type: AtmosPipeLayers
@@ -2521,6 +2648,8 @@ entities:
       pos: 13.5,-0.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 445
     - type: AtmosPipeLayers
@@ -2540,6 +2669,13 @@ entities:
       pipeLayer: Tertiary
     - type: AtmosPipeColor
       color: '#990000FF'
+- proto: GravityGeneratorMini
+  entities:
+  - uid: 466
+    components:
+    - type: Transform
+      pos: 16.5,-0.5
+      parent: 1
 - proto: GyroscopeNfsd
   entities:
   - uid: 242
@@ -2668,11 +2804,11 @@ entities:
       parent: 1
 - proto: LockerWallColorChemistryFilled
   entities:
-  - uid: 466
+  - uid: 427
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 15.5,0.5
+      pos: 15.5,-0.5
       parent: 1
 - proto: LockerWallMaterialsBasicFilled
   entities:
@@ -2745,6 +2881,13 @@ entities:
     components:
     - type: Transform
       pos: 4.8881283,-5.275717
+      parent: 1
+- proto: MedicalTechFab
+  entities:
+  - uid: 256
+    components:
+    - type: Transform
+      pos: 14.5,0.5
       parent: 1
 - proto: NaniteApplicatorExperimental
   entities:
@@ -2912,9 +3055,10 @@ entities:
       rot: 3.141592653589793 rad
       pos: 21.5,-0.5
       parent: 1
-  - uid: 256
+  - uid: 494
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: 17.5,-0.5
       parent: 1
 - proto: PortableGeneratorDKJrShuttle
@@ -4144,10 +4288,9 @@ entities:
       parent: 1
 - proto: WindoorSecurePlasma
   entities:
-  - uid: 427
+  - uid: 587
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 17.5,-0.5
       parent: 1
 - proto: WindowReinforcedDirectional
