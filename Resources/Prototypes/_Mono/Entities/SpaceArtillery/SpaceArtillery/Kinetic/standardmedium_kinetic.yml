@@ -17,6 +17,7 @@
   - type: AmmoCounter
   - type: WirelessNetworkConnection
     range: 500
+  - type: GunSignalControl
   - type: Gun
     fireRate: 3
     recoil: 10 # 2/5x
@@ -95,6 +96,7 @@
   - type: AmmoCounter
   - type: WirelessNetworkConnection
     range: 500
+  - type: GunSignalControl
   - type: Gun
     fireRate: 1.5
     recoil: 10 # 2/5x
