@@ -15,9 +15,10 @@
   - type: Appearance
   - type: FireControlRotate
   - type: AmmoCounter
+  - type: AutoShootGun
+  - type: GunSignalControl
   - type: WirelessNetworkConnection
     range: 500
-  - type: GunSignalControl
   - type: Gun
     fireRate: 3
     recoil: 10 # 2/5x
@@ -94,9 +95,11 @@
   - type: Appearance
   - type: FireControlRotate
   - type: AmmoCounter
+  - type: AutoShootGun
+  - type: GunSignalControl
   - type: WirelessNetworkConnection
     range: 500
-  - type: GunSignalControl
+  - type: DeviceLinkSink
   - type: Gun
     fireRate: 1.5
     recoil: 10 # 2/5x
