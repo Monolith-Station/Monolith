@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/22/2026 10:13:26
-  entityCount: 991
+  time: 02/23/2026 21:49:24
+  entityCount: 994
 maps: []
 grids:
 - 1
@@ -109,10 +109,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
+        Puddle: []
+        Smoke: []
         Kudzu: []
         MetalFoam: []
-        Smoke: []
-        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -957,6 +957,20 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.707217,18.006813
+      parent: 1
+- proto: AtmosDeviceFanDirectional
+  entities:
+  - uid: 992
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,20.5
+      parent: 1
+  - uid: 993
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,20.5
       parent: 1
 - proto: AtmosFixBlockerMarker
   entities:
@@ -5524,6 +5538,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,11.5
+      parent: 1
+  - uid: 994
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,-0.5
       parent: 1
 - proto: ShieldGeneratorSmall
   entities:
