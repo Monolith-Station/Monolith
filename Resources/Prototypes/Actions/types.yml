@@ -15,10 +15,11 @@
   description: AAAAAAAAAAAAAAAAAAAAAAAAA
   components:
   - type: InstantAction
-    useDelay: 1 # 10->1
+    useDelay: 3 # Mono: 10->3
     icon: Interface/Actions/scream.png
     event: !type:ScreamActionEvent
     checkCanInteract: false
+    autoPopulate: false # Mono
 
 - type: entity
   id: ActionTurnUndead
@@ -363,7 +364,7 @@
   components:
   - type: InstantAction
     useDelay: 8
-    icon: 
+    icon:
       sprite: Interface/Actions/jump.rsi
       state: icon
     event: !type:GravityJumpEvent {}

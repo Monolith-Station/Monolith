@@ -40,6 +40,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: ClothingSlowOnDamageModifier
     modifier: 0.75
 
@@ -85,6 +87,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: ClothingSlowOnDamageModifier
     modifier: 0.75
 
@@ -131,6 +135,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: ClothingSlowOnDamageModifier
     modifier: 0.75
 
@@ -169,6 +175,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: ClothingSlowOnDamageModifier
     modifier: 0.75
 
@@ -225,4 +233,6 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
 
