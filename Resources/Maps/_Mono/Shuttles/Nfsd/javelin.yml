@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/17/2026 18:27:04
-  entityCount: 498
+  time: 02/23/2026 21:40:36
+  entityCount: 500
 maps: []
 grids:
 - 1
@@ -95,10 +95,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        MetalFoam: []
         Puddle: []
+        Smoke: []
         Kudzu: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -118,6 +118,10 @@ entities:
             13: -4,0
             14: -3,0
             15: 3,-4
+            47: 4,-2
+            48: 5,0
+            49: 4,0
+            50: 6,0
         - node:
             color: '#FFFFFFFF'
             id: BrickTileSteelCornerNw
@@ -1230,6 +1234,11 @@ entities:
       parent: 1
 - proto: CableHV
   entities:
+  - uid: 274
+    components:
+    - type: Transform
+      pos: 4.5,0.5
+      parent: 1
   - uid: 363
     components:
     - type: Transform
@@ -2019,6 +2028,13 @@ entities:
       pipeLayer: Tertiary
     - type: AtmosPipeColor
       color: '#990000FF'
+- proto: GravityGeneratorMini
+  entities:
+  - uid: 500
+    components:
+    - type: Transform
+      pos: 4.5,-1.5
+      parent: 1
 - proto: Grille
   entities:
   - uid: 118
@@ -3327,6 +3343,16 @@ entities:
     - type: Transform
       pos: 5.5,1.5
       parent: 1
+  - uid: 270
+    components:
+    - type: Transform
+      pos: 10.5,-3.5
+      parent: 1
+  - uid: 272
+    components:
+    - type: Transform
+      pos: -9.5,-3.5
+      parent: 1
 - proto: WallReinforcedDiagonal
   entities:
   - uid: 11
@@ -3397,18 +3423,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -2.5,5.5
-      parent: 1
-  - uid: 272
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 10.5,-3.5
-      parent: 1
-  - uid: 274
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -9.5,-3.5
       parent: 1
   - uid: 357
     components:
