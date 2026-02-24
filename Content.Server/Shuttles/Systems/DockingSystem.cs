@@ -70,6 +70,21 @@ namespace Content.Server.Shuttles.Systems
             }
         }
 
+        // Mono
+        public void RedockDocks(EntityUid gridUid)
+        {
+            _dockingSet.Clear();
+            _lookup.GetChildEntities(gridUid, _dockingSet);
+
+            foreach (var dock in _dockingSet)
+            {
+                if (dock.Comp.DockedWith is not { } with || !TryComp<DockingComponent>(with, out var otherDock))
+                    continue;
+
+                Dock(dock, (with, otherDock), true);
+            }
+        }
+
         public void SetDockBolts(EntityUid gridUid, bool enabled)
         {
             _dockingBoltSet.Clear();
@@ -202,7 +217,8 @@ namespace Content.Server.Shuttles.Systems
         /// <summary>
         /// Docks 2 ports together and assumes it is valid.
         /// </summary>
-        public void Dock(Entity<DockingComponent> dockA, Entity<DockingComponent> dockB)
+        public void Dock(Entity<DockingComponent> dockA, Entity<DockingComponent> dockB,
+            bool noEvent = false) // Mono
         {
             var dockAUid = dockA.Owner;
             var dockBUid = dockB.Owner;
@@ -227,14 +243,14 @@ namespace Content.Server.Shuttles.Systems
             var gridB = dockBXform.GridUid!.Value;
 
             // May not be possible if map or the likes.
-            if (HasComp<PhysicsComponent>(gridA) &&
-                HasComp<PhysicsComponent>(gridB))
+            if (TryComp<PhysicsComponent>(gridA, out var bodyA) &&
+                TryComp<PhysicsComponent>(gridB, out var bodyB))
             {
                 SharedJointSystem.LinearStiffness(
-                    2f,
-                    0.7f,
-                    EntityManager.GetComponent<PhysicsComponent>(gridA).Mass,
-                    EntityManager.GetComponent<PhysicsComponent>(gridB).Mass,
+                    0.5f, // Mono: 2 -> 0.5
+                    2f, // Mono: 0.7 -> 2
+                    bodyA.FixturesMass,
+                    bodyB.FixturesMass,
                     out var stiffness,
                     out var damping);
 
@@ -299,6 +315,10 @@ namespace Content.Server.Shuttles.Systems
                 }
                 doorB.ChangeAirtight = false;
             }
+
+            // Mono
+            if (noEvent)
+                return;
 
             if (_pathfinding.TryCreatePortal(dockAXform.Coordinates, dockBXform.Coordinates, out var handle))
             {

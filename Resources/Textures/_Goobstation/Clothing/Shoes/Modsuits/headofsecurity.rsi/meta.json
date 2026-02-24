@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "From tgstation - https://github.com/tgstation/tgstation/pull/59109",
+  "copyright": "From tgstation - https://github.com/tgstation/tgstation/pull/59109, Vox modifications by 10KE",
   "size": {
     "x": 32,
     "y": 32
@@ -20,6 +20,14 @@
 		{
 			"name": "equipped-FEET-sealed",
 			"directions": 4
-		}
+		},
+        {
+          "name": "equipped-FEET-sealed-vox",
+          "directions": 4
+        },
+        {
+          "name": "equipped-FEET-vox",
+          "directions": 4
+        }
   ]
 }

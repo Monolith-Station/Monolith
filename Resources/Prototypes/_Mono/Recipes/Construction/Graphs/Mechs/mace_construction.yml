@@ -4,7 +4,7 @@
   graph:
   - node: start
     edges:
-    - to: mace
+    - to: finish
       steps:
       - tool: Anchoring
         doAfter: 1
@@ -170,6 +170,30 @@
           key: "enum.MechAssemblyVisuals.State"
           data: 17
 
+  - node: finish
+    edges:
+    - to: mace
+      steps:
+      - tool: Welding
+        doAfter: 1
+    - to: tsfmace
+      steps:
+      - tag: MechIFFTSF
+        name: TSF Mech IFF
+        icon:
+          sprite: Objects/Specific/Mech/mecha_equipment.rsi
+          state: tesla
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
+    - to: pdvmace
+      steps:
+      - tag: MechIFFPDV
+        name: PDV Mech IFF
+        icon:
+          sprite: Objects/Specific/Mech/mecha_equipment.rsi
+          state: tesla
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
@@ -177,3 +201,13 @@
     actions:
     - !type:BuildMech
       mechPrototype: AFMace
+
+  - node: tsfmace
+    actions:
+    - !type:BuildMech
+      mechPrototype: AFMaceTSF
+
+  - node: pdvmace
+    actions:
+    - !type:BuildMech
+      mechPrototype: AFMacePDV
