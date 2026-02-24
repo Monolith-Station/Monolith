@@ -13,6 +13,13 @@
     tags:
       - DroneUsable
       - RawMaterial
+
+# Mono - extract from MaterialBase
+- type: entity
+  abstract: true
+  parent: MaterialBase
+  id: MaterialBaseDestructible
+  components:
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible

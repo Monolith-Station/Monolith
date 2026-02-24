@@ -180,3 +180,9 @@
   parent: BaseAmmoFMJPistolCaliberAmmoBoxRecipe
   id: MagazineAsmgtUniversal9x19mm
   result: MagazineAsmgtUniversal9x19mm
+
+  #big box
+- type: latheRecipe
+  parent: BaseAmmoFMJPistolCaliberBigAmmoBoxRecipe
+  id: AmmoBox9x19mmBigFMJ
+  result: AmmoBox9x19mmBigFMJ

@@ -1003,6 +1003,27 @@
       tags:
       - PirateUplink
 
+- type: listing
+  id: UplinkPirateDesword
+  name: uplink-pirate-desword-name
+  description: uplink-pirate-desword-desc
+  productEntity: EnergySwordDouble
+  icon: { sprite: Objects/Weapons/Melee/e_sword_double.rsi, state: icon }
+  cost:
+    Doubloon: 75
+  categories:
+  - UplinkPirateWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+  - !type:BuyerJobCondition
+    whitelist:
+      - PDVDenasvar
+      - PirateFirstMate
+      - PirateCaptain
+
 #MARK: Equipment
 
 - type: listing
