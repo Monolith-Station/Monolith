@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/24/2026 00:21:44
-  entityCount: 6358
+  time: 02/24/2026 02:51:29
+  entityCount: 6363
 maps: []
 grids:
 - 1
@@ -203,10 +203,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
         Kudzu: []
-        MetalFoam: []
         Puddle: []
+        Smoke: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1629,7 +1629,7 @@ entities:
       pos: 2.5,-36.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -20323.502
+      secondsUntilStateChange: -20367.572
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -20540,6 +20540,35 @@ entities:
     components:
     - type: Transform
       pos: 2.4336252,-1.6910019
+      parent: 1
+- proto: SpawnLpbAssualt
+  entities:
+  - uid: 6362
+    components:
+    - type: Transform
+      pos: 35.5,-3.5
+      parent: 1
+  - uid: 6363
+    components:
+    - type: Transform
+      pos: 35.5,1.5
+      parent: 1
+- proto: SpawnLpbEngineer
+  entities:
+  - uid: 6359
+    components:
+    - type: Transform
+      pos: 35.5,-5.5
+      parent: 1
+  - uid: 6360
+    components:
+    - type: Transform
+      pos: 35.5,3.5
+      parent: 1
+  - uid: 6361
+    components:
+    - type: Transform
+      pos: 39.5,-0.5
       parent: 1
 - proto: SpawnMobSyndicateNavalCaptain
   entities:
