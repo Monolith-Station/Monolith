@@ -4,9 +4,9 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/24/2026 05:02:39
-  entityCount: 495
-maps: []
+  time: 02/24/2026 06:14:12
+  entityCount: 503
+maps:
 grids:
 - 1
 orphans:
@@ -85,10 +85,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        MetalFoam: []
-        Smoke: []
         Puddle: []
+        MetalFoam: []
+        Kudzu: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -254,11 +254,6 @@ entities:
     - type: Transform
       pos: 0.5,1.5
       parent: 1
-  - uid: 68
-    components:
-    - type: Transform
-      pos: 2.5,-0.5
-      parent: 1
   - uid: 69
     components:
     - type: Transform
@@ -288,11 +283,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,9.5
-      parent: 1
-  - uid: 108
-    components:
-    - type: Transform
-      pos: 7.5,1.5
       parent: 1
   - uid: 116
     components:
@@ -532,7 +522,7 @@ entities:
   - uid: 234
     components:
     - type: Transform
-      pos: 0.5,-3.5
+      pos: -3.5,-2.5
       parent: 1
   - uid: 235
     components:
@@ -567,7 +557,7 @@ entities:
   - uid: 241
     components:
     - type: Transform
-      pos: -1.5,-0.5
+      pos: 4.5,-2.5
       parent: 1
   - uid: 242
     components:
@@ -608,11 +598,6 @@ entities:
     components:
     - type: Transform
       pos: -4.5,8.5
-      parent: 1
-  - uid: 253
-    components:
-    - type: Transform
-      pos: -2.5,-2.5
       parent: 1
   - uid: 288
     components:
@@ -663,11 +648,6 @@ entities:
     components:
     - type: Transform
       pos: 4.5,0.5
-      parent: 1
-  - uid: 348
-    components:
-    - type: Transform
-      pos: -6.5,1.5
       parent: 1
   - uid: 351
     components:
@@ -788,6 +768,11 @@ entities:
     - type: Transform
       pos: 2.5,5.5
       parent: 1
+  - uid: 108
+    components:
+    - type: Transform
+      pos: 1.5,16.5
+      parent: 1
   - uid: 111
     components:
     - type: Transform
@@ -797,6 +782,11 @@ entities:
     components:
     - type: Transform
       pos: 1.5,4.5
+      parent: 1
+  - uid: 253
+    components:
+    - type: Transform
+      pos: 1.5,15.5
       parent: 1
   - uid: 280
     components:
@@ -1230,6 +1220,21 @@ entities:
     - type: Transform
       pos: -0.5,9.5
       parent: 1
+  - uid: 345
+    components:
+    - type: Transform
+      pos: 2.5,3.5
+      parent: 1
+  - uid: 348
+    components:
+    - type: Transform
+      pos: 1.5,1.5
+      parent: 1
+  - uid: 403
+    components:
+    - type: Transform
+      pos: -0.5,1.5
+      parent: 1
   - uid: 404
     components:
     - type: Transform
@@ -1264,6 +1269,26 @@ entities:
     components:
     - type: Transform
       pos: -0.5,4.5
+      parent: 1
+  - uid: 498
+    components:
+    - type: Transform
+      pos: 3.5,3.5
+      parent: 1
+  - uid: 499
+    components:
+    - type: Transform
+      pos: 3.5,4.5
+      parent: 1
+  - uid: 500
+    components:
+    - type: Transform
+      pos: -2.5,3.5
+      parent: 1
+  - uid: 501
+    components:
+    - type: Transform
+      pos: -2.5,4.5
       parent: 1
 - proto: CableMV
   entities:
@@ -1366,6 +1391,11 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-0.5
+      parent: 1
+  - uid: 503
+    components:
+    - type: Transform
+      pos: 1.5,9.5
       parent: 1
 - proto: CableTerminal
   entities:
@@ -1770,6 +1800,16 @@ entities:
     - type: Transform
       pos: -1.5,3.5
       parent: 1
+  - uid: 496
+    components:
+    - type: Transform
+      pos: -2.5,4.5
+      parent: 1
+  - uid: 497
+    components:
+    - type: Transform
+      pos: 3.5,4.5
+      parent: 1
 - proto: Grille
   entities:
   - uid: 114
@@ -2155,6 +2195,18 @@ entities:
     components:
     - type: Transform
       pos: -0.5,8.5
+      parent: 1
+- proto: SpawnMobWeaponTurretLaserSilicon
+  entities:
+  - uid: 68
+    components:
+    - type: Transform
+      pos: 4.5,-2.5
+      parent: 1
+  - uid: 502
+    components:
+    - type: Transform
+      pos: -3.5,-2.5
       parent: 1
 - proto: SpawnRedactedBorg
   entities:
@@ -2866,26 +2918,14 @@ entities:
   - uid: 285
     components:
     - type: Transform
-      pos: -3.5,-2.5
+      rot: 3.141592653589793 rad
+      pos: -5.5,4.5
       parent: 1
   - uid: 339
     components:
     - type: Transform
-      pos: 4.5,-2.5
-      parent: 1
-- proto: WeaponTurretScythe
-  entities:
-  - uid: 345
-    components:
-    - type: Transform
       rot: 3.141592653589793 rad
       pos: 6.5,4.5
-      parent: 1
-  - uid: 403
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -5.5,4.5
       parent: 1
 - proto: WeaponTurretTartarus
   entities:
