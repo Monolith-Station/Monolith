@@ -86,14 +86,13 @@ public abstract partial class SharedClawsSystem : EntitySystem
     /// Instead of capturing both melee and guns events - we will apply
     /// already existing components each stage change to our clawed entities.
     /// </summary>
-    /// <param name="ent"></param>
-    public void UpdateClaws(Entity<ClawsComponent> ent)
+    public void UpdateClaws(EntityUid uid, ClawsComponent component)
     {
-        if (!TryGetStage<SharpClaw>(ent, out var stage) ||
-            !TryComp<MeleeWeaponComponent>(ent, out var melee))
+        if (!TryGetStage<SharpClaw>(component, out var stage) ||
+            !TryComp<MeleeWeaponComponent>(uid, out var melee))
             return;
 
-        var gunAccuracyComp = EnsureComp<PlayerAccuracyModifierComponent>(ent);
+        var gunAccuracyComp = EnsureComp<PlayerAccuracyModifierComponent>(uid);
 
         melee.CanWideSwing = stage.CanWideSwing;
         melee.AltDisarm = !stage.CanWideSwing;
