@@ -11,6 +11,9 @@ public abstract partial class SharedClawsSystem
 {
     public void UpdateDeclaw(EntityUid uid, Declawed declawed, ClawsComponent claws, float updateTime)
     {
+        if (!_state.IsAlive(uid))
+                    return;
+
         var hands = _hands.EnumerateHands(uid).ToArray();
         if (!_hands.EnumerateHeld(uid).Any())
         {
@@ -18,9 +21,6 @@ public abstract partial class SharedClawsSystem
             _effects.TryRemoveStatusEffect(uid, "Jitter");
             return;
         }
-
-        if (!_state.IsAlive(uid))
-            return;
 
         claws.DeclawItemHoldTimer += TimeSpan.FromSeconds(updateTime);
 
