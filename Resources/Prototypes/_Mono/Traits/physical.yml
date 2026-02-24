@@ -103,13 +103,13 @@
   name: trait-thieving-name
   description: trait-thieving-desc
   category: Physical
-  cost: 3
+  cost: 2
   speciesBlacklist:
   - Felinid
   components:
   - type: Thieving
-    stealthy: true
-    timeMultiplier: 0.67
+    stealthy: false
+    timeMultiplier: 0.5
     identifyHidden: true
 
 - type: trait

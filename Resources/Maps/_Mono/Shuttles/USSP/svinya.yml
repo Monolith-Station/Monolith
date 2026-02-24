@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/19/2026 23:01:10
+  time: 02/15/2026 08:45:32
   entityCount: 288
 maps: []
 grids:
@@ -70,10 +70,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         MetalFoam: []
-        Smoke: []
         Puddle: []
+        Smoke: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -805,13 +805,6 @@ entities:
     - type: Transform
       pos: -0.5,0.5
       parent: 1
-- proto: CMSemioticFlightcontrol
-  entities:
-  - uid: 244
-    components:
-    - type: Transform
-      pos: 1.5,4.5
-      parent: 1
 - proto: CMSemioticHigh_voltage
   entities:
   - uid: 242
@@ -927,6 +920,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,6.5
       parent: 1
+- proto: DefibrillatorCabinetFilled
+  entities:
+  - uid: 103
+    components:
+    - type: Transform
+      pos: 1.5,4.5
+      parent: 1
 - proto: FaxMachineShip
   entities:
   - uid: 148
@@ -936,16 +936,16 @@ entities:
       parent: 1
 - proto: FoodMeatBacon
   entities:
-  - uid: 213
-    components:
-    - type: Transform
-      parent: 103
-    - type: Physics
-      canCollide: False
   - uid: 214
     components:
     - type: Transform
-      parent: 103
+      parent: 213
+    - type: Physics
+      canCollide: False
+  - uid: 244
+    components:
+    - type: Transform
+      parent: 213
     - type: Physics
       canCollide: False
 - proto: GasMixerOnFlipped
@@ -1652,17 +1652,18 @@ entities:
       parent: 1
 - proto: ShelfWallFreezerDark
   entities:
-  - uid: 103
+  - uid: 213
     components:
     - type: Transform
-      pos: 3.5,4.5
+      rot: -1.5707963267948966 rad
+      pos: 4.5,3.5
       parent: 1
     - type: Storage
       storedItems:
-        213:
+        214:
           position: 0,0
           _rotation: South
-        214:
+        244:
           position: 1,0
           _rotation: South
     - type: ContainerContainer
@@ -1672,7 +1673,7 @@ entities:
           occludes: True
           ents:
           - 214
-          - 213
+          - 244
 - proto: SinkWide
   entities:
   - uid: 102

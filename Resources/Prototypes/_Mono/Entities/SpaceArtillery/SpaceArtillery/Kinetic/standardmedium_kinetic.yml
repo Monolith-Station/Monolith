@@ -7,7 +7,7 @@
   description: A dual-barrel, heavy 57mm autocannon firing general-purpose APHE rounds, effective for sustained fire against medium targets. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
-    price: 1000
+    price: 650
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/artillery.rsi
     layers:
@@ -82,10 +82,10 @@
   id: WeaponTurretDravon
   name: ADBP-7 DRAVON 90mm Autocannon
   parent: BallisticArtilleryMagazine
-  description: A single-barrel autocannon made by Aetherion Dynamics. Medium artillery piece with high fire rate but relatively low impact, firing HEAT shells to damage ship armor and systems. Can be remotely activated or linked up to a GCS.
+  description: A single-barrel autocannon made by Aetherion Dynamics. Medium artillery piece with high impact but relatively low fire rate, firing HEAT shells to damage ship armor and systems. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
-    price: 650
+    price: 900
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/dravon.rsi
     layers:

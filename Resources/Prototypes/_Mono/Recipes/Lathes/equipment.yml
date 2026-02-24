@@ -200,7 +200,7 @@
   completetime: 5
   materials:
     Steel: 300
-    Durathread: 400
+    Durathread: 800
 
 - type: latheRecipe
   id: ArmorPlateMedium
@@ -224,4 +224,38 @@
     Durathread: 400
     Plastic: 400
     Plasteel: 1000
+
+- type: latheRecipe
+  id: ArmorPlateRefractive
+  categories:
+  - ArmorNF
+  result: ArmorPlateRefractive
+  completetime: 5
+  materials:
+    Durathread: 400
+    UraniumGlass: 1000
+    PlasmaGlass: 1000
+
+- type: latheRecipe
+  id: ArmorPlateSteel
+  categories:
+  - ArmorNF
+  result: ArmorPlateSteel
+  completetime: 5
+  materials:
+    Steel: 1000
+
+- type: latheRecipe
+  id: WeaponTurretAsmgtNtPacked
+  parent: BaseWeaponRecipeLong
+  result: WeaponTurretAsmgtNtPacked #CSec Exclusive
+  categories:
+  - Weapons
+  materials:
+    Steel: 2000
+    Plasteel: 3000
+    Plastic: 2500
+    Plasma: 1500
+    Gold: 1000
+    Diamond: 150
 
