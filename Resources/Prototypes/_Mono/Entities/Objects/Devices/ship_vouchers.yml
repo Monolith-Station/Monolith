@@ -164,7 +164,7 @@
   parent: BaseShipLPC
   id: ShipVoucherFlyssa
   name: TSF flyssa LPC
-  description: A small card that contains the data for the procurement of a Flyssa-class destroyer from the flagship's reserves.
+  description: A small card that contains the data for the procurement of a Flyssa-class destroyer from the firebase's reserves.
   components:
   - type: Sprite
     layers:
@@ -184,7 +184,7 @@
   parent: BaseShipLPC
   id: ShipVoucherPolaris
   name: TSF polaris LPC
-  description: A small card that contains the data for the procurement of a Polaris-class frigate from the flagship's reserves.
+  description: A small card that contains the data for the procurement of a Polaris-class frigate from the firebase's reserves.
   components:
   - type: Sprite
     layers:
@@ -281,7 +281,7 @@
     - Inertia
   - type: StaticPrice
     vendPrice: 30000
-    
+
 - type: entity
   parent: BaseShipLPC
   id: ShipVoucherSnakelet
@@ -327,7 +327,7 @@
   parent: BaseShipLPC
   id: ShipVoucherRavager
   name: ravager LPC
-  description: A small card that contains the data for the procurement of a Ravager-class mothership from the flagship's reserves.
+  description: A small card that contains the data for the procurement of a Ravager-class mothership from the firebase's reserves.
   components:
   - type: Sprite
     layers:

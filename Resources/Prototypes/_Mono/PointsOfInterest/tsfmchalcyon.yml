@@ -13,7 +13,7 @@
 - type: pointOfInterest
   id: TSFMCHalcyon
   parent: [BasePOI, BaseRepairablePOI]
-  name: 'TSFMC Flagship Halcyon'
+  name: 'TSFMC Firebase Halcyon'
   minimumDistance: 2500 # Mono
   maximumDistance: 4000 # Mono
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
@@ -28,7 +28,7 @@
 
 - type: gameMap
   id: TSFMCHalcyon
-  mapName: 'TSFMC Flagship Halcyon'
+  mapName: 'TSFMC Firebase Halcyon'
   mapPath: /Maps/_Mono/POI/tsfmchalcyon.yml
   minPlayers: 0
   randomRotation: false
@@ -40,7 +40,7 @@
         description: "A mothballed battleship-turned-FOB, and Home of the TSFMC operations."
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'TSFMC Flagship Halcyon'
+          mapNameTemplate: 'TSFMC Firebase Halcyon'
         - type: ExtraStationInformation
           iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
           stationSubtext: 'frontier-lobby-nfsd-subtext'

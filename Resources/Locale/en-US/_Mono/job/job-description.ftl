@@ -9,7 +9,7 @@ job-description-ussp-rifleman = Serve the Union in space. Follow orders from you
 job-description-md-medic = Traverse the space to provide life-saving care aboard a medical vessel. Stabilize crew with medicine, synthesize medicine, and revive the fallen. ensure the unrecoverable deceased are respectfully secured in the morgue and cloned.
 
 # MARK: TSF
-job-description-tsf-engineer = Maintain the integrity of the flagship, get laughed at for not being a real soldier.
+job-description-tsf-engineer = Maintain the integrity of the firebase, get laughed at for not being a real soldier.
 job-description-tsf-borg = Half-human, Half-machine. Follow your laws, serve the TSF, and beg engineers for upgrades.
 
 # MARK: PDV
