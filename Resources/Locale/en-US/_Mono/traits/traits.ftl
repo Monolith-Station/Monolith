@@ -29,7 +29,7 @@ trait-will-to-die-desc = You have an unusually weak "will to live", and will suc
     Your damage threshold for becoming Dead is decreased by 15 points.
 
 trait-thieving-name = Thieving
-trait-thieving-desc = You are deft with your hands, and talented at convincing people of their belongings. You can identify pocketed items, steal them quieter, and steal ~33% faster.
+trait-thieving-desc = You are deft with your hands, and talented at convincing people of their belongings. You can identify pocketed items and steal 50% faster.
 
 trait-bionic-legs-name = Bionic Legs
 trait-bionic-legs-desc = One or more of your limbs have been replaced with an expensive, state of the art bionic. It could be either one made of highly realistic synthflesh,

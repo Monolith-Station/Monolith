@@ -19,6 +19,7 @@
   - type: AmmoCounter
   - type: WirelessNetworkConnection
     range: 500
+  - type: GunSignalControl
   - type: Fixtures
     fixtures:
       fix1:
@@ -109,6 +110,7 @@
   - type: AmmoCounter
   - type: WirelessNetworkConnection
     range: 500
+  - type: GunSignalControl
   - type: Fixtures
     fixtures:
       fix1:

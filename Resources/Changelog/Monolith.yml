@@ -17310,3 +17310,76 @@ Entries:
   id: 1912
   time: '2026-02-22T21:18:40.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3271
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: MD spawn distance variance increased.
+  id: 1913
+  time: '2026-02-23T05:18:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3263
+- author: Kiithnaras
+  changes:
+    - type: Fix
+      message: Added hunger and thirst to hydrakin for real.
+    - type: Fix
+      message: >-
+        Hydrakin species language definitions attached to species mob instead of
+        player mob for consistency.
+  id: 1914
+  time: '2026-02-23T13:24:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3278
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Potentially fixed FTLing docked ships lodging the other ship in you.
+  id: 1915
+  time: '2026-02-23T16:06:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3273
+- author: Helicaste
+  changes:
+    - type: Fix
+      message: 'Carrion suit storage is properly oriented. '
+  id: 1916
+  time: '2026-02-24T04:31:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3284
+- author: Kiithnaras
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Watchdog Respirator states being drawn reversed to their
+        mechanical state on Hydrakin.
+  id: 1917
+  time: '2026-02-24T12:49:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3281
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: 90mm pierce reduced 70->55. Explosion unchanged.
+  id: 1918
+  time: '2026-02-24T13:23:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3280
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Thieving trait no longer is stealthy stripping for free. Now costs 2
+        points and is slightly faster.
+  id: 1919
+  time: '2026-02-24T13:49:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3283
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: >-
+        Re-adds signal based firing to various shipguns, with full auto
+        capabilities for the Dravon and AK570.
+  id: 1920
+  time: '2026-02-24T18:57:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3275
+- author: Loldaddy5676
+  changes:
+    - type: Add
+      message: Added 9x19mm smg mags to the MLA smg for spasakas to load up on.
+  id: 1921
+  time: '2026-02-24T19:00:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3279
