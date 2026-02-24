@@ -4,7 +4,7 @@
   graph:
   - node: start
     edges:
-    - to: gygax
+    - to: finish
       steps:
       - tool: Anchoring
         doAfter: 1
@@ -171,6 +171,30 @@
           key: "enum.MechAssemblyVisuals.State"
           data: 20
 
+  - node: finish
+    edges:
+    - to: gygax
+      steps:
+      - tool: Welding
+        doAfter: 1
+    - to: tsfgygax
+      steps:
+      - tag: MechIFFTSF
+        name: TSF Mech IFF
+        icon:
+          sprite: Objects/Specific/Mech/mecha_equipment.rsi
+          state: tesla
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
+    - to: pdvgygax
+      steps:
+      - tag: MechIFFPDV
+        name: PDV Mech IFF
+        icon:
+          sprite: Objects/Specific/Mech/mecha_equipment.rsi
+          state: tesla
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
@@ -178,3 +202,13 @@
     actions:
     - !type:BuildMech
       mechPrototype: MechGygax
+
+  - node: tsfgygax
+    actions:
+    - !type:BuildMech
+      mechPrototype: MechGygaxTSF
+
+  - node: pdvgygax
+    actions:
+    - !type:BuildMech
+      mechPrototype: MechGygaxPDV

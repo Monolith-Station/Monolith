@@ -1,0 +1,41 @@
+# Author Info
+# GitHub: gelliii
+# Discord: .gelliii.
+
+# Shuttle Notes: PR made by Corrupt142
+#
+- type: vessel
+  id: Tick
+  parent: BaseVessel
+  name: GSI Tick
+  description: A hyperlight bomber made of scrap, fitted with a GPOB-L fighter bay and 2 57mms, it has no will to live.
+  price: 15000 # it's a heap of scrap
+  category: Small
+  group: Scrap
+  shuttlePath: /Maps/_Mono/Shuttles/Scrap/tick.yml
+  guidebookPage: Null
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - APU
+
+- type: gameMap
+  id: Tick
+  mapName: 'GSI Tick'
+  mapPath: /Maps/_Mono/Shuttles/Scrap/tick.yml
+  minPlayers: 0
+  stations:
+    Tick:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Tick SRP-MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
