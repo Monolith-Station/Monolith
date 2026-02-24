@@ -1,22 +1,21 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared._DV.Weapons.Ranged.Components;
-using Content.Shared.Chat;
+using Content.Shared._Mono.Claws.ClawTypes;
+using Content.Shared._Mono.Claws.Components;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Shared.Emoting;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Jittering;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Speech;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
-using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
-using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Shared._Mono.Claws;
@@ -31,6 +30,7 @@ public abstract partial class SharedClawsSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doafter = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] protected readonly IRobustRandom _random = default!;
+    [Dependency] protected readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
@@ -42,32 +42,22 @@ public abstract partial class SharedClawsSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ClawsComponent, MeleeHitEvent>(OnAttack);
+        SubscribeLocalEvent<ClawsComponent, GetMeleeDamageEvent>(OnMeleeAttack);
         SubscribeLocalEvent<ClawsComponent, ShotAttemptedEvent>(TryShoot);
         SubscribeLocalEvent<ClawsComponent, ExaminedEvent>(OnExamine);
 
         InitializeNailClippers();
     }
-    /// <summary>
-    /// Bonus melee changes are handled in <see cref="UpdateClaws"/>
-    /// </summary>
-    /// <param name="uid"></param>
-    /// <param name="component"></param>
-    /// <param name="args"></param>
-    private void OnAttack(EntityUid uid, ClawsComponent component, MeleeHitEvent args)
+    private void OnMeleeAttack(Entity<ClawsComponent> ent, ref GetMeleeDamageEvent args)
     {
-        if (!TryGetCurrentClawStage(component, uid, out var stage) ||
+        if (!TryGetStage<SharpClaw>(ent, out var stage) ||
             stage.Damage == null)
-        {
-            if (!TryComp<DeclawedComponent>(uid, out var declawed) ||
-                declawed.RawMeleeDamage == null)
-                return;
-
-            args.BonusDamage += declawed.RawMeleeDamage;
             return;
-        }
 
-        args.BonusDamage += stage.Damage;
+        if (args.User == args.Weapon)
+            args.Damage += stage.Damage;
+        else
+            args.Modifiers.Add(stage.MeleeDamageModifiers);
     }
 
     /// <summary>
@@ -77,7 +67,7 @@ public abstract partial class SharedClawsSystem : EntitySystem
     /// <param name="args"></param>
     private void TryShoot(Entity<ClawsComponent> ent, ref ShotAttemptedEvent args)
     {
-        if (!TryGetCurrentClawStage(ent, out var stage))
+        if (!TryGetStage<SharpClaw>(ent.Comp, out var stage))
             return;
 
         if (stage.CanShoot)
@@ -87,9 +77,9 @@ public abstract partial class SharedClawsSystem : EntitySystem
         args.Cancel();
     }
 
-    private void OnExamine(EntityUid uid, ClawsComponent component, ExaminedEvent args)
+    private void OnExamine(Entity<ClawsComponent> ent,ref ExaminedEvent args)
     {
-        args.AddMarkup(Loc.GetString(component.ClawsExaminationString + "-" + component.ClawStage));
+        args.AddMarkup(Loc.GetString(ent.Comp.ClawsExaminationString + "-" + TryGetStageNumber(ent.Comp)));
     }
 
     /// <summary>
@@ -100,30 +90,44 @@ public abstract partial class SharedClawsSystem : EntitySystem
     /// <param name="component"></param>
     public void UpdateClaws(EntityUid uid, ClawsComponent component)
     {
-        if (!TryGetCurrentClawStage(component, uid, out var stage) ||
+        if (!TryGetStage<SharpClaw>(component, out var stage) ||
             !TryComp<MeleeWeaponComponent>(uid, out var melee))
             return;
 
         var gunAccuracyComp = EnsureComp<PlayerAccuracyModifierComponent>(uid);
-        var meleeBonusComp = EnsureComp<BonusMeleeDamageComponent>(uid);
 
         melee.CanWideSwing = stage.CanWideSwing;
         melee.AltDisarm = !stage.CanWideSwing;
         gunAccuracyComp.SpreadMultiplier = stage.GunSpreadMultiplier;
-        _melee.ModifyBonusDamage(stage.MeleeDamageModifiers, uid, meleeBonusComp);
     }
 
-    public bool TryGetCurrentClawStage(ClawsComponent comp, EntityUid uid, [NotNullWhen(true)] out ClawStage? stage)
+    protected bool TryGetStage<T>(ClawsComponent comp, [NotNullWhen(true)] out T? stage) where T : ClawType
     {
-        stage = HasComp<DeclawedComponent>(uid)? null : comp.Stages.GetValueOrDefault(comp.ClawStage);
+        if (!_protoMan.TryIndex(comp.ClawStage, out var clawProto) ||
+            clawProto.ClawType.GetType().Name !=  typeof(T).Name)
+        {
+            stage = null;
+            return false;
+        }
 
-        return stage != null;
+        stage = (T)clawProto.ClawType;
+        return true;
     }
 
-    public bool TryGetCurrentClawStage(Entity<ClawsComponent> ent, [NotNullWhen(true)] out ClawStage? stage)
+    protected bool TryGetStage(ClawsComponent comp, [NotNullWhen(true)] out ClawType? stage)
     {
-        stage = HasComp<DeclawedComponent>(ent)? null : ent.Comp.Stages.GetValueOrDefault(ent.Comp.ClawStage);
+        if (!_protoMan.TryIndex(comp.ClawStage, out var clawProto))
+        {
+            stage = null;
+            return false;
+        }
 
-        return stage != null;
+        stage = clawProto.ClawType;
+        return true;
+    }
+
+    protected int TryGetStageNumber(ClawsComponent comp)
+    {
+        return comp.Claws.FirstOrDefault(c => c.Value == comp.ClawStage).Key;
     }
 }

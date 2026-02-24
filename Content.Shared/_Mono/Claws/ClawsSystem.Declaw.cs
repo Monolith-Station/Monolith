@@ -1,4 +1,6 @@
 using System.Linq;
+using Content.Shared._Mono.Claws.ClawTypes;
+using Content.Shared._Mono.Claws.Components;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Popups;
@@ -7,12 +9,12 @@ using Content.Shared.Weapons.Melee.Events;
 namespace Content.Shared._Mono.Claws;
 public abstract partial class SharedClawsSystem
 {
-    public void UpdateDeclaw(EntityUid uid, DeclawedComponent comp, float updateTime)
+    public void UpdateDeclaw(EntityUid uid, Declawed declawed, ClawsComponent claws, float updateTime)
     {
         var hands = _hands.EnumerateHands(uid).ToArray();
         if (!_hands.EnumerateHeld(uid).Any())
         {
-            comp.ItemHoldingTime = TimeSpan.Zero;
+            claws.DeclawItemHoldTimer = TimeSpan.Zero;
             _effects.TryRemoveStatusEffect(uid, "Jitter");
             return;
         }
@@ -20,18 +22,18 @@ public abstract partial class SharedClawsSystem
         if (!_state.IsAlive(uid))
             return;
 
-        comp.ItemHoldingTime += TimeSpan.FromSeconds(updateTime);
+        claws.DeclawItemHoldTimer += TimeSpan.FromSeconds(updateTime);
 
-        if (comp.ItemHoldingTime.Seconds >= comp.MaxItemHoldingTime.Seconds / 2)
+        if (claws.DeclawItemHoldTimer.Seconds >= declawed.MaxItemHoldingTime.Seconds / 2)
         {
             _jitter.DoJitter(uid,
                     TimeSpan.FromSeconds(updateTime),
                     true,
                     1,
-                    0.5f * (comp.ItemHoldingTime.Seconds - comp.MaxItemHoldingTime.Seconds / 2));
+                    0.5f * (claws.DeclawItemHoldTimer.Seconds - declawed.MaxItemHoldingTime.Seconds / 2));
         }
 
-        if (comp.ItemHoldingTime.Seconds < comp.MaxItemHoldingTime.Seconds)
+        if (claws.DeclawItemHoldTimer.Seconds < declawed.MaxItemHoldingTime.Seconds)
             return;
 
         foreach (var hand in hands)
@@ -39,25 +41,27 @@ public abstract partial class SharedClawsSystem
             DeclawDrop(uid, hand, hand.HeldEntity);
         }
 
-        comp.ItemHoldingTime = TimeSpan.Zero;
+        claws.DeclawItemHoldTimer = TimeSpan.Zero;
 
-        Dirty(uid,comp);
+        Dirty(uid,claws);
     }
 
     public void Declaw(EntityUid uid, ClawsComponent claws)
     {
-        claws.ClawStage = 0;
+        if (!claws.Claws.TryGetValue(-1, out var declawedProto))
+            return;
+
+        claws.ClawStage = declawedProto;
         claws.GrowTimer = TimeSpan.Zero;
 
-        var declaw = EnsureComp<DeclawedComponent>(uid);
-        declaw.RawMeleeDamage = claws.DeclawedMeleeDamage;
+        if (!TryGetStage<Declawed>(claws, out var declawedStage))
+            return;
 
         _popup.PopupEntity(Loc.GetString("declaw-success"), uid, PopupType.LargeCaution);
-        _damage.TryChangeDamage(uid, claws.DamageOnDeclaw, true);
+        _damage.TryChangeDamage(uid, declawedStage.DamageOnDeclaw, true);
 
         UpdateClaws(uid, claws);
         Dirty(uid, claws);
-        Dirty(uid, declaw);
     }
 
     private void DeclawDrop(EntityUid uid, Hand hand, EntityUid? item)

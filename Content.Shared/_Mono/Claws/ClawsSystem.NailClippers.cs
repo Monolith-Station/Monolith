@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Claws.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -14,20 +15,20 @@ public abstract partial class SharedClawsSystem
         SubscribeLocalEvent<ClawsComponent, NailClipperDoAfterEvent>(ClipNails);
     }
 
-    private void OnUse(EntityUid uid, NailClipperComponent component, UseInHandEvent args)
+    private void OnUse(Entity<NailClipperComponent> ent, ref UseInHandEvent args)
     {
         if (args.Handled)
             return;
 
-        args.Handled = TryClipNails(component, uid, args.User);
+        args.Handled = TryClipNails(ent, ent, args.User);
     }
 
-    private void OnTargetUse(EntityUid uid, NailClipperComponent component, AfterInteractEvent args)
+    private void OnTargetUse(Entity<NailClipperComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Handled || !args.CanReach || !args.Target.HasValue)
             return;
 
-        args.Handled = TryClipNails(component, uid, args.User, args.Target.Value);
+        args.Handled = TryClipNails(ent, ent, args.User, args.Target.Value);
     }
 
     /// <summary>
@@ -42,13 +43,15 @@ public abstract partial class SharedClawsSystem
     public bool TryClipNails(NailClipperComponent component, EntityUid nailClipper, EntityUid user, EntityUid? target = null)
     {
         target ??= user;
-        if (!TryComp<ClawsComponent>(target, out var claws) || HasComp<DeclawedComponent>(target))
+
+        if (!TryComp<ClawsComponent>(target, out var claws)||
+            TryGetStage(claws, out var stage) && !stage.CanBeCut)
         {
             _popup.PopupClient(Loc.GetString("has-no-claws-popup"), Transform(user).Coordinates, user);
             return false;
         }
 
-        if ((claws.ClawStage == 0) & (component.DeclawChance < 1))
+        if ((TryGetStageNumber(claws) <= 0) & (component.DeclawChance < 1))
         {
             _popup.PopupClient(Loc.GetString("claws-too-short-popup"), Transform(user).Coordinates, user);
             return false;
@@ -86,7 +89,8 @@ public abstract partial class SharedClawsSystem
             return;
         }
 
-        component.ClawStage = Math.Clamp(component.ClawStage - 1, 0, int.MaxValue);
+        component.ClawStage = component.Claws.GetValueOrDefault(
+            Math.Clamp(TryGetStageNumber(component) - nailClipper.StageReduction, 0, int.MaxValue));
         _popup.PopupClient(Loc.GetString("claws-clipping-success"), Transform(uid).Coordinates, uid);
 
         UpdateClaws(uid, component);

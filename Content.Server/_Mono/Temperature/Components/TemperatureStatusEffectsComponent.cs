@@ -1,4 +1,3 @@
-using Content.Server.EntityEffects.Effects.StatusEffects;
 using Content.Shared.EntityEffects;
 
 namespace Content.Server._Mono.Temperature.Components;
@@ -13,7 +12,7 @@ public sealed partial class TemperatureStatusEffectsComponent : Component
 }
 
 [DataDefinition, Serializable]
-public sealed partial class TemperatureEffect()
+public sealed partial class TemperatureEffect
 {
     [DataField]
     public float MinimumTemperature = 23.15f;

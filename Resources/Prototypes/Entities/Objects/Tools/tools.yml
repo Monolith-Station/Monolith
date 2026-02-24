@@ -65,6 +65,7 @@
       params:
         variation: 0.125
   - type: NailClipper # Mono
+    allowedClawTypes: ["SharpClaw"]
 
 - type: entity
   name: screwdriver

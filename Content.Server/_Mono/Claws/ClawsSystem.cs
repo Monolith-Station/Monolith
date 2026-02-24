@@ -1,4 +1,6 @@
 using Content.Shared._Mono.Claws;
+using Content.Shared._Mono.Claws.ClawTypes;
+using Content.Shared._Mono.Claws.Components;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Server._Mono.Claws;
@@ -8,14 +10,14 @@ namespace Content.Server._Mono.Claws;
 /// </summary>
 public sealed class ClawsSystem : SharedClawsSystem
 {
-    private readonly float _updateCooldown = 1f;
+    private float _updateCooldown = 1f;
     private TimeSpan _updateTimer = TimeSpan.Zero;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DeclawedComponent, MeleeAttackEvent>(OnAttack);
+        SubscribeLocalEvent<ClawsComponent, MeleeAttackEvent>(OnAttack);
     }
 
     public override void Update(float frameTime)
@@ -30,16 +32,15 @@ public sealed class ClawsSystem : SharedClawsSystem
 
         while (ents.MoveNext(out var uid, out var comp))
         {
-            if (TryComp<DeclawedComponent>(uid, out var declawed))
-                UpdateDeclaw(uid, declawed, _updateCooldown);
+            if (TryGetStage<Declawed>(comp, out var declawed))
+                UpdateDeclaw(uid, declawed, comp, _updateCooldown);
 
-            if (comp.ClawStage >= comp.Stages.Count - 1 ||
-                declawed != null)
+            if (!_protoMan.TryIndex(comp.ClawStage, out var claw) || !claw.CanGrow)
                 continue;
 
             comp.GrowTimer += TimeSpan.FromSeconds(_updateCooldown);
 
-            if (comp.GrowTimer < comp.GrowCooldown)
+            if (comp.GrowTimer < claw.GrowCooldown)
             {
                 UpdateClaws(uid, comp); // Pretty sure we can afford that.
                 Dirty(uid, comp);
@@ -47,7 +48,7 @@ public sealed class ClawsSystem : SharedClawsSystem
             }
 
             comp.GrowTimer = TimeSpan.Zero;
-            comp.ClawStage += 1;
+            comp.ClawStage = comp.Claws.GetValueOrDefault(TryGetStageNumber(comp) + 1);
 
             UpdateClaws(uid, comp);
             Dirty(uid, comp);
@@ -57,14 +58,17 @@ public sealed class ClawsSystem : SharedClawsSystem
 
     }
 
-    private void OnAttack(Entity<DeclawedComponent> ent, ref MeleeAttackEvent args)
+    private void OnAttack(Entity<ClawsComponent> ent, ref MeleeAttackEvent args)
     {
         if (ent.Owner == args.Weapon)
             return;
 
+        if (!TryGetStage<Declawed>(ent.Comp, out var declawed))
+            return;
+
         var r = _random.NextFloat();
 
-        if (r < ent.Comp.DropChanceOnMelee)
+        if (r < declawed.DropChanceOnMelee)
             DeclawDrop(ent, args.Weapon);
     }
 }

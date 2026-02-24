@@ -1,7 +1,7 @@
 - type: entity
   save: false
   name: Urisst' Mzhand
-  parent: [ BaseMobSpeciesOrganic, GenericClaws ]
+  parent: [ BaseMobSpeciesOrganic, ReptilianClaws ]
   id: BaseMobReptilian
   abstract: true
   components:
@@ -57,7 +57,7 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Slash: 8 # Mono
+        Blunt: 3 # Mono
     attackRate: 1.5
   - type: Temperature
     heatDamageThreshold: 400
@@ -196,65 +196,3 @@
     # WWDP-Edit-End
 
 #Weh
-# mono
-- type: entity
-  id: GenericClaws
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Claws
-    declawedMeleeDamage:
-      types:
-        Slash: -8
-        Blunt: 3
-    damageOnDeclaw:
-      types:
-        Slash: 20
-    stages:
-      0:
-        gunSpreadMultiplier: 1
-      1:
-        damage:
-          types:
-            Slash: 3
-        gunSpreadMultiplier: 1.1
-        meleeDamageModifiers:
-          coefficients:
-            Blunt: 0.95
-            Slash: 0.95
-            Piercing: 0.95
-      2:
-        damage:
-          types:
-            Slash: 5
-            Piercing: 2
-        gunSpreadMultiplier: 1.25
-        meleeDamageModifiers:
-          coefficients:
-            Blunt: 0.87
-            Slash: 0.87
-            Piercing: 0.87
-        canWideSwing: true
-      3:
-        damage:
-          types:
-            Slash: 7
-            Piercing: 5
-        gunSpreadMultiplier: 1.45
-        meleeDamageModifiers:
-          coefficients:
-            Blunt: 0.75
-            Slash: 0.75
-            Piercing: 0.75
-        canWideSwing: true
-      4:
-        damage:
-          types:
-            Slash: 10
-            Piercing: 12
-        meleeDamageModifiers:
-          coefficients:
-            Blunt: 0.5
-            Slash: 0.5
-            Piercing: 0.5
-        canShoot: false
-        canWideSwing: true

@@ -925,16 +925,4 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         Dirty(uid, meleeWeapon);
     }
-
-    /// <summary>
-    /// Mono - Apparently you cant edit this component outside SharedMeleeWeapon system.
-    /// </summary>
-    /// <param name="damageSet"></param>
-    /// <param name="uid"></param>
-    /// <param name="component"></param>
-    public void ModifyBonusDamage(DamageModifierSet damageSet, EntityUid uid, BonusMeleeDamageComponent component)
-    {
-        component.DamageModifierSet = damageSet;
-        Dirty(uid, component);
-    }
 }

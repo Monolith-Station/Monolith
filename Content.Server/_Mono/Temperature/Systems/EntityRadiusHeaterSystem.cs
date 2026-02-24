@@ -15,7 +15,7 @@ public sealed class EntityRadiusHeaterSystem : EntitySystem
     [Dependency] private readonly TemperatureSystem _temp = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
-    private readonly float _updateCooldown = 1f;
+    private float _updateCooldown = 1f;
     private TimeSpan _updateTimer = TimeSpan.Zero;
 
     public override void Update(float frameTime)

@@ -10,7 +10,7 @@ namespace Content.Server._Mono.Temperature.Systems;
 
 public sealed class TemperatureStatusEffectsSystem : EntitySystem
 {
-    private readonly float _updateCooldown = 1f;
+    private float _updateCooldown = 1f;
     private TimeSpan _updateTimer = TimeSpan.Zero;
 
     [Dependency] private readonly StatusEffectsSystem _effects = default!;
@@ -24,14 +24,11 @@ public sealed class TemperatureStatusEffectsSystem : EntitySystem
             return;
         }
 
-        var ents = EntityQueryEnumerator<TemperatureStatusEffectsComponent>();
+        var ents = EntityQueryEnumerator<TemperatureStatusEffectsComponent, TemperatureComponent>();
 
-        while (ents.MoveNext(out var uid, out var comp))
+        while (ents.MoveNext(out var uid, out var comp, out var temperature))
         {
             if (!_state.IsAlive(uid))
-                continue;
-
-            if (!TryComp<TemperatureComponent>(uid, out var temperature))
                 continue;
 
             var t = temperature.CurrentTemperature;
