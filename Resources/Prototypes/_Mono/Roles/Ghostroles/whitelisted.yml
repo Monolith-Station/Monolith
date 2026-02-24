@@ -29,3 +29,11 @@
   rules: ghost-role-information-silicon-rules
   entityPrototype: StationAiBrainPDV
   whitelisted: true
+
+- type: ghostRole
+  id: PlayerBorgSyndicateSaboteurBattery
+  name: ghost-role-information-syndicate-cyborg-saboteur-name
+  description: ghost-role-information-syndicate-cyborg-description
+  rules: ghost-role-information-silicon-rules
+  entityPrototype: PlayerBorgSyndicateSaboteurGhostRole
+  whitelisted: true
