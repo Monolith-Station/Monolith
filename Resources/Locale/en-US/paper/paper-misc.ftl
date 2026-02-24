@@ -76,7 +76,7 @@ book-text-cargo-instructions = You have tried to activate the machine without an
       To use the machine properly, insert one of the requested materials for a port's specific dispenser with your hands, and the reward will be deposited on top of the machine.
 
       These cargo crates can be bought and/or sold at the following locations:
-      - TSFMC Firebase Halcyon - Sell Only
+      - TSFMC Flagship Halcyon - Sell Only
       - Camelot Station - Buy and Sell
       - Trade Mall - Buy and Sell
       - Cargo Depots - Buy and Sell
