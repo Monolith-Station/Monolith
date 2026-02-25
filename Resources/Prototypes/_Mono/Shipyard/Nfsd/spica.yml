@@ -1,13 +1,13 @@
 - type: vessel
-  id: Javelin
+  id: Spica
   parent: BaseVesselAntag
-  name: TSF-PIN Javelin
+  name: TSF-PIN Spica
   description: A beefed up hull and the light frontline mainstay of the TSF fleets. A suprising weapons package in a small frame, made to engage larger targets.
   price: 117000
   category: Small
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/javelin.yml
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/spica.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -16,16 +16,16 @@
   - Bananium
 
 - type: gameMap
-  id: Javelin
-  mapName: 'Javelin'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/javelin.yml
+  id: Spica
+  mapName: 'Spica'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/spica.yml
   minPlayers: 0
   stations:
-    Javelin:
+    Spica:
       stationProto: StandardFrontierSecurityVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Javelin TSF{1}'
+        mapNameTemplate: 'Spica TSF{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
