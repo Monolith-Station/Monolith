@@ -39,7 +39,7 @@ namespace Content.Shared.Strip.Components
         public TimeSpan Additive = TimeSpan.Zero;
         public bool Stealth = stealth;
 
-        public TimeSpan Time => TimeSpan.FromSeconds(MathF.Max(InitialTime.Seconds * Multiplier + Additive.Seconds, 0f));
+        public TimeSpan Time => TimeSpan.FromSeconds(MathF.Max((float)InitialTime.TotalSeconds * Multiplier + (float)Additive.TotalSeconds, 0f)); // Mono fix. Seconds->TotalSeconds
 
         public SlotFlags TargetSlots { get; } = SlotFlags.GLOVES;
     }
