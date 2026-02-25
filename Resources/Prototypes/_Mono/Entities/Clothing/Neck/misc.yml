@@ -49,6 +49,7 @@
     equipDelay: 5 # to avoid accidentally falling into the trap associated with SelfUnremovableClothing
   - type: SelfUnremovableClothing
   - type: TimerStartOnSignal
+  - type: AutomatedTimer
   - type: OnUseTimerTrigger
     delay: 5
     initialBeepDelay: 0
