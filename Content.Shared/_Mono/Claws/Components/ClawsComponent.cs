@@ -18,9 +18,6 @@ public sealed partial class ClawsComponent : Component
     [DataField, AutoPausedField]
     public TimeSpan GrowTimer = TimeSpan.Zero;
 
-    [DataField]
-    public LocId ClawsExaminationString = "claws-lizard";
-
     [AutoPausedField]
     public TimeSpan DeclawItemHoldTimer = TimeSpan.Zero;
 }

@@ -20,6 +20,7 @@
     damageOnDeclaw:
       types:
         Slash: 20
+    clawsExaminationString: "claws-lizard-declawed"
 
 - type: claw
   id: ReptilianTinyClaws
@@ -29,6 +30,7 @@
       types:
         Slash: 8
         Blunt: -3
+    clawsExaminationString: "claws-lizard-tiny"
 
 - type: claw
   id: ReptilianSmallClaws
@@ -44,6 +46,8 @@
         Blunt: 0.95
         Slash: 0.95
         Piercing: 0.95
+    clawsExaminationString: "claws-lizard-small"
+
 
 - type: claw
   id: ReptilianMediumClaws
@@ -61,6 +65,8 @@
         Blunt: 0.87
         Slash: 0.87
         Piercing: 0.87
+    clawsExaminationString: "claws-lizard-medium"
+
 
 - type: claw
   id: ReptilianBigClaws
@@ -78,6 +84,8 @@
         Blunt: 0.75
         Slash: 0.75
         Piercing: 0.75
+    clawsExaminationString: "claws-lizard-big"
+
 
 - type: claw
   id: ReptilianHugeClaws
@@ -96,3 +104,5 @@
         Blunt: 0.5
         Slash: 0.5
         Piercing: 0.5
+    clawsExaminationString: "claws-lizard-huge"
+

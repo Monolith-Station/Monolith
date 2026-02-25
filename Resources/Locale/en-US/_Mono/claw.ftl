@@ -1,10 +1,10 @@
 claws-lizard-declawed = Their claws are ripped out.
 
-claws-lizard-0 = You can barely see their claws.
-claws-lizard-1 = They have small claws.
-claws-lizard-2 = They have medium-sized claws.
-claws-lizard-3 = They have long claws.
-claws-lizard-4 = Their claws are abnormally long.
+claws-lizard-tiny = You can barely see their claws.
+claws-lizard-small = They have small claws.
+claws-lizard-medium = They have medium-sized claws.
+claws-lizard-big = They have long claws.
+claws-lizard-huge = Their claws are abnormally long.
 
 clawed-shoot-fail = You can't fit claws in the trigger guard
 

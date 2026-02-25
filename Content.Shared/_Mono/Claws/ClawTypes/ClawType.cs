@@ -10,4 +10,7 @@ public abstract partial class ClawType
 
     [DataField]
     public bool CanBeCut = true;
+
+    [DataField]
+    public LocId ClawsExaminationString;
 }

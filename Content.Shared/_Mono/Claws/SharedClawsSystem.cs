@@ -79,7 +79,10 @@ public abstract partial class SharedClawsSystem : EntitySystem
 
     private void OnExamine(Entity<ClawsComponent> ent,ref ExaminedEvent args)
     {
-        args.AddMarkup(Loc.GetString(ent.Comp.ClawsExaminationString + "-" + TryGetStageNumber(ent.Comp)));
+        if (!TryGetStage(ent, out var stage))
+            return;
+
+        args.AddMarkup(Loc.GetString(stage.ClawsExaminationString));
     }
 
     /// <summary>
