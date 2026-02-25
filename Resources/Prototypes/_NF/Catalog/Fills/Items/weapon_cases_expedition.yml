@@ -698,6 +698,16 @@
     - id: C4
       amount: 2
 
+- type: entity
+  parent: WeaponCaseShortExplosives
+  id: WeaponCaseShortBombCollar
+  suffix: Dungeon, Bomb Collar
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingNeckBombCollar
+      amount: 4
+
 # Turrets
 - type: entity
   parent: WeaponCaseHeavy
