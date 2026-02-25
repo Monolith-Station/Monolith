@@ -1,0 +1,83 @@
+<Document>
+  # FIGHTER 'ZIGGY'
+  <Box>
+    <GuideEntityEmbed Entity="MercenaryTechFab"/>
+    <GuideEntityEmbed Entity="WeaponLaserTurretPrometheus"/>
+    <GuideEntityEmbed Entity="WeaponTurretTarnyx"/>
+  </Box>
+  [color=#a4885c]Ship Size:[/color] Small
+
+  [color=#a4885c]Recommended Crew:[/color] 1-2
+
+  [color=#a4885c]Power Gen Type:[/color] Wallmount APU x2.
+
+  [color=#a4885c]Expeditions:[/color] None
+
+  [color=#a4885c]IFF Console:[/color] Yes. 1.7~KM thermal signature. 1KM visual signature.
+
+  "Ziggy-class Fighters are tuned to pester ships larger than itself, with easy to aim Prometheus laser cannons and multirole Tarnyxes. It is well armored for it's size and the afterburners can achieve speeds most ships can only dream of... Provided you don't short out the substation."
+
+  # PREFLIGHT CHECKLIST
+
+  ## 1. Power supply
+
+  ## 1.1. Battery units
+  <Box>
+    <GuideEntityEmbed Entity="SubstationBasic"/>
+    <GuideEntityEmbed Entity="APCBasic"/>
+  </Box>
+
+  - Check that the substation unit is charging. Due to the presence of no other substation, feel free to set power draw to maximum.
+  - If the shuttle is unpowered upon your arrival, the afterburners may have discharged the substation. Disable power output for a moment to allow a recharge, re-enable it and then deactivate the thrusters via the Shuttle console. (As seen in section 4.)
+  - Check that the both APC units are turned on.
+
+  ## 1.2. Auxiliary Power Unit wallmounted generator.
+  <Box>
+    <GuideEntityEmbed Entity="GeneratorWallmountAPU"/>
+  </Box>
+
+  - Check that both APUs are routed to the substation by High Voltage power cable. If set properly, each will generate 6KW to power the fighter.
+  - Check to make sure no damage has been inflicted to the APUs.
+
+  ## 2. Atmospherics - Waste Loop
+
+  <Box>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="GasPassiveVent"/>
+  </Box>
+
+  - Assure that the red pipes, vent and scrubber are all intact.
+
+  ## 3. Other checks
+  <Box>
+    <GuideEntityEmbed Entity="WeaponTurretTarnyx"/>
+  </Box>
+
+  - Check that the Tarnyxes are loaded and linked to the Shuttle Console with the provided multitool.
+
+  ## 4. Button links.
+  <Box>
+    <GuideEntityEmbed Entity="ComputerShuttle"/>
+  </Box>
+
+  - Aside from the Tarnyxes, the below inputs are preset.
+
+  * - One > Prometheus Laser Cannons, 1 KM range, can pierce shields.
+
+  * - Three/Four > Our recommendation for the ammo bays to allow for independent firing
+
+  * - Five > Operates the door bolts. Keep them unbolted during FTL or they will desync.
+
+  * - Six > Ammo bay blast doors.
+
+  * - Eight > Afterburners. These will drain power constantly from the substation faster than it can charge. Be careful of continuous use.
+
+  ## Sidenotes
+
+  * - Tarnyxes can hold 3 different ammo types: EMP shells(They start with these) AP shells (They deal extreme damage to a single object) and Vanyk 150mm missiles (They can track targets and do not require research unlike the other two).
+
+
+  * - Due to the high power requirements of the afterburners, upgrading the substation with a new cell and capacitors would be recommended.
+
+  * - While using a handheld scanner, the Ziggy has a thermal signature of approximately 850~ meters.
+</Document>

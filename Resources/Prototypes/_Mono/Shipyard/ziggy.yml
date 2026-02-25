@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: tonotom1
+# Discord: rws
+
+# Shuttle Notes:
+#hi
+
+- type: vessel
+  id: Ziggy
+  parent: BaseVessel
+  name: GS Ziggy
+  description: A cramped fighter based on obsolete doctrines, leaving it with fixed firing weapons and a set of afterburners.
+  price: 82500 # rounded down markup 20% from 68813.
+  category: Small
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/ziggy.yml
+  guidebookPage: ShipyardZiggy
+  class:
+  - Pursuit
+  engine:
+  - APU
+
+- type: gameMap
+  id: Ziggy
+  mapName: 'Ziggy'
+  mapPath: /Maps/_Mono/Shuttles/ziggy.yml
+  minPlayers: 0
+  stations:
+    Ziggy:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Ziggy MIL{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Contractor: [ 0, 0 ]
+          Pilot: [ 0, 0 ]
+          Mercenary: [ 0, 0 ]

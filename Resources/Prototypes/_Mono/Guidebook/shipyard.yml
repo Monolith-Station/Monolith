@@ -10,7 +10,8 @@
   - ShipyardTakeaway
   - ShipyardRuby
   - ShipyardMotleyAnne
-  
+  - ShipyardZiggy
+
 - type: guideEntry
   id: ShipyardArgent
   name: guide-entry-shipyard-argent
@@ -40,3 +41,8 @@
   id: ShipyardMotleyAnne
   name: guide-entry-shipyard-motley-anne
   text: "/ServerInfo/_Mono/Guidebook/Shipyard/MotleyAnne.xml"
+
+- type: guideEntry
+  id: ShipyardZiggy
+  name: guide-entry-shipyard-ziggy
+  text: "/ServerInfo/_Mono/Guidebook/Shipyard/Ziggy.xml"
