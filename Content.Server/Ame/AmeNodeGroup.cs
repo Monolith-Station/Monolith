@@ -180,7 +180,7 @@ public sealed class AmeNodeGroup : BaseNodeGroup
         if (cores > 0 && fuel > 0)
             return 200000f * MathF.Log10(fuel * fuel) * MathF.Pow( 1.11111f, cores - 1); // Mono - Added positive returns from extra cores. Running AME at 2 fuel per core yields roughly the same power per core at all sizes
         else
-            return 0
+            return 0;
     }
 
     public int GetTotalStability()
