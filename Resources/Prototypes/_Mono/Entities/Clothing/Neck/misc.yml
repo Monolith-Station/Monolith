@@ -39,13 +39,13 @@
   id: ClothingNeckBombCollar
   name: bomb collar
   suffix: SelfUnremovable
-  description: Detonates within 5 seconds of being signaled. A human rights violation in more civilized space.
+  description: Detonates within 5 seconds of being signaled and very difficult to remove. A sentients rights violation in more civilized space.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Misc/bomb-collar.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Neck/Misc/bomb-collar.rsi
-    stripDelay: 30
+    stripDelay: 60
     equipDelay: 5 # to avoid accidentally falling into the trap associated with SelfUnremovableClothing
   - type: SelfUnremovableClothing
   - type: TimerStartOnSignal
