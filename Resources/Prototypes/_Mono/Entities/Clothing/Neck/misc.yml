@@ -45,7 +45,7 @@
     sprite: _Mono/Clothing/Neck/Misc/bomb-collar.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Neck/Misc/bomb-collar.rsi
-    stripDelay: 10
+    stripDelay: 30
     equipDelay: 5 # to avoid accidentally falling into the trap associated with SelfUnremovableClothing
   - type: SelfUnremovableClothing
   - type: TimerStartOnSignal
@@ -57,14 +57,10 @@
   - type: DeviceLinkSink
     ports:
       - Timer
-  - type: Explosive # Powerful explosion in a very small radius. Doesn't break underplating.
-    explosionType: Minibomb
-    totalIntensity: 1
-    intensitySlope: 50
-    maxIntensity: 1
+  - type: Explosive
+    explosionType: Minibomb #you may survive with a bombsuit lol
+    totalIntensity: 50
+    intensitySlope: 40
+    maxIntensity: 50
     canCreateVacuum: false
   - type: ExplodeOnTrigger
-  - type: DamageUserOnTrigger
-    damage:
-      types:
-        Blunt: 200
