@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/24/2026 06:14:12
-  entityCount: 503
+  time: 02/25/2026 23:45:18
+  entityCount: 502
 maps: []
 grids:
 - 1
@@ -407,7 +407,7 @@ entities:
   - uid: 195
     components:
     - type: Transform
-      pos: 1.5,3.5
+      pos: 0.5,11.5
       parent: 1
   - uid: 196
     components:
@@ -1701,25 +1701,6 @@ entities:
     - type: Transform
       pos: -0.5,10.5
       parent: 1
-- proto: ComputerAdvancedRadar
-  entities:
-  - uid: 388
-    components:
-    - type: Transform
-      pos: 1.5,5.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-- proto: ComputerBroken
-  entities:
-  - uid: 99
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.5,3.5
-      parent: 1
 - proto: ComputerGunneryConsole
   entities:
   - uid: 227
@@ -1733,11 +1714,10 @@ entities:
       startingCharge: 0
 - proto: ComputerIFF
   entities:
-  - uid: 96
+  - uid: 15
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,3.5
+      pos: 1.5,5.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -1994,6 +1974,24 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,-4.5
+      parent: 1
+- proto: GunneryServerMedium
+  entities:
+  - uid: 99
+    components:
+    - type: Transform
+      pos: -0.5,3.5
+      parent: 1
+    - type: Battery
+      startingCharge: 0
+    - type: ApcPowerReceiver
+      powerLoad: 10
+- proto: GyroscopeSecurity
+  entities:
+  - uid: 96
+    components:
+    - type: Transform
+      pos: 1.5,3.5
       parent: 1
 - proto: MachineFTLDrive25S
   entities:
