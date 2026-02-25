@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/22/2026 12:03:36
-  entityCount: 229
+  time: 02/25/2026 20:13:02
+  entityCount: 237
 maps: []
 grids:
 - 1
@@ -76,10 +76,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
+        MetalFoam: []
+        Puddle: []
         Smoke: []
         Kudzu: []
-        Puddle: []
-        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -951,6 +951,53 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-0.5
+      parent: 1
+- proto: SurveillanceCameraSecurity
+  entities:
+  - uid: 230
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,-1.5
+      parent: 1
+  - uid: 231
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,-1.5
+      parent: 1
+  - uid: 232
+    components:
+    - type: Transform
+      pos: -1.5,6.5
+      parent: 1
+  - uid: 233
+    components:
+    - type: Transform
+      pos: 2.5,6.5
+      parent: 1
+  - uid: 234
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,0.5
+      parent: 1
+  - uid: 235
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,0.5
+      parent: 1
+  - uid: 236
+    components:
+    - type: Transform
+      pos: 0.5,0.5
+      parent: 1
+  - uid: 237
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,3.5
       parent: 1
 - proto: ThrusterSecurity
   entities:

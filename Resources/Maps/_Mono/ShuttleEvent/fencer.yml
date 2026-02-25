@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/22/2026 11:59:51
-  entityCount: 208
+  time: 02/25/2026 20:14:56
+  entityCount: 210
 maps: []
 grids:
 - 1
@@ -70,10 +70,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
+        MetalFoam: []
+        Puddle: []
         Smoke: []
         Kudzu: []
-        Puddle: []
-        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -854,18 +854,19 @@ entities:
     - type: Transform
       pos: 1.5,2.5
       parent: 1
-- proto: SurveillanceCameraAssembly
+- proto: SurveillanceCameraSecurity
   entities:
   - uid: 73
     components:
     - type: Transform
-      pos: -1.5,8.5
+      rot: -1.5707963267948966 rad
+      pos: 5.5,1.5
       parent: 1
   - uid: 146
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -3.5,5.5
+      pos: -4.5,1.5
       parent: 1
   - uid: 147
     components:
@@ -876,21 +877,31 @@ entities:
   - uid: 148
     components:
     - type: Transform
-      pos: 2.5,8.5
+      rot: 3.141592653589793 rad
+      pos: 0.5,5.5
       parent: 1
   - uid: 149
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -4.5,1.5
+      pos: 3.5,7.5
       parent: 1
   - uid: 150
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 5.5,1.5
+      rot: 1.5707963267948966 rad
+      pos: -3.5,5.5
       parent: 1
   - uid: 151
+    components:
+    - type: Transform
+      pos: -2.5,7.5
+      parent: 1
+  - uid: 209
+    components:
+    - type: Transform
+      pos: 0.5,8.5
+      parent: 1
+  - uid: 210
     components:
     - type: Transform
       rot: 3.141592653589793 rad
