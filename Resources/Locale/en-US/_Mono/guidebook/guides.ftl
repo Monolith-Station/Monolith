@@ -5,7 +5,7 @@ guide-entry-shipyard-sabine = Sabine
 guide-entry-shipyard-takeaway = Takeaway
 guide-entry-shipyard-ruby = Ruby
 guide-entry-shipyard-motley-anne = Motley Anne
-Scripts/sh/buildAllDebug.sguide-entry-shipyard-ziggy = Ziggy
+guide-entry-shipyard-ziggy = Ziggy
 
 # Gunnery Guides
 guide-entry-gunnery = Ship Gunnery
