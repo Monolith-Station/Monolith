@@ -5,7 +5,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckNovaSharksLeatherJacket
   name: Nova Sharks leather jacket
-  description: A leather jacket for any affiliated members of The Nova Sharks. Fits comfortably over most suits and rough enough to never bend to authority. 
+  description: A leather jacket for any affiliated members of The Nova Sharks. Fits comfortably over most suits and rough enough to never bend to authority.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Misc/NS-leather-jacket.rsi
@@ -31,3 +31,39 @@
   - type: TemperatureProtection
     heatingCoefficient: 1.1
     coolingCoefficient: 0.5
+
+# Bomb Collars
+
+- type: entity
+  parent: ClothingNeckBase # Frontier: ClothingBackpack<NFClothingBackpack
+  id: ClothingNeckBombCollar
+  name: bomb collar
+  suffix: SelfUnremovable
+  description: Detonates within 5 seconds of being signaled. A human rights violation in more civilized space.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Misc/bomb-collar.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Misc/bomb-collar.rsi
+    stripDelay: 10
+    equipDelay: 5 # to avoid accidentally falling into the trap associated with SelfUnremovableClothing
+  - type: SelfUnremovableClothing
+  - type: TimerStartOnSignal
+  - type: OnUseTimerTrigger
+    delay: 5
+    initialBeepDelay: 0
+    beepSound: /Audio/Machines/timer.ogg
+  - type: DeviceLinkSink
+    ports:
+      - Timer
+  - type: Explosive # Powerful explosion in a very small radius. Doesn't break underplating.
+    explosionType: Minibomb
+    totalIntensity: 1
+    intensitySlope: 50
+    maxIntensity: 1
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
+  - type: DamageUserOnTrigger
+    damage:
+      types:
+        Blunt: 200
