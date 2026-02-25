@@ -16,7 +16,9 @@ public sealed partial class InventoryComponent : Component
 
     [DataField("speciesId")] public string? SpeciesId { get; set; }
 
+    [DataField]
     public SlotDefinition[] Slots = Array.Empty<SlotDefinition>();
+    [DataField]
     public ContainerSlot[] Containers = Array.Empty<ContainerSlot>();
 
     [DataField]

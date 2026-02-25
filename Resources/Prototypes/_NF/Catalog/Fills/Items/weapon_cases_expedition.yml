@@ -698,7 +698,7 @@
     - id: C4
       amount: 2
 
-- type: entity
+- type: entity # Mono
   parent: WeaponCaseShortExplosives
   id: WeaponCaseShortBombCollar
   suffix: Dungeon, Bomb Collar
@@ -707,6 +707,7 @@
     contents:
     - id: ClothingNeckBombCollar
       amount: 4
+    - id: BombCollarSealer
 
 # Turrets
 - type: entity

@@ -45,9 +45,9 @@
     sprite: _Mono/Clothing/Neck/Misc/bomb-collar.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Neck/Misc/bomb-collar.rsi
-    stripDelay: 30
+    stripDelay: 15
     equipDelay: 5 # to avoid accidentally falling into the trap associated with SelfUnremovableClothing
-  - type: SelfUnremovableClothing
+  - type: UnremovableClothing
   - type: TimerStartOnSignal
   - type: AutomatedTimer
   - type: OnUseTimerTrigger
