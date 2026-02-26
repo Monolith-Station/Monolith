@@ -81,6 +81,11 @@ entities:
     components:
     - type: MetaData
       name: ADS Wyvern
+    - type: InitRepairSnapshot
+    - type: ShipRepairRestrict
+      toolWhitelist:
+        tags:
+        - ADSRepairTool
     - type: Transform
       pos: -0.515625,-0.5
       parent: 
