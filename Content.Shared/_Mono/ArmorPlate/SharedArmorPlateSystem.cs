@@ -365,14 +365,9 @@ public abstract class SharedArmorPlateSystem : EntitySystem
             return;
 
         if (TryGetActivePlate((armorUid, holder), out _))
-        {
             EnsureComp<PlateProtectedComponent>(wearerUid);
-        }
-
         else
-        {
             RemComp<PlateProtectedComponent>(wearerUid);
-        }
     }
 
 }
