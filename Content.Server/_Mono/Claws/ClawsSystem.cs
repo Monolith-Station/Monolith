@@ -54,7 +54,7 @@ public sealed class ClawsSystem : SharedClawsSystem
             Dirty(uid, comp);
         }
 
-        _updateTimer = TimeSpan.Zero;
+        _updateTimer -= TimeSpan.FromSeconds(_updateCooldown);
 
     }
 
