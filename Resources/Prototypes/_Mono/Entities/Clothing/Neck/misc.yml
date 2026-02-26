@@ -65,3 +65,7 @@
     maxIntensity: 50
     canCreateVacuum: false
   - type: ExplodeOnTrigger
+  - type: SpamEmitSound
+    minInterval: 360
+    maxInterval: 1800
+    sound: /Audio/Machines/timer.ogg
