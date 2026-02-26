@@ -4,6 +4,7 @@ marking-HydrakinEyesOmega = Omega Eyes
 marking-HydrakinEyesQuad = Quad Eyes
 marking-HydrakinEyesRing = Ring Eyes
 marking-HydrakinEyesSaint = Saint Eyes
+marking-HydrakinEyesSeer = Seer Eyes
 
 marking-HydrakinTailDefault = Tail
 marking-HydrakinTailNub = Nub
