@@ -1,0 +1,36 @@
+#MARK: Medical
+- type: listing
+  id: UplinkPDVChemicalKit
+  name: uplink-pdv-chemical-kit-name
+  description: uplink-pdv-chemical-kit-desc
+  productEntity: ChemicalSynthesisKit
+  cost:
+    Doubloon: 1
+  categories:
+  - UplinkPDVMedical
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVBasicUplink
+
+- type: listing
+  id: UplinkPDVSurgicalKit
+  name: uplink-pdv-surgical-kit-name
+  description: uplink-pdv-surgical-kit-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledMedical
+  cost:
+    Doubloon: 1
+  categories:
+  - UplinkPDVMedical
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVBasicUplink
+
+#MARK: Weapons
+
+#MARK: Equipment
+
+#MARK: Utility

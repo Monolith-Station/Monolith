@@ -28,9 +28,24 @@ uplink-pdv-bulldog-desc = a devastating automatic mag fed shotgun. Fires 12 gaug
 uplink-pdv-esword-name = Energy Sword
 uplink-pdv-esword-desc = a pure concentrated plasma blade. Cuts enemies and doors down with ease.
 
-# Mark Weapons Advanced
+# MARK: Weapons Advanced
 
-# Mark Weapons Experimental
+uplink-pdv-VT7-name = VT-7 HF Blade
+uplink-pdv-VT7-desc =
+
+uplink-pdv-histirov-name = Histirov
+uplink-pdv-histirov-desc =
+
+uplink-pdv-l6-name = L6 SAW
+uplink-pdv-l6-desc =
+
+uplink-pdv-burner-rifle-name = Burner Rifle
+uplink-pdv-burner-rifle-desc =
+
+uplink-pdv-chinalake-name = Chinalake
+uplink-pdv-chinalake-desc =
+
+# MARK: Weapons Experimental
 
 # MARK: Utility Basic
 
@@ -66,9 +81,27 @@ uplink-pdv-emag-desc = A multipurpose hacking device that can configure the ways
 uplink-pdv-radio-jammer-name = Radio Jammer
 uplink-pdv-radio-jammer-desc = This device will disrupt any nearby outgoing radio communication as well as suit sensors when activated.
 
+uplink-pdv-energy-shield-name = Energy Shield
+uplink-pdv-energy-shield-desc = A portable hardlight shield, developed to deflect energy weapons prevalantly found in the hands of the TSF.
+
 # MARK: Utility Advanced
 
+uplink-pdv-emp-implanter-name = EMP Implanter
+uplink-pdv-emp-implanter-desc = An implanter containing a personal EMP generator, it contains three charges.
+
+uplink-pdv-scram-implanter-name = Scram Implanter
+uplink-pdv-scram-implanter-desc = An implanter containing a short range teleportation device, it can not be aimed and has three charges.
+
+uplink-pdv-micro-bomb-implanter-name = Nicro Bomb Implanter
+uplink-pdv-micro-bomb-implanter-desc = An implanter that contains a micro bomb that will detonate on death, and can be detonated at will.
+
+uplink-pdv-advanced-weapon-module = Advanced Cyborg Weapons Module
+uplink-pdv-advanced-weapon-module = A cyborg module containing a L6 saw and HF blade.
+
 #MARK: Utility Experimental
+
+uplink-pdv-macro-bomb-implanter = Macro Bomb Implanter
+uplink-pdv-macro-bomb-implanter-desc = An implanter that contains a large bomb that will detonate on death.
 
 # MARK: Equipment Basic
 
@@ -112,3 +145,26 @@ uplink-pdv-stealth-hardsuit-desc = A salvaged corporate era stealth suit built w
 
 uplink-pdv-juggernaut-hardsuit-name = Juggernaut Hardsuit
 uplink-pdv-juggernaut-hardsuit-desc = A reclaimed Cybersun juggernaut suit. It's infamous reputation bought by the Gorlex Marauder's ruthless slaughtering aboard wounded NT ships.
+
+#MARK: Medical
+
+uplink-pdv-chemical-kit-name = Chemical Synthesis Kit
+uplink-pdv-chemical-kit-desc = A advanced chemical kit that includes hyperzine and vestine.
+
+uplink-pdv-surgical-kit-name = Surgical Kit
+uplink-pdv-surgical-kit-desc = A advanced surgical kit that was commonly fielded by the now defunct Interdyne Pharmaceuticals.
+
+uplink-pdv-combat-medkit-name = Combat Medkit
+uplink-pdv-combat-medkit-desc = A medkit containing supplies to heal brute, bruise and bloodloss.
+
+uplink-pdv-gorlex-hypo-name = Gorlex Hypospray
+uplink-pdv-gorlex-hypo-desc = An advanced Hypospray with faster injections but smaller dosages. The design was reclaimed and reverse engineered from abandoned facilities of the defunct Gorlex Marauders.
+
+uplink-pdv-medipen-case-name = Medipen Case
+uplink-pdv-medipen-case-desc = A pocket case filled with medipens for most combat scenarios.
+
+uplink-pdv-interdyne-defib-name = Interdyne Defibrillator
+uplink-pdv-interdyne-fib-desc = An elite compact defibrillator that can be used as a deadly weapon.
+
+uplink-pdv-interdyne-bundle-name = Interdyne Medical Bundle
+uplink-pdv-interdyne-bundle-desc = An assortment of autoinjectors and premium medical equipment to cover for every possible situation. Contains two combat medkits, autoinjectors, lots of hyperzine and a compact defib.
