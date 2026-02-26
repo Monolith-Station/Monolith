@@ -17303,3 +17303,175 @@ Entries:
   id: 1911
   time: '2026-02-22T19:15:39.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3274
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Unknown ship detections now are differentiated by ship mass.
+  id: 1912
+  time: '2026-02-22T21:18:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3271
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: MD spawn distance variance increased.
+  id: 1913
+  time: '2026-02-23T05:18:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3263
+- author: Kiithnaras
+  changes:
+    - type: Fix
+      message: Added hunger and thirst to hydrakin for real.
+    - type: Fix
+      message: >-
+        Hydrakin species language definitions attached to species mob instead of
+        player mob for consistency.
+  id: 1914
+  time: '2026-02-23T13:24:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3278
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Potentially fixed FTLing docked ships lodging the other ship in you.
+  id: 1915
+  time: '2026-02-23T16:06:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3273
+- author: Helicaste
+  changes:
+    - type: Fix
+      message: 'Carrion suit storage is properly oriented. '
+  id: 1916
+  time: '2026-02-24T04:31:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3284
+- author: Kiithnaras
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Watchdog Respirator states being drawn reversed to their
+        mechanical state on Hydrakin.
+  id: 1917
+  time: '2026-02-24T12:49:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3281
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: 90mm pierce reduced 70->55. Explosion unchanged.
+  id: 1918
+  time: '2026-02-24T13:23:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3280
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Thieving trait no longer is stealthy stripping for free. Now costs 2
+        points and is slightly faster.
+  id: 1919
+  time: '2026-02-24T13:49:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3283
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: >-
+        Re-adds signal based firing to various shipguns, with full auto
+        capabilities for the Dravon and AK570.
+  id: 1920
+  time: '2026-02-24T18:57:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3275
+- author: Loldaddy5676
+  changes:
+    - type: Add
+      message: Added 9x19mm smg mags to the MLA smg for spasakas to load up on.
+  id: 1921
+  time: '2026-02-24T19:00:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3279
+- author: Kiithnaras
+  changes:
+    - type: Tweak
+      message: >-
+        Walk speed of all S2 and S4 mecha increased to roughly half their Sprint
+        speeds.
+    - type: Tweak
+      message: Broadsword and Halberd Sprint speed increased from 1 to 1.33
+    - type: Tweak
+      message: Sabre space speed doubled from 0.3 to 0.66
+    - type: Tweak
+      message: Spyglass Sprint speed increased from 0.5 to 0.8
+    - type: Tweak
+      message: Mace Sprint speed increased from 1.0 to 1.2
+    - type: Tweak
+      message: Increased capacity of all Power Cages
+    - type: Tweak
+      message: Increased Lathe costs of all Power Cages
+    - type: Add
+      message: >-
+        Various Power Cages can be printed directly in the Exofab instead of
+        needing a merc/military fab.
+    - type: Tweak
+      message: >-
+        Mech Fuel Cell now costs Fissile Uranium (1) and Diamond (1) among other
+        cost changes, but auto-regens to full within 4 minutes. 
+    - type: Tweak
+      message: >-
+        Balance pass on Armored Frame (S2/S4 mech) weapons - RAC-6 spreads
+        slower, LAC-29 spreads slower and firing is cheaper, DMR-90 spreads
+        slower and fires cheaper, ASM-55 fires cheaper, R3 has bigger boom and
+        has actual but limited tracking, Metronome structure damage increased
+        slightly and accuracy greatly increased, Ravager firing costs increased
+  id: 1922
+  time: '2026-02-24T19:42:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3253
+- author: UnicornOnLSD
+  changes:
+    - type: Add
+      message: >-
+        The DIS Femur is now available. A power hungry yet fast EMP-geared,
+        boarding focused menace.
+    - type: Remove
+      message: >-
+        The SHM Acera has been discontinued after several failed space OSHA
+        inspections.
+  id: 1923
+  time: '2026-02-24T20:00:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3272
+- author: KeiKiyomi
+  changes:
+    - type: Add
+      message: Command Relay Device for DoC, Overseer, Vizier, and Colonel
+  id: 1924
+  time: '2026-02-24T20:13:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3178
+- author: rishani-ss14
+  changes:
+    - type: Fix
+      message: >-
+        Replaced the valet voucher that Service Workers spawn with, with their
+        own, new service ship voucher.
+  id: 1925
+  time: '2026-02-24T20:15:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3168
+- author: burrrkeye
+  changes:
+    - type: Add
+      message: >-
+        PDV BT-Y Hazel has been outfitted with 2 Vanyk missile pods replacing
+        the AK-570s
+    - type: Remove
+      message: Removed fun!
+  id: 1926
+  time: '2026-02-24T20:30:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3212
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        ADS/ADM lawset makes clear that military outposts are protected under
+        the laws.
+  id: 1927
+  time: '2026-02-24T22:27:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3282
+- author: Redrover1760
+  changes:
+    - type: Remove
+      message: Retires the Ruby
+  id: 1928
+  time: '2026-02-26T05:27:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3261
