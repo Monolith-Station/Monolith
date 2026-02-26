@@ -1,4 +1,4 @@
-# MARK: Weapons
+# MARK: Weapons Basic
 uplink-pdv-edagger-name = Energy Dagger
 uplink-pdv-edagger-desc = a silent energy blade meant for stealthy combat operations.
 
@@ -17,6 +17,8 @@ uplink-pdv-akm-desc = An iconic weapon of war. Uses 7.62x39mm ammo.
 uplink-pdv-anaconda-name = LWC Anaconda
 uplink-pdv-anaconda-desc = a compact and heavy hitting pistol with an inbuilt ammo fabricator.
 
+# MARK: Weapons Standard
+
 uplink-pdv-m90-name = PA M-90
 uplink-pdv-m90-desc = A compact bullpup rifle that packs a kick. Uses 7.62x51mm.
 
@@ -25,6 +27,10 @@ uplink-pdv-bulldog-desc = a devastating automatic mag fed shotgun. Fires 12 gaug
 
 uplink-pdv-esword-name = Energy Sword
 uplink-pdv-esword-desc = a pure concentrated plasma blade. Cuts enemies and doors down with ease.
+
+# Mark Weapons Advanced
+
+# Mark Weapons Experimental
 
 # MARK: Utility Basic
 
@@ -60,19 +66,11 @@ uplink-pdv-emag-desc = A multipurpose hacking device that can configure the ways
 uplink-pdv-radio-jammer-name = Radio Jammer
 uplink-pdv-radio-jammer-desc = This device will disrupt any nearby outgoing radio communication as well as suit sensors when activated.
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-# MARK: Equipment
-=======
+# MARK: Utility Advanced
+
+#MARK: Utility Experimental
+
 # MARK: Equipment Basic
->>>>>>> Stashed changes
-=======
-# MARK: Equipment Basic
->>>>>>> Stashed changes
-=======
-# MARK: Equipment Basic
->>>>>>> Stashed changes
 
 uplink-pdv-scaf-hardsuit-name = PDV SCAF Hardsuit
 uplink-pdv-scaf-hardsuit-desc = A basic protective hardsuit used by the PDV.
@@ -86,21 +84,8 @@ uplink-pdv-bullet-vest-medium-desc = a simple kevlar vest. Good protection again
 uplink-pdv-bullet-vest-heavy-name = Heavy Bulletproof Vest
 uplink-pdv-bullet-vest-heavy-desc = a simple kevlar vest. Good protection against small arms.
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 # MARK: Equipment Standard
 
->>>>>>> Stashed changes
-=======
-# MARK: Equipment Standard
-
->>>>>>> Stashed changes
-=======
-# MARK: Equipment Standard
-
->>>>>>> Stashed changes
 uplink-pdv-tactical-magboots-name = Tactical Magboots
 uplink-pdv-tactical-magboots-desc = A pair of combat magboots that come additionally with jetpack functionality that come fueled, but dont last long.
 
@@ -113,3 +98,17 @@ uplink-pdv-imp-hardsuit-desc = a lightweight combat medical suit, often used by 
 uplink-pdv-jackal-hardsuit-name = JACKAL Viper Hardsuit
 uplink-pdv-jackal-hardsuit-desc = A heavy combat hardsuit that comes with night vision goggles installed.
 
+# MARK: Equipment Advanced
+uplink-pdv-CV32-tacsuit-name = CV-32 Tacsuit
+uplink-pdv-CV32-tacsuit-desc = A combat tacsuit designed to provide good overall protection with added manuverability
+
+uplink-pdv-CV53-tacsuit-name = CV-53 Tacsuit
+uplink-pdv-CV53-tacsuit-desc = An advanced combat tacsuit with light ballistic protection with heat resistant lining and active shielding
+
+uplink-pdv-stealth-hardsuit-name = Cybersun Stealth Suit
+uplink-pdv-stealth-hardsuit-desc = A salvaged corporate era stealth suit built with active cloaking, used in the war to infiltrate Nanotrasen's valuable assets.
+
+# MARK: Equipment Experimental
+
+uplink-pdv-juggernaut-hardsuit-name = Juggernaut Hardsuit
+uplink-pdv-juggernaut-hardsuit-desc = A reclaimed Cybersun juggernaut suit. It's infamous reputation bought by the Gorlex Marauder's ruthless slaughtering aboard wounded NT ships.
