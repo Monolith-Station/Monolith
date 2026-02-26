@@ -149,6 +149,7 @@ namespace Content.Client.VendingMachines.UI
             SetSizeAfterUpdate(longestEntry.Length, inventory.Count);
         }
 
+        // Mono: Moved out pricing logic to the separate method
         private int GetPrice(VendingMachineInventoryEntry entry, EntityPrototype? prototype, float priceModifier){
             // Frontier: item pricing
             // ok so we dont really have access to the pricing system so we are doing a quick price check
