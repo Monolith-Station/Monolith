@@ -59,13 +59,14 @@ namespace Content.Server.SizeAttribute
             if (scale <= 0f && density <= 0f)
                 return;
 
-            _entityManager.EnsureComponent<ScaleVisualsComponent>(uid);
+            // Exodus | Removing width&height properties
+            // _entityManager.EnsureComponent<ScaleVisualsComponent>(uid);
 
-            var appearanceComponent = _entityManager.EnsureComponent<AppearanceComponent>(uid);
-            if (!_appearance.TryGetData<Vector2>(uid, ScaleVisuals.Scale, out var oldScale, appearanceComponent))
-                oldScale = Vector2.One;
+            // var appearanceComponent = _entityManager.EnsureComponent<AppearanceComponent>(uid);
+            // if (!_appearance.TryGetData<Vector2>(uid, ScaleVisuals.Scale, out var oldScale, appearanceComponent))
+            //     oldScale = Vector2.One;
 
-            _appearance.SetData(uid, ScaleVisuals.Scale, oldScale * scale, appearanceComponent);
+            // _appearance.SetData(uid, ScaleVisuals.Scale, oldScale * scale, appearanceComponent);
 
             if (!cosmeticOnly && _entityManager.TryGetComponent(uid, out FixturesComponent? manager))
             {

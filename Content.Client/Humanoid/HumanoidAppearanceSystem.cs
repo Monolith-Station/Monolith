@@ -200,15 +200,6 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoid.Species = profile.Species;
         humanoid.SkinColor = profile.Appearance.SkinColor;
         humanoid.EyeColor = profile.Appearance.EyeColor;
-        humanoid.Height = profile.Appearance.Height;
-        humanoid.Width = profile.Appearance.Width;
-
-        // Apply scaling for client-side preview (width, height)
-        var sprite = Comp<SpriteComponent>(uid);
-        // Check to prevent sprite scale errors for old profiles
-        var width = profile.Appearance.Width <= 0.005f ? 1.0f : profile.Appearance.Width;
-        var height = profile.Appearance.Height <= 0.005f ? 1.0f : profile.Appearance.Height;
-        sprite.Scale = new Vector2(width, height);
 
         UpdateSprite(humanoid, Comp<SpriteComponent>(uid));
     }

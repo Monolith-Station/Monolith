@@ -1,5 +1,5 @@
 - type: vessel
-  id: Spyglass MKII
+  id: SpyglassMKII
   parent: BaseVesselAntag
   name: PDV Spyglass MKII
   description: One of salvage ships you'll see from the Phaethon Dynasty. This baby is capable of Xenoarcheology and salvage work.
@@ -16,12 +16,12 @@
   - Uranium
 
 - type: gameMap
-  id: Spyglass MKII
+  id: SpyglassMKII
   mapName: 'PDV Spyglass MKII'
   mapPath: /Maps/_Mono/Shuttles/BlackMarket/spyglassmk2.yml
   minPlayers: 0
   stations:
-    Spyglass MKII:
+    SpyglassMKII:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
