@@ -8,7 +8,7 @@
   - ShipyardJudiciary
   - ShipyardSabine
   - ShipyardTakeaway
-  - ShipyardRuby
+# - ShipyardRuby
   - ShipyardMotleyAnne
   - ShipyardZiggy
 
@@ -32,10 +32,10 @@
   name: guide-entry-shipyard-takeaway
   text: "/ServerInfo/_Mono/Guidebook/Shipyard/Takeaway.xml"
 
-- type: guideEntry
-  id: ShipyardRuby
-  name: guide-entry-shipyard-ruby
-  text: "/ServerInfo/_Mono/Guidebook/Shipyard/Ruby.xml"
+#- type: guideEntry
+#  id: ShipyardRuby
+#  name: guide-entry-shipyard-ruby
+#  text: "/ServerInfo/_Mono/Guidebook/Shipyard/Ruby.xml"
 
 - type: guideEntry
   id: ShipyardMotleyAnne
