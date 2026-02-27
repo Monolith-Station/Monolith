@@ -18,6 +18,8 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: StaminaDamageResistance # Mono - Stamres
+    coefficient: 0.2
 
 #Mercenary web vest
 - type: entity
@@ -40,6 +42,8 @@
         Caustic: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.90
+  - type: StaminaDamageResistance # Mono - Stamres
+    coefficient: 0.4
 
 #Detective's vest
 - type: entity
