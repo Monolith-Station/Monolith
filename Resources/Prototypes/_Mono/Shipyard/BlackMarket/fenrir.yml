@@ -1,13 +1,13 @@
 - type: vessel
-  id: Anaconda
+  id: Fenrir
   parent: BaseVesselAntag
-  name: PDV Anaconda
-  description: A ship built around a mass driver, with 2 swarm missile pods and basic PD armament for support.
-  price: 122500
+  name: BT-Y Fenrir
+  description: A versalite support destroyer armed with an M381 Mass Driver, 2 Dravons, 2 Scattercannons, 4 20mm autocannons and outfitted with 2 Medium Size Mechbays capable of deploying S-2 and S-1 Mechs. Well armored but slow.
+  price: 149500
   category: Medium
   group: BlackMarket
   access: Pirate
-  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/anaconda.yml
+  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/fenrir.yml
   guidebookPage: Null
   class:
   - Pirate
@@ -16,16 +16,16 @@
   - AME
 
 - type: gameMap
-  id: Anaconda
-  mapName: 'PDV Anaconda'
-  mapPath: /Maps/_Mono/Shuttles/BlackMarket/anaconda.yml
+  id: Fenrir
+  mapName: 'PDV Fenrir'
+  mapPath: /Maps/_Mono/Shuttles/BlackMarket/fenrir.yml
   minPlayers: 0
   stations:
-    Anaconda:
+    Fenrir:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Anaconda PDV{1}'
+          mapNameTemplate: 'Fenrir PDV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
