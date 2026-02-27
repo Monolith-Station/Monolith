@@ -24,7 +24,8 @@ namespace Content.Client.Chemistry.UI
     public sealed partial class ChemMasterWindow : FancyWindow
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        private readonly SpriteSystem _sprite = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
+        private readonly SpriteSystem _sprite;
         public event Action<BaseButton.ButtonEventArgs, ReagentButton>? OnReagentButtonPressed;
         public readonly Button[] PillTypeButtons;
 
@@ -38,6 +39,7 @@ namespace Content.Client.Chemistry.UI
         {
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
+            _sprite = _entityManager.System<SpriteSystem>();
 
             // Pill type selection buttons, in total there are 20 pills.
             // Pill rsi file should have states named as pill1, pill2, and so on.
