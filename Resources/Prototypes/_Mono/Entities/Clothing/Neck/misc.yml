@@ -72,3 +72,20 @@
   - type: Tag
     tags:
       - BombCollar
+
+- type: entity
+  parent: ClothingNeckBombCollar
+  id: ClothingNeckNukeCollar
+  name: nuke collar
+  suffix: Unremovable, Admin, Admeme
+  description: A hardened, explosive collar with a mini-nuke attached. Mildly radioactive.
+  components:
+  - type: Sprite
+    state: icon-nuke
+  - type: Explosive
+    explosionType: Minibomb # uh oh
+    totalIntensity: 5000
+    intensitySlope: 400
+    maxIntensity: 500
+  - type: RadiationSource
+    intensity: 0.1
