@@ -39,8 +39,6 @@ public sealed class UnremovableClothingSystem : EntitySystem
 
     private void OnInteract(EntityUid uid, UnremovableClothingRemoverComponent component, ref AfterInteractEvent eventArgs)
     {
-        if (!_net.IsServer)
-            return;
 
         if (eventArgs.Handled)
             return;
@@ -83,11 +81,11 @@ public sealed class UnremovableClothingSystem : EntitySystem
             {
                 case true:
                     clothing.IsUnremovable = false;
-                    _popup.PopupEntity(Loc.GetString("comp-unremovable-clothing-disabled", ("target", targetUid)), targetUid);
+                    _popup.PopupPredicted(Loc.GetString("comp-unremovable-clothing-disabled", ("target", targetUid)), eventArgs.User, targetUid);
                     break;
                 case false:
                     clothing.IsUnremovable = true;
-                    _popup.PopupEntity(Loc.GetString("comp-unremovable-clothing-enabled", ("target", targetUid)), targetUid);
+                    _popup.PopupPredicted(Loc.GetString("comp-unremovable-clothing-enabled", ("target", targetUid)), eventArgs.User, targetUid);
                     break;
             }
             Dirty(targetUid, clothing);
