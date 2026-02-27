@@ -21,6 +21,10 @@ public sealed partial class RadarBlipsSystem : EntitySystem
     private List<BlipNetData> _blips = new();
     private List<(Vector2 Start, Vector2 End, float Thickness, Color Color)> _hitscans = new();
 
+    // cached results to avoid allocating on every draw/frame
+    private readonly List<BlipData> _cachedBlipData = new();
+    private readonly List<(Vector2 Start, Vector2 End, float Thickness, Color Color)> _cachedHitscanData = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -79,13 +83,12 @@ public sealed partial class RadarBlipsSystem : EntitySystem
     /// </summary>
     public List<BlipData> GetCurrentBlips()
     {
-        // If it's been more than the stale threshold since our last update,
-        // the data is considered stale - return an empty list
+        // clear the cache and bail early if the data is stale
+        _cachedBlipData.Clear();
         if (_timing.CurTime.TotalSeconds - _lastUpdatedTime.TotalSeconds > BlipStaleSeconds)
-            return new();
+            return _cachedBlipData;
 
-        var result = new List<BlipData>(_blips.Count);
-
+        // populate the cached list instead of allocating a new one each frame
         foreach (var blip in _blips)
         {
             var coord = GetCoordinates(blip.Position);
@@ -103,10 +106,10 @@ public sealed partial class RadarBlipsSystem : EntitySystem
                 config = blip.OnGridConfig.Value;
             var maybeGrid = grid != EntityUid.Invalid ? grid : (EntityUid?)null;
 
-            result.Add(new(blip.Uid, predictedPos, blip.Rotation, maybeGrid, config));
+            _cachedBlipData.Add(new(blip.Uid, predictedPos, blip.Rotation, maybeGrid, config));
         }
 
-        return result;
+        return _cachedBlipData;
     }
 
     /// <summary>
@@ -114,20 +117,16 @@ public sealed partial class RadarBlipsSystem : EntitySystem
     /// </summary>
     public List<(Vector2 Start, Vector2 End, float Thickness, Color Color)> GetHitscanLines()
     {
+        _cachedHitscanData.Clear();
         if (_timing.CurTime.TotalSeconds - _lastUpdatedTime.TotalSeconds > BlipStaleSeconds)
-            return new List<(Vector2, Vector2, float, Color)>();
-
-        var result = new List<(Vector2, Vector2, float, Color)>(_hitscans.Count);
+            return _cachedHitscanData;
 
         foreach (var hitscan in _hitscans)
         {
-            var worldStart = hitscan.Start;
-            var worldEnd = hitscan.End;
-
-            result.Add((worldStart, worldEnd, hitscan.Thickness, hitscan.Color));
+            _cachedHitscanData.Add((hitscan.Start, hitscan.End, hitscan.Thickness, hitscan.Color));
         }
 
-        return result;
+        return _cachedHitscanData;
     }
 }
 

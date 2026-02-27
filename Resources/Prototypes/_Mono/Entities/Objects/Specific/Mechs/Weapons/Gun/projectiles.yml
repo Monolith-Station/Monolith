@@ -97,7 +97,7 @@
       types:
         Piercing: 60
         Blunt: 50
-        Structural: 200
+        Structural: 250
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -148,18 +148,18 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 100
-    intensitySlope: 20
-    maxIntensity: 30
+    totalIntensity: 200
+    intensitySlope: 4
+    maxIntensity: 100
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 20
-    detectionRange: 1
-    scanArc: 1
+    detectionRange: 100
+    scanArc: 5
     launchSpeed: 10
-    maxSpeed: 50
+    maxSpeed: 64
 
 - type: entity
   id: BlanketFlare
