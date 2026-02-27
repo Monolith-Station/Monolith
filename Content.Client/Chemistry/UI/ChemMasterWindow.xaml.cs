@@ -24,7 +24,7 @@ namespace Content.Client.Chemistry.UI
     public sealed partial class ChemMasterWindow : FancyWindow
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly SpriteSystem _sprite = default!;
+        private readonly SpriteSystem _sprite = default!;
         public event Action<BaseButton.ButtonEventArgs, ReagentButton>? OnReagentButtonPressed;
         public readonly Button[] PillTypeButtons;
 
@@ -68,7 +68,7 @@ namespace Content.Client.Chemistry.UI
 
                 // Generate buttons textures
                 var specifier = new SpriteSpecifier.Rsi(resourcePath, "pill" + (i + 1));
-                TextureRect pillTypeTexture = new TextureRect
+                var pillTypeTexture = new TextureRect
                 {
                     Texture = _sprite.Frame0(specifier),
                     TextureScale = new Vector2(1.75f, 1.75f),
