@@ -6,18 +6,18 @@ using Content.Shared.Interaction;
 using Content.Shared.Whitelist;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
-using Robust.Shared.Timing;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
 /// <summary>
-///     A system for the operation of a component that prohibits the removal of an item with that component.
+/// A system that handles toggleable unremoveable clothing.
 /// </summary>
 public sealed class UnremovableClothingSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -48,17 +48,17 @@ public sealed class UnremovableClothingSystem : EntitySystem
         if (!eventArgs.CanReach)
             return;
 
-        // behaviour will depends on target type
         if (eventArgs.Target != null)
         {
+            // check direct target for component
             var targetUid = (EntityUid)eventArgs.Target;
-
-            // replace broken light in fixture?
 
             HandleRemovability(targetUid, component, ref eventArgs);
             if (eventArgs.Handled)
                 return;
 
+            // if not found, check the entity's inventory (if it exists) for an entity with the component. Return once one is found.
+            // This iterates once, so it won't check nested inventories.
             if (TryComp<InventoryComponent>(targetUid, out var inventory))
             {
                 foreach (var container in inventory.Containers)
@@ -79,23 +79,24 @@ public sealed class UnremovableClothingSystem : EntitySystem
         if (!TryComp<UnremovableClothingComponent>(targetUid, out var clothing))
             return;
 
-        if (!(component.Whitelist == null) &&
-            !_whitelistSystem.IsValid(component.Whitelist, targetUid))
+        // if whitelist is null or passes, continue
+        if (!_whitelistSystem.IsWhitelistPassOrNull(component.Whitelist, targetUid))
             return;
 
-        switch (clothing.IsUnremovable)
+        // toggle unremoveability
+        if (clothing.IsUnremovable)
         {
-            case true:
-                clothing.IsUnremovable = false;
-                _popup.PopupPredicted(Loc.GetString("comp-unremovable-clothing-disabled", ("target", targetUid)), eventArgs.User, targetUid);
-                break;
-            case false:
-                clothing.IsUnremovable = true;
-                _popup.PopupPredicted(Loc.GetString("comp-unremovable-clothing-enabled", ("target", targetUid)), eventArgs.User, targetUid);
-                break;
+            clothing.IsUnremovable = false;
+            _popup.PopupPredicted(Loc.GetString("comp-unremovable-clothing-disabled", ("target", targetUid)), eventArgs.User, targetUid);
         }
-        Dirty(targetUid, clothing);
+        else
+        {
+            clothing.IsUnremovable = true;
+            _popup.PopupPredicted(Loc.GetString("comp-unremovable-clothing-enabled", ("target", targetUid)), eventArgs.User, targetUid);
+        }
 
+        // update client
+        Dirty(targetUid, clothing);
         eventArgs.Handled = true;
         return;
     }

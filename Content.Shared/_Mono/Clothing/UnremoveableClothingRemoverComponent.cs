@@ -5,22 +5,16 @@ using Content.Shared.Whitelist;
 namespace Content.Shared.Clothing.Components;
 
 /// <summary>
-///     The component prohibits the player from taking off clothes on them that have this component.
+/// The component toggles the UnremoveableClothingComponent.
 /// </summary>
-[NetworkedComponent, AutoGenerateComponentState]
+[NetworkedComponent]
 [RegisterComponent]
 [Access(typeof(UnremovableClothingSystem))]
 public sealed partial class UnremovableClothingRemoverComponent : Component
 {
-
     /// <summary>
-    /// Toggles the unremoveability of clothing.
+    /// Whitelist for UnremoveableClothingComponent entities. If null, works on all entities with the component.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool IsUnremovable = false;
-
-    [DataField, AutoNetworkedField]
-
+    [DataField]
     public EntityWhitelist? Whitelist = null;
-
 }
