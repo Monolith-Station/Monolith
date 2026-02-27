@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/24/2026 02:51:29
-  entityCount: 6363
+  time: 02/25/2026 13:54:19
+  entityCount: 6366
 maps: []
 grids:
 - 1
@@ -203,10 +203,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
+        MetalFoam: []
         Puddle: []
         Smoke: []
-        MetalFoam: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1629,7 +1629,7 @@ entities:
       pos: 2.5,-36.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -20367.572
+      secondsUntilStateChange: -20594.201
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2693,11 +2693,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 40.5,0.5
       parent: 1
-  - uid: 4662
-    components:
-    - type: Transform
-      pos: 18.5,13.5
-      parent: 1
 - proto: BlastDoorBridge
   entities:
   - uid: 214
@@ -3106,7 +3101,7 @@ entities:
   - uid: 279
     components:
     - type: Transform
-      pos: 18.59977,-15.370319
+      pos: 15.678543,-8.5614195
       parent: 1
 - proto: BriefcaseBrown
   entities:
@@ -13083,11 +13078,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -23.5,-10.5
       parent: 1
-  - uid: 1909
-    components:
-    - type: Transform
-      pos: 19.5,20.5
-      parent: 1
   - uid: 1918
     components:
     - type: Transform
@@ -13115,6 +13105,17 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 19.5,-14.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+- proto: ComputerGunneryConsole
+  entities:
+  - uid: 3061
+    components:
+    - type: Transform
+      pos: 19.5,20.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -19889,6 +19890,20 @@ entities:
       parent: 1
 - proto: SignalButton
   entities:
+  - uid: 1909
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,2.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        197:
+        - - Pressed
+          - Toggle
+        196:
+        - - Pressed
+          - Toggle
   - uid: 2814
     components:
     - type: Transform
@@ -19950,6 +19965,20 @@ entities:
         3057:
         - - Pressed
           - Toggle
+  - uid: 4662
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,-6.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        195:
+        - - Pressed
+          - Toggle
+        194:
+        - - Pressed
+          - Toggle
   - uid: 6294
     components:
     - type: Transform
@@ -19959,6 +19988,38 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1949:
+        - - Pressed
+          - Toggle
+  - uid: 6366
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 18.5,-15.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        65:
+        - - Pressed
+          - Toggle
+        66:
+        - - Pressed
+          - Toggle
+        70:
+        - - Pressed
+          - Toggle
+        69:
+        - - Pressed
+          - Toggle
+        63:
+        - - Pressed
+          - Toggle
+        64:
+        - - Pressed
+          - Toggle
+        68:
+        - - Pressed
+          - Toggle
+        67:
         - - Pressed
           - Toggle
 - proto: SignalButtonBridge
@@ -20246,6 +20307,32 @@ entities:
         - - Pressed
           - Toggle
         66:
+        - - Pressed
+          - Toggle
+  - uid: 6364
+    components:
+    - type: Transform
+      pos: 11.5,-11.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        199:
+        - - Pressed
+          - Toggle
+        198:
+        - - Pressed
+          - Toggle
+  - uid: 6365
+    components:
+    - type: Transform
+      pos: 25.5,-11.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        202:
+        - - Pressed
+          - Toggle
+        203:
         - - Pressed
           - Toggle
 - proto: SignalButtonExt1
@@ -21837,11 +21924,6 @@ entities:
     components:
     - type: Transform
       pos: 17.5,-6.5
-      parent: 1
-  - uid: 3061
-    components:
-    - type: Transform
-      pos: 22.5,-12.5
       parent: 1
 - proto: VendingMachineSyndieDrobe
   entities:

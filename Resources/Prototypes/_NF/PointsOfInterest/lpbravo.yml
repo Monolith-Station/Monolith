@@ -10,7 +10,7 @@
 # just a little loot n shoot POI. Pretty much the second POI to even exist
 - type: pointOfInterest
   id: LPBravo
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'Listening Point Bravo'
   minimumDistance: 20000
   maximumDistance: 21000
