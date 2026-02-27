@@ -13,6 +13,11 @@ public sealed partial class RadarBlipSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
+    // Pooled collections to avoid per-request heap churn
+    private readonly List<BlipNetData> _tempBlipsCache = new();
+    private readonly List<(Vector2 Start, Vector2 End, float Thickness, Color Color)> _tempHitscansCache = new();
+    private readonly List<EntityUid> _tempSourcesCache = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -30,17 +35,24 @@ public sealed partial class RadarBlipSystem : EntitySystem
 
         var sourcesEv = new GetRadarSourcesEvent();
         RaiseLocalEvent(radarUid.Value, ref sourcesEv);
-        var additionalUids = sourcesEv.Sources ?? new List<EntityUid>{radarUid.Value};
 
-        var blips = AssembleBlipsReport((EntityUid)radarUid, additionalUids, radar);
-        var hitscans = AssembleHitscanReport((EntityUid)radarUid, additionalUids, radar);
+        // Reuse pooled sources list
+        _tempSourcesCache.Clear();
+        if (sourcesEv.Sources != null)
+            _tempSourcesCache.AddRange(sourcesEv.Sources);
+        else
+            _tempSourcesCache.Add(radarUid.Value);
+
+        AssembleBlipsReport((EntityUid)radarUid, _tempSourcesCache, radar);
+        AssembleHitscanReport((EntityUid)radarUid, _tempSourcesCache, radar);
 
         // Combine the blips and hitscan lines
-        var giveEv = new GiveBlipsEvent(blips, hitscans);
+        var giveEv = new GiveBlipsEvent(_tempBlipsCache, _tempHitscansCache);
         RaiseNetworkEvent(giveEv, args.SenderSession);
 
-        blips.Clear();
-        hitscans.Clear();
+        _tempBlipsCache.Clear();
+        _tempHitscansCache.Clear();
+        _tempSourcesCache.Clear();
     }
 
     private void OnBlipShutdown(EntityUid blipUid, RadarBlipComponent component, ComponentShutdown args)
@@ -50,9 +62,9 @@ public sealed partial class RadarBlipSystem : EntitySystem
         RaiseNetworkEvent(removalEv);
     }
 
-    private List<BlipNetData> AssembleBlipsReport(EntityUid uid, List<EntityUid> sources, RadarConsoleComponent? component = null)
+    private void AssembleBlipsReport(EntityUid uid, List<EntityUid> sources, RadarConsoleComponent? component = null)
     {
-        var blips = new List<BlipNetData>();
+        _tempBlipsCache.Clear();
 
         if (Resolve(uid, ref component))
         {
@@ -71,18 +83,18 @@ public sealed partial class RadarBlipSystem : EntitySystem
                 if (blipXform.MapID != radarMapId)
                     continue;
 
-                var netBlipUid = GetNetEntity(blipUid);
-
-                var blipGrid = blipXform.GridUid;
-
-                var blipVelocity = _physics.GetMapLinearVelocity(blipUid, blipPhysics, blipXform);
-
                 if (!NearAnySources(_xform.GetWorldPosition(blipXform), sources, blip.MaxDistance))
                     continue;
+
+                var blipGrid = blipXform.GridUid;
 
                 if (blip.RequireNoGrid && blipGrid != null // if we want no grid but we are on a grid
                     || !blip.VisibleFromOtherGrids && blipGrid != radarGrid) // or if we don't want to be visible from other grids but we're on another grid
                     continue; // don't show this blip
+
+                var netBlipUid = GetNetEntity(blipUid);
+
+                var blipVelocity = _physics.GetMapLinearVelocity(blipUid, blipPhysics, blipXform);
 
                 // due to PVS being a thing, things will break if we try to parent to not the map or a grid
                 var coord = blipXform.Coordinates;
@@ -106,7 +118,7 @@ public sealed partial class RadarBlipSystem : EntitySystem
                 }
 
                 // ideally we would handle blips being culled by detection on server but detection grid culling is already clientside so might as well
-                blips.Add(new(netBlipUid,
+                _tempBlipsCache.Add(new(netBlipUid,
                               GetNetCoordinates(coord),
                               blipVelocity,
                               rotation,
@@ -114,19 +126,17 @@ public sealed partial class RadarBlipSystem : EntitySystem
                               gridCfg));
             }
         }
-
-        return blips;
     }
 
     /// <summary>
     /// Assembles trajectory information for hitscan projectiles to be displayed on radar
     /// </summary>
-    private List<(Vector2 Start, Vector2 End, float Thickness, Color Color)> AssembleHitscanReport(EntityUid uid, List<EntityUid> sources, RadarConsoleComponent? component = null)
+    private void AssembleHitscanReport(EntityUid uid, List<EntityUid> sources, RadarConsoleComponent? component = null)
     {
-        var hitscans = new List<(Vector2 Start, Vector2 End, float Thickness, Color Color)>();
+        _tempHitscansCache.Clear();
 
         if (!Resolve(uid, ref component))
-            return hitscans;
+            return;
 
         var radarXform = Transform(uid);
 
@@ -140,10 +150,8 @@ public sealed partial class RadarBlipSystem : EntitySystem
             if (!NearAnySources(hitscan.StartPosition, sources, component.MaxRange) && NearAnySources(hitscan.EndPosition, sources, component.MaxRange))
                 continue;
 
-            hitscans.Add((hitscan.StartPosition, hitscan.EndPosition, hitscan.LineThickness, hitscan.RadarColor));
+            _tempHitscansCache.Add((hitscan.StartPosition, hitscan.EndPosition, hitscan.LineThickness, hitscan.RadarColor));
         }
-
-        return hitscans;
     }
 
     private bool NearAnySources(Vector2 coord, List<EntityUid> sources, float range)
