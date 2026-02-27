@@ -35,10 +35,10 @@
 # Bomb Collars
 
 - type: entity
-  parent: ClothingNeckBase # Frontier: ClothingBackpack<NFClothingBackpack
+  parent: ClothingNeckBase
   id: ClothingNeckBombCollar
   name: bomb collar
-  suffix: SelfUnremovable
+  suffix: Unremovable
   description: A hardened, explosive collar that locks tight around the neck. When signaled, detonates after a delay of 5 seconds. Useful to keep people in line.
   components:
   - type: Sprite
@@ -69,3 +69,6 @@
     minInterval: 360
     maxInterval: 1800
     sound: /Audio/Machines/timer.ogg
+  - type: Tag
+    tags:
+      - BombCollar

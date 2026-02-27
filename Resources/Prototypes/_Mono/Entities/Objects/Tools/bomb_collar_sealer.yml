@@ -8,3 +8,6 @@
     sprite: _Mono/Objects/Tools/bomb_collar_sealer.rsi
     state: icon
   - type: UnremovableClothingRemover
+    whitelist:
+      tags:
+        - BombCollar

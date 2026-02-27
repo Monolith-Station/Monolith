@@ -3,6 +3,7 @@ using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Interaction;
+using Content.Shared.Whitelist;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
@@ -15,8 +16,8 @@ namespace Content.Shared.Clothing.EntitySystems;
 public sealed class UnremovableClothingSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -54,7 +55,7 @@ public sealed class UnremovableClothingSystem : EntitySystem
 
             // replace broken light in fixture?
 
-            HandleRemovability(targetUid, ref eventArgs);
+            HandleRemovability(targetUid, component, ref eventArgs);
             if (eventArgs.Handled)
                 return;
 
@@ -64,7 +65,7 @@ public sealed class UnremovableClothingSystem : EntitySystem
                 {
                     foreach (var entity in container.ContainedEntities)
                     {
-                        HandleRemovability(entity, ref eventArgs);
+                        HandleRemovability(entity, component, ref eventArgs);
                         if (eventArgs.Handled)
                             return;
                     }
@@ -73,26 +74,30 @@ public sealed class UnremovableClothingSystem : EntitySystem
         }
     }
 
-    private void HandleRemovability(EntityUid targetUid, ref AfterInteractEvent eventArgs)
+    private void HandleRemovability(EntityUid targetUid, UnremovableClothingRemoverComponent component, ref AfterInteractEvent eventArgs)
     {
-        if (TryComp<UnremovableClothingComponent>(targetUid, out var clothing))
-        {
-            switch (clothing.IsUnremovable)
-            {
-                case true:
-                    clothing.IsUnremovable = false;
-                    _popup.PopupPredicted(Loc.GetString("comp-unremovable-clothing-disabled", ("target", targetUid)), eventArgs.User, targetUid);
-                    break;
-                case false:
-                    clothing.IsUnremovable = true;
-                    _popup.PopupPredicted(Loc.GetString("comp-unremovable-clothing-enabled", ("target", targetUid)), eventArgs.User, targetUid);
-                    break;
-            }
-            Dirty(targetUid, clothing);
-
-            eventArgs.Handled = true;
+        if (!TryComp<UnremovableClothingComponent>(targetUid, out var clothing))
             return;
+
+        if (!(component.Whitelist == null) &&
+            !_whitelistSystem.IsValid(component.Whitelist, targetUid))
+            return;
+
+        switch (clothing.IsUnremovable)
+        {
+            case true:
+                clothing.IsUnremovable = false;
+                _popup.PopupPredicted(Loc.GetString("comp-unremovable-clothing-disabled", ("target", targetUid)), eventArgs.User, targetUid);
+                break;
+            case false:
+                clothing.IsUnremovable = true;
+                _popup.PopupPredicted(Loc.GetString("comp-unremovable-clothing-enabled", ("target", targetUid)), eventArgs.User, targetUid);
+                break;
         }
+        Dirty(targetUid, clothing);
+
+        eventArgs.Handled = true;
+        return;
     }
 
     private void OnUnequipMarkup(Entity<UnremovableClothingComponent> unremovableClothing, ref ExaminedEvent args)
