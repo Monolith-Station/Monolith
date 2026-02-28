@@ -66,7 +66,7 @@
 
   ## 3. Mechbays
 
-  -[bold][color=#990000]You need to make your own Mechs at Port.[/color][/bold]
+  -[bold][color=#FF0000]You need to make your own Mechs at Port.[/color][/bold]
   <Box>
     <GuideEntityEmbed Entity="AFInterceptorPDV"/>
     <GuideEntityEmbed Entity="AFInterceptorMPDV"/>
@@ -74,7 +74,7 @@
     <GuideEntityEmbed Entity="MechGygaxPDV"/>
     <GuideEntityEmbed Entity="MechDurandPDV"/>
   </Box>  
-  - Optionally, bring any mechs for your crew to pilot during combat, if the mechs are too large such as S-2 type mechs, you will need to fly them from space into the mechbays, small-craft can just enter alongside with passengers.
+  - Optionally, bring any mechs for your crew to pilot during combat, S-2 type mechs will need to fly from space and park inside the mechbays, S-1 type small-craft can just enter alongside with passengers.
   <Box>
     <GuideEntityEmbed Entity="LightMechaAutocannon"/>
     <GuideEntityEmbed Entity="MediumMechTOW"/>
@@ -84,16 +84,18 @@
   - Make sure to arm your Mechs with weapon loadouts based on their role in combat, such as boarding with S-1 and Interceptor or Bomber designs with S-2 types.
   <Box>
     <GuideEntityEmbed Entity="PowerCageHigh"/>
+    <GuideEntityEmbed Entity="PowerCageMech"/>
     <GuideEntityEmbed Entity="PowerCageRecharger"/>
   </Box>
+  - Prioritize equipping your mechs with Mech Fuel Cells, as these cells are made using fissile uranium, they self recharge and are very performance efficienct for use with mechs, in the lack of fissile uranium, it is recommended to use High Power Cages, order your pilots to not waste shots and remain close to the mothership to recharge.
   - Keep extra power cages in the cage rechargers to quickly re-deploy mechs that have run out of ammo.
 
   ## 3.1 Mech Classes
 
-  - Every S-1 Combat Mech is a [bold][color=#0055CC]Boarder[/bold][/color], which have little to no use in active ship combat and should be used to mop-up survivors post battles or attempt boarding during active combat while main ships are engaging the enemy as well.
-  - AF-28 "Broadsword" is an S-2 [bold][color=#0055CC]Interceptor[/color][/bold], their main purpose in combat is intercepting enemy bombers and boarders. They are not very useful against damaging hull but they can help in a pinch by targeting armor weakpoints. Light Mech weaponry can be used inside ships, however, Interceptor class does not move very fast inside ships and is not very effective for interior combat.
-  - AF-28 M "Halberd" is an S-2 [bold][color=#0055CC]Bomber[/color][/bold], it is a sidegrade of the Broadsword model, sacrificing armor and jetpack speed to mount Medium class mech weaponry that can pose a threat against ships. Medium Mech Weaponry can not be used inside ships, pilots might want to mount a Light Weapon to not be completely defenseless when inside ships.
-  - AF-28 G "Sabre" is an S-2 [bold][color=#0055CC]Boarder[/color][/bold], it is a sidegrade of the Broadsword model, sacrificing its jetpack completely and space proofing but gaining a massive speed boost while inside ships, this boost is short lived however as the Sabre is a wide mech that can not crawl through the cramped hallways aboard many ships. It is absolutely better than the S-1 Mechs in boarding provided it does not have to fly to its target destination as it lacks a jetpack and the destination does not have cramped hallways.
+  - Every S-1 Combat Mech is a [bold][color=#0055FF]Boarder[/bold][/color], which have little to no use in active ship combat and should be used to mop-up survivors post battles or attempt boarding during active combat while main ships are engaging the enemy as well.
+  - AF-28 "Broadsword" is an S-2 [bold][color=#0055FF]Interceptor[/color][/bold], their main purpose in combat is intercepting enemy bombers and boarders. They are not very useful against damaging hull but they can help in a pinch by targeting armor weakpoints. Light Mech weaponry can be used inside ships, however, Interceptor class does not move very fast inside ships and is not very effective for interior combat.
+  - AF-28 M "Halberd" is an S-2 [bold][color=#0055FF]Bomber[/color][/bold], it is a sidegrade of the Broadsword model, sacrificing armor and jetpack speed to mount Medium class mech weaponry that can pose a threat against ships. Medium Mech Weaponry can not be used inside ships, pilots might want to mount a Light Weapon to not be completely defenseless when inside ships.
+  - AF-28 G "Sabre" is an S-2 [bold][color=#0055FF]Boarder[/color][/bold], it is a sidegrade of the Broadsword model, sacrificing its jetpack completely and space proofing but gaining a massive speed boost while inside ships, this boost is short lived however as the Sabre is a wide mech that can not crawl through the cramped hallways aboard many ships. It is absolutely better than the S-1 Mechs in boarding provided it does not have to fly to its target destination as it lacks a jetpack and the destination does not have cramped hallways.
 
   ## 4. Other checks
   <Box>
@@ -109,10 +111,9 @@
     <GuideEntityEmbed Entity="WeaponTurretCharonReload"/>
     <GuideEntityEmbed Entity="WeaponTurretDravon"/>
     <GuideEntityEmbed Entity="WeaponTurretAdderScattercannon"/>
-    <GuideEntityEmbed Entity="WeaponTurretL85Autocannon"/>
   </Box>
 
-  - The Fenrir is armed with a [bold][color=#990000]M381 Charon Mass Driver[/bold][/color], [bold][color=#0055CC]2 ADBP-7 Dravon autocannons[/bold][/color], [bold][color=#0055CC]2 Adder scattercannons[/bold][/color] and [bold][color=#0055CC]4 L85 autocannons[/bold][/color].
+  - The Fenrir is armed with a [bold][color=#990000]M381 Charon Mass Driver[/bold][/color], [bold][color=#0055CC]4 ADBP-7 Dravon autocannons[/bold][/color] and [bold][color=#0055CC]2 Adder scattercannons[/bold][/color].
 
   <Box>
     <GuideEntityEmbed Entity="BlastDoor"/>
