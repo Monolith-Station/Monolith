@@ -22,7 +22,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 0.5
+    fireRate: 1
     recoil: 10
     shootThermalSignature: 32000000 # ~5.6km
     soundGunshot:
