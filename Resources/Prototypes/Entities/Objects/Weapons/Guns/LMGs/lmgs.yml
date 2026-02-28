@@ -133,7 +133,8 @@
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
       soundEmpty:
-        path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg    - type: Sprite
+        path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+    - type: Sprite
       sprite: Objects/Weapons/Guns/LMGs/l6.rsi
       layers:
         - state: base
