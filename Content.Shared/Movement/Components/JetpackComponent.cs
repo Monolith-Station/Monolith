@@ -29,6 +29,6 @@ public sealed partial class JetpackComponent : Component
     /// <summary>
     /// Mono - Determines whether a jetpack shows up on blip radar.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables(VVAccess.ReadWrite), DataField("stealth")]
     public bool Stealth = false;
 }
