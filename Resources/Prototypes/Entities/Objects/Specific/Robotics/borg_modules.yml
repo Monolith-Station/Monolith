@@ -772,7 +772,7 @@
       moduleId: EnergySword # Frontier
       items:
       - CyborgEnergySwordDouble
-#     - PinpointerSyndicateNuclear # Mono - Unused
+      - PinpointerSyndicateNuclear
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-esword-module }
 
@@ -790,7 +790,7 @@
       moduleId: L6CROW # Frontier
       items:
         - WeaponLightMachineGunL6C
-#       - PinpointerSyndicateNuclear # Mono - Unused
+        - PinpointerSyndicateNuclear
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-l6c-module }
 
