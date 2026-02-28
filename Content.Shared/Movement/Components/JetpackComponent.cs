@@ -25,4 +25,10 @@ public sealed partial class JetpackComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), DataField("weightlessModifier")]
     public float WeightlessModifier = 1.2f;
+
+    /// <summary>
+    /// Mono - Determines whether a jetpack shows up on blip radar.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool Stealth = false;
 }
