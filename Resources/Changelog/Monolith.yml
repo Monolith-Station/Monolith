@@ -17533,3 +17533,23 @@ Entries:
   id: 1935
   time: '2026-02-28T19:55:54.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3291
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Missiles are now infinite of their base type ammo again. Specialized
+        ammo still works as expected.
+    - type: Tweak
+      message: >-
+        Tarnyxs now use infinite base EMP ammo. Specialized ammo still works as
+        expected.
+  id: 1936
+  time: '2026-02-28T22:18:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3311
+- author: UnicornOnLSD
+  changes:
+    - type: Fix
+      message: DIS Femur has had some minor fixes and a cell recharger added
+  id: 1937
+  time: '2026-02-28T23:16:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3310
