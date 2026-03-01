@@ -259,6 +259,12 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: ExplosionResistance
     damageCoefficient: 0.25
+  - type: Scrammer
+    actionProto: ActionScrammerScramADM
+    specifier:
+      avoidSpace: false
+      teleportRadius: 40
+      minRadiusFraction: 0.75 # force teleport 30-40 tiles
 
 - type: entity
   id: PlayerBorgRedacted

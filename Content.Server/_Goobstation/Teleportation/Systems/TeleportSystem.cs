@@ -6,6 +6,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Stacks;
+using Content.Shared.Teleportation;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -43,7 +44,7 @@ public sealed class TeleportSystem : EntitySystem
 
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):actor} teleported with {ToPrettyString(uid)}");
 
-        RandomTeleport(args.User, teleport);
+        RandomTeleport(args.User, component.Specifier);
 
         if (!component.ConsumeOnUse)
             return;
@@ -60,10 +61,16 @@ public sealed class TeleportSystem : EntitySystem
 
     public void RandomTeleport(EntityUid uid, TeleportSpecifier specifier)
     {
-        RandomTeleport(uid, specifier.TeleportRadius, specifier.TeleportSound, specifier.TeleportAttempts, specifier.AvoidSpace);
+        RandomTeleport(uid,
+                       specifier.MinRadiusFraction * specifier.TeleportRadius,
+                       specifier.TeleportRadius,
+                       specifier.TeleportSound,
+                       specifier.TeleportAttempts,
+                       specifier.AvoidSpace,
+                       specifier.ForceSafe);
     }
 
-    public void RandomTeleport(EntityUid uid, float radius, SoundSpecifier sound, int attempts, bool avoidSpace)
+    public void RandomTeleport(EntityUid uid, float minRadius, float radius, SoundSpecifier sound, int attempts, bool avoidSpace, bool forceSafe)
     {
         // We need stop the user from being pulled so they don't just get "attached" with whoever is pulling them.
         // This can for example happen when the user is cuffed and being pulled.
@@ -71,19 +78,29 @@ public sealed class TeleportSystem : EntitySystem
             _pullingSystem.TryStopPull(uid, pull);
 
         var xform = Transform(uid);
-        var entityCoords = xform.Coordinates.ToMap(EntityManager, _xform);
+        var entityCoords = _xform.ToMapCoordinates(xform.Coordinates);
 
-        var targetCoords = new MapCoordinates();
+        var targetCoords = entityCoords;
         // Try to find a valid position to teleport to, teleport to whatever works if we can't
         // If attempts is 1 or less, degenerates to a completely random teleport
-        for (var i = 0; i < Math.Max(attempts, 1); i++)
+        for (var i = 0; i < attempts; i++)
         {
-            var distance = radius * MathF.Sqrt(_random.NextFloat()); // to get an uniform distribution
-            targetCoords = entityCoords.Offset(_random.NextAngle().ToVec() * distance);
+            var extraRadius = radius - minRadius;
+            if (forceSafe && i > attempts / 2)
+                extraRadius *= 2f * (1f - i / (float)attempts);
+
+            var extraRandom = extraRadius * MathF.Sqrt(_random.NextFloat()); // to get an uniform distribution
+            var atRadius = minRadius + extraRandom;
+
+            targetCoords = entityCoords.Offset(_random.NextAngle().ToVec() * atRadius);
 
             // Prefer teleporting to grids
-            if (!_mapManager.TryFindGridAt(targetCoords, out var gridUid, out var grid) && avoidSpace) // Mono - add avoidSpace
-                continue;
+            if (!_mapManager.TryFindGridAt(targetCoords, out var gridUid, out var grid))
+            {
+                if (avoidSpace)
+                    continue;
+                break; // Mono - just go there if we aren't avoiding space
+            }
 
             // If attempts is specified, whatever's being teleported probably does not want to be in your walls
             var valid = true;

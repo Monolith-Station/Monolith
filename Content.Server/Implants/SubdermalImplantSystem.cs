@@ -1,10 +1,12 @@
 using Content.Server.Cuffs;
 using Content.Server.Forensics;
 using Content.Server.Humanoid;
+using Content.Server.IdentityManagement;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Server.Teleportation;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.DetailExaminable;
 using Content.Shared.Forensics;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Humanoid;
@@ -25,6 +27,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
+    [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly TeleportSystem _teleportSys = default!;
 
     public override void Initialize()
