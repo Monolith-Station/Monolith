@@ -238,8 +238,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     {
         // check our brake thrust
         var brakeVec = GetGoodThrustVector((-ctx.ShipNorthAngle).RotateVec(-ctx.ShipBody.LinearVelocity), ctx.Shuttle);
-        var brakeThrust = _mover.GetDirectionThrust(brakeVec, ctx.Shuttle, ctx.ShipBody) * ShuttleComponent.BrakeCoefficient;
-        var brakeAccelVec = brakeThrust * ctx.ShipBody.InvMass;
+        var brakeAccelVec = _mover.GetDirectionAccel(brakeVec, ctx.Shuttle, ctx.ShipBody) * ShuttleComponent.BrakeCoefficient;
         var brakeAccel = brakeAccelVec.Length();
 
         var linVelLenSq = ctx.ShipBody.LinearVelocity.LengthSquared();
@@ -340,14 +339,14 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             var dir = angle.ToVec();
 
             var rotated = (-ctx.ShipNorthAngle).RotateVec(dir);
-            var dirAccel = _mover.GetDirectionThrust(rotated, ctx.Shuttle, ctx.ShipBody).Length();
+            var dirAccel = _mover.GetDirectionAccel(rotated, ctx.Shuttle, ctx.ShipBody).Length();
             // var dirMax = _mover.ObtainMaxVel(rotated, ctx.Shuttle, ctx.ShipBody).Length();
             // if it's zero use a very rough approximation using our forward thrust
             if (dirAccel == 0f)
             {
                 var upVec = new Vector2(0f, 1f);
                 var penalty = 0.5f * (Vector2.Dot(upVec, rotated) + 1f);
-                dirAccel = _mover.GetDirectionThrust(upVec, ctx.Shuttle, ctx.ShipBody).Length() * penalty;
+                dirAccel = _mover.GetDirectionAccel(upVec, ctx.Shuttle, ctx.ShipBody).Length() * penalty;
                 // dirMax = _mover.ObtainMaxVel(upVec, ctx.Shuttle, ctx.ShipBody).Length();
             }
 
@@ -359,7 +358,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         }
         // set scale to -1 to mark it as the wish-sector
         var wishRotated = (-ctx.ShipNorthAngle).RotateVec(wishDir);
-        var wishDirThrust = _mover.GetDirectionThrust(wishRotated, ctx.Shuttle, ctx.ShipBody).Length();
+        var wishDirThrust = _mover.GetDirectionAccel(wishRotated, ctx.Shuttle, ctx.ShipBody).Length();
         // var wishDirMaxVel = _mover.ObtainMaxVel(wishRotated, ctx.Shuttle, ctx.ShipBody).Length();
         _sectors.Add(new(wishDir, wishDirThrust, -1f));
 
@@ -411,7 +410,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 var k = 0.5f * Vector2.Dot(toObsDir, accel);
                 var m = -obsDistance;
                 float t;
-                if (k * k < l * l / 1024f)
+                if (k*k < l*l / 1024f)
                     t = l != 0f ? -m / l : -1f;
                 else
                     t = 4*k*m > l*l || k == 0f ? -1f : ((-l + MathF.Sqrt(l*l - 4*k*m)) * 0.5f / k);
@@ -495,8 +494,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         var wishThrustDir = toDestDir + 2f * adjustVec;
 
-        var wishThrustVec = _mover.GetDirectionThrust((-ctx.ShipNorthAngle).RotateVec(wishThrustDir), ctx.Shuttle, ctx.ShipBody);
-        var adjustAccel = Vector2.Dot(adjustDir, wishThrustVec) * ctx.ShipBody.InvMass;
+        var wishThrustVec = _mover.GetDirectionAccel((-ctx.ShipNorthAngle).RotateVec(wishThrustDir), ctx.Shuttle, ctx.ShipBody);
+        var adjustAccel = Vector2.Dot(adjustDir, wishThrustVec);
 
         var maxAdjust = Vector2.Dot(-adjustDir, relVel);
 
