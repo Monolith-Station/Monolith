@@ -17553,3 +17553,25 @@ Entries:
   id: 1937
   time: '2026-02-28T23:16:42.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3310
+- author: Kiithnaras
+  changes:
+    - type: Fix
+      message: >-
+        Prevented AME controller from producing risk-free power with no cores
+        attached
+    - type: Fix
+      message: >-
+        Prevented AME controller from registering negative-infinity power at
+        zero injection
+    - type: Tweak
+      message: Reduced Z-Pinch fuel efficiency
+    - type: Tweak
+      message: Increased AME Jar fuel amount
+    - type: Tweak
+      message: >-
+        Increased AME core-based power scaling - larger AMEs produce power more
+        efficiently at low injection rates and have about the same power
+        efficiency at max stable fuel rate.
+  id: 1938
+  time: '2026-03-01T11:40:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3288
