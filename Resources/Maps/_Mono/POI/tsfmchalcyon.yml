@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/28/2026 20:53:46
-  entityCount: 10063
+  time: 02/28/2026 23:58:52
+  entityCount: 10064
 maps: []
 grids:
 - 1
@@ -226,10 +226,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
+        MetalFoam: []
         Puddle: []
         Smoke: []
         Kudzu: []
-        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -6845,6 +6845,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 31.5,40.5
+      parent: 1
+  - uid: 10064
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 27.5,21.5
       parent: 1
 - proto: AtmosFixBlockerMarker
   entities:
@@ -44956,7 +44962,7 @@ entities:
     - type: InsideEntityStorage
 - proto: HighSecArmoryLocked
   entities:
-  - uid: 6846
+  - uid: 6842
     components:
     - type: Transform
       pos: -0.5,10.5
@@ -44964,29 +44970,29 @@ entities:
     - type: AccessReader
       access:
       - - Armory
-  - uid: 6847
+  - uid: 6843
     components:
     - type: Transform
       pos: -7.5,-30.5
       parent: 1
 - proto: HighSecTSFMCLocked
   entities:
-  - uid: 6842
+  - uid: 6844
     components:
     - type: Transform
       pos: 8.5,8.5
       parent: 1
-  - uid: 6843
+  - uid: 6845
     components:
     - type: Transform
       pos: 6.5,8.5
       parent: 1
-  - uid: 6844
+  - uid: 6846
     components:
     - type: Transform
       pos: 8.5,11.5
       parent: 1
-  - uid: 6845
+  - uid: 6847
     components:
     - type: Transform
       pos: 6.5,11.5
