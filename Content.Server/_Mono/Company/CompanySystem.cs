@@ -44,6 +44,7 @@ public sealed class CompanySystem : EntitySystem
         "PirateCaptain",
         "PirateFirstMate",
         "Pirate",
+        "PDVDenasvar",
         "PDVInfiltrator",
         "PdvBorg",
     };

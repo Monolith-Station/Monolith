@@ -282,10 +282,10 @@ public sealed class MoverController : SharedMoverController
     }
 
     /// <summary>
-    /// Get shuttle thrust in a given direction.
+    /// Get shuttle thrust force in a given direction.
     /// Takes local direction.
     /// </summary>
-    public Vector2 GetDirectionThrust(Vector2 dir, ShuttleComponent shuttle, PhysicsComponent body)
+    public Vector2 GetDirectionThrust(Vector2 dir, ShuttleComponent shuttle)
     {
         if (dir.Length() == 0f)
             return Vector2.Zero;
@@ -305,6 +305,11 @@ public sealed class MoverController : SharedMoverController
         return dir;
     }
 
+    public Vector2 GetDirectionAccel(Vector2 dir, ShuttleComponent shuttle, PhysicsComponent body)
+    {
+        return GetDirectionThrust(dir, shuttle) * body.InvMass;
+    }
+
     /// <summary>
     /// Helper function to extrapolate max velocity for a given Vector2 (really, its angle) and shuttle.
     /// Takes local direction.
@@ -314,7 +319,7 @@ public sealed class MoverController : SharedMoverController
         if (vel.Length() == 0f)
             return Vector2.Zero;
 
-        var thrust = GetDirectionThrust(vel, shuttle, body);
+        var thrust = GetDirectionThrust(vel, shuttle);
         var twr = thrust.Length() / body.Mass;
         var twrMult = MathF.Pow(twr / shuttle.BaseMaxVelocityTWR, shuttle.MaxVelocityScalingExponent);
 
@@ -345,6 +350,8 @@ public sealed class MoverController : SharedMoverController
             {
                 piloted.InputSources.Remove(remUid);
             }
+
+            shuttle.LastThrust = Vector2.Zero;
 
             var count = inputs.Count;
             if (count == 0)
@@ -381,7 +388,7 @@ public sealed class MoverController : SharedMoverController
 
                     // Get velocity relative to the shuttle so we know which thrusters to fire
                     var shuttleVelocity = (-shuttleNorthAngle).RotateVec(body.LinearVelocity);
-                    var force = GetDirectionThrust(-shuttleVelocity, shuttle, body);
+                    var force = GetDirectionThrust(-shuttleVelocity, shuttle);
 
                     if (force.X < 0f)
                     {
@@ -420,6 +427,7 @@ public sealed class MoverController : SharedMoverController
                     else if (impulse.Length() > maxForce)
                         impulse = impulse.Normalized() * maxForce;
 
+                    shuttle.LastThrust += impulse / body.FixturesMass;
                     PhysicsSystem.ApplyForce(uid, impulse, body: body);
                 }
                 else
@@ -464,7 +472,7 @@ public sealed class MoverController : SharedMoverController
                 var linearDir = angle.GetDir();
                 var dockFlag = linearDir.AsFlag();
 
-                var totalForce = GetDirectionThrust(linearInput, shuttle, body);
+                var totalForce = GetDirectionThrust(linearInput, shuttle);
 
                 // Won't just do cardinal directions.
                 foreach (DirectionFlag dir in Enum.GetValues(typeof(DirectionFlag)))
@@ -503,6 +511,7 @@ public sealed class MoverController : SharedMoverController
 
                 totalForce = shuttleNorthAngle.RotateVec(totalForce);
 
+                shuttle.LastThrust += totalForce / body.FixturesMass;
                 if (totalForce.Length() > 0f)
                     PhysicsSystem.ApplyForce(uid, totalForce, body: body);
             }
