@@ -64,13 +64,13 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     /// <summary>
     /// How many evasion sectors to init on the outer ring.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public int EvasionSectorCount = 24;
 
     /// <summary>
     /// How many layers of evasion sectors to have.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public int EvasionSectorDepth = 2;
 
     /// <summary>
