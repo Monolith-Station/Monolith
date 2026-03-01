@@ -29,6 +29,21 @@
       tags:
       - PDVBasicUplink
 
+- type: listing
+  id: UplinkPDVCombatMedkit
+  name: uplink-pdv-combat-medkit-name
+  description: uplink-pdv-combat-medkit-desc
+  productEntity: MedkitCombatFilled
+  cost:
+    Doubloon: 1
+  categories:
+  - UplinkPDVMedical
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVBasicUplink
+
 #MARK: Weapons
 
 #MARK: Equipment
