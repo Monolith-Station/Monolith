@@ -1,25 +1,34 @@
 using Content.Shared.Armor;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
+using Content.Shared.Explosion;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Storage;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._Mono.ArmorPlate;
 
 /// <summary>
-/// Handles armor plate insertion, removal, speed modifier application, and examine tooltip.
+/// Handles all armor plate behavior
 /// </summary>
-public abstract class SharedArmorPlateSystem : EntitySystem
+public sealed class SharedArmorPlateSystem : EntitySystem
 {
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -32,6 +41,82 @@ public abstract class SharedArmorPlateSystem : EntitySystem
         SubscribeLocalEvent<ArmorPlateHolderComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ArmorPlateHolderComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<ArmorPlateItemComponent, GetVerbsEvent<ExamineVerb>>(OnPlateVerbExamine);
+        SubscribeLocalEvent<ArmorPlateItemComponent, EntityTerminatingEvent>(OnPlateDestroyed);
+        SubscribeLocalEvent<ArmorPlateProtectedComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
+        SubscribeLocalEvent<ArmorPlateProtectedComponent, GetExplosionResistanceEvent>(OnExplosionResistance);
+    }
+    public enum DamageOriginType
+    {
+        NonMitigated, // Null sources such as radiation, burns, metabolism - sans explosion
+        Mitigated // Source had an entityUID, or occured at the same tick as an explosion
+    }
+
+    public void OnBeforeDamageChanged(Entity<ArmorPlateProtectedComponent> ent, ref BeforeDamageChangedEvent args)
+    {
+        if (args.Cancelled || !args.Damage.AnyPositive())
+            return;
+
+        if (!TryComp<InventoryComponent>(ent.Owner, out var inv))
+            return;
+
+        if (!_inventory.TryGetSlots(ent, out var slots))
+            return;
+
+        DamageOriginType originType = default;
+
+        if (args.Origin != null || (ent.Comp.LastExplosionTick == _timing.CurTick))
+        {
+            originType = DamageOriginType.Mitigated;
+        }
+
+        if (originType == DamageOriginType.NonMitigated)
+            return;
+
+        foreach (var slot in slots)
+        {
+            if (!_inventory.TryGetSlotEntity(ent, slot.Name, out var equipped, inv))
+                continue;
+
+            if (!TryComp<ArmorPlateHolderComponent>(equipped, out var holder))
+                continue;
+
+            if (!TryGetActivePlate((equipped.Value, holder), out var plate))
+                continue;
+
+            // Calculate damages owed to plate and holder
+            CalcPlateDamages(args.Damage, plate.Comp, out var remainder, out var absorbed, out var plateDamage);
+
+            // Damage to plate, stamina damage to holder
+            AbsorbDamage(ent, equipped.Value, holder, plate, absorbed, plateDamage);
+
+            // Full absorption, done
+            if (remainder.Empty)
+            {
+                args.Cancelled = true;
+                return;
+            }
+
+            // Replace raw damage with remaining damage post-absorption
+            args.Damage.DamageDict.Clear();
+            foreach (var (type, amt) in remainder.DamageDict)
+                args.Damage.DamageDict.Add(type, amt);
+        }
+    }
+    private void AbsorbDamage(
+        EntityUid wearer,
+        EntityUid armorUid,
+        ArmorPlateHolderComponent holder,
+        Entity<ArmorPlateItemComponent> plate,
+        FixedPoint2 absorbed,
+        FixedPoint2 plateDamage)
+    {
+        var damageSpec = new DamageSpecifier();
+        damageSpec.DamageDict.Add("Blunt", plateDamage);
+
+        _damageable.TryChangeDamage(plate.Owner, damageSpec, ignoreResistances: true);
+
+        var staminaDamage = absorbed.Float() * plate.Comp.StaminaDamageMultiplier;
+        _stamina.TakeStaminaDamage(wearer, staminaDamage);
     }
 
     private void OnPlateInserted(Entity<ArmorPlateHolderComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -286,12 +371,12 @@ public abstract class SharedArmorPlateSystem : EntitySystem
         {
             if (MathHelper.CloseTo(walkModifierCalc, sprintModifierCalc, 0.5f))
             {
-                AddSpeedDisplay(msg, "speed", walkModifierCalc);
+                AddSpeedDisplay(msg, Loc.GetString("armor-plate-gait-speed"), walkModifierCalc);
             }
             else
             {
-                AddSpeedDisplay(msg, "running speed", sprintModifierCalc);
-                AddSpeedDisplay(msg, "walking speed", walkModifierCalc);
+                AddSpeedDisplay(msg, Loc.GetString("armor-plate-gait-sprint"), sprintModifierCalc);
+                AddSpeedDisplay(msg, Loc.GetString("armor-plate-gait-walk"), walkModifierCalc);
             }
         }
 
@@ -322,19 +407,41 @@ public abstract class SharedArmorPlateSystem : EntitySystem
         return msg;
     }
 
+    private void OnPlateDestroyed(Entity<ArmorPlateItemComponent> ent, ref EntityTerminatingEvent args)
+    {
+        if (!_container.TryGetContainingContainer(ent.Owner, out var container))
+            return;
+
+        var holderUid = container.Owner;
+        if (!TryComp<ArmorPlateHolderComponent>(holderUid, out var holder))
+            return;
+
+        if (holder.ActivePlate != ent.Owner)
+            return;
+
+        if (holder.ShowBreakPopup)
+        {
+            if (_inventory.TryGetContainingEntity(holderUid, out var wearer))
+            {
+                var plateName = MetaData(ent).EntityName;
+                _popup.PopupEntity(
+                    Loc.GetString("armor-plate-break", ("plateName", plateName)),
+                    wearer.Value,
+                    wearer.Value,
+                    PopupType.MediumCaution
+                );
+            }
+        }
+    }
+
     /// <summary>
     /// Starts listening to damage instances for plate evaluation on equip of a plate-bearing item.
     /// </summary>
     private void OnEquippedArmor(Entity<ArmorPlateHolderComponent> armor, ref GotEquippedEvent args)
     {
-        if (!_inventory.TryGetContainingEntity(armor.Owner, out var wearer))
-        {
-            return;
-        }
-
         if (TryGetActivePlate((armor.Owner, armor.Comp), out _))
         {
-            EnsureComp<PlateProtectedComponent>(wearer.Value);
+            EnsureComp<ArmorPlateProtectedComponent>(args.Equipee);
         }
     }
 
@@ -343,11 +450,9 @@ public abstract class SharedArmorPlateSystem : EntitySystem
     /// </summary>
     private void OnUnequippedArmor(Entity<ArmorPlateHolderComponent> armor, ref GotUnequippedEvent args)
     {
-        var wearer = args.Equipee;
-
         if (TryGetActivePlate((armor.Owner, armor.Comp), out _))
         {
-            RemComp<PlateProtectedComponent>(wearer);
+            RemComp<ArmorPlateProtectedComponent>(args.Equipee);
         }
     }
 
@@ -365,9 +470,14 @@ public abstract class SharedArmorPlateSystem : EntitySystem
             return;
 
         if (TryGetActivePlate((armorUid, holder), out _))
-            EnsureComp<PlateProtectedComponent>(wearerUid);
+            EnsureComp<ArmorPlateProtectedComponent>(wearerUid);
         else
-            RemComp<PlateProtectedComponent>(wearerUid);
+            RemComp<ArmorPlateProtectedComponent>(wearerUid);
     }
 
+    //used to ascertain if damage with no origin entity uid is an explosion or a non-direct source (rads,fire,metabolism)
+    private void OnExplosionResistance(EntityUid uid, ArmorPlateProtectedComponent comp, ref GetExplosionResistanceEvent args)
+    {
+        comp.LastExplosionTick = _timing.CurTick;
+    }
 }

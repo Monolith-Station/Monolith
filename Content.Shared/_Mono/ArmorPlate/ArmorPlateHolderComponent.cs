@@ -43,11 +43,5 @@ public sealed partial class ArmorPlateHolderComponent : Component
     [DataField]
     public float StaminaDamageMultiplier = 1.0f;
 
-    /// <summary>
-    /// Disambiguate between damage from metabolism VS an explosion.
-    /// Technically possible to frame-perfect parry a metabolism tick with an explosion but why
-    /// </summary>
-    public GameTick LastExplosionTick;
-
 }
 
