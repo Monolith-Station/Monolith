@@ -346,6 +346,8 @@ public sealed class MoverController : SharedMoverController
                 piloted.InputSources.Remove(remUid);
             }
 
+            shuttle.LastThrust = Vector2.Zero;
+
             var count = inputs.Count;
             if (count == 0)
             {
@@ -420,6 +422,7 @@ public sealed class MoverController : SharedMoverController
                     else if (impulse.Length() > maxForce)
                         impulse = impulse.Normalized() * maxForce;
 
+                    shuttle.LastThrust += impulse / body.FixturesMass;
                     PhysicsSystem.ApplyForce(uid, impulse, body: body);
                 }
                 else
@@ -503,6 +506,7 @@ public sealed class MoverController : SharedMoverController
 
                 totalForce = shuttleNorthAngle.RotateVec(totalForce);
 
+                shuttle.LastThrust += totalForce / body.FixturesMass;
                 if (totalForce.Length() > 0f)
                     PhysicsSystem.ApplyForce(uid, totalForce, body: body);
             }
