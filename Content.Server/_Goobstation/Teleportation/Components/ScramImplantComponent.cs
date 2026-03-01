@@ -8,5 +8,5 @@ public sealed partial class ScramImplantComponent : Component
 {
     // Mono
     [DataField]
-    public TeleportSpecifier Specifier = new();
+    public TeleportSpecifier Specifier = default;
 }
