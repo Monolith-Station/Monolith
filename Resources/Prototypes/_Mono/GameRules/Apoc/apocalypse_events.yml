@@ -6,7 +6,7 @@
     children:
     - id: UnknownShuttleZenithApoc
     - id: UnknownShuttleZenithEApoc
-    - id: UnknownShuttleRazorApoc
+    - id: UnknownShuttleWyrmApoc
     - id: UnknownShuttleNebulaApoc
     - id: UnknownShuttleWyvernApoc
 
@@ -57,7 +57,7 @@
 
 - type: entity
   parent: BaseRandomShuttleRule
-  id: UnknownShuttleRazorApoc
+  id: UnknownShuttleWyrmApoc
   components:
   - type: StationEvent
     startAnnouncement: station-event-ai-shuttle-detected
@@ -68,7 +68,7 @@
   - type: GameRule
     minPlayers: 10
   - type: LoadMapRule
-    preloadedGrid: AIRazor
+    preloadedGrid: AIWyrm
 
 - type: entity
   parent: BaseRandomShuttleRule
