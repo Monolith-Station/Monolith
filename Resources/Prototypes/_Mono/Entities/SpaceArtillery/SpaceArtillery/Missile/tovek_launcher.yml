@@ -34,7 +34,7 @@
     scale: 2
     visibleFromOtherGrids: true
   - type: BallisticAmmoProvider
-    infiniteUnspawned: false
+    infiniteUnspawned: true
     whitelist:
       tags:
       - TovekCartridge
