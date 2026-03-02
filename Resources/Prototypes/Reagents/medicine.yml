@@ -373,7 +373,7 @@
           # they gotta be in crit first
         - !type:MobStateCondition
           mobstate: Critical
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: Epinephrine
           max: 20
         damage:
