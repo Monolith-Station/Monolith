@@ -1,4 +1,13 @@
-﻿- type: body
+# SPDX-FileCopyrightText: 2022 DrSmugleaf
+# SPDX-FileCopyrightText: 2022 Jezithyr
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-FileCopyrightText: 2023 Nim
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: MPL-2.0
+
+- type: body
   id: Bloodsucker
   name: "bloodsucker"
   root: torso
@@ -8,7 +17,7 @@
       connections:
       - legs
       organs:
-        lungs: OrganSpaceAnimalLungs # Immunity to airloss - Mono
+        lungs: OrganAnimalLungs
         stomach: OrganBloodsuckerStomach
         liver: OrganBloodsuckerLiver
         heart: OrganBloodsuckerHeart

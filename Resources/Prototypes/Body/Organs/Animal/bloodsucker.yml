@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2023 Nim
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: MPL-2.0
+
 - type: entity
   id: OrganBloodsuckerStomach
   parent: OrganAnimalStomach
@@ -18,8 +25,8 @@
 
 - type: entity
   id: OrganBloodsuckerHeart
-  parent: OrganSpaceAnimalHeart # Mono Edit - Immunity to Pressure Loss
-  name: space bloodsucker heart # Mono
+  parent: OrganAnimalHeart
+  name: bloodsucker heart
 #  categories: [ HideSpawnMenu ]
   components:
   - type: Metabolizer

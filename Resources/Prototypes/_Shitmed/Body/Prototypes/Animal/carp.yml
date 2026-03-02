@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Ark
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: MPL-2.0
+
 - type: body
   id: Carp
   name: carp
@@ -8,10 +13,10 @@
       connections:
       - tail
       organs:
-        lungs: OrganSpaceAnimalLungs # Immunity to airloss
+        lungs: OrganAnimalLungs #OrganSpaceAnimalLungs # Immunity to airloss # Mono - change to normal animal lungs
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
-        heart: OrganSpaceAnimalHeart # Immunity to cold
+        heart: OrganAnimalHeart #OrganSpaceAnimalHeart # Immunity to cold # Mono - change to normal animal heart
         kidneys: OrganAnimalKidneys
     tail:
       part: TailCarp

@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2022 DrSmugleaf
+# SPDX-FileCopyrightText: 2022 Jezithyr
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2025 Ark
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: MPL-2.0
+
 - type: body
   id: SpaceCobra
   name: "space cobra"
@@ -11,7 +20,7 @@
         lungs: OrganAnimalLungs
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
-        heart: OrganCobraHeart # Allows you to become invisible.
+        heart: OrganAnimalHeart #OrganCobraHeart # Allows you to become invisible. # Mono - change to normal animal heart
         kidneys: OrganAnimalKidneys
     legs:
       part: LegsAnimal
