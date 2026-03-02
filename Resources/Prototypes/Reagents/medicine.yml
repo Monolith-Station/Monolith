@@ -160,7 +160,7 @@
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
-          min: 15
+          min: 16 #Mono 15 >> 16
         damage:
           types:
             Asphyxiation: 0.5
@@ -176,7 +176,7 @@
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 16 #Mono 15 >> 16
       - !type:Drunk
 
 - type: reagent
@@ -922,7 +922,7 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:EvenHealthChange # Mono - Overdose shutoff and -2 >> -1.5
+      - !type:EvenHealthChange # Mono - Overdose
         conditions:
         - !type:ReagentThreshold
           min: 0
@@ -932,7 +932,7 @@
           Toxin: -1.5
           Airloss: -1.5
           Brute: -1.5   
-      - !type:HealthChange # Mono - Added overdose damage
+      - !type:HealthChange # Mono - Added overdose
         conditions:
         - !type:ReagentThreshold
           min: 100
@@ -964,8 +964,7 @@
           Toxin: -6
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Ultravasculine
+        - !type:ReagentThreshold
           min: 0
           max: 20
         damage:
@@ -973,15 +972,13 @@
             Blunt: 1.5
       - !type:EvenHealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Ultravasculine
+        - !type:ReagentThreshold
           min: 20
         damage:
           Toxin: -2
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Ultravasculine
+        - !type:ReagentThreshold
           min: 20
         damage:
           types:
