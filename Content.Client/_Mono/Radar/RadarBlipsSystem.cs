@@ -15,7 +15,7 @@ public sealed partial class RadarBlipsSystem : EntitySystem
     private const double BlipStaleSeconds = 3.0;
     private static readonly List<(Vector2 Start, Vector2 End, float Thickness, Color Color)> EmptyHitscanList = new();
     private TimeSpan _lastRequestTime = TimeSpan.Zero;
-    private static readonly TimeSpan RequestThrottle = TimeSpan.FromMilliseconds(250);
+    private static readonly TimeSpan RequestThrottle = TimeSpan.FromMilliseconds(500);
 
     private TimeSpan _lastUpdatedTime;
     private List<BlipNetData> _blips = new();

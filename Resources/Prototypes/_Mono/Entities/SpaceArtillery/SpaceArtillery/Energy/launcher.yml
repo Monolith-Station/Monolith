@@ -969,11 +969,11 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 0.025 # 40s
+    fireRate: 0.04 # 25s
     recoil: 50 # 2x
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 750
+    projectileSpeed: 800
     shootThermalSignature: 18000000 # ~8.5km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg
@@ -1013,11 +1013,11 @@
         sound:
           collection: MetalBreak
   - type: RadarBlip
-    radarColor: "#450089"
+    radarColor: "#5200a3"
     scale: 3
     visibleFromOtherGrids: true
     gridConfig:
-      color: "#450089"
+      color: "#5200a3"
       shape: Square
       respectZoom: true
       rotate: true
@@ -1196,7 +1196,7 @@
   name: Curio-1008 neutron repeater "Scythe"
   parent: BallisticArtillery
   suffix: ADS ONLY
-  description: A steadily firing neutron repeater, firing high-damage but slow balls of hell. A marvel of rapture weapons technology.
+  description: A burst firing neutron repeater, firing high-damage but slow balls of hell. A marvel of rapture weapons technology. Specializes in tunneling through anything that can't outmanuever it.
   components:
   - type: StaticPrice
     price: 40000
@@ -1213,11 +1213,15 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 1
     recoil: 10 # 2/5x
-    projectileSpeed: 150
+    projectileSpeed: 100
     minAngle: 0
-    maxAngle: 6
+    maxAngle: 8
+    burstCooldown: 0.4
+    burstFireRate: 20
+    shotsPerBurst: 3
+    selectedMode: Burst
+    availableModes: Burst
     shootThermalSignature: 500000 # ~5.6km with continuous fire
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/autopulse_laser_fire_01.ogg
@@ -1225,9 +1229,9 @@
       path: /Audio/Weapons/click.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 600
+    autoRechargeRate: 6000
   - type: SpaceArtillery
-    powerChargeRate: 700
+    powerChargeRate: 7000
     powerUsePassive: 100
     powerUseActive: 0
   - type: FireControlRotate
