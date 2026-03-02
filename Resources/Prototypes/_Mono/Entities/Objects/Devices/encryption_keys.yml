@@ -53,3 +53,35 @@
         - state: crypt_blue
         - state: pirate_label
 
+# Overseer variant w/ no TSFMC or TSF command radio key
+
+- type: entity
+  parent: EncryptionKeyStationMaster
+  id: EncryptionKeyStationMasterSR
+  components:
+  - type: EncryptionKey
+    channels:
+    - Common
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Traffic
+    defaultChannel: Service
+
+ # Diplomacy with faction heads, seperated from master key to allow toggling off
+- type: entity
+  parent: EncryptionKeyStationMaster
+  id: EncryptionKeyDiplomacy
+  name: diplomatic encryption key
+  description: A direct communications channel to the heads of the sector's warring states.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Command
+    - VanguardCommand
+    #- Nfsd #Deliberately excluded: You don't command them
+    #- Freelance
+    defaultChannel: Command

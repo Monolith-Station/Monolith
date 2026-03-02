@@ -1,0 +1,51 @@
+- type: entity
+  id: GooglyEyes
+  parent: BaseItem
+  name: googly eyes
+  description: Stick on things to make them look funny.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Fun/googlyeyes.rsi
+    drawdepth: Overdoors
+    layers:
+    - state: base
+    - map: [ "eye" ]
+      state: eye
+  - type: Item
+    storedRotation: 90
+    pickupStatic: true
+  - type: Stickable
+  - type: GooglyEyes
+    radius: 0.1
+    friction: 0.5
+    bounciness: 0.4
+    lookProb: 0.01
+  - type: Construction
+    graph: GooglyEyes
+    node: eyes
+
+- type: entity
+  id: GooglyEyesAdmeme
+  parent: GooglyEyes
+  suffix: Admeme
+  components:
+  - type: Stickable
+    reuseProto: GooglyEyes
+
+- type: entity
+  id: GooglyEyesWatchful
+  parent: GooglyEyes
+  suffix: Watchful
+  components:
+  - type: GooglyEyes
+    lookProb: 1
+    lookMaxVelocity: 0.1
+    friction: 10
+
+- type: entity
+  id: GooglyEyesWatchfulAdmeme
+  parent: GooglyEyesWatchful
+  suffix: Admeme, Watchful
+  components:
+  - type: Stickable
+    reuseProto: GooglyEyesWatchful

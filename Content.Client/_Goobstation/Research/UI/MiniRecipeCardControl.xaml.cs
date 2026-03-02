@@ -21,7 +21,9 @@ public sealed partial class MiniRecipeCardControl : Control
         Background.ModulateSelfOverride = discipline.Color;
         NameLabel.SetMessage(lathe.GetRecipeName(proto));
 
-        if (proto.Result.HasValue)
+        if (proto.Icon is { } icon)
+            Showcase.Texture = sprite.Frame0(icon);
+        else if (proto.Result.HasValue)
             Showcase.Texture = sprite.Frame0(prototypeManager.Index(proto.Result.Value));
 
         if (proto.Description.HasValue)

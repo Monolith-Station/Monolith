@@ -40,6 +40,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: ClothingSlowOnDamageModifier
     modifier: 0.75
 
@@ -85,6 +87,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: ClothingSlowOnDamageModifier
     modifier: 0.75
 
@@ -131,6 +135,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: ClothingSlowOnDamageModifier
     modifier: 0.75
 
@@ -169,6 +175,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: ClothingSlowOnDamageModifier
     modifier: 0.75
 
@@ -177,7 +185,7 @@
   parent: ClothingShoesBase
   id: ClothingModsuitBootsMercenary
   name: mercenary modsuit boots
-  description: These boots were made for curb stomping.
+  description: The suits Actuator Enhancement System paired with the built in magboots make boarding actions a breeze.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -210,8 +218,21 @@
     components:
     - type: NoSlip
   - type: Magboots
+  - type: JumpAbility
+    jumpDistance: 4
+    jumpSound: /Audio/Effects/Footsteps/suitstep2.ogg
+  - type: ActionGrant
+    actions:
+    - ActionGravityJump 
+  - type: ItemActionGrant
+    actions:
+    - ActionGravityJump
+    activeIfWorn: true
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
+

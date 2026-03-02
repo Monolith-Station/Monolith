@@ -1,3 +1,4 @@
+#TSFMC
 - type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltTsfmc
@@ -78,6 +79,7 @@
   - type: Clothing
     sprite: Clothing/Ears/Headsets/security.rsi
 
+#USSP
 - type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetUSSPCommand
@@ -110,7 +112,7 @@
       - EncryptionKeyCommon
       - EncryptionKeyUssp
 
-
+#PDV
 - type: entity
   parent: [ClothingHeadsetAlt]
   id: ClothingHeadsetAltVanguardCommand
@@ -129,3 +131,15 @@
       sprite: Clothing/Ears/Headsets/freelance.rsi
     - type: Clothing
       sprite: Clothing/Ears/Headsets/freelance.rsi
+
+#Overseer (Locker spare)
+- type: entity
+  parent: ClothingHeadsetAltCentCom
+  id: ClothingHeadsetAltCentComSR
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCentCom
+      - EncryptionKeyStationMasterSR
+      - EncryptionKeyDiplomacy

@@ -61,6 +61,12 @@ public sealed partial class ItemComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public Vector2i StoredOffset;
+
+    /// <summary>
+    /// Mono - whether this can be picked up even if it's a static entity.
+    /// </summary>
+    [DataField]
+    public bool PickupStatic = false;
 }
 
 /// <summary>

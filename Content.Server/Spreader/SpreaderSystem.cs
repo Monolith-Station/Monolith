@@ -44,7 +44,7 @@ public sealed class SpreaderSystem : EntitySystem
     private AtmosDirection[] _atmosDirections = [AtmosDirection.North, AtmosDirection.East, AtmosDirection.South, AtmosDirection.West];
 
     // Mono - Caps spreadersystem to not run excessively.
-    [ViewVariables] private readonly TimeSpan _maximumProcessTime = TimeSpan.FromMilliseconds(0.75);
+    [ViewVariables] private readonly TimeSpan _maximumProcessTime = TimeSpan.FromMilliseconds(5);
 
     private static readonly ProtoId<TagPrototype> IgnoredTag = "SpreaderIgnore";
 
@@ -165,7 +165,7 @@ public sealed class SpreaderSystem : EntitySystem
                 var spacedSpread = _prototypeSpacedSpread[spreadProto];
                 var updates = _prototypeUpdates[spreadProto];
                 var count = spreadQueue.Count;
-                for (var i = 0; i < count && updates != 0; i++)
+                for (var i = 0; i < count && updates > 0; i++)
                 {
                     var ent = spreadQueue.Dequeue();
 

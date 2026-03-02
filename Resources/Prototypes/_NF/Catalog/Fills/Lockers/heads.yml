@@ -39,7 +39,8 @@
   - type: StorageFill
     contents:
       - id: SrIDCard
-      - id: ClothingHeadsetCentCom # Frontier
+      #- id: ClothingHeadsetCentCom # Frontier - Mono out
+      - id: ClothingHeadsetAltCentComSR #Mono in
       - id: BoxHandcuff # Frontier
       - id: IDComputerCircuitboard
       - id: CommsComputerCircuitboard # Frontier
@@ -48,6 +49,7 @@
       - id: ShipVoucherRavager # Mono
       - id: WeaponEnergyShotgunOverseer # Mono
       - id: WeaponOverseerMace # Mono
+      - id: PhoneInstrumentHigh # Mono
 
 - type: entity
   id: LockerNfsdSheriffFilled
@@ -67,6 +69,7 @@
       - id: RadioHandheldNF # Mono
       - id: NfsdTechFabFlatpack
       - id: ClothingEyesTSFOfficerGlasses
+      - id: PhoneInstrumentHigh # Mono
 
 - type: entity
   parent: GunSafe

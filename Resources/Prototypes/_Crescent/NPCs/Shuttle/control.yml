@@ -54,6 +54,7 @@
   - type: Pullable
   - type: DroneControl
   - type: ShipNpcTarget
+  - type: TargetSeekingTarget # Mono
   - type: HTN
     sleepPlayerCheckRangeOverride: 100000 # 100k aka basically never sleep
     rootTask:

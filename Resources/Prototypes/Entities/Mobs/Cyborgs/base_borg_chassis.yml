@@ -328,9 +328,12 @@
     factions:
     - NanoTrasen
   - type: Access
+    tags:
+     - External # Mono
+     - Mercenary # Mono
     enabled: false
-    groups:
-    - AllAccess
+#   groups:
+#    - AllAccess # Mono
 #  - type: AccessReader
 #    access: [["Command"], ["Research"]]
   - type: ShowJobIcons
@@ -385,6 +388,8 @@
       Unsexed: UnisexSiliconSyndicate
   #- type: PointLight Mono - Light removal PR: Borg Adjustments
   #  color: "#dd200b"
+  - type: ExplosionResistance # Mono - Borg buffs
+    damageCoefficient: 0.50
 
 - type: entity
   id: BaseBorgChassisDerelict
@@ -395,9 +400,12 @@
     factions:
     - NanoTrasen #The seemingly best fit. It was a regular NT cyborg once, after all.
   - type: Access
+    tags:
+     - External # Mono
+     - Mercenary # Mono
     enabled: false
-    groups:
-    - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
+  # groups:
+  #   - AllAccess # Mono
   # - type: AccessReader # Frontier
   #   access: [["Command"], ["Research"]] # Frontier
   - type: StartIonStormed

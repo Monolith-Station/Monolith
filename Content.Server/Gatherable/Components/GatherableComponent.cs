@@ -36,4 +36,10 @@ public sealed partial class GatherableComponent : Component
     /// </summary>
     [DataField]
     public float GatherOffset = 0.3f;
+
+    /// <summary>
+    /// Mono: Mark if entity has been gathered already. Prevents double gathering.
+    /// </summary>
+    [DataField]
+    public bool Gathered = false;
 }

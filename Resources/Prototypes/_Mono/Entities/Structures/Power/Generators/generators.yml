@@ -52,6 +52,9 @@
     requirePower: true
     highVoltageNode: output
 
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
   - type: Destructible
     thresholds:
     - trigger:
@@ -60,15 +63,30 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:SpawnGasBehavior
+        gasMixture:
+          volume: 1000
+          moles:
+          - 194 # oxygen
+          - 0 # nitrogen
+          - 0 # carbon dioxide
+          - 6 # plasma
+          temperature: 752.48
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 1800
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: Explosive # Mono
+    explosionType: Default
+    maxIntensity: 4000
+    intensitySlope: 50
+    totalIntensity: 3000
   - type: GuideHelp
     guides:
     - PortableGenerator
@@ -175,7 +193,7 @@
     maxTargetPower: 160000
     targetPower: 105000
     optimalPower: 105000
-    optimalBurnRate: 0.001
+    optimalBurnRate: 0.004
     fuelEfficiencyConstant: 0.95
     radiationColor: "#662040"
   - type: SolidFuelGeneratorAdapter
@@ -218,6 +236,12 @@
     radarColor: "#fcba03"
     scale: 2
     shape: square
+    gridConfig:
+      color: "#fcba03"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.5,-1.5,0.5,0.5"
 
 - type: entity
   parent:

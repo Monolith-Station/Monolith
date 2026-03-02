@@ -131,6 +131,9 @@ uplink-pirate-bulldog-desc = A automatic 12 gauge shotgun, packaged with a few d
 uplink-pirate-vt7-name = VT7 HF Blade
 uplink-pirate-vt7-desc = A high quality HF blade.
 
+uplink-pirate-desword-name = Double-Bladed Energy Sword
+uplink-pirate-desword-desc = A two-handed variant of the Energy Sword.
+
 uplink-pirate-anaconda-name = Anaconda
 uplink-pirate-anaconda-desc = The pride of Cybersun engineers. A handheld, compact, self-recharging ballistic firearm.
 

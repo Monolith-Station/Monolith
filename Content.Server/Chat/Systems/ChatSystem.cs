@@ -851,10 +851,12 @@ public sealed partial class ChatSystem : SharedChatSystem
         var clients = GetDeadChatClients();
         var playerName = Name(source);
         string wrappedMessage;
-        if (_adminManager.IsAdmin(player))
+        // Mono - add short title
+        if (_adminManager.GetAdminData(player) is { } data)
         {
+            var title = string.IsNullOrEmpty(data.ShortTitle) ? Loc.GetString("chat-manager-admin-channel-name") : data.ShortTitle;
             wrappedMessage = Loc.GetString("chat-manager-send-admin-dead-chat-wrap-message",
-                ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
+                ("title", title),
                 ("userName", player.Channel.UserName),
                 ("message", FormattedMessage.EscapeText(message)));
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Admin dead chat from {player:Player}: {message}");
@@ -1012,7 +1014,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         return newMessage;
     }
-    
+
     public string TransformSpeech(EntityUid sender, string message, LanguagePrototype language) // Einstein Engines - Language
     {
         if (!language.SpeechOverride.RequireSpeech) // Einstein Engines - Language

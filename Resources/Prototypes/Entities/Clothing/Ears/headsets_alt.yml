@@ -41,19 +41,6 @@
   - type: Clothing
     sprite: Clothing/Ears/Headsets/centcom.rsi
 
-# Mono Start
-
-- type: entity
-  parent: ClothingHeadsetAltCentCom
-  id: ClothingHeadsetAltCentComSR
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyCentCom
-      - EncryptionKeyStationMasterSR
-
-# Mono End
 
 - type: entity
   parent: ClothingHeadsetAlt

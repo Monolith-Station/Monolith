@@ -1,0 +1,36 @@
+- type: vessel
+  id: Neptune
+  parent: BaseVesselAntag
+  name: PDW Neptune
+  description: Equipped with heavy frontal armor, 6 Fang heavy 90mms, and 2 Trident torpedoes. Good for dealing with heavier targets in head on brawls, but it lacks capabilities to fight nimble and small targets.
+  price: 152555 #126k appraisal
+  category: Medium
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/neptune.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  - Pursuit
+  - Corvette
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Neptune
+  mapName: 'PDV Neptune'
+  mapPath: /Maps/_Mono/Shuttles/BlackMarket/neptune.yml
+  minPlayers: 0
+  stations:
+    Neptune:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Neptune PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

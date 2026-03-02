@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/13/2026 03:42:20
+  time: 01/19/2026 18:06:43
   entityCount: 10044
 maps: []
 grids:
@@ -225,6 +225,11 @@ entities:
       fixtures: {}
     - type: OccluderTree
     - type: SpreaderGrid
+      spreadQueues:
+        Kudzu: []
+        MetalFoam: []
+        Smoke: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -4411,9 +4416,6 @@ entities:
     - type: Transform
       pos: -32.5,-11.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -74601.625
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -4567,9 +4569,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 31.5,29.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -28249.041
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -4786,9 +4785,6 @@ entities:
     - type: Transform
       pos: -14.5,-3.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -116437.7
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -4835,9 +4831,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 22.5,-2.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -118251.805
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -4858,9 +4851,6 @@ entities:
     - type: Transform
       pos: 20.5,-11.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -15100.34
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -4937,9 +4927,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 13.5,-1.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -115994.44
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -4968,9 +4955,6 @@ entities:
     - type: Transform
       pos: 11.5,-2.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -73011.6
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -4979,9 +4963,6 @@ entities:
     - type: Transform
       pos: 9.5,-2.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -86822.13
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -5005,9 +4986,6 @@ entities:
     - type: Transform
       pos: 8.5,-12.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -114522.77
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -5042,9 +5020,6 @@ entities:
     - type: Transform
       pos: -0.5,-12.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -85801.43
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -5288,9 +5263,6 @@ entities:
     - type: Transform
       pos: -3.5,15.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -78559.21
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -45832,13 +45804,6 @@ entities:
     - type: Transform
       pos: 17.5,5.5
       parent: 1
-- proto: NFTelecomServerFilled
-  entities:
-  - uid: 6759
-    components:
-    - type: Transform
-      pos: -1.5,11.5
-      parent: 1
 - proto: NFVendingMachineCartNfsd
   entities:
   - uid: 6760
@@ -53280,6 +53245,13 @@ entities:
       pos: 6.5,-8.5
       parent: 1
     - type: Conveyed
+- proto: TelecomServerFilledNfsd
+  entities:
+  - uid: 6759
+    components:
+    - type: Transform
+      pos: -1.5,11.5
+      parent: 1
 - proto: ThrusterFlatpack
   entities:
   - uid: 7805

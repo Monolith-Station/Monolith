@@ -138,7 +138,7 @@
     Steel: 2000
     Plasteel: 1000
     Plastic: 500
-    
+
 - type: latheRecipe
   id: WeaponShotgunHelepolis
   parent: BaseWeaponRecipeLong
@@ -177,6 +177,17 @@
     Uranium: 600
 
 - type: latheRecipe
+  id: WeaponShockMaul
+  parent: BaseWeaponRecipeLong
+  result: WeaponShockMaul
+  categories:
+  - Weapons
+  materials:
+    Steel: 2000
+    Plasteel: 800
+    Plasma: 800
+
+- type: latheRecipe
   id: HardlightShield
   parent: BaseWeaponRecipeLong
   result: HardlightShield
@@ -188,3 +199,16 @@
     Plastic: 800
     Plasma: 4000
 
+- type: latheRecipe
+  id: ASMGTUniversallyHostile
+  parent: BaseWeaponRecipeLong
+  result: WeaponTurretAsmgtHostileUniversallyPacked
+  categories:
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 1000
+    Plastic: 3000
+    Plasma: 1500
+    Gold: 1000
+    Diamond: 150

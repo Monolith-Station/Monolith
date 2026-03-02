@@ -90,6 +90,7 @@
     maxDraw: 100000 # Base is 150000
     unpoweredBonus: 7 # Base is 6
     shieldColor: "#FF3333"
+    collisionResistanceMultiplier: 1.0
     powerUpSound: !type:SoundPathSpecifier
         path: "/Audio/Effects/teleport_arrival.ogg"
         params:
@@ -129,6 +130,7 @@
     damageLimit: 10000
     damageOverloadTimePunishment: 30
     shieldColor: "#FF9933"
+    collisionResistanceMultiplier: 0.0
   - type: Sprite
     sprite: _Mono/Structures/ShuttleComponents/fobshield.rsi
     snapCardinals: true
@@ -202,6 +204,7 @@
     damageLimit: 8000
     damageOverloadTimePunishment: 35
     shieldColor: "#FF0A70"
+    collisionResistanceMultiplier: 0.05
   - type: Sprite
     sprite: _Mono/Structures/ShuttleComponents/fobshield.rsi
     snapCardinals: true
@@ -265,6 +268,16 @@
   name: MS-500 "Titan" Shield Generator
   suffix: ADS ONLY
   components:
+  - type: ShipShieldEmitter
+    damageLimit: 8000
+    damageOverloadTimePunishment: 40
+    healPerSecond: 120 # Base is 250
+    damageExp: 1.15 # Base is 1.1
+    baseDraw: 40000 # Base is 50000
+    maxDraw: 100000 # Base is 150000
+    unpoweredBonus: 7 # Base is 6
+    shieldColor: "#FF3333"
+    collisionResistanceMultiplier: 0.05
   - type: ShipRepairable
     repairTime: 30
     repairCost: 300
@@ -289,6 +302,7 @@
     damageLimit: 40000
     damageOverloadTimePunishment: 100
     shieldColor: "#9933FF"
+    collisionResistanceMultiplier: 0.6
   - type: Sprite
     sprite: _Mono/Structures/ShuttleComponents/shield.rsi
     snapCardinals: true
@@ -374,6 +388,7 @@
     damageLimit: 5000 # Mono
     damageOverloadTimePunishment: 80
     shieldColor: "#3399FF"
+    collisionResistanceMultiplier: 0.5
   - type: Sprite
     sprite: _Mono/Structures/ShuttleComponents/shield.rsi
     snapCardinals: true

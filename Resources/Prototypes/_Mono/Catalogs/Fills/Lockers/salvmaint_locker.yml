@@ -406,6 +406,7 @@
     - !type:GroupSelector
       weight: 28
       children:
+      - id: NaniteApplicator
       - id: ClothingHeadHatCone
       - id: Bucket
       - id: MopItem
@@ -415,7 +416,11 @@
       - id: GeigerCounter
       - id: AppraisalTool
       - id: RadioHandheldNF
+      - id: Spoon
+      - id: DrinkShaker
       - id: DrinkGlass
+      - id: JerryCanWeldingFuel
+      - id: JerryCanNaniteFuel
       - id: AmeJar
         weight: 0.5
       #Survival box
@@ -450,7 +455,6 @@
         - id: HandHeldMassScannerEmpty
         - id: PinpointerUniversal
           weight: 0.5
-      - id: JerryCanWeldingFuel
       - id: ResearchDisk35000
         weight: 0.5
       #Medkits

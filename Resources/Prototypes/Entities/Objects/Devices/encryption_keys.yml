@@ -87,26 +87,6 @@
     - state: crypt_gold
     - state: cap_label
 
-# Mono start - alt variant w/ no TSFMC or TSF command radio key
-
-- type: entity
-  parent: EncryptionKeyStationMaster
-  id: EncryptionKeyStationMasterSR
-  components:
-  - type: EncryptionKey
-    channels:
-    - Common
-    - Engineering
-    - Medical
-    - Science
-    - Security
-    - Service
-    - Supply
-    - Traffic # Frontier
-    defaultChannel: Service
-
-# Mono end
-
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyCommand

@@ -870,7 +870,8 @@ namespace Content.Shared.Interaction
         {
             HashSet<EntityUid> ignored = new();
 
-            if (_itemQuery.HasComp(target) && _physicsQuery.TryComp(target, out var physics) && physics.CanCollide)
+            // Mono - account for PickupStatic
+            if (_itemQuery.TryComp(target, out var item) && _physicsQuery.TryComp(target, out var physics) && (physics.CanCollide || item.PickupStatic))
             {
                 // If the target is an item, we ignore any colliding entities. Currently done so that if items get stuck
                 // inside of walls, users can still pick them up.

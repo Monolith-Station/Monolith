@@ -401,7 +401,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: Pulse
+    proto: RiflePulse
     fireCost: 100
   - type: Battery
     maxCharge: 6000 # Mono

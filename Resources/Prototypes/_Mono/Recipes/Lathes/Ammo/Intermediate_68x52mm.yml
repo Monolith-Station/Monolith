@@ -36,3 +36,10 @@
   parent: BaseAmmoPracticeIntermediateAmmoBoxRecipe
   id: AmmoBox68x52mmPractice
   result: AmmoBox68x52mmCaselessPractice
+
+#big box
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateBigAmmoBoxRecipe
+  id: AmmoBox68x52mmCaselessBig
+  result: AmmoBox68x52mmCaselessBig
+

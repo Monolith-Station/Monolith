@@ -3,6 +3,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.Shuttles.Components;
 using Content.Shared._Mono.CCVar;
 using Content.Shared.Mind.Components;
+using Content.Shared.Physics;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -21,12 +22,10 @@ public sealed class SpaceCleanupSystem : BaseCleanupSystem<PhysicsComponent>
 {
     [Dependency] private readonly CleanupHelperSystem _cleanup = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
     private object _manifold = default!;
     private MethodInfo _testOverlap = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly PricingSystem _pricing = default!;
 
     private float _maxDistance;
@@ -39,7 +38,6 @@ public sealed class SpaceCleanupSystem : BaseCleanupSystem<PhysicsComponent>
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<MindContainerComponent> _mindQuery;
     private EntityQuery<PhysicsComponent> _physQuery;
-    private EntityQuery<SpaceGarbageComponent> _garbageQuery;
 
     public override void Initialize()
     {
@@ -54,7 +52,6 @@ public sealed class SpaceCleanupSystem : BaseCleanupSystem<PhysicsComponent>
         _gridQuery = GetEntityQuery<MapGridComponent>();
         _mindQuery = GetEntityQuery<MindContainerComponent>();
         _physQuery = GetEntityQuery<PhysicsComponent>();
-        _garbageQuery = GetEntityQuery<SpaceGarbageComponent>();
 
         Subs.CVar(_cfg, MonoCVars.CleanupMaxGridDistance, val => _maxGridDistance = val, true);
         Subs.CVar(_cfg, MonoCVars.SpaceCleanupDistance, val => _maxDistance = val, true);
@@ -93,37 +90,45 @@ public sealed class SpaceCleanupSystem : BaseCleanupSystem<PhysicsComponent>
         if (ent.Comp.GridUid is not { } gridUid
             || ent.Comp.Anchored
             || ent.Comp.ParentUid != gridUid // ignore if not directly parented to grid
-            || !_gridQuery.TryComp(gridUid, out var grid)
-            || !_physQuery.TryComp(ent, out var body)
         )
             return false;
 
-        var query = _map.GetAnchoredEntitiesEnumerator(gridUid, grid, ent.Comp.Coordinates.ToVector2i(EntityManager, _mapMan, _transform));
-        while (query.MoveNext(out var anch))
+        var xfB = new Transform(ent.Comp.LocalPosition, 0);
+        var shapeB = new PhysShapeCircle(0.001f);
+
+        var contacts = _physics.GetContacts(ent.Owner);
+        // it dies without this for some reason
+        if (contacts == ContactEnumerator.Empty)
+            return false;
+
+        while (contacts.MoveNext(out var contact))
         {
-            if (anch == ent)
+            if (contact.FixtureA == null
+                || contact.FixtureB == null
+                || contact.BodyA == null
+                || contact.BodyB == null
+                || !contact.FixtureA.Hard
+                || !contact.FixtureB.Hard
+                || !contact.IsTouching
+            )
                 continue;
 
-            if (!_fixQuery.TryComp(anch, out var anchFix))
+            var isA = contact.EntityB == ent.Owner;
+
+            var body = isA ? contact.BodyA : contact.BodyB;
+            // only trigger when the other entity is static
+            if ((body.BodyType & BodyType.Static) == 0)
                 continue;
 
-            var xfA = _physics.GetLocalPhysicsTransform(anch.Value);
-            var xfB = new Transform(ent.Comp.LocalPosition, 0);
-            var i = 0;
-            foreach (var (_, fix) in anchFix.Fixtures)
-            {
-                if (!fix.Hard)
-                    continue;
+            var fix = isA ? contact.FixtureA : contact.FixtureB;
+            var xform = isA ? contact.XformA : contact.XformB;
+            var anch = isA ? contact.EntityA : contact.EntityB;
 
-                if ((fix.CollisionLayer & body.CollisionMask) == 0 && (fix.CollisionMask & body.CollisionLayer) == 0)
-                    continue;
+            var xf = _physics.GetLocalPhysicsTransform(anch, xform);
+            var shape = fix.Shape;
 
-                var shapeA = fix.Shape;
-                var shapeB = new PhysShapeCircle(0.001f);
-                if ((bool?)_testOverlap.Invoke(_manifold, [shapeA, i, shapeB, 0, xfA, xfB]) ?? false)
-                    return true;
-                i++;
-            }
+            if ((bool?)_testOverlap.Invoke(_manifold, [shape, 0, shapeB, 0, xf, xfB]) ?? false)
+                return true;
         }
 
         return false;

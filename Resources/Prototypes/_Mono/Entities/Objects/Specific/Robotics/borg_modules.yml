@@ -112,3 +112,23 @@
     - ShipRepairDeviceRedacted
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
+
+# Mercenary Modules
+
+- type: entity
+  id: BorgModuleRedactedWeapon
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: pre-fracture weapon cyborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: mercenary
+    - state: icon-mercenary
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - WeaponPistolAnaconda
+    - WeaponRifleAsakimAutopulserADM
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: mercenary-weapon-module }

@@ -82,7 +82,7 @@ public sealed partial class ShipSteererComponent : Component
     /// How much to enlarge grid search bounds for collision evasion.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float GridSearchBuffer = 96f;
+    public float GridSearchBuffer = 192f;
 
     /// <summary>
     /// How much to enlarge grid search forward distance for collision evasion.

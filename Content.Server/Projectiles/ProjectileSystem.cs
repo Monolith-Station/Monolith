@@ -12,6 +12,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using System.Linq;
 using System.Numerics;
+using Content.Server.Gatherable.Components;
 
 namespace Content.Server.Projectiles;
 
@@ -72,6 +73,11 @@ public sealed class ProjectileSystem : SharedProjectileSystem
 
         if (modifiedDamage == null)
         {
+            // mono start
+            if (!component.NoDamageDelete)
+                return null;
+            // mono end
+
             component.ProjectileSpent = true;
             if (component.DeleteOnCollide && component.ProjectileSpent)
                 QueueDel(uid);
@@ -215,7 +221,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                     }
                     if (hitFix == null)
                         continue;
-
                     // this is cursed but necessary
                     var ourEv = new PreventCollideEvent(uid, hitEnt, physicsComp, otherBody, projFix, hitFix);
                     RaiseLocalEvent(uid, ref ourEv);

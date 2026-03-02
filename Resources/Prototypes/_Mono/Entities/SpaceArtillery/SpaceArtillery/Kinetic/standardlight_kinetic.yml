@@ -68,6 +68,12 @@
     radarColor: "#FF0000"
     scale: 1
     visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.7,-0.7,0.7,0.7"
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
