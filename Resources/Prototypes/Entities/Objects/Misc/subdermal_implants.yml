@@ -201,7 +201,7 @@
     - type: SubdermalImplant
       implantAction: ActionActivateScramImplant
     - type: TriggerImplantAction
-    - type: ScramImplant
+    - type: ScramImplant # Mono
 
 - type: entity
   parent: BaseSubdermalImplant
