@@ -62,6 +62,7 @@
       ignorePowered: true
       ignoreIFF: true
       ignorePrice: true
+      distanceOverride: 1024 # so it doesn't despawn while in view
     - type: RandomMetadata
       nameSeparator: ""
       nameSegments:
