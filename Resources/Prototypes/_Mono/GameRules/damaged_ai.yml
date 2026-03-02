@@ -3,18 +3,15 @@
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
       - id: UnknownShuttleZenith
-      - id: UnknownShuttleRazor
+      - id: UnknownShuttleWyrm
       - id: UnknownShuttleNebula
 
 - type: entityTable
   id: DamagedAIShipsTableT2
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
-    - id: UnknownShuttleZenith
     - id: UnknownShuttleZenithE
-    - id: UnknownShuttleRazor
     - id: UnknownShuttleRazorN
-    - id: UnknownShuttleNebula
     - id: UnknownShuttleWyvern
 
 - type: entity
@@ -26,7 +23,7 @@
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2
-    maxOccurrences: 6
+    maxOccurrences: 4
   - type: GameRule
     minPlayers: 32
   - type: LoadMapRule
@@ -56,7 +53,7 @@
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2
-    maxOccurrences: 6
+    maxOccurrences: 4
   - type: GameRule
     minPlayers: 32
   - type: LoadMapRule
@@ -64,18 +61,18 @@
 
 - type: entity
   parent: BaseRandomShuttleRule
-  id: UnknownShuttleRazor
+  id: UnknownShuttleWyrm
   components:
   - type: StationEvent
     startAnnouncement: station-event-ai-shuttle-detected
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 3
-    maxOccurrences: 8
+    maxOccurrences: 6
   - type: GameRule
     minPlayers: 15
   - type: LoadMapRule
-    preloadedGrid: AIRazor
+    preloadedGrid: AIWyrm
 
 - type: entity
   parent: BaseRandomShuttleRule
@@ -88,7 +85,7 @@
     weight: 1 # rare but not too rare since it's in the T2 spawner
     maxOccurrences: 2
   - type: GameRule
-    minPlayers: 32
+    minPlayers: 15
   - type: LoadMapRule
     preloadedGrid: AIRazorN
 
