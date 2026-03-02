@@ -95,7 +95,7 @@ public sealed partial class RadarBlipsSystem : EntitySystem
             }
             var maybeGrid = grid != EntityUid.Invalid ? grid : (EntityUid?)null;
 
-            _cachedBlipData.Add(new(blip.Uid, predictedPos, blip.Rotation, maybeGrid, config));
+            _cachedBlipData.Add(new(blip.Uid, predictedPos, rotation, maybeGrid, config));
         }
 
         return _cachedBlipData;
