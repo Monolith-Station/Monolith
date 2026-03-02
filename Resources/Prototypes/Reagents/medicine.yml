@@ -700,7 +700,7 @@
       effects:
       - !type:EvenHealthChange
         damage:
-          Brute: -1.75
+          Brute: -2 #Mono -1.75 >> -2
           Airloss: -1
       - !type:HealthChange
         conditions:
