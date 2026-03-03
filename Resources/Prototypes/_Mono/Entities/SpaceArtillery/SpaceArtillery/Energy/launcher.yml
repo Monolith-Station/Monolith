@@ -1214,9 +1214,9 @@
     range: 500
   - type: Gun
     recoil: 10 # 2/5x
-    projectileSpeed: 100
+    projectileSpeed: 150
     minAngle: 0
-    maxAngle: 8
+    maxAngle: 4
     burstCooldown: 0.4
     burstFireRate: 20
     shotsPerBurst: 3
