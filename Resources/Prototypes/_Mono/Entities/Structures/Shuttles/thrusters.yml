@@ -1,0 +1,15 @@
+- type: entity
+  id: ThrusterDebugStrength
+  parent: ThrusterSecurity
+  suffix: Debug Strength
+  components:
+  - type: Thruster
+    thrust: 20000 # 100x
+
+- type: entity
+  id: GyroscopeDebugStrength
+  parent: GyroscopeSecurity
+  suffix: Debug Strength
+  components:
+  - type: Thruster
+    thrust: 200000 # 100x
