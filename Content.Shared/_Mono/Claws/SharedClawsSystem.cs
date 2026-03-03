@@ -38,7 +38,6 @@ public abstract partial class SharedClawsSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _effects = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
 
-
     public override void Initialize()
     {
         base.Initialize();
@@ -48,6 +47,7 @@ public abstract partial class SharedClawsSystem : EntitySystem
 
         InitializeNailClippers();
     }
+
     private void OnMeleeAttack(Entity<ClawsComponent> ent, ref GetMeleeDamageEvent args)
     {
         if (!TryGetStage<SharpClaw>(ent, out var stage) ||

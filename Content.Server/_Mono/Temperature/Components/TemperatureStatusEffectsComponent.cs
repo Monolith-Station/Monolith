@@ -15,7 +15,7 @@ public sealed partial class TemperatureStatusEffectsComponent : Component
 public sealed partial class TemperatureEffect
 {
     [DataField]
-    public float MinimumTemperature = 23.15f;
+    public float MinimumTemperature = float.NegativeInfinity;
 
     [DataField]
     public float MaximumTemperature = float.MaxValue;

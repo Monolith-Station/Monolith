@@ -19,25 +19,25 @@ public sealed class ExchangeHeatOnInteractionSystem : EntitySystem
     private void OnInteraction(EntityUid uid, TemperatureComponent tComp, InteractionSuccessEvent args)
     {
         var exchanger = args.User;
-        if (!TryComp<TemperatureComponent>(exchanger, out var tComp2) ||
-            !TryComp<ExchangeHeatOnInteractionComponent>(exchanger, out var exchangerComp))
+        if (!TryComp<TemperatureComponent>(exchanger, out var tComp2))
             return;
 
         var t1 = tComp.CurrentTemperature;
         var t2 = tComp2.CurrentTemperature;
 
-        // We will take delta temp from target and will transfer it to exchanger
-        var delta = Math.Abs((t2 - t1) * exchangerComp.Coefficient);
+        var hc1 = tComp.SpecificHeat;
+        var hc2 = tComp2.SpecificHeat;
 
-        if (t1 > t2)
-        {
-            _temp.ForceChangeTemperature(uid, t1 + -delta);
-            _temp.ForceChangeTemperature(exchanger, t2 + delta);
-        }
-        else
-        {
-            _temp.ForceChangeTemperature(uid, t1 + delta);
-            _temp.ForceChangeTemperature(exchanger, t2 + -delta);
-        }
+        var coeff = tComp2.InteractionExchangeCoefficient;
+
+        var tempDiff = t2 - t1;
+
+        var tempDiffNew = tempDiff * MathF.Exp(-coeff * MathF.Pow(hc1 + hc2, 2) / (hc1 * hc2));
+        var deltaDiff = tempDiff - tempDiffNew;
+        var temp1New = t1 + deltaDiff * hc2 / (hc1 + hc2);
+        var temp2New = t2 - deltaDiff * hc1 / (hc1 + hc2);
+
+        _temp.ForceChangeTemperature(uid, temp1New);
+        _temp.ForceChangeTemperature(exchanger, temp2New);
     }
 }

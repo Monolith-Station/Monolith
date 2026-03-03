@@ -1,6 +1,7 @@
 using Content.Server._Mono.Temperature.Components;
 using Content.Server.IgnitionSource;
 using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Item.ItemToggle.Components;
@@ -42,16 +43,14 @@ public sealed class EntityRadiusHeaterSystem : EntitySystem
                     continue;
             }
 
-            if (comp.RequireActivation && TryComp<ApcPowerReceiverComponent>(uid, out var apc))
-            {
-                if (apc.PowerDisabled)
-                    continue;
-            }
+            if (!this.IsPowered(uid, EntityManager))
+                continue;
 
             var nearby = _lookup.GetEntitiesInRange<TemperatureComponent>(Transform(uid).Coordinates, comp.Radius);
+            var xform = Transform(uid);
             foreach (var ent in nearby)
             {
-                _temp.ChangeHeat(ent, CalculateThermalEnergy(ent, Transform(uid), comp));
+                _temp.ChangeHeat(ent, CalculateThermalEnergy(ent, xform, comp));
             }
         }
 

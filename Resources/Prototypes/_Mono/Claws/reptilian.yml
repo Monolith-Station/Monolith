@@ -15,8 +15,7 @@
 - type: claw
   id: ReptilianDeclawed
   canGrow: false
-  clawType:
-    !type:Declawed
+  clawType: !type:Declawed
     damageOnDeclaw:
       types:
         Slash: 20
@@ -24,8 +23,7 @@
 
 - type: claw
   id: ReptilianTinyClaws
-  clawType:
-    !type:SharpClaw
+  clawType: !type:SharpClaw
     damage:
       types:
         Slash: 8
@@ -34,8 +32,7 @@
 
 - type: claw
   id: ReptilianSmallClaws
-  clawType:
-    !type:SharpClaw
+  clawType: !type:SharpClaw
     damage:
       types:
         Slash: 11
@@ -48,11 +45,9 @@
         Piercing: 0.95
     clawsExaminationString: "claws-lizard-small"
 
-
 - type: claw
   id: ReptilianMediumClaws
-  clawType:
-    !type:SharpClaw
+  clawType: !type:SharpClaw
     damage:
       types:
         Slash: 13
@@ -67,11 +62,9 @@
         Piercing: 0.87
     clawsExaminationString: "claws-lizard-medium"
 
-
 - type: claw
   id: ReptilianBigClaws
-  clawType:
-    !type:SharpClaw
+  clawType: !type:SharpClaw
     damage:
       types:
         Slash: 15
@@ -86,12 +79,10 @@
         Piercing: 0.75
     clawsExaminationString: "claws-lizard-big"
 
-
 - type: claw
   id: ReptilianHugeClaws
   canGrow: false
-  clawType:
-    !type:SharpClaw
+  clawType: !type:SharpClaw
     damage:
       types:
         Slash: 18
@@ -105,4 +96,3 @@
         Slash: 0.5
         Piercing: 0.5
     clawsExaminationString: "claws-lizard-huge"
-

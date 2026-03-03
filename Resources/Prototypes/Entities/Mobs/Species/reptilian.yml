@@ -129,7 +129,6 @@
     radiatedHeat: 710
     shiveringHeatRegulation: 690
     updateInterval: 2
-  - type: ExchangeHeatOnInteraction
   - type: TemperatureStatusEffects
     temperatureEffects:
     - maximumTemperature: 295

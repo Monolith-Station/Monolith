@@ -36,10 +36,6 @@ public sealed class TemperatureStatusEffectsSystem : EntitySystem
 
             foreach (var tEff in comp.TemperatureEffects)
             {
-
-                if (tEff.Effects.Count == 0)
-                    continue;
-
                 if (tEff.MaximumTemperature < t ||
                     tEff.MinimumTemperature > t)
                     continue;
