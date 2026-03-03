@@ -2,8 +2,8 @@
   id: QJ340
   parent: BaseVesselAntag
   name: GS QJ-340 Support Fighter
-  description: Equipped with 4 20mms, a Vanyk Missile pod and a Rubicon EMP launcher.
-  price: 36500
+  description: A frontloaded fighter with 2 L1 Phalanxes, a Vanyk Missile pod and a Rubicon EMP launcher.
+  price: 33600 #Rounded up to 28K, with a 20% tax
   category: Small
   group: Custom
   mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes
