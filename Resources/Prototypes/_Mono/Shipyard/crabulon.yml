@@ -5,32 +5,32 @@
 
 
 - type: vessel
-  id: bumblebee
+  id: crabulon
   parent: BaseVessel
-  name: MIL Bumblebee
-  description: A small, cramped nightmare of a ship that lacks most things, designed to be used as a station-defense/carrier launched craft.
-  price: 27500
+  name: AHS Crabulon
+  description: A small, cramped nightmare of a ship that lacks most things, designed to be used as a station-defense/carrier launched craft. expect it to blow up instantly upon getting hit.
+  price: 30000
   # no, seriously.
   category: Small
   group: Shipyard
-  shuttlePath: /Maps/Shuttles/bumblebee.yml
+  shuttlePath: /Maps/Shuttles/crabulon.yml
   guidebookPage: Null
   class:
   - Pursuit
   engine:
   - Uranium
 
-- type: gameMap
-  id: bumblebee
-  mapName: 'MIL Bumblebee'
-  mapPath: /Maps/Shuttles/bumblebee.yml
+- type: GameMap
+  id: crabulon
+  mapName: 'AHS Crabulon'
+  mapPath: /Maps/Shuttles/crabulon.yml
   minPlayers: 0
   stations:
-    bumblebee:
+    crabulon:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Bumblebee MIL{1}'
+          mapNameTemplate: 'Crabulon MIL{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
