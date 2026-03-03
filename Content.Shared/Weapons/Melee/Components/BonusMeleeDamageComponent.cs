@@ -35,4 +35,11 @@ public sealed partial class BonusMeleeDamageComponent : Component
     /// </summary>
     [DataField("heavyDamageMultiplier"), ViewVariables(VVAccess.ReadWrite)]
     public float HeavyDamageMultiplier = 1;
+
+    /// <summary>
+    /// Mono
+    /// Determines should be bonus damage applied or not if melee weapon is user itself
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool ApplyIfUser = false;
 }
