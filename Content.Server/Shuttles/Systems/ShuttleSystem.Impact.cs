@@ -1,4 +1,5 @@
 using Content.Server.Shuttles.Components;
+using Content.Server._Mono.Shuttles.Components;
 using Content.Server._NF.Shuttles.Components;
 using Content.Shared._Crescent.ShipShields;
 using Content.Shared._Mono;
@@ -155,10 +156,9 @@ public sealed partial class ShuttleSystem
             if (!_enabled)
                 continue;
 
-
             // Check if either grid has GridGodMode or ForceAnchor protection
-            var ourProtected = HasComp<GridGodModeComponent>(args.OurEntity) || HasComp<ForceAnchorComponent>(args.OurEntity);
-            var otherProtected = HasComp<GridGodModeComponent>(args.OtherEntity) || HasComp<ForceAnchorComponent>(args.OtherEntity);
+            var ourProtected = HasComp<GridGodModeComponent>(args.OurEntity) || HasComp<NoGridImpactsComponent>(args.OurEntity);
+            var otherProtected = HasComp<GridGodModeComponent>(args.OtherEntity) || HasComp<NoGridImpactsComponent>(args.OtherEntity);
 
             // Check if the grids are docked together to prevent impact
             var areGridsDocked = _dockSystem.AreGridsDocked(args.OurEntity, args.OtherEntity);
@@ -210,10 +210,10 @@ public sealed partial class ShuttleSystem
                 && TryComp<ShipShieldEmitterComponent>(ShipShieldedComponent.Source, out var ShipShieldEmitterComponent)
             )
                 toUsEnergy *= ShipShieldEmitterComponent.CollisionResistanceMultiplier;
-            
+
             if (TryComp<ShipShieldedComponent>(args.OtherEntity, out var OtherShipShieldedComponent) //Other ship collision resistance
                 && TryComp<ShipShieldEmitterComponent>(OtherShipShieldedComponent.Source, out var OtherShipShieldEmitterComponent)
-            ) 
+            )
                 toOtherEnergy *= OtherShipShieldEmitterComponent.CollisionResistanceMultiplier;
             // Mono Edit end
 
