@@ -1,3 +1,54 @@
+- type: technology
+  id: PdvBasicEquipment
+  name: research-technology-pdv-basic-equipment
+  entityIcon:
+  discipline: PdvEquipment
+  tier: 1
+  cost: 100000
+  recipeUnlocks:
+  -
+  technologyPrerequisites:
+  -
+  position: 0, 0
+
+- type: technology
+  id: PdvStandardEquipment
+  name: research-technology-pdv-standard-equipment
+  entityIcon:
+  discipline: PdvEquipment
+  tier: 1
+  cost: 100000
+  recipeUnlocks:
+  -
+  technologyPrerequisites:
+  -
+  position: 0, 0
+
+- type: technology
+  id: PdvAdvancedEquipment
+  name: research-technology-pdv-advanced-equipment
+  entityIcon:
+  discipline: PdvEquipment
+  tier: 2
+  cost: 100000
+  recipeUnlocks:
+  -
+  technologyPrerequisites:
+  -
+  position: 0, 0
+
+- type: technology
+  id: PdvExperimentalEquipment
+  name: research-technology-pdv-experimental-equipment
+  entityIcon:
+  discipline: PdvEquipment
+  tier: 3
+  cost: 100000
+  recipeUnlocks:
+  -
+  technologyPrerequisites:
+  -
+  position: 0, 0
 
 - type: technology
   id: RogueSaturn
@@ -25,72 +76,6 @@
   technologyPrerequisites:
   - UniversalMaterialResearchT2
   position: 22, 5
-
-- type: technology
-  id: RogueJaws
-  name: research-technology-rogue-jaws
-  entityIcon: JawsOfLife
-  discipline: RogueGear
-  tier: 1
-  cost: 10000
-  recipeUnlocks:
-  - JawsOfLifeRogue
-  - NaniteApplicatorSyndicate
-  technologyPrerequisites:
-  - UniversalMaterialResearchT1
-  position: 20, -1
-
-- type: technology
-  id: RogueHypospray
-  name: research-technology-rogue-hypospray
-  entityIcon: Hypospray
-  discipline: RogueGear
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - HyposprayRogue
-  technologyPrerequisites:
-  - UniversalMaterialResearchT1
-  position: 20, -2
-
-- type: technology
-  id: RogueEmag
-  name: research-technology-rogue-emag
-  entityIcon: Emag
-  discipline: RogueGear
-  tier: 2
-  cost: 25000
-  recipeUnlocks:
-  - EmagRogue
-  technologyPrerequisites:
-  - UniversalMaterialResearchT2
-  position: 21, 4
-
-- type: technology
-  id: RogueEmag2
-  name: research-technology-rogue-access-breaker
-  entityIcon: AccessBreaker
-  discipline: RogueGear
-  tier: 3
-  cost: 25000
-  recipeUnlocks:
-  - AccessBreakerRogue
-  technologyPrerequisites:
-  - UniversalMaterialResearchT2
-  position: 21, 3
-
-- type: technology
-  id: RogueThermals
-  name: research-technology-rogue-thermals
-  entityIcon: ClothingEyesThermalVisionGoggles
-  discipline: RogueGear
-  tier: 1
-  cost: 15000
-  recipeUnlocks:
-  - ClothingEyesThermalVisionGoggles
-  technologyPrerequisites:
-  - UniversalMaterialResearchT1
-  position: 20, -3
 
 - type: technology
   id: PDVBasicBorgModule
