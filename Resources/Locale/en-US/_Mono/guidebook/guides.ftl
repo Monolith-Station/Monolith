@@ -6,6 +6,7 @@ guide-entry-shipyard-takeaway = Takeaway
 guide-entry-shipyard-ruby = Ruby
 guide-entry-shipyard-motley-anne = Motley Anne
 guide-entry-shipyard-ziggy = Ziggy
+guide-entry-shipyard-fenrir = Fenrir
 
 # Gunnery Guides
 guide-entry-gunnery = Ship Gunnery

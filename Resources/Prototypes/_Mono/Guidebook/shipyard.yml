@@ -11,6 +11,7 @@
 #  - ShipyardRuby
   - ShipyardMotleyAnne
   - ShipyardZiggy
+  - ShipyardFenrir
 
 - type: guideEntry
   id: ShipyardArgent
@@ -46,3 +47,8 @@
   id: ShipyardZiggy
   name: guide-entry-shipyard-ziggy
   text: "/ServerInfo/_Mono/Guidebook/Shipyard/Ziggy.xml"
+  
+- type: guideEntry
+  id: ShipyardFenrir
+  name: guide-entry-shipyard-fenrir
+  text: "/ServerInfo/_Mono/Guidebook/Shipyard/Fenrir.xml"

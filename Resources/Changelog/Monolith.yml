@@ -17475,3 +17475,217 @@ Entries:
   id: 1928
   time: '2026-02-26T05:27:23.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3261
+- author: lopsidedmanboobs
+  changes:
+    - type: Tweak
+      message: Core Rule 2 has been updated, read it by pressing F10 & clicking "rules"
+  id: 1929
+  time: '2026-02-27T00:23:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3294
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Blip Lag Fix Probably
+  id: 1930
+  time: '2026-02-27T01:07:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3295
+- author: UnicornOnLSD
+  changes:
+    - type: Fix
+      message: >-
+        All computer sprites (tabletop and frame steps namely) are uniform.
+        Rejoice.
+  id: 1931
+  time: '2026-02-27T03:30:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3268
+- author: Helicaste
+  changes:
+    - type: Tweak
+      message: >-
+        Fighters, an emission is approaching. Approximate time till emission, 10
+        minutes. Get to cryosleep. (round end shuttle call message has been
+        replaced).
+  id: 1932
+  time: '2026-02-27T17:10:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3257
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: The Syndicate LEVIATHAN 520mm howitzer has been spotted in the sector.
+    - type: Tweak
+      message: The Saintie has received a new armament.
+  id: 1933
+  time: '2026-02-28T03:43:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3109
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: >-
+        ADS Alpha class AI has developed a new very large vessel, MIL ships
+        beware..
+  id: 1934
+  time: '2026-02-28T05:08:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3167
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: Adds Hydrakin Painted Ears markings, unpainted tails, and Seer eyes.
+  id: 1935
+  time: '2026-02-28T19:55:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3291
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Missiles are now infinite of their base type ammo again. Specialized
+        ammo still works as expected.
+    - type: Tweak
+      message: >-
+        Tarnyxs now use infinite base EMP ammo. Specialized ammo still works as
+        expected.
+  id: 1936
+  time: '2026-02-28T22:18:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3311
+- author: UnicornOnLSD
+  changes:
+    - type: Fix
+      message: DIS Femur has had some minor fixes and a cell recharger added
+  id: 1937
+  time: '2026-02-28T23:16:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3310
+- author: Kiithnaras
+  changes:
+    - type: Fix
+      message: >-
+        Prevented AME controller from producing risk-free power with no cores
+        attached
+    - type: Fix
+      message: >-
+        Prevented AME controller from registering negative-infinity power at
+        zero injection
+    - type: Tweak
+      message: Reduced Z-Pinch fuel efficiency
+    - type: Tweak
+      message: Increased AME Jar fuel amount
+    - type: Tweak
+      message: >-
+        Increased AME core-based power scaling - larger AMEs produce power more
+        efficiently at low injection rates and have about the same power
+        efficiency at max stable fuel rate.
+  id: 1938
+  time: '2026-03-01T11:40:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3288
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: >-
+        Janitors, Service Workers, Mail Carriers and STC now have access to the
+        self-defense weapon and ammunition loadouts.
+  id: 1939
+  time: '2026-03-01T17:07:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3313
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed drones and AI ships improperly avoiding collisions.
+  id: 1940
+  time: '2026-03-01T17:21:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3314
+- author: Arcticular1
+  changes:
+    - type: Add
+      message: the ADS Wyrm has been spotted in the sector!
+    - type: Remove
+      message: 'All traces of ADS Razor activity has been reported to be non existent. '
+  id: 1941
+  time: '2026-03-01T22:43:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3140
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        ADS armament overall slightly nerfed and readjusted, see PR for full
+        details.
+    - type: Tweak
+      message: >-
+        ADM borgs buffed substantially, given tougher armaments, 75% explosive
+        resistance and a stealth jetpack.
+    - type: Tweak
+      message: >-
+        Faction borgs given innate 40% explosive resistance. Syndicate borgs get
+        50% explosive resistance.
+    - type: Tweak
+      message: Pre-fracture SRDs given more capacity and faster recharging.
+    - type: Tweak
+      message: Borg L6C properly tweaked and given regenerating Plasteel AP ammo.
+    - type: Tweak
+      message: Gives the Nebula an ADM and recharging stations for one.
+    - type: Tweak
+      message: >-
+        ADMs now have a scram ability that randomly teleports them and does not
+        avoid space.
+  id: 1942
+  time: '2026-03-01T23:32:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3301
+- author: burrrkeye
+  changes:
+    - type: Add
+      message: >-
+        PDV BT-Y Fenrir Class Light Carrier Destroyer is entering the PDV Fleet
+        replacing the Anaconda.
+    - type: Remove
+      message: Yeah Anaconda is dead i killed it lol
+  id: 1943
+  time: '2026-03-01T23:34:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3298
+- author: Hverabrao
+  changes:
+    - type: Tweak
+      message: Updates the buran
+  id: 1944
+  time: '2026-03-01T23:47:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3306
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: test
+  id: 1945
+  time: '2026-03-02T14:33:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3326
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Significantly reduced radar blip network usage.
+  id: 1946
+  time: '2026-03-02T18:25:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3329
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: You can now Pre-fracture SRD the Unidentified Ship
+  id: 1947
+  time: '2026-03-02T21:18:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3330
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Scythe rebuffed somewhat
+  id: 1948
+  time: '2026-03-02T21:41:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3333
+- author: Loldaddy5676
+  changes:
+    - type: Tweak
+      message: LPB update
+  id: 1949
+  time: '2026-03-02T23:53:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3215
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: Buffed the loot on the ADS Wyvern
+    - type: Fix
+      message: Removed all debuggium from the wyvern
+  id: 1950
+  time: '2026-03-03T04:08:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3316
