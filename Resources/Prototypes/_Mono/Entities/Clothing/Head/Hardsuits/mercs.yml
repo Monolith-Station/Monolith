@@ -42,3 +42,16 @@
     - Snout
     - HeadTop
     - HeadSide
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitMercenary
+  id: ClothingHeadHelmetHardsuitPrivateSecurity
+  name: private security hardsuit helmet
+  description: Lightly armored hardsuit helmet for private security needs.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/private_security.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/private_security.rsi
+  - type: PointLight
+    color: "#77e7e5"

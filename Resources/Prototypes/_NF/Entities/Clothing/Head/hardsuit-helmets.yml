@@ -29,18 +29,8 @@
         Piercing: 0.9
         Heat: 0.9
 
-- type: entity
-  parent: ClothingHeadHelmetHardsuitMercenary
-  id: ClothingHeadHelmetHardsuitPrivateSecurity
-  name: private security hardsuit helmet
-  description: Lightly armored hardsuit helmet for private security needs.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/private_security.rsi
-  - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/private_security.rsi
-  - type: PointLight
-    color: "#ffff00"
+
+# MONO - private security headgear moved to mercs.yml in _Mono
 
 #Pilot Hardsuit
 - type: entity
