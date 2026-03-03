@@ -31,17 +31,13 @@ public sealed class EntityRadiusHeaterSystem : EntitySystem
 
         while (eqe.MoveNext(out var uid, out var comp))
         {
-            if (comp.RequireActivation && TryComp<IgnitionSourceComponent>(uid, out var ignite))
-            {
-                if (!ignite.Ignited)
-                    continue;
-            }
+            if (comp.RequireActivation && TryComp<IgnitionSourceComponent>(uid, out var ignite)
+                                       && !ignite.Ignited)
+                continue;
 
-            if (comp.RequireActivation && TryComp<ItemToggleComponent>(uid, out var toggle))
-            {
-                if (!toggle.Activated)
-                    continue;
-            }
+            if (comp.RequireActivation && TryComp<ItemToggleComponent>(uid, out var toggle)
+                                       && !toggle.Activated)
+                continue;
 
             if (!this.IsPowered(uid, EntityManager))
                 continue;

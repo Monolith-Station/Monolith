@@ -2,6 +2,7 @@ using Content.Shared._Mono.Claws;
 using Content.Shared._Mono.Claws.ClawTypes;
 using Content.Shared._Mono.Claws.Components;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Random;
 
 namespace Content.Server._Mono.Claws;
 
@@ -66,9 +67,7 @@ public sealed class ClawsSystem : SharedClawsSystem
         if (!TryGetStage<Declawed>(ent.Comp, out var declawed))
             return;
 
-        var r = _random.NextFloat();
-
-        if (r < declawed.DropChanceOnMelee)
+        if (_random.Prob(declawed.DropChanceOnMelee))
             DeclawDrop(ent, args.Weapon);
     }
 }
