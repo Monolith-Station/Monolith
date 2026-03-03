@@ -388,6 +388,8 @@
       Unsexed: UnisexSiliconSyndicate
   #- type: PointLight Mono - Light removal PR: Borg Adjustments
   #  color: "#dd200b"
+  - type: ExplosionResistance # Mono - Borg buffs
+    damageCoefficient: 0.50
 
 - type: entity
   id: BaseBorgChassisDerelict

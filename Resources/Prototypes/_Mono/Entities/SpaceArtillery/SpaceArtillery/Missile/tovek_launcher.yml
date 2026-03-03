@@ -15,6 +15,7 @@
   - type: AmmoCounter
   - type: WirelessNetworkConnection
     range: 500
+  - type: GunSignalControl
   - type: Gun
     fireRate: 0.2
     recoil: 5
@@ -33,7 +34,7 @@
     scale: 2
     visibleFromOtherGrids: true
   - type: BallisticAmmoProvider
-    infiniteUnspawned: false
+    infiniteUnspawned: true
     whitelist:
       tags:
       - TovekCartridge
