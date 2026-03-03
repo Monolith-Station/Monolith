@@ -1,0 +1,41 @@
+# author information
+# discord user: AIKO
+# SS14 user: Eiukane
+# shuttle notes: it's shitty on purpose, but if it's actually broken, tell me.
+
+
+- type: vessel
+  id: bumblebee
+  parent: BaseVessel
+  name: MIL Bumblebee
+  description: A small, cramped nightmare of a ship that lacks most things, designed to be used as a station-defense/carrier launched craft.
+  price: 27500
+  # no, seriously.
+  category: Small
+  group: Shipyard
+  shuttlePath: /Maps/Shuttles/bumblebee.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: bumblebee
+  mapName: 'MIL Bumblebee'
+  mapPath: /Maps/Shuttles/bumblebee.yml
+  minPlayers: 0
+  stations:
+    bumblebee:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Bumblebee MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
