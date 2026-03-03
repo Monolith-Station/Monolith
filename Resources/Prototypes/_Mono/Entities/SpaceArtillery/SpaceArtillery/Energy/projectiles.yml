@@ -564,9 +564,9 @@
   - type: HitscanBasicDamage
     damage:
      types:
-      Piercing: 35
-      Heat: 25
-      Structural: 100
+      Piercing: 25
+      Heat: 5
+      Structural: 75
   - type: HitscanBasicRaycast
     maxDistance: 500
 
