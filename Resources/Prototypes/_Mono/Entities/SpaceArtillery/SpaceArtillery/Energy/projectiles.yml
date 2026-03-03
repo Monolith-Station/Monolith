@@ -564,9 +564,9 @@
   - type: HitscanBasicDamage
     damage:
      types:
-      Piercing: 50
-      Heat: 25
-      Structural: 100
+      Piercing: 25
+      Heat: 5
+      Structural: 75
   - type: HitscanBasicRaycast
     maxDistance: 500
 
@@ -580,9 +580,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 6000
+    totalIntensity: 1200
     intensitySlope: 35
-    maxIntensity: 700
+    maxIntensity: 250
 
 - type: entity
   id: SunderExplosion
