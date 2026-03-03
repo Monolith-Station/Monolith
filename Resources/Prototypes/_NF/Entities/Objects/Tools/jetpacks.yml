@@ -1,7 +1,7 @@
 #Empty security
 - type: entity
   id: JetpackNfsd
-  parent: JetpackSecurity
+  parent: JetpackBlue
   name: TSFMC jetpack
   suffix: Empty
   components:
@@ -15,7 +15,7 @@
 #Filled security
 - type: entity
   id: JetpackNfsdFilled
-  parent: JetpackSecurityFilled
+  parent: JetpackBlueFilled
   name: TSFMC jetpack
   suffix: Filled
   components:
