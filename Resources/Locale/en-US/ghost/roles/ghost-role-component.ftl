@@ -235,8 +235,8 @@ ghost-role-information-syndicate-kobold-reinforcement-name = Syndicate Kobold Ag
 ghost-role-information-syndicate-kobold-reinforcement-description = Someone needs reinforcements. You, a trained kobold, will help them.
 
 ghost-role-information-syndicate-cyborg-assault-name = Syndicate Assault Cyborg
-ghost-role-information-syndicate-cyborg-saboteur-name = Syndicate Engineering Cyborg
-ghost-role-information-syndicate-cyborg-description = The local outpost requires assistance, you, a cyborg, shall manage it. repair, upgrade, and defend the outpost, do not abandon it.
+ghost-role-information-syndicate-cyborg-saboteur-name = Syndicate Saboteur Cyborg
+ghost-role-information-syndicate-cyborg-description = The Syndicate needs reinforcements. You, a cold silicon killing machine, will help them.
 
 ghost-role-information-derelict-cyborg-name = Derelict Cyborg
 ghost-role-information-derelict-cyborg-description = You are a regular cyborg that got lost in space. After years of exposure to ion storms you find yourself near a space station.

@@ -10,10 +10,10 @@
 # just a little loot n shoot POI. Pretty much the second POI to even exist
 - type: pointOfInterest
   id: LPBravo
-  parent: [BasePOI, BaseRepairablePOI]
+  parent: BasePOI
   name: 'Listening Point Bravo'
-  minimumDistance: 20000
-  maximumDistance: 21000
+  minimumDistance: 10000
+  maximumDistance: 13000
   spawnGroup: SyndicateFOB
   gridPath: /Maps/_NF/POI/lpbravo.yml
   hideWarp: true

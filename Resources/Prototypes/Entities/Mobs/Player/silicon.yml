@@ -594,7 +594,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellAntiqueProto
+        startingItem: PowerCellHyper
 
 - type: entity
   id: PlayerBorgSyndicateAssaultGhostRole
@@ -620,18 +620,14 @@
       borg_brain:
         - PositronicBrain
       borg_module:
+        - BorgModuleTool
         - BorgModuleOperative
         - BorgModuleSyndicateWeapon
-        - BorgModuleJetpack
-        - BorgModuleConstruction
-        - BorgModuleGPS
-        - BorgModuleRCD
-        - BorgModuleAdvancedTool
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellAntiqueProto
+        startingItem: PowerCellHyper
 
 - type: entity
   id: PlayerBorgSyndicateSaboteurGhostRole
