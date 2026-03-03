@@ -92,7 +92,7 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 6
+        Shock: 6
         Structural: 20
         Heat: 15
   - type: Sprite
@@ -308,7 +308,7 @@
     damage:
       types:
         Radiation: 35
-        Structural: 2000
+        Structural: 160
         Heat: 35
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Projectiles/ship_projectiles.rsi
@@ -323,14 +323,14 @@
     scale: 2.5
     shape: triangle
   - type: TimedDespawn
-    lifetime: 6
+    lifetime: 10
   - type: PointLight
     radarColor: "#ffffff"
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 75
-    intensitySlope: 35
+    totalIntensity: 45
+    intensitySlope: 25
     maxIntensity: 15
 
 # Harbinger
@@ -354,20 +354,20 @@
     muzzleFlash: MuzzleFlashEffectTempCold
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    radarColor: "#9507fa"
-    scale: 3
+    radarColor: "#6c00d6"
+    scale: 5
     shape: circle
   - type: TimedDespawn
     lifetime: 10
   - type: PointLight
     color: "#FB00FF"
   - type: EmpOnTrigger
-    range: 3
+    range: 4
     energyConsumption: 6000000
-    disableDuration: 27.5
+    disableDuration: 15
   - type: LightningOnTrigger
     chance: 1
-    count: 5
+    count: 6
     range: 24
     lightningProto: LightningEMP
     lightningEffects: false
@@ -539,7 +539,7 @@
   - type: HitscanSpawnEntity
     spawnedEntity: SunderExplosion
   - type: HitscanBasicRaycast
-    maxDistance: 700
+    maxDistance: 900
 
 # Flayer
 
@@ -564,9 +564,9 @@
   - type: HitscanBasicDamage
     damage:
      types:
-      Piercing: 50
-      Heat: 25
-      Structural: 100
+      Piercing: 25
+      Heat: 5
+      Structural: 75
   - type: HitscanBasicRaycast
     maxDistance: 500
 
@@ -580,9 +580,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 6000
+    totalIntensity: 1200
     intensitySlope: 35
-    maxIntensity: 700
+    maxIntensity: 250
 
 - type: entity
   id: SunderExplosion

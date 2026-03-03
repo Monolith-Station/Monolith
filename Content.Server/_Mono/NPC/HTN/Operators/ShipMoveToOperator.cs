@@ -62,6 +62,18 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public float BrakeThreshold = 0.75f;
 
     /// <summary>
+    /// How many evasion sectors to init on the outer ring.
+    /// </summary>
+    [DataField]
+    public int EvasionSectorCount = 24;
+
+    /// <summary>
+    /// How many layers of evasion sectors to have.
+    /// </summary>
+    [DataField]
+    public int EvasionSectorDepth = 2;
+
+    /// <summary>
     /// Whether to consider the movement finished if we collide with target.
     /// </summary>
     [DataField]
@@ -179,6 +191,8 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         comp.AvoidCollisions = AvoidCollisions;
         comp.AvoidProjectiles = AvoidProjectiles;
         comp.BrakeThreshold = BrakeThreshold;
+        comp.EvasionSectorCount = EvasionSectorCount;
+        comp.EvasionSectorDepth = EvasionSectorDepth;
         comp.FinishOnCollide = FinishOnCollide;
         comp.InRangeMaxSpeed = InRangeMaxSpeed;
         comp.LeadingEnabled = LeadingEnabled;

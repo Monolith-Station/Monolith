@@ -77,12 +77,11 @@
 
 - type: cargoProduct
   id: FunParty
-  abstract: true # Frontier
   icon:
     sprite: Objects/Consumable/Food/Baked/cake.rsi
     state: birthday
   product: CrateFunParty
-  cost: 1000
+  cost: 3000 #Mono 1k >> 3k
   category: cargoproduct-category-name-fun
   group: market
 
@@ -176,7 +175,6 @@
 
 - type: cargoProduct
   id: FunToyBox
-  abstract: true # Frontier
   icon:
     sprite: Structures/Storage/Crates/toybox.rsi
     state: crate_icon

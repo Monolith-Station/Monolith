@@ -1,0 +1,14 @@
+- type: entity
+  name: manila envelope box
+  parent: BoxCardboard
+  id: BoxEnvelopeManila
+  description: A box filled with manila envelopes.
+  components:
+  - type: Sprite
+    layers:
+      - state: box
+      - state: envelopemanila
+  - type: StorageFill
+    contents:
+      - id: EnvelopeManila
+        amount: 9

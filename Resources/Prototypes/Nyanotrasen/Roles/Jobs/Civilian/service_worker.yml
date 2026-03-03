@@ -1,4 +1,4 @@
-﻿- type: job
+- type: job
   id: CCServiceWorker
   name: job-name-service-worker
   description: job-description-service-worker
@@ -35,5 +35,5 @@
   storage:
     back:
     - EncryptionKeyService # Frontier
-    - ShipVoucherFrontierValet
+    - ShipVoucherFrontierService
 # End Frontier

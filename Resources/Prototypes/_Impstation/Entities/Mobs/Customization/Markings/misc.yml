@@ -656,8 +656,11 @@
   forcedColoring: true
   followSkinColor: true
   sprites:
+  - sprite: Mobs/Customization/vox_parts.rsi
+    state: tail
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxtailballed
+
 
 # voxslop - upstream twinned tail exists
 #- type: marking
