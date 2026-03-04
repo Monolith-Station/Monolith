@@ -150,9 +150,8 @@
         sprintSpeedModifier: 1.10
       - !type:EvenHealthChange
         damage:
-          groups:
-            Burn: -1
-            Brute: -1
+          Burn: -1
+          Brute: -1
 
 
   # Mono edit end
