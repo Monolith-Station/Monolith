@@ -164,7 +164,7 @@ namespace Content.Shared.Damage
             RaiseLocalEvent(uid, new DamageChangedEvent(component, damageDelta, interruptsDoAfters, origin, canSever ?? true)); // Shitmed Change
         }
 
-        // Mono: damage origin flags if we can't discern by UID
+        // Mono: damage origin flags for if we can't or don't want to discern by UID
         public enum DamageOriginFlag
         {
             Explosion, // flag set by ExplosionSystem.Processing
