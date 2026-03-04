@@ -4,6 +4,7 @@
   suffix: Debug Strength
   components:
   - type: Thruster
+    baseThrust: 20000
     thrust: 20000 # 100x
 
 - type: entity
@@ -12,4 +13,5 @@
   suffix: Debug Strength
   components:
   - type: Thruster
+    baseThrust: 200000
     thrust: 200000 # 100x
