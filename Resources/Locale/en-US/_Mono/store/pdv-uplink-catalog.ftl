@@ -14,10 +14,10 @@ uplink-pdv-wt550-desc = a compact smg developed by Ullman Industries. Fires 4.6x
 uplink-pdv-akm-name = LWC AKM
 uplink-pdv-akm-desc = An iconic weapon of war. Uses 7.62x39mm ammo.
 
+# MARK: Weapons Standard
+
 uplink-pdv-anaconda-name = LWC Anaconda
 uplink-pdv-anaconda-desc = a compact and heavy hitting pistol with an inbuilt ammo fabricator.
-
-# MARK: Weapons Standard
 
 uplink-pdv-m90-name = PA M-90
 uplink-pdv-m90-desc = A compact bullpup rifle that packs a kick. Uses 7.62x51mm.
@@ -31,19 +31,19 @@ uplink-pdv-esword-desc = a pure concentrated plasma blade. Cuts enemies and door
 # MARK: Weapons Advanced
 
 uplink-pdv-VT7-name = VT-7 HF Blade
-uplink-pdv-VT7-desc =
+uplink-pdv-VT7-desc = A high frequency blade made with improvised modifications to sunder most armor.
 
-uplink-pdv-histirov-name = Histirov
-uplink-pdv-histirov-desc =
+uplink-pdv-hristov-name = M96 Hristov
+uplink-pdv-histov-desc = A portable anti-material rifle designed to use 14.5mm shells. It was commonly deployed in the corporate war to counter armored NT infantry.
 
-uplink-pdv-l6-name = L6 SAW
-uplink-pdv-l6-desc =
+uplink-pdv-l6-name = L6B SAW
+uplink-pdv-l6-desc = An LMG that is commonly fielded by heavy infantry. It's magazine design allows it to accept various types of 7.62x39mm magazines and boxes.
 
 uplink-pdv-burner-rifle-name = Burner Rifle
-uplink-pdv-burner-rifle-desc =
+uplink-pdv-burner-rifle-desc = A high calibered syndicate design sporting 12.7x99m, capable of firing high explosive and anti-material rounds.
 
-uplink-pdv-chinalake-name = Chinalake
-uplink-pdv-chinalake-desc =
+uplink-pdv-chinalake-name = China lake
+uplink-pdv-chinalake-desc = a 40mm grenade launcher. A devastating weapon in the right hands.
 
 # MARK: Weapons Experimental
 
@@ -54,6 +54,9 @@ uplink-pdv-empty-implanter-desc = A spare, empty implanter to remove implants wi
 
 uplink-pdv-10000credits-name = 10,000 Credits
 uplink-pdv-10000credits-desc = 10 thousand big ones
+
+uplink-pdv-100000credits-name = 100,000 Credits
+uplink-pdv-100000credits-desc = 100 thousand big ones
 
 uplink-pdv-jetpack-name = Black Jetpack
 uplink-pdv-jetpack-desc = A black jetpack. It allows you to fly around in space. Beware that it emits a radar signature once activated.
@@ -117,10 +120,10 @@ uplink-pdv-bullet-vest-medium-desc = a simple kevlar vest. Good protection again
 uplink-pdv-bullet-vest-heavy-name = Heavy Bulletproof Vest
 uplink-pdv-bullet-vest-heavy-desc = a simple kevlar vest. Good protection against small arms.
 
-# MARK: Equipment Standard
-
 uplink-pdv-tactical-magboots-name = Tactical Magboots
 uplink-pdv-tactical-magboots-desc = A pair of combat magboots that come additionally with jetpack functionality that come fueled, but dont last long.
+
+# MARK: Equipment Standard
 
 uplink-pdv-thermal-goggles-name = Thermal Vision Goggles
 uplink-pdv-thermal-goggles-desc = Allows you to see thermal signatures periodically.
@@ -130,6 +133,9 @@ uplink-pdv-imp-hardsuit-desc = a lightweight combat medical suit, often used by 
 
 uplink-pdv-jackal-hardsuit-name = JACKAL Viper Hardsuit
 uplink-pdv-jackal-hardsuit-desc = A heavy combat hardsuit that comes with night vision goggles installed.
+
+uplink-pdv-syndicate-mask-name = Syndicate Mask
+uplink-pdv-syndicate-mask-desc = A gasmask with built in welding and flash protection
 
 # MARK: Equipment Advanced
 uplink-pdv-CV32-tacsuit-name = CV-32 Tacsuit
@@ -164,7 +170,7 @@ uplink-pdv-medipen-case-name = Medipen Case
 uplink-pdv-medipen-case-desc = A pocket case filled with medipens for most combat scenarios.
 
 uplink-pdv-interdyne-defib-name = Interdyne Defibrillator
-uplink-pdv-interdyne-fib-desc = An elite compact defibrillator that can be used as a deadly weapon.
+uplink-pdv-interdyne-defib-desc = An elite compact defibrillator that can be used as a deadly weapon.
 
 uplink-pdv-interdyne-bundle-name = Interdyne Medical Bundle
 uplink-pdv-interdyne-bundle-desc = An assortment of autoinjectors and premium medical equipment to cover for every possible situation. Contains two combat medkits, autoinjectors, lots of hyperzine and a compact defib.
