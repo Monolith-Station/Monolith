@@ -47,8 +47,9 @@ public sealed class SharedArmorPlateSystem : EntitySystem
     }
     public enum DamageOriginType
     {
-        NonMitigated, // Null sources such as radiation, burns, metabolism - sans explosion
-        Mitigated // Source had an entityUID, or occured at the same tick as an explosion
+        NonDirect, // Null sources such as radiation, burns, metabolism - sans explosion
+        Explosion // Null source that occurred at the same time as an explosion resistance check on the target 
+        Direct // Source had an entityUID, or occured at the same tick as an explosion
     }
 
     public void OnBeforeDamageChanged(Entity<ArmorPlateProtectedComponent> ent, ref BeforeDamageChangedEvent args)
@@ -66,10 +67,10 @@ public sealed class SharedArmorPlateSystem : EntitySystem
 
         if (args.Origin != null || (ent.Comp.LastExplosionTick == _timing.CurTick))
         {
-            originType = DamageOriginType.Mitigated;
+            originType = DamageOriginType.Explosion;
         }
 
-        if (originType == DamageOriginType.NonMitigated)
+        if (originType == DamageOriginType.NonDirect)
             return;
 
         foreach (var slot in slots)
