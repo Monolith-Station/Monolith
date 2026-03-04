@@ -35,7 +35,7 @@
   components:
   - type: ConditionalSpawner
     prototypes:
-    - PlayerBorgSyndicateAssaultGhostRole
+    - PlayerBorgAssaultGhostRolePlaytime
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -50,7 +50,7 @@
   components:
   - type: ConditionalSpawner
     prototypes:
-    - PlayerBorgSyndicateSaboteurGhostRole
+    - PlayerBorgSaboteurGhostRolePlaytime
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
