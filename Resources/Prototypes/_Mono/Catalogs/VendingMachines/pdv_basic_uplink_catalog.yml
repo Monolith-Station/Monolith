@@ -1,6 +1,6 @@
 #MARK: Medical
 - type: listing
-  id: UplinkPDVChemicalKit
+  id: UplinkBasicPDVChemicalKit
   name: uplink-pdv-chemical-kit-name
   description: uplink-pdv-chemical-kit-desc
   productEntity: ChemicalSynthesisKit
@@ -15,7 +15,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVSurgicalKit
+  id: UplinkBasicPDVSurgicalKit
   name: uplink-pdv-surgical-kit-name
   description: uplink-pdv-surgical-kit-desc
   productEntity: ClothingBackpackDuffelSyndicateFilledMedical
@@ -30,7 +30,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVCombatMedkit
+  id: UplinkBasicPDVCombatMedkit
   name: uplink-pdv-combat-medkit-name
   description: uplink-pdv-combat-medkit-desc
   productEntity: MedkitCombatFilled
@@ -45,7 +45,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVHypospray
+  id: UplinkBasicPDVHypospray
   name: uplink-pdv-hypo-name
   description: uplink-pdv-hypo-desc
   productEntity: SyndiHypo
@@ -60,7 +60,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVMedipenCase
+  id: UplinkBasicPDVMedipenCase
   name: uplink-pdv-medipen-case-name
   description: uplink-pdv-medipen-case-desc
   productEntity: SyringeCaseAltFilled
@@ -75,7 +75,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVDefib
+  id: UplinkBasicPDVDefib
   name: uplink-pdv-defib-name
   description: uplink-pdv-defib-desc
   productEntity: DefibrillatorSyndicate
@@ -90,7 +90,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVInterdyneBundle
+  id: UplinkBasicPDVInterdyneBundle
   name: uplink-pdv-interdyne-bundle-name
   description: uplink-pdv-interdyne-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
@@ -106,7 +106,7 @@
 
 #MARK: Weapons
 - type: listing
-  id: UplinkPDVEdagger
+  id: UplinkBasicPDVEdagger
   name: uplink-pdv-edagger-name
   description: uplink-pdv-edagger-desc
   productEntity: EnergyDaggerLoud
@@ -121,7 +121,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVPython
+  id: UplinkBasicPDVPython
   name: uplink-pdv-python-name
   description: uplink-pdv-python-desc
   productEntity: WeaponRevolverPython
@@ -136,7 +136,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVC20r
+  id: UplinkBasicPDVC20r
   name: uplink-pdv-c20r-name
   description: uplink-pdv-c20r-desc
   productEntity: C20rWeaponSubMachineGun
@@ -151,7 +151,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVWT550
+  id: UplinkBasicPDVWT550
   name: uplink-pdv-wt550-name
   description: uplink-pdv-wt550-desc
   productEntity: WeaponSubMachineGunWT550
@@ -166,7 +166,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVAkm
+  id: UplinkBasicPDVAkm
   name: uplink-pdv-akm-name
   description: uplink-pdv-akm-desc
   productEntity: WeaponRifleAk
@@ -183,7 +183,7 @@
 # Expensive Items
 
 - type: listing
-  id: UplinkPDVAnaconda
+  id: UplinkBasicPDVAnaconda
   name: uplink-pdv-anaconda-name
   description: uplink-pdv-anaconda-desc
   productEntity: WeaponPistolAnaconda
@@ -198,7 +198,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVM90
+  id: UplinkBasicPDVM90
   name: uplink-pdv-m90-name
   description: uplink-pdv-m90-desc
   productEntity: WeaponRifleM90
@@ -213,7 +213,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVBulldog
+  id: UplinkBasicPDVBulldog
   name: uplink-pdv-bulldog-name
   description: uplink-pdv-bulldog-desc
   productEntity: WeaponShotgunBulldog
@@ -228,7 +228,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVEnergySword
+  id: UplinkBasicPDVEnergySword
   name: uplink-pdv-esword-name
   description: uplink-pdv-esword-desc
   productEntity: EnergySword
@@ -244,7 +244,7 @@
 
 #MARK: Equipment
 - type: listing
-  id: UplinkPDVScaf
+  id: UplinkBasicPDVScaf
   name: uplink-pdv-scaf-hardsuit-name
   description: uplink-pdv-scaf-hardsuit-desc
   productEntity: ClothingOuterHardsuitPirateScaf
@@ -259,7 +259,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVLightVest
+  id: UplinkBasicPDVLightVest
   name: uplink-pdv-vest-light-name
   description: uplink-pdv-vest-light-desc
   productEntity: ClothingOuterArmorBPVestLight
@@ -274,7 +274,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVMediumVest
+  id: UplinkBasicPDVMediumVest
   name: uplink-pdv-vest-medium-name
   description: uplink-pdv-vest-medium-desc
   productEntity: ClothingOuterArmorBPVestMedium
@@ -289,7 +289,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVHeavyVest
+  id: UplinkBasicPDVHeavyVest
   name: uplink-pdv-vest-heavy-name
   description: uplink-pdv-vest-heavy-desc
   productEntity: clothingOuterArmorBPVestHeavy
@@ -304,7 +304,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVTacticalMagboots
+  id: UplinkBasicPDVTacticalMagboots
   name: uplink-pdv-tactical-magboots-name
   description: uplink-pdv-tactical-magboots-desc
   productEntity: ClothingShoesBootsMagAshen
@@ -321,7 +321,7 @@
 # Expensive Items
 
 - type: listing
-  id: UplinkPDVThermalGoggles
+  id: UplinkBasicPDVThermalGoggles
   name: uplink-pdv-thermal-goggles-name
   description: uplink-pdv-thermal-goggles-desc
   productEntity: ClothingEyesThermalVisionGoggles
@@ -336,7 +336,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVImpHardsuit
+  id: UplinkBasicPDVImpHardsuit
   name: uplink-pdv-imp-hardsuit-name
   description: uplink-pdv-imp-hardsuit-desc
   productEntity: ClothingOuterHardsuitViperGroupMedic
@@ -351,7 +351,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVJackalHardsuit
+  id: UplinkBasicPDVJackalHardsuit
   name: uplink-pdv-jackal-hardsuit-name
   description: uplink-pdv-jackal-hardsuit-desc
   productEntity: ClothingOuterHardsuitViperGroupStandard
@@ -366,7 +366,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVSyndicateMask
+  id: UplinkBasicPDVSyndicateMask
   name: uplink-pdv-syndicate-mask-name
   description: uplink-pdv-syndicate-mask-desc
   productEntity: ClothingMaskGasSyndicate
@@ -383,7 +383,7 @@
 #MARK: Utility
 
 - type: listing
-  id: UplinkPDVImplanter
+  id: UplinkBasicPDVImplanter
   name: uplink-pdv-empty-implanter-name
   description: uplink-pdv-empty-implanter-desc
   productEntity: Implanter
@@ -398,7 +398,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDV10k
+  id: UplinkBasicPDV10k
   name: uplink-pdv-pdv-10000credits-name
   description: uplink-pdv-pdv-10000credits-desc
   productEntity: UplinkCash10000
@@ -413,7 +413,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDV100k
+  id: UplinkBasicPDV100k
   name: uplink-pdv-pdv-100000credits-name
   description: uplink-pdv-pdv-100000credits-desc
   productEntity: UplinkCash100000
@@ -428,7 +428,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVJetpack
+  id: UplinkBasicPDVJetpack
   name: uplink-pdv-jetpack-name
   description: uplink-pdv-jetpack-desc
   productEntity: JetpackBlackFilled
@@ -443,7 +443,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVUpgradeKit
+  id: UplinkBasicPDVUpgradeKit
   name: uplink-pdv-machine-upgrade-kit-name
   description: uplink-pdv-machine-upgrade-kit-desc
   productEntity: BoxT3SuperCapacitor
@@ -458,7 +458,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVJaws
+  id: UplinkBasicPDVJaws
   name: uplink-pdv-jaws-name
   description: uplink-pdv-jaws-desc
   productEntity: SyndicateJawsOfLife
@@ -473,7 +473,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVHoverbike
+  id: UplinkBasicPDVHoverbike
   name: uplink-pdv-hoverbike-name
   description: uplink-pdv-hoverbike-desc
   productEntity: HoverbikePirateFlatpack
@@ -490,7 +490,7 @@
 # Expensive Items
 
 - type: listing
-  id: UplinkPDVNaniteApplicator
+  id: UplinkBasicPDVNaniteApplicator
   name: uplink-pdv-nanite-applicator-name
   description: uplink-pdv-nanite-applicator-desc
   productEntity: NaniteApplicatorSyndicate
@@ -505,7 +505,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVAccessBreaker
+  id: UplinkBasicPDVAccessBreaker
   name: uplink-pdv-access-breaker-name
   description: uplink-pdv-access-breaker-desc
   productEntity: AccessBreaker
@@ -520,7 +520,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVEmag
+  id: UplinkBasicPDVEmag
   name: uplink-pdv-emag-name
   description: uplink-pdv-emag-desc
   productEntity: Emag
@@ -535,7 +535,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVRadioJammer
+  id: UplinkBasicPDVRadioJammer
   name: uplink-pdv-radio-jammer-name
   description: uplink-pdv-radio-jammer-desc
   productEntity: RadioJammer
@@ -550,7 +550,7 @@
       - PDVUplink
 
 - type: listing
-  id: UplinkPDVEnergyShield
+  id: UplinkBasicPDVEnergyShield
   name: uplink-pdv-energy-shield-name
   description: uplink-pdv-energy-shield-desc
   productEntity: EnergyShield
