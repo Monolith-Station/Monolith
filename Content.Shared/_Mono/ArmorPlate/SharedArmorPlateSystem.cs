@@ -55,7 +55,10 @@ public sealed class SharedArmorPlateSystem : EntitySystem
         if (!_inventory.TryGetSlots(ent, out var slots))
             return;
 
-        if (args.Origin == null && !args.Explosion)
+        if (args.Origin == null && args.OriginFlag == null)
+            return;
+
+        if (args.OriginFlag == DamageableSystem.DamageOriginFlag.Barotrauma)
             return;
 
         foreach (var slot in slots)
