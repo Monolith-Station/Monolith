@@ -274,8 +274,8 @@ namespace Content.Server.Atmos.EntitySystems
                     var damageScale = MathF.Min(((pressure / Atmospherics.HazardHighPressure) - 1) * Atmospherics.PressureDamageCoefficient, Atmospherics.MaxHighPressureDamage);
 
                     // Deal damage and ignore resistances. Resistance to pressure damage should be done via pressure protection gear.
-					// Mono: Origin arg set to null to stop armor plate system mitigation
-                    _damageableSystem.TryChangeDamage(uid, barotrauma.Damage * damageScale, true, false, /*origin: uid,*/ canSever: false);
+                    // Mono: DamageOriginFlag arg
+                    _damageableSystem.TryChangeDamage(uid, barotrauma.Damage * damageScale, true, false, origin: uid, canSever: false, originFlag: DamageableSystem.DamageOriginFlag.Barotrauma);
 
                     if (!barotrauma.TakingDamage)
                     {
