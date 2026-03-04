@@ -97,7 +97,7 @@
     startAnnouncement: station-event-ai-capital-detected
     startAudio:
       path: /Audio/Misc/delta_alt.ogg
-    weight: 6
+    weight: 2
     maxOccurrences: 1
   - type: GameRule
     minPlayers: 60
