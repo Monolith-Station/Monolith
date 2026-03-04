@@ -28,10 +28,16 @@ uplink-pdv-bulldog-desc = a devastating automatic mag fed shotgun. Fires 12 gaug
 uplink-pdv-esword-name = Energy Sword
 uplink-pdv-esword-desc = a pure concentrated plasma blade. Cuts enemies and doors down with ease.
 
+uplink-pdv-mla73-name = MLA-73
+uplink-pdv-mla73-desc = The Phaethon Dynasty's most reliable submachine, commonly used in covert operations.
+
+uplink-pdv-wspr-name = WSPR
+uplink-pdv-wspr-desc = A Cybersun designed rifle, versatile and reliable. This Syndicate design was produced by Cybersun in the corporate war and has now fallen into the hands of the glorious Phaethon.
+
 # MARK: Weapons Advanced
 
-uplink-pdv-VT7-name = VT-7 HF Blade
-uplink-pdv-VT7-desc = A high frequency blade made with improvised modifications to sunder most armor.
+uplink-pdv-vt7-name = VT-7 HF Blade
+uplink-pdv-vt7-desc = A high frequency blade made with improvised modifications to sunder most armor.
 
 uplink-pdv-hristov-name = M96 Hristov
 uplink-pdv-histov-desc = A portable anti-material rifle designed to use 14.5mm shells. It was commonly deployed in the corporate war to counter armored NT infantry.
@@ -95,15 +101,15 @@ uplink-pdv-emp-implanter-desc = An implanter containing a personal EMP generator
 uplink-pdv-scram-implanter-name = Scram Implanter
 uplink-pdv-scram-implanter-desc = An implanter containing a short range teleportation device, it can not be aimed and has three charges.
 
-uplink-pdv-micro-bomb-implanter-name = Nicro Bomb Implanter
+uplink-pdv-micro-bomb-implanter-name = Micro Bomb Implanter
 uplink-pdv-micro-bomb-implanter-desc = An implanter that contains a micro bomb that will detonate on death, and can be detonated at will.
 
-uplink-pdv-advanced-weapon-module = Advanced Cyborg Weapons Module
-uplink-pdv-advanced-weapon-module = A cyborg module containing a L6 saw and HF blade.
+uplink-pdv-advanced-weapon-module-name = Advanced Cyborg Weapons Module
+uplink-pdv-advanced-weapon-module-name = A cyborg module containing a L6 saw and HF blade.
 
 #MARK: Utility Experimental
 
-uplink-pdv-macro-bomb-implanter = Macro Bomb Implanter
+uplink-pdv-macro-bomb-implanter-name = Macro Bomb Implanter
 uplink-pdv-macro-bomb-implanter-desc = An implanter that contains a large bomb that will detonate on death.
 
 # MARK: Equipment Basic
@@ -138,19 +144,19 @@ uplink-pdv-syndicate-mask-name = Syndicate Mask
 uplink-pdv-syndicate-mask-desc = A gasmask with built in welding and flash protection
 
 # MARK: Equipment Advanced
-uplink-pdv-CV32-tacsuit-name = CV-32 Tacsuit
-uplink-pdv-CV32-tacsuit-desc = A combat tacsuit designed to provide good overall protection with added manuverability
+uplink-pdv-cv32-tacsuit-name = CV-32 Tacsuit
+uplink-pdv-cv32-tacsuit-desc = A combat tacsuit designed to provide good overall protection with added manuverability
 
-uplink-pdv-CV53-tacsuit-name = CV-53 Tacsuit
-uplink-pdv-CV53-tacsuit-desc = An advanced combat tacsuit with light ballistic protection with heat resistant lining and active shielding
-
-uplink-pdv-stealth-hardsuit-name = Cybersun Stealth Suit
-uplink-pdv-stealth-hardsuit-desc = A salvaged corporate era stealth suit built with active cloaking, used in the war to infiltrate Nanotrasen's valuable assets.
+uplink-pdv-cv53-tacsuit-name = CV-53 Tacsuit
+uplink-pdv-cv53-tacsuit-desc = An advanced combat tacsuit with light ballistic protection with heat resistant lining and active shielding
 
 # MARK: Equipment Experimental
 
 uplink-pdv-juggernaut-hardsuit-name = Juggernaut Hardsuit
 uplink-pdv-juggernaut-hardsuit-desc = A reclaimed Cybersun juggernaut suit. It's infamous reputation bought by the Gorlex Marauder's ruthless slaughtering aboard wounded NT ships.
+
+uplink-pdv-stealth-hardsuit-name = Cybersun Stealth Suit
+uplink-pdv-stealth-hardsuit-desc = A salvaged corporate era stealth suit built with active cloaking, used in the war to infiltrate Nanotrasen's valuable assets.
 
 #MARK: Medical
 

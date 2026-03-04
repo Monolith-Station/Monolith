@@ -180,15 +180,13 @@
       tags:
       - PDVUplink
 
-# Expensive Items
-
 - type: listing
   id: UplinkPDVAnaconda
   name: uplink-pdv-anaconda-name
   description: uplink-pdv-anaconda-desc
   productEntity: WeaponPistolAnaconda
   cost:
-    Doubloon: 75
+    Doubloon: 25
   categories:
   - UplinkPDVWeapons
   conditions:
@@ -203,7 +201,7 @@
   description: uplink-pdv-m90-desc
   productEntity: WeaponRifleM90
   cost:
-    Doubloon: 125
+    Doubloon: 50
   categories:
   - UplinkPDVWeapons
   conditions:
@@ -218,7 +216,7 @@
   description: uplink-pdv-bulldog-desc
   productEntity: WeaponShotgunBulldog
   cost:
-    Doubloon: 125
+    Doubloon: 50
   categories:
   - UplinkPDVWeapons
   conditions:
@@ -233,7 +231,114 @@
   description: uplink-pdv-esword-desc
   productEntity: EnergySword
   cost:
+    Doubloon: 30
+  categories:
+  - UplinkPDVWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVUplink
+
+- type: listing
+  id: UplinkPDVMLA73
+  name: uplink-pdv-mla73-name
+  description: uplink-pdv-mla73-desc
+  productEntity: WeaponSubmachinegunMla73
+  cost:
+    Doubloon: 60
+  categories:
+  - UplinkPDVWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVUplink
+
+- type: listing
+  id: UplinkPDVWSPR
+  name: uplink-pdv-bulldog-name
+  description: uplink-pdv-bulldog-desc
+  productEntity: WeaponShotgunBulldog
+  cost:
+    Doubloon: 55
+  categories:
+  - UplinkPDVWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVUplink
+
+# Expensive Items
+
+- type: listing
+  id: UplinkPDVVT7
+  name: uplink-pdv-vt7-name
+  description: uplink-pdv-vt7-desc
+  productEntity:
+  cost:
     Doubloon: 75
+  categories:
+  - UplinkPDVWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVUplink
+
+- type: listing
+  id: UplinkPDVHristov
+  name: uplink-pdv-hristov-name
+  description: uplink-pdv-hristov-desc
+  productEntity:
+  cost:
+    Doubloon: 175
+  categories:
+  - UplinkPDVWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVUplink
+
+- type: listing
+  id: UplinkPDVL6
+  name: uplink-pdv-l6-name
+  description: uplink-pdv-l6-desc
+  productEntity:
+  cost:
+    Doubloon: 200
+  categories:
+  - UplinkPDVWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVUplink
+
+- type: listing
+  id: UplinkPDVBurnerRifle
+  name: uplink-pdv-burner-rifle-name
+  description: uplink-pdv-burner-rifle-desc
+  productEntity:
+  cost:
+    Doubloon: 150
+  categories:
+  - UplinkPDVWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVUplink
+
+- type: listing
+  id: UplinkPDVChinalake
+  name: uplink-pdv-chinalake-name
+  description: uplink-pdv-chinalake-desc
+  productEntity:
+  cost:
+    Doubloon: 250
   categories:
   - UplinkPDVWeapons
   conditions:
@@ -318,15 +423,13 @@
       tags:
       - PDVUplink
 
-# Expensive Items
-
 - type: listing
   id: UplinkPDVThermalGoggles
   name: uplink-pdv-thermal-goggles-name
   description: uplink-pdv-thermal-goggles-desc
   productEntity: ClothingEyesThermalVisionGoggles
   cost:
-    Doubloon: 50
+    Doubloon: 15
   categories:
   - UplinkPDVEquipment
   conditions:
@@ -341,7 +444,7 @@
   description: uplink-pdv-imp-hardsuit-desc
   productEntity: ClothingOuterHardsuitViperGroupMedic
   cost:
-    Doubloon: 125
+    Doubloon: 45
   categories:
   - UplinkPDVEquipment
   conditions:
@@ -356,7 +459,7 @@
   description: uplink-pdv-jackal-hardsuit-desc
   productEntity: ClothingOuterHardsuitViperGroupStandard
   cost:
-    Doubloon: 150
+    Doubloon: 50
   categories:
   - UplinkPDVEquipment
   conditions:
@@ -371,7 +474,40 @@
   description: uplink-pdv-syndicate-mask-desc
   productEntity: ClothingMaskGasSyndicate
   cost:
-    Doubloon: 50
+    Doubloon: 15
+  categories:
+  - UplinkPDVEquipment
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVUplink
+
+
+# Expensive Items
+
+- type: listing
+  id: UplinkPDVCV32
+  name: uplink-pdv-cv32-name
+  description: uplink-pdv-cv32-desc
+  productEntity:
+  cost:
+    Doubloon: 150
+  categories:
+  - UplinkPDVEquipment
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVUplink
+
+- type: listing
+  id: UplinkPDVCV53
+  name: uplink-pdv-cv53-name
+  description: uplink-pdv-cv53-desc
+  productEntity:
+  cost:
+    Doubloon: 175
   categories:
   - UplinkPDVEquipment
   conditions:
@@ -487,15 +623,13 @@
       tags:
       - PDVUplink
 
-# Expensive Items
-
 - type: listing
   id: UplinkPDVNaniteApplicator
   name: uplink-pdv-nanite-applicator-name
   description: uplink-pdv-nanite-applicator-desc
   productEntity: NaniteApplicatorSyndicate
   cost:
-    Doubloon: 50
+    Doubloon: 15
   categories:
   - UplinkPDVUtility
   conditions:
@@ -510,7 +644,7 @@
   description: uplink-pdv-access-breaker-desc
   productEntity: AccessBreaker
   cost:
-    Doubloon: 75
+    Doubloon: 25
   categories:
   - UplinkPDVUtility
   conditions:
@@ -525,7 +659,7 @@
   description: uplink-pdv-emag-desc
   productEntity: Emag
   cost:
-    Doubloon: 50
+    Doubloon: 20
   categories:
   - UplinkPDVUtility
   conditions:
@@ -540,7 +674,7 @@
   description: uplink-pdv-radio-jammer-desc
   productEntity: RadioJammer
   cost:
-    Doubloon: 50
+    Doubloon: 25
   categories:
   - UplinkPDVUtility
   conditions:
@@ -555,7 +689,69 @@
   description: uplink-pdv-energy-shield-desc
   productEntity: EnergyShield
   cost:
-    Doubloon: 125
+    Doubloon: 50
+  categories:
+  - UplinkPDVUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVUplink
+
+# Expensive Items
+
+- type: listing
+  id: UplinkPDVEmpImplanter
+  name: uplink-pdv-emp-implanter-name
+  description: uplink-pdv-emp-implanter-desc
+  productEntity: EmpImplanter
+  cost:
+    Doubloon: 100
+  categories:
+  - UplinkPDVUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVUplink
+
+- type: listing
+  id: UplinkPDVScramImplanter
+  name: uplink-pdv-scram-implanter-name
+  description: uplink-pdv-scram-implanter-desc
+  productEntity: ScramImplanter
+  cost:
+    Doubloon: 100
+  categories:
+  - UplinkPDVUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVUplink
+
+- type: listing
+  id: UplinkPDVMicroBombImplanter
+  name: uplink-pdv-micro-bomb-implanter-name
+  description: uplink-pdv-micro-bomb-implanter-desc
+  productEntity: MicroBombImplanter
+  cost:
+    Doubloon: 100
+  categories:
+  - UplinkPDVUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PDVUplink
+
+- type: listing
+  id: UplinkPDVAdvancedWeaponModule
+  name: uplink-pdv-advanced-weapon-module-name
+  description: uplink-pdv-advanced-weapon-module-desc
+  productEntity: BorgModulePDVAdvancedWeapon
+  cost:
+    Doubloon: 50
   categories:
   - UplinkPDVUtility
   conditions:
