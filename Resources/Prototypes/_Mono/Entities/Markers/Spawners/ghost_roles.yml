@@ -29,36 +29,6 @@
       state: derelict_icon
 
 - type: entity
-  name: LPB Assualt Borg spawner
-  id: SpawnLpbAssualt
-  parent: MarkerBase
-  components:
-  - type: ConditionalSpawner
-    prototypes:
-    - PlayerBorgSyndicateAssaultGhostRole
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-    layers:
-    - state: green
-    - sprite: Mobs/Silicon/chassis.rsi
-      state: derelict_icon
-
-- type: entity
-  name: LPB Engineering Borg spawner
-  id: SpawnLpbEngineer
-  parent: MarkerBase
-  components:
-  - type: ConditionalSpawner
-    prototypes:
-    - PlayerBorgSyndicateSaboteurGhostRole
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-    layers:
-    - state: green
-    - sprite: Mobs/Silicon/chassis.rsi
-      state: derelict_icon
-
-- type: entity
   name: chimera ghostrole spawner
   id: SpawnChimeraGhostrole
   parent: MarkerBase
