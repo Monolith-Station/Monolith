@@ -179,7 +179,9 @@ namespace Content.Shared.Damage
         public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
             bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null, float armorPenetration = 0f,
             // Shitmed Change
-            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null, EntityUid? tool = null)
+            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null, EntityUid? tool = null,
+            // Mono: explosion flag for plate mitigation
+            bool explosion = false)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
             {
@@ -192,7 +194,8 @@ namespace Content.Shared.Damage
                 return damage;
             }
 
-            var before = new BeforeDamageChangedEvent(damage, origin, targetPart); // Shitmed Change
+            var before = new BeforeDamageChangedEvent(damage, origin, targetPart, //Shitmed Change
+                false, explosion); // Mono: explosion flag for plate mitigation
             RaiseLocalEvent(uid.Value, ref before);
 
             if (before.Cancelled)
@@ -403,7 +406,8 @@ namespace Content.Shared.Damage
         DamageSpecifier Damage,
         EntityUid? Origin = null,
         TargetBodyPart? TargetPart = null, // Shitmed Change
-        bool Cancelled = false);
+        bool Cancelled = false,
+        bool Explosion = false); // Mono: plate explosion mitigation
 
     /// <summary>
     ///     Shitmed Change: Raised on parts before damage is done so we can cancel the damage if they evade.

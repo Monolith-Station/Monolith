@@ -2,7 +2,6 @@ using Content.Shared.Armor;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
-using Content.Shared.Explosion;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -43,13 +42,6 @@ public sealed class SharedArmorPlateSystem : EntitySystem
         SubscribeLocalEvent<ArmorPlateItemComponent, GetVerbsEvent<ExamineVerb>>(OnPlateVerbExamine);
         SubscribeLocalEvent<ArmorPlateItemComponent, EntityTerminatingEvent>(OnPlateDestroyed);
         SubscribeLocalEvent<ArmorPlateProtectedComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
-        SubscribeLocalEvent<ArmorPlateProtectedComponent, GetExplosionResistanceEvent>(OnExplosionResistance);
-    }
-    public enum DamageOriginType
-    {
-        NonDirect, // Null sources such as radiation, burns, metabolism - sans explosion
-        Explosion // Null source that occurred at the same time as an explosion resistance check on the target 
-        Direct // Source had an entityUID, or occured at the same tick as an explosion
     }
 
     public void OnBeforeDamageChanged(Entity<ArmorPlateProtectedComponent> ent, ref BeforeDamageChangedEvent args)
@@ -63,14 +55,7 @@ public sealed class SharedArmorPlateSystem : EntitySystem
         if (!_inventory.TryGetSlots(ent, out var slots))
             return;
 
-        DamageOriginType originType = default;
-
-        if (args.Origin != null || (ent.Comp.LastExplosionTick == _timing.CurTick))
-        {
-            originType = DamageOriginType.Explosion;
-        }
-
-        if (originType == DamageOriginType.NonDirect)
+        if (args.Origin == null && !args.Explosion)
             return;
 
         foreach (var slot in slots)
@@ -110,6 +95,7 @@ public sealed class SharedArmorPlateSystem : EntitySystem
         Entity<ArmorPlateItemComponent> plate,
         FixedPoint2 absorbed,
         FixedPoint2 plateDamage)
+
     {
         var damageSpec = new DamageSpecifier();
         damageSpec.DamageDict.Add("Blunt", plateDamage);
@@ -474,11 +460,5 @@ public sealed class SharedArmorPlateSystem : EntitySystem
             EnsureComp<ArmorPlateProtectedComponent>(wearerUid);
         else
             RemComp<ArmorPlateProtectedComponent>(wearerUid);
-    }
-
-    //used to ascertain if damage with no origin entity uid is an explosion or a non-direct source (rads,fire,metabolism)
-    private void OnExplosionResistance(EntityUid uid, ArmorPlateProtectedComponent comp, ref GetExplosionResistanceEvent args)
-    {
-        comp.LastExplosionTick = _timing.CurTick;
     }
 }
