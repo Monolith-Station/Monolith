@@ -100,6 +100,7 @@
 - type: entity
   parent:
   - CrateTradeBaseSecure
+  - StorePresetUplink
   id: CrateTradeBaseSecureContraband
   name: Syndicate contraband crate
   description: Contains goods made in the Spinward sector, ready to be smuggled to a cargo depot for profit. MAKE SURE THE CRATE IS INTACT.
@@ -118,8 +119,8 @@
         - MachineLayer
   - type: Contraband
     turnInValues:
-      FederationMilitaryCredit: 12 # Mono
-      Doubloon: 12 # Mono
+      FederationMilitaryCredit: 16 # Mono
+      Doubloon: 16 # Mono
   - type: ShipyardSellCondition
     blockSale: true
     reason: shipyard-console-contraband-onboard
@@ -137,3 +138,14 @@
     scale: 1.5
     shape: hexagon
     visibleFromOtherGrids: true
+  - type: EntityStorage
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+  - type: SurplusBundle
+    totalPrice: 35
+  - type: Lock
+    breakOnAccessBreaker: false
+  - type: AccessReader
+    breakOnAccessBreaker: false
+    access: [["SyndicateAgent"]]

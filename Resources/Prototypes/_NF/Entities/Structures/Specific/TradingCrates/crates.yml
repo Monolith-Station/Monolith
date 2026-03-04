@@ -113,8 +113,8 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 65000
-    valueElsewhere: 45000
+    valueAtDestination: 85000
+    valueElsewhere: 55000
 
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
@@ -142,7 +142,7 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 90000
+    valueAtDestination: 110000
     valueElsewhere: 7500
     expressDeliveryDuration: 3600 # one hour, go go (timeout mostly for pirates & NFSD)
     expressOnTimeBonus: 10000
@@ -174,11 +174,13 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 70000
+    valueAtDestination: 90000
     valueElsewhere: 4000
     expressDeliveryDuration: 3600 # one hour, go go (timeout mostly for pirates & NFSD)
     expressOnTimeBonus: 30000
     expressLatePenalty: 30000
+  - type: SurplusBundle
+    totalPrice: 45
 
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
@@ -207,11 +209,13 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 105000
+    valueAtDestination: 125000
     valueElsewhere: 5000
     expressDeliveryDuration: 36000 # one hour, go go (timeout mostly for pirates & NFSD)
     expressOnTimeBonus: 45000
     expressLatePenalty: 30000
+  - type: SurplusBundle
+    totalPrice: 55
 
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT3 ] # the only t3
@@ -240,9 +244,11 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 105000
+    valueAtDestination: 145000
     valueElsewhere: 6000
     expressDeliveryDuration: 3600 # one hour, go go (timeout mostly for pirates & NFSD)
     expressOnTimeBonus: 45000
     expressLatePenalty: 30000
+  - type: SurplusBundle
+    totalPrice: 65
 # endregion Contraband Crates
