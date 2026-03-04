@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/02/2026 00:03:42
-  entityCount: 6364
+  time: 03/04/2026 19:16:59
+  entityCount: 6370
 maps: []
 grids:
 - 1
@@ -203,10 +203,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        MetalFoam: []
-        Smoke: []
         Kudzu: []
+        Puddle: []
+        Smoke: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1669,7 +1669,7 @@ entities:
       pos: 2.5,-36.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -21385.717
+      secondsUntilStateChange: -21486.738
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3254,20 +3254,6 @@ entities:
           - 302
           - 303
           - 304
-- proto: ButtonFrameCautionSecurity
-  entities:
-  - uid: 3286
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 19.5,2.5
-      parent: 1
-  - uid: 5814
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 17.5,2.5
-      parent: 1
 - proto: CableApcExtension
   entities:
   - uid: 305
@@ -13196,6 +13182,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 21.5,18.5
       parent: 1
+  - uid: 3061
+    components:
+    - type: Transform
+      pos: 19.5,20.5
+      parent: 1
 - proto: ComputerCrewMonitoring
   entities:
   - uid: 1906
@@ -13212,17 +13203,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 19.5,-14.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-- proto: ComputerGunneryConsole
-  entities:
-  - uid: 3061
-    components:
-    - type: Transform
-      pos: 19.5,20.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -13470,6 +13450,16 @@ entities:
     components:
     - type: Transform
       pos: -4.5,-17.5
+      parent: 1
+  - uid: 3257
+    components:
+    - type: Transform
+      pos: 46.5,-0.5
+      parent: 1
+  - uid: 3286
+    components:
+    - type: Transform
+      pos: -2.5,-19.5
       parent: 1
   - uid: 3571
     components:
@@ -17814,18 +17804,6 @@ entities:
       parent: 1
 - proto: NpcStationAiAttackerStaticSmart
   entities:
-  - uid: 2584
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 46.5,-0.5
-      parent: 1
-  - uid: 2655
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,-19.5
-      parent: 1
   - uid: 2795
     components:
     - type: Transform
@@ -19946,40 +19924,6 @@ entities:
         196:
         - - Pressed
           - Toggle
-  - uid: 3257
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 17.5,2.5
-      parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        3059:
-        - - Pressed
-          - Toggle
-        3320:
-        - - Pressed
-          - Toggle
-        3347:
-        - - Pressed
-          - Toggle
-  - uid: 3838
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 19.5,2.5
-      parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        3844:
-        - - Pressed
-          - Toggle
-        2855:
-        - - Pressed
-          - Toggle
-        3057:
-        - - Pressed
-          - Toggle
   - uid: 4662
     components:
     - type: Transform
@@ -21640,11 +21584,31 @@ entities:
       parent: 1
 - proto: Telecrystal25
   entities:
+  - uid: 2584
+    components:
+    - type: Transform
+      pos: 10.05172,13.640535
+      parent: 1
+  - uid: 2655
+    components:
+    - type: Transform
+      pos: 14.441067,16.44468
+      parent: 1
   - uid: 3703
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.483871,-16.452734
+      parent: 1
+  - uid: 3838
+    components:
+    - type: Transform
+      pos: 14.878567,16.44468
+      parent: 1
+  - uid: 5814
+    components:
+    - type: Transform
+      pos: 14.394192,16.772804
       parent: 1
   - uid: 6117
     components:
@@ -21657,6 +21621,36 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 15.997486,16.871483
+      parent: 1
+  - uid: 6264
+    components:
+    - type: Transform
+      pos: -4.7112813,-16.52801
+      parent: 1
+  - uid: 6342
+    components:
+    - type: Transform
+      pos: -4.3206563,-16.668634
+      parent: 1
+  - uid: 6367
+    components:
+    - type: Transform
+      pos: -4.2894063,-16.449884
+      parent: 1
+  - uid: 6368
+    components:
+    - type: Transform
+      pos: 15.003567,16.44468
+      parent: 1
+  - uid: 6369
+    components:
+    - type: Transform
+      pos: 14.784817,16.616554
+      parent: 1
+  - uid: 6370
+    components:
+    - type: Transform
+      pos: 14.628567,16.647804
       parent: 1
 - proto: Telecrystal5
   entities:
