@@ -8,7 +8,7 @@
   recipeUnlocks:
   -
   technologyPrerequisites:
-  -
+  - UniversalFactionResearchT1
   position: 1, 1
 
 - type: technology
@@ -21,7 +21,7 @@
   recipeUnlocks:
   -
   technologyPrerequisites:
-  -
+  - UniversalFactionResearchT2
   position: 1, 1
 
 - type: technology
@@ -34,7 +34,7 @@
   recipeUnlocks:
   -
   technologyPrerequisites:
-  -
+  - UniversalFactionResearchT3
   position: 1, 1
 
 - type: technology
@@ -45,7 +45,7 @@
   tier: 3
   cost: 100000
   recipeUnlocks:
-  -
+  - UniversalFactionResearchT4
   technologyPrerequisites:
   -
   position: 1, 1
@@ -60,7 +60,7 @@
   recipeUnlocks:
   - BasicBorgCombatModuletsf
   technologyPrerequisites:
-  - UniversalMaterialResearchT1
+  - UniversalFactionResearchT1
   position: 20, -4
 
 - type: technology
@@ -73,6 +73,6 @@
   recipeUnlocks:
   - AdvancedBorgCombatModuletsf
   technologyPrerequisites:
-  - UniversalMaterialResearchT3
+  - UniversalFactionResearchT3
   - tsfBasicBorgModule
   position: 23, 11

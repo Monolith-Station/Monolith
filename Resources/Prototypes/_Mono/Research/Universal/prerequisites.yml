@@ -48,3 +48,48 @@
   technologyPrerequisites:
   - UniversalMaterialResearchT2
   position: 10, 10
+
+
+- type: technology
+  id: UniversalFactionResearchT1
+  name: research-technology-universal-faction-1
+  entityIcon: SheetSteel
+  discipline: FactionUniversal
+  tier: 1
+  cost: 1000000
+  position: 10, 15
+
+
+- type: technology
+  id: UniversalFactionResearchT2
+  name: research-technology-universal-faction-2
+  entityIcon: SheetPlasteel
+  discipline: FactionUniversal
+  tier: 2
+  cost: 1000000
+  technologyPrerequisites:
+  - UniversalFactionResearchT1
+  position: 15, 15
+
+
+- type: technology
+  id: UniversalFactionResearchT3
+  name: research-technology-universal-faction-3
+  entityIcon: MaterialSynthalloy
+  discipline: FactionUniversal
+  tier: 3
+  cost: 1000000
+  technologyPrerequisites:
+  - UniversalFactionResearchT2
+  position: 20, 15
+
+- type: technology
+  id: UniversalFactionResearchT4
+  name: research-technology-universal-faction-4
+  entityIcon: MaterialSynthalloy
+  discipline: FactionUniversal
+  tier: 4
+  cost: 1000000
+  technologyPrerequisites:
+  - UniversalFactionResearchT3
+  position: 20, 15

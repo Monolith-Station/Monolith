@@ -1,0 +1,143 @@
+# Uplinks
+- type: entity
+  parent: [ BaseItem, StorePresetPirateUplink ]
+  id: BasePDVUplink
+  name: PDV Uplink
+  description: A scarred tablet encased in heat-resistant composite with slot for chits on the side.
+  suffix: Empty
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Devices/rogue_uplink.rsi
+    layers:
+    - state: icon
+      scale: 0.7, 0.7
+    - state: icon-overlay
+      scale: 0.7, 0.7
+      shader: unshaded
+  - type: Item
+    sprite: _Mono/Objects/Devices/rogue_uplink.rsi
+    heldPrefix: icon
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Tag
+    tags:
+    - PDVBasicUplink
+
+- type: entity
+  parent: BasePDVUplink
+  id: BasicPDVUplinkRadioSoldier
+  name: Reserve PDV Uplink
+  suffix: Roundstart
+  components:
+  - type: Store
+    balance:
+      Doubloon: 75
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Tag
+    tags:
+    - PDVBasicUplink
+
+- type: entity
+  parent: BasePDVUplink
+  id: BasicPDVUplinkRadioCommand
+  suffix: Roundstart
+  components:
+  - type: Store
+    balance:
+      Doubloon: 100
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Tag
+    tags:
+    - PDVBasicUplink
+
+
+- type: entity
+  parent: BasePDVUplink
+  id: BasicPDVUplinkRadio
+  name: Reserve PDV Uplink
+  suffix: Empty
+  components:
+  - type: Store
+    balance:
+      Doubloon: 0
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Tag
+    tags:
+    - PDVBasicUplink
+
+- type: entity
+  parent: BasePDVUplink
+  id: StandardPDVUplinkRadio
+  name: Standard PDV Uplink
+  suffix: Empty
+  components:
+  - type: Store
+    balance:
+      Doubloon: 0
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Tag
+    tags:
+    - PDVStandardUplink
+
+- type: entity
+  parent: BasePDVUplink
+  id: AdvancedPDVUplinkRadio
+  name: Advanced PDV Uplink
+  suffix: Roundstart
+  components:
+  - type: Store
+    balance:
+      Doubloon: 0
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Tag
+    tags:
+    - PDVAdvancedUplink
+
+- type: entity
+  parent: BasePDVUplink
+  id: ExperimentalPDVUplinkRadio
+  name: Prototype PDV Uplink
+  suffix: Roundstart
+  components:
+  - type: Store
+    balance:
+      Doubloon: 0
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Tag
+    tags:
+    - PDVExperimentalUplink

@@ -8,8 +8,8 @@
   recipeUnlocks:
   -
   technologyPrerequisites:
-  -
-  position: 1, 1
+  - UniversalFactionResearchT1
+  position: 10, 17
 
 - type: technology
   id: PdvStandardEquipment
@@ -21,8 +21,8 @@
   recipeUnlocks:
   -
   technologyPrerequisites:
-  -
-  position: 1, 1
+  - UniversalFactionResearchT2
+  position: 15, 17
 
 - type: technology
   id: PdvAdvancedEquipment
@@ -32,10 +32,10 @@
   tier: 2
   cost: 100000
   recipeUnlocks:
-  -
+  - UniversalFactionResearchT3
   technologyPrerequisites:
   -
-  position: 1, 1
+  position: 20, 17
 
 - type: technology
   id: PdvExperimentalEquipment
@@ -45,10 +45,10 @@
   tier: 3
   cost: 100000
   recipeUnlocks:
-  -
+  - UniversalFactionResearchT4
   technologyPrerequisites:
   -
-  position: 1, 1
+  position: 25, 17
 
 - type: technology
   id: PDVBasicBorgModule
@@ -60,8 +60,8 @@
   recipeUnlocks:
   - BasicBorgCombatModulePDV
   technologyPrerequisites:
-  - UniversalMaterialResearchT1
-  position: 20, -4
+  - UniversalFactionResearchT1
+  position: 10, 19
 
 - type: technology
   id: PDVAdvancedBorgModule
@@ -73,6 +73,6 @@
   recipeUnlocks:
   - AdvancedBorgCombatModulePDV
   technologyPrerequisites:
-  - UniversalMaterialResearchT3
+  - UniversalFactionResearchT3
   - PDVBasicBorgModule
-  position: 23, 11
+  position: 15, 19

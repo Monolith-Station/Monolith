@@ -1,0 +1,16 @@
+- type: latheRecipe
+  abstract: true
+  id: MonoUplinkT1Recipe
+  parent: NFBaseEVASuitRecipe
+  categories:
+  - EVASuits
+  - CombatEva
+  - ArmorNF
+  completetime: 15
+  materials:
+    Glass: 200
+    Steel: 3000
+    Plastic: 1000
+    Plasteel: 4000
+    Silver: 500
+    Gold: 500

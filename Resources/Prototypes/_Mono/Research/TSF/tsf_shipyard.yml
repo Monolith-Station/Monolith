@@ -8,7 +8,7 @@
   recipeUnlocks:
   - PolarisVoucherTSF
   technologyPrerequisites:
-  - UniversalMaterialResearchT2
+  - UniversalFactionResearchT2
   position: 11, 9
 
 - type: technology
@@ -21,6 +21,6 @@
   recipeUnlocks:
   - FlyssaVoucherTSF
   technologyPrerequisites:
-  - TsfSynthalloyProduction
+  - UniversalFactionResearchT3
   - TsfPolaris
   position: 13, 14
