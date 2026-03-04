@@ -10,6 +10,7 @@
   - ShipyardTakeaway
 #  - ShipyardRuby
   - ShipyardMotleyAnne
+  - ShipyardFenrir
 
 - type: guideEntry
   id: ShipyardArgent
@@ -40,3 +41,8 @@
   id: ShipyardMotleyAnne
   name: guide-entry-shipyard-motley-anne
   text: "/ServerInfo/_Mono/Guidebook/Shipyard/MotleyAnne.xml"
+
+- type: guideEntry
+  id: ShipyardFenrir
+  name: guide-entry-shipyard-fenrir
+  text: "/ServerInfo/_Mono/Guidebook/Shipyard/Fenrir.xml"
