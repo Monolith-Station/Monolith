@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/04/2026 20:14:33
+  time: 03/04/2026 20:33:40
   entityCount: 2567
 maps: []
 grids:
@@ -1973,7 +1973,7 @@ entities:
       pos: 19.5,-11.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -42204.88
+      secondsUntilStateChange: -43350.586
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1992,7 +1992,7 @@ entities:
       pos: 11.5,11.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -52243.855
+      secondsUntilStateChange: -53389.562
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2014,7 +2014,7 @@ entities:
       pos: 14.5,-25.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -44583.055
+      secondsUntilStateChange: -45728.76
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2025,7 +2025,7 @@ entities:
       pos: 12.5,-25.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -39147.44
+      secondsUntilStateChange: -40293.15
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2070,7 +2070,7 @@ entities:
       pos: 5.5,-14.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -29502.795
+      secondsUntilStateChange: -30648.504
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 4
@@ -2128,7 +2128,7 @@ entities:
       pos: 10.5,5.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -57805.94
+      secondsUntilStateChange: -58951.65
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2140,7 +2140,7 @@ entities:
       pos: 11.5,5.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -57806.473
+      secondsUntilStateChange: -58952.18
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2164,7 +2164,7 @@ entities:
       pos: 10.5,-1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -54293.453
+      secondsUntilStateChange: -55439.16
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2201,7 +2201,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -48593.984
+      secondsUntilStateChange: -49739.69
       state: Opening
   - uid: 66
     components:
