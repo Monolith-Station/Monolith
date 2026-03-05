@@ -91,7 +91,7 @@ public sealed class PoolSettings
     public int? ClientSeed { get; set; }
 
     /// <summary>
-    /// Mono - skips pair validation if set.
+    /// Mono - skips pair validation if set. Also stops termination on error.
     /// </summary>
     public bool NoValidate = false;
 
