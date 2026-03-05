@@ -3,19 +3,15 @@
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
       - id: UnknownShuttleZenith
-      - id: UnknownShuttleLancer
+      - id: UnknownShuttleWyrm
       - id: UnknownShuttleNebula
       - id: UnknownShuttleFencer
 - type: entityTable
   id: DamagedAIShipsTableT2
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
-    - id: UnknownShuttleZenith
     - id: UnknownShuttleZenithE
-    - id: UnknownShuttleLancer
-    - id: UnknownShuttleLancerN
-    - id: UnknownShuttleFencer
-    - id: UnknownShuttleNebula
+    - id: UnknownShuttleRazorN
     - id: UnknownShuttleWyvern
 
 - type: entity
@@ -27,7 +23,7 @@
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2
-    maxOccurrences: 6
+    maxOccurrences: 4
   - type: GameRule
     minPlayers: 32
   - type: LoadMapRule
@@ -57,7 +53,7 @@
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2
-    maxOccurrences: 6
+    maxOccurrences: 4
   - type: GameRule
     minPlayers: 32
   - type: LoadMapRule
@@ -65,33 +61,18 @@
 
 - type: entity
   parent: BaseRandomShuttleRule
-  id: UnknownShuttleFencer
+  id: UnknownShuttleWyrm
   components:
   - type: StationEvent
     startAnnouncement: station-event-ai-shuttle-detected
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 3
-    maxOccurrences: 8
+    maxOccurrences: 6
   - type: GameRule
     minPlayers: 15
   - type: LoadMapRule
-    preloadedGrid: AIFencer
-
-- type: entity
-  parent: BaseRandomShuttleRule
-  id: UnknownShuttleLancer
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-ai-shuttle-detected
-    startAudio:
-      path: /Audio/Misc/notice1.ogg
-    weight: 3
-    maxOccurrences: 8
-  - type: GameRule
-    minPlayers: 15
-  - type: LoadMapRule
-    preloadedGrid: AILancer
+    preloadedGrid: AIWyrm
 
 - type: entity
   parent: BaseRandomShuttleRule
@@ -104,7 +85,7 @@
     weight: 1 # rare but not too rare since it's in the T2 spawner
     maxOccurrences: 2
   - type: GameRule
-    minPlayers: 32
+    minPlayers: 15
   - type: LoadMapRule
     preloadedGrid: AILancerN
 
