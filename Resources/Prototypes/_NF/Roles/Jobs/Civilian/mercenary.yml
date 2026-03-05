@@ -12,10 +12,9 @@
   weight: 3 # Prioritize station & department jobs
   displayWeight: 20 # Second from the bottom
   setPreference: true
-  access:
-  - Mercenary
   accessGroups: # Frontier
   - GeneralAccess
+  - USSPLow #Mono
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
