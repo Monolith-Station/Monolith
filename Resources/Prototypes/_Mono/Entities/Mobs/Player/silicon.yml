@@ -125,7 +125,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.6
 
 - type: entity
   id: AiHeldMono
@@ -258,7 +258,7 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: ExplosionResistance
-    damageCoefficient: 0.25
+    damageCoefficient: 0.4
   - type: Scrammer
     actionProto: ActionScrammerScramADM
     specifier:
