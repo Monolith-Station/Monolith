@@ -2,6 +2,8 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 
+# Eyes
+
 - type: marking
   id: HydrakinEyesDefault
   bodyPart: Head
@@ -56,6 +58,16 @@
   - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
     state: eyes_ring
 
+- type: marking
+  id: HydrakinEyesSeer
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: eyes_seer
+
+# Tails
 
 - type: marking
   id: HydrakinTailDefault
@@ -78,6 +90,15 @@
     state: tail_nub_overlay
 
 - type: marking
+  id: HydrakinTailFeathersUnpainted
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: tail_feathers
+
+- type: marking
   id: HydrakinTailFeathers
   bodyPart: Tail
   markingCategory: Tail
@@ -87,6 +108,15 @@
     state: tail_feathers
   - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
     state: tail_feathers_overlay
+
+- type: marking
+  id: HydrakinTailSpinyUnpainted
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: tail_spiny
 
 - type: marking
   id: HydrakinTailSpiny
@@ -100,6 +130,15 @@
     state: tail_spiny_overlay
 
 - type: marking
+  id: HydrakinTailFinsUnpainted
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: tail_fins
+
+- type: marking
   id: HydrakinTailFins
   bodyPart: Tail
   markingCategory: Tail
@@ -110,6 +149,27 @@
   - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
     state: tail_fins_overlay
 
+- type: marking
+  id: HydrakinHydraTailFeathers
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: tail_feathers_seer
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: tail_feathers_seer_overlay
+
+- type: marking
+  id: HydrakinHydraTailFeathersUnpainted
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: tail_feathers_seer
+
+# Ears
 
 - type: marking
   id: HydrakinEarsDefault
@@ -121,13 +181,35 @@
     state: ears_default
 
 - type: marking
+  id: HydrakinEarsDefaultPainted
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_default
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_default_overlay
+
+- type: marking
   id: HydrakinEarsOld
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Hydrakin]
   sprites:
   - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
-    state: ears_old
+    state: ears_thin
+
+- type: marking
+  id: HydrakinEarsOldPainted
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_thin
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_thin_overlay
 
 - type: marking
   id: HydrakinEarsFin
@@ -139,6 +221,17 @@
     state: ears_fin
 
 - type: marking
+  id: HydrakinEarsFinPainted
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_fin
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_fin_overlay
+
+- type: marking
   id: HydrakinEarsFrilled
   bodyPart: HeadTop
   markingCategory: HeadTop
@@ -146,6 +239,37 @@
   sprites:
   - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
     state: ears_frilled
+
+- type: marking
+  id: HydrakinEarsFrilledPainted
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_frilled
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_frilled_overlay
+
+- type: marking
+  id: HydrakinHydraSeerEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_seer
+
+- type: marking
+  id: HydrakinHydraSeerEarsPainted
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_seer
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_seer_overlay
 
 # Cyber-proto-esque sprites
 
@@ -319,7 +443,7 @@
 - type: marking
   id: HydrakinHydraSeerMarking
   bodyPart: Head
-  markingCategory: HeadSide
+  markingCategory: Head
   speciesRestriction: [Hydrakin]
   sprites:
   - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
@@ -379,26 +503,6 @@
   - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
     state: hydra_seer_leg_right
 
-- type: marking
-  id: HydrakinHydraTailFeathers
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Hydrakin]
-  sprites:
-  - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
-    state: hydra_seer_tail_feathers
-  - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
-    state: hydra_seer_tail_feathers_overlay
-
-- type: marking
-  id: HydrakinHydraSeerEars
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Hydrakin]
-  sprites:
-  - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
-    state: hydra_seer_ears
-
 # Hydraking Mystic Markings
 
 - type: marking
@@ -453,7 +557,7 @@
   speciesRestriction: [Hydrakin]
   sprites:
   - sprite: _Obelisk/Mobs/Customization/hydrakin_mystic.rsi
-    state: hydrakin_leg_mystic_L
+    state: hydrakin_leg_mystic_R
 
 # Hydraking Rebel Markings
 

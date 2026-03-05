@@ -1,0 +1,46 @@
+# Cartridge-Fed
+
+- type: entity
+  parent: CrateMilitaryEquipment
+  id: CratePlateLight
+  name: light armor plate crate
+  description: Contains 3 durathread plates.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ArmorPlateLight
+      amount: 3
+
+- type: entity
+  parent: CrateMilitaryEquipment
+  id: CratePlateMedium
+  name: medium armor plate crate
+  description: Contains 3 ceramic plates.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ArmorPlateMedium
+      amount: 3
+      
+- type: entity
+  parent: CrateMilitaryEquipment
+  id: CratePlateTactical
+  name: tactical armor plate crate
+  description: Contains 3 plasteel plates.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ArmorPlateTactical
+      amount: 3
+      
+- type: entity
+  parent: CrateMilitaryEquipment
+  id: CratePlateRefractive
+  name: refractive armor plate crate
+  description: Contains 3 plas-uranium laminate plates.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ArmorPlateRefractive
+      amount: 3
+ 

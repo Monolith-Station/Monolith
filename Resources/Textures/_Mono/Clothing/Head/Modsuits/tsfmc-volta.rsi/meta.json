@@ -1,25 +1,33 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "From https://github.com/Monolith-Station/Monolith, made by Schepka",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "helmet"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "From https://github.com/Monolith-Station/Monolith, made by Schepka, Vox modifications by 10KE",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-		{
-		  "name": "helmet-sealed"
-		},
-		{
-			"name": "equipped-HEAD",
-			"directions": 4
-		},
-		{
-			"name": "equipped-HEAD-sealed",
-			"directions": 4
-		}
-  ]
+    "states": [
+        {
+            "name": "helmet"
+        },
+        {
+            "name": "helmet-sealed"
+        },
+        {
+            "name": "equipped-HEAD",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HEAD-sealed",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HEAD-vox",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HEAD-sealed-vox",
+            "directions": 4
+        }
+    ]
 }

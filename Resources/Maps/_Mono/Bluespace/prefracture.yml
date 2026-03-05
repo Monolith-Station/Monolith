@@ -47,6 +47,11 @@ entities:
     components:
     - type: MetaData
       name: Unidentified Vessel
+    - type: InitRepairSnapshot
+    - type: ShipRepairRestrict
+      toolWhitelist:
+        tags:
+        - ADSRepairTool
     - type: Transform
       parent: invalid
     - type: MapGrid

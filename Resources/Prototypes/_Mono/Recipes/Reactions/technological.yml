@@ -1,0 +1,21 @@
+- type: reaction
+  id: NaniteBreakdown
+  source: true
+  minTemp: 350
+  reactants:
+    NaniteFuel:
+      amount: 1
+  products:
+    WeldingFuel: 1
+    
+- type: reaction
+  id: NaniteFuel
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    NaniteFuel:
+      amount: 1
+    WeldingFuel:
+      amount: 1
+  products:
+    NaniteFuel: 2
