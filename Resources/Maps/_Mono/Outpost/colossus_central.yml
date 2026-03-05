@@ -103,6 +103,7 @@ entities:
     - type: GridPacifier
     - type: GridRaider
       protectedEntities: []
+    - type: NoGridImpacts
     - type: BecomesStation
       id: Frontier
     - type: InitRepairSnapshot
