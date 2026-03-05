@@ -61,10 +61,7 @@
     autoRechargeRate: 25
   - type: StaticPrice
     price: 1500
-  - type: ShipRepairable
-    repairTime: 6
-    repairCost: 16
-    
+
 # Faction Based
 
 - type: entity
