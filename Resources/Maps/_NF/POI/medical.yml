@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/05/2026 11:17:06
-  entityCount: 4337
-maps:
-- 3204
+  time: 03/05/2026 11:33:26
+  entityCount: 4336
+maps: []
 grids:
 - 1
-orphans: []
+orphans:
+- 1
 nullspace: []
 tilemap:
   0: Space
@@ -63,7 +63,7 @@ entities:
       name: Medical Dispatch
     - type: Transform
       pos: -6.918847,6.5152864
-      parent: 3204
+      parent: invalid
     - type: GridRaider
       protectedEntities: []
     - type: MapGrid
@@ -142,10 +142,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        MetalFoam: []
-        Puddle: []
         Smoke: []
+        MetalFoam: []
+        Kudzu: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -2902,7 +2902,7 @@ entities:
             1: 61440
           -1,0:
             1: 65393
-            4: 4
+            2: 4
             0: 8
           0,1:
             1: 28927
@@ -2924,39 +2924,39 @@ entities:
           1,1:
             1: 65535
           1,2:
-            2: 272
-            4: 51328
+            3: 272
+            2: 51328
           1,3:
-            3: 17
+            4: 17
             1: 4096
-            4: 35976
+            2: 35976
           1,4:
             1: 61457
-            4: 8
+            2: 8
             0: 4
           2,0:
             1: 64716
-            4: 1
+            2: 1
           2,1:
             1: 56831
           2,2:
             1: 12
           3,0:
             1: 61713
-            4: 196
+            2: 196
           3,1:
             1: 4607
-            4: 49152
+            2: 49152
           3,2:
             1: 1
-            4: 4
+            2: 4
           -4,0:
             1: 65535
           -4,-1:
             1: 61440
           -5,0:
             1: 65532
-            4: 1
+            2: 1
           -4,1:
             1: 64319
           -5,1:
@@ -3002,22 +3002,22 @@ entities:
             0: 8192
           -8,0:
             1: 61713
-            4: 4
+            2: 4
             0: 128
           -9,0:
             1: 64716
-            4: 1
+            2: 1
           -8,1:
             1: 4607
-            4: 49152
+            2: 49152
           -9,1:
             1: 52479
           -8,2:
             1: 1
-            4: 4
+            2: 4
           -9,2:
             1: 12
-            4: 1
+            2: 1
           -7,0:
             1: 63232
             0: 128
@@ -3042,7 +3042,7 @@ entities:
           -6,4:
             1: 6
             0: 16
-            4: 17920
+            2: 17920
           -5,4:
             1: 61579
           -5,-1:
@@ -3050,11 +3050,11 @@ entities:
           -4,-4:
             1: 61152
           -4,-5:
-            4: 8192
+            2: 8192
             0: 64
             1: 8
           -4,-3:
-            4: 32
+            2: 32
             0: 16384
           -4,-2:
             1: 2184
@@ -3071,18 +3071,18 @@ entities:
             1: 13104
           -2,-3:
             0: 4096
-            4: 32
+            2: 32
           -2,-2:
             0: 4096
           -2,-5:
-            4: 8192
+            2: 8192
             0: 16
           -4,-8:
-            4: 100
+            2: 100
             1: 57344
           -4,-7:
             1: 238
-            4: 8192
+            2: 8192
           -4,-6:
             0: 64
             1: 34816
@@ -3093,11 +3093,11 @@ entities:
           -3,-6:
             1: 65399
           -2,-8:
-            4: 49
+            2: 49
             1: 12288
           -2,-7:
             1: 51
-            4: 8192
+            2: 8192
           -2,-6:
             0: 16
           -12,0:
@@ -3106,26 +3106,26 @@ entities:
             1: 30719
           -13,0:
             1: 57344
-            4: 100
+            2: 100
           -13,1:
             1: 238
-            4: 24576
+            2: 24576
           -12,2:
             1: 7
           -11,0:
-            4: 65
+            2: 65
             1: 63488
           -11,1:
             1: 2303
-            4: 16384
+            2: 16384
           -11,2:
-            4: 1
+            2: 1
           -10,0:
             1: 62208
-            4: 64
+            2: 64
           -10,1:
             1: 1023
-            4: 16384
+            2: 16384
           -4,5:
             1: 3003
           -5,5:
@@ -3192,7 +3192,7 @@ entities:
             1: 65399
           -4,12:
             1: 8
-            4: 512
+            2: 512
             0: 64
           -3,12:
             1: 30591
@@ -3218,7 +3218,7 @@ entities:
             1: 65535
           1,6:
             1: 1792
-            4: 51200
+            2: 51200
           1,7:
             1: 13105
             0: 4
@@ -3227,21 +3227,21 @@ entities:
           2,5:
             1: 2810
           2,6:
-            4: 24384
+            2: 24384
           2,7:
-            4: 21845
+            2: 21845
           2,4:
             0: 64
           3,4:
-            4: 256
+            2: 256
             1: 4096
             0: 512
           3,5:
             1: 4979
             0: 2056
-            4: 128
+            2: 128
           3,6:
-            4: 257
+            2: 257
             0: 2
           -7,7:
             0: 2048
@@ -3276,10 +3276,10 @@ entities:
             0: 36
           4,8:
             1: 4352
-            4: 1
+            2: 1
           4,9:
             1: 1
-            4: 256
+            2: 256
           -6,9:
             1: 65524
           -7,10:
@@ -3290,20 +3290,20 @@ entities:
           -4,13:
             1: 3822
           -4,14:
-            4: 70
+            2: 70
           -3,13:
             1: 32767
           -3,14:
             1: 119
           -2,12:
             0: 16
-            4: 512
+            2: 512
           -2,13:
             1: 819
           -2,14:
-            4: 19
+            2: 19
           -13,2:
-            4: 4
+            2: 4
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -3344,48 +3344,48 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.15
-          moles:
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
           immutable: True
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -3405,16 +3405,6 @@ entities:
     - type: RadiationGridResistance
     - type: ShipGridLock
       locked: False
-  - uid: 3204
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
 - proto: ActionToggleInternals
   entities:
   - uid: 4
@@ -4813,7 +4803,7 @@ entities:
       pos: -6.5,5.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -60630.664
+      secondsUntilStateChange: -60646.074
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5014,7 +5004,7 @@ entities:
       pos: 1.5,21.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -38338.21
+      secondsUntilStateChange: -38353.62
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32480,7 +32470,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -9214.545
+      secondsUntilStateChange: -9229.955
       state: Opening
     - type: Airlock
       autoClose: False
