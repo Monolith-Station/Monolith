@@ -1,16 +1,56 @@
 - type: latheRecipe
   abstract: true
   id: MonoUplinkT1Recipe
-  parent: NFBaseEVASuitRecipe
   categories:
-  - EVASuits
-  - CombatEva
-  - ArmorNF
+  - BasicUplink
   completetime: 15
   materials:
     Glass: 200
     Steel: 3000
     Plastic: 1000
-    Plasteel: 4000
+    Plasteel: 3000
     Silver: 500
     Gold: 500
+
+- type: latheRecipe
+  abstract: true
+  id: MonoUplinkT2Recipe
+  categories:
+  - StandardUplink
+  completetime: 15
+  materials:
+    Glass: 200
+    Steel: 3000
+    Plastic: 1000
+    Plasteel: 3000
+    Silver: 500
+    Gold: 500
+
+- type: latheRecipe
+  abstract: true
+  id: MonoUplinkT3Recipe
+  categories:
+  - AdvancedUplink
+  completetime: 15
+  materials:
+    Glass: 200
+    Steel: 3000
+    Plastic: 1000
+    Plasteel: 3000
+    Silver: 500
+    Gold: 500
+
+- type: latheRecipe
+  abstract: true
+  id: MonoUplinkT4Recipe
+  categories:
+  - ExperimentalUplink
+  completetime: 15
+  materials:
+    Glass: 200
+    Steel: 3000
+    Plastic: 1000
+    Plasteel: 3000
+    Silver: 500
+    Gold: 500
+

@@ -1,4 +1,19 @@
 - type: latheRecipe
-  id: ClothingOuterHardsuitPirateScafRogue
-  parent: MonoHardsuitT1Recipe
-  result: ClothingOuterHardsuitPirateScaf
+  id: PdvBasicUplink
+  parent: MonoUplinkT1Recipe
+  result: BasicPdvUplink
+
+- type: latheRecipe
+  id: PdvStandardUplink
+  parent: MonoUplinkT2Recipe
+  result: StandardPdvUplink
+
+- type: latheRecipe
+  id: PdvAdvancedUplink
+  parent: MonoUplinkT3Recipe
+  result: AdvancedPdvUplink
+
+- type: latheRecipe
+  id: PdvExperimentalUplink
+  parent: MonoUplinkT4Recipe
+  result: ExperimentalPdvUplink
