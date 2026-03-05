@@ -135,7 +135,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 70
+        Piercing: 55
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
     layers:
@@ -258,6 +258,47 @@
     proto: AdderBullet
     count: 6
     spread: 5
+
+# 520mm LEVIATHAN Shells
+
+- type: entity
+  id: ShipLeviathanProjectile
+  name: LEVIATHAN 520mm projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 12000
+        Blunt: 2000
+        penetrationThreshold: 2500
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
+    layers:
+    - state: base-projectile
+    scale: 2, 2
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 4
+    requireNoGrid: true
+    shape: star
+  - type: TimedDespawn
+    lifetime: 3.6 #2.5km
+  - type: PointLight
+    color: "#fc5a03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 1250
+    intensitySlope: 15
+    maxIntensity: 200
+    maxTileBreak: 6
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
 
 # Drone
 

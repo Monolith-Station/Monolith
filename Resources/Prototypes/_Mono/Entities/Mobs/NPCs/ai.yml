@@ -54,6 +54,7 @@
   - type: ApcPowerReceiver
     powerLoad: 1000 # suspiciously low power-using AI
   - type: ExtensionCableReceiver
+  - type: TargetSeekingTarget
 
 - type: entity
   id: NpcStationAiApproacher
@@ -69,6 +70,22 @@
   - type: HTN
     rootTask:
       task: ApproacherShuttleCompound
+
+- type: entity
+  id: NpcStationAiApproacherDodger
+  name: approacher core
+  parent: NpcStationAiRammer
+  description: Stands there, menacingly. And dodges.
+  suffix: AI, Dodging, Debug
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_t2
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: ApproacherShuttleCompoundDodger
 
 - type: entity
   id: NpcStationAiRammerSmart

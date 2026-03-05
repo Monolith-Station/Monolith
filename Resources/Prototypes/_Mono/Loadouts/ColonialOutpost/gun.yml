@@ -13,6 +13,10 @@
   minLimit: 0
   loadouts:
   - SecurityGuardDrozdLoadout
+  - SecurityGuardAkLoadout
+  - SecurityGuardLecterLoadout
+  - SecurityGuardVulcanLoadout
+  - SecurityGuardVectorLoadout
   - SecurityGuardKammererLoadout
   - SecurityGuardEnforcerLoadout
   - SecurityGuardDisablerSMGLoadout
@@ -31,5 +35,8 @@
   minLimit: 1
   loadouts:
   - SecurityGuardAcpPistolRubberAmmoLoadout #MK58
-  - SecurityGuardAcpSmgAmmoRubberLoadout #Drozd
+  - SecurityGuardAcpSmgAmmoRubberLoadout #Drozd / vector
   - SecurityGuardBeanbagAmmoLoadout #Beanbag
+  - SecurityGuard556x45mmAmmoLoadout # lecter
+  - SecurityGuard762x39AmmoLoadout # ak
+  - SecurityGuard762x51AmmoLoadout # vulkan
