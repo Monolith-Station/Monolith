@@ -91,6 +91,11 @@ public sealed class PoolSettings
     public int? ClientSeed { get; set; }
 
     /// <summary>
+    /// Mono - skips pair validation if set. Also stops termination on error.
+    /// </summary>
+    public bool NoValidate = false;
+
+    /// <summary>
     /// Frontier: the preset to run the game in.
     /// Set to secret for upstream tests to mimic upstream behaviour.
     /// If you need to check adventure game rule things, set this to nfadventure or nfpirate.
