@@ -177,7 +177,9 @@ public sealed class AmeNodeGroup : BaseNodeGroup
         // At 18+ cores and 2 inject, the power produced is less than 0, the Max ensures the AME can never produce "negative" power.
         // return MathF.Max(200000f * MathF.Log10(2 * fuel * MathF.Pow(cores, (float)-0.5)), 0); // Frontier: preferring old calculation for now
         // return 200000f * MathF.Log10(fuel * fuel) * MathF.Pow(0.75f, cores - 1); // Frontier: preferring old calculation for now
-        return 200000f * MathF.Log10(fuel * fuel); // Mono - Removed diminishing returns from AME core count.
+        if (cores > 0 && fuel > 0) // Mono - default zero power unless conditions are met
+            return 200000f * MathF.Log10(fuel * fuel) * MathF.Pow( 1.11111f, cores - 1); // Mono - Added positive returns from extra cores. Running AME at 2 fuel per core yields roughly the same power per core at all sizes
+        return 0;
     }
 
     public int GetTotalStability()

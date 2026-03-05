@@ -3,7 +3,7 @@
   icon:
     sprite: _Mono/Clothing/ArmorPlate/armor_light.rsi
     state: icon
-  product: ArmorPlateLight
+  product: CratePlateLight
   cost: 3000
   category: cargoproduct-category-name-armorplate
   group: market
@@ -13,8 +13,8 @@
   icon:
     sprite: _Mono/Clothing/ArmorPlate/armor_medium.rsi
     state: icon
-  product: ArmorPlateMedium
-  cost: 5000
+  product: CratePlateMedium
+  cost: 6000
   category: cargoproduct-category-name-armorplate
   group: market
 
@@ -23,7 +23,17 @@
   icon:
     sprite: _Mono/Clothing/ArmorPlate/armor_tactical.rsi
     state: icon
-  product: ArmorPlateTactical
-  cost: 7500
+  product: CratePlateTactical
+  cost: 9000
+  category: cargoproduct-category-name-armorplate
+  group: market
+  
+- type: cargoProduct
+  id: ClothingArmorPlateRefractive
+  icon:
+    sprite: _Mono/Clothing/ArmorPlate/armor_refractive.rsi
+    state: icon
+  product: CratePlateRefractive
+  cost: 9000
   category: cargoproduct-category-name-armorplate
   group: market

@@ -271,9 +271,9 @@
     baseIntensity: 0.4
     coefficient: 0.1 # critical mass at 25
     explosionThreshold: 10 # let it cook a bit
-    totalIntensity: 100000
-    intensitySlope: 100
-    maxIntensity: 1200
+    totalIntensity: 15000
+    intensitySlope: 2000
+    maxIntensity: 4000
   - type: Appearance
   - type: PhysicalComposition
     materialComposition:

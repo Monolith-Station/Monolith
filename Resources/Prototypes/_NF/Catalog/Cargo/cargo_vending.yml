@@ -8,12 +8,11 @@
 
 - type: cargoProduct
   id: CrateVendingMachineRestockAstroVend
-  abstract: true # Frontier
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockAstroVendFilled
-  cost: 100 # Frontier
+  cost: 1200 # Frontier
   category: Engineering
   group: market
 

@@ -399,12 +399,40 @@
     back:
     - WeaponRifleLecter
 
+- type: loadout #Ak
+  id: SecurityGuardAkLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRifleAk
+
+- type: loadout #Vulcan
+  id: SecurityGuardVulcanLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRifleVulcan
+
 - type: loadout #Lecter / Prometheus Ammo
   id: SecurityGuard556x45mmAmmoLoadout
   price: 0
   storage:
     back:
     - BoxMagazine556x45mmFMJ
+
+- type: loadout #AK Ammo
+  id: SecurityGuard762x39AmmoLoadout
+  price: 0
+  storage:
+    back:
+    - BoxMagazine762x39mmFMJ
+
+- type: loadout #Vulcan Ammo
+  id: SecurityGuard762x51AmmoLoadout
+  price: 0
+  storage:
+    back:
+    - BoxMagazine762x51mmFMJ
 
 # Shotguns
 
@@ -438,7 +466,14 @@
     back:
     - WeaponSubMachineGunDrozd
 
-- type: loadout #Drozd Rubber Ammo
+- type: loadout #Vector
+  id: SecurityGuardVectorLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponSubMachineGunVector45_ACPRegistered
+
+- type: loadout #Drozd/Vector Ammo
   id: SecurityGuardAcpSmgAmmoRubberLoadout
   price: 0
   storage:
@@ -476,7 +511,7 @@
   storage:
     back:
     - BoxMagazine45_ACPRubber
-    
+
 #region Station Rep
 
 - type: loadout #Lecter

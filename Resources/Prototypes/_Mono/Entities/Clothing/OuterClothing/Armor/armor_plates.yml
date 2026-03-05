@@ -1,3 +1,4 @@
+#FIRST GENERATION PLATES
 # Durathread
 - type: entity
   parent: BaseItem
@@ -17,6 +18,8 @@
     walkSpeedModifier: 0.94
     sprintSpeedModifier: 0.94
     staminaDamageMultiplier: 1.0
+    absorptionRatios:
+      Piercing: 1
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -47,6 +50,8 @@
     walkSpeedModifier: 0.92
     sprintSpeedModifier: 0.92
     staminaDamageMultiplier: 1.0
+    absorptionRatios:
+      Piercing: 1
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -77,6 +82,8 @@
     walkSpeedModifier: 0.90
     sprintSpeedModifier: 0.90
     staminaDamageMultiplier: 1.0
+    absorptionRatios:
+      Piercing: 1
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -107,6 +114,8 @@
     walkSpeedModifier: 1.0
     sprintSpeedModifier: 1.0
     staminaDamageMultiplier: 0.0
+    absorptionRatios:
+      Piercing: 1
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -114,6 +123,84 @@
     - trigger:
         !type:DamageTrigger
         damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+#PLATE EXPANSION PACK
+# Refractive
+- type: entity
+  parent: BaseItem
+  id: ArmorPlateRefractive
+  name: plas-uranium laminate plate
+  description: An iridescent plate manufactured by a plasma-uranium glass nanolamination process proprietary to Union Wrightworks. Tuned to stop emissions in the weapons energy-band via total internal reflection.
+  suffix: Refractive
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/ArmorPlate/armor_refractive.rsi
+    state: icon
+  - type: Item
+    sprite: _Mono/Clothing/ArmorPlate/armor_refractive.rsi
+    size: Normal
+  - type: ArmorPlateItem
+    maxDurability: 60
+    walkSpeedModifier: 0.9
+    sprintSpeedModifier: 0.9
+    staminaDamageMultiplier: 0.8
+    damageMultipliers:
+      Blunt: 5
+      Slash: 5
+      Piercing: 5
+      Heat: 0.75
+    absorptionRatios:
+      Blunt: 0.05
+      Slash: 0.05
+      Piercing: 0.05
+      Heat: 1
+      Radiation: 0.5
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+        
+# Steel
+- type: entity
+  parent: BaseItem
+  id: ArmorPlateSteel
+  name: steel armor plate
+  description: Rolled, work-hardened steel. Obsolete yet time-tested. Heavy and prone to spalling, but its simplicity means it will outlive its owner.
+  suffix: Obsolete
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/ArmorPlate/armor_obsolete.rsi
+    state: icon
+  - type: Item
+    sprite: _Mono/Clothing/ArmorPlate/armor_obsolete.rsi
+    size: Normal
+  - type: ArmorPlateItem
+    maxDurability: 60
+    walkSpeedModifier: 0.9
+    sprintSpeedModifier: 0.85
+    staminaDamageMultiplier: 1.65
+    damageMultipliers:
+      Piercing: 0.5
+    absorptionRatios:
+      Blunt: 0.15
+      Slash: 0.15
+      Piercing: 0.3
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60 
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

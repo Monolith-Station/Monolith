@@ -2,18 +2,19 @@
   name: maintenance jack
   parent: BaseItem
   id: MaintenanceJack
-  description: A mighty tool for ruling maints. Pries tile and plating and can anchor. #Mono
+  description: A mighty tool for ruling maints. Pries tile and plating, hammers, and can anchor. #Mono
   components:
   - type: Sprite
     sprite: _NF/Objects/Tools/maintenance-jack.rsi
     state: icon
   - type: MeleeWeapon
+    heavyStaminaCost: 10 # mono
     wideAnimationRotation: -45
     swingLeft: true
     attackRate: 0.75
     damage:
       types:
-        Blunt: 10
+        Blunt: 12
         Structural: 5
     soundHit:
       collection: MetalThud
@@ -22,13 +23,23 @@
       path: /Audio/Items/crowbar_drop.ogg
       params:
         volume: 2
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/crowbar_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/crowbar_drop.ogg
+      params:
+        volume: -2
   - type: Wieldable
     unwieldOnUse: false
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 18
-        Structural: 5
+        Blunt: 20
+        Structural: 25
   - type: PhysicalComposition
     materialComposition:
       Steel: 200 #Mono end
@@ -37,7 +48,7 @@
     shape:
     - 0,0,1,2 #Mono
   - type: Clothing
-    sprite: Objects/Weapons/Melee/fireaxe.rsi
+    sprite: _NF/Objects/Tools/maintenance-jack.rsi
     quickEquip: false
     slots:
     - back
@@ -47,6 +58,7 @@
     qualities:
       - Prying #Mono
       - Axing
+      - Hammering #Mono
     speedModifier: 0.7
     useSound: /Audio/Items/crowbar.ogg #Mono
   - type: Prying
@@ -59,8 +71,9 @@
       - behavior:
         - Prying
         - Axing
+        - Hammering
         sprite:
-          sprite: _NF/Objects/Tools/maintenance-jack.rsi
+          sprite: _NF/Objects/Tools/maintenance-jack.rsi #Mono
           state: icon
         useSound: /Audio/Items/crowbar.ogg
         changeSound: /Audio/Effects/thudswoosh.ogg
@@ -103,7 +116,7 @@
   - type: Tool
     qualities:
       - Digging
-    speedModifier: 0.4
+    speedModifier: 0.7
     useSound:
       path: /Audio/Items/shovel_dig.ogg
   - type: MultipleTool
@@ -136,6 +149,7 @@
       - behavior:
         - Prying
         - Axing
+        - Hammering #Mono
         sprite:
           sprite: _NF/Objects/Tools/cm-shovel.rsi
           state: icon
@@ -165,3 +179,22 @@
   - type: Utensil
     types:
       - Knife
+  - type: SurgeryTool # Mono start: more meme than useful
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
+  - type: Hemostat
+    speed: 0.6
+  - type: Scalpel
+    speed: 0.5
+  - type: BoneSetter
+    speed: 0.5
+  - type: Retractor
+    speed: 0.35
+  - type: BoneSaw
+    speed: 0.5
+  - type: Tweezers
+    speed: 0.2
+  - type: Tending
+    speed: 0.5 # Mono end

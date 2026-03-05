@@ -55,6 +55,15 @@
     Plasma: 300
 
 - type: latheRecipe
+  id: WeaponMechChainSword
+  result: WeaponMechChainSword
+  completetime: 10
+  materials:
+    Steel: 1500
+    Plastic: 800
+    Plasma: 300
+
+- type: latheRecipe
   id: WeaponMechCombatDisabler
   result: WeaponMechCombatDisabler
   completetime: 10

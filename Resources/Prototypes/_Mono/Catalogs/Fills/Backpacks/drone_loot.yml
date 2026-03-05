@@ -12,23 +12,24 @@
     shape: square
   - type: SpawnItemsOnUse
     items:
-    # Money
+    # Money - 30k
     - id: SpaceCash10000
-      amount: 2
-      prob: 1.0
+      amount: 3
     # Scrap chunks
     - id: ScrapOre100
-      amount: 4
-      prob: 1.0
+      amount: 1
+    # Material
+    - id: SheetPlastitanium10
+      amount: 2
     # Parts
     - id: SuperCapacitorStockPart
-      prob: 0.4
+      prob: 0.8
       amount: 3
     - id: SuperMatterBinStockPart
-      prob: 0.4
-      amount: 1
+      prob: 0.6
+      amount: 2
     - id: PicoManipulatorStockPart
-      prob: 0.4
+      prob: 0.8
       amount: 2
     - id: SpawnDungeonLootPowerCell
       prob: 0.5
@@ -37,10 +38,8 @@
     #   prob: 0.25
     # Circuit boards
     - id: SpawnDungeonLootCircuitBoardEngi
-      amount: 1
       prob: 0.3
     - id: SpawnDungeonLootCircuitBoardScience
-      amount: 1
       prob: 0.3
     - id: SpawnDungeonLootCircuitBoardSalvage
       prob: 0.3
@@ -48,15 +47,15 @@
       prob: 0.3
     # Flatpacks
     - id: SpawnDungeonLootFlatpacks
-      amount: 2
-      prob: 0.3
-    # Research disk, expected value ~12k/drone
-    - id: RogueSiliconResearchDisk5000
       prob: 0.6
+    # rare shard drop even from T1
+    - id: WeaponTurretShardFlatpack
+      prob: 0.5
+    # Research disk, expected value ~30k/drone
+    - id: RogueSiliconResearchDisk5000
     - id: RogueSiliconResearchDisk10000
-      prob: 0.4
     - id: RogueSiliconResearchDisk25000
-      prob: 0.2
+      prob: 0.6
     # Tech disk
     - id: SpawnLootTechDisksT1
       prob: 0.5
@@ -72,62 +71,43 @@
   components:
   - type: SpawnItemsOnUse
     items:
-    # Money
-    - id: SpaceCash10000
-      amount: 4
-      prob: 1.0
+    # Money - 80k
+    - id: SpaceCash25000
+      amount: 3
+    - id: SpaceCash5000
     # Scrap chunks
     - id: ScrapOre100
-      amount: 5
-      prob: 1.0
+      amount: 3
     # Material
     - id: SheetPlastitanium10
-      amount: 2
-      prob: 1
+      amount: 4
     # Parts
     - id: SuperCapacitorStockPart
-      prob: 1
       amount: 3
     - id: SuperMatterBinStockPart
-      prob: 1
       amount: 1
     - id: PicoManipulatorStockPart
-      prob: 1
       amount: 2
     # rare t4 parts
     - id: QuadraticCapacitorStockPart
-      prob: 0.3
+      amount: 2
+      prob: 0.8
     - id: FemtoManipulatorStockPart
-      prob: 0.2
+      prob: 0.8
     - id: BluespaceMatterBinStockPart
-      prob: 0.1
+      prob: 0.6
     - id: SpawnDungeonLootPowerCell
       prob: 0.5
-    # - id: SpawnDungeonLootPartsEngi #Mono: mostly trash and bloat
-    #   amount: 3
-    #   prob: 0.25
-    # Circuit boards
-    - id: SpawnDungeonLootCircuitBoardEngi
-      prob: 0.3
-    - id: SpawnDungeonLootCircuitBoardScience
-      prob: 0.4
-    - id: SpawnDungeonLootCircuitBoardSalvage
-      prob: 0.4
-    - id: SpawnDungeonLootCircuitBoard
-      prob: 0.3
-    # Flatpacks
-    - id: SpawnDungeonLootFlatpacks
-      amount: 3
-      prob: 0.5
-    # Research disk, expected value ~50k/drone
+    - id: PowerCellMicroreactor
+    # free shard
+    - id: WeaponTurretShardFlatpack
+    # no flatpacks or boards, just gamble scrap
+    # Research disk, expected value ~80k/drone
     - id: RogueSiliconResearchDisk5000
-      prob: 1
     - id: RogueSiliconResearchDisk10000
-      prob: 1
     - id: RogueSiliconResearchDisk25000
       prob: 0.6
     - id: RogueSiliconResearchDisk50000
-      prob: 0.4
     # Tech disk
     - id: SpawnLootTechDisksT2Mech
       prob: 0.5
@@ -143,68 +123,50 @@
   components:
   - type: SpawnItemsOnUse
     items:
-    # Money
-    - id: SpaceCash25000
-      amount: 3
-      prob: 1.0
+    # Money - 200k
+    - id: SpaceCash100000
+      amount: 2
     # Scrap chunks
     - id: ScrapOre100
-      amount: 8
-      prob: 1.0
+      amount: 6
     # Material
     - id: SheetPlastitanium10
-      amount: 6
-      prob: 1
+      amount: 8
     # Parts
     - id: SuperCapacitorStockPart
-      prob: 1
       amount: 6
     - id: SuperMatterBinStockPart
-      prob: 1
       amount: 2
     - id: PicoManipulatorStockPart
-      prob: 1
       amount: 4
     # rare t4 parts
     - id: QuadraticCapacitorStockPart
-      prob: 0.9
-      count: 2
-    - id: FemtoManipulatorStockPart
-      prob: 0.6
-      count: 2
-    - id: BluespaceMatterBinStockPart
-      prob: 0.3
-      count: 2
-    - id: SpawnDungeonLootPowerCell
-      count: 2
-      prob: 0.5
-    # - id: SpawnDungeonLootPartsEngi #Mono: mostly trash and bloat
-    #   amount: 3
-    #   prob: 0.25
-    # Circuit boards
-    - id: SpawnDungeonLootCircuitBoardEngi
-      prob: 0.3
-    - id: SpawnDungeonLootCircuitBoardScience
-      prob: 0.4
-    - id: SpawnDungeonLootCircuitBoardSalvage
-      prob: 0.4
-    - id: SpawnDungeonLootCircuitBoard
-      prob: 0.3
-    # Flatpacks
-    - id: SpawnDungeonLootFlatpacks
       amount: 3
-      prob: 0.5
-    # Research disk, expected value ~50k/drone
-    - id: RogueSiliconResearchDisk5000
-      prob: 1
-    - id: RogueSiliconResearchDisk10000
-      prob: 1
-    - id: RogueSiliconResearchDisk25000
-      prob: 0.6
+      maxAmount: 6
+    - id: FemtoManipulatorStockPart
+      amount: 2
+      maxAmount: 4
+    - id: BluespaceMatterBinStockPart
+      amount: 0
+      maxAmount: 2
+    - id: SpawnDungeonLootPowerCell
+      amount: 1
+      maxAmount: 2
+    - id: PowerCellMicroreactor
+    # free guns
+    - id: WeaponTurretShardFlatpack
+      amount: 1
+      maxAmount: 2
+    - id: WeaponTurretPinholeFlatpack
+    # no flatpacks or boards, just gamble scrap
+    # Research disk, expected value 200k/drone
     - id: RogueSiliconResearchDisk50000
-      prob: 0.4
+      amount: 3
+      maxAmount: 5
     # Tech disk
-    - id: SpawnLootTechDisksT2Mech
-      prob: 0.5
+    - id: SpawnLootTechDisksT3Mech
+      prob: 0.6
+    - id: SpawnLootTechDisksT3Fracture
+      prob: 0.2
     sound:
       path: /Audio/Machines/windoor_open.ogg

@@ -32,6 +32,8 @@ public sealed class FireControlNavControl : ShuttleNavControl
     private FireControllableEntry[]? _controllables;
     private HashSet<NetEntity> _selectedWeapons = new();
 
+    private readonly Dictionary<NetEntity, Color> _blipColors = new();
+
     // Add a limit to how often we update the cursor position to prevent network spam
     private float _lastCursorUpdateTime = 0f;
     private const float CursorUpdateInterval = 0.1f; // 10 updates per second
@@ -77,9 +79,9 @@ public sealed class FireControlNavControl : ShuttleNavControl
         Matrix3x2.Invert(worldToView, out var viewToWorld);
 
         var blips = _blips.GetCurrentBlips();
-        var colors = new Dictionary<NetEntity, Color>();
+        _blipColors.Clear();
         foreach (var blip in blips)
-            colors[blip.NetUid] = blip.Color;
+            _blipColors[blip.NetUid] = blip.Config.Color;
 
         if (_controllables != null)
         {
@@ -100,7 +102,7 @@ public sealed class FireControlNavControl : ShuttleNavControl
 
                     var results = _physics.IntersectRay(xform.MapID, ray, direction.Length(), ignoredEnt: _coordinates?.EntityId);
 
-                    if (!results.Any() && colors.TryGetValue(controllable.NetEntity, out var color))
+                    if (!results.Any() && _blipColors.TryGetValue(controllable.NetEntity, out var color))
                         handle.DrawLine(Vector2.Transform(worldPos, worldToView), cursorViewPos, color.WithAlpha(0.3f));
                 }
             }

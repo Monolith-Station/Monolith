@@ -48,6 +48,16 @@
       shader: unshaded
       visible: false
       offset: 0, 2
+  - type: DeviceNetwork # Mono
+    deviceNetId: Wireless # Mono
+    receiveFrequencyId: BasicDevice # Mono
+  - type: WirelessNetworkConnection # Mono
+    range: 200 # Mono
+  - type: DeviceLinkSink # Mono
+    ports: # Mono
+    - On # Mono
+    - Off # Mono
+    - Toggle # Mono
   - type: Anchorable
     flags: None
   - type: StaticPrice
@@ -57,6 +67,12 @@
     radarColor: "#99FF99"
     scale: 2
     shape: diamond
+    gridConfig:
+      color: "#99FF99"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.5,-1.5,1.5,0.5"
   - type: ShipRepairable
     repairTime: 15
     repairCost: 30
