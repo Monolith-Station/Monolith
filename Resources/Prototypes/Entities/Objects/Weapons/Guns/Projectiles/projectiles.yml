@@ -462,6 +462,7 @@
     - state: chronobolt
       shader: unshaded
   - type: Projectile
+    noDamageDelete: false # Mono
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
@@ -482,7 +483,7 @@
     color: "#FF8888" # Frontier: white<FF8888
     energy: 0.5
   - type: GatheringProjectile
-    amount: 6 # Mono
+    amount: 8 # Mono
   - type: MiningGatheringSoft # mono
   - type: MiningGatheringHard # mono
 
