@@ -17846,3 +17846,12 @@ Entries:
   id: 1966
   time: '2026-03-05T04:56:49.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3309
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: >-
+        Added a crew monitoring server for Colossus, MD, and Helios to prevent a
+        single portstrike or funny at Halcyon from bricking crew monitors
+  id: 1967
+  time: '2026-03-05T17:05:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3365
