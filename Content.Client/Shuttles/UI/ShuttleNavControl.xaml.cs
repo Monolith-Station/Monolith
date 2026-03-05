@@ -51,6 +51,17 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
     private Dictionary<NetEntity, List<DockingPortState>> _docks = new();
 
+    // temporary buffers to avoid per-frame heap churn
+    private readonly List<BlipData> _tempBlipDataList = new();
+    private readonly HashSet<EntityUid> _visibleGridsSet = new();
+    private static readonly Vector2[] RadarPosVertsCache =
+    [
+        new Vector2(0f, -2f),
+        new Vector2(1f, 0f),
+        new Vector2(0f, 2f),
+        new Vector2(-1f, 0f),
+    ];
+
     public bool ShowIFF { get; set; } = true;
     public bool ShowIFFShuttles { get; set; } = true;
     public bool ShowDocks { get; set; } = true;
@@ -341,14 +352,12 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         }
 
         // Draw radar position on the station
-        const float radarVertRadius = 2f;
-        var radarPosVerts = new Vector2[]
+        // Mono - use precalculated verts and scale each point rather than allocating a fresh array
+        var radarPosVerts = new Vector2[RadarPosVertsCache.Length];
+        for (var i = 0; i < radarPosVerts.Length; i++)
         {
-            ScalePosition(new Vector2(0f, -radarVertRadius)),
-            ScalePosition(new Vector2(radarVertRadius / 2f, 0f)),
-            ScalePosition(new Vector2(0f, radarVertRadius)),
-            ScalePosition(new Vector2(radarVertRadius / -2f, 0f)),
-        };
+            radarPosVerts[i] = ScalePosition(RadarPosVertsCache[i]);
+        }
 
         handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, radarPosVerts, Color.Lime);
 
@@ -358,10 +367,10 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         _grids.Clear();
         _mapManager.FindGridsIntersecting(xform.MapID, new Box2(mapPos.Position - MaxRadarRangeVector, mapPos.Position + MaxRadarRangeVector), ref _grids, approx: true, includeMap: false);
 
-        // Frontier - collect blip location data outside foreach - more changes ahead
-        var blipDataList = new List<BlipData>();
+        // Mono edited: Frontier - collect blip location data outside foreach - more changes ahead
+        _tempBlipDataList.Clear();
 
-        var visibleGrids = new HashSet<EntityUid>();
+        _visibleGridsSet.Clear();
 
         // Draw other grids... differently
         foreach (var grid in _grids)
@@ -385,8 +394,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 continue;
 
             if (!blipOnly)
-                visibleGrids.Add(grid);
-
+                _visibleGridsSet.Add(grid);
             var curGridToWorld = _transform.GetWorldMatrix(gUid);
             var curGridToView = curGridToWorld * worldToView;
 
@@ -562,12 +570,12 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                     }
                 }
 
-                NfAddBlipToList(blipDataList, isOutsideRadarCircle, uiPosition, uiXCentre, uiYCentre, labelColor, hideLabel ? default : gUid); // Frontier code
+                NfAddBlipToList(_tempBlipDataList, isOutsideRadarCircle, uiPosition, uiXCentre, uiYCentre, labelColor, hideLabel ? default : gUid); // Frontier code
                 // End Frontier: IFF drawing functions
             }
 
             // Frontier Don't skip drawing blips if they're out of range.
-            NfDrawBlips(handle, blipDataList);
+            NfDrawBlips(handle, _tempBlipDataList);
 
             // Detailed view
             var gridAABB = curGridToWorld.TransformBox(grid.Comp.LocalAABB);
@@ -626,7 +634,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             if (blip.GridUid is { } grid)
             {
                 // check detection if we're on a grid and that grid isn't our grid
-                if (!visibleGrids.Contains(grid) && grid != ourGridId)
+                if (!_visibleGridsSet.Contains(grid) && grid != ourGridId)
                     continue;
             }
 

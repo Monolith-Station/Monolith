@@ -1,7 +1,7 @@
 - type: entity
   save: false
   name: Urisst' Mzhand
-  parent: BaseMobSpeciesOrganic
+  parent: [ BaseMobSpeciesOrganic, ReptilianClaws ]
   id: BaseMobReptilian
   abstract: true
   components:
@@ -57,7 +57,8 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Slash: 5
+        Blunt: 3 # Mono
+    attackRate: 1.5
   - type: Temperature
     heatDamageThreshold: 400
     coldDamageThreshold: 285
@@ -65,15 +66,15 @@
     specificHeat: 42
     coldDamage:
       types:
-        Cold : 0.1 #per second, scales with temperature & other constants
+        Cold : 0.15 #per second, scales with temperature & other constants. # Mono 0.1 -> 0.15
     heatDamage:
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      301: 0.8
-      295: 0.6
-      285: 0.4
+      298: 0.8 # Mono
+      292: 0.6 # Mono
+      285: 0.4 # Mono
   - type: Wagging
   - type: Inventory
     speciesId: reptilian
@@ -109,6 +110,50 @@
     - DoorBumpOpener
     - AnomalyHost
     - Humanoid
+  # Mono edit start
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 250 # weighs more than humans because tail.
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: ThermalRegulator
+    implicitHeatRegulation: 320
+    metabolismHeat: 230
+    radiatedHeat: 710
+    shiveringHeatRegulation: 690
+    updateInterval: 2
+  - type: TemperatureStatusEffects
+    temperatureEffects:
+    - maximumTemperature: 295
+      effects:
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        time: 2
+        type: Add
+        refresh: true
+      - !type:Drunk
+        boozePower: 1
+    - minimumTemperature: 322
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.10
+        sprintSpeedModifier: 1.10
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -1
+            Brute: -1
+
+
+  # Mono edit end
 
 - type: entity
   parent: BaseSpeciesDummy

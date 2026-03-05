@@ -62,14 +62,7 @@ public sealed class DynamicRoleSettingsSystem : EntitySystem
     private void UpdateRoleSettings()
     {
         if (!_dynamicRolesEnabled)
-        {
-            if (!_cfg.GetCVar(CCVars.GameRoleTimers))
-                    _cfg.SetCVar(CCVars.GameRoleTimers, true);
-            if (!_cfg.GetCVar(CCVars.GameRoleWhitelist))
-                    _cfg.SetCVar(CCVars.GameRoleWhitelist, true);
-
             return;
-        }
 
         var playerCount = _playerManager.PlayerCount;
 
