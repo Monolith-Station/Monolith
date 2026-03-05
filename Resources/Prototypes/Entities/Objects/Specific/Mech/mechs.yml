@@ -109,7 +109,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 5000 # Mono
+        damage: 500 # Mono
       behaviors:
       - !type:PlaySoundBehavior
         sound:
