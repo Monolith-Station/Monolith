@@ -9,6 +9,7 @@ using Content.Server.Maps;
 using Robust.Client.GameObjects;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
+using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -53,6 +54,7 @@ namespace Content.MapRenderer.Painters
                 DummyTicker = false,
                 Connected = true,
                 Fresh = false,
+                NoValidate = true, // Mono
             });
 
             var server = pair.Server;

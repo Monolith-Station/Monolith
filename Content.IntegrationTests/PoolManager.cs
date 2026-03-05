@@ -261,7 +261,8 @@ public static partial class PoolManager
             }
         }
 
-        pair.ValidateSettings(poolSettings);
+        if (!poolSettings.NoValidate) // Mono
+            pair.ValidateSettings(poolSettings);
 
         var poolRetrieveTime = poolRetrieveTimeWatch.Elapsed;
         await testOut.WriteLineAsync(
