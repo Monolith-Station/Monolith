@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/04/2026 13:39:04
+  time: 03/05/2026 19:34:12
   entityCount: 356
 maps: []
 grids:
@@ -63,8 +63,8 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Smoke: []
+        Kudzu: []
         MetalFoam: []
         Puddle: []
     - type: Shuttle
@@ -1656,6 +1656,13 @@ entities:
       pipeLayer: Secondary
     - type: AtmosPipeColor
       color: '#990000FF'
+- proto: GravityGeneratorMini
+  entities:
+  - uid: 146
+    components:
+    - type: Transform
+      pos: 1.5,-5.5
+      parent: 1
 - proto: Grille
   entities:
   - uid: 103
@@ -1720,12 +1727,6 @@ entities:
       powerLoad: 10
 - proto: GyroscopeSecurity
   entities:
-  - uid: 146
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.5,-5.5
-      parent: 1
   - uid: 147
     components:
     - type: Transform
