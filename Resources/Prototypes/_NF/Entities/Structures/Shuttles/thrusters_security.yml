@@ -67,15 +67,10 @@
 
 - type: entity
   id: SmallGyroscopeSecurity
-  parent: GyroscopeSecurity
+  parent: SmallGyroscope
   name: small gyroscope
   suffix: Security
   components:
-  - type: Thruster
-    baseThrust: 250
-    thrust: 250
-  - type: ApcPowerReceiver
-    powerLoad: 200
   - type: Sprite
     scale: 0.8, 0.8
     sprite: _NF/Structures/Shuttles/gyroscope.rsi

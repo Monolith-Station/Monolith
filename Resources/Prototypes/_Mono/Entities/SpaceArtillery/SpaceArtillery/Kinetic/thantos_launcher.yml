@@ -22,6 +22,7 @@
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
+  - type: GunSignalControl #I'm not certain why a station only gun has it in the description.
   - type: Gun
     fireRate: 0.1
     recoil: 2500 # 100x
@@ -73,10 +74,20 @@
   - type: RadarBlip
     radarColor: "#CF0E0E"
     scale: 3
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#CF0E0E"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-3,-3,3,3"
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 60
+    repairCost: 300
 
 
 # If someone wants to make a ship version go nuts, but be SURE it uses ammo

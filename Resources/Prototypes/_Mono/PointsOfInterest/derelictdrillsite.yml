@@ -9,7 +9,7 @@
 # Notes:
 - type: pointOfInterest
   id: Mining
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'Derelict Drillsite'
   minimumDistance: 3500
   maximumDistance: 7500

@@ -14,6 +14,7 @@
   - type: AmmoCounter
   - type: WirelessNetworkConnection
     range: 500
+  - type: GunSignalControl
   - type: Gun
     fireRate: 0.05
     recoil: 2500 # 100x
@@ -55,10 +56,20 @@
   - type: RadarBlip
     radarColor: "#CF0E0E"
     scale: 3
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#CF0E0E"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1.5,-2.5,1.5,2.5"
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 45
+    repairCost: 300
 
 # Station one w/ infinite ammo
 

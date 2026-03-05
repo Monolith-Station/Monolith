@@ -15,6 +15,22 @@
         - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
     access: [["USSP"]]
+    
+- type: entity
+  id: SuitStorageUsspL10
+  parent: SuitStorageBase
+  suffix: USSP L-10
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: NitrogenTankFilled
+        - id: ClothingOuterHardsuitUsspL10
+        - id: ClothingMaskGasSecurity
+        - id: JetpackMiniFilled
+        - id: ClothingShoesBootsMagSecurity
+#  - type: AccessReader #USSP Access currently unused
+#    access: [["USSP"]]
 
 - type: entity
   id: SuitStorageCommissar

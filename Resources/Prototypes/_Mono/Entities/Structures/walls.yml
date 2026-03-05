@@ -40,6 +40,9 @@
     price: 25
   - type: ArmorThickness
     thickness: 3
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 3
 
 - type: entity
   abstract: true
@@ -81,6 +84,9 @@
     price: 25
   - type: ArmorThickness
     thickness: 5
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   abstract: true
@@ -122,6 +128,9 @@
     price: 50
   - type: ArmorThickness
     thickness: 10
+  - type: ShipRepairable
+    repairTime: 5
+    repairCost: 8
 
 - type: entity
   abstract: true
@@ -163,6 +172,9 @@
     price: 75
   - type: ArmorThickness
     thickness: 15
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 12
 
 - type: entity
   abstract: true
@@ -283,6 +295,9 @@
   - type: Icon
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 20
 
 # plastitanum
 
@@ -304,6 +319,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: ShipRepairable
+    repairTime: 12
+    repairCost: 30
 
 - type: entity
   parent: WallPlastitaniumDiagonal
@@ -328,6 +346,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 20
 
 # capital-only plastitainum
 

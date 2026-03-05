@@ -1,0 +1,49 @@
+#fallback, don't remove
+- type: ambientSpaceBiome
+  id: BiomeDefault
+  name: Uncharted Space
+
+#expedition biome - hardcoded in SpawnSalvageMissionJob.cs
+- type: ambientSpaceBiome
+  id: BiomeExpedition
+  name: Expedition
+  description: "Uncharted land."
+
+#ftl biome - hardcoded in ShuttleSystem.FasterThanLight.cs
+- type: ambientSpaceBiome
+  id: BiomeFTL
+  name: Hyperspace
+  description: "Upon the pale horse, with Hell behind you."
+
+#far reaches
+
+- type: ambientSpaceBiome
+  id: BiomeFarReachesIII
+  name: Far Reaches III
+  description: "Things have learnt to walk that ought to crawl."
+
+- type: ambientSpaceBiome
+  id: BiomeFarReachesII
+  name: Far Reaches II
+  description: "There's nothing this far out anymore. Or that's what you would find yourself wishing."
+
+- type: ambientSpaceBiome
+  id: BiomeFarReachesI
+  name: Far Reaches I
+  description: "You feel like the asteroids are moving even while you aren't. Or watching you. Or both."
+
+#actual biomes
+- type: ambientSpaceBiome
+  id: BiomeOuterRing
+  name: Outer Ring
+  description: "Far from radio range. Far from help. The stars here are dimmer."
+
+- type: ambientSpaceBiome
+  id: BiomeMiddleRing
+  name: Middle Ring
+  description: "Stellar outskirts, often crawling with riches and danger."
+
+- type: ambientSpaceBiome
+  id: BiomeInnerRing
+  name: Inner Ring
+  description: "Civilised space. The constellations seen from here are burned into your memory."

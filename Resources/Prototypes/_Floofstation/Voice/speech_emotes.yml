@@ -2,11 +2,12 @@
   id: Yip
   name: chat-emote-name-yip
   category: Vocal
+  available: false
   icon: { sprite: Mobs/Animals/kobold.rsi, state: full }
   chatMessages: [ "chat-emote-msg-yip" ]
-  whitelist:
-    tags:
-    - ReptilianEmotes
+#  whitelist: # Mono edit.
+#    tags:
+#    - ReptilianEmotes
   blacklist:
     components:
       - BorgChassis

@@ -94,6 +94,10 @@
         machine_parts: !type:Container
     - type: PirateBountyItem
       id: FTLDrive
+    # can repair it without pre-fracture SRD but expensive
+    - type: ShipRepairable
+      repairTime: 20
+      repairCost: 150
 
 - type: entity
   parent: MachineFTLDrive
@@ -124,6 +128,13 @@
     energy: 1.5
   - type: Machine
     board: MachineDriveCTLA50Circuitboard
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 220
+  - type: ShipRepairableRestrict
+    toolWhitelist:
+      tags:
+      - ADSRepairTool
 
 - type: entity
   parent: MachineFTLDrive
@@ -157,3 +168,10 @@
     energy: 1.5
   - type: Machine
     board: MachineDriveCTLA25sCircuitboard
+  - type: ShipRepairable
+    repairTime: 25
+    repairCost: 180
+  - type: ShipRepairableRestrict
+    toolWhitelist:
+      tags:
+      - ADSRepairTool

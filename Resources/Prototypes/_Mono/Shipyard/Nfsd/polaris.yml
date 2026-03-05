@@ -26,6 +26,9 @@
   stations:
     PolarisShip:
       stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Is all this really worth it? A sense of regret washes over you, then dissapears."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Polaris TSFN{1}'

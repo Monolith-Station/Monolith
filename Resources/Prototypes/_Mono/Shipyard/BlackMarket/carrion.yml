@@ -1,0 +1,35 @@
+- type: vessel
+  id: Carrion
+  parent: BaseVesselAntag
+  name: ELH Carrion
+  description: A fighter armed with 4x 90mm DRAVON autocannons and a GPOB-L bomb bay, built for reconnaissance and extreme-speed skirmishing.
+  price: 29000 #Appraised at 26000-ish
+  category: Small
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/carrion.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  - Fighter
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Carrion
+  mapName: 'ELH Carrion'
+  mapPath: /Maps/_Mono/Shuttles/BlackMarket/carrion.yml
+  minPlayers: 0
+  stations:
+    Carrion:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Carrion PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

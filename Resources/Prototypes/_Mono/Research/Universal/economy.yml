@@ -1,0 +1,42 @@
+
+- type: technology
+  id: BasicProcessing
+  name: research-technology-basic-economy
+  entityIcon: UraniumProcessingIcon
+  discipline: FactionUniversal
+  tier: 1
+  cost: 20000
+  recipeUnlocks:
+  - CentrifugeLatheMiniCircuitboard
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 9, 1
+
+- type: entity
+  id: UraniumProcessingIcon
+  components:
+  - type: Sprite
+    sprite: _Mono/Effects/processing.rsi
+    state: processing_2
+
+- type: technology
+  id: UraniumProcessingAdvanced
+  name: research-technology-uranium-processing-advanced
+  entityIcon: UraniumEnrichedProcessingIcon
+  discipline: FactionUniversal
+  tier: 2
+  cost: 30000
+  recipeUnlocks:
+  - UraniumCentrifugeReprocessingMini
+  - UraniumCentrifugeEnrichedProcessingMini
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  - BasicProcessing
+  position: 9, 6
+
+- type: entity
+  id: UraniumEnrichedProcessingIcon
+  components:
+  - type: Sprite
+    sprite: _Mono/Effects/processing.rsi
+    state: processing_3

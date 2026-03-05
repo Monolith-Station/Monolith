@@ -66,6 +66,11 @@ public static class DroneConsoleConstants
 {
     public const string CommandMove = "drone_cmd_move";
     public const string CommandTarget = "drone_cmd_target";
-    public const string KeyCoords = "coords";
     public const string TargetCoords = "target";
+}
+
+public enum DroneOrderType
+{
+    Move,
+    Target
 }

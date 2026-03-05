@@ -1,3 +1,21 @@
+# SPDX-FileCopyrightText: 2023 Kesiath
+# SPDX-FileCopyrightText: 2023 LankLTE
+# SPDX-FileCopyrightText: 2024 Dvir
+# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
+# SPDX-FileCopyrightText: 2024 Maxtone
+# SPDX-FileCopyrightText: 2024 Salvantrix
+# SPDX-FileCopyrightText: 2024 Tych0
+# SPDX-FileCopyrightText: 2024 Whatstone
+# SPDX-FileCopyrightText: 2025 Arcticular
+# SPDX-FileCopyrightText: 2025 BramvanZijp
+# SPDX-FileCopyrightText: 2025 LukeZurg22
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 dustylens
+# SPDX-FileCopyrightText: 2025 starch
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: IDCardStandard
   id: MercenaryIDCard
@@ -185,12 +203,13 @@
     job: StationRepresentative
 
 - type: entity
-  parent: ValetIDCard
-  id: ValetNFIDCard
-  name: valet ID card
-  components:
+  parent: CCServiceWorkerIDCard
+  id: CCServiceWorkerNFIDCard #Mono
+  name: colossus sector service ID card
+  description: An identification card belonging to a service worker in the Colossus Sector.
+  components: 
   - type: PresetIdCard
-    job: Valet
+    job: ServiceWorker
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:

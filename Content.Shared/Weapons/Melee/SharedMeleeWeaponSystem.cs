@@ -134,6 +134,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
     private void OnGetBonusMeleeDamage(EntityUid uid, BonusMeleeDamageComponent component, ref GetMeleeDamageEvent args)
     {
+        if (args.User == args.Weapon && !component.ApplyIfUser) // Mono edit
+            return; // Mono
         if (component.BonusDamage != null)
             args.Damage += component.BonusDamage;
         if (component.DamageModifierSet != null)

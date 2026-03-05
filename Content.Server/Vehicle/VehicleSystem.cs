@@ -13,8 +13,8 @@ public sealed class VehicleSystem : SharedVehicleSystem
         base.OnStrapped(uid, component, ref args);
 
         var blip = EnsureComp<RadarBlipComponent>(uid);
-        blip.RadarColor = Color.Cyan;
-        blip.Scale = 0.5f;
+        blip.Config.Color = Color.Cyan;
+        blip.Config.Bounds = new(-0.25f, -0.25f, 0.25f, 0.25f);
         blip.VisibleFromOtherGrids = true;
     }
 

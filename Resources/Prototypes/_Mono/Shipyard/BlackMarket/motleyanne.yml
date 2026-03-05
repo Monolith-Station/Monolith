@@ -1,0 +1,37 @@
+- type: vessel
+  id: MotleyAnne
+  parent: BaseVesselAntag
+  name: PDV-IED Motley Anne
+  description: A support mothership designed to reinforce an engagements back-line with mech and drone ensemble or closer resupplies.
+  price: 280000
+  limit: 2
+  purchasable: false
+  category: Medium
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/motleyanne.yml
+  guidebookPage: ShipyardMotleyAnne
+  class:
+  - Pursuit
+  - Patrol
+  engine:
+  - AME
+
+- type: gameMap
+  id: MotleyAnne
+  mapName: 'PDV Motley Anne'
+  mapPath: /Maps/_Mono/Shuttles/BlackMarket/motleyanne.yml
+  minPlayers: 0
+  stations:
+    MotleyAnne:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Motley Anne PDV{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Pirate: [ 0, 0 ]
+

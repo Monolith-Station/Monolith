@@ -27,6 +27,9 @@
   stations:
     Ledokol:
       stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Why did I come to this sector?"
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Ledokol MIL{1}'

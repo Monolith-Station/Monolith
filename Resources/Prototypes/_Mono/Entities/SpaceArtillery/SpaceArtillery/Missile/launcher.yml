@@ -42,7 +42,63 @@
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 2.75
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Missile
   - type: ShipGunClass
     shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 120
+
+# Pre-Fracture
+
+- type: entity
+  id: WeaponTurretTorpedoEntropy
+  name: Curio-1602 electron torpedo launcher "Entropy"
+  suffix: ADS ONLY
+  parent: BallisticArtillery
+  description: An odd weapon of the pre-fracture era, it projects a mass of electrons that seek out the positive charge of nearby targets, overloading systems and shattering sections of hull.
+  components:
+  - type: StaticPrice
+    price: 5000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/entropy.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.1
+    shootThermalSignature: 32000000 # ~5.6km
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 250
+    powerUsePassive: 200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 400
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipMissileEntropy
+    fireCost: 4000
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 2.75
+  - type: ShipGunType
+    shipType: Missile
+  - type: ShipGunClass
+    shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 120

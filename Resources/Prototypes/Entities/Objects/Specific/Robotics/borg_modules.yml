@@ -393,6 +393,7 @@
     moduleId: RCD # Frontier
     items:
     - RCDRecharging
+    - ShipRepairDeviceRecharging # Mono
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
 
@@ -752,6 +753,7 @@
       - Crowbar
       - Emag
       - AccessBreaker
+      - WeaponGrapplingGun # Mono
       - PinpointerSyndicateNuclear
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }

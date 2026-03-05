@@ -7,7 +7,7 @@
 # Discord: ???
 - type: pointOfInterest
   id: HeliosFortress
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'PDV Helios Fortress'
   minimumDistance: 7500
   maximumDistance: 9500
@@ -27,6 +27,9 @@
   stations:
     HeliosFortress:
       stationProto: RecordsFrontierOutpostCargo
+      gridComponents:
+      - type: VesselInfo
+        description: "An oppressive imperial aura lurks here. Glory to the Sultan."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'PDV Helio Fortress'
@@ -43,7 +46,7 @@
             Pirate: [ -1, -1 ]
             PdvBorg: [ 2, 2 ]
           tags:
-          - RogueCommander
+          - GrandVizier
         - type: StationDeadDropReporting
           messageSet: Pirate
         - type: StationDeadDropHintExempt

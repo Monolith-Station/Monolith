@@ -79,7 +79,7 @@
        weight: 2
      - id: MaterialDiamond1
      - id: MaterialBluespace1
-    
+
 # Tools
 - type: entityTable
   id: ScrapProcessToolFluffBranch
@@ -123,6 +123,8 @@
      - id: FlashPayload
      - id: ModularGrenade
      - id: RCDAmmo
+     - id: ShipRepairDeviceAmmo
+       weight: 0.75
    - !type:GroupSelector
      weight: 2
      children:
@@ -156,6 +158,7 @@
      - id: JawsOfLife
      - id: WelderExperimental
      - id: RCD
+     - id: ShipRepairDeviceEmpty
 # Scrap
 - type: entityTable
   id: ScrapSalvageTrashBranch
@@ -232,6 +235,7 @@
     - id: SolarTrackerElectronics
     - id: ContainmentFieldGeneratorCircuitboard
     - id: SolarAssemblyFlatpack
+    - id: CentrifugeLatheMiniCircuitboard # Mono: Economy
     #Atmos
     - !type:GroupSelector
       weight: 2

@@ -84,13 +84,14 @@
   result: ShipVoucherFlyssa
   completetime: 10
   materials:
-    Steel: 60000
-    Plasteel: 75000
+    Steel: 40000
+    Plasteel: 55000
     Plastic: 50000
-    Glass: 10000
-    Plasma: 7500
-    Uranium: 5000
-    Silver: 10000
+    Glass: 9000
+    Plasma: 500
+    UraniumFissile: 1000
+    UraniumDepleted: 5000
+    Silver: 5000
     Gold: 5000
 
 - type: latheRecipe
@@ -104,24 +105,12 @@
     Plastic: 30000
     Glass: 10000
     Plasma: 5000
-    Uranium: 10000
+    UraniumFissile: 600
+    UraniumDepleted: 4000
     Silver: 10000
     Gold: 5000
 
 # PDV
-- type: latheRecipe
-  parent: BaseVoucherRecipe
-  id: ProwlerVoucherRogue
-  result: ShipVoucherProwler
-  materials:
-    Steel: 20000
-    Plasteel: 10000
-    Plastic: 30000
-    Glass: 10000
-    Plasma: 20000
-    Uranium: 20000
-    Silver: 15000
-    Gold: 15000
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -133,9 +122,67 @@
     Plastic: 30000
     Glass: 5000
     Plasma: 5000
-    Uranium: 10000
+    UraniumFissile: 600
+    UraniumDepleted: 4000
     Silver: 5000
     Gold: 5000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: MotleyAnneVoucherRogue
+  result: ShipVoucherMotleyAnne
+  materials:
+    Steel: 50000
+    Plasteel: 25000
+    Plastic: 10000
+    Glass: 5000
+    Plasma: 5000
+    Uranium: 5000
+    Silver: 5000
+    Gold: 5000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: MockVoucherRogue
+  result: ShipVoucherMock
+  materials:
+    Steel: 4500
+    Plasteel: 5000
+    Plastic: 3500
+    Glass: 2000
+    Plasma: 1000
+    Uranium: 1000
+    Silver: 2500
+    Gold: 2500
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: InertiaVoucherRogue
+  result: ShipVoucherInertia
+  materials:
+    Steel: 7500
+    Plasteel: 6500
+    Plastic: 3500
+    Glass: 5000
+    Plasma: 2000
+    Uranium: 2000
+    Silver: 4500
+    Gold: 4500
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: SnakeletVoucherRogue
+  result: ShipVoucherSnakelet
+  materials:
+    Steel: 6500
+    Plasteel: 4500
+    Plastic: 3000
+    Glass: 1000
+    Plasma: 1500
+    Uranium: 1500
+    Silver: 3000
+    Gold: 3000
+
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -148,6 +195,7 @@
     Plastic: 50000
     Glass: 10000
     Plasma: 7500
-    Uranium: 10000
+    UraniumFissile: 1000
+    UraniumDepleted: 5000
     Silver: 10000
     Gold: 10000

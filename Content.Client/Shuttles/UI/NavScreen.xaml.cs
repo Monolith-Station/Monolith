@@ -47,15 +47,16 @@ public sealed partial class NavScreen : BoxContainer
 
         NavRadar.IFFFilter = text.Length == 0
             ? null // If empty, do not filter
-            : (entity, grid, iff) => // Otherwise use simple search criteria
+            : (entity, grid, iff, hideLabel, name) => // Otherwise use simple search criteria
             {
                 // Check entity name
-                if (_entManager.TryGetComponent<MetaDataComponent>(entity, out var metadata) && 
-                    metadata.EntityName.Contains(text, StringComparison.OrdinalIgnoreCase))
+                if (name.Contains(text, StringComparison.OrdinalIgnoreCase))
                 {
                     return true;
                 }
-                
+                if (hideLabel)
+                    return false;
+
                 // Check company name
                 if (_entManager.TryGetComponent<CompanyComponent>(entity, out var companyComp) &&
                     !string.IsNullOrEmpty(companyComp.CompanyName))
@@ -65,16 +66,16 @@ public sealed partial class NavScreen : BoxContainer
                     {
                         return true;
                     }
-                    
+
                     // Try to match company name from prototype
                     if (_prototypeManager.TryIndex<CompanyPrototype>(
-                        companyComp.CompanyName, out var prototype) && 
+                        companyComp.CompanyName, out var prototype) &&
                         prototype.Name.Contains(text, StringComparison.OrdinalIgnoreCase))
                     {
                         return true;
                     }
                 }
-                
+
                 return false;
             };
     }
@@ -113,10 +114,10 @@ public sealed partial class NavScreen : BoxContainer
     public void UpdateState(NavInterfaceState scc)
     {
         NavRadar.UpdateState(scc);
-        
+
         // Update port names if custom names are available
         UpdateNetworkPortButtonNames(scc.NetworkPortNames);
-        
+
         NfUpdateState(); // Frontier Update State
     }
 

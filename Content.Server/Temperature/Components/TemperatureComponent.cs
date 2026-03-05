@@ -76,4 +76,10 @@ public sealed partial class TemperatureComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> ColdAlert = "Cold";
+
+    /// <summary>
+    /// Mono: Temperature exchange coefficent on interaction
+    /// </summary>
+    [DataField]
+    public float InteractionExchangeCoefficient = 0.25f;
 }

@@ -72,3 +72,81 @@
     sprintModifier: 0.85
   - type: PirateBountyItem # Mono
     id: StandardFactionLongarm
+
+- type: entity
+  id: WeaponRifleLeeEnfield
+  name: MI Lee Enfield Mk 98 (7.62x51mm)
+  parent: BaseWeaponRifle
+  description: "Reliable 762x51mm sniper rifle, designed and produced by Militia Ironworks to fit modern standards sniper rifle."
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/lee_enfield.rsi
+    layers:
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item # Mono
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/lee_enfield_inhands_32x.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/lee_enfield_inhands_32x.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: GunWieldBonus
+    minAngle: -27
+    maxAngle: -36
+  - type: Gun
+    minAngle: 27
+    maxAngle: 39
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine762x51mmFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine762x51mmFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge762x51mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge762x51mmFMJ
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 7
+    pvsIncrease: 0.7
+  - type: SpeedModifiedOnWield # Mono
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: PirateBountyItem # Mono
+    id: StandardFactionLongarm
+  - type: StaticPrice
+    price: 800
+    vendPrice: 12500

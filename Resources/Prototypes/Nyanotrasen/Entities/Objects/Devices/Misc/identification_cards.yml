@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2023 Checkraze
+# SPDX-FileCopyrightText: 2024 Dvir
+# SPDX-FileCopyrightText: 2024 Whatstone
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
+#
+# SPDX-License-Identifier: MPL-2.0
+
 - type: entity
   parent: IDCardStandard
   id: MailCarrierIDCard
@@ -27,16 +34,17 @@
 
 - type: entity
   parent: IDCardStandard
-  id: ValetIDCard
+  id: CCServiceWorkerIDCard #Mono
   categories: [ HideSpawnMenu ] # Frontier
-  name: valet ID card
+  name: colossus sector service ID card
+  description: An identification card belonging to a service worker in the Colossus Sector.
   components:
   - type: Sprite
     layers:
     - state: default
     - state: idintern-service
   - type: PresetIdCard
-    job: Valet
+    job: CCServiceWorker
 
 - type: entity
   parent: IDCardStandard

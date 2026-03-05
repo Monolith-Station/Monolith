@@ -288,10 +288,10 @@
         - id: ReverseCymbalsInstrument
         - id: CannedApplauseInstrument
 
-#Unused but probably useful to have
+#LootSpawner
 - type: entity
   name: Mono Maint Loot Spawner
-  suffix: UNUSED,Fluff+Clothes
+  suffix: Fluff+Clothes
   id: MonoMaintenanceFluffSpawner
   parent: MarkerBase
   components:
@@ -406,6 +406,7 @@
     - !type:GroupSelector
       weight: 28
       children:
+      - id: NaniteApplicator
       - id: ClothingHeadHatCone
       - id: Bucket
       - id: MopItem
@@ -415,7 +416,11 @@
       - id: GeigerCounter
       - id: AppraisalTool
       - id: RadioHandheldNF
+      - id: Spoon
+      - id: DrinkShaker
       - id: DrinkGlass
+      - id: JerryCanWeldingFuel
+      - id: JerryCanNaniteFuel
       - id: AmeJar
         weight: 0.5
       #Survival box
@@ -450,7 +455,6 @@
         - id: HandHeldMassScannerEmpty
         - id: PinpointerUniversal
           weight: 0.5
-      - id: JerryCanWeldingFuel
       - id: ResearchDisk35000
         weight: 0.5
       #Medkits
@@ -525,10 +529,10 @@
       - id: LidSalami
         weight: 0.05
 
-#Unused but probably useful to have
+#LootSpawner
 - type: entity
   name: Mono Maint Loot Spawner
-  suffix: UNUSED,Tools+Cells+Mats
+  suffix: Tools+Cells+Mats
   id: MonoMaintenanceToolSpawner
   parent: MarkerBase
   components:
@@ -638,10 +642,11 @@
         - id: Magazine762x54mmRFMJ
       - id: WeaponLaserPistolNF
       - id: WeaponLaserCarbine
-#Unused but probably useful to have
+      
+#LootSpawner
 - type: entity
   name: Mono Maint Loot Spawner
-  suffix: UNUSED,Scrap+Weapons
+  suffix: Scrap+Weapons
   id: MonoMaintenanceWeaponSpawner
   parent: MarkerBase
   components:

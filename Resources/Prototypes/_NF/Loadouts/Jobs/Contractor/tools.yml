@@ -104,9 +104,9 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 5000
+  price: 15000
   inhand:
-    - ShipyardRCD
+    - ShipRepairDevice
 
 - type: loadout
   id: ContractorHandheldCrewMonitor

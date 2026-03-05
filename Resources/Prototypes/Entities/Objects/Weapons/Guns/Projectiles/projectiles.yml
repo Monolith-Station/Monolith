@@ -436,6 +436,7 @@
     - state: chronobolt
       shader: unshaded
   - type: Projectile
+    noDamageDelete: false # Mono
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
@@ -445,6 +446,7 @@
   - type: TimedDespawn
     lifetime: 0.4
   - type: GatheringProjectile
+    amount: 6 # Mono
   - type: MiningGatheringSoft # Frontier
 
 - type: entity
@@ -469,7 +471,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 0.65
-    requireNoGrid: true
     shape: triangle
     # Mono end
   - type: Ammo
@@ -942,6 +943,9 @@
       bodyType: Dynamic
       linearDamping: 0
       angularDamping: 0
+    # Mono
+    - type: TileFrictionModifier
+      modifier: 0
     - type: Projectile
       deleteOnCollide: false
       damage:
@@ -956,8 +960,11 @@
           hard: false
           mask:
             - Impassable
-            - HighImpassable
+            - BulletImpassable # Mono
     - type: GrapplingProjectile
+    # Mono - so you can grapple asteroids
+    - type: ChunkLoader
+      loadingDistance: 32
 
 - type: entity
   name : disabler bolt smg

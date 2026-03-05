@@ -9,6 +9,11 @@
   stations:
     Frontier:
       stationProto: StandardFrontierStation
+      gridComponents:
+      - type: VesselMusic
+        ambientMusicPrototype: ColossusCentralMusic
+      - type: VesselInfo
+        description: "The closest thing to civilisation in this sector. You almost feel safe."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Colossus Central'
@@ -32,7 +37,7 @@
             StationRepresentative: [ 1, 1 ]
             StationTrafficController: [ 2, 2 ]
             SecurityGuard: [ 3, 3 ]
-            Valet: [ 2, 2 ]
+            CCServiceWorker: [ 2, 2 ]
             NFJanitor: [ 2, 2 ]
             MailCarrier: [ 2, 2 ]
           tags:

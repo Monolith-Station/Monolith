@@ -53,6 +53,11 @@
   - type: GuideHelp
     guides:
     - SolarPanels
+  # Mono
+  - type: ShipRepairable
+    repairTo: SolarPanel
+    repairTime: 1
+    repairCost: 2
 
 - type: entity
   id: SolarPanelPlasma

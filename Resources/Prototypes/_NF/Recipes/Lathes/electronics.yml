@@ -97,7 +97,7 @@
   id: SmallThrusterMachineCircuitboard
   parent: BaseCircuitboardRecipe
   result: SmallThrusterMachineCircuitboard
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
   materials:
     Steel: 140
     Glass: 300

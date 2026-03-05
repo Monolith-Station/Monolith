@@ -67,5 +67,8 @@
           enum.PowerDeviceVisualLayers.Powered:
             True: { visible: true }
             False: { visible: false }
+    - type: ShipRepairable
+      repairTime: 30
+      repairCost: 150
 # visuals are broken but this thing is going to be unanchorable anyway so who cares
 ## this probably is a problem with my implementation of the enum anchored visual system

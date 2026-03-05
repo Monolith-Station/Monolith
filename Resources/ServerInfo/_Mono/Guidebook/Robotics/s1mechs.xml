@@ -1,0 +1,59 @@
+<Document>
+#Series 1 Combat Mechs
+
+  The cheapest and most frequently deployed Mechs, most often utilized as a suit of Powered Armor for infantry conflicts and boarding actions.
+
+  All S1 Mechs are space insulated, provide breathable atmosphere, and have maneuvering jets.
+
+  <Box>
+    <GuideEntityEmbed Entity="MechGygax"/>
+    <GuideEntityEmbed Entity="MechDurand"/>
+  </Box>
+
+##Gygax
+
+The Gygax is a fast, lightly-armored strike platform. It is vulnerable to handheld weaponry, but provides its operator protection from common combat injuries.
+
+##Durand
+
+The Durand is a slow, lumbering, heavily armored tank. It is vulnerable to concentrated fire but is durable enough to walk off injuries that would disable or destroy a Gygax.
+
+##Weaponry
+  <Box>
+    <GuideEntityEmbed Entity="WeaponMechCombatUltraRifle"/>
+    <GuideEntityEmbed Entity="WeaponMechCombatShotgun" Caption="LBX AC-10"/>
+    <GuideEntityEmbed Entity="WeaponMechCombatShotgunIncendiary"/>
+    <GuideEntityEmbed Entity="WeaponMechCombatMissileRack8"/>
+  </Box>
+ - The Ultra AC-2 is a highly accurate light machine gun.
+ - The LBX AC-10 is a light automatic shotgun that fires standard 12-guage buckshot.
+ - The FNX-99 Hades Carbine is a light automatic shotgun that fires 12-gauge incendiary shells.
+ - The SRM-8 Light Missile Rack is a self-loading unguided rocket launcher useful for breaching airlock doors.
+  <Box>
+    <GuideEntityEmbed Entity="WeaponMechCombatDisabler"/>
+    <GuideEntityEmbed Entity="WeaponMechCombatFlashbangLauncher"/>
+  </Box>
+  - The CH-PD Disabler is a mech-mounted varient of the standard handheld Disabler.
+  - The SGL-6 Flashbang Launcher does exactly what you would expect, for a surprisingly low cost.
+  <Box>
+    <GuideEntityEmbed Entity="WeaponMechCombatFiredartLaser"/>
+    <GuideEntityEmbed Entity="WeaponMechCombatSolarisLaser"/>
+    <GuideEntityEmbed Entity="WeaponMechCombatImmolationGun"/>
+  </Box>
+  - The CH-PS Firedart is the mech-mounted equivalent to a Makeshift Laser Pistol.
+  - The CH-LC Solaris is equivalent to a standard Laser Rifle.
+  - The ZFI Immolation Beam Gun is equivalent to a Laser Cannon.
+
+
+##Syndicate Mechs
+
+The [color=crimson]Syndicate[/color] created variations of the standard powered armor Mechs which were provided to Nuclear Operatives in their station-destroying operations. These can still rarely be found deployed in the Colossus Sector.
+
+  <Box>
+    <GuideEntityEmbed Entity="MechGygaxSyndie"/>
+    <GuideEntityEmbed Entity="MechMaulerSyndie"/>
+  </Box>
+
+  These mechs are invariably better than the standard-issue versions, featuring significant improvements to armor plating and an expanded equipment capacity.
+
+</Document>

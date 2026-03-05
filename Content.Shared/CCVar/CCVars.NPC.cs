@@ -27,5 +27,5 @@ public sealed partial class CCVars
     /// <summary>
     ///     Mono: Distance threshold for pausing NPCs when no players are in range.
     /// </summary>
-    public static readonly CVarDef<float> NPCPlayerPauseDistance = CVarDef.Create("npc.player_pause_distance", 2000f);
+    public static readonly CVarDef<float> NPCPlayerPauseDistance = CVarDef.Create("npc.player_pause_distance", 32f);
 }

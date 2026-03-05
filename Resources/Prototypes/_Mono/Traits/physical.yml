@@ -103,13 +103,13 @@
   name: trait-thieving-name
   description: trait-thieving-desc
   category: Physical
-  cost: 3
+  cost: 2
   speciesBlacklist:
   - Felinid
   components:
   - type: Thieving
-    stealthy: true
-    timeMultiplier: 0.67
+    stealthy: false
+    timeMultiplier: 0.5
     identifyHidden: true
 
 - type: trait
@@ -317,7 +317,7 @@
   cost: -5 # This shit was FREE for factions practically
   components:
   - type: Ironman
-  traitGear: SpaceCash10000
+  traitGear: ShipVoucherFrontierIronMan
 
 - type: trait
   id: TemperatureTolerance
@@ -366,3 +366,36 @@
     intervalSeconds: 1
     healPerSecond: .5
     critMultiplier: .25
+
+- type: trait
+  id: NaniteRepairDrones
+  name: trait-nanite-repair-drones-name
+  description: trait-nanite-repair-drones-desc
+  category: Physical
+  cost: 8
+  speciesBlacklist:
+  - Human
+  - Chitinid
+  - Oni
+  - Vulpkanin
+  - Vox
+  - Diona
+  - Moth
+  - Goblin
+  - Arachnid
+  - Resomi
+  - Harpy
+  - Reptilian
+  - Hydrakin
+  - Rodentia
+  - Dwarf
+  - SlimePerson
+  - Felinid
+  - Tajaran
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: PlateletFactories
+    intervalSeconds: 1
+    healPerSecond: .5

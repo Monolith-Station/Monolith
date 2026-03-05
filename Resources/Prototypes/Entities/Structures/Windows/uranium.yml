@@ -50,6 +50,9 @@
     price: 80 # Frontier: 200<80 - TODO: material value rework
   - type: RadiationBlocker
     resistance: 3
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 3
 
 - type: entity
   id: UraniumWindowDirectional

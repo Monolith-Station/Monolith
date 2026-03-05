@@ -32,4 +32,16 @@ public sealed partial class ShipTargetingComponent : Component
     /// </summary>
     [DataField]
     public List<EntityUid> Cannons = new();
+
+    /// <summary>
+    /// Accumulator of checking the grid's weapons.
+    /// </summary>
+    [ViewVariables]
+    public float WeaponCheckAccum = 0f;
+
+    /// <summary>
+    /// How often to re-check available weapons.
+    /// </summary>
+    [ViewVariables]
+    public float WeaponCheckSpacing = 3f;
 }

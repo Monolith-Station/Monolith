@@ -16,6 +16,12 @@ public sealed partial class GridCleanupGridComponent : Component
     public float CleanupAcceleration = 1f;
 
     /// <summary>
+    ///     If set, will make this grid get cleaned up if no players are in this range instead of default.
+    /// </summary>
+    [DataField]
+    public float? DistanceOverride = null;
+
+    /// <summary>
     ///     Whether to cleanup this grid even if it's powered.
     /// </summary>
     [DataField]

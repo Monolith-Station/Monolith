@@ -180,6 +180,10 @@
     - Airlocks
     - WirePanels
     - Networking
+  # Mono
+  - type: ShipRepairable
+    repairTime: 6
+    repairCost: 6
   placement:
     mode: SnapgridCenter
 

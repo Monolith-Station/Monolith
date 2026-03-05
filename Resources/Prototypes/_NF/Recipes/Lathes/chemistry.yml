@@ -9,6 +9,12 @@
   id: JugBluespace
   result: JugBluespace
   parent: BluespaceBeaker # same size, 1:1 recipe
+  materials: #Mono: The above statement is FALSE. Corrections involve material changes.
+    Steel: 400
+    Plastic: 400
+    Plasma: 100
+    Silver: 100
+    Bluespace: 175 #small discount, less flexible than a beaker
 
 - type: latheRecipe
   id: VialBluespace

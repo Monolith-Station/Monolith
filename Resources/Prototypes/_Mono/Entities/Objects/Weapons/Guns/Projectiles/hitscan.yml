@@ -59,3 +59,15 @@
         Structural: 300
   - type: HitscanBasicRaycast
     maxDistance: 360.0
+
+- type: entity
+  parent: Pulse
+  id: RiflePulse #Pulse rifle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 25 # Mono
+        Shock: 10
+        Structural: 70

@@ -82,3 +82,10 @@
   parent: BaseCircuitboardRecipe
   id: SmartfridgeCircuitboard
   result: SmartfridgeCircuitboard
+
+# economy
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: CentrifugeLatheMiniCircuitboard
+  result: CentrifugeLatheMiniCircuitboard

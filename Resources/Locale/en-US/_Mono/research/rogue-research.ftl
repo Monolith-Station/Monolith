@@ -23,10 +23,11 @@ research-technology-rogue-hristov = Heavy Ballistics
 research-technology-rogue-stealthsuit = Metamaterial Fibers
 research-technology-rogue-subsonic = Subsonic Firearms
 research-technology-rogue-saintie-voucher = PDV Saintie Procurement LPC
+research-technology-rogue-motley-anne-voucher = PDV Motley Anne Procurement LPC
+research-technology-rogue-motley-anne-fighters = PDV Motley Anne's Drones
 
 # T3 rogue
 research-technology-rogue-saturn-voucher = PDV Saturn Procurement LPC
-research-technology-rogue-prowler-voucher = Stealthcraft Technologies
 research-technology-rogue-energy-weapon = Advanced Plasma Weaponization
 research-technology-rogue-access-breaker = Advanced Hacking Procedures
 research-technology-rogue-hf-sword = Weaponised Resonance Technology

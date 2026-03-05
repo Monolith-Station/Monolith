@@ -190,6 +190,9 @@
   - type: Construction
     graph: AirlockShuttle
     node: gaslock
+  - type: ShipRepairable
+    repairTime: 6
+    repairCost: 6
 
 - type: entity
   parent: [BaseStructureDynamic, BasePressurePumpGaslock]

@@ -1,33 +1,81 @@
+using Content.Server._Mono.Radar;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.NPC.HTN;
+using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._Crescent.DroneControl;
-using Content.Shared.DeviceNetwork.Systems;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
+using Content.Shared.DeviceNetwork.Systems;
+using Content.Shared.Popups;
+using Content.Shared.Verbs;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server._Crescent.DroneControl;
 
 public sealed class DroneControlSystem : EntitySystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly ShuttleConsoleSystem _shuttleConsole = default!;
     [Dependency] private readonly DeviceListSystem _deviceList = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly HTNSystem _htn = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly ShuttleConsoleSystem _shuttleConsole = default!;
+
+    private EntityQuery<DroneControlComponent> _controlQuery;
+
+    private HashSet<Entity<DockingComponent>> _docks = new();
+    private HashSet<Entity<DroneControlComponent>> _controllers = new();
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<DroneControlConsoleComponent, GetRadarSourcesEvent>(OnGetSources);
+        SubscribeLocalEvent<DroneControlConsoleComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs);
         SubscribeLocalEvent<DroneControlConsoleComponent, DeviceListUpdateEvent>(OnListUpdate);
+
         SubscribeLocalEvent<DroneControlConsoleComponent, BoundUIOpenedEvent>(OnUIOpened);
         SubscribeLocalEvent<DroneControlConsoleComponent, DroneConsoleMoveMessage>(OnMoveMsg);
         SubscribeLocalEvent<DroneControlConsoleComponent, DroneConsoleTargetMessage>(OnTargetMsg);
 
         SubscribeLocalEvent<DroneControlComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
+
+        _controlQuery = GetEntityQuery<DroneControlComponent>();
+    }
+
+    private void OnGetSources(Entity<DroneControlConsoleComponent> ent, ref GetRadarSourcesEvent args)
+    {
+        args.Sources = new();
+        args.Sources.Add(ent);
+
+        foreach (var (name, device) in _deviceList.GetDeviceList(ent))
+        {
+            var xform = Transform(device);
+            if (xform.GridUid == null)
+                continue;
+            if (!_controlQuery.HasComp(device))
+                continue;
+
+            args.Sources.Add(device);
+        }
+    }
+
+    private void OnGetAltVerbs(Entity<DroneControlConsoleComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanInteract || !args.CanAccess)
+            return;
+
+        args.Verbs.Add(new AlternativeVerb
+        {
+            Text = Loc.GetString("drone-control-autolink"),
+            Priority = 10,
+            Act = () => TryAutolink(ent)
+        });
     }
 
     private void OnListUpdate(Entity<DroneControlConsoleComponent> ent, ref DeviceListUpdateEvent args)
@@ -39,6 +87,78 @@ public sealed class DroneControlSystem : EntitySystem
     {
         if (args.UiKey is DroneConsoleUiKey)
             UpdateState(ent);
+    }
+
+    private void OnMoveMsg(Entity<DroneControlConsoleComponent> ent, ref DroneConsoleMoveMessage args)
+    {
+        DoTargetedDroneOrder(ent, args.SelectedDrones, DroneOrderType.Move, GetCoordinates(args.TargetCoordinates), args.Actor);
+    }
+
+    private void OnTargetMsg(Entity<DroneControlConsoleComponent> ent, ref DroneConsoleTargetMessage args)
+    {
+        DoTargetedDroneOrder(ent, args.SelectedDrones, DroneOrderType.Target, GetCoordinates(args.TargetCoordinates), args.Actor);
+    }
+
+    private void OnPacketReceived(Entity<DroneControlComponent> ent, ref DeviceNetworkPacketEvent args)
+    {
+        if (!args.Data.TryGetValue(DeviceNetworkConstants.Command, out string? cmd)
+            || !TryComp<HTNComponent>(ent, out var htn)
+            || !args.Data.TryGetValue(DroneConsoleConstants.TargetCoords, out EntityCoordinates coords)
+        )
+            return;
+
+        var blackboard = htn.Blackboard;
+
+        if (!blackboard.TryGetValue<string>(ent.Comp.OrderKey, out var nowCmd, EntityManager) || !nowCmd.Equals(cmd))
+            _htn.ShutdownPlan(htn);
+
+        blackboard.SetValue(ent.Comp.OrderKey, cmd);
+        blackboard.SetValue(ent.Comp.TargetKey, coords);
+    }
+
+    private void DoTargetedDroneOrder(Entity<DroneControlConsoleComponent> console, HashSet<NetEntity> selected, DroneOrderType order, EntityCoordinates coordinates, EntityUid actor)
+    {
+        if (!coordinates.TryDistance(EntityManager, Transform(console).Coordinates, out var distance))
+            return;
+
+        if (distance > (console.Comp.MaxOrderRadius ?? float.MaxValue))
+        {
+            _popup.PopupEntity(Loc.GetString("drone-control-out-of-range"), console, PopupType.Medium);
+            return;
+        }
+
+        var command = "";
+        switch (order)
+        {
+            case DroneOrderType.Move:
+                command = DroneConsoleConstants.CommandMove;
+                break;
+            case DroneOrderType.Target:
+                command = DroneConsoleConstants.CommandTarget;
+                break;
+        }
+
+        var payload = new NetworkPayload
+        {
+            [DeviceNetworkConstants.Command] = command,
+            [DroneConsoleConstants.TargetCoords] = coordinates
+        };
+
+        SendToSelected(console, selected, payload);
+    }
+
+    private void SendToSelected(EntityUid source, HashSet<NetEntity> selected, NetworkPayload payload)
+    {
+        if (!TryComp<DeviceListComponent>(source, out var devList))
+            return;
+
+        var linked = _deviceList.GetDeviceList(source, devList);
+
+        foreach (var (name, droneUid) in linked)
+        {
+            if (selected.Contains(GetNetEntity(droneUid)) && TryComp<DeviceNetworkComponent>(droneUid, out var droneNet))
+                _deviceNetwork.QueuePacket(source, droneNet.Address, payload);
+        }
     }
 
     private void UpdateState(EntityUid console)
@@ -54,7 +174,7 @@ public sealed class DroneControlSystem : EntitySystem
             if (xform.GridUid == null)
                 continue;
 
-            if (!HasComp<DroneControlComponent>(device))
+            if (!_controlQuery.HasComp(device))
             {
                 toRemove.Add(device);
                 continue;
@@ -78,71 +198,43 @@ public sealed class DroneControlSystem : EntitySystem
         _ui.SetUiState(console, DroneConsoleUiKey.Key, new DroneConsoleBoundUserInterfaceState(nav, drones));
     }
 
-    // TODO: some more generic way of handling orders if we get more possible types
-    // for now a generic implementation would be counterproductive by trying to adapt to requirements we don't even have yet
-
-    private void OnMoveMsg(Entity<DroneControlConsoleComponent> ent, ref DroneConsoleMoveMessage args)
+    public void TryAutolink(EntityUid fromEnt)
     {
-        var payload = new NetworkPayload
-        {
-            [DeviceNetworkConstants.Command] = DroneConsoleConstants.CommandMove,
-            [DroneConsoleConstants.KeyCoords] = GetCoordinates(args.TargetCoordinates)
-        };
+        var newDrones = new List<EntityUid>();
 
-        SendToSelected(ent, args.SelectedDrones, payload);
-    }
-
-    private void OnTargetMsg(Entity<DroneControlConsoleComponent> ent, ref DroneConsoleTargetMessage args)
-    {
-        var payload = new NetworkPayload
-        {
-            [DeviceNetworkConstants.Command] = DroneConsoleConstants.CommandTarget,
-            [DroneConsoleConstants.TargetCoords] = GetCoordinates(args.TargetCoordinates)
-        };
-
-        SendToSelected(ent, args.SelectedDrones, payload);
-    }
-
-    private void SendToSelected(EntityUid source, HashSet<NetEntity> selected, NetworkPayload payload)
-    {
-        if (!TryComp<DeviceListComponent>(source, out var devList))
+        var xform = Transform(fromEnt);
+        var shipUid = xform.GridUid;
+        if (!TryComp<MapGridComponent>(shipUid, out var grid))
             return;
 
-        var linked = _deviceList.GetDeviceList(source, devList);
+        _docks.Clear();
+        _lookup.GetLocalEntitiesIntersecting(shipUid.Value, grid.LocalAABB, _docks);
 
-        foreach (var (name, droneUid) in linked)
+        foreach (var dock in _docks)
         {
-            if (selected.Contains(GetNetEntity(droneUid)) && TryComp<DeviceNetworkComponent>(droneUid, out var droneNet))
-                _deviceNetwork.QueuePacket(source, droneNet.Address, payload);
-        }
-    }
+            if (dock.Comp.DockedWith == null)
+                continue;
 
-    private void OnPacketReceived(Entity<DroneControlComponent> ent, ref DeviceNetworkPacketEvent args)
-    {
-        if (!args.Data.TryGetValue(DeviceNetworkConstants.Command, out var cmd)
-            || !TryComp<HTNComponent>(ent, out var htn)
-        )
-            return;
+            var withXform = Transform(dock.Comp.DockedWith.Value);
 
-        var blackboard = htn.Blackboard;
+            if (!TryComp<MapGridComponent>(withXform.GridUid, out var withGrid))
+                continue;
 
-        // TODO: again, decide on a more generic implementation once we have more possible orders
-        // and also decide on how the blackboard keys should be unhardcoded
-        if (cmd == DroneConsoleConstants.CommandMove)
-        {
-            if (args.Data.TryGetValue(DroneConsoleConstants.KeyCoords, out EntityCoordinates coords))
+            _controllers.Clear();
+            _lookup.GetLocalEntitiesIntersecting(withXform.GridUid.Value, withGrid.LocalAABB, _controllers);
+            foreach (var controller in _controllers)
             {
-                blackboard.Remove<EntityCoordinates>("ShootTarget");
-                blackboard.SetValue("MoveToTarget", coords);
+                if (!_controlQuery.TryComp(controller, out var controlComp) || controlComp.Autolinked)
+                    continue;
+
+                controlComp.Autolinked = true;
+                newDrones.Add(controller);
             }
         }
-        else if (cmd == DroneConsoleConstants.CommandTarget)
-        {
-            if (args.Data.TryGetValue(DroneConsoleConstants.TargetCoords, out EntityCoordinates target))
-            {
-                blackboard.Remove<EntityCoordinates>("MoveToTarget");
-                blackboard.SetValue("ShootTarget", target);
-            }
-        }
+
+        if (newDrones.Count != 0)
+            _deviceList.UpdateDeviceList(fromEnt, newDrones, true);
+
+        _popup.PopupEntity(Loc.GetString("drone-control-autolinked", ("count", newDrones.Count)), fromEnt, PopupType.Large);
     }
 }
