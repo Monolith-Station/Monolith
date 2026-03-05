@@ -34,7 +34,6 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsSecurity
@@ -81,7 +80,9 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
+      
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsParamedic
@@ -126,7 +127,9 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
+      
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsHeadOfSecurity
@@ -169,7 +172,9 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
+      
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsEngineer
@@ -208,7 +213,9 @@
       - state: equipped-HAND-sealed
       gloves-resomi:
       - state: equipped-HAND-sealed-resomi
-
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
+      
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsAtmostech
@@ -247,7 +254,9 @@
       - state: equipped-HAND-sealed
       gloves-resomi:
       - state: equipped-HAND-sealed-resomi
-
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
+      
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsResearchDirector
@@ -284,7 +293,9 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
+      
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsCaptain
@@ -309,6 +320,8 @@
         - state: equipped-HAND
         hands-resomi:
         - state: equipped-HAND-resomi
+        hands-vox:
+        - state: equipped-HAND-vox
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:
@@ -328,4 +341,5 @@
       - state: equipped-HAND-sealed
       gloves-resomi:
       - state: equipped-HAND-sealed-resomi
-
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox

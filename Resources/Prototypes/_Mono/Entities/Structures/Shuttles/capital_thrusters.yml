@@ -48,6 +48,16 @@
       shader: unshaded
       visible: false
       offset: 0, 2
+  - type: DeviceNetwork # Mono
+    deviceNetId: Wireless # Mono
+    receiveFrequencyId: BasicDevice # Mono
+  - type: WirelessNetworkConnection # Mono
+    range: 200 # Mono
+  - type: DeviceLinkSink # Mono
+    ports: # Mono
+    - On # Mono
+    - Off # Mono
+    - Toggle # Mono
   - type: Anchorable
     flags: None
   - type: StaticPrice

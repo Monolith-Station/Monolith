@@ -296,7 +296,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
     protected override void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null)
     {
-        var filter = Robust.Shared.Player.Filter.Pvs(gunUid, entityManager: EntityManager);
+        var filter = Robust.Shared.Player.Filter.Pvs(gunUid, 0.6f, EntityManager); // Mono - default -> 0.6f
 
         if (TryComp<ActorComponent>(user, out var actor))
             filter.RemovePlayer(actor.PlayerSession);
