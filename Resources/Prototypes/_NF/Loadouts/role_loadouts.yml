@@ -125,10 +125,13 @@
   - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
+  - ContractorUtility # Mono
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
+  - ContractorFirearm # Mono
+  - ContractorMag # Mono
 
 - type: roleLoadout
   id: JobNFJanitor
@@ -146,9 +149,12 @@
   - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
+  - ContractorUtility # Mono
   - ContractorFun
   - ContractorTrinkets
   - NFSpeciesSpecific
+  - ContractorFirearm # Mono
+  - ContractorMag # Mono
 
 - type: roleLoadout
   id: JobMailCarrier
@@ -166,10 +172,13 @@
   - MailCarrierWallet
   - ContractorCartridge
   - ContractorImplanter
+  - ContractorUtility # Mono
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
+  - ContractorFirearm # Mono
+  - ContractorMag # Mono
 
 - type: roleLoadout
   id: JobStationTrafficController
@@ -189,10 +198,13 @@
   - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
+  - ContractorUtility # Mono
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
+  - ContractorFirearm # Mono
+  - ContractorMag # Mono
 
 # Mono edit
 - type: roleLoadout
@@ -220,6 +232,7 @@
   - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
+  - ContractorUtility # Mono
  # - ContractorFun # Mono - no fun allowed
   - StationRepTrinkets
   - ContractorBureaucracy
@@ -248,6 +261,7 @@
   - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
+  - ContractorUtility # Mono
   - ContractorEncryptionKey
   - ContractorFun
   - ContractorTrinkets
@@ -273,6 +287,7 @@
   - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
+  - ContractorUtility # Mono
   - ContractorEncryptionKey
   - ContractorFun
   - ContractorTrinkets
