@@ -6,12 +6,14 @@
       - id: UnknownShuttleWyrm
       - id: UnknownShuttleNebula
       - id: UnknownShuttleFencer
+      - id: UnknownShuttleLancer
+
 - type: entityTable
   id: DamagedAIShipsTableT2
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
     - id: UnknownShuttleZenithE
-    - id: UnknownShuttleRazorN
+    - id: UnknownShuttleLancerN
     - id: UnknownShuttleWyvern
 
 - type: entity
@@ -88,6 +90,36 @@
     minPlayers: 15
   - type: LoadMapRule
     preloadedGrid: AILancerN
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleLancer
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-ai-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 3
+    maxOccurrences: 4
+  - type: GameRule
+    minPlayers: 15
+  - type: LoadMapRule
+    preloadedGrid: AILancer
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleFencer
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-ai-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 3
+    maxOccurrences: 4
+  - type: GameRule
+    minPlayers: 15
+  - type: LoadMapRule
+    preloadedGrid: AIFencer
 
 - type: entity
   parent: BaseRandomShuttleRule
