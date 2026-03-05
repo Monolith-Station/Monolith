@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/18/2026 08:42:36
+  time: 03/02/2026 19:39:00
   entityCount: 174
 maps: []
 grids:
@@ -109,10 +109,10 @@ entities:
             6: 0,-4
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        Kudzu: []
-        Smoke: []
         MetalFoam: []
+        Kudzu: []
+        Puddle: []
+        Smoke: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -686,7 +686,7 @@ entities:
     - type: Transform
       pos: -1.5,-1.5
       parent: 1
-- proto: GunneryServerMedium
+- proto: GunneryServerLow
   entities:
   - uid: 85
     components:
@@ -696,7 +696,7 @@ entities:
     - type: Battery
       startingCharge: 0
     - type: ApcPowerReceiver
-      powerLoad: 10
+      powerLoad: 5
 - proto: PlasmaReinforcedWindowDirectional
   entities:
   - uid: 86
@@ -933,24 +933,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -4.5,-3.5
       parent: 1
-- proto: SmallGyroscope
-  entities:
-  - uid: 98
-    components:
-    - type: Transform
-      pos: -1.5,-3.5
-      parent: 1
-- proto: SmallThruster
+- proto: SmallGyroscopeNfsd
   entities:
   - uid: 99
     components:
     - type: Transform
-      pos: 1.5,-0.5
-      parent: 1
-  - uid: 100
-    components:
-    - type: Transform
-      pos: -2.5,-0.5
+      pos: -1.5,-3.5
       parent: 1
 - proto: SubstationWallBasic
   entities:
@@ -968,13 +956,23 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-4.5
       parent: 1
-- proto: Thruster
+- proto: ThrusterNfsd
   entities:
+  - uid: 98
+    components:
+    - type: Transform
+      pos: -2.5,-0.5
+      parent: 1
+  - uid: 100
+    components:
+    - type: Transform
+      pos: 1.5,-0.5
+      parent: 1
   - uid: 103
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,-4.5
+      rot: 3.141592653589793 rad
+      pos: 0.5,-5.5
       parent: 1
   - uid: 104
     components:
@@ -985,14 +983,14 @@ entities:
   - uid: 105
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,-5.5
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-4.5
       parent: 1
   - uid: 106
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 0.5,-5.5
+      pos: -1.5,-5.5
       parent: 1
 - proto: WallReinforced
   entities:
