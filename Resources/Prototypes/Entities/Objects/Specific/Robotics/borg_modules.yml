@@ -753,7 +753,6 @@
       - Crowbar
       - Emag
       - AccessBreaker
-      - PinpointerSyndicatePOI
       - WeaponGrapplingGun # Mono
       - PinpointerSyndicateNuclear
     - type: BorgModuleIcon
@@ -773,14 +772,14 @@
       moduleId: EnergySword # Frontier
       items:
       - CyborgEnergySwordDouble
-      - PinpointerSyndicatePOI
+      - PinpointerSyndicateNuclear
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-esword-module }
 
 - type: entity
   id: BorgModuleL6C
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule ]
-  name: Bulldog cyborg module
+  name: L6C ROW cyborg module
   description: A module that comes with a L6C.
   components:
     - type: Sprite
@@ -790,8 +789,8 @@
     - type: ItemBorgModule
       moduleId: L6CROW # Frontier
       items:
-        - Weaponcyborgbulldog
-        - PinpointerSyndicatePOI
+        - WeaponLightMachineGunL6C
+        - PinpointerSyndicateNuclear
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-l6c-module }
 

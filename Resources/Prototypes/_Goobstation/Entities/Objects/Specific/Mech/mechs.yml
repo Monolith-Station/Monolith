@@ -207,6 +207,19 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Mech
     baseState: gygax
     openState: gygax-open
@@ -284,6 +297,19 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1750
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Mech
     baseState: durand
     openState: durand-open
@@ -365,6 +391,19 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1600
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Mech
     baseState: marauder
     openState: marauder-open
@@ -455,6 +494,19 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1800
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Mech
     baseState: seraph
     openState: seraph-open
@@ -548,6 +600,19 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Mech
     baseState: darkgygax
     openState: darkgygax-open
@@ -638,6 +703,19 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1800 # Mono
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Mech
     baseState: mauler
     openState: mauler-open
