@@ -17799,3 +17799,50 @@ Entries:
   id: 1961
   time: '2026-03-03T21:32:30.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3297
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Ironman Baeg voucher can alternatively purchase a Framework now. Renamed
+        to Ironman Voucher.
+    - type: Tweak
+      message: Blue ship voucher sprite Nanotrasen logo replaced with a Monolith emblem
+  id: 1962
+  time: '2026-03-04T09:03:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3350
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Smart Magnum no longer requires to be wielded
+  id: 1963
+  time: '2026-03-04T13:21:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3353
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Mech destruction threshold has been adjusted to their HP.
+  id: 1964
+  time: '2026-03-04T17:39:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3358
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: handheld Autopulser caustic removed, replaced with heat.
+    - type: Tweak
+      message: Faction borgs now have 40% explo resist as intended instead of 60%
+    - type: Tweak
+      message: ADMs have 65% explo resist instead of 75% now.
+    - type: Tweak
+      message: >-
+        Autopulser ammo reduced to 40 shots from 70, recharge speed buffed
+        slightly.
+  id: 1965
+  time: '2026-03-04T23:44:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3361
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Halcyon given more turrets and turrets are upgraded to heavy balistic.
+  id: 1966
+  time: '2026-03-05T04:56:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3309
