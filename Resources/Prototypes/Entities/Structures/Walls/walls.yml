@@ -357,6 +357,7 @@
   parent: [ WallPlastitaniumDiagonalIndestructible, BaseWallTierTwo ] # Mono
   id: WallPlastitaniumDiagonal
   name: plastitanium wall
+  description: Keeps the air in and the chimera out. #Mono
   suffix: diagonal
   placement:
     mode: SnapgridCenter
