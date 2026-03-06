@@ -2100,8 +2100,6 @@ entities:
       pos: -0.5,-2.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 255
     - type: AtmosPipeLayers
