@@ -1,49 +1,53 @@
 {
-  "version": 1,
-  "license": "CC0-1.0",
-  "copyright": "Original work by TJohnson. lamia & segment by @noctyrnal | equipped-OUTERCLOTHING-resomi by f0x-n3rd (github), equipped-OUTERCLOTHING/equipped-OUTERCLOTHING-reptilian/hydrakin sprite by Zethine / @synthetic_086 (discord)",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "icon"
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Original work by TJohnson. lamia \u0026 segment by @noctyrnal | equipped-OUTERCLOTHING-resomi by f0x-n3rd (github), equipped-OUTERCLOTHING/equipped-OUTERCLOTHING-reptilian/hydrakin sprite by Zethine / @synthetic_086 (discord), Vox modifications by 10KE",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "equipped-OUTERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "equipped-OUTERCLOTHING-harpy",
-      "directions": 4
-    },
-    {
-      "name": "equipped-OUTERCLOTHING-lamia",
-      "directions": 4
-    },
-    {
-      "name": "equipped-OUTERCLOTHING-resomi",
-      "directions": 4
-    },
-    {
-      "name": "inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "segment"
-    },
-    {
-      "name": "equipped-OUTERCLOTHING-reptilian",
-      "directions": 4
-    },
-    {
-      "name": "equipped-OUTERCLOTHING-hydrakin",
-      "directions": 4
-    }
-  ]
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "equipped-OUTERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-harpy",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-lamia",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-resomi",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "segment"
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-reptilian",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-hydrakin",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-vox",
+            "directions": 4
+        }
+    ]
 }

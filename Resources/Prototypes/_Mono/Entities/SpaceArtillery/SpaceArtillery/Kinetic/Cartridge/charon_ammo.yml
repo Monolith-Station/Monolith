@@ -22,7 +22,6 @@
   - type: RadarBlip
     radarColor: "#CF0E0E"
     scale: 4
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 1.7
@@ -84,7 +83,6 @@
   - type: RadarBlip
     radarColor: "#268521"
     scale: 4
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 1.7

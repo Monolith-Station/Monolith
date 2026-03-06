@@ -31,18 +31,21 @@ public sealed class JetpackSystem : SharedJetpackSystem
     }
 
     /// <summary>
-    /// Adds radar blip to jetpacks when they are activated
+    /// Adds radar blip to jetpacks when they are activated - Mono
     /// </summary>
     private void OnJetpackActivated(EntityUid uid, ActiveJetpackComponent component, ComponentStartup args)
     {
-        var blip = EnsureComp<RadarBlipComponent>(uid);
-        blip.RadarColor = Color.Cyan;
-        blip.Scale = 0.5f;
-        blip.VisibleFromOtherGrids = true;
+        if (TryComp<JetpackComponent>(uid, out var jetpack) && (jetpack.Stealth = false))
+        {
+            var blip = EnsureComp<RadarBlipComponent>(uid);
+            blip.Config.Color = Color.Cyan;
+            blip.Config.Bounds = new(-0.25f, -0.25f, 0.25f, 0.25f);
+            blip.VisibleFromOtherGrids = true;
+        }
     }
 
     /// <summary>
-    /// Removes radar blip from jetpacks when they are deactivated
+    /// Removes radar blip from jetpacks when they are deactivated - Mono
     /// </summary>
     private void OnJetpackDeactivated(EntityUid uid, ActiveJetpackComponent component, ComponentShutdown args)
     {

@@ -151,17 +151,16 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Brute: -2
+          Brute: -2 #Mono 1.5 >> 2
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
-          min: 15
+          min: 16 #Mono 15 >> 16
         damage:
           types:
             Asphyxiation: 0.5
@@ -177,7 +176,7 @@
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 16 #Mono 15 >> 16
       - !type:Drunk
 
 - type: reagent
@@ -198,18 +197,17 @@
   metabolisms:
     Cryogenic: # Frontier: Medicine<Cryogenic
       effects:
-        - !type:HealthChange
+        - !type:EvenHealthChange
           conditions:
           - !type:Temperature
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
           damage:
           # todo scale with temp like SS13
-            groups:
-              Airloss: -6
-              Brute: -4
-              Burn: -6
-              Toxin: -4
+            Airloss: -3
+            Brute: -2
+            Burn: -2
+            Toxin: -2
         - !type:GenericStatusEffect # Mono edit
           conditions:
           - !type:OrganType #
@@ -376,15 +374,23 @@
         - !type:MobStateCondition
           mobstate: Critical
         - !type:ReagentThreshold
-          min: 0
+          reagent: Epinephrine
           max: 20
         damage:
           types:
             Asphyxiation: -3
             Poison: -0.5
-          groups:
-            Brute: -1
-            Burn: -1 # Was .5, Buffed due to limb damage changes(GoobStation)
+      - !type:EvenHealthChange
+        conditions:
+          # they gotta be in crit first
+        - !type:MobStateCondition
+          mobstate: Critical
+        - !type:ReagentThreshold
+          min: 0
+          max: 20
+        damage:
+          Brute: -1 # Mono: 0.5 >> 1
+          Burn: -1 # Mono: 0.5 >> 1
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -692,12 +698,10 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Brute: -3.5
-          types:
-            Asphyxiation: -2.5
+          Brute: -2 #Mono -1.75 >> -2
+          Airloss: -1
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -882,18 +886,14 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:TotalDamage
           max: 50
         damage:
-          groups:
-            Brute: -1
-          types:
-            Poison: -0.5 ##Should be about what it was when it healed the toxin group
-            Heat: -0.5
-            Shock: -0.5
-            Cold: -0.5 # Was .33, Buffed due to limb damage changes(GoobStation)
+          Brute: -1
+          Burn: -1
+          Toxin: -0.5
 
 - type: reagent
   id: Lipozine
@@ -922,17 +922,16 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange # Mono
+      - !type:EvenHealthChange # Mono - Overdose
         conditions:
         - !type:ReagentThreshold
           min: 0
           max: 100
         damage:
-          groups:
-            Burn: -2
-            Toxin: -2
-            Airloss: -2
-            Brute: -2
+          Burn: -1.5
+          Toxin: -1.5
+          Airloss: -1.5
+          Brute: -1.5   
       - !type:HealthChange # Mono - Added overdose
         conditions:
         - !type:ReagentThreshold
@@ -956,23 +955,34 @@
     Medicine:
       metabolismRate: 0.25
       effects:
+      - !type:EvenHealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 0
+          max: 20
+        damage:
+          Toxin: -6
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 0
-          max: 30
+          max: 20
         damage:
-          groups:
-            Toxin: -3
-            Brute: 0.5
+          types:
+            Blunt: 1.5
+      - !type:EvenHealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        damage:
+          Toxin: -2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 30
+          min: 20
         damage:
-          groups:
-            Toxin: -1
-            Brute: 3
+          types:
+            Blunt: 6
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -1397,28 +1407,26 @@
   metabolisms:
     Medicine:
       effects:
-        - !type:HealthChange #Mono start: Give necrosol a niche
+        - !type:EvenHealthChange #Mono start: Give necrosol a niche
           damage:
-            groups:
-              Airloss: -3
-              Brute: -3
-              Burn: -3
-              Toxin: -3
+            Airloss: -3
+            Brute: -3
+            Burn: -3
+            Toxin: -3
         - !type:AdjustTemperature
           conditions:
           - !type:Temperature
             min: 214.65 # auto-bootstrap cryo: you will slowdown long before you see combat effect
           amount: -5000 # Mono end
-        - !type:HealthChange
+        - !type:EvenHealthChange
           conditions:
           - !type:Temperature
             max: 217.15 # Mono 213 >> 217.15: Necrosol can bootstrap only itself
           damage:
-            groups:
-              Airloss: -4 # Mono start: 0 >> -4
-              Brute: -6 # -4 >> -6
-              Burn: -8 # -5 >> -8
-              Toxin: -4 # 0 >> -4
+            Airloss: -5 # Mono start: 0 >> -5
+            Brute: -5 # -2 >> -5
+            Burn: -5 # -2 >> -5
+            Toxin: -5 # 0 >> -5
             #types:
             #  Poison: -2 # Mono end
         - !type:GenericStatusEffect # Mono edit
@@ -1445,16 +1453,12 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:Temperature
           max: 213.0
         damage:
-          types:
-            Cold: -6.0 #Mono start: -4 >> -6
-            Heat: -6.0 # -4 >> -6
-            Shock: -6.0 #Mono end: -4 >> -6
-            Caustic: -1.5
+          Burn: -10 #Mono: 4.5 >> 10
       - !type:HealthScaleEffect #Mono start: RR reversal buff
         conditions:
         - !type:Temperature

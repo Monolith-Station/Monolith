@@ -120,6 +120,12 @@
     radarColor: "#fcba03"
     scale: 2
     shape: diamond
+    gridConfig:
+      color: "#fcba03"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1.5,-1.5,1.5,1.5"
 
 - type: entity
   categories: [ HideSpawnMenu ]

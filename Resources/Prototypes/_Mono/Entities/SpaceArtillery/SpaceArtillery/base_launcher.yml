@@ -66,6 +66,12 @@
     visibleFromOtherGrids: true
     radarColor: "#9999FF"
     scale: 1
+    gridConfig:
+      color: "#9999FF"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1,-1,1,1"
   - type: ShipGunType
     shipType: Kinetic
   - type: ShipGunClass
@@ -155,6 +161,12 @@
     visibleFromOtherGrids: false
     radarColor: "#9999FF"
     scale: 1
+    gridConfig:
+      color: "#9999FF"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1,-1,1,1"
   - type: Gun
     fireRate: 3
     selectedMode: FullAuto
@@ -253,6 +265,12 @@
     visibleFromOtherGrids: false
     radarColor: "#9999FF"
     scale: 1
+    gridConfig:
+      color: "#9999FF"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1,-1,1,1"
   - type: Gun
     fireRate: 3
     selectedMode: FullAuto

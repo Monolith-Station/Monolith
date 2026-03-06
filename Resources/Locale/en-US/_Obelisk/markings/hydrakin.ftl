@@ -4,17 +4,29 @@ marking-HydrakinEyesOmega = Omega Eyes
 marking-HydrakinEyesQuad = Quad Eyes
 marking-HydrakinEyesRing = Ring Eyes
 marking-HydrakinEyesSaint = Saint Eyes
+marking-HydrakinEyesSeer = Seer Eyes
 
 marking-HydrakinTailDefault = Tail
 marking-HydrakinTailNub = Nub
-marking-HydrakinTailFeathers = Feathered
-marking-HydrakinTailSpiny = Spiny
-marking-HydrakinTailFins = Fins
+marking-HydrakinTailFeathers = Feathered (painted)
+marking-HydrakinTailSpiny = Spiny (painted)
+marking-HydrakinTailFins = Fins (painted)
+marking-HydrakinHydraTailFeathers = Seer (painted)
+marking-HydrakinTailFeathersUnpainted = Feathered
+marking-HydrakinTailSpinyUnpainted = Spiny
+marking-HydrakinTailFinsUnpainted = Fins
+marking-HydrakinHydraTailFeathersUnpainted = Seer
 
 marking-HydrakinEarsDefault = Default Ears
 marking-HydrakinEarsOld = Thin Ears
 marking-HydrakinEarsFin = Fin Ears
 marking-HydrakinEarsFrilled = Frilled Ears
+marking-HydrakinHydraSeerEars = Seer Ears
+marking-HydrakinEarsDefaultPainted = Default Ears (painted)
+marking-HydrakinEarsOldPainted = Thin Ears (painted)
+marking-HydrakinEarsFinPainted = Fin Ears (painted)
+marking-HydrakinEarsFrilledPainted = Frilled Ears (painted)
+marking-HydrakinHydraSeerEarsPainted = Seer Ears (painted)
 
 marking-HydrakinProtoChest = Cyberkin
 
@@ -46,8 +58,7 @@ marking-HydrakinHydraLeftArm = Hydra Left
 marking-HydrakinHydraRightArm = Hydra Right
 marking-HydrakinHydraLeftLeg = Hydra Left
 marking-HydrakinHydraRightLeg = Hydra Right
-marking-HydrakinHydraTailFeathers = Hydra Tail Feathers
-marking-HydrakinHydraSeerEars = Seer Ears
+
 
 marking-HydrakinMysticHead = Mystic Head
 marking-HydrakinMysticChest = Mystic Chest
