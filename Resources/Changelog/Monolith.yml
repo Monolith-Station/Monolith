@@ -17932,3 +17932,41 @@ Entries:
   id: 1976
   time: '2026-03-06T03:53:06.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3374
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Added a lore primer. Check it out sometime.
+    - type: Remove
+      message: Removed old faction lore entries.
+    - type: Add
+      message: Added a "quick history" guidebook lore entry.
+  id: 1977
+  time: '2026-03-06T12:18:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3373
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Added new reagent - Peranol, mostly designed for hydrakin use.
+    - type: Tweak
+      message: Hydrakin passive heat has been nerfed. 5500J -> 3900J
+    - type: Tweak
+      message: Hydrakin guidebook entry is now actually readable.
+  id: 1978
+  time: '2026-03-06T13:42:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3377
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        VESPERA and VANYK damage have been severely lowered. (Almost divided by
+        3)
+  id: 1979
+  time: '2026-03-06T15:48:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3378
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Chimera can now wear clothing, but get no effects from it.
+  id: 1980
+  time: '2026-03-06T16:45:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3364
