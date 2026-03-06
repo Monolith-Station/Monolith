@@ -19,8 +19,8 @@
   description: Randomly teleports you within a moderate distance.
   components:
   - type: InstantAction
-    useDelay: 40
-    charges: 2
+    useDelay: 600
+    charges: 1
     renewCharges: true
     itemIconStyle: BigAction
     priority: -20
