@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/06/2026 19:13:12
-  entityCount: 505
+  time: 03/06/2026 21:26:39
+  entityCount: 504
 maps: []
 grids:
 - 1
@@ -96,10 +96,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Puddle: []
-        MetalFoam: []
+        Kudzu: []
         Smoke: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -123,6 +123,7 @@ entities:
             49: 4,0
             50: 6,0
             61: 4,-2
+            67: -6,-2
         - node:
             color: '#FFFFFFFF'
             id: BrickTileSteelCornerNw
@@ -196,6 +197,11 @@ entities:
             id: TechSW
           decals:
             46: 3,-2
+        - node:
+            color: '#FFFFFFFF'
+            id: TechW
+          decals:
+            66: -5,-2
         - node:
             color: '#355A7396'
             id: TrimlineNorthWest
@@ -2100,6 +2106,8 @@ entities:
       pos: -0.5,-2.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 255
     - type: AtmosPipeLayers
@@ -2140,6 +2148,16 @@ entities:
       parent: 1
 - proto: Grille
   entities:
+  - uid: 26
+    components:
+    - type: Transform
+      pos: -5.5,-4.5
+      parent: 1
+  - uid: 68
+    components:
+    - type: Transform
+      pos: 6.5,-4.5
+      parent: 1
   - uid: 118
     components:
     - type: Transform
@@ -2176,26 +2194,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -5.5,3.5
       parent: 1
-- proto: GrilleDiagonal
-  entities:
-  - uid: 68
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -5.5,-4.5
-      parent: 1
-  - uid: 116
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 6.5,-4.5
-      parent: 1
 - proto: GunneryServerMedium
   entities:
   - uid: 206
     components:
     - type: Transform
-      pos: -4.5,-1.5
+      pos: -5.5,-1.5
       parent: 1
     - type: Battery
       startingCharge: 0
@@ -2235,10 +2239,10 @@ entities:
       parent: 1
 - proto: MachineFTLDrive
   entities:
-  - uid: 26
+  - uid: 116
     components:
     - type: Transform
-      pos: -5.5,-1.5
+      pos: 7.5,-0.5
       parent: 1
 - proto: NitrogenCanister
   entities:
@@ -2664,6 +2668,12 @@ entities:
       parent: 1
 - proto: Railing
   entities:
+  - uid: 126
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,-0.5
+      parent: 1
   - uid: 219
     components:
     - type: Transform
@@ -2676,19 +2686,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,-0.5
       parent: 1
-  - uid: 311
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -5.5,-1.5
-      parent: 1
 - proto: RailingCorner
   entities:
-  - uid: 126
+  - uid: 164
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -4.5,-1.5
+      pos: -5.5,-1.5
       parent: 1
 - proto: SinkWide
   entities:
@@ -3385,11 +3389,6 @@ entities:
     components:
     - type: Transform
       pos: 2.5,-1.5
-      parent: 1
-  - uid: 164
-    components:
-    - type: Transform
-      pos: 7.5,-0.5
       parent: 1
   - uid: 165
     components:
