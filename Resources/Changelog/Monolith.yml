@@ -17855,3 +17855,80 @@ Entries:
   id: 1967
   time: '2026-03-05T17:05:14.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3365
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Wyvern spawn odds reduced to what it was before, was increased
+        accidentally.
+  id: 1968
+  time: '2026-03-05T19:57:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3349
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Allows more shipguns to be rotated trough the right-click UI.
+  id: 1969
+  time: '2026-03-05T19:58:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3351
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Adjusts the description on Diagonal Plastitanium Walls.
+  id: 1970
+  time: '2026-03-05T19:59:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3357
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: >-
+        Adds the QJ-370, a Vanyk and Rubicon toting fighter to the TSF Tumour's
+        shipyard.
+  id: 1971
+  time: '2026-03-05T21:36:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3343
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: IPC is now barely capable of exchanging heat with other entities.
+  id: 1972
+  time: '2026-03-05T23:56:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3370
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Lizards will fall asleep on <12C instead of 22C
+    - type: Tweak
+      message: High temperature regen now evenly heals you
+    - type: Tweak
+      message: Claw growth speed has been reduced by 15 minutes.
+    - type: Tweak
+      message: Wirecutter nail clipping doafter 10s -> 4s.
+    - type: Tweak
+      message: Lizards now receive notification once their claw growths.
+  id: 1973
+  time: '2026-03-05T23:56:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3356
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: Resprited the DI Emblem
+  id: 1974
+  time: '2026-03-05T23:58:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3319
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: >-
+        All incendiary ammo has been made to do majority pierce, tiny amount of
+        heat
+  id: 1975
+  time: '2026-03-06T00:45:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3173
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Vanyk's damage has been decreased due to oversight.
+  id: 1976
+  time: '2026-03-06T03:53:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3374
