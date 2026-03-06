@@ -92,7 +92,7 @@
   - type: Projectile
     damage:
       types:
-        Shock: 6
+        Radiation: 6
         Structural: 20
         Heat: 15
   - type: Sprite
@@ -358,7 +358,7 @@
     scale: 5
     shape: circle
   - type: TimedDespawn
-    lifetime: 10
+    lifetime: 4.4
   - type: PointLight
     color: "#FB00FF"
   - type: EmpOnTrigger
@@ -564,9 +564,9 @@
   - type: HitscanBasicDamage
     damage:
      types:
-      Piercing: 50
-      Heat: 25
-      Structural: 100
+      Piercing: 25
+      Heat: 5
+      Structural: 75
   - type: HitscanBasicRaycast
     maxDistance: 500
 
@@ -580,9 +580,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 6000
+    totalIntensity: 1200
     intensitySlope: 35
-    maxIntensity: 700
+    maxIntensity: 250
 
 - type: entity
   id: SunderExplosion
