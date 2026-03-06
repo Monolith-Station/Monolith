@@ -27,18 +27,10 @@
     - NFMercenaryTechfabDeprecatedStatic
     # - RoundstartShipgunAmmo
     dynamicPacks:
-    # rogue start
-    - MonoRogueWeaponsDynamicMelee
-    - MonoRogueWeaponsDynamicRanged
-    - MonoRogueVouchersDynamic
-    - MonoRogueMiscDynamic
-    - MonoRogueGearDynamic
-    - MonoRogueGearProDynamic
+    # PDV start
+    - MonoPDVGearDynamic
     # TSF start
-    - MonoTSFWeaponsDynamicMelee
-    - MonoTSFWeaponsDynamicRanged
     - MonoTSFVouchersDynamic
-    - MonoTSFMiscDynamic
     - MonoTSFGearDynamic
     # USSP start
     - MonoUSSPVouchersDynamic

@@ -76,15 +76,9 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: TechnologyDatabase
     supportedDisciplines:
-    - TsfmcWeaponry
-    - TsfmcGear # GEAR IS TOOLS!!
-    - TsfmcEquipment # EQUIPMENT IS ARMOR!!
+    - TsfmcEquipment
     - TsfmcShipyard
     - FactionUniversal
-    - Industrial
-    - Arsenal
-    - Experimental
-    - CivilianServices
     - MechaEngineering
 
 - type: entity
@@ -102,15 +96,9 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: TechnologyDatabase
     supportedDisciplines:
-    - RogueWeaponry
-    - RogueGear # GEAR IS TOOLS!!
-    - RogueEquipment # EQUIPMENT IS ARMOR!!
+    - PdvEquipment # EQUIPMENT IS ARMOR!!
     - RogueShipyard
     - FactionUniversal
-    - Industrial
-    - Arsenal
-    - Experimental
-    - CivilianServices
     - MechaEngineering
 
 - type: entity
@@ -128,10 +116,6 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: TechnologyDatabase
     supportedDisciplines:
-    - Ussp
-    - UsspShipyard
-    - UsspEquipment
-    - UsspWeapons
     - FactionUniversal
     - Industrial
     - Arsenal
@@ -151,18 +135,10 @@
     - Arsenal
     - Experimental
     - CivilianServices
-    - TsfmcWeaponry
-    - TsfmcGear
     - TsfmcEquipment
     - TsfmcShipyard
-    - RogueWeaponry
-    - RogueGear
-    - RogueEquipment
-    - RogueShipyard
-    - Ussp
-    - UsspShipyard
-    - UsspEquipment
-    - UsspWeapons
+    - PdvEquipment
+    - PdvShipyard
     - FactionUniversal
     - MechaEngineering
 

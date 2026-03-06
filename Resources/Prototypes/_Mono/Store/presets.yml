@@ -1,0 +1,13 @@
+- type: entity
+  id: StorePresetPDVUplink
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-pdv-uplink
+    categories:
+    - UplinkPDVEquipment
+    currencyWhitelist:
+    - Doubloon #Rename to Mark/Slip/Chit in code to represent blackmarket currency instead of doubloons
+    balance:
+      Doubloon: 0
+# mono edit end
