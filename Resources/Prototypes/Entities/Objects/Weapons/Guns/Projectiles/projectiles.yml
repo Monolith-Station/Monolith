@@ -477,7 +477,7 @@
   - type: Ammo
     muzzleFlash: HitscanEffect
   - type: TimedDespawn
-    lifetime: 2.5 # Frontier 1.5<1, Monolith 1<2.5
+    lifetime: 2 # Frontier 1.5<1, Monolith 1<2
   - type: PointLight
     radius: 2.5
     color: "#FF8888" # Frontier: white<FF8888
