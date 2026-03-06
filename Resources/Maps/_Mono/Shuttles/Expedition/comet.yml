@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/18/2026 00:42:15
-  entityCount: 1359
+  time: 03/06/2026 20:28:33
+  entityCount: 1371
 maps: []
 grids:
 - 1
@@ -118,10 +118,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
         Kudzu: []
-        Smoke: []
         MetalFoam: []
+        Smoke: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1304,6 +1304,21 @@ entities:
     - type: ShipGridLock
       locked: False
     - type: NavMap
+    - type: Roof
+      data:
+        0,-1: 10645164251527774220
+        0,0: 15569709966359575096
+        0,1: 18374282928706867422
+        1,1: 2152118707683127183
+        0,2: 4079166
+        1,2: 51743894796
+        2,1: 282600292617742
+        1,0: 18378275010742566798
+        2,0: 146370299359857411
+        1,-1: 12583198649346949120
+        2,-1: 1953158174865555462
+        2,-2: 434034414087831552
+        0,-2: 868068828175663104
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -4772,6 +4787,75 @@ entities:
     components:
     - type: Transform
       pos: 18.5,8.5
+      parent: 1
+- proto: EmergencyLight
+  entities:
+  - uid: 859
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,14.5
+      parent: 1
+  - uid: 1084
+    components:
+    - type: Transform
+      pos: 8.5,12.5
+      parent: 1
+  - uid: 1353
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,4.5
+      parent: 1
+  - uid: 1363
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 15.5,4.5
+      parent: 1
+  - uid: 1364
+    components:
+    - type: Transform
+      pos: 9.5,5.5
+      parent: 1
+  - uid: 1365
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,18.5
+      parent: 1
+  - uid: 1366
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.5,8.5
+      parent: 1
+  - uid: 1367
+    components:
+    - type: Transform
+      pos: 14.5,11.5
+      parent: 1
+  - uid: 1368
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,-2.5
+      parent: 1
+  - uid: 1369
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,8.5
+      parent: 1
+  - uid: 1370
+    components:
+    - type: Transform
+      pos: 18.5,10.5
+      parent: 1
+  - uid: 1371
+    components:
+    - type: Transform
+      pos: 15.5,14.5
       parent: 1
 - proto: ExosuitFabricator
   entities:
