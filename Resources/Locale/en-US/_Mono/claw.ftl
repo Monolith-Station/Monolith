@@ -16,3 +16,4 @@ claws-too-short-popup = Their claws are too short
 claws-clipping-doafter = You start clipping their nails
 
 claws-clipping-success = You feel how your claws became shorter
+claws-growth = You feel how your claws became longer...

@@ -26,7 +26,7 @@ namespace Content.Shared._Mono.Claws;
 /// </summary>
 public abstract partial class SharedClawsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] protected readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doafter = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] protected readonly IRobustRandom _random = default!;
