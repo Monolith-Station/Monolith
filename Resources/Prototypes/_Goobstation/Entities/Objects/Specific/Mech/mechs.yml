@@ -80,7 +80,7 @@
   - type: Damageable
     damageModifierSet: MechArmorIndustrial # Mono
   - type: ExplosionResistance
-    damageModifier: 0.5 # Mono
+    damageCoefficient: 0.5 # Mono
   - type: StaticPrice
     price: 1000
   - type: Tag
@@ -148,7 +148,7 @@
   - type: Damageable
     damageModifierSet: MechArmorIndustrial # Mono
   - type: ExplosionResistance
-    damageModifier: 0.5 # Mono
+    damageCoefficient: 0.5 # Mono
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: StaticPrice
