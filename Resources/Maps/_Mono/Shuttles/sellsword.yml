@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/06/2026 17:24:34
+  time: 03/06/2026 17:57:47
   entityCount: 366
 maps: []
 grids:
@@ -72,9 +72,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Puddle: []
-        Smoke: []
         MetalFoam: []
         Kudzu: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -371,6 +371,12 @@ entities:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
         175:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
+        91:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
+        30:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
 - proto: APCBasic
