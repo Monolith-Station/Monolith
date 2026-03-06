@@ -4,6 +4,7 @@
   components:
   - type: Claws
     clawStage: ReptilianTinyClaws
+    clawGrowthNotification: claws-growth
     claws:
       -1: ReptilianDeclawed
       0: ReptilianTinyClaws
@@ -47,6 +48,7 @@
 
 - type: claw
   id: ReptilianMediumClaws
+  growCooldown: 1500
   clawType: !type:SharpClaw
     damage:
       types:
@@ -64,6 +66,7 @@
 
 - type: claw
   id: ReptilianBigClaws
+  growCooldown: 1800
   clawType: !type:SharpClaw
     damage:
       types:
