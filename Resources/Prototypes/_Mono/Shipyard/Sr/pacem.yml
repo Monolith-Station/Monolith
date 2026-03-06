@@ -6,7 +6,7 @@
   id: Pacem
   parent: BaseVessel
   name: Pacem 
-  description: A heavy broadside destroyer for resolving piracy and overdue docking fines.
+  description: A patrol corvette for resolving piracy and overdue docking fines.
   price: 75600
   category: Medium
   group: Sr
@@ -15,7 +15,7 @@
   shuttlePath: /Maps/_Mono/Shuttles/pacem.yml
   guidebookPage: Null
   class:
-  - Civilian
+  - Patrol
   engine:
   - Bananium
 
