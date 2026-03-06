@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/06/2026 09:35:14
-  entityCount: 824
+  time: 03/06/2026 09:50:18
+  entityCount: 825
 maps: []
 grids:
 - 1
@@ -488,7 +488,7 @@ entities:
       pos: 0.5,4.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -640.29535
+      secondsUntilStateChange: -1544.0173
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -513,7 +513,7 @@ entities:
       pos: 0.5,8.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -1464.8629
+      secondsUntilStateChange: -2368.585
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2200,6 +2200,13 @@ entities:
     components:
     - type: Transform
       pos: -1.542377,14.748956
+      parent: 1
+- proto: FireExtinguisherMini
+  entities:
+  - uid: 825
+    components:
+    - type: Transform
+      pos: 1.3363116,5.6958747
       parent: 1
 - proto: Firelock
   entities:
