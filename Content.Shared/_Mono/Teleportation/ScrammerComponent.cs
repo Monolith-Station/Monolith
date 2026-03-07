@@ -18,6 +18,9 @@ public sealed partial class ScrammerComponent : Component
 
     [DataField]
     public EntProtoId ActionProto = "ActionScrammerScram";
+
+    [DataField]
+    public bool Enabled = true;
 }
 
 public sealed partial class ScrammerScramEvent : InstantActionEvent { }
