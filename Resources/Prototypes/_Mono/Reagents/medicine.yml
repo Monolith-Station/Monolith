@@ -185,11 +185,6 @@
           type: Hydrakin
           shouldHave: false
         amount: -360
-      - !type:PopupMessage
-        type: Local
-        visualType: Medium
-        messages: [ "leporazine-effect-temperature-adjusting" ]
-        probability: 0.2
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
