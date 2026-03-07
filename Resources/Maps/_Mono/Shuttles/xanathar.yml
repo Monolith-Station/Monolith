@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/07/2026 12:02:37
-  entityCount: 637
+  time: 03/07/2026 13:44:03
+  entityCount: 636
 maps: []
 grids:
 - 1
@@ -86,10 +86,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
-        Smoke: []
-        Kudzu: []
         Puddle: []
+        Smoke: []
+        MetalFoam: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -2395,20 +2395,24 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ConstructionBag
+- proto: ComputerWallmountStationRecords
   entities:
-  - uid: 285
+  - uid: 244
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 5.3703613,-2.588215
+      pos: 1.5,-0.5
       parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
 - proto: DefibrillatorCabinetFilled
   entities:
   - uid: 243
     components:
     - type: Transform
-      pos: 1.5,-0.5
+      pos: 2.5,-0.5
       parent: 1
 - proto: DisposalBend
   entities:
@@ -2985,14 +2989,6 @@ entities:
     components:
     - type: Transform
       pos: 0.5,0.5
-      parent: 1
-- proto: OreBag
-  entities:
-  - uid: 290
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 5.6703615,-2.2319653
       parent: 1
 - proto: OreProcessor
   entities:
@@ -3915,11 +3911,6 @@ entities:
       parent: 1
 - proto: TableReinforced
   entities:
-  - uid: 244
-    components:
-    - type: Transform
-      pos: 5.5,-2.5
-      parent: 1
   - uid: 256
     components:
     - type: Transform
@@ -4024,6 +4015,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 8.5,-3.5
+      parent: 1
+- proto: VendingMachineEngivend
+  entities:
+  - uid: 285
+    components:
+    - type: Transform
+      pos: 5.5,-2.5
       parent: 1
 - proto: WallPlastitanium
   entities:
