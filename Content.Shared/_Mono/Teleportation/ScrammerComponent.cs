@@ -21,6 +21,12 @@ public sealed partial class ScrammerComponent : Component
 
     [DataField]
     public bool Enabled = true;
+
+    /// <summary>
+    /// Whether to respect ItemToggle toggling. If this is on a borg, will make the action disable on EMP.
+    /// </summary>
+    [DataField]
+    public bool ItemToggleToggle = false;
 }
 
 public sealed partial class ScrammerScramEvent : InstantActionEvent { }

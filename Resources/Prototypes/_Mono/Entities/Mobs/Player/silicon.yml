@@ -270,17 +270,17 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Critical # has innate armor so this is actually more
+      180: Critical # has innate armor so this is actually more
       250: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      75: 0.7
-      90: 0.5
+      140: 0.7
+      160: 0.5
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 100
       behaviors:
       - !type:PlaySoundBehavior
         sound:

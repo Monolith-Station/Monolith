@@ -49,6 +49,7 @@ public sealed class ScramActionSystem : EntitySystem
     // if we're something capable of being turned on/off, respect it
     private void OnToggled(Entity<ScrammerComponent> ent, ref ItemToggledEvent args)
     {
-        ent.Comp.Enabled = args.Activated;
+        if (ent.Comp.ItemToggleToggle)
+            ent.Comp.Enabled = args.Activated;
     }
 }
