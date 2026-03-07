@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/07/2026 20:23:29
-  entityCount: 1004
+  time: 03/07/2026 20:59:44
+  entityCount: 1005
 maps: []
 grids:
 - 1
@@ -2944,6 +2944,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -0.5,3.5
+      parent: 1
+- proto: ExtinguisherCabinetFilled
+  entities:
+  - uid: 1005
+    components:
+    - type: Transform
+      pos: 1.5,4.5
       parent: 1
 - proto: FaxMachineShip
   entities:
