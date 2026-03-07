@@ -1,0 +1,40 @@
+# Author Info
+# GitHub: Mrrpip
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Xanathar
+  parent: BaseVessel
+  name: GS Xanathar
+  description: A retrofitted engineering ship based upon a certain infamous salvaging vessel, comes with redundant SMES units to share between other ships.
+  price: 58000 # rounded up to 48000, then given a 20% tax.
+  category: Small
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/xanathar.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  - Engineering
+  engine:
+  - Solar
+
+- type: gameMap
+  id: Xanathar
+  mapName: 'Xanathar'
+  mapPath: /Maps/_Mono/Shuttles/xanathar.yml
+  minPlayers: 0
+  stations:
+    Xanathar:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Xanathar CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
