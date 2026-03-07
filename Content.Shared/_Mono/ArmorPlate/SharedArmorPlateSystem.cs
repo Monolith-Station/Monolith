@@ -58,7 +58,7 @@ public sealed class SharedArmorPlateSystem : EntitySystem
         if (args.Origin == null && args.OriginFlag == null)
             return;
 
-        if (args.OriginFlag == DamageableSystem.DamageOriginFlag.Barotrauma)
+        if (args.OriginFlag != DamageableSystem.DamageOriginFlag.Explosion)
             return;
 
         foreach (var slot in slots)
@@ -91,6 +91,7 @@ public sealed class SharedArmorPlateSystem : EntitySystem
                 args.Damage.DamageDict.Add(type, amt);
         }
     }
+
     private void AbsorbDamage(
         EntityUid wearer,
         EntityUid armorUid,
