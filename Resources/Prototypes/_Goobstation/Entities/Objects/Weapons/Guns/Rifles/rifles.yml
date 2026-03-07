@@ -64,7 +64,7 @@
   name: CS KMP-WSPR (7.62x39mm)
   parent: BaseWeaponRifle # Mono - C3
   id: WeaponRifleWSPR
-  description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses 7.62x39mm subsonic ammo.
+  description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses 7.62x39mm ammo.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr.rsi # Mono
@@ -100,7 +100,7 @@
         priority: 2
         whitelist:
           tags:
-            - Magazine762x39mmSubsonic
+            - Magazine762x39mmFMJ
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
@@ -108,7 +108,7 @@
         priority: 1
         whitelist:
           tags:
-            - Cartridge762x39mmSubsonic
+            - Cartridge762x39mmFMJ
   - type: MagazineVisuals
     magState: mag
     steps: 1
