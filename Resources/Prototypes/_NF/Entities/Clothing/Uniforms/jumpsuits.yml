@@ -1,15 +1,4 @@
 - type: entity
-  id: ClothingUniformJumpsuitArcadia
-  name: arcadia jumpsuit
-  parent: [ ClothingUniformBase ]
-  description: A jumpsuit produced by Arcadia Industries. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/arcadia.rsi
-  - type: Clothing
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/arcadia.rsi
-
-- type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitValet
   name: valet's uniform
@@ -246,33 +235,3 @@
     sprite: Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitPirateSlops
-  name: pirate slops
-  description: A raggedy but comfortable uniform to plunder the sector.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/pirate_slops.rsi
-  - type: Clothing
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/pirate_slops.rsi
-  - type: SuitSensor
-    randomMode: false
-    mode: SensorOff
-  - type: PirateAccent
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitPirateLuffy
-  name: suspicious pirate uniform
-  description: A rather suspicious looking set of pirate clothes.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/pirate_luffy.rsi
-  - type: Clothing
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/pirate_luffy.rsi
-  - type: SuitSensor
-    randomMode: false
-    mode: SensorOff
-  - type: PirateAccent

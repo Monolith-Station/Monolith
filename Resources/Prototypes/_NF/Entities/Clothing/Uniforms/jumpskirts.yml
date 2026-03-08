@@ -1,15 +1,4 @@
 - type: entity
-  id: ClothingUniformJumpskirtArcadia
-  name: arcadia jumpskirt
-  parent: [ ClothingUniformSkirtBase ]
-  description: A jumpskirt produced by Arcadia Industries. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/Uniforms/Jumpskirt/arcadia.rsi
-  - type: Clothing
-    sprite: _NF/Clothing/Uniforms/Jumpskirt/arcadia.rsi
-
-- type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtValet
   name: valet's uniform
