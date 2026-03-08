@@ -13,7 +13,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: horror
-      color: "#eaff00"
+      # color: "#eaff00"
     - map: [ "jumpsuit" ]
     - map: [ "gloves" ]
     - map: [ "shoes" ]
@@ -86,6 +86,7 @@
   - MonoBaseMobLetoferol
   - BaseMobFlesh
   id: MobLetoferolBeast
+  
   name: chimera fleshbeast
   components:
   - type: Sprite

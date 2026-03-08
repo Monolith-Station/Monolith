@@ -188,6 +188,8 @@
         true
       NavSmash: !type:Bool
         true
+  - type: Sprite
+    sprite: _Mono/Mobs/Chimera/horror.rsi
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 2.5
