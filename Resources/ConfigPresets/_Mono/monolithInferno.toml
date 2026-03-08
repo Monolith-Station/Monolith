@@ -1,0 +1,27 @@
+[game]
+hostname = "[EN][MRP] Monolith | Inferno [EU West]"
+desc = "A player-centric, ship-based, combat fork with a minimal ruleset. Featuring bluespace drives, ship artillery, autoloaders, shields, collisions, custom ships, companies, and original lore. Be sure to join our Discord!"
+
+[adminlogs]
+server_name = "Inferno"
+
+[hub]
+server_url = "ss14s://inferno.monolithstation.com"
+
+[net]
+port = 25504
+
+[metrics]
+enabled = 1
+host = "*"
+port = 25504
+
+[status]
+enabled = true
+bind = "*:25504"
+connectaddress = "udp://136.243.32.120:25504"
+
+[database]
+engine = "postgres"
+pg_host = "136.243.32.120"
+pg_port = 20000
