@@ -90,11 +90,13 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var relVel = linVel - targetVel;
 
         // get the actual destination we will move to
-        var destMapPos = ResolveDestination(ent.Comp, mapTarget, shipPos, shipNorthAngle, toTargetVec, distance, relVel, angVel);
+        var (destMapPos, inRange) = ResolveDestination(ent.Comp, mapTarget, shipPos, shipNorthAngle, toTargetVec, distance, relVel, angVel);
 
         // ResolveDestination says we're all good
         if (ent.Comp.Status == ShipSteeringStatus.InRange)
             return;
+
+        Angle? targetAngle = inRange ? ent.Comp.InRangeRotation : (ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
 
         var config = new SteeringConfig
         {
@@ -116,8 +118,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
             RotationCompensationGain = ent.Comp.RotationCompensationGain,
             TargetAngleOffset = Angle.FromDegrees(ent.Comp.TargetRotation),
-            AngleOverride = ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null,
-            AlwaysFaceTarget = ent.Comp.AlwaysFaceTarget
+            AngleOverride = targetAngle
         };
         var context = new SteeringContext
         {
@@ -144,7 +145,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     /// <summary>
     /// Set our status and destination.
     /// </summary>
-    private MapCoordinates ResolveDestination(
+    private (MapCoordinates, bool) ResolveDestination(
         ShipSteererComponent comp,
         MapCoordinates mapTarget,
         MapCoordinates shipPos,
@@ -172,22 +173,27 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                     && MathF.Abs(angVel) < maxArrivedAngVel)
                 {
                     var good = true;
-                    if (comp.AlwaysFaceTarget)
+                    if (comp.InRangeRotation is { } targetWorldRot)
+                    {
+                        var wishRotateBy = ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), targetWorldRot);
+                        good = MathF.Abs((float)wishRotateBy.Theta) < comp.RotationTolerance;
+                    }
+                    else if (comp.AlwaysFaceTarget)
                     {
                         var wishRotateBy = ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI) - targetAngleOffset, toTargetVec.ToWorldAngle());
-                        good = MathF.Abs((float)wishRotateBy.Theta) < comp.AlwaysFaceTargetOffset;
+                        good = MathF.Abs((float)wishRotateBy.Theta) < comp.RotationTolerance;
                     }
                     if (good)
                     {
                         comp.Status = ShipSteeringStatus.InRange;
-                        return mapTarget; // will be ignored
+                        return (mapTarget, true); // will be ignored
                     }
                 }
 
                 if (distance < lowRange || distance > highRange)
-                    return mapTarget.Offset(NormalizedOrZero(-toTargetVec) * midRange);
+                    return (mapTarget.Offset(NormalizedOrZero(-toTargetVec) * midRange), false);
 
-                return shipPos;
+                return (shipPos, true);
             }
             case ShipSteeringMode.OrbitCW:
             case ShipSteeringMode.Orbit:
@@ -195,11 +201,11 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 // take our position, project onto our target radius, rotate by desired orbit offset
                 var invert = comp.Mode == ShipSteeringMode.OrbitCW;
                 var rotateAngle = new Angle(comp.OrbitOffset * (invert ? -1 : 1));
-                return mapTarget.Offset(NormalizedOrZero(rotateAngle.RotateVec(-toTargetVec)) * midRange);
+                return (mapTarget.Offset(NormalizedOrZero(rotateAngle.RotateVec(-toTargetVec)) * midRange), false);
             }
         }
 
-        return mapTarget;
+        return (mapTarget, false);
     }
 
     /// <summary>
@@ -695,7 +701,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // rotation
         public Angle TargetAngleOffset;
         public Angle? AngleOverride;
-        public bool AlwaysFaceTarget;
     }
 
     private readonly record struct BrakeContext(float BrakeAccel, float BrakePath, float LeftoverBrakePath);

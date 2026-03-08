@@ -53,6 +53,14 @@ namespace Content.Server.Shuttles.Components
         public InertiaDampeningMode DampeningMode = InertiaDampeningMode.Dampen;
         // End Frontier
 
+        // <Mono>
+        [DataField]
+        public string AutopilotTargetKey = "Target";
+
+        [DataField]
+        public string AutopilotRotationKey = "TargetRotation";
+        // </Mono>
+
         // Network Port Button Source Ports
         [DataField]
         public List<ProtoId<SourcePortPrototype>> SourcePorts = new()

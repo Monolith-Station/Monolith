@@ -57,6 +57,11 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
     /// </summary>
     public bool ShowFTLRangeOnly;
 
+    /// <summary>
+    /// Mono - Whether to show FTL range at all.
+    /// </summary>
+    public bool ShowFTLRange = true;
+
     private Angle _ftlAngle;
 
     /// <summary>
@@ -275,7 +280,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
 
         // Draw our FTL range + no FTL zones
         // Do it up here because we want this layered below most things.
-        if (FtlMode || ShowFTLRangeOnly)
+        if ((FtlMode || ShowFTLRangeOnly) && ShowFTLRange) // Mono
         {
             if (EntManager.TryGetComponent<TransformComponent>(_shuttleEntity, out var shuttleXform))
             {

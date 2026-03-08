@@ -8,6 +8,8 @@ using Robust.Shared.Map;
 using System.Threading;
 using System.Threading.Tasks;
 
+using Content.Server.Physics.Controllers; // Mono
+
 namespace Content.Server._Mono.NPC.HTN.Operators;
 
 /// <summary>
@@ -36,6 +38,12 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     /// </summary>
     [DataField]
     public string TargetKey = "ShipTargetCoordinates";
+
+    /// <summary>
+    /// World angle to try to be at after arrival. This gets removed after execution.
+    /// </summary>
+    [DataField]
+    public string AngleKey = "ShipTargetAngle";
 
     /// <summary>
     /// Whether to keep facing target if backing off due to RangeTolerance.
@@ -99,12 +107,6 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public float? MaxRotateRate = null;
 
     /// <summary>
-    /// If target goes further than this, drop target.
-    /// </summary>
-    [DataField]
-    public float MaxTargetingRange = 2000f;
-
-    /// <summary>
     /// What movement behavior to use.
     /// </summary>
     [DataField]
@@ -143,6 +145,12 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public bool RequirePowered = true;
 
     /// <summary>
+    /// Whether to finish if there's another active pilot on the grid.
+    /// </summary>
+    [DataField]
+    public bool RequireSolo = false;
+
+    /// <summary>
     /// Rotation to move at relative to direction to target.
     /// </summary>
     [DataField]
@@ -179,6 +187,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         blackboard.Remove<EntityCoordinates>(NPCBlackboard.OwnerCoordinates);
         if (!blackboard.TryGetValue<EntityCoordinates>(TargetKey, out var targetCoordinates, _entManager))
             return;
+        blackboard.TryGetValue<Angle>(AngleKey, out var targetAngle, _entManager);
 
         var uid = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
@@ -195,6 +204,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         comp.EvasionSectorDepth = EvasionSectorDepth;
         comp.FinishOnCollide = FinishOnCollide;
         comp.InRangeMaxSpeed = InRangeMaxSpeed;
+        comp.InRangeRotation = targetAngle;
         comp.LeadingEnabled = LeadingEnabled;
         comp.MaxRotateRate = MaxRotateRate;
         comp.Mode = Mode;
@@ -225,14 +235,17 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         if (comp == null)
             return HTNOperatorStatus.Failed;
 
-        if (target.EntityId == EntityUid.Invalid || !xform.Coordinates.TryDistance(_entManager, target, out var distance) || distance > MaxTargetingRange)
-            return HTNOperatorStatus.Finished;
+        blackboard.TryGetValue<Angle>(AngleKey, out var targetAngle, _entManager);
+        comp.InRangeRotation = targetAngle;
 
         // Just keep moving in the background and let the other tasks handle it.
         if (ShutdownState == HTNPlanState.PlanFinished && steerer.Status == ShipSteeringStatus.Moving)
         {
             return HTNOperatorStatus.Finished;
         }
+
+        if (RequireSolo && _entManager.TryGetComponent<PilotedShuttleComponent>(xform.GridUid, out var piloted) && piloted.ActiveSources > 1)
+            return HTNOperatorStatus.Finished;
 
         return steerer.Status switch
         {
@@ -252,7 +265,10 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         }
 
         if (RemoveKeyOnFinish)
+        {
             blackboard.Remove<EntityCoordinates>(TargetKey);
+            blackboard.Remove<Angle>(AngleKey);
+        }
 
         _steering.Stop(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner));
     }

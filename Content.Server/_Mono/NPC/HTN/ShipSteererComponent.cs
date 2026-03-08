@@ -31,10 +31,10 @@ public sealed partial class ShipSteererComponent : Component
     public bool AvoidProjectiles = false;
 
     /// <summary>
-    /// If AlwaysFaceTarget is true, how much of a difference in angle (in radians) to accept.
+    /// If AlwaysFaceTarget is true or InRangeRotation is set, how much of a difference in angle (in radians) to accept.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float AlwaysFaceTargetOffset = 0.01f;
+    public float RotationTolerance = 0.0333f;
 
     /// <summary>
     /// Whether to avoid obstacles.
@@ -95,6 +95,12 @@ public sealed partial class ShipSteererComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float? InRangeMaxSpeed = null;
+
+    /// <summary>
+    /// Global angle to rotate to while in range.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public Angle? InRangeRotation = null;
 
     /// <summary>
     /// Whether to try to match velocity with target.
