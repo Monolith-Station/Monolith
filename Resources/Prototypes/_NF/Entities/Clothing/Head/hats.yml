@@ -115,28 +115,6 @@
 
 - type: entity
   parent: ClothingHeadBaseButcherable
-  id: ClothingHeadHatPirates
-  name: pirate's hat
-  description: Y'Arrgghhh.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/Head/Hats/pirate_hat.rsi
-  - type: Clothing
-    sprite: _NF/Clothing/Head/Hats/pirate_hat.rsi
-
-- type: entity
-  parent: ClothingHeadBaseButcherable
-  id: ClothingHeadHatPirateLuffy
-  name: suspicious pirate's hat
-  description: This here hat be lookin' suspicious.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/Head/Hats/pirate_hat_luffy.rsi
-  - type: Clothing
-    sprite: _NF/Clothing/Head/Hats/pirate_hat_luffy.rsi
-
-- type: entity
-  parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatNfsdBeretGreen
   name: TSFMC beret
   description: A green beret for use by TSFMC officers.

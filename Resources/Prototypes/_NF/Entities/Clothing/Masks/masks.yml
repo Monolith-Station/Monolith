@@ -1,18 +1,4 @@
 - type: entity
-  id: ClothingMaskArcadia
-  name: arcadia battle mask
-  parent: [ ClothingMaskGasExplorer ]
-  description: A close-fitting high tech mask designed by Arcadia Industries for spacefaring operators.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/Mask/arcadia.rsi
-  - type: Clothing
-    sprite: _NF/Clothing/Mask/arcadia.rsi
-  - type: HideLayerClothing
-    slots:
-    - Hair
-
-- type: entity
   parent: PlushieXeno #Mono: Remove ClothingMaskBase
   id: FaceHuggerPlushie
   name: facehugger plushie
