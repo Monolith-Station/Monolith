@@ -5,6 +5,9 @@ using Content.Shared.Shuttles.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
+// Mono
+using Robust.Shared.Audio;
+
 namespace Content.Server.Shuttles.Components
 {
     [RegisterComponent]
@@ -59,6 +62,9 @@ namespace Content.Server.Shuttles.Components
 
         [DataField]
         public string AutopilotRotationKey = "TargetRotation";
+
+        [DataField]
+        public SoundSpecifier? AutopilotDoneSound = new SoundPathSpecifier("/Audio/Effects/Shuttle/radar_ping.ogg");
         // </Mono>
 
         // Network Port Button Source Ports

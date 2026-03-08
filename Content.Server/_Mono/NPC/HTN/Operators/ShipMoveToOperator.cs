@@ -1,14 +1,13 @@
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
+using Content.Server.Physics.Controllers;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Construction.Components;
 using Robust.Shared.Map;
 using System.Threading;
 using System.Threading.Tasks;
-
-using Content.Server.Physics.Controllers; // Mono
 
 namespace Content.Server._Mono.NPC.HTN.Operators;
 
@@ -158,6 +157,9 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
 
     private const string MovementCancelToken = "ShipMovementCancelToken";
 
+    // needed so it doesn't do it twice
+    private bool _raisedEvent = false;
+
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
@@ -182,6 +184,8 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public override void Startup(NPCBlackboard blackboard)
     {
         base.Startup(blackboard);
+
+        _raisedEvent = false;
 
         // Need to remove the planning value for execution.
         blackboard.Remove<EntityCoordinates>(NPCBlackboard.OwnerCoordinates);
@@ -270,7 +274,13 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
             blackboard.Remove<Angle>(AngleKey);
         }
 
-        _steering.Stop(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner));
+        var uid = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
+        _steering.Stop(uid);
+        if (!_raisedEvent)
+        {
+            _raisedEvent = true;
+            _entManager.EventBus.RaiseLocalEvent(uid, new SteeringDoneEvent(), false);
+        }
     }
 
     public override void PlanShutdown(NPCBlackboard blackboard)
@@ -280,3 +290,5 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         ConditionalShutdown(blackboard);
     }
 }
+
+public record struct SteeringDoneEvent();
