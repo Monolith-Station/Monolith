@@ -107,6 +107,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             BaseEvasionTime = ent.Comp.BaseEvasionTime,
             AvoidCollisions = ent.Comp.AvoidCollisions,
             AvoidProjectiles = ent.Comp.AvoidProjectiles,
+            AvoidanceNoRotate = ent.Comp.AvoidanceNoRotate,
             EvasionSectorCount = ent.Comp.EvasionSectorCount,
             EvasionSectorDepth = ent.Comp.EvasionSectorDepth,
             MaxObstructorDistance = ent.Comp.MaxObstructorDistance,
@@ -226,8 +227,12 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // use avoidance vector if available or proceed with thrust as normal
         var wishInputVec = avoidanceVec ?? CalculateNavigationVector(ctx, brakeCtx);
 
+        var rotWish = wishInputVec;
+        if (avoidanceVec != null && config.AvoidanceNoRotate)
+            rotWish = CalculateNavigationVector(ctx, brakeCtx);
+
         // process angular input
-        var rotControl = CalculateRotationControl(ctx, config, wishInputVec, ref rotationCompensation);
+        var rotControl = CalculateRotationControl(ctx, config, rotWish, ref rotationCompensation);
 
         // process brake input
         var brakeInput = CalculateBrake(ctx, config, wishInputVec, rotControl, brakeCtx);
@@ -273,7 +278,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         var scanDistance = brake.BrakeAccel == 0f ?
                                config.MaxObstructorDistance
-                               : MathF.Min(config.MaxObstructorDistance, brake.BrakePath * 2f);
+                               : MathF.Min(config.MaxObstructorDistance, brake.BrakePath * 4f);
         scanDistance += shipAABB.Size.Length() * 0.5f + ScanDistanceBuffer;
 
         var scanBoundsLocal = shipAABB
@@ -687,6 +692,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // avoidance
         public bool AvoidCollisions;
         public bool AvoidProjectiles;
+        public bool AvoidanceNoRotate;
         public int EvasionSectorCount;
         public int EvasionSectorDepth;
         public float BaseEvasionTime;
