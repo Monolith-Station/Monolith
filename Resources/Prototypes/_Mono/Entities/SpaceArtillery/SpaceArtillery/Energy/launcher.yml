@@ -1116,12 +1116,12 @@
 - type: entity
   id: WeaponTurretSunder
   name: Curio-1007 proton cannon "Sunder"
-  parent: BallisticArtillery
+  parent: [BallisticArtillery, BaseADSContrabandT2]
   suffix: ADS ONLY
   description: A potent proton cannon from before the Fracture, known for melting holes through both inorganic and organic matter with ease.
   components:
   - type: StaticPrice
-    price: 30000
+    price: 75000
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/sunder.rsi
     layers:
@@ -1194,12 +1194,12 @@
 - type: entity
   id: WeaponTurretScythe
   name: Curio-1008 neutron repeater "Scythe"
-  parent: BallisticArtillery
+  parent: [BallisticArtillery, BaseADSContrabandT2]
   suffix: ADS ONLY
   description: A burst firing neutron repeater, firing high-damage but slow balls of hell. A marvel of rapture weapons technology. Specializes in tunneling through anything that can't outmanuever it.
   components:
   - type: StaticPrice
-    price: 40000
+    price: 75000
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/scythe.rsi
     layers:
@@ -1277,12 +1277,12 @@
 - type: entity
   id: WeaponLaserTurretFlayer
   name: Curio-183 auto-coil "Flayer"
-  parent: BallisticArtillery
+  parent: [BallisticArtillery, BaseADSContrabandT1]
   suffix: ADS ONLY
   description: A unique pre-fracture weapon, the Flayer fires a storm of tungsten alloy darts at near the speed of light, barraging targets to pieces.
   components:
   - type: StaticPrice
-    price: 25000
+    price: 55000
   - type: Sprite
     sprite:  _Mono/Objects/ShuttleWeapons/flayer.rsi
     layers:
