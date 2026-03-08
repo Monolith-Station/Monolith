@@ -2,14 +2,14 @@
 # GitHub: Corrupt142
 # Discord: Corrupt
 
-# Shuttle Notes: To hell with you plunderer!
+# Shuttle Notes: To hell with you plunderer! Armament uniformised to ballistics, sorry y'all, a pirate shit bucket doesn't get laser PD.
 
 - type: vessel
   id: Scallywag
   parent: BaseVessel
   name: RSC-Scallywag
-  description: Heavily armoured hit and run ship dedicated for Piracy operations. Armed with 2x Longbow 90mm autocannon,4x L-1 phalanx PD laser,2x VESPERA swarm missile launchers and a TARYNX for Disabling fleeing ships.
-  price: 160000 # 125K base + 35K markup (36%).
+  description: Heavily armoured hit and run ship dedicated for Piracy operations. Armed with 2x Longbow 90mm autocannon,4x L85 20mm PD turret,2x VESPERA swarm missile launchers and a RUBICON for Disabling fleeing ships.
+  price: 120000 # 89K base x 1.35 -> 120K (35% markup).
   category: medium
   group: Shipyard
   access: Mercenary
