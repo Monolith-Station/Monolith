@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/22/2026 09:46:27
-  entityCount: 354
+  time: 03/08/2026 12:24:09
+  entityCount: 355
 maps: []
 grids:
 - 1
@@ -1793,10 +1793,11 @@ entities:
       parent: 1
 - proto: LockerWallEVAColorJanitorFilled
   entities:
-  - uid: 11
+  - uid: 355
     components:
     - type: Transform
-      pos: 2.5,3.5
+      rot: 3.141592653589793 rad
+      pos: -0.5,3.5
       parent: 1
 - proto: LockerWallMaterialsFuelPlasmaFilled
   entities:
@@ -2204,6 +2205,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -3.5,2.5
+      parent: 1
+- proto: ServiceTechFab
+  entities:
+  - uid: 11
+    components:
+    - type: Transform
+      pos: 2.5,2.5
       parent: 1
 - proto: SinkWide
   entities:
