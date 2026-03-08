@@ -63,6 +63,7 @@
       1: 0.45
       0: 0.00
   - type: Temperature
+    interactionExchangeCoefficient: 0.002 # Mono
     heatDamageThreshold: 1800 # GoobStation: Roughly the melting point of mild steels
     coldDamageThreshold: 260
     currentTemperature: 310.15

@@ -356,7 +356,7 @@ public sealed partial class MapScreen : BoxContainer
                 var name = hideLabel ?
                     detectionLevel == DetectionLevel.PartialDetected ?
                         Loc.GetString($"shuttle-console-signature-infrared")
-                        : Loc.GetString($"shuttle-console-signature-unknown")
+                        : _detection.HandleUnknownMassLabel(grid.Owner)
                     : _entManager.GetComponent<MetaDataComponent>(grid.Owner).EntityName;
 
                 var gridObj = new GridMapObject()

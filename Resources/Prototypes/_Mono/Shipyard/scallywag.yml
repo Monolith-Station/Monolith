@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: Corrupt142
+# Discord: Corrupt
+
+# Shuttle Notes: To hell with you plunderer!
+
+- type: vessel
+  id: Scallywag
+  parent: BaseVessel
+  name: RSC-Scallywag
+  description: Heavily armoured hit and run ship dedicated for Piracy operations. Armed with 2x Longbow 90mm autocannon,4x L-1 phalanx PD laser,2x VESPERA swarm missile launchers and a TARYNX for Disabling fleeing ships.
+  price: 160000 # 125K base + 35K markup (36%).
+  category: medium
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/scallywag.yml
+  guidebookPage: Null
+  class:
+  - pursuit
+
+  engine:
+  - uranium
+
+- type: gameMap
+  id: Scallywag
+  mapName: 'RSC-Scallywag'
+  mapPath: /Maps/_Mono/Shuttles/scallywag.yml
+  minPlayers: 0
+  stations:
+    Scallywag:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Scallywag MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
