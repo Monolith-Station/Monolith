@@ -8,8 +8,16 @@
 
 - type: entity
   id: LockableButtonPirate
-  suffix: Rogue
+  suffix: PDV
   parent: LockableButton
   components:
   - type: AccessReader
     access: [["Pirate"]]
+
+- type: entity
+  id: LockableButtonTSFMC
+  suffix: TSFMC
+  parent: LockableButton
+  components:
+  - type: AccessReader
+    access: [["Security"]]

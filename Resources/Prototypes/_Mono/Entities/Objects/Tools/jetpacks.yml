@@ -1,0 +1,33 @@
+#Empty ADM
+- type: entity
+  id: JetpackADM
+  parent: BaseJetpack
+  name: pre-fracture jetpack
+  description: An exotic, pre-fracture jetpack which is not detected by modern scanners.
+  suffix: Empty
+  components:
+  - type: Item
+    sprite: _Mono/Objects/Tanks/Jetpacks/purple.rsi
+  - type: Sprite
+    sprite: _Mono/Objects/Tanks/Jetpacks/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Tanks/Jetpacks/purple.rsi
+  - type: Jetpack
+    stealth: true
+
+#Filled ADM
+- type: entity
+  id: JetpackADMFilled
+  parent: JetpackADM
+  name: pre-fracture jetpack
+  suffix: Filled
+  components:
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 13 minutes thrust
+      volume: 5
+      temperature: 293.15
+      moles:
+        - 1.025689525 # oxygen
+        - 1.025689525 # nitrogen
