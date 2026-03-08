@@ -17943,3 +17943,57 @@ Entries:
   id: 1977
   time: '2026-03-06T12:18:42.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3373
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Added new reagent - Peranol, mostly designed for hydrakin use.
+    - type: Tweak
+      message: Hydrakin passive heat has been nerfed. 5500J -> 3900J
+    - type: Tweak
+      message: Hydrakin guidebook entry is now actually readable.
+  id: 1978
+  time: '2026-03-06T13:42:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3377
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        VESPERA and VANYK damage have been severely lowered. (Almost divided by
+        3)
+  id: 1979
+  time: '2026-03-06T15:48:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3378
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Chimera can now wear clothing, but get no effects from it.
+  id: 1980
+  time: '2026-03-06T16:45:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3364
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: >-
+        Limits the amount of motley-anne fighters that can be present at one
+        time.
+  id: 1981
+  time: '2026-03-07T00:43:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3385
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Sellsword uparmoured to withstand ramming from the side better.
+        Low-power gunnery server upgraded to medium to support gamerloot and
+        customization. IFF console removed. Vespera ammo crate replaced with FTL
+        drive. Mercfab added. Price increased to 56000.
+  id: 1982
+  time: '2026-03-07T11:02:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3188
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixed the Talon-SYN lack of directional fan.
+  id: 1983
+  time: '2026-03-07T11:14:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3354
