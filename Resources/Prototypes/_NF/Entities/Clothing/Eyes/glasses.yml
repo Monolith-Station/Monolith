@@ -1,19 +1,4 @@
 - type: entity
-  id: ClothingEyesArcadiaVisor
-  name: arcadia visor
-  parent: [ ClothingEyesBase ]
-  description: A visor produced by Arcadia Industries, with some high tech optics systems built in.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/Eyes/Glasses/arcadia.rsi
-  - type: Clothing
-    sprite: _NF/Clothing/Eyes/Glasses/arcadia.rsi
-  - type: FlashImmunity
-  - type: EyeProtection
-  - type: VisionCorrection
-  - type: IdentityBlocker
-
-- type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesPilot
   name: pilot goggles

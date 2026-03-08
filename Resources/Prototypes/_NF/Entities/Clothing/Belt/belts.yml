@@ -1,15 +1,4 @@
 - type: entity
-  id: ClothingBeltArcadia
-  name: arcadia webbing
-  parent: [ NFClothingBeltStorageBase ]
-  description: A webbing created by Arcadia Industries. Seems very capable of fitting many items.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/Belt/arcadia.rsi
-  - type: Clothing
-    sprite: _NF/Clothing/Belt/arcadia.rsi
-
-- type: entity
   parent: NFClothingBeltStorageBase
   id: ClothingBeltChaplainSash
   name: chaplain sash

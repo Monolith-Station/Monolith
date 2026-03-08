@@ -1,17 +1,4 @@
 - type: entity
-  id: ClothingHandsGlovesArcadiaCombat
-  name: arcadia combat gloves
-  parent: [ ClothingHandsGlovesCombat ]
-  description: Combat gloves produced by Arcadia Industries.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/Hands/Gloves/arcadia.rsi
-  - type: Clothing
-    sprite: _NF/Clothing/Hands/Gloves/arcadia.rsi
-  - type: Fiber
-    fiberColor: fibers-white
-
-- type: entity
   parent: ClothingHandsGlovesLeather
   id: ClothingHandsGlovesPilot
   name: pilot gloves
