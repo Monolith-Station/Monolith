@@ -18082,3 +18082,18 @@ Entries:
   id: 1993
   time: '2026-03-09T07:06:16.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3400
+- author: Kiithnaras
+  changes:
+    - type: Tweak
+      message: Buffed Exosuit PKA to mine multiple tiles like handheld PKA
+    - type: Tweak
+      message: Increased fire cost of Exo PKA (10 from 0.1)
+    - type: Tweak
+      message: Increased range and velocity of Exo-PKA (40m/s and 60m)
+    - type: Tweak
+      message: >-
+        Exo/Ship PKA projectiles should automatically load (and hit) distant
+        asteroids and debris they are fired at.
+  id: 1994
+  time: '2026-03-09T07:30:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3372
