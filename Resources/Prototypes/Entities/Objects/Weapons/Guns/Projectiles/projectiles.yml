@@ -462,7 +462,6 @@
     - state: chronobolt
       shader: unshaded
   - type: Projectile
-    noDamageDelete: false # Mono
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
