@@ -370,7 +370,7 @@ namespace Content.IntegrationTests.Tests
                 "ActivatableUI", // Frontier: Requires enum key
                 "AlertLevel", // Frontier: requires alert set
                 "BluespaceErrorRule", // Frontier
-                "GridSpawned", // mono - i wouldn't
+                "GridSpawner", // mono - i wouldn't
             };
 
             // TODO TESTS
