@@ -17997,3 +17997,88 @@ Entries:
   id: 1983
   time: '2026-03-07T11:14:01.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3354
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: >-
+        New ship has appeared on the shipyard console: RSC-Scallywag, hit and
+        run ship dedicated to piracy.
+  id: 1984
+  time: '2026-03-08T11:39:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3164
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: POIs no longer rammable
+  id: 1985
+  time: '2026-03-08T15:32:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3396
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Shuttle consoles now come with autopilot in the map tab.
+  id: 1986
+  time: '2026-03-08T15:56:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3394
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Shipguns can now be examined for damage, repaired with nanite
+        applicator, and climbed over
+  id: 1987
+  time: '2026-03-08T16:20:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3387
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: >-
+        Restored plate explosion damage mitigation after plate metabolism damage
+        mitigation fix. Barotrauma damage no longer mitigated. Fixed the system
+        firing excessively when unnecessary. Fixed false crit predictions when
+        lethal damage is mitigated.
+  id: 1988
+  time: '2026-03-08T16:25:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3190
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Minor engine version update. No bugs should occur.
+  id: 1989
+  time: '2026-03-08T16:34:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3323
+- author: lopsidedmanboobs
+  changes:
+    - type: Tweak
+      message: >-
+        Roleplay Rule One has been updated, you cannot reference memes no
+        longer.
+  id: 1990
+  time: '2026-03-08T23:08:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3408
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: >-
+        RSC Scallywag has had it's armament switched to mostly ballistic and EMP
+        weaponry downscaled
+  id: 1991
+  time: '2026-03-08T23:56:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3403
+- author: lopsidedmanboobs
+  changes:
+    - type: Tweak
+      message: >-
+        You can no longer attack docked/undocked ships within a 256m radius of
+        faction outposts in the Conflict R4 (excluding ships in combat within
+        the last 2 minutes)
+  id: 1992
+  time: '2026-03-09T02:08:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3409
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Autopilot should no longer crash ships with slow brakes.
+  id: 1993
+  time: '2026-03-09T07:06:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3400
