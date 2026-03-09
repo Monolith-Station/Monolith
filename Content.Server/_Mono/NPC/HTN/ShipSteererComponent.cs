@@ -179,7 +179,7 @@ public sealed partial class ShipSteererComponent : Component
     /// How fast to accumulate the rotational offset integral, rad/s/rad (also affected by sqrt of angular acceleration).
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float RotationCompensationGain = 0.03f;
+    public float RotationCompensationGain = 0.1f;
 
     /// <summary>
     /// Target rotation in relation to movement direction.
