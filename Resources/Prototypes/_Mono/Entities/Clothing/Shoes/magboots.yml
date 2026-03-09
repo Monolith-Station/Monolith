@@ -23,7 +23,7 @@
     sprite: _Mono/Clothing/Shoes/Boots/voidboots.rsi
 
 - type: entity
-  parent: [ ClothingShoesBootsMagAdv, BaseFactionGearOtherFactionT2 ]
+  parent: [ ClothingShoesBootsMagAdv, BaseADSContrabandT1 ]
   id: ClothingShoesBootsMagAsakim
   name: pre-fracture magboots
   description: State-of-the-art magnetic boots made for combat with advanced harnesses.

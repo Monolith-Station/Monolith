@@ -1,6 +1,6 @@
 - type: entity
   name: kunisa-pattern plasma autopulser
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseADSContrabandT2]
   id: WeaponRifleAsakimAutopulser
   description: An advanced handheld plasma rifle. The design bears similarities to pre-fracture plasma weapons.
   components:
@@ -42,7 +42,7 @@
     fireCost: 25
   - type: Appearance
   - type: StaticPrice
-    price: 1750
+    price: 75000
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 35
