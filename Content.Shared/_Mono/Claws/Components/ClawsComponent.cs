@@ -15,6 +15,9 @@ public sealed partial class ClawsComponent : Component
     [DataField, AutoNetworkedField]
     public Dictionary<int, ProtoId<ClawPrototype>> Claws;
 
+    [DataField]
+    public LocId? ClawGrowthNotification;
+
     [DataField, AutoPausedField]
     public TimeSpan GrowTimer = TimeSpan.Zero;
 
