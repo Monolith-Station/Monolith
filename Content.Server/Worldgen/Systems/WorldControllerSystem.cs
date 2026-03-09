@@ -22,7 +22,7 @@ public sealed class WorldControllerSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
 
     private const int PlayerLoadRadius = 2;
-    private float _updateInterval = 2f; // Mono
+    private float _updateInterval = 1f; // Mono
     private float _updateAccumulator = 0f; // Mono
 
 
