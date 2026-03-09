@@ -174,7 +174,7 @@ public sealed class SpaceCleanupSystem : BaseCleanupSystem<PhysicsComponent>
             foreach (var (uid, body) in _sweepEnts)
             {
                 if (ShouldEntityCleanup(uid, aggression))
-                    QueueDel(uid);
+                    CleanupEnt(uid);
             }
         }
     }
