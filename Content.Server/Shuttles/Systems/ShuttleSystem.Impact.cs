@@ -26,6 +26,7 @@ using Robust.Shared.Random;
 using System.Numerics;
 
 using Content.Server._Mono.Cleanup;
+using Content.Shared._Mono.CCVar;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -48,6 +49,11 @@ public sealed partial class ShuttleSystem
     private float _inertiaScaling;
     // this doesn't update if plating mass is changed but edgecase
     private float _platingMass;
+
+    // Mono
+    private float _sweepAggression;
+    private float _sweepDelay;
+    private float _sweepRadius;
 
     private const float _sparkChance = 0.2f;
     // shuttle mass to consider the neutral point for inertia scaling
@@ -89,6 +95,11 @@ public sealed partial class ShuttleSystem
         Subs.CVar(_cfg, CCVars.ImpactMinThrowVelocity, value => _minThrowVelocity = value, true);
         Subs.CVar(_cfg, CCVars.ImpactMassBias, value => _massBias = value, true);
         Subs.CVar(_cfg, CCVars.ImpactInertiaScaling, value => _inertiaScaling = value, true);
+
+        // Mono
+        Subs.CVar(_cfg, MonoCVars.ImpactSweepAggression, val => _sweepAggression = val, true);
+        Subs.CVar(_cfg, MonoCVars.ImpactSweepDelay, val => _sweepDelay = val, true);
+        Subs.CVar(_cfg, MonoCVars.ImpactSweepRadius, val => _sweepRadius = val, true);
 
         _platingMass = _protoManager.Index(_platingId).Mass;
     }
@@ -200,7 +211,7 @@ public sealed partial class ShuttleSystem
                 impact = LogImpact.Extreme;
 
                 // Mono - also queue cleanup sweeps
-                _sweep.QueueSweep(ourPoint, TimeSpan.FromSeconds(5f), 30f, 0.1f);
+                _sweep.QueueSweep(ourPoint, TimeSpan.FromSeconds(_sweepDelay), _sweepRadius, _sweepAggression);
             }
             // TODO: would be nice for it to also log who is piloting the grid(s)
             if (CheckShouldLog(args.OurEntity) && CheckShouldLog(args.OtherEntity))
