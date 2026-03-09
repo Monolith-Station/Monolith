@@ -22,6 +22,9 @@ public sealed class WorldControllerSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
 
     private const int PlayerLoadRadius = 2;
+    private float _updateInterval = 1f; // Mono
+    private float _updateAccumulator = 0f; // Mono
+
 
     private ISawmill _sawmill = default!;
 
@@ -86,6 +89,11 @@ public sealed class WorldControllerSystem : EntitySystem
     /// <inheritdoc />
     public override void Update(float frameTime)
     {
+        _updateAccumulator += frameTime;
+        if (_updateAccumulator < _updateInterval)
+            return;
+        _updateAccumulator -= _updateInterval; // Mono - Delay between updates
+
         //there was a to-do here about every frame alloc but it turns out it's a nothing burger here.
         var chunksToLoad = new Dictionary<EntityUid, Dictionary<Vector2i, List<EntityUid>>>();
 

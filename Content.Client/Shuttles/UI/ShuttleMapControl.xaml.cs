@@ -57,6 +57,16 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
     /// </summary>
     public bool ShowFTLRangeOnly;
 
+    /// <summary>
+    /// Mono - Whether to show FTL range at all.
+    /// </summary>
+    public bool ShowFTLRange = true;
+
+    /// <summary>
+    /// Mono - Whether to ignore FTL obstructions and range for preview display.
+    /// </summary>
+    public bool NoFTLRange = false;
+
     private Angle _ftlAngle;
 
     /// <summary>
@@ -275,7 +285,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
 
         // Draw our FTL range + no FTL zones
         // Do it up here because we want this layered below most things.
-        if (FtlMode || ShowFTLRangeOnly)
+        if ((FtlMode || ShowFTLRangeOnly) && ShowFTLRange) // Mono
         {
             if (EntManager.TryGetComponent<TransformComponent>(_shuttleEntity, out var shuttleXform))
             {
@@ -515,7 +525,8 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
                     var mouseMapPos = InverseMapPosition(mouseLocalPos);
 
                     var ftlFree = (!beaconsOnly || foundBeacon != default) &&
-                                  _shuttles.FTLFree(_shuttleEntity.Value, new EntityCoordinates(viewedMapUid, mouseMapPos), _ftlAngle, _viewportExclusions);
+                                  _shuttles.FTLFree(_shuttleEntity.Value, new EntityCoordinates(viewedMapUid, mouseMapPos), _ftlAngle, _viewportExclusions)
+                                  || NoFTLRange; // Mono
 
                     var color = ftlFree ? Color.LimeGreen : Color.Magenta;
 
