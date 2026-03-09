@@ -77,48 +77,5 @@ public sealed class OreSiloSystem : SharedOreSiloSystem
         _userInterface.SetUiState(ent.Owner, OreSiloUiKey.Key, new OreSiloBuiState(_clientInformation));
     }
 
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        // Solving an annoying problem: we need to send the silo to people who are near the silo so that
-        // Things don't start wildly mispredicting. We do this as cheaply as possible via grid-based local-pos checks.
-        // Sloth okay-ed this in the interim until a better solution comes around.
-
-        var actorQuery = EntityQueryEnumerator<ActorComponent, TransformComponent>();
-        while (actorQuery.MoveNext(out _, out var actorComp, out var actorXform))
-        {
-            _silosToAdd.Clear();
-            _silosToRemove.Clear();
-
-            var clientQuery = EntityQueryEnumerator<OreSiloClientComponent, TransformComponent>();
-            while (clientQuery.MoveNext(out _, out var clientComp, out var clientXform))
-            {
-                if (clientComp.Silo == null)
-                    continue;
-
-                // We limit it to same-grid checks only for peak perf
-                if (actorXform.GridUid != clientXform.GridUid)
-                    continue;
-
-                if ((actorXform.LocalPosition - clientXform.LocalPosition).LengthSquared() <= OreSiloPreloadRangeSquared)
-                {
-                    _silosToAdd.Add(clientComp.Silo.Value);
-                }
-                else
-                {
-                    _silosToRemove.Add(clientComp.Silo.Value);
-                }
-            }
-
-            foreach (var toRemove in _silosToRemove)
-            {
-                _pvsOverride.RemoveSessionOverride(toRemove, actorComp.PlayerSession);
-            }
-            foreach (var toAdd in _silosToAdd)
-            {
-                _pvsOverride.AddSessionOverride(toAdd, actorComp.PlayerSession);
-            }
-        }
-    }
+    // Mono - removed Update
 }
