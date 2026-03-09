@@ -478,6 +478,8 @@
     muzzleFlash: HitscanEffect
   - type: TimedDespawn
     lifetime: 1.5 # Frontier 1.5<1, Monolith 1<1.5
+  - type: ChunkLoader
+    loadingDistance: 16
   - type: PointLight
     radius: 2.5
     color: "#FF8888" # Frontier: white<FF8888
