@@ -26,7 +26,7 @@ public sealed partial class MonoCVars
     ///     Don't delete non-grids at most this close to a grid.
     /// </summary>
     public static readonly CVarDef<float> CleanupMaxGridDistance =
-        CVarDef.Create("mono.cleanup.max_grid_distance", 20.0f, CVar.SERVERONLY);
+        CVarDef.Create("mono.cleanup.max_grid_distance", 30.0f, CVar.SERVERONLY);
 
     /// <summary>
     ///     How far away from any players can a mob be until it gets cleaned up.
@@ -68,7 +68,7 @@ public sealed partial class MonoCVars
     ///     How much can a spaced entity at most be worth for it to be cleaned up.
     /// </summary>
     public static readonly CVarDef<float> SpaceCleanupMaxValue =
-        CVarDef.Create("mono.cleanup.space.max_value", 10000.0f, CVar.SERVERONLY);
+        CVarDef.Create("mono.cleanup.space.max_value", 3000.0f, CVar.SERVERONLY);
 
     #endregion
 

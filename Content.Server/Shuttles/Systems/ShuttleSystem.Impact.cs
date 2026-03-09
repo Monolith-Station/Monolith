@@ -25,11 +25,15 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Numerics;
 
+using Content.Server._Mono.Cleanup;
+
 namespace Content.Server.Shuttles.Systems;
 
 // shuttle impact damage ported from Goobstation (AGPLv3) with agreement of all coders involved
 public sealed partial class ShuttleSystem
 {
+    [Dependency] private readonly SpaceCleanupSystem _sweep = default!;
+
     private bool _enabled;
     private float _minimumImpactInertia;
     private float _minimumImpactVelocity;
@@ -192,7 +196,12 @@ public sealed partial class ShuttleSystem
             var impact = LogImpact.High;
             // if impact isn't tiny, log it as extreme
             if (toUsEnergy + toOtherEnergy > 2f * _tileBreakEnergyMultiplier * _platingMass)
+            {
                 impact = LogImpact.Extreme;
+
+                // Mono - also queue cleanup sweeps
+                _sweep.QueueSweep(ourPoint, TimeSpan.FromSeconds(5f), 30f, 0.1f);
+            }
             // TODO: would be nice for it to also log who is piloting the grid(s)
             if (CheckShouldLog(args.OurEntity) && CheckShouldLog(args.OtherEntity))
                 _logger.Add(LogType.ShuttleImpact, impact, $"Shuttle impact of {ToPrettyString(args.OurEntity)} with {ToPrettyString(args.OtherEntity)} at {worldPoint}");
@@ -285,7 +294,7 @@ public sealed partial class ShuttleSystem
             if (direction.LengthSquared() > minsq)
             {
                 _stuns.TryKnockdown(ent.Owner, knockdownTime, true);
-                _throwing.TryThrow(ent, direction, physics, Transform(ent), _projQuery, direction.Length(), playSound: false);
+                _throwing.TryThrow(ent, direction, ent.Comp, Transform(ent), _projQuery, direction.Length(), playSound: false);
             }
             else
             {
