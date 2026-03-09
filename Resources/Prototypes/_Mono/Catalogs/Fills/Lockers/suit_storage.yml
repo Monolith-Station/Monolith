@@ -14,7 +14,7 @@
         - id: JetpackVoidFilled
         - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
-    access: [["USSP"]]
+    access: [["Mercenary"]]
     
 - type: entity
   id: SuitStorageUsspL10
@@ -29,8 +29,8 @@
         - id: ClothingMaskGasSecurity
         - id: JetpackMiniFilled
         - id: ClothingShoesBootsMagSecurity
-#  - type: AccessReader #USSP Access currently unused
-#    access: [["USSP"]]
+  - type: AccessReader #USSP Access currently unused
+    access: [["Mercenary"]]
 
 - type: entity
   id: SuitStorageCommissar
