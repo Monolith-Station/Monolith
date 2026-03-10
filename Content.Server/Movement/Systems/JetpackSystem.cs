@@ -35,7 +35,7 @@ public sealed class JetpackSystem : SharedJetpackSystem
     /// </summary>
     private void OnJetpackActivated(EntityUid uid, ActiveJetpackComponent component, ComponentStartup args)
     {
-        if (TryComp<JetpackComponent>(uid, out var jetpack) && (jetpack.Stealth = false))
+        if (TryComp<JetpackComponent>(uid, out var jetpack) && jetpack.Stealth == false)
         {
             var blip = EnsureComp<RadarBlipComponent>(uid);
             blip.Config.Color = Color.Cyan;
