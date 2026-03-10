@@ -52,6 +52,7 @@
     soundHit:
       collection: MetalThud
   - type: NailClipper # Mono
+    clipDoAfter: 2
     allowedClawTypes: ["SharpClaw"]
 
 - type: entity
