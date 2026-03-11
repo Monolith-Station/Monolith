@@ -143,8 +143,8 @@
   - !type:AddCompsEffect
     components:
     - type: Thieving
-      stealthy: true
-      timeMultiplier: 0.67
+      stealthy: false
+      timeMultiplier: 0.5
       identifyHidden: true
 
 - type: trait

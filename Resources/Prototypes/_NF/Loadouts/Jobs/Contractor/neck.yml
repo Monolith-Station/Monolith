@@ -117,15 +117,6 @@
     neck: ClothingNeckCrucifix
 
 - type: loadout
-  id: ContractorClothingNeckBellCollar
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT1
-  price: 0 # Mono
-  equipment:
-    neck: ClothingNeckBellCollar
-
-- type: loadout
   id: ContractorCDDogtags
   effects:
   - !type:GroupLoadoutEffect

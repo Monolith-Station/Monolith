@@ -184,12 +184,13 @@
     - HostileUniversally
 
 ## Magazine fed, deployable NanoTrasen turret
+# Mono - ASMGTs editted.
 - type: entity # deployed turret
   id: WeaponTurretAsmgtNtDeployed
   name: ASMGT
   description: |-
-   An Autonomous Sentry Machine Gun Turret (ASMGT) is a magazine-fed turret with barrels compatible with 5.56x45mm, 7.62x39mm, 9x19mm and 6.35x40mm cartridges. Use screwdriver to disassemble.
-  suffix: NT
+   An Autonomous Sentry Machine Gun Turret (ASMGT) is a magazine-fed turret with barrels compatible with 5.56x45mm, 7.62x39mm, 9x19mm and 6.35x40mm cartridges. Use screwdriver to disassemble. This one is reinforced and has a Colonial Security IFF reader.
+  suffix: CSec
   parent:
   - BaseWeaponTurretMagazineFed
   components:
@@ -228,13 +229,21 @@
     deconstructionTarget: null
     graph: WeaponTurretAsmgtNtPackingGraph
     node: WeaponTurretAsmgtNtPacked
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 600
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
 - type: entity # folded turret
   id: WeaponTurretAsmgtNtPacked
-  name: packed ASMGT
+  name: packed CSec ASMGT
   description: |-
-   A disassembled and packed Autonomous Sentry Machine Gun Turret (ASMGT).
-  suffix: NT, Packed
+   A disassembled and packed Autonomous Sentry Machine Gun Turret (ASMGT) for Colonial Security.
+  suffix: CSec, Packed
   parent:
   - BaseItem
   components:
@@ -274,7 +283,9 @@
 ## Magazine fed, deployable punk turret
 - type: entity # deployed turret
   id: WeaponTurretAsmgtHostileUniversallyDeployed
-  suffix: Universally Hostile
+  suffix: Hostile, Imprint
+  description: |-
+    An Autonomous Sentry Machine Gun Turret (ASMGT) is a magazine-fed turret with barrels compatible with 5.56x45mm, 7.62x39mm, 9x19mm and 6.35x40mm cartridges. Use screwdriver to disassemble. This one is a Civilian model for shipboard defense in hostile sectors, with reduced armor plating and a restricted firerate to comply with interstellar commerce law.
   parent:
   - WeaponTurretAsmgtNtDeployed
   components:
@@ -289,12 +300,27 @@
     deconstructionTarget: null
     graph: WeaponTurretAsmgtHostileUniversallyPackingGraph
     node: WeaponTurretAsmgtHostileUniversallyPacked
+  - type: Gun
+    fireRate: 2
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
 - type: entity # folded turret
   id: WeaponTurretAsmgtHostileUniversallyPacked
-  suffix: Universally Hostile, Packed
+  name: packed Civilian ASMGT
+  suffix: Hostile, Packed, Imprint
   description: |-
-   A disassembled and packed Autonomous Sentry Machine Gun Turret (ASMGT). WARNING! Unpacked turret will be hostile towards anyone who wasn't in close proximity (within 3 m) after unpacking!
+   A disassembled and packed Civilian-model Autonomous Sentry Machine Gun Turret (ASMGT). WARNING! Unpacked turret will be hostile towards anyone who wasn't in close proximity (within 3 m) after unpacking!
   parent:
   - WeaponTurretAsmgtNtPacked
   components:

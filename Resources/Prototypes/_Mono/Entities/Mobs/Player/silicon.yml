@@ -124,6 +124,8 @@
         - cell_slot
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
 
 - type: entity
   id: AiHeldMono
@@ -239,7 +241,7 @@
     - RobotTalk
     - Azaziba
   - type: BorgChassis
-    maxModules: 8
+    maxModules: 10
     moduleWhitelist:
       tags:
       - BorgModuleGeneric
@@ -255,6 +257,14 @@
     interactFailureString: petting-failure-derelict-cyborg
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: ExplosionResistance
+    damageCoefficient: 0.25
+  - type: Scrammer
+    actionProto: ActionScrammerScramADM
+    specifier:
+      avoidSpace: false
+      teleportRadius: 40
+      minRadiusFraction: 0.75 # force teleport 30-40 tiles
 
 - type: entity
   id: PlayerBorgRedacted
@@ -267,8 +277,9 @@
       - PositronicBrain
       borg_module:
       - BorgModuleOperative
-      - BorgModuleAdvancedWeapon
-      - BorgModuleJetpack
+      - BorgModuleRedactedWeapon
+      - BorgModuleEsword
+      - BorgModuleJetpackADM
       - BorgModuleAdvancedTool
       - BorgModuleConstruction
       - BorgModuleCable

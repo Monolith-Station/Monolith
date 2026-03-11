@@ -34,6 +34,8 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
 
 - type: entity
   parent: ClothingHandsBase
@@ -71,6 +73,8 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
 
 - type: entity
   parent: ClothingHandsBase
@@ -108,6 +112,8 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
 
 # Volta
 # Uses exact same gloves as sapper ones, feel free to make them more unique
@@ -147,6 +153,8 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
       gloves-resomi:
       - state: equipped-HAND-sealed-resomi
 
@@ -155,7 +163,7 @@
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsMercenary
   name: mercenary modsuit gauntlets
-  description: The knuckle guards glow when you seal the suit...for no apparent reason.
+  description: The knuckle guards glow when you seal the suit...for no apparent reason. Doubles as literal Finger Guns chambered in .45, so they literally pack a punch and then some.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -187,6 +195,8 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
       gloves-resomi:
       - state: equipped-HAND-sealed-resomi
   - type: Gun

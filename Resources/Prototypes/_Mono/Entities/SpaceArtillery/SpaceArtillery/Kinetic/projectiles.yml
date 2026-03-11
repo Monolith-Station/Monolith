@@ -21,7 +21,6 @@
     energy: 0.5
   - type: RadarBlip
     scale: 0.85
-    requireNoGrid: true
     shape: triangle
     radarColor: "#1df1f5"
   - type: Fixtures
@@ -71,7 +70,6 @@
     energy: 0.5
   - type: RadarBlip
     scale: 1.15
-    requireNoGrid: true
     shape: arrow
     radarColor: "#1df1f5"
 
@@ -95,7 +93,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
     radarColor: "#1df1f5"
   - type: TimedDespawn
@@ -127,7 +124,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 1.5
-    requireNoGrid: true
     shape: triangle
     radarColor: "#1df1f5"
 
@@ -139,7 +135,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 70
+        Piercing: 55
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
     layers:
@@ -177,7 +173,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 3.25
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 5.15
@@ -217,7 +212,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 7
@@ -265,6 +259,47 @@
     count: 6
     spread: 5
 
+# 520mm LEVIATHAN Shells
+
+- type: entity
+  id: ShipLeviathanProjectile
+  name: LEVIATHAN 520mm projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 12000
+        Blunt: 2000
+        penetrationThreshold: 2500
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
+    layers:
+    - state: base-projectile
+    scale: 2, 2
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 4
+    requireNoGrid: true
+    shape: star
+  - type: TimedDespawn
+    lifetime: 3.6 #2.5km
+  - type: PointLight
+    color: "#fc5a03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 1250
+    intensitySlope: 15
+    maxIntensity: 200
+    maxTileBreak: 6
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+
 # Drone
 
 - type: entity
@@ -286,7 +321,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
     radarColor: "#1df1f5"
   - type: TimedDespawn
@@ -320,7 +354,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 2.5
-    requireNoGrid: true
     shape: arrow
     radarColor: "#1df1f5"
   - type: TimedDespawn

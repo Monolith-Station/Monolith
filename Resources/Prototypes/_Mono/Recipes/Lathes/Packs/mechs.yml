@@ -74,6 +74,7 @@
   - WeaponMechCombatDisabler
   - WeaponMechCombatFlashbangLauncher
   - WeaponMechCombatMissileRack8
+  - WeaponMechChainSword
 
 #Space Mecha stuff
 - type: latheRecipePack
@@ -125,6 +126,8 @@
 - type: latheRecipePack
   id: SpaceMechaIFF
   recipes:
+  - MechIFFTSF
+  - MechIFFPDV
   - IFFMechaBlueSquare
   - IFFMechaBlueCircle
   - IFFMechaBlueTriangle
