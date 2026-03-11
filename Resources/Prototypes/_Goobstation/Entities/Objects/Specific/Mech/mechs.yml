@@ -142,7 +142,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 4.5
-    baseWeightlessModifier: 5 # Mono
+    baseWeightlessModifier: 10 # Mono
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: StaticPrice
@@ -246,7 +246,7 @@
   - type: MovementSpeedModifier # Mono
     baseWalkSpeed: 3
     baseSprintSpeed: 4.5
-    baseWeightlessModifier: 5
+    baseWeightlessModifier: 7.5
   - type: StaticPrice
     price: 3000
   - type: Tag
@@ -332,7 +332,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.5
     baseSprintSpeed: 2
-    baseWeightlessModifier: 3 # Mono
+    baseWeightlessModifier: 4.5 # Mono
   - type: Damageable
     damageModifierSet: MechArmorHeavy
   - type: CanMoveInAir
@@ -426,7 +426,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 1
     baseSprintSpeed: 1.5
-    baseWeightlessModifier: 3 # Mono
+    baseWeightlessModifier: 4.5 # Mono
   - type: Damageable
     damageModifierSet: MechArmorHeavy
   - type: CanMoveInAir
@@ -529,7 +529,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.2
     baseSprintSpeed: 3.7
-    baseWeightlessModifier: 3 # Mono
+    baseWeightlessModifier: 4.5 # Mono
   - type: Damageable
     damageModifierSet: MechArmorHeavy
   - type: CanMoveInAir
@@ -635,7 +635,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5 # Mono
     baseSprintSpeed: 5.5 # Mono
-    baseWeightlessModifier: 7 # Mono
+    baseWeightlessModifier: 10.5 # Mono
   - type: Damageable
     damageModifierSet: MechArmorLight
   - type: CanMoveInAir
