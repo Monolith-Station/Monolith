@@ -41,12 +41,13 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: Climbable
   - type: Transform
     anchored: true
   - type: Rotatable
     rotateWhilePulling: false
     rotateWhileAnchored: false
-    increment: 45
+    increment: 90
   - type: DeviceLinkSink
     ports:
     - SpaceArtilleryFire
@@ -83,6 +84,11 @@
     selectedMode: FullAuto
     availableModes:
     - FullAuto
+  - type: ExaminableDamage
+    messages: WindowMessages
+  - type: Repairable
+    qualities:
+    - Applicating
 
 - type: entity
   id: BallisticArtilleryUnanchorable
@@ -143,6 +149,7 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: Climbable
   - type: Transform
     anchored: true
   - type: DeviceLinkSink
@@ -187,6 +194,11 @@
     capacity: 2
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: ExaminableDamage
+    messages: WindowMessages
+  - type: Repairable
+    qualities:
+    - Applicating
 
 - type: entity
   id: BallisticArtilleryCartridge
@@ -195,6 +207,10 @@
   components:
   - type: Anchorable
     delay: 10
+  - type: Rotatable
+    rotateWhilePulling: false
+    rotateWhileAnchored: false
+    increment: 90
   - type: Pullable
   - type: PirateBountyItem # not putting this on the other, because like. how do you get a cyrexa for your bounty. thats stupid.
     id: ShipWeapon
@@ -247,6 +263,7 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: Climbable
   - type: Transform
     anchored: true
   - type: DeviceLinkSink
@@ -298,7 +315,11 @@
           params:
             pitch: 2
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-
+  - type: ExaminableDamage
+    messages: WindowMessages
+  - type: Repairable
+    qualities:
+    - Applicating
 
 - type: entity
   id: BallisticArtilleryMagazine
@@ -307,6 +328,10 @@
   components:
   - type: Anchorable
     delay: 10
+  - type: Rotatable
+    rotateWhilePulling: false
+    rotateWhileAnchored: false
+    increment: 90
   - type: Pullable
   - type: PirateBountyItem # not putting this on the other, because like. how do you get a cyrexa for your bounty. thats stupid.
     id: ShipWeapon
