@@ -15,9 +15,9 @@
   - !type:HasTraitCondition
     trait: UltraVision
     invert: true
-  # - !type:HasTraitCondition
-  #   trait: Monochromacy
-  #   invert: true
+  - !type:HasTraitCondition
+    trait: Monochromacy
+    invert: true
   - !type:HasCompCondition
     component: Blindable
   effects:
@@ -46,26 +46,25 @@
   - !type:SpawnItemInHandEffect
     item: ClothingEyesGlasses
 
-# Mono: unimplemented trait
-# - type: trait
-#   id: Monochromacy
-#   name: trait-monochromacy-name
-#   description: trait-monochromacy-desc
-#   category: Disabilities
-#   conditions:
-#   - !type:HasTraitCondition
-#     trait: Blindness
-#     invert: true
-#   - !type:HasTraitCondition
-#     trait: Deuteranopia
-#     invert: true
-#   - !type:HasTraitCondition
-#     trait: UltraVision
-#     invert: true
-#   effects:
-#   - !type:AddCompsEffect
-#     components:
-#     - type: BlackAndWhiteOverlay
+- type: trait
+  id: Monochromacy
+  name: trait-monochromacy-name
+  description: trait-monochromacy-desc
+  category: Disabilities
+  conditions:
+  - !type:HasTraitCondition
+    trait: Blindness
+    invert: true
+  - !type:HasTraitCondition
+    trait: Deuteranopia
+    invert: true
+  - !type:HasTraitCondition
+    trait: UltraVision
+    invert: true
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: BlackAndWhiteOverlay
 
 - type: trait
   id: Deuteranopia
@@ -76,9 +75,9 @@
   - !type:HasTraitCondition
     trait: Blindness
     invert: true
-  # - !type:HasTraitCondition
-  #   trait: Monochromacy
-  #   invert: true
+  - !type:HasTraitCondition
+    trait: Monochromacy
+    invert: true
   - !type:HasTraitCondition
     trait: UltraVision
     invert: true
@@ -99,9 +98,9 @@
   - !type:HasTraitCondition
     trait: Blindness
     invert: true
-  # - !type:HasTraitCondition
-  #   trait: Monochromacy
-  #   invert: true
+  - !type:HasTraitCondition
+    trait: Monochromacy
+    invert: true
   - !type:HasTraitCondition
     trait: Deuteranopia
     invert: true
@@ -113,62 +112,57 @@
     components:
     - type: UltraVision
 
-# Mono: Unimplemented trait
-# - type: trait
-#   id: ImpairedMobility
-#   name: trait-impaired-mobility-name
-#   description: trait-impaired-mobility-desc
-#   category: Disabilities
-#   effects:
-#   - !type:AddCompsEffect
-#     components:
-#     - type: ImpairedMobility
-#   - !type:SpawnItemInHandEffect
-#     item: OffsetCane
+- type: trait
+  id: ImpairedMobility
+  name: trait-impaired-mobility-name
+  description: trait-impaired-mobility-desc
+  category: Disabilities
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: ImpairedMobility
+  - !type:SpawnItemInHandEffect
+    item: OffsetCane
 
-# Mono - Unimplemented trait (no sharedbloodstreamsystem)
-# - type: trait
-#   id: ArmAmputeeLeft
-#   name: trait-amputee-left-arm-name
-#   description: trait-amputee-left-arm-desc
-#   category: Disabilities
-#   effects:
-#   - !type:RemoveBodyPartEffect
-#     part: Arm
-#     symmetry: Left
+- type: trait
+  id: ArmAmputeeLeft
+  name: trait-amputee-left-arm-name
+  description: trait-amputee-left-arm-desc
+  category: Disabilities
+  effects:
+  - !type:RemoveBodyPartEffect
+    part: Arm
+    symmetry: Left
 
-# Mono - Unimplemented trait (no sharedbloodstreamsystem)
-# - type: trait
-#   id: ArmAmputeeRight
-#   name: trait-amputee-right-arm-name
-#   description: trait-amputee-right-arm-desc
-#   category: Disabilities
-#   effects:
-#   - !type:RemoveBodyPartEffect
-#     part: Arm
-#     symmetry: Right
+- type: trait
+  id: ArmAmputeeRight
+  name: trait-amputee-right-arm-name
+  description: trait-amputee-right-arm-desc
+  category: Disabilities
+  effects:
+  - !type:RemoveBodyPartEffect
+    part: Arm
+    symmetry: Right
 
-# Mono - Unimplemented trait (no sharedbloodstreamsystem)
-# - type: trait
-#   id: LegAmputeeLeft
-#   name: trait-amputee-left-leg-name
-#   description: trait-amputee-left-leg-desc
-#   category: Disabilities
-#   effects:
-#   - !type:RemoveBodyPartEffect
-#     part: Leg
-#     symmetry: Left
+- type: trait
+  id: LegAmputeeLeft
+  name: trait-amputee-left-leg-name
+  description: trait-amputee-left-leg-desc
+  category: Disabilities
+  effects:
+  - !type:RemoveBodyPartEffect
+    part: Leg
+    symmetry: Left
 
-# Mono - Unimplemented trait (no sharedbloodstreamsystem)
-# - type: trait
-#   id: LegAmputeeRight
-#   name: trait-amputee-right-leg-name
-#   description: trait-amputee-right-leg-desc
-#   category: Disabilities
-#   effects:
-#   - !type:RemoveBodyPartEffect
-#     part: Leg
-#     symmetry: Right
+- type: trait
+  id: LegAmputeeRight
+  name: trait-amputee-right-leg-name
+  description: trait-amputee-right-leg-desc
+  category: Disabilities
+  effects:
+  - !type:RemoveBodyPartEffect
+    part: Leg
+    symmetry: Right
 
 - type: trait
   id: Dysgraphia
