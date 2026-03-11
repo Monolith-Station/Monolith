@@ -15,9 +15,9 @@
   - !type:HasTraitCondition
     trait: UltraVision
     invert: true
-  - !type:HasTraitCondition
-    trait: Monochromacy
-    invert: true
+  # - !type:HasTraitCondition
+  #   trait: Monochromacy
+  #   invert: true
   - !type:HasCompCondition
     component: Blindable
   effects:
@@ -46,25 +46,26 @@
   - !type:SpawnItemInHandEffect
     item: ClothingEyesGlasses
 
-- type: trait
-  id: Monochromacy
-  name: trait-monochromacy-name
-  description: trait-monochromacy-desc
-  category: Disabilities
-  conditions:
-  - !type:HasTraitCondition
-    trait: Blindness
-    invert: true
-  - !type:HasTraitCondition
-    trait: Deuteranopia
-    invert: true
-  - !type:HasTraitCondition
-    trait: UltraVision
-    invert: true
-  effects:
-  - !type:AddCompsEffect
-    components:
-    - type: BlackAndWhiteOverlay
+# Mono - not implemented
+# - type: trait
+#   id: Monochromacy
+#   name: trait-monochromacy-name
+#   description: trait-monochromacy-desc
+#   category: Disabilities
+#   conditions:
+#   - !type:HasTraitCondition
+#     trait: Blindness
+#     invert: true
+#   - !type:HasTraitCondition
+#     trait: Deuteranopia
+#     invert: true
+#   - !type:HasTraitCondition
+#     trait: UltraVision
+#     invert: true
+#   effects:
+#   - !type:AddCompsEffect
+#     components:
+#     - type: BlackAndWhiteOverlay
 
 - type: trait
   id: Deuteranopia
@@ -75,9 +76,9 @@
   - !type:HasTraitCondition
     trait: Blindness
     invert: true
-  - !type:HasTraitCondition
-    trait: Monochromacy
-    invert: true
+  # - !type:HasTraitCondition
+  #   trait: Monochromacy
+  #   invert: true
   - !type:HasTraitCondition
     trait: UltraVision
     invert: true
@@ -98,9 +99,9 @@
   - !type:HasTraitCondition
     trait: Blindness
     invert: true
-  - !type:HasTraitCondition
-    trait: Monochromacy
-    invert: true
+  # - !type:HasTraitCondition
+  #   trait: Monochromacy
+  #   invert: true
   - !type:HasTraitCondition
     trait: Deuteranopia
     invert: true
@@ -112,17 +113,18 @@
     components:
     - type: UltraVision
 
-- type: trait
-  id: ImpairedMobility
-  name: trait-impaired-mobility-name
-  description: trait-impaired-mobility-desc
-  category: Disabilities
-  effects:
-  - !type:AddCompsEffect
-    components:
-    - type: ImpairedMobility
-  - !type:SpawnItemInHandEffect
-    item: OffsetCane
+# Mono - not implemented
+# - type: trait
+#   id: ImpairedMobility
+#   name: trait-impaired-mobility-name
+#   description: trait-impaired-mobility-desc
+#   category: Disabilities
+#   effects:
+#   - !type:AddCompsEffect
+#     components:
+#     - type: ImpairedMobility
+#   - !type:SpawnItemInHandEffect
+#     item: OffsetCane
 
 - type: trait
   id: ArmAmputeeLeft

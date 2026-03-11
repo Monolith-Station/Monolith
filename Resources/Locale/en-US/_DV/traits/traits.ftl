@@ -23,3 +23,23 @@ trait-uncloneable-desc = Cannot be cloned
 
 trait-dysgraphia-name = Unable to write
 trait-dysgraphia-desc = You cannot write, whether because of a disability, your history, or by choice.
+
+trait-amputee-left-arm-name = Amputee (Arm, Left)
+trait-amputee-left-arm-desc =
+    Your left arm is missing!
+    (Note: Amputee traits do not appear in the character editor preview!)
+
+trait-amputee-right-arm-name = Amputee (Arm, Right)
+trait-amputee-right-arm-desc =
+    Your right arm is missing!
+    (Note: Amputee traits do not appear in the character editor preview!)
+
+trait-amputee-left-leg-name = Amputee (Leg, Left)
+trait-amputee-left-leg-desc =
+    Your left leg is missing!
+    (Note: Amputee traits do not appear in the character editor preview!)
+
+trait-amputee-right-leg-name = Amputee (Leg, Right)
+trait-amputee-right-leg-desc =
+    Your right leg is missing!
+    (Note: Amputee traits do not appear in the character editor preview!)
