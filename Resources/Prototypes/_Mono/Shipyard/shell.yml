@@ -1,0 +1,36 @@
+- type: vessel
+  id: Shell
+  parent: BaseVessel
+  name: CML Shell
+  description: A small salvage and research ship developed by the CML for the purpose of constructing cyborgs and other sentient machines on the fly. As a CML ship, notable for its lack of life support.
+  price: 40000 # appraise at 31k + plastitanium tax, but lacks ore processor or FTL
+  category: Medium
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/shell.yml
+  guidebookPage: null
+  class:
+  - Science
+  - Salvage
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Shell
+  mapName: 'CML Shell'
+  mapPath: /Maps/_Mono/Shuttles/shell.yml
+  minPlayers: 0
+  stations:
+    Shell:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Shell CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
+            Borg: [ 0, 0 ] # CML so has borg slots
