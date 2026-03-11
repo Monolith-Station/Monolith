@@ -1,12 +1,8 @@
-﻿using Content.Server._EinsteinEngines.Language; // Mono - Language traits
-using Content.Shared._DV.CCVars;
+﻿using Content.Shared._DV.CCVars;
 using Content.Shared._DV.Traits;
 using Content.Shared._DV.Traits.Conditions;
 using Content.Shared._DV.Traits.Effects;
-using Content.Shared._Mono.Traits.Effects; // Mono - Language traits
 using Content.Shared.GameTicking;
-using Content.Shared.Hands.Components;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
@@ -26,8 +22,6 @@ public sealed class TraitSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly LanguageSystem _language = default!; // Mono - Language traits
 
     private int _maxTraitCount;
     private int _maxTraitPoints;
@@ -246,49 +240,12 @@ public sealed class TraitSystem : EntitySystem
         {
             try
             {
-                // Begin Mono - Language traits
-                // Handle effects that need server-side systems specially
-                switch (effect)
-                {
-                    case SpawnItemInHandEffect spawnEffect:
-                        ApplySpawnItemEffect(player, spawnEffect, transform);
-                        break;
-                    case AddLanguagesEffect addLanguagesEffect:
-                        foreach (var language in addLanguagesEffect.Languages)
-                            _language.AddLanguage(player, language, addLanguagesEffect.Spoken, addLanguagesEffect.Understood);
-                        break;
-                    case RemoveLanguagesEffect removeLanguagesEffect:
-                        foreach (var language in removeLanguagesEffect.Languages)
-                            _language.RemoveLanguage(player, language, removeLanguagesEffect.Spoken, removeLanguagesEffect.Understood);
-                        break;
-                    default:
-                        effect.Apply(effectCtx);
-                        break;
-                }
-                // End Mono - Language traits
+                effect.Apply(effectCtx);
             }
             catch (Exception e)
             {
                 Log.Error($"Error applying effect {effect.GetType().Name} for trait {trait.ID}: {e}");
             }
         }
-    }
-
-    /// <summary>
-    /// Handles the SpawnItemInHandEffect since it requires server-side systems.
-    /// </summary>
-    private void ApplySpawnItemEffect(EntityUid player, SpawnItemInHandEffect effect, TransformComponent transform)
-    {
-        if (!TryComp<HandsComponent>(player, out var hands))
-        {
-            Log.Warning("Cannot spawn trait item: player has no hands component");
-            return;
-        }
-
-        var coords = transform.Coordinates;
-        var item = Spawn(effect.Item, coords);
-
-        if (!_hands.TryPickup(player, item, checkActionBlocker: false, handsComp: hands))
-            Log.Debug($"Could not pick up trait item {effect.Item}, leaving at feet");
     }
 }

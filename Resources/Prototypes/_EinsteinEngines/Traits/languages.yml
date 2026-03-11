@@ -57,28 +57,6 @@
     - Sign
 
 - type: trait
-  id: SolCommon
-  name: trait-language-solcommon-name
-  description: trait-language-solcommon-desc
-  category: LanguageTraits
-  cost: 3 # Mono - TSF faction language, needs a trade-off (of having to use foreigner)
-  conditions:
-  - !type:HasTraitCondition
-    trait: Foreigner
-  - !type:InCompanyCondition
-    companyName: PDV
-    invert: true
-  effects:
-  - !type:AddCompsEffect
-    components:
-    - type: LanguageSpeaker
-  - !type:AddLanguagesEffect
-    understood: true
-    spoken: true
-    languages:
-    - SolCommon
-
-- type: trait
   id: Tradeband
   name: trait-language-tradeband-name
   description: trait-language-tradeband-desc
@@ -93,28 +71,6 @@
     spoken: true
     languages:
     - Tradeband
-
-- type: trait
-  id: Freespeak
-  name: trait-language-freespeak-name
-  description: trait-language-freespeak-desc
-  category: LanguageTraits
-  cost: 3 # Mono - PDV faction language, needs a trade-off (of having to use foreigner)
-  conditions:
-  - !type:HasTraitCondition
-    trait: Foreigner
-  - !type:InCompanyCondition
-    companyName: TSF
-    invert: true
-  effects:
-  - !type:AddCompsEffect
-    components:
-    - type: LanguageSpeaker
-  - !type:AddLanguagesEffect
-    understood: true
-    spoken: true
-    languages:
-    - Freespeak
 
 - type: trait
   id: Elyran

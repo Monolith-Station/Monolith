@@ -49,6 +49,6 @@ public sealed partial class TraitPrototype : IPrototype
     /// Effects to apply to the entity when this trait is selected.
     /// Effects are applied in order.
     /// </summary>
-    [DataField]
+    [DataField(serverOnly: true)]
     public List<BaseTraitEffect> Effects = new();
 }

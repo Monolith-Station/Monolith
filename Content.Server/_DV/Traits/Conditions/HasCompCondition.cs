@@ -2,7 +2,7 @@ using Content.Shared._DV.Traits.Conditions;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._DV.Traits.Conditions;
+namespace Content.Server._DV.Traits.Conditions;
 
 /// <summary>
 /// Condition that checks if the player has a specific component.

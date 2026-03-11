@@ -2,7 +2,7 @@ using Content.Shared._DV.Traits.Conditions;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._DV.Traits.Conditions;
+namespace Content.Server._DV.Traits.Conditions;
 
 /// <summary>
 /// Condition that checks if the player's job is in a specific department.

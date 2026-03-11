@@ -1,6 +1,7 @@
+using Content.Shared._DV.Traits.Effects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._DV.Traits.Effects;
+namespace Content.Server._DV.Traits.Effects;
 
 /// <summary>
 /// Effect that overrides component fields on the player entity.

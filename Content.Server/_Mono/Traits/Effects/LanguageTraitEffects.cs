@@ -1,8 +1,9 @@
+using Content.Server._EinsteinEngines.Language;
 using Content.Shared._DV.Traits.Effects;
 using Content.Shared._EinsteinEngines.Language;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Mono.Traits.Effects;
+namespace Content.Server._Mono.Traits.Effects;
 
 /// <summary>
 /// Base class for all effects that handle a list of languages
@@ -26,22 +27,34 @@ public abstract partial class BaseLanguageTraitEffect : BaseTraitEffect
     /// </summary>
     [DataField(required: true)]
     public bool Spoken = default!;
-
-    public override void Apply(TraitEffectContext ctx)
-    {
-        // This effect needs to be applied server-side where we have access to LanguageSystem.
-        // The actual spawning logic is handled by the server TraitSystem.
-        // This class just holds the data.
-        throw new NotImplementedException("LanguageTraitEffect should not have its Apply method called");
-    }
 }
 
 /// <summary>
 /// Effect that gives languages to a player.
 /// </summary>
-public sealed partial class AddLanguagesEffect : BaseLanguageTraitEffect;
+public sealed partial class AddLanguagesEffect : BaseLanguageTraitEffect
+{
+    public override void Apply(TraitEffectContext ctx)
+    {
+        if (!ctx.EntMan.TrySystem<LanguageSystem>(out var languageSys))
+            return;
+
+        foreach (var language in Languages)
+            languageSys.AddLanguage(ctx.Player, language, Spoken, Understood);
+    }
+}
 
 /// <summary>
 /// Effect that removes languages from a player.
 /// </summary>
-public sealed partial class RemoveLanguagesEffect : BaseLanguageTraitEffect;
+public sealed partial class RemoveLanguagesEffect : BaseLanguageTraitEffect
+{
+    public override void Apply(TraitEffectContext ctx)
+    {
+        if (!ctx.EntMan.TrySystem<LanguageSystem>(out var languageSys))
+            return;
+
+        foreach (var language in Languages)
+            languageSys.RemoveLanguage(ctx.Player, language, Spoken, Understood);
+    }
+}

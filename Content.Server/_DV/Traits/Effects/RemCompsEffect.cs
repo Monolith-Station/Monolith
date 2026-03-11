@@ -1,7 +1,8 @@
+using Content.Shared._DV.Traits.Effects;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 
-namespace Content.Shared._DV.Traits.Effects;
+namespace Content.Server._DV.Traits.Effects;
 
 /// <summary>
 /// Effect that removes components from the player entity if they exist.

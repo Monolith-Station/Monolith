@@ -2,7 +2,7 @@ using System.Text;
 using Content.Shared._DV.Traits.Conditions;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._DV.Traits.Conditions;
+namespace Content.Server._DV.Traits.Conditions;
 
 /// <summary>
 /// Condition that passes if ANY of the child conditions pass.

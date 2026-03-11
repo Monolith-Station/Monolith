@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Shared._DV.Traits; // DV - Traits
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Ghost.Roles;
@@ -22,7 +23,6 @@ using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Content.Shared._DV.Traits; // DV - Traits
 
 namespace Content.Server.Database
 {
