@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/11/2026 18:13:53
+  time: 03/11/2026 18:25:58
   entityCount: 459
 maps: []
 grids:
@@ -1520,13 +1520,14 @@ entities:
   - uid: 385
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -5.5,7.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery
-      startingCharge: 0
+      startingCharge: 55
+    - type: ApcPowerReceiverBattery
+      enabled: True
 - proto: ConstructionBox
   entities:
   - uid: 240
