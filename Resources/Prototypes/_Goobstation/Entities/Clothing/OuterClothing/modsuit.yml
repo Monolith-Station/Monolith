@@ -96,10 +96,9 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.4
-        Piercing: 0.45
+        Piercing: 0.40
         Heat: 0.4
         Radiation: 0.6
-        Poison: 0.5
         Caustic: 0.5
   - type: ComponentToggler
     components:
@@ -158,7 +157,6 @@
         Piercing: 0.4
         Heat: 0.65
         Radiation: 0.6
-        Poison: 0.35
         Caustic: 0.35
   - type: ComponentToggler
     components:
