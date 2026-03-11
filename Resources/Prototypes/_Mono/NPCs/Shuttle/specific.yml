@@ -214,3 +214,39 @@
         proto: NearbyShuttleTargetsLongRange
         key: Target
         coordinatesKey: TargetCoordinates
+
+- type: htnCompound
+  id: ApproacherShuttleCompoundDodger
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleApproachCompoundDodger
+
+- type: htnCompound
+  id: ShuttleApproachCompoundDodger
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: TaskFinished
+        avoidProjectiles: true
+        removeKeyOnFinish: false
+        inRangeMaxSpeed: 0.1
+        range: 700
+        rangeTolerance: 0
+        alwaysFaceTarget: true
+        evasionSectorDepth: 5
+        evasionSectorCount: 36
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates

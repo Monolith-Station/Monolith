@@ -18,8 +18,8 @@
   supervisors: job-supervisors-captain
   weight: 40
   displayWeight: 40
+  assignedCompany: PDV
   setPreference: true
-  guides: [ BasicLore, PhaethonDynasty] # Mono
   access:
   - Pirate
   - PDVCommand
