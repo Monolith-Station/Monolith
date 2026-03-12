@@ -58,12 +58,14 @@ public sealed class CompanySystem : EntitySystem
             _playerOriginalCompanies[playerId] = profileCompany;
         }
 
+        var assigned = false;
         if (args.JobId != null)
         {
             var job = _prototypeManager.Index<JobPrototype>(args.JobId);
             companyComp.CompanyName = job.AssignedCompany;
+            assigned = companyComp.CompanyName != "None";
         }
-        else
+        if (!assigned)
         {
             // Only consider whitelist if the player has NO specific company preference
             bool loginFound = false;
