@@ -22,7 +22,7 @@
   displayWeight: 60 # Second from the top # mono - first from top
   canBeAntag: false
   accessGroups:
-  - AllAccessSR
+  - AllAccessDoC
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ] # Mono - remove TSFMC implant

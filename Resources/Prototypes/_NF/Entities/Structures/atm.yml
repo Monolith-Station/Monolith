@@ -260,9 +260,7 @@
     containers:
       board: !type:Container
       station-bank-ATM-cashSlot: !type:ContainerSlot
-  - type: AccessReader
-    access: [["HeadOfPersonnel"], ["HeadOfSecurity"]]
-
+      
 - type: entity
   parent: BaseStationAdminBankATM
   id: StationAdminBankATMFrontier
