@@ -1,0 +1,30 @@
+# fallback action
+- type: entity
+  id: ActionScrammerScram
+  name: SCRAM!
+  description: Randomly teleports you.
+  components:
+  - type: InstantAction
+    useDelay: 60
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Structures/Specific/anomaly.rsi
+      state: anom4
+    event: !type:ScrammerScramEvent
+
+- type: entity
+  id: ActionScrammerScramADM
+  name: SCRAM!
+  description: Randomly teleports you within a moderate distance.
+  components:
+  - type: InstantAction
+    useDelay: 40
+    charges: 2
+    renewCharges: true
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Structures/Specific/anomaly.rsi
+      state: anom4
+    event: !type:ScrammerScramEvent

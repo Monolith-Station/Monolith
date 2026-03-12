@@ -195,3 +195,11 @@ language-Qiilour-description =
 
 language-Blob-name = Blob
 language-Blob-description = The language spoken by blobs! Glorp!
+
+# Ported from Floofstation:
+
+language-NewKinPidgin-name = Ka'rakk
+language-NewKinPidgin-description = A debased dialect cobbled together by lower-caste Vox, mangled beyond recognition.
+    While a primitive and clumsy attempt resulting in a dull, simplified mockery of their true language,
+    higher-caste Vox can still discern meaning within the crude approximations.
+    It sounds like chaotic shrieking to everyone else.

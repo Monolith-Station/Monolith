@@ -1,0 +1,145 @@
+<Document>
+  # FENRIR-CLASS DESTROYER
+  <Box>
+  <GuideEntityEmbed Entity="WeaponTurretCharonReload"/>
+  <GuideEntityEmbed Entity="AFInterceptorPDV"/>
+  </Box>
+    [color=#a4885c]Ship Size:[/color] Medium
+
+  [color=#a4885c]Recommended Crew:[/color] 3-4
+
+  [color=#a4885c]Power Gen Type:[/color] Antimatter Engine (AME)
+
+  [color=#a4885c]Expeditions:[/color] None
+
+  [color=#a4885c]IFF Console:[/color] Included
+
+  "The BT-Y Fenrir is a medium sized destroyer in use with the Phaethon Dynasty Vanguard. It's main weapon is a [bold][color=#990000]M381 Charon Mass Driver[/bold][/color] and has been outfitted with [color=#0055CC][bold]two medium sized[/color] [color=#00CC55]mech bays[/bold][/color]. Unmodified models can support at best [bold][color=#00CC55]S-2 size classed mechs[/bold][/color]."
+
+
+  # PREFLIGHT CHECKLIST
+
+  ## 1. Power supply
+
+  ## 1.1. Battery units
+  <Box>
+    <GuideEntityEmbed Entity="SMESBasic"/>
+    <GuideEntityEmbed Entity="SubstationBasic"/>
+    <GuideEntityEmbed Entity="APCBasic"/>
+  </Box>
+
+  - Check that the single core AME setup is in place.
+  - Check that the both ADV-SMES unit are anchored to the floor.
+  - Check that the substation unit is firmly secured to the wall.
+  - Ensure that all APC units' breakers are turned on.
+  - Check the APC units current Load* (W).
+  - Check the APC units' current Load* (W).
+
+  ## 1.2. AME unit.
+  <Box>
+    <GuideEntityEmbed Entity="AmeController"/>
+    <GuideEntityEmbed Entity="AmeJar"/>
+  </Box>
+
+  - Check that the AME unit has at least one core.
+  - Make sure the injector is adjacent to the shielding.
+  - Check that the AME unit is connected to the cable terminal of your SMES via HV.
+  - Check the fuel remaining of the AME unit.
+  - Set the AME unit output power to 2 injections.
+  - Enable Injection.
+
+  ## 2. Atmospherics
+
+  ## 2.1. Distribution Loop
+  <Box>
+    <GuideEntityEmbed Entity="OxygenCanister"/>
+    <GuideEntityEmbed Entity="NitrogenCanister"/>
+    <GuideEntityEmbed Entity="GasMixer"/>
+    <GuideEntityEmbed Entity="GasPressurePump"/>
+  </Box>
+
+  - Check that the O2 canister is anchored to the BLUE connector port.
+  - Check that the N2 canister is anchored to the RED connector port.
+  - Check that the gas mixer is set to the correct mixing ratio (~22% Oxygen, ~78% Nitrogen).
+  - Check that the gas mixer is set to 101.325kPa.
+  - Enable gas mixer.
+
+  ## 3. Mechbays
+
+  -[bold][color=#FF0000]You need to make your own Mechs at Port.[/color][/bold]
+  <Box>
+    <GuideEntityEmbed Entity="AFInterceptorPDV"/>
+    <GuideEntityEmbed Entity="AFInterceptorMPDV"/>
+    <GuideEntityEmbed Entity="AFInterceptorGPDV"/>
+    <GuideEntityEmbed Entity="MechGygaxPDV"/>
+    <GuideEntityEmbed Entity="MechDurandPDV"/>
+  </Box>  
+  - Optionally, bring any mechs for your crew to pilot during combat, S-2 type mechs will need to fly from space and park inside the mechbays, S-1 type small-craft can just enter alongside with passengers.
+  <Box>
+    <GuideEntityEmbed Entity="LightMechaAutocannon"/>
+    <GuideEntityEmbed Entity="MediumMechTOW"/>
+    <GuideEntityEmbed Entity="WeaponMechCombatShotgunIncendiary"/>
+    <GuideEntityEmbed Entity="WeaponMechCombatUltraRifle"/>
+  </Box>
+  - Make sure to arm your Mechs with weapon loadouts based on their role in combat, such as boarding with S-1 and Interceptor or Bomber designs with S-2 types.
+  <Box>
+    <GuideEntityEmbed Entity="PowerCageHigh"/>
+    <GuideEntityEmbed Entity="PowerCageMech"/>
+    <GuideEntityEmbed Entity="PowerCageRecharger"/>
+  </Box>
+  - Prioritize equipping your mechs with Mech Fuel Cells, as these cells are made using fissile uranium, they self recharge and are very performance efficienct for use with mechs, in the lack of fissile uranium, it is recommended to use High Power Cages, order your pilots to not waste shots and remain close to the mothership to recharge.
+  - Keep extra power cages in the cage rechargers to quickly re-deploy mechs that have run out of ammo.
+
+  ## 3.1 Mech Classes
+
+  - Every S-1 Combat Mech is a [bold][color=#0055FF]Boarder[/bold][/color], which have little to no use in active ship combat and should be used to mop-up survivors post battles or attempt boarding during active combat while main ships are engaging the enemy as well.
+  - AF-28 "Broadsword" is an S-2 [bold][color=#0055FF]Interceptor[/color][/bold], their main purpose in combat is intercepting enemy bombers and boarders. They are not very useful against damaging hull but they can help in a pinch by targeting armor weakpoints. Light Mech weaponry can be used inside ships, however, Interceptor class does not move very fast inside ships and is not very effective for interior combat.
+  - AF-28 M "Halberd" is an S-2 [bold][color=#0055FF]Bomber[/color][/bold], it is a sidegrade of the Broadsword model, sacrificing armor and jetpack speed to mount Medium class mech weaponry that can pose a threat against ships. Medium Mech Weaponry can not be used inside ships, pilots might want to mount a Light Weapon to not be completely defenseless when inside ships.
+  - AF-28 G "Sabre" is an S-2 [bold][color=#0055FF]Boarder[/color][/bold], it is a sidegrade of the Broadsword model, sacrificing its jetpack completely and space proofing but gaining a massive speed boost while inside ships, this boost is short lived however as the Sabre is a wide mech that can not crawl through the cramped hallways aboard many ships. It is absolutely better than the S-1 Mechs in boarding provided it does not have to fly to its target destination as it lacks a jetpack and the destination does not have cramped hallways.
+
+  ## 4. Other checks
+  <Box>
+    <GuideEntityEmbed Entity="Gyroscope"/>
+    <GuideEntityEmbed Entity="GravityGeneratorMini"/>
+  </Box>
+
+  - Check that the 3 gyroscopes are anchored, powered, and enabled.
+  - Check that the mini gravity generator is anchored, powered, and enabled.
+
+  # MAIN FEATURES AND WEAPONS
+  <Box>
+    <GuideEntityEmbed Entity="WeaponTurretCharonReload"/>
+    <GuideEntityEmbed Entity="WeaponTurretDravon"/>
+    <GuideEntityEmbed Entity="WeaponTurretAdderScattercannon"/>
+  </Box>
+
+  - The Fenrir is armed with a [bold][color=#990000]M381 Charon Mass Driver[/bold][/color], [bold][color=#0055CC]4 ADBP-7 Dravon autocannons[/bold][/color] and [bold][color=#0055CC]2 Adder scattercannons[/bold][/color].
+
+  <Box>
+    <GuideEntityEmbed Entity="BlastDoor"/>
+    <GuideEntityEmbed Entity="ComputerShuttle"/>
+  </Box>
+
+  - [color=#992222][bold]Important[/color][/bold]; [bold][color=#990000]the M381 Charon Mass Driver[/bold][/color], can not fire until the blast doors are open, controls are linked to your [color=#00CC55][bold]shuttle console port buttons[/color][/bold]. [color=#00CC55][bold]Port 1 opens[/color][/bold] the blast doors, [color=#00CC55][bold] Port 2 closes[/color][/bold] the blast doors.
+
+
+  <Box>
+    <GuideEntityEmbed Entity="CharonSlugAmmo"/>
+  </Box>
+
+  - You have been supplied with [color=#00CC55][bold]5[/color][/bold] 280mm 26.5kg slugs for your [bold][color=#990000]M381 Mass Driver[/bold][/color].
+
+  ## Sidenotes
+
+
+  * - The mech bays begin [bold][color=#992222]empty[/bold][/color], as it is [bold][color=#00CC55]your responsibility to fill them[/bold][/color] in accordance to your strategy. The bays' blast doors can be toggled on and off using the [bold][color=#00CC55]two buttons placed next to[/bold][/color] your shuttle control terminals.
+
+
+  * - [bold][color=#00CC55]The workshop area[/bold][/color] has been supplied with adequate amount of [bold][color=#FFA500]welding fuel[/color][/bold] and [bold][color=#0055CC]nanites[/color][/bold] to perform repairs on mechs and inorganic crew.
+
+
+  * - Both the [bold][color=#992222]armory[/color][/bold] and [color=#90D6FF][bold]medbay[/color][/bold] have been adequately equipped with [bold][color=#00CC55]hardsuits[/bold][/color], [bold][color=#00CC55]weapons[/color][/bold] and [bold][color=#00CC55]medicine[/color][/bold].
+
+
+  * - [bold][color=#00CC55] The fabricator area[/bold][/color] has been outfitted with a [bold][color=#00CC55]material locker[/color][/bold] holding necessary materials to print a small amount of items. The [bold][color=#992222]armory[/color][/bold] has also been outfitted with an [bold][color=#00CC55]ammo techfab[/bold][/color].
+</Document>

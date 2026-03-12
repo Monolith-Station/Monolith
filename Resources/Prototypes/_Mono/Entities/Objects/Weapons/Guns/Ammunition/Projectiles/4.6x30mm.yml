@@ -43,8 +43,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Heat: 15
+        Piercing: 8
+        Heat: 5
     armorPenetration: 0.025
 
 - type: entity
