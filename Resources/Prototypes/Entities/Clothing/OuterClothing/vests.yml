@@ -18,6 +18,8 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: StaminaDamageResistance # Mono - Stamres
+    coefficient: 0.3
 
 #Mercenary web vest
 - type: entity
@@ -33,13 +35,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.55
         Heat: 0.80
         Caustic: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.90
+  - type: StaminaDamageResistance # Mono - Stamres
+    coefficient: 0.4
 
 #Detective's vest
 - type: entity

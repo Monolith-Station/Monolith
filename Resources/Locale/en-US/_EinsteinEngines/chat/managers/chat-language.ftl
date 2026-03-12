@@ -23,6 +23,10 @@ chat-language-Chittin-name = Chittin
 chat-language-Xeeplian-name = Xeeplian
 chat-language-Hydraspeak-name = Hy'drav'tha
 
+# Ported from Floofstation:
+chat-language-NewKinPidgin-name = Ka'rakk
+
+
 # Additional languges
 
 chat-language-NalRasan-name = Nal'rasan
