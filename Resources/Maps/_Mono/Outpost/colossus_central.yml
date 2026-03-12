@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/12/2026 14:26:09
-  entityCount: 11762
+  time: 03/12/2026 16:32:02
+  entityCount: 11767
 maps:
 - 11548
 grids:
@@ -322,9 +322,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         MetalFoam: []
+        Puddle: []
         Kudzu: []
         Smoke: []
-        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -10925,7 +10925,7 @@ entities:
       pos: 39.5,44.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31537.268
+      secondsUntilStateChange: -31566.99
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -33699,7 +33699,7 @@ entities:
       pos: -3.5,71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -43.708015
+      secondsUntilStateChange: -73.43054
       state: Opening
 - proto: CurtainsBlueOpen
   entities:
@@ -68860,6 +68860,13 @@ entities:
     - type: Transform
       pos: 23.5,46.5
       parent: 2
+- proto: SpawnPointDirectorOfCare
+  entities:
+  - uid: 11654
+    components:
+    - type: Transform
+      pos: 9.5,60.5
+      parent: 2
 - proto: SpawnPointLatejoin
   entities:
   - uid: 8370
@@ -68913,6 +68920,28 @@ entities:
     components:
     - type: Transform
       pos: 25.5,50.5
+      parent: 2
+- proto: SpawnPointMdMedic
+  entities:
+  - uid: 11655
+    components:
+    - type: Transform
+      pos: 25.5,62.5
+      parent: 2
+  - uid: 11656
+    components:
+    - type: Transform
+      pos: 26.5,62.5
+      parent: 2
+  - uid: 11657
+    components:
+    - type: Transform
+      pos: 26.5,61.5
+      parent: 2
+  - uid: 11767
+    components:
+    - type: Transform
+      pos: 25.5,61.5
       parent: 2
 - proto: SpawnPointMercenary
   entities:
@@ -69737,6 +69766,7 @@ entities:
     - type: AccessReader
       access:
       - - ChiefMedicalOfficer
+      - - Command
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -69756,6 +69786,7 @@ entities:
     - type: AccessReader
       access:
       - - ChiefMedicalOfficer
+      - - Command
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -69775,6 +69806,7 @@ entities:
     - type: AccessReader
       access:
       - - ChiefMedicalOfficer
+      - - Command
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
