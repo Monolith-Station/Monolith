@@ -71,3 +71,13 @@
         Heat: 25 # Mono
         Shock: 10
         Structural: 70
+
+- type: entity
+  parent: Pulse
+  id: CryoBeam # Cryo Lance
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Cold: 60 # Mono

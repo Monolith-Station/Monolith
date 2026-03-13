@@ -207,3 +207,71 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
+
+# Glóthach
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingModsuitGauntletsIceMercenary
+  name: mercenary glóthach modsuit gauntlets
+  description: These mits keep your fingers warm while you put your targets on ice. An actuator in the glove when squeezed tight will trigger the shoulder mounted cryo lance.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Mono/Clothing/Hands/Modsuits/mercenaryice.rsi
+    layers:
+    - state: gauntlets
+    - state: gauntlets-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ gloves ]
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-modular
+    fiberColor: fibers-black
+  - type: FingerprintMask
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-gauntlets
+    sealDownPopup: sealable-clothing-seal-down-gauntlets
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND-sealed
+      gloves-resomi:
+      - state: equipped-HAND-sealed-resomi
+  - type: Gun
+    fireRate: .5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: CryoBeam
+    fireCost: 700
+  - type: EnergyGun
+    fireModes:
+    - proto: CryoBeam
+      fireCost: 700 
+      name: lethal
+      state: lethal
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 30 # Mono - 75 < 35
+  - type: PirateBountyItem # Mono
+    id: TSFLaserWeapon
+
