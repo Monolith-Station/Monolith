@@ -37,7 +37,7 @@
     startAnnouncement: station-event-ai-shuttle-detected
     startAudio:
       path: /Audio/Misc/notice1.ogg
-    weight: 2
+    weight: 3
     maxOccurrences: 2
   - type: GameRule
     minPlayers: 32
@@ -82,7 +82,7 @@
     startAnnouncement: station-event-ai-shuttle-detected
     startAudio:
       path: /Audio/Misc/notice1.ogg
-    weight: 1 # rare but not too rare since it's in the T2 spawner
+    weight: 2 # rare but not too rare since it's in the T2 spawner
     maxOccurrences: 2
   - type: GameRule
     minPlayers: 15
@@ -97,7 +97,7 @@
     startAnnouncement: station-event-ai-capital-detected
     startAudio:
       path: /Audio/Misc/delta_alt.ogg
-    weight: 6
+    weight: 3
     maxOccurrences: 1
   - type: GameRule
     minPlayers: 60
