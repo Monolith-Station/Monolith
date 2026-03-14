@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/21/2026 16:34:57
-  entityCount: 315
+  time: 03/14/2026 10:03:53
+  entityCount: 297
 maps: []
 grids:
 - 1
@@ -74,10 +74,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
         Puddle: []
         MetalFoam: []
         Kudzu: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -358,29 +358,23 @@ entities:
           0,0:
             0: 65520
           0,-1:
-            0: 4096
-            1: 52224
+            0: 56320
           -1,0:
-            0: 60072
-            1: 1
+            0: 60073
           0,1:
             0: 65295
           -1,1:
-            0: 34958
-            1: 8720
+            0: 43678
           0,2:
-            0: 1905
-            1: 32768
+            0: 34673
           -1,2:
-            1: 32864
+            0: 32864
           1,0:
-            0: 13104
-            1: 4
+            0: 13108
           1,1:
-            0: 3
-            1: 8768
+            0: 8771
           1,2:
-            1: 48
+            0: 48
           -1,-1:
             0: 34816
         uniqueMixes:
@@ -389,25 +383,6 @@ entities:
           moles:
           - 21.824879
           - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -546,98 +521,6 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-1.5
-      parent: 1
-- proto: AtmosFixBlockerMarker
-  entities:
-  - uid: 24
-    components:
-    - type: Transform
-      pos: -0.5,11.5
-      parent: 1
-  - uid: 25
-    components:
-    - type: Transform
-      pos: 3.5,11.5
-      parent: 1
-  - uid: 229
-    components:
-    - type: Transform
-      pos: -2.5,9.5
-      parent: 1
-  - uid: 230
-    components:
-    - type: Transform
-      pos: -1.5,9.5
-      parent: 1
-  - uid: 233
-    components:
-    - type: Transform
-      pos: 4.5,9.5
-      parent: 1
-  - uid: 234
-    components:
-    - type: Transform
-      pos: 5.5,9.5
-      parent: 1
-  - uid: 235
-    components:
-    - type: Transform
-      pos: -2.5,7.5
-      parent: 1
-  - uid: 236
-    components:
-    - type: Transform
-      pos: -2.5,6.5
-      parent: 1
-  - uid: 237
-    components:
-    - type: Transform
-      pos: 5.5,7.5
-      parent: 1
-  - uid: 238
-    components:
-    - type: Transform
-      pos: 5.5,6.5
-      parent: 1
-  - uid: 239
-    components:
-    - type: Transform
-      pos: -3.5,5.5
-      parent: 1
-  - uid: 240
-    components:
-    - type: Transform
-      pos: 6.5,5.5
-      parent: 1
-  - uid: 241
-    components:
-    - type: Transform
-      pos: 6.5,0.5
-      parent: 1
-  - uid: 242
-    components:
-    - type: Transform
-      pos: -3.5,0.5
-      parent: 1
-  - uid: 244
-    components:
-    - type: Transform
-      pos: 2.5,-0.5
-      parent: 1
-  - uid: 245
-    components:
-    - type: Transform
-      pos: 2.5,-1.5
-      parent: 1
-  - uid: 246
-    components:
-    - type: Transform
-      pos: 3.5,-0.5
-      parent: 1
-  - uid: 247
-    components:
-    - type: Transform
-      pos: 3.5,-1.5
       parent: 1
 - proto: BlastDoor
   entities:
@@ -1064,13 +947,12 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerWallmountStationRecords
+- proto: ComputerTabletopStationRecords
   entities:
   - uid: 9
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.5,8.5
+      pos: 0.5,10.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -1647,9 +1529,10 @@ entities:
       parent: 1
 - proto: LockerWallMaterialsFuelUraniumFilled
   entities:
-  - uid: 108
+  - uid: 87
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: -1.5,7.5
       parent: 1
 - proto: MachineFTLDrive
@@ -1729,6 +1612,8 @@ entities:
     - type: Transform
       pos: 1.5,6.5
       parent: 1
+    - type: FuelGenerator
+      targetPower: 23000
 - proto: PoweredDimSmallLight
   entities:
   - uid: 261
@@ -2191,6 +2076,16 @@ entities:
           - Off
 - proto: WallPlastitanium
   entities:
+  - uid: 24
+    components:
+    - type: Transform
+      pos: 1.5,5.5
+      parent: 1
+  - uid: 25
+    components:
+    - type: Transform
+      pos: 3.5,5.5
+      parent: 1
   - uid: 26
     components:
     - type: Transform
@@ -2354,27 +2249,22 @@ entities:
   - uid: 81
     components:
     - type: Transform
-      pos: 1.5,5.5
+      pos: 0.5,5.5
       parent: 1
   - uid: 84
     components:
     - type: Transform
-      pos: 3.5,5.5
+      pos: 2.5,5.5
       parent: 1
   - uid: 85
     components:
     - type: Transform
-      pos: 0.5,5.5
+      pos: -1.5,1.5
       parent: 1
   - uid: 86
     components:
     - type: Transform
-      pos: 2.5,5.5
-      parent: 1
-  - uid: 87
-    components:
-    - type: Transform
-      pos: -1.5,1.5
+      pos: -1.5,2.5
       parent: 1
   - uid: 89
     components:
@@ -2420,11 +2310,6 @@ entities:
     components:
     - type: Transform
       pos: 3.5,10.5
-      parent: 1
-  - uid: 141
-    components:
-    - type: Transform
-      pos: -1.5,2.5
       parent: 1
 - proto: WallPlastitaniumDiagonal
   entities:
