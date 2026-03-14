@@ -139,7 +139,7 @@
   - type: Flatpack
     entity: ResearchAndDevelopmentServerUssp
   - type: StaticPrice
-    vendPrice: 1500
+    vendPrice: 15000 #2.5x that of a normal server.
   - type: Sprite
     layers:
     - state: science_server
@@ -181,7 +181,7 @@
   - type: Flatpack
     entity: FactionLathe
   - type: StaticPrice
-    vendPrice: 1500
+    vendPrice: 26250 #1.75x the price of a Mercenary fab.
   - type: Sprite
     layers:
     - state: science_server
