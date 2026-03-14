@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Company;
 using Content.Shared.Access;
 using Content.Shared.Guidebook;
 using Content.Shared.Players.PlayTimeTracking;
@@ -77,6 +78,13 @@ namespace Content.Shared.Roles
         /// </summary>
         [DataField]
         public bool HideConsoleVisibility { get; private set; } = false;
+
+        /// <summary>
+        ///     Mono - Assigns company to the player on spawn.
+        /// </summary>
+        [DataField]
+        public ProtoId<CompanyPrototype> AssignedCompany { get; private set; } = "None";
+
 
         /// <summary>
         ///     Should the selected traits be applied for this job?
