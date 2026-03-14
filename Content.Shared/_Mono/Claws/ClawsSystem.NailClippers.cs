@@ -43,9 +43,13 @@ public abstract partial class SharedClawsSystem
     public bool TryClipNails(NailClipperComponent component, EntityUid nailClipper, EntityUid user, EntityUid? target = null)
     {
         target ??= user;
+        
+        if (!TryComp<ClawsComponent>(target, out var claws))
+        {
+            return false;
+        }
 
-        if (!TryComp<ClawsComponent>(target, out var claws)||
-            TryGetStage(claws, out var stage) && !stage.CanBeCut)
+        if (TryGetStage(claws, out var stage) && !stage.CanBeCut)
         {
             _popup.PopupClient(Loc.GetString("has-no-claws-popup"), Transform(user).Coordinates, user);
             return false;
