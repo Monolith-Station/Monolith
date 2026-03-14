@@ -153,6 +153,12 @@
   - BorgModuleRCD
   - BorgModuleCable
 
+  addComponents:
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+
   # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: engineer
@@ -186,6 +192,14 @@
   - BorgModuleTreatment
   - BorgModuleSurgery
   - BorgModuleDefibrillator
+
+  addComponents:
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  
+  radioChannels:
+  - Medical
 
   # Visual
   inventoryTemplateId: borgShort
