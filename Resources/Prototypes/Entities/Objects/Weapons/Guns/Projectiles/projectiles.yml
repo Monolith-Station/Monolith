@@ -477,6 +477,8 @@
     muzzleFlash: HitscanEffect
   - type: TimedDespawn
     lifetime: 1.5 # Frontier 1.5<1, Monolith 1<1.5
+  - type: ChunkLoader
+    loadingDistance: 16
   - type: PointLight
     radius: 2.5
     color: "#FF8888" # Frontier: white<FF8888
@@ -484,6 +486,16 @@
   - type: GatheringProjectile
   - type: MiningGatheringSoft # mono
   - type: MiningGatheringHard # mono
+
+- type: entity # Mono, splits exo PKA from ship PKA
+  id: BulletKineticExosuit
+  parent: BulletKineticShuttle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    noDamageDelete: false
+  - type: GatheringProjectile
+    amount: 8
 
 - type: entity
   id: BulletCharge
