@@ -33,9 +33,25 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>().OrderBy(PrototypeName))
+        // Goobstation: Customizable borgs sprites
+        ConfirmTypeButton.OnPressed += ConfirmButtonPressed;
+        HelpGuidebookIds = GuidebookEntries;
+
+        SubtypeSelection.SubtypeSelected += () =>
+            ConfirmTypeButton.Disabled = false;
+    }
+
+    //  foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>().OrderBy(PrototypeName))
+    // Mono: Selectable borg whitelist
+    public void Populate(IReadOnlyList<ProtoId<BorgTypePrototype>>? whitelist = null)
+    {
+        IEnumerable<BorgTypePrototype> types = _prototypeManager.EnumeratePrototypes<BorgTypePrototype>().OrderBy(PrototypeName);
+        if (whitelist is { Count: > 0 })
+            types = types.Where(t => whitelist.Contains(new ProtoId<BorgTypePrototype>(t.ID)));
+
+        foreach (var borgType in types)
+        // Mono: Selectable borg whitelist end
         {
-            // Goobstation-Start: Customizable borgs sprites
             var chassisList = new EntityPrototypeView
             {
                 Scale = new Vector2(2, 2),
@@ -49,13 +65,6 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
             };
             SelectionsContainer.AddChild(chassisList);
         }
-
-        ConfirmTypeButton.OnPressed += ConfirmButtonPressed;
-        HelpGuidebookIds = GuidebookEntries;
-
-
-        SubtypeSelection.SubtypeSelected += () =>
-            ConfirmTypeButton.Disabled = false;
         // Goobstation-End: Customizable borgs sprites
     }
 

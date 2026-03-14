@@ -697,7 +697,7 @@
     sounds:
       Unsexed: UnisexSiliconSyndicate
   - type: IonStormTarget
-    chance: 0.2
+    chance: 0.1
   - type: ShowJobIcons
   - type: SiliconLawProvider
     laws: PDVLawset
@@ -757,11 +757,6 @@
     containers:
       borg_brain:
       - PositronicBrain
-      borg_module:
-      - BorgModulePDVStandardWeapon
-      - BorgModuleJetpack
-      - BorgModuleTool
-      - BorgModuleGPS
   - type: ItemSlots
     slots:
       cell_slot:
@@ -821,7 +816,7 @@
     sounds:
       Unsexed: UnisexSiliconSyndicate
   - type: IonStormTarget
-    chance: 0.2
+    chance: 0.1
   - type: ShowJobIcons
   - type: SiliconLawProvider
     laws: TSFMCBorgLawset
@@ -882,11 +877,6 @@
     containers:
       borg_brain:
       - PositronicBrain
-      borg_module:
-      - BorgModuleTSFStandardWeapon
-      - BorgModuleJetpack
-      - BorgModuleTool
-      - BorgModuleGPS
   - type: ItemSlots
     slots:
       cell_slot:
