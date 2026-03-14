@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/14/2026 22:18:24
-  entityCount: 230
+  time: 03/14/2026 22:38:47
+  entityCount: 231
 maps: []
 grids:
 - 1
@@ -63,10 +63,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        Kudzu: []
         Smoke: []
+        Kudzu: []
         MetalFoam: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1755,6 +1755,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 4.5,-0.5
+      parent: 1
+- proto: WeaponTurretL85Autocannon
+  entities:
+  - uid: 220
+    components:
+    - type: Transform
+      pos: -0.5,-9.5
       parent: 1
 - proto: WindoorSecure
   entities:
