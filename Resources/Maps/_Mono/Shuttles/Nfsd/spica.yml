@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/15/2026 10:29:29
-  entityCount: 514
+  time: 03/15/2026 10:34:33
+  entityCount: 515
 maps: []
 grids:
 - 1
@@ -1729,6 +1729,14 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-3.5
+      parent: 1
+- proto: DefibrillatorCabinetFilled
+  entities:
+  - uid: 515
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,-3.5
       parent: 1
 - proto: ExtinguisherCabinetFilled
   entities:
