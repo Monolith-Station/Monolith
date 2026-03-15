@@ -8,23 +8,23 @@
   id: eshkiya
   parent: BaseVessel
   name:  RSC-Eshkiya
-  description: A smaller and more affordable counterpart of the Scallywag. Armed with 4x draupnir 30mm cannons and 2x L-1 PD lasers.
+  description: A small dog fighter for highwaymen with too much confidence on their shoulders, equipped with 4 draupnirs for non-stop firepower, perfect for drowning out cries of agony for those who are lighthearted.
   price: 66000 # 33K base + 33K markup,can be lowered if needed as i feel it is too high.
   category: small
   group: Shipyard
   access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/eshkiya.yml
+  shuttlePath: /Maps/_Mono/Shuttles/Scrap/eshkiya.yml
   guidebookPage: Null
   class:
   - pursuit
-
+  - Scrapyard
   engine:
   - uranium
 
 - type: gameMap
   id: Eshkiya
   mapName: 'RSC-Eshkiya'
-  mapPath: /Maps/_Mono/Shuttles/eshkiya.yml
+  mapPath: /Maps/_Mono/Shuttles/Scrap/eshkiya.yml
   minPlayers: 0
   stations:
     Eshkiya:
