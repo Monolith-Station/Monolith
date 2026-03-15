@@ -45,25 +45,22 @@ public sealed partial class IdCardConsoleComponent : Component
     [DataField, AutoNetworkedField]
     public List<ProtoId<AccessLevelPrototype>> AccessLevels = new()
     {
-        "Armory",
+        "Armory", //Used by TSF, unknown purpose
         //"Atmospherics",
-        "Bailiff", // Frontier
         //"Bar",
         "Brig",
         "Detective",
         "Captain",
         //"Cargo",
         //"Chapel",
-        //"Chemistry",
+        "Chemistry", // DO NOT HIDE, it prevents all cards with chemistry from getting additional access (Ex: TSF Captain)
         //"ChiefEngineer",
-        //"ChiefMedicalOfficer",
+        "ChiefMedicalOfficer", //DO NOT HIDE, required for DOC
         "Command",
         //"Cryogenics",
         //"Engineering",
         "External",
-        "Frontier", // Frontier
         "HeadOfPersonnel",
-        "HeadOfSecurity",
         //"Hydroponics",
         "Janitor",
         //"Kitchen",
@@ -77,13 +74,21 @@ public sealed partial class IdCardConsoleComponent : Component
         //"ResearchDirector",
         //"Salvage",
         "Security",
-        "Sergeant", // Frontier
         "Service",
         "StationTrafficController", // Frontier
         //"USSP", // Mono
         //"USSPHigh", // Mono
         //"USSPCommand", // Mono
         //"Theatre",
+        "Frontier", // Frontier //TSF Base access
+        "Sergeant", // Frontier //TSF FTL access
+        "Bailiff", // Frontier //TSF Command access
+        "TsfmcEngineering", // Mono, TSF Engineering access
+        "HeadOfSecurity", // TSF Colonel
+        "Pirate", //Frontier //PDV base access
+        "PDVCommand", //Mono, PDV leadership (Denasvar, Asvaran, Vizier)
+        "GrandVizier",//Mono, PDV Vizier
+
     };
 
     [Serializable, NetSerializable]
