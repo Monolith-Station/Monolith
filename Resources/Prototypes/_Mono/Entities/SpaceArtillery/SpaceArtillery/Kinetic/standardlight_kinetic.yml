@@ -4,14 +4,15 @@
   id: WeaponTurretL85Autocannon
   name: L85 20mm autocannon
   parent: BallisticArtilleryMagazine
-  description: A light 20mm ballistic autocannon designed for rapid fire and suppressing smaller targets at close range. Cheap, light, and can be remotely activated or linked up to a GCS.
+  description: A light 20mm ballistic autocannon designed for rapid fire point defense and suppressing smaller targets at close range. Cheap, light, and can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 250
   - type: Sprite
-    sprite: _Mono/Objects/ShuttleWeapons/50cal.rsi
+    offset: -0.03,0
+    sprite: _Mono/Objects/ShuttleWeapons/L85.rsi
     layers:
-    - state: space_artillery
+    - state: icon
   - type: Appearance
   - type: FireControlRotate
   - type: AutoShootGun

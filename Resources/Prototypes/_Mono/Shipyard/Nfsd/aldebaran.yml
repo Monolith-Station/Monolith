@@ -1,33 +1,33 @@
 #Author: Starch(!)
 
 - type: vessel
-  id: Calypso
+  id: Aldebaran
   parent: BaseVesselAntag
-  name: TSF-SKR Calypso
-  description: A light corvette designed to help counter ships such as the Scorpion and Europa. Equipped with 2x CYREXAs, 4x L85, and 2x AK570, as well as 2x ASM-220 torpedoes.
+  name: TSF-PIN Aldebaran
+  description: A frontal up-puncher corvette equipped with two cyrexas for long range engagements and torpedoes for heavier targets and close range.
   price: 160200
   category: Medium
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/calypso.yml
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/aldebaran.yml
   guidebookPage: Null
   class:
   - Patrol
   - Corvette
   engine:
-  - AME
+  - Plasma
 
 - type: gameMap
-  id: Calypso
-  mapName: 'Calypso'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/calypso.yml
+  id: Aldebaran
+  mapName: 'Aldebaran'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/aldebaran.yml
   minPlayers: 0
   stations:
-    Calypso:
+    Aldebaran:
       stationProto: StandardFrontierSecurityVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Calypso TSF{1}'
+        mapNameTemplate: 'Aldebaran TSF{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
