@@ -1,33 +1,33 @@
 #Author: Starch(!)
 
 - type: vessel
-  id: Fracture
+  id: Spica
   parent: BaseVesselAntag
-  name: TSF-SKR Fracture
-  description: A beefed up hull similar in signature to the Legionnaire. Carries weapons suitable for hunting and disabling ships quite larger than it. Does not come with ammo for 150mm TARNYXs.
-  price: 108200
-  category: Medium
+  name: TSF-PIN Spica
+  description: A beefed up hull and the light frontline mainstay of the TSF fleets. A suprising weapons package in a small frame, made to engage larger targets.
+  price: 117000
+  category: Small
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/fracture.yml
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/spica.yml
   guidebookPage: Null
   class:
   - Patrol
   - Pursuit
   engine:
-  - Uranium
+  - Bananium
 
 - type: gameMap
-  id: Fracture
-  mapName: 'Fracture'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/fracture.yml
+  id: Spica
+  mapName: 'Spica'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/spica.yml
   minPlayers: 0
   stations:
-    Fracture:
+    Spica:
       stationProto: StandardFrontierSecurityVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Fracture TSF{1}'
+        mapNameTemplate: 'Spica TSF{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
@@ -35,4 +35,3 @@
         availableJobs:
           Deputy: [ 0, 0 ]
           TsfBorg: [ 0, 0 ]
-
