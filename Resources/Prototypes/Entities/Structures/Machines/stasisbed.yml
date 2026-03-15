@@ -61,3 +61,7 @@
     guides:
     - Medical Doctor
   - type: PowerSwitch
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8

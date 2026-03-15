@@ -58,7 +58,7 @@
     stackRequirements:
       Glass: 10
       Steel: 10
-      Uranium: 30
+      Uranium: 5
 
 - type: entity
   id: MachineGCSLowCircuitboard
@@ -165,7 +165,7 @@
     stackRequirements:
       Glass: 20
       Steel: 20
-      Uranium: 35
+      UraniumFissile: 2
 
 - type: entity
   id: MachineDriveCTLA50Circuitboard
@@ -187,4 +187,4 @@
     stackRequirements:
       Glass: 20
       Steel: 20
-      Uranium: 40
+      UraniumFissile: 2

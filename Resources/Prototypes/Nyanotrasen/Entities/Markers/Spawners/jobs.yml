@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2023 Checkraze
+# SPDX-FileCopyrightText: 2024 Dvir
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
+#
+# SPDX-License-Identifier: MPL-2.0
+
 - type: entity
   id: SpawnPointMailCarrier
   parent: SpawnPointJobBase
@@ -23,12 +29,12 @@
       - state: prisoner
 
 - type: entity
-  id: SpawnPointValet
+  id: SpawnPointCCServiceWorker
   parent: SpawnPointJobBase
   name: valet
   components:
   - type: SpawnPoint
-    job_id: Valet
+    job_id: CCServiceWorker
   - type: Sprite
     layers:
       - state: green

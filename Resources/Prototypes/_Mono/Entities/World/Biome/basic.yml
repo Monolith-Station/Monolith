@@ -146,7 +146,7 @@
     - id: NFWreckDebrisBrassExtraLarge
       prob: 3
       orGroup: wreck
-    - id: MonoRamDroneSpawnerT1
+    - id: MonoDroneSpawnerT1
       prob: 3
       orGroup: wreck
 
@@ -174,15 +174,15 @@
     - id: NFWreckDebrisBrassExtraLarge
       prob: 0.3
       orGroup: wreck
-    - id: MonoRamDroneSpawnerT2Inner
-      prob: 4
+    - id: MonoDroneSpawnerT2Inner
+      prob: 2.5
       orGroup: wreck
 
 - type: spaceBiome
   id: MonoWorldgenVeryFarT2Middle
   parent: MonoWorldgenVeryFarT1
   priority: -3
-  # no distanceRange, accepts all remaining distance
+  distanceRange: null
   chunkComponents:
   - type: NoiseDrivenDebrisSelector
     noiseChannel: WreckRare
@@ -202,6 +202,6 @@
     - id: NFWreckDebrisBrassExtraLarge
       prob: 0.3
       orGroup: wreck
-    - id: MonoRamDroneSpawnerT2Middle
-      prob: 4
+    - id: MonoDroneSpawnerT2Middle
+      prob: 2.5
       orGroup: wreck

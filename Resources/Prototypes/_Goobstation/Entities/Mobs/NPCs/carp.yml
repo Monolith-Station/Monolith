@@ -5,5 +5,6 @@
   parent: MobCarp
   components:
     - type: HTN
+      sleepPlayerCheckRangeOverride: 200 # mono
       rootTask:
         task: DragonCarpCompound

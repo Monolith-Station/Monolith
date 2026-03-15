@@ -55,6 +55,9 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
+  - type: ShipRepairable
+    repairTime: 5
+    repairCost: 5
 
 - type: entity
   id: WindowReinforcedDirectional
@@ -115,6 +118,9 @@
         acts: [ "Destruction" ]
   - type: StaticPrice
     price: 10 # Frontier: 22.5<10
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 3
 
 - type: entity
   parent: ReinforcedWindow

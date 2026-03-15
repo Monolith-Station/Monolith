@@ -1,0 +1,15 @@
+- type: emote
+  id: ReptilianSnicker
+  name: chat-emote-name-reptilian-snicker
+  category: Vocal
+  icon: _Impstation/Interface/Emotes/hiss.png
+  whitelist:
+    tags:
+      - ReptilianEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-reptilian-snicker"]
+  chatTriggers:
+    - snicker
+    - snickers

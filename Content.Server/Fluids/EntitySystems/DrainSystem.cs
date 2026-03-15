@@ -34,20 +34,17 @@ public sealed class DrainSystem : SharedDrainSystem
 
     private readonly HashSet<Entity<PuddleComponent>> _puddles = new();
 
+    // Mono
+    private float _updateInterval = 1f;
+    private float _updateAccumulator = 0f;
+
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<DrainComponent, MapInitEvent>(OnDrainMapInit);
         SubscribeLocalEvent<DrainComponent, GetVerbsEvent<Verb>>(AddEmptyVerb);
         SubscribeLocalEvent<DrainComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<DrainComponent, AfterInteractUsingEvent>(OnInteract);
         SubscribeLocalEvent<DrainComponent, DrainDoAfterEvent>(OnDoAfter);
-    }
-
-    private void OnDrainMapInit(Entity<DrainComponent> ent, ref MapInitEvent args)
-    {
-        // Randomise puddle drains so roundstart ones don't all dump at the same time.
-        ent.Comp.Accumulator = _random.NextFloat(ent.Comp.DrainFrequency);
     }
 
     private void AddEmptyVerb(Entity<DrainComponent> entity, ref GetVerbsEvent<Verb> args)
@@ -122,18 +119,18 @@ public sealed class DrainSystem : SharedDrainSystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        // Mono
+        _updateAccumulator += frameTime;
+        if (_updateAccumulator < _updateInterval)
+            return;
+        _updateAccumulator -= _updateInterval;
+
         var managerQuery = GetEntityQuery<SolutionContainerManagerComponent>();
 
         var query = EntityQueryEnumerator<DrainComponent>();
         while (query.MoveNext(out var uid, out var drain))
         {
-            drain.Accumulator += frameTime;
-            if (drain.Accumulator < drain.DrainFrequency)
-            {
-                continue;
-            }
-            drain.Accumulator -= drain.DrainFrequency;
-
             if (!managerQuery.TryGetComponent(uid, out var manager))
                 continue;
 
@@ -148,10 +145,10 @@ public sealed class DrainSystem : SharedDrainSystem
             }
 
             // Remove a bit from the buffer
-            _solutionContainerSystem.SplitSolution(drain.Solution.Value, (drain.UnitsDestroyedPerSecond * drain.DrainFrequency));
+            _solutionContainerSystem.SplitSolution(drain.Solution.Value, (drain.UnitsDestroyedPerSecond * _updateInterval));
 
             // This will ensure that UnitsPerSecond is per second...
-            var amount = drain.UnitsPerSecond * drain.DrainFrequency;
+            var amount = drain.UnitsPerSecond * _updateInterval;
 
             if (drain.AutoDrain)
             {

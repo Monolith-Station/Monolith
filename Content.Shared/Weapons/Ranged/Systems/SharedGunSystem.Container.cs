@@ -11,6 +11,7 @@ public partial class SharedGunSystem
     private void InitializeContainer()
     {
         SubscribeLocalEvent<ContainerAmmoProviderComponent, TakeAmmoEvent>(OnContainerTakeAmmo);
+        SubscribeLocalEvent<ContainerAmmoProviderComponent, CheckShootPrototypeEvent>(OnContainerCheckProto); // Mono
         SubscribeLocalEvent<ContainerAmmoProviderComponent, GetAmmoCountEvent>(OnContainerAmmoCount);
     }
 
@@ -32,6 +33,17 @@ public partial class SharedGunSystem
 
             args.Ammo.Add((ent, EnsureShootable(ent)));
         }
+    }
+
+    // Mono
+    private void OnContainerCheckProto(Entity<ContainerAmmoProviderComponent> ent, ref CheckShootPrototypeEvent args)
+    {
+        if (!Containers.TryGetContainer(ent.Comp.ProviderUid ?? ent, ent.Comp.Container, out var container)
+            || !container.ContainedEntities.Any()
+        )
+            return;
+
+        args.ShootPrototype = MetaData(container.ContainedEntities[0]).EntityPrototype;
     }
 
     private void OnContainerAmmoCount(EntityUid uid, ContainerAmmoProviderComponent component, ref GetAmmoCountEvent args)

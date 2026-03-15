@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: tonotom1
+# Discord: rws
+
+# Shuttle Notes:
+# hi
+
+- type: vessel
+  id: Svinya
+  parent: BaseVessel
+  name: UW Svinya
+  description: A compact attack craft, bristling with small caliber armament.
+  price: 39000 # appraised at ~33200
+  category: Small
+  group: Ussp
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/USSP/svinya.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - Plasma
+  cloakHunter: true # Do we keep this???
+
+- type: gameMap
+  id: Svinya
+  mapName: 'Svinya'
+  mapPath: /Maps/_Mono/Shuttles/USSP/svinya.yml
+  minPlayers: 0
+  stations:
+    Svinya:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Svinya MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Mercenary: [ 0, 0 ]
+            Pilot: [ 0, 0 ]

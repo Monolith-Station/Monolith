@@ -80,6 +80,10 @@
     sound:
       collection: PipeDrop
   # Goobstation edit end
+  # Mono
+  - type: ShipRepairable
+    repairTime: 1
+    repairCost: 1
 
 - type: entity
   abstract: true

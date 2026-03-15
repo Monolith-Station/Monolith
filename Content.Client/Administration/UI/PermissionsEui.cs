@@ -167,6 +167,7 @@ namespace Content.Client.Administration.UI
         {
             var flags = popup.CollectSetFlags();
             var name = popup.NameEdit.Text;
+            var shortName = popup.ShortNameEdit.Text; // Mono
 
             if (popup.SourceId is { } src)
             {
@@ -175,6 +176,7 @@ namespace Content.Client.Administration.UI
                     Id = src,
                     Flags = flags,
                     Name = name,
+                    ShortName = shortName // Mono
                 });
             }
             else
@@ -182,7 +184,8 @@ namespace Content.Client.Administration.UI
                 SendMessage(new AddAdminRank
                 {
                     Flags = flags,
-                    Name = name
+                    Name = name,
+                    ShortName = shortName // Mono
                 });
             }
 
@@ -539,6 +542,7 @@ namespace Content.Client.Administration.UI
         {
             public readonly int? SourceId;
             public readonly LineEdit NameEdit;
+            public readonly LineEdit ShortNameEdit; // Mono
             public readonly Button SaveButton;
             public readonly Button? RemoveButton;
             public readonly Dictionary<AdminFlags, CheckBox> FlagCheckBoxes = new();
@@ -554,9 +558,16 @@ namespace Content.Client.Administration.UI
                     PlaceHolder = Loc.GetString("permissions-eui-edit-admin-rank-window-name-edit-placeholder"),
                 };
 
+                // Mono
+                ShortNameEdit = new LineEdit
+                {
+                    PlaceHolder = Loc.GetString("permissions-eui-edit-admin-rank-window-short-name-edit-placeholder"),
+                };
+
                 if (data != null)
                 {
                     NameEdit.Text = data.Value.Value.Name;
+                    ShortNameEdit.Text = data.Value.Value.ShortName;
                 }
 
                 SaveButton = new Button
@@ -611,6 +622,7 @@ namespace Content.Client.Administration.UI
                     Children =
                     {
                         NameEdit,
+                        ShortNameEdit,
                         flagsBox,
                         bottomButtons
                     }

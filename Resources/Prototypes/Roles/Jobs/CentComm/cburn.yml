@@ -16,22 +16,45 @@
 - type: startingGear
   id: CBURNGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorBrown
+    jumpsuit: ClothingUniformCcCBRN
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesGlassesCentComm
     ears: ClothingHeadsetAltCentCom
-    gloves: ClothingHandsGlovesCombat
+    gloves: ClothingHandsGlovesMopp
+    neck: ClothingNeckIFFGreen
     outerClothing: ClothingOuterHardsuitCBURN
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsMagAdv
     id: CBURNPDA
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
     pocket2: WeaponLaserPistolNF # Frontier: WeaponLaserGun<WeaponLaserPistolNF
-    belt: ClothingBeltBandolier
+    belt: ClothingBeltWebbingsBigRangerGreen
+    # suitStorage: PortableRecharger - for some reason it still puts an O2 can here, idrk how to fix it so gg
+  inhand:
+  - PortableRecharger
   storage:
     back:
     - WeaponShotgunDoubleBarreled
-    - AmmoBox12_gaugeIncendiary
     - GrenadeFlashBang
-    - PillAmbuzolPlus
-    - PillAmbuzol
+    - MedkitCombatFilled
+    - MedkitCombatFilled
+    - ShipVoucherFrontierGuard
+    - GrenadeIncendiaryNfsd
+    - WeaponEnergyShotgun # NT Energy Shotgun
+    - SyringeCaseAltFilled
+    - PillMesotaxinide # Meso 15u
+    - PillMesotaxinide # Meso 15u
+    - Handcuffs
+    - Handcuffs
+    - TrackingImplanter # TSFMC tracker
+    - MedicalTrackingImplanterLabeled # Medical Dispatch Tracker
+    belt:
+    - AmmoBox12_gaugeIncendiary
+    - AmmoBox12_gaugeIncendiary
+    - SyndicateJawsOfLife
+    - PowerDrill
+    - WelderExperimental
+    - BluespaceLifelineImplanter # Stops stealing of their gear
+    - RadioImplanterCentcomm # Headset theft means nothing!
+    - HandHeldMassScannerBorg # Just for the infiniste battery
+    

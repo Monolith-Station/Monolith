@@ -3,7 +3,7 @@
 - type: latheRecipe
   abstract: true
   id: BaseTileRecipe
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
   completetime: 0.5
   materials:
     Steel: 25

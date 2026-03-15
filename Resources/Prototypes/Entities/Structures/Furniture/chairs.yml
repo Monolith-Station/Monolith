@@ -75,6 +75,10 @@
     anchored: true
   - type: PotentialDeadDrop # Frontier
     hintText: dead-drop-hint-chair # Frontier
+  # Mono
+  - type: ShipRepairable
+    repairTime: 1
+    repairCost: 1
 
 #Starts unanchored, can be rotated while anchored
 - type: entity

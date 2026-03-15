@@ -1,0 +1,48 @@
+<Document>
+  # Series 2 Combat Mechs
+
+  An expensive and adaptable selection, the S2 Armored Frames provide a stronger and faster combat platform compared to S1 mechs but find it difficult to maneuver indoors.
+
+  All S2 mechs are space insulated and provide breathable atmosphere, but the Sabre lacks maneuvering jets.
+
+  <Box>
+    <GuideEntityEmbed Entity="AFInterceptor"/>
+    <GuideEntityEmbed Entity="AFInterceptorM"/>
+    <GuideEntityEmbed Entity="AFInterceptorG"/>
+  </Box>
+
+##Broadsword
+
+The Broadsword is the standard S2 platform, capable of mounting "Light" mech weapons. It moves very fast in space, and is primarily useful for contesting lighter combat frames and spaceborn infantry.
+
+##Halberd
+
+The Halberd is a variant of the Broadsword, sacrificing some Armor and Speed for the ability to mount "Medium" mech weapons. It is still capable of moving fast in space, but is no longer able to outrun some ships.
+
+##Sabre
+
+The Sabre is a variant of the Broadsword, sacrificing much of its Armor and its maneuvering jets for the ability to operate under Gravity, particularly on Planets, as well as the ability to mount "Medium" mech weapons.
+
+##Light Mech Weapons
+  <Box>
+    <GuideEntityEmbed Entity="LightMechaSMG"/>
+    <GuideEntityEmbed Entity="LightMechaAutocannon"/>
+    <GuideEntityEmbed Entity="LightMechaShotgun"/>
+  </Box>
+ - The RAC-6 is a low-accuracy machine gun suitable for providing suppressive fire against infantry targets.
+ - The LAC-29 is an accurate 20mm autocannon suitable for fighting other Armored Frames and doing light damage to Ships.
+ - The SH-0.5 is a mech-scale shotgun effective against infantry and Armored Frames.
+
+##Medium Mech Weapons
+Medium Mech Weapons cannot be fired while under the effects of Gravity.
+
+  <Box>
+    <GuideEntityEmbed Entity="MediumMechDMR"/>
+    <GuideEntityEmbed Entity="MediumMechCoilgun"/>
+    <GuideEntityEmbed Entity="MediumMechTOW"/>
+  </Box>
+  - The DMR-90mm Autocannon is a dedicated anti-armor marksman rifle scaled up to Mech caliber, effective against Armored Frames and shuttle components.
+  - The CL-03 EMP Coilgun is a dedicated anti-ship weapon, capable of disabling electrical devices in a large radius.
+  - The ASM-55 TOW is a dedicated anti-ship weapon, firing long-range guided 150mm missiles that lock on to ships.
+
+</Document>

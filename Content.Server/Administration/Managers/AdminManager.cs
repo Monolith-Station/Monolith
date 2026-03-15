@@ -497,6 +497,9 @@ namespace Content.Server.Administration.Managers
                 {
                     data.Title = dbData.AdminRank.Name;
                 }
+                // Mono
+                if (dbData.AdminRank != null)
+                    data.ShortTitle = dbData.AdminRank.ShortName;
 
                 return (data, dbData.AdminRankId, false);
             }

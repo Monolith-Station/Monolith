@@ -44,9 +44,6 @@
         - FullTileMask
         layer:
         - WallLayer
-  - type: Repairable
-    qualities:
-    - Applicating
 
 - type: entity
   parent: [ WallWood, BaseWallDiagonal ]

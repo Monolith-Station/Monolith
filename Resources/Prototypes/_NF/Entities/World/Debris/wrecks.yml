@@ -113,7 +113,7 @@
   - type: SimpleFloorPlanPopulator
     entries:
       FloorBrassFilled: &floorBrass
-        - prob: 3 # Intentional blank.
+        - prob: 4 # Intentional blank. 
         # Walls
         - id: ClockworkGirder
           prob: 0.3
@@ -128,18 +128,42 @@
         # Floor loot
         - id: SalvageSpawnerScrapBrass75
           prob: 1
+        - id: SalvageSpawnerPlastitaniumCommon ## mono
+          prob: 1
         # Machine upgrades
         - id: SalvagePartsT2Spawner
-          prob: 0.1
+          prob: 0.25 # Mono
         - id: SalvagePartsT3Spawner
-          prob: 0.05
+          prob: 0.15 # Mono
         - id: SalvagePartsT4Spawner
-          prob: 0.01
+          prob: 0.06 # Mono
         # Big loot
         - id: SalvageBrassFurnitureSpawner
           prob: 0.03
         - id: AltarTechnology
           prob: 0.03
+        ## Mono start
+        - id: PowerCellAntiqueProto
+          prob: 0.04
+        - id: WeaponMechCombatMissileRack6
+          prob: 0.02
+        - id: WeaponMechChainSword
+          prob: 0.04
+        - id: AK570Flatpack
+          prob: 0.015
+        - id: Type35Flatpack
+          prob: 0.015
+        - id: FTLDrive50Flatpack
+          prob: 0.01
+        - id: GeneratorRTG
+          prob: 0.02
+        - id: SpawnDungeonLootArmoryRare
+          prob: 0.04
+        - id: SpawnDungeonLootVaultGuns
+          prob: 0.07
+        - id: M381Flatpack
+          prob: 0.00005 # trol
+        ## Mono end
         # "Medical"
         - id: RipleyChassis # Build it yourself
           prob: 0.03

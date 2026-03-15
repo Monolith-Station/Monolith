@@ -211,6 +211,10 @@
   - type: ContainerContainer
     containers:
       board: !type:Container
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   parent: BaseGeneratorWallmount
@@ -235,6 +239,10 @@
   - type: GuideHelp
     guides:
     - ShuttleCraft
+  # Mono
+  - type: ShipRepairable
+    repairTime: 6
+    repairCost: 12
 
 # RTG - no fuel requirement
 
@@ -287,6 +295,10 @@
             acts: [ "Destruction" ]
   - type: PirateBountyItem # Frontier
     id: GeneratorRTG # Frontier
+  # Mono - no board so it's probably fine?
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 20
 
 # TODO: need radioactive fallout when destroyed
 
@@ -334,3 +346,8 @@
             max: 5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  # Mono - no board so it's probably fine?
+  - type: ShipRepairable
+    repairTo: GeneratorRTG
+    repairTime: 10
+    repairCost: 20

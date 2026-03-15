@@ -38,6 +38,9 @@
   stations:
     Saturn:
       stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "The Sultan's answer to TSFMC invaders. She takes punishment like no other hull. Praise the Sultan."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Saturn HSS{1}'

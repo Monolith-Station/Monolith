@@ -45,7 +45,7 @@ public sealed class RadarConsoleSystem : SharedRadarConsoleSystem
         if (component.FollowEntity)
         {
             coordinates = new EntityCoordinates(uid, Vector2.Zero);
-            angle = Angle.FromDegrees(180); // Frontier: Angle.Zero<Angle.FromDegrees(180)
+            angle = Angle.Zero; // Frontier: Angle.Zero<Angle.FromDegrees(180) // Mono - frontier strikes again
         }
 
         if (_uiSystem.HasUi(uid, RadarConsoleUiKey.Key))

@@ -92,8 +92,8 @@
     - state: icon
       map: ["base"]
   - type: OnUseTimerTrigger
-    delay: 5
-    delayOptions: [5, 10, 15, 20]
+    delay: 3
+    delayOptions: [3, 5, 10, 15, 20]
     initialBeepDelay: 0
     beepSound:
       path: /Audio/Effects/Cargo/buzz_two.ogg
@@ -101,10 +101,10 @@
         volume: -6
     startOnStick: false
     canToggleStartOnStick: true
-  - type: TriggerOnSignal
+  - type: TimerStartOnSignal
   - type: DeviceLinkSink
     ports:
-    - Trigger
+    - Timer
   - type: Explosive
     explosionType: Cryo
     totalIntensity: 120

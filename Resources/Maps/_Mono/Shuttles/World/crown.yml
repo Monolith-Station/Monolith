@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 01/02/2026 10:01:53
-  entityCount: 113
+  entityCount: 115
 maps: []
 grids:
 - 1
@@ -214,6 +214,11 @@ entities:
     - type: Transform
       pos: -1.5,0.5
       parent: 1
+  - uid: 115
+    components:
+    - type: Transform
+      pos: -0.5,-0.5
+      parent: 1
 - proto: CableMV
   entities:
   - uid: 87
@@ -256,6 +261,11 @@ entities:
     components:
     - type: Transform
       pos: 0.5,0.5
+      parent: 1
+  - uid: 114
+    components:
+    - type: Transform
+      pos: -0.5,-0.5
       parent: 1
 - proto: Grille
   entities:

@@ -328,6 +328,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("name");
 
+                    b.Property<string>("ShortName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("short_name");
+
                     b.HasKey("Id")
                         .HasName("PK_admin_rank");
 

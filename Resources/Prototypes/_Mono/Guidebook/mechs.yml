@@ -1,0 +1,24 @@
+- type: guideEntry
+  id: MechsBase
+  name: guide-entry-mechs
+  text: "/ServerInfo/_Mono/Guidebook/Robotics/mechs.xml"
+  children:
+  #TODO: Industrial Mechs, when those have anything other than hydraulic clamps.
+  - S1Mechs
+  - S2Mechs
+  - S4Mechs
+
+- type: guideEntry
+  id: S1Mechs
+  name: guide-entry-s1mechs
+  text: "/ServerInfo/_Mono/Guidebook/Robotics/s1mechs.xml"
+
+- type: guideEntry
+  id: S2Mechs
+  name: guide-entry-s2mechs
+  text: "/ServerInfo/_Mono/Guidebook/Robotics/s2mechs.xml"
+
+- type: guideEntry
+  id: S4Mechs
+  name: guide-entry-s4mechs
+  text: "/ServerInfo/_Mono/Guidebook/Robotics/s4mechs.xml"

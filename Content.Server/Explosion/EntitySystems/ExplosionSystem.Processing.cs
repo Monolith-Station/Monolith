@@ -464,7 +464,9 @@ public sealed partial class ExplosionSystem
                 }
 
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
-                _damageableSystem.TryChangeDamage(entity, damage * _damageableSystem.UniversalExplosionDamageModifier, ignoreResistances: true);
+                _damageableSystem.TryChangeDamage(entity, damage * _damageableSystem.UniversalExplosionDamageModifier, ignoreResistances: true,
+                // Mono: Explosion flag for plate protection
+                originFlag: DamageableSystem.DamageOriginFlag.Explosion);
 
             }
         }
@@ -771,7 +773,7 @@ sealed class Explosion
             _currentDamage = ExplosionType.DamagePerIntensity * _currentIntensity;
 
             // only throw if either the explosion is small, or if this is the outer ring of a large explosion.
-            var doThrow = Area < _system.ThrowLimit || CurrentIteration > _tileSetIntensity.Count - 6;
+            var doThrow = (Area < _system.ThrowLimit || CurrentIteration > _tileSetIntensity.Count - 6) && ExplosionType.ThrowEntitiesOnExplosion; // mono
             _currentThrowForce = doThrow ? 10 * MathF.Sqrt(_currentIntensity) : 0;
 
             // for each grid/space tile set
@@ -922,7 +924,8 @@ sealed class Explosion
 /// </summary>
 public sealed class QueuedExplosion
 {
-    public MapCoordinates Epicenter;
+    // Mono - MapCoordinates -> EntityCoordinates
+    public EntityCoordinates Epicenter;
     public ExplosionPrototype Proto = new();
     public float TotalIntensity, Slope, MaxTileIntensity, TileBreakScale;
     public int MaxTileBreak;

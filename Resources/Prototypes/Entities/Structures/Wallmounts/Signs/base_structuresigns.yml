@@ -38,3 +38,7 @@
     snapCardinals: true
   - type: StaticPrice
     price: 20
+  # Mono
+  - type: ShipRepairable
+    repairTime: 1
+    repairCost: 1

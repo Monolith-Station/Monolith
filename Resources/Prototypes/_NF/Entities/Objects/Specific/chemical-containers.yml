@@ -62,7 +62,7 @@
     - type: SolutionContainerManager
       solutions:
         beaker:
-          maxVol: 1000
+          maxVol: 2000 #Mono 1000 >> 2000
     - type: Sprite
       sprite: _NF/Objects/Specific/Chemistry/jug_bluespace.rsi
       layers:
@@ -95,16 +95,18 @@
       thresholds: []
 
 # Frontier: an unspillable jug for welding fuel.
+# Mono: all jerry cans, solution: beaker >> solution: tank (ReagentTank support)
 - type: entity
   name: jerry can
   parent: BaseItem
   id: JerryCan
-  description: A plastic jerry can with a spill-proof nozzle.
+  #description: A plastic jerry can with a spill-proof nozzle. #Mono out
+  description: A plastic jerry can fitted with a specialized hot-refill outlet allowing risk-free refueling. #Mono in
   components:
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 200
+        maxVol: 250 #Mono 200 >> 250
   - type: Sprite
     sprite: _NF/Objects/Specific/Chemistry/jerrycan.rsi
     layers:
@@ -116,27 +118,29 @@
     size: Normal
     sprite: _NF/Objects/Specific/Chemistry/jerrycan.rsi
   - type: MixableSolution
-    solution: beaker
+    solution: tank
   - type: RefillableSolution
-    solution: beaker
+    solution: tank
   - type: DrainableSolution
-    solution: beaker
+    solution: tank
   - type: ExaminableSolution
-    solution: beaker
+    solution: tank
   - type: DrawableSolution
-    solution: beaker
+    solution: tank
   - type: InjectableSolution
-    solution: beaker
+    solution: tank
   - type: SolutionTransfer
     canChangeTransferAmount: true
   - type: SolutionItemStatus
-    solution: beaker
+    solution: tank
+  - type: ReagentTank #Mono: Enable borg tool draw
+    tankType: Fuel
   - type: UserInterface
     interfaces:
       enum.TransferAmountUiKey.Key:
         type: TransferAmountBoundUserInterface
   - type: Drink
-    solution: beaker
+    solution: tank
     delay: 1.5
     forceFeedDelay: 5
   - type: Appearance
@@ -159,14 +163,15 @@
           acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 20
+        damage: 100 #Mono: 20 >> 100
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
           params:
             volume: -4
-      - !type:SpillBehavior { }
+      - !type:SpillBehavior
+        solution: tank #Mono: Bugfix
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetPlastic1:
@@ -177,7 +182,7 @@
         acts: [ "Destruction" ]
   - type: Label
   - type: TrashOnSolutionEmpty # Frontier
-    solution: beaker # Frontier
+    solution: tank # Frontier
 
 - type: entity
   parent: JerryCan
@@ -189,10 +194,10 @@
     currentLabel: reagent-name-welding-fuel
   - type: SolutionContainerManager
     solutions:
-      beaker:
+      tank:
         reagents:
         - ReagentId: WeldingFuel
-          Quantity: 200
+          Quantity: 250 #Mono 200 >> 250
   - type: StaticPrice # Frontier
     vendPrice: 500 # Frontier
 

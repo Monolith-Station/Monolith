@@ -11,3 +11,36 @@
     contents:
     - id: StrangePill
       amount: 10
+
+- type: entity
+  name: pill
+  suffix: Mesotaxinide
+  parent: Pill
+  id: PillMesotaxinide
+  components:
+  - type: Pill
+    pillType: 15
+  - type: Sprite
+    state: pill16
+  - type: Label
+    currentLabel: mesotaxinide 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Mesotaxinide
+          Quantity: 15
+          
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterMesotaxinide
+  suffix: Mesotaxinide 15u, 5
+  components:
+  - type: Label
+    currentLabel: mesotaxinide 15u
+  - type: StorageFill
+    contents:
+    - id: PillMesotaxinide
+      amount: 5

@@ -11,7 +11,7 @@
     Steel: 3000
     Plasteel: 4000 # penetrator head
     Plasma: 3000 # ionized plasma gas for heavier weight
-    Uranium: 200000 # payload is nuclear - with economy update should take a special nuclear armament component
+    UraniumFissile: 100 # payload is nuclear - with economy update should take a special nuclear armament component
 
 - type: latheRecipe
   id: ASM220TorpedoHEUniversal
@@ -29,8 +29,7 @@
   result: Asm220TorpedoLOSAT
   materials:
     Steel: 1200 # shell/casing
-    Plasteel: 600 # penetrator
-    Synthalloy: 200 # penetrator
+    Plasteel: 1000 # penetrator
     Glass: 400 # opticals
     Gold: 200 # electronics
     Silver: 200 # electronics

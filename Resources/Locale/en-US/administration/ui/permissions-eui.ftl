@@ -13,6 +13,8 @@ permissions-eui-edit-admin-window-name-edit-placeholder = Username/User ID
 permissions-eui-edit-admin-window-title-edit-placeholder = Custom title, leave blank to inherit rank title.
 permissions-eui-edit-admin-window-no-rank-button = No rank
 permissions-eui-edit-admin-rank-window-name-edit-placeholder = Rank name
+# Mono
+permissions-eui-edit-admin-rank-window-short-name-edit-placeholder = Rank short name
 permissions-eui-edit-admin-title-control-text = none
 permissions-eui-edit-admin-window-suspended = Suspended?
 permissions-eui-edit-no-rank-text = none

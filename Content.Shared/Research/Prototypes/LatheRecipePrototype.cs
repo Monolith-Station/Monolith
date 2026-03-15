@@ -43,6 +43,12 @@ namespace Content.Shared.Research.Prototypes
         [DataField]
         public EntProtoId? Result;
 
+        /// <summary>
+        ///     Mono - Materials created by processing this recipe, deposited directly into the lathe.
+        /// </summary>
+        [DataField]
+        public Dictionary<ProtoId<MaterialPrototype>, int> MaterialResult = new();
+
         [DataField]
         public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>? ResultReagents;
 
@@ -63,7 +69,7 @@ namespace Content.Shared.Research.Prototypes
         public Dictionary<ProtoId<MaterialPrototype>, int> Materials = new();
 
         [DataField]
-        public bool ApplyMaterialDiscount = true;
+        public float MaterialDiscountScale = 1f; // Mono - changed from bool to float
 
         /// <summary>
         /// List of categories used for visually sorting lathe recipes in the UI.

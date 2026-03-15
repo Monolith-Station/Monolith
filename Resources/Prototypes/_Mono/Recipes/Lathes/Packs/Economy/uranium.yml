@@ -1,0 +1,10 @@
+- type: latheRecipePack
+  id: MonoUraniumProcessing # nuclearcraft
+  recipes:
+  - UraniumCentrifugeReprocessingMini
+  - UraniumCentrifugeEnrichedProcessingMini
+
+- type: latheRecipePack
+  id: MonoCentrifugeProcessingStatic # used to let centrifuges always have basic processing
+  recipes:
+  - UraniumCentrifugeProcessingMini

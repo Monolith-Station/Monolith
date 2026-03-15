@@ -47,6 +47,10 @@
         powerMV:
           !type:CableTerminalNode
           nodeGroupID: MVPower
+    # Mono
+    - type: ShipRepairable
+      repairTime: 1
+      repairCost: 2
 
 - type: entity
   id: CableTerminalUncuttable

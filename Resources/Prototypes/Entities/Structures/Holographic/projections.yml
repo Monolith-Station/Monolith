@@ -116,3 +116,43 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+
+- type: entity
+  id: HolosignForcefieldTSF
+  parent: HolosignWetFloor
+  name: tsf holographic force field
+  description: A powerful hard light field that can withstand a bullet hailstorm and block movement, while allowing lasers to pass through.
+  components:
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: Sprite
+    sprite: Structures/Holo/fieldtact.rsi
+    state: icon
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: TimedDespawn
+    lifetime: 180
+  - type: PointLight
+    enabled: true
+    radius: 3
+    color: blue
+  - type: Clickable
+  - type: ContainmentField
+    throwForce: 0
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 350
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]

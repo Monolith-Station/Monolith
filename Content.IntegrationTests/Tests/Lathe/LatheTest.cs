@@ -123,8 +123,8 @@ public sealed class LatheTest
         {
             foreach (var recipe in proto.EnumeratePrototypes<LatheRecipePrototype>())
             {
-                if (recipe.Result == null)
-                    Assert.That(recipe.ResultReagents, Is.Not.Null, $"Recipe '{recipe.ID}' has no result or result reagents.");
+                if (recipe.Result == null && recipe.MaterialResult.Count == 0)
+                    Assert.That(recipe.ResultReagents, Is.Not.Null, $"Recipe '{recipe.ID}' has no result or result reagents or result materials.");
             }
         });
 

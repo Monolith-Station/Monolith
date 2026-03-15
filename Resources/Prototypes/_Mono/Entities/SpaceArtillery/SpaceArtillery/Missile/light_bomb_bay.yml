@@ -18,6 +18,7 @@
   - type: Gun
     projectileSpeed: 10
     fireRate: 0.8
+    recoil: 5
     shootThermalSignature: 8000000 # ~2.8km
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
@@ -49,7 +50,11 @@
   - type: RadarBlip
     radarColor: "#ff9d00"
     scale: 0.7
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Missile
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 25
+    repairCost: 100

@@ -6,4 +6,9 @@ namespace Content.Shared._Crescent.DroneControl;
 [RegisterComponent]
 public sealed partial class DroneControlConsoleComponent : Component
 {
+    /// <summary>
+    /// Maximum distance orders can tell drones to go to, if not null.
+    /// </summary>
+    [DataField]
+    public float? MaxOrderRadius = null;
 }

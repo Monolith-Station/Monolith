@@ -64,7 +64,7 @@
   - 150mmEmpShellUniversal
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 8, 2
+  position: 7, 2
 
 - type: technology
   id: UniversalLightFighterOrdinance
@@ -78,7 +78,7 @@
   - ZenithRocketUniversal
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 9, 2
+  position: 6, 2
 
 - type: technology
   id: UniversalAdvancedLightFighterOrdinance
@@ -92,4 +92,4 @@
   technologyPrerequisites:
   - UniversalLightFighterOrdinance
   - UniversalPlastitaniumCore
-  position: 10, 2
+  position: 6, 4

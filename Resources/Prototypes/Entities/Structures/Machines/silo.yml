@@ -18,6 +18,7 @@
           True: { state: silo_active }
           False: { state: silo }
   - type: OreSilo
+    range: 125 # Mono
   - type: MaterialStorage
     whitelist:
       tags:

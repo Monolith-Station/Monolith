@@ -4,14 +4,15 @@
   id: WeaponTurretL85Autocannon
   name: L85 20mm autocannon
   parent: BallisticArtilleryMagazine
-  description: A light 20mm ballistic autocannon designed for rapid fire and suppressing smaller targets at close range. Cheap, light, and can be remotely activated or linked up to a GCS.
+  description: A light 20mm ballistic autocannon designed for rapid fire point defense and suppressing smaller targets at close range. Cheap, light, and can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 250
   - type: Sprite
-    sprite: _Mono/Objects/ShuttleWeapons/50cal.rsi
+    offset: -0.03,0
+    sprite: _Mono/Objects/ShuttleWeapons/L85.rsi
     layers:
-    - state: space_artillery
+    - state: icon
   - type: Appearance
   - type: FireControlRotate
   - type: AutoShootGun
@@ -23,6 +24,7 @@
     - Toggle
   - type: Gun
     fireRate: 12
+    recoil: 5 # 1/5x
     projectileSpeed: 160
     minAngle: 0
     maxAngle: 5
@@ -66,10 +68,20 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.7,-0.7,0.7,0.7"
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Light
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 20
 
 # Draupnir
 
@@ -95,7 +107,8 @@
     ports:
     - Toggle
   - type: Gun
-    fireRate: 10
+    fireRate: 25
+    recoil: 5 # 1/5x
     projectileSpeed: 180
     minAngle: 0
     maxAngle: 8
@@ -139,7 +152,11 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1.5
+    visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 40

@@ -105,6 +105,10 @@
         node: machineFrame
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   name: long-range holopad

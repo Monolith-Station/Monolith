@@ -10,7 +10,7 @@
 #
 - type: pointOfInterest
   id: TSFMCOutpost
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'TSFMC Secondary Outpost'
   minimumDistance: 11000
   maximumDistance: 14000

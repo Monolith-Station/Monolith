@@ -8,9 +8,9 @@
     currentLabel: reagent-name-nanite-fuel
   - type: SolutionContainerManager
     solutions:
-      beaker:
+      tank:
         reagents:
         - ReagentId: NaniteFuel
-          Quantity: 200
+          Quantity: 250
   - type: StaticPrice # Frontier
     vendPrice: 500 # Frontier

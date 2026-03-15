@@ -141,6 +141,10 @@
   - type: ContainerFill
     containers:
       board: [ FirelockElectronics ]
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   id: FirelockGlass

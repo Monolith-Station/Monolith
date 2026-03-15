@@ -129,6 +129,10 @@
   - type: Battery
     maxCharge: 8000000
     startingCharge: 8000000
+  # Mono
+  - type: ShipRepairable
+    repairTime: 6
+    repairCost: 20
 
 - type: entity
   parent: SMESBasic
@@ -178,6 +182,10 @@
   - type: UpgradeBattery
     baseMaxCharge: 16000000
   # End Frontier: upgradable SMES
+  # Mono
+  - type: ShipRepairable
+    repairTime: 8
+    repairCost: 35
 
 - type: entity
   parent: SMESAdvanced
