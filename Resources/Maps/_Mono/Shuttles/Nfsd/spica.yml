@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/15/2026 10:46:19
+  time: 03/15/2026 10:48:37
   entityCount: 515
 maps: []
 grids:
@@ -461,9 +461,10 @@ entities:
       parent: 1
 - proto: AirlockHatch
   entities:
-  - uid: 166
+  - uid: 65
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: 3.5,-2.5
       parent: 1
 - proto: AirlockNfsdLocked
@@ -1029,7 +1030,7 @@ entities:
     - type: Transform
       pos: 1.5,0.5
       parent: 1
-  - uid: 134
+  - uid: 135
     components:
     - type: Transform
       pos: 4.5,-2.5
@@ -1833,6 +1834,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: 6.5,-3.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#990000FF'
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
 - proto: GasPipeBendAlt1
@@ -1873,12 +1876,16 @@ entities:
     - type: Transform
       pos: 6.5,-2.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 241
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 4.5,-2.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#990000FF'
 - proto: GasPipeStraightAlt1
   entities:
   - uid: 246
@@ -1969,6 +1976,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 5.5,-2.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#990000FF'
 - proto: GasPipeTJunctionAlt1
   entities:
   - uid: 248
@@ -2120,21 +2129,15 @@ entities:
     - type: Transform
       pos: 6.5,-4.5
       parent: 1
-  - uid: 92
+  - uid: 114
     components:
     - type: Transform
       pos: -7.5,-4.5
       parent: 1
-  - uid: 114
-    components:
-    - type: Transform
-      pos: -8.5,-4.5
-      parent: 1
   - uid: 116
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 9.5,-4.5
+      pos: -8.5,-4.5
       parent: 1
   - uid: 118
     components:
@@ -2147,6 +2150,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -11.5,-1.5
+      parent: 1
+  - uid: 122
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 9.5,-4.5
       parent: 1
   - uid: 123
     components:
@@ -2272,7 +2281,7 @@ entities:
       parent: 1
 - proto: MachineFTLDrive
   entities:
-  - uid: 122
+  - uid: 134
     components:
     - type: Transform
       pos: 3.5,-3.5
@@ -3085,7 +3094,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -7.5,-0.5
       parent: 1
-  - uid: 135
+  - uid: 166
     components:
     - type: Transform
       pos: -9.5,0.5
@@ -3120,7 +3129,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 8.5,1.5
       parent: 1
-  - uid: 65
+  - uid: 92
     components:
     - type: Transform
       pos: -10.5,0.5
