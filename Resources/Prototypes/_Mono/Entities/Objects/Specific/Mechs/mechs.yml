@@ -207,10 +207,10 @@
     openState: broadsword-open
     brokenState: broadsword-broken
     mechToPilotDamageMultiplier: 0
-    criticalPowerStateSpeedPenalty: 0.85
+    criticalPowerStateSpeedPenalty: 0.75
     maxEquipmentAmount: 3
     airtight: true
-    maxIntegrity: 1500
+    maxIntegrity: 1750
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -251,7 +251,7 @@
     requireNoGrid: true
     shape: square
   - type: Damageable
-    damageModifierSet: MechArmorMedium
+    damageModifierSet: MechArmorHeavy
   - type: Repairable
     fuelCost: 40
     doAfterDelay: 30
@@ -323,9 +323,9 @@
 
 - type: entity
   id: AFInterceptorM
-  parent: [LightMultiroleMount, AFInterceptor]
+  parent: [MediumMechMount, AFInterceptor]
   name: AF-28-M "Halberd"
-  description: A modification of the Broadsword, the Halberd sacrifices armor and speed for heavier weapon mounts.
+  description: A modification of the Broadsword, the Halberd sacrifices light weapon mounts and speed for more armor and medium weapon mounts..
   components:
   - type: Mech
     baseState: broadsword
@@ -335,7 +335,7 @@
     criticalPowerStateSpeedPenalty: 0.85
     maxEquipmentAmount: 3
     airtight: true
-    maxIntegrity: 1100
+    maxIntegrity: 2150
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -345,7 +345,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1600
+        damage: 3000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -360,7 +360,7 @@
     baseSprintSpeed: 1.33
     baseWeightlessModifier: 35
   - type: Damageable
-    damageModifierSet: MechArmorLight
+    damageModifierSet: MechArmorHeavy
   - type: Tag
     tags:
     - DoorBumpOpener
