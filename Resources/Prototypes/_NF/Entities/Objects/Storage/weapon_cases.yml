@@ -28,6 +28,8 @@
     grid:
     - 0,0,4,3
     - 6,0,7,3
+    quickInsert: true #Mono
+    areaInsert: true #Mono
     whitelist:
       components:
       - Gun
@@ -40,6 +42,23 @@
       - WeaponCaseInsertable
       tags:
       - Cartridge
+  - type: Dumpable #Mono start
+  - type: MagnetPickup
+    magnetEnabled: false
+    magnetCanBeEnabled: false
+  - type: ItemToggle
+    soundActivate: &soundActivate
+      collection: sparks
+      params:
+        variation: 0.25
+    soundDeactivate: *soundActivate
+    onUse: false
+    onAltUse: true
+    onActivate: false
+  - type: ItemToggleExamine
+    on: item-toggle-examine-magnet-on
+    off: item-toggle-examine-magnet-off
+ #Mono end
 
 - type: entity
   name: weapon case
@@ -151,3 +170,33 @@
       - Armor
       tags:
       - Cartridge
+
+# Mono start
+
+- type: entity
+  name: ammo case
+  parent: WeaponCaseHeavy
+  id: WeaponCaseHeavyAmmo
+  description: A reinforced casing for storing heavy cannon shells or bulk low caliber munitions.
+  suffix: Heavy
+  components:
+  - type: MultiHandedItem
+  - type: Sprite
+    sprite: _Mono/Objects/Storage/Cases/ammocaseheavy.rsi
+  - type: Item
+    sprite: _Mono/Objects/Storage/Cases/ammocaseheavy.rsi
+    size: Ginormous
+    shape:
+    - 0,0,8,5
+  - type: Storage
+    maxItemSize: Ginormous
+    grid:
+    - 0,0,7,7
+    whitelist:
+      components:
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      tags:
+      - Cartridge
+
+# Mono end

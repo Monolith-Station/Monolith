@@ -51,6 +51,9 @@ public sealed partial class MapScreen : BoxContainer
     private TimeSpan _pingCooldown = TimeSpan.FromSeconds(3);
     private TimeSpan _nextMapDequeue;
 
+    // Mono
+    private bool _autopilotTargeting = false;
+
     private float _minMapDequeue = 0.05f;
     private float _maxMapDequeue = 0.25f;
 
@@ -58,6 +61,9 @@ public sealed partial class MapScreen : BoxContainer
 
     public event Action<MapCoordinates, Angle>? RequestFTL;
     public event Action<NetEntity, Angle>? RequestBeaconFTL;
+
+    // Mono
+    public event Action<MapCoordinates, Angle>? RequestAutopilot;
 
     private readonly Dictionary<MapId, BoxContainer> _mapHeadings = new();
     private readonly Dictionary<MapId, List<IMapObject>> _mapObjects = new();
@@ -86,6 +92,7 @@ public sealed partial class MapScreen : BoxContainer
         OnVisibilityChanged += OnVisChange;
 
         MapFTLButton.OnToggled += FtlPreviewToggled;
+        MapAutopilotButton.OnToggled += AutopilotPreviewToggled; // Mono
 
         _ftlStyle = new StyleBoxFlat(Color.LimeGreen);
         FTLBar.ForegroundStyleBoxOverride = _ftlStyle;
@@ -93,7 +100,15 @@ public sealed partial class MapScreen : BoxContainer
         // Just pass it on up.
         MapRadar.RequestFTL += (coords, angle) =>
         {
-            RequestFTL?.Invoke(coords, angle);
+            if (_autopilotTargeting) // Mono
+            {
+                RequestAutopilot?.Invoke(coords, angle);
+                SetTargeting(false, true);
+            }
+            else
+            {
+                RequestFTL?.Invoke(coords, angle);
+            }
         };
 
         MapRadar.RequestBeaconFTL += (ent, angle) =>
@@ -192,12 +207,31 @@ public sealed partial class MapScreen : BoxContainer
 
     private void FtlPreviewToggled(BaseButton.ButtonToggledEventArgs obj)
     {
-        MapRadar.FtlMode = obj.Pressed;
+        SetTargeting(obj.Pressed, false);
+    }
 
-        // When FTL button is toggled, disable the ShowFTLRangeOnly mode
-        if (obj.Pressed)
+    // Mono
+    private void AutopilotPreviewToggled(BaseButton.ButtonToggledEventArgs obj)
+    {
+        SetTargeting(obj.Pressed, true);
+    }
+
+    // Mono
+    private void SetTargeting(bool pressed, bool isAutopilot)
+    {
+        if (pressed)
         {
+            MapRadar.FtlMode = true;
             MapRadar.ShowFTLRangeOnly = false;
+            MapRadar.ShowFTLRange = !isAutopilot;
+            MapRadar.NoFTLRange = isAutopilot;
+            MapFTLButton.Pressed = !isAutopilot;
+            MapAutopilotButton.Pressed = isAutopilot;
+            _autopilotTargeting = isAutopilot;
+        }
+        else
+        {
+            MapRadar.FtlMode = false;
         }
     }
 
