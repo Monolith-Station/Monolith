@@ -10,7 +10,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 40
+        Piercing: 30
+        Structural: 45
 
 - type: entity
   id: MechPelletShotgunSpread
@@ -85,6 +86,27 @@
     intensitySlope: 5
     maxIntensity: 25
     maxTileBreak: 1
+
+- type: entity
+  id: 35mmBullet
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 45
+        Structural: 225
+  - type: ShipWeaponProjectile
+  - type: TimedDespawn
+    lifetime: 3
+  - type: PointLight
+    radius: 3.5
+    energy: 0.5
+  - type: RadarBlip
+    scale: 1.25
+    shape: arrow
+    radarColor: "#1df1f5"
 
 - type: entity
   id: 120mmBulletHE
