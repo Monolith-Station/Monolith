@@ -10,9 +10,6 @@ lathe-recipe-WeaponCaseLong-name = weapon case (empty)
 lathe-recipe-WeaponCaseHeavy-name = weapon case (heavy, empty)
 lathe-recipe-WeaponCaseShortAmmo-name = ammo case (small, empty)
 lathe-recipe-WeaponCaseShortExplosives-name = explosives case (small, empty)
-# Mono start
-lathe-recipe-WeaponCaseHeavyAmmo-name = ammo case (heavy, empty)
-# Mono end
 
 # Cardboard
 lathe-recipe-NFHappyHonkMimeEmpty-name = happy honk meal (empty)
