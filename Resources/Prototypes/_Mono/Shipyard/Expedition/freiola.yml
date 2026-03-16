@@ -1,0 +1,41 @@
+# Author Info
+# GitHub: whaaaaaaaaaaat
+# Discord: whaat3602
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Freiola
+  parent: BaseVessel
+  name: SKR Littora
+  description: A medium-to-large sized expedition ship with good manvurability, large cargo bays and a basic chemistry lab.
+  price: 83300
+  category: Large
+  group: Expedition
+  shuttlePath: /Maps/_Mono/Shuttles/Expedition/freiola.yml
+  guidebookPage: null
+  class:
+  - Expedition
+  - Chemistry
+  engine:
+  - AME
+
+- type: gameMap
+  id: Freiola
+  mapName: 'Freiola'
+  mapPath: /Maps/_Mono/Shuttles/Expedition/freiola.yml
+  minPlayers: 0
+  stations:
+    Freiola:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Freiola EXP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
