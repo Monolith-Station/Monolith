@@ -1,6 +1,8 @@
+#PDV Cyborgs
+
 - type: entity
   id: BorgChassisSelectablePDV
-  parent: PlayerBorgPDV
+  parent: BaseBorgChassisPDV
   name: PDV cyborg
   description: A purpose built cyborg used by the PDV.
   components:
@@ -17,15 +19,6 @@
       shader: unshaded
       map: ["light","enum.BorgVisualLayers.LightStatus"]
       visible: false
-  - type: LanguageKnowledge
-    speaks:
-    - TauCetiBasic
-    - RobotTalk
-    - Freespeak
-    understands:
-    - TauCetiBasic
-    - RobotTalk
-    - Freespeak
   - type: BorgChassis
     maxModules: 0
     hasMindState: empty_l
@@ -44,53 +37,6 @@
     - Common
     - Traffic
     - Freelance
-
-- type: entity
-  id: BorgChassisSelectableTSF
-  parent: PlayerBorgTSF
-  name: TSF cyborg
-  description: A purpose built cyborg used by the TSF.
-  components:
-  - type: Sprite
-    sprite: _Mono/Mobs/Silicon/TSFMC/tsfchassis.rsi
-    layers:
-    - state: empty
-      map: ["enum.BorgVisualLayers.Body", "movement"]
-    - state: empty_l
-      map: ["enum.BorgVisualLayers.Light"]
-      shader: unshaded
-      visible: false
-    - state: empty_l
-      shader: unshaded
-      map: ["light","enum.BorgVisualLayers.LightStatus"]
-      visible: false
-  - type: LanguageKnowledge
-    speaks:
-    - TauCetiBasic
-    - RobotTalk
-    - SolCommon
-    understands:
-    - TauCetiBasic
-    - RobotTalk
-    - SolCommon
-  - type: BorgChassis
-    maxModules: 0
-    hasMindState: empty_l
-    noMindState: empty_l
-  - type: InteractionPopup
-    interactSuccessString: petting-success-derelict-cyborg
-    interactFailureString: petting-failure-derelict-cyborg
-    interactSuccessSound:
-      path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: BorgSwitchableType
-    typeWhitelist: 
-    - tsfassault
-    - tsfengineer
-    - tsfmedical
-    inherentRadioChannels:
-    - Common
-    - Traffic
-    - Nfsd
 
 - type: entity
   id: PDVBorgChassisAssault
@@ -121,6 +67,46 @@
     selectedBorgType: pdvmedical
   - type: BorgSwitchableSubtype
     borgSubtype: pdvmedical_default
+
+#TSF Cyborgs
+
+- type: entity
+  id: BorgChassisSelectableTSF
+  parent: BaseBorgChassisTSF
+  name: TSF cyborg
+  description: A purpose built cyborg used by the TSF.
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Silicon/TSFMC/tsfchassis.rsi
+    layers:
+    - state: empty
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: empty_l
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: empty_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: empty_l
+    noMindState: empty_l
+  - type: InteractionPopup
+    interactSuccessString: petting-success-derelict-cyborg
+    interactFailureString: petting-failure-derelict-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: BorgSwitchableType
+    typeWhitelist: 
+    - tsfassault
+    - tsfengineer
+    - tsfmedical
+    inherentRadioChannels:
+    - Common
+    - Traffic
+    - Nfsd
 
 - type: entity
   id: TSFBorgChassisAssault
