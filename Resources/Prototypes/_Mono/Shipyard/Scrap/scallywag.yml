@@ -2,29 +2,29 @@
 # GitHub: Corrupt142
 # Discord: Corrupt
 
-# Shuttle Notes: To hell with you plunderer! Armament uniformised to ballistics, sorry y'all, a pirate shit bucket doesn't get laser PD.
+# To hell with you plunderer! 
+# Armament uniformised to ballistics, sorry y'all, a pirate shit bucket doesn't get laser PD.
+# Im going to rip you apart peace by peace..
 
 - type: vessel
   id: Scallywag
   parent: BaseVessel
-  name: RSC-Scallywag
+  name: RSC Scallywag
   description: Heavily armoured hit and run ship dedicated for Piracy operations. Armed with 2x Longbow 90mm autocannon,4x L85 20mm PD turret,2x VESPERA swarm missile launchers and a RUBICON for Disabling fleeing ships.
   price: 120000 # 89K base x 1.35 -> 120K (35% markup).
-  category: medium
+  category: Medium
   group: Scrap
-  access: Mercenary
   shuttlePath: /Maps/_Mono/Shuttles/Scrap/scallywag.yml
   guidebookPage: Null
   class:
-  - pursuit
   - Scrapyard
-
+  - Pursuit
   engine:
   - uranium
 
 - type: gameMap
   id: Scallywag
-  mapName: 'RSC-Scallywag'
+  mapName: 'RSC Scallywag'
   mapPath: /Maps/_Mono/Shuttles/Scrap/scallywag.yml
   minPlayers: 0
   stations:
