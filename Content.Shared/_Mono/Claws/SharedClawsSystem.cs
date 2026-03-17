@@ -70,7 +70,7 @@ public abstract partial class SharedClawsSystem : EntitySystem
         if (!TryGetStage<SharpClaw>(ent.Comp, out var stage))
             return;
 
-        if (stage.CanShoot)
+        if (args.Used.Comp.BlocksClaws && stage.CanShoot)
             return;
 
         _popup.PopupClient(Loc.GetString("clawed-shoot-fail"), Transform(ent).Coordinates, ent);

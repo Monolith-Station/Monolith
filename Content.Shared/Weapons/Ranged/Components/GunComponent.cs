@@ -334,6 +334,13 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public float ExecutionModifier = 9.0f;
+
+    /// <summary>
+    /// Mono
+    /// Can someone with abnormally huge claws use this
+    /// </summary>
+    [DataField]
+    public bool BlocksClaws = true;
 }
 
 [Flags]
