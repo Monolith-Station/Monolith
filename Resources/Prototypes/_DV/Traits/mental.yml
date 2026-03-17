@@ -5,6 +5,7 @@
   name: trait-paracusia-name
   description: trait-paracusia-desc
   category: Mental
+  cost: -1
   effects:
   - !type:AddCompsEffect
     components:
@@ -20,6 +21,7 @@
   name: trait-liar-name
   description: trait-liar-desc
   category: Mental
+  cost: -1
   effects:
   - !type:AddCompsEffect
     components:
@@ -31,6 +33,7 @@
   name: trait-pacifist-name
   description: trait-pacifist-desc
   category: Mental
+  cost: -1
   conditions:
   - !type:HasTraitCondition
     trait: Pious

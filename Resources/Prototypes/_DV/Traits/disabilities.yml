@@ -5,6 +5,7 @@
   name: trait-blindness-name
   description: trait-blindness-desc
   category: Disabilities
+  cost: -1
   conditions:
   - !type:HasTraitCondition
     trait: PoorVision
@@ -32,6 +33,7 @@
   name: trait-poor-vision-name
   description: trait-poor-vision-desc
   category: Disabilities
+  cost: -1
   conditions:
   - !type:HasTraitCondition
     trait: Blindness
@@ -52,6 +54,7 @@
 #   name: trait-monochromacy-name
 #   description: trait-monochromacy-desc
 #   category: Disabilities
+#   cost: -1
 #   conditions:
 #   - !type:HasTraitCondition
 #     trait: Blindness
@@ -72,6 +75,7 @@
   name: trait-deuteranopia-name
   description: trait-deuteranopia-desc
   category: Disabilities
+  cost: -1
   conditions:
   - !type:HasTraitCondition
     trait: Blindness
@@ -95,6 +99,7 @@
   name: trait-ultravision-name
   description: trait-ultravision-desc
   category: Disabilities
+  cost: -1
   conditions:
   - !type:HasTraitCondition
     trait: Blindness
@@ -119,6 +124,7 @@
 #   name: trait-impaired-mobility-name
 #   description: trait-impaired-mobility-desc
 #   category: Disabilities
+#   cost: -1
 #   effects:
 #   - !type:AddCompsEffect
 #     components:
@@ -131,6 +137,7 @@
   name: trait-amputee-left-arm-name
   description: trait-amputee-left-arm-desc
   category: Disabilities
+  cost: -1
   effects:
   - !type:RemoveBodyPartEffect
     part: Arm
@@ -141,6 +148,7 @@
   name: trait-amputee-right-arm-name
   description: trait-amputee-right-arm-desc
   category: Disabilities
+  cost: -2
   effects:
   - !type:RemoveBodyPartEffect
     part: Arm
@@ -151,6 +159,7 @@
   name: trait-amputee-left-leg-name
   description: trait-amputee-left-leg-desc
   category: Disabilities
+  cost: -2
   effects:
   - !type:RemoveBodyPartEffect
     part: Leg
@@ -161,6 +170,7 @@
   name: trait-amputee-right-leg-name
   description: trait-amputee-right-leg-desc
   category: Disabilities
+  cost: -2
   effects:
   - !type:RemoveBodyPartEffect
     part: Leg
@@ -171,6 +181,7 @@
   name: trait-dysgraphia-name
   description: trait-dysgraphia-desc
   category: Disabilities
+  cost: -2
   effects:
   - !type:AddCompsEffect
     components:
@@ -181,6 +192,7 @@
   name: trait-painnumbness-name
   description: trait-painnumbness-desc
   category: Disabilities
+  cost: -2
   conditions:
   - !type:IsSpeciesCondition
     species: IPC
