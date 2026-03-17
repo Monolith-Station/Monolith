@@ -47,7 +47,7 @@
     proto: ShipSunnyFlare
     deleteOnSpawn: true
   - type: Sprite
-    sprite: _Mono/Objects/SpaceArtillery/flare_countermeasure.rsi # I know it's unlikely you'd look in the autoloader. But there's probably a more fitting sprite.
+    sprite: _Mono/Objects/SpaceArtillery/flare_countermeasure.rsi #Behold, flare but yellow.
     layers:
     - state: sunny-flare
       map: ["enum.AmmoVisualLayers.Base"]
