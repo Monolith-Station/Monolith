@@ -1,6 +1,6 @@
 - type: entity
   id: WeaponTurretFlare
-  name: GS-002 Sunny flare system.
+  name: GS-002 Sunny flare system
   parent: BallisticArtilleryUnanchorableMagazine
   description: A relatively small flare flinging hardpoint used to fool heat seeking missiles. Also good for search and rescue.
   components:
@@ -65,7 +65,7 @@
     scale: 0.7
     visibleFromOtherGrids: true
   - type: ShipGunType
-    shipType: Ballistic
+    shipType: Other
   - type: ShipGunClass
     shipClass: Light
   - type: ShipRepairable

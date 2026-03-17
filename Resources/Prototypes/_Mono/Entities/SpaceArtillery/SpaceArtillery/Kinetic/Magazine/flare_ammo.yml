@@ -34,7 +34,7 @@
 
 - type: entity
   id: SunnyCartridge
-  name: Packaged Flare
+  name: Packaged flare
   description: An individual electronically activated flare for the GS-002 countermeasure system.
   parent: BaseCartridge
   components:
@@ -47,9 +47,9 @@
     proto: ShipSunnyFlare
     deleteOnSpawn: true
   - type: Sprite
-    sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi # I know it's unlikely you'd look in the autoloader. But there's probably a more fitting sprite.
+    sprite: _Mono/Objects/SpaceArtillery/flare_countermeasure.rsi # I know it's unlikely you'd look in the autoloader. But there's probably a more fitting sprite.
     layers:
-    - state: mini-rocket
+    - state: sunny-flare
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals
