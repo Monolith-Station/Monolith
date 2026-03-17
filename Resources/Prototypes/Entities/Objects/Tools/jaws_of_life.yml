@@ -51,6 +51,8 @@
         Blunt: 20
     soundHit:
       collection: MetalThud
+  - type: NailClipper # Mono
+    allowedClawTypes: ["SharpClaw"]
 
 - type: entity
   name: advanced jaws of life # Mono
