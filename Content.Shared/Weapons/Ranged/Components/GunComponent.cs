@@ -340,7 +340,7 @@ public sealed partial class GunComponent : Component
     /// Can someone with abnormally huge claws use this
     /// </summary>
     [DataField]
-    public bool BlocksClaws = true;
+    public bool FitsClaws = false;
 }
 
 [Flags]
