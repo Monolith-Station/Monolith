@@ -1,3 +1,5 @@
+# frontier edit
+
 # Loot table
 # Main loot table for random spawns
 # - type: salvageLoot
@@ -113,74 +115,74 @@
 
 # Ores - these are guaranteed
 # - Low value
-- type: salvageLoot
-  id: OreIron
-  guaranteed: true
-  loots:
-    - !type:BiomeMarkerLoot
-      proto: OreIron
+# - type: salvageLoot
+#   id: OreIron
+#   guaranteed: true
+#   loots:
+#     - !type:BiomeMarkerLoot
+#       proto: OreIron
 
-- type: salvageLoot
-  id: OreCoal
-  guaranteed: true
-  loots:
-    - !type:BiomeMarkerLoot
-      proto: OreCoal
+# - type: salvageLoot
+#   id: OreCoal
+#   guaranteed: true
+#   loots:
+#     - !type:BiomeMarkerLoot
+#       proto: OreCoal
 
-- type: salvageLoot
-  id: OreQuartz
-  guaranteed: true
-  loots:
-    - !type:BiomeMarkerLoot
-      proto: OreQuartz
+# - type: salvageLoot
+#   id: OreQuartz
+#   guaranteed: true
+#   loots:
+#     - !type:BiomeMarkerLoot
+#       proto: OreQuartz
 
-- type: salvageLoot
-  id: OreSalt
-  guaranteed: true
-  loots:
-    - !type:BiomeMarkerLoot
-      proto: OreSalt
+# - type: salvageLoot
+#   id: OreSalt
+#   guaranteed: true
+#   loots:
+#     - !type:BiomeMarkerLoot
+#       proto: OreSalt
 
-# - Medium value
-- type: salvageLoot
-  id: OreGold
-  guaranteed: true
-  loots:
-    - !type:BiomeMarkerLoot
-      proto: OreGold
+# # - Medium value
+# - type: salvageLoot
+#   id: OreGold
+#   guaranteed: true
+#   loots:
+#     - !type:BiomeMarkerLoot
+#       proto: OreGold
 
-- type: salvageLoot
-  id: OreSilver
-  guaranteed: true
-  loots:
-    - !type:BiomeMarkerLoot
-      proto: OreSilver
+# - type: salvageLoot
+#   id: OreSilver
+#   guaranteed: true
+#   loots:
+#     - !type:BiomeMarkerLoot
+#       proto: OreSilver
 
-# - High value
-- type: salvageLoot
-  id: OrePlasma
-  guaranteed: true
-  loots:
-    - !type:BiomeMarkerLoot
-      proto: OrePlasma
+# # - High value
+# - type: salvageLoot
+#   id: OrePlasma
+#   guaranteed: true
+#   loots:
+#     - !type:BiomeMarkerLoot
+#       proto: OrePlasma
 
-- type: salvageLoot
-  id: OreUranium
-  guaranteed: true
-  loots:
-    - !type:BiomeMarkerLoot
-      proto: OreUranium
+# - type: salvageLoot
+#   id: OreUranium
+#   guaranteed: true
+#   loots:
+#     - !type:BiomeMarkerLoot
+#       proto: OreUranium
 
-- type: salvageLoot
-  id: OreDiamond
-  guaranteed: true
-  loots:
-    - !type:BiomeMarkerLoot
-      proto: OreDiamond
+# - type: salvageLoot
+#   id: OreDiamond
+#   guaranteed: true
+#   loots:
+#     - !type:BiomeMarkerLoot
+#       proto: OreDiamond
 
-- type: salvageLoot
-  id: OreArtifactFragment
-  guaranteed: true
-  loots:
-    - !type:BiomeMarkerLoot
-      proto: OreArtifactFragment
+# - type: salvageLoot
+#   id: OreArtifactFragment
+#   guaranteed: true
+#   loots:
+#     - !type:BiomeMarkerLoot
+#       proto: OreArtifactFragment
