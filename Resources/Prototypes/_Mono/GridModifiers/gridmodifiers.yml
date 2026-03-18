@@ -1,7 +1,7 @@
 - type: gridModifier
   id: DegradedHull
   modifiers:
-  - !type:EntityReplace
+  - !type:GridModEntityReplace
     comp: Occluder
     data:
     - chance: 0.25
@@ -23,7 +23,7 @@
 - type: gridModifier
   id: DestroyedHull
   modifiers:
-  - !type:EntityReplace
+  - !type:GridModEntityReplace
     comp: Occluder
     data:
     - chance: 0.7
@@ -53,7 +53,7 @@
 - type: gridModifier
   id: ReinforcedHull
   modifiers:
-  - !type:EntityReplace
+  - !type:GridModEntityReplace
     comp: Occluder
     data:
     - chance: 0.8
@@ -73,7 +73,7 @@
 - type: gridModifier
   id: DamagedThrusters
   modifiers:
-  - !type:EntityReplace
+  - !type:GridModEntityReplace
     comp: Thruster
     data:
     - chance: 0.25

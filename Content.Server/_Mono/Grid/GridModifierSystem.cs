@@ -1,3 +1,5 @@
+using Content.Shared._Mono.Grid;
+using Content.Shared._Mono.ShipRepair;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 
@@ -10,15 +12,22 @@ public sealed class GridModifierSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
+    [Dependency] private readonly SharedShipRepairSystem _repair = default!;
 
-    private EntityQuery<TransformComponent> _xformQuery;
-    private EntityQuery<MetaDataComponent> _metaQuery;
+    private List<EntityUid> _snapQueue = [];
+
     public override void Initialize()
     {
         SubscribeLocalEvent<GridModifierComponent, MapInitEvent>(OnInit);
+    }
 
-        _xformQuery = GetEntityQuery<TransformComponent>();
-        _metaQuery = GetEntityQuery<MetaDataComponent>();
+    public override void Update(float frameTime)
+    {
+        foreach (var uid in _snapQueue)
+        {
+            _repair.GenerateRepairData(uid);
+        }
+        _snapQueue.Clear();
     }
 
     private void OnInit(EntityUid uid, GridModifierComponent component, MapInitEvent args)
@@ -38,25 +47,19 @@ public sealed class GridModifierSystem : EntitySystem
 
             foreach (var modifier in mod.Modifiers)
             {
-                var comp = _factory.GetComponent(modifier.Comp);
-                var ents = new HashSet<Entity<IComponent>>();
-
-                GetGridEntities(uid, ents, comp.GetType());
-
-                foreach (var ent in ents)
-                {
-                    modifier.Modify(ent, _metaQuery.Get(ent), _xformQuery.Get(ent), EntityManager);
-                }
+                modifier.Modify(uid, EntityManager, _factory);
             }
         }
+
+        _snapQueue.Add(uid);
     }
 
-    private void GetGridEntities(EntityUid gridUid, HashSet<Entity<IComponent>> entities, Type compType)
+    public void GetGridEntities(EntityUid gridUid, HashSet<Entity<IComponent>> entities, Type compType)
     {
         foreach (var (uid, comp) in EntityManager.GetAllComponents(compType, true))
         {
 
-            var xform = _xformQuery.GetComponent(uid);
+            var xform = Transform(uid);
 
             if (xform.GridUid != gridUid)
                 continue;

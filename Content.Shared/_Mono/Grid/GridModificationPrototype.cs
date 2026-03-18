@@ -1,7 +1,6 @@
-using Content.Server._Mono.Grid.Modifiers;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Mono.Grid;
+namespace Content.Shared._Mono.Grid;
 
 /// <summary>
 /// This prototypes stores all grid modifiers to process them.

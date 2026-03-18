@@ -1,6 +1,6 @@
 using JetBrains.Annotations;
 
-namespace Content.Server._Mono.Grid.Modifiers;
+namespace Content.Shared._Mono.Grid;
 
 [ImplicitDataDefinitionForInheritors]
 [MeansImplicitUse]
@@ -11,7 +11,7 @@ public abstract partial class GridModifier
     [DataField]
     public string Comp = "Transform";
 
-    public abstract void Modify(EntityUid uid, MetaDataComponent meta, TransformComponent xform, EntityManager system);
+    public abstract void Modify(EntityUid gridUid, EntityManager system, IComponentFactory? factory = null);
 
 }
 
