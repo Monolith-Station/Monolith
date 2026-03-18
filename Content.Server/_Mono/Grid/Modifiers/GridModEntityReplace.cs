@@ -32,7 +32,7 @@ public sealed partial class GridModEntityReplace : GridModifier
             var xform = system.TransformQuery.GetComponent(ent);
 
             if (meta.EntityPrototype == null)
-                return;
+                continue;
 
             foreach (var rD in Data)
             {
@@ -48,6 +48,8 @@ public sealed partial class GridModEntityReplace : GridModifier
 
                 system.QueueDeleteEntity(ent);
                 system.SpawnAtPosition(rD.ReplaceWith, pos);
+
+                break;
             }
         }
     }
