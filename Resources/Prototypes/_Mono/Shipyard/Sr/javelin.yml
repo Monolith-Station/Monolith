@@ -3,33 +3,33 @@
 # Discord: NazrinNya
 
 - type: vessel
-  id: Manus
+  id: Javelin
   parent: BaseVessel
-  name: Manus
-  description: A claw-shaped ship with good amount of firepower. Includes 2 DRAVONs, 2 Vanyks, 1 TARNYX and 2 longbows.
-  price: 102500
+  name: Javelin
+  description: Extremely light vessel with HADES cannon. Prison cell included.
+  price: 87300
   category: Medium
   group: Sr
-  access: Brig # Oddball, matches guard ID, specific enough to exclude cadets
+  access: HeadOfPersonnel # Overseer-only
   mapchecker_group_override: Security  # Treat this as a security vessel for mapchecker purposes
-  shuttlePath: /Maps/_Mono/Shuttles/manus.yml
+  shuttlePath: /Maps/_Mono/Shuttles/javelin.yml
   guidebookPage: Null
   class:
   - Civilian
   engine:
-  - Bananium
+  - Uranium
 
 - type: gameMap
-  id: Manus
-  mapName: 'Manus'
-  mapPath: /Maps/_Mono/Shuttles/manus.yml
+  id: Javelin
+  mapName: 'Javelin'
+  mapPath: /Maps/_Mono/Shuttles/javelin.yml
   minPlayers: 0
   stations:
-    Manus:
+    Javelin:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Manus SEC{1}'
+          mapNameTemplate: 'Javelin SEC{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
