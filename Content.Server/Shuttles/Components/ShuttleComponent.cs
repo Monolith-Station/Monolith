@@ -99,6 +99,12 @@ namespace Content.Server.Shuttles.Components
         /// </summary>
         [DataField]
         public float UpperMaxVelocity = 140f; // we ball
+
+        /// <summary>
+        /// Thrust acceleration vector last update.
+        /// </summar>
+        [DataField]
+        public Vector2 LastThrust = Vector2.Zero;
         // </Mono>
     }
 }

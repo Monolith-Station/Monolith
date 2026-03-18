@@ -27,6 +27,34 @@
     state: cornern
 
 - type: decal
+  id: TechFullCornerE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Mono/Decals/techfloor.rsi
+    state: fullcornere
+
+- type: decal
+  id: TechFullCornerW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Mono/Decals/techfloor.rsi
+    state: fullcornerw
+
+- type: decal
+  id: TechFullCornerS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Mono/Decals/techfloor.rsi
+    state: fullcorners
+
+- type: decal
+  id: TechFullCornerN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Mono/Decals/techfloor.rsi
+    state: fullcornern
+
+- type: decal
   id: TechE
   tags: ["station", "markings"]
   sprite:
