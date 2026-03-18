@@ -41,6 +41,7 @@ public sealed class SharedArmorPlateSystem : EntitySystem
         SubscribeLocalEvent<ArmorPlateHolderComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<ArmorPlateItemComponent, GetVerbsEvent<ExamineVerb>>(OnPlateVerbExamine);
         SubscribeLocalEvent<ArmorPlateItemComponent, EntityTerminatingEvent>(OnPlateDestroyed);
+        SubscribeLocalEvent<ArmorPlateItemComponent, ExaminedEvent>(OnPlateExamined);
         SubscribeLocalEvent<ArmorPlateProtectedComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
     }
 
@@ -461,5 +462,29 @@ public sealed class SharedArmorPlateSystem : EntitySystem
             EnsureComp<ArmorPlateProtectedComponent>(wearerUid);
         else
             RemComp<ArmorPlateProtectedComponent>(wearerUid);
+    }
+    private void OnPlateExamined(EntityUid uid, ArmorPlateItemComponent component, ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        if (TryComp<DamageableComponent>(uid, out var damageable))
+        {
+            var totalDamage = damageable.TotalDamage.Int();
+            var maxDurability = component.MaxDurability;
+            var durabilityPercent = ((maxDurability - totalDamage) / (float)maxDurability) * 100f;
+            durabilityPercent = Math.Clamp(durabilityPercent, 0f, 100f);
+
+            var durabilityColor = durabilityPercent switch
+            {
+                > 66f => "green",
+                >= 33f => "yellow",
+                _ => "red",
+            };
+
+            args.PushMarkup(Loc.GetString("armor-plate-item-durability",
+                ("percent", (int)durabilityPercent),
+                ("durabilityColor", durabilityColor)));
+        }
     }
 }

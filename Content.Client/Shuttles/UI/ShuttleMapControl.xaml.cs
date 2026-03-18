@@ -62,6 +62,11 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
     /// </summary>
     public bool ShowFTLRange = true;
 
+    /// <summary>
+    /// Mono - Whether to ignore FTL obstructions and range for preview display.
+    /// </summary>
+    public bool NoFTLRange = false;
+
     private Angle _ftlAngle;
 
     /// <summary>
@@ -520,7 +525,8 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
                     var mouseMapPos = InverseMapPosition(mouseLocalPos);
 
                     var ftlFree = (!beaconsOnly || foundBeacon != default) &&
-                                  _shuttles.FTLFree(_shuttleEntity.Value, new EntityCoordinates(viewedMapUid, mouseMapPos), _ftlAngle, _viewportExclusions);
+                                  _shuttles.FTLFree(_shuttleEntity.Value, new EntityCoordinates(viewedMapUid, mouseMapPos), _ftlAngle, _viewportExclusions)
+                                  || NoFTLRange; // Mono
 
                     var color = ftlFree ? Color.LimeGreen : Color.Magenta;
 

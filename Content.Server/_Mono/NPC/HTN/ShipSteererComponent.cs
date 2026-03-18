@@ -31,6 +31,12 @@ public sealed partial class ShipSteererComponent : Component
     public bool AvoidProjectiles = false;
 
     /// <summary>
+    /// Prevents collision avoidance from triggering ship rotation.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool AvoidanceNoRotate = true;
+
+    /// <summary>
     /// If AlwaysFaceTarget is true or InRangeRotation is set, how much of a difference in angle (in radians) to accept.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
@@ -173,19 +179,13 @@ public sealed partial class ShipSteererComponent : Component
     /// How fast to accumulate the rotational offset integral, rad/s/rad (also affected by sqrt of angular acceleration).
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float RotationCompensationGain = 0.03f;
+    public float RotationCompensationGain = 0.1f;
 
     /// <summary>
     /// Target rotation in relation to movement direction.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float TargetRotation = 0f;
-
-    /// <summary>
-    /// Controls how much to ease in when turning with really high angular accelerations.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float TurnEaseIn = 0.2f;
 }
 
 public enum ShipSteeringStatus : byte

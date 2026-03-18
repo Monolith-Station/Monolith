@@ -224,6 +224,7 @@ public sealed partial class MapScreen : BoxContainer
             MapRadar.FtlMode = true;
             MapRadar.ShowFTLRangeOnly = false;
             MapRadar.ShowFTLRange = !isAutopilot;
+            MapRadar.NoFTLRange = isAutopilot;
             MapFTLButton.Pressed = !isAutopilot;
             MapAutopilotButton.Pressed = isAutopilot;
             _autopilotTargeting = isAutopilot;
