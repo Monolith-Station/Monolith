@@ -113,40 +113,6 @@
   - type: AccessReader
     access: [["Security"]]
 
-#Combat hardsuit
-- type: entity
-  id: SuitStorageNfsdCombat
-  parent: SuitStorageBase
-  suffix: TSFMC Combat
-  components:
-  - type: StorageFill
-    contents:
-        - id: OxygenTankFilled
-        - id: NitrogenTankFilled
-        - id: ClothingOuterHardsuitNfsdCombat # Frontier
-        - id: ClothingMaskGasSecurity
-        - id: JetpackNfsdFilled
-        - id: ClothingShoesBootsMagSecurity # Frontier
-  - type: AccessReader
-    access: [["Security"]]
-
-#Command hardsuit
-- type: entity
-  id: SuitStorageNfsdCommand
-  parent: SuitStorageBase
-  suffix: TSFMC Command
-  components:
-  - type: StorageFill
-    contents:
-        - id: OxygenTankFilled
-        - id: NitrogenTankFilled
-        - id: ClothingOuterHardsuitNfsdCommand # Frontier
-        - id: ClothingMaskGasSecurity
-        - id: JetpackNfsdFilled
-        - id: ClothingShoesBootsMagSecurity # Frontier
-  - type: AccessReader
-    access: [["Security"]]
-
 # Syndicate
 
 #Commander Blood-red hardsuit
