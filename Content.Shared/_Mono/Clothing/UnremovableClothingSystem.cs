@@ -17,6 +17,7 @@ public sealed class UnremovableClothingSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
@@ -48,30 +49,17 @@ public sealed class UnremovableClothingSystem : EntitySystem
         if (!eventArgs.CanReach)
             return;
 
-        if (eventArgs.Target != null)
-        {
-            // check direct target for component
-            var targetUid = (EntityUid)eventArgs.Target;
+        if (eventArgs.Target is not { } targetUid)
+            return;
 
-            HandleRemovability(targetUid, component, ref eventArgs);
-            if (eventArgs.Handled)
-                return;
+        HandleRemovability(targetUid, component, ref eventArgs);
+        if (eventArgs.Handled)
+            return;
 
-            // if not found, check the entity's inventory (if it exists) for an entity with the component. Return once one is found.
-            // This iterates once, so it won't check nested inventories.
-            if (TryComp<InventoryComponent>(targetUid, out var inventory))
-            {
-                foreach (var container in inventory.Containers)
-                {
-                    foreach (var entity in container.ContainedEntities)
-                    {
-                        HandleRemovability(entity, component, ref eventArgs);
-                        if (eventArgs.Handled)
-                            return;
-                    }
-                }
-            }
-        }
+        // if not found, check the entity's inventory (if it exists) for an entity with the component. Return once one is found.
+        // This iterates once, so it won't check nested inventories.
+        _inventory.TryGetInventoryEntity<UnremovableClothingComponent>(targetUid, out var equippedTargetUid);
+        HandleRemovability(equippedTargetUid, component, ref eventArgs);
     }
 
     private void HandleRemovability(EntityUid targetUid, UnremovableClothingRemoverComponent component, ref AfterInteractEvent eventArgs)
