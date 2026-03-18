@@ -58,8 +58,8 @@ public sealed class UnremovableClothingSystem : EntitySystem
 
         // if not found, check the entity's inventory (if it exists) for an entity with the component. Return once one is found.
         // This iterates once, so it won't check nested inventories.
-        _inventory.TryGetInventoryEntity<UnremovableClothingComponent>(targetUid, out var equippedTargetUid);
-        HandleRemovability(equippedTargetUid, component, ref eventArgs);
+        if (_inventory.TryGetInventoryEntity<UnremovableClothingComponent>(targetUid, out var equippedTargetUid))
+            HandleRemovability(equippedTargetUid, component, ref eventArgs);
     }
 
     private void HandleRemovability(EntityUid targetUid, UnremovableClothingRemoverComponent component, ref AfterInteractEvent eventArgs)
