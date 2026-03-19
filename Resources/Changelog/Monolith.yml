@@ -18334,3 +18334,28 @@ Entries:
   id: 2022
   time: '2026-03-19T05:33:51.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3474
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: >-
+        Signalable, remote detonation Bomb Collars. Can be found in expeds or
+        printed with Printable Explosive tech. A pack of them is present
+        roundstart in the Overseer's locker.
+    - type: Add
+      message: Bomb Collar Sealer, capable of locking and unlocking a bomb collar.
+    - type: Tweak
+      message: >-
+        Explosives loot pool on expeds are now much more common and higher
+        quality.
+    - type: Fix
+      message: Fixed bug with some slow to strip items having no strip delay.
+  id: 2023
+  time: '2026-03-19T06:09:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3287
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixed the Hades' north sprite
+  id: 2024
+  time: '2026-03-19T12:23:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3485
