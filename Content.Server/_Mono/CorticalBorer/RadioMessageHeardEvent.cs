@@ -1,13 +1,10 @@
 using Content.Shared.Chat;
-using Content.Shared._EinsteinEngines.Language;
 using Content.Shared.Radio;
 
 namespace Content.Server.Radio;
 
-// Einstein Engines - Language begin
 /// <summary>
-/// <param name="OriginalChatMsg">The message to display when the speaker can understand "language"</param>
-/// <param name="LanguageObfuscatedChatMsg">The message to display when the Speaker cannot understand "language"</param>
+/// Transfers radio messages heard by an entity to another source, allowing another entity to hear what another entity hears over comms.
 /// </summary>
 [ByRefEvent]
 public record struct RadioMessageHeardEvent(
