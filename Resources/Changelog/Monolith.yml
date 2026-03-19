@@ -18188,3 +18188,226 @@ Entries:
   id: 2006
   time: '2026-03-09T23:04:25.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3425
+- author: chuga-git
+  changes:
+    - type: Fix
+      message: >-
+        Wirecutters and Jaws of Life no longer cause spurious messages about
+        claws on use.
+    - type: Tweak
+      message: 'Time to clip claws lowered from 10->4 seconds. '
+  id: 2007
+  time: '2026-03-12T16:35:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3431
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: 'Fang projectile speed buffed. Old: 170 m/s New: 240 m/s. '
+    - type: Tweak
+      message: 'Fang range increased. Old: 714m New: 1008m.'
+    - type: Tweak
+      message: Fang fires slightly faster, less inaccurate.
+  id: 2008
+  time: '2026-03-12T16:42:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3427
+- author: Onezero0
+  changes:
+    - type: Add
+      message: Added more decals for mappers.
+  id: 2009
+  time: '2026-03-13T21:27:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3380
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: >-
+        (Nearly) All magboots have been made uniform. Rejoice merc players, you
+        now got proper jays
+  id: 2010
+  time: '2026-03-13T22:16:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3307
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: A deep-space tanker has been detected with monolithic activity on board.
+  id: 2011
+  time: '2026-03-14T15:48:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3418
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: >-
+        The Scallywag has been misteriously delisted from all public consoles
+        and its origins hastily covered up...
+  id: 2012
+  time: '2026-03-14T15:59:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3439
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: >-
+        Pluto MK.II's IFF signature has received tweaks. Report any issues to me
+        on discord (@UnicornOnLSD)
+  id: 2013
+  time: '2026-03-14T19:13:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3221
+- author: EldritchPineapple
+  changes:
+    - type: Add
+      message: Added the Spica, fracture replacement and small frontline ship
+    - type: Remove
+      message: Removed fracture, ya served well soldier
+  id: 2014
+  time: '2026-03-15T11:21:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3106
+- author: EldritchPineapple
+  changes:
+    - type: Add
+      message: Added the Aldebaran, a new corvette to the tsf shipyards
+    - type: Remove
+      message: Removed the Calypso, rest easy old gal
+  id: 2015
+  time: '2026-03-15T14:13:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3174
+- author: Onezero0
+  changes:
+    - type: Add
+      message: Added some more decals for mappers. Search "Greeble" in entityspawn.
+  id: 2016
+  time: '2026-03-15T14:19:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3450
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: The durability of armor plates can now be examined directly.
+  id: 2017
+  time: '2026-03-15T19:36:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3436
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Adds a Heavy Ammo Case to Mercenary Techfabs.
+    - type: Tweak
+      message: Allows Weapon, Ammo and Explosive cases to scoop items off of the floor.
+  id: 2018
+  time: '2026-03-16T13:45:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3455
+- author: Ghost581X
+  changes:
+    - type: Tweak
+      message: Viper Group has been re-enabled.
+  id: 2019
+  time: '2026-03-17T23:46:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3074
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Vanyk and Vespera are no longer infinite.
+    - type: Tweak
+      message: >-
+        Vanyk now uses mags instead of individual missile, Each mag has 30
+        missiles
+    - type: Tweak
+      message: Vespera mag size is tripled.
+  id: 2020
+  time: '2026-03-17T23:48:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3440
+- author: lopsidedmanboobs
+  changes:
+    - type: Add
+      message: States you cannot attack ships in safezones unless they escaped combat
+    - type: Add
+      message: >-
+        Adds clarification to "portstriking" safezones, or launching massive
+        attacks.
+    - type: Tweak
+      message: Other small fixes to the Safezone rule. Check it out!
+  id: 2021
+  time: '2026-03-19T00:44:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3486
+- author: chuga-git
+  changes:
+    - type: Fix
+      message: >-
+        RPEDs no longer dump their components out instead of upgrading certain
+        machines.
+  id: 2022
+  time: '2026-03-19T05:33:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3474
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: >-
+        Signalable, remote detonation Bomb Collars. Can be found in expeds or
+        printed with Printable Explosive tech. A pack of them is present
+        roundstart in the Overseer's locker.
+    - type: Add
+      message: Bomb Collar Sealer, capable of locking and unlocking a bomb collar.
+    - type: Tweak
+      message: >-
+        Explosives loot pool on expeds are now much more common and higher
+        quality.
+    - type: Fix
+      message: Fixed bug with some slow to strip items having no strip delay.
+  id: 2023
+  time: '2026-03-19T06:09:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3287
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixed the Hades' north sprite
+  id: 2024
+  time: '2026-03-19T12:23:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3485
+- author: EldritchPineapple
+  changes:
+    - type: Remove
+      message: Removed fun! (ability to steal camelot's bluespace reactor)
+  id: 2025
+  time: '2026-03-19T19:13:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3490
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: >-
+        A decrepit sensors station is now even more decrepit and sensors and
+        station even
+  id: 2026
+  time: '2026-03-19T19:34:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3475
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: minor changes to aldebaran gun placement and rewired the spica a wee bit
+  id: 2027
+  time: '2026-03-19T19:42:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3487
+- author: Nikovnik
+  changes:
+    - type: Tweak
+      message: Reptilians with huge claws can now use bows
+  id: 2028
+  time: '2026-03-19T20:25:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3471
+- author: Kiithnaras
+  changes:
+    - type: Tweak
+      message: >-
+        Rebalances protection scheme of Industrial Mechs (e.g. Ripley and
+        Clarke) - better protection against lasers, shock, explosions, and
+        melee, and gives better pilot protection on Ripley models.
+  id: 2029
+  time: '2026-03-19T20:28:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3382
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Borers can now hear what the Host hears over headsets.
+    - type: Fix
+      message: >-
+        Borers now properly transfer through polymorphs, instead of being stuck
+        in nullspace with the old body upon the host being polymorphed (such as
+        from Chimera infection)
+  id: 2030
+  time: '2026-03-19T20:31:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3492
