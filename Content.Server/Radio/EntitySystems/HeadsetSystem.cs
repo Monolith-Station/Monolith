@@ -118,7 +118,7 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 
             // Einstein Engines - Language end
 
-            // Mono - Borers hear radio messages
+            // Mono - Borers hear radio messages in a host
             if (TryComp(Transform(uid).ParentUid, out CorticalBorerInfestedComponent? infested) && TryComp(infested.Borer, out ActorComponent? borerActor))
             {
                 _netMan.ServerSendMessage(msg, borerActor.PlayerSession.Channel);
