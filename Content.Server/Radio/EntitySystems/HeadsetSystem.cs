@@ -11,6 +11,7 @@ using Content.Shared.Chat;
 using Content.Shared.Radio.EntitySystems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Content.Shared._Mono.CorticalBorer;
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -111,14 +112,20 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             var canUnderstand = _language.CanUnderstand(Transform(uid).ParentUid, args.Language.ID);
             var msg = new MsgChatMessage
             {
-                    Message = canUnderstand ? args.OriginalChatMsg : args.LanguageObfuscatedChatMsg
+                Message = canUnderstand ? args.OriginalChatMsg : args.LanguageObfuscatedChatMsg
             };
             _netMan.ServerSendMessage(msg, actor.PlayerSession.Channel);
 
             // Einstein Engines - Language end
 
             // Mono - Borers hear radio messages
-            if(get)
+            if (TryComp(Transform(uid).ParentUid, out CorticalBorerInfestedComponent? infested) && TryComp(infested.Borer, out ActorComponent? borerActor))
+            {
+                _netMan.ServerSendMessage(msg, borerActor.PlayerSession.Channel);
+                var radioBorerNoiseEvent = new RadioNoiseEvent(GetNetEntity(uid), args.Channel.ID);
+                RaiseNetworkEvent(radioBorerNoiseEvent, borerActor.PlayerSession);
+            }
+            // Mono - Borers end
 
             // Send radio noise event to client
             var radioNoiseEvent = new RadioNoiseEvent(GetNetEntity(uid), args.Channel.ID);
