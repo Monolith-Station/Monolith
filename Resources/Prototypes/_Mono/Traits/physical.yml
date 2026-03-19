@@ -364,7 +364,7 @@
   components:
   - type: PlateletFactories
     intervalSeconds: 1
-    healPerSecond: .5
+    healPerSecond: .2
     critMultiplier: .25
 
 - type: trait
@@ -398,4 +398,4 @@
   components:
   - type: PlateletFactories
     intervalSeconds: 1
-    healPerSecond: .5
+    healPerSecond: .2
