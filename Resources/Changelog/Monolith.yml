@@ -18382,3 +18382,32 @@ Entries:
   id: 2027
   time: '2026-03-19T19:42:18.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3487
+- author: Nikovnik
+  changes:
+    - type: Tweak
+      message: Reptilians with huge claws can now use bows
+  id: 2028
+  time: '2026-03-19T20:25:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3471
+- author: Kiithnaras
+  changes:
+    - type: Tweak
+      message: >-
+        Rebalances protection scheme of Industrial Mechs (e.g. Ripley and
+        Clarke) - better protection against lasers, shock, explosions, and
+        melee, and gives better pilot protection on Ripley models.
+  id: 2029
+  time: '2026-03-19T20:28:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3382
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Borers can now hear what the Host hears over headsets.
+    - type: Fix
+      message: >-
+        Borers now properly transfer through polymorphs, instead of being stuck
+        in nullspace with the old body upon the host being polymorphed (such as
+        from Chimera infection)
+  id: 2030
+  time: '2026-03-19T20:31:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3492
