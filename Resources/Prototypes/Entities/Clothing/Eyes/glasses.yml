@@ -241,6 +241,9 @@
   - type: GroupExamine
   - type: IdentityBlocker
     coverage: EYES
+  - type: ThermalSight
+  - type: StaticPrice # Mono
+    price: 60
 
 - type: entity
   parent: ClothingEyesBase

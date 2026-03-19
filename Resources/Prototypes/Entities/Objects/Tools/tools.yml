@@ -64,6 +64,8 @@
       path: /Audio/Items/wirecutter.ogg
       params:
         variation: 0.125
+  - type: NailClipper # Mono
+    allowedClawTypes: ["SharpClaw"]
 
 - type: entity
   name: screwdriver
@@ -241,6 +243,7 @@
     - WirePanels
     - Airlocks
     - InspectingPower
+  - type: UnremovableClothingRemover
 
 - type: entity
   name: network configurator

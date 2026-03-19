@@ -242,9 +242,9 @@
   - type: GenericVisualizer
   # EXTREMELY slow in gravity. Only really good to taxi, and that's about it.
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.2
-    baseSprintSpeed: 1
-    baseWeightlessModifier: 40
+    baseWalkSpeed: 0.75
+    baseSprintSpeed: 1.33
+    baseWeightlessModifier: 60
   - type: RadarBlip
     radarColor: "#E3E3E3"
     scale: 3
@@ -356,9 +356,9 @@
         acts: ["Destruction"]
   # EXTREMELY slow in gravity. Only really good to taxi, and that's about it.
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.2
-    baseSprintSpeed: 1
-    baseWeightlessModifier: 35
+    baseWalkSpeed: 0.75
+    baseSprintSpeed: 1.33
+    baseWeightlessModifier: 50
   - type: Damageable
     damageModifierSet: MechArmorLight
   - type: Tag
@@ -446,7 +446,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 6
-    baseWeightlessModifier: 0.3 # Barely usable in space.
+    baseWeightlessModifier: 0.66 # Barely usable in space.
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -563,9 +563,9 @@
   - type: MovementAlwaysTouching
   # EXTREMELY slow in gravity. Only really good to taxi, and that's about it. Even worse than S2s
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.1
+    baseWalkSpeed: 0.5
     baseSprintSpeed: 1
-    baseWeightlessModifier: 35
+    baseWeightlessModifier: 50
   - type: RadarBlip
     radarColor: "#E3E3E3"
     scale: 3
@@ -676,14 +676,14 @@
         acts: ["Destruction"]
   - type: RadarConsole
     followEntity: true
-  - type: DetectionRangeMultiplier
-    infraredMultiplier: 1.5
-    visualMultiplier: 2
+  - type: DetectionRangeMultiplier #In exchange for its otherwise completely ass stats and the tradeoff of needing someone *in* the mech to use it, this is an overwatch computer.
+    infraredMultiplier: 2
+    visualMultiplier: 4
   # EXTREMELY slow in gravity. Only really good to taxi, and that's about it. Even worse than S2s
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.25
-    baseSprintSpeed: 0.5
-    baseWeightlessModifier: 30
+    baseWalkSpeed: 0.4
+    baseSprintSpeed: 0.8
+    baseWeightlessModifier: 45
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -756,9 +756,9 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.1
-    baseSprintSpeed: 1
-    baseWeightlessModifier: 50
+    baseWalkSpeed: 0.5
+    baseSprintSpeed: 1.2
+    baseWeightlessModifier: 75
   - type: Tag
     tags:
     - DoorBumpOpener
