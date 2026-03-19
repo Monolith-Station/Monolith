@@ -2,7 +2,7 @@
   parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT2 ]
   id: ClothingOuterHardsuitViperGroupStandard
   name: JACKAL mk.II viper hardsuit
-  description: A heavy hardsuit adorned with signature markings of the Viper Group. The armor is remarkably flexible for the protection it offers.
+  description: A combat hardsuit adorned with signature markings of the Viper Group. The armor is remarkably flexible for the protection it offers.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/viper_group_standard.rsi
@@ -48,7 +48,7 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT2 ]
   id: ClothingOuterHardsuitViperGroupMedic
-  name: IMP mk.III viper hardsuit
+  name: RIPPER mk.III viper hardsuit
   description: A combat medical hardsuit adorned with signature markings of the Viper Group. The armor features various reinforced plating in vital areas.
   components:
   - type: Sprite
@@ -87,6 +87,53 @@
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: StaticPrice
     price: 1500
+    vendPrice: 4000
+  - type: Tag  # Mono
+    tags:
+    - RogueHardsuit
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT2 ]
+  id: ClothingOuterHardsuitViperGroupJuggernaut
+  name: IMP mk.IV viper hardsuit
+  description: A heavy combat hardsuit adorned with signature markings of the Viper Group. The armor features reinforced plating and padding fitting for close encounters.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/viper_group_juggernaut.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/viper_group_juggernaut.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.45
+        Piercing: 0.4
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.25
+  - type: StaminaDamageResistance # Mono - Stamres
+    coefficient: 0.33
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitViperGroupJuggernaut
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: StaticPrice
+    price: 2500
     vendPrice: 4000
   - type: Tag  # Mono
     tags:
