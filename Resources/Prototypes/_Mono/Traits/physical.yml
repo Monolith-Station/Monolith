@@ -348,24 +348,24 @@
   - type: AlcoholTolerance
     visualScaleMultiplier: 0.35
 
-- type: trait
-  id: PlateletFactories
-  name: trait-platelet-factories-name
-  description: trait-platelet-factories-desc
-  category: Physical
-  cost: 10
-  mutuallyExclusiveTraits:
-  - Hemophilia
-  speciesBlacklist:
-  - IPC
-  blacklist:
-    components:
-    - BorgChassis
-  components:
-  - type: PlateletFactories
-    intervalSeconds: 1
-    healPerSecond: .5
-    critMultiplier: .25
+# - type: trait
+#  id: PlateletFactories
+#  name: trait-platelet-factories-name
+#  description: trait-platelet-factories-desc
+#  category: Physical
+#  cost: 10
+#  mutuallyExclusiveTraits:
+#  - Hemophilia
+#  speciesBlacklist:
+#  - IPC
+#  blacklist:
+#    components:
+#    - BorgChassis
+#  components:
+#  - type: PlateletFactories
+#    intervalSeconds: 1
+#    healPerSecond: .5
+#    critMultiplier: .25
 
 - type: trait
   id: NaniteRepairDrones
