@@ -18292,3 +18292,45 @@ Entries:
   id: 2018
   time: '2026-03-16T13:45:26.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3455
+- author: Ghost581X
+  changes:
+    - type: Tweak
+      message: Viper Group has been re-enabled.
+  id: 2019
+  time: '2026-03-17T23:46:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3074
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Vanyk and Vespera are no longer infinite.
+    - type: Tweak
+      message: >-
+        Vanyk now uses mags instead of individual missile, Each mag has 30
+        missiles
+    - type: Tweak
+      message: Vespera mag size is tripled.
+  id: 2020
+  time: '2026-03-17T23:48:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3440
+- author: lopsidedmanboobs
+  changes:
+    - type: Add
+      message: States you cannot attack ships in safezones unless they escaped combat
+    - type: Add
+      message: >-
+        Adds clarification to "portstriking" safezones, or launching massive
+        attacks.
+    - type: Tweak
+      message: Other small fixes to the Safezone rule. Check it out!
+  id: 2021
+  time: '2026-03-19T00:44:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3486
+- author: chuga-git
+  changes:
+    - type: Fix
+      message: >-
+        RPEDs no longer dump their components out instead of upgrading certain
+        machines.
+  id: 2022
+  time: '2026-03-19T05:33:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3474
