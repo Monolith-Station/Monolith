@@ -118,16 +118,9 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 
             // Einstein Engines - Language end
 
-            // Mono - Borers hear radio messages in a host
+            // Mono - Borers begin
             var ev = new RadioMessageHeardEvent(uid, msg, args.Channel);
             RaiseLocalEvent(Transform(uid).ParentUid, ref ev);
-
-            if (TryComp(Transform(uid).ParentUid, out CorticalBorerInfestedComponent? infested) && TryComp(infested.Borer, out ActorComponent? borerActor))
-            {
-                _netMan.ServerSendMessage(msg, borerActor.PlayerSession.Channel);
-                var radioBorerNoiseEvent = new RadioNoiseEvent(GetNetEntity(uid), args.Channel.ID);
-                RaiseNetworkEvent(radioBorerNoiseEvent, borerActor.PlayerSession);
-            }
             // Mono - Borers end
 
             // Send radio noise event to client
