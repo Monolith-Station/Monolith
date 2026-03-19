@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/18/2026 17:35:35
+  time: 03/19/2026 10:39:26
   entityCount: 557
 maps: []
 grids:
@@ -121,9 +121,9 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Smoke: []
         MetalFoam: []
+        Smoke: []
+        Kudzu: []
         Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -667,6 +667,12 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         845:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
+        198:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
+        172:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
 - proto: APCBasic
