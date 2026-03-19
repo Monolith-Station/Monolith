@@ -12,5 +12,6 @@ namespace Content.Server.Radio;
 [ByRefEvent]
 public record struct RadioMessageHeardEvent(
     EntityUid Headset,
-    MsgChatMessage Msg
+    MsgChatMessage Msg,
+    RadioChannelPrototype Channel
 );
