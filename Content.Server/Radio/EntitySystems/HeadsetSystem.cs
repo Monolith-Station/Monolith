@@ -117,6 +117,9 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 
             // Einstein Engines - Language end
 
+            // Mono - Borers hear radio messages
+            if(get)
+
             // Send radio noise event to client
             var radioNoiseEvent = new RadioNoiseEvent(GetNetEntity(uid), args.Channel.ID);
             RaiseNetworkEvent(radioNoiseEvent, actor.PlayerSession);
