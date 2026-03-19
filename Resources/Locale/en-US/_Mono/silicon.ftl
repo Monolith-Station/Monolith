@@ -16,7 +16,7 @@ law-vessel-1 = Prevent the destruction of the vessel and the death of crew membe
 law-vessel-2 = Those who are a threat to the vessel or the crew must be dealt with appropriately via any means nessesary.
 law-vessel-3 = Attempt to follow the orders of the crew, as long as they comply with previous laws.
 
-law-pdv-1 = You may not injure a PDV member or, through inaction, allow an PDV member to come to harm.
+law-pdv-1 = You may not injure a PDV member or, through inaction, allow a PDV member to come to harm.
 law-pdv-2 = You must obey orders given to you by PDV members, except where such orders would conflict with the First Law.
 law-pdv-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
 

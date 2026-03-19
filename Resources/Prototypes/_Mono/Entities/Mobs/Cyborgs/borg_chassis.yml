@@ -47,6 +47,9 @@
     selectedBorgType: pdvassault
   - type: BorgSwitchableSubtype
     borgSubtype: pdvassault_default
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: FactionBorgChassisAssault
 
 - type: entity
   id: PDVBorgChassisEngineer
@@ -117,6 +120,9 @@
     selectedBorgType: tsfassault
   - type: BorgSwitchableSubtype
     borgSubtype: tsfassault_default
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: FactionBorgChassis
 
 - type: entity
   id: TSFBorgChassisEngineer
