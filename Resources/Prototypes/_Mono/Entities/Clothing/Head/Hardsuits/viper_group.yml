@@ -2,17 +2,52 @@
   parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons]
   id: ClothingHeadHelmetHardsuitViperGroupStandard
   name: JACKAL mk.II viper hardsuit helmet
-  description: A hardsuit helmet with signature markings of the Viper Group. Has a built-in nightvision system.
+  description: A hardsuit helmet with signature markings of the Viper Group. Has a built-in night-vision system complemented by flash resistant viewports.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/viper_group_standard.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Head/Hardsuits/viper_group_standard.rsi
   - type: PointLight
-    color: "#faa70f"
+    color: "#eb772a"
   - type: NightVision
-    flashDurationMultiplier: 2
     isEquipment: true
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: FlashImmunity
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowMedicalIcons, ShowSecurityIcons]
+  id: ClothingHeadHelmetHardsuitViperGroupMedic
+  name: RIPPER mk.III viper hardsuit helmet
+  description: A hardsuit helmet with signature markings of the Viper Group. Has a built-in medical HUD complemented by thermal pulse systems.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/viper_group_medic.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/viper_group_medic.rsi
+  - type: PointLight
+    color: "#eb772a"
+  - type: ThermalVision
+    flashDurationMultiplier: 2
+    pulseTime: 4
+    isEquipment: true
+    toggleAction: PulseThermalVision
+  - type: ShowHealthBars
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -31,23 +66,20 @@
     - HeadSide
 
 - type: entity
-  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowMedicalIcons, ShowSecurityIcons]
-  id: ClothingHeadHelmetHardsuitViperGroupMedic
-  name: IMP mk.III viper hardsuit helmet
-  description: A hardsuit helmet with signature markings of the Viper Group. Has a built-in medical HUD complemented by thermal pulse systems.
+  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons]
+  id: ClothingHeadHelmetHardsuitViperGroupJuggernaut
+  name: IMP mk.IV viper hardsuit helmet
+  description: A hardsuit helmet with signature markings of the Viper Group. Has a built-in identity tracking HUD complemented by a night-vision system.
   components:
   - type: Sprite
-    sprite: _Mono/Clothing/Head/Hardsuits/viper_group_medic.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/viper_group_juggernaut.rsi
   - type: Clothing
-    sprite: _Mono/Clothing/Head/Hardsuits/viper_group_medic.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/viper_group_juggernaut.rsi
   - type: PointLight
-    color: "#faa70f"
-  - type: ThermalVision
+    color: "#eb772a"
+  - type: NightVision
     flashDurationMultiplier: 2
-    pulseTime: 4
     isEquipment: true
-    toggleAction: PulseThermalVision
-  - type: ShowHealthBars
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
