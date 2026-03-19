@@ -10,7 +10,7 @@ namespace Content.Server.Radio;
 /// <param name="LanguageObfuscatedChatMsg">The message to display when the Speaker cannot understand "language"</param>
 /// </summary>
 [ByRefEvent]
-public readonly record struct BorerRadioReceiveEvent(
-    EntityUid MessageSource,
+public record struct RadioMessageHeardEvent(
+    EntityUid Headset,
     MsgChatMessage Msg
 );
