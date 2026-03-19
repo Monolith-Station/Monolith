@@ -11,7 +11,6 @@ using Content.Shared.Chat;
 using Content.Shared.Radio.EntitySystems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Content.Shared._Mono.CorticalBorer;
 
 namespace Content.Server.Radio.EntitySystems;
 
