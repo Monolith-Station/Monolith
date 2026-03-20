@@ -102,8 +102,6 @@ entities:
     - type: IFF
       readOnly: True
     - type: ProtectedGrid
-      hostileMobKillSound: !type:SoundPathSpecifier
-        path: /Audio/Effects/holy.ogg
       preventEmpEvents: True
     - type: GridGodMode
       protectedEntities: []

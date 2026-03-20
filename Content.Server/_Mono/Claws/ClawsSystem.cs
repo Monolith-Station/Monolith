@@ -53,7 +53,7 @@ public sealed class ClawsSystem : SharedClawsSystem
             comp.ClawStage = comp.Claws.GetValueOrDefault(TryGetStageNumber(comp) + 1);
 
             if (comp.ClawGrowthNotification != null)
-                _popup.PopupEntity(Loc.GetString(comp.ClawGrowthNotification), uid, PopupType.Large);
+                _popup.PopupEntity(Loc.GetString(comp.ClawGrowthNotification), uid, uid, PopupType.Large);
 
             UpdateClaws(uid, comp);
             Dirty(uid, comp);

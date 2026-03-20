@@ -195,6 +195,9 @@
       respectZoom: true
       rotate: true
       bounds: "-0.5,-0.5,0.5,0.5"
+  - type: HTN
+    rootTask:
+      task: AutopilotShuttleCompound
 
 - type: entity
   parent: [BaseComputerShuttle, BaseShuttleIntercom] # Frontier - BaseShuttleIntercom

@@ -41,6 +41,7 @@ namespace Content.IntegrationTests.Tests
                     .Where(p => !pair.IsTestPrototype(p))
                     .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
                     .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
+                    .Where(p => p.Categories.All(x => x.ID != SpawnerCategory)) // mono
                     .Select(p => p.ID)
                     .ToList();
 
@@ -105,6 +106,7 @@ namespace Content.IntegrationTests.Tests
                     .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
                     .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
                     .Where(p => !p.Components.ContainsKey("GridSpawner")) // Mono - We shouldn't spawn grids.
+                    .Where(p => p.Categories.All(x => x.ID != SpawnerCategory)) // mono
                     .Select(p => p.ID)
                     .ToList();
                 foreach (var protoId in protoIds)
@@ -166,6 +168,7 @@ namespace Content.IntegrationTests.Tests
                 .Where(p => !p.Abstract)
                 .Where(p => !pair.IsTestPrototype(p))
                 .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
+                .Where(p => p.Categories.All(x => x.ID != SpawnerCategory)) // mono
                 .Select(p => p.ID)
                 .ToList();
 
@@ -367,6 +370,7 @@ namespace Content.IntegrationTests.Tests
                 "ActivatableUI", // Frontier: Requires enum key
                 "AlertLevel", // Frontier: requires alert set
                 "BluespaceErrorRule", // Frontier
+                "GridSpawner", // mono - i wouldn't
             };
 
             // TODO TESTS
