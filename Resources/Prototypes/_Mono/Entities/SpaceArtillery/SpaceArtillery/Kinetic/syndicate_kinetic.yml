@@ -101,14 +101,14 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 2
+    fireRate: 2.5
     recoil: 10 # 2/5x
-    projectileSpeed: 170
+    projectileSpeed: 240
     minAngle: 0
-    maxAngle: 6
+    maxAngle: 4
     burstCooldown: 2
-    burstFireRate: 4
-    shotsPerBurst: 4
+    burstFireRate: 5
+    shotsPerBurst: 5
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 2000000 # ~4.5km signature if firing continuously
