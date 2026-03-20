@@ -33,8 +33,4 @@ public sealed partial class PlateletFactoriesComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan NextUpdate = TimeSpan.Zero;
-
-
 }
-
-
