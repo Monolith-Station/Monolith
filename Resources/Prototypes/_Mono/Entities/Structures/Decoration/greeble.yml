@@ -1,0 +1,96 @@
+- type: entity
+  id: BaseGreeble
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Animateable
+  - type: Tag
+    tags:
+    - Structure
+  - type: Repairable #Mono: Nanite applicator
+    qualities:
+    - Applicating
+
+- type: entity
+  name: Antenna
+  description: Like antennas to hell.
+  id: GreebleAntenna1
+  parent: BaseGreeble
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: 0,2
+    sprite: _Mono/Structures/Decoration/Greeble/antennae.rsi
+    layers:
+    - state: antenna1
+    - state: antenna1_unshaded
+      shader: unshaded
+  - type: GridEdgeMarker
+    begin: 0, -0.1
+    end: 0, 1.5
+
+- type: entity
+  name: Antenna
+  description: Like antennas to hell.
+  id: GreebleAntenna2
+  parent: BaseGreeble
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: 0,2
+    sprite: _Mono/Structures/Decoration/Greeble/antennae.rsi
+    layers:
+    - state: antenna2
+    - state: antenna2_unshaded
+      shader: unshaded
+  - type: GridEdgeMarker
+    begin: 0, -0.1
+    end: 0, 1.2
+
+- type: entity
+  name: ELINT
+  description: Like antennas to hell.
+  id: GreebleElint1
+  parent: BaseGreeble
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Sprite
+      offset: 0,1
+      sprite: _Mono/Structures/Decoration/Greeble/32x32.rsi
+      layers:
+        - state: elint1
+
+- type: entity
+  name: radar panel
+  description: Like antennas to hell.
+  id: GreebleRadarpanel1
+  parent: BaseGreeble
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Sprite
+      offset: 0.5,0.5
+      sprite: _Mono/Structures/Decoration/Greeble/64x64.rsi
+      layers:
+        - state: radarpanel1
+
+- type: entity
+  name: radar panel
+  description: Like antennas to hell.
+  id: GreebleRadarpanel2
+  parent: BaseGreeble
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Sprite
+      offset: 0.2,0
+      sprite: _Mono/Structures/Decoration/Greeble/64x64.rsi
+      layers:
+        - state: radarpanel2
