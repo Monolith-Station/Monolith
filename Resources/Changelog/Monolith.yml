@@ -18432,3 +18432,30 @@ Entries:
   id: 2033
   time: '2026-03-20T18:42:51.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3498
+- author: chuga-git
+  changes:
+    - type: Fix
+      message: M381 Charon range now at its intended value of 2.5 km (from 1.4km).
+  id: 2034
+  time: '2026-03-21T00:29:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3476
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        ADM health reduced and scram cooldown 40->60s, but scram now moderately
+        aims for nearby grids.
+  id: 2035
+  time: '2026-03-21T00:32:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3388
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Dermal armor now has 3.5 flat resistances instead of 1.5;
+    - type: Tweak
+      message: >-
+        Platelet factory now heals only brute and burn. Cost is reduced to 6
+        points.
+  id: 2036
+  time: '2026-03-21T00:37:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3497
