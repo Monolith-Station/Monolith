@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/18/2026 23:35:26
-  entityCount: 228
+  time: 03/21/2026 19:35:13
+  entityCount: 229
 maps: []
 grids:
 - 1
@@ -63,10 +63,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        MetalFoam: []
-        Smoke: []
         Kudzu: []
+        Puddle: []
+        Smoke: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1375,6 +1375,13 @@ entities:
       parent: 1
     - type: FuelGenerator
       targetPower: 19000
+- proto: PowerCellRecharger
+  entities:
+  - uid: 77
+    components:
+    - type: Transform
+      pos: 3.5,-8.5
+      parent: 1
 - proto: Poweredlight
   entities:
   - uid: 161
