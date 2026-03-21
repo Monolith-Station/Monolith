@@ -12,14 +12,14 @@
       inverted: true # Leave slots open for newer, less confident players.
   startingGear: TSFRecruitGear
   icon: JobIconCadetNF
-  supervisors: job-supervisors-cadet
+  supervisors: job-supervisors-tsf-recruit
   weight: 70
   displayWeight: 10
   assignedCompany: TSF
   canBeAntag: false
   setPreference: false # mono
   accessGroups:
-  - CadetNfsdAccess
+  - CadetTsfAccess
   special:
   - !type:AddComponentSpecial
     components:

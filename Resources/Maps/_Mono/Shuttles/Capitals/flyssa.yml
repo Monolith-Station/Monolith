@@ -1576,7 +1576,7 @@ entities:
       - 2693
       - 2451
       - 2870
-- proto: AirlockExternalGlassNfsdLocked
+- proto: AirlockExternalGlassTsfLocked
   entities:
   - uid: 3
     components:
@@ -1617,7 +1617,7 @@ entities:
     - type: Transform
       pos: -1.5,-1.5
       parent: 1
-- proto: AirlockNfsd
+- proto: AirlockTsf
   entities:
   - uid: 8
     components:
@@ -1634,7 +1634,7 @@ entities:
     - type: Transform
       pos: 3.5,8.5
       parent: 1
-- proto: AirlockNfsdGlassLocked
+- proto: AirlockTsfGlassLocked
   entities:
   - uid: 11
     components:
@@ -1666,7 +1666,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,13.5
       parent: 1
-- proto: AirlockNfsdLocked
+- proto: AirlockTsfLocked
   entities:
   - uid: 14
     components:
@@ -1768,7 +1768,7 @@ entities:
     - type: Transform
       pos: -3.5,21.5
       parent: 1
-- proto: AirlockShuttleNfsdCapitalLocked
+- proto: AirlockShuttleTsfCapitalLocked
   entities:
   - uid: 35
     components:
@@ -3543,7 +3543,7 @@ entities:
     - type: Transform
       pos: -9.5,15.5
       parent: 1
-- proto: BannerNfsd
+- proto: BannerTsf
   entities:
   - uid: 150
     components:
@@ -9058,7 +9058,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5,19.5
       parent: 1
-- proto: CrateNfsdSecure1
+- proto: CrateTsfSecure1
   entities:
   - uid: 1080
     components:
@@ -13691,7 +13691,7 @@ entities:
       startingCharge: 0
     - type: ApcPowerReceiver
       powerLoad: 100
-- proto: GyroscopeNfsd
+- proto: GyroscopeTsf
   entities:
   - uid: 1253
     components:
@@ -13959,21 +13959,21 @@ entities:
     - type: Transform
       pos: -0.5,26.5
       parent: 1
-- proto: LockerNfsdTSFCaptain
+- proto: LockerTsfTSFCaptain
   entities:
   - uid: 1276
     components:
     - type: Transform
       pos: 3.5,31.5
       parent: 1
-- proto: LockerNfsdEvidence
+- proto: LockerTsfEvidence
   entities:
   - uid: 1277
     components:
     - type: Transform
       pos: 3.5,41.5
       parent: 1
-- proto: LockerNfsdSilver
+- proto: LockerTsfSilver
   entities:
   - uid: 1278
     components:
@@ -14129,7 +14129,7 @@ entities:
           - 1061
           - 1062
           - 1060
-- proto: NfsdTechFab
+- proto: TsfTechFab
   entities:
   - uid: 1300
     components:
@@ -15264,21 +15264,21 @@ entities:
     - type: Transform
       pos: -0.5,13.5
       parent: 1
-- proto: SignNfsdArmoury
+- proto: SignTsfArmoury
   entities:
   - uid: 1383
     components:
     - type: Transform
       pos: -3.5,31.5
       parent: 1
-- proto: SignNfsdBrig
+- proto: SignTsfBrig
   entities:
   - uid: 1384
     components:
     - type: Transform
       pos: 2.5,41.5
       parent: 1
-- proto: SignNfsdBrigmed
+- proto: SignTsfBrigmed
   entities:
   - uid: 1385
     components:
@@ -16111,7 +16111,7 @@ entities:
     - type: Transform
       pos: 3.5,34.5
       parent: 1
-- proto: ThrusterLargeNfsd
+- proto: ThrusterLargeTsf
   entities:
   - uid: 1475
     components:

@@ -144,7 +144,7 @@ entities:
     - type: Fixtures
       fixtures: {}
     - type: BecomesStation
-      id: Nfsd
+      id: Tsf
     - type: OccluderTree
     - type: Shuttle
     - type: GridPathfinding
@@ -2381,7 +2381,7 @@ entities:
     - type: Transform
       pos: 28.5,-1.5
       parent: 1
-- proto: AirlockExternalGlassNfsdLocked
+- proto: AirlockExternalGlassTsfLocked
   entities:
   - uid: 24
     components:
@@ -2570,7 +2570,7 @@ entities:
     - type: Transform
       pos: 10.5,15.5
       parent: 1
-- proto: AirlockGlassShuttleNfsdLocked
+- proto: AirlockGlassShuttleTsfLocked
   entities:
   - uid: 61
     components:
@@ -2782,7 +2782,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -27.5,-30.5
       parent: 1
-- proto: AirlockNfsdArmoryGlassLocked
+- proto: AirlockTsfArmoryGlassLocked
   entities:
   - uid: 97
     components:
@@ -2804,7 +2804,7 @@ entities:
     - type: Transform
       pos: 1.5,-2.5
       parent: 1
-- proto: AirlockNfsdArmoryLocked
+- proto: AirlockTsfArmoryLocked
   entities:
   - uid: 101
     components:
@@ -2826,7 +2826,7 @@ entities:
     - type: Transform
       pos: 33.5,-3.5
       parent: 1
-- proto: AirlockNfsdGlassLocked
+- proto: AirlockTsfGlassLocked
   entities:
   - uid: 105
     components:
@@ -2863,7 +2863,7 @@ entities:
     - type: Transform
       pos: -28.5,3.5
       parent: 1
-- proto: AirlockNfsdLocked
+- proto: AirlockTsfLocked
   entities:
   - uid: 112
     components:
@@ -3314,14 +3314,14 @@ entities:
     - type: Transform
       pos: -28.5,-1.5
       parent: 1
-- proto: BedsheetNfsdBrigmedic
+- proto: BedsheetTsfBrigmedic
   entities:
   - uid: 190
     components:
     - type: Transform
       pos: -32.5,0.5
       parent: 1
-- proto: BedsheetNfsdSheriff
+- proto: BedsheetTsfColonel
   entities:
   - uid: 191
     components:
@@ -9047,7 +9047,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerShipyardNfsd
+- proto: ComputerShipyardTsf
   entities:
   - uid: 1304
     components:
@@ -10235,7 +10235,7 @@ entities:
     - type: Transform
       pos: -25.5,3.5
       parent: 1
-- proto: FaxMachineNFNfsd
+- proto: FaxMachineNFTsf
   entities:
   - uid: 1500
     components:
@@ -15881,14 +15881,14 @@ entities:
     - type: Transform
       pos: -30.5,-3.5
       parent: 1
-- proto: LockerNfsdBrigmedic
+- proto: LockerTsfBrigmedic
   entities:
   - uid: 2254
     components:
     - type: Transform
       pos: -33.5,0.5
       parent: 1
-- proto: LockerNfsdEvidence
+- proto: LockerTsfEvidence
   entities:
   - uid: 2255
     components:
@@ -15900,7 +15900,7 @@ entities:
     - type: Transform
       pos: -25.5,-5.5
       parent: 1
-- proto: LockerNfsdSheriffFilled
+- proto: LockerTsfColonelFilled
   entities:
   - uid: 2257
     components:
@@ -16006,7 +16006,7 @@ entities:
     - type: Transform
       pos: -26.5,-1.5
       parent: 1
-- proto: NfsdTechFab
+- proto: TsfTechFab
   entities:
   - uid: 2274
     components:
@@ -16040,7 +16040,7 @@ entities:
     - type: Transform
       pos: 15.5,12.5
       parent: 1
-- proto: NFVendingMachineCartNfsd
+- proto: NFVendingMachineCartTsf
   entities:
   - uid: 2250
     components:
@@ -17556,7 +17556,7 @@ entities:
     - type: Transform
       pos: -25.5,2.5
       parent: 1
-- proto: SignNfsdArmoury
+- proto: SignTsfArmoury
   entities:
   - uid: 2553
     components:
@@ -17968,7 +17968,7 @@ entities:
     - type: Transform
       pos: -28.5,-3.5
       parent: 1
-- proto: StationAdminBankATMNfsd
+- proto: StationAdminBankATMTsf
   entities:
   - uid: 2593
     components:
@@ -18086,7 +18086,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 26.5,12.5
       parent: 1
-- proto: StructureGunRackNfsd
+- proto: StructureGunRackTsf
   entities:
   - uid: 2606
     components:
@@ -18148,7 +18148,7 @@ entities:
     - type: Transform
       pos: -33.5,-1.5
       parent: 1
-- proto: SuitStorageNfsdCombat
+- proto: SuitStorageTsfCombat
   entities:
   - uid: 2457
     components:
@@ -18327,7 +18327,7 @@ entities:
     - type: Transform
       pos: -13.5,8.5
       parent: 1
-- proto: TelecomServerFilledNfsd
+- proto: TelecomServerFilledTsf
   entities:
   - uid: 2649
     components:
@@ -18440,14 +18440,14 @@ entities:
     - type: Transform
       pos: -19.5,-4.5
       parent: 1
-- proto: VendingMachineNfsdDrobe
+- proto: VendingMachineTsfDrobe
   entities:
   - uid: 2660
     components:
     - type: Transform
       pos: -15.5,18.5
       parent: 1
-- proto: VendingMachineNfsdTech
+- proto: VendingMachineTsfTech
   entities:
   - uid: 2661
     components:

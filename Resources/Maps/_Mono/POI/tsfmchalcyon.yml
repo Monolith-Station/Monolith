@@ -4477,7 +4477,7 @@ entities:
     - type: Transform
       pos: -1.5,-23.5
       parent: 1
-- proto: AirlockExternalGlassNfsd
+- proto: AirlockExternalGlassTsf
   entities:
   - uid: 45
     components:
@@ -4512,7 +4512,7 @@ entities:
     - type: Transform
       pos: -32.5,-10.5
       parent: 1
-- proto: AirlockExternalGlassNfsdLocked
+- proto: AirlockExternalGlassTsfLocked
   entities:
   - uid: 51
     components:
@@ -4722,7 +4722,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,-21.5
       parent: 1
-- proto: AirlockGlassShuttleNfsdLocked
+- proto: AirlockGlassShuttleTsfLocked
   entities:
   - uid: 85
     components:
@@ -4777,7 +4777,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 60.5,-1.5
       parent: 1
-- proto: AirlockGlassShuttleNfsdOutpostLocked
+- proto: AirlockGlassShuttleTsfOutpostLocked
   entities:
   - uid: 94
     components:
@@ -4814,7 +4814,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,31.5
       parent: 1
-- proto: AirlockNfsdArmoryLocked
+- proto: AirlockTsfArmoryLocked
   entities:
   - uid: 99
     components:
@@ -4831,7 +4831,7 @@ entities:
     - type: AccessReader
       access:
       - - HeadOfSecurity
-- proto: AirlockNfsdGlass
+- proto: AirlockTsfGlass
   entities:
   - uid: 101
     components:
@@ -4881,7 +4881,7 @@ entities:
     - type: Transform
       pos: -14.5,-4.5
       parent: 1
-- proto: AirlockNfsdGlassLocked
+- proto: AirlockTsfGlassLocked
   entities:
   - uid: 110
     components:
@@ -5242,7 +5242,7 @@ entities:
     - type: Transform
       pos: 9.5,6.5
       parent: 1
-- proto: AirlockNfsdLocked
+- proto: AirlockTsfLocked
   entities:
   - uid: 172
     components:
@@ -5392,7 +5392,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -3.5,-17.5
       parent: 1
-- proto: AirlockShuttleNfsdOutpost
+- proto: AirlockShuttleTsfOutpost
   entities:
   - uid: 199
     components:
@@ -5500,7 +5500,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -36.5,-8.5
       parent: 1
-- proto: AirlockShuttleNfsdOutpostLocked
+- proto: AirlockShuttleTsfOutpostLocked
   entities:
   - uid: 217
     components:
@@ -11120,7 +11120,7 @@ entities:
     - type: Transform
       pos: 18.5,-3.5
       parent: 1
-- proto: BedsheetNfsdBrigmedic
+- proto: BedsheetTsfBrigmedic
   entities:
   - uid: 1243
     components:
@@ -11132,7 +11132,7 @@ entities:
     - type: Transform
       pos: 21.5,-15.5
       parent: 1
-- proto: BedsheetNfsdSheriff
+- proto: BedsheetTsfColonel
   entities:
   - uid: 1245
     components:
@@ -28293,7 +28293,7 @@ entities:
     - type: Transform
       pos: 27.520082,-13.518813
       parent: 1
-- proto: ClothingNeckMantleSheriff
+- proto: ClothingNeckMantleColonel
   entities:
   - uid: 4538
     components:
@@ -28991,7 +28991,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerShipyardNfsd
+- proto: ComputerShipyardTsf
   entities:
   - uid: 4631
     components:
@@ -30069,7 +30069,7 @@ entities:
     - type: Transform
       pos: -6.5,26.5
       parent: 1
-- proto: CrateNfsdRestraints
+- proto: CrateTsfRestraints
   entities:
   - uid: 4777
     components:
@@ -33725,14 +33725,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5715816,10.591701
       parent: 1
-- proto: EnergyShieldNfsd
+- proto: EnergyShieldTsf
   entities:
   - uid: 5407
     components:
     - type: Transform
       pos: 2.5221624,12.746203
       parent: 1
-- proto: EnergySwordNfsd
+- proto: EnergySwordTsf
   entities:
   - uid: 5408
     components:
@@ -33782,7 +33782,7 @@ entities:
     - type: Transform
       pos: 2.5,-1.5
       parent: 1
-- proto: FaxMachineNFNfsd
+- proto: FaxMachineNFTsf
   entities:
   - uid: 5415
     components:
@@ -44984,7 +44984,7 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: GyroscopeNfsd
+- proto: GyroscopeTsf
   entities:
   - uid: 6843
     components:
@@ -44996,7 +44996,7 @@ entities:
     - type: Transform
       pos: 8.5,-46.5
       parent: 1
-- proto: GyroscopeNfsdMachineCircuitboard
+- proto: GyroscopeTsfMachineCircuitboard
   entities:
   - uid: 6845
     components:
@@ -45483,7 +45483,7 @@ entities:
     - type: Transform
       pos: 22.5,-5.5
       parent: 1
-- proto: LockerNfsdTSFCaptain
+- proto: LockerTsfTSFCaptain
   entities:
   - uid: 6906
     components:
@@ -45495,7 +45495,7 @@ entities:
     - type: Transform
       pos: -5.5,22.5
       parent: 1
-- proto: LockerNfsdBrigmedic
+- proto: LockerTsfBrigmedic
   entities:
   - uid: 6908
     components:
@@ -45507,7 +45507,7 @@ entities:
     - type: Transform
       pos: 26.5,-13.5
       parent: 1
-- proto: LockerNfsdEvidence
+- proto: LockerTsfEvidence
   entities:
   - uid: 6910
     components:
@@ -45529,7 +45529,7 @@ entities:
     - type: Transform
       pos: 11.5,16.5
       parent: 1
-- proto: LockerNfsdSheriffFilled
+- proto: LockerTsfColonelFilled
   entities:
   - uid: 6914
     components:
@@ -46048,14 +46048,14 @@ entities:
     - type: Transform
       pos: -4.5,-2.5
       parent: 1
-- proto: NFHolopadNFSDSheriff
+- proto: NFHolopadNFSDColonel
   entities:
   - uid: 6990
     components:
     - type: Transform
       pos: 2.5,34.5
       parent: 1
-- proto: NfsdTechFab
+- proto: TsfTechFab
   entities:
   - uid: 6991
     components:
@@ -46094,7 +46094,7 @@ entities:
     - type: Transform
       pos: 17.5,5.5
       parent: 1
-- proto: NFVendingMachineCartNfsd
+- proto: NFVendingMachineCartTsf
   entities:
   - uid: 6998
     components:
@@ -46162,7 +46162,7 @@ entities:
       - Paper
       - NFPaperStampProtected
     - type: Paper
-      stampState: paper_stamp-nf-sheriff
+      stampState: paper_stamp-nf-colonel
       stampedBy:
       - reapply: False
         stampType: RubberStamp
@@ -50332,21 +50332,21 @@ entities:
       rot: 3.141592653589793 rad
       pos: 24.5,-7.5
       parent: 1
-- proto: SignNfsdBrief
+- proto: SignTsfBrief
   entities:
   - uid: 7662
     components:
     - type: Transform
       pos: 5.5,3.5
       parent: 1
-- proto: SignNfsdInterrogation
+- proto: SignTsfInterrogation
   entities:
   - uid: 7663
     components:
     - type: Transform
       pos: -0.5,16.5
       parent: 1
-- proto: SignNfsdRange
+- proto: SignTsfRange
   entities:
   - uid: 7664
     components:
@@ -50647,7 +50647,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 14.5,8.5
       parent: 1
-- proto: SpawnPointSheriff
+- proto: SpawnPointColonel
   entities:
   - uid: 7713
     components:
@@ -50781,7 +50781,7 @@ entities:
     - type: Transform
       pos: 13.5,-4.5
       parent: 1
-- proto: StationAdminBankATMNfsd
+- proto: StationAdminBankATMTsf
   entities:
   - uid: 7737
     components:
@@ -51080,7 +51080,7 @@ entities:
     - type: Transform
       pos: 4.5,7.5
       parent: 1
-- proto: SuitStorageSheriff
+- proto: SuitStorageColonel
   entities:
   - uid: 7775
     components:
@@ -53508,7 +53508,7 @@ entities:
       pos: 6.5,-8.5
       parent: 1
     - type: Conveyed
-- proto: TelecomServerFilledNfsd
+- proto: TelecomServerFilledTsf
   entities:
   - uid: 8041
     components:
@@ -53527,7 +53527,7 @@ entities:
     - type: Transform
       pos: 1.770977,-46.36816
       parent: 1
-- proto: ThrusterNfsdMachineCircuitboard
+- proto: ThrusterTsfMachineCircuitboard
   entities:
   - uid: 8044
     components:
@@ -54408,14 +54408,14 @@ entities:
     - type: Transform
       pos: 21.5,-6.5
       parent: 1
-- proto: VendingMachineNfsdDrobe
+- proto: VendingMachineTsfDrobe
   entities:
   - uid: 8100
     components:
     - type: Transform
       pos: 15.5,2.5
       parent: 1
-- proto: VendingMachineNfsdTech
+- proto: VendingMachineTsfTech
   entities:
   - uid: 8101
     components:

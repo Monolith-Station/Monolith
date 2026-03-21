@@ -160,12 +160,12 @@
   - type: Pda
     id: TsfEngiIDCard
     bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
+      startingItem: HyperlinkBookTsfSop
       priority: -2
       whitelist:
         tags:
         - BookSpaceLaw
-        - BookNfsdSop
+        - BookTsfSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:

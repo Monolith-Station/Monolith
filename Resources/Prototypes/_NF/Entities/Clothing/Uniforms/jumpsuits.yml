@@ -78,69 +78,69 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitNfsd
+  id: ClothingUniformJumpsuitTsf
   name: TSFMC jumpsuit
   description: A long sleeved jumpsuit produced for deputy colonels. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_jump.rsi
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/tsf_jump.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_jump.rsi
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/tsf_jump.rsi
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitNfsdShort
+  id: ClothingUniformJumpsuitTsfShort
   name: TSFMC jumpsuit
   description: A short sleeved jumpsuit produced for deputy colonels. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_jump_short.rsi
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/tsf_jump_short.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_jump_short.rsi
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/tsf_jump_short.rsi
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitNfsdTacBlack
+  id: ClothingUniformJumpsuitTsfTacBlack
   name: TSFMC tactical jumpsuit
   description: A tactical jumpsuit for deputies in the field.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_black.rsi
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/tsf_tac_black.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_black.rsi
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/tsf_tac_black.rsi
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitNfsdTacGray
+  id: ClothingUniformJumpsuitTsfTacGray
   name: TSFMC tactical jumpsuit
   description: A tactical jumpsuit for deputies in the field.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_gray.rsi
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/tsf_tac_gray.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_gray.rsi
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/tsf_tac_gray.rsi
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitNfsdTacCamo
+  id: ClothingUniformJumpsuitTsfTacCamo
   name: TSFMC tactical jumpsuit
   description: A tactical jumpsuit for deputies in the field.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_camo.rsi
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/tsf_tac_camo.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_camo.rsi
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/tsf_tac_camo.rsi
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitNfsdTacCream
+  id: ClothingUniformJumpsuitTsfTacCream
   name: PDV tactical jumpsuit #Mono
   description: A tactical jumpsuit for PDV forces in the field.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_cream.rsi
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/tsf_tac_cream.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_cream.rsi
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/tsf_tac_cream.rsi
   - type: SuitSensor #Mono
     randomMode: false
     mode: SensorOff

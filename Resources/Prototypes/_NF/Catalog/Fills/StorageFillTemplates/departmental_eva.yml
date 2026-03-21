@@ -313,16 +313,16 @@
 
 - type: entity
   abstract: true
-  id: StorageFillEVASuitNfsd
+  id: StorageFillEVASuitTsf
   description: Contains a standard issue TSFMC EVA kit.
   components:
   - type: StorageFill
     contents:
     - id: DoubleEmergencyAirTankFilled
-    - id: ClothingOuterEVASuitNfsd
+    - id: ClothingOuterEVASuitTsf
     - id: ClothingMaskGasSecurity
-    - id: JetpackNfsdFilled
-    - id: FlashlightNfsdLite
+    - id: JetpackTsfFilled
+    - id: FlashlightTsfLite
 
 # Other EVA Suits
 - type: entity

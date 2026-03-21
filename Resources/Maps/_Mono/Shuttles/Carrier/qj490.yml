@@ -201,7 +201,7 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
-- proto: AirlockShuttleNfsdLocked
+- proto: AirlockShuttleTsfLocked
   entities:
   - uid: 3
     components:
@@ -684,7 +684,7 @@ entities:
       startingCharge: 0
     - type: ApcPowerReceiver
       powerLoad: 10
-- proto: GyroscopeNfsd
+- proto: GyroscopeTsf
   entities:
   - uid: 81
     components:
@@ -910,7 +910,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,-2.5
       parent: 1
-- proto: ThrusterNfsd
+- proto: ThrusterTsf
   entities:
   - uid: 87
     components:

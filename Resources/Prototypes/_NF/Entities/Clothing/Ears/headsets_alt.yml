@@ -27,7 +27,7 @@
     containers:
       key_slots:
       - EncryptionKeyCommon
-      - EncryptionKeyNfsd
+      - EncryptionKeyTsf
       - EncryptionKeyCommand
   - type: Sprite
     sprite: _NF/Clothing/Ears/Headsets/nfsd_h_brown.rsi
@@ -55,7 +55,7 @@
 - type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltNfsdBrownCentcom
-  name: sheriff's over-ear headset
+  name: colonel's over-ear headset
   categories: [ HideSpawnMenu ]
   components:
   - type: ContainerFill

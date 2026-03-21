@@ -95,7 +95,7 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-interncadet
+        pda-internrecruit
   - type: PdaBorderColor
     borderColor: "#757575"
   - type: Icon
@@ -124,12 +124,12 @@
   - type: Pda
     id: ShriffIDCard
     bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
+      startingItem: HyperlinkBookTsfSop
       priority: -2
       whitelist:
         tags:
         - BookSpaceLaw
-        - BookNfsdSop
+        - BookTsfSop
     penSlot:
       startingItem: PenCentcom
       priority: -1
@@ -164,12 +164,12 @@
   - type: Pda
     id: CadetIDCard
     bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
+      startingItem: HyperlinkBookTsfSop
       priority: -2
       whitelist:
         tags:
         - BookSpaceLaw
-        - BookNfsdSop
+        - BookTsfSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -189,12 +189,12 @@
   - type: Pda
     id: DeputyIDCard
     bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
+      startingItem: HyperlinkBookTsfSop
       priority: -2
       whitelist:
         tags:
         - BookSpaceLaw
-        - BookNfsdSop
+        - BookTsfSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -214,12 +214,12 @@
   - type: Pda
     id: BrigmedicNFIDCard
     bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
+      startingItem: HyperlinkBookTsfSop
       priority: -2
       whitelist:
         tags:
         - BookSpaceLaw
-        - BookNfsdSop
+        - BookTsfSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -239,12 +239,12 @@
   - type: Pda
     id: SergeantIDCard
     bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
+      startingItem: HyperlinkBookTsfSop
       priority: -2
       whitelist:
         tags:
         - BookSpaceLaw
-        - BookNfsdSop
+        - BookTsfSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -264,12 +264,12 @@
   - type: Pda
     id: TSFCaptainIDCard
     bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
+      startingItem: HyperlinkBookTsfSop
       priority: -2
       whitelist:
         tags:
         - BookSpaceLaw
-        - BookNfsdSop
+        - BookTsfSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -289,12 +289,12 @@
   - type: Pda
     id: NFDetectiveIDCard
     bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
+      startingItem: HyperlinkBookTsfSop
       priority: -2
       whitelist:
         tags:
         - BookSpaceLaw
-        - BookNfsdSop
+        - BookTsfSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -320,12 +320,12 @@
         tags:
         - Write
     bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
+      startingItem: HyperlinkBookTsfSop
       priority: -2
       whitelist:
         tags:
         - BookSpaceLaw
-        - BookNfsdSop
+        - BookTsfSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:

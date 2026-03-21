@@ -44,5 +44,5 @@ dock-label-trade-seven-c = D7C
 dock-label-bus = Bus Dock
 dock-label-janitor = Jani
 dock-label-guard = Guard
-dock-label-nfsd = TSFMC
+dock-label-tsf = TSFMC
 dock-label-drive-thru = McDrive Thru

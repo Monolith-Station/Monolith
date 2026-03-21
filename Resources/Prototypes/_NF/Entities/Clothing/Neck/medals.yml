@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckMedalNfsdStarGold
+  id: ClothingNeckMedalTsfStarGold
   name: star of valor
   description: For daring acts of selflessness and devotion to duty in dire circumstances.
   components:
@@ -14,7 +14,7 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckMedalNfsdShieldGold
+  id: ClothingNeckMedalTsfShieldGold
   name: shield of courage
   description: For exemplary courage and leadership beyond expectation in contact with the enemy.
   components:
@@ -28,7 +28,7 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckMedalNfsdShieldSilver
+  id: ClothingNeckMedalTsfShieldSilver
   name: shield of gallantry
   description: For acts of conspicuous gallantry against enemies of the Frontier.
   components:
@@ -42,7 +42,7 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckMedalNfsdShieldBronze
+  id: ClothingNeckMedalTsfShieldBronze
   name: shield of merit
   description: For distinguished and meritorious conduct in the line of duty.
   components:
@@ -56,7 +56,7 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckMedalNfsdCivStarSilver
+  id: ClothingNeckMedalTsfCivStarSilver
   name: friend of the frontier
   description: In recognition of exceptional and honorable civilian service.
   components:
@@ -70,7 +70,7 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckMedalNfsdCivShieldGold
+  id: ClothingNeckMedalTsfCivShieldGold
   name: shieldbearer's medal
   description: For extraordinary civilian assistance in the face of danger.
   components:
@@ -84,7 +84,7 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckMedalNfsdBloodDrop
+  id: ClothingNeckMedalTsfBloodDrop
   name: badge of sacrifice
   description: For grave wounds obtained in dutiful service.
   components:

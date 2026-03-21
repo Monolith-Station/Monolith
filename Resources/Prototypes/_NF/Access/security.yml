@@ -11,7 +11,7 @@
   name: id-card-access-level-tsfcaptain
 
 - type: accessGroup
-  id: CadetNfsdAccess
+  id: CadetTsfAccess
   tags:
   - Maintenance
   - External
@@ -19,7 +19,7 @@
   - Brig
 
 - type: accessGroup
-  id: GeneralNfsdAccess
+  id: GeneralTsfAccess
   tags:
   - Maintenance
   - External
@@ -30,14 +30,14 @@
   - Captain # Frontier
 
 - type: accessGroup
-  id: GeneralNfsdBrigAccess
+  id: GeneralTsfBrigAccess
   tags:
   - Maintenance
   - External
   - Brig
 
 - type: accessGroup
-  id: GeneralNfsdBrigmedicAccess
+  id: GeneralTsfBrigmedicAccess
   tags:
   - Maintenance
   - External

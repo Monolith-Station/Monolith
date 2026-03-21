@@ -11,7 +11,7 @@
 
 - type: entity
   parent: Airlock
-  id: AirlockNfsd
+  id: AirlockTsf
   suffix: TSFMC
   components:
   - type: Sprite
@@ -33,7 +33,7 @@
 
 - type: entity
   parent: AirlockGlass
-  id: AirlockNfsdGlass
+  id: AirlockTsfGlass
   suffix: TSFMC
   components:
   - type: Sprite

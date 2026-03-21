@@ -1,6 +1,6 @@
 - type: entity
-  parent: AirlockShuttleNfsdOutpost
-  id: AirlockShuttleNfsdOutpostLocked
+  parent: AirlockShuttleTsfOutpost
+  id: AirlockShuttleTsfOutpostLocked
   suffix: OUTPOST ONLY, TSFMC, Docking, Locked
   components:
   - type: ContainerFill
@@ -8,8 +8,8 @@
       board: [ DoorElectronicsSecurity ]
 
 - type: entity
-  parent: AirlockGlassShuttleNfsdOutpost
-  id: AirlockGlassShuttleNfsdOutpostLocked
+  parent: AirlockGlassShuttleTsfOutpost
+  id: AirlockGlassShuttleTsfOutpostLocked
   suffix: OUTPOST ONLY, TSFMC, Glass, Docking, Locked
   components:
   - type: ContainerFill
@@ -28,8 +28,8 @@
 # Flyssa ports
 
 - type: entity
-  parent: AirlockShuttleNfsdCapital
-  id: AirlockShuttleNfsdCapitalLocked
+  parent: AirlockShuttleTsfCapital
+  id: AirlockShuttleTsfCapitalLocked
   suffix: CAPITAL ONLY, TSFMC, Docking, Locked
   components:
   - type: ContainerFill
@@ -37,8 +37,8 @@
       board: [ DoorElectronicsSecurity ]
 
 - type: entity
-  parent: AirlockGlassShuttleNfsdCapital
-  id: AirlockGlassShuttleNfsdCapitalLocked
+  parent: AirlockGlassShuttleTsfCapital
+  id: AirlockGlassShuttleTsfCapitalLocked
   suffix: CAPITAL ONLY, TSFMC, Glass, Docking, Locked
   components:
   - type: ContainerFill

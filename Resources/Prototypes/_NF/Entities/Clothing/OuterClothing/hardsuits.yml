@@ -183,8 +183,8 @@
 
 # Security
 - type: entity
-  parent: ClothingOuterHardsuitBaseNFNfsd
-  id: ClothingOuterHardsuitNfsdBronze
+  parent: ClothingOuterHardsuitBaseNFTsf
+  id: ClothingOuterHardsuitTsfBronze
   name: TSFMC M73 tacsuit
   suffix: DEPRECATED, DO NOT MAP
   description: The standard-issue TSFMC tacsuit for patrol duty. This bronze variant has private rank markings.
@@ -198,7 +198,7 @@
     blockUnequipWhenAttached: false
     replaceCurrentClothing: true
     clothingPrototypes:
-      head:  ClothingHeadHelmetHardsuitNfsdBronze
+      head:  ClothingHeadHelmetHardsuitTsfBronze
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: ExplosionResistance
@@ -219,8 +219,8 @@
     coefficient: 0.5
 
 - type: entity
-  parent: ClothingOuterHardsuitNfsdBronze
-  id: ClothingOuterHardsuitNfsdSilver
+  parent: ClothingOuterHardsuitTsfBronze
+  id: ClothingOuterHardsuitTsfSilver
   name: TSFMC M73 tacsuit
   suffix: DEPRECATED, DO NOT MAP
   description: The standard-issue TSFMC tacsuit for patrol duty. This silver variant has corporal rank markings.
@@ -234,13 +234,13 @@
     blockUnequipWhenAttached: false
     replaceCurrentClothing: true
     clothingPrototypes:
-      head:  ClothingHeadHelmetHardsuitNfsdSilver
+      head:  ClothingHeadHelmetHardsuitTsfSilver
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
 
 - type: entity
-  parent: ClothingOuterHardsuitNfsdBronze
-  id: ClothingOuterHardsuitNfsdGold
+  parent: ClothingOuterHardsuitTsfBronze
+  id: ClothingOuterHardsuitTsfGold
   name: TSFMC M73 tacsuit
   suffix: DEPRECATED, DO NOT MAP
   description: The standard-issue TSFMC tacsuit for patrol duty. This gold variant has senior rank markings.
@@ -254,13 +254,13 @@
     blockUnequipWhenAttached: false
     replaceCurrentClothing: true
     clothingPrototypes:
-      head:  ClothingHeadHelmetHardsuitNfsdGold
+      head:  ClothingHeadHelmetHardsuitTsfGold
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
 
 - type: entity
-  parent: ClothingOuterHardsuitBaseNFNfsd
-  id: ClothingOuterHardsuitNfsdSheriff
+  parent: ClothingOuterHardsuitBaseNFTsf
+  id: ClothingOuterHardsuitTsfColonel
   name: TSFMC M92 colonel tacsuit
   description: A heavy, gilded tacsuit, capable of taking a lot of physical damage. Usually assigned to commanding officers of TSF flagships.
   components:
@@ -273,7 +273,7 @@
     blockUnequipWhenAttached: false
     replaceCurrentClothing: true
     clothingPrototypes:
-      head:  ClothingHeadHelmetHardsuitNfsdSheriff
+      head:  ClothingHeadHelmetHardsuitTsfColonel
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: FireProtection # Mono
@@ -299,8 +299,8 @@
     id: ClothingOuterHardsuitTacsuitHighValue
 
 - type: entity
-  parent: ClothingOuterHardsuitNfsdBronze
-  id: ClothingOuterHardsuitNfsdBrigmedic
+  parent: ClothingOuterHardsuitTsfBronze
+  id: ClothingOuterHardsuitTsfBrigmedic
   name: TSFMC M73-M tacsuit
   suffix: DEPRECATED, DO NOT MAP
   description: A variant of the M73 tacsuit for combat medical and NBC use. Provides greater caustic and radiation protection.
@@ -314,7 +314,7 @@
     blockUnequipWhenAttached: false
     replaceCurrentClothing: true
     clothingPrototypes:
-      head:  ClothingHeadHelmetHardsuitNfsdBrigmedic
+      head:  ClothingHeadHelmetHardsuitTsfBrigmedic
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: Armor # Mono - Armor Value Changes
@@ -332,7 +332,7 @@
 
 - type: entity
   parent: [ClothingOuterHardsuitJuggernaut, EnergyShieldClothing ] # Jugger Suit
-  id: ClothingOuterHardsuitNfsdExperimental
+  id: ClothingOuterHardsuitTsfExperimental
   name: TSFMC M92-X tacsuit
   description: An experimental modification of the M92 tacsuit for spec-ops units of the TSFMC. Durable, and comes with an integrated soft-shield, but at the cost of insulation and heft.
   components:
@@ -345,7 +345,7 @@
     blockUnequipWhenAttached: false
     replaceCurrentClothing: true
     clothingPrototypes:
-      head:  ClothingHeadHelmetHardsuitNfsdExperimental
+      head:  ClothingHeadHelmetHardsuitTsfExperimental
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: PressureProtection
@@ -409,8 +409,8 @@
 
 #Security Combat Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBaseNFNfsd
-  id: ClothingOuterHardsuitNfsdCombat
+  parent: ClothingOuterHardsuitBaseNFTsf
+  id: ClothingOuterHardsuitTsfCombat
   name: TSFMC M93 tacsuit
   suffix: DEPRECATED, DO NOT MAP
   description: A heavily armored TSFMC suit. Space proof, with thick armor plating at the expense of mobility.
@@ -424,7 +424,7 @@
     blockUnequipWhenAttached: false
     replaceCurrentClothing: true
     clothingPrototypes:
-      head:  ClothingHeadHelmetHardsuitNfsdCombat
+      head:  ClothingHeadHelmetHardsuitTsfCombat
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: ExplosionResistance
@@ -448,8 +448,8 @@
 
 #Security Command Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitNfsdCombat # ClothingOuterHardsuitBaseNFNfsd>ClothingOuterHardsuitNfsdCombat
-  id: ClothingOuterHardsuitNfsdCommand
+  parent: ClothingOuterHardsuitTsfCombat # ClothingOuterHardsuitBaseNFTsf>ClothingOuterHardsuitTsfCombat
+  id: ClothingOuterHardsuitTsfCommand
   name: TSFMC M93-C tacsuit
   suffix: DEPRECATED, DO NOT MAP
   description: A variant of the M93 tacsuit for high ranking officers. # Mono - Description Rewrite
@@ -463,10 +463,10 @@
     blockUnequipWhenAttached: false
     replaceCurrentClothing: true
     clothingPrototypes:
-      head:  ClothingHeadHelmetHardsuitNfsdCommand
+      head:  ClothingHeadHelmetHardsuitTsfCommand
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
-#  - type: ExplosionResistance # Mono - Inherents ClothingOuterHardsuitNfsdCombat
+#  - type: ExplosionResistance # Mono - Inherents ClothingOuterHardsuitTsfCombat
 #    damageCoefficient: 0.35
 #  - type: Armor
 #    modifiers:

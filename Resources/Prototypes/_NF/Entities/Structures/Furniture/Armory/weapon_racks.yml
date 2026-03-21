@@ -248,7 +248,7 @@
 ## NFSD
 # Gun racks
 - type: entity
-  id: StructureGunRackNfsd
+  id: StructureGunRackTsf
   parent: StructureGunRack
   suffix: TSFMC, Empty
   components:
@@ -260,7 +260,7 @@
       color: "#455470"
 
 - type: entity
-  id: StructureGunRackWallmountedNfsd
+  id: StructureGunRackWallmountedTsf
   parent: StructureGunRackWallmounted
   suffix: TSFMC, Empty, Wallmount
   components:
@@ -273,7 +273,7 @@
 
 # Melee weapon racks
 - type: entity
-  id: StructureMeleeWeaponRackNfsd
+  id: StructureMeleeWeaponRackTsf
   parent: StructureMeleeWeaponRack
   suffix: TSFMC, Empty
   components:
@@ -285,7 +285,7 @@
       color: "#455470"
 
 - type: entity
-  id: StructureMeleeWeaponRackWallmountedNfsd
+  id: StructureMeleeWeaponRackWallmountedTsf
   parent: StructureMeleeWeaponRackWallmounted
   suffix: TSFMC, Empty, Wallmount
   components:
@@ -298,7 +298,7 @@
 
 # Sidearm racks
 - type: entity
-  id: StructurePistolRackNfsd
+  id: StructurePistolRackTsf
   parent: StructurePistolRack
   suffix: TSFMC, Empty
   components:
@@ -310,7 +310,7 @@
       color: "#455470"
 
 - type: entity
-  id: StructurePistolRackWallmountedNfsd
+  id: StructurePistolRackWallmountedTsf
   parent: StructurePistolRackWallmounted
   suffix: TSFMC, Empty, Wallmount
   components:

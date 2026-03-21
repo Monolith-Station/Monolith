@@ -1,6 +1,6 @@
 # This should mimic the base shuttle graphs in Resources/Prototypes/Recipes/Construction/Graphs/structures/shuttle.yml
 - type: constructionGraph
-  id: AirlockShuttleNfsd
+  id: AirlockShuttleTsf
   start: start
   graph:
   - node: start
@@ -15,7 +15,7 @@
         doAfter: 2
 
   - node: assembly
-    entity: AirlockShuttleAssemblyNfsd
+    entity: AirlockShuttleAssemblyTsf
     actions:
     - !type:SnapToGrid {}
     - !type:SetAnchor {}
@@ -125,7 +125,7 @@
         doAfter: 2
 
   - node: skeletonSilver
-    entity: AirlockShuttleAssemblyNfsd
+    entity: AirlockShuttleAssemblyTsf
     edges:
     - to: airlock
       conditions:
@@ -150,7 +150,7 @@
         doAfter: 2
 
   - node: airlock
-    entity: AirlockShuttleNfsd
+    entity: AirlockShuttleTsf
     edges:
     - to: skeletonSilver
       conditions:
@@ -164,7 +164,7 @@
         doAfter: 5
 
   - node: skeletonGlass
-    entity: AirlockShuttleAssemblyNfsd
+    entity: AirlockShuttleAssemblyTsf
     edges:
     - to: skeletonSilver
       completed:
@@ -182,7 +182,7 @@
         doAfter: 2
 
   - node: airlockGlass
-    entity: AirlockGlassShuttleNfsd
+    entity: AirlockGlassShuttleTsf
     edges:
       - to: skeletonGlass
         conditions:

@@ -3450,7 +3450,7 @@ entities:
         - 0
         - 0
         - 0
-- proto: ClothingBackpackDuffelNfsdTrackingBundle
+- proto: ClothingBackpackDuffelTsfTrackingBundle
   entities:
   - uid: 175
     components:
@@ -3786,7 +3786,7 @@ entities:
     - type: Transform
       pos: -1.5,-11.5
       parent: 179
-- proto: ComputerShipyardNfsd
+- proto: ComputerShipyardTsf
   entities:
   - uid: 284
     components:
@@ -5746,7 +5746,7 @@ entities:
     - type: Transform
       pos: -2.4220388,-3.35532
       parent: 179
-- proto: NfsdTechFab
+- proto: TsfTechFab
   entities:
   - uid: 498
     components:
@@ -6791,7 +6791,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 24.5,11.5
       parent: 179
-- proto: ShipVoucherNfsdTSFCaptain
+- proto: ShipVoucherTsfTSFCaptain
   entities:
   - uid: 1291
     components:
@@ -6799,7 +6799,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.7517176,-10.459884
       parent: 179
-- proto: ShipVoucherNfsdSergeant
+- proto: ShipVoucherTsfSergeant
   entities:
   - uid: 1290
     components:
@@ -7861,7 +7861,7 @@ entities:
     - type: Transform
       pos: -14.256703,4.7913895
       parent: 179
-- proto: ThrusterNfsd
+- proto: ThrusterTsf
   entities:
   - uid: 1401
     components:

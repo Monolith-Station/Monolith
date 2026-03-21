@@ -48,22 +48,22 @@
 
 - type: entity
   parent: ClothingShoesBootsMagSecurity
-  id: ClothingShoesBootsMagNfsd
+  id: ClothingShoesBootsMagTsf
   name: TSFMC magboots
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Shoes/Boots/magboots-nfsd.rsi
+    sprite: _NF/Clothing/Shoes/Boots/magboots-tsf.rsi
     state: icon
   - type: Clothing
-    sprite: _NF/Clothing/Shoes/Boots/magboots-nfsd.rsi
+    sprite: _NF/Clothing/Shoes/Boots/magboots-tsf.rsi
   - type: Magboots
-    magbootsAlert: MagbootsNfsd
+    magbootsAlert: MagbootsTsf
 #  - type: ClothingSpeedModifier
 #    walkModifier: 0.95
 #    sprintModifier: 0.9
 
 - type: entity
-  parent: ClothingShoesBootsMagNfsd
+  parent: ClothingShoesBootsMagTsf
   id: ClothingShoesBootsMagPirate
   name: pirate magboots
   description: Pirate magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle.

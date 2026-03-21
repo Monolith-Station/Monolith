@@ -111,9 +111,9 @@
   name: TSFMC evidence locker
   components:
   - type: EntityStorageVisuals
-    stateBaseClosed: nfsd
-    stateDoorOpen: nfsd_open
-    stateDoorClosed: nfsd_door
+    stateBaseClosed: tsf
+    stateDoorOpen: tsf_open
+    stateDoorClosed: tsf_door
 
 # NFSD Copper
 - type: entity
@@ -123,9 +123,9 @@
   suffix: Copper
   components:
   - type: EntityStorageVisuals
-    stateBaseClosed: nfsd_copper
-    stateDoorOpen: nfsd_copper_open
-    stateDoorClosed: nfsd_copper_door
+    stateBaseClosed: tsf_copper
+    stateDoorOpen: tsf_copper_open
+    stateDoorClosed: tsf_copper_door
 
 # NFSD Silver
 - type: entity
@@ -135,9 +135,9 @@
   suffix: Marine
   components:
   - type: EntityStorageVisuals
-    stateBaseClosed: nfsd_silver
-    stateDoorOpen: nfsd_silver_open
-    stateDoorClosed: nfsd_silver_door
+    stateBaseClosed: tsf_silver
+    stateDoorOpen: tsf_silver_open
+    stateDoorClosed: tsf_silver_door
 
 # NFSD Brigmedic
 - type: entity
@@ -147,9 +147,9 @@
   suffix: Corpsman
   components:
   - type: EntityStorageVisuals
-    stateBaseClosed: nfsd_brigmed
-    stateDoorOpen: nfsd_brigmed_open
-    stateDoorClosed: nfsd_brigmed_door
+    stateBaseClosed: tsf_brigmed
+    stateDoorOpen: tsf_brigmed_open
+    stateDoorClosed: tsf_brigmed_door
 
 # NFSD Gold - Sergeant
 - type: entity
@@ -159,9 +159,9 @@
   suffix: Fireteam Leader
   components:
   - type: EntityStorageVisuals
-    stateBaseClosed: nfsd_gold
-    stateDoorOpen: nfsd_gold_open
-    stateDoorClosed: nfsd_gold_door
+    stateBaseClosed: tsf_gold
+    stateDoorOpen: tsf_gold_open
+    stateDoorClosed: tsf_gold_door
   - type: AccessReader
     access: [["Sergeant"]]
 
@@ -177,15 +177,15 @@
 
 # NFSD Sheriff
 - type: entity
-  id: LockerNfsdSheriff
+  id: LockerTsfColonel
   parent: [NFLockerBaseSecure, LockerHeadOfSecurity]
   name: TSFMC locker
   suffix: Colonel
   components:
   - type: EntityStorageVisuals
-    stateBaseClosed: nfsd_sheriff
-    stateDoorOpen: nfsd_sheriff_open
-    stateDoorClosed: nfsd_sheriff_door
+    stateBaseClosed: tsf_colonel
+    stateDoorOpen: tsf_colonel_open
+    stateDoorClosed: tsf_colonel_door
   - type: AccessReader
     access: [["HeadOfSecurity"]]
 

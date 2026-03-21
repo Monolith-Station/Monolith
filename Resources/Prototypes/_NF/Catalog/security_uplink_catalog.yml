@@ -196,7 +196,7 @@
   id: UplinkSecurityEnergySword
   name:  uplink-security-energysword-name
   description: uplink-security-energysword-desc
-  productEntity: EnergySwordNfsd
+  productEntity: EnergySwordTsf
   icon: { sprite: Objects/Weapons/Melee/e_sword.rsi, state: e_sword }
   cost:
     FederationMilitaryCredit: 30
@@ -261,7 +261,7 @@
   id: UplinkSecurityHolo
   name:  uplink-security-holo-name
   description: uplink-security-holo-desc
-  productEntity: HoloprojectorNfsd
+  productEntity: HoloprojectorTsf
   icon: { sprite: _NF/Objects/Devices/Holoprojectors/nfsd.rsi, state: icon }
   cost:
     FederationMilitaryCredit: 5
@@ -293,7 +293,7 @@
   id: UplinkSecurityJetpack
   name:  uplink-security-jetpack-name
   description: uplink-security-jetpack-desc
-  productEntity: JetpackNfsdFilled
+  productEntity: JetpackTsfFilled
   icon: { sprite: _NF/Objects/Tanks/Jetpacks/nfsd.rsi, state: icon }
   cost:
     FederationMilitaryCredit: 5
@@ -322,10 +322,10 @@
           - SecurityUplink
 
 - type: listing
-  id: UplinkNfsdTechfab
+  id: UplinkTsfTechfab
   name:  uplink-security-techfab-name
   description: uplink-security-techfab-desc
-  productEntity: NfsdTechFabCircuitboard
+  productEntity: TsfTechFabCircuitboard
   icon: { sprite: _NF/Objects/Misc/module.rsi, state: nfsd }
   cost:
     FederationMilitaryCredit: 25
@@ -341,7 +341,7 @@
   id: UplinkSecurityKey
   name:  uplink-security-key-name
   description: uplink-security-key-desc
-  productEntity: BoxEncryptionKeyNfsd
+  productEntity: BoxEncryptionKeyTsf
   icon: { sprite: Objects/Storage/boxes.rsi, state: box }
   cost:
     FederationMilitaryCredit: 5
@@ -928,7 +928,7 @@
   id: UplinkSecurityEnergyShield
   name:  uplink-security-energyshield-name
   description: uplink-security-energyshield-desc
-  productEntity: EnergyShieldNfsd
+  productEntity: EnergyShieldTsf
   icon: { sprite: _NF/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
   cost:
     FederationMilitaryCredit: 40
@@ -945,7 +945,7 @@
   name:  uplink-security-swat-name
   description: uplink-security-swat-desc
   productEntity: ClothingMaskGasSheriff
-  icon: { sprite: _NF/Clothing/Mask/nfsd_sheriff.rsi, state: icon}
+  icon: { sprite: _NF/Clothing/Mask/nfsd_colonel.rsi, state: icon}
   cost:
     FederationMilitaryCredit: 5 #Mono: From 3 to 1
   categories:
@@ -1125,7 +1125,7 @@
   id: UplinkSecurityStingerGrenadeBox
   name:  uplink-security-stingergrenade-box-name
   description: uplink-security-stingergrenade-box-desc
-  productEntity: BoxStingerGrenadesNfsd
+  productEntity: BoxStingerGrenadesTsf
   icon: { sprite: Objects/Weapons/Grenades/stingergrenade.rsi, state: icon}
   cost:
     FederationMilitaryCredit: 10
@@ -1141,7 +1141,7 @@
   id: UplinkSecurityEmpGrenadeBox
   name:  uplink-security-empgrenade-box-name
   description: uplink-security-empgrenade-box-desc
-  productEntity: BoxEMPGrenadesNfsd
+  productEntity: BoxEMPGrenadesTsf
   icon: { sprite: Objects/Weapons/Grenades/empgrenade.rsi, state: icon}
   cost:
     FederationMilitaryCredit: 10
@@ -1157,7 +1157,7 @@
   id: UplinkSecurityExplosiveGrenadeBox
   name:  uplink-security-explosivegrenade-box-name
   description: uplink-security-explosivegrenade-box-desc
-  productEntity: BoxExplosiveGrenadesNfsd
+  productEntity: BoxExplosiveGrenadesTsf
   icon: { sprite: Objects/Weapons/Grenades/grenade.rsi, state: icon}
   cost:
     FederationMilitaryCredit: 15
@@ -1173,7 +1173,7 @@
   id: UplinkSecurityIncendiaryGrenadeBox
   name:  uplink-security-incendiarygrenade-box-name
   description: uplink-security-incendiarygrenade-box-desc
-  productEntity: BoxIncendiaryGrenadesNfsd
+  productEntity: BoxIncendiaryGrenadesTsf
   icon: { sprite: Objects/Weapons/Grenades/pyrogrenade.rsi, state: icon}
   cost:
     FederationMilitaryCredit: 10 # Mono 3->2
@@ -1189,7 +1189,7 @@
   id: UplinkSecurityShrapnelGrenadeBox
   name:  uplink-security-shrapnelgrenade-box-name
   description: uplink-security-shrapnelgrenade-box-desc
-  productEntity: BoxShrapnelGrenadesNfsd
+  productEntity: BoxShrapnelGrenadesTsf
   icon: { sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi, state: icon}
   cost:
     FederationMilitaryCredit: 10
@@ -1218,10 +1218,10 @@
           - SecurityUplink
 
 - type: listing
-  id: UplinkSecurityHoverbikeNfsdFlatpack
+  id: UplinkSecurityHoverbikeTsfFlatpack
   name:  uplink-security-hoverbike-name
   description: uplink-security-hoverbike-desc
-  productEntity: HoverbikeNfsdFlatpack
+  productEntity: HoverbikeTsfFlatpack
   icon: { sprite: _NF/Objects/Vehicles/hoverbike.rsi, state: vehicle }
   cost:
     FederationMilitaryCredit: 15
@@ -1237,7 +1237,7 @@
   id: UplinkSecurityLethalArmory
   name:  uplink-security-lethalarmory-name
   description: uplink-security-lethalarmory-desc
-  productEntity: CrateArmoryLethalNfsd
+  productEntity: CrateArmoryLethalTsf
   icon: { sprite: _NF/Structures/Storage/Crates/nfsd_secure2.rsi, state: icon }
   cost:
     FederationMilitaryCredit: 75
@@ -1253,7 +1253,7 @@
   id: UplinkSecurityTrackingBundle
   name: uplink-security-trackingdart-bundle-name
   description: uplink-security-trackingdart-bundle-desc
-  productEntity: ClothingBackpackDuffelNfsdTrackingBundle
+  productEntity: ClothingBackpackDuffelTsfTrackingBundle
   icon: { sprite: _NF/Clothing/Back/Duffels/nfsd_brown.rsi, state: icon }
   cost:
     FederationMilitaryCredit: 20
@@ -1269,7 +1269,7 @@
   id: UplinkSecurityEmpBundle
   name: uplink-security-emp-bundle-name
   description: uplink-security-emp-bundle-desc
-  productEntity: ClothingBackpackDuffelNfsdEmpBundle
+  productEntity: ClothingBackpackDuffelTsfEmpBundle
   icon: { sprite: _NF/Clothing/Back/Duffels/nfsd_brown.rsi, state: icon }
   cost:
     FederationMilitaryCredit: 20
@@ -1285,7 +1285,7 @@
   id: UplinkSecurityNonLethalArmory
   name:  uplink-security-nonlethalarmory-name
   description: uplink-security-nonlethalarmory-desc
-  productEntity: CrateArmoryNonLethalNfsd
+  productEntity: CrateArmoryNonLethalTsf
   icon: { sprite: _NF/Structures/Storage/Crates/nfsd_secure1.rsi, state: icon }
   cost:
     FederationMilitaryCredit: 50

@@ -1,6 +1,6 @@
 - type: entity
   parent: HoloprojectorSecurity
-  id: HoloprojectorNfsd
+  id: HoloprojectorTsf
   name: TSFMC holobarrier projector
   description: Creates a solid but fragile holographic barrier.
   components:
@@ -8,18 +8,18 @@
     sprite: _NF/Objects/Devices/Holoprojectors/nfsd.rsi
     state: icon
   - type: HolosignProjector
-    signProto: HolosignNfsd
+    signProto: HolosignTsf
 
 - type: entity
   parent: HoloprojectorSecurityEmpty
-  id: HoloprojectorNfsdEmpty
+  id: HoloprojectorTsfEmpty
   suffix: Empty
   components:
   - type: Sprite
     sprite: _NF/Objects/Devices/Holoprojectors/nfsd.rsi
     state: icon
   - type: HolosignProjector
-    signProto: HolosignNfsd
+    signProto: HolosignTsf
   - type: ItemSlots
     slots:
       cell_slot:

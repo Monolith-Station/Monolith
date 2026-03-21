@@ -8,15 +8,15 @@
   - type: Item
     size: Tiny
   - type: Sprite
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
+    sprite: _NF/Clothing/Neck/Scarfs/tsf_bronze_badge.rsi
     layers: []
   - type: Clothing
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
+    sprite: _NF/Clothing/Neck/Scarfs/tsf_bronze_badge.rsi
 
 - type: entity
   parent: ClothingNeckNfsdBadge
   id: ClothingNeckNfsdBadgeSecurityCadet
-  name: TSFMC cadet badge
+  name: TSFMC recruit badge
   suffix: Bronze - Cadet
 
 - type: entity
@@ -26,9 +26,9 @@
   name: TSFMC deputy badge
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_silver_badge.rsi
+    sprite: _NF/Clothing/Neck/Scarfs/tsf_silver_badge.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_silver_badge.rsi
+    sprite: _NF/Clothing/Neck/Scarfs/tsf_silver_badge.rsi
 
 - type: entity
   parent: ClothingNeckNfsdBadge
@@ -37,9 +37,9 @@
   name: TSFMC brigmedic badge
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_silvercross_badge.rsi
+    sprite: _NF/Clothing/Neck/Scarfs/tsf_silvercross_badge.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_silvercross_badge.rsi
+    sprite: _NF/Clothing/Neck/Scarfs/tsf_silvercross_badge.rsi
 
 - type: entity
   parent: ClothingNeckNfsdBadge
@@ -48,9 +48,9 @@
   name: TSFMC detective badge
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_silver_badge.rsi
+    sprite: _NF/Clothing/Neck/Scarfs/tsf_silver_badge.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_silver_badge.rsi
+    sprite: _NF/Clothing/Neck/Scarfs/tsf_silver_badge.rsi
 
 - type: entity
   parent: ClothingNeckNfsdBadge
@@ -59,9 +59,9 @@
   name: TSFMC sergeant badge
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_gold_badge.rsi
+    sprite: _NF/Clothing/Neck/Scarfs/tsf_gold_badge.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_gold_badge.rsi
+    sprite: _NF/Clothing/Neck/Scarfs/tsf_gold_badge.rsi
 
 - type: entity
   parent: ClothingNeckNfsdBadge
@@ -70,9 +70,9 @@
   name: TSFMC tsfcaptain badge
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_gold_badge.rsi
+    sprite: _NF/Clothing/Neck/Scarfs/tsf_gold_badge.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_gold_badge.rsi
+    sprite: _NF/Clothing/Neck/Scarfs/tsf_gold_badge.rsi
 
 - type: entity
   parent: ClothingNeckNfsdBadge
@@ -81,9 +81,9 @@
   name: TSFMC colonel badge
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_star_badge.rsi
+    sprite: _NF/Clothing/Neck/Scarfs/tsf_star_badge.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_star_badge.rsi
+    sprite: _NF/Clothing/Neck/Scarfs/tsf_star_badge.rsi
   - type: EmbeddableProjectile # pointy
 
 - type: entity

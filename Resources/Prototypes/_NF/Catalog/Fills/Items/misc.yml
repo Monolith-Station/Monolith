@@ -3,8 +3,8 @@
   parent: [ClothingShoesBootsMagSecurity, ClothingShoesBootsCombatFilled]
 
 - type: entity
-  id: ClothingShoesBootsMagNfsdFilled
-  parent: [ClothingShoesBootsMagNfsd, ClothingShoesBootsCombatFilled]
+  id: ClothingShoesBootsMagTsfFilled
+  parent: [ClothingShoesBootsMagTsf, ClothingShoesBootsCombatFilled]
 
 - type: entity
   id: ClothingShoesBootsMagPirateFilled
@@ -15,12 +15,12 @@
   parent: [ClothingShoesBootsMagMercenary, ClothingShoesBootsMercenaryFilled]
 
 - type: entity
-  id: ClothingShoesBootsNfsdBrownFilled
-  parent: [ClothingShoesBootsNfsdBrown, ClothingShoesBootsCombatFilled]
+  id: ClothingShoesBootsTsfBrownFilled
+  parent: [ClothingShoesBootsTsfBrown, ClothingShoesBootsCombatFilled]
 
 - type: entity
-  id: ClothingShoesBootsNfsdCreamFilled
-  parent: [ClothingShoesBootsNfsdCream, ClothingShoesBootsCombatFilled]
+  id: ClothingShoesBootsTsfCreamFilled
+  parent: [ClothingShoesBootsTsfCream, ClothingShoesBootsCombatFilled]
 
 - type: entity
   parent: DrinkFlaskBar

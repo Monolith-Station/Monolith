@@ -81,8 +81,8 @@
       board: [ DoorElectronicsMercenary ]
 
 - type: entity
-  parent: AirlockNfsdGlass
-  id: AirlockNfsdGlassLocked
+  parent: AirlockTsfGlass
+  id: AirlockTsfGlassLocked
   suffix: TSFMC, Locked
   components:
   - type: ContainerFill
@@ -90,8 +90,8 @@
       board: [ DoorElectronicsSecurity ]
 
 - type: entity
-  parent: AirlockNfsd
-  id: AirlockNfsdLocked
+  parent: AirlockTsf
+  id: AirlockTsfLocked
   suffix: TSFMC, Locked
   components:
   - type: ContainerFill
@@ -99,8 +99,8 @@
       board: [ DoorElectronicsSecurity ]
 
 - type: entity
-  parent: AirlockNfsd
-  id: AirlockNfsdBrigLocked
+  parent: AirlockTsf
+  id: AirlockTsfBrigLocked
   suffix: TSFMC Brig, Locked
   components:
   - type: ContainerFill
@@ -108,8 +108,8 @@
       board: [ DoorElectronicsBrig ]
 
 - type: entity
-  parent: AirlockNfsdGlass
-  id: AirlockNfsdBrigGlassLocked
+  parent: AirlockTsfGlass
+  id: AirlockTsfBrigGlassLocked
   suffix: TSFMC Brig, Locked
   components:
   - type: ContainerFill
@@ -117,8 +117,8 @@
       board: [ DoorElectronicsBrig ]
 
 - type: entity
-  parent: AirlockNfsd
-  id: AirlockNfsdDetectiveLocked
+  parent: AirlockTsf
+  id: AirlockTsfDetectiveLocked
   suffix: TSFMC Detective, Locked
   components:
   - type: ContainerFill
@@ -126,8 +126,8 @@
       board: [ DoorElectronicsDetective ]
 
 - type: entity
-  parent: AirlockNfsdGlass
-  id: AirlockNfsdDetectiveGlassLocked
+  parent: AirlockTsfGlass
+  id: AirlockTsfDetectiveGlassLocked
   suffix: TSFMC Detective, Locked
   components:
   - type: ContainerFill
@@ -135,8 +135,8 @@
       board: [ DoorElectronicsDetective ]
 
 - type: entity
-  parent: AirlockNfsd
-  id: AirlockNfsdLawyerLocked
+  parent: AirlockTsf
+  id: AirlockTsfLawyerLocked
   suffix: TSFMC Lawyer, Locked
   components:
   - type: ContainerFill
@@ -144,8 +144,8 @@
       board: [ DoorElectronicsSecurityLawyer ]
 
 - type: entity
-  parent: AirlockNfsdGlass
-  id: AirlockNfsdLawyerGlassLocked
+  parent: AirlockTsfGlass
+  id: AirlockTsfLawyerGlassLocked
   suffix: TSFMC Lawyer, Locked
   components:
   - type: ContainerFill
@@ -153,8 +153,8 @@
       board: [ DoorElectronicsSecurityLawyer ]
 
 - type: entity
-  parent: AirlockNfsd
-  id: AirlockNfsdArmoryLocked
+  parent: AirlockTsf
+  id: AirlockTsfArmoryLocked
   suffix: TSFMC Armory, Locked
   components:
   - type: ContainerFill
@@ -162,8 +162,8 @@
       board: [ DoorElectronicsArmory ]
 
 - type: entity
-  parent: AirlockNfsdGlass
-  id: AirlockNfsdArmoryGlassLocked
+  parent: AirlockTsfGlass
+  id: AirlockTsfArmoryGlassLocked
   suffix: TSFMC Armory, Locked
   components:
   - type: ContainerFill
@@ -253,8 +253,8 @@
       board: [ DoorElectronicsMailCarrier ]
 
 - type: entity
-  parent: AirlockExternalGlassNfsd
-  id: AirlockExternalGlassNfsdLocked
+  parent: AirlockExternalGlassTsf
+  id: AirlockExternalGlassTsfLocked
   suffix: TSFMC, Glass, Locked
   components:
   - type: ContainerFill
@@ -262,8 +262,8 @@
       board: [ DoorElectronicsSecurity ]
 
 - type: entity
-  parent: AirlockShuttleNfsd
-  id: AirlockShuttleNfsdLocked
+  parent: AirlockShuttleTsf
+  id: AirlockShuttleTsfLocked
   suffix: TSFMC, Docking, Locked
   components:
   - type: ContainerFill
@@ -271,8 +271,8 @@
       board: [ DoorElectronicsSecurity ]
 
 - type: entity
-  parent: AirlockGlassShuttleNfsd
-  id: AirlockGlassShuttleNfsdLocked
+  parent: AirlockGlassShuttleTsf
+  id: AirlockGlassShuttleTsfLocked
   suffix: TSFMC, Glass, Docking, Locked
   components:
   - type: ContainerFill

@@ -831,7 +831,7 @@ entities:
       - 928
       - 722
       - 752
-- proto: AirlockExternalGlassNfsdLocked
+- proto: AirlockExternalGlassTsfLocked
   entities:
   - uid: 36
     components:
@@ -893,7 +893,7 @@ entities:
     - type: Transform
       pos: -15.5,8.5
       parent: 1
-- proto: AirlockGlassShuttleNfsdLocked
+- proto: AirlockGlassShuttleTsfLocked
   entities:
   - uid: 89
     components:
@@ -982,7 +982,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 17.5,4.5
       parent: 1
-- proto: AirlockNfsdArmoryLocked
+- proto: AirlockTsfArmoryLocked
   entities:
   - uid: 294
     components:
@@ -1009,7 +1009,7 @@ entities:
     - type: Transform
       pos: -4.5,-13.5
       parent: 1
-- proto: AirlockNfsdLocked
+- proto: AirlockTsfLocked
   entities:
   - uid: 67
     components:
@@ -2889,7 +2889,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerShipyardNfsd
+- proto: ComputerShipyardTsf
   entities:
   - uid: 63
     components:
@@ -5210,7 +5210,7 @@ entities:
     - type: Transform
       pos: -7.5,0.5
       parent: 1
-- proto: NfsdTechFab
+- proto: TsfTechFab
   entities:
   - uid: 342
     components:
@@ -5639,7 +5639,7 @@ entities:
     - type: Transform
       pos: 3.5,-14.5
       parent: 1
-- proto: TelecomServerFilledNfsd
+- proto: TelecomServerFilledTsf
   entities:
   - uid: 299
     components:
@@ -5672,14 +5672,14 @@ entities:
     - type: Transform
       pos: 3.5,0.5
       parent: 1
-- proto: VendingMachineNfsdDrobe
+- proto: VendingMachineTsfDrobe
   entities:
   - uid: 35
     components:
     - type: Transform
       pos: -7.5,-1.5
       parent: 1
-- proto: VendingMachineNfsdTech
+- proto: VendingMachineTsfTech
   entities:
   - uid: 72
     components:

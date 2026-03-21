@@ -565,7 +565,7 @@ entities:
       - 338
       - 340
       - 339
-- proto: AirlockExternalGlassNfsdLocked
+- proto: AirlockExternalGlassTsfLocked
   entities:
   - uid: 8
     components:
@@ -579,7 +579,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -2.5,21.5
       parent: 1
-- proto: AirlockNfsdLocked
+- proto: AirlockTsfLocked
   entities:
   - uid: 10
     components:
@@ -611,7 +611,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -2.5,14.5
       parent: 1
-- proto: AirlockShuttleNfsdLocked
+- proto: AirlockShuttleTsfLocked
   entities:
   - uid: 15
     components:
@@ -3412,7 +3412,7 @@ entities:
       startingCharge: 0
     - type: ApcPowerReceiver
       powerLoad: 5
-- proto: GyroscopeNfsd
+- proto: GyroscopeTsf
   entities:
   - uid: 456
     components:
@@ -4239,7 +4239,7 @@ entities:
     - type: Transform
       pos: -0.5,15.5
       parent: 1
-- proto: ThrusterNfsd
+- proto: ThrusterTsf
   entities:
   - uid: 581
     components:

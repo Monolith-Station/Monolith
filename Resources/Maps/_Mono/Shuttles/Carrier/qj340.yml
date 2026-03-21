@@ -262,7 +262,7 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
-- proto: AirlockShuttleNfsdLocked
+- proto: AirlockShuttleTsfLocked
   entities:
   - uid: 76
     components:
@@ -1204,7 +1204,7 @@ entities:
     - type: Transform
       pos: 1.5,1.5
       parent: 1
-- proto: SmallGyroscopeNfsd
+- proto: SmallGyroscopeTsf
   entities:
   - uid: 172
     components:
@@ -1235,7 +1235,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,1.5
       parent: 1
-- proto: SuitStorageWallmountEVANfsd
+- proto: SuitStorageWallmountEVATsf
   entities:
   - uid: 173
     components:
@@ -1260,7 +1260,7 @@ entities:
     - type: Transform
       pos: 1.5,2.5
       parent: 1
-- proto: ThrusterNfsd
+- proto: ThrusterTsf
   entities:
   - uid: 17
     components:

@@ -70,9 +70,9 @@
     Glass: 900
 
 - type: latheRecipe
-  id: ThrusterNfsdMachineCircuitboard
+  id: ThrusterTsfMachineCircuitboard
   parent: BaseCircuitboardRecipe
-  result: ThrusterNfsdMachineCircuitboard
+  result: ThrusterTsfMachineCircuitboard
   materials:
     Steel: 400
     Glass: 900
@@ -114,14 +114,14 @@
   result: SmallGyroscopeSecurityMachineCircuitboard
 
 - type: latheRecipe
-  id: GyroscopeNfsdMachineCircuitboard
+  id: GyroscopeTsfMachineCircuitboard
   parent: BaseCircuitboardRecipe
-  result: GyroscopeNfsdMachineCircuitboard
+  result: GyroscopeTsfMachineCircuitboard
 
 - type: latheRecipe
-  id: SmallGyroscopeNfsdMachineCircuitboard
+  id: SmallGyroscopeTsfMachineCircuitboard
   parent: BaseCircuitboardRecipe
-  result: SmallGyroscopeNfsdMachineCircuitboard
+  result: SmallGyroscopeTsfMachineCircuitboard
 
 - type: latheRecipe
   id: SmallGyroscopeMachineCircuitboard

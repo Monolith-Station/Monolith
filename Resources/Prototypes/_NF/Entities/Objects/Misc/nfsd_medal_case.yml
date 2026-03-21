@@ -1,6 +1,6 @@
 - type: entity
   parent: MedalCase
-  id: MedalCaseNfsd
+  id: MedalCaseTsf
   name: TSFMC medal case
   description: This polished oak case hides medals to be given for distinguished service.
   components:
@@ -13,11 +13,11 @@
     - 0,0,7,1 # Explicit just in case the parent changes
   - type: StorageFill
     contents:
-    - id: ClothingNeckMedalNfsdStarGold
-    - id: ClothingNeckMedalNfsdShieldGold
-    - id: ClothingNeckMedalNfsdShieldSilver
-    - id: ClothingNeckMedalNfsdShieldBronze
-    - id: ClothingNeckMedalNfsdBloodDrop
-    - id: ClothingNeckMedalNfsdBloodDrop # intentional duplicate
-    - id: ClothingNeckMedalNfsdCivStarSilver
-    - id: ClothingNeckMedalNfsdCivShieldGold
+    - id: ClothingNeckMedalTsfStarGold
+    - id: ClothingNeckMedalTsfShieldGold
+    - id: ClothingNeckMedalTsfShieldSilver
+    - id: ClothingNeckMedalTsfShieldBronze
+    - id: ClothingNeckMedalTsfBloodDrop
+    - id: ClothingNeckMedalTsfBloodDrop # intentional duplicate
+    - id: ClothingNeckMedalTsfCivStarSilver
+    - id: ClothingNeckMedalTsfCivShieldGold

@@ -73,7 +73,7 @@
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
-    - state: nfsd
+    - state: tsf
     - state: idpublicaffairsliaison
 
 - type: entity
@@ -86,12 +86,12 @@
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
-    - state: nfsd
-    - state: idnfsdcadet
+    - state: tsf
+    - state: idtsfrecruit
   - type: Clothing
     sprite: _NF/Objects/Misc/id_cards.rsi
   - type: Item
-    heldPrefix: nfsd
+    heldPrefix: tsf
 
 - type: entity
   parent: CadetIDCard
@@ -103,8 +103,8 @@
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
-    - state: nfsd
-    - state: idnfsddeputy
+    - state: tsf
+    - state: idtsfdeputy
 
 - type: entity
   parent: CadetIDCard
@@ -116,8 +116,8 @@
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
-    - state: nfsd
-    - state: idnfsdbrigmed
+    - state: tsf
+    - state: idtsfbrigmed
 
 - type: entity
   parent: CadetIDCard
@@ -129,8 +129,8 @@
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
-    - state: nfsd
-    - state: idnfsdsergeant
+    - state: tsf
+    - state: idtsfftl
 
 - type: entity
   parent: CadetIDCard
@@ -142,8 +142,8 @@
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
-    - state: nfsd
-    - state: idnfsdtsfcaptain
+    - state: tsf
+    - state: idtsftsfcaptain
 
 - type: entity
   parent: CadetIDCard
@@ -156,7 +156,7 @@
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
     - state: silver
-    - state: idnfsdsheriff
+    - state: idtsfcolonel
   - type: Item
     heldPrefix: silver
 
@@ -170,8 +170,8 @@
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
-    - state: nfsd
-    - state: idnfsddetective
+    - state: tsf
+    - state: idtsfdetective
 
 - type: entity
   parent: SecurityIDCard

@@ -8,7 +8,7 @@
     containers:
       key_slots:
       - EncryptionKeyCommon
-      - EncryptionKeyNfsd
+      - EncryptionKeyTsf
       - EncryptionKeyCommand
   - type: Sprite
     sprite: Clothing/Ears/Headsets/security.rsi
@@ -42,7 +42,7 @@
     containers:
       key_slots:
       - EncryptionKeyCommon
-      - EncryptionKeyNfsd
+      - EncryptionKeyTsf
 
 - type: entity
   parent: ClothingHeadsetAlt
@@ -54,7 +54,7 @@
       key_slots:
       - EncryptionKeyCommand
       - EncryptionKeyCommon
-      - EncryptionKeyNfsd
+      - EncryptionKeyTsf
       - EncryptionKeyTraffic
       - EncryptionKeyMedical
       - EncryptionKeySecurity

@@ -131,10 +131,10 @@
   - type: FlashImmunity
   - type: IntrinsicRadioTransmitter
     channels:
-    - Nfsd
+    - Tsf
   - type: ActiveRadio
     channels:
-    - Nfsd
+    - Tsf
   - type: MeleeWeapon
     damage:
       types:
@@ -147,13 +147,13 @@
       - NanoTrasen
       - TSFMC
   - type: Speech
-    speechSounds: NfsdCat
+    speechSounds: TsfCat
     speechVerb: SmallMob
   - type: Vocal
     sounds:
-      Male: NfsdCat
-      Female: NfsdCat
-      Unsexed: NfsdCat
+      Male: TsfCat
+      Female: TsfCat
+      Unsexed: TsfCat
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/_NF/Animals/nfsdcat_meow.ogg

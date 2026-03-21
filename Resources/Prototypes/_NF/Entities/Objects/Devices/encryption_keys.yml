@@ -18,15 +18,15 @@
 
 - type: entity
   parent: EncryptionKey
-  id: EncryptionKeyNfsd
+  id: EncryptionKeyTsf
   name: TSFMC encryption key
   categories: [ DoNotMap ]
   description: An encryption key for the TSFMC channel.
   components:
   - type: EncryptionKey
     channels:
-    - Nfsd
-    defaultChannel: Nfsd
+    - Tsf
+    defaultChannel: Tsf
   - type: Item
     sprite: _NF/Objects/Devices/encryption_keys.rsi
   - type: Sprite

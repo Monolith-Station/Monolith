@@ -112,13 +112,13 @@
 #      - state: wet_floor_sign
 
 - type: entity
-  name: NFSD encryption key box
+  name: TSF encryption key box
   parent: BoxEncryptionKeySecurity
-  id: BoxEncryptionKeyNfsd
+  id: BoxEncryptionKeyTsf
   components:
   - type: StorageFill
     contents:
-      - id: EncryptionKeyNfsd
+      - id: EncryptionKeyTsf
         amount: 4
 
 - type: entity

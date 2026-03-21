@@ -2,9 +2,9 @@
 # TODO: Reorganize these into common packs.
 
 - type: latheRecipePack
-  id: NFNfsdTechfabDeprecatedStatic
+  id: NFTsfTechfabDeprecatedStatic
   recipes:
-  - ClothingEyesHudNfsd
+  - ClothingEyesHudTsf
   - CombatKnife
   - Flash
   - ForensicPad
@@ -18,14 +18,14 @@
 #      - WeaponFlareGunSecurity
   - WeaponLaserCarbinePractice
   - Zipties
-  - ThrusterNfsdMachineCircuitboard
+  - ThrusterTsfMachineCircuitboard
   - SmallThrusterMachineCircuitboard
-  - GyroscopeNfsdMachineCircuitboard
-  - SmallGyroscopeNfsdMachineCircuitboard
+  - GyroscopeTsfMachineCircuitboard
+  - SmallGyroscopeTsfMachineCircuitboard
   - ClothingOuterHardsuitEVAPrisoner
   - WeaponDisabler
   - ContrabandAppraisalTool
-  - HoloprojectorNfsd
+  - HoloprojectorTsf
   - ClothingBackpackElectropack
   - PowerCageRechargerCircuitboard
   - PowerCageHigh
@@ -34,7 +34,7 @@
   - Signaller
 
 - type: latheRecipePack
-  id: NFNfsdTechfabDeprecated
+  id: NFTsfTechfabDeprecated
   recipes:
   - ExplosivePayload
   - FlashPayload
@@ -51,6 +51,6 @@
   - WeaponXrayCannon
 
 - type: latheRecipePack
-  id: NFNfsdTechfabDeprecatedEmag
+  id: NFTsfTechfabDeprecatedEmag
   recipes:
   - Wirecutter

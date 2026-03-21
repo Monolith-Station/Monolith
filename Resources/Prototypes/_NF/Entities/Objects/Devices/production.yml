@@ -86,7 +86,7 @@
 
 # TechFab
 - type: entity
-  id: NfsdTechFabCircuitboard
+  id: TsfTechFabCircuitboard
   parent: SecurityTechFabCircuitboard
   name: TSFMC techfab machine board
   description: A machine printed circuit board for an TSFMC techfab.
@@ -95,7 +95,7 @@
       sprite: _NF/Objects/Misc/module.rsi
       state: nfsd
     - type: MachineBoard
-      prototype: NfsdTechFab
+      prototype: TsfTechFab
 
 # Thrusters
 - type: entity
@@ -111,12 +111,12 @@
       Steel: 5
 
 - type: entity
-  id: ThrusterNfsdMachineCircuitboard
+  id: ThrusterTsfMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: TSFMC thruster machine board
   components:
   - type: MachineBoard
-    prototype: ThrusterNfsd
+    prototype: ThrusterTsf
     requirements:
       Capacitor: 3
     stackRequirements:
@@ -193,12 +193,12 @@
     price: 20
 
 - type: entity
-  id: GyroscopeNfsdMachineCircuitboard
+  id: GyroscopeTsfMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: TSFMC gyroscope machine board
   components:
   - type: MachineBoard
-    prototype: GyroscopeNfsd
+    prototype: GyroscopeTsf
     requirements:
       Manipulator: 2
       Capacitor: 1
@@ -206,12 +206,12 @@
       Glass: 2
 
 - type: entity
-  id: SmallGyroscopeNfsdMachineCircuitboard
+  id: SmallGyroscopeTsfMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: small TSFMC gyroscope machine board
   components:
   - type: MachineBoard
-    prototype: SmallGyroscopeNfsd
+    prototype: SmallGyroscopeTsf
     requirements:
       Manipulator: 2
       Capacitor: 1

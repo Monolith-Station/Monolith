@@ -23,7 +23,7 @@
     DeskBell: 4294967295 #Infinite
     EncryptionKeySecurity: 4294967295 #Infinite
     EncryptionKeyService: 4294967295 #Infinite
-    EncryptionKeyNfsd: 5
+    EncryptionKeyTsf: 5
     EncryptionKeyCommand: 5
     AccessConfigurator: 2
   contrabandInventory:
@@ -31,7 +31,7 @@
     LuxuryPen: 1
 
 - type: vendingMachineInventory
-  id: NFPTechNfsdInventory
+  id: NFPTechTsfInventory
   startingInventory:
     CadetPDA: 10
     DeputyPDA: 10
@@ -49,16 +49,16 @@
     BoxPaperOffice: 4
     BoxPaperCaptainsThoughts: 4
     BoxEnvelope: 4
-    BoxFolderNfsdForms: 3
-    BoxFolderNfsdFormsBrown: 3
+    BoxFolderTsfForms: 3
+    BoxFolderTsfFormsBrown: 3
     BoxFolderGreen: 3
     BoxFolderRed: 3
     HandLabeler: 4294967295 #Infinite
-    EncryptionKeyNfsd: 4294967295 #Infinite
+    EncryptionKeyTsf: 4294967295 #Infinite
     EncryptionKeyCommand: 5
-    ClothingOuterCoatNfsdFormal: 3
-    ClothingOuterCoatNfsdFormalSheriff: 3
-    ClothingOuterCoatNfsdLongCoat: 3
+    ClothingOuterCoatTsfFormal: 3
+    ClothingOuterCoatTsfFormalSheriff: 3
+    ClothingOuterCoatTsfLongCoat: 3
     ClothingNeckMantleSheriff: 3
     ClothingMaskGasSheriff: 3
     AccessConfigurator: 2

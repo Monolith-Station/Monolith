@@ -27,7 +27,7 @@
   - Chemistry
   - TsfmcEngineering # Mono
   accessGroups:
-  - GeneralNfsdAccess
+  - GeneralTsfAccess
   special:
   - !type:AddComponentSpecial
     components:
@@ -50,6 +50,6 @@
     back:
     - Magazine45_ACPPistolFMJ
     - BaseSecurityUplinkRadioCaptain
-#    - ShipVoucherNfsdTSFCaptain # Mono
+#    - ShipVoucherTsfTSFCaptain # Mono
     - RubberStampTSFCaptain
     - RadioHandheldNF # Mono

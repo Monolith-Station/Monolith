@@ -95,16 +95,16 @@
 
 #Security patrol suit
 - type: entity
-  parent: NFClothingHeadHardsuitWithLightBaseNfsd
-  id: ClothingHeadHelmetHardsuitNfsdBronze
+  parent: NFClothingHeadHardsuitWithLightBaseTsf
+  id: ClothingHeadHelmetHardsuitTsfBronze
   categories: [ HideSpawnMenu ]
   name: TSFMC M73 tacsuit helmet
   description: An armored tacsuit helmet used by the TSFMC.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf.rsi
   - type: PointLight
     color: "#ffeead"
   - type: Armor
@@ -116,28 +116,28 @@
         Heat: 0.9
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitNfsdBronze
-  id: ClothingHeadHelmetHardsuitNfsdSilver
+  parent: ClothingHeadHelmetHardsuitTsfBronze
+  id: ClothingHeadHelmetHardsuitTsfSilver
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf.rsi
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitNfsdBronze
-  id: ClothingHeadHelmetHardsuitNfsdGold
+  parent: ClothingHeadHelmetHardsuitTsfBronze
+  id: ClothingHeadHelmetHardsuitTsfGold
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf.rsi
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitNfsdBronze
-  id: ClothingHeadHelmetHardsuitNfsdBrigmedic
+  parent: ClothingHeadHelmetHardsuitTsfBronze
+  id: ClothingHeadHelmetHardsuitTsfBrigmedic
   name: TSFMC M73-C tacsuit helmet
   description: An armored tacsuit helmet used by the TSFMC.
   categories: [ HideSpawnMenu ]
@@ -145,21 +145,21 @@
   - type: PointLight
     radius: 5 # Mono
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf.rsi
 
 - type: entity
-  parent: [NFClothingHeadHardsuitWithLightBaseNfsd, ShowMedicalIcons, ShowSecurityIcons]
-  id: ClothingHeadHelmetHardsuitNfsdSheriff
+  parent: [NFClothingHeadHardsuitWithLightBaseTsf, ShowMedicalIcons, ShowSecurityIcons]
+  id: ClothingHeadHelmetHardsuitTsfColonel
   name: TSFMC M92 tacsuit helmet
   description: An armored tacsuit helmet used by the TSFMC.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd_sheriff.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf_colonel.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd_sheriff.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf_colonel.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -167,16 +167,16 @@
     protectionTime: 15
 
 - type: entity
-  parent: [NFClothingHeadHardsuitWithLightBaseNfsd, ShowMedicalIcons, ShowSecurityIcons]
-  id: ClothingHeadHelmetHardsuitNfsdExperimental
+  parent: [NFClothingHeadHardsuitWithLightBaseTsf, ShowMedicalIcons, ShowSecurityIcons]
+  id: ClothingHeadHelmetHardsuitTsfExperimental
   categories: [ HideSpawnMenu ]
   name: TSFMC M92-X tacsuit helmet
   description: Heavily armored hardsuit helmet for TSFMC raids.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd_experimental.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf_experimental.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd_experimental.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf_experimental.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -199,16 +199,16 @@
 
 #Security Combat Hardsuit
 - type: entity
-  parent: NFClothingHeadHardsuitWithLightBaseNfsd
-  id: ClothingHeadHelmetHardsuitNfsdCombat
+  parent: NFClothingHeadHardsuitWithLightBaseTsf
+  id: ClothingHeadHelmetHardsuitTsfCombat
   categories: [ HideSpawnMenu ]
   name: TSFMC M93 tacsuit helmet
   description: Medium armored hardsuit helmet for TSFMC raids.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd_combat.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf_combat.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd_combat.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf_combat.rsi
   - type: PointLight
     color: "#79bb66"
   - type: PressureProtection
@@ -224,16 +224,16 @@
 
 #Security Command Hardsuit
 - type: entity
-  parent: NFClothingHeadHardsuitWithLightBaseNfsd
-  id: ClothingHeadHelmetHardsuitNfsdCommand
+  parent: NFClothingHeadHardsuitWithLightBaseTsf
+  id: ClothingHeadHelmetHardsuitTsfCommand
   categories: [ HideSpawnMenu ]
   name: TSFMC M93-C tacsuit helmet
   description: Medium armored hardsuit helmet for TSFMC raids.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd_command.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf_command.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd_command.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/tsf_command.rsi
   - type: PointLight
     color: "#ffed7f"
   - type: PressureProtection

@@ -14,7 +14,7 @@ guide-entry-frontier-rules = Server Rules
 guide-entry-gas-mining = Gas Mining
 
 # Security entries
-guide-entry-nfsd-smuggling = Smuggling
+guide-entry-tsf-smuggling = Smuggling
 
 # Medical entries
 guide-entry-medical-bounties = Medical Bounties

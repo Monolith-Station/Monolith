@@ -781,7 +781,7 @@ entities:
       - 872
       - 22
       - 1402
-- proto: AirlockExternalGlassNfsdLocked
+- proto: AirlockExternalGlassTsfLocked
   entities:
   - uid: 80
     components:
@@ -804,7 +804,7 @@ entities:
     - type: Transform
       pos: 1.5,-5.5
       parent: 1
-- proto: AirlockNfsdGlassLocked
+- proto: AirlockTsfGlassLocked
   entities:
   - uid: 468
     components:
@@ -812,7 +812,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,13.5
       parent: 1
-- proto: AirlockNfsdLocked
+- proto: AirlockTsfLocked
   entities:
   - uid: 52
     components:
@@ -869,7 +869,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,0.5
       parent: 1
-- proto: AirlockShuttleNfsdCapital
+- proto: AirlockShuttleTsfCapital
   entities:
   - uid: 78
     components:
@@ -2097,7 +2097,7 @@ entities:
     - type: Transform
       pos: -1.5788162,11.552501
       parent: 1
-- proto: BoxFolderNfsdForms
+- proto: BoxFolderTsfForms
   entities:
   - uid: 739
     components:
@@ -4482,7 +4482,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: CrateNfsdNonlethal
+- proto: CrateTsfNonlethal
   entities:
   - uid: 1008
     components:
@@ -5962,7 +5962,7 @@ entities:
       startingCharge: 0
     - type: ApcPowerReceiver
       powerLoad: 50
-- proto: GyroscopeNfsd
+- proto: GyroscopeTsf
   entities:
   - uid: 68
     components:
@@ -6031,7 +6031,7 @@ entities:
     - type: Transform
       pos: -4.5378933,12.800746
       parent: 1
-- proto: LockerNfsdEvidence
+- proto: LockerTsfEvidence
   entities:
   - uid: 1078
     components:
@@ -6043,7 +6043,7 @@ entities:
     - type: Transform
       pos: 5.5,13.5
       parent: 1
-- proto: LockerNfsdSergeant
+- proto: LockerTsfSergeant
   entities:
   - uid: 592
     components:
@@ -6084,7 +6084,7 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: LockerNfsdSilver
+- proto: LockerTsfSilver
   entities:
   - uid: 242
     components:
@@ -6918,7 +6918,7 @@ entities:
     - type: Transform
       pos: -5.5,14.5
       parent: 1
-- proto: ThrusterLargeNfsd
+- proto: ThrusterLargeTsf
   entities:
   - uid: 71
     components:
@@ -6976,7 +6976,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -7.5,8.5
       parent: 1
-- proto: ThrusterNfsd
+- proto: ThrusterTsf
   entities:
   - uid: 62
     components:
@@ -9183,7 +9183,7 @@ entities:
     - type: Transform
       pos: 1.5877162,1.5892885
       parent: 1
-- proto: WeaponLauncherNfsdLake
+- proto: WeaponLauncherTsfLake
   entities:
   - uid: 970
     components:

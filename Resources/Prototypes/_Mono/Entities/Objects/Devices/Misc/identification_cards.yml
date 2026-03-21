@@ -101,12 +101,12 @@
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
-    - state: nfsd
+    - state: tsf
     - state: idstationengineer
   - type: Clothing
     sprite: _NF/Objects/Misc/id_cards.rsi
   - type: Item
-    heldPrefix: nfsd
+    heldPrefix: tsf
 
 # MARK: MARSOC
 

@@ -141,7 +141,7 @@
   suffix: TSFMC Reception, POI
   components:
   - type: Label
-    currentLabel: nf-holopad-general-nfsd-reception
+    currentLabel: nf-holopad-general-tsf-reception
 
 - type: entity
   parent: NFHolopadPoiBase
@@ -149,7 +149,7 @@
   suffix: TSFMC Colonel, POI
   components:
   - type: Label
-    currentLabel: nf-holopad-general-nfsd-sheriff-office
+    currentLabel: nf-holopad-general-tsf-colonel-office
 
 - type: entity
   parent: NFHolopadPoiBase
@@ -157,7 +157,7 @@
   suffix: TSFMC Lobby, POI
   components:
   - type: Label
-    currentLabel: nf-holopad-general-nfsd-lobby
+    currentLabel: nf-holopad-general-tsf-lobby
 
 - type: entity
   parent: NFHolopadPoiBase

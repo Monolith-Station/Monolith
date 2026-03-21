@@ -49,25 +49,25 @@
       - id: NitrousOxideTankFilled # Mono
 
 - type: entity
-  parent: ClothingBackpackDuffelNfsdBrown
-  id: ClothingBackpackDuffelNfsdTrackingBundle
+  parent: ClothingBackpackDuffelTsfBrown
+  id: ClothingBackpackDuffelTsfTrackingBundle
   name: tracking bundle
   description: "All the equipment needed to track almost anything, careful tracking people"
   components:
   - type: StorageFill
     contents:
-      - id: WeaponLauncherNfsdLake
+      - id: WeaponLauncherTsfLake
       - id: NFBoxDartsTracking
 
 - type: entity
-  parent: ClothingBackpackDuffelNfsdBrown
-  id: ClothingBackpackDuffelNfsdEmpBundle
+  parent: ClothingBackpackDuffelTsfBrown
+  id: ClothingBackpackDuffelTsfEmpBundle
   name: TSFMC Lake EMP bundle
   description: "An old repainted China-Lake grenade launcher bundled with 10 rounds of EMP."
   components:
   - type: StorageFill
     contents:
-      - id: WeaponLauncherNfsdLake
+      - id: WeaponLauncherTsfLake
       - id: 40mmGrenadeEMP
         amount: 12
 
@@ -218,7 +218,7 @@
   suffix: Filled
 
 - type: entity
-  parent: [ ClothingBackpackDuffelNfsdBrown, StorageFillEVASuitNfsd ]
-  id: ClothingBackpackDuffelEVABundleNfsd
+  parent: [ ClothingBackpackDuffelTsfBrown, StorageFillEVASuitTsf ]
+  id: ClothingBackpackDuffelEVABundleTsf
   name: TSFMC EVA bundle
   suffix: Filled

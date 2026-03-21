@@ -45,14 +45,14 @@
 
 - type: entity
   parent: ClothingMaskGasSecurity
-  id: ClothingMaskGasNfsd
+  id: ClothingMaskGasTsf
   name: TSFMC gas mask
   description: A standard issue TSFMC gas mask.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Mask/nfsd.rsi
+    sprite: _NF/Clothing/Mask/tsf.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Mask/nfsd.rsi
+    sprite: _NF/Clothing/Mask/tsf.rsi
   - type: CatWearable
 
 - type: entity
@@ -62,9 +62,9 @@
   description: A gas mask worthy of a colonel.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Mask/nfsd_sheriff.rsi
+    sprite: _NF/Clothing/Mask/tsf_colonel.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Mask/nfsd_sheriff.rsi
+    sprite: _NF/Clothing/Mask/tsf_colonel.rsi
 
 - type: entity
   parent: [ ClothingMaskGasExplorer ]

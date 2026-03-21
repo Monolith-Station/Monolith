@@ -34,11 +34,11 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-hos
     stampedColor: "#4c653a"
-    stampState: "paper_stamp-nf-sheriff"
+    stampState: "paper_stamp-nf-colonel"
     protected: True
   - type: Sprite
     sprite: _NF/Objects/Misc/stamps.rsi
-    state: stamp-sheriff
+    state: stamp-colonel
 
 - type: entity
   name: doctor's rubber stamp

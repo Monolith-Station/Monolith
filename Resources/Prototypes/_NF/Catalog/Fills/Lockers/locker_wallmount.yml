@@ -176,8 +176,8 @@
   suffix: Filled
 
 - type: entity
-  parent: [ LockerWallEVAColorNfsd, StorageFillEVASuitNfsd ]
-  id: LockerWallEVAColorNfsdFilled
+  parent: [ LockerWallEVAColorTsf, StorageFillEVASuitTsf ]
+  id: LockerWallEVAColorTsfFilled
   suffix: Filled
 
 - type: entity
@@ -297,6 +297,6 @@
   suffix: Empty, Frontier
   parent:
   - LockerWallColorHydroponics
-  - BaseStructureWallmount  
+  - BaseStructureWallmount
   name: botanist wall locker
 # endregion

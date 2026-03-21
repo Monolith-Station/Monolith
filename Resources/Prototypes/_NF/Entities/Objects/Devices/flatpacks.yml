@@ -836,12 +836,12 @@
 
 - type: entity
   parent: UniformPrinterFlatpack
-  id: NfsdTechFabFlatpack
+  id: TsfTechFabFlatpack
   name: TSFMC techfab flatpack
   description: A flatpack used for constructing an TSFMC techfab.
   components:
   - type: Flatpack
-    entity: NfsdTechFab
+    entity: TsfTechFab
   - type: StaticPrice
     price: 250
   - type: Item
@@ -887,12 +887,12 @@
 
 - type: entity
   parent: HoverbikeFlatpack
-  id: HoverbikeNfsdFlatpack
+  id: HoverbikeTsfFlatpack
   name: TSFMC hoverbike flatpack
   description: A flatpack used for constructing a hoverbike. Keys already slotted in the ignition.
   components:
   - type: Flatpack
-    entity: VehicleHoverbikeNfsdKey
+    entity: VehicleHoverbikeTsfKey
   - type: StaticPrice
     price: 750
 

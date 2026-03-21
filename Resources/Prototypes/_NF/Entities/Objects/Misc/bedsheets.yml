@@ -1,32 +1,32 @@
 - type: entity
-  id: BedsheetNfsd
+  id: BedsheetTsf
   parent: BedsheetBase
   name: TSFMC bedsheet
   components:
   - type: Sprite
     sprite: _NF/Objects/Misc/bedsheets.rsi
-    state: sheetnfsd
+    state: sheettsf
   - type: Clothing
-    sprite: _NF/Clothing/Neck/Bedsheets/Nfsd/nfsd.rsi
+    sprite: _NF/Clothing/Neck/Bedsheets/Tsf/tsf.rsi
 
 - type: entity
-  id: BedsheetNfsdBrigmedic
+  id: BedsheetTsfBrigmedic
   parent: BedsheetBase
   name: brigmedic bedsheet
   components:
   - type: Sprite
     sprite: _NF/Objects/Misc/bedsheets.rsi
-    state: sheetnfsdbrigmed
+    state: sheettsfbrigmed
   - type: Clothing
-    sprite: _NF/Clothing/Neck/Bedsheets/Nfsd/nfsd_brigmed.rsi
+    sprite: _NF/Clothing/Neck/Bedsheets/Tsf/tsf_brigmed.rsi
 
 - type: entity
-  id: BedsheetNfsdSheriff
+  id: BedsheetTsfColonel
   parent: BedsheetBase
   name: colonel bedsheet
   components:
   - type: Sprite
     sprite: _NF/Objects/Misc/bedsheets.rsi
-    state: sheetnfsdsheriff
+    state: sheettsfcolonel
   - type: Clothing
-    sprite: _NF/Clothing/Neck/Bedsheets/Nfsd/nfsd_sheriff.rsi
+    sprite: _NF/Clothing/Neck/Bedsheets/Tsf/tsf_colonel.rsi

@@ -933,7 +933,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -4.5,-3.5
       parent: 1
-- proto: SmallGyroscopeNfsd
+- proto: SmallGyroscopeTsf
   entities:
   - uid: 99
     components:
@@ -956,7 +956,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-4.5
       parent: 1
-- proto: ThrusterNfsd
+- proto: ThrusterTsf
   entities:
   - uid: 98
     components:

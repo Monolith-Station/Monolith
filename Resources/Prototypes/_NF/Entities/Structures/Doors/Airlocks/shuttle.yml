@@ -1,5 +1,5 @@
 - type: entity
-  id: AirlockShuttleAssemblyNfsd
+  id: AirlockShuttleAssemblyTsf
   parent: AirlockShuttleAssembly
   name: external airlock assembly
   suffix: TSFMC, Docking
@@ -9,11 +9,11 @@
     sprite: _NF/Structures/Doors/Airlocks/Standard/docknfsd.rsi
     state: closed
   - type: Construction
-    graph: AirlockShuttleNfsd
+    graph: AirlockShuttleTsf
     node: assembly
 
 - type: entity
-  id: AirlockGlassShuttleNfsd
+  id: AirlockGlassShuttleTsf
   parent: AirlockGlassShuttle
   name: external airlock
   suffix: TSFMC, Glass, Docking
@@ -22,11 +22,11 @@
   - type: Sprite
     sprite: _NF/Structures/Doors/Airlocks/Glass/docknfsd.rsi
   - type: Construction
-    graph: AirlockShuttleNfsd
+    graph: AirlockShuttleTsf
     node: airlockGlass
 
 - type: entity
-  id: AirlockShuttleNfsd
+  id: AirlockShuttleTsf
   parent: AirlockShuttle
   name: external airlock
   suffix: TSFMC, Docking
@@ -35,5 +35,5 @@
   - type: Sprite
     sprite: _NF/Structures/Doors/Airlocks/Standard/docknfsd.rsi
   - type: Construction
-    graph: AirlockShuttleNfsd
+    graph: AirlockShuttleTsf
     node: airlock

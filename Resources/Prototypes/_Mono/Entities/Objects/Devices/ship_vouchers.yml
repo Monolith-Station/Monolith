@@ -144,7 +144,7 @@
 
 # Tsfmc
 - type: entity
-  parent: ShipVoucherNfsdTSFCaptain
+  parent: ShipVoucherTsfCaptain
   id: ShipVoucherTsfmcColonel
   name: TSFMC colonel ship voucher
   description: Allows for two TSFMC ship purchases of any size, and allows for the procurement of a Polaris. Destroyed on sale.
@@ -159,7 +159,7 @@
     vessels:
     - PolarisShip
     accessGroups:
-    - GeneralNfsdAccess
+    - GeneralTsfAccess
 
 - type: entity
   parent: BaseShipLPC
