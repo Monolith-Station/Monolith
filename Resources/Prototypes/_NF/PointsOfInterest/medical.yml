@@ -10,7 +10,7 @@
 # Medical ship garage, medical manager base and medical bounty staging area.
 - type: pointOfInterest
   id: Medical
-  parent: [BaseMobilePOI, BaseRepairablePOI]
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'Medical Dispatch'
   minimumDistance: 1650
   maximumDistance: 5400
