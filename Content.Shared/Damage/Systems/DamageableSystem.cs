@@ -403,8 +403,31 @@ namespace Content.Shared.Damage
                 DamageChanged(uid, component, delta);
             }
         }
+
+        /// <summary>
+        /// Goes through an entity damage's and saves them inside a dictionary if the value is higher than 0
+        /// The dictionary is structured with a string for the name of the damage type, and a FixedPoint2 for the numeric damage value
+        /// </summary>
+        public Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2> GetDamages(Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> damagePerGroup, DamageSpecifier damage)
+        {
+            var damageTypes = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>();
+
+            foreach (var (damageGroupId, _) in damagePerGroup)  //go through each group
+            {
+                var group = _prototypeManager.Index<DamageGroupPrototype>(damageGroupId);  //get group
+                foreach (var type in group.DamageTypes) //go through each type inside that group
+                {
+                    if (!damage.DamageDict.TryGetValue(type, out var damageValue) || damageValue == 0) //get value and make sure it isn't 0
+                        continue;
+
+                    damageTypes.Add(type, damageValue);
+                }
+            }
+            return damageTypes;
+        }
     }
 
+    
     /// <summary>
     ///     Raised before damage is done, so stuff can cancel it if necessary.
     /// </summary>
@@ -521,4 +544,5 @@ namespace Content.Shared.Damage
             InterruptsDoAfters = interruptsDoAfters && DamageIncreased;
         }
     }
+
 }
