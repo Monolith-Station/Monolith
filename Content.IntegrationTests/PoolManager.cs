@@ -69,8 +69,9 @@ public static partial class PoolManager
             entSysMan.LoadExtraSystemType<TestDestructibleListenerSystem>();
 
             IoCManager.Resolve<ILogManager>().GetSawmill("loc").Level = LogLevel.Error;
-            IoCManager.Resolve<IConfigurationManager>()
-                .OnValueChanged(RTCVars.FailureLogLevel, value => logHandler.FailureLevel = value, true);
+            if (!poolSettings.NoValidate) // Mono
+                IoCManager.Resolve<IConfigurationManager>()
+                    .OnValueChanged(RTCVars.FailureLogLevel, value => logHandler.FailureLevel = value, true);
         };
 
         SetDefaultCVars(options);
@@ -164,8 +165,9 @@ public static partial class PoolManager
                     // disconnected. just use reflection.
                     IoCManager.Register<IParallaxManager, DummyParallaxManager>(true);
                     IoCManager.Resolve<ILogManager>().GetSawmill("loc").Level = LogLevel.Error;
-                    IoCManager.Resolve<IConfigurationManager>()
-                        .OnValueChanged(RTCVars.FailureLogLevel, value => logHandler.FailureLevel = value, true);
+                    if (!poolSettings.NoValidate) // Mono
+                        IoCManager.Resolve<IConfigurationManager>()
+                            .OnValueChanged(RTCVars.FailureLogLevel, value => logHandler.FailureLevel = value, true);
                 }
             });
         };
@@ -261,7 +263,8 @@ public static partial class PoolManager
             }
         }
 
-        pair.ValidateSettings(poolSettings);
+        if (!poolSettings.NoValidate) // Mono
+            pair.ValidateSettings(poolSettings);
 
         var poolRetrieveTime = poolRetrieveTimeWatch.Elapsed;
         await testOut.WriteLineAsync(

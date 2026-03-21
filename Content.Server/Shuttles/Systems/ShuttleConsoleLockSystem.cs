@@ -5,7 +5,6 @@ using Content.Shared.Access.Components;
 using Content.Shared._NF.Shipyard.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Hands.Systems;
-using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
@@ -36,7 +35,6 @@ public sealed class ShuttleConsoleLockSystem : SharedShuttleConsoleLockSystem
         base.Initialize();
         SubscribeLocalEvent<ShuttleConsoleLockComponent, ComponentInit>(OnShuttleConsoleLockInit);
         SubscribeLocalEvent<ShuttleConsoleLockComponent, GetVerbsEvent<AlternativeVerb>>(AddUnlockVerb);
-        SubscribeLocalEvent<ShuttleConsoleLockComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
         SubscribeLocalEvent<PdaComponent, AfterInteractEvent>(OnPdaAfterInteract);
         SubscribeLocalEvent<ShuttleConsoleLockComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<ShuttleDeedComponent, ComponentInit>(OnShuttleDeedInit);
@@ -533,20 +531,6 @@ public sealed class ShuttleConsoleLockSystem : SharedShuttleConsoleLockSystem
             _consoleSystem.RemovePilot(pilot);
 
         return true;
-    }
-
-    /// <summary>
-    /// Prevents using the console UI if it's locked
-    /// </summary>
-    private void OnUIOpenAttempt(EntityUid uid,
-        ShuttleConsoleLockComponent component,
-        ActivatableUIOpenAttemptEvent args)
-    {
-        if (GetEffectiveLockState(uid, component))
-        {
-            Popup.PopupEntity(Loc.GetString("shuttle-console-locked"), uid, args.User);
-            args.Cancel();
-        }
     }
 
     /// <summary>

@@ -1,0 +1,35 @@
+#Author: Mrrpip on Github, Skye on Discord
+
+- type: vessel
+  id: QJ340
+  parent: BaseVesselAntag
+  name: GS QJ-340 Support Fighter
+  description: A frontloaded fighter with 2 L1 Phalanxes, a Vanyk Missile pod and a Rubicon EMP launcher.
+  price: 33600 #Rounded up to 28K, with a 20% tax
+  category: Small
+  group: Custom
+  mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes
+  shuttlePath: /Maps/_Mono/Shuttles/Carrier/qj340.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  - Fighter
+  engine:
+  - APU
+
+- type: gameMap
+  id: QJ340
+  mapName: 'QJ-340'
+  mapPath: /Maps/_Mono/Shuttles/Carrier/qj340.yml
+  minPlayers: 0
+  stations:
+    QJ340:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'QJ-340 TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs: {}

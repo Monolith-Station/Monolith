@@ -54,12 +54,13 @@ public sealed partial class DrainComponent : Component
     [DataField]
     public float Range = 2.5f;
 
+    // Mono - disabled
     /// <summary>
     /// How often in seconds the drain checks for puddles around it.
     /// If the EntityQuery seems a bit unperformant this can be increased.
     /// </summary>
-    [DataField]
-    public float DrainFrequency = 1f;
+    // [DataField]
+    // public float DrainFrequency = 1f;
 
     /// <summary>
     /// How much time it takes to unclog it with a plunger
