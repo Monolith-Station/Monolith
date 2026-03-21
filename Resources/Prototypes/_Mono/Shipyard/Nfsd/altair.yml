@@ -1,39 +1,38 @@
-#Author: Starch(!)
-
+#made by Eldritch_Pineapple :3
 - type: vessel
-  id: PolarisShip
+  id: Altair
   parent: BaseVesselAntag
-  name: TSF-SKR Polaris
-  description: A heavily-armed frigate with 6 CYREXAs and 1 CHARON mass-driver. While having heavy firepower, and multiple redundant substations and SMES systems, it lacks heavily in PD.
+  name: TSF-PIN Altair
+  description: A heavily-armed frigate with 4 cyrexa, laser cannons and its main armament, a CHARON mass driver. Made as a heavy frontline brawler and to serve as a fleet anchor for smaller forces.
   limit: 2
   price: 425000
   purchasable: false # voucher only
   category: Large
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/polaris.yml
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/altair.yml
   guidebookPage: Null
   class:
   - Frigate
   - Pursuit
   - Patrol
   engine:
-  - AME
+  - Plasma
 
 - type: gameMap
-  id: PolarisShip
-  mapName: 'TSF-SKR Polaris'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/polaris.yml
+  id: Altair
+  mapName: 'Altair'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/altair.yml
   minPlayers: 0
   stations:
-    PolarisShip:
+    Altair:
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
         description: "Is all this really worth it? A sense of regret washes over you, then dissapears."
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Polaris TSFN{1}'
+        mapNameTemplate: 'Altair TSFN{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'

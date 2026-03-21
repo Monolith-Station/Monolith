@@ -1,4 +1,51 @@
 - type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT2 ]
+  id: ClothingOuterHardsuitPirateScaf
+  name: PDV SCAF hardsuit
+  description: An old SCAF suit painted in an PDV tan color scheme. The armor feels degraded, but lighter.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/scaf_pirate.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/scaf_pirate.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.45
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.55
+        Heat: 0.7
+        Radiation: 0.5
+        Caustic: 0.9
+  - type: StaminaDamageResistance # Mono - Stamres
+    coefficient: 0.3
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitPirateScaf
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: StaticPrice
+    price: 750
+    vendPrice: 2500
+  - type: Tag  # Mono
+    tags:
+    - RogueHardsuit
+
+- type: entity
   parent: [ ClothingOuterHardsuitSyndie, BaseFactionGearPDVT2 ]
   id: ClothingOuterHardsuitAshen
   name: PDV CV-32 combat tacsuit
@@ -17,6 +64,53 @@
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: Tag
+    tags:
+    - RogueHardsuit
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT2 ]
+  id: ClothingOuterHardsuitPDVMedic
+  name: PDV CV-82 combat tacsuit
+  description: A field medic combat hardsuit designed by the Phaethon Dynasty. The armor features various reinforced plating in vital areas.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/pdv_medic.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/pdv_medic.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.67
+        Slash: 0.34
+        Piercing: 0.67
+        Heat: 0.5
+        Radiation: 0.1
+        Caustic: 0.1
+  - type: StaminaDamageResistance # Mono - Stamres
+    coefficient: 0.67
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitPDVMedic
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: StaticPrice
+    price: 1500
+    vendPrice: 4000
+  - type: Tag  # Mono
     tags:
     - RogueHardsuit
 
