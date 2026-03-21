@@ -305,9 +305,9 @@
         coefficients:
           Shock: 1.25
         flatReductions:
-          Blunt: 1.5
-          Slash: 1.5
-          Piercing: 1.5
+          Blunt: 3.5
+          Slash: 3.5
+          Piercing: 3.5
 
 - type: trait
   id: Ironman
@@ -353,7 +353,7 @@
   name: trait-platelet-factories-name
   description: trait-platelet-factories-desc
   category: Physical
-  cost: 10
+  cost: 6
   mutuallyExclusiveTraits:
   - Hemophilia
   speciesBlacklist:
@@ -364,7 +364,10 @@
   components:
   - type: PlateletFactories
     intervalSeconds: 1
-    healPerSecond: .5
+    damagePerInterval:
+      groups:
+        Brute: -1.5
+        Burn: -2
     critMultiplier: .25
 
 - type: trait
@@ -398,4 +401,7 @@
   components:
   - type: PlateletFactories
     intervalSeconds: 1
-    healPerSecond: .5
+    damagePerInterval:
+      groups:
+        Brute: -1.5
+        Burn: -2
