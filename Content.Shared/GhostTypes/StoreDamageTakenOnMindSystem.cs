@@ -1,5 +1,5 @@
-using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Explosion;
 using Content.Shared.FixedPoint;
