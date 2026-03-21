@@ -85,3 +85,6 @@ trait-platelet-factories-desc = Your body has been augmented with a series of bi
 
 trait-nanite-repair-drones-name = Nanite Repair Drones
 trait-nanite-repair-drones-desc = Your Chassis has Nanite Repair Drones coursing through it that respond to physical trauma. While not as quick as manual repair, these will cut down significantly on day to day maintainance.
+
+trait-lymphocyte-promoter-name = Lymphocyte Promoter
+trait-lymphocyte-promoter-desc = Your marrow has been treated with melanocyte-hardened stem cells to abate immune dysfunction associated with radiation exposure. The resultant immune cell volume also aids in recovering from poison.

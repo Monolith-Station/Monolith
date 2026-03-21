@@ -369,6 +369,26 @@
         Brute: -1.5
         Burn: -2
     critMultiplier: .25
+    
+- type: trait
+  id: LymphocytePromoter
+  name: trait-lymphocyte-promoter-name
+  description: trait-lymphocyte-promoter-desc
+  category: Physical
+  cost: 4
+  mutuallyExclusiveTraits:
+  - Hemophilia
+  speciesBlacklist:
+  - IPC
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: PlateletFactories
+    intervalSeconds: 1
+    damagePerInterval:
+      groups:
+        Toxin: -0.2
 
 - type: trait
   id: NaniteRepairDrones

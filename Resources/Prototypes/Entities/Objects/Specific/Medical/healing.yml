@@ -708,6 +708,9 @@
     contents:
     - id: PillTricordrazine
       amount: 5
+  - type: StaticPrice #Mono: Easier rad treatment initiative
+    price: 0
+    vendPrice: 675
 
 - type: entity
   name: pill
