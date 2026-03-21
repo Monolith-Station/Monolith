@@ -52386,6 +52386,8 @@ entities:
     - type: Transform
       pos: 5.5,11.5
       parent: 1
+    missingComponents:
+    - Anchorable
 - proto: MaintenancePlantSpawner
   entities:
   - uid: 11248
@@ -55594,6 +55596,8 @@ entities:
     - type: Transform
       pos: 13.5,15.5
       parent: 1
+    missingComponents:
+    - Anchorable
 - proto: ShuttersNormal
   entities:
   - uid: 8343

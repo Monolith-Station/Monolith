@@ -1,10 +1,14 @@
+# Shortband
+
 - type: radioChannel
   id: Traffic
   name: chat-radio-traffic
   keycode: 'd'
   frequency: 1022
   color: "#CC6633"
-  maxRange: 750
+  maxRange: 1500
+
+# TSFMC
 
 - type: radioChannel
   id: Nfsd
