@@ -18459,3 +18459,52 @@ Entries:
   id: 2036
   time: '2026-03-21T00:37:39.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3497
+- author: Isratosh
+  changes:
+    - type: Add
+      message: >-
+        Vanyk and Vespera missile magazine recipes added to the military and
+        ammo techfabs
+  id: 2037
+  time: '2026-03-21T07:44:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3501
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Shortband range buffed from 750m to 1500m.
+  id: 2038
+  time: '2026-03-21T08:16:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3502
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        All POIs except CC, Seva, and Trade Mall/Depots are now mobile and no
+        longer force anchored. Yes, this includes Halcyon and Helios.
+    - type: Add
+      message: Mini Station Anchor flatpacks to Flatpack vend.
+    - type: Fix
+      message: adds missing mini station anchor to MD
+    - type: Tweak
+      message: mini station anchors take longer to charge up than normal anchors
+  id: 2039
+  time: '2026-03-21T09:04:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3503
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Hailstorm is now 11x more rare. Heavy pulse cannon is now 2x more rare.
+    - type: Tweak
+      message: Hailstorm is now ginormous and slows you down by 80%
+    - type: Tweak
+      message: Expedition ore generation has been buffed by 10x, 20x for iron.
+  id: 2040
+  time: '2026-03-21T09:06:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3470
+- author: UnicornOnLSD
+  changes:
+    - type: Add
+      message: Ported "Ghost types  (#37949)"
+  id: 2041
+  time: '2026-03-21T11:39:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3504
