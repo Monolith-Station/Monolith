@@ -1,0 +1,33 @@
+- type: accessLevel
+  id: USSP
+  name: id-card-access-level-ussp
+
+- type: accessLevel
+  id: USSPHigh
+  name: id-card-access-level-ussp-high
+
+- type: accessLevel
+  id: USSPCommand
+  name: id-card-access-level-ussp-command
+
+- type: accessGroup
+  id: USSPAA
+  tags:
+  - USSP
+  - USSPHigh
+  - USSPCommand
+  - Mercenary
+  - Cryogenics
+
+- type: accessGroup
+  id: USSPHigh
+  tags:
+  - USSP
+  - USSPHigh
+  - Mercenary
+
+- type: accessGroup
+  id: USSPLow
+  tags:
+  - USSP
+  - Mercenary

@@ -11,3 +11,50 @@
   - Security
   - Mercenary # Frontier
   - Captain # Frontier
+
+- type: accessLevel
+  id: TsfmcFTL
+  name: id-card-access-level-tsf-FTL
+  
+- type: accessLevel
+  id: TsfmcCaptain
+  name: id-card-access-level-tsf-Captain
+
+- type: accessGroup
+  id: RecruitTsfAccess
+  tags:
+  - Maintenance
+  - External
+  - Security
+  - Brig
+  
+- type: accessGroup
+  id: GeneralTsfAccess
+  tags:
+  - Maintenance
+  - External
+  - Command
+  - Brig
+  - Security
+  - Mercenary # Frontier
+  - Captain # Frontier
+
+- type: accessGroup
+  id: GeneralTsfBrigAccess
+  tags:
+  - Maintenance
+  - External
+  - Brig
+  
+- type: accessGroup
+  id: GeneralTsfBrigmedicAccess
+  tags:
+  - Maintenance
+  - External
+  - Command
+  - Brig
+  - Security
+  - Mercenary # Frontier
+  - Captain # Frontier
+  - Chemistry
+  - Medical
