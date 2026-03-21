@@ -10,7 +10,7 @@
 # The local Science lab
 - type: pointOfInterest
   id: AnomalousLab
-  parent: BasePOI
+  parent: BaseMobilePOI
   name: 'Anomalous Lab'
   minimumDistance: 7000
   maximumDistance: 10800

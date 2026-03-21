@@ -11,7 +11,7 @@
 # Mono - Turned off.
 # - type: pointOfInterest
 #   id: Medical
-#   parent: [BasePOI, BaseRepairablePOI]
+#   parent: [BaseMobilePOI, BaseRepairablePOI]
 #   name: 'Medical Dispatch'
 #   minimumDistance: 1650
 #   maximumDistance: 5400
