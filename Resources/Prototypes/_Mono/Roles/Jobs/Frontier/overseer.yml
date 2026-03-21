@@ -1,8 +1,8 @@
 - type: job
-  id: StationRepresentative
-  name: job-name-sr
+  id: Overseer
+  name: job-name-overseer
   description: job-description-sr
-  playTimeTracker: JobHeadOfPersonnel
+  playTimeTracker: JobOverseer
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hrs
@@ -27,12 +27,6 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      #- type: NpcFactionMember - Commented out to seperate them from TSFMC.
-      #  factions:
-      #  - TSFMC
-  - !type:GiveItemOnHolidaySpecial
-    holiday: FrontierBirthday
-    prototype: FrontierBirthdayGift
 
 - type: startingGear
   id: SrGear

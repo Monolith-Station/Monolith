@@ -1,27 +1,26 @@
 - type: job
   id: PirateFirstMate
-  name: job-name-pirate-first-mate
-  description: job-description-pirate-first-mate
-  playTimeTracker: JobPirateFirstMate
+  name: job-name-pdv-asvaran
+  description: job-description-pdv_asvaran
+  playTimeTracker: JobPDVAsvaran
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 180000 # 50 hours # mono
     - !type:RoleTimeRequirement
       role: JobPDVDenasvar
       time: 28800 # 8 hours
-  #whitelisted: true # mono - comment out
-  startingGear: PirateFirstMateNFGear
+  startingGear: PDVAsvaranGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   canBeAntag: true
-  icon: "JobIconPirateFirstMate"
-  supervisors: job-supervisors-captain
+  icon: "JobIconPDVAsvaran"
+  supervisors: job-supervisors-pdv-asvaran
   weight: 40
   displayWeight: 40
   assignedCompany: PDV
   setPreference: true
   access:
-  - Pirate
+  - PDVBase
   - PDVCommand
   - Mercenary
   accessGroups:
@@ -31,7 +30,7 @@
     components:
     - type: NpcFactionMember
       factions:
-      - PirateNF
+      - PDV
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages
@@ -39,17 +38,12 @@
     - Freespeak
     languagesUnderstood:
     - Freespeak
-  - !type:GiveItemOnHolidaySpecial # Even pirates get a piece of cake.
-    holiday: FrontierBirthday
-    prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: PirateFirstMateNFGear
+  id: PDVAsvaranGear
   equipment:
     ears: ClothingHeadsetAltVanguardCommand
-    #belt: ClothingBeltUtility
     pocket1: BasePirateUplinkAsvaran
-    #pocket2: AppraisalTool
   storage:
     back:
     - RadioHandheldNF

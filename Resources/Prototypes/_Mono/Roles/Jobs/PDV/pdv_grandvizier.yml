@@ -1,27 +1,27 @@
 - type: job
   id: PirateCaptain
-  name: job-name-pirate-captain
-  description: job-description-pirate-captain
-  playTimeTracker: JobPirateCaptain
+  name: job-name-pdv-vizier
+  description: job-description-pdv-vizier
+  playTimeTracker: JobPDVVizier
   requirements:
     - !type:OverallPlaytimeRequirement # mono start
       time: 144000 # 40 hours
     - !type:RoleTimeRequirement
-      role: JobPirateFirstMate
+      role: JobPDVAsvaran
       time: 18000 # 5 hours - mono
   whitelisted: true
-  startingGear: PirateCaptainNFGear
+  startingGear: PDVVizierGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   canBeAntag: true
-  icon: "JobIconPirateCaptain"
+  icon: "JobIconPDVVizier"
   supervisors: job-supervisors-nobody
   weight: 50
   displayWeight: 50
   assignedCompany: PDV
   setPreference: true
   access:
-  - Pirate
+  - PDVBase
   - GrandVizier
   - PDVCommand
   - Mercenary
@@ -32,7 +32,7 @@
     components:
     - type: NpcFactionMember
       factions:
-      - PirateNF
+      - PDV
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages
@@ -40,15 +40,11 @@
     - Freespeak
     languagesUnderstood:
     - Freespeak
-  - !type:GiveItemOnHolidaySpecial # Even pirates get a piece of cake.
-    holiday: FrontierBirthday
-    prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: PirateCaptainNFGear
+  id: PDVVizierGear
   equipment:
     ears: ClothingHeadsetAltVanguardCommand
-    #belt: ClothingBeltUtility # mono
     pocket1: BasePirateUplinkRadioPirateCaptain
     pocket2: EnergySword
   storage:

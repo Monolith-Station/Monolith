@@ -1,14 +1,11 @@
 - type: job
-  id: Contractor
-  name: job-name-contractor
-  description: job-description-contractor
+  id: Spacer
+  name: job-name-spacer
+  description: job-description-spacer
   playTimeTracker: JobPassenger
   icon: "JobIconContractor"
   supervisors: job-supervisors-hire
   displayWeight: 40 # Top
   accessGroups: # Frontier
   - GeneralAccess # Frontier
-  special:
-  - !type:GiveItemOnHolidaySpecial
-    holiday: FrontierBirthday
-    prototype: FrontierBirthdayGift
+

@@ -1,18 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Qulibly
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Arcticular
-# SPDX-FileCopyrightText: 2025 LukeZurg22
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-# SPDX-FileCopyrightText: 2025 starch
-# SPDX-FileCopyrightText: 2025 thoughtlessuser
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: job
   id: PDVDenasvar
   name: job-name-pdv-denasvar
@@ -35,7 +20,7 @@
   assignedCompany: PDV
   setPreference: true
   access:
-  - Pirate
+  - PDVBase
   - PDVCommand
   - Mercenary
   accessGroups:
@@ -45,7 +30,7 @@
     components:
     - type: NpcFactionMember
       factions:
-      - PirateNF
+      - PDV
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages
@@ -53,9 +38,6 @@
     - Freespeak
     languagesUnderstood:
     - Freespeak
-  - !type:GiveItemOnHolidaySpecial # Even pirates get a piece of cake.
-    holiday: FrontierBirthday
-    prototype: FrontierBirthdayGift
 
 - type: startingGear
   id: PDVDenasvarGear
