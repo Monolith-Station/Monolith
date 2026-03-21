@@ -8,8 +8,8 @@
   id: Rig
   parent: BaseVessel
   name: DIS Rig
-  description: A heavy-class flying refinery straight from the DIS. Originally used as a marketing tool to encourage opportunistic newcomers to mine cheaply for the company, thanks to it's mining platform and industrial ore processor it took a hold on the public market.
-  price: 68000
+  description: A heavy-class flying refinery straight from the DIS. Able to extract, collect and process materials then refine them into whatever the ever changing Colossean market demands. Comes equipped with 
+  price: 68000 # % Markup
   category: Medium
   group: Shipyard
   shuttlePath: /Maps/_Mono/Shuttles/rig.yml
