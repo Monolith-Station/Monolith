@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/19/2026 17:55:39
+  time: 03/21/2026 05:49:49
   entityCount: 566
 maps: []
 grids:
@@ -71,9 +71,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         MetalFoam: []
-        Smoke: []
-        Puddle: []
         Kudzu: []
+        Puddle: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -545,7 +545,7 @@ entities:
       pos: 3.5,-4.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -8528.786
+      secondsUntilStateChange: -10267.048
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
