@@ -262,9 +262,45 @@
   - type: Scrammer
     actionProto: ActionScrammerScramADM
     specifier:
-      avoidSpace: false
       teleportRadius: 40
+      teleportAttempts: 5 # will only slightly aim for grids
+      forceSafe: false
       minRadiusFraction: 0.75 # force teleport 30-40 tiles
+  # lower HP to compensate for scram
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      180: Critical # has innate armor so this is actually more
+      250: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      140: 0.7
+      160: 0.5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+         damage: 350
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - borg_module
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: PlayerBorgRedacted

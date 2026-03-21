@@ -96,6 +96,23 @@
   - type: AccessReader
     access: [["Security"]]
 
+#Colonel hardsuit
+- type: entity
+  id: SuitStorageSheriff
+  parent: SuitStorageBase
+  suffix: TSFMC Colonel
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: NitrogenTankFilled
+        - id: ClothingOuterHardsuitNfsdSheriff # Frontier
+        - id: ClothingMaskGasSheriff
+        - id: JetpackNfsdFilled
+        - id: ClothingShoesBootsMagSecurity # Frontier
+  - type: AccessReader
+    access: [["Security"]]
+
 # Syndicate
 
 #Commander Blood-red hardsuit
