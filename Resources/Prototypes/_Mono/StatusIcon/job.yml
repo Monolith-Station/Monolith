@@ -1,7 +1,152 @@
 - type: jobIcon
   parent: JobIcon
+  id: JobIconSpacer
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: spacer
+  jobName: job-name-spacer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMercenary
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: mercenary
+  jobName: job-name-mercenary
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPirate
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: PDVRakhshan
+  jobName: job-name-pdv-rahkshan
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPDVDenasvar
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: PDVDenasvar
+  jobName: job-name-pdv-denasvar
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPDVVizier
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: PDVVizier
+  jobName: job-name-pdv-vizier
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPDVAsvaran
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: PDVAsvaran
+  jobName: job-name-pdv-asvaran
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPDVInfiltrator
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: PDVInfiltrator
+  jobName: job-name-pdv-infiltrator
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSecurityGuard
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SecurityOfficer
+  jobName: job-name-security-guard
+
+- type: jobIcon
+  parent: JobIconHeadOfPersonnel
+  id: JobIconStationRepresentative
+  jobName: job-name-station-representative
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconStc
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: stationtrafficcontroller
+  jobName: job-name-station-traffic-controller
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconValet
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: valet
+  jobName: job-name-valet
+
+# TSF positions
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconTSFRecruit
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFRecruit
+  jobName: job-name-tsf-recruit
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconTSFMarine
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFMarine
+  jobName: job-name-tsf-marine
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconTSFCorpsman
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFCorpsman
+  jobName: job-name-tsf-corpsman
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconTSFFtl
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFFtl
+  jobName: job-name-tsf-ftl
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconTSFCaptain
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFCaptain
+  jobName: job-name-tsf-captain
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconTSFColonel
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFColonel
+  jobName: job-name-tsf-colonel
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconTSFEngi
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: TSFEngineer
   jobName: job-name-tsf-engineer
+
+  # Medical positions
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDoc
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: nfmsdoc
+  jobName: job-name-doc

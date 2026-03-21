@@ -95,13 +95,13 @@
     state: stamp-doc
 
 - type: entity
-  name: bailiff's rubber stamp
+  name: TSF Captain's rubber stamp
   parent: RubberStampBase
-  id: RubberStampBailiff
+  id: RubberStampTSFCaptain
   categories: [ DoNotMap ]
   components:
   - type: Stamp
-    stampedName: stamp-component-stamped-name-bailiff
+    stampedName: stamp-component-stamped-name-captain
     stampedColor: "#51703b"
     stampState: "paper_stamp-nf-bailiff"
   - type: Sprite

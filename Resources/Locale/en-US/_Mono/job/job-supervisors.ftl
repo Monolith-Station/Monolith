@@ -1,1 +1,13 @@
 job-supervisors-doc = Director of Care
+job-supervisors-sr = the Overseer
+job-supervisors-tsf-colonel = the Colonel
+job-supervisors-tsf-captain = the Captain
+job-supervisors-tsf-ftl = the Fireteam Leaders
+job-supervisors-tsf-recruit = all higher ranking TSFMC personnel
+job-supervisors-prisoner = all TSFMC personnel
+job-supervisors-tsf-marine = Fireteam Leaders, and the Colonel
+job-supervisors-pdv-rahkshan = the PDV Denasvar and above
+job-supervisors-pdv-denasvar = the PDV Asvaran and Grand Vizier
+job-supervisors-pdv-asvaran = the PDV Grand Vizier
+job-supervisors-nobody = nobody
+job-supervisors-ws = Winter Solstice

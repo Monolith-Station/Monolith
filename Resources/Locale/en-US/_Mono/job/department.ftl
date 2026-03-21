@@ -3,3 +3,7 @@ department-PMC = Private Military Contractors
 department-UnionOfSovietSocialistPlanets = Union of Soviet Socialist Planets
 department-UnionOfSovietSocialistPlanets-description = Serve the glorious Union in space against TSFMC and PDV forces.
 department-Medical = Medical Dispatch
+department-Antag = Phaethon Dynasty Imperial Vanguard
+department-Command = Central Command
+department-Frontier = Colossus Frontier Colonization
+department-Security = TSF Marine Corps Detachment

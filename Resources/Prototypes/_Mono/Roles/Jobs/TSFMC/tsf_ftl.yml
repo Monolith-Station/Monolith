@@ -1,22 +1,22 @@
 - type: job
-  id: Bailiff
-  name: job-name-bailiff
-  description: job-description-bailiff
-  playTimeTracker: JobWarden
-  requirements: # mono - lowers all of these tbh
+  id: TSFFtl
+  name: job-name-tsf-ftl
+  description: job-description-tsf-ftl
+  playTimeTracker: JobTsfFTL
+  requirements:
     - !type:OverallPlaytimeRequirement
-      time: 72000 # 20 hours
+      time: 72000 # 20 hours # mono
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 # 10 hours
+      time: 28800 # 8 hours # mono
     - !type:RoleTimeRequirement
-      role: JobSeniorOfficer
-      time: 10800 # 3 hours
-  startingGear: BailiffGear
-  icon: JobIconBailiff
-  supervisors: job-supervisors-sheriff
-  weight: 150
-  displayWeight: 60
+      role: JobTSFMarine
+      time: 36000 # 10 hours # mono
+  startingGear: TSFFtlGear
+  icon: JobIconTSFFtl
+  supervisors: job-supervisors-tsf-captain
+  weight: 140
+  displayWeight: 50
   assignedCompany: TSF
   canBeAntag: false
   access:
@@ -25,9 +25,9 @@
   - Bailiff
   - Medical
   - Chemistry
-  - TsfmcEngineering # Mono
+  - TsfmcEngineering
   accessGroups:
-  - GeneralNfsdAccess
+  - GeneralTsfAccess
   special:
   - !type:AddComponentSpecial
     components:
@@ -36,23 +36,19 @@
       - TSFMC
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
-  - !type:AddLanguageSpecial
+  - !type:AddLanguageSpecial # Monolith - Languages
     languagesSpoken:
     - SolCommon
     languagesUnderstood:
     - SolCommon
-  - !type:GiveItemOnHolidaySpecial
-    holiday: FrontierBirthday
-    prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: BailiffGear
+  id: TSFFtlGear
   equipment:
     pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:
     back:
     - Magazine45_ACPPistolFMJ
-    - BaseSecurityUplinkRadioCaptain
-#    - ShipVoucherNfsdBailiff # Mono
-    - RubberStampBailiff
+    - BaseSecurityUplinkRadioOfficer
+#    - ShipVoucherNfsdSergeant # Mono
     - RadioHandheldNF # Mono

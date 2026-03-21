@@ -1,31 +1,35 @@
 - type: job
-  id: Cadet
-  name: job-name-cadet-nf
-  description: job-description-cadet-nf
-  playTimeTracker: JobSecurityCadet
+  id: TSFCorpsman
+  name: job-name-tsf-corpsman
+  description: job-description-tsf-corpsman
+  playTimeTracker: JobBrigmedic
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 32400 # 9 hours # mono
+      time: 72000 # 20 hours - mono
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 72000 # 20 hours # mono
-      inverted: true # Leave slots open for newer, less confident players.
-  startingGear: CadetGear
-  icon: JobIconCadetNF
-  supervisors: job-supervisors-cadet
-  weight: 70
-  displayWeight: 10
+      time: 7200 # 2 hours - mono
+  alternateRequirementSets:
+    longerPlaytimeLessSec:
+    - !type:OverallPlaytimeRequirement
+      time: 108000 # 30 hours - mono
+  startingGear: TSFCorpsmanGear
+  icon: JobIconTSFCorpsman
+  supervisors: job-supervisors-tsf-captain
+  weight: 125
+  displayWeight: 35
   assignedCompany: TSF
   canBeAntag: false
-  setPreference: false # mono
   accessGroups:
-  - CadetNfsdAccess
+  - GeneralTsfCorpsmanAccess
   special:
   - !type:AddComponentSpecial
     components:
     - type: NpcFactionMember
       factions:
       - TSFMC
+    - type: SurgerySpeedModifier
+      SpeedModifier: 1.65
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages
@@ -33,18 +37,14 @@
     - SolCommon
     languagesUnderstood:
     - SolCommon
-  - !type:GiveItemOnHolidaySpecial
-    holiday: FrontierBirthday
-    prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: CadetGear
+  id: TSFCorpsmanGear
   equipment:
     pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
-    pocket2: BookSecurity
   storage:
     back:
+    - EncryptionKeyMedical
     - Magazine45_ACPPistolFMJ
-    - FederationMilitaryCredit50
-    - BaseSecurityUplinkRadio
+    - BaseSecurityUplinkRadioOfficer #Mono: Changed to officer uplink
     - RadioHandheldNF # Mono

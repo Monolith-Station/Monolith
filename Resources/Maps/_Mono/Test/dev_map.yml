@@ -7744,7 +7744,7 @@ entities:
     - type: Transform
       pos: 3.5,7.5
       parent: 2
-- proto: SpawnPointBailiff
+- proto: SpawnPointTSFCaptain
   entities:
   - uid: 1118
     components:
@@ -7758,28 +7758,28 @@ entities:
     - type: Transform
       pos: -5.5,2.5
       parent: 2
-- proto: SpawnPointBrigmedic
+- proto: SpawnPointTSFCorpsman
   entities:
   - uid: 1120
     components:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
-- proto: SpawnPointCadet
+- proto: SpawnPointTSFRecruit
   entities:
   - uid: 1121
     components:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
-- proto: SpawnPointContractor
+- proto: SpawnPointSpacer
   entities:
   - uid: 1122
     components:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
-- proto: SpawnPointDeputy
+- proto: SpawnPointTSFMarine
   entities:
   - uid: 1123
     components:
@@ -7898,21 +7898,21 @@ entities:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
-- proto: SpawnPointPirate
+- proto: SpawnPointPDVRahkshan
   entities:
   - uid: 1137
     components:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
-- proto: SpawnPointPirateCaptain
+- proto: SpawnPointPDVVizier
   entities:
   - uid: 1138
     components:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
-- proto: SpawnPointPirateFirstMate
+- proto: SpawnPointPDVAsvaran
   entities:
   - uid: 1139
     components:

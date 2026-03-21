@@ -1,7 +1,7 @@
 - type: job
-  id: Sheriff
-  name: job-name-sheriff
-  description: job-description-sheriff
+  id: TSFColonel
+  name: job-name-tsf-colonel
+  description: job-description-tsf-colonel
   playTimeTracker: JobHeadOfSecurity
   requirements:
     - !type:OverallPlaytimeRequirement
@@ -13,11 +13,11 @@
       role: JobWarden
       time: 18000 # 5 hours - mono
   whitelisted: true
-  startingGear: SheriffGear
+  startingGear: TSFColonelGear
   alwaysUseSpawner: true
-  icon: JobIconSheriff
+  icon: JobIconTSFColonel
   requireAdminNotify: true
-  supervisors: job-supervisors-centcom
+  supervisors: job-supervisors-ws
   weight: 180
   displayWeight: 70
   assignedCompany: TSF
@@ -42,12 +42,9 @@
     - SolCommon
     languagesUnderstood:
     - SolCommon
-  - !type:GiveItemOnHolidaySpecial
-    holiday: FrontierBirthday
-    prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: SheriffGear
+  id: TSFColonelGear
   equipment:
     pocket1: WeaponEnergyGunMultiphase # DeltaV gun
     pocket2: EnergySwordNfsd

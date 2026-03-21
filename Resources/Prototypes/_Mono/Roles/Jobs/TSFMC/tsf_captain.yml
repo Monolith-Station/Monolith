@@ -1,22 +1,22 @@
 - type: job
-  id: SeniorOfficer
-  name: job-name-senior-officer
-  description: job-description-senior-officer
-  playTimeTracker: JobSeniorOfficer
-  requirements:
+  id: TSFCaptain
+  name: job-name-tsf-captain
+  description: job-description-tsf-captain
+  playTimeTracker: JobWarden
+  requirements: # mono - lowers all of these tbh
     - !type:OverallPlaytimeRequirement
-      time: 72000 # 20 hours # mono
+      time: 72000 # 20 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 28800 # 8 hours # mono
+      time: 36000 # 10 hours
     - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 36000 # 10 hours # mono
-  startingGear: SeniorOfficerGear
-  icon: JobIconSergeant
-  supervisors: job-supervisors-sheriff
-  weight: 140
-  displayWeight: 50
+      role: JobSeniorOfficer
+      time: 10800 # 3 hours
+  startingGear: TSFCaptainGear
+  icon: JobIconTSFCaptain
+  supervisors: job-supervisors-colonel
+  weight: 150
+  displayWeight: 60
   assignedCompany: TSF
   canBeAntag: false
   access:
@@ -25,7 +25,7 @@
   - Bailiff
   - Medical
   - Chemistry
-  - TsfmcEngineering
+  - TsfmcEngineering # Mono
   accessGroups:
   - GeneralNfsdAccess
   special:
@@ -36,22 +36,20 @@
       - TSFMC
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
-  - !type:AddLanguageSpecial # Monolith - Languages
+  - !type:AddLanguageSpecial
     languagesSpoken:
     - SolCommon
     languagesUnderstood:
     - SolCommon
-  - !type:GiveItemOnHolidaySpecial
-    holiday: FrontierBirthday
-    prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: SeniorOfficerGear
+  id: TSFCaptainGear
   equipment:
     pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:
     back:
     - Magazine45_ACPPistolFMJ
-    - BaseSecurityUplinkRadioOfficer
-#    - ShipVoucherNfsdSergeant # Mono
+    - BaseSecurityUplinkRadioCaptain
+#    - ShipVoucherNfsdBailiff # Mono
+    - RubberStampBailiff
     - RadioHandheldNF # Mono
