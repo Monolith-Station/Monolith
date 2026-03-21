@@ -134,16 +134,16 @@
 
 - type: entity
   parent: CadetIDCard
-  id: BailiffIDCard
+  id: TSFCaptainIDCard
   name: TSFMC captain ID card
   components:
   - type: PresetIdCard
-    job: Bailiff
+    job: TSFCaptain
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
     - state: nfsd
-    - state: idnfsdbailiff
+    - state: idnfsdtsfcaptain
 
 - type: entity
   parent: CadetIDCard
@@ -207,7 +207,7 @@
   id: CCServiceWorkerNFIDCard #Mono
   name: colossus sector service ID card
   description: An identification card belonging to a service worker in the Colossus Sector.
-  components: 
+  components:
   - type: PresetIdCard
     job: ServiceWorker
   - type: Sprite

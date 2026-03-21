@@ -144,7 +144,7 @@
 
 # Tsfmc
 - type: entity
-  parent: ShipVoucherNfsdBailiff
+  parent: ShipVoucherNfsdTSFCaptain
   id: ShipVoucherTsfmcColonel
   name: TSFMC colonel ship voucher
   description: Allows for two TSFMC ship purchases of any size, and allows for the procurement of a Polaris. Destroyed on sale.
@@ -154,7 +154,7 @@
     access: # note - removed HOS/colonel access to prevent free flyssa (its only ship that uses HOS access, so it should be fine)
     - Armory
     - Sergeant
-    - Bailiff
+    - TSFCaptain
     - Security
     vessels:
     - PolarisShip
@@ -282,7 +282,7 @@
     - Inertia
   - type: StaticPrice
     vendPrice: 30000
-    
+
 - type: entity
   parent: BaseShipLPC
   id: ShipVoucherSnakelet

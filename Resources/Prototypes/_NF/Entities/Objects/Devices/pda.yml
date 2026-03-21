@@ -257,12 +257,12 @@
 
 - type: entity
   parent: BaseSecurityPDA
-  id: BailiffPDA
+  id: TSFCaptainPDA
   name: TSF captain PDA
   description: A standard TSFMC personal computer.
   components:
   - type: Pda
-    id: BailiffIDCard
+    id: TSFCaptainIDCard
     bookSlot: # Frontier
       startingItem: HyperlinkBookNfsdSop
       priority: -2

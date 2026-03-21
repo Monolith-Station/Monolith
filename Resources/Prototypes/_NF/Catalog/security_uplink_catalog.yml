@@ -762,7 +762,7 @@
     - !type:BuyerJobCondition
       whitelist:
         - Brigmedic
-        - Bailiff
+        - TSFCaptain
         - Sheriff
 
 - type: listing
@@ -798,7 +798,7 @@
           - SecurityUplink
     - !type:BuyerJobCondition # Mono: Whitelisted Mateba to only Baliff, Sergeant and Sheriff
       whitelist:
-        - Bailiff
+        - TSFCaptain
         - SeniorOfficer
         - Sheriff
 
@@ -867,7 +867,7 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Bailiff
+        - TSFCaptain
         - SeniorOfficer
         - Sheriff
 
@@ -889,7 +889,7 @@
     - !type:BuyerJobCondition
       whitelist:
         - Sheriff
-        - Bailiff
+        - TSFCaptain
         - SeniorOfficer
 
 - type: listing
@@ -957,7 +957,7 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Bailiff
+        - TSFCaptain
         - SeniorOfficer
         - Sheriff
 

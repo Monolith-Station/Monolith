@@ -821,7 +821,7 @@
     - Security
     - Armory
     - Sergeant
-    - Bailiff
+    - TSFCaptain
     - Medical
     - Chemistry
     - TsfmcEngineering
@@ -832,7 +832,7 @@
     - Mercenary
     - Captain
   - type: AccessReader
-    access: [["Security"], ["Armory"], ["Sergeant"], ["Bailiff"], ["TsfmcEngineering"], ["Brig"]]
+    access: [["Security"], ["Armory"], ["Sergeant"], ["TSFCaptain"], ["TsfmcEngineering"], ["Brig"]]
   - type: IntrinsicRadioTransmitter
     channels:
     - Common

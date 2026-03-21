@@ -6791,7 +6791,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 24.5,11.5
       parent: 179
-- proto: ShipVoucherNfsdBailiff
+- proto: ShipVoucherNfsdTSFCaptain
   entities:
   - uid: 1291
     components:
@@ -7071,7 +7071,7 @@ entities:
     - type: Transform
       pos: 3.5,7.5
       parent: 179
-- proto: SpawnPointBailiff
+- proto: SpawnPointTSFCaptain
   entities:
   - uid: 1482
     components:

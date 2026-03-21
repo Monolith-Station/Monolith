@@ -73,7 +73,7 @@ public sealed class VesselPrototype : IPrototype, IInheritingPrototype
     public List<VesselEngine> Engines = new();
 
     /// <summary>
-    ///     The access required to buy the product. (e.g. Command, Mail, Bailiff, etc.)
+    ///     The access required to buy the product. (e.g. Command, Mail, TSFCaptain, etc.)
     /// </summary>
     [DataField]
     public string Access = string.Empty;

@@ -339,10 +339,10 @@
   id: SuitStorageWallmountSergeant
   parent: [SuitStorageWallmount, SuitStorageSergeant]
 
-#NFSDBailiff
+#NFSDTSFCaptain
 - type: entity
-  id: SuitStorageWallmountBailiff
-  parent: [SuitStorageWallmount, SuitStorageBailiff]
+  id: SuitStorageWallmountTSFCaptain
+  parent: [SuitStorageWallmount, SuitStorageTSFCaptain]
 
 #NFSDSheriff
 - type: entity

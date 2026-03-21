@@ -91,7 +91,7 @@
     - !type:BuyerJobCondition
       whitelist:
         - Brigmedic
-        - Bailiff
+        - TSFCaptain
         - Sheriff
 
 
@@ -248,7 +248,7 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Bailiff
+        - TSFCaptain
         - SeniorOfficer
         - Sheriff
 
@@ -256,7 +256,7 @@
   id: UplinkSecurityCapitalVoucher
   name:  uplink-security-capital-voucher-name
   description: uplink-security-capital-voucher-desc
-  productEntity: ShipVoucherNfsdBailiff
+  productEntity: ShipVoucherNfsdTSFCaptain
   cost:
     FederationMilitaryCredit: 125
   categories:
@@ -268,7 +268,7 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Bailiff
+        - TSFCaptain
         - Sheriff
 
 # Misc
@@ -289,7 +289,7 @@
       - SecurityUplink
   - !type:BuyerJobCondition
     whitelist:
-    - Bailiff
+    - TSFCaptain
     - Sheriff
 
 - type: listing
@@ -355,5 +355,5 @@
     - !type:BuyerJobCondition
       whitelist:
         - Sheriff
-        - Bailiff
-        - SeniorOfficer 
+        - TSFCaptain
+        - SeniorOfficer

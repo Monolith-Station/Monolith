@@ -165,15 +165,15 @@
   - type: AccessReader
     access: [["Sergeant"]]
 
-# NFSD Gold - Bailiff
+# NFSD Gold - TSFCaptain
 - type: entity
-  id: LockerNfsdBailiff
+  id: LockerNfsdTSFCaptain
   parent: LockerNfsdSergeant
   name: TSFMC locker
-  suffix: Bailiff
+  suffix: TSFCaptain
   components:
   - type: AccessReader
-    access: [["Bailiff"]]
+    access: [["TSFCaptain"]]
 
 # NFSD Sheriff
 - type: entity

@@ -12,7 +12,7 @@
       time: 36000 # Frontier - 10 hrs
   startingGear: PrisonGuardGear
   icon: "JobIconWarden"
-  supervisors: job-supervisors-bailiff # Frontier
+  supervisors: job-supervisors-tsfcaptain # Frontier
   canBeAntag: false
   access:
   - Security

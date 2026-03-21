@@ -45483,7 +45483,7 @@ entities:
     - type: Transform
       pos: 22.5,-5.5
       parent: 1
-- proto: LockerNfsdBailiff
+- proto: LockerNfsdTSFCaptain
   entities:
   - uid: 6906
     components:
@@ -50561,7 +50561,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 15.5,-14.5
       parent: 1
-- proto: SpawnPointBailiff
+- proto: SpawnPointTSFCaptain
   entities:
   - uid: 7698
     components:

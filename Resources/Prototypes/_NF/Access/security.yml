@@ -5,11 +5,11 @@
 - type: accessLevel
   id: Sergeant
   name: id-card-access-level-sergeant
-  
+
 - type: accessLevel
-  id: Bailiff
-  name: id-card-access-level-bailiff
-  
+  id: TSFCaptain
+  name: id-card-access-level-tsfcaptain
+
 - type: accessGroup
   id: CadetNfsdAccess
   tags:
@@ -17,7 +17,7 @@
   - External
   - Security
   - Brig
-  
+
 - type: accessGroup
   id: GeneralNfsdAccess
   tags:
@@ -35,7 +35,7 @@
   - Maintenance
   - External
   - Brig
-  
+
 - type: accessGroup
   id: GeneralNfsdBrigmedicAccess
   tags:

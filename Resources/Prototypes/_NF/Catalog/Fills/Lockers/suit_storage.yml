@@ -357,9 +357,9 @@
   - type: AccessReader
     access: [["Security"]]
 
-#Bailiff hardsuit
+#TSFCaptain hardsuit
 - type: entity
-  id: SuitStorageBailiff
+  id: SuitStorageTSFCaptain
   parent: SuitStorageBase
   suffix: TSFMC Captain
   components:

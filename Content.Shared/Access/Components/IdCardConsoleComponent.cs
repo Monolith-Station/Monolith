@@ -47,7 +47,7 @@ public sealed partial class IdCardConsoleComponent : Component
     {
         "Armory",
         //"Atmospherics",
-        "Bailiff", // Frontier
+        "TSFCaptain", // Frontier
         //"Bar",
         "Brig",
         "Detective",
