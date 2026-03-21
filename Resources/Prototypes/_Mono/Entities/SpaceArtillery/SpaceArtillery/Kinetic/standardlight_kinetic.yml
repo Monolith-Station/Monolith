@@ -89,7 +89,7 @@
   id: WeaponTurretRAC30
   name: RAC-30 Draupnir Autocannon
   parent: BallisticArtilleryMagazine
-  description: A heavy duty rapid rife autocannon, originally mounted as a dogfighting weapon on atmospheric craft.
+  description: A heavy duty rapid rife 30mm autocannon, originally mounted as a dogfighting weapon on atmospheric craft.
   components:
   - type: StaticPrice
     price: 1000
@@ -111,7 +111,7 @@
     recoil: 5 # 1/5x
     projectileSpeed: 180
     minAngle: 0
-    maxAngle: 8
+    maxAngle: 4
     shootThermalSignature: 100000 # ~4.5km if firing continuously
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
