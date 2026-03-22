@@ -80,7 +80,12 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         if (!Prototypes.HasIndex(args.Prototype) || !Prototypes.HasIndex(args.Subtype))
             return;
         //Mono: Selectable borg whitelist - Validation
-        if (ent.Comp.TypeWhitelist.Count > 0 && !ent.Comp.TypeWhitelist.Contains(args.Prototype))
+        if (ent.Comp.TypeWhitelist.Count == 0)
+        {
+            Log.Error("Empty whitelist on switchible chassis");
+            return;
+        }
+        if (!ent.Comp.TypeWhitelist.Contains(args.Prototype))
             return;
 
         SelectBorgModule(ent, args.Prototype, args.Subtype);

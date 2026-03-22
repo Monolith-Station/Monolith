@@ -46,7 +46,7 @@ public sealed partial class BorgSwitchableTypeComponent : Component
     [DataField]
     public ProtoId<RadioChannelPrototype>[] InherentRadioChannels = [];
     //Mono: Selectable borg whitelist
-    [DataField, AutoNetworkedField]
+    [DataField(required: true), AutoNetworkedField]
     public List<ProtoId<BorgTypePrototype>> TypeWhitelist = new();
 }
 

@@ -93,6 +93,11 @@
   - BorgModuleSurgery
   - BorgModuleDefibrillator
 
+  addComponents:
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+
   # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: medical
