@@ -1,4 +1,5 @@
 using System.Globalization;
+using Content.Shared._Mono.Company;
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -193,6 +194,7 @@ public abstract class SharedIdCardSystem : EntitySystem
     }
 
     /// <summary>
+    /// Mono
     /// Attempts to change the full name of a card.
     /// Returns true/false.
     /// </summary>
@@ -230,6 +232,7 @@ public abstract class SharedIdCardSystem : EntitySystem
     }
 
     /// <summary>
+    /// Mono
     /// Attempts to change the company name of a card.
     /// Returns true/false.
     /// </summary>
@@ -250,9 +253,10 @@ public abstract class SharedIdCardSystem : EntitySystem
             companyName = null;
         }
 
-        if (id.CompanyName == companyName)
+        if (id.CompanyName.Id == companyName)
             return true;
-        id.CompanyName = companyName;
+
+        id.CompanyName = _prototypeManager.Index<CompanyPrototype>(companyName ?? "None");
         Dirty(uid, id);
 
         if (player != null)

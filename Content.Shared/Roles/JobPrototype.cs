@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Company;
 using Content.Shared.Access;
 using Content.Shared.Guidebook;
 using Content.Shared.Players.PlayTimeTracking;
@@ -79,6 +80,13 @@ namespace Content.Shared.Roles
         public bool HideConsoleVisibility { get; private set; } = false;
 
         /// <summary>
+        ///     Mono - Assigns company to the player on spawn.
+        /// </summary>
+        [DataField]
+        public ProtoId<CompanyPrototype> AssignedCompany { get; private set; } = "None";
+
+
+        /// <summary>
         ///     Should the selected traits be applied for this job?
         /// </summary>
         [DataField]
@@ -98,7 +106,7 @@ namespace Content.Shared.Roles
         /// Nyano/DV: For e.g. prisoners, they'll never use their latejoin spawner.
         /// </summary>
         [DataField("alwaysUseSpawner")]
-        public bool AlwaysUseSpawner { get; } = false;
+        public bool AlwaysUseSpawner { get; private set; } = false;
 
         /// <summary>
         ///     The "weight" or importance of this job. If this number is large, the job system will assign this job

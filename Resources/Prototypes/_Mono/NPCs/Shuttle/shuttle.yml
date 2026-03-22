@@ -1,3 +1,5 @@
+#region Cores
+
 # rams parent ship into the closest shuttle with a powered shuttle console
 - type: htnCompound
   id: RammerShuttleCompound
@@ -344,3 +346,32 @@
         proto: NearbyShuttleTargets
         key: Target
         coordinatesKey: TargetCoordinates
+
+#region Autopilot
+
+- type: htnCompound
+  id: AutopilotShuttleCompound
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: Target
+    tasks:
+    - !type:HTNCompoundTask
+      task: AutopilotMoveCompound
+
+- type: htnCompound
+  id: AutopilotMoveCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: true
+        inRangeMaxSpeed: 0.1
+        range: 40
+        leadingEnabled: false
+        targetKey: Target
+        angleKey: TargetRotation
+        maxRotateRate: 0.01
+        requireSolo: true
+        alwaysFaceTarget: true
