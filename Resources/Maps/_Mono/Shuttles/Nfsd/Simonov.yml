@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/21/2026 05:49:49
-  entityCount: 566
+  time: 03/22/2026 12:43:46
+  entityCount: 564
 maps: []
 grids:
 - 1
@@ -70,10 +70,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
-        Kudzu: []
-        Puddle: []
         Smoke: []
+        MetalFoam: []
+        Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -545,11 +545,38 @@ entities:
       pos: 3.5,-4.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -10267.048
+      secondsUntilStateChange: -10486.201
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
+- proto: AmmoLoader
+  entities:
+  - uid: 312
+    components:
+    - type: MetaData
+      name: ammo loader (Vanyx Loader)
+    - type: Transform
+      pos: 2.5,4.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        564:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
+        563:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
+        565:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
+        562:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
+    - type: Label
+      currentLabel: Vanyx Loader
+    - type: NameModifier
+      baseName: ammo loader
 - proto: APCBasic
   entities:
   - uid: 11
@@ -1732,11 +1759,44 @@ entities:
       startingCharge: 0
 - proto: CrateAmmoBoxVanyk
   entities:
-  - uid: 335
+  - uid: 334
     components:
     - type: Transform
-      pos: 2.5,4.5
+      pos: 1.5,4.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14923
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 377
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: DefibrillatorCabinetFilled
   entities:
   - uid: 233
@@ -2461,13 +2521,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 9.5,-6.5
       parent: 1
-- proto: Rack
-  entities:
-  - uid: 334
-    components:
-    - type: Transform
-      pos: 1.5,4.5
-      parent: 1
 - proto: RadarEdgeMarkerCenter
   entities:
   - uid: 336
@@ -2720,22 +2773,12 @@ entities:
   - uid: 377
     components:
     - type: Transform
-      pos: 1.2182435,4.7594566
-      parent: 1
+      parent: 334
+    - type: Physics
+      canCollide: False
     - type: LimitedCharges
       charges: 300
-- proto: ShipRepairDeviceAmmo
-  entities:
-  - uid: 312
-    components:
-    - type: Transform
-      pos: 1.5283059,4.4621205
-      parent: 1
-  - uid: 378
-    components:
-    - type: Transform
-      pos: 1.7626809,4.8371205
-      parent: 1
+    - type: InsideEntityStorage
 - proto: SignalButton
   entities:
   - uid: 379
