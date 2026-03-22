@@ -13,7 +13,7 @@
   parent: [BasePOI, BaseRepairablePOI]
   name: 'Medical Dispatch'
   minimumDistance: 1650
-  maximumDistance: 5400
+  maximumDistance: 2700
   spawnGroup: Required
   gridPath: /Maps/_NF/POI/medical.yml
   addComponents:
