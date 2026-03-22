@@ -13,18 +13,18 @@
   category: medium
   group: Shipyard
   access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/merchant.yml
+  shuttlePath: /Maps/_Mono/Shuttles/Scrap/merchant.yml
   guidebookPage: Null
   class:
   - pursuit
-
+  - Scrapyard
   engine:
   - AME
 
 - type: gameMap
   id: Merchant
   mapName: 'MAWC Merchant'
-  mapPath: /Maps/_Mono/Shuttles/merchant.yml
+  mapPath: /Maps/_Mono/Shuttles/Scrap/merchant.yml
   minPlayers: 0
   stations:
     Merchant:
