@@ -33,18 +33,25 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Vox
-  - type: PassiveDamage
-    # Augment normal health regen to be able to tank some Poison damage
-    # This allows Vox to take their mask off temporarily to eat something without needing a trip to medbay afterwards.
-    allowedStates:
-    - Alive
-    damageCap: 20
+  - type: Barotrauma # Mono: Space-adapted/engineered vox are more resilient against pressure damage
     damage:
       types:
-        Heat: -0.07
-        Poison: -0.2
+        Blunt: 0.20 #per second, scales with pressure and other constants.
+        Heat: 0.04
+  - type: PassiveDamage # Mono: Retain enhanced poison regen, enhance radiation and asphyxiation and cold for space-adapted vox
+    allowedStates:
+    - Alive
+    damageCap: 200
+    damage:
+      types:
+        Heat: -0.05
+        Cold: -0.1
+        Shock: -0.02
+        Radiation: -0.05
+        Asphyxiation: -0.05
+        Poison: -0.1
       groups:
-        Brute: -0.07
+        Brute: -0.15 # Divided among all types whether types exist or not
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
@@ -54,6 +61,11 @@
         sprite: Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
     bloodReagent: AmmoniaBlood
+  - type: TemperatureSpeed # Mono: Cold Vox are slowed less, space adaptation
+    thresholds:
+      210: 0.8
+      150: 0.6
+      90: 0.4
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw

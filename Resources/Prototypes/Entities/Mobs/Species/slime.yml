@@ -63,15 +63,21 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Slime
-  - type: PassiveDamage # Around 8 damage a minute healed
+  - type: PassiveDamage # Mono: More resilient against most damage types and even cellular, very weak to cold.
     allowedStates:
     - Alive
-    damageCap: 65
+    damageCap: 200
     damage:
       types:
-        Heat: -0.14
+        Heat: -0.15
+        Cold: -0.01
+        Shock: -0.05
+        Radiation: -0.05
+        Asphyxiation: -0.05
+        Poison: -0.05
+        Cellular: -0.01
       groups:
-        Brute: -0.14
+        Brute: -0.45 # Divided among all types whether types exist or not
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

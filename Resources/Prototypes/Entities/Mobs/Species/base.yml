@@ -245,15 +245,19 @@
       types:
         Blunt: 0.50 #per second, scales with pressure and other constants.
         Heat: 0.1
-  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
+  - type: PassiveDamage # Mono: Slow general passive regen for most types.
     allowedStates:
     - Alive
-    damageCap: 20
+    damageCap: 200
     damage:
       types:
-        Heat: -0.07
+        Heat: -0.05
+        Cold: -0.05
+        Shock: -0.02
+        Radiation: -0.02
+        Poison: -0.02
       groups:
-        Brute: -0.07
+        Brute: -0.15 # Divided among all types whether types exist or not
   - type: Fingerprint
   - type: Blindable
   # Other

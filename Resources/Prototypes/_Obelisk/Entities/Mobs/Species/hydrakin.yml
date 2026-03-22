@@ -48,6 +48,7 @@
   - type: Temperature
     coldDamageThreshold: 10 # Mono - Absurd cold resistance
     heatDamageThreshold: 332 # no. just no. suffer.
+    currentTemperature: 210.15 # Mono - reset starting temperature
     coldDamage:
       types:
         Cold : 0.01 #per second, scales with temperature & other constants
