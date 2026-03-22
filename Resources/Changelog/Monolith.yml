@@ -18459,3 +18459,196 @@ Entries:
   id: 2036
   time: '2026-03-21T00:37:39.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3497
+- author: Isratosh
+  changes:
+    - type: Add
+      message: >-
+        Vanyk and Vespera missile magazine recipes added to the military and
+        ammo techfabs
+  id: 2037
+  time: '2026-03-21T07:44:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3501
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Shortband range buffed from 750m to 1500m.
+  id: 2038
+  time: '2026-03-21T08:16:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3502
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        All POIs except CC, Seva, and Trade Mall/Depots are now mobile and no
+        longer force anchored. Yes, this includes Halcyon and Helios.
+    - type: Add
+      message: Mini Station Anchor flatpacks to Flatpack vend.
+    - type: Fix
+      message: adds missing mini station anchor to MD
+    - type: Tweak
+      message: mini station anchors take longer to charge up than normal anchors
+  id: 2039
+  time: '2026-03-21T09:04:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3503
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Hailstorm is now 11x more rare. Heavy pulse cannon is now 2x more rare.
+    - type: Tweak
+      message: Hailstorm is now ginormous and slows you down by 80%
+    - type: Tweak
+      message: Expedition ore generation has been buffed by 10x, 20x for iron.
+  id: 2040
+  time: '2026-03-21T09:06:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3470
+- author: UnicornOnLSD
+  changes:
+    - type: Add
+      message: Ported "Ghost types  (#37949)"
+  id: 2041
+  time: '2026-03-21T11:39:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3504
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Camelot station anchor interactable
+    - type: Fix
+      message: PDV Helios is not forceanchored by grid anymore.
+  id: 2042
+  time: '2026-03-21T16:48:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3505
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: World loading range increased
+  id: 2043
+  time: '2026-03-21T18:34:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3506
+- author: EldritchPineapple
+  changes:
+    - type: Add
+      message: Added Tsf Altair, the new frigate!
+    - type: Remove
+      message: Removed Polaris, rest easy
+  id: 2044
+  time: '2026-03-21T19:52:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3241
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Tweaks the Triage to be more armored and guideline compliant.
+  id: 2045
+  time: '2026-03-21T19:55:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3449
+- author: Ghost581X
+  changes:
+    - type: Tweak
+      message: >-
+        The Viper Group hardsuit surplus stocks have been replaced by a
+        standardized Phaethon design tailor-made for Rahkshans who prefer
+        tending to their squadmates.
+  id: 2046
+  time: '2026-03-21T20:00:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3482
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Adds a mappable set of flare countermeasures.
+  id: 2047
+  time: '2026-03-21T20:03:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3468
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Replaced synthalloy with plastitanium.
+    - type: Tweak
+      message: Brass wrecks have a bit more danger.
+  id: 2048
+  time: '2026-03-21T21:23:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3458
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Dymeres and a few other shipguns now can be shot by guns properly
+  id: 2049
+  time: '2026-03-21T21:37:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3510
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Makes Autopulser burst mode reasonable with a burst cooldown of 1
+        second.
+  id: 2050
+  time: '2026-03-21T22:11:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3511
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Natural Letoferol chemical clarified that you need Mesotaxinide to
+        revert it instead of being permanent.
+  id: 2051
+  time: '2026-03-21T22:40:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3512
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Fixed fun!
+  id: 2052
+  time: '2026-03-21T22:50:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3513
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Movable POIs
+  id: 2053
+  time: '2026-03-22T11:03:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3508
+- author: Lokilife
+  changes:
+    - type: Tweak
+      message: Heavy engine update
+  id: 2054
+  time: '2026-03-22T11:04:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3469
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: 'Nerfed wyverns armament '
+  id: 2055
+  time: '2026-03-22T11:13:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3426
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Far reach drones will no longer spontaneously stare north.
+  id: 2056
+  time: '2026-03-22T13:49:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3522
+- author: tonotom1
+  changes:
+    - type: Add
+      message: >-
+        Trait: Hardened Lymphocytes. Costs 4 points, blocks up to 1 radiation
+        damage per tick.
+    - type: Tweak
+      message: Radiation medkits can now be found in radiation suit lockers
+    - type: Tweak
+      message: >-
+        Potassium iodide protection effect no longer sucks: it lasts 5 minutes
+        per 10u instead of 40 seconds
+    - type: Tweak
+      message: Medicine lockers now have trico and med vendors now dispense trico
+  id: 2057
+  time: '2026-03-22T14:53:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3500
+- author: Kiithnaras
+  changes:
+    - type: Tweak
+      message: Expanded damage types healed by bed rest
+    - type: Tweak
+      message: Made Stasis beds damage-neutral to Alive patients.
+  id: 2058
+  time: '2026-03-22T16:01:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3519

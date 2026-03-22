@@ -213,6 +213,7 @@
   name: Signal Emitter
   categories: [ HideSpawnMenu ]
   components:
+  - type: TargetSeekingTarget
   - type: Physics
     bodyType: Dynamic
     fixedRotation: false
