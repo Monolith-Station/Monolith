@@ -38,7 +38,6 @@ namespace Content.MapRenderer.Painters
                 Fresh = true,
                 // Seriously whoever made MapPainter use GameMapPrototype I wish you step on a lego one time.
                 Map = map,
-                NoValidate = true, // Mono
             });
 
             await foreach (var image in RenderPair(stopwatch, pair))
@@ -56,7 +55,6 @@ namespace Content.MapRenderer.Painters
                 DummyTicker = false,
                 Connected = true,
                 Fresh = false,
-                NoValidate = true, // Mono
             });
 
             var server = pair.Server;

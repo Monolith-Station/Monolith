@@ -10,7 +10,7 @@
 #
 - type: pointOfInterest
   id: TSFMCOutpost
-  parent: [BaseMobilePOI, BaseRepairablePOI]
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'TSFMC Secondary Outpost'
   minimumDistance: 11000
   maximumDistance: 14000
@@ -35,7 +35,9 @@
         - type: StationNameSetup
           mapNameTemplate: 'TSFMC Secondary Outpost'
         - type: ExtraStationInformation
-          iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
+          icon:
+            sprite: _NF/Structures/Decoration/banner.rsi
+            state: nfsd-banner
           stationSubtext: 'frontier-lobby-tsfmc-secondary-subtext'
           stationDescription: 'frontier-lobby-tsfmc-secondary-description'
           lobbySortOrder: 2
