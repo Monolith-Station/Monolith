@@ -18716,3 +18716,21 @@ Entries:
   id: 2064
   time: '2026-03-22T19:49:14.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3499
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Cables no longer drop an item when destroyed, ever. Hopefully this will
+        reduce ram lag. Cable HP also standardized to 200 for all types.
+  id: 2065
+  time: '2026-03-22T22:41:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3520
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Hydrakin no longer heat up in criticial.
+    - type: Fix
+      message: People no longer thermal regulate while dead.
+  id: 2066
+  time: '2026-03-22T22:54:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3530
