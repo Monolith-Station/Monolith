@@ -79,13 +79,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250 #Mono 100 >> 250
+        damage: 400
       behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 300
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -138,13 +138,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250 #Mono 100 >> 250
+        damage: 350
       behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 200 #Mono 50 >> 200
+        damage: 250
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -193,13 +193,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250 #Mono 100 >> 250
+        damage: 250
       behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 200 #Mono 50 >> 200
+        damage: 150
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
