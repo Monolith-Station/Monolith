@@ -1,49 +1,35 @@
 - type: borgType
   id: pdvassault
-
-  # Description
   dummyPrototype: PDVBorgChassisAssault
-
-  # Functional
   extraModuleCount: 3
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
     - BorgModuleSyndicate
     - BorgModuleSyndicateAssault
-
   defaultModules:
   - BorgModulePDVStandardAssault
   - BorgModulePDVStandardWeapon
   - BorgModuleJetpack
   - BorgModuleTool
   - BorgModuleGPS
-
-  # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: assault
   spriteHasMindState: assault_l
   spriteNoMindState: assault_l
   spriteToggleLightState: assault_l
-
-  # Pet
   petSuccessString: petting-success-engineer-cyborg
   petFailureString: petting-failure-engineer-cyborg
 
 - type: borgType
   id: pdvengineer
-
-  # Description
   dummyPrototype: PDVBorgChassisEngineer
-
-  # Functional
   extraModuleCount: 2
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
     - BorgModuleSyndicate
     - BorgModuleEngineering
-
   defaultModules:
   - BorgModulePDVStandardWeapon
   - BorgModuleJetpack
@@ -52,38 +38,28 @@
   - BorgModuleConstruction
   - BorgModuleRCD
   - BorgModuleCable
-
   addComponents:
   - type: ShowHealthBars
     damageContainers:
     - Inorganic
     - Silicon
-
-  # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: engineer
   spriteHasMindState: engineer_l
   spriteNoMindState: engineer_l
   spriteToggleLightState: engineer_l
-
-  # Pet
   petSuccessString: petting-success-engineer-cyborg
   petFailureString: petting-failure-engineer-cyborg
 
 - type: borgType
   id: pdvmedical
-
-  # Description
   dummyPrototype: PDVBorgChassisMedical
-
-  # Functional
   extraModuleCount: 2
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
     - BorgModuleSyndicate
     - BorgModuleMedical
-
   defaultModules:
   - BorgModulePDVStandardWeapon
   - BorgModuleJetpack
@@ -92,69 +68,50 @@
   - BorgModuleTreatment
   - BorgModuleSurgery
   - BorgModuleDefibrillator
-
   addComponents:
   - type: ShowHealthBars
     damageContainers:
     - Biological
-
-  # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: medical
   spriteHasMindState: medical_l
   spriteNoMindState: medical_l
   spriteToggleLightState: medical_l
-
-  # Pet
   petSuccessString: petting-success-engineer-cyborg
   petFailureString: petting-failure-engineer-cyborg
 
 - type: borgType
   id: tsfassault
-
-  # Description
   dummyPrototype: TSFBorgChassisAssault
-
-  # Functional
   extraModuleCount: 3
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
     - BorgModuleSyndicate
     - BorgModuleSyndicateAssault
-
   defaultModules:
   - BorgModuleTSFStandardAssault
   - BorgModuleTSFStandardWeapon
   - BorgModuleJetpack
   - BorgModuleTool
   - BorgModuleGPS
-
-  # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: assault
   spriteHasMindState: assault_l
   spriteNoMindState: assault_l
   spriteToggleLightState: assault_l
-
-  # Pet
   petSuccessString: petting-success-engineer-cyborg
   petFailureString: petting-failure-engineer-cyborg
 
 - type: borgType
   id: tsfengineer
-
-  # Description
   dummyPrototype: TSFBorgChassisEngineer
-
-  # Functional
   extraModuleCount: 2
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
     - BorgModuleSyndicate
     - BorgModuleEngineering
-
   defaultModules:
   - BorgModuleTSFStandardWeapon
   - BorgModuleJetpack
@@ -163,38 +120,28 @@
   - BorgModuleConstruction
   - BorgModuleRCD
   - BorgModuleCable
-
   addComponents:
   - type: ShowHealthBars
     damageContainers:
     - Inorganic
     - Silicon
-
-  # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: engineer
   spriteHasMindState: engineer_l
   spriteNoMindState: engineer_l
   spriteToggleLightState: engineer_l
-
-  # Pet
   petSuccessString: petting-success-engineer-cyborg
   petFailureString: petting-failure-engineer-cyborg
 
 - type: borgType
   id: tsfmedical
-
-  # Description
   dummyPrototype: TSFBorgChassisMedical
-
-  # Functional
   extraModuleCount: 2
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
     - BorgModuleSyndicate
     - BorgModuleMedical
-
   defaultModules:
   - BorgModuleTSFStandardWeapon
   - BorgModuleJetpack
@@ -203,22 +150,16 @@
   - BorgModuleTreatment
   - BorgModuleSurgery
   - BorgModuleDefibrillator
-
   addComponents:
   - type: ShowHealthBars
     damageContainers:
     - Biological
-  
   radioChannels:
   - Medical
-
-  # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: medical
   spriteHasMindState: medical_l
   spriteNoMindState: medical_l
   spriteToggleLightState: medical_l
-
-  # Pet
   petSuccessString: petting-success-engineer-cyborg
   petFailureString: petting-failure-engineer-cyborg
