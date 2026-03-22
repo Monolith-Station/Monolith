@@ -360,7 +360,7 @@ public abstract partial class SharedSurgerySystem
         foreach (var type in group)
             adjustedDamage.DamageDict[type] -= bonus;
 
-        var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, adjustedDamage, 2.5f); // 0.5 -> 2.5f, buffed wound surgery tending
+        var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, adjustedDamage, 2.5f); // 0.5 -> 2.5f, buffed wound surgery tending - Mono
         RaiseLocalEvent(args.Body, ref ev);
     }
 
