@@ -7,7 +7,7 @@
 # Discord: ???
 - type: pointOfInterest
   id: HeliosFortress
-  parent: [BaseMobilePOI, BaseRepairablePOI]
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'PDV Helios Fortress'
   minimumDistance: 7500
   maximumDistance: 9500
@@ -34,7 +34,7 @@
         - type: StationNameSetup
           mapNameTemplate: 'PDV Helio Fortress'
         - type: ExtraStationInformation
-          iconPath: /Textures/_NF/Interface/Pirate/piratelogo.png
+          icon: /Textures/_NF/Interface/Pirate/piratelogo.png
           stationSubtext: 'frontier-lobby-pirate-subtext'
           stationDescription: 'frontier-lobby-pirate-description'
         - type: StationJobs

@@ -26,7 +26,7 @@ research-technology-tsfmc-nanofoam = Nanomaterial Growth
 research-technology-tsfmc-demag = System Reset Technology
 research-technology-tsfmc-eshield = Energy Shielding
 research-technology-tsfmc-advanced-meds = Reconstructive Technologies
-research-technology-tsfmc-polaris-voucher = Polaris Procurement LPC
+research-technology-tsfmc-altair-voucher = Altair Procurement LPC
 
 # T3 TSFMC
 research-technology-tsfmc-flyssa-voucher = Flyssa Procurement LPC
