@@ -79,13 +79,13 @@
     thresholds:
 #    - trigger: #Mono out: consolidated to destruction with no spawns
 #        !type:DamageTrigger
-#        damage: 300
+#        damage: 100
 #      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
 #      - !type:DoActsBehavior
 #        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 200 #Mono 50 >> 200
       behaviors:
 #      - !type:SpawnEntitiesBehavior
 #        spawn:
@@ -138,13 +138,13 @@
     thresholds:
 #    - trigger: #Mono out: consolidated to destruction with no spawns
 #        !type:DamageTrigger
-#        damage: 500
+#        damage: 100
 #      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
 #      - !type:DoActsBehavior
 #        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 200 #Mono 50 >> 200
       behaviors:
 #      - !type:SpawnEntitiesBehavior
 #        spawn:
@@ -193,14 +193,14 @@
     thresholds:
 #    - trigger: #Mono out: consolidated to destruction with no spawns
 #        !type:DamageTrigger
-#        damage: 500
+#        damage: 100
 #      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
 #      - !type:DoActsBehavior
 #        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 150
-#      behaviors:
+        damage: 200 #Mono 50 >> 200
+      behaviors:
 #      - !type:SpawnEntitiesBehavior
 #        spawn:
 #          CableApcStack1:
