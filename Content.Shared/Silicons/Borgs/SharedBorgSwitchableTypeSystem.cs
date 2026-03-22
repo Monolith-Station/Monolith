@@ -82,7 +82,7 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         //Mono: Selectable borg whitelist - Validation
         if (ent.Comp.TypeWhitelist.Count == 0)
         {
-            Log.Error("Empty whitelist on switchible chassis");
+            Log.Error("Empty whitelist on selectable cyborg chassis");
             return;
         }
         if (!ent.Comp.TypeWhitelist.Contains(args.Prototype))
