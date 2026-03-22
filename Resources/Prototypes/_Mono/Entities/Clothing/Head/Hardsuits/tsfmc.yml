@@ -1,0 +1,134 @@
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHelmetHardsuitM82
+  name: M82 helmet
+  description: The interchangeable helmet system for the majority of M82 hardsuits. Outfitted with a basic NVG system.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/m82.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/m82.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: NightVision
+    flashDurationMultiplier: 3.5
+    isEquipment: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: [ClothingHeadHardsuitBase, ShowMedicalIcons]
+  id: ClothingHeadHelmetHardsuitM86
+  name: M86 helmet
+  description: Modified from M82 series helmets, outfitted with night-vision equipment and refined gel-layers.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/m86.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/m86.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: NightVision
+    flashDurationMultiplier: 2.25
+    isEquipment: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: [NFClothingHeadHardsuitWithLightBaseNfsd, ShowMedicalIcons, ShowSecurityIcons]
+  id: ClothingHeadHelmetHardsuitNfsdSheriff
+  name: TSFMC M92 tacsuit helmet
+  description: An armored tacsuit helmet used by the TSFMC.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Hardsuits/nfsd_sheriff.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Hardsuits/nfsd_sheriff.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: EyeProtection
+    protectionTime: 15
+
+- type: entity
+  parent: [NFClothingHeadHardsuitWithLightBaseNfsd, ShowMedicalIcons, ShowSecurityIcons]
+  id: ClothingHeadHelmetHardsuitNfsdExperimental
+  categories: [ HideSpawnMenu ]
+  name: TSFMC M92-X tacsuit helmet
+  description: Heavily armored hardsuit helmet for TSFMC raids.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Hardsuits/nfsd_experimental.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Hardsuits/nfsd_experimental.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: EyeProtection
+    protectionTime: 15
+  - type: ThermalVision
+    pulseTime: 1.5
+    isEquipment: true
+    toggleAction: PulseThermalVision
+  - type: NightVision
+    flashDurationMultiplier: 2.75
+    isEquipment: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+#Security Command Hardsuit
+- type: entity
+  parent: NFClothingHeadHardsuitWithLightBaseNfsd
+  id: ClothingHeadHelmetHardsuitNfsdCommand
+  categories: [ HideSpawnMenu ]
+  name: TSFMC M93-C tacsuit helmet
+  description: Medium armored hardsuit helmet for TSFMC raids.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Hardsuits/nfsd_command.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Hardsuits/nfsd_command.rsi
+  - type: PointLight
+    color: "#ffed7f"
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9

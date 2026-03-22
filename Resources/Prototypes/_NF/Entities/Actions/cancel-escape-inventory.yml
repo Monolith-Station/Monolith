@@ -5,6 +5,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: _NF/Actions/escapeinventory.rsi/cancel-escape.png
+    icon: { sprite: _NF/Actions/escapeinventory.rsi, state: cancel-escape }
     event: !type:EscapeInventoryCancelActionEvent
     useDelay: 2

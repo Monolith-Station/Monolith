@@ -71,7 +71,6 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly ShuttleRecordsSystem _shuttleRecordsSystem = default!;
     [Dependency] private readonly ShuttleConsoleLockSystem _shuttleConsoleLock = default!;
