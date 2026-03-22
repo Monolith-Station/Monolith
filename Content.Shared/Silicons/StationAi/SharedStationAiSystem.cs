@@ -28,6 +28,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._Starlight.Silicons.Borgs;//Starlight
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -227,6 +228,16 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
         if (!TryComp(args.Args.Target, out StationAiHolderComponent? targetHolder))
             return;
+        //#region Starlight
+        // basically if the AI is off shunting we wanna force them BACK. simplest way to do that is to fake the event to send them back.
+        var item = ent.Comp.Slot.Item;
+        if (item.HasValue && TryComp<StationAIShuntableComponent>(item.Value, out var shuntable))
+            if (shuntable.Inhabited.HasValue)
+            {
+                var returnEvent = new AIUnShuntActionEvent();
+                RaiseLocalEvent(shuntable.Inhabited.Value, returnEvent);
+            }
+        //#endregion Starlight
 
         // Try to insert our thing into them
         if (_slots.CanEject(ent.Owner, args.User, ent.Comp.Slot))

@@ -38,6 +38,7 @@
     - ActionJumpToCore
     - ActionSurvCameraLights
     - ActionAIViewLaws
+    - ActionAIShunt # Starlight AI Shunt ability
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -511,6 +512,7 @@
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true
+  - type: StationAIShuntable # marker comp so that station AI is able to shunt into other borgs.
 
 # Hologram projection that the AI's eye tracks.
 - type: entity

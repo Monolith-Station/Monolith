@@ -285,6 +285,7 @@
     infraredMultiplier: 0.5
     visualMultiplier: 0.75
   # </Mono>
+  - type: StationAIShunt #Starlight allow shunting into all borgs
 
 - type: entity
   abstract: true
