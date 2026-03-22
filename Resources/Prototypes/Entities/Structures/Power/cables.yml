@@ -77,21 +77,21 @@
     cableType: HighVoltage
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 500
-      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+#    - trigger: #Mono out: consolidated to destruction with no spawns
+#        !type:DamageTrigger
+#        damage: 300
+#      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+#      - !type:DoActsBehavior
+#        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
       behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          CableHVStack1:
-            min: 1
-            max: 1
+#      - !type:SpawnEntitiesBehavior
+#        spawn:
+#          CableHVStack1:
+#            min: 1
+#            max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: CableVisualizer
@@ -136,21 +136,21 @@
     cableType: MediumVoltage
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 500
-      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+#    - trigger: #Mono out: consolidated to destruction with no spawns
+#        !type:DamageTrigger
+#        damage: 500
+#      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+#      - !type:DoActsBehavior
+#        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 250
       behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          CableMVStack1:
-            min: 1
-            max: 1
+#      - !type:SpawnEntitiesBehavior
+#        spawn:
+#          CableMVStack1:
+#            min: 1
+#            max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: CableVisualizer
@@ -191,21 +191,21 @@
     cableType: Apc
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 500
-      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+#    - trigger: #Mono out: consolidated to destruction with no spawns
+#        !type:DamageTrigger
+#        damage: 500
+#      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+#      - !type:DoActsBehavior
+#        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 150
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          CableApcStack1:
-            min: 1
-            max: 1
+#      behaviors:
+#      - !type:SpawnEntitiesBehavior
+#        spawn:
+#          CableApcStack1:
+#            min: 1
+#            max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: CableVisualizer
