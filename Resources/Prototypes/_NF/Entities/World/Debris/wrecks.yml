@@ -107,13 +107,14 @@
       - PlatingBrass
       - PlatingBrass
       - PlatingBrass
+      - Lattice
       - FloorBrassFilled
       - FloorBrassReebe
     blobDrawProb: 0.5
   - type: SimpleFloorPlanPopulator
     entries:
       FloorBrassFilled: &floorBrass
-        - prob: 4 # Intentional blank. 
+        - prob: 4 # Intentional blank.
         # Walls
         - id: ClockworkGirder
           prob: 0.3
@@ -129,7 +130,10 @@
         - id: SalvageSpawnerScrapBrass75
           prob: 1
         - id: SalvageSpawnerPlastitaniumCommon ## mono
-          prob: 1
+          prob: 0.2
+        # Mono - Traps
+        - id: LandMineExplosive
+          prob: 0.05
         # Machine upgrades
         - id: SalvagePartsT2Spawner
           prob: 0.25 # Mono
@@ -172,6 +176,8 @@
           prob: 0.005
         - id: PlushieRatvar # Yes
           prob: 0.005
+        - id: SevastopolPlushie # Mono
+          prob: 0.0005
       PlatingBrass: *floorBrass
       FloorBrassReebe:
         - prob: 1 # Intentional blank.

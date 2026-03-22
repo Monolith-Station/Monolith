@@ -21,8 +21,8 @@
   supervisors: job-supervisors-pirate
   weight: 20
   displayWeight: 20
+  assignedCompany: PDV
   setPreference: true
-  guides: [ BasicLore, PhaethonDynasty ] # Mono
   access:
   - Pirate
   - Mercenary

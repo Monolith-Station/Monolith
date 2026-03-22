@@ -70,3 +70,14 @@
     sprite: _Mono/Structures/Storage/Crates/milequipment.rsi
   - type: Sprite
     sprite: _Mono/Structures/Storage/Crates/milequipment.rsi
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CratePDVEquippment
+  name: PDV equipment crate
+  description: A black and brown crate used by the Vanguard, used to store miscellaneous equippment.
+  components:
+  - type: Icon
+    sprite: _Mono/Structures/Storage/Crates/pdv.rsi
+  - type: Sprite
+    sprite: _Mono/Structures/Storage/Crates/pdv.rsi
