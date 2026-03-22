@@ -214,7 +214,7 @@ uplink-pirate-viper-group-medic-hardsuit-name = Viper Group IMP Hardsuit
 uplink-pirate-viper-group-medic-hardsuit-desc = A light hardsuit adorned with signature markings of the Viper Group. The armor features various reinforced plating in vital areas and a medical HUD complemented by thermal pulse systems.
 
 uplink-pirate-webvest-name = Webvest
-uplink-pirate-webvest-desc = A webvest smuggled into the sector that hasn't been downgraded like ones utilized by civilian contractors. Great pierce resist, poor heat resist.
+uplink-pirate-webvest-desc = A webvest smuggled into the sector that hasn't been downgraded like ones utilized by civilian spacers. Great pierce resist, poor heat resist.
 
 uplink-pirate-syndie-mask-name = Syndicate Gas Mask
 uplink-pirate-syndie-mask-desc = A tactical flash resistant gas mask that can be connected to an air supply.

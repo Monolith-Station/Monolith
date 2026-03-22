@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: NfsdBackpackBrown
-  name: loadout-group-contractor-backpack
+  name: loadout-group-spacer-backpack
   minLimit: 1
   loadouts:
   - NfsdClothingBackpackNfsdBrown
@@ -16,7 +16,7 @@
 
 - type: loadoutGroup
   id: NfsdBackpackCream
-  name: loadout-group-contractor-backpack
+  name: loadout-group-spacer-backpack
   minLimit: 1
   loadouts:
   - NfsdClothingBackpackNfsdCream
@@ -32,7 +32,7 @@
 
 - type: loadoutGroup
   id: NfsdShoesBrown
-  name: loadout-group-contractor-shoes
+  name: loadout-group-spacer-shoes
   minLimit: 1
   loadouts:
   - NfsdClothingShoesBootsBrown
@@ -42,7 +42,7 @@
 
 - type: loadoutGroup
   id: NfsdShoesCream
-  name: loadout-group-contractor-shoes
+  name: loadout-group-spacer-shoes
   minLimit: 1
   loadouts:
   - NfsdClothingShoesBootsCream
@@ -52,7 +52,7 @@
 
 - type: loadoutGroup
   id: NfsdGlovesBrown
-  name: loadout-group-contractor-gloves
+  name: loadout-group-spacer-gloves
   minLimit: 1
   loadouts:
   - NfsdClothingHandsGlovesCombatNfsdBrown
@@ -62,7 +62,7 @@
 
 - type: loadoutGroup
   id: NfsdGlovesCream
-  name: loadout-group-contractor-gloves
+  name: loadout-group-spacer-gloves
   minLimit: 1
   loadouts:
   - NfsdClothingHandsGlovesCombatNfsdCream
@@ -72,7 +72,7 @@
 
 - type: loadoutGroup
   id: NfsdBelt
-  name: loadout-group-contractor-belt
+  name: loadout-group-spacer-belt
   minLimit: 1
   loadouts:
   - NfsdWebbing
@@ -82,7 +82,7 @@
 
 - type: loadoutGroup
   id: NfsdBoxSurvival
-  name: loadout-group-contractor-survival-box
+  name: loadout-group-spacer-survival-box
   hidden: true # No point in showing this, it gets auto-selected.
   minLimit: 1
   loadouts:
@@ -94,7 +94,7 @@
 
 - type: loadoutGroup
   id: NfsdFace
-  name: loadout-group-contractor-face
+  name: loadout-group-spacer-face
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - NfsdClothingMaskGasNfsd
@@ -103,7 +103,7 @@
 
 - type: loadoutGroup
   id: NfsdGlasses
-  name: loadout-group-contractor-glasses
+  name: loadout-group-spacer-glasses
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - NfsdClothingEyesGlasses
@@ -113,7 +113,7 @@
 # Grunt headsets
 - type: loadoutGroup
   id: NfsdEarsBrown
-  name: loadout-group-contractor-ears
+  name: loadout-group-spacer-ears
   minLimit: 1
   loadouts:
   - NfsdClothingHeadsetNfsdBrown
@@ -124,7 +124,7 @@
 
 - type: loadoutGroup
   id: NfsdEarsCream
-  name: loadout-group-contractor-ears
+  name: loadout-group-spacer-ears
   minLimit: 1
   loadouts:
   - NfsdClothingHeadsetNfsdBrown
@@ -135,7 +135,7 @@
 
 - type: loadoutGroup
   id: NfsdEarsGreen
-  name: loadout-group-contractor-ears
+  name: loadout-group-spacer-ears
   minLimit: 1
   loadouts:
   - NfsdClothingHeadsetNfsdBrown
@@ -147,7 +147,7 @@
 # Senior officer headsets
 - type: loadoutGroup
   id: NfsdEarsAltBrown
-  name: loadout-group-contractor-ears
+  name: loadout-group-spacer-ears
   minLimit: 1
   loadouts:
   - NfsdClothingHeadsetAltNfsdBrown
@@ -158,7 +158,7 @@
 
 - type: loadoutGroup
   id: NfsdEarsAltCream
-  name: loadout-group-contractor-ears
+  name: loadout-group-spacer-ears
   minLimit: 1
   loadouts:
   - NfsdClothingHeadsetAltNfsdBrown
@@ -169,7 +169,7 @@
 
 - type: loadoutGroup
   id: NfsdEarsAltGreen
-  name: loadout-group-contractor-ears
+  name: loadout-group-spacer-ears
   minLimit: 1
   loadouts:
   - NfsdClothingHeadsetAltNfsdBrown

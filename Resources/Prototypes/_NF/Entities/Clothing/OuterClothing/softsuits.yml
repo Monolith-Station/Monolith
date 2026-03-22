@@ -161,9 +161,9 @@
 ## CONTRACTORS
 - type: entity
   parent: NFClothingOuterEVASuitBase
-  id: ClothingOuterEVASuitContractor
-  name: contractor EVA suit
-  description: An EVA suit with a built-in helmet commonly issued to contractors.
+  id: ClothingOuterEVASuitSpacer
+  name: spacer EVA suit
+  description: An EVA suit with a built-in helmet commonly issued to spacers.
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Suits/eva_color.rsi
@@ -214,7 +214,7 @@
         shader: unshaded
   - type: ToggleableClothing
     clothingPrototypes:
-      head:  ClothingHeadEVAHelmetContractor
+      head:  ClothingHeadEVAHelmetSpacer
 
 ## COMMAND
 - type: entity

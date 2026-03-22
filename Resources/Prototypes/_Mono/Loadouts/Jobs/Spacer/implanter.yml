@@ -1,6 +1,6 @@
 #T0
 - type: loadout
-  id: ContractorMedicalTrackingImplanter
+  id: SpacerMedicalTrackingImplanter
   name: medical tracking implanter
   storage:
     back:
@@ -8,33 +8,33 @@
 
 #T1
 - type: loadout
-  id: ContractorLightImplanter
+  id: SpacerLightImplanter
   name: light implanter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 1000
   storage:
     back:
     - LightImplanter
 
 - type: loadout
-  id: ContractorBikeHornImplanter
+  id: SpacerBikeHornImplanter
   name: bike horn implanter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 1000
   storage:
     back:
     - BikeHornImplanter
 
 - type: loadout
-  id: ContractorSadTromboneImplanter
+  id: SpacerSadTromboneImplanter
   name: sad trombone implanter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 1000
   storage:
     back:

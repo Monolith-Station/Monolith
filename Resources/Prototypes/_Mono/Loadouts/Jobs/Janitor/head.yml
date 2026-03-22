@@ -7,7 +7,7 @@
   id: JanitorNFPlunger
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0
   equipment:
     head: Plunger
@@ -16,7 +16,7 @@
   id: JanitorNFClothingHeadHatCone
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 0
   equipment:
     head: ClothingHeadHatCone
@@ -25,7 +25,7 @@
   id: JanitorNFGoldenPlunger
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 5000
   equipment:
     head: GoldenPlunger

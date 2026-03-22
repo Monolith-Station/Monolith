@@ -124,12 +124,12 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-seniorofficer
+        pda-tsfftl
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentVColor: "#DFDFDF"
   - type: Icon
-    state: pda-seniorofficer
+    state: pda-tsfftl
 
 - type: entity
   parent: BaseUSSPPDA

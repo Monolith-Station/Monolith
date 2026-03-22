@@ -121,8 +121,8 @@
 ## CONTRACTORS
 - type: entity
   parent: ClothingHeadEVAHelmetWithLightBase
-  id: ClothingHeadEVAHelmetContractor
-  name: contractor EVA helmet
+  id: ClothingHeadEVAHelmetSpacer
+  name: spacer EVA helmet
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

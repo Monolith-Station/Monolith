@@ -42,7 +42,7 @@
 
 # mono edit
 - type: entity
-  id: StorePresetPirateUplink
+  id: StorePresetPDVUplink
   abstract: true
   components:
   - type: Store
@@ -56,7 +56,7 @@
     - UplinkPirateExplosives
 #    - UplinkPirateGambling
     currencyWhitelist:
-    - Doubloon #Rename to Mark/Slip/Chit in code to represent blackmarket currency instead of doubloons
+    - DataChit #Rename to Mark/Slip/Chit in code to represent blackmarket currency instead of doubloons
     balance:
-      Doubloon: 0
+      DataChit: 0
 # mono edit end

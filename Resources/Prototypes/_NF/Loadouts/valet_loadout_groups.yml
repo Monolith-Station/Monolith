@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: ValetJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   loadouts:
   - ValetClothingUniformJumpsuitValet
   - ValetClothingUniformJumpskirtValet
@@ -10,7 +10,7 @@
 
 - type: loadoutGroup
   id: ValetOuterClothing
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-spacer-outerclothing
   loadouts:
   - ValetClothingOuterVestValet
   fallbacks:

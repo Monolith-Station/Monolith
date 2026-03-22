@@ -4,4 +4,57 @@
   suffix: TSFMC
   components:
   - type: Sprite
-    sprite: _Mono/Structures/Shuttles/thrusternfsd_large.rsi
+    sprite: _Mono/Structures/Shuttles/thrustertsf_large.rsi
+
+- type: entity
+  id: ThrusterTsf
+  parent: ThrusterSecurity
+  suffix: TSFMC
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Shuttles/thrustertsf.rsi
+  - type: Machine
+    board: ThrusterNfsdMachineCircuitboard
+
+- type: entity
+  id: DebugThrusterTsf
+  parent: DebugThrusterSecurity
+  suffix: DEBUG, TSFMC
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Shuttles/thrustertsf.rsi
+  - type: Machine
+    board: ThrusterNfsdMachineCircuitboard
+
+- type: entity
+  id: GyroscopeTsf
+  parent: GyroscopeSecurity
+  suffix: TSFMC
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Shuttles/tsfgyroscope.rsi
+    snapCardinals: true
+  - type: Machine
+    board: GyroscopeNfsdMachineCircuitboard
+
+- type: entity
+  id: DebugGyroscopeTsf
+  parent: DebugGyroscopeSecurity
+  suffix: DEBUG, TSFMC
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Shuttles/tsfgyroscope.rsi
+    snapCardinals: true
+  - type: Machine
+    board: GyroscopeNfsdMachineCircuitboard
+
+- type: entity
+  id: SmallGyroscopeTsf
+  parent: SmallGyroscopeSecurity
+  name: small gyroscope
+  suffix: TSFMC
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Shuttles/tsfgyroscope.rsi
+  - type: Machine
+    board: SmallGyroscopeNfsdMachineCircuitboard

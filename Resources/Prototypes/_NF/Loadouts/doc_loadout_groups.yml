@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: DocJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   loadouts:
   - ChiefMedicalOfficerJumpsuit
   - ChiefMedicalOfficerJumpskirt
@@ -12,7 +12,7 @@
 
 - type: loadoutGroup
   id: DocGloves
-  name: loadout-group-contractor-gloves
+  name: loadout-group-spacer-gloves
   minLimit: 0
   loadouts:
   - NitrileGloves
@@ -20,30 +20,30 @@
 
 - type: loadoutGroup
   id: DocBackpack
-  name: loadout-group-contractor-backpack
+  name: loadout-group-spacer-backpack
   loadouts:
   - DocClothingBackpackMedical
   - DocClothingBackpackDuffelMedical
   - DocClothingBackpackSatchelMedical
   - DocClothingBackpackMessengerMedical
   subgroups:
-  - ContractorBackpack
+  - SpacerBackpack
   fallbacks:
   - DocClothingBackpackMedical
 
 - type: loadoutGroup
   id: DocHead
-  name: loadout-group-contractor-head
+  name: loadout-group-spacer-head
   minLimit: 0
   loadouts:
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
   subgroups:
-  - ContractorHead
+  - SpacerHead
 
 - type: loadoutGroup
   id: DocEars
-  name: loadout-group-contractor-ears
+  name: loadout-group-spacer-ears
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - DocClothingHeadsetDoc
@@ -52,7 +52,7 @@
 
 - type: loadoutGroup
   id: DocNeck
-  name: loadout-group-contractor-neck
+  name: loadout-group-spacer-neck
   minLimit: 0
   loadouts:
   - DocClothingCloakCmo
@@ -60,7 +60,7 @@
 
 - type: loadoutGroup
   id: DocPDA
-  name: loadout-group-contractor-id
+  name: loadout-group-spacer-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - DocDocPDA
@@ -69,11 +69,11 @@
 
 - type: loadoutGroup
   id: DocShoes
-  name: loadout-group-contractor-shoes
+  name: loadout-group-spacer-shoes
   loadouts:
   - DocClothingShoesColorWhite
   - StcClothingShoesBootsLaceup # reused purposefully
   subgroups:
-  - ContractorShoes
+  - SpacerShoes
   fallbacks:
   - DocClothingShoesColorWhite

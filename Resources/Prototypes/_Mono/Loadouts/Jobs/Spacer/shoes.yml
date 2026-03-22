@@ -1,5 +1,5 @@
 - type: loadout
-  id: ContractorClothingShoesColorBlack
+  id: SpacerClothingShoesColorBlack
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -8,7 +8,7 @@
     shoes: ClothingShoesColorBlack
 
 - type: loadout
-  id: ContractorClothingShoesClothwrap
+  id: SpacerClothingShoesClothwrap
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -17,7 +17,7 @@
     shoes: ClothingShoesClothwrap
 
 - type: loadout
-  id: ContractorClothingShoesTourist
+  id: SpacerClothingShoesTourist
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -26,7 +26,7 @@
     shoes: ClothingShoesTourist
 
 - type: loadout
-  id: ContractorClothingShoesBootsSalvage
+  id: SpacerClothingShoesBootsSalvage
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -35,7 +35,7 @@
     shoes: ClothingShoesBootsSalvage
 
 - type: loadout
-  id: ContractorClothingShoesChef
+  id: SpacerClothingShoesChef
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -44,7 +44,7 @@
     shoes: ClothingShoesChef
 
 - type: loadout
-  id: ContractorClothingShoesColorBlue
+  id: SpacerClothingShoesColorBlue
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -53,7 +53,7 @@
     shoes: ClothingShoesColorBlue
 
 - type: loadout
-  id: ContractorClothingShoesColorOrange
+  id: SpacerClothingShoesColorOrange
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -62,7 +62,7 @@
     shoes: ClothingShoesColorOrange
 
 - type: loadout
-  id: ContractorClothingShoesColorPurple
+  id: SpacerClothingShoesColorPurple
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -71,7 +71,7 @@
     shoes: ClothingShoesColorPurple
 
 - type: loadout
-  id: ContractorClothingShoesColorRed
+  id: SpacerClothingShoesColorRed
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -80,7 +80,7 @@
     shoes: ClothingShoesColorRed
 
 - type: loadout
-  id: ContractorClothingShoesColorBrown
+  id: SpacerClothingShoesColorBrown
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -89,7 +89,7 @@
     shoes: ClothingShoesColorBrown
 
 - type: loadout
-  id: ContractorClothingShoesColorGreen
+  id: SpacerClothingShoesColorGreen
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -98,7 +98,7 @@
     shoes: ClothingShoesColorGreen
 
 - type: loadout
-  id: ContractorClothingShoesColorYellow
+  id: SpacerClothingShoesColorYellow
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -107,10 +107,10 @@
     shoes: ClothingShoesColorYellow
 #T1
 - type: loadout
-  id: ContractorClothingShoesColorWhite
+  id: SpacerClothingShoesColorWhite
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -121,10 +121,10 @@
     shoes: ClothingShoesColorWhite
 
 - type: loadout
-  id: ContractorClothingShoesBootsMag
+  id: SpacerClothingShoesBootsMag
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -133,10 +133,10 @@
     shoes: ClothingShoesBootsMag
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinter
+  id: SpacerClothingShoesBootsWinter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -145,10 +145,10 @@
     shoes: ClothingShoesBootsWinter
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterAtmos
+  id: SpacerClothingShoesBootsWinterAtmos
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -157,10 +157,10 @@
     shoes: ClothingShoesBootsWinterAtmos
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterHydro
+  id: SpacerClothingShoesBootsWinterHydro
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -169,10 +169,10 @@
     shoes: ClothingShoesBootsWinterHydro
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterCap
+  id: SpacerClothingShoesBootsWinterCap
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -181,10 +181,10 @@
     shoes: ClothingShoesBootsWinterCap
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterCargo
+  id: SpacerClothingShoesBootsWinterCargo
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -193,10 +193,10 @@
     shoes: ClothingShoesBootsWinterCargo
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterChef
+  id: SpacerClothingShoesBootsWinterChef
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -205,10 +205,10 @@
     shoes: ClothingShoesBootsWinterChef
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterChem
+  id: SpacerClothingShoesBootsWinterChem
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -217,10 +217,10 @@
     shoes: ClothingShoesBootsWinterChem
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterEngi
+  id: SpacerClothingShoesBootsWinterEngi
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -229,10 +229,10 @@
     shoes: ClothingShoesBootsWinterEngi
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterGenetics
+  id: SpacerClothingShoesBootsWinterGenetics
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -241,10 +241,10 @@
     shoes: ClothingShoesBootsWinterGenetics
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterMiner
+  id: SpacerClothingShoesBootsWinterMiner
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -253,10 +253,10 @@
     shoes: ClothingShoesBootsWinterMiner
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterParamedic
+  id: SpacerClothingShoesBootsWinterParamedic
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -265,10 +265,10 @@
     shoes: ClothingShoesBootsWinterParamedic
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterRobo
+  id: SpacerClothingShoesBootsWinterRobo
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -277,10 +277,10 @@
     shoes: ClothingShoesBootsWinterRobo
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterSci
+  id: SpacerClothingShoesBootsWinterSci
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -289,10 +289,10 @@
     shoes: ClothingShoesBootsWinterSci
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterViro
+  id: SpacerClothingShoesBootsWinterViro
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -301,10 +301,10 @@
     shoes: ClothingShoesBootsWinterViro
 
 - type: loadout
-  id: ContractorClothingShoesBootsJack
+  id: SpacerClothingShoesBootsJack
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -313,10 +313,10 @@
     shoes: ClothingShoesBootsJack
 
 - type: loadout
-  id: ContractorClothingShoesLeather
+  id: SpacerClothingShoesLeather
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -325,10 +325,10 @@
     shoes: ClothingShoesLeather
 
 - type: loadout
-  id: ContractorClothingShoesBootsLaceup
+  id: SpacerClothingShoesBootsLaceup
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFNotDocOrStc
@@ -339,10 +339,10 @@
     shoes: ClothingShoesBootsLaceup
 
 - type: loadout
-  id: ContractorClothingShoesSlippers
+  id: SpacerClothingShoesSlippers
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -351,10 +351,10 @@
     shoes: ClothingShoesSlippers
 
 - type: loadout
-  id: ContractorClothingShoeSlippersDuck
+  id: SpacerClothingShoeSlippersDuck
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -363,10 +363,10 @@
     shoes: ClothingShoeSlippersDuck
 
 - type: loadout
-  id: ContractorClothingShoesFlippers
+  id: SpacerClothingShoesFlippers
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -375,11 +375,11 @@
     shoes: ClothingShoesFlippers
 
 - type: loadout
-  id: ContractorClothingShoesBootsPunkRandomized
+  id: SpacerClothingShoesBootsPunkRandomized
   name: punk boots (random)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -389,10 +389,10 @@
 
 #T2
 - type: loadout
-  id: ContractorClothingShoesDameDane
+  id: SpacerClothingShoesDameDane
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -401,10 +401,10 @@
     shoes: ClothingShoesDameDane
 
 - type: loadout
-  id: ContractorClothingShoesBootsWork
+  id: SpacerClothingShoesBootsWork
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -413,10 +413,10 @@
     shoes: ClothingShoesBootsWork
 
 - type: loadout
-  id: ContractorClothingShoesBootsCowboyBlack
+  id: SpacerClothingShoesBootsCowboyBlack
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -425,10 +425,10 @@
     shoes: ClothingShoesBootsCowboyBlack
 
 - type: loadout
-  id: ContractorClothingShoesBootsCowboyBrown
+  id: SpacerClothingShoesBootsCowboyBrown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -437,10 +437,10 @@
     shoes: ClothingShoesBootsCowboyBrown
 
 - type: loadout
-  id: ContractorClothingShoesBootsCowboyWhite
+  id: SpacerClothingShoesBootsCowboyWhite
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -449,10 +449,10 @@
     shoes: ClothingShoesBootsCowboyWhite
 
 - type: loadout
-  id: ContractorClothingShoesSnakeskinBoots
+  id: SpacerClothingShoesSnakeskinBoots
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -461,10 +461,10 @@
     shoes: ClothingShoesSnakeskinBoots
 
 - type: loadout
-  id: ContractorClothingShoesHighheelBoots
+  id: SpacerClothingShoesHighheelBoots
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -473,10 +473,10 @@
     shoes: ClothingShoesHighheelBoots
 
 - type: loadout
-  id: ContractorClothingShoesBootsCowboyFancy
+  id: SpacerClothingShoesBootsCowboyFancy
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -485,10 +485,10 @@
     shoes: ClothingShoesBootsCowboyFancy
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterChiefEngineer
+  id: SpacerClothingShoesBootsWinterChiefEngineer
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -497,10 +497,10 @@
     shoes: ClothingShoesBootsWinterChiefEngineer
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterCMO
+  id: SpacerClothingShoesBootsWinterCMO
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -509,10 +509,10 @@
     shoes: ClothingShoesBootsWinterCMO
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterQM
+  id: SpacerClothingShoesBootsWinterQM
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -521,10 +521,10 @@
     shoes: ClothingShoesBootsWinterQM
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterRD
+  id: SpacerClothingShoesBootsWinterRD
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -533,10 +533,10 @@
     shoes: ClothingShoesBootsWinterRD
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterClown
+  id: SpacerClothingShoesBootsWinterClown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -545,10 +545,10 @@
     shoes: ClothingShoesBootsWinterClown
 
 - type: loadout
-  id: ContractorClothingShoesBootsWinterMime
+  id: SpacerClothingShoesBootsWinterMime
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -557,10 +557,10 @@
     shoes: ClothingShoesBootsWinterMime
 
 - type: loadout
-  id: ContractorClothingShoesClown
+  id: SpacerClothingShoesClown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -569,10 +569,10 @@
     shoes: ClothingShoesClown
 
 - type: loadout
-  id: ContractorClothingShoesJester
+  id: SpacerClothingShoesJester
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -581,10 +581,10 @@
     shoes: ClothingShoesJester
 
 - type: loadout
-  id: ContractorClothingShoesBootsPerformer
+  id: SpacerClothingShoesBootsPerformer
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -593,10 +593,10 @@
     shoes: ClothingShoesBootsPerformer
 
 - type: loadout
-  id: ContractorClothingShoesSkates
+  id: SpacerClothingShoesSkates
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -606,10 +606,10 @@
 
 #T3 for lols
 - type: loadout
-  id: ContractorClothingShoesClownLarge
+  id: SpacerClothingShoesClownLarge
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -618,10 +618,10 @@
     shoes: ClothingShoesClownLarge
 
 - type: loadout
-  id: ContractorClothingShoesBling
+  id: SpacerClothingShoesBling
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF

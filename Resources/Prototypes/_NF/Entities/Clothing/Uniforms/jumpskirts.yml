@@ -58,7 +58,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNfsd
   name: TSFMC jumpskirt
-  description: A long sleeved jumpskirt produced for deputy colonels. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood.
+  description: A long sleeved jumpskirt produced for marine colonels. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpskirt/tsf_skirt.rsi
@@ -69,7 +69,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNfsdShort
   name: TSFMC jumpskirt
-  description: A short sleeved jumpskirt produced for deputy colonels. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood.
+  description: A short sleeved jumpskirt produced for marine colonels. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpskirt/tsf_skirt_short.rsi
@@ -91,7 +91,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtPrivateSec
   name: private security jumpskirt
-  description: A specialized uniform for a private security guard. For the discerning private contractor in need of a professional look.
+  description: A specialized uniform for a private security guard. For the discerning private spacer in need of a professional look.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpskirt/private_security.rsi

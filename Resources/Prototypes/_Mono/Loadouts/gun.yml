@@ -1,56 +1,56 @@
 #region Civilian
 
 - type: loadout #MK32 Universal
-  id: ContractorMk32Loadout
+  id: SpacerMk32Loadout
   price: 0
   storage:
     back:
     - WeaponPistolMk32
 
 - type: loadout #MK32 Universal Ammo
-  id: Contractor9x19mmPistolAmmoLoadout
+  id: Spacer9x19mmPistolAmmoLoadout
   price: 500
   storage:
     back:
     - BoxMagazine9x19mmFMJ
 
 - type: loadout #Disabler
-  id: ContractorDisablerLoadout
+  id: SpacerDisablerLoadout
   price: 0
   storage:
     back:
     - WeaponDisabler
 
 - type: loadout #Svalinn
-  id: ContractorSvalinnLoadout
+  id: SpacerSvalinnLoadout
   price: 2000
   storage:
     back:
     - WeaponLaserSvalinn
 
 - type: loadout #Makeshift Laser
-  id: ContractorLaserLoadout
+  id: SpacerLaserLoadout
   price: 0
   storage:
     back:
     - WeaponMakeshiftLaser
 
 - type: loadout #Argenti
-  id: ContractorArgentiLoadout
+  id: SpacerArgentiLoadout
   price: 2000
   storage:
     back:
     - WeaponRevolverArgenti
 
 - type: loadout #Argenti Ammo
-  id: Contractor556x45mmAmmoLoadout
+  id: Spacer556x45mmAmmoLoadout
   price: 1000
   storage:
     back:
     - BoxMagazineSpeedLoader556x45mmFMJ
 
 - type: loadout # Survival Knife
-  id: ContractorSurvivalKnifeLoadout
+  id: SpacerSurvivalKnifeLoadout
   price: 0
   storage:
     back:
@@ -59,14 +59,14 @@
 # Shotguns
 
 - type: loadout #Double Barrel Beanbag
-  id: ContractorDoubleBarreledLoadout
+  id: SpacerDoubleBarreledLoadout
   price: 3000
   storage:
     back:
     - WeaponShotgunDoubleBarreledRubber
 
 - type: loadout #Beanbag Shells
-  id: ContractorBeanbagAmmoLoadout
+  id: SpacerBeanbagAmmoLoadout
   price: 200
   storage:
     back:

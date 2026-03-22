@@ -17,14 +17,14 @@
   - ServiceSelectiveDropper # Mono
   - KitchenAssemblerMachineCircuitboard # Mono
   - ElectricRangeMachineCircuitboard # Mono
-  technologyPrerequisites: 
+  technologyPrerequisites:
   - BasicParts
   position: 3, -2
 
 - type: technology
   id: MiscellaneousItemsOrganization
   name: research-technology-personal-storage-solutions
-  entityIcon: NFPouchContractor
+  entityIcon: NFPouchSpacer
   discipline: CivilianServices
   tier: 1
   cost: 5000
@@ -42,7 +42,7 @@
   - NFPouchMercenary
   - NFPouchPrivateSecurity
   - NFPouchJanitor
-  - NFPouchContractor
+  - NFPouchSpacer
   - NFPouchClown
   - NFPouchMime
   - NFPouchCaptain
@@ -83,7 +83,7 @@
   - ChemDispenserMachineCircuitboard
   - FatExtractorMachineCircuitboard
   - BiogeneratorMachineCircuitboard
-  - BiofabricatorMachineCircuitboard 
+  - BiofabricatorMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
   technologyPrerequisites:
   - AdvancedParts

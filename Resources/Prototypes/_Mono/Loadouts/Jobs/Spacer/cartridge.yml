@@ -1,39 +1,39 @@
 #T1
 - type: loadout
-  id: ContractorAppraisalCartridge
+  id: SpacerAppraisalCartridge
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   storage:
     back:
     - AppraisalCartridge
 
 - type: loadout
-  id: ContractorMedTekCartridge
+  id: SpacerMedTekCartridge
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   storage:
     back:
     - MedTekCartridge
 
 - type: loadout
-  id: ContractorNetProbeCartridge
+  id: SpacerNetProbeCartridge
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   storage:
     back:
     - NetProbeCartridge
 
 - type: loadout
-  id: ContractorLogProbeCartridge
+  id: SpacerLogProbeCartridge
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   storage:
     back:

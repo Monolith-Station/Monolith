@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: SecurityGuardGloves
-  name: loadout-group-contractor-gloves
+  name: loadout-group-spacer-gloves
   loadouts:
   - CombatGloves
   - ColorBlackGloves
@@ -11,7 +11,7 @@
 
 - type: loadoutGroup
   id: SecurityGuardHead
-  name: loadout-group-contractor-head
+  name: loadout-group-spacer-head
   minLimit: 0
   loadouts:
   - SecurityBeret
@@ -19,7 +19,7 @@
 
 - type: loadoutGroup
   id: SecurityGuardJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   loadouts:
   - SecurityGuardJumpsuit
   - SecurityGuardJumpskirt
@@ -29,7 +29,7 @@
 
 - type: loadoutGroup
   id: SecurityGuardBackpack
-  name: loadout-group-contractor-backpack
+  name: loadout-group-spacer-backpack
   loadouts:
   - SecurityGuardBackpack
   - SecurityGuardSatchel
@@ -40,7 +40,7 @@
 
 - type: loadoutGroup
   id: SecurityGuardOuterClothing
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-spacer-outerclothing
   loadouts:
   - ArmorVest
   - ArmorVestSlim
@@ -49,7 +49,7 @@
 
 - type: loadoutGroup
   id: SecurityGuardShoes
-  name: loadout-group-contractor-shoes
+  name: loadout-group-spacer-shoes
   loadouts:
   - LeatherShoes
   - CombatBoots
@@ -59,7 +59,7 @@
 
 - type: loadoutGroup
   id: SecurityGuardEars
-  name: loadout-group-contractor-ears
+  name: loadout-group-spacer-ears
   loadouts:
   - SecurityGuardClothingHeadsetSecurityCommon
   - SecurityGuardClothingHeadsetAltSecurityCommon
@@ -68,7 +68,7 @@
 
 - type: loadoutGroup
   id: SecurityGuardBelt
-  name: loadout-group-contractor-belt
+  name: loadout-group-spacer-belt
   loadouts:
   - SecurityBelt
   - SecurityWebbing
@@ -77,7 +77,7 @@
 
 - type: loadoutGroup
   id: SecurityGuardPDA
-  name: loadout-group-contractor-id
+  name: loadout-group-spacer-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - SecurityGuardSecurityGuardPDA
@@ -86,7 +86,7 @@
 
 - type: loadoutGroup
   id: SecurityGuardFace
-  name: loadout-group-contractor-face
+  name: loadout-group-spacer-face
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - SecurityClothingMaskGasSecurity

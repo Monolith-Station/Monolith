@@ -1,6 +1,6 @@
 # Tier 1 generic playtime. 12 hours, 2 full shifts.
 - type: loadoutEffectGroup
-  id: ContractorT1
+  id: SpacerT1
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
@@ -9,7 +9,7 @@
 
 # Tier 2 generic playtime. 30 hours, 5 full shifts.
 - type: loadoutEffectGroup
-  id: ContractorT2
+  id: SpacerT2
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
@@ -18,7 +18,7 @@
 
 # Tier 3 generic playtime. 50 hours, 8+ full shifts. Premium toy rewards.
 - type: loadoutEffectGroup
-  id: ContractorT3
+  id: SpacerT3
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:

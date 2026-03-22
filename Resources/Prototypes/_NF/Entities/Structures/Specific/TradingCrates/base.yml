@@ -119,7 +119,7 @@
   - type: Contraband
     turnInValues:
       FederationMilitaryCredit: 12 # Mono
-      Doubloon: 12 # Mono
+      DataChit: 12 # Mono
   - type: ShipyardSellCondition
     blockSale: true
     reason: shipyard-console-contraband-onboard

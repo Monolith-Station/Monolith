@@ -10,7 +10,7 @@
   parent: BaseVessel
   name: UW Sellsword
   description: An escort picket comprising a claustrophobic, cast-plastitanium coffin enrobing a 255mm gun and VESPERA missile pod. Combat life expectancy of 4 minutes. Has a military IFF designation.
-  price: 56000 # markup 15% from 48600. 
+  price: 56000 # markup 15% from 48600.
   category: Small
   group: Shipyard
   access: Mercenary
@@ -37,6 +37,6 @@
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            Contractor: [ 0, 0 ]
+            Spacer: [ 0, 0 ]
             Pilot: [ 0, 0 ]
             Mercenary: [ 0, 0 ]

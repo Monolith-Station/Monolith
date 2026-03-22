@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: JanitorNFHead
-  name: loadout-group-contractor-head
+  name: loadout-group-spacer-head
   minLimit: 0
   loadouts:
   - JanitorNFClothingHeadHatPurplesoft
@@ -10,7 +10,7 @@
 
 - type: loadoutGroup
   id: JanitorNFJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   loadouts:
   - JanitorNFClothingUniformJumpsuitJanitor
   - JanitorNFClothingUniformJumpskirtJanitor
@@ -20,7 +20,7 @@
 
 - type: loadoutGroup
   id: JanitorNFGloves
-  name: loadout-group-contractor-gloves
+  name: loadout-group-spacer-gloves
   minLimit: 0
   loadouts:
   - JanitorNFClothingHandsGlovesJanitor
@@ -29,7 +29,7 @@
 
 - type: loadoutGroup
   id: JanitorNFOuterClothing
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-spacer-outerclothing
   minLimit: 0
   loadouts:
   - JanitorNFClothingOuterWinterJani

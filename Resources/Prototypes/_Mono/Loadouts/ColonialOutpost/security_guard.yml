@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: MonoSecurityGuardOuterClothing
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-spacer-outerclothing
   hidden: true # No point in showing this, it gets auto-selected.
   minLimit: 1
   loadouts:
@@ -15,7 +15,7 @@
 
 - type: loadoutGroup
   id: MonoSecurityGuardBelt
-  name: loadout-group-contractor-belt
+  name: loadout-group-spacer-belt
   minLimit: 1
   loadouts:
   - MonoSecurityGuardWebbing
@@ -49,7 +49,7 @@
 
 - type: loadoutGroup
   id: MonoSecurityGuardGaiter
-  name: loadout-group-contractor-face
+  name: loadout-group-spacer-face
   loadouts:
   - MonoSecurityGuardNeckGaiter
   - MonoSecurityGuardNeckGaiterRed
@@ -70,7 +70,7 @@
 
 - type: loadoutGroup
   id: MonoSecurityGuardHud
-  name: loadout-group-contractor-glasses
+  name: loadout-group-spacer-glasses
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - MonoSecHUD
@@ -84,7 +84,7 @@
 
 - type: loadoutGroup
   id: MonoSecurityGuardShoes
-  name: loadout-group-contractor-shoes
+  name: loadout-group-spacer-shoes
   hidden: true # No point in showing this, it gets auto-selected.
   minLimit: 1
   loadouts:
@@ -99,7 +99,7 @@
 
 - type: loadoutGroup
   id: MonoSecurityGuardJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   minLimit: 1
   loadouts:
   - MonoSecJumpsuitRed
@@ -119,7 +119,7 @@
 
 - type: loadoutGroup
   id: MonoSecurityGuardBack
-  name: loadout-group-contractor-backpack
+  name: loadout-group-spacer-backpack
   minLimit: 1
   loadouts:
   - MonoSecurityGuardBackpack

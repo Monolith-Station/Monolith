@@ -55,8 +55,8 @@
   suffix: Filled
 
 - type: entity
-  parent: [ LockerWallEVAColorContractor, StorageFillEVASuitContractor ]
-  id: LockerWallEVAColorContractorFilled
+  parent: [ LockerWallEVAColorSpacer, StorageFillEVASuitSpacer ]
+  id: LockerWallEVAColorSpacerFilled
   suffix: Filled
 
 - type: entity

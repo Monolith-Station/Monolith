@@ -104,7 +104,7 @@
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
     - state: tsf
-    - state: idtsfdeputy
+    - state: idtsfmarine
 
 - type: entity
   parent: CadetIDCard
@@ -117,7 +117,7 @@
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
     - state: tsf
-    - state: idtsfbrigmed
+    - state: idtsfcorpsman
 
 - type: entity
   parent: CadetIDCard
@@ -225,16 +225,16 @@
 
 - type: entity
   parent: PassengerIDCard
-  id: ContractorIDCard
+  id: SpacerIDCard
   name: Spacer ID card
   components:
   - type: PresetIdCard
-    job: Contractor
+    job: Spacer
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: idcontractor
+    - state: idspacer
 
 - type: entity
   parent: PunPunIDCard

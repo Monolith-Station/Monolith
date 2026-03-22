@@ -2,7 +2,7 @@
 
 - type: loadoutGroup
   id: PirateJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   loadouts:
   - PirateJumpsuit
   - PirateJumpskirt
@@ -13,7 +13,7 @@
 
 - type: loadoutGroup
   id: RakhshanPDA
-  name: loadout-group-contractor-id
+  name: loadout-group-spacer-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - PDVRakhshanPDVRakhshanPDA
@@ -22,30 +22,30 @@
 
 - type: loadoutGroup
   id: PirateFace
-  name: loadout-group-contractor-face
+  name: loadout-group-spacer-face
   minLimit: 0
   loadouts:
-  - ContractorClothingMaskBreath
-  - ContractorClothingMaskBreathMedical
-  - ContractorClothingMaskGas
+  - SpacerClothingMaskBreath
+  - SpacerClothingMaskBreathMedical
+  - SpacerClothingMaskGas
   subgroups: # mono
   - MercenaryFace
   - PilotFace
 
 - type: loadoutGroup
   id: PirateShoes
-  name: loadout-group-contractor-shoes
+  name: loadout-group-spacer-shoes
   loadouts:
   - PirateClothingShoesBootsLaceup
   - PirateClothingShoesBootsPirateLuffy
   subgroups: # mono
   - MercenaryShoes
-  - ContractorShoes
+  - SpacerShoes
   - PilotShoes
 
 - type: loadoutGroup
   id: PirateHead
-  name: loadout-group-contractor-head
+  name: loadout-group-spacer-head
   minLimit: 0
   loadouts:
   - PirateClothingHeadBandBlack
@@ -54,48 +54,48 @@
   - PirateClothingHeadBandRed
   subgroups: # mono
   - MercenaryHead
-  - ContractorHead
+  - SpacerHead
   - PilotHead
 
 - type: loadoutGroup
   id: PirateTrinkets
-  name: loadout-group-contractor-trinkets
+  name: loadout-group-spacer-trinkets
   minLimit: 0
   maxLimit: 3
   loadouts:
   - PirateNFPouchPirate
   subgroups:
-  - ContractorTrinkets
+  - SpacerTrinkets
 
 # Pirate Captain loadouts
 
 - type: loadoutGroup
   id: PirateCaptainHead
-  name: loadout-group-contractor-head
+  name: loadout-group-spacer-head
   minLimit: 0
   loadouts:
   - PirateClothingHeadHatPirate
   - PirateClothingHeadHatPirateLuffy
   subgroups: # mono
   - MercenaryHead
-  - ContractorHead
+  - SpacerHead
   - PilotHead
 
 - type: loadoutGroup
   id: PirateCaptainOuterClothing
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-spacer-outerclothing
   hidden: false
   minLimit: 0
   loadouts:
   - PirateCaptainClothingOuterCoatPirate
   subgroups: # mono
-  - ContractorOuterClothing
+  - SpacerOuterClothing
   - MercenaryOuterClothing
   - PilotOuterClothing
 
 - type: loadoutGroup
   id: GrandVizierPDA
-  name: loadout-group-contractor-id
+  name: loadout-group-spacer-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - PDVGrandVizierPDVGrandVizierPDA
@@ -104,7 +104,7 @@
 
 - type: loadoutGroup
   id: PirateCaptainWallet
-  name: loadout-group-contractor-wallet
+  name: loadout-group-spacer-wallet
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - PirateCaptainClothingWalletLeatherPirate
@@ -113,42 +113,42 @@
 
 - type: loadoutGroup
   id: PirateCaptainTrinkets
-  name: loadout-group-contractor-trinkets
+  name: loadout-group-spacer-trinkets
   minLimit: 0
   maxLimit: 3
   loadouts:
   - PirateNFPouchPirateCaptain
   subgroups:
-  - ContractorTrinkets
+  - SpacerTrinkets
 
 # Pirate First Mate loadouts
 
 - type: loadoutGroup
   id: PirateFirstMateHead
-  name: loadout-group-contractor-head
+  name: loadout-group-spacer-head
   minLimit: 0
   loadouts:
   - PirateClothingHeadHatPirateTricord
   - PirateClothingHeadHatPirateLuffy
   subgroups: # mono
   - MercenaryHead
-  - ContractorHead
+  - SpacerHead
   - PilotHead
 
 - type: loadoutGroup
   id: PirateFirstMateOuterClothing
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-spacer-outerclothing
   minLimit: 0
   loadouts:
   - PirateFirstMateClothingOuterCoatGentle
   subgroups: # mono
   - MercenaryOuterClothing
-  - ContractorOuterClothing
+  - SpacerOuterClothing
   - PilotOuterClothing
 
 - type: loadoutGroup
   id: AsvaranPDA
-  name: loadout-group-contractor-id
+  name: loadout-group-spacer-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - PDVAsvaranPDVAsvaranPDA
@@ -159,7 +159,7 @@
 
 - type: loadoutGroup
   id: PDVInfiltratorPDA
-  name: loadout-group-contractor-id
+  name: loadout-group-spacer-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - PDVSpasakaPDVSpasakaPDA
@@ -168,7 +168,7 @@
 
 - type: loadoutGroup
   id: PDVDenasvarPDA
-  name: loadout-group-contractor-id
+  name: loadout-group-spacer-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - PDVDenasvarPDVDenasvarPDA

@@ -1,30 +1,30 @@
 - type: loadoutGroup
   id: DeputyJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   loadouts:
   - DeputyClothingUniformJumpsuitDeputy
   - DeputyClothingUniformJumpskirtDeputy
   fallbacks:
   - DeputyClothingUniformJumpsuitDeputy
   - DeputyClothingUniformJumpskirtDeputy
-  
+
 - type: loadoutGroup
   id: DeputyOuterClothing
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-spacer-outerclothing
   minLimit: 0
   loadouts:
   - NfsdOuterClothing
 
 - type: loadoutGroup
   id: DeputyHead
-  name: loadout-group-contractor-head
+  name: loadout-group-spacer-head
   minLimit: 0
   loadouts:
   - DeputyClothingHeadHatDeputy
 
 - type: loadoutGroup
   id: DeputyNeck
-  name: loadout-group-contractor-neck
+  name: loadout-group-spacer-neck
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - DeputyClothingNeckBadgeDeputy
@@ -33,7 +33,7 @@
 
 - type: loadoutGroup
   id: DeputyPDA
-  name: loadout-group-contractor-id
+  name: loadout-group-spacer-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - DeputyDeputyPDA

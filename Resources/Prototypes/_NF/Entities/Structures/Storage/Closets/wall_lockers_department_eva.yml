@@ -377,9 +377,9 @@
 ## Wildcards
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
-  id: LockerWallEVAColorContractor
+  id: LockerWallEVAColorSpacer
   parent: LockerWallColorBase
-  name: contractor EVA wall locker
+  name: spacer EVA wall locker
   components:
   - type: Sprite
     layers:

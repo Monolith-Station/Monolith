@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: NFDetectiveJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   loadouts:
   - NFDetectiveClothingUniformJumpsuitDetective
   - NFDetectiveClothingUniformJumpskirtDetective
@@ -9,10 +9,10 @@
   fallbacks:
   - NFDetectiveClothingUniformJumpsuitDetective
   - NFDetectiveClothingUniformJumpskirtDetective
-  
+
 - type: loadoutGroup
   id: NFDetectiveOuterClothing
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-spacer-outerclothing
   minLimit: 0
   loadouts:
   - NFDetectiveClothingOuterArmorBasic
@@ -22,15 +22,15 @@
 
 - type: loadoutGroup
   id: NFDetectiveHead
-  name: loadout-group-contractor-head
+  name: loadout-group-spacer-head
   minLimit: 0
   loadouts:
   - NFDetectiveClothingHeadHatFedoraBrown
   - NFDetectiveClothingHeadHatFedoraGrey
-  
+
 - type: loadoutGroup
   id: NFDetectiveGloves
-  name: loadout-group-contractor-gloves
+  name: loadout-group-spacer-gloves
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - NFDetectiveClothingHandsGlovesForensicNF
@@ -39,14 +39,14 @@
 
 - type: loadoutGroup
   id: NFDetectiveNeck
-  name: loadout-group-contractor-neck
+  name: loadout-group-spacer-neck
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - NFDetectiveClothingNeckNfsdBadgeDetective
 
 - type: loadoutGroup
   id: NFDetectivePDA
-  name: loadout-group-contractor-id
+  name: loadout-group-spacer-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - NFDetectiveNFDetectivePDA

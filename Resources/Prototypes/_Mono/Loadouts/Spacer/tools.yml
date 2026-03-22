@@ -1,8 +1,8 @@
 - type: loadout
-  id: ContractorBinoculars
+  id: SpacerBinoculars
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0
   storage:
     back:

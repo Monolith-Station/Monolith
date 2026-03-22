@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: PrisonerJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   loadouts:
   - PrisonerJumpsuit
   - PrisonerJumpskirt
@@ -10,7 +10,7 @@
 
 - type: loadoutGroup
   id: PrisonerPDA
-  name: loadout-group-contractor-id
+  name: loadout-group-spacer-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - PrisonerPrisonerPDA
@@ -19,7 +19,7 @@
 
 - type: loadoutGroup
   id: PrisonerFace
-  name: loadout-group-contractor-face
+  name: loadout-group-spacer-face
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - PrisonerClothingMaskBreath
@@ -28,7 +28,7 @@
 
 - type: loadoutGroup
   id: PrisonerSurvival
-  name: loadout-group-contractor-survival-box # Not a box.  If unhidden, should probably be fixed.
+  name: loadout-group-spacer-survival-box # Not a box.  If unhidden, should probably be fixed.
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - PrisonerEmergencyOxygenTankFilled

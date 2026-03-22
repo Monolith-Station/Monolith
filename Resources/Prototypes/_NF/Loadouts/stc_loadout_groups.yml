@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: StcJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   loadouts:
   - StcClothingUniformJumpsuitDetectiveGrey
   - StcClothingUniformJumpskirtDetectiveGrey
@@ -10,32 +10,32 @@
 
 - type: loadoutGroup
   id: StcHead
-  name: loadout-group-contractor-head
+  name: loadout-group-spacer-head
   minLimit: 0
   loadouts:
   - StcClothingHeadHatStcCap
   subgroups:
-  - ContractorHead
+  - SpacerHead
   fallbacks:
   - StcClothingHeadHatStcCap
 
 - type: loadoutGroup
   id: StcEars
-  name: loadout-group-contractor-ears
+  name: loadout-group-spacer-ears
   loadouts: []
   subgroups:
   - MercenaryEars
   - PilotEars
-  - ContractorEars
+  - SpacerEars
   fallbacks:
-  - ContractorClothingHeadsetGreyCommon
+  - SpacerClothingHeadsetGreyCommon
 
 - type: loadoutGroup
   id: StcShoes
-  name: loadout-group-contractor-shoes
+  name: loadout-group-spacer-shoes
   loadouts:
   - StcClothingShoesBootsLaceup
   subgroups:
-  - ContractorShoes
+  - SpacerShoes
   fallbacks:
   - StcClothingShoesBootsLaceup

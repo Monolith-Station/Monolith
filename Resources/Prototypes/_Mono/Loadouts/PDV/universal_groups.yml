@@ -1,20 +1,20 @@
 - type: loadoutGroup
   id: PDVJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   minLimit: 1
   hidden: true
   loadouts:
   - PDVClothingJumpsuit
 - type: loadoutGroup
   id: PDVNeck
-  name: loadout-group-contractor-neck
+  name: loadout-group-spacer-neck
   hidden: true
   minLimit: 1
   loadouts:
   - PDVClothingNeckIFFOrange
 - type: loadoutGroup
   id: PDVCommanderNeck
-  name: loadout-group-contractor-neck
+  name: loadout-group-spacer-neck
   minLimit: 1
   loadouts:
   - PDVClothingNeckIFFOrange
@@ -25,7 +25,7 @@
 
 - type: loadoutGroup
   id: PDVOuterClothing
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-spacer-outerclothing
   minLimit: 1
   loadouts:
   - PDVClothingOuterArmorBPVestLight
@@ -34,14 +34,14 @@
   - PDVClothingOuterArmorBPVestLight
 - type: loadoutGroup
   id: PDVGloves
-  name: loadout-group-contractor-gloves
+  name: loadout-group-spacer-gloves
   hidden: true
   minLimit: 1
   loadouts:
   - PDVCombatGloves
 - type: loadoutGroup
   id: PDVHud
-  name: loadout-group-contractor-glasses
+  name: loadout-group-spacer-glasses
   hidden: true
   minLimit: 1
   loadouts:
@@ -50,7 +50,7 @@
   - PDVClothingEyesHudSecurity
 - type: loadoutGroup
   id: PDVShoes
-  name: loadout-group-contractor-shoes
+  name: loadout-group-spacer-shoes
   minLimit: 1
   loadouts:
   - PDVCombatBoots
@@ -59,7 +59,7 @@
   - PDVCombatBoots
 - type: loadoutGroup
   id: PDVFace
-  name: loadout-group-contractor-face
+  name: loadout-group-spacer-face
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -69,7 +69,7 @@
   - PDVGaiter
 - type: loadoutGroup
   id: PDVBackpack
-  name: loadout-group-contractor-backpack
+  name: loadout-group-spacer-backpack
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -80,13 +80,13 @@
   - PDVClothingBackpack
 - type: loadoutGroup
   id: PDVHead
-  name: loadout-group-contractor-head
+  name: loadout-group-spacer-head
   minLimit: 0
   loadouts:
   - PDVBeret
 - type: loadoutGroup
   id: PDVCommanderHead
-  name: loadout-group-contractor-head
+  name: loadout-group-spacer-head
   minLimit: 1
   loadouts:
   - PDVCommanderBeret
@@ -96,7 +96,7 @@
   - PDVCommanderBeret
 - type: loadoutGroup
   id: PDVBelt
-  name: loadout-group-contractor-belt
+  name: loadout-group-spacer-belt
   minLimit: 1
   maxLimit: 1
   loadouts:

@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: MailCarrierJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   loadouts:
   - MailCarrierClothingUniformJumpsuitMailCarrier
   - MailCarrierClothingUniformJumpskirtMailCarrier
@@ -11,7 +11,7 @@
 
 - type: loadoutGroup
   id: MailCarrierOuterClothing
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-spacer-outerclothing
   minLimit: 0
   loadouts:
   - MailCarrierClothingOuterWinterCoatMail
@@ -19,18 +19,18 @@
 
 - type: loadoutGroup
   id: MailCarrierBackpack
-  name: loadout-group-contractor-backpack
+  name: loadout-group-spacer-backpack
   loadouts:
   - MailCarrierClothingBackpackMessengerMailCarrier
   - MailCarrierClothingBackpackClippy
   subgroups:
-  - ContractorBackpack
+  - SpacerBackpack
   fallbacks:
   - MailCarrierClothingBackpackMessengerMailCarrier
 
 - type: loadoutGroup
   id: MailCarrierWallet
-  name: loadout-group-contractor-wallet
+  name: loadout-group-spacer-wallet
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - MailCarrierClothingWalletLeatherMail

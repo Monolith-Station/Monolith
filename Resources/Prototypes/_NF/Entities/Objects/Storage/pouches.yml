@@ -128,9 +128,9 @@
 # COLORED DEPARTMENTAL
 ## CONTRACTORS
 - type: entity
-  id: NFPouchContractor
+  id: NFPouchSpacer
   parent: NFPouchUtility
-  name: contractor's pouch
+  name: spacer's pouch
   components:
   - type: Sprite
     layers:

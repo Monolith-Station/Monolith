@@ -7,9 +7,9 @@
   - type: AccessReader
 
 - type: entity
-  parent: [ SuitStorageBase, StorageFillEVASuitContractor ]
-  id: SuitStorageEVAContractor
-  suffix: EVA, Contractor
+  parent: [ SuitStorageBase, StorageFillEVASuitSpacer ]
+  id: SuitStorageEVASpacer
+  suffix: EVA, Spacer
   components:
   - type: AccessReader
 

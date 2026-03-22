@@ -45,7 +45,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
     [Dependency] private readonly SectorServiceSystem _sectorService = default!; // Frontier
     [Dependency] private readonly ForensicsSystem _forensics = default!; // Frontier
 
-    static readonly ProtoId<JobPrototype>[] FakeJobIds = ["Contractor", "Pilot", "Mercenary"]; // Frontier
+    static readonly ProtoId<JobPrototype>[] FakeJobIds = ["Spacer", "Mercenary"]; // Frontier
 
     public override void Initialize()
     {

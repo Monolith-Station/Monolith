@@ -8,7 +8,7 @@
   - type: Contraband
     turnInValues:
       FederationMilitaryCredit: 0
-      Doubloon: 0
+      DataChit: 0
 
 # region Class 1
 - type: entity
@@ -242,6 +242,6 @@
     severity: PirateTarget
     # Security and heads only
     turnInValues:
-      Doubloon: 5
+      DataChit: 5
     hideCarryStatus: true
 # endregion

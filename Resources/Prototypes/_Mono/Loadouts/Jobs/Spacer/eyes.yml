@@ -1,90 +1,90 @@
 #T0
 - type: loadout
-  id: ContractorClothingEyesGlasses
+  id: SpacerClothingEyesGlasses
   price: 0 # Mono
   equipment:
     eyes: ClothingEyesGlasses
 
 - type: loadout
-  id: ContractorClothingEyesGlassesCheapSunglasses
+  id: SpacerClothingEyesGlassesCheapSunglasses
   price: 0 # Mono
   equipment:
     eyes: ClothingEyesGlassesCheapSunglasses
 
 - type: loadout
-  id: ContractorClothingEyesBlindfold
+  id: SpacerClothingEyesBlindfold
   price: 0 # Mono
   equipment:
     eyes: ClothingEyesBlindfold
 
 - type: loadout
-  id: ContractorClothingEyesEyepatch
+  id: SpacerClothingEyesEyepatch
   price: 0 # Mono
   equipment:
     eyes: ClothingEyesEyepatch
 
 #T1
 - type: loadout
-  id: ContractorClothingEyesGlassesJamjar
+  id: SpacerClothingEyesGlassesJamjar
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 500
   equipment:
     eyes: ClothingEyesGlassesJamjar
 
 - type: loadout
-  id: ContractorClothingEyesGlassesChemical
+  id: SpacerClothingEyesGlassesChemical
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     eyes: ClothingEyesGlassesChemical
 
 - type: loadout
-  id: ContractorClothingEyesHudDiagnostic
+  id: SpacerClothingEyesHudDiagnostic
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     eyes: ClothingEyesHudDiagnostic
 
 - type: loadout
-  id: ContractorClothingEyesGlassesMeson
+  id: SpacerClothingEyesGlassesMeson
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     eyes: ClothingEyesGlassesMeson
 
 - type: loadout
-  id: ContractorClothingEyesHudMedical
+  id: SpacerClothingEyesHudMedical
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     eyes: ClothingEyesHudMedical
 
 - type: loadout
-  id: ContractorClothingEyesPunkGoggles
+  id: SpacerClothingEyesPunkGoggles
   name: punk goggles (random)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     eyes: ClothingEyesPunkGoggles
 
 - type: loadout
-  id: ContractorClothingEyesPunkInfoShades
+  id: SpacerClothingEyesPunkInfoShades
   name: punk infoshades (random)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     eyes: ClothingEyesPunkInfoShades
@@ -92,19 +92,19 @@
 
 #T2
 - type: loadout
-  id: ContractorClothingEyesEyepatchHudDiag
+  id: SpacerClothingEyesEyepatchHudDiag
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     eyes: ClothingEyesEyepatchHudDiag
 
 - type: loadout
-  id: ContractorClothingEyesEyepatchHudMedical
+  id: SpacerClothingEyesEyepatchHudMedical
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     eyes: ClothingEyesEyepatchHudMedical

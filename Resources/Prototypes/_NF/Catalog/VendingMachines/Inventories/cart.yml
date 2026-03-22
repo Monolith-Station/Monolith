@@ -1,9 +1,9 @@
 - type: vendingMachineInventory
   id: NFPTechInventory
   startingInventory:
-    ContractorPDA: 4294967295 #infinite
+    SpacerPDA: 4294967295 #infinite
     ClearNFPDA: 4294967295 #infinite
-    ContractorIDCard: 4294967295 #infinite
+    SpacerIDCard: 4294967295 #infinite
     ClothingHeadsetGrey: 4294967295 #infinite
     RubberStampStc: 3
     RubberStampCaptain: 4294967295 #Infinite
@@ -40,7 +40,7 @@
     SergeantPDA: 10
     TSFCaptainPDA: 10
     ClearNFPDA: 4294967295 #infinite
-    ContractorIDCard: 4294967295 #infinite
+    SpacerIDCard: 4294967295 #infinite
     ClothingHeadsetPrison: 4294967295 #infinite
     RubberStampApproved: 4294967295 #Infinite
     RubberStampDenied: 4294967295 #Infinite

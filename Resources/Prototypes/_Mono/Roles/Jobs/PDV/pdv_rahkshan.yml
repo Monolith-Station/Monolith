@@ -1,7 +1,7 @@
 - type: job
   id: Pirate
-  name: job-name-pirate
-  description: job-description-pirate
+  name: job-name-pdv-rahkshan
+  description: job-description-pdv-rahkshan
   playTimeTracker: JobPDVRahkshan
   requirements:
     - !type:OverallPlaytimeRequirement
@@ -39,7 +39,7 @@
   id: PDVRahkshanGear
   equipment:
     ears: ClothingHeadsetAltFreelancer
-    pocket1: BasePirateUplinkPirateCrew
+    pocket1: BasePDVUplinkRahkshan
   storage:
     back:
     - RadioHandheldNF

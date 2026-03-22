@@ -33,7 +33,7 @@ job-name-pdv-denasvar = PDV Denasvar
 
 
 # MARK: CIV
-job-name-contractor = Spacer
+job-name-spacer = Spacer
 job-name-ertmailcarrier = ERT Mail Carrier
 job-name-mercenary = Mercenary
 

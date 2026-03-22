@@ -1,23 +1,23 @@
-# Contractor
+# Spacer
 
-loadout-group-contractor-gloves = gloves
-loadout-group-contractor-head = head
-loadout-group-contractor-ears = ears
-loadout-group-contractor-jumpsuit = jumpsuit
-loadout-group-contractor-outerclothing = outer clothing
-loadout-group-contractor-belt = belt
-loadout-group-contractor-shoes = shoes
-loadout-group-contractor-neck = neck
-loadout-group-contractor-id = ID
-loadout-group-contractor-backpack = backpack
-loadout-group-contractor-glasses = glasses
-loadout-group-contractor-face = mask
-loadout-group-contractor-utility = tools
-loadout-group-contractor-fun = fun
-loadout-group-contractor-trinkets = trinkets
-loadout-group-contractor-encryption-key = encryption keys
-loadout-group-contractor-survival-box = survival box
-loadout-group-contractor-cartridge = PDA cartridges
-loadout-group-contractor-wallet = wallet
-loadout-group-contractor-implanter = implanters
-loadout-group-contractor-bureaucracy = bureaucracy
+loadout-group-spacer-gloves = gloves
+loadout-group-spacer-head = head
+loadout-group-spacer-ears = ears
+loadout-group-spacer-jumpsuit = jumpsuit
+loadout-group-spacer-outerclothing = outer clothing
+loadout-group-spacer-belt = belt
+loadout-group-spacer-shoes = shoes
+loadout-group-spacer-neck = neck
+loadout-group-spacer-id = ID
+loadout-group-spacer-backpack = backpack
+loadout-group-spacer-glasses = glasses
+loadout-group-spacer-face = mask
+loadout-group-spacer-utility = tools
+loadout-group-spacer-fun = fun
+loadout-group-spacer-trinkets = trinkets
+loadout-group-spacer-encryption-key = encryption keys
+loadout-group-spacer-survival-box = survival box
+loadout-group-spacer-cartridge = PDA cartridges
+loadout-group-spacer-wallet = wallet
+loadout-group-spacer-implanter = implanters
+loadout-group-spacer-bureaucracy = bureaucracy

@@ -1,23 +1,23 @@
 - type: loadoutGroup
-  id: ContractorFirearm
+  id: SpacerFirearm
   minLimit: 0
   name: loadout-group-weapon-civilian
   loadouts:
-  - ContractorMk32Loadout
-  - ContractorLaserLoadout
-  - ContractorSurvivalKnifeLoadout
-  - ContractorDisablerLoadout
-  - ContractorArgentiLoadout
-  - ContractorSvalinnLoadout
-  - ContractorDoubleBarreledLoadout
+  - SpacerMk32Loadout
+  - SpacerLaserLoadout
+  - SpacerSurvivalKnifeLoadout
+  - SpacerDisablerLoadout
+  - SpacerArgentiLoadout
+  - SpacerSvalinnLoadout
+  - SpacerDoubleBarreledLoadout
   fallbacks:
-  - ContractorMk32Loadout
+  - SpacerMk32Loadout
 
 - type: loadoutGroup
-  id: ContractorMag
+  id: SpacerMag
   name: loadout-group-magazine
   minLimit: 0
   loadouts:
-  - Contractor9x19mmPistolAmmoLoadout #MK32 Universal
-  - Contractor556x45mmAmmoLoadout #Argenti
-  - ContractorBeanbagAmmoLoadout #Shotgun Beanbag
+  - Spacer9x19mmPistolAmmoLoadout #MK32 Universal
+  - Spacer556x45mmAmmoLoadout #Argenti
+  - SpacerBeanbagAmmoLoadout #Shotgun Beanbag

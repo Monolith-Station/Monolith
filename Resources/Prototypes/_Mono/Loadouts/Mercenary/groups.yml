@@ -1,6 +1,6 @@
 - type: loadoutGroup # ONLY TO BE USED AS A SUBGROUP FOR _NF MERCENARY GROUPS
   id: MonoMercenaryJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   loadouts:
   - MercenaryClothingUniformJumpsuitCCEBasic
   - MercenaryClothingUniformJumpsuitCCEBleached
@@ -25,7 +25,7 @@
 
 - type: loadoutGroup # ONLY TO BE USED AS A SUBGROUP FOR _NF MERCENARY GROUPS
   id: MonoMercenaryChestrig
-  name: loadout-group-contractor-belt
+  name: loadout-group-spacer-belt
   loadouts:
   - MercenaryClothingBeltWebbingsBigBase
   - MercenaryClothingBeltWebbingsNormalBlack
@@ -39,7 +39,7 @@
 
 - type: loadoutGroup # ONLY TO BE USED AS A SUBGROUP FOR _NF MERCENARY GROUPS
   id: MonoMercenaryBallisticGoggles
-  name: loadout-group-contractor-glasses
+  name: loadout-group-spacer-glasses
   loadouts:
   - MercenaryClothingEyesBallisticGogglesRed
   - MercenaryClothingEyesBallisticGogglesGreen
@@ -50,13 +50,13 @@
 
 - type: loadoutGroup
   id: MonoMercenaryHead # ONLY TO BE USED AS A SUBGROUP FOR _NF MERCENARY GROUPS
-  name: loadout-group-contractor-head
+  name: loadout-group-spacer-head
   loadouts:
   - MercenaryClothingHeadHatBH # Mono
 
 - type: loadoutGroup
   id: MonoMercenaryOuterClothing # ONLY TO BE USED AS A SUBGROUP FOR _NF MERCENARY GROUPS
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-spacer-outerclothing
   loadouts:
   - MercenaryVestSlim
   - MercenaryVestNormal
@@ -73,7 +73,7 @@
 
 - type: loadoutGroup
   id: MonoMercenaryGloves # ONLY TO BE USED AS A SUBGROUP FOR _NF MERCENARY GROUPS
-  name: loadout-group-contractor-gloves
+  name: loadout-group-spacer-gloves
   loadouts:
   - MercenaryClothingHandsGlovesTacticalCombatTan
   - MercenaryClothingHandsGlovesTacticalCombatBlack
@@ -84,7 +84,7 @@
 
 - type: loadoutGroup
   id: MonoMercenaryBackpack # ONLY TO BE USED AS A SUBGROUP FOR _NF MERCENARY GROUPS
-  name: loadout-group-contractor-backpack
+  name: loadout-group-spacer-backpack
   loadouts:
   - MercenaryClothingBackpackDuffelTacticalDuffelTan
   - MercenaryClothingBackpackDuffelTacticalDuffelOlive
@@ -95,7 +95,7 @@
 
 - type: loadoutGroup
   id: MercenaryBalaclava
-  name: loadout-group-contractor-balaclava
+  name: loadout-group-spacer-balaclava
   minLimit: 0
   maxLimit: 1
   loadouts:

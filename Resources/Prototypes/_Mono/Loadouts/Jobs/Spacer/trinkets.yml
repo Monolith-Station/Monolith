@@ -4,28 +4,28 @@
 # Smokes:
 #T0
 - type: loadout
-  id: ContractorCigPackBlue
+  id: SpacerCigPackBlue
   price: 0 # Mono
   storage:
     back:
     - CigPackBlue
 
 - type: loadout
-  id: ContractorCigPackRed
+  id: SpacerCigPackRed
   price: 0 # Mono
   storage:
     back:
     - CigPackRed
 
 - type: loadout
-  id: ContractorCigPackBlack
+  id: SpacerCigPackBlack
   price: 0 # Mono
   storage:
     back:
     - CigPackBlack
 
 - type: loadout
-  id: ContractorCigPackGreen
+  id: SpacerCigPackGreen
   price: 0 # Mono
   storage:
     back:
@@ -34,20 +34,20 @@
 
 #T1
 - type: loadout
-  id: ContractorCigarCase
+  id: SpacerCigarCase
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   storage:
     back:
     - CigarCase
 
 - type: loadout
-  id: ContractorNFAshtray
+  id: SpacerNFAshtray
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   storage:
     back:
@@ -55,60 +55,60 @@
 
 #T2
 - type: loadout
-  id: ContractorSmokingPipeFilledTobacco
+  id: SpacerSmokingPipeFilledTobacco
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - SmokingPipeFilledTobacco
 
 - type: loadout
-  id: ContractorTobaccoPouchBrownFilled
+  id: SpacerTobaccoPouchBrownFilled
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - TobaccoPouchBrownFilled
 
 - type: loadout
-  id: ContractorTobaccoPouchBlueFilled
+  id: SpacerTobaccoPouchBlueFilled
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - TobaccoPouchBlueFilled
 
 - type: loadout
-  id: ContractorTobaccoPouchRedFilled
+  id: SpacerTobaccoPouchRedFilled
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - TobaccoPouchRedFilled
 
 - type: loadout
-  id: ContractorTobaccoPouchPurpleFilled
+  id: SpacerTobaccoPouchPurpleFilled
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - TobaccoPouchPurpleFilled
 
 - type: loadout
-  id: ContractorVape
+  id: SpacerVape
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
@@ -116,10 +116,10 @@
 
 #T3 for lols
 - type: loadout
-  id: ContractorCigarGoldCase
+  id: SpacerCigarGoldCase
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 5000 # Mono
   storage:
     back:
@@ -128,7 +128,7 @@
 # Lighters:
 #T0
 - type: loadout
-  id: ContractorMatchbox
+  id: SpacerMatchbox
   price: 0 # Mono
   storage:
     back:
@@ -136,10 +136,10 @@
 
 #T1
 - type: loadout
-  id: ContractorLighter
+  id: SpacerLighter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   storage:
     back:
@@ -147,10 +147,10 @@
 
 #T2
 - type: loadout
-  id: ContractorFlippoLighter
+  id: SpacerFlippoLighter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
@@ -158,10 +158,10 @@
 
 #T3 for lols
 - type: loadout
-  id: ContractorFlippoEngravedLighter
+  id: SpacerFlippoEngravedLighter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 5000 # Mono
   storage:
     back:
@@ -170,7 +170,7 @@
 # Flasks:
 #T0
 - type: loadout
-  id: ContractorDrinkFlaskOld
+  id: SpacerDrinkFlaskOld
   price: 0 # Mono
   storage:
     back:
@@ -178,10 +178,10 @@
 
 #T1
 - type: loadout
-  id: ContractorDrinkShinyFlask
+  id: SpacerDrinkShinyFlask
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   storage:
     back:
@@ -189,10 +189,10 @@
 
 #T2
 - type: loadout
-  id: ContractorDrinkFlask
+  id: SpacerDrinkFlask
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
@@ -200,10 +200,10 @@
 
 #T3 for lols
 - type: loadout
-  id: ContractorDrinkVacuumFlask
+  id: SpacerDrinkVacuumFlask
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 0 # Mono
   storage:
     back:
@@ -212,14 +212,14 @@
 # Misc:
 #T0
 - type: loadout
-  id: ContractorFlashlightLantern
+  id: SpacerFlashlightLantern
   price: 0 # Mono
   storage:
     back:
     - FlashlightLantern
 
 - type: loadout
-  id: ContractorWristwatch
+  id: SpacerWristwatch
   price: 0 # Mono
   storage:
     back:
@@ -227,30 +227,30 @@
 
 #T1
 - type: loadout
-  id: ContractorBasketball
+  id: SpacerBasketball
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   storage:
     back:
     - Basketball
 
 - type: loadout
-  id: ContractorFootball
+  id: SpacerFootball
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   storage:
     back:
     - Football
 
 - type: loadout
-  id: ContractorBeachBall
+  id: SpacerBeachBall
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   storage:
     back:
@@ -258,10 +258,10 @@
 
 #T2
 - type: loadout
-  id: ContractorCrayonBox
+  id: SpacerCrayonBox
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 600
   storage:
     back:
@@ -270,10 +270,10 @@
 # Mono - remove NT soap
 
 - type: loadout
-  id: ContractorCardBoxBlack
+  id: SpacerCardBoxBlack
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono0
   storage:
     back:
@@ -281,35 +281,35 @@
 
 #T3 for lols
 - type: loadout
-  id: ContractorWristwatchGold
+  id: SpacerWristwatchGold
   price: 2500
   storage:
     back:
     - WristwatchGold
 
 - type: loadout
-  id: ContractorSilverRing
+  id: SpacerSilverRing
   price: 2750
   storage:
     back:
     - SilverRing
 
 - type: loadout
-  id: ContractorGoldRing
+  id: SpacerGoldRing
   price: 3000
   storage:
     back:
     - GoldRing
 
 # - type: loadout
-  # id: ContractorREPLACE
-  # equipment: ContractorREPLACE
+  # id: SpacerREPLACE
+  # equipment: SpacerREPLACE
   # effects:
   # - !type:GroupLoadoutEffect
-    # proto: ContractorT3
+    # proto: SpacerT3
   # price: 5000
 
 # - type: startingGear
-  # id: ContractorREPLACE
+  # id: SpacerREPLACE
   # storage:
     # back: REPLACE

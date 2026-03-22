@@ -32,7 +32,7 @@ namespace Content.Client.Access.UI
         private bool _interfaceEnabled = false;
 
         // The job that will be picked if the ID doesn't have a job on the station.
-        private static ProtoId<JobPrototype> _defaultJob = "Contractor"; // Frontier: Passenger<Contractor
+        private static ProtoId<JobPrototype> _defaultJob = "Spacer"; // Frontier: Passenger<Spacer
 
         public IdCardConsoleWindow(IdCardConsoleBoundUserInterface owner, IPrototypeManager prototypeManager,
             List<ProtoId<AccessLevelPrototype>> accessLevels)

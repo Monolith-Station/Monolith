@@ -5,29 +5,29 @@
   maxLimit: 1
   loadouts:
   # TSF playtime guns
-  - ContractorSpecialGunEg4
-  - ContractorSpecialGunAnnie
-  - ContractorSpecialGunVulcan
-  - ContractorSpecialGunEnforcer
-  - ContractorSpecialGunVector9mm
-  - ContractorSpecialGunVector45Acp
-  - ContractorSpecialGunBandit
+  - SpacerSpecialGunEg4
+  - SpacerSpecialGunAnnie
+  - SpacerSpecialGunVulcan
+  - SpacerSpecialGunEnforcer
+  - SpacerSpecialGunVector9mm
+  - SpacerSpecialGunVector45Acp
+  - SpacerSpecialGunBandit
   # USSP -> MERC/CIV playtime guns
-  - ContractorSpecialGunAk502
-  - ContractorSpecialGunBigLeady
+  - SpacerSpecialGunAk502
+  - SpacerSpecialGunBigLeady
   # Rogue playtime guns
-  - ContractorSpecialGunAnaconda
-  - ContractorSpecialGunMla73
-  - ContractorSpecialGunWspr
+  - SpacerSpecialGunAnaconda
+  - SpacerSpecialGunMla73
+  - SpacerSpecialGunWspr
   # Civ playtime guns
-  - ContractorSpecialGunSmartSMG
-  - ContractorSpecialGunMla34
-  - ContractorSpecialGunMla79
+  - SpacerSpecialGunSmartSMG
+  - SpacerSpecialGunMla34
+  - SpacerSpecialGunMla79
 
 # TSF playtime weapons
 
 - type: loadout
-  id: ContractorSpecialGunEg4
+  id: SpacerSpecialGunEg4
   name: EG-4 gun case
   effects:
   - !type:GroupLoadoutEffect
@@ -37,7 +37,7 @@
   - WeaponCaseShortEg4Registered
 
 - type: loadout
-  id: ContractorSpecialGunAnnie
+  id: SpacerSpecialGunAnnie
   name: annie gun case
   effects:
   - !type:GroupLoadoutEffect
@@ -47,7 +47,7 @@
   - WeaponCaseAnnieRegistered
 
 - type: loadout
-  id: ContractorSpecialGunVulcan
+  id: SpacerSpecialGunVulcan
   name: vulcan gun case
   effects:
   - !type:GroupLoadoutEffect
@@ -57,7 +57,7 @@
   - WeaponCaseLongVulcanRegistered
 
 - type: loadout
-  id: ContractorSpecialGunEnforcer
+  id: SpacerSpecialGunEnforcer
   name: enforcer gun case
   effects:
   - !type:GroupLoadoutEffect
@@ -67,7 +67,7 @@
   - WeaponCaseLongEnforcerRegistered
 
 - type: loadout
-  id: ContractorSpecialGunVector9mm
+  id: SpacerSpecialGunVector9mm
   name: vector gun case (9mm)
   effects:
   - !type:GroupLoadoutEffect
@@ -77,7 +77,7 @@
   - WeaponCaseVector9mmRegistered
 
 - type: loadout
-  id: ContractorSpecialGunVector45Acp
+  id: SpacerSpecialGunVector45Acp
   name: vector gun case (.45 ACP)
   effects:
   - !type:GroupLoadoutEffect
@@ -87,7 +87,7 @@
   - WeaponCaseVector45AcpRegistered
 
 - type: loadout
-  id: ContractorSpecialGunBandit
+  id: SpacerSpecialGunBandit
   name: MR-3C bandit gun case
   effects:
   - !type:GroupLoadoutEffect
@@ -99,7 +99,7 @@
 # USSP -> MERC/CIV playtime weapons
 
 - type: loadout
-  id: ContractorSpecialGunAk502
+  id: SpacerSpecialGunAk502
   name: AK-502 gun case
   effects:
   - !type:GroupLoadoutEffect
@@ -109,7 +109,7 @@
   - WeaponCaseAk502Registered
 
 - type: loadout
-  id: ContractorSpecialGunBigLeady
+  id: SpacerSpecialGunBigLeady
   name: big leady gun case
   effects:
   - !type:GroupLoadoutEffect
@@ -121,7 +121,7 @@
 # Rogue playtime weapons
 
 - type: loadout
-  id: ContractorSpecialGunAnaconda
+  id: SpacerSpecialGunAnaconda
   name: anaconda gun case
   effects:
   - !type:GroupLoadoutEffect
@@ -131,7 +131,7 @@
   - WeaponCaseShortAnacondaRegistered
 
 - type: loadout
-  id: ContractorSpecialGunMla73
+  id: SpacerSpecialGunMla73
   name: MlA-73 gun case
   effects:
   - !type:GroupLoadoutEffect
@@ -141,7 +141,7 @@
   - WeaponCaseMla73Registered
 
 - type: loadout
-  id: ContractorSpecialGunWspr
+  id: SpacerSpecialGunWspr
   name: WSPR gun case
   effects:
   - !type:GroupLoadoutEffect
@@ -153,7 +153,7 @@
 # Misc playtime weapons
 
 - type: loadout
-  id: ContractorSpecialGunSmartSMG
+  id: SpacerSpecialGunSmartSMG
   name: abielle smartgun case
   effects:
   - !type:GroupLoadoutEffect
@@ -163,7 +163,7 @@
   - WeaponCaseAbielleRegistered
 
 - type: loadout
-  id: ContractorSpecialGunMla34
+  id: SpacerSpecialGunMla34
   name: MlA-34 smartgun case
   effects:
   - !type:GroupLoadoutEffect
@@ -173,7 +173,7 @@
   - WeaponCaseMla34Registered
 
 - type: loadout
-  id: ContractorSpecialGunMla79
+  id: SpacerSpecialGunMla79
   name: MlA-79 smart LMG case
   effects:
   - !type:GroupLoadoutEffect

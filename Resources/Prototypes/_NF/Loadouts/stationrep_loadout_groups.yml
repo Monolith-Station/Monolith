@@ -2,7 +2,7 @@
 
 - type: loadoutGroup
   id: StationRepOuterClothing
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-spacer-outerclothing
   minLimit: 0
   loadouts:
   - StationRepClothingOuterHardsuitSecurityRed
@@ -11,7 +11,7 @@
 
 - type: loadoutGroup
   id: StationRepBackpack
-  name: loadout-group-contractor-backpack
+  name: loadout-group-spacer-backpack
   loadouts:
   - StationRepClothingModsuitHeadOfSecurityPowerCell
   subgroups:
@@ -19,7 +19,7 @@
 
 - type: loadoutGroup
   id: StationRepEars
-  name: loadout-group-contractor-ears
+  name: loadout-group-spacer-ears
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -27,20 +27,20 @@
   subgroups:
   - MercenaryEars
   - PilotEars
-  - ContractorEars
+  - SpacerEars
   fallbacks:
   - StationRepClothingHeadsetAltCentComCommon
 
 - type: loadoutGroup
   id: StationRepGloves
-  name: loadout-group-contractor-gloves
+  name: loadout-group-spacer-gloves
   minLimit: 0
   loadouts:
   - StationRepClothingHandsGlovesCombat # Mono
 
 - type: loadoutGroup
   id: StationRepPDA
-  name: loadout-group-contractor-id
+  name: loadout-group-spacer-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - StationRepSrPDA
@@ -49,10 +49,10 @@
 
 - type: loadoutGroup
   id: StationRepTrinkets
-  name: loadout-group-contractor-trinkets
+  name: loadout-group-spacer-trinkets
   minLimit: 0
   maxLimit: 3
   loadouts:
   - StationRepNFPouchSr
   subgroups:
-  - ContractorTrinkets
+  - SpacerTrinkets

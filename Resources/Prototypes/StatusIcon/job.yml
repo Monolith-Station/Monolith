@@ -224,7 +224,7 @@
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: HeadOfPersonnel
   jobName: job-name-hop
-  allowSelection: false # Frontier: prefer contractor
+  allowSelection: false # Frontier: prefer spacer
 
 - type: jobIcon
   parent: JobIcon
@@ -249,7 +249,7 @@
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: Passenger
   jobName: job-name-passenger
-  allowSelection: false # Frontier: prefer contractor
+  allowSelection: false # Frontier: prefer spacer
 
 - type: jobIcon
   parent: JobIcon

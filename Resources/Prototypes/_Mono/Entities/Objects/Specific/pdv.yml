@@ -3,7 +3,7 @@
 - type: entity
   name: data chit
   parent: BaseItem
-  id: Doubloon
+  id: DataChit
   suffix: 100 DC
   description: A rugged, shielded disk containing encrypted intelligence.
   components:
@@ -15,42 +15,42 @@
     size: Tiny
   - type: Stack
     count: 100
-    stackType: Doubloon
+    stackType: DataChit
   - type: StaticPrice
     price: 0
   - type: StackPrice
     price: 40
   - type: Currency
     price:
-      Doubloon: 1
+      DataChit: 1
 
 - type: entity
-  parent: Doubloon
-  id: Doubloon1
+  parent: DataChit
+  id: DataChit1
   suffix: 1 DC
   components:
   - type: Stack
     count: 1
 
 - type: entity
-  parent: Doubloon
-  id: Doubloon5
+  parent: DataChit
+  id: DataChit5
   suffix: 5 DC
   components:
   - type: Stack
     count: 5
 
 - type: entity
-  parent: Doubloon
-  id: Doubloon25
+  parent: DataChit
+  id: DataChit25
   suffix: 25 DC
   components:
   - type: Stack
     count: 25
 
 - type: entity
-  parent: Doubloon
-  id: Doubloon50
+  parent: DataChit
+  id: DataChit50
   suffix: 50 DC
   components:
   - type: Stack
@@ -58,8 +58,8 @@
 
 # Uplinks
 - type: entity
-  parent: [ BaseItem, StorePresetPirateUplink ]
-  id: BasePirateUplink
+  parent: [ BaseItem, StorePresetPDVUplink ]
+  id: BasePDVUplink
   name: PDV Uplink
   description: A scarred tablet encased in heat-resistant composite with slot for chits on the side.
   suffix: Empty
@@ -84,40 +84,40 @@
     key: enum.StoreUiKey.Key
   - type: Tag
     tags:
-    - PirateUplink
+    - PDVUplink
 
 - type: entity
-  parent: BasePirateUplink
-  id: BasePirateUplinkRadioDebug
+  parent: BasePDVUplink
+  id: BasePDVUplinkDebug
   suffix: Pirate, DEBUG
   components:
   - type: Store
     balance:
-      Doubloon: 99999
+      DataChit: 99999
 
 - type: entity
-  parent: BasePirateUplink
-  id: BasePirateUplinkRadioPirateCaptain
+  parent: BasePDVUplink
+  id: BasePDVUplinkVizier
   suffix: Commander 125
   components:
   - type: Store
     balance:
-      Doubloon: 125
+      DataChit: 125
 
 - type: entity
-  parent: BasePirateUplink
-  id: BasePirateUplinkPirateCrew
+  parent: BasePDVUplink
+  id: BasePDVUplinkRahkshan
   suffix: Agent 75
   components:
   - type: Store
     balance:
-      Doubloon: 75
+      DataChit: 75
 
 - type: entity
-  parent: BasePirateUplink
-  id: BasePirateUplinkAsvaran
+  parent: BasePDVUplink
+  id: BasePDVUplinkAsvaran
   suffix: Asvaran 100
   components:
   - type: Store
     balance:
-      Doubloon: 100
+      DataChit: 100

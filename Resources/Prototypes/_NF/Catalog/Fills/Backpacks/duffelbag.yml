@@ -86,9 +86,9 @@
 
 #Departmental EVA bundles
 - type: entity
-  parent: [ NFClothingDuffel, StorageFillEVASuitContractor ]
-  id: ClothingBackpackDuffelEVABundleContractor
-  name: contractor EVA bundle
+  parent: [ NFClothingDuffel, StorageFillEVASuitSpacer ]
+  id: ClothingBackpackDuffelEVABundleSpacer
+  name: spacer EVA bundle
   suffix: Filled
 
 - type: entity

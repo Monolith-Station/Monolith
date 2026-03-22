@@ -604,13 +604,13 @@
     job: DeathSquad
 
 - type: entity
-  name: contractor ID card # Frontier: passenger<contractor
+  name: spacer ID card # Frontier: passenger<spacer
   parent: IDCardStandard
   id: AgentIDCard
   suffix: Agent
   components:
   - type: PresetIdCard
-    job: Contractor # Frontier: Passenger<Contractor
+    job: Spacer # Frontier: Passenger<Spacer
   - type: Access
     tags:
     - Maintenance
@@ -618,7 +618,7 @@
   - type: Sprite
     layers:
     - state: default
-    - state: idcontractor # Frontier: idpassenger<idcontractor
+    - state: idspacer # Frontier: idpassenger<idspacer
       sprite: _NF/Objects/Misc/id_cards.rsi # Frontier
   - type: AgentIDCard
   - type: ActivatableUI
@@ -629,7 +629,7 @@
     - DoorBumpOpener
   - type: ChameleonClothing
     slot: [idcard]
-    default: ContractorIDCard # Frontier: PassengerIDCard<ContractorIDCard
+    default: SpacerIDCard # Frontier: PassengerIDCard<SpacerIDCard
     requireTag: WhitelistChameleonIdCard
   - type: UserInterface
     interfaces:
@@ -639,7 +639,7 @@
         type: ChameleonBoundUserInterface
 
 - type: entity
-  name: contractor ID card # Frontier: passenger<contractor
+  name: spacer ID card # Frontier: passenger<spacer
   parent: AgentIDCard
   id: NukieAgentIDCard
   suffix: Nukie
@@ -815,7 +815,7 @@
   - type: Sprite
     layers:
     - state: default
-    - state: idseniorofficer
+    - state: idtsfftl
   - type: PresetIdCard
     job: SeniorOfficer
 

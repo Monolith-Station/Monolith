@@ -907,7 +907,7 @@ entities:
     - type: Transform
       pos: -6.5,5.5
       parent: 179
-- proto: BasePirateUplinkRadioDebug
+- proto: BasePDVUplinkRadioDebug
   entities:
   - uid: 1258
     components:
@@ -7099,7 +7099,7 @@ entities:
     - type: Transform
       pos: -3.5,2.5
       parent: 179
-- proto: SpawnPointContractor
+- proto: SpawnPointSpacer
   entities:
   - uid: 1462
     components:

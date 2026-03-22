@@ -1,12 +1,12 @@
 #T0
 - type: loadout
-  id: ContractorClothingMaskBreath
+  id: SpacerClothingMaskBreath
   storage:
     back:
     - ClothingMaskBreath
 
 - type: loadout
-  id: ContractorClothingMaskBreathMedical
+  id: SpacerClothingMaskBreathMedical
   price: 0 # Mono
   storage:
     back:
@@ -14,31 +14,31 @@
 
 #T1
 - type: loadout
-  id: ContractorClothingMaskSterile
+  id: SpacerClothingMaskSterile
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskSterile
 
 - type: loadout
-  id: ContractorClothingMaskGas
+  id: SpacerClothingMaskGas
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskGas
 
 - type: loadout
-  id: ContractorClothingMaskPunkHalf
+  id: SpacerClothingMaskPunkHalf
   name: punk halfmask (random)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   storage:
     back:
@@ -46,139 +46,139 @@
 
 #T2
 - type: loadout
-  id: ContractorClothingMaskGasExplorer
+  id: SpacerClothingMaskGasExplorer
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskGasExplorer
 
 - type: loadout # MONO
-  id: ContractorClothingMaskCOG
+  id: SpacerClothingMaskCOG
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskCOG
 
 - type: loadout
-  id: ContractorClothingMaskGasCaptain
+  id: SpacerClothingMaskGasCaptain
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskGasCaptain
 
 - type: loadout
-  id: ContractorClothingMaskGasAtmos
+  id: SpacerClothingMaskGasAtmos
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskGasAtmos
 
 - type: loadout
-  id: ContractorClothingMaskDrakeIndustries
+  id: SpacerClothingMaskDrakeIndustries
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskDrakeIndustries
 - type: loadout
-  id: ContractorClothingMaskPlague
+  id: SpacerClothingMaskPlague
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskPlague
 
 - type: loadout
-  id: ContractorClothingMaskMime
+  id: SpacerClothingMaskMime
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskMime
 
 - type: loadout
-  id: ContractorClothingMaskScaredMime
+  id: SpacerClothingMaskScaredMime
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskScaredMime
 
 - type: loadout
-  id: ContractorClothingMaskSadMime
+  id: SpacerClothingMaskSadMime
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskSadMime
 
 - type: loadout
-  id: ContractorClothingMaskClown
+  id: SpacerClothingMaskClown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskClown
 
 - type: loadout
-  id: ContractorClothingMaskClownBald
+  id: SpacerClothingMaskClownBald
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskClownBald
 
 - type: loadout
-  id: ContractorClothingMaskNeckGaiter
+  id: SpacerClothingMaskNeckGaiter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskNeckGaiter
 
 - type: loadout
-  id: ContractorClothingMaskNeckGaiterRed
+  id: SpacerClothingMaskNeckGaiterRed
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
     - ClothingMaskNeckGaiterRed
 
 - type: loadout
-  id: ContractorClothingMaskGasSecurity
+  id: SpacerClothingMaskGasSecurity
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
@@ -188,7 +188,7 @@
   id: ClothingMaskJackal
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
@@ -198,7 +198,7 @@
   id: ClothingMaskRat
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
@@ -208,7 +208,7 @@
   id: ClothingMaskRaven
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
@@ -218,7 +218,7 @@
   id: ClothingMaskBear
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
@@ -228,7 +228,7 @@
   id: ClothingMaskBat
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
@@ -238,7 +238,7 @@
   id: ClothingMaskBee
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:
@@ -248,7 +248,7 @@
   id: ClothingMaskFox
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   storage:
     back:

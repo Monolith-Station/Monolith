@@ -1,12 +1,12 @@
 #T0
 - type: loadout
-  id: ContractorEncryptionKeyTraffic
+  id: SpacerEncryptionKeyTraffic
   storage:
     back:
     - EncryptionKeyTraffic
 
 - type: loadout
-  id: ContractorEncryptionKeyMedical
+  id: SpacerEncryptionKeyMedical
   effects:
   - !type:GroupLoadoutEffect
     proto: NFNotDoc
@@ -16,21 +16,21 @@
     - EncryptionKeyMedical
 
 - type: loadout
-  id: ContractorEncryptionKeyCargo
+  id: SpacerEncryptionKeyCargo
   price: 0 # Mono
   storage:
     back:
     - EncryptionKeyCargo
 
 - type: loadout
-  id: ContractorEncryptionKeyEngineering
+  id: SpacerEncryptionKeyEngineering
   price: 0 # Mono
   storage:
     back:
     - EncryptionKeyEngineering
 
 - type: loadout
-  id: ContractorEncryptionKeyScience
+  id: SpacerEncryptionKeyScience
   price: 0 # Mono
   storage:
     back:

@@ -1,278 +1,278 @@
 - type: loadout
-  id: ContractorClearNFPDA
+  id: SpacerClearNFPDA
   price: 0
   equipment:
     id: ClearNFPDA
 
 - type: loadout
-  id: ContractorSalvagePDA
+  id: SpacerSalvagePDA
   price: 0 # Mono
   equipment:
     id: SalvagePDA
 
 - type: loadout
-  id: ContractorResearchAssistantPDA
+  id: SpacerResearchAssistantPDA
   price: 0 # Mono
   equipment:
     id: ResearchAssistantPDA
 
 - type: loadout
-  id: ContractorCargoPDA
+  id: SpacerCargoPDA
   price: 0 # Mono
   equipment:
     id: CargoPDA
 
 - type: loadout
-  id: ContractorMedicalInternPDA
+  id: SpacerMedicalInternPDA
   price: 0 # Mono
   equipment:
     id: MedicalInternPDA
 
 - type: loadout
-  id: ContractorTechnicalAssistantPDA
+  id: SpacerTechnicalAssistantPDA
   price: 0 # Mono
   equipment:
     id: TechnicalAssistantPDA
 
 - type: loadout
-  id: ContractorServiceWorkerPDA
+  id: SpacerServiceWorkerPDA
   price: 0 # Mono
   equipment:
     id: ServiceWorkerPDA
 
 #T1
 - type: loadout
-  id: ContractorBartenderPDA
+  id: SpacerBartenderPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     id: BartenderPDA
 
 - type: loadout
-  id: ContractorChefPDA
+  id: SpacerChefPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     id: ChefPDA
 
 - type: loadout
-  id: ContractorBotanistPDA
+  id: SpacerBotanistPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     id: BotanistPDA
 
 - type: loadout
-  id: ContractorChaplainPDA
+  id: SpacerChaplainPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     id: ChaplainPDA
 
 - type: loadout
-  id: ContractorLibrarianPDA
+  id: SpacerLibrarianPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     id: LibrarianPDA
 
 - type: loadout
-  id: ContractorMedicalPDA
+  id: SpacerMedicalPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     id: MedicalPDA
 
 - type: loadout
-  id: ContractorParamedicPDA
+  id: SpacerParamedicPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     id: ParamedicPDA
 
 - type: loadout
-  id: ContractorPsychologistPDA
+  id: SpacerPsychologistPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     id: PsychologistPDA
 
 - type: loadout
-  id: ContractorChemistryPDA
+  id: SpacerChemistryPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     id: ChemistryPDA
 
 - type: loadout
-  id: ContractorSciencePDA
+  id: SpacerSciencePDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     id: SciencePDA
 
 - type: loadout
-  id: ContractorReporterPDA
+  id: SpacerReporterPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     id: ReporterPDA
 
 - type: loadout
-  id: ContractorZookeeperPDA
+  id: SpacerZookeeperPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     id: ZookeeperPDA
 
 - type: loadout
-  id: ContractorEngineerPDA
+  id: SpacerEngineerPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     id: EngineerPDA
 
 - type: loadout
-  id: ContractorAtmosPDA
+  id: SpacerAtmosPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     id: AtmosPDA
 
 #T2
 - type: loadout
-  id: ContractorCaptainPDA
+  id: SpacerCaptainPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     id: CaptainPDA
 
 - type: loadout
-  id: ContractorQuartermasterPDA
+  id: SpacerQuartermasterPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     id: QuartermasterPDA
 
 - type: loadout
-  id: ContractorSeniorResearcherPDA
+  id: SpacerSeniorResearcherPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     id: SeniorResearcherPDA
 
 - type: loadout
-  id: ContractorRnDPDA
+  id: SpacerRnDPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     id: RnDPDA
 
 - type: loadout
-  id: ContractorSeniorPhysicianPDA
+  id: SpacerSeniorPhysicianPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     id: SeniorPhysicianPDA
 
 - type: loadout
-  id: ContractorCMOPDA
+  id: SpacerCMOPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     id: CMOPDA
 
 - type: loadout
-  id: ContractorSeniorEngineerPDA
+  id: SpacerSeniorEngineerPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     id: SeniorEngineerPDA
 
 - type: loadout
-  id: ContractorCEPDA
+  id: SpacerCEPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     id: CEPDA
 
 - type: loadout
-  id: ContractorBoxerPDA
+  id: SpacerBoxerPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     id: BoxerPDA
 
 - type: loadout
-  id: ContractorMimePDA
+  id: SpacerMimePDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     id: MimePDA
 
 #T3
 - type: loadout
-  id: ContractorClownPDA
+  id: SpacerClownPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 0 # Mono
   equipment:
     id: ClownPDA
 
 - type: loadout
-  id: ContractorMusicianPDA
+  id: SpacerMusicianPDA
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 0 # Mono
   equipment:
     id: MusicianPDA

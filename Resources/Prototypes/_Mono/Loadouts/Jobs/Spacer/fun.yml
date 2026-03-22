@@ -1,103 +1,103 @@
 #T1
 - type: loadout
-  id: ContractorBriefcaseBrownFilled
+  id: SpacerBriefcaseBrownFilled
   name: brown briefcase (empty)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   inhand:
     - BriefcaseBrownFilled
 
 - type: loadout
-  id: ContractorToolboxEmergency
+  id: SpacerToolboxEmergency
   name: emergency toolbox (empty)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   inhand:
     - ToolboxEmergency
 
 - type: loadout
-  id: ContractorToolboxMechanical
+  id: SpacerToolboxMechanical
   name: mechanical toolbox (empty)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   inhand:
     - ToolboxMechanical
 
 - type: loadout
-  id: ContractorPlushieSharkGrey
+  id: SpacerPlushieSharkGrey
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   inhand:
     - PlushieSharkGrey
 
 - type: loadout
-  id: ContractorPlushieSharkBlue
+  id: SpacerPlushieSharkBlue
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   inhand:
     - PlushieSharkBlue
 
 - type: loadout
-  id: ContractorPlushieSharkPink
+  id: SpacerPlushieSharkPink
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   inhand:
     - PlushieSharkPink
 
 - type: loadout
-  id: ContractorHarmonicaInstrument
+  id: SpacerHarmonicaInstrument
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   inhand:
     - HarmonicaInstrument
 
 - type: loadout
-  id: ContractorSaxophoneInstrument
+  id: SpacerSaxophoneInstrument
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   inhand:
     - SaxophoneInstrument
 
 - type: loadout
-  id: ContractorAcousticGuitarInstrument
+  id: SpacerAcousticGuitarInstrument
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   inhand:
     - AcousticGuitarInstrument
 
 #T2
 - type: loadout
-  id: ContractorCane
+  id: SpacerCane
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   inhand:
     - Cane
 
 - type: loadout
-  id: ContractorLGBTQHandyFlag
+  id: SpacerLGBTQHandyFlag
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   inhand:
     - LGBTQHandyFlag
@@ -105,84 +105,84 @@
 # Mono - remove NT flags
 
 - type: loadout
-  id: ContractorPonderingOrb
+  id: SpacerPonderingOrb
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   inhand:
     - PonderingOrb
 
 #T3 Ballin'
 - type: loadout
-  id: ContractorPlushieRGBee
+  id: SpacerPlushieRGBee
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 0 # Mono
   inhand:
     - PlushieRGBee
 
 - type: loadout
-  id: ContractorMysterySpaceBladeBox
+  id: SpacerMysterySpaceBladeBox
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 0 # Mono
   inhand:
     - MysterySpaceBladeBox
 
 - type: loadout
-  id: ContractorHoloGraffitiProjector
+  id: SpacerHoloGraffitiProjector
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 1000 # Mono
   inhand:
     - HoloGraffitiProjector
 
 - type: loadout
-  id: ContractorFlashlightUmbrella
+  id: SpacerFlashlightUmbrella
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 0 # Mono
   inhand:
     - FlashlightUmbrella
 
 - type: loadout
-  id: ContractorDawInstrumentFlatpack
+  id: SpacerDawInstrumentFlatpack
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 0 # Mono
   inhand:
     - DawInstrumentFlatpack
 
 - type: loadout
-  id: ContractorHoverbikeFlatpack
+  id: SpacerHoverbikeFlatpack
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 10000 # Mono
   inhand:
     - HoverbikeFlatpack
 
 - type: loadout
-  id: ContractorEmotionalPetCarrier
+  id: SpacerEmotionalPetCarrier
   name: emotional support pet
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 2000 # Mono
   inhand:
     - PetCarrierNPCEmotionalSupportSafe
 
 - type: loadout
-  id: ContractorCrayonMagic
+  id: SpacerCrayonMagic
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: SpacerT3
   price: 0 # Mono
   inhand:
     - CrayonMagic

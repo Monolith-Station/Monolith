@@ -101,8 +101,8 @@ JobMedicalIntern = Medical intern
 JobMime = Mime
 JobMusician = Musician
 JobParamedic = Paramedic
-# Frontier: Passenger<Contractor
-JobPassenger = Contractor
+# Frontier: Passenger<Spacer
+JobPassenger = Spacer
 JobPsychologist = Psychologist
 JobQuartermaster = Quartermaster
 JobReporter = Reporter

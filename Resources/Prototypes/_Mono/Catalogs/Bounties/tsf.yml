@@ -1,0 +1,168 @@
+# - type: pdvBounty # Mono SCAF-> General Merc Suits including SCAF
+#   id: PirateBountyMercSuit
+#   reward: 30
+#   description: pdv-bounty-description-merc-suit
+#   entries:
+#   - name: pdv-bounty-item-merc-suit
+#     amount: 1
+#     id: ClothingOuterHardsuitMerc # Moved to PirateBountyTacsuit
+
+- type: pdvBounty
+  id: PirateBountyTacsuit
+  reward: 30
+  description: pdv-bounty-description-faction-tacsuit
+  entries:
+  - name: pdv-bounty-item-faction-tacsuit
+    amount: 1
+    id: ClothingOuterHardsuitTacsuit
+
+- type: pdvBounty # Mono
+  id: PirateBountyTacsuitHighValue
+  reward: 60
+  description: pdv-bounty-description-faction-tacsuit-high
+  entries:
+  - name: pdv-bounty-item-faction-tacsuit-high
+    amount: 1
+    id: ClothingOuterHardsuitTacsuitHighValue
+
+- type: pdvBounty # Mono
+  id: PirateBountyTSFEnergyWeapon
+  reward: 25
+  description: pdv-bounty-description-energy-weapon
+  entries:
+  - name: pdv-bounty-item-energy-weapon
+    amount: 1
+    id: TSFEnergyWeapon
+
+- type: pdvBounty # Mono
+  id: PirateBountyStandardFactionLongarm
+  reward: 20
+  description: pdv-bounty-description-standard-faction-longarm
+  entries:
+  - name: pdv-bounty-item-standard-faction-longarm
+    amount: 1
+    id: StandardFactionLongarm
+
+- type: pdvBounty # Mono
+  id: PirateBountyExperimentalFactionWeapon
+  reward: 60
+  description: pdv-bounty-description-experimental-faction-weapon
+  entries:
+  - name: pdv-bounty-item-experimental-faction-weapon
+    amount: 1
+    id: ExperimentalFactionWeapon
+
+- type: pdvBounty
+  id: PirateBountyShipWeapon
+  reward: 20
+  description: pdv-bounty-description-shipweapon
+  spawnChest: false
+  entries:
+  - name: pdv-bounty-item-shipweapon
+    amount: 1
+    id: ShipWeapon
+
+- type: pdvBounty
+  id: PirateBountyFentanylLarge
+  reward: 25
+  description: pdv-bounty-description-generic
+  entries:
+  - name: pdv-bounty-item-fentanyl
+    amount: 6
+    id: FentanylCrystal
+
+#- type: pdvBounty - Mono
+#  id: PirateBountyFentanylSmall
+#  reward: 10
+#  description: pdv-bounty-description-generic
+#  entries:
+#  - name: pdv-bounty-item-fentanyl
+#    amount: 3
+#    id: FentanylCrystal
+
+- type: pdvBounty
+  id: PirateBountyFTLDrive
+  reward: 25
+  description: pdv-bounty-description-generic
+  spawnChest: false
+  entries:
+  - name: pdv-bounty-item-ftldrive
+    amount: 1
+    id: FTLDrive
+
+- type: pdvBounty
+  id: PirateBountyShipShield
+  reward: 25
+  description: pdv-bounty-description-generic
+  spawnChest: false
+  entries:
+  - name: pdv-bounty-item-shield
+    amount: 1
+    id: ShipShield
+
+- type: pdvBounty
+  id: PirateBountyGCS
+  reward: 20
+  description: pdv-bounty-description-generic
+  spawnChest: false
+  entries:
+  - name: pdv-bounty-item-gcs
+    amount: 1
+    id: GunneryServer
+
+#- type: pdvBounty - Mono
+#  id: PirateBountyMercGun
+#  reward: 3
+#  description: pdv-bounty-description-pmc
+#  entries:
+#  - name: pdv-bounty-item-pmc-gun
+#    amount: 1
+#    id: PMCGun
+
+#- type: pdvBounty - Mono
+#  id: PirateBountyNitroOxyAirCan
+#  reward: 1
+#  description: pdv-bounty-description-lifesupport
+#  spawnChest: false
+#  entries:
+#  - name: pdv-bounty-item-n2-o2-air
+#    amount: 4
+#    id: LifeSupportCan
+
+- type: pdvBounty # Mono
+  id: PirateBountyEncryptionKeyFaction
+  reward: 25
+  description: pdv-bounty-description-encryption-key-faction
+  entries:
+  - name: pdv-bounty-item-encryption-key-faction
+    amount: 1
+    id: EncryptionKeyFaction # Mono
+
+- type: pdvBounty
+  id: PirateBountyTechfab
+  reward: 10
+  description: pdv-bounty-description-techfab
+  spawnChest: false
+  entries:
+  - name: pdv-bounty-item-techfab
+    amount: 1
+    id: Techfab
+
+- type: pdvBounty
+  id: PirateBountyCybernetics
+  reward: 20
+  description: pdv-bounty-description-cybernetics
+  entries:
+  - name: pdv-bounty-item-cybernetics
+    amount: 4
+    id: Cybernetics
+
+- type: pdvBounty
+  id: PirateBountyRTG
+  reward: 15
+  description: pdv-bounty-description-rtg
+  spawnChest: false
+  entries:
+  - name: pdv-bounty-item-rtg
+    amount: 1
+    id: GeneratorRTG

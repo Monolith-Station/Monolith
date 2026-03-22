@@ -15,34 +15,34 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# Contractor
+# Spacer
 - type: roleLoadout
-  id: JobContractor
+  id: JobSpacer
   groups:
-  - ContractorHead
-  - ContractorNeck
-  - ContractorJumpsuit
-  - ContractorGloves
-  - ContractorBackpack
-  - ContractorOuterClothing
-  - ContractorShoes
-  - ContractorFace
-  - ContractorGlasses
-  - ContractorBelt
-  - ContractorEars
-  - ContractorEncryptionKey
-  - ContractorBoxSurvival
-  - ContractorPDA
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorUtility
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
+  - SpacerHead
+  - SpacerNeck
+  - SpacerJumpsuit
+  - SpacerGloves
+  - SpacerBackpack
+  - SpacerOuterClothing
+  - SpacerShoes
+  - SpacerFace
+  - SpacerGlasses
+  - SpacerBelt
+  - SpacerEars
+  - SpacerEncryptionKey
+  - SpacerBoxSurvival
+  - SpacerPDA
+  - SpacerWallet
+  - SpacerCartridge
+  - SpacerImplanter
+  - SpacerUtility
+  - SpacerFun
+  - SpacerTrinkets
+  - SpacerBureaucracy
   - NFSpeciesSpecific
-  - ContractorFirearm # Mono
-  - ContractorMag # Mono
+  - SpacerFirearm # Mono
+  - SpacerMag # Mono
   - CivGunCaseSpecial # Mono
 
 # Pilot
@@ -58,21 +58,21 @@
   - PilotShoes
   - PilotFace
   - PilotGlasses
-  - ContractorBelt
+  - SpacerBelt
   - PilotEars
-  - ContractorEncryptionKey
-  - ContractorBoxSurvival
+  - SpacerEncryptionKey
+  - SpacerBoxSurvival
   - PilotPDA
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorUtility
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
+  - SpacerWallet
+  - SpacerCartridge
+  - SpacerImplanter
+  - SpacerUtility
+  - SpacerFun
+  - SpacerTrinkets
+  - SpacerBureaucracy
   - NFSpeciesSpecific
-  - ContractorFirearm # Mono
-  - ContractorMag # Mono
+  - SpacerFirearm # Mono
+  - SpacerMag # Mono
   - CivGunCaseSpecial # Mono
 
 # Mercenary
@@ -80,7 +80,7 @@
   id: JobMercenary
   groups:
   - MercenaryHead
-  - ContractorNeck
+  - SpacerNeck
   - MercenaryJumpsuit
   - MercenaryGloves
   - MercenaryBackpack
@@ -94,16 +94,16 @@
   - MercenaryFirearm # Mono
   - MercenaryPistol # Mono
   - MercenaryMag
-  - ContractorEncryptionKey
-  - ContractorBoxSurvival
+  - SpacerEncryptionKey
+  - SpacerBoxSurvival
   - MercenaryPDA
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorUtility
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
+  - SpacerWallet
+  - SpacerCartridge
+  - SpacerImplanter
+  - SpacerUtility
+  - SpacerFun
+  - SpacerTrinkets
+  - SpacerBureaucracy
   - NFSpeciesSpecific
   - CivGunCaseSpecial # Mono
 
@@ -111,27 +111,27 @@
 - type: roleLoadout
   id: JobCCServiceWorker # Mono
   groups:
-  - ContractorNeck
+  - SpacerNeck
   - ValetJumpsuit
-  - ContractorBackpack
+  - SpacerBackpack
   - ValetOuterClothing
-  - ContractorShoes
-  - ContractorFace
-  - ContractorGlasses
-  - ContractorBelt
-  - ContractorEars
-  - ContractorEncryptionKey
-  - ContractorBoxSurvival
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorUtility # Mono
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
+  - SpacerShoes
+  - SpacerFace
+  - SpacerGlasses
+  - SpacerBelt
+  - SpacerEars
+  - SpacerEncryptionKey
+  - SpacerBoxSurvival
+  - SpacerWallet
+  - SpacerCartridge
+  - SpacerImplanter
+  - SpacerUtility # Mono
+  - SpacerFun
+  - SpacerTrinkets
+  - SpacerBureaucracy
   - NFSpeciesSpecific
-  - ContractorFirearm # Mono
-  - ContractorMag # Mono
+  - SpacerFirearm # Mono
+  - SpacerMag # Mono
 
 - type: roleLoadout
   id: JobNFJanitor
@@ -139,72 +139,72 @@
   - JanitorNFHead
   - JanitorNFJumpsuit
   - JanitorNFGloves
-  - ContractorBackpack
+  - SpacerBackpack
   - JanitorNFOuterClothing
-  - ContractorFace
-  - ContractorGlasses
-  - ContractorEars
-  - ContractorEncryptionKey
-  - ContractorBoxSurvival
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorUtility # Mono
-  - ContractorFun
-  - ContractorTrinkets
+  - SpacerFace
+  - SpacerGlasses
+  - SpacerEars
+  - SpacerEncryptionKey
+  - SpacerBoxSurvival
+  - SpacerWallet
+  - SpacerCartridge
+  - SpacerImplanter
+  - SpacerUtility # Mono
+  - SpacerFun
+  - SpacerTrinkets
   - NFSpeciesSpecific
-  - ContractorFirearm # Mono
-  - ContractorMag # Mono
+  - SpacerFirearm # Mono
+  - SpacerMag # Mono
 
 - type: roleLoadout
   id: JobMailCarrier
   groups:
-  - ContractorNeck
+  - SpacerNeck
   - MailCarrierJumpsuit
-  - ContractorGloves
+  - SpacerGloves
   - MailCarrierBackpack
   - MailCarrierOuterClothing
-  - ContractorShoes
-  - ContractorFace
-  - ContractorEars
-  - ContractorEncryptionKey
-  - ContractorBoxSurvival
+  - SpacerShoes
+  - SpacerFace
+  - SpacerEars
+  - SpacerEncryptionKey
+  - SpacerBoxSurvival
   - MailCarrierWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorUtility # Mono
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
+  - SpacerCartridge
+  - SpacerImplanter
+  - SpacerUtility # Mono
+  - SpacerFun
+  - SpacerTrinkets
+  - SpacerBureaucracy
   - NFSpeciesSpecific
-  - ContractorFirearm # Mono
-  - ContractorMag # Mono
+  - SpacerFirearm # Mono
+  - SpacerMag # Mono
 
 - type: roleLoadout
   id: JobStationTrafficController
   groups:
   - StcHead
-  - ContractorNeck
+  - SpacerNeck
   - StcJumpsuit
-  - ContractorGloves
-  - ContractorBackpack
-  - ContractorOuterClothing
+  - SpacerGloves
+  - SpacerBackpack
+  - SpacerOuterClothing
   - StcShoes
-  - ContractorFace
-  - ContractorGlasses
-  - ContractorBelt
+  - SpacerFace
+  - SpacerGlasses
+  - SpacerBelt
   - StcEars
-  - ContractorBoxSurvival
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorUtility # Mono
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
+  - SpacerBoxSurvival
+  - SpacerWallet
+  - SpacerCartridge
+  - SpacerImplanter
+  - SpacerUtility # Mono
+  - SpacerFun
+  - SpacerTrinkets
+  - SpacerBureaucracy
   - NFSpeciesSpecific
-  - ContractorFirearm # Mono
-  - ContractorMag # Mono
+  - SpacerFirearm # Mono
+  - SpacerMag # Mono
 
 # Mono edit
 - type: roleLoadout
@@ -216,10 +216,10 @@
   - StationRepGloves
   - StationRepBackpack
   - StationRepOuterClothing
-#  - ContractorShoes
-#  - ContractorFace
-#  - ContractorGlasses
-#  - ContractorBelt
+#  - SpacerShoes
+#  - SpacerFace
+#  - SpacerGlasses
+#  - SpacerBelt
   - MonoSecurityGuardHud
   - StationRepEars
   - MonoSecurityGuardShoes
@@ -227,15 +227,15 @@
   - HeadofSecurityJumpsuit
   - HeadofSecurityNeck
   - ColonialLiaisonFirearm # Mono
-  - ContractorBoxSurvival
+  - SpacerBoxSurvival
   - StationRepPDA
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorUtility # Mono
- # - ContractorFun # Mono - no fun allowed
+  - SpacerWallet
+  - SpacerCartridge
+  - SpacerImplanter
+  - SpacerUtility # Mono
+ # - SpacerFun # Mono - no fun allowed
   - StationRepTrinkets
-  - ContractorBureaucracy
+  - SpacerBureaucracy
   - NFSpeciesSpecific
 
 - type: roleLoadout
@@ -258,14 +258,14 @@
   - SecurityGuardEars
   - NfsdBoxSurvival
   - SecurityGuardPDA
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorUtility # Mono
-  - ContractorEncryptionKey
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
+  - SpacerWallet
+  - SpacerCartridge
+  - SpacerImplanter
+  - SpacerUtility # Mono
+  - SpacerEncryptionKey
+  - SpacerFun
+  - SpacerTrinkets
+  - SpacerBureaucracy
   - NFSpeciesSpecific
 
 - type: roleLoadout
@@ -276,22 +276,22 @@
   - DocJumpsuit
   - DocGloves
   - MdMedicBackpack
-  - ContractorOuterClothing
+  - SpacerOuterClothing
   - DocShoes
-  - ContractorFace
-  - ContractorGlasses
-  - ContractorBelt
+  - SpacerFace
+  - SpacerGlasses
+  - SpacerBelt
   - DocEars
-  - ContractorBoxSurvival
+  - SpacerBoxSurvival
   - DocPDA
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorUtility # Mono
-  - ContractorEncryptionKey
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
+  - SpacerWallet
+  - SpacerCartridge
+  - SpacerImplanter
+  - SpacerUtility # Mono
+  - SpacerEncryptionKey
+  - SpacerFun
+  - SpacerTrinkets
+  - SpacerBureaucracy
   - NFSpeciesSpecific
 
 # Nfsd
@@ -314,35 +314,35 @@
   - NfsdEarsCream
   - NfsdBoxSurvival
   - NFDetectivePDA
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorEncryptionKey
-  - ContractorFun
-  - ContractorTrinkets
+  - SpacerWallet
+  - SpacerCartridge
+  - SpacerImplanter
+  - SpacerEncryptionKey
+  - SpacerFun
+  - SpacerTrinkets
   - NfsdSpeciesSpecific
 
 - type: roleLoadout
   id: JobPublicAffairsLiaison
   groups:
-  - ContractorHead
+  - SpacerHead
   - PalNeck
   - PalJumpsuit
   - PalGloves
   - NfsdBackpackBrown
   - NfsdShoesBrown
-  - ContractorFace
+  - SpacerFace
   - NfsdGlasses
-  - ContractorBelt
+  - SpacerBelt
   - NfsdEarsBrown
   - NfsdBoxSurvival
   - PalPDA
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorEncryptionKey
-  - ContractorFun
-  - ContractorTrinkets
+  - SpacerWallet
+  - SpacerCartridge
+  - SpacerImplanter
+  - SpacerEncryptionKey
+  - SpacerFun
+  - SpacerTrinkets
   - NFSpeciesSpecific # Explicitly civilian variant
 
 # moved pirates to mono for rogues

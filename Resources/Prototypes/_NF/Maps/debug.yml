@@ -29,8 +29,7 @@
           gridPath: /Maps/_Mono/POI/surface_outpost_desert.yml
         - type: StationJobs
           availableJobs:
-            Contractor: [ -1, -1 ]
-            Pilot: [ -1, -1 ]
+            Spacer: [ -1, -1 ]
             Mercenary: [ -1, -1 ]
             Borg: [ -1, -1]
             StationRepresentative: [ -1, -1 ]
@@ -41,7 +40,7 @@
             CCServiceWorker: [ -1, -1 ]
             NFJanitor: [ -1, -1 ]
             MailCarrier: [ -1, -1 ]
-            Sheriff: [ -1, -1]
+            TSFColonel: [ -1, -1]
             # TSFCaptain: [ -1, -1] Mono
             SeniorOfficer: [ -1, -1]
             Brigmedic: [ -1, -1]
@@ -49,10 +48,10 @@
             Deputy: [ -1, -1]
             # Cadet: [ -1, -1] Mono
             # PublicAffairsLiaison: [ -1, -1] Mono
-            PirateCaptain: [ -1, -1]
-            PirateFirstMate: [ -1, -1]
+            PDVVizier: [ -1, -1]
+            PDVAsvaran: [ -1, -1]
             PDVDenasvar: [ -1, -1] #Mono
-            Pirate: [ -1, -1]
+            PDVRahkshan: [ -1, -1]
             PDVInfiltrator: [ -1, -1] # Mono]
             # Prisoner: [ -1, -1] # Mono
             # USSPCommissar: [ -1, -1]

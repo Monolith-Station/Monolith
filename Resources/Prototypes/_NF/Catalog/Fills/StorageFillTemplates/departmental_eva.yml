@@ -1,14 +1,14 @@
 # Departmental EVA suits
 - type: entity
   abstract: true
-  id: StorageFillEVASuitContractor
-  description: Contains a standard issue contractor EVA kit.
+  id: StorageFillEVASuitSpacer
+  description: Contains a standard issue spacer EVA kit.
   components:
   - type: StorageFill
     contents:
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
-    - id: ClothingOuterEVASuitContractor
+    - id: ClothingOuterEVASuitSpacer
     - id: ClothingMaskBreath
     - id: JetpackMiniFilled
 

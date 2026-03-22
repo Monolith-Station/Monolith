@@ -249,11 +249,11 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-seniorofficer
+        pda-tsfftl
   - type: PdaBorderColor
     borderColor: "#48484b"
   - type: Icon
-    state: pda-seniorofficer
+    state: pda-tsfftl
 
 - type: entity
   parent: BaseSecurityPDA
@@ -373,11 +373,11 @@
 
 - type: entity
   parent: PassengerPDA
-  id: ContractorPDA
+  id: SpacerPDA
   name: spacer PDA
   components:
   - type: Pda
-    id: ContractorIDCard
+    id: SpacerIDCard
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -389,7 +389,7 @@
   id: ClearNFPDA
   components:
   - type: Pda
-    id: ContractorIDCard
+    id: SpacerIDCard
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:

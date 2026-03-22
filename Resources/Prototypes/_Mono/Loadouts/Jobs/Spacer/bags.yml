@@ -1,219 +1,219 @@
 - type: loadout
-  id: ContractorClothingBackpack
+  id: SpacerClothingBackpack
   price: 0
   equipment:
     back: NFClothingBackpack
 
 - type: loadout
-  id: ContractorClothingBackpackDuffel
+  id: SpacerClothingBackpackDuffel
   price: 0
   equipment:
     back: NFClothingDuffel
 
 - type: loadout
-  id: ContractorClothingBackpackSatchel
+  id: SpacerClothingBackpackSatchel
   price: 0
   equipment:
     back: ClothingBackpackSatchel
 
 - type: loadout
-  id: ContractorClothingBackpackMessenger
+  id: SpacerClothingBackpackMessenger
   price: 0
   equipment:
     back: ClothingBackpackMessenger
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerContractor
+  id: SpacerClothingBackpackMessengerSpacer
   price: 0
   equipment:
-    back: ClothingBackpackMessengerContractor
+    back: ClothingBackpackMessengerSpacer
 
 #T1
 - type: loadout
-  id: ContractorClothingBackpackCaptain
+  id: SpacerClothingBackpackCaptain
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackCaptain
 
 - type: loadout
-  id: ContractorClothingBackpackDuffelCaptain
+  id: SpacerClothingBackpackDuffelCaptain
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelCaptain
 
 - type: loadout
-  id: ContractorClothingBackpackSatchelCaptain
+  id: SpacerClothingBackpackSatchelCaptain
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelCaptain
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerCaptain
+  id: SpacerClothingBackpackMessengerCaptain
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerCaptain
 
 - type: loadout
-  id: ContractorClothingBackpackSalvage
+  id: SpacerClothingBackpackSalvage
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackSalvage
 
 - type: loadout
-  id: ContractorClothingBackpackDuffelSalvage
+  id: SpacerClothingBackpackDuffelSalvage
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelSalvage
 
 - type: loadout
-  id: ContractorClothingBackpackSatchelSalvage
+  id: SpacerClothingBackpackSatchelSalvage
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelSalvage
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerSalvage
+  id: SpacerClothingBackpackMessengerSalvage
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerSalvage
 
 - type: loadout
-  id: ContractorClothingBackpackCargo
+  id: SpacerClothingBackpackCargo
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackCargo
 
 - type: loadout
-  id: ContractorClothingBackpackDuffelCargo
+  id: SpacerClothingBackpackDuffelCargo
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelCargo
 
 - type: loadout
-  id: ContractorClothingBackpackSatchelCargo
+  id: SpacerClothingBackpackSatchelCargo
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelCargo
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerCargo
+  id: SpacerClothingBackpackMessengerCargo
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerCargo
 
 - type: loadout
-  id: ContractorClothingBackpackHydroponics
+  id: SpacerClothingBackpackHydroponics
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackHydroponics
 
 - type: loadout
-  id: ContractorClothingBackpackDuffelHydroponics
+  id: SpacerClothingBackpackDuffelHydroponics
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelHydroponics
 
 - type: loadout
-  id: ContractorClothingBackpackSatchelHydroponics
+  id: SpacerClothingBackpackSatchelHydroponics
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelHydroponics
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerHydroponics
+  id: SpacerClothingBackpackMessengerHydroponics
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerHydroponics
 
 - type: loadout
-  id: ContractorClothingBackpackScience
+  id: SpacerClothingBackpackScience
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackScience
 
 - type: loadout
-  id: ContractorClothingBackpackDuffelScience
+  id: SpacerClothingBackpackDuffelScience
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelScience
 
 - type: loadout
-  id: ContractorClothingBackpackSatchelScience
+  id: SpacerClothingBackpackSatchelScience
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelScience
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerScience
+  id: SpacerClothingBackpackMessengerScience
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerScience
 
 - type: loadout
-  id: ContractorClothingBackpackMedical
+  id: SpacerClothingBackpackMedical
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   - !type:GroupLoadoutEffect
     proto: NFNotDoc
   price: 0 # Mono
@@ -221,10 +221,10 @@
     back: ClothingBackpackMedical
 
 - type: loadout
-  id: ContractorClothingBackpackDuffelMedical
+  id: SpacerClothingBackpackDuffelMedical
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFNotDoc
@@ -233,10 +233,10 @@
     back: ClothingBackpackDuffelMedical
 
 - type: loadout
-  id: ContractorClothingBackpackSatchelMedical
+  id: SpacerClothingBackpackSatchelMedical
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFNotDoc
@@ -245,10 +245,10 @@
     back: ClothingBackpackSatchelMedical
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerMedical
+  id: SpacerClothingBackpackMessengerMedical
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFNotDoc
@@ -257,380 +257,380 @@
     back: ClothingBackpackMessengerMedical
 
 - type: loadout
-  id: ContractorClothingBackpackChemistry
+  id: SpacerClothingBackpackChemistry
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackChemistry
 
 - type: loadout
-  id: ContractorClothingBackpackDuffelChemistry
+  id: SpacerClothingBackpackDuffelChemistry
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelChemistry
 
 - type: loadout
-  id: ContractorClothingBackpackSatchelChemistry
+  id: SpacerClothingBackpackSatchelChemistry
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelChemistry
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerChemistry
+  id: SpacerClothingBackpackMessengerChemistry
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerChemistry
 
 - type: loadout
-  id: ContractorClothingBackpackGenetics
+  id: SpacerClothingBackpackGenetics
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackGenetics
 
 - type: loadout
-  id: ContractorClothingBackpackDuffelGenetics
+  id: SpacerClothingBackpackDuffelGenetics
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelGenetics
 
 - type: loadout
-  id: ContractorClothingBackpackSatchelGenetics
+  id: SpacerClothingBackpackSatchelGenetics
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelGenetics
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerGenetics
+  id: SpacerClothingBackpackMessengerGenetics
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerGenetics
 
 - type: loadout
-  id: ContractorClothingBackpackVirology
+  id: SpacerClothingBackpackVirology
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackVirology
 
 - type: loadout
-  id: ContractorClothingBackpackDuffelVirology
+  id: SpacerClothingBackpackDuffelVirology
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelVirology
 
 - type: loadout
-  id: ContractorClothingBackpackSatchelVirology
+  id: SpacerClothingBackpackSatchelVirology
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelVirology
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerVirology
+  id: SpacerClothingBackpackMessengerVirology
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerVirology
 
 - type: loadout
-  id: ContractorClothingBackpackEngineering
+  id: SpacerClothingBackpackEngineering
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackEngineering
 
 - type: loadout
-  id: ContractorClothingBackpackDuffelEngineering
+  id: SpacerClothingBackpackDuffelEngineering
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelEngineering
 
 - type: loadout
-  id: ContractorClothingBackpackSatchelEngineering
+  id: SpacerClothingBackpackSatchelEngineering
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelEngineering
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerEngineering
+  id: SpacerClothingBackpackMessengerEngineering
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerEngineering
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerChiefEngineer
+  id: SpacerClothingBackpackMessengerChiefEngineer
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerChiefEngineer
 
 - type: loadout
-  id: ContractorClothingBackpackAtmospherics
+  id: SpacerClothingBackpackAtmospherics
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackAtmospherics
 
 - type: loadout
-  id: ContractorClothingBackpackDuffelAtmospherics
+  id: SpacerClothingBackpackDuffelAtmospherics
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelAtmospherics
 
 - type: loadout
-  id: ContractorClothingBackpackSatchelAtmospherics
+  id: SpacerClothingBackpackSatchelAtmospherics
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelAtmospherics
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerAtmospherics
+  id: SpacerClothingBackpackMessengerAtmospherics
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerAtmospherics
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerChaplain
+  id: SpacerClothingBackpackMessengerChaplain
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerChaplain
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerColorBlack
+  id: SpacerClothingBackpackMessengerColorBlack
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorBlack
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerColorWhite
+  id: SpacerClothingBackpackMessengerColorWhite
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorWhite
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerColorBlue
+  id: SpacerClothingBackpackMessengerColorBlue
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorBlue
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerColorGreen
+  id: SpacerClothingBackpackMessengerColorGreen
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorGreen
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerColorOrange
+  id: SpacerClothingBackpackMessengerColorOrange
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorOrange
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerColorRed
+  id: SpacerClothingBackpackMessengerColorRed
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorRed
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerColorPurple
+  id: SpacerClothingBackpackMessengerColorPurple
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorPurple
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerColorBrownLight
+  id: SpacerClothingBackpackMessengerColorBrownLight
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorBrownLight
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerColorBrown
+  id: SpacerClothingBackpackMessengerColorBrown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: SpacerT1
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorBrown
 
 #T2
 - type: loadout
-  id: ContractorClothingBackpackDrakeIndustries
+  id: SpacerClothingBackpackDrakeIndustries
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     back: ClothingBackpackDrakeIndustries
 
 - type: loadout
-  id: ContractorClothingBackpackDuffelDrakeIndustries
+  id: SpacerClothingBackpackDuffelDrakeIndustries
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelDrakeIndustries
 
 - type: loadout
-  id: ContractorClothingBackpackSatchelDrakeIndustries
+  id: SpacerClothingBackpackSatchelDrakeIndustries
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelDrakeIndustries
 
 - type: loadout
-  id: ContractorClothingBackpackClown
+  id: SpacerClothingBackpackClown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     back: ClothingBackpackClown
 
 - type: loadout
-  id: ContractorClothingBackpackDuffelClown
+  id: SpacerClothingBackpackDuffelClown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelClown
 
 - type: loadout
-  id: ContractorClothingBackpackSatchelClown
+  id: SpacerClothingBackpackSatchelClown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelClown
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerClown
+  id: SpacerClothingBackpackMessengerClown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerClown
 
 - type: loadout
-  id: ContractorClothingBackpackMime
+  id: SpacerClothingBackpackMime
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMime
 
 - type: loadout
-  id: ContractorClothingBackpackDuffelMime
+  id: SpacerClothingBackpackDuffelMime
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelMime
 
 - type: loadout
-  id: ContractorClothingBackpackSatchelMime
+  id: SpacerClothingBackpackSatchelMime
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelMime
 
 - type: loadout
-  id: ContractorClothingBackpackMessengerMime
+  id: SpacerClothingBackpackMessengerMime
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: SpacerT2
   price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerMime

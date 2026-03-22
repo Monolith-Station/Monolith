@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: BrigmedicJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   loadouts:
   - BrigmedicClothingUniformJumpsuitBrigmedic
   - BrigmedicClothingUniformJumpskirtBrigmedic
@@ -10,21 +10,21 @@
 
 - type: loadoutGroup
   id: BrigmedicOuterClothing
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-spacer-outerclothing
   minLimit: 0
   loadouts:
   - BrigmedicOuterClothing
 
 - type: loadoutGroup
   id: BrigmedicHead
-  name: loadout-group-contractor-head
+  name: loadout-group-spacer-head
   minLimit: 0
   loadouts:
   - BrigmedicClothingHeadHatBrigmedic
 
 - type: loadoutGroup
   id: BrigmedicGloves
-  name: loadout-group-contractor-gloves
+  name: loadout-group-spacer-gloves
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - NitrileGloves
@@ -33,7 +33,7 @@
 
 - type: loadoutGroup
   id: BrigmedicNeck
-  name: loadout-group-contractor-neck
+  name: loadout-group-spacer-neck
   hidden: true
   loadouts:
   - BrigmedicClothingNeckNfsdBadgeSecurityBrigmedic
@@ -42,16 +42,16 @@
 
 - type: loadoutGroup
   id: BrigmedicPDA
-  name: loadout-group-contractor-id
+  name: loadout-group-spacer-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - BrigmedicBrigmedicPDA
   fallbacks:
   - BrigmedicBrigmedicPDA
-  
+
 - type: loadoutGroup
   id: BrigmedicGlasses
-  name: loadout-group-contractor-glasses
+  name: loadout-group-spacer-glasses
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - BrigmedicClothingEyesGlasses
@@ -60,7 +60,7 @@
 
 - type: loadoutGroup
   id: BrigmedicFace
-  name: loadout-group-contractor-face
+  name: loadout-group-spacer-face
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - BrigmedicClothingMaskBrigmedic
@@ -70,7 +70,7 @@
 - type: loadoutGroup
   id: BrigmedicBelt
   minLimit: 1
-  name: loadout-group-contractor-belt
+  name: loadout-group-spacer-belt
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - BrigmedicClothingBeltBrigmedicWebbing

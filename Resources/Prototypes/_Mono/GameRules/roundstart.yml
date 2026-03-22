@@ -1,11 +1,4 @@
 - type: entity
-  id: NFAdventure
-  parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: NFAdventureRule
-
-- type: entity
   id: BluespaceEventScheduler
   parent: BaseGameRule
   components:

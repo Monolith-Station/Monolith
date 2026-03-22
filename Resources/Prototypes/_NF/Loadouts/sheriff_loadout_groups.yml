@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: SheriffJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-spacer-jumpsuit
   loadouts:
   - SheriffClothingUniformJumpsuitSheriff
   - SheriffClothingUniformJumpskirtSheriff
@@ -10,21 +10,21 @@
 
 - type: loadoutGroup
   id: SheriffOuterClothing
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-spacer-outerclothing
   minLimit: 0
   loadouts:
   - SheriffOuterClothing
 
 - type: loadoutGroup
   id: SheriffHead
-  name: loadout-group-contractor-head
+  name: loadout-group-spacer-head
   minLimit: 0
   loadouts:
   - SheriffClothingHeadHatSheriff
 
 - type: loadoutGroup
   id: SheriffNeck
-  name: loadout-group-contractor-neck
+  name: loadout-group-spacer-neck
   loadouts:
   - SheriffClothingNeckNfsdBadgeSheriff
   - SheriffClothingNeckMantleSheriff
@@ -34,7 +34,7 @@
 
 - type: loadoutGroup
   id: SheriffPDA
-  name: loadout-group-contractor-id
+  name: loadout-group-spacer-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - SheriffSheriffPDA
@@ -43,7 +43,7 @@
 
 - type: loadoutGroup
   id: SheriffFace
-  name: loadout-group-contractor-face
+  name: loadout-group-spacer-face
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - SheriffClothingMaskSheriff
@@ -52,7 +52,7 @@
 
 - type: loadoutGroup
   id: SheriffEars
-  name: loadout-group-contractor-ears
+  name: loadout-group-spacer-ears
   loadouts:
   - SheriffClothingHeadsetAltNfsdBrownCentcom
   - SheriffClothingHeadsetAltNfsdCreamandBrownCentcom

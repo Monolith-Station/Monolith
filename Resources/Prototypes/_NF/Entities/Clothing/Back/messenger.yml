@@ -1,8 +1,8 @@
 # BASE
 - type: entity
   parent: NFClothingMessenger
-  id: ClothingBackpackMessengerContractor
-  name: contractor messenger bag
+  id: ClothingBackpackMessengerSpacer
+  name: spacer messenger bag
   description: A trendy looking messenger bag in tasteful colors.
   components:
   - type: Sprite
@@ -49,7 +49,7 @@
 # DEPARTMENTAL
 ## Command
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerCaptain
   name: captain's messenger bag
   description: An exclusive messenger bag for Nanotrasen officers.
@@ -87,7 +87,7 @@
         color: "#f6d56a"
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerSr
   name: colonial liaison's messenger bag
   description: An exclusive messenger bag for Nanotrasen officers.
@@ -135,7 +135,7 @@
     sprite: _NF/Clothing/Back/Messenger/atmospherics.rsi
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerEngineering
   name: engineering messenger bag
   description: A tough messenger bag with extra pockets.
@@ -189,7 +189,7 @@
         color: "#eeeeee"
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerChiefEngineer
   name: chief engineer's messenger bag
   description: A tough messenger bag with extra pockets.
@@ -228,7 +228,7 @@
 
 ## Supply
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerCargo
   name: cargo messenger bag
   description: A robust messenger bag for stealing cargo's loot.
@@ -274,7 +274,7 @@
         color: "#eeeeee"
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerSalvage
   name: salvage messenger bag
   description: A robust messenger bag for stashing your loot.
@@ -381,7 +381,7 @@
       sprite: _NF/Clothing/Back/Messenger/mime.rsi
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerHydroponics
   name: hydroponics messenger bag
   description: A messenger bag made of all natural fibers.
@@ -427,7 +427,7 @@
         color: "#eeeeee"
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerJanitor
   name: janitor messenger bag
   description: A robust messenger bag for waging war against dirt.
@@ -474,7 +474,7 @@
       sprite: _NF/Clothing/Back/Messenger/mailman.rsi
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerChaplain
   name: chaplain messenger bag
   components:
@@ -512,7 +512,7 @@
 
 ## Wild cards
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerPilot
   name: pilot messenger bag
   description: A robust messenger bag for shuttle parts.
@@ -550,7 +550,7 @@
         color: "#eeeeee"
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerMercenary
   name: mercenary messenger bag
   description:  A robust messenger bag for war crimes.
@@ -622,7 +622,7 @@
 ## Antagonists / Contraband
 - type: entity
   parent:
-  - ClothingBackpackMessengerContractor
+  - ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerSyndicate
   name: syndicate messenger bag
   description: A robust messenger bag for waging war against oppressors.
@@ -661,7 +661,7 @@
 
 - type: entity
   parent:
-  - ClothingBackpackMessengerContractor
+  - ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerBloodCult
   name: cultist messenger bag
   description: A watertight messenger bag for loyal Nar'Sie followers.
@@ -701,7 +701,7 @@
 - type: entity
   id: ClothingBackpackMessengerArcadia
   name: arcadia messenger bag
-  parent: [ ClothingBackpackMessengerContractor ]
+  parent: [ ClothingBackpackMessengerSpacer ]
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/color.rsi
@@ -753,7 +753,7 @@
 
 ## NFSD
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerNfsdBrown
   name: TSFMC messenger bag
   components:
@@ -798,7 +798,7 @@
         color: "#e1af4e"
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerNfsdCream
   name: TSFMC messenger bag
   components:
@@ -844,7 +844,7 @@
 
 ## Security
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerSecurity
   name: security messenger bag
   components:
@@ -890,7 +890,7 @@
 
 ## Color variants (to match colored jumpsuits)
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerColorBlack
   name: black messenger bag
   components:
@@ -927,7 +927,7 @@
         color: "#eeeeee"
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerColorBlue
   name: blue messenger bag
   components:
@@ -964,7 +964,7 @@
         color: "#eeeeee"
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerColorGreen
   name: green messenger bag
   components:
@@ -1001,7 +1001,7 @@
         color: "#eeeeee"
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerColorOrange
   name: orange messenger bag
   components:
@@ -1038,7 +1038,7 @@
         color: "#eeeeee"
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerColorRed
   name: red messenger bag
   components:
@@ -1075,7 +1075,7 @@
         color: "#eeeeee"
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerColorPurple
   name: purple messenger bag
   components:
@@ -1112,7 +1112,7 @@
         color: "#eeeeee"
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerColorBrownLight
   name: light brown messenger bag
   components:
@@ -1149,7 +1149,7 @@
         color: "#eeeeee"
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerColorBrown
   name: brown messenger bag
   components:
@@ -1186,7 +1186,7 @@
         color: "#eeeeee"
 
 - type: entity
-  parent: ClothingBackpackMessengerContractor
+  parent: ClothingBackpackMessengerSpacer
   id: ClothingBackpackMessengerColorWhite
   name: white messenger bag
   components:
