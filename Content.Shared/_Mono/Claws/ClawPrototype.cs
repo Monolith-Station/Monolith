@@ -7,10 +7,10 @@ namespace Content.Shared._Mono.Claws;
 /// This is a prototype claws with growth logic and claw type
 /// </summary>
 [Prototype]
-public sealed class ClawPrototype : IPrototype
+public sealed partial class ClawPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     [DataField]
     public TimeSpan GrowCooldown = TimeSpan.FromSeconds(1200);
