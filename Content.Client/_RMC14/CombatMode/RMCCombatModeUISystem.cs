@@ -22,7 +22,7 @@ public sealed class RMCCombatModeUISystem : EntitySystem
             _hands.GetActiveHandEntity() is { } held &&
             _rmcCombatMode.GetCrosshair(held) != null)
         {
-            _crosshairCursor ??= _clyde.CreateCursor(new Image<Rgba32>(1, 1), Vector2i.One);
+            _crosshairCursor ??= _clyde.CreateCursor(new Image<Rgba32>(1, 1), Vector2i.Zero);
             _clyde.SetCursor(_crosshairCursor);
         }
         else

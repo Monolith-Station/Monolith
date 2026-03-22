@@ -311,7 +311,7 @@
   id: PowerCageSmall
   parent: BasePowerCage
   name: small-capacity power cage
-  description: A rechargeable power cage for big devices. This is the cheapest kind you can find.
+  description: A rechargeable power cage for big devices. This is the cheapest kind you can find, but it comes with some moderate EMP shielding.
   components:
   - type: Sprite
     sprite: Objects/Power/power_cages.rsi
@@ -322,8 +322,10 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 1400
-    startingCharge: 1400
+    maxCharge: 2800 # Mono: 1400 >> 2800
+    startingCharge: 2800
+  - type: EmpResistance # Mono also
+    coefficient: 0.000112
 
 - type: entity
   id: PowerCageMedium
@@ -340,14 +342,14 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 2700
-    startingCharge: 2700
+    maxCharge: 4600 # Mono: 2700 >> 4600
+    startingCharge: 4600
 
 - type: entity
   id: PowerCageMech
   parent: BasePowerCage
   name: mech fuel cell
-  description: A rechargeable fuel cell for mechs.
+  description: An auto-recharging fuel cell for mechs.
   components:
   - type: Sprite
     sprite: Objects/Power/power_cages.rsi
@@ -358,8 +360,13 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 6000
-    startingCharge: 6000
+    maxCharge: 7200
+    startingCharge: 7200
+  - type: BatterySelfRecharger
+    autoRechargePause: true
+    autoRechargePauseTime: 30 # Prevent continuous fire, but not a huge delay
+    autoRecharge: true
+    autoRechargeRate: 30 # 4 minutes to fully recharge, 2.5x recharge rate of micro-reactor
 
 - type: entity
   id: PowerCageHigh
@@ -376,8 +383,8 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 6200
-    startingCharge: 6200
+    maxCharge: 6400 # Mono: 6100 >> 6400
+    startingCharge: 6400
 
 - type: entity
   id: PowerCageSmallEmpty
@@ -394,7 +401,6 @@
       shader: unshaded
       visible: false
   - type: Battery
-    maxCharge: 1400
     startingCharge: 0
 
 - type: entity

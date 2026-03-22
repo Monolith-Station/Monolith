@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/22/2026 02:28:56
+  time: 03/05/2026 11:01:41
   entityCount: 10726
 maps:
 - 1
@@ -94,9 +94,6 @@ entities:
     - type: IFF
       readOnly: True
     - type: ProtectedGrid
-      hostileMobKillSound: !type:SoundPathSpecifier
-        path: /Audio/Effects/holy.ogg
-      killHostileMobs: True
       preventEmpEvents: True
     - type: GridGodMode
       protectedEntities: []
@@ -301,9 +298,9 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
+        Kudzu: []
         MetalFoam: []
         Puddle: []
-        Kudzu: []
         Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -30482,6 +30479,13 @@ entities:
     - type: Transform
       pos: 36.527122,50.51537
       parent: 2
+- proto: CrewMonitoringServer
+  entities:
+  - uid: 7170
+    components:
+    - type: Transform
+      pos: -11.5,70.5
+      parent: 2
 - proto: Crowbar
   entities:
   - uid: 3906
@@ -54574,11 +54578,6 @@ entities:
     - type: Transform
       pos: -35.5,46.5
       parent: 2
-  - uid: 7167
-    components:
-    - type: Transform
-      pos: -11.5,72.5
-      parent: 2
   - uid: 7168
     components:
     - type: Transform
@@ -54591,10 +54590,10 @@ entities:
       parent: 2
 - proto: MachineMaterialSilo
   entities:
-  - uid: 7170
+  - uid: 7167
     components:
     - type: Transform
-      pos: -11.5,70.5
+      pos: -11.5,72.5
       parent: 2
 - proto: MachineOutpostCore
   entities:
@@ -64084,10 +64083,10 @@ entities:
       parent: 2
 - proto: ToyAi
   entities:
-  - uid: 8565
+  - uid: 9742
     components:
     - type: Transform
-      pos: -11.5,71.5
+      pos: -14.5,71.5
       parent: 2
 - proto: ToyFigurineGreytider
   entities:
@@ -66869,6 +66868,11 @@ entities:
       parent: 2
 - proto: WallReinforcedOutpost
   entities:
+  - uid: 8565
+    components:
+    - type: Transform
+      pos: 4.5,15.5
+      parent: 2
   - uid: 8951
     components:
     - type: Transform
@@ -71563,11 +71567,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 10.5,50.5
-      parent: 2
-  - uid: 9742
-    components:
-    - type: Transform
-      pos: 4.5,15.5
       parent: 2
   - uid: 9743
     components:
