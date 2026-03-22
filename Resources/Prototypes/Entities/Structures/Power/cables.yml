@@ -82,16 +82,16 @@
 #        damage: 100
 #      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
 #      - !type:DoActsBehavior
-#        acts: [ "Destruction" ]
+#        acts: [ "Destruction" ] #Mono end
     - trigger:
         !type:DamageTrigger
         damage: 200 #Mono 50 >> 200
       behaviors:
-#      - !type:SpawnEntitiesBehavior
+#      - !type:SpawnEntitiesBehavior #Mono out
 #        spawn:
 #          CableHVStack1:
 #            min: 1
-#            max: 1
+#            max: 1 #Mono end
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: CableVisualizer
@@ -141,16 +141,16 @@
 #        damage: 100
 #      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
 #      - !type:DoActsBehavior
-#        acts: [ "Destruction" ]
+#        acts: [ "Destruction" ] #Mono end
     - trigger:
         !type:DamageTrigger
         damage: 200 #Mono 50 >> 200
       behaviors:
-#      - !type:SpawnEntitiesBehavior
+#      - !type:SpawnEntitiesBehavior #Mono out
 #        spawn:
 #          CableMVStack1:
 #            min: 1
-#            max: 1
+#            max: 1 #Mono end
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: CableVisualizer
@@ -196,16 +196,16 @@
 #        damage: 100
 #      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
 #      - !type:DoActsBehavior
-#        acts: [ "Destruction" ]
+#        acts: [ "Destruction" ] #Mono end
     - trigger:
         !type:DamageTrigger
         damage: 200 #Mono 50 >> 200
       behaviors:
-#      - !type:SpawnEntitiesBehavior
+#      - !type:SpawnEntitiesBehavior #Mono out
 #        spawn:
 #          CableApcStack1:
 #            min: 1
-#            max: 1
+#            max: 1 #Mono end
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: CableVisualizer
