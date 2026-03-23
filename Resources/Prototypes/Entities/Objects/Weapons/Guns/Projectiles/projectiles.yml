@@ -90,6 +90,15 @@
         mask:
         - Impassable
         - BulletImpassable
+      fly-by: &flybyfixture
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
   - type: Projectile
     impactEffect: BulletImpactEffect
     damage:
@@ -125,6 +134,7 @@
         mask:
         - Impassable
         - BulletImpassable
+      fly-by: *flybyfixture
 
 - type: entity
   id: BaseBulletPractice
@@ -230,6 +240,7 @@
         mask:
           - Impassable
           - BulletImpassable
+      fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
     damage:
@@ -271,6 +282,7 @@
         hard: false
         mask:
         - Opaque # Mono
+      fly-by: *flybyfixture
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectOmnilaser #imp
   - type: StaminaDamageOnCollide
@@ -310,6 +322,7 @@
         hard: false
         mask:
         - Opaque # Mono
+      fly-by: *flybyfixture
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectOmnilaser #imp
   - type: StaminaDamageOnCollide
@@ -346,6 +359,7 @@
         hard: false
         mask:
         - Opaque
+      fly-by: *flybyfixture
   - type: Projectile
 #   soundHit:  Waiting on serv3
     damage:
@@ -387,6 +401,7 @@
         hard: false
         mask:
         - Opaque
+      fly-by: *flybyfixture
   - type: Projectile
     #   soundHit:  Waiting on serv3
     impactEffect: BulletImpactEffectDisabler
@@ -562,6 +577,7 @@
         hard: false
         mask:
         - Opaque
+      fly-by: *flybyfixture
   - type: Projectile
     damage:
       types:
@@ -910,6 +926,7 @@
         mask:
         - Impassable
         - BulletImpassable
+      fly-by: *flybyfixture
   - type: Vapor
     active: true
   - type: Appearance
@@ -973,6 +990,7 @@
           mask:
             - Impassable
             - BulletImpassable # Mono
+        fly-by: *flybyfixture
     - type: GrapplingProjectile
     # Mono - so you can grapple asteroids
     - type: ChunkLoader
@@ -1007,6 +1025,7 @@
         hard: false
         mask:
         - Opaque # Mono
+      fly-by: *flybyfixture
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectOmnilaser #imp
   - type: StaminaDamageOnCollide
@@ -1049,6 +1068,7 @@
         hard: false
         mask:
         - Opaque # Mono
+      fly-by: *flybyfixture
   - type: Ammo
 
 - type: entity
@@ -1156,6 +1176,7 @@
         hard: false
         mask:
         - Opaque # Mono
+      fly-by: *flybyfixture
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectHeavyLaser #imp
   - type: Projectile
@@ -1284,6 +1305,7 @@
         hard: false
         mask:
         - Opaque
+      fly-by: *flybyfixture
   - type: Projectile
     damage:
       types:
@@ -1355,6 +1377,7 @@
         hard: false
         mask:
         - Opaque
+      fly-by: *flybyfixture
   - type: Projectile
     impactEffect: BulletImpactEffectRedDisabler
     damage:

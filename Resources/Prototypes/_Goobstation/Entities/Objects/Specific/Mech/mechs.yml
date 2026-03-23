@@ -62,7 +62,7 @@
     baseState: ripleymkii
     openState: ripleymkii-open
     brokenState: ripleymkii-broken
-    mechToPilotDamageMultiplier: 0.4
+    mechToPilotDamageMultiplier: 0.25 # Mono
     airtight: true
     pilotWhitelist:
       components:
@@ -78,7 +78,9 @@
     baseWalkSpeed: 1
     baseSprintSpeed: 2
   - type: Damageable
-    damageModifierSet: MechArmorMedium
+    damageModifierSet: MechArmorIndustrial # Mono
+  - type: ExplosionResistance
+    damageCoefficient: 0.5 # Mono
   - type: StaticPrice
     price: 1000
   - type: Tag
@@ -143,6 +145,10 @@
     baseWalkSpeed: 2.5
     baseSprintSpeed: 4.5
     baseWeightlessModifier: 10 # Mono
+  - type: Damageable
+    damageModifierSet: MechArmorIndustrial # Mono
+  - type: ExplosionResistance
+    damageCoefficient: 0.5 # Mono
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: StaticPrice
