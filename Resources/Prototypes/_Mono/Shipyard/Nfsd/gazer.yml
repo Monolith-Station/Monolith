@@ -1,0 +1,37 @@
+#Author: burrkeye on Github, burkia on Discord
+
+- type: vessel
+  id: Gazer
+  parent: BaseVesselAntag
+  name: TSF-BNN Gazer
+  description: Sporting a long ranged turbolaser and a long ranged warp drive, Gazer is very capable at keeping at its maximum range in siege operations.
+  price: 204000 #appraises 170k pheeeeeew (youre literally paying 100k for just the gun and the ftl drive, zamn)
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/gazer.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Gazer
+  mapName: 'Gazer'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/gazer.yml
+  minPlayers: 0
+  stations:
+    Gazer:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Gazer TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+
