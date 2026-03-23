@@ -885,15 +885,38 @@
   color: "#00e5ff"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 #Mono: Slower metabolism rate
       effects:
-      - !type:EvenHealthChange
+      - !type:EvenHealthChange #Mono: Low damage healing
         conditions:
+        - !type:ReagentThreshold
+          min: 0
+          max: 15
         - !type:TotalDamage
           max: 50
         damage:
           Brute: -1
           Burn: -1
           Toxin: -0.5
+      - !type:EvenHealthChange #Mono: High damage healing
+        conditions:
+        - !type:ReagentThreshold
+          min: 0
+          max: 15
+        - !type:TotalDamage
+          min: 50
+        damage:
+          Brute: -0.25
+          Burn: -0.25
+          Toxin: -0.12
+      - !type:HealthChange # Mono: Overdose, low rate compounded by slow metabolism
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        damage:
+          types:
+            Poison: 1.5
+            Cellular: 0.5
 
 - type: reagent
   id: Lipozine
