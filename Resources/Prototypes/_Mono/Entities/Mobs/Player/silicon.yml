@@ -88,22 +88,22 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      250: Critical
-      350: Dead
+      200: Critical
+      300: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
   - type: SlowOnDamage
     speedModifierThresholds:
-      125: 0.7
-      200: 0.5
+      75: 0.7
+      150: 0.5
   - type: Damageable
     damageModifierSet: FactionBorgChassis
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 125
+        damage: 100
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -112,7 +112,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-         damage: 450
+         damage: 400
       behaviors:
       - !type:PlaySoundBehavior
         sound:
