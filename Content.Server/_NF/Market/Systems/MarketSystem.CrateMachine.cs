@@ -69,6 +69,10 @@ public sealed partial class MarketSystem
             return;
 
         var cartBalance = MarketDataExtensions.GetMarketValue(consoleComponent.CartDataList, marketMod);
+
+        if (cartBalance <= 0) // Mono - Sanity check
+            return;
+
         if (playerBank.Balance < cartBalance)
             return;
 
