@@ -18619,3 +18619,125 @@ Entries:
   id: 2055
   time: '2026-03-22T11:13:01.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3426
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Far reach drones will no longer spontaneously stare north.
+  id: 2056
+  time: '2026-03-22T13:49:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3522
+- author: tonotom1
+  changes:
+    - type: Add
+      message: >-
+        Trait: Hardened Lymphocytes. Costs 4 points, blocks up to 1 radiation
+        damage per tick.
+    - type: Tweak
+      message: Radiation medkits can now be found in radiation suit lockers
+    - type: Tweak
+      message: >-
+        Potassium iodide protection effect no longer sucks: it lasts 5 minutes
+        per 10u instead of 40 seconds
+    - type: Tweak
+      message: Medicine lockers now have trico and med vendors now dispense trico
+  id: 2057
+  time: '2026-03-22T14:53:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3500
+- author: Kiithnaras
+  changes:
+    - type: Tweak
+      message: Expanded damage types healed by bed rest
+    - type: Tweak
+      message: Made Stasis beds damage-neutral to Alive patients.
+  id: 2058
+  time: '2026-03-22T16:01:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3519
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Shuttle collisions optimised.
+  id: 2059
+  time: '2026-03-22T19:39:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3415
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Mercenaries have gained USSP button and locker access.
+  id: 2060
+  time: '2026-03-22T19:40:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3371
+- author: Helicaste
+  changes:
+    - type: Add
+      message: Space Snails now know where you are at all times.
+    - type: Tweak
+      message: >-
+        Mech Laser Weapons have been significantly buffed, hopefully they will
+        now live in your head as a competitor to the AC-2.
+    - type: Add
+      message: >-
+        TSF now have a Mech Pulse Rifle in their uplink, as always, restricted
+        to FTL+
+    - type: Tweak
+      message: >-
+        TSF Volta modsuit has been redesigned for comfort and utility... It is
+        moderately more frangible.
+    - type: Fix
+      message: TSF Volta magboots now actually function properly.
+  id: 2061
+  time: '2026-03-22T19:43:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3247
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Items that play non-footstep sounds on movement now make sound less
+        frequently. Jester cap now jingles on movement.
+  id: 2062
+  time: '2026-03-22T19:44:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3201
+- author: Onezero0
+  changes:
+    - type: Add
+      message: >-
+        Added data farming as a research! Remember to screwdrive the boards to
+        change type.
+    - type: Tweak
+      message: >-
+        Faction base point generators are now fancy and
+        indestructible/unanchorable.
+  id: 2063
+  time: '2026-03-22T19:46:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2620
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Decreases faction borg health from 250 to 200.
+  id: 2064
+  time: '2026-03-22T19:49:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3499
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Cables no longer drop an item when destroyed, ever. Hopefully this will
+        reduce ram lag. Cable HP also standardized to 200 for all types.
+  id: 2065
+  time: '2026-03-22T22:41:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3520
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Hydrakin no longer heat up in criticial.
+    - type: Fix
+      message: People no longer thermal regulate while dead.
+  id: 2066
+  time: '2026-03-22T22:54:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3530
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Part damage easier to heal/injure with surgery/chems
+  id: 2067
+  time: '2026-03-22T23:22:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3533

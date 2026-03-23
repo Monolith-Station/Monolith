@@ -18,7 +18,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2000
+        damage: 1100
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -270,7 +270,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 10000 # Mono - wall buff
+        damage: 10100 # Mono - wall buff
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -310,6 +310,12 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
+        damage: 15100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
         damage: 15000
       behaviors:
       - !type:SpawnEntitiesBehavior
@@ -335,6 +341,12 @@
   components:
   - type: Destructible
     thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 10000
@@ -401,6 +413,12 @@
         density: 500 # No ram-meta
   - type: Destructible
     thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 2000

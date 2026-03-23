@@ -1,0 +1,154 @@
+- type: entity
+  id: BaseDataFarmIndestructible
+  parent: BaseMachineIndestructible
+  name: base datafarm
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/neapolitan_server.rsi
+    layers:
+    - state: icon
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: stripe
+      color: "#b3aa79"
+    - state: stripe2
+      color: "#5b0093"
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: {visible: true}
+          False: {visible: false}
+  - type: ApcPowerReceiver
+    powerLoad: 40000
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/server_fans.ogg
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: PassiveThermalSignature
+    signature: 8000000 # ~8km
+  - type: ThermalSignature
+  - type: ExtensionCableReceiver
+  - type: LightningTarget
+    priority: 1
+
+- type: entity
+  id: BaseDataFarm
+  parent: BaseDataFarmIndestructible
+  name: base datafarm
+  abstract: true
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Anchorable
+
+- type: entity
+  id: BaseDataFarmResearch
+  parent: BaseDataFarm
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/neapolitan_server.rsi
+    layers:
+    - state: icon
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: stripe
+      color: "#b3aa79"
+    - state: stripe2
+      color: "#5b0093"
+  - type: ResearchClient
+  - type: ActivatableUI
+    key: enum.ResearchClientUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+  - type: PointLight
+    radius: 1
+    energy: 1
+    color: "#5b0093"
+  - type: GuideHelp
+    guides:
+    - Science
+  - type: ResearchPointSource
+    pointsPerSecond: 10
+    active: true
+
+- type: entity
+  id: DatafarmResearchFaction
+  parent: BaseDataFarmIndestructible
+  name: bolted data farm (Research)
+  description: A power-hungry server dedicated towards scraping data from... somewhere. This one generates research points at a rate of 35 per second. It seems to be bolted to the floor.
+  components:
+  - type: ResearchPointSource
+    pointsPerSecond: 35
+    active: true
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+
+- type: entity
+  id: DatafarmResearch
+  parent: [BaseDataFarm, ConstructibleMachine]
+  name: data farm (Research)
+  description: A power-hungry server dedicated towards scraping data from... somewhere. This one generates research points at a rate of 10 per second.
+  components:
+  - type: PointLight
+    radius: 1.1
+    energy: 1.1
+  - type: Machine
+    board: DataFarmResearchCircuitboard
+
+- type: entity
+  id: DatafarmCrypto
+  parent: [BaseDataFarm, ConstructibleMachine]
+  name: data farm (Crypto)
+  description: A power-hungry server dedicated towards scraping data from... somewhere. This one generates valuable but random cryptocurrency at a rate of one every 10 minutes.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/neapolitan_server.rsi
+    layers:
+    - state: icon
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: stripe
+      color: "#b3aa79"
+    - state: stripe2
+      color: "#009360"
+  - type: PointLight
+    radius: 1.1
+    energy: 1.1
+    color: "#009360"
+  - type: ItemMiner
+    proto: SpawnLootDatafarmBitcoin
+    interval: 6
+    spawnChance: 0.01 # highly random like real cryptomining
+    minedSound: /Audio/Effects/Cargo/ping.ogg
+    needApcPower: true
+  - type: Machine
+    board: DataFarmCryptoCircuitboard

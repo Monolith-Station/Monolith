@@ -46,7 +46,7 @@ public sealed class ShipyardDirectionSystem : EntitySystem
 
         // get the angle between the two positions, adjusted for the grid rotation so that
         // we properly preserve north in relation to the grid.
-        var direction = playerPos - shipPos;
+        var direction = shipPos - playerPos;
         var directionAngle = direction.ToWorldAngle();
         var adjustedDir = (directionAngle - gridOffset).GetDir();
         var length = (playerPos - shipPos).LengthSquared();
