@@ -72,3 +72,16 @@
   technologyPrerequisites:
   - BasicResearch
   position: -1, -2
+
+- type: technology
+  id: DataFarmingTechnology
+  name: research-technology-data-farms
+  entityIcon: DatafarmCrypto
+  discipline: Experimental
+  tier: 3
+  cost: 25000
+  recipeUnlocks:
+  - DataFarmResearchCircuitboard
+  technologyPrerequisites:
+  - SuperParts
+  position: 1, 18

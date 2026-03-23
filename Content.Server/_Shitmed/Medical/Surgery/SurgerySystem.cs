@@ -150,7 +150,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         if (HasComp<ForcedSleepingComponent>(args.Body))
             damageChange = damageChange * ent.Comp.SleepModifier;
 
-        SetDamage(args.Body, damageChange, 0.5f, args.User, args.Part);
+        SetDamage(args.Body, damageChange, 1f, args.User, args.Part); // 0.5-> 1.0f part damage - Mono
     }
 
     private void OnSurgerySpecialDamageChange(Entity<SurgerySpecialDamageChangeEffectComponent> ent, ref SurgeryStepDamageChangeEvent args)
