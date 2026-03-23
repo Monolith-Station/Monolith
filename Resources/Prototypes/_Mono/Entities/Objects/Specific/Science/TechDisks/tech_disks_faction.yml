@@ -2,25 +2,6 @@
 
 - type: entity
   parent: TechDiskBase
-  id: TechDiskSynthalloy
-  name: pre-fracture synthalloy faction tech disk
-  description: A disk capable of adding early synthalloy production processes to a server's recipes. Less efficient than modern synthalloy methods.
-  components:
-  - type: Sprite
-    layers:
-    - state: icon
-      map: ["enum.DamageStateVisualLayers.Base"]
-      color: "#d4d4d4"
-    - state: label
-    - state: protect
-    - state: dna
-      shader: unshaded
-  - type: TechnologyDisk
-    recipes:
-    - SynthalloyProductionTechDisk
-
-- type: entity
-  parent: TechDiskBase
   id: TechDiskEnergyWeapons
   name: pre-fracture energy weapon faction tech disk
   description: A disk capable of adding energy weapons and shields to a server's recipes, for faction techfabs.

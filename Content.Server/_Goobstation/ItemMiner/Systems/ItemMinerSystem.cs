@@ -3,6 +3,7 @@ using Content.Shared.Stacks;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Goobstation.ItemMiner;
@@ -10,6 +11,7 @@ namespace Content.Server._Goobstation.ItemMiner;
 public sealed class ItemMinerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _gambling = default!;
     [Dependency] private readonly PowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;
@@ -63,6 +65,9 @@ public sealed class ItemMinerSystem : EntitySystem
             if (miner.NextAt > _timing.CurTime)
                 continue;
             miner.NextAt += miner.Interval;
+
+            if (miner.SpawnChance < 1f && !_gambling.Prob(miner.SpawnChance))
+                continue;
 
             // mine
             var minedUid = Spawn(proto, xform.Coordinates);
