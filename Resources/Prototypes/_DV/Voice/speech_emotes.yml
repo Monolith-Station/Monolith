@@ -163,7 +163,7 @@
     - snarling
 
 - type: emote
-  id: Whimper # Coyote: Renamed to whimper
+  id: Whimper # Starlight / Monolith: Renamed to whimper
   name: delta-chat-emote-name-whine
   category: Vocal
   available: false
@@ -173,7 +173,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [whimper.] # Coyote: Renamed to whimper
+  chatMessages: [whimper.] # Starlight / Monolith: Renamed to whimper
   chatTriggers:
     - whimper
     - whimpers
