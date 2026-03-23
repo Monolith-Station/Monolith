@@ -326,11 +326,7 @@ namespace Content.Server.Lathe
 
                     // Frontier: adjust price before merge (stack prices changed once)
                     if (result.Valid)
-                    {
                         ModifyPrintedEntityPrice(uid, comp, result);
-
-                        _contraband.ClearContrabandValue(result);
-                    }
                     // End Frontier
 
                     _stack.TryMergeToContacts(result);

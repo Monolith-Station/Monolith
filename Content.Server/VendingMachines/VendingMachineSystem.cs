@@ -545,8 +545,6 @@ namespace Content.Server.VendingMachines
 
             var ent = Spawn(vendComponent.NextItemToEject, spawnCoordinates);
 
-            _contraband.ClearContrabandValue(ent); // Frontier
-
             // Mono: Track vending machine purchases for pricing modifications
             // Only track if this was a paid purchase (not a random eject or force eject)
             if (!forceEject && vendComponent.LastPurchasePrice.HasValue)

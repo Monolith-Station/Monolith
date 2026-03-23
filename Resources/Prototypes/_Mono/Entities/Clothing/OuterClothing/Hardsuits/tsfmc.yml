@@ -154,7 +154,7 @@
     id: ClothingOuterHardsuitTacsuitHighValue
 
 - type: entity
-  parent: [ClothingOuterHardsuitJuggernaut, EnergyShieldClothing ] # Jugger Suit
+  parent: [ClothingOuterHardsuitJuggernaut, EnergyShieldClothing, BaseFactionGearTSFT3 ] # Jugger Suit
   id: ClothingOuterHardsuitNfsdExperimental
   name: TSFMC M92-X tacsuit
   description: An experimental modification of the M92 tacsuit for spec-ops units of the TSFMC. Durable, and comes with an integrated soft-shield, but at the cost of insulation and heft.
