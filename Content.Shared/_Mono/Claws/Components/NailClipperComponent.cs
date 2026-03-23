@@ -10,7 +10,7 @@ namespace Content.Shared._Mono.Claws.Components;
 public sealed partial class NailClipperComponent : Component
 {
     [DataField]
-    public TimeSpan ClipDoAfter = TimeSpan.FromSeconds(10);
+    public TimeSpan ClipDoAfter = TimeSpan.FromSeconds(4);
 
     /// <summary>
     /// Amount of stages to skip down. Capped to 0.

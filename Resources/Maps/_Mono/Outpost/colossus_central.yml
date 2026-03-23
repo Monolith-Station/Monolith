@@ -94,16 +94,11 @@ entities:
     - type: IFF
       readOnly: True
     - type: ProtectedGrid
-      hostileMobKillSound: !type:SoundPathSpecifier
-        path: /Audio/Effects/holy.ogg
-      killHostileMobs: True
       preventEmpEvents: True
     - type: GridGodMode
       protectedEntities: []
-    - type: GridPacifier
     - type: GridRaider
       protectedEntities: []
-    - type: NoGridImpacts
     - type: BecomesStation
       id: Frontier
     - type: InitRepairSnapshot

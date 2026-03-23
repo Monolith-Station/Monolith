@@ -77,8 +77,8 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
         // If this entity is worn by another entity, use that entity's coordinates
         var coordinates = isWorn ? Transform(parent).Coordinates : xform.Coordinates;
         var distanceNeeded = (isWorn && _moverQuery.TryGetComponent(parent, out var mover) && mover.Sprinting)
-            ? 1.5f // The parent is a mob that is currently sprinting
-            : 2f; // The parent is not a mob or is not sprinting
+            ? 2.5f // The parent is a mob that is currently sprinting
+            : 2.0f; // The parent is not a mob or is not sprinting
 
         if (!coordinates.TryDistance(EntityManager, component.LastPosition, out var distance) || distance > distanceNeeded)
             component.SoundDistance = distanceNeeded;
