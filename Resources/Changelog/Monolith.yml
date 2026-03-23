@@ -18741,3 +18741,30 @@ Entries:
   id: 2067
   time: '2026-03-22T23:22:33.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3533
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Built research datafarms now work
+  id: 2068
+  time: '2026-03-23T03:42:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3536
+- author: Kiithnaras
+  changes:
+    - type: Tweak
+      message: Added roofing mask and emergency lighting to CDM Comet.
+  id: 2069
+  time: '2026-03-23T04:00:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3381
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Tending surgery heals bodyparts 2.5x the amount tended, previous value
+        was 0.5x
+    - type: Tweak
+      message: >-
+        Other surgery based damage increased to 1.0x part damage instead of 0.5x
+        (i.e sepsis)
+  id: 2070
+  time: '2026-03-23T06:04:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3534
