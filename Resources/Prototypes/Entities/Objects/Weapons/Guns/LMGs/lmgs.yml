@@ -18,10 +18,10 @@
     - suitStorage
   - type: Wieldable
     unwieldOnUse: false
-  - type: GunWieldBonus
+  - type: GunWieldBonus # Mono
     minAngle: -20
     maxAngle: -20
-  - type: Gun
+  - type: Gun # L6 LMG stats adjusted
     minAngle: 24
     maxAngle: 45
     angleIncrease: 3
@@ -120,7 +120,7 @@
   parent: BaseItem
   description: A L6 SAW for use by cyborgs. Creates 762x39mm ammo on the fly from an internal ammo fabricator, which slowly self-charges.
   components:
-    - type: Gun
+    - type: Gun # Gun stats adjusted to be similar to LMG
       minAngle: 4
       maxAngle: 20
       angleIncrease: 3
@@ -147,7 +147,7 @@
       containers:
         ballistic-ammo: !type:Container
     - type: ProjectileBatteryAmmoProvider
-      proto: Cartridge762x39mmPlasteelAP
+      proto: Cartridge762x39mmFMJ
       fireCost: 100
     - type: Battery
       maxCharge: 10000

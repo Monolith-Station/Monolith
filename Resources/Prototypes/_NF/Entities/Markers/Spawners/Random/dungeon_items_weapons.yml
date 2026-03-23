@@ -90,11 +90,11 @@
   - type: RandomSpawner
     prototypes:
     - WeaponCaseShortFireBomb
-    chance: 0.3
+    chance: 1.0
     offset: 0.0
     rarePrototypes:
     - SpawnDungeonLootExplosivesT2
-    rareChance: 0.1
+    rareChance: 0.4
 
 # T2: uncommon
 - type: entity
@@ -182,11 +182,11 @@
   - type: RandomSpawner
     prototypes:
     - WeaponCaseShortPipeBomb
-    chance: 0.4
+    chance: 1.0
     offset: 0.0
     rarePrototypes:
     - SpawnDungeonLootExplosivesT3
-    rareChance: 0.1
+    rareChance: 0.4
 
 # T3: rare
 - type: entity
@@ -278,11 +278,12 @@
   - type: RandomSpawner
     prototypes:
     - WeaponCaseShortSeismicCharge
-    chance: 0.5
+    - WeaponCaseShortBombCollar
+    chance: 1.0
     offset: 0.0
     rarePrototypes:
     - SpawnDungeonLootExplosivesT4
-    rareChance: 0.1
+    rareChance: 0.5
 
 # T4: extremely rare
 - type: entity
@@ -367,11 +368,11 @@
   - type: RandomSpawner
     prototypes:
     - WeaponCaseShortExGrenade
-    chance: 0.4
+    chance: 1.0
     offset: 0.0
     rarePrototypes:
     - SpawnDungeonLootExplosivesT5
-    rareChance: 0.01
+    rareChance: 0.4
 
 # T5: next to unobtainable
 - type: entity
@@ -447,7 +448,7 @@
   - type: RandomSpawner
     prototypes:
     - WeaponCaseShortC4
-    chance: 0.3
+    chance: 1.0
     offset: 0.0
 
 # Ammo

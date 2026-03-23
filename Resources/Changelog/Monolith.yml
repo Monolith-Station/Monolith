@@ -17846,3 +17846,905 @@ Entries:
   id: 1966
   time: '2026-03-05T04:56:49.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3309
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: >-
+        Added a crew monitoring server for Colossus, MD, and Helios to prevent a
+        single portstrike or funny at Halcyon from bricking crew monitors
+  id: 1967
+  time: '2026-03-05T17:05:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3365
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Wyvern spawn odds reduced to what it was before, was increased
+        accidentally.
+  id: 1968
+  time: '2026-03-05T19:57:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3349
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Allows more shipguns to be rotated trough the right-click UI.
+  id: 1969
+  time: '2026-03-05T19:58:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3351
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Adjusts the description on Diagonal Plastitanium Walls.
+  id: 1970
+  time: '2026-03-05T19:59:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3357
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: >-
+        Adds the QJ-370, a Vanyk and Rubicon toting fighter to the TSF Tumour's
+        shipyard.
+  id: 1971
+  time: '2026-03-05T21:36:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3343
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: IPC is now barely capable of exchanging heat with other entities.
+  id: 1972
+  time: '2026-03-05T23:56:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3370
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Lizards will fall asleep on <12C instead of 22C
+    - type: Tweak
+      message: High temperature regen now evenly heals you
+    - type: Tweak
+      message: Claw growth speed has been reduced by 15 minutes.
+    - type: Tweak
+      message: Wirecutter nail clipping doafter 10s -> 4s.
+    - type: Tweak
+      message: Lizards now receive notification once their claw growths.
+  id: 1973
+  time: '2026-03-05T23:56:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3356
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: Resprited the DI Emblem
+  id: 1974
+  time: '2026-03-05T23:58:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3319
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: >-
+        All incendiary ammo has been made to do majority pierce, tiny amount of
+        heat
+  id: 1975
+  time: '2026-03-06T00:45:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3173
+- author: Arcticular1
+  changes:
+    - type: Tweak
+      message: Vanyk's damage has been decreased due to oversight.
+  id: 1976
+  time: '2026-03-06T03:53:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3374
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Added a lore primer. Check it out sometime.
+    - type: Remove
+      message: Removed old faction lore entries.
+    - type: Add
+      message: Added a "quick history" guidebook lore entry.
+  id: 1977
+  time: '2026-03-06T12:18:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3373
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Added new reagent - Peranol, mostly designed for hydrakin use.
+    - type: Tweak
+      message: Hydrakin passive heat has been nerfed. 5500J -> 3900J
+    - type: Tweak
+      message: Hydrakin guidebook entry is now actually readable.
+  id: 1978
+  time: '2026-03-06T13:42:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3377
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        VESPERA and VANYK damage have been severely lowered. (Almost divided by
+        3)
+  id: 1979
+  time: '2026-03-06T15:48:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3378
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Chimera can now wear clothing, but get no effects from it.
+  id: 1980
+  time: '2026-03-06T16:45:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3364
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: >-
+        Limits the amount of motley-anne fighters that can be present at one
+        time.
+  id: 1981
+  time: '2026-03-07T00:43:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3385
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Sellsword uparmoured to withstand ramming from the side better.
+        Low-power gunnery server upgraded to medium to support gamerloot and
+        customization. IFF console removed. Vespera ammo crate replaced with FTL
+        drive. Mercfab added. Price increased to 56000.
+  id: 1982
+  time: '2026-03-07T11:02:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3188
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixed the Talon-SYN lack of directional fan.
+  id: 1983
+  time: '2026-03-07T11:14:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3354
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: >-
+        New ship has appeared on the shipyard console: RSC-Scallywag, hit and
+        run ship dedicated to piracy.
+  id: 1984
+  time: '2026-03-08T11:39:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3164
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: POIs no longer rammable
+  id: 1985
+  time: '2026-03-08T15:32:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3396
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Shuttle consoles now come with autopilot in the map tab.
+  id: 1986
+  time: '2026-03-08T15:56:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3394
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Shipguns can now be examined for damage, repaired with nanite
+        applicator, and climbed over
+  id: 1987
+  time: '2026-03-08T16:20:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3387
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: >-
+        Restored plate explosion damage mitigation after plate metabolism damage
+        mitigation fix. Barotrauma damage no longer mitigated. Fixed the system
+        firing excessively when unnecessary. Fixed false crit predictions when
+        lethal damage is mitigated.
+  id: 1988
+  time: '2026-03-08T16:25:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3190
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Minor engine version update. No bugs should occur.
+  id: 1989
+  time: '2026-03-08T16:34:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3323
+- author: lopsidedmanboobs
+  changes:
+    - type: Tweak
+      message: >-
+        Roleplay Rule One has been updated, you cannot reference memes no
+        longer.
+  id: 1990
+  time: '2026-03-08T23:08:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3408
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: >-
+        RSC Scallywag has had it's armament switched to mostly ballistic and EMP
+        weaponry downscaled
+  id: 1991
+  time: '2026-03-08T23:56:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3403
+- author: lopsidedmanboobs
+  changes:
+    - type: Tweak
+      message: >-
+        You can no longer attack docked/undocked ships within a 256m radius of
+        faction outposts in the Conflict R4 (excluding ships in combat within
+        the last 2 minutes)
+  id: 1992
+  time: '2026-03-09T02:08:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3409
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Autopilot should no longer crash ships with slow brakes.
+  id: 1993
+  time: '2026-03-09T07:06:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3400
+- author: Kiithnaras
+  changes:
+    - type: Tweak
+      message: Buffed Exosuit PKA to mine multiple tiles like handheld PKA
+    - type: Tweak
+      message: Increased fire cost of Exo PKA (10 from 0.1)
+    - type: Tweak
+      message: Increased range and velocity of Exo-PKA (40m/s and 60m)
+    - type: Tweak
+      message: >-
+        Exo/Ship PKA projectiles should automatically load (and hit) distant
+        asteroids and debris they are fired at.
+  id: 1994
+  time: '2026-03-09T07:30:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3372
+- author: Kiithnaras
+  changes:
+    - type: Tweak
+      message: Hydra heating changed again, less aggressive, more consistent.
+  id: 1995
+  time: '2026-03-09T08:40:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3412
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: >-
+        Wardlord hardsuit has had it's sprite slightly adjusted, and was given
+        unique inhands
+  id: 1996
+  time: '2026-03-09T08:41:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3391
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: >-
+        From the ashes of the old rogues a new company was born: RedSail
+        Corsairs
+  id: 1997
+  time: '2026-03-09T08:47:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3395
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Slightly reduced lag.
+  id: 1998
+  time: '2026-03-09T08:57:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3414
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Companies now properly apply.
+  id: 1999
+  time: '2026-03-09T17:02:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3416
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Blips are shown from 2048 radius now
+  id: 2000
+  time: '2026-03-09T19:41:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3420
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Jaws of Life can now clip nails.
+  id: 2001
+  time: '2026-03-09T19:54:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3422
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Jetpacks show blips again now
+  id: 2002
+  time: '2026-03-09T20:39:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3423
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Borg L6 no longer regenerating AP
+  id: 2003
+  time: '2026-03-09T20:46:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3424
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Dymeres recharge faster
+  id: 2004
+  time: '2026-03-09T20:50:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3421
+- author: burrrkeye
+  changes:
+    - type: Tweak
+      message: PDV Defector has been remodelled, refitted and renamed to PDV Bastion.
+  id: 2005
+  time: '2026-03-09T22:59:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3346
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Clarifies the Speciesm rule, speciesm and other IC discrimination can be
+        used as a roleplay reason to escalate into conflict with others as long
+        as proper escalation and roleplay is followed first.
+  id: 2006
+  time: '2026-03-09T23:04:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3425
+- author: chuga-git
+  changes:
+    - type: Fix
+      message: >-
+        Wirecutters and Jaws of Life no longer cause spurious messages about
+        claws on use.
+    - type: Tweak
+      message: 'Time to clip claws lowered from 10->4 seconds. '
+  id: 2007
+  time: '2026-03-12T16:35:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3431
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: 'Fang projectile speed buffed. Old: 170 m/s New: 240 m/s. '
+    - type: Tweak
+      message: 'Fang range increased. Old: 714m New: 1008m.'
+    - type: Tweak
+      message: Fang fires slightly faster, less inaccurate.
+  id: 2008
+  time: '2026-03-12T16:42:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3427
+- author: Onezero0
+  changes:
+    - type: Add
+      message: Added more decals for mappers.
+  id: 2009
+  time: '2026-03-13T21:27:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3380
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: >-
+        (Nearly) All magboots have been made uniform. Rejoice merc players, you
+        now got proper jays
+  id: 2010
+  time: '2026-03-13T22:16:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3307
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: A deep-space tanker has been detected with monolithic activity on board.
+  id: 2011
+  time: '2026-03-14T15:48:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3418
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: >-
+        The Scallywag has been misteriously delisted from all public consoles
+        and its origins hastily covered up...
+  id: 2012
+  time: '2026-03-14T15:59:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3439
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: >-
+        Pluto MK.II's IFF signature has received tweaks. Report any issues to me
+        on discord (@UnicornOnLSD)
+  id: 2013
+  time: '2026-03-14T19:13:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3221
+- author: EldritchPineapple
+  changes:
+    - type: Add
+      message: Added the Spica, fracture replacement and small frontline ship
+    - type: Remove
+      message: Removed fracture, ya served well soldier
+  id: 2014
+  time: '2026-03-15T11:21:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3106
+- author: EldritchPineapple
+  changes:
+    - type: Add
+      message: Added the Aldebaran, a new corvette to the tsf shipyards
+    - type: Remove
+      message: Removed the Calypso, rest easy old gal
+  id: 2015
+  time: '2026-03-15T14:13:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3174
+- author: Onezero0
+  changes:
+    - type: Add
+      message: Added some more decals for mappers. Search "Greeble" in entityspawn.
+  id: 2016
+  time: '2026-03-15T14:19:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3450
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: The durability of armor plates can now be examined directly.
+  id: 2017
+  time: '2026-03-15T19:36:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3436
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Adds a Heavy Ammo Case to Mercenary Techfabs.
+    - type: Tweak
+      message: Allows Weapon, Ammo and Explosive cases to scoop items off of the floor.
+  id: 2018
+  time: '2026-03-16T13:45:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3455
+- author: Ghost581X
+  changes:
+    - type: Tweak
+      message: Viper Group has been re-enabled.
+  id: 2019
+  time: '2026-03-17T23:46:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3074
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Vanyk and Vespera are no longer infinite.
+    - type: Tweak
+      message: >-
+        Vanyk now uses mags instead of individual missile, Each mag has 30
+        missiles
+    - type: Tweak
+      message: Vespera mag size is tripled.
+  id: 2020
+  time: '2026-03-17T23:48:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3440
+- author: lopsidedmanboobs
+  changes:
+    - type: Add
+      message: States you cannot attack ships in safezones unless they escaped combat
+    - type: Add
+      message: >-
+        Adds clarification to "portstriking" safezones, or launching massive
+        attacks.
+    - type: Tweak
+      message: Other small fixes to the Safezone rule. Check it out!
+  id: 2021
+  time: '2026-03-19T00:44:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3486
+- author: chuga-git
+  changes:
+    - type: Fix
+      message: >-
+        RPEDs no longer dump their components out instead of upgrading certain
+        machines.
+  id: 2022
+  time: '2026-03-19T05:33:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3474
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: >-
+        Signalable, remote detonation Bomb Collars. Can be found in expeds or
+        printed with Printable Explosive tech. A pack of them is present
+        roundstart in the Overseer's locker.
+    - type: Add
+      message: Bomb Collar Sealer, capable of locking and unlocking a bomb collar.
+    - type: Tweak
+      message: >-
+        Explosives loot pool on expeds are now much more common and higher
+        quality.
+    - type: Fix
+      message: Fixed bug with some slow to strip items having no strip delay.
+  id: 2023
+  time: '2026-03-19T06:09:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3287
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixed the Hades' north sprite
+  id: 2024
+  time: '2026-03-19T12:23:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3485
+- author: EldritchPineapple
+  changes:
+    - type: Remove
+      message: Removed fun! (ability to steal camelot's bluespace reactor)
+  id: 2025
+  time: '2026-03-19T19:13:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3490
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: >-
+        A decrepit sensors station is now even more decrepit and sensors and
+        station even
+  id: 2026
+  time: '2026-03-19T19:34:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3475
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: minor changes to aldebaran gun placement and rewired the spica a wee bit
+  id: 2027
+  time: '2026-03-19T19:42:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3487
+- author: Nikovnik
+  changes:
+    - type: Tweak
+      message: Reptilians with huge claws can now use bows
+  id: 2028
+  time: '2026-03-19T20:25:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3471
+- author: Kiithnaras
+  changes:
+    - type: Tweak
+      message: >-
+        Rebalances protection scheme of Industrial Mechs (e.g. Ripley and
+        Clarke) - better protection against lasers, shock, explosions, and
+        melee, and gives better pilot protection on Ripley models.
+  id: 2029
+  time: '2026-03-19T20:28:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3382
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Borers can now hear what the Host hears over headsets.
+    - type: Fix
+      message: >-
+        Borers now properly transfer through polymorphs, instead of being stuck
+        in nullspace with the old body upon the host being polymorphed (such as
+        from Chimera infection)
+  id: 2030
+  time: '2026-03-19T20:31:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3492
+- author: Onezero0
+  changes:
+    - type: Add
+      message: Added catwalk tiles for mappers.
+  id: 2031
+  time: '2026-03-20T00:17:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3493
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: People turned chimera on colossus no longer gib
+  id: 2032
+  time: '2026-03-20T11:38:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3495
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Draupnir accuracy buffed.
+  id: 2033
+  time: '2026-03-20T18:42:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3498
+- author: chuga-git
+  changes:
+    - type: Fix
+      message: M381 Charon range now at its intended value of 2.5 km (from 1.4km).
+  id: 2034
+  time: '2026-03-21T00:29:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3476
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        ADM health reduced and scram cooldown 40->60s, but scram now moderately
+        aims for nearby grids.
+  id: 2035
+  time: '2026-03-21T00:32:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3388
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Dermal armor now has 3.5 flat resistances instead of 1.5;
+    - type: Tweak
+      message: >-
+        Platelet factory now heals only brute and burn. Cost is reduced to 6
+        points.
+  id: 2036
+  time: '2026-03-21T00:37:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3497
+- author: Isratosh
+  changes:
+    - type: Add
+      message: >-
+        Vanyk and Vespera missile magazine recipes added to the military and
+        ammo techfabs
+  id: 2037
+  time: '2026-03-21T07:44:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3501
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Shortband range buffed from 750m to 1500m.
+  id: 2038
+  time: '2026-03-21T08:16:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3502
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        All POIs except CC, Seva, and Trade Mall/Depots are now mobile and no
+        longer force anchored. Yes, this includes Halcyon and Helios.
+    - type: Add
+      message: Mini Station Anchor flatpacks to Flatpack vend.
+    - type: Fix
+      message: adds missing mini station anchor to MD
+    - type: Tweak
+      message: mini station anchors take longer to charge up than normal anchors
+  id: 2039
+  time: '2026-03-21T09:04:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3503
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Hailstorm is now 11x more rare. Heavy pulse cannon is now 2x more rare.
+    - type: Tweak
+      message: Hailstorm is now ginormous and slows you down by 80%
+    - type: Tweak
+      message: Expedition ore generation has been buffed by 10x, 20x for iron.
+  id: 2040
+  time: '2026-03-21T09:06:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3470
+- author: UnicornOnLSD
+  changes:
+    - type: Add
+      message: Ported "Ghost types  (#37949)"
+  id: 2041
+  time: '2026-03-21T11:39:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3504
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Camelot station anchor interactable
+    - type: Fix
+      message: PDV Helios is not forceanchored by grid anymore.
+  id: 2042
+  time: '2026-03-21T16:48:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3505
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: World loading range increased
+  id: 2043
+  time: '2026-03-21T18:34:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3506
+- author: EldritchPineapple
+  changes:
+    - type: Add
+      message: Added Tsf Altair, the new frigate!
+    - type: Remove
+      message: Removed Polaris, rest easy
+  id: 2044
+  time: '2026-03-21T19:52:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3241
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Tweaks the Triage to be more armored and guideline compliant.
+  id: 2045
+  time: '2026-03-21T19:55:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3449
+- author: Ghost581X
+  changes:
+    - type: Tweak
+      message: >-
+        The Viper Group hardsuit surplus stocks have been replaced by a
+        standardized Phaethon design tailor-made for Rahkshans who prefer
+        tending to their squadmates.
+  id: 2046
+  time: '2026-03-21T20:00:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3482
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Adds a mappable set of flare countermeasures.
+  id: 2047
+  time: '2026-03-21T20:03:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3468
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Replaced synthalloy with plastitanium.
+    - type: Tweak
+      message: Brass wrecks have a bit more danger.
+  id: 2048
+  time: '2026-03-21T21:23:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3458
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Dymeres and a few other shipguns now can be shot by guns properly
+  id: 2049
+  time: '2026-03-21T21:37:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3510
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Makes Autopulser burst mode reasonable with a burst cooldown of 1
+        second.
+  id: 2050
+  time: '2026-03-21T22:11:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3511
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Natural Letoferol chemical clarified that you need Mesotaxinide to
+        revert it instead of being permanent.
+  id: 2051
+  time: '2026-03-21T22:40:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3512
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Fixed fun!
+  id: 2052
+  time: '2026-03-21T22:50:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3513
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Movable POIs
+  id: 2053
+  time: '2026-03-22T11:03:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3508
+- author: Lokilife
+  changes:
+    - type: Tweak
+      message: Heavy engine update
+  id: 2054
+  time: '2026-03-22T11:04:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3469
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: 'Nerfed wyverns armament '
+  id: 2055
+  time: '2026-03-22T11:13:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3426
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Far reach drones will no longer spontaneously stare north.
+  id: 2056
+  time: '2026-03-22T13:49:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3522
+- author: tonotom1
+  changes:
+    - type: Add
+      message: >-
+        Trait: Hardened Lymphocytes. Costs 4 points, blocks up to 1 radiation
+        damage per tick.
+    - type: Tweak
+      message: Radiation medkits can now be found in radiation suit lockers
+    - type: Tweak
+      message: >-
+        Potassium iodide protection effect no longer sucks: it lasts 5 minutes
+        per 10u instead of 40 seconds
+    - type: Tweak
+      message: Medicine lockers now have trico and med vendors now dispense trico
+  id: 2057
+  time: '2026-03-22T14:53:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3500
+- author: Kiithnaras
+  changes:
+    - type: Tweak
+      message: Expanded damage types healed by bed rest
+    - type: Tweak
+      message: Made Stasis beds damage-neutral to Alive patients.
+  id: 2058
+  time: '2026-03-22T16:01:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3519
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Shuttle collisions optimised.
+  id: 2059
+  time: '2026-03-22T19:39:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3415
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Mercenaries have gained USSP button and locker access.
+  id: 2060
+  time: '2026-03-22T19:40:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3371
+- author: Helicaste
+  changes:
+    - type: Add
+      message: Space Snails now know where you are at all times.
+    - type: Tweak
+      message: >-
+        Mech Laser Weapons have been significantly buffed, hopefully they will
+        now live in your head as a competitor to the AC-2.
+    - type: Add
+      message: >-
+        TSF now have a Mech Pulse Rifle in their uplink, as always, restricted
+        to FTL+
+    - type: Tweak
+      message: >-
+        TSF Volta modsuit has been redesigned for comfort and utility... It is
+        moderately more frangible.
+    - type: Fix
+      message: TSF Volta magboots now actually function properly.
+  id: 2061
+  time: '2026-03-22T19:43:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3247
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Items that play non-footstep sounds on movement now make sound less
+        frequently. Jester cap now jingles on movement.
+  id: 2062
+  time: '2026-03-22T19:44:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3201
+- author: Onezero0
+  changes:
+    - type: Add
+      message: >-
+        Added data farming as a research! Remember to screwdrive the boards to
+        change type.
+    - type: Tweak
+      message: >-
+        Faction base point generators are now fancy and
+        indestructible/unanchorable.
+  id: 2063
+  time: '2026-03-22T19:46:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2620
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Decreases faction borg health from 250 to 200.
+  id: 2064
+  time: '2026-03-22T19:49:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3499
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Cables no longer drop an item when destroyed, ever. Hopefully this will
+        reduce ram lag. Cable HP also standardized to 200 for all types.
+  id: 2065
+  time: '2026-03-22T22:41:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3520
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Hydrakin no longer heat up in criticial.
+    - type: Fix
+      message: People no longer thermal regulate while dead.
+  id: 2066
+  time: '2026-03-22T22:54:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3530
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Part damage easier to heal/injure with surgery/chems
+  id: 2067
+  time: '2026-03-22T23:22:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3533
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Built research datafarms now work
+  id: 2068
+  time: '2026-03-23T03:42:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3536

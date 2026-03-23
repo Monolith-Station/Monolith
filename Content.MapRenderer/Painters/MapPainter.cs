@@ -9,8 +9,10 @@ using Content.Server.Maps;
 using Robust.Client.GameObjects;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
+using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Log;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
@@ -68,7 +70,18 @@ namespace Content.MapRenderer.Painters
                 foreach (var grid in sMapManager.GetAllGrids(mapId))
                     sEntityManager.QueueDeleteEntity(grid);
 
-                mapLoader.TryLoadGrid(mapId, new(path), out _);
+                try
+                {
+                    mapLoader.TryLoadGrid(mapId, new(path), out _);
+                }
+                catch (Exception e) // we probably tried to load a map
+                {
+                    Logger.Info($"Failed to load as grid, rendering as map...");
+                    sMapManager.DeleteMap(mapId);
+                    var opts = new DeserializationOptions();
+                    opts.InitializeMaps = true;
+                    mapLoader.TryLoadMapWithId(mapId, new(path), out _, out _, opts);
+                }
             });
 
             await foreach (var image in RenderPair(stopwatch, pair))
