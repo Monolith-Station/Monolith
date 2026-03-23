@@ -1,1 +1,0 @@
-gas-fallback = Gas #{number}

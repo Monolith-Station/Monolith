@@ -1,8 +1,0 @@
-- type: entity
-  id: CrateVendingMachineRestockPrideFilled
-  parent: CratePlasticBiodegradable # Frontier: CratePlastic<CratePlasticBiodegradable
-  components:
-  - type: StorageFill
-    contents:
-      - id: VendingMachineRestockPride
-        amount: 2

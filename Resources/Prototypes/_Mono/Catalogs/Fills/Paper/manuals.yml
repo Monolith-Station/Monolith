@@ -1,8 +1,0 @@
-- type: entity
-  id: PaperWrittenTeaGuide
-  name: "How 2 Make Tea 4 Dorks"
-  description: "A quick guide to tea preparation."
-  parent: Paper
-  components:
-  - type: Paper
-    content: book-text-tea-guide

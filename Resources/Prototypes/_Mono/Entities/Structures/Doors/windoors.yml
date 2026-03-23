@@ -1,8 +1,0 @@
-- type: entity
-  parent: WindoorSecurePlasma
-  id: PlasmaWindoorSecureRogueLocked
-  suffix: Rogue, Locked, Plasma
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsPirate ]

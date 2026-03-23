@@ -1,9 +1,0 @@
-- type: entity
-  id: ActionAnomalyPulse
-  name: Anomaly pulse
-  description: Release a pulse of energy of your abnormal nature
-  components:
-  - type: InstantAction
-    icon: { sprite: Structures/Specific/anomaly.rsi, state: anom1 }
-    event: !type:ActionAnomalyPulseEvent
-    useDelay: 30

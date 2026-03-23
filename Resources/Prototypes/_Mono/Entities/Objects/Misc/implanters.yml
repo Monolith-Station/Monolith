@@ -1,7 +1,0 @@
-- type: entity
-  id: RadioImplanterUssp
-  suffix: radio Ussp
-  parent:  BaseImplantOnlyImplanter
-  components:
-  - type: Implanter
-    implant: UsspTrackingImplant
