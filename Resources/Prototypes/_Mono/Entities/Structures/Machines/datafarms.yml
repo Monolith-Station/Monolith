@@ -113,7 +113,7 @@
 
 - type: entity
   id: DatafarmResearch
-  parent: [BaseDataFarm, ConstructibleMachine]
+  parent: [BaseDataFarmResearch, ConstructibleMachine]
   name: data farm (Research)
   description: A power-hungry server dedicated towards scraping data from... somewhere. This one generates research points at a rate of 10 per second.
   components:
