@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT2 ]
+  parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitViperGroupStandard
   name: JACKAL mk.II viper hardsuit
   description: A combat hardsuit adorned with signature markings of the Viper Group. The armor is remarkably flexible for the protection it offers.
@@ -18,17 +18,17 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.55
+        Blunt: 0.67
         Slash: 0.5
         Piercing: 0.5
-        Heat: 0.6
-        Radiation: 0.6
+        Heat: 0.67
+        Radiation: 0.5
         Caustic: 0.5
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.5
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
@@ -46,7 +46,7 @@
     - RogueHardsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT2 ]
+  parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitViperGroupMedic
   name: RIPPER mk.III viper hardsuit
   description: A combat medical hardsuit adorned with signature markings of the Viper Group. The armor features various reinforced plating in vital areas.
@@ -65,17 +65,17 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.75
-        Heat: 0.75
-        Radiation: 0.4
-        Caustic: 0.25
+        Blunt: 0.67
+        Slash: 0.34
+        Piercing: 0.67
+        Heat: 0.4
+        Radiation: 0.25
+        Caustic: 0.1
   - type: StaminaDamageResistance # Mono - Stamres
-    coefficient: 0.65
+    coefficient: 0.67
   - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
+    walkModifier: 0.95
+    sprintModifier: 0.95
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
@@ -93,7 +93,7 @@
     - RogueHardsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT2 ]
+  parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitViperGroupJuggernaut
   name: IMP mk.IV viper hardsuit
   description: A heavy combat hardsuit adorned with signature markings of the Viper Group. The armor features reinforced plating and padding fitting for close encounters.
@@ -113,16 +113,16 @@
     modifiers:
       coefficients:
         Blunt: 0.6
-        Slash: 0.45
-        Piercing: 0.4
-        Heat: 0.5
+        Slash: 0.34
+        Piercing: 0.34
+        Heat: 0.6
         Radiation: 0.5
         Caustic: 0.25
   - type: StaminaDamageResistance # Mono - Stamres
-    coefficient: 0.33
+    coefficient: 0.34
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.75
+    walkModifier: 0.67
+    sprintModifier: 0.67
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing

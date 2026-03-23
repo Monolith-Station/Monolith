@@ -19,8 +19,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
 using Content.Server._NF.SectorServices; // Frontier
-using Content.Shared._NF.Trade; // Frontier
-using Content.Shared.Whitelist; // Frontier
+using Content.Shared.Whitelist;
+using Content.Server._NF.Bank; // Frontier
 
 namespace Content.Server.Cargo.Systems;
 
@@ -44,9 +44,9 @@ public sealed partial class CargoSystem : SharedCargoSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly SectorServiceSystem _sectorService = default!; // Frontier
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // Frontier
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Frontier
+    [Dependency] private readonly BankSystem _bank = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<CargoSellBlacklistComponent> _blacklistQuery;

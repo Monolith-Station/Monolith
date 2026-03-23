@@ -68,30 +68,6 @@
   - 0     # healium
   - 0     # nitrium
 
-
-- type: crystallizerRecipe
-  id: Synthalloy
-  name: Synthalloy (1)
-  minimumTemperature: 1790
-  maximumTemperature: 2100
-  energyRelease: -190
-  products:
-    MaterialSynthalloy1: 1
-  dangerous: true
-  minimumRequirements:
-  - 6     # oxygen
-  - 1     # nitrogen
-  - 6     # carbon dioxide
-  - 6     # plasma
-  - 0     # tritium
-  - 4     # vapor
-  - 0     # ammonia
-  - 1     # n2o
-  - 0     # frezon
-  - 0     # bz
-  - 0     # healium
-  - 0     # nitrium
-
 - type: crystallizerRecipe
   id: Plasteel
   name: Plasteel (10)

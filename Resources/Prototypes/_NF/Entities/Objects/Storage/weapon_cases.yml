@@ -88,6 +88,9 @@
       - MeleeWeapon
       - Blocking
       - WeaponCaseInsertable
+      - Explosive
+      - UnremovableClothingRemover # Mono
+      - Signaller # Mono
       tags:
       - Cartridge
 
@@ -111,7 +114,7 @@
   suffix: Short
   components:
   - type: ExplosionResistance
-    damageCoefficient: 0.2
+    damageCoefficient: 0.1
   - type: Sprite
     sprite: _NF/Objects/Storage/Cases/explosivescaseshort.rsi
   - type: Item

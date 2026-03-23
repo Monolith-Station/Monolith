@@ -112,3 +112,21 @@
     Piercing: 7
     Heat: 4
     Structural: 1
+
+- type: damageModifierSet
+  id: MechArmorIndustrial
+  coefficients:
+    Blunt: 0.6
+    Slash: 0.65
+    Piercing: 1.1
+    Shock: 0.35
+    Heat: 0.35
+    Radiation: 0.2
+    Cold: 0
+    Structural: 0.35
+    Caustic: 0.65
+  flatReductions:
+    Blunt: 4
+    Slash: 4
+    Piercing: 6
+    Heat: 5
