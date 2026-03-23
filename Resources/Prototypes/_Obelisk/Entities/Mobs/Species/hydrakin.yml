@@ -66,6 +66,7 @@
     shiveringHeatRegulation: 3000
     normalBodyTemperature: 210.15
     thermalRegulationTemperatureThreshold: 30
+    processWhileCrit: false
   - type: PressureProtection
     lowPressureMultiplier: 1.2
   - type: LanguageKnowledge

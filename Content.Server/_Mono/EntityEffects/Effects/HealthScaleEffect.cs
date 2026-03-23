@@ -115,7 +115,7 @@ namespace Content.Server._Mono.EntityEffects.Effects
                 IgnoreResistances,
                 interruptsDoAfters: false,
                 targetPart: TargetBodyPart.All,
-                partMultiplier: 0.5f,
+                partMultiplier: 1.00f, // Mono, 0.5f->1.00f
                 canSever: false);
         }
     }

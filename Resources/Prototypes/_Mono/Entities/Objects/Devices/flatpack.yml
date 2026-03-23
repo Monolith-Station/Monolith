@@ -306,14 +306,3 @@
   - type: StaticPrice
     price: 4000
     vendPrice: 10000
-
-- type: entity
-  parent: BaseNFFlatpack
-  id: MiniStationAnchorFlatpack
-  name: mini station anchor flatpack
-  description: A flatpack used for constructing a mini station anchor.
-  components:
-  - type: Flatpack
-    entity: MiniStationAnchorOff
-  - type: StaticPrice
-    vendPrice: 7500
