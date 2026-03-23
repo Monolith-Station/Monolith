@@ -17,4 +17,3 @@ chat-emote-msg-warble = warbles!
 chat-emote-msg-wurble = wurbles!
 chat-emote-msg-mars = mars.
 chat-emote-msg-bagawk = bagawks!
-#chat-emote-msg-yip = Yips! ## monolith: we have our own yip
