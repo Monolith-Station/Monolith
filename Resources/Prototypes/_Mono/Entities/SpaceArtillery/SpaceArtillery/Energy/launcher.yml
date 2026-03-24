@@ -25,7 +25,7 @@
     recoil: 5 # 1/5x
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 100
+    projectileSpeed: 150
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -99,7 +99,7 @@
     recoil: 8
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 100
+    projectileSpeed: 150
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -489,6 +489,10 @@
           !type:PhysShapeAabb
           bounds: "-0.75,-0.75,0.75,0.75"
         density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: Gun
     projectileSpeed: 250
     fireRate: 0.75
@@ -500,7 +504,7 @@
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
     autoRechargePause: true
-    autoRechargePauseTime: 60
+    autoRechargePauseTime: 20
     autoRecharge: true
     autoRechargeRate: 81600
   - type: SpaceArtillery
@@ -751,6 +755,10 @@
           !type:PhysShapeAabb
           bounds: "-0.75,-0.75,0.75,0.75"
         density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: ShipGunType
     shipType: Energy
   - type: ShipRepairable
@@ -792,6 +800,10 @@
           !type:PhysShapeAabb
           bounds: "-0.75,-0.75,0.75,0.75"
         density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: Gun
     projectileSpeed: 170
     fireRate: 13

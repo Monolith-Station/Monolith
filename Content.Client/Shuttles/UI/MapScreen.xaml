@@ -82,6 +82,12 @@
                                  Text="{controls:Loc 'shuttle-console-ftl-button'}"
                                  TextAlign="Center"
                                  StyleClasses="ButtonSquare"/>
+                <!-- Mono - Autopilot -->
+                <controls:Button Name="MapAutopilotButton"
+                                 ToggleMode="True"
+                                 Text="{controls:Loc 'shuttle-console-autopilot-button'}"
+                                 TextAlign="Center"
+                                 StyleClasses="ButtonSquare"/>
                 <controls:Button Name="MapRebuildButton"
                         Text="{controls:Loc 'shuttle-console-map-rebuild'}"
                         TextAlign="Center"

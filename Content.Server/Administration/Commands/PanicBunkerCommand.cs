@@ -25,7 +25,7 @@ public sealed class PanicBunkerCommand : LocalizedCommands
     {
         if (args.Length > 1)
         {
-            shell.WriteError(Loc.GetString("shell-need-between-arguments",("lower", 0), ("upper", 1)));
+            shell.WriteError(Robust.Shared.Localization.Loc.GetString("shell-need-between-arguments", ("lower", 0), ("upper", 1)));
             return null;
         }
 
@@ -38,7 +38,7 @@ public sealed class PanicBunkerCommand : LocalizedCommands
 
         if (args.Length == 1 && !bool.TryParse(args[0], out enabled))
         {
-            shell.WriteError(Loc.GetString("shell-argument-must-be-boolean"));
+            shell.WriteError(Robust.Shared.Localization.Loc.GetString("shell-argument-must-be-boolean"));
             return null;
         }
 

@@ -11,6 +11,7 @@ using Content.Shared.Jittering;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
+using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
@@ -26,7 +27,7 @@ namespace Content.Shared._Mono.Claws;
 /// </summary>
 public abstract partial class SharedClawsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] protected readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doafter = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] protected readonly IRobustRandom _random = default!;
@@ -37,6 +38,7 @@ public abstract partial class SharedClawsSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _state = default!;
     [Dependency] private readonly StatusEffectsSystem _effects = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
 
     public override void Initialize()
     {
@@ -70,7 +72,7 @@ public abstract partial class SharedClawsSystem : EntitySystem
         if (!TryGetStage<SharpClaw>(ent.Comp, out var stage))
             return;
 
-        if (stage.CanShoot)
+        if (stage.CanShoot || _tagSystem.HasTag(args.Used, "IgnoreClawPenalty"))
             return;
 
         _popup.PopupClient(Loc.GetString("clawed-shoot-fail"), Transform(ent).Coordinates, ent);

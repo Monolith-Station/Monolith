@@ -41,6 +41,7 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: Climbable
   - type: Transform
     anchored: true
   - type: Rotatable
@@ -83,6 +84,11 @@
     selectedMode: FullAuto
     availableModes:
     - FullAuto
+  - type: ExaminableDamage
+    messages: WindowMessages
+  - type: Repairable
+    qualities:
+    - Applicating
 
 - type: entity
   id: BallisticArtilleryUnanchorable
@@ -143,6 +149,7 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: Climbable
   - type: Transform
     anchored: true
   - type: DeviceLinkSink
@@ -187,6 +194,11 @@
     capacity: 2
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: ExaminableDamage
+    messages: WindowMessages
+  - type: Repairable
+    qualities:
+    - Applicating
 
 - type: entity
   id: BallisticArtilleryCartridge
@@ -251,6 +263,7 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: Climbable
   - type: Transform
     anchored: true
   - type: DeviceLinkSink
@@ -302,7 +315,11 @@
           params:
             pitch: 2
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-
+  - type: ExaminableDamage
+    messages: WindowMessages
+  - type: Repairable
+    qualities:
+    - Applicating
 
 - type: entity
   id: BallisticArtilleryMagazine

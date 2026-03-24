@@ -2,7 +2,8 @@
   parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase]
   id: ClothingHeadHelmetHardsuitUNSAArmoredEva
   name: armored EVA helmet
-  description: A standard EVA helmet modified by the UNSA as a cheap and cool-looking alternative to voidsuits for use by vanguards. The skull is a necessity. 
+  description: A standard EVA helmet modified by the UNSA as a cheap and cool-looking alternative to voidsuits for use by vanguards. The skull is a necessity.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/armored_eva.rsi

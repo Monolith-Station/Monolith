@@ -1,6 +1,7 @@
 using Content.Shared._Mono.Claws;
 using Content.Shared._Mono.Claws.ClawTypes;
 using Content.Shared._Mono.Claws.Components;
+using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Random;
 
@@ -50,6 +51,9 @@ public sealed class ClawsSystem : SharedClawsSystem
 
             comp.GrowTimer = TimeSpan.Zero;
             comp.ClawStage = comp.Claws.GetValueOrDefault(TryGetStageNumber(comp) + 1);
+
+            if (comp.ClawGrowthNotification != null)
+                _popup.PopupEntity(Loc.GetString(comp.ClawGrowthNotification), uid, uid, PopupType.Large);
 
             UpdateClaws(uid, comp);
             Dirty(uid, comp);
