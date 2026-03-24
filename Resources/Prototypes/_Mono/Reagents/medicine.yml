@@ -221,11 +221,10 @@
   color: "#7a55d6"
   metabolisms:
     Medicine:
-      metabolismRate: 0.05
+      metabolismRate: 0.02
       effects:
       - !type:GenericStatusEffect
         key: ClawsGrowthSuppression
         component: ClawsGrowthSuppression
-        time: 20
+        time: 5
         type: Add
-        refresh: true
