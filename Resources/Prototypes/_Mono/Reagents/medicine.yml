@@ -166,7 +166,7 @@
   name: reagent-name-peranol
   group: Medicine
   desc: reagent-desc-peranol
-  physicalDesc: reagent-physical-desc-pungent
+  physicalDesc: reagent-physical-desc-cloudy
   flavor: medicine
   color: "#8B008B"
   metabolisms:
@@ -193,3 +193,38 @@
           type: Hydrakin
           shouldHave: true
         amount: -7500
+
+# Claw growth medicines
+
+- type: reagent
+  id: Phenoxzine
+  name: reagent-name-phenoxzine
+  group: Medicine
+  desc: reagent-desc-phenoxzine
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#5571d6"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:ClawsGrowth
+        growth: 20
+
+- type: reagent
+  id: Meroxzine
+  name: reagent-name-meroxzine
+  group: Medicine
+  desc: reagent-desc-meroxzine
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: medicine
+  color: "#7a55d6"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:GenericStatusEffect
+        key: ClawsGrowthSupression
+        component: ClawsGrowthSupression
+        time: 3
+        type: Add

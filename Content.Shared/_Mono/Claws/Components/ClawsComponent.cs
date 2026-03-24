@@ -21,6 +21,9 @@ public sealed partial class ClawsComponent : Component
     [DataField, AutoPausedField]
     public TimeSpan GrowTimer = TimeSpan.Zero;
 
+    [DataField, AutoPausedField]
+    public TimeSpan AccumulatedBonusGrowth = TimeSpan.Zero;
+
     [AutoPausedField]
     public TimeSpan DeclawItemHoldTimer = TimeSpan.Zero;
 }
