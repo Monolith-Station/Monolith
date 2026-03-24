@@ -26,9 +26,9 @@
     fireRate: 6
     burstFireRate: 15
     shotsPerBurst: 5
+    burstCooldown: 1
     selectedMode: FullAuto
     availableModes:
-    - SemiAuto
     - Burst
     - FullAuto
     soundGunshot:
@@ -68,9 +68,9 @@
     fireRate: 6
     burstFireRate: 15
     shotsPerBurst: 5
+    burstCooldown: 1
     selectedMode: FullAuto
     availableModes:
-    - SemiAuto
     - Burst
     - FullAuto
     soundGunshot:

@@ -3,6 +3,7 @@
   id: ClothingHeadHelmetHardsuitUsspL27
   name: USSP L-27 tacsuit helmet
   description: The standard combat suit of USSP naval operations, outfitted with a medical hud too!
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/ussp_combat.rsi
@@ -32,6 +33,7 @@
   id: ClothingHeadHelmetHardsuitUsspL10
   name: USSP L-10 lightsuit helmet
   description: An old USSP model of combat suit that is still in use in the frontlines.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/ussp_combat_light.rsi
@@ -61,6 +63,7 @@
   id: ClothingHeadHelmetHardsuitUsspL10A
   name: USSP L-10-A lightsuit helmet
   description: An old USSP model of combat suit that is still in use in the frontlines.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/ussp_combat_light_officer.rsi
@@ -90,6 +93,7 @@
   id: ClothingHeadHelmetHardsuitUsspM10
   name: USSP M-10 scoutsuit helmet
   description: A new prototype of combat suit using the old L-10 as a baseline. It has a integrated mass scanner in his helmet.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/ussp_combat_lightmk2.rsi
@@ -128,6 +132,7 @@
   id: ClothingHeadHelmetHardsuitUsspL30
   name: USSP L-30 Commissar parade hardsuit tactical helmet
   description: The commissar's parade hardsuit helmet, outfitted with a medical hud too to check on the troops!
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/ussp_commissar_parade.rsi
@@ -157,6 +162,7 @@
   id: ClothingHeadHelmetHardsuitOfficerCombat
   name: USSP UF-16 "Voenkom" commissar tacsuit helmet
   description: Cold, imposing, and unmistakably Union -- developed to instill discipline and fear. It's visor grants enhanced battlefield awareness with It's built-in command control map. Ideal for Commissars overseeing frontline operations.
+  categories: [ HideSpawnMenu ]  
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/ussp_officer_combat.rsi

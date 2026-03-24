@@ -3,6 +3,7 @@
   id: ClothingHelmetHardsuitUIEnforcer
   name: U.I. ENFORCER MKI helmet
   description: Flash-proof lining, in built night vision system, and looks good as hell. Other than information display port being snapped, what's more to ask for?
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_enforcer.rsi #Ullman sprites
@@ -37,6 +38,7 @@
   id: ClothingHelmetHardsuitUIEnforcerMKII
   name: U.I. ENFORCER MKII Combat helmet
   description: This top of the line helmet comes with flashproof lining, a mass scanner and an inbuilt medical diagnostic system.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_enforcermkii.rsi #Ullman sprites
@@ -80,6 +82,7 @@
   id: ClothingHelmetHardsuitUIEngineer
   name: U.I. engineering helmet
   description: A cheap and effective hardsuit helmet, just with an extra black market touch.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_engineer.rsi
@@ -113,6 +116,7 @@
   id: ClothingHelmetHardsuitUIPilot
   name: U.I. pilot helmet
   description: A helmet for Ullman Industry pilots.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_pilot.rsi
@@ -147,6 +151,7 @@
   id: ClothingHelmetHardsuitUIDirector
   name: U.I. VK-1 experimental helmet
   description: A purpose built helmet designed by Felix Ullman, for Felix Ullman.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_director.rsi
