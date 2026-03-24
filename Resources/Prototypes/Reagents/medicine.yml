@@ -26,6 +26,7 @@
   color: "#3a1d8a"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -136,7 +137,7 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: -3
+            Radiation: -4 # Mono 3 >> 4
           groups:
             Brute: 1.5
 
@@ -150,6 +151,7 @@
   color: "#ffaa00"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:EvenHealthChange
         damage:
@@ -196,6 +198,7 @@
   - !type:PlantCryoxadone {}
   metabolisms:
     Cryogenic: # Frontier: Medicine<Cryogenic
+      metabolismRate: 0.2
       effects:
         - !type:EvenHealthChange
           conditions:
@@ -230,6 +233,7 @@
   worksOnTheDead: true # Frontier
   metabolisms:
     Cryogenic: # Frontier: Medicine<Cryogenic
+      metabolismRate: 0.2 # Mono
       effects:
         - !type:HealthChange
           conditions:
@@ -261,6 +265,7 @@
   color: "#215263"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -296,6 +301,7 @@
   color: "#0041a8"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -389,8 +395,8 @@
           min: 0
           max: 20
         damage:
-          Brute: -1 # Mono: 0.5 >> 1
-          Burn: -1 # Mono: 0.5 >> 1
+          Brute: -2 # Mono: 0.5 >> 2
+          Burn: -2 # Mono: 0.5 >> 2
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -446,6 +452,7 @@
   color: "#4cb580"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -525,6 +532,7 @@
   color: "#bf3d19"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2
       effects:
       - !type:HealthChange
         damage:
@@ -606,6 +614,7 @@
   color: "#ff867d"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         conditions:
@@ -1582,6 +1591,7 @@
   color: "#baa15d"
   metabolisms:
     Medicine:
+      metabolismRate: 0.15 # Mono
       effects:
       - !type:GenericStatusEffect
         key: RadiationProtection
