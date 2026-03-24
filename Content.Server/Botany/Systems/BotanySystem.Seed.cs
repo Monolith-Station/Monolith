@@ -28,8 +28,6 @@ public sealed partial class BotanySystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!;
-    [Dependency] private readonly ContrabandTurnInSystem _contraband = default!; // Frontier
-
     public override void Initialize()
     {
         base.Initialize();
@@ -100,7 +98,6 @@ public sealed partial class BotanySystem : EntitySystem
     public EntityUid SpawnSeedPacket(SeedData proto, EntityCoordinates coords, EntityUid user, float? healthOverride = null)
     {
         var seed = SpawnAtPosition(proto.PacketPrototype, coords); // Frontier: Spawn<SpawnAtPosition
-        _contraband.ClearContrabandValue(seed); // Frontier
         var seedComp = EnsureComp<SeedComponent>(seed);
         seedComp.Seed = proto;
         seedComp.HealthOverride = healthOverride;
@@ -160,7 +157,6 @@ public sealed partial class BotanySystem : EntitySystem
             var product = _robustRandom.Pick(proto.ProductPrototypes);
 
             var entity = SpawnAtPosition(product, position); // Frontier: Spawn<SpawnAtPosition
-            _contraband.ClearContrabandValue(entity); // Frontier
             _randomHelper.RandomOffset(entity, 0.25f);
             products.Add(entity);
 

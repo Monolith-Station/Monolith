@@ -1,0 +1,51 @@
+- type: entity
+  id: DataFarmResearchCircuitboard
+  parent: BaseMachineCircuitboard
+  name: data farm (research) circuitboard
+  description: Looks like you could use a screwdriver to change the board type. Unable to be flatpacked due to complex components.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/module.rsi
+    state: datafarm_research
+  - type: MachineBoard
+    prototype: DatafarmResearch
+    flatpackable: false
+    requirements:
+      Capacitor: 4
+    stackRequirements:
+      Cable: 5
+      CableHV: 5
+    tagRequirements:
+      ResearchDisk10000:
+        amount: 2
+        defaultPrototype: ResearchDisk10000
+  - type: Construction
+    deconstructionTarget: null
+    graph: Datafarm
+    node: research
+
+- type: entity
+  id: DataFarmCryptoCircuitboard
+  parent: BaseMachineCircuitboard
+  name: data farm (crypto) circuitboard
+  description: Looks like you could use a screwdriver to change the board type. Unable to be flatpacked due to complex components.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/module.rsi
+    state: datafarm_crypto
+  - type: MachineBoard
+    prototype: DatafarmCrypto
+    flatpackable: false
+    requirements:
+      Capacitor: 4
+    stackRequirements:
+      Cable: 5
+      CableHV: 5
+    tagRequirements:
+      ResearchDisk10000:
+        amount: 2
+        defaultPrototype: ResearchDisk10000
+  - type: Construction
+    deconstructionTarget: null
+    graph: Datafarm
+    node: crypto
