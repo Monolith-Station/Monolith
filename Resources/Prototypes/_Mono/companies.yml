@@ -44,24 +44,7 @@
   description: winter-solstice-description
   color: "#008CE3"
   disabled: true
-  logins: # admins only here !!! or your PR will be CLOSED!!!! also serves as a example for ur whitelisted factions
-  - localhost@Ark
-  - Ark
-  - DisguisedBear
-  - JuneCat
-  - AwareFoxy
-  - Avalon_Proto
-  - Archylle
-  - Arcticular
-  - ArtemisYK
-  - NigelSugar
-  - Reverence
-  - BluHNT
-  - DrOktober
-  - Archylle
-  - neoscav
-  - UnhipPaladin
-  - Onezero0
+  whitelisted: true
 # DO NOT TOUCH
 
 # ====TSF / Protag. Companies====
@@ -217,17 +200,7 @@
   color: "#aa1010"
   image: /Textures/_Mono/Companies/CSP.png
   disabled: true
-  logins:
-    - GoobieWoob
-    - Coolzman
-    - Lumpy_the_Clown
-    - coolfied
-    - Callington
-    - Operator_Talon5
-    - CdrGreenwall
-    - MarssSett18
-    - Administratorx # Hopefully this doesnt get denied because it has adminstrator in it smh
-    - MSMarvin
+  whitelisted: true
 
 - type: company
   id: TheViperGroup
@@ -236,53 +209,14 @@
   description: viper-group-description
   color: "#B82121"
   image: /Textures/_Mono/Companies/thevipergroup.png # Example
-  logins:
-  - Schizm1253
-  - Androidonator
-  - Archylle
-  - Battieralarm3
-  - bubz_bs
-  - capslfern
-  - DrOktober
-  - Ermac10108
-  - Ghost581
-  - hellcat76
-  - HungryCuban
-  - Scyron
-  - SwadianSupremacy
-  - Traildog
-  - PH77SER
-  - Siege_Of_Malta_Never_Happened
-  - gelliii
-  - Uranio
+  whitelisted: true
 
 - type: company
   id: RedSailCorsairs
   form: Antagonist
-  name: RedSail Corsairs 
+  name: RedSail Corsairs
   description: redsail-corsairs-description
   color: "#930000"
   image: /Textures/_Mono/Companies/redsailcorsairs.png
   disabled: true
-  logins: # 20 total
-  - Corrupt
-  - Jasos
-  - Luksu
-  - FervantTwo8
-  - Wawa_pull
-  - Pffy
-  - SouthernSaint
-  - Birdadoido
-  - Abbyssl
-  - MSMarvin
-  - Dusky
-  - Middleagedman
-  - EmmaFaith
-  - soulvapor
-  - Ether
-  - MapleSilk
-  - Spacepeing
-  - zigcraft 
-  - burrrkeye
-  - enkidienne
-  - chugaa
+  whitelisted: true

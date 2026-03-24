@@ -22,6 +22,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using LogLevel = Robust.Shared.Log.LogLevel;
 using MSLogLevel = Microsoft.Extensions.Logging.LogLevel;
+using Content.Shared._Mono.Company; // Mono
 
 namespace Content.Server.Database
 {
@@ -348,6 +349,17 @@ namespace Content.Server.Database
         Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score);
         Task<IPIntelCache?> GetIPIntelCache(IPAddress ip);
         Task<bool> CleanIPIntelCache(TimeSpan range);
+
+        #endregion
+
+        // Mono
+        #region Company Whitelist
+        Task AddCompanyWhitelist(Guid player, ProtoId<CompanyPrototype> company);
+
+        Task<List<string>> GetCompanyWhitelists(Guid player, CancellationToken cancel = default);
+        Task<bool> IsCompanyWhitelisted(Guid player, ProtoId<CompanyPrototype> company);
+
+        Task<bool> RemoveCompanyWhitelist(Guid player, ProtoId<CompanyPrototype> company);
 
         #endregion
 
@@ -1058,7 +1070,7 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.RemoveJobWhitelist(player, job));
         }
-        
+
         // Frontier: ghost role DB ops
         public Task AddGhostRoleWhitelist(Guid player, ProtoId<GhostRolePrototype> ghostRole)
         {
@@ -1094,6 +1106,32 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.CleanIPIntelCache(range));
         }
+
+        // Mono-Start
+        public Task AddCompanyWhitelist(Guid player, ProtoId<CompanyPrototype> company)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddCompanyWhitelist(player, company));
+        }
+
+        public Task<List<string>> GetCompanyWhitelists(Guid player, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetCompanyWhitelists(player, cancel));
+        }
+
+        public Task<bool> IsCompanyWhitelisted(Guid player, ProtoId<CompanyPrototype> company)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.IsCompanyWhitelisted(player, company));
+        }
+
+        public Task<bool> RemoveCompanyWhitelist(Guid player, ProtoId<CompanyPrototype> company)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.RemoveCompanyWhitelist(player, company));
+        }
+        // Mono-End
 
         public void SubscribeToNotifications(Action<DatabaseNotification> handler)
         {

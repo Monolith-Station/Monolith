@@ -46,6 +46,7 @@ namespace Content.Server.Database
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
+        public DbSet<CompanyWhitelist> CompanyWhitelists { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -371,6 +372,14 @@ namespace Content.Server.Database
                 .OwnsOne(p => p.HWId)
                 .Property(p => p.Type)
                 .HasDefaultValue(HwidType.Legacy);
+
+            // Mono
+            modelBuilder.Entity<CompanyWhitelist>()
+                .HasOne(w => w.Player)
+                .WithMany(p => p.CompanyWhitelists)
+                .HasForeignKey(w => w.PlayerUserId)
+                .HasPrincipalKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
         public virtual IQueryable<AdminLog> SearchLogs(IQueryable<AdminLog> query, string searchText)
@@ -600,6 +609,7 @@ namespace Content.Server.Database
         public List<ServerRoleBan> AdminServerRoleBansCreated { get; set; } = null!;
         public List<ServerRoleBan> AdminServerRoleBansLastEdited { get; set; } = null!;
         public List<RoleWhitelist> JobWhitelists { get; set; } = null!;
+        public List<CompanyWhitelist> CompanyWhitelists { get; set; } = null!; // Mono
     }
 
     [Table("whitelist")]
@@ -1336,5 +1346,16 @@ namespace Content.Server.Database
         /// The score IPIntel returned
         /// </summary>
         public float Score { get; set; }
+    }
+
+    [PrimaryKey(nameof(PlayerUserId), nameof(CompanyId))]
+    public class CompanyWhitelist
+    {
+        [Required, ForeignKey("Player")]
+        public Guid PlayerUserId { get; set; }
+        public Player Player { get; set; } = default!;
+
+        [Required]
+        public string CompanyId { get; set; } = default!;
     }
 }
