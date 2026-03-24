@@ -1,1 +1,1 @@
-﻿reagent-effect-status-effect-ClawsGrowthSupression = claw growth suppression
+﻿reagent-effect-status-effect-ClawsGrowthSuppression = claw growth suppression

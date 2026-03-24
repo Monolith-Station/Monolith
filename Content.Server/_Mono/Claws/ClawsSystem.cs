@@ -37,7 +37,7 @@ public sealed class ClawsSystem : SharedClawsSystem
             if (TryGetStage<Declawed>(comp, out var declawed))
                 UpdateDeclaw(uid, declawed, comp, _updateCooldown);
 
-            if (TryComp<ClawsGrowthSupressionComponent>(uid, out _))
+            if (TryComp<ClawsGrowthSuppressionComponent>(uid, out _))
             {
                 comp.AccumulatedBonusGrowth = TimeSpan.Zero;
                 continue;
