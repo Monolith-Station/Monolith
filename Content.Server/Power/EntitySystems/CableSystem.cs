@@ -74,8 +74,7 @@ public sealed partial class CableSystem : EntitySystem
 
         // This entity should not be un-anchorable. But this can happen if the grid-tile is deleted (RCD, explosion,
         // etc). In that case: behave as if the cable had been cut.
-		// Mono: Item drop disabled due to ramming performance
-        /*Spawn(cable.CableDroppedOnCutPrototype, Transform(uid).Coordinates);*/
+        Spawn(cable.CableDroppedOnCutPrototype, Transform(uid).Coordinates);
         QueueDel(uid);
     }
 }
