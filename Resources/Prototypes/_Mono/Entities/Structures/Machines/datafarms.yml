@@ -105,6 +105,7 @@
   name: bolted data farm (Research)
   description: A power-hungry server dedicated towards scraping data from... somewhere. This one generates research points at a rate of 35 per second. It seems to be bolted to the floor.
   components:
+  - type: ResearchClient
   - type: ResearchPointSource
     pointsPerSecond: 35
     active: true
