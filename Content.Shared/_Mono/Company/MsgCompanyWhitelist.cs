@@ -5,7 +5,6 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Mono.Company;
 
-[Serializable, NetSerializable]
 public sealed class MsgCompanyWhitelist : NetMessage
 {
     public override MsgGroups MsgGroup => MsgGroups.EntityEvent;
