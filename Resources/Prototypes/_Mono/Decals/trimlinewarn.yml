@@ -53,3 +53,10 @@
   sprite:
     sprite: _Mono/Decals/trimlinewarn.rsi
     state: warnwest
+
+- type: decal
+  id: TrimWarnLiveFire
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Mono/Decals/trimlinewarn.rsi
+    state: warnlivefire

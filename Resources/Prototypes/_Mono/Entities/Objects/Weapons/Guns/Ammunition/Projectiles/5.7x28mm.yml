@@ -41,8 +41,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Heat: 17
+        Piercing: 10
+        Heat: 6
 
 - type: entity
   id: Bullet57x28mmUranium

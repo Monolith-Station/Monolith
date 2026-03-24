@@ -312,7 +312,7 @@
       types:
         Slash: 15 # Mono increased from 10 to 15 to be on-par with normal e-swords
         Heat: 20
-        Structural: 75 # Mono increased from 25 to 75, keep in mind a breaching hammer does 300 a hit
+        Structural: 100 # Mono increased from 25 to 100, keep in mind a breaching hammer does 300 a hit
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
