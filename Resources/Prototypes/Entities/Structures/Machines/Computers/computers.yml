@@ -145,7 +145,7 @@
   - type: RadarConsole
     relativePanning: true # Mono
   - type: WorldLoader
-    radius: 384 # Mono
+    radius: 700 # Mono
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -195,6 +195,9 @@
       respectZoom: true
       rotate: true
       bounds: "-0.5,-0.5,0.5,0.5"
+  - type: HTN
+    rootTask:
+      task: AutopilotShuttleCompound
 
 - type: entity
   parent: [BaseComputerShuttle, BaseShuttleIntercom] # Frontier - BaseShuttleIntercom

@@ -1,12 +1,17 @@
+using Content.Server.Radio;
 using Content.Shared._Mono.CorticalBorer;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Body.Part;
 using Content.Shared.Examine;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
+using Content.Shared.Polymorph;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
+using Robust.Shared.Network;
+using Robust.Shared.Player;
+using Content.Shared._Mono.Radio;
 
 namespace Content.Server._Mono.CorticalBorer;
 
@@ -15,6 +20,7 @@ public sealed class CorticalBorerInfestedSystem : EntitySystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly CorticalBorerSystem _borer = default!;
+    [Dependency] private readonly INetManager _netMan = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -25,6 +31,8 @@ public sealed class CorticalBorerInfestedSystem : EntitySystem
         SubscribeLocalEvent<CorticalBorerInfestedComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
         SubscribeLocalEvent<CorticalBorerInfestedComponent, MobStateChangedEvent>(OnStateChange);
         SubscribeLocalEvent<CorticalBorerInfestedComponent, MindRemovedMessage>(OnMindRemoved);
+        SubscribeLocalEvent<CorticalBorerInfestedComponent, RadioMessageHeardEvent>(BorerRadioReceive);
+        SubscribeLocalEvent<CorticalBorerInfestedComponent, PolymorphedEvent>(OnPolymorph);
     }
 
     private void OnInit(Entity<CorticalBorerInfestedComponent> infested, ref MapInitEvent args)
@@ -77,5 +85,23 @@ public sealed class CorticalBorerInfestedSystem : EntitySystem
             _borer.EndControl(infected.Comp.Borer);
             _borer.TryEjectBorer(infected.Comp.Borer);
         }
+    }
+
+    private void BorerRadioReceive(Entity<CorticalBorerInfestedComponent> infected, ref RadioMessageHeardEvent args)
+    {
+        if (TryComp(infected.Comp.Borer, out ActorComponent? borerActor))
+        {
+            _netMan.ServerSendMessage(args.Msg, borerActor.PlayerSession.Channel);
+            var radioBorerNoiseEvent = new RadioNoiseEvent(GetNetEntity(args.Headset), args.Channel.ID);
+            RaiseNetworkEvent(radioBorerNoiseEvent, borerActor.PlayerSession);
+        }
+    }
+
+    private void OnPolymorph(Entity<CorticalBorerInfestedComponent> infected, ref PolymorphedEvent args)
+    {
+        var borer = infected.Comp.Borer;
+        _borer.EndControl(borer);
+        _borer.TryEjectBorer(borer);
+        _borer.InfestTarget(borer, args.NewEntity);
     }
 }
