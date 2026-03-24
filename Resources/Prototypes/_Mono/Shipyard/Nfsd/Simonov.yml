@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - type: vessel
   id: Simonov
   parent: BaseVesselAntag
@@ -33,3 +34,40 @@
         availableJobs:
           Deputy: [ 0, 0 ]
           TsfBorg: [ 0, 0 ]
+=======
+- type: vessel
+  id: Simonov
+  parent: BaseVesselAntag
+  name: TSF-VIN Simonov
+  description: An experimental Trans solar federation cruiser designed for support operations along with hit and runs on enemy vessels. 
+  price: 127000 #130% markup, from 97000 appraisegrid
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/Simonov.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Pursuit
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Simonov
+  mapName: 'Simonov'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/Simonov.yml
+  minPlayers: 0
+  stations:
+    Simonov:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Simonov TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+>>>>>>> cff075e2b6047d3540cfafa9bbf0da59092c8b53
