@@ -6,7 +6,7 @@ namespace Content.Shared._Mono.Company;
 /// Prototype for a company that can be assigned to players.
 /// </summary>
 [Prototype("company")]
-public sealed class CompanyPrototype : IPrototype
+public sealed partial class CompanyPrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
