@@ -1,217 +1,121 @@
-using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Database;
 using Content.Shared._Mono.Company;
 using Content.Shared.Administration;
-using Robust.Server.Player;
-using Robust.Shared.Console;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Toolshed;
+using Robust.Shared.Toolshed.TypeParsers;
 
 namespace Content.Server._Mono.Company;
 
-[AdminCommand(AdminFlags.Whitelist)]
-public sealed class CompanyWhitelistAddCommand : LocalizedCommands
+[ToolshedCommand(Name = "companywhitelist"), AdminCommand(AdminFlags.Whitelist)]
+public sealed class CompanyWhitelistCommand : ToolshedCommand
 {
     [Dependency] private readonly CompanyManager _company = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly IServerDbManager _db = default!;
 
-    public override string Command => "companywhitelistadd";
-
-    public override async void Execute(IConsoleShell shell, string argStr, string[] args)
+    [CommandImplementation("add")]
+    public async void Add(
+        [CommandInvocationContext] IInvocationContext ctx,
+        [CommandArgument] ICommonSession session,
+        [CommandArgument] ProtoId<CompanyPrototype> company)
     {
-        if (args.Length != 2)
-        {
-            shell.WriteError(Loc.GetString("shell-wrong-arguments-number-need-specific",
-                ("properAmount", 2),
-                ("currentAmount", args.Length)));
-            shell.WriteLine(Help);
-            return;
-        }
-
-        var player = args[0].Trim();
-        var company = new ProtoId<CompanyPrototype>(args[1].Trim());
         if (!_prototypes.TryIndex(company, out var companyPrototype))
         {
-            shell.WriteError(Loc.GetString("cmd-companywhitelist-company-does-not-exist", ("company", company.Id)));
-            shell.WriteLine(Help);
+            ctx.ReportError(new NotAValidPrototype(company, nameof(CompanyPrototype)));
             return;
         }
 
-        var data = await _playerLocator.LookupIdByNameAsync(player);
-        if (data != null)
-        {
-            var guid = data.UserId;
-            var isWhitelisted = _company.IsWhitelisted(guid, company);
-            if (isWhitelisted)
-            {
-                shell.WriteLine(Loc.GetString("cmd-companywhitelistadd-already-whitelisted",
-                    ("player", player),
-                    ("companyId", company.Id),
-                    ("companyName", companyPrototype.Name)));
-                return;
-            }
+        var guid = session.UserId;
+        var isWhitelisted = _company.IsWhitelisted(guid, company);
 
-            _company.AddWhitelist(guid, company);
-            shell.WriteLine(Loc.GetString("cmd-companywhitelistadd-added",
-                ("player", player),
+        if (isWhitelisted)
+        {
+            ctx.WriteLine(Loc.GetString("cmd-companywhitelistadd-already-whitelisted",
+                ("player", session.Name),
                 ("companyId", company.Id),
                 ("companyName", companyPrototype.Name)));
             return;
         }
 
-        shell.WriteError(Loc.GetString("cmd-companywhitelist-player-not-found", ("player", player)));
+        _company.AddWhitelist(guid, company);
+        ctx.WriteLine(Loc.GetString("cmd-companywhitelistadd-added",
+            ("player", session.Name),
+            ("companyId", company.Id),
+            ("companyName", companyPrototype.Name)));
     }
 
-    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    [CommandImplementation("player")]
+    public async void GetPlayerWhitelist(
+        [CommandInvocationContext] IInvocationContext ctx,
+        [CommandArgument] ICommonSession session)
     {
-        if (args.Length == 1)
+        var guid = session.UserId;
+        var whitelists = await _db.GetPlayerCompanyWhitelists(guid);
+        if (whitelists.Count == 0)
         {
-            return CompletionResult.FromHintOptions(
-                _players.Sessions.Select(s => s.Name),
-                Loc.GetString("cmd-companywhitelist-hint-player"));
-        }
-
-        if (args.Length == 2)
-        {
-            return CompletionResult.FromHintOptions(
-                _prototypes.EnumeratePrototypes<CompanyPrototype>()
-                    .Where(p => p.Whitelisted)
-                    .Select(p => p.ID),
-                Loc.GetString("cmd-companywhitelist-hint-company"));
-        }
-
-        return CompletionResult.Empty;
-    }
-}
-
-[AdminCommand(AdminFlags.Whitelist)]
-public sealed class GetCompanyWhitelistCommand : LocalizedCommands
-{
-    [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
-
-    public override string Command => "companywhitelistget";
-
-    public override async void Execute(IConsoleShell shell, string argStr, string[] args)
-    {
-        if (args.Length == 0)
-        {
-            shell.WriteError("This command needs at least one argument.");
-            shell.WriteLine(Help);
+            ctx.WriteLine(Loc.GetString("cmd-companywhitelistplayer-whitelisted-none", ("player", session.Name)));
             return;
         }
 
-        var player = string.Join(' ', args).Trim();
-        var data = await _playerLocator.LookupIdByNameAsync(player);
-        if (data != null)
-        {
-            var guid = data.UserId;
-            var whitelists = await _db.GetCompanyWhitelists(guid);
-            if (whitelists.Count == 0)
-            {
-                shell.WriteLine(Loc.GetString("cmd-companywhitelistget-whitelisted-none", ("player", player)));
-                return;
-            }
-
-            shell.WriteLine(Loc.GetString("cmd-companywhitelistget-whitelisted-for",
-                ("player", player),
-                ("companies", string.Join(", ", whitelists))));
-            return;
-        }
-
-        shell.WriteError(Loc.GetString("cmd-companywhitelist-player-not-found", ("player", player)));
+        ctx.WriteLine(Loc.GetString("cmd-companywhitelistplayer-whitelisted-for",
+            ("player", session.Name),
+            ("companies", string.Join(", ", whitelists))));
     }
 
-    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    [CommandImplementation("players")]
+    public async void GetCompanyWhitelist(
+        [CommandInvocationContext] IInvocationContext ctx,
+        [CommandArgument] ProtoId<CompanyPrototype> company)
     {
-        if (args.Length == 1)
-        {
-            return CompletionResult.FromHintOptions(
-                _players.Sessions.Select(s => s.Name),
-                Loc.GetString("cmd-companywhitelist-hint-player"));
-        }
-
-        return CompletionResult.Empty;
-    }
-}
-
-[AdminCommand(AdminFlags.Whitelist)]
-public sealed class RemoveCompanyWhitelistCommand : LocalizedCommands
-{
-    [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly CompanyManager _company = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-
-    public override string Command => "companywhitelistremove";
-
-    public override async void Execute(IConsoleShell shell, string argStr, string[] args)
-    {
-        if (args.Length != 2)
-        {
-            shell.WriteError(Loc.GetString("shell-wrong-arguments-number-need-specific",
-                ("properAmount", 2),
-                ("currentAmount", args.Length)));
-            shell.WriteLine(Help);
-            return;
-        }
-
-        var player = args[0].Trim();
-        var company = new ProtoId<CompanyPrototype>(args[1].Trim());
         if (!_prototypes.TryIndex(company, out var companyPrototype))
         {
-            shell.WriteError(Loc.GetString("cmd-companywhitelist-company-does-not-exist", ("company", company)));
-            shell.WriteLine(Help);
+            ctx.ReportError(new NotAValidPrototype(company, nameof(CompanyPrototype)));
             return;
         }
 
-        var data = await _playerLocator.LookupIdByNameAsync(player);
-        if (data != null)
+        var whitelisted = await _db.GetCompanyWhitelists(company);
+        if (whitelisted.Count == 0)
         {
-            var guid = data.UserId;
-            var isWhitelisted = _company.IsWhitelisted(guid, company);
-            if (!isWhitelisted)
-            {
-                shell.WriteError(Loc.GetString("cmd-companywhitelistremove-was-not-whitelisted",
-                    ("player", player),
-                    ("companyId", company.Id),
-                    ("companyName", companyPrototype.Name)));
-                return;
-            }
+            ctx.WriteLine(Loc.GetString("cmd-companywhitelistplayers-whitelisted-none", ("company", company)));
+            return;
+        }
 
-            _company.RemoveWhitelist(guid, company);
-            shell.WriteLine(Loc.GetString("cmd-companywhitelistremove-removed",
-                ("player", player),
+        ctx.WriteLine(Loc.GetString("cmd-companywhitelistplayers-whitelisted-for",
+            ("company", company),
+            ("players", string.Join(", ", whitelisted))));
+    }
+
+    [CommandImplementation("remove")]
+    public async void Remove(
+        [CommandInvocationContext] IInvocationContext ctx,
+        [CommandArgument] ICommonSession session,
+        [CommandArgument] ProtoId<CompanyPrototype> company)
+    {
+        if (!_prototypes.TryIndex(company, out var companyPrototype))
+        {
+            ctx.ReportError(new NotAValidPrototype(company, nameof(CompanyPrototype)));
+            return;
+        }
+
+        var guid = session.UserId;
+        var isWhitelisted = _company.IsWhitelisted(guid, company);
+
+        if (!isWhitelisted)
+        {
+            ctx.WriteLine(Loc.GetString("cmd-companywhitelistremove-was-not-whitelisted",
+                ("player", session.Name),
                 ("companyId", company.Id),
                 ("companyName", companyPrototype.Name)));
             return;
         }
 
-        shell.WriteError(Loc.GetString("cmd-companywhitelist-player-not-found", ("player", player)));
-    }
-
-    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
-    {
-        if (args.Length == 1)
-        {
-            return CompletionResult.FromHintOptions(
-                _players.Sessions.Select(s => s.Name),
-                Loc.GetString("cmd-companywhitelist-hint-player"));
-        }
-
-        if (args.Length == 2)
-        {
-            return CompletionResult.FromHintOptions(
-                _prototypes.EnumeratePrototypes<CompanyPrototype>()
-                    .Where(p => p.Whitelisted)
-                    .Select(p => p.ID),
-                Loc.GetString("cmd-companywhitelist-hint-company"));
-        }
-
-        return CompletionResult.Empty;
+        _company.RemoveWhitelist(guid, company);
+        ctx.WriteLine(Loc.GetString("cmd-companywhitelistremove-removed",
+            ("player", session.Name),
+            ("companyId", company.Id),
+            ("companyName", companyPrototype.Name)));
     }
 }
