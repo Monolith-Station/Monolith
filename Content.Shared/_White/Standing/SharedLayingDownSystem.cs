@@ -43,7 +43,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
     {
         if (session?.AttachedEntity == null ||
             !HasComp<LayingDownComponent>(session.AttachedEntity) ||
-            !CanLieDown(session.AttachedEntity.Value)) // Exodus
+            !CanLieDown(session.AttachedEntity.Value)) // Mono
         {
             return;
         }
@@ -112,7 +112,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
         // If the entity is not on a grid, try to make it stand up to avoid issues
         if (!TryComp<StandingStateComponent>(uid, out var standingState)
             || standingState.CurrentState is StandingState.Standing
-            || CanLieDown(uid)) // Exodus
+            || CanLieDown(uid)) // Mono
         {
             return;
         }
@@ -151,7 +151,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
         if (!Resolve(uid, ref standingState, false) ||
             !Resolve(uid, ref layingDown, false) ||
             standingState.CurrentState is not StandingState.Standing ||
-            !CanLieDown(uid)) // Exodus
+            !CanLieDown(uid)) // Mono
         {
             if (behavior == DropHeldItemsBehavior.AlwaysDrop)
             {
@@ -165,7 +165,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
         return true;
     }
 
-    // Exodus
+    // Mono
     private bool CanLieDown(EntityUid uid)
     {
         return _gravity.EntityOnGravitySupportingGridOrMap(uid);
