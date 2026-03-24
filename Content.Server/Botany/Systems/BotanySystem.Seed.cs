@@ -28,8 +28,6 @@ public sealed partial class BotanySystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!;
-    [Dependency] private readonly ContrabandTurnInSystem _contraband = default!; // Frontier
-
     public override void Initialize()
     {
         base.Initialize();
