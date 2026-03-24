@@ -8,36 +8,36 @@
         min:  30
         max:  40
 
-- type: entity
-  id: BluespaceCargoCrate
-  parent: BaseStationEventNFModerateDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: bluespace-cargo-event-announcement
-    weight: 5
-    duration: 35
-    reoccurrenceDelay: 60 # Mono
-  - type: BluespaceCargoRule
-    spawnerPrototype: RandomCargoSpawner
-    requireSafeAtmosphere: true
-    minimumSpawns: 2
-    maximumSpawns: 5
+#- type: entity
+#  id: BluespaceCargoCrate
+#  parent: BaseStationEventNFModerateDelay
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: bluespace-cargo-event-announcement
+#    weight: 5
+#    duration: 35
+#    reoccurrenceDelay: 60 # Mono
+#  - type: BluespaceCargoRule
+#    spawnerPrototype: RandomCargoSpawner
+#    requireSafeAtmosphere: true
+#    minimumSpawns: 2
+#    maximumSpawns: 5
 
-- type: entity
-  id: BluespaceMcCargoCrate
-  parent: BaseStationEventNFModerateDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: bluespace-cargo-event-announcement
-    earliestStart: 20
-    weight: 5
-    duration: 35
-    maximumPlayers: 20
-    reoccurrenceDelay: 120 # Mono
-  - type: BluespaceCargoRule
-    spawnerPrototype: CrateFoodMcCargo
-    flashPrototype: EffectFlashMcBluespace
-    requireSafeAtmosphere: true
+#- type: entity
+#  id: BluespaceMcCargoCrate
+#  parent: BaseStationEventNFModerateDelay
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: bluespace-cargo-event-announcement
+#    earliestStart: 20
+#    weight: 5
+#    duration: 35
+#    maximumPlayers: 20
+#    reoccurrenceDelay: 120 # Mono
+#  - type: BluespaceCargoRule
+#    spawnerPrototype: CrateFoodMcCargo
+#    flashPrototype: EffectFlashMcBluespace
+#    requireSafeAtmosphere: true
 
 - type: entity
   id: BluespaceSyndicateCrate

@@ -9,7 +9,7 @@
     # - id: BureaucraticError
     # - id: ClericalError
     - id: CockroachMigration
-    - id: GasLeak
+    # - id: GasLeak
     #- id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
     # - id: KudzuGrowth
@@ -24,8 +24,8 @@
     # - id: SpiderClownSpawn
     # - id: SpiderSpawn
     - id: VentClog
-    - id: BluespaceCargoCrate # Frontier
-    - id: BluespaceMcCargoCrate # Frontier
+    # - id: BluespaceCargoCrate # Frontier
+    # - id: BluespaceMcCargoCrate # Frontier
     - id: BluespaceSyndicateCrate # Frontier
 #   - id: BluespaceBrokenMcDelivery # Frontier. Mono edit - Disabled
     - id: SmugglingFax # Frontier
@@ -312,18 +312,18 @@
     reoccurrenceDelay: 240 # Frontier: 4 hours
   - type: FalseAlarmRule
 
-- type: entity
-  id: GasLeak
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-gas-leak-nf-start-announcement # Frontier: add nf-
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    endAnnouncement: station-event-gas-leak-nf-end-announcement # Frontier: add nf-
-    weight: 8
-    earliestStart: 15 # Frontier
-  - type: GasLeakRule
+#- type: entity
+#  id: GasLeak
+#  parent: BaseStationEventShortDelay
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: station-event-gas-leak-nf-start-announcement # Frontier: add nf-
+#    startAudio:
+#      path: /Audio/Announcements/attention.ogg
+#    endAnnouncement: station-event-gas-leak-nf-end-announcement # Frontier: add nf-
+#    weight: 8
+#    earliestStart: 15 # Frontier
+#  - type: GasLeakRule
 
 # - type: entity
 #   id: KudzuGrowth
