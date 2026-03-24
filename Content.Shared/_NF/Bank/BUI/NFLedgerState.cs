@@ -39,6 +39,7 @@ public enum LedgerEntryType : byte
     BluespaceReward,
     AntiSmugglingBonus,
     MedicalBountyTax,
+    PowerTransmission,
     StationDepositFines,
     StationDepositDonation,
     StationDepositAssetsSold,

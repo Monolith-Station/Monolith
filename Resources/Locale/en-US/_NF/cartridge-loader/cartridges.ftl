@@ -37,6 +37,7 @@ ledger-entry-type-MedicalPenalties = Drug Control Fines
 ledger-entry-type-BluespaceReward = Guard Duty Rewards
 ledger-entry-type-MedicalBountyTax = Medical Bounties
 ledger-entry-type-AntiSmugglingBonus = Anti-Smuggling
+ledger-entry-type-PowerTransmission = Energy Exports
 ledger-entry-type-StationDepositFines = Fines Deposited
 ledger-entry-type-StationDepositDonation = Donations
 ledger-entry-type-StationDepositAssetsSold = Sold Assets
