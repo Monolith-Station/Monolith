@@ -18687,3 +18687,130 @@ Entries:
   id: 2061
   time: '2026-03-22T19:43:16.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3247
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Items that play non-footstep sounds on movement now make sound less
+        frequently. Jester cap now jingles on movement.
+  id: 2062
+  time: '2026-03-22T19:44:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3201
+- author: Onezero0
+  changes:
+    - type: Add
+      message: >-
+        Added data farming as a research! Remember to screwdrive the boards to
+        change type.
+    - type: Tweak
+      message: >-
+        Faction base point generators are now fancy and
+        indestructible/unanchorable.
+  id: 2063
+  time: '2026-03-22T19:46:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/2620
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Decreases faction borg health from 250 to 200.
+  id: 2064
+  time: '2026-03-22T19:49:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3499
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Cables no longer drop an item when destroyed, ever. Hopefully this will
+        reduce ram lag. Cable HP also standardized to 200 for all types.
+  id: 2065
+  time: '2026-03-22T22:41:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3520
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Hydrakin no longer heat up in criticial.
+    - type: Fix
+      message: People no longer thermal regulate while dead.
+  id: 2066
+  time: '2026-03-22T22:54:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3530
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Part damage easier to heal/injure with surgery/chems
+  id: 2067
+  time: '2026-03-22T23:22:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3533
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Built research datafarms now work
+  id: 2068
+  time: '2026-03-23T03:42:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3536
+- author: Kiithnaras
+  changes:
+    - type: Tweak
+      message: Added roofing mask and emergency lighting to CDM Comet.
+  id: 2069
+  time: '2026-03-23T04:00:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3381
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Tending surgery heals bodyparts 2.5x the amount tended, previous value
+        was 0.5x
+    - type: Tweak
+      message: >-
+        Other surgery based damage increased to 1.0x part damage instead of 0.5x
+        (i.e sepsis)
+  id: 2070
+  time: '2026-03-23T06:04:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3534
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Research datafarms now can be made with any 10000 point disk.
+  id: 2071
+  time: '2026-03-23T17:23:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3543
+- author: chuga-git
+  changes:
+    - type: Tweak
+      message: MARAUDER plasma cannon projectile speed increased by 50%. (100->150)
+  id: 2072
+  time: '2026-03-24T11:44:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3549
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Printed contraband-type items, aka enemy faction gear, can now be sold
+        for FMCs/DCs. Frontier is so frustrating man.
+  id: 2073
+  time: '2026-03-24T12:06:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3548
+- author: gelliii
+  changes:
+    - type: Add
+      message: Added the Horsefly, welded together by hopes and dreams.
+  id: 2074
+  time: '2026-03-24T15:07:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3155
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixes the server not checking some bank balance-related values.
+  id: 2075
+  time: '2026-03-24T19:00:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3550
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        AMEs no longer scale purely off core count. Injection count now matters
+        instead.
+  id: 2076
+  time: '2026-03-24T19:54:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3552
