@@ -356,7 +356,8 @@ namespace Content.Server.Database
         #region Company Whitelist
         Task AddCompanyWhitelist(Guid player, ProtoId<CompanyPrototype> company);
 
-        Task<List<string>> GetCompanyWhitelists(Guid player, CancellationToken cancel = default);
+        Task<List<string>> GetPlayerCompanyWhitelists(Guid player, CancellationToken cancel = default);
+        Task<List<string>> GetCompanyWhitelists(ProtoId<CompanyPrototype> company, CancellationToken cancel = default);
         Task<bool> IsCompanyWhitelisted(Guid player, ProtoId<CompanyPrototype> company);
 
         Task<bool> RemoveCompanyWhitelist(Guid player, ProtoId<CompanyPrototype> company);
@@ -1114,10 +1115,16 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.AddCompanyWhitelist(player, company));
         }
 
-        public Task<List<string>> GetCompanyWhitelists(Guid player, CancellationToken cancel = default)
+        public Task<List<string>> GetPlayerCompanyWhitelists(Guid player, CancellationToken cancel = default)
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetCompanyWhitelists(player, cancel));
+            return RunDbCommand(() => _db.GetPlayerCompanyWhitelists(player, cancel));
+        }
+
+        public Task<List<string>> GetCompanyWhitelists(ProtoId<CompanyPrototype> company, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetCompanyWhitelists(company, cancel));
         }
 
         public Task<bool> IsCompanyWhitelisted(Guid player, ProtoId<CompanyPrototype> company)

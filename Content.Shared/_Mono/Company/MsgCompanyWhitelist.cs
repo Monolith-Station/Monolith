@@ -1,14 +1,16 @@
 using Lidgren.Network;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Mono.Company;
 
+[Serializable, NetSerializable]
 public sealed class MsgCompanyWhitelist : NetMessage
 {
     public override MsgGroups MsgGroup => MsgGroups.EntityEvent;
 
-    public HashSet<string> Whitelist = new();
+    public HashSet<ProtoId<CompanyPrototype>> Whitelist = new();
 
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {

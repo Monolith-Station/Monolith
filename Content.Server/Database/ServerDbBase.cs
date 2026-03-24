@@ -1965,12 +1965,21 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return true;
         }
 
-        public async Task<List<string>> GetCompanyWhitelists(Guid player, CancellationToken cancel)
+        public async Task<List<string>> GetPlayerCompanyWhitelists(Guid player, CancellationToken cancel)
         {
             await using var db = await GetDb(cancel);
             return await db.DbContext.CompanyWhitelists
                 .Where(w => w.PlayerUserId == player)
                 .Select(w => w.CompanyId)
+                .ToListAsync(cancel);
+        }
+
+        public async Task<List<string>> GetCompanyWhitelists(ProtoId<CompanyPrototype> company, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+            return await db.DbContext.CompanyWhitelists
+                .Where(w => w.CompanyId == company.Id)
+                .Select(w => w.Player.LastSeenUserName)
                 .ToListAsync(cancel);
         }
 

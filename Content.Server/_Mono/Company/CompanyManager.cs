@@ -24,7 +24,7 @@ public sealed class CompanyManager : IPostInjectInit
 
     private readonly ISawmill _sawmill = default!;
 
-    private readonly Dictionary<NetUserId, HashSet<string>> _whitelists = new();
+    private readonly Dictionary<NetUserId, HashSet<ProtoId<CompanyPrototype>>> _whitelists = new();
 
     public void Initialize()
     {
@@ -35,9 +35,9 @@ public sealed class CompanyManager : IPostInjectInit
 
     private async Task LoadData(ICommonSession session, CancellationToken cancel)
     {
-        var whitelists = await _db.GetCompanyWhitelists(session.UserId, cancel);
+        var whitelists = await _db.GetPlayerCompanyWhitelists(session.UserId, cancel);
         cancel.ThrowIfCancellationRequested();
-        _whitelists[session.UserId] = whitelists.ToHashSet();
+        _whitelists[session.UserId] = whitelists.Select<string, ProtoId<CompanyPrototype>>(w => w).ToHashSet();
     }
 
     private void FinishLoad(ICommonSession session)
@@ -99,7 +99,7 @@ public sealed class CompanyManager : IPostInjectInit
     {
         var msg = new MsgCompanyWhitelist
         {
-            Whitelist = _whitelists.GetValueOrDefault(player.UserId) ?? new HashSet<string>()
+            Whitelist = _whitelists.GetValueOrDefault(player.UserId) ?? new HashSet<ProtoId<CompanyPrototype>>()
         };
 
         _net.ServerSendMessage(msg, player.Channel);

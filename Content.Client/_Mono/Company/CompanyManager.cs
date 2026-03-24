@@ -12,7 +12,7 @@ public sealed partial class CompanyManager
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    private HashSet<string> _whitelist = new();
+    private HashSet<ProtoId<CompanyPrototype>> _whitelist = new();
 
     public void Initialize()
     {

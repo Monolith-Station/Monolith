@@ -5,7 +5,7 @@ namespace Content.Shared._Mono.Company;
 /// <summary>
 /// Prototype for a company that can be assigned to players.
 /// </summary>
-[Prototype("company")]
+[Prototype]
 public sealed partial class CompanyPrototype : IPrototype
 {
     /// <inheritdoc/>
@@ -18,26 +18,25 @@ public sealed partial class CompanyPrototype : IPrototype
     /// Assign "Protagonist"
     /// Assign "Antagonist"
     /// </summary>
-    [DataField("form", required: true)]
-    public string Form { get; private set; } = default!;
-
+    [DataField(required: true)]
+    public CompanyForm Form { get; private set; } = default!;
 
     /// <summary>
     /// The name of the company.
     /// </summary>
-    [DataField("name", required: true)]
+    [DataField(required: true)]
     public string Name { get; private set; } = default!;
 
     /// <summary>
     /// The description of the company.
     /// </summary>
-    [DataField("description", required: false)]
+    [DataField(required: false)]
     public string Description { get; private set; } = string.Empty;
 
     /// <summary>
     /// The color used to display the company name in examine text.
     /// </summary>
-    [DataField("color")]
+    [DataField]
     public Color Color { get; private set; } = Color.Yellow;
 
     /// <summary>
@@ -45,15 +44,22 @@ public sealed partial class CompanyPrototype : IPrototype
     /// Companies with this set to true will still be assigned automatically through the job system,
     /// but players won't be able to select them manually.
     /// </summary>
-    [DataField("disabled")]
+    [DataField]
     public bool Disabled { get; private set; } = false;
 
-    [DataField("whitelisted")]
+    [DataField]
     public bool Whitelisted { get; private set; } = false;
 
     /// <summary>
     /// The image to display for this company in the UI.
     /// </summary>
-    [DataField("image")]
+    [DataField]
     public string? Image { get; private set; }
+}
+
+public enum CompanyForm
+{
+    Neutral,
+    Protagonist,
+    Antagonist
 }
