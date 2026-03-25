@@ -23,7 +23,13 @@ public sealed class DeviceLinkSystem : SharedDeviceLinkSystem
     #region Sending & Receiving
     public override void InvokePort(EntityUid uid, string port, NetworkPayload? data = null, DeviceLinkSourceComponent? sourceComponent = null)
     {
-        if (!Resolve(uid, ref sourceComponent) || !sourceComponent.Outputs.TryGetValue(port, out var sinks))
+        if (sourceComponent == null || sourceComponent.Owner != uid)
+        {
+            if (!TryComp<DeviceLinkSourceComponent>(uid, out sourceComponent))
+                return;
+        }
+
+        if (!sourceComponent.Outputs.TryGetValue(port, out var sinks))
             return;
 
         foreach (var sinkUid in sinks)

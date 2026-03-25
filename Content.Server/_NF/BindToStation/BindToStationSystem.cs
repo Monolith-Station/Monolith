@@ -1,0 +1,120 @@
+using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
+using Content.Server.Station.Systems;
+using Content.Server.Construction.Components;
+using Content.Shared._NF.BindToStation;
+using Content.Shared.Emag.Components;
+using Content.Shared.Emag.Systems;
+using Content.Shared.Examine;
+using Robust.Server.Containers;
+
+namespace Content.Server._NF.BindToStation;
+
+public sealed class BindToStationSystem : EntitySystem
+{
+    [Dependency] private readonly ExtensionCableSystem _extensionCable = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<StationBoundObjectComponent, ExaminedEvent>(OnBoundItemExamined);
+        SubscribeLocalEvent<StationBoundObjectComponent, MapInitEvent>(OnBoundMapInit);
+        SubscribeLocalEvent<StationBoundObjectComponent, GotEmaggedEvent>(OnBoundEmagged);
+        SubscribeLocalEvent<StationBoundObjectComponent, GotUnEmaggedEvent>(OnBoundUnemagged);
+    }
+
+    private void OnBoundItemExamined(EntityUid uid, StationBoundObjectComponent component, ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange || component.BoundStation == null || !component.Enabled)
+            return;
+
+        var stationName = TryComp(component.BoundStation, out MetaDataComponent? meta) ? meta.EntityName : Loc.GetString("bound-to-grid-unknown-station");
+        args.PushMarkup(Loc.GetString("bound-to-grid-examine-text", ("shipname", stationName)));
+    }
+
+    // Ensure consistency for station-bound machines
+    public void OnBoundMapInit(Entity<StationBoundObjectComponent> ent, ref MapInitEvent args)
+    {
+        if (ent.Comp.Enabled
+            && TryComp<ExtensionCableReceiverComponent>(ent.Owner, out var receiver)
+            && _station.GetOwningStation(ent.Owner) != ent.Comp.BoundStation)
+        {
+            _extensionCable.Disconnect((ent.Owner, receiver));
+        }
+    }
+
+    public void OnBoundEmagged(Entity<StationBoundObjectComponent> ent, ref GotEmaggedEvent args)
+    {
+        if (!args.Type.HasFlag(EmagType.StationBound))
+            return;
+
+        if (TryComp<EmaggedComponent>(ent, out var emagged) && emagged.EmagType.HasFlag(EmagType.StationBound))
+            return;
+
+        if (!ent.Comp.Enabled || ent.Comp.BoundStation == null)
+            return;
+
+        BindToStation(ent, ent.Comp.BoundStation, false);
+        args.Handled = true;
+    }
+
+    public void OnBoundUnemagged(Entity<StationBoundObjectComponent> ent, ref GotUnEmaggedEvent args)
+    {
+        if (!args.Type.HasFlag(EmagType.StationBound))
+            return;
+
+        if (!TryComp<EmaggedComponent>(ent, out var emagged) || !emagged.EmagType.HasFlag(EmagType.StationBound))
+            return;
+
+        if (ent.Comp.Enabled || ent.Comp.BoundStation == null)
+            return;
+
+        BindToStation(ent, ent.Comp.BoundStation, true);
+        args.Handled = true;
+    }
+
+    /// <summary>
+    /// Binds a given machine to a particular station.
+    /// </summary>
+    public void BindToStation(EntityUid target, EntityUid? station, bool enabled = true)
+    {
+        var binding = EnsureComp<StationBoundObjectComponent>(target);
+        binding.BoundStation = station;
+        binding.Enabled = enabled;
+
+        if (TryComp<ExtensionCableReceiverComponent>(target, out var receiver))
+        {
+            if ((!enabled
+                || _station.GetOwningStation(target) == station
+                || station == null)
+                && TryComp(target, out TransformComponent? xform)
+                && xform.Anchored)
+            {
+                _extensionCable.Connect((target, receiver));
+            }
+            else
+            {
+                _extensionCable.Disconnect((target, receiver));
+            }
+        }
+
+        if (HasComp<MachineComponent>(target) && _container.TryGetContainer(target, MachineFrameComponent.BoardContainerName, out var mboardContainer))
+        {
+            foreach (var board in mboardContainer.ContainedEntities)
+            {
+                BindToStation(board, binding.BoundStation, binding.Enabled);
+            }
+        }
+
+        if (HasComp<ComputerComponent>(target) && _container.TryGetContainer(target, "board", out var cboardContainer))
+        {
+            foreach (var board in cboardContainer.ContainedEntities)
+            {
+                BindToStation(board, binding.BoundStation, binding.Enabled);
+            }
+        }
+    }
+}

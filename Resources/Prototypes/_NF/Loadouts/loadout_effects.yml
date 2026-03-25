@@ -58,6 +58,30 @@
     - Diona # Mono
     - Hydrakin # Mono
 
+# Frontier compatibility aliases for effect groups used by imported loadouts.
+# Monolith currently has no Sheleg species, so these are modeled safely:
+# - capable groups: always true
+# - outer suit required: always false
+- type: loadoutEffectGroup
+  id: NFHeadwearCapable
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species: []
+    inverted: true
+
+- type: loadoutEffectGroup
+  id: NFCoatCapable
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species: []
+    inverted: true
+
+- type: loadoutEffectGroup
+  id: NFOuterSuitRequired
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species: []
+
 - type: loadoutEffectGroup
   id: NFNotDocOrStc
   effects:

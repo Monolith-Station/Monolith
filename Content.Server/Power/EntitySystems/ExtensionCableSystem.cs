@@ -80,7 +80,6 @@ namespace Content.Server.Power.EntitySystems
 
         private void Disconnect(EntityUid uid, ExtensionCableProviderComponent provider)
         {
-            // same as OnProviderShutdown
             provider.Connectable = false;
             ResetReceivers(provider);
         }
@@ -107,8 +106,6 @@ namespace Content.Server.Power.EntitySystems
 
             foreach (var receiver in receivers)
             {
-                // No point resetting what the receiver is doing if it's deleting, plus significant perf savings
-                // in not doing needless lookups
                 var receiverId = receiver.Owner;
                 if (!EntityManager.IsQueuedForDeletion(receiverId)
                     && MetaData(receiverId).EntityLifeStage <= EntityLifeStage.MapInitialized)
@@ -168,6 +165,22 @@ namespace Content.Server.Power.EntitySystems
 
             receiver.ReceptionRange = range;
             TryFindAndSetProvider(receiver);
+        }
+
+        /// <summary>
+        /// Makes the receiver connectable and tries to find a provider.
+        /// </summary>
+        public void Connect(Entity<ExtensionCableReceiverComponent> receiver)
+        {
+            Connect(receiver.Owner, receiver.Comp);
+        }
+
+        /// <summary>
+        /// Disconnects the receiver from its provider and marks it as not connectable.
+        /// </summary>
+        public void Disconnect(Entity<ExtensionCableReceiverComponent> receiver)
+        {
+            Disconnect(receiver.Owner, receiver.Comp);
         }
 
         private void OnReceiverStarted(EntityUid uid, ExtensionCableReceiverComponent receiver, ComponentStartup args)
@@ -270,7 +283,6 @@ namespace Content.Server.Power.EntitySystems
                 if (!metaQuery.TryGetComponent(entity, out var meta) || meta.EntityLifeStage > EntityLifeStage.MapInitialized)
                     continue;
 
-                // Find the closest provider
                 if (!xformQuery.TryGetComponent(entity, out var entityXform))
                     continue;
                 var distance = (entityXform.LocalPosition - xform.LocalPosition).Length();
@@ -281,7 +293,6 @@ namespace Content.Server.Power.EntitySystems
                 closestDistanceFound = distance;
             }
 
-            // Make sure the provider is in range before claiming success
             if (closestCandidate != null && closestDistanceFound <= Math.Min(range, closestCandidate.TransferRange))
             {
                 foundProvider = closestCandidate;
@@ -296,14 +307,8 @@ namespace Content.Server.Power.EntitySystems
 
         #region Events
 
-        /// <summary>
-        /// Sent when a <see cref="ExtensionCableProviderComponent"/> connects to a <see cref="ExtensionCableReceiverComponent"/>
-        /// </summary>
         public sealed class ProviderConnectedEvent : EntityEventArgs
         {
-            /// <summary>
-            /// The <see cref="ExtensionCableProviderComponent"/> that connected.
-            /// </summary>
             public ExtensionCableProviderComponent Provider;
 
             public ProviderConnectedEvent(ExtensionCableProviderComponent provider)
@@ -311,14 +316,9 @@ namespace Content.Server.Power.EntitySystems
                 Provider = provider;
             }
         }
-        /// <summary>
-        /// Sent when a <see cref="ExtensionCableProviderComponent"/> disconnects from a <see cref="ExtensionCableReceiverComponent"/>
-        /// </summary>
+
         public sealed class ProviderDisconnectedEvent : EntityEventArgs
         {
-            /// <summary>
-            /// The <see cref="ExtensionCableProviderComponent"/> that disconnected.
-            /// </summary>
             public ExtensionCableProviderComponent? Provider;
 
             public ProviderDisconnectedEvent(ExtensionCableProviderComponent? provider)
@@ -326,14 +326,9 @@ namespace Content.Server.Power.EntitySystems
                 Provider = provider;
             }
         }
-        /// <summary>
-        /// Sent when a <see cref="ExtensionCableReceiverComponent"/> connects to a <see cref="ExtensionCableProviderComponent"/>
-        /// </summary>
+
         public sealed class ReceiverConnectedEvent : EntityEventArgs
         {
-            /// <summary>
-            /// The <see cref="ExtensionCableReceiverComponent"/> that connected.
-            /// </summary>
             public Entity<ExtensionCableReceiverComponent> Receiver;
 
             public ReceiverConnectedEvent(Entity<ExtensionCableReceiverComponent> receiver)
@@ -341,14 +336,9 @@ namespace Content.Server.Power.EntitySystems
                 Receiver = receiver;
             }
         }
-        /// <summary>
-        /// Sent when a <see cref="ExtensionCableReceiverComponent"/> disconnects from a <see cref="ExtensionCableProviderComponent"/>
-        /// </summary>
+
         public sealed class ReceiverDisconnectedEvent : EntityEventArgs
         {
-            /// <summary>
-            /// The <see cref="ExtensionCableReceiverComponent"/> that disconnected.
-            /// </summary>
             public Entity<ExtensionCableReceiverComponent> Receiver;
 
             public ReceiverDisconnectedEvent(Entity<ExtensionCableReceiverComponent> receiver)

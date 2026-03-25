@@ -89,3 +89,17 @@
       amount: 1
     # - id: Magazine45_ACPPistolFMJ
     #   amount: 2
+
+# region Edison (ported from Frontier)
+- type: entity
+  parent: GunSafe
+  id: GunSafePlantManager
+  name: plant manager's gun safe
+  suffix: Filled
+  components:
+  - type: AccessReader
+    access: [["ChiefEngineer"]]
+  - type: StorageFill
+    contents:
+    - id: WeaponDisabler
+      amount: 2

@@ -3,6 +3,9 @@
   name: job-name-plant-technician
   description: job-description-plant-technician
   playTimeTracker: JobPlantTechnician
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 43200 # Frontier - 12 hrs
   startingGear: PlantTechnicianGear
   alwaysUseSpawner: true
   icon: "JobIconPlantTechnician"
@@ -25,3 +28,4 @@
   id: PlantTechnicianGear
   equipment:
     pocket2: HolofanProjector
+

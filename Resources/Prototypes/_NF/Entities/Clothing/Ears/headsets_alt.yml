@@ -138,3 +138,19 @@
   parent: [ClothingHeadsetCommon, ClothingHeadsetAltCentComSR]
   id: ClothingHeadsetAltCentComCommonSR
   categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseCommandContraband]
+  id: ClothingHeadsetAltEngineeringPlantManager
+  name: plant manager's over-ear headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyEngineering
+      - EncryptionKeyCommand
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/engineering.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/engineering.rsi

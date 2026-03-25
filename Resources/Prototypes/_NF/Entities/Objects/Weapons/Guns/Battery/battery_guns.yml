@@ -212,3 +212,17 @@
           Yellow: { state: mode-yellow }
   - type: StaticPrice
     price: 250
+
+- type: entity
+  id: NFWeaponEnergyPistolDisabler
+  parent: WeaponDisabler
+  name: disabler pistol
+  description: |-
+    A civilian grade self-defense weapon that exhausts organic targets, weakening them until they collapse.
+
+- type: entity
+  id: NFWeaponEnergyPistolDisablerPractice
+  parent: WeaponDisablerPractice
+  name: practice disabler pistol
+  description: |-
+    A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for cadets making it mostly harmless.

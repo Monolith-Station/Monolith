@@ -296,3 +296,110 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-dock-six-c
+
+# region Edison beacons (ported from Frontier)
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconFrontierGasSale
+  suffix: Gas Sale
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-gas-sale
+    color: "#0077C1"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconFrontierCryosleep
+  suffix: Frontier, Cryosleep
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-cryosleep
+    color: "#0077C1"
+
+- type: entity
+  parent: DefaultStationBeaconCommand
+  id: DefaultStationBeaconFrontierManagersOffice
+  suffix: PM's Office
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-managers-office
+
+- type: entity
+  parent: DefaultStationBeaconCommand
+  id: DefaultStationBeaconFrontierManagersQuarters
+  suffix: PM's Quarters
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-managers-quarters
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconFrontierServiceLobby
+  suffix: Service, Lobby
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-lobby
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconFrontierBreakRoom
+  suffix: Break Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-break-room
+
+- type: entity
+  parent: DefaultStationBeaconFrontierAtmos
+  id: DefaultStationBeaconFrontierAtmosAux
+  suffix: Atmos, Aux. Chamber
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-aux-chamber
+
+- type: entity
+  parent: DefaultStationBeaconFrontierAtmos
+  id: DefaultStationBeaconFrontierAtmosSupplies
+  suffix: Atmos, Supplies
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-supplies
+
+- type: entity
+  parent: DefaultStationBeaconFrontierAtmos
+  id: DefaultStationBeaconFrontierAtmosTeg
+  suffix: Atmos, TEG
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-teg
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconFrontierEngiSupplies
+  suffix: Eng, Supplies
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-supplies
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconFrontierEngiPowerNexus
+  suffix: Eng, Power Nexus
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-power-nexus
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconFrontierDecommissionedSpace
+  suffix: Eng, Decomm. React.
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-decommissioned-reactor
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconFrontierEngiVend
+  suffix: Eng, Vending Machines
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-vending-machines

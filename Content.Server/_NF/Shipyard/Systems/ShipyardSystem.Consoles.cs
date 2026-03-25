@@ -310,7 +310,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             _shipOwnership.RegisterShipOwnership(shuttleUid, actorComp.PlayerSession);
         }
 
-        if (!voucherUsed)
+        if (!voucherUsed && !HasComp<PreventShipyardTitleOverwriteComponent>(player))
         {
             if (!string.IsNullOrEmpty(component.NewJobTitle))
                 _idSystem.TryChangeJobTitle(targetId, component.NewJobTitle, idCard, player);

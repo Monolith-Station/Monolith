@@ -78,6 +78,7 @@
   # - DeathSquad # Frontier
   - StationRepresentative # Frontier
   - Sheriff  # Frontier
+  - PlantManager # Frontier
   - StationTrafficController # Frontier
   - DirectorOfCare # Mono
   primary: false
@@ -90,7 +91,9 @@
   color: "#EFB341"
   weight: -94
   primary: false
-  editorHidden: true # Frontier
+  roles:
+  - PlantManager # Frontier
+  - PlantTechnician # Frontier
 
 - type: department
   id: Medical

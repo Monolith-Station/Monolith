@@ -4,3 +4,9 @@
   components:
   - type: DeadDropHintVariationPass
     hintSpawnChance: 0.03
+
+- type: entity
+  id: NFBasicBindToStationVariationPass
+  parent: BaseVariationPass
+  components:
+  - type: BindToStationVariationPass

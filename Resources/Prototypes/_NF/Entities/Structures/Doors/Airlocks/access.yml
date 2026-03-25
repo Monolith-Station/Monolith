@@ -333,3 +333,22 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsPirate ]
+
+# region Edison (ported from Frontier)
+- type: entity
+  parent: AirlockAtmospherics
+  id: AirlockAtmosphericsEngineeringLocked
+  suffix: Engineering, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEngineering ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecEngineeringLocked
+  suffix: Engineering, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEngineering ]

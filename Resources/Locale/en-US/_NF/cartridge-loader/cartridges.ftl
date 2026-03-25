@@ -16,6 +16,7 @@ ledger-no-balance = N/A
 ledger-tab-Frontier = Colonial Outpost
 ledger-tab-Nfsd = TSFMC
 ledger-tab-Medical = Medical Dispatch
+ledger-tab-Edison = Edison
 ledger-tab-BlackMarket = Black Market
 # Fallback, if this displays, something's wrong.
 ledger-tab-Unknown = Unknown

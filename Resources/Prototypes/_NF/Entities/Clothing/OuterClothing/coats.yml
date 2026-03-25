@@ -175,3 +175,9 @@
         Caustic: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.60
+
+- type: entity
+  parent: [ClothingOuterWinterCE, BaseCommandContraband]
+  id: ClothingLongcoatCE
+  name: chief engineer's longcoat
+  description: A dark green longcoat designed for the chief engineer.
