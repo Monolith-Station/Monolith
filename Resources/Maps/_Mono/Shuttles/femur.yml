@@ -2517,6 +2517,8 @@ entities:
     - type: Transform
       pos: -2.5,1.5
       parent: 1
+    - type: FuelGenerator 
+      targetPower: 49000
 - proto: PowerCellRecharger
   entities:
   - uid: 335
