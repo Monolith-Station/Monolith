@@ -193,3 +193,38 @@
           type: Hydrakin
           shouldHave: true
         amount: -7500
+
+# Claw growth medicine
+
+- type: reagent
+  id: Phenoxzine
+  name: reagent-name-phenoxzine
+  group: Medicine
+  desc: reagent-desc-phenoxzine
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#5571d6"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:ClawsGrowth
+        growth: 20
+
+- type: reagent
+  id: Meroxzine
+  name: reagent-name-meroxzine
+  group: Medicine
+  desc: reagent-desc-meroxzine
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: medicine
+  color: "#7a55d6"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.02
+      effects:
+      - !type:GenericStatusEffect
+        key: ClawsGrowthSuppression
+        component: ClawsGrowthSuppression
+        time: 10
+        type: Add
