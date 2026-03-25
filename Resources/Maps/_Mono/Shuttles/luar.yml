@@ -4,7 +4,7 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/25/2026 18:36:41
+  time: 03/25/2026 18:46:45
   entityCount: 594
 maps: []
 grids:
@@ -74,9 +74,9 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
         Puddle: []
         Kudzu: []
+        MetalFoam: []
         Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -433,6 +433,11 @@ entities:
     - type: Transform
       pos: 0.5,-10.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        47:
+        - - DoorStatus
+          - DoorBolt
 - proto: AirlockHatch
   entities:
   - uid: 106
@@ -462,6 +467,11 @@ entities:
     - type: Transform
       pos: 0.5,-12.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        8:
+        - - DoorStatus
+          - DoorBolt
 - proto: AirSensor
   entities:
   - uid: 61
