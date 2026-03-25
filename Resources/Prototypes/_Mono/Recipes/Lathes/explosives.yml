@@ -34,3 +34,27 @@
     Plastic: 500
     Plasma: 1000
     Silver: 300
+
+- type: latheRecipe
+  id: PrintableBombCollar
+  categories:
+  - Explosive
+  result: ClothingNeckBombCollar
+  completetime: 10
+  materials:
+    Steel: 500
+    Plastic: 500
+    Plasma: 400
+    Silver: 100
+
+- type: latheRecipe
+  id: PrintableBombCollarSealer
+  categories:
+  - Explosive
+  result: BombCollarSealer
+  completetime: 10
+  materials:
+    Steel: 500
+    Plastic: 500
+    Silver: 200
+    Gold: 100
