@@ -26,7 +26,7 @@ public sealed partial class MonoCVars
     ///     Don't delete non-grids at most this close to a grid.
     /// </summary>
     public static readonly CVarDef<float> CleanupMaxGridDistance =
-        CVarDef.Create("mono.cleanup.max_grid_distance", 20.0f, CVar.SERVERONLY);
+        CVarDef.Create("mono.cleanup.max_grid_distance", 30.0f, CVar.SERVERONLY);
 
     /// <summary>
     ///     How far away from any players can a mob be until it gets cleaned up.
@@ -68,7 +68,25 @@ public sealed partial class MonoCVars
     ///     How much can a spaced entity at most be worth for it to be cleaned up.
     /// </summary>
     public static readonly CVarDef<float> SpaceCleanupMaxValue =
-        CVarDef.Create("mono.cleanup.space.max_value", 10000.0f, CVar.SERVERONLY);
+        CVarDef.Create("mono.cleanup.space.max_value", 3000.0f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     After a shuttle impact, how aggressively to sweep. Makes sweep more willing to delete items close to grids or players.
+    /// </summary>
+    public static readonly CVarDef<float> ImpactSweepAggression =
+        CVarDef.Create("mono.cleanup.impact.aggression", 0.1f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     After a shuttle impact, in how much after the impact to perform the sweep.
+    /// </summary>
+    public static readonly CVarDef<float> ImpactSweepDelay =
+        CVarDef.Create("mono.cleanup.impact.delay", 5.0f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     After a shuttle impact, in how much of a radius to immediately sweep for loose items.
+    /// </summary>
+    public static readonly CVarDef<float> ImpactSweepRadius =
+        CVarDef.Create("mono.cleanup.impact.radius", 60.0f, CVar.SERVERONLY);
 
     #endregion
 

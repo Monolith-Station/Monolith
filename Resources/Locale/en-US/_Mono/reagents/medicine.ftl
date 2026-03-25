@@ -14,7 +14,7 @@ reagent-name-letoferol = letoferol
 reagent-desc-letoferol = A highly illegal bioweapon developed as a refined form of Romerol. Turns the user into more than just a mindless zombie. The usage of this is considered a violation of humanoid rights everywhere.
 
 reagent-name-nat-letoferol = natural Letoferol
-reagent-desc-nat-letoferol = A version of letoferol produced by organic means. Its much more refined, and its effects are permanent, however it takes more to convert someone.
+reagent-desc-nat-letoferol = A version of letoferol produced by organic means. Its much more refined, and its effects require Mesotaxinide or Mesophenerol to revert. It takes more to convert someone than regular Letoferol.
 
 reagent-name-protoletoferol = protoletoferol
 reagent-desc-protoletoferol = Letoferol neutralized via electrolysis. Used as a precursor for the chemicals to cure it. Its too dead to do anything to you now.
