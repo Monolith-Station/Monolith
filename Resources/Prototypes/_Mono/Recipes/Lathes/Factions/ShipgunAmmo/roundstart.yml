@@ -36,15 +36,10 @@
 
 - type: latheRecipe
   parent: BaseMissileShipgunAmmoRecipe
-  id: VanykCartridgeAmmoRecipe
-  result: VanykCartridge
+  id: VesperaMagazineAmmoRecipe
+  result: VesperaMagazine
 
 - type: latheRecipe
   parent: BaseMissileShipgunAmmoRecipe
-  id: TovekCartridgeAmmoRecipe
-  result: TovekCartridge
-
-- type: latheRecipe
-  parent: BaseLightMissileShipgunAmmoRecipe
-  id: VesperaMagazineAmmoRecipe
-  result: VesperaMagazine
+  id: VanykMagazineAmmoRecipe
+  result: VanykMagazine

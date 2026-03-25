@@ -13,7 +13,7 @@
   parent: [BasePOI, BaseRepairablePOI]
   name: 'Medical Dispatch'
   minimumDistance: 1650
-  maximumDistance: 5400
+  maximumDistance: 2700
   spawnGroup: Required
   gridPath: /Maps/_NF/POI/medical.yml
   addComponents:
@@ -33,7 +33,9 @@
         - type: StationNameSetup
           mapNameTemplate: 'Medical Dispatch'
         - type: ExtraStationInformation
-          iconPath: /Textures/_NF/Markers/jobs.rsi/medic.png
+          icon:
+            sprite: _NF/Markers/jobs.rsi
+            state: medic
           stationSubtext: 'frontier-lobby-medical-subtext'
           stationDescription: 'frontier-lobby-medical-description'
           lobbySortOrder: 4

@@ -24,7 +24,7 @@
 - type: entity
   id: WeaponMechCombatImmolationGun
   name: ZFI Immolation Beam Gun
-  description: A gun for battlemechs, firing high-temperature beams.
+  description: A mech-mounted Xray cannon. # Mono
   suffix: Mech Weapon, Gun, Combat, Laser
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:
@@ -32,22 +32,22 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_laser
   - type: Gun
-    fireRate: 0.6
+    fireRate: 2 # Mono
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: RedHeavyLaser
-    fireCost: 99
+    proto: XrayLaser # Mono
+    fireCost: 30 # Mono
   - type: Appearance
   - type: AmmoCounter
 
 - type: entity
   id: WeaponMechCombatSolarisLaser
   name: CH-LC "Solaris" laser cannon
-  description: An experimental combat mounted laser cannon that causes more damage, but also has a greater cooldown than a "Firedart".
+  description: A mech-mounted Laser Cannon. # Mono
   suffix: Mech Weapon, Gun, Combat, Laser
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:
@@ -55,22 +55,22 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_laser
   - type: Gun
-    fireRate: 1
+    fireRate: 1.5 # Mono
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
-    fireCost: 59
+    proto: RedHeavyLaser # Mono
+    fireCost: 25 # Mono
   - type: Appearance
   - type: AmmoCounter
 
 - type: entity
   id: WeaponMechCombatFiredartLaser
   name: CH-PS "Firedart" Laser
-  description: The standard combat armament of the mechs is a combat mounted laser.
+  description: A fast-firing mech-mounted laser rifle. # Mono
   suffix: Mech Weapon, Gun, Combat, Laser
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:
@@ -78,15 +78,15 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_laser
   - type: Gun
-    fireRate: 0.8
+    fireRate: 2 # Mono
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 39
+    proto: RedMediumLaser # Mono
+    fireCost: 15 # Mono
   - type: Appearance
   - type: AmmoCounter
 
