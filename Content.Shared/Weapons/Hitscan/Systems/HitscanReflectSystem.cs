@@ -9,7 +9,7 @@ namespace Content.Shared.Weapons.Hitscan.Systems;
 
 public sealed class HitscanReflectSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!; // Mono
     public override void Initialize()
     {
         base.Initialize();
@@ -25,12 +25,14 @@ public sealed class HitscanReflectSystem : EntitySystem
         if (hitscan.Comp.CurrentReflections >= hitscan.Comp.MaxReflections)
             return;
 
+        // Mono begin
         DamageSpecifier damage = new();
         if (EntityManager.TryGetComponent<HitscanBasicDamageComponent>(hitscan, out var hitscanDamage))
             damage = hitscanDamage.Damage * _damage.UniversalHitscanDamageModifier;
 
         // Mono - Use hitscan damage component if available
         var ev = new HitScanReflectAttemptEvent(args.Shooter ?? args.Gun, args.Gun, hitscan.Comp.ReflectiveType, args.ShotDirection, false, damage);
+        // Mono End
         RaiseLocalEvent(args.HitEntity.Value, ref ev);
 
         if (!ev.Reflected)
