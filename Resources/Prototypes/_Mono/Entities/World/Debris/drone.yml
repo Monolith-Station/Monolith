@@ -32,22 +32,40 @@
       tableId: DroneSpawnTableT2Middle
 
 - type: entityTable
+  id: DroneTableT21
+  table: !type:GroupSelector
+    children:
+    - id: SpawnDroneWasp
+      weight: 10
+    - id: SpawnDroneCrown
+      weight: 10
+    - id: SpawnDroneGust
+      weight: 10
+    - id: SpawnDronePiercer
+      weight: 10
+
+- type: entityTable
+  id: DroneTableT22
+  table: !type:GroupSelector
+    children:
+    - id: SpawnDroneMedusa
+      weight: 10
+    - id: SpawnDroneAssembly
+      weight: 10
+    - id: SpawnDroneBracket
+      weight: 5 # too evil
+
+- type: entityTable
   id: DroneSpawnTableT2Middle
   table: !type:GroupSelector
     children:
     # T2 small
-    - id: SpawnDroneWasp
-      weight: 20
-    - id: SpawnDroneCrown
-      weight: 20
-    - id: SpawnDroneGust
-      weight: 20
-    - id: SpawnDronePiercer
-      weight: 20
+    - !type:NestedSelector
+      tableId: DroneTableT21
+      weight: 30
     # T2 medium
-    - id: SpawnDroneMedusa
-      weight: 10
-    - id: SpawnDroneAssembly
+    - !type:NestedSelector
+      tableId: DroneTableT22
       weight: 10
 
 - type: entity
@@ -170,3 +188,10 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/assembly.yml
+
+- type: entity
+  id: SpawnDroneBracket
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/bracket.yml
