@@ -658,6 +658,15 @@
     account: Medical
 
 - type: entity
+  parent: BaseComputerTabletopStationAdminBankATM
+  id: ComputerTabletopStationAdminBankATMEdison
+  description: Used to transfer funds from Edison Power Plant's bank account.
+  suffix: Edison, Tabletop
+  components:
+  - type: StationBankATM
+    account: Edison
+
+- type: entity
   parent: [BaseStructureIndestructible, BaseStructureComputerTabletop, ComputerContrabandPalletConsole]
   id: ComputerTabletopContrabandPalletConsole
   components:

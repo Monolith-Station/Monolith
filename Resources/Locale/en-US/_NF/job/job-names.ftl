@@ -45,3 +45,8 @@ JobSeniorEngineer = Senior Engineer
 JobSeniorOfficer = TSFMC Fireteam Leader
 JobSeniorPhysician = Senior Physician
 JobSeniorResearcher = Senior Researcher
+
+job-name-plant-manager = Plant Manager
+job-name-plant-technician = Plant Technician
+JobPlantManager = Plant Manager
+JobPlantTechnician = Plant Technician

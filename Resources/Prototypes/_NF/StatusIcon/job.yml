@@ -181,3 +181,22 @@
     state: nfmsdoc
   jobName: job-name-doc
 #  allowSelection: false # Frontier: no impersonating command staff, literally 1984 - Mono Revert
+
+  # Edison Power Plant positions
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPlantManager
+  icon:
+    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
+    state: plantmanager
+  jobName: job-name-plant-manager
+  allowSelection: false # no impersonating command staff
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPlantTechnician
+  icon:
+    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
+    state: planttechnician
+  jobName: job-name-plant-technician

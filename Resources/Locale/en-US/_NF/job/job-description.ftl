@@ -19,3 +19,6 @@ job-description-senior-officer = Teach new privates the basics of combat, and le
 job-description-sheriff = Manage your TSFMC detachment and keep them efficient, quell dissent, and keep the sector safe.
 job-description-stc = Expertly de-conflict the space around the station and help the Colonial Outpost issue fines for overdocked ships.
 job-description-sr = Spend all your station funds on military vessels. Control your security guards and attempt to serve justice in this sector.
+
+job-description-plant-manager = Generate ludicrous amounts of power to use or sell, keep the sector's stations in functional order.
+job-description-plant-technician = Assist the plant manager in operating power plant machinery, perform crucial off-site repairs.

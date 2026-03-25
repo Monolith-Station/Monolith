@@ -10,3 +10,5 @@ job-supervisors-pdv-denasvar = the PDV Asvaran and Grand Vizier
 job-supervisors-pirate-first-mate = the PDV Grand Vizier
 job-supervisors-nobody = nobody
 job-supervisors-ws = Winter Solstice
+
+job-supervisors-plant-manager = the Plant Manager
