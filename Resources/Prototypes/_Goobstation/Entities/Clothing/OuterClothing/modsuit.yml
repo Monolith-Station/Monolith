@@ -96,11 +96,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.4
+        Blunt: 0.50
+        Slash: 0.50
         Piercing: 0.40
-        Heat: 0.4
-        Radiation: 0.6
+        Heat: 0.5
+        Radiation: 0.7
         Caustic: 0.5
   - type: ComponentToggler
     components:
