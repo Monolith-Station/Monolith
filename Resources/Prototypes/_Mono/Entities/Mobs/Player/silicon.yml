@@ -88,22 +88,22 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      250: Critical
-      350: Dead
+      200: Critical
+      300: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
   - type: SlowOnDamage
     speedModifierThresholds:
-      125: 0.7
-      200: 0.5
+      75: 0.7
+      150: 0.5
   - type: Damageable
     damageModifierSet: FactionBorgChassis
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 125
+        damage: 100
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -112,7 +112,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-         damage: 450
+         damage: 400
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -262,9 +262,45 @@
   - type: Scrammer
     actionProto: ActionScrammerScramADM
     specifier:
-      avoidSpace: false
       teleportRadius: 40
+      teleportAttempts: 5 # will only slightly aim for grids
+      forceSafe: false
       minRadiusFraction: 0.75 # force teleport 30-40 tiles
+  # lower HP to compensate for scram
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      180: Critical # has innate armor so this is actually more
+      250: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      140: 0.7
+      160: 0.5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+         damage: 350
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - borg_module
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: PlayerBorgRedacted

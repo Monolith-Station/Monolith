@@ -36,8 +36,6 @@ public sealed partial class ContentAudioSystem
     [Dependency] private readonly IStateManager _state = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly CombatModeSystem _combatModeSystem = default!; //CLIENT ONE. WHY ARE THERE 3???
-    [Dependency] private readonly IPrototypeManager _protMan = default!;
-    [Dependency] private readonly SpaceBiomeSystem _spaceBiome = default!;
 
     //options menu ---
     private static float _volumeSliderAmbient;
