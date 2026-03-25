@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/25/2026 17:48:56
-  entityCount: 572
+  time: 03/25/2026 18:06:27
+  entityCount: 574
 maps: []
 grids:
 - 1
@@ -89,9 +89,9 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Puddle: []
         Smoke: []
+        Kudzu: []
         MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -941,6 +941,16 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-4.5
+      parent: 1
+  - uid: 573
+    components:
+    - type: Transform
+      pos: 3.5,3.5
+      parent: 1
+  - uid: 574
+    components:
+    - type: Transform
+      pos: 3.5,4.5
       parent: 1
 - proto: CableHV
   entities:
