@@ -53,7 +53,7 @@
     - id: SpawnDroneAssembly
       weight: 10
     - id: SpawnDroneBracket
-      weight: 5 # too evil
+      weight: 10
 
 - type: entityTable
   id: DroneSpawnTableT2Middle
