@@ -29,7 +29,7 @@ public sealed class HitscanReflectSystem : EntitySystem
         if (EntityManager.TryGetComponent(hitscan, out HitscanBasicDamageComponent? hitscanDamage))
             damage = hitscanDamage.Damage * _damage.UniversalHitscanDamageModifier;
 
-        // Mono - Added null as default DamageSpecifier? Damage parameter bro what the fuck are you doing
+        // Mono - Use hitscan damage component if available
         var ev = new HitScanReflectAttemptEvent(args.Shooter ?? args.Gun, args.Gun, hitscan.Comp.ReflectiveType, args.ShotDirection, false, damage);
         RaiseLocalEvent(args.HitEntity.Value, ref ev);
 
