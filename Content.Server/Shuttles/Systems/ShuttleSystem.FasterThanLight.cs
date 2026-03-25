@@ -1,10 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using Content.Server._NF.Shuttles.Components; // Frontier: FTL knockdown immunity
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Events;
+using Content.Shared.Atmos.Components; // Mono
 using Content.Shared.Body.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -95,9 +95,7 @@ public sealed partial class ShuttleSystem
     private EntityQuery<BodyComponent> _bodyQuery;
     private EntityQuery<FTLSmashImmuneComponent> _immuneQuery;
     private EntityQuery<StatusEffectsComponent> _statusQuery;
-
-    [Dependency] private readonly IEntityManager _entManager = default!; // Mono
-    [Dependency] private readonly IPrototypeManager _protManager = default!; // Mono
+    private EntityQuery<MovedByPressureComponent> _movedByPressureQuery; // Mono
 
     private void InitializeFTL()
     {
@@ -107,6 +105,7 @@ public sealed partial class ShuttleSystem
         _bodyQuery = GetEntityQuery<BodyComponent>();
         _immuneQuery = GetEntityQuery<FTLSmashImmuneComponent>();
         _statusQuery = GetEntityQuery<StatusEffectsComponent>();
+        _movedByPressureQuery = GetEntityQuery<MovedByPressureComponent>(); // Mono
 
         _cfg.OnValueChanged(CCVars.FTLStartupTime, time => DefaultStartupTime = time, true);
         _cfg.OnValueChanged(CCVars.FTLTravelTime, time => DefaultTravelTime = time, true);
@@ -991,12 +990,8 @@ public sealed partial class ShuttleSystem
         {
             foreach (var child in toKnock)
             {
-                if (!_statusQuery.TryGetComponent(child, out var status))
-                    continue;
-
-                if (!HasComp<FTLKnockdownImmuneComponent>(child)) // Frontier: FTL knockdown immunity
-                    // goob edit - stunmeta
-                    _stuns.TryKnockdown(child, _hyperspaceKnockdownTime, true, status);
+                // goob edit - stunmeta
+                _stuns.TryKnockdown(child, _hyperspaceKnockdownTime, true, _statusQuery.Get(child));
 
                 // If the guy we knocked down is on a spaced tile, throw them too
                 if (grid != null)
@@ -1036,7 +1031,11 @@ public sealed partial class ShuttleSystem
         var childEnumerator = xform.ChildEnumerator;
         while (childEnumerator.MoveNext(out var child))
         {
-            if (!_buckleQuery.TryGetComponent(child, out var buckle) || buckle.Buckled)
+            // Mono
+            if (!_statusQuery.TryGetComponent(child, out var status)
+                || _movedByPressureQuery.TryComp(child, out var moved) && !moved.Enabled
+                || _buckleQuery.TryGetComponent(child, out var buckle) && buckle.Buckled
+            )
                 continue;
 
             toKnock.Add(child);

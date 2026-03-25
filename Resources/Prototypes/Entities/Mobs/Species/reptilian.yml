@@ -133,24 +133,25 @@
     temperatureEffects:
     - maximumTemperature: 295
       effects:
+      - !type:Drunk
+        boozePower: 1
+    - maximumTemperature: 285
+      effects:
       - !type:GenericStatusEffect
         key: Drowsiness
         component: Drowsiness
         time: 2
         type: Add
         refresh: true
-      - !type:Drunk
-        boozePower: 1
     - minimumTemperature: 322
       effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 1.10
         sprintSpeedModifier: 1.10
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Burn: -1
-            Brute: -1
+          Burn: -1
+          Brute: -1
 
 
   # Mono edit end

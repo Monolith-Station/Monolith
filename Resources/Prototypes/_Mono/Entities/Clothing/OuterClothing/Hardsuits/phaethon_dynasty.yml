@@ -1,0 +1,214 @@
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT2 ]
+  id: ClothingOuterHardsuitPirateScaf
+  name: PDV SCAF hardsuit
+  description: An old SCAF suit painted in an PDV tan color scheme. The armor feels degraded, but lighter.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/scaf_pirate.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/scaf_pirate.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.45
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.55
+        Heat: 0.7
+        Radiation: 0.5
+        Caustic: 0.9
+  - type: StaminaDamageResistance # Mono - Stamres
+    coefficient: 0.3
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitPirateScaf
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: StaticPrice
+    price: 750
+    vendPrice: 2500
+  - type: Tag  # Mono
+    tags:
+    - RogueHardsuit
+
+- type: entity
+  parent: [ ClothingOuterHardsuitSyndie, BaseFactionGearPDVT2 ]
+  id: ClothingOuterHardsuitAshen
+  name: PDV CV-32 combat tacsuit
+  description: A combat tacsuit designed by the Phaethon Dynasty. A heavier but still general-purpose hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/syndicate.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/syndicate.rsi
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitAshen
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: Tag
+    tags:
+    - RogueHardsuit
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT2 ]
+  id: ClothingOuterHardsuitPDVMedic
+  name: PDV CV-82 combat tacsuit
+  description: A field medic combat hardsuit designed by the Phaethon Dynasty. The armor features various reinforced plating in vital areas.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/pdv_medic.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/pdv_medic.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.67
+        Slash: 0.34
+        Piercing: 0.67
+        Heat: 0.5
+        Radiation: 0.1
+        Caustic: 0.1
+  - type: StaminaDamageResistance # Mono - Stamres
+    coefficient: 0.67
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitPDVMedic
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: StaticPrice
+    price: 1500
+    vendPrice: 4000
+  - type: Tag  # Mono
+    tags:
+    - RogueHardsuit
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ClothingOuterHardsuitVizier
+  name: PDV CV-67 combat tacsuit
+  description: An adorned tacsuit designed with an imperfect nanolaminate composition. High maneuverability, sturdy armor.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/pdv_vizier.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/pdv_vizier.rsi
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitVizier
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: Tag
+    tags:
+    - RogueHardsuit
+
+- type: entity
+  parent: [ ClothingOuterHardsuitSyndieElite, EnergyShieldClothing ]
+  id: ClothingOuterHardsuitAshenElite
+  name: PDV CV-53 combat hardsuit
+  description: Originally based off of the CV-32, the CV-53 sacrifices conventional armor plating for environmental protection, and a rechargeable hard-shield.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/syndieelite.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/syndieelite.rsi
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitAshenElite
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: FireProtection
+    reduction: 0.8
+  - type: Armor # Mono - Armor Value Changes
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.7
+        Heat: 0.2
+        Radiation: 0.01
+        Caustic: 0.5
+  - type: Item
+    size: Huge
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0 # 0.9-> 1 Mono
+  - type: Tag
+    tags:
+    - RogueHardsuit
+  # Shielding
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+      flatReductions:
+        Heat: 5
+    passiveBlockFraction: 1.0
+    activeBlockFraction: 1.0
+    isClothing: true
+  - type: Damageable
+    damageContainer: Shield
+  - type: Battery
+    maxCharge: 10
+    startingCharge: 10
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1
+  - type: RechargeableBlocking
+    chargedRechargeRate: 0
+    dischargedRechargeRate: 0.3
+  - type: UseDelay
+    delay: 10
+  - type: PointLight
+    enabled: false
+    radius: 1.4
+    energy: 2
+    color: "#5dd439"
