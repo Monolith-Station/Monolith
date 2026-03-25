@@ -10,7 +10,6 @@ using Content.Shared.Damage.Components;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Power;
-using Robust.Shared.Random; // Frontier
 using Content.Shared.Light.EntitySystems;
 
 namespace Content.Server.Light.EntitySystems;
@@ -20,8 +19,6 @@ namespace Content.Server.Light.EntitySystems;
 /// </summary>
 public sealed class PoweredLightSystem : SharedPoweredLightSystem
 {
-    [Dependency] protected readonly IRobustRandom RobustRandom = default!; // Frontier
-
     public override void Initialize()
     {
         base.Initialize();
@@ -34,24 +31,19 @@ public sealed class PoweredLightSystem : SharedPoweredLightSystem
 
     private void OnGhostBoo(EntityUid uid, PoweredLightComponent light, GhostBooEvent args)
     {
-        if (light.IgnoreGhostsBoo)
-            return;
+        if (light.IgnoreGhostsBoo || HasComp<BlinkingPoweredLightComponent>(uid))
+            return; // The light is immune or already blinking.
 
         // check cooldown first to prevent abuse
-        var time = GameTiming.CurTime;
-        if (light.LastGhostBlink != null)
-        {
-            if (time <= light.LastGhostBlink + light.GhostBlinkingCooldown)
-                return;
-        }
+        var curTime = GameTiming.CurTime;
+        if (light.LastGhostBlink != null && curTime <= light.LastGhostBlink + light.GhostBlinkingCooldown)
+            return;
 
-        light.LastGhostBlink = time;
+        light.LastGhostBlink = curTime;
 
-        ToggleBlinkingLight(uid, light, true);
-        uid.SpawnTimer(light.GhostBlinkingTime, () =>
-        {
-            ToggleBlinkingLight(uid, light, false);
-        });
+        var blinkingComp = EnsureComp<BlinkingPoweredLightComponent>(uid);
+        blinkingComp.StopBlinkingTime = curTime + light.GhostBlinkingTime;
+        Dirty(uid, blinkingComp);
 
         args.Handled = true;
     }
@@ -66,14 +58,5 @@ public sealed class PoweredLightSystem : SharedPoweredLightSystem
         }
         // need this to update visualizers
         UpdateLight(uid, light);
-    }
-
-    private void OnEmpPulse(EntityUid uid, PoweredLightComponent component, ref EmpPulseEvent args)
-    {
-        if (RobustRandom.Prob(component.LightBreakChance)) // Frontier
-        {
-            if (TryDestroyBulb(uid, component))
-                args.Affected = true;
-        }
     }
 }
