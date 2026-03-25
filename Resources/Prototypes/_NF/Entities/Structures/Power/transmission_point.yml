@@ -59,7 +59,7 @@
           True: { visible: true }
           False: { visible: false }
   - type: PowerTransmission
-    account: Frontier
+    account: Edison
     linearRate: 0.0001        # $1 per 10 kJ = 10 spesos/s at 100 kW
     logarithmCoefficient: 100  # = linearRate * linearMaxValue (1e6) for continuity
     maxValuePerSecond: 500     # ~57 MW cap (~$1.8M/hr)
