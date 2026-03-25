@@ -18775,3 +18775,89 @@ Entries:
   id: 2071
   time: '2026-03-23T17:23:36.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3543
+- author: chuga-git
+  changes:
+    - type: Tweak
+      message: MARAUDER plasma cannon projectile speed increased by 50%. (100->150)
+  id: 2072
+  time: '2026-03-24T11:44:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3549
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Printed contraband-type items, aka enemy faction gear, can now be sold
+        for FMCs/DCs. Frontier is so frustrating man.
+  id: 2073
+  time: '2026-03-24T12:06:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3548
+- author: gelliii
+  changes:
+    - type: Add
+      message: Added the Horsefly, welded together by hopes and dreams.
+  id: 2074
+  time: '2026-03-24T15:07:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3155
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixes the server not checking some bank balance-related values.
+  id: 2075
+  time: '2026-03-24T19:00:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3550
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        AMEs no longer scale purely off core count. Injection count now matters
+        instead.
+  id: 2076
+  time: '2026-03-24T19:54:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3552
+- author: Avalon-Proto
+  changes:
+    - type: Add
+      message: >-
+        Ullman Industries has released a new overcoat, this one with much
+        thicker fur around the neck
+  id: 2077
+  time: '2026-03-24T23:41:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3260
+- author: Lokilife
+  changes:
+    - type: Fix
+      message: You can't lie in space with voidboots anymore
+  id: 2078
+  time: '2026-03-25T00:08:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3551
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Research generating things no longer connect to multiple servers at once
+        when built
+  id: 2079
+  time: '2026-03-25T04:12:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3556
+- author: lopsidedmanboobs
+  changes:
+    - type: Remove
+      message: >-
+        You cannot force people to pay their own ransom during Piracy anymore.
+        View Conflict Rule 3.
+  id: 2080
+  time: '2026-03-25T05:49:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3558
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Clipping Claws now resets growth time, ensuring you do not have to worry
+        about your claws reaching the next stage for a while.
+    - type: Add
+      message: >-
+        Phenoxzine and Meroxzine. Phenoxzine massively boosts claw growth speed,
+        Meroxzine halts it completely for a long period of time.
+  id: 2081
+  time: '2026-03-25T06:13:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3554
