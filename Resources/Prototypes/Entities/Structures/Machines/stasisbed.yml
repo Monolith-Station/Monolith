@@ -7,11 +7,10 @@
   - type: StasisBed
     baseMultiplier: 10.0
   - type: AntiRotOnBuckle
-  - type: HealOnBuckle
+  - type: HealOnBuckle # Mono: Prevents rotting and already slows down metabolism, just prevent the living from taking suffocation
     damage:
       types:
-        Poison: -0.001
-        Blunt: -0.001
+        Asphyxiation: -0.05
   - type: Sprite
     sprite: Structures/Machines/stasis_bed.rsi
     noRot: true
@@ -59,7 +58,7 @@
         - LowImpassable
   - type: GuideHelp
     guides:
-    - Medical Doctor
+    - MedicalDoctor
   - type: PowerSwitch
   # Mono
   - type: ShipRepairable

@@ -567,6 +567,18 @@
     baseSprintSpeed : 7
 #  - type: ActiveJetpack # I think this will need a custom component to not make tests angry.
   - type: MovementAlwaysTouching
+  - type: UserInterface # Mono
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: IntrinsicUI # Mono
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionObserverShowRadar
+  - type: RadarConsole # Mono
+    followEntity: true
+    maxIffRange: 0
+    hideCoords: false
 
 - type: entity
   parent: MobSnail

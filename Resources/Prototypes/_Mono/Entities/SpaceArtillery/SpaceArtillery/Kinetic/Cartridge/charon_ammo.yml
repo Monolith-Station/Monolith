@@ -24,7 +24,7 @@
     scale: 4
     shape: triangle
   - type: TimedDespawn
-    lifetime: 1.7
+    lifetime: 3.1 # ~2.4 km range
   - type: PointLight
     color: "#19AFFF"
   - type: ExplodeOnTrigger
