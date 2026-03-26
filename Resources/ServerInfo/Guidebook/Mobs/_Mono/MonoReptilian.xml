@@ -25,7 +25,7 @@
   - Stage 1 - [color=#FFA500]11 slash damage.[/color] [color=#FFDEAD]Gun spread is increased by 10%, Handheld weapon damage is decreased by 5%[/color]
   - Stage 2 - [color=#FFA500]13 slash damage, 2 piercing damage.[/color] [color=#FFDEAD]Gun spread is increased by 25%, Handheld weapon damage is decreased by 13%.[/color] Starting from this stage, you are capable of wideswinging with your claws
   - Stage 3 - [color=#FFA500]15 slash damage, 5 piercing damage.[/color] [color=#FFDEAD]Gun spread is increased by 45%, Handheld weapon damage is decreased by 25%[/color]
-  - Stage 4 - [color=#FFA500]18 slash damage, 12 piercing damage.[/color] [color=#FFDEAD]You are not capable of using guns anymore, Handheld weapon damage is decreased by 50%[/color]
+  - Stage 4 - [color=#FFA500]18 slash damage, 12 piercing damage.[/color] [color=#FFDEAD]You are not capable of using all guns but bows anymore, Handheld weapon damage is decreased by 50%.[/color]
 
   ### Cutting Claws
 
@@ -35,9 +35,9 @@
     <GuideEntityEmbed Entity="Wirecutter" Caption=""/>
   </Box>
 
-  ## chemicals
+  ### Chemicals
 
-  Certain chemicals allow greater control over claw growth. Phenoxzine boosts claw growth, while Meroxzine pauses claw growth. Both metabolize slowly, allowing long term usage to be effective.
+  Certain chemicals allow greater control over Reptilian claw growth. Phenoxzine boosts claw growth by 20x, while Meroxzine pauses all claw growth entirely. Both metabolize slowly, allowing long term usage to be effective.
 
   <GuideReagentEmbed Reagent="Phenoxzine"/>
   <GuideReagentEmbed Reagent="Meroxzine"/>
