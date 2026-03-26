@@ -8,7 +8,7 @@
 
   ## Food
   Reptilians are capable of eating raw meat, but will get ill from consuming chocolate or any other food containing theobromine.
-  
+
 
   ## Physical properties
   They can drag objects with their tail, keeping both their hands free.
@@ -29,20 +29,18 @@
 
   ### Cutting Claws
 
-  Using [color=#FFA500]wirecutters[/color], you can cut Reptilian's claws, reducing their stage by 1.
+  Using [color=#FFA500]wirecutters[/color], you can cut Reptilian's claws, reducing their stage by 1 and resetting the current growth progress.
 
   <Box>
     <GuideEntityEmbed Entity="Wirecutter" Caption=""/>
   </Box>
 
-  ### Declaw
-  Reptilian claws can be ripped out, instantly setting claw stage to 0 and freezing growth, but there are consequences of this action.
+  ## chemicals
 
-  - You can deal only [color=#FFA500]3 blunt[/color] with your hands.
-  - You can't hold items in hand for longer than [color=#FF0000]30 seconds[/color]. Doing so will result into items being [color=#FF0000]dropped[/color].
-  - There is a [color=#FF0000]3%[/color] chance to drop melee weapon on hit.
+  Certain chemicals allow greater control over claw growth. Phenoxzine boosts claw growth, while Meroxzine pauses claw growth. Both metabolize slowly, allowing long term usage to be effective.
 
-  Currently there's no tool that is capable of performing declaw in the colossus sector.
+  <GuideReagentEmbed Reagent="Phenoxzine"/>
+  <GuideReagentEmbed Reagent="Meroxzine"/>
 
   ## Temperature
 
