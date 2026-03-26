@@ -18877,3 +18877,16 @@ Entries:
   id: 2083
   time: '2026-03-25T19:53:53.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3542
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Energy shields now take damage from reflecting hitscan projectiles,
+        instead of just non-hitscan energy projectiles.
+    - type: Fix
+      message: Non-energy shields properly reduce damage taken.
+    - type: Fix
+      message: Riot and non-energy shields work now.
+  id: 2084
+  time: '2026-03-25T22:18:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3563
