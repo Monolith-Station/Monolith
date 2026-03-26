@@ -3,26 +3,26 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Content.Server.Database.Migrations.Postgres
+namespace Content.Server.Database.Migrations.Sqlite
 {
     /// <inheritdoc />
-    public partial class CompanyWhitelist : Migration
+    public partial class CompanyMembers : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "company_whitelists",
+                name: "company_members",
                 columns: table => new
                 {
-                    player_user_id = table.Column<Guid>(type: "uuid", nullable: false),
-                    company_id = table.Column<string>(type: "text", nullable: false)
+                    player_user_id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    company_id = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_company_whitelists", x => new { x.player_user_id, x.company_id });
+                    table.PrimaryKey("PK_company_members", x => new { x.player_user_id, x.company_id });
                     table.ForeignKey(
-                        name: "FK_company_whitelists_player_player_user_id",
+                        name: "FK_company_members_player_player_user_id",
                         column: x => x.player_user_id,
                         principalTable: "player",
                         principalColumn: "user_id",
@@ -34,7 +34,7 @@ namespace Content.Server.Database.Migrations.Postgres
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "company_whitelists");
+                name: "company_members");
         }
     }
 }

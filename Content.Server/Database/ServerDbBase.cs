@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server._Mono.Company;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Shared._Mono.Company;
@@ -1942,12 +1943,12 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         #endregion
 
         // Mono
-        #region Company Whitelist
+        #region Company
 
-        public async Task<bool> AddCompanyWhitelist(Guid player, ProtoId<CompanyPrototype> company)
+        public async Task<bool> AddCompanyMember(Guid player, ProtoId<CompanyPrototype> company)
         {
             await using var db = await GetDb();
-            var exists = await db.DbContext.CompanyWhitelists
+            var exists = await db.DbContext.CompanyMembers
                 .Where(w => w.PlayerUserId == player)
                 .Where(w => w.CompanyId == company.Id)
                 .AnyAsync();
@@ -1955,47 +1956,76 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             if (exists)
                 return false;
 
-            var whitelist = new CompanyWhitelist
+            var member = new CompanyMember
             {
                 PlayerUserId = player,
                 CompanyId = company,
             };
-            db.DbContext.CompanyWhitelists.Add(whitelist);
+            db.DbContext.CompanyMembers.Add(member);
             await db.DbContext.SaveChangesAsync();
             return true;
         }
 
-        public async Task<List<string>> GetPlayerCompanyWhitelists(Guid player, CancellationToken cancel)
+        public async Task<List<string>> GetPlayerCompanies(Guid player, CancellationToken cancel)
         {
             await using var db = await GetDb(cancel);
-            return await db.DbContext.CompanyWhitelists
+            return await db.DbContext.CompanyMembers
                 .Where(w => w.PlayerUserId == player)
                 .Select(w => w.CompanyId)
                 .ToListAsync(cancel);
         }
 
-        public async Task<List<string>> GetCompanyWhitelists(ProtoId<CompanyPrototype> company, CancellationToken cancel)
+        public async Task<IEnumerable<CompanyMemberRecord>> GetCompanyMembers(ProtoId<CompanyPrototype> company, CancellationToken cancel)
         {
             await using var db = await GetDb(cancel);
-            return await db.DbContext.CompanyWhitelists
+            var members = await db.DbContext.CompanyMembers
                 .Where(w => w.CompanyId == company.Id)
-                .Select(w => w.Player.LastSeenUserName)
+                .Include(c => c.Player)
                 .ToListAsync(cancel);
+
+            return members.Select(m => new CompanyMemberRecord()
+            {
+                Company = company,
+                Owner = m.Owner,
+                PlayerUserId = m.PlayerUserId,
+                LastSeenUserName = m.Player.LastSeenUserName,
+            });
         }
 
-        public async Task<bool> IsCompanyWhitelisted(Guid player, ProtoId<CompanyPrototype> company)
+        public async Task<CompanyMemberRecord?> GetCompanyMember(ProtoId<CompanyPrototype> company, Guid player, CancellationToken cancel)
         {
-            await using var db = await GetDb();
-            return await db.DbContext.CompanyWhitelists
-                .Where(w => w.PlayerUserId == player)
+            await using var db = await GetDb(cancel);
+            var member = await db.DbContext.CompanyMembers
                 .Where(w => w.CompanyId == company.Id)
-                .AnyAsync();
+                .Where(w => w.PlayerUserId == player)
+                .Include(c => c.Player)
+                .FirstOrDefaultAsync();
+
+            if (member == null)
+                return null;
+
+            return new CompanyMemberRecord()
+            {
+                Company = company,
+                LastSeenUserName = member.Player.LastSeenUserName,
+                Owner = member.Owner,
+                PlayerUserId = member.PlayerUserId,
+            };
         }
 
-        public async Task<bool> RemoveCompanyWhitelist(Guid player, ProtoId<CompanyPrototype> company)
+        public async Task SetCompanyOwner(ProtoId<CompanyPrototype> company, Guid player, bool owner)
         {
             await using var db = await GetDb();
-            var entry = await db.DbContext.CompanyWhitelists
+            await db.DbContext.CompanyMembers
+                .Where(w => w.CompanyId == company)
+                .Where(w => w.PlayerUserId == player)
+                .ExecuteUpdateAsync(setters => setters.SetProperty(m => m.Owner, owner));
+        }
+
+        public async Task<bool> RemoveCompanyMember(Guid player, ProtoId<CompanyPrototype> company)
+        {
+            await using var db = await GetDb();
+            var entry = await db.DbContext.CompanyMembers
                 .Where(w => w.PlayerUserId == player)
                 .Where(w => w.CompanyId == company.Id)
                 .SingleOrDefaultAsync();
@@ -2003,7 +2033,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             if (entry == null)
                 return false;
 
-            db.DbContext.CompanyWhitelists.Remove(entry);
+            db.DbContext.CompanyMembers.Remove(entry);
             await db.DbContext.SaveChangesAsync();
             return true;
         }

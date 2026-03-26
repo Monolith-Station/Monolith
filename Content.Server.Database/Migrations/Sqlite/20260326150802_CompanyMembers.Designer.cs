@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    [Migration("20260324174938_CompanyWhitelist")]
-    partial class CompanyWhitelist
+    [Migration("20260326150802_CompanyMembers")]
+    partial class CompanyMembers
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -553,7 +553,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("blacklist", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.CompanyWhitelist", b =>
+            modelBuilder.Entity("Content.Server.Database.CompanyMember", b =>
                 {
                     b.Property<Guid>("PlayerUserId")
                         .HasColumnType("TEXT")
@@ -564,9 +564,9 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnName("company_id");
 
                     b.HasKey("PlayerUserId", "CompanyId")
-                        .HasName("PK_company_whitelists");
+                        .HasName("PK_company_members");
 
-                    b.ToTable("company_whitelists", (string)null);
+                    b.ToTable("company_members", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
@@ -1623,15 +1623,15 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Profile");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.CompanyWhitelist", b =>
+            modelBuilder.Entity("Content.Server.Database.CompanyMember", b =>
                 {
                     b.HasOne("Content.Server.Database.Player", "Player")
-                        .WithMany("CompanyWhitelists")
+                        .WithMany("CompanyMembers")
                         .HasForeignKey("PlayerUserId")
                         .HasPrincipalKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FK_company_whitelists_player_player_user_id");
+                        .HasConstraintName("FK_company_members_player_player_user_id");
 
                     b.Navigation("Player");
                 });
@@ -2036,7 +2036,7 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                     b.Navigation("AdminWatchlistsReceived");
 
-                    b.Navigation("CompanyWhitelists");
+                    b.Navigation("CompanyMembers");
 
                     b.Navigation("JobWhitelists");
                 });

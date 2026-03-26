@@ -121,7 +121,6 @@ namespace Content.Server.Entry
                 _watchlistWebhookManager.Initialize();
                 IoCManager.Resolve<JobWhitelistManager>().Initialize();
                 IoCManager.Resolve<PlayerRateLimitManager>().Initialize();
-                IoCManager.Resolve<CompanyManager>().Initialize(); // Mono
             }
         }
 
@@ -157,6 +156,7 @@ namespace Content.Server.Entry
 
                 _euiManager.Initialize();
 
+                IoCManager.Resolve<CompanyManager>().Initialize(); // Mono
                 IoCManager.Resolve<IGameMapManager>().Initialize();
                 IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<GameTicker>().PostInitialize();
                 IoCManager.Resolve<IBanManager>().Initialize();

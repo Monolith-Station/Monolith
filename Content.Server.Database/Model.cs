@@ -46,7 +46,7 @@ namespace Content.Server.Database
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
-        public DbSet<CompanyWhitelist> CompanyWhitelists { get; set; } = null!;
+        public DbSet<CompanyMember> CompanyMembers { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -374,9 +374,9 @@ namespace Content.Server.Database
                 .HasDefaultValue(HwidType.Legacy);
 
             // Mono
-            modelBuilder.Entity<CompanyWhitelist>()
+            modelBuilder.Entity<CompanyMember>()
                 .HasOne(w => w.Player)
-                .WithMany(p => p.CompanyWhitelists)
+                .WithMany(p => p.CompanyMembers)
                 .HasForeignKey(w => w.PlayerUserId)
                 .HasPrincipalKey(p => p.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
@@ -609,7 +609,7 @@ namespace Content.Server.Database
         public List<ServerRoleBan> AdminServerRoleBansCreated { get; set; } = null!;
         public List<ServerRoleBan> AdminServerRoleBansLastEdited { get; set; } = null!;
         public List<RoleWhitelist> JobWhitelists { get; set; } = null!;
-        public List<CompanyWhitelist> CompanyWhitelists { get; set; } = null!; // Mono
+        public List<CompanyMember> CompanyMembers { get; set; } = null!; // Mono
     }
 
     [Table("whitelist")]
@@ -1348,14 +1348,17 @@ namespace Content.Server.Database
         public float Score { get; set; }
     }
 
+    // Mono-Start
     [PrimaryKey(nameof(PlayerUserId), nameof(CompanyId))]
-    public class CompanyWhitelist
+    public class CompanyMember
     {
         [Required, ForeignKey("Player")]
         public Guid PlayerUserId { get; set; }
         public Player Player { get; set; } = default!;
+        public bool Owner;
 
         [Required]
         public string CompanyId { get; set; } = default!;
     }
+    // Mono-End
 }

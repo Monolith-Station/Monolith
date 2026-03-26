@@ -22,7 +22,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using LogLevel = Robust.Shared.Log.LogLevel;
 using MSLogLevel = Microsoft.Extensions.Logging.LogLevel;
-using Content.Shared._Mono.Company; // Mono
+using Content.Shared._Mono.Company;
+using Content.Server._Mono.Company; // Mono
 
 namespace Content.Server.Database
 {
@@ -353,14 +354,14 @@ namespace Content.Server.Database
         #endregion
 
         // Mono
-        #region Company Whitelist
-        Task AddCompanyWhitelist(Guid player, ProtoId<CompanyPrototype> company);
+        #region Company
+        Task AddCompanyMember(Guid player, ProtoId<CompanyPrototype> company);
 
-        Task<List<string>> GetPlayerCompanyWhitelists(Guid player, CancellationToken cancel = default);
-        Task<List<string>> GetCompanyWhitelists(ProtoId<CompanyPrototype> company, CancellationToken cancel = default);
-        Task<bool> IsCompanyWhitelisted(Guid player, ProtoId<CompanyPrototype> company);
-
-        Task<bool> RemoveCompanyWhitelist(Guid player, ProtoId<CompanyPrototype> company);
+        Task<List<string>> GetPlayerCompanies(Guid player, CancellationToken cancel = default);
+        Task<IEnumerable<CompanyMemberRecord>> GetCompanyMembers(ProtoId<CompanyPrototype> company, CancellationToken cancel = default);
+        Task<CompanyMemberRecord?> GetCompanyMember(ProtoId<CompanyPrototype> company, Guid player, CancellationToken cancel = default);
+        Task SetCompanyOwner(ProtoId<CompanyPrototype> company, Guid player, bool owner);
+        Task<bool> RemoveCompanyMember(Guid player, ProtoId<CompanyPrototype> company);
 
         #endregion
 
@@ -1109,34 +1110,40 @@ namespace Content.Server.Database
         }
 
         // Mono-Start
-        public Task AddCompanyWhitelist(Guid player, ProtoId<CompanyPrototype> company)
+        public Task AddCompanyMember(Guid player, ProtoId<CompanyPrototype> company)
         {
             DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.AddCompanyWhitelist(player, company));
+            return RunDbCommand(() => _db.AddCompanyMember(player, company));
         }
 
-        public Task<List<string>> GetPlayerCompanyWhitelists(Guid player, CancellationToken cancel = default)
+        public Task<List<string>> GetPlayerCompanies(Guid player, CancellationToken cancel = default)
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetPlayerCompanyWhitelists(player, cancel));
+            return RunDbCommand(() => _db.GetPlayerCompanies(player, cancel));
         }
 
-        public Task<List<string>> GetCompanyWhitelists(ProtoId<CompanyPrototype> company, CancellationToken cancel = default)
+        public Task<IEnumerable<CompanyMemberRecord>> GetCompanyMembers(ProtoId<CompanyPrototype> company, CancellationToken cancel = default)
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetCompanyWhitelists(company, cancel));
+            return RunDbCommand(() => _db.GetCompanyMembers(company, cancel));
         }
 
-        public Task<bool> IsCompanyWhitelisted(Guid player, ProtoId<CompanyPrototype> company)
+        public Task<CompanyMemberRecord?> GetCompanyMember(ProtoId<CompanyPrototype> company, Guid player, CancellationToken cancel = default)
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.IsCompanyWhitelisted(player, company));
+            return RunDbCommand(() => _db.GetCompanyMember(company, player, cancel));
         }
 
-        public Task<bool> RemoveCompanyWhitelist(Guid player, ProtoId<CompanyPrototype> company)
+        public Task SetCompanyOwner(ProtoId<CompanyPrototype> company, Guid player, bool owner)
         {
             DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.RemoveCompanyWhitelist(player, company));
+            return RunDbCommand(() => _db.SetCompanyOwner(company, player, owner));
+        }
+
+        public Task<bool> RemoveCompanyMember(Guid player, ProtoId<CompanyPrototype> company)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.RemoveCompanyMember(player, company));
         }
         // Mono-End
 
