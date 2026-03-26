@@ -1,0 +1,71 @@
+- type: entity
+  parent: [ClothingHeadHelmetHardsuitSyndie, ShowSecurityIcons]
+  id: ClothingHeadHelmetHardsuitAshen
+  name: PDV CV-32 combat tacsuit helmet
+  description: A combat tacsuit designed in the Phaethon Dynasty.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/syndicate.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/syndicate.rsi
+
+- type: entity
+  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowMedicalIcons, ShowSecurityIcons]
+  id: ClothingHeadHelmetHardsuitPDVMedic
+  name: PDV CV-82 combat tacsuit helmet
+  description: A hardsuit helmet by the Phaethon Dynasty. Has a built-in medical HUD complemented by thermal pulse systems.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/pdv_medic.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/pdv_medic.rsi
+  - type: PointLight
+    color: "#eb772a"
+  - type: ThermalVision
+    flashDurationMultiplier: 2
+    pulseTime: 4
+    isEquipment: true
+    toggleAction: PulseThermalVision
+  - type: ShowHealthBars
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: [ClothingHeadHelmetHardsuitSyndieElite, ShowSecurityIcons]
+  id: ClothingHeadHelmetHardsuitAshenElite
+  name: PDV CV-53 combat hardsuit helmet
+  description: Based off of the CV-32, sacrifices combat protection for environment protection.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/syndieelite.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/syndieelite.rsi
+
+- type: entity
+  parent: [ClothingHeadHelmetHardsuitSyndieElite, ShowSecurityIcons]
+  id: ClothingHeadHelmetHardsuitVizier
+  name: PDV CV-67 combat hardsuit helmet
+  description: An adorned tacsuit designed with an imperfect nanolaminate composition. High maneuverability, sturdy armor.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/pdv_vizier.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/pdv_vizier.rsi

@@ -15,8 +15,7 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Item
     sprite: _Mono/Objects/Weapons/Guns/Launchers/mk348_inhands_32x.rsi
-    shape:
-    - 0,0,6,3
+    size: Ginormous
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Guns/Launchers/mk348_inhands_32x.rsi
     quickEquip: false
@@ -66,8 +65,8 @@
   - type: StaticPrice
     price: 2500
   - type: ClothingSpeedModifier
-    walkModifier: 0.4
-    sprintModifier: 0.4
+    walkModifier: 0.2
+    sprintModifier: 0.2
   - type: HeldSpeedModifier
   - type: MultiHandedItem
   - type: WieldedCrosshair
