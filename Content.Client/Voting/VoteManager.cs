@@ -192,6 +192,7 @@ namespace Content.Client.Voting
             for (var i = 0; i < message.Options.Length; i++)
             {
                 existingVote.Entries[i].Votes = message.Options[i].votes;
+                existingVote.Entries[i].RealVotes = message.Options[i].realVotes; // Mono
             }
 
             if (@new && _popupContainer != null)
@@ -259,6 +260,7 @@ namespace Content.Client.Voting
         {
             public string Text { get; }
             public int Votes { get; set; }
+            public int RealVotes; // Mono
 
             public VoteEntry(string text)
             {
