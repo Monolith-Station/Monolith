@@ -34,7 +34,7 @@
         - type: StationNameSetup
           mapNameTemplate: 'PDV Helio Fortress'
         - type: ExtraStationInformation
-          iconPath: /Textures/_NF/Interface/Pirate/piratelogo.png
+          icon: /Textures/_NF/Interface/Pirate/piratelogo.png
           stationSubtext: 'frontier-lobby-pirate-subtext'
           stationDescription: 'frontier-lobby-pirate-description'
         - type: StationJobs
@@ -50,5 +50,3 @@
         - type: StationDeadDropReporting
           messageSet: Pirate
         - type: StationDeadDropHintExempt
-        - type: TradeCrateWildcardDestination
-          valueMultiplier: 1.0 # Mono

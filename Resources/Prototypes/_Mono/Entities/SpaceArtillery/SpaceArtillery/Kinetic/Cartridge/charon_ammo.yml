@@ -22,10 +22,9 @@
   - type: RadarBlip
     radarColor: "#CF0E0E"
     scale: 4
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
-    lifetime: 1.7
+    lifetime: 3.1 # ~2.4 km range
   - type: PointLight
     color: "#19AFFF"
   - type: ExplodeOnTrigger
@@ -84,7 +83,6 @@
   - type: RadarBlip
     radarColor: "#268521"
     scale: 4
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 1.7

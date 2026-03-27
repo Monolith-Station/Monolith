@@ -39,12 +39,39 @@
 
 - type: entity
   parent: ClothingNeckBase
+  id: ClothingNeckCloakPdvPurple
+  name: grand vizier's ceremonial cloak
+  description: A Phaethon Dynasty Grand Vizier's cloak, only given to those who have proven their loyalty and worth to the Sultan.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Cloaks/pdvpurplecloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
   id: ClothingNeckMantleVizier
   name: grand vizier's mantle
   description: A Phaethon Dynasty Grand Vizier's mantle, a mix of elegance and practicality.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Cloaks/pdvmantle.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckColonelCloak
+  name: colonel's cloak
+  description: An official TSFMC cloak befitting a commanding officer with authority over the sector, complete with rankbars and trim.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Cloaks/tsfcolonelcloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCaptainCloak
+  name: captain's cloak
+  description: A fashionable TSFMC cloak for the Captain and XO of the marine detachment.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Cloaks/tsfcaptaincloak.rsi
 
 - type: entity
   parent: ClothingNeckBase

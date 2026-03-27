@@ -63,6 +63,25 @@
     accessGroups: # Frontier
     - GeneralNfsdAccess # Frontier
 
+# Service voucher
+- type: entity
+  parent: BaseShipVoucher
+  id: ShipVoucherFrontierService
+  name: service ship voucher
+  description: Allows for one free, small service ship purchase from the Frontier Staff Shipyard. Destroyed on sale.
+  components:
+  - type: Sprite
+    layers:
+    - state: blue
+    - state: voucherservice
+  - type: ShipyardVoucher
+    consoleType: Shipyard
+    vessels:
+    - Jitterbug
+    - McChicken
+    - McChilly
+    - Spessbite
+
 # Frontier vouchers
 - type: entity
   parent: BaseShipVoucher
@@ -81,20 +100,6 @@
     consoleType: Sr
     access:
     - Janitor
-
-- type: entity
-  parent: ShipVoucherFrontierJanitor
-  id: ShipVoucherFrontierValet
-  name: valet ship voucher
-  description: Allows for one free valet ship purchase from the Frontier Staff Shipyard. Destroyed on sale.
-  components:
-  - type: Sprite
-    layers:
-    - state: blue
-    - state: vouchervalet
-  - type: ShipyardVoucher
-    access:
-    - Service
 
 - type: entity
   parent: ShipVoucherFrontierJanitor

@@ -1,6 +1,7 @@
 - type: entity
-  id: MonoRamDroneSpawnerT1
+  id: MonoDroneSpawnerT1
   parent: MarkerBase
+  categories: [Spawner]
   components:
   - type: RandomSpawner
     prototypes:
@@ -10,8 +11,9 @@
     - SpawnDroneLance
 
 - type: entity
-  id: MonoRamDroneSpawnerT2Inner
+  id: MonoDroneSpawnerT2Inner
   parent: MarkerBase
+  categories: [Spawner]
   components:
   - type: RandomSpawner
     prototypes:
@@ -21,8 +23,9 @@
     - SpawnDronePiercer
 
 - type: entity
-  id: MonoRamDroneSpawnerT2Middle
+  id: MonoDroneSpawnerT2Middle
   parent: MarkerBase
+  categories: [Spawner]
   components:
   - type: EntityTableSpawner
     table: !type:NestedSelector
@@ -62,6 +65,7 @@
       ignorePowered: true
       ignoreIFF: true
       ignorePrice: true
+      distanceOverride: 1024 # so it doesn't despawn while in view
     - type: RandomMetadata
       nameSeparator: ""
       nameSegments:

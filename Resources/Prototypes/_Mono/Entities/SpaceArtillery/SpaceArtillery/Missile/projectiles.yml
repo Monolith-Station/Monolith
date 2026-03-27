@@ -22,7 +22,6 @@
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 1
-    requireNoGrid: true
     shape: hexagon
   - type: TimedDespawn
     lifetime: 3.5
@@ -33,9 +32,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 15
-    intensitySlope: 8
-    maxIntensity: 8
+    totalIntensity: 6
+    intensitySlope: 3
+    maxIntensity: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -58,7 +57,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 300
+        Structural: 150
         Blunt: 175
         Heat: 50
   - type: Sprite
@@ -71,7 +70,6 @@
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 1.5
-    requireNoGrid: true
     shape: hexagon
   - type: TimedDespawn
     lifetime: 4.5
@@ -82,9 +80,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 25
-    intensitySlope: 10
-    maxIntensity: 15
+    totalIntensity: 10
+    intensitySlope: 4
+    maxIntensity: 4
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -119,7 +117,6 @@
   - type: RadarBlip
     radarColor: "#FB00FF"
     scale: 1
-    requireNoGrid: true
     shape: hexagon
   - type: TimedDespawn
     lifetime: 6.5
@@ -173,7 +170,6 @@
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 4
-    requireNoGrid: true
     shape: hexagon
   - type: TimedDespawn
     lifetime: 15
@@ -223,7 +219,6 @@
   - type: RadarBlip
     radarColor: "#f5ee1b"
     scale: 4
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 15

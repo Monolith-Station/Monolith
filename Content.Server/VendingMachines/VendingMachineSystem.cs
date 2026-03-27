@@ -58,7 +58,6 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly BankSystem _bankSystem = default!; // Frontier
         [Dependency] private readonly PopupSystem _popupSystem = default!; // Frontier
         [Dependency] private readonly IAdminLogManager _adminLogger = default!; // Frontier
-        [Dependency] private readonly ContrabandTurnInSystem _contraband = default!; // Frontier
         [Dependency] private readonly StackSystem _stack = default!; // Frontier
         [Dependency] private readonly VendingMachinePurchaseSystem _vendingPurchase = default!; // Mono
 
@@ -470,7 +469,7 @@ namespace Content.Server.VendingMachines
             if (vendComponent.Ejecting)
                 return;
 
-            if (vendComponent.EjectRandomCounter <= 0)
+            if (vendComponent.EjectRandomCounter < 1)
             {
                 _audioSystem.PlayPvs(_audioSystem.GetSound(vendComponent.SoundDeny), uid);
                 _popupSystem.PopupEntity(Loc.GetString("vending-machine-component-try-eject-access-abused"), uid, PopupType.MediumCaution);
@@ -493,6 +492,15 @@ namespace Content.Server.VendingMachines
             }
             else
                 TryEjectVendorItem(uid, item.Type, item.ID, throwItem, vendComponent);
+
+            //Mono: revise frontier vend protection, allow max vends below 2, add probability for extra freebies
+            if (_random.Prob(vendComponent.EjectNoCountChance))
+                return;
+
+            if (vendComponent.EjectRandomCounter == vendComponent.EjectRandomMax)
+                vendComponent.EjectNextChargeTime = _timing.CurTime + vendComponent.EjectRechargeDuration;
+            //Mono end
+
             vendComponent.EjectRandomCounter -= 1;
         }
 
@@ -535,8 +543,6 @@ namespace Content.Server.VendingMachines
             }
 
             var ent = Spawn(vendComponent.NextItemToEject, spawnCoordinates);
-
-            _contraband.ClearContrabandValue(ent); // Frontier
 
             // Mono: Track vending machine purchases for pricing modifications
             // Only track if this was a paid purchase (not a random eject or force eject)

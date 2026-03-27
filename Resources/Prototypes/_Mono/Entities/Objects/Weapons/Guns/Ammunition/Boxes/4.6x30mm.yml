@@ -188,7 +188,7 @@
     shape:
     - 0,0,1,1
   - type: BallisticAmmoProvider
-    capacity: 280 # 8 mags per box similar to rifle box
+    capacity: 240 # 3x ammo box
     proto: Cartridge46x30mmFMJ
   - type: Sprite
     layers:

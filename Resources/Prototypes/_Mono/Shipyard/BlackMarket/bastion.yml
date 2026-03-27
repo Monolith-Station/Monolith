@@ -1,0 +1,36 @@
+#Author: originally made by plethorian on Discord, revamped by burrkeye on Github, burkia on Discord.
+
+- type: vessel
+  id: Bastion
+  parent: BaseVesselAntag
+  name: PDV Bastion
+  description: A long ranged design using 2 Hydra 220mm Cannons and 4 AK570 57mm autocannons, stand firm and sink the invaders.
+  price: 95500
+  category: Medium
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/bastion.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Bastion
+  mapName: 'PDV Bastion'
+  mapPath: /Maps/_Mono/Shuttles/BlackMarket/bastion.yml
+  minPlayers: 0
+  stations:
+    Bastion:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Bastion PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

@@ -4,7 +4,7 @@
   graph:
   - node: start
     edges:
-    - to: spyglass
+    - to: finish
       steps:
       - tool: Anchoring
         doAfter: 1
@@ -182,6 +182,30 @@
           key: "enum.MechAssemblyVisuals.State"
           data: 17
 
+  - node: finish
+    edges:
+    - to: spyglass
+      steps:
+      - tool: Welding
+        doAfter: 1
+    - to: tsfspyglass
+      steps:
+      - tag: MechIFFTSF
+        name: TSF Mech IFF
+        icon:
+          sprite: Objects/Specific/Mech/mecha_equipment.rsi
+          state: tesla
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
+    - to: pdvspyglass
+      steps:
+      - tag: MechIFFPDV
+        name: PDV Mech IFF
+        icon:
+          sprite: Objects/Specific/Mech/mecha_equipment.rsi
+          state: tesla
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
@@ -189,3 +213,13 @@
     actions:
     - !type:BuildMech
       mechPrototype: AFFlailE
+
+  - node: tsfspyglass
+    actions:
+    - !type:BuildMech
+      mechPrototype: AFFlailETSF
+
+  - node: pdvspyglass
+    actions:
+    - !type:BuildMech
+      mechPrototype: AFFlailEPDV
