@@ -1,6 +1,23 @@
 - type: npcFaction
+  id: CC
+  friendly:
+  - MD
+  neutral:
+  - TSFMC
+  - NanoTrasen
+  - MD
+  - Cat
+  - PetsNT
+  - SimpleNeutral
+  - PDV
+  - USSP
+  - PirateNF
+  defaultHostile: true
+
+- type: npcFaction
   id: TSFMC
   neutral:
+  - CC
   - NanoTrasen
   - SimpleNeutral
   defaultHostile: true
@@ -10,6 +27,7 @@
   friendly:
   - TSFMC
   neutral:
+  - CC
   - NanoTrasen
   - Cat
   - PetsNT
@@ -21,6 +39,7 @@
 - type: npcFaction
   id: USSP
   neutral:
+  - CC
   - NanoTrasen
   - SimpleNeutral
   defaultHostile: true
@@ -39,7 +58,10 @@
 
 - type: npcFaction
   id: MD
+  friendly:
+  - CC
   neutral:
+  - CC
   - NanoTrasen
   - SimpleNeutral
   - Cat
