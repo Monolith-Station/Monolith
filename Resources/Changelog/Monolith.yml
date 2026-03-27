@@ -18940,3 +18940,12 @@ Entries:
   id: 2090
   time: '2026-03-27T17:58:07.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3570
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Heavy ballistic turrets now use 51mm antimaterial instead of 65mm.
+        Firerate 5 -> 4.5 Projectile speed 100 -> 65.
+  id: 2091
+  time: '2026-03-27T19:26:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3461
