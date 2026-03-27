@@ -25,7 +25,7 @@ public sealed class BorgSelectTypeUserInterface : BoundUserInterface
         base.Open();
         //Mono: Selectable borg whitelist
         EntMan.TryGetComponent<BorgSwitchableTypeComponent>(Owner, out var comp);
-        var whitelist = comp?.TypeWhitelist;
+        var whitelist = comp?.TypeWhitelist ?? [];
 
         _menu = this.CreateWindow<BorgSelectTypeMenu>();
         _menu.Populate(whitelist); //Mono

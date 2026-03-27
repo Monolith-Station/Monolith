@@ -19,7 +19,6 @@ public sealed partial class StationJobsSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IBanManager _banManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!; // Frontier
     [Dependency] private readonly PlayTimeTrackingSystem _playTime = default!; // Frontier
 
     private Dictionary<int, HashSet<string>> _jobsByWeight = default!;
@@ -303,7 +302,7 @@ public sealed partial class StationJobsSystem
             _random.Shuffle(givenStations);
 
             // Frontier: get player session
-            _playerManager.TryGetSessionById(player, out var nfSession);
+            _player.TryGetSessionById(player, out var nfSession);
             // End Frontier
 
             foreach (var station in givenStations)

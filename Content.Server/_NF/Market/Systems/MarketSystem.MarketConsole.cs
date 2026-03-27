@@ -296,9 +296,7 @@ public sealed partial class MarketSystem
         else
         {
             var maxQuantityToWithdraw = marketData.GetMaxQuantityToWithdraw(prototype);
-            var toWithdraw = args.Amount;
-            if (args.Amount > maxQuantityToWithdraw)
-                toWithdraw = maxQuantityToWithdraw;
+            var toWithdraw = MathHelper.Clamp(args.Amount, 1, maxQuantityToWithdraw);
 
             var existing = FindMarketDataByPrototype(marketData, args.ItemPrototype!);
             if (existing == null)

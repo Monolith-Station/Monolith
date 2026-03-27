@@ -5,7 +5,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckNovaSharksLeatherJacket
   name: Nova Sharks leather jacket
-  description: A leather jacket for any affiliated members of The Nova Sharks. Fits comfortably over most suits and rough enough to never bend to authority. 
+  description: A leather jacket for any affiliated members of The Nova Sharks. Fits comfortably over most suits and rough enough to never bend to authority.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Misc/NS-leather-jacket.rsi
@@ -31,3 +31,74 @@
   - type: TemperatureProtection
     heatingCoefficient: 1.1
     coolingCoefficient: 0.5
+
+- type: entity
+  parent: ClothingNeckUllimanOvercoat
+  id: ClothingNeckHeavyUllimanOvercoat
+  name: heavy U.I. overcoat
+  description: A thicker, heavier verison of the U.I. overcoat, with even more synthetic fur for style.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Misc/heavyovercoat.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Misc/heavyovercoat.rsi
+
+# Bomb Collars
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBombCollar
+  name: bomb collar
+  suffix: Unremovable
+  description: A hardened, explosive collar that locks tight around the neck. When signaled, detonates after a delay of 5 seconds. Useful to keep people in line.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Misc/bomb-collar.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Misc/bomb-collar.rsi
+    stripDelay: 15
+    equipDelay: 5 # to avoid accidentally falling into the trap associated with SelfUnremovableClothing
+    unequipDelay: 30
+  - type: UnremovableClothing
+  - type: TimerStartOnSignal
+  - type: AutomatedTimer
+  - type: OnUseTimerTrigger
+    delay: 5
+    initialBeepDelay: 0
+    beepSound: /Audio/Machines/timer.ogg
+  - type: DeviceLinkSink
+    ports:
+      - Timer
+  - type: Explosive
+    explosionType: Minibomb #you may survive with a bombsuit lol
+    totalIntensity: 50
+    intensitySlope: 40
+    maxIntensity: 50
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
+  - type: SpamEmitSound
+    minInterval: 360
+    maxInterval: 1800
+    sound: /Audio/Machines/timer.ogg
+  - type: Tag
+    tags:
+      - BombCollar
+
+- type: entity
+  parent: ClothingNeckBombCollar
+  id: ClothingNeckNukeCollar
+  name: nuke collar
+  suffix: Unremovable, Admin, Admeme
+  description: A hardened, explosive collar with a mini-nuke attached. Mildly radioactive.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Misc/nuke-collar.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Misc/nuke-collar.rsi
+  - type: Explosive
+    explosionType: Minibomb # uh oh
+    totalIntensity: 5000
+    intensitySlope: 20
+    maxIntensity: 500
+  - type: RadiationSource
+    intensity: 0.2

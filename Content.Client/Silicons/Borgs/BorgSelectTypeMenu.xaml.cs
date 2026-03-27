@@ -43,12 +43,9 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
     //  foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>().OrderBy(PrototypeName))
     // Mono: Selectable borg whitelist
-    public void Populate(IReadOnlyList<ProtoId<BorgTypePrototype>>? whitelist = null)
+    public void Populate(IReadOnlyList<ProtoId<BorgTypePrototype>> whitelist)
     {
-        IEnumerable<BorgTypePrototype> types = _prototypeManager.EnumeratePrototypes<BorgTypePrototype>().OrderBy(PrototypeName);
-        if (whitelist is { Count: > 0 })
-            types = types.Where(t => whitelist.Contains(new ProtoId<BorgTypePrototype>(t.ID)));
-
+        IEnumerable<BorgTypePrototype> types = whitelist.Select(id => _prototypeManager.Index(id)).OrderBy(PrototypeName);
         foreach (var borgType in types)
         // Mono: Selectable borg whitelist end
         {
