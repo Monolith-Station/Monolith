@@ -18949,3 +18949,18 @@ Entries:
   id: 2091
   time: '2026-03-27T19:26:23.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3461
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: >-
+        Installs anti-chimera/hostile mob turrets to CC and MD to guard
+        cryosleep chambers using RIP ammo.
+    - type: Tweak
+      message: Grids with godmode no longer godmode turrets.
+    - type: Tweak
+      message: Turrets are now repairable via welder.
+    - type: Fix
+      message: Turrets no longer shoot mice.
+  id: 2092
+  time: '2026-03-27T21:57:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3582
