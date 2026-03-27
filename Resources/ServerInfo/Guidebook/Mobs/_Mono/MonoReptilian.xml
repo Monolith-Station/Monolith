@@ -8,7 +8,7 @@
 
   ## Food
   Reptilians are capable of eating raw meat, but will get ill from consuming chocolate or any other food containing theobromine.
-  
+
 
   ## Physical properties
   They can drag objects with their tail, keeping both their hands free.
@@ -25,24 +25,22 @@
   - Stage 1 - [color=#FFA500]11 slash damage.[/color] [color=#FFDEAD]Gun spread is increased by 10%, Handheld weapon damage is decreased by 5%[/color]
   - Stage 2 - [color=#FFA500]13 slash damage, 2 piercing damage.[/color] [color=#FFDEAD]Gun spread is increased by 25%, Handheld weapon damage is decreased by 13%.[/color] Starting from this stage, you are capable of wideswinging with your claws
   - Stage 3 - [color=#FFA500]15 slash damage, 5 piercing damage.[/color] [color=#FFDEAD]Gun spread is increased by 45%, Handheld weapon damage is decreased by 25%[/color]
-  - Stage 4 - [color=#FFA500]18 slash damage, 12 piercing damage.[/color] [color=#FFDEAD]You are not capable of using guns anymore, Handheld weapon damage is decreased by 50%[/color]
+  - Stage 4 - [color=#FFA500]18 slash damage, 12 piercing damage.[/color] [color=#FFDEAD]You are not capable of using all guns but bows anymore, Handheld weapon damage is decreased by 50%.[/color]
 
   ### Cutting Claws
 
-  Using [color=#FFA500]wirecutters[/color], you can cut Reptilian's claws, reducing their stage by 1.
+  Using [color=#FFA500]wirecutters[/color], you can cut Reptilian's claws, reducing their stage by 1 and resetting the current growth progress.
 
   <Box>
     <GuideEntityEmbed Entity="Wirecutter" Caption=""/>
   </Box>
 
-  ### Declaw
-  Reptilian claws can be ripped out, instantly setting claw stage to 0 and freezing growth, but there are consequences of this action.
+  ### Chemicals
 
-  - You can deal only [color=#FFA500]3 blunt[/color] with your hands.
-  - You can't hold items in hand for longer than [color=#FF0000]30 seconds[/color]. Doing so will result into items being [color=#FF0000]dropped[/color].
-  - There is a [color=#FF0000]3%[/color] chance to drop melee weapon on hit.
+  Certain chemicals allow greater control over Reptilian claw growth. Phenoxzine boosts claw growth by 20x, while Meroxzine pauses all claw growth entirely. Both metabolize slowly, allowing long term usage to be effective.
 
-  Currently there's no tool that is capable of performing declaw in the colossus sector.
+  <GuideReagentEmbed Reagent="Phenoxzine"/>
+  <GuideReagentEmbed Reagent="Meroxzine"/>
 
   ## Temperature
 
