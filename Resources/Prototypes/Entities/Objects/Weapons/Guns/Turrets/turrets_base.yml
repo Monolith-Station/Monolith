@@ -35,8 +35,8 @@
   - type: Damageable
     damageContainer: Inorganic
   - type: Repairable # Mono - Repairable turrets
-    fuelCost: 40
-    doAfterDelay: 20
+    fuelCost: 20
+    doAfterDelay: 15
   - type: Destructible
     thresholds:
     - trigger:
