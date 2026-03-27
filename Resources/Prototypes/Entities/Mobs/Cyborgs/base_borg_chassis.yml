@@ -47,8 +47,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Critical # Monolith
-      250: Dead # Monolith
+      200: Critical # Monolith
+      300: Dead # Monolith
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
@@ -191,7 +191,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 100 # Monolith
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -200,7 +200,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-         damage: 350 # Monolith
+         damage: 400 # Monolith
       behaviors:
       - !type:PlaySoundBehavior
         sound:
