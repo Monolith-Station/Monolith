@@ -9,7 +9,9 @@
     - id: UnknownShuttleWyrmApoc
     - id: UnknownShuttleNebulaApoc
     - id: UnknownShuttleWyvernApoc
-    - id: UnknownShuttleRazorNApoc
+    - id: UnknownShuttleLancerNApoc
+    - id: UnknownShuttleLancerApoc
+    - id: UnknownShuttleFencerApoc
 
 - type: entity
   parent: BaseRandomShuttleRule
@@ -95,7 +97,7 @@
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 3
-    maxOccurrences: 4
+    maxOccurrences: 6
   - type: GameRule
     minPlayers: 15
   - type: LoadMapRule
@@ -110,7 +112,7 @@
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 3
-    maxOccurrences: 4
+    maxOccurrences: 6
   - type: GameRule
     minPlayers: 15
   - type: LoadMapRule

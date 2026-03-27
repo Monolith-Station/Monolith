@@ -100,7 +100,7 @@
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 3
-    maxOccurrences: 4
+    maxOccurrences: 5
   - type: GameRule
     minPlayers: 15
   - type: LoadMapRule
@@ -115,7 +115,7 @@
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 3
-    maxOccurrences: 4
+    maxOccurrences: 5
   - type: GameRule
     minPlayers: 15
   - type: LoadMapRule
