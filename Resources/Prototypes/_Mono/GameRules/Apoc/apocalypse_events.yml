@@ -88,7 +88,37 @@
 
 - type: entity
   parent: BaseRandomShuttleRule
-  id: UnknownShuttleRazorNApoc
+  id: UnknownShuttleLancerApoc
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-ai-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 3
+    maxOccurrences: 4
+  - type: GameRule
+    minPlayers: 15
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/lancer.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleFencerApoc
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-ai-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 3
+    maxOccurrences: 4
+  - type: GameRule
+    minPlayers: 15
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/fencer.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleLancerNApoc
   components:
   - type: StationEvent
     startAnnouncement: station-event-ai-shuttle-detected
@@ -99,4 +129,4 @@
   - type: GameRule
     minPlayers: 10
   - type: LoadMapRule
-    gridPath: /Maps/_Mono/ShuttleEvent/razorn.yml
+    gridPath: /Maps/_Mono/ShuttleEvent/lancern.yml

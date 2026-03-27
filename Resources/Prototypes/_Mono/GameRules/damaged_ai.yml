@@ -89,7 +89,7 @@
   - type: GameRule
     minPlayers: 15
   - type: LoadMapRule
-    preloadedGrid: AILancerN
+    gridPath: /Maps/_Mono/ShuttleEvent/lancern.yml
 
 - type: entity
   parent: BaseRandomShuttleRule
@@ -104,7 +104,7 @@
   - type: GameRule
     minPlayers: 15
   - type: LoadMapRule
-    preloadedGrid: AILancer
+    gridPath: /Maps/_Mono/ShuttleEvent/lancer.yml
 
 - type: entity
   parent: BaseRandomShuttleRule
@@ -119,7 +119,8 @@
   - type: GameRule
     minPlayers: 15
   - type: LoadMapRule
-    preloadedGrid: AIFencer
+    gridPath: /Maps/_Mono/ShuttleEvent/fencer.yml
+
 
 - type: entity
   parent: BaseRandomShuttleRule
