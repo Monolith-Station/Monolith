@@ -20,7 +20,7 @@
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 7
-    maxOccurrences: 4
+    maxOccurrences: 6
   - type: GameRule
     minPlayers: 32
   - type: LoadMapRule
@@ -35,7 +35,7 @@
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 7
-    maxOccurrences: 2
+    maxOccurrences: 6
   - type: GameRule
     minPlayers: 10
   - type: LoadMapRule
@@ -79,8 +79,8 @@
     startAnnouncement: station-event-ai-capital-detected
     startAudio:
       path: /Audio/Misc/delta_alt.ogg
-    weight: 1 # Lower since it can spawn at any time in round on apoc, and it can spawn three times max.
-    maxOccurrences: 1
+    weight: 3 # Lower since it can spawn at any time in round on apoc, and it can spawn three times max.
+    maxOccurrences: 3
   - type: GameRule
     minPlayers: 30
   - type: LoadMapRule
