@@ -18,8 +18,8 @@
   supervisors: job-supervisors-bailiff
   weight: 125
   displayWeight: 35
+  assignedCompany: TSF
   canBeAntag: false
-  guides: [ BasicLore, TransSolarFederation ] # Mono
   accessGroups:
   - GeneralNfsdBrigmedicAccess
   special:
