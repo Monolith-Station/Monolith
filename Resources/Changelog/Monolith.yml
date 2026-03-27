@@ -18913,3 +18913,39 @@ Entries:
   id: 2087
   time: '2026-03-27T05:49:14.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3524
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Hydrakin head displacement improved slightly
+  id: 2088
+  time: '2026-03-27T07:19:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3575
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Updates Reptilian Guidebook with recent changes.
+  id: 2089
+  time: '2026-03-27T07:20:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3565
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Reenabled apocalypse gamemode.
+    - type: Tweak
+      message: Apocalypse now requires a 80% majority vote.
+    - type: Tweak
+      message: Some events can now trigger earlier.
+    - type: Fix
+      message: Fixed biothreat spawning chimera only 3 hours in. Now 1 hour.
+  id: 2090
+  time: '2026-03-27T17:58:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3570
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Heavy ballistic turrets now use 51mm antimaterial instead of 65mm.
+        Firerate 5 -> 4.5 Projectile speed 100 -> 65.
+  id: 2091
+  time: '2026-03-27T19:26:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3461
