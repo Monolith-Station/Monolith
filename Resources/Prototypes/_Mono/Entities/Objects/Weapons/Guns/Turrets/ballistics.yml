@@ -66,6 +66,15 @@
 
 - type: entity
   parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyCC
+  suffix: CC, Colossus
+  components:
+  - type: NpcFactionMember
+    factions:
+    - CC
+
+- type: entity
+  parent: BallisticTurretHeavyBase
   id: WeaponTurretHeavyNanoTrasen
   suffix: NanoTrasen
   components:
@@ -154,6 +163,15 @@
     fireCost: 25
 
 # Faction Based
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPCC
+  suffix: CC, Colossus
+  components:
+  - type: NpcFactionMember
+    factions:
+    - CC
 
 - type: entity
   parent: WeaponTurretHeavyRIPBase
