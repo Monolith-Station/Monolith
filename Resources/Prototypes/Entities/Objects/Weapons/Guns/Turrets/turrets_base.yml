@@ -37,6 +37,9 @@
   - type: Repairable # Mono - Repairable turrets
     fuelCost: 20
     doAfterDelay: 15
+    qualities:
+    - Welding
+    - Applicating
   - type: Destructible
     thresholds:
     - trigger:
