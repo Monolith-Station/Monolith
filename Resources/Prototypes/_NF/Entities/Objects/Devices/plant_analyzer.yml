@@ -23,8 +23,7 @@
         type: PlantAnalyzerBoundUserInterface
   - type: PlantAnalyzer
     settings:
-      scanDelay: 4 #Mono 10 >> 4
-      advScanDelay: 6 #Mono 20 >> 6
+      scanDelay: 0.8
     scanningEndSound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
   - type: Appearance
@@ -37,29 +36,4 @@
 
 - type: entity
   id: PlantAnalyzer
-  parent: [BasePlantAnalyzer, PowerCellSlotSmallItem]
-  components:
-  - type: PowerCellDraw
-    drawRate: 0
-    useRate: 40
-  - type: ActivatableUIRequiresPowerCell
-
-- type: entity
-  id: PlantAnalyzerEmpty
-  parent: PlantAnalyzer
-  suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-
-- type: entity
-  id: PlantAnalyzerDebug
-  parent: BasePlantAnalyzer
-  suffix: Debug
-  components:
-  - type: PlantAnalyzer
-    settings:
-      scanDelay: 0.1
-      advScanDelay: 0.5
+  parent: [BasePlantAnalyzer]
