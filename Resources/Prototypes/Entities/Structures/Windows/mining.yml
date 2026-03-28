@@ -86,7 +86,7 @@
         mask:
         - FullTileMask
         layer:
-        - DiagonalGlassLayer
+        - DiagonalGlassLayer # Mono GlassLayer->DiagonalGlassLayer
   - type: Airtight
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:
