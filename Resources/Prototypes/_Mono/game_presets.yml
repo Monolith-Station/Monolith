@@ -120,7 +120,8 @@
   id: MonoAllAtOnce
   name: mono-allatonce-title
   description: mono-allatonce-description
-  showInVote: false # Bad idea sir! Don't let this happen again.
+  showInVote: true # we ball
+  weight: 0.25 # requires 80% votes
   rules:
   - NFAdventure
   - BasicStationEventScheduler

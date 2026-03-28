@@ -400,17 +400,6 @@
     drawdepth: Walls
     sprite: _Mono/Structures/Walls/rplas_diagonal.rsi
     state: state0
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-        density: 500 # No ram-meta
   - type: Destructible
     thresholds:
     - trigger:
