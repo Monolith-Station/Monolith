@@ -358,8 +358,8 @@ namespace Content.Server.RoundEnd
                                         : _cfg.GetCVar(CCVars.EmergencyShuttleAutoCallTime));
 
             // Mono
-            var query = EntityQueryEnumerator<RoundEndTimeRuleComponent>();
-            while (query.MoveNext(out _, out var endTimeComp))
+            var query = EntityQueryEnumerator<RoundEndTimeRuleComponent, ActiveGameRuleComponent>();
+            while (query.MoveNext(out _, out var endTimeComp, var _))
             {
                 mins = endTimeComp.EndAt;
             }
