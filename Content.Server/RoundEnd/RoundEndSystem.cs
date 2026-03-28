@@ -354,9 +354,17 @@ namespace Content.Server.RoundEnd
         public override void Update(float frameTime)
         {
             // Check if we should auto-call.
-            int mins = _autoCalledBefore ? _cfg.GetCVar(CCVars.EmergencyShuttleAutoCallExtensionTime)
-                                        : _cfg.GetCVar(CCVars.EmergencyShuttleAutoCallTime);
-            if (mins != 0 && _gameTiming.CurTime - AutoCallStartTime > TimeSpan.FromMinutes(mins))
+            var mins = TimeSpan.FromMinutes(_autoCalledBefore ? _cfg.GetCVar(CCVars.EmergencyShuttleAutoCallExtensionTime)
+                                        : _cfg.GetCVar(CCVars.EmergencyShuttleAutoCallTime));
+
+            // Mono
+            var query = EntityQueryEnumerator<RoundEndTimeRuleComponent>();
+            while (query.MoveNext(out _, out var endTimeComp))
+            {
+                mins = endTimeComp.EndAt;
+            }
+
+            if (mins.TotalSeconds != 0 && _gameTiming.CurTime - AutoCallStartTime > mins)
             {
                 if (!_shuttle.EmergencyShuttleArrived && ExpectedCountdownEnd is null)
                 {
