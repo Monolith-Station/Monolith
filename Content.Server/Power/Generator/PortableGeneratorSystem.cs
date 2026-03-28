@@ -83,7 +83,7 @@ public sealed class PortableGeneratorSystem : SharedPortableGeneratorSystem
         {
             BreakOnDamage = true,
             BreakOnMove = true,
-            NeedHand = false, // Mono edit
+            NeedHand = true,
             BreakOnDropItem = false,
         });
     }
