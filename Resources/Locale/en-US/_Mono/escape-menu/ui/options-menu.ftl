@@ -27,11 +27,6 @@ ui-options-function-open-pocket2 = Open 2nd pocket
 ui-options-function-open-suit-storage = Open shoulder storage
 ui-options-function-open-outer-clothing = Open armor storage
 
-## Accessibility — chat highlights
-ui-options-auto-fill-highlights = Automatically fill highlights with character name and job keywords
-ui-options-highlights-color = Highlight color
-ui-options-highlights-color-example = Example highlighted text
-
 ui-options-general-area-echo = Area echo
 ui-options-area-echo-enabled = Apply echo to audio in large open spaces
 ui-options-area-echo-highres = Use improved but slower calculations for echoes, if enabled
