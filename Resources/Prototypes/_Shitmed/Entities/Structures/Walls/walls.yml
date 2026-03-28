@@ -65,7 +65,7 @@
         mask:
         - FullTileMask
         layer:
-        - WallLayer
+        - DiagonalWallLayer
         density: 7500
   - type: Construction
     graph: Girder
