@@ -11,12 +11,12 @@
   description: An "Experimental" civilian Starliner design, developed with the ability to sell goods on its rear in a compact storage module! Just dont mind the military IFF. Supposedly manufactured by a certain shady weapons corporation 
   price: 290000 # 210K base + 80K markup
   category: Large
-  group: Shipyard
+  group: Scrap
   access: Mercenary
   shuttlePath: /Maps/_Mono/Shuttles/Scrap/merchant.yml
   guidebookPage: Null
   class:
-  - pursuit
+  - capital
   - Scrapyard
   engine:
   - AME
