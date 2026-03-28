@@ -18973,3 +18973,49 @@ Entries:
   id: 2093
   time: '2026-03-28T06:41:55.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3585
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Diagonal Walls/Windows no longer prevent destruction of kudzu/chimera
+        biomass.
+  id: 2094
+  time: '2026-03-28T16:17:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3588
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Death rattle is properly working on grids and planets now
+    - type: Tweak
+      message: >-
+        IPC received system update: Their chassis now becomes more vulnerable to
+        all damage sources instead of losing hands on discharge.
+    - type: Tweak
+      message: Kobolds and Monkeys are now capable of piloting shuttles.
+    - type: Tweak
+      message: Capacitors required for thruster construction/upgrade 4 -> 1.
+    - type: Tweak
+      message: Ore/construction box/bag dumping speed is significantly faster now.
+    - type: Tweak
+      message: Security techfab now includes Mercenary techfab dynamic recipes.
+    - type: Fix
+      message: You actually get the mech pulse rifle in the TSFMC uplink now
+    - type: Tweak
+      message: Salt is now capable of being reprocessed into iron ore.
+  id: 2095
+  time: '2026-03-28T16:21:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3587
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Thruster capacitor upgrades made more impactful.
+  id: 2096
+  time: '2026-03-28T16:42:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3589
+- author: Vinny-Shick
+  changes:
+    - type: Tweak
+      message: Slightly Buffed the Vanyk
+  id: 2097
+  time: '2026-03-28T16:45:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3574
