@@ -338,6 +338,7 @@ namespace Content.Server.Shuttles.Systems
             RaiseLocalEvent(dockAUid, msg);
             RaiseLocalEvent(dockBUid, msg);
             RaiseLocalEvent(msg);
+
         }
 
         /// <summary>

@@ -105,6 +105,27 @@
         !type:DockablePipeNode
         nodeGroupID: Pipe
         pipeDirection: South
+      hvInternal:
+        !type:GaslockPowerBridgeNode
+        nodeGroupID: HVPower
+        dockNode: hvDock
+      mvInternal:
+        !type:GaslockPowerBridgeNode
+        nodeGroupID: MVPower
+        dockNode: mvDock
+      lvInternal:
+        !type:GaslockPowerBridgeNode
+        nodeGroupID: Apc
+        dockNode: lvDock
+      hvDock:
+        !type:DockableCableNode
+        nodeGroupID: HVPower
+      mvDock:
+        !type:DockableCableNode
+        nodeGroupID: MVPower
+      lvDock:
+        !type:DockableCableNode
+        nodeGroupID: Apc
   - type: UserInterface
     interfaces:
         enum.GasPressurePumpUiKey.BidiKey:
@@ -129,6 +150,13 @@
   - type: AtmosAlertsDevice
     group: Gaslock
   - type: AtmosAlarmable
+  - type: GaslockPowerBridge
+  - type: PowerMonitoringDevice
+    group: Gaslock
+    sourceNode: hvInternal
+    loadNode: hvInternal
+    sprite: _NF/Structures/Piping/Atmospherics/gaslock.rsi
+    state: closed_unlit
   - type: DeviceNetwork
     deviceNetId: AtmosDevices
     receiveFrequencyId: AtmosMonitor

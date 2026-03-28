@@ -337,12 +337,22 @@ public sealed partial class PowerMonitoringWindow
                 MasterTabContainer.CurrentTab = 2; break;
             case PowerMonitoringConsoleGroup.APC:
                 MasterTabContainer.CurrentTab = 3; break;
+            case PowerMonitoringConsoleGroup.Gaslock:
+                MasterTabContainer.CurrentTab = 4; break;
         }
     }
 
     private PowerMonitoringConsoleGroup GetCurrentPowerMonitoringConsoleGroup()
     {
-        return (PowerMonitoringConsoleGroup) MasterTabContainer.CurrentTab;
+        return MasterTabContainer.CurrentTab switch
+        {
+            0 => PowerMonitoringConsoleGroup.Generator,
+            1 => PowerMonitoringConsoleGroup.SMES,
+            2 => PowerMonitoringConsoleGroup.Substation,
+            3 => PowerMonitoringConsoleGroup.APC,
+            4 => PowerMonitoringConsoleGroup.Gaslock,
+            _ => PowerMonitoringConsoleGroup.Generator,
+        };
     }
 }
 
