@@ -29,6 +29,12 @@ public sealed partial class NpcFactionPrototype : IPrototype
     /// </summary>
     [DataField]
     public bool DefaultHostile = false;
+
+    /// <summary>
+    /// Mono - Is this faction checked for default hostility?
+    /// </summary>
+    public bool DefaultHostileIncluded = true;
+
 }
 
 /// <summary>

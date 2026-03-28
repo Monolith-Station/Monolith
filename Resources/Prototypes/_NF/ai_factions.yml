@@ -9,26 +9,33 @@
 
 - type: npcFaction
   id: Dwarf
+  defaultHostileIncluded: false
 
 - type: npcFaction
   id: Felinid
+  defaultHostileIncluded: false
 
 - type: npcFaction
   id: Harpy
+  defaultHostileIncluded: false
 
 - type: npcFaction
   id: Cat
   hostile:
   - Mouse
+  defaultHostileIncluded: false
 
 - type: npcFaction
   id: Chicken
+  defaultHostileIncluded: false
 
 - type: npcFaction
   id: Monkey
+  defaultHostileIncluded: false
 
 - type: npcFaction
   id: Goblin
+  defaultHostileIncluded: false
 
 - type: npcFaction
   id: SyndicateNF
@@ -84,6 +91,7 @@
 - type: npcFaction
   id: ContrabandClothing
   defaultHostile: true
+  defaultHostileIncluded: false
 
 - type: npcFaction
   id: ContrabandDetection

@@ -1,18 +1,9 @@
 - type: npcFaction
   id: CC
-  friendly:
-  - MD
-  neutral:
-  - TSFMC
-  - NanoTrasen
-  - MD
-  - Cat
-  - PetsNT
-  - SimpleNeutral
-  - USSP
-  - PirateNF
-  - Mouse
-  defaultHostile: true
+  hostile:
+  - SimpleHostile
+  - Zombie
+  - Chimera
 
 - type: npcFaction
   id: TSFMC
