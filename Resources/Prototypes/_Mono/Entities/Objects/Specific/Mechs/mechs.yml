@@ -207,10 +207,10 @@
     openState: broadsword-open
     brokenState: broadsword-broken
     mechToPilotDamageMultiplier: 0
-    criticalPowerStateSpeedPenalty: 0.85
+    criticalPowerStateSpeedPenalty: 0.75
     maxEquipmentAmount: 3
     airtight: true
-    maxIntegrity: 1500
+    maxIntegrity: 1750
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -251,7 +251,7 @@
     requireNoGrid: true
     shape: square
   - type: Damageable
-    damageModifierSet: MechArmorMedium
+    damageModifierSet: MechArmorHeavy
   - type: Repairable
     fuelCost: 40
     doAfterDelay: 30
@@ -323,9 +323,9 @@
 
 - type: entity
   id: AFInterceptorM
-  parent: [LightMultiroleMount, AFInterceptor]
+  parent: [MediumMechMount, AFInterceptor]
   name: AF-28-M "Halberd"
-  description: A modification of the Broadsword, the Halberd sacrifices armor and speed for heavier weapon mounts.
+  description: A modification of the Broadsword, the Halberd sacrifices light weapon mounts and speed for more armor and medium weapon mounts..
   components:
   - type: Mech
     baseState: broadsword
@@ -335,7 +335,7 @@
     criticalPowerStateSpeedPenalty: 0.85
     maxEquipmentAmount: 3
     airtight: true
-    maxIntegrity: 1100
+    maxIntegrity: 2150
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -345,7 +345,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1600
+        damage: 3000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -360,7 +360,7 @@
     baseSprintSpeed: 1.33
     baseWeightlessModifier: 50
   - type: Damageable
-    damageModifierSet: MechArmorLight
+    damageModifierSet: MechArmorHeavy
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -391,92 +391,6 @@
   parent: AFInterceptorM
   name: PDV AF-28-M "Halberd"
   description: A modification of the Broadsword, the Halberd sacrifices armor and speed for heavier weapon mounts.
-  components:
-  - type: Mech
-    baseState: pdvbroadsword
-    openState: pdvbroadsword-open
-    brokenState: pdvbroadsword-broken
-  - type: RadarBlip
-    radarColor: "#ffde21"
-    scale: 3
-    requireNoGrid: true
-    shape: square
-
-#Sabre
-- type: entity
-  id: AFInterceptorG
-  parent: [LightMultiroleMount, AFInterceptor]
-  name: AF-28-G "Sabre"
-  description: A modification of the Broadsword, the Sabre sacrifices it's jetpack and spaceproof shielding to function on planets. Has two hardpoints, which can carry Light or Medium hardpoints.
-  components:
-  - type: Mech
-    baseState: broadsword
-    openState: broadsword-open
-    brokenState: broadsword-broken
-    mechToPilotDamageMultiplier: 0
-    criticalPowerStateSpeedPenalty: 0.45
-    maxEquipmentAmount: 3
-    airtight: false
-    maxIntegrity: 1400
-    pilotWhitelist:
-      components:
-        - HumanoidAppearance
-        - BorgChassis
-    zoom: 1.15, 1.15 # its a ground mech.
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 2000
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:ChangeConstructionNodeBehavior
-        node: start
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  # Terrible radar, mostly good for navigating planets
-  - type: RadarConsole
-    followEntity: true
-  - type: DetectionRangeMultiplier
-    infraredMultiplier: 0.5
-    visualMultiplier: 0.75
-  # Only ground-based mecha so far. Don't use it in space. Can't move in space.
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 6
-    baseWeightlessModifier: 0.66 # Barely usable in space.
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-    - FootstepSound
-    - Sabre
-    - MilitaryMechBounty
-
-#TSF Sabre
-- type: entity
-  id: AFInterceptorGTSF
-  parent: AFInterceptorG
-  name: TSF AF-28-G "Sabre"
-  description: A modification of the Broadsword, the Sabre sacrifices it's jetpack and spaceproof shielding to function on planets. Has two hardpoints, which can carry Light or Medium hardpoints.
-  components:
-  - type: Mech
-    baseState: tsfbroadsword
-    openState: tsfbroadsword-open
-    brokenState: tsfbroadsword-broken
-  - type: RadarBlip
-    radarColor: "#047ABD"
-    scale: 3
-    requireNoGrid: true
-    shape: square
-
-#PDV Sabre
-- type: entity
-  id: AFInterceptorGPDV
-  parent: AFInterceptorG
-  name: PDV AF-28-G "Sabre"
-  description: A modification of the Broadsword, the Sabre sacrifices it's jetpack and spaceproof shielding to function on planets. Has two hardpoints, which can carry Light or Medium hardpoints.
   components:
   - type: Mech
     baseState: pdvbroadsword
