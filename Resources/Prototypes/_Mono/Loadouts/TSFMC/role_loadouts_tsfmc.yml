@@ -1,6 +1,6 @@
 # Nfsd
 - type: roleLoadout
-  id: JobCadet
+  id: JobCadet # Unused
   groups:
   - TsfmcHead
   - TsfmcNeck
@@ -82,7 +82,7 @@
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobBailiff
+  id: JobBailiff # Captain
   groups:
   - TsfmcHead
   - TsfmcNeckCaptain
