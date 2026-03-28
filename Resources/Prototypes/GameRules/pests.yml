@@ -25,19 +25,21 @@
     startAnnouncement: station-event-vent-creatures-nf-start-announcement # Frontier: add nf-
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 15
-    weight: 6
+    earliestStart: 20
+    weight: 2
+    reoccurrenceDelay: 90
     duration: 50
+    maxOccurrences: 1
   - type: VentCrittersRule
     entries:
     - id: MobMouse
-      prob: 0.05 # Mono
+      prob: 0.015 # Mono
     - id: MobMouse1
-      prob: 0.05 # Mono
+      prob: 0.015 # Mono
     - id: MobMouse2
-      prob: 0.05 # Mono
+      prob: 0.015 # Mono
     - id: MobMouseCancer
-      prob: 0.005 # Mono
+      prob: 0.001 # Mono
     specialEntries: # Mono
     - id: MobCorticalBorer # Mono
       prob: 0.001 # Mono
@@ -77,16 +79,18 @@
     startAnnouncement: station-event-vent-creatures-nf-start-announcement # Frontier: add nf-
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 6
+    weight: 2
+    reoccurrenceDelay: 90
     duration: 50
+    maxOccurrences: 1
   - type: VentCrittersRule
     entries:
     - id: MobCockroach
-      prob: 0.05 # Mono
+      prob: 0.015 # Mono
     - id: MobMothroach
-      prob: 0.005 # Mono
+      prob: 0.002 # Mono
     - id: MobRosyMothroach # Frontier
-      prob: 0.005 # Mono
+      prob: 0.002 # Mono
     specialEntries: # Mono
     - id: MobCorticalBorer # Mono
       prob: 0.001 # Mono
@@ -99,16 +103,18 @@
     startAnnouncement: station-event-vent-creatures-nf-start-announcement # Frontier: add nf-
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 6
+    weight: 2
+    reoccurrenceDelay: 90
     duration: 50
+    maxOccurrences: 1
   - type: VentCrittersRule
     entries:
     - id: MobSnail
-      prob: 0.05 # Mono
+      prob: 0.015 # Mono
     - id: MobSnailSpeed
-      prob: 0.005 # Mono
+      prob: 0.002 # Mono
     - id: MobSnailMoth
-      prob: 0.005 # Mono
+      prob: 0.002 # Mono
 
 - type: entity
   id: SnailMigration
@@ -118,20 +124,22 @@
     startAnnouncement: station-event-vent-creatures-nf-start-announcement # Frontier: add nf-
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 15
-    weight: 6
+    earliestStart: 20
+    weight: 2
+    reoccurrenceDelay: 90
     duration: 50
     minimumPlayers: 30
+    maxOccurrences: 1
   - type: VentCrittersRule
     entries:
     - id: MobSnail
-      prob: 0.05 # Mono
+      prob: 0.015 # Mono
     - id: MobSnailSpeed
-      prob: 0.005 # Mono
+      prob: 0.002 # Mono
     - id: MobSnailMoth
-      prob: 0.005 # Mono
+      prob: 0.002 # Mono
     - id: MobSnailInstantDeath
-      prob: 0.00001 #  ~ 1:2000 snails
+      prob: 0.000005 #  ~ 1:4000 snails
     specialEntries: # Mono
     - id: MobCorticalBorer # Mono
       prob: 0.001 # Mono
