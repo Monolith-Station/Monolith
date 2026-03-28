@@ -359,7 +359,7 @@ namespace Content.Server.RoundEnd
 
             // Mono
             var query = EntityQueryEnumerator<RoundEndTimeRuleComponent, ActiveGameRuleComponent>();
-            while (query.MoveNext(out _, out var endTimeComp, var _))
+            while (query.MoveNext(out _, out var endTimeComp, out _))
             {
                 mins = endTimeComp.EndAt;
             }
