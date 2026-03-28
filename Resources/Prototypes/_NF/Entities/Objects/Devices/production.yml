@@ -154,7 +154,7 @@
   - type: MachineBoard
     prototype: SmallThruster
     requirements:
-      Capacitor: 4
+      Capacitor: 1 # Mono 1<4
     stackRequirements:
       Steel: 5
   - type: StaticPrice
