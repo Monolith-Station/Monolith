@@ -1,6 +1,8 @@
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
+using Content.Server._NF.Power.EntitySystems;
+using Content.Shared._NF.Power.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.Nodes;
 using Content.Server.Power.NodeGroups;
@@ -22,6 +24,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
 {
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly SharedMapSystem _sharedMapSystem = default!;
+    [Dependency] private readonly GaslockPowerBridgeSystem _gaslockPowerBridge = default!;
 
     // Note: this data does not need to be saved
     private Dictionary<EntityUid, Dictionary<Vector2i, PowerCableChunk>> _gridPowerCableChunks = new();
@@ -315,6 +318,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
         var allEntries = new List<PowerMonitoringConsoleEntry>();
         var sourcesForFocus = new List<PowerMonitoringConsoleEntry>();
         var loadsForFocus = new List<PowerMonitoringConsoleEntry>();
+        PowerMonitoringFocusGaslockData? focusGaslock = null;
         var flags = component.Flags;
 
         // Reset RoguePowerConsumer flag
@@ -372,6 +376,11 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
         // Update the UI focus data (if applicable)
         if (component.Focus != null)
         {
+            if (TryComp<GaslockPowerBridgeComponent>(component.Focus, out var gaslockBridge))
+            {
+                _gaslockPowerBridge.TryGetFocusData(component.Focus.Value, out focusGaslock);
+            }
+
             if (TryComp<NodeContainerComponent>(component.Focus, out var nodeContainer) &&
                 TryComp<PowerMonitoringDeviceComponent>(component.Focus, out var device))
             {
@@ -426,7 +435,8 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
                 totalLoads,
                 allEntries.ToArray(),
                 sourcesForFocus.ToArray(),
-                loadsForFocus.ToArray()));
+                loadsForFocus.ToArray(),
+                focusGaslock));
     }
 
     private PowerStats GetPowerStats(EntityUid uid, PowerMonitoringDeviceComponent device)
@@ -921,6 +931,10 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
         foreach (var ent in nodeList)
         {
             var xform = Transform(ent);
+
+            if (xform.GridUid != gridUid)
+                continue;
+
             var tile = _sharedMapSystem.GetTileRef(gridUid, grid, xform.Coordinates);
             var gridIndices = tile.GridIndices;
             var chunkOrigin = SharedMapSystem.GetChunkIndices(gridIndices, ChunkSize);

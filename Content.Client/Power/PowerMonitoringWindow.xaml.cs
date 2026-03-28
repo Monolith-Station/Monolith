@@ -23,6 +23,8 @@ public sealed partial class PowerMonitoringWindow : FancyWindow
     private const float BlinkFrequency = 1f;
 
     private NetEntity? _focusEntity;
+    private NetEntity? _focusGaslock;
+    private bool _updatingGaslockPanel;
 
     public event Action<NetEntity?, PowerMonitoringConsoleGroup>? SendPowerMonitoringConsoleMessageAction;
 
@@ -32,6 +34,7 @@ public sealed partial class PowerMonitoringWindow : FancyWindow
         { PowerMonitoringConsoleGroup.SMES, (new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_hexagon.png")), Color.OrangeRed) },
         { PowerMonitoringConsoleGroup.Substation, (new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_square.png")), Color.Yellow) },
         { PowerMonitoringConsoleGroup.APC, (new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_triangle.png")), Color.LimeGreen) },
+        { PowerMonitoringConsoleGroup.Gaslock, (new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_diamond.png")), Color.Cyan) },
     };
 
     public EntityUid Entity;
@@ -55,14 +58,10 @@ public sealed partial class PowerMonitoringWindow : FancyWindow
         MasterTabContainer.SetTabTitle(1, Loc.GetString("power-monitoring-window-label-smes"));
         MasterTabContainer.SetTabTitle(2, Loc.GetString("power-monitoring-window-label-substation"));
         MasterTabContainer.SetTabTitle(3, Loc.GetString("power-monitoring-window-label-apc"));
+        MasterTabContainer.SetTabTitle(4, Loc.GetString("power-monitoring-window-label-gaslock"));
 
         // Track when the MasterTabContainer changes its tab
         MasterTabContainer.OnTabChanged += OnTabChanged;
-
-        // Set UI toggles
-        ShowHVCable.OnToggled += _ => OnShowCableToggled(PowerMonitoringConsoleLineGroup.HighVoltage);
-        ShowMVCable.OnToggled += _ => OnShowCableToggled(PowerMonitoringConsoleLineGroup.MediumVoltage);
-        ShowLVCable.OnToggled += _ => OnShowCableToggled(PowerMonitoringConsoleLineGroup.Apc);
     }
 
     public void SetEntity(EntityUid uid)
@@ -98,7 +97,7 @@ public sealed partial class PowerMonitoringWindow : FancyWindow
 
     private void OnTabChanged(int tab)
     {
-        SendPowerMonitoringConsoleMessageAction?.Invoke(_focusEntity, (PowerMonitoringConsoleGroup) tab);
+        SendPowerMonitoringConsoleMessageAction?.Invoke(_focusEntity, GetCurrentPowerMonitoringConsoleGroup());
     }
 
     private void OnShowCableToggled(PowerMonitoringConsoleLineGroup lineGroup)
@@ -114,6 +113,7 @@ public sealed partial class PowerMonitoringWindow : FancyWindow
         PowerMonitoringConsoleEntry[] allEntries,
         PowerMonitoringConsoleEntry[] focusSources,
         PowerMonitoringConsoleEntry[] focusLoads,
+        PowerMonitoringFocusGaslockData? focusGaslock,
         EntityCoordinates? monitorCoords)
     {
         if (!_entManager.TryGetComponent<PowerMonitoringConsoleComponent>(Entity, out var console))
@@ -130,6 +130,8 @@ public sealed partial class PowerMonitoringWindow : FancyWindow
         // Station generator and battery output is less than the current demand
         TotalLoads.FontColorOverride = (totalSources + totalBatteryUsage) < totalLoads &&
             !MathHelper.CloseToPercent(totalSources + totalBatteryUsage, totalLoads, 0.1f) ? new Color(180, 0, 0) : Color.White;
+
+        UpdateGaslockPanel(focusGaslock);
 
         // Update system warnings
         UpdateWarningLabel(console.Flags);
@@ -190,6 +192,8 @@ public sealed partial class PowerMonitoringWindow : FancyWindow
                 currentContainer = SubstationList; break;
             case PowerMonitoringConsoleGroup.APC:
                 currentContainer = ApcList; break;
+            case PowerMonitoringConsoleGroup.Gaslock:
+                currentContainer = GaslockList; break;
         }
 
         // Clear excess children from the container
@@ -214,6 +218,48 @@ public sealed partial class PowerMonitoringWindow : FancyWindow
             _autoScrollActive = true;
             _autoScrollAwaitsUpdate = false;
         }
+    }
+
+    private void UpdateGaslockPanel(PowerMonitoringFocusGaslockData? focusGaslock)
+    {
+        if (focusGaslock == null)
+        {
+            _focusGaslock = null;
+            GaslockFocusPanel.Visible = false;
+            return;
+        }
+
+        _updatingGaslockPanel = true;
+        _focusGaslock = focusGaslock.Entity;
+
+        GaslockPressure.Text = Loc.GetString("power-monitoring-window-gaslock-pressure-value", ("value", focusGaslock.Pressure));
+        var isDocked = focusGaslock.DockedEntity != null;
+        GaslockDocked.Text = focusGaslock.DockedEntity == null
+            ? Loc.GetString("power-monitoring-window-gaslock-undocked")
+            : Loc.GetString("power-monitoring-window-gaslock-docked-yes");
+
+        UpdateGaslockChannelRow(HvStatus, focusGaslock.Hv, isDocked);
+        UpdateGaslockChannelRow(MvStatus, focusGaslock.Mv, isDocked);
+        UpdateGaslockChannelRow(LvStatus, focusGaslock.Lv, isDocked);
+
+        GaslockFocusPanel.Visible = GetCurrentPowerMonitoringConsoleGroup() == PowerMonitoringConsoleGroup.Gaslock;
+        _updatingGaslockPanel = false;
+    }
+
+    private static void UpdateGaslockChannelRow(
+        Label statusLabel,
+        PowerMonitoringGaslockChannelState state,
+        bool isDocked)
+    {
+        if (!isDocked)
+        {
+            statusLabel.Text = Loc.GetString("power-monitoring-window-gaslock-undocked");
+            return;
+        }
+
+        statusLabel.Text = state.Active
+            ? Loc.GetString("power-monitoring-window-gaslock-active")
+            : Loc.GetString("power-monitoring-window-gaslock-inactive");
     }
 
     private void AddTrackedEntityToNavMap(NetEntity netEntity, PowerMonitoringDeviceMetaData metaData, List<NetEntity> entitiesOfInterest)

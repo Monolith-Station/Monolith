@@ -75,6 +75,7 @@ public sealed class PowerMonitoringConsoleBoundInterfaceState : BoundUserInterfa
     public PowerMonitoringConsoleEntry[] AllEntries;
     public PowerMonitoringConsoleEntry[] FocusSources;
     public PowerMonitoringConsoleEntry[] FocusLoads;
+    public PowerMonitoringFocusGaslockData? FocusGaslock;
 
     public PowerMonitoringConsoleBoundInterfaceState
         (double totalSources,
@@ -82,7 +83,8 @@ public sealed class PowerMonitoringConsoleBoundInterfaceState : BoundUserInterfa
         double totalLoads,
         PowerMonitoringConsoleEntry[] allEntries,
         PowerMonitoringConsoleEntry[] focusSources,
-        PowerMonitoringConsoleEntry[] focusLoads)
+        PowerMonitoringConsoleEntry[] focusLoads,
+        PowerMonitoringFocusGaslockData? focusGaslock = null)
     {
         TotalSources = totalSources;
         TotalBatteryUsage = totalBatteryUsage;
@@ -90,6 +92,45 @@ public sealed class PowerMonitoringConsoleBoundInterfaceState : BoundUserInterfa
         AllEntries = allEntries;
         FocusSources = focusSources;
         FocusLoads = focusLoads;
+        FocusGaslock = focusGaslock;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class PowerMonitoringFocusGaslockData
+{
+    public NetEntity Entity;
+    public NetEntity? DockedEntity;
+    public float Pressure;
+    public PowerMonitoringGaslockChannelState Hv;
+    public PowerMonitoringGaslockChannelState Mv;
+    public PowerMonitoringGaslockChannelState Lv;
+
+    public PowerMonitoringFocusGaslockData(
+        NetEntity entity,
+        NetEntity? dockedEntity,
+        float pressure,
+        PowerMonitoringGaslockChannelState hv,
+        PowerMonitoringGaslockChannelState mv,
+        PowerMonitoringGaslockChannelState lv)
+    {
+        Entity = entity;
+        DockedEntity = dockedEntity;
+        Pressure = pressure;
+        Hv = hv;
+        Mv = mv;
+        Lv = lv;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class PowerMonitoringGaslockChannelState
+{
+    public bool Active;
+
+    public PowerMonitoringGaslockChannelState(bool active)
+    {
+        Active = active;
     }
 }
 
@@ -141,6 +182,15 @@ public enum PowerMonitoringConsoleGroup : byte
     Substation,
     APC,
     Consumer,
+    Gaslock,
+}
+
+[Serializable, NetSerializable]
+public enum GaslockPowerChannel : byte
+{
+    HV,
+    MV,
+    LV,
 }
 
 [Flags]
@@ -159,3 +209,5 @@ public enum PowerMonitoringConsoleUiKey
 {
     Key
 }
+
+

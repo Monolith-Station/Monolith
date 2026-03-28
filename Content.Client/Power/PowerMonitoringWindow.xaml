@@ -52,6 +52,12 @@
                                  Modulate="#32cd32"
                                  Margin="20 0 5 0"/>
                     <Label Text="{Loc 'power-monitoring-window-label-apc'}"/>
+                    <TextureRect Stretch="KeepAspectCentered"
+                                 TexturePath="/Textures/Interface/NavMap/beveled_diamond.png"
+                                 SetSize="16 16"
+                                 Modulate="#00ffff"
+                                 Margin="20 0 5 0"/>
+                    <Label Text="{Loc 'power-monitoring-window-label-gaslock'}"/>
                 </BoxContainer>
             </BoxContainer>
 
@@ -75,6 +81,32 @@
                     <Label Name="TotalLoads" Text="?" Margin="10 0 0 0"/>
                 </GridContainer>
 
+                <PanelContainer Name="GaslockFocusPanel" Margin="0 8 0 0" Visible="False">
+                    <BoxContainer Orientation="Vertical" Margin="8 6 8 6">
+                        <Label Name="GaslockHeader" Text="{Loc 'power-monitoring-window-gaslock-header'}" StyleClasses="LabelHeading"/>
+                        <GridContainer Columns="2" Margin="0 4 0 4">
+                            <Label Text="{Loc 'power-monitoring-window-gaslock-pressure'}" StyleClasses="StatusFieldTitle"/>
+                            <Label Name="GaslockPressure" Text="?" Margin="10 0 0 0"/>
+                            <Label Text="{Loc 'power-monitoring-window-gaslock-docked'}" StyleClasses="StatusFieldTitle"/>
+                            <Label Name="GaslockDocked" Text="?" Margin="10 0 0 0"/>
+                        </GridContainer>
+                        <GridContainer Columns="2" Margin="0 2 0 0">
+                            <Label Text="{Loc 'power-monitoring-window-gaslock-channel'}" StyleClasses="StatusFieldTitle"/>
+                            <Label Text="{Loc 'power-monitoring-window-gaslock-status'}" StyleClasses="StatusFieldTitle"/>
+
+                            <Label Text="HV"/>
+                            <Label Name="HvStatus" Text="?"/>
+
+                            <Label Text="MV"/>
+                            <Label Name="MvStatus" Text="?"/>
+
+                            <Label Text="LV"/>
+                            <Label Name="LvStatus" Text="?"/>
+                        </GridContainer>
+                        <Label Text="{Loc 'power-monitoring-window-gaslock-bidirectional-note'}" Modulate="#A8C8D8" Margin="0 4 0 0"/>
+                    </BoxContainer>
+                </PanelContainer>
+
                 <!-- Loads / Sources (entries added by C# code) -->
                 <TabContainer Name="MasterTabContainer" VerticalExpand="True" HorizontalExpand="True" Margin="0 10 0 0">
                     <ScrollContainer HorizontalExpand="True" Margin="8, 8, 8, 8">
@@ -88,6 +120,9 @@
                     </ScrollContainer>
                     <ScrollContainer HorizontalExpand="True" Margin="8, 8, 8, 8">
                         <BoxContainer Name="ApcList" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="0 0 10 0"/>
+                    </ScrollContainer>
+                    <ScrollContainer HorizontalExpand="True" Margin="8, 8, 8, 8">
+                        <BoxContainer Name="GaslockList" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="0 0 10 0"/>
                     </ScrollContainer>
                 </TabContainer>
 
