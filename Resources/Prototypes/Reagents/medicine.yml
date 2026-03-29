@@ -638,13 +638,14 @@
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
+        amplitude: 999
+        frequency: 999
       - !type:Emote
         conditions:
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         emote: Scream
-        probability: 0.2
       - !type:PopupMessage
         conditions:
         - !type:OrganType # Goobstation - Yowie
