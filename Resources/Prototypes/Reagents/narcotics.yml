@@ -306,6 +306,7 @@
       effects:
       - !type:Emote
         emote: Scream
+      - !type:Jitter
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
