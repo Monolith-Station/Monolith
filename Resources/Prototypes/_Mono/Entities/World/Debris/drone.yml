@@ -37,18 +37,18 @@
     children:
     # T2 small
     - id: SpawnDroneWasp
-      weight: 20
+      weight: 1
     - id: SpawnDroneCrown
-      weight: 20
+      weight: 1
     - id: SpawnDroneGust
-      weight: 20
+      weight: 1
     - id: SpawnDronePiercer
-      weight: 20
+      weight: 1
     # T2 medium
     - id: SpawnDroneMedusa
-      weight: 10
+      weight: 1
     - id: SpawnDroneAssembly
-      weight: 10
+      weight: 1
 
 - type: entity
   id: SpawnDroneBase

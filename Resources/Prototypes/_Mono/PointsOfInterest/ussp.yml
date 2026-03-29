@@ -12,8 +12,8 @@
   id: USSPCamelot
   parent: [BasePOI, BaseRepairablePOI]
   name: 'Camelot Station'
-  minimumDistance: 10650
-  maximumDistance: 12400
+  minimumDistance: 67420
+  maximumDistance: 67420
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueUSSP, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/camelot.yml
@@ -33,7 +33,7 @@
         - type: VesselMusic
           ambientMusicPrototype: CamelotMusic
         - type: VesselInfo
-          description: "A rickety old station once owned by a now decrepit interstellar power. Cold and dark."
+          description: "A rickety old station owned by a local commie larping group, it seems drones have taken a offense to its existance."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Camelot Station'
@@ -46,14 +46,14 @@
           lobbySortOrder: 4
         - type: StationJobs
           availableJobs:
-            # USSPCommissar: [1, 1]
-            # USSPSergeant: [4, 4]
-            # USSPCorporal: [6, 6]
-            # USSPMedic: [4, 4]
-            # USSPRifleman: [-1, -1]
-            Contractor: [-1, -1]
-            Pilot: [0, -1]
-            Mercenary: [0, -1]
+             USSPCommissar: [1, 1]
+             USSPSergeant: [4, 4]
+             USSPCorporal: [6, 6]
+             USSPMedic: [4, 4]
+             USSPRifleman: [-1, -1]
+             Contractor: [-1, -1]
+             Pilot: [0, -1]
+             Mercenary: [0, -1]
           tags:
           - USSPCommand
         - type: StationDeadDrop
