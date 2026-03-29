@@ -4,9 +4,9 @@ namespace Content.Shared.Salvage.Expeditions.Modifiers;
 
 // Frontier: a modifier to manipulate the length of a given salvage expedition
 [Prototype("salvageTimeMod")]
-public sealed class SalvageTimeMod : IPrototype, ISalvageMod
+public sealed partial class SalvageTimeMod : IPrototype, ISalvageMod
 {
-    [IdDataField] public string ID { get; } = default!;
+    [IdDataField] public string ID { get; private set; } = default!;
 
     [DataField("desc")] public LocId Description { get; private set; } = string.Empty;
 

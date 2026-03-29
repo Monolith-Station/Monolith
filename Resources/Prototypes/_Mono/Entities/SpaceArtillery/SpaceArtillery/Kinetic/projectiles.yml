@@ -369,3 +369,15 @@
     maxTileBreak: 1
   - type: ProjectileKnockback
     knockback: 75 # giga evil
+
+# Flares - SUNNY
+- type: entity
+  id: ShipSunnyFlare
+  name: ECM Flare
+  parent: SparkFlare
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarBlip
+    radarColor: "#32CD32"
+    scale: 1
+    shape: hexagon
