@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetUSSPVaryag
-  name: Shlem Varyaga
+  name: Broadsword Helmet
   description: Sealed, reinforced, and intimidating.
   categories: [ HideSpawnMenu ]
   components:
@@ -90,8 +90,8 @@
 - type: entity
   parent: [BaseClothingModsuitHelmet, ShowMedicalIcons, ShowSecurityIcons]
   id: ClothingModsuitHelmetUSSPZastavnik
-  name: Shlem Zastavnik
-  description: A reinforced helmet with deep armor plating and visor shielding. Favored by serzhants for frontline presence.
+  name: Montante Helmet
+  description: A reinforced helmet with deep armor plating and visor shielding.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance

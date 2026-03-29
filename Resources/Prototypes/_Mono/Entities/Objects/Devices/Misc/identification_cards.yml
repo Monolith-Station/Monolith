@@ -2,7 +2,7 @@
 - type: entity
   parent: IDCardStandard
   id: USSPRiflemanIDCard
-  name: USSP rifleman ID card
+  name: KA Contractor ID card
   components:
   - type: PresetIdCard
     job: USSPRifleman
@@ -19,7 +19,7 @@
 - type: entity
   parent: CadetIDCard
   id: USSPCorporalIDCard
-  name: USSP efreitor ID card
+  name: KA Team leader ID card
   components:
   - type: PresetIdCard
     job: USSPCorporal
@@ -32,7 +32,7 @@
 - type: entity
   parent: IDCardStandard
   id: USSPMedicIDCard
-  name: USSP combat medic ID card
+  name: KA combat medic ID card
   components:
   - type: PresetIdCard
     job: USSPMedic
@@ -45,7 +45,7 @@
 - type: entity
   parent: IDCardStandard
   id: USSPSergeantIDCard
-  name: USSP serzhant ID card
+  name: KA Manager ID card
   components:
   - type: PresetIdCard
     job: USSPSergeant
@@ -58,7 +58,7 @@
 - type: entity
   parent: IDCardStandard
   id: USSPCommissarIDCard
-  name: USSP commissar ID card
+  name: KA Sector Director ID card
   components:
   - type: PresetIdCard
     job: USSPCommissar

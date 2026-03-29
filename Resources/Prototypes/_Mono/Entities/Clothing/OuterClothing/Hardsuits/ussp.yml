@@ -1,8 +1,8 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT2 ]
   id: ClothingOuterHardsuitUsspL27
-  name: USSP L-27 tacsuit
-  description: The standard combat suit of USSP naval operations.
+  name: KA Gladius tacsuit
+  description: The combat suit of Kristy contractors, outfitted with a medical hud too!
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/ussp_combat.rsi
@@ -47,8 +47,8 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT0 ]
   id: ClothingOuterHardsuitUsspL10
-  name: USSP L-10 lightsuit
-  description: An old USSP model of combat suit that is still in use in the frontlines.
+  name: KA Dagger lightsuit
+  description: Lightweight combat hardsuit, used by the association's light contractor troops.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/ussp_combat_light.rsi
@@ -93,8 +93,8 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT0 ]
   id: ClothingOuterHardsuitUsspL10A
-  name: USSP L-10-A lightsuit
-  description: An old USSP model of combat suit that is still in use in the frontlines.
+  name: KA Dagger lightsuit
+  description: Lightweight combat hardsuit, used by the association's light contractor troops.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/ussp_combat_light_officer.rsi
@@ -139,8 +139,8 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT0 ]
   id: ClothingOuterHardsuitUsspM10
-  name: USSP M-10 scoutsuit
-  description: A new prototype of combat suit using the old L-10 as a baseline. It has a integrated mass scanner in his helmet.
+  name: KA Stiletto scoutsuit
+  description: A modification of the Dagger lightsuit. It has a integrated mass scanner in his helmet.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/ussp_combat_lightmk2.rsi
@@ -184,8 +184,8 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT2 ]
   id: ClothingOuterHardsuitUsspL30
-  name: USSP L-30 Naval Commissar parade hardsuit.
-  description: A highly decorated hardsuit with upgraded mobility and higher quality lighter armor plates to quickly convey orders on the frontline. (or not be sweaty in a parade)
+  name: KA Falkata parade hardsuit
+  description: A highly decorated hardsuit with upgraded mobility and higher quality lighter armor plates.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/ussp_commissar_parade.rsi
@@ -230,8 +230,8 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT3 ]
   id: ClothingOuterHardsuitOfficerCombat
-  name: USSP UF-16 "Voenkom" commissar tacsuit
-  description: Developed by Union armament manufacturers for use by members of the commissariat on the frontlines. Features enhanced plating for survivability, allowing commanders to continue to give orders even while under heavy fire.
+  name: KA Claymore tacsuit
+  description: Highly armored command tacsuit. Features enhanced plating for survivability, allowing commanders to continue to give orders even while under heavy fire.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/ussp_officer_combat.rsi

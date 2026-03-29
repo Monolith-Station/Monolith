@@ -1,8 +1,8 @@
 - type: entity
   id: ComputerShipyardUSSP
   parent: ComputerShipyardBase
-  name: USSP shipyard console
-  description: Used to buy ships from USSP naval reserves.
+  name: Kristy Association shipyard console
+  description: Used to buy ships from Association Stocks.
   components:
   - type: ActivatableUI
     key: enum.ShipyardConsoleUiKey.Ussp

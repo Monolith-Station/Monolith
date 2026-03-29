@@ -1,8 +1,8 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitUSSPVaryag
-  name: USSP Varyag Modsuit Core
-  description: The power and life-support core of the Varyag modsuit.
+  name: KA Broadsword Modsuit Core
+  description: The power and life-support core of the Broadsword modsuit.
   components:
   - type: Appearance
   - type: Sprite
@@ -93,8 +93,8 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitUSSPZastavnik
-  name: USSP Zastavnik Modsuit Core
-  description: The sealed backpack unit powering the Zastavnik suit’s life support and locking mechanisms.
+  name: KA Montante Modsuit Core
+  description: The sealed backpack unit powering the Montante suit’s life support and locking mechanisms.
   components:
   - type: Appearance
   - type: Sprite

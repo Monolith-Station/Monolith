@@ -1,7 +1,7 @@
 - type: entity
   parent: BasePDA
   id: BaseUSSPPDA
-  description: A basic personal computer for access restriction and organization, manufactured in the USSP.
+  description: A basic personal computer for access restriction and organization, manufactured for Kristy association.
   abstract: true
   components:
   - type: CartridgeLoader
@@ -31,7 +31,7 @@
 - type: entity
   parent: BasePDA
   id: BaseUSSPMedicPDA
-  description: A basic personal computer for access restriction and organization, manufactured in the USSP.
+  description: A basic personal computer for access restriction and organization, manufactured for Kristy association.
   abstract: true
   components:
   - type: CartridgeLoader
@@ -62,7 +62,7 @@
 - type: entity
   parent: BaseUSSPPDA
   id: USSPRiflemanPDA
-  name: USSP rifleman PDA
+  name: KA Contractor PDA
   components:
   - type: Pda
     id: USSPRiflemanIDCard
@@ -80,7 +80,7 @@
 - type: entity
   parent: BaseUSSPMedicPDA
   id: USSPMedicPDA
-  name: USSP combat medic PDA
+  name: KA combat medic PDA
   components:
   - type: Pda
     id: USSPMedicIDCard
@@ -99,7 +99,7 @@
 - type: entity
   parent: BaseUSSPPDA
   id: USSPCorporalPDA
-  name: USSP efreitor PDA
+  name: KA Team leader PDA
   components:
   - type: Pda
     id: USSPCorporalIDCard
@@ -116,7 +116,7 @@
 - type: entity
   parent: BaseUSSPPDA
   id: USSPSergeantPDA
-  name: USSP serzhant PDA
+  name: KA Manager PDA
   components:
   - type: Pda
     id: USSPSergeantIDCard
@@ -134,7 +134,7 @@
 - type: entity
   parent: BaseUSSPPDA
   id: USSPCommissarPDA
-  name: USSP commissar PDA
+  name: KA Sector Director PDA
   components:
   - type: Pda
     id: USSPCommissarIDCard
