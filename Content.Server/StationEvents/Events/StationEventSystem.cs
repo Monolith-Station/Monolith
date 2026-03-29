@@ -50,7 +50,7 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
         if (stationEvent.StartAnnouncement != null)
-            ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.StartAnnouncement), playSound: false, colorOverride: stationEvent.StartAnnouncementColor);
+            ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.StartAnnouncement), sender: stationEvent.AnnounceSender is { } send ? Loc.GetString(send) : null, playSound: false, colorOverride: stationEvent.StartAnnouncementColor);
 
         // Frontier
         if (stationEvent.StartRadioAnnouncement != null)
@@ -97,7 +97,7 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
         if (stationEvent.EndAnnouncement != null)
-            ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.EndAnnouncement), playSound: false, colorOverride: stationEvent.EndAnnouncementColor);
+            ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.EndAnnouncement), sender: stationEvent.AnnounceSender is { } send ? Loc.GetString(send) : null, playSound: false, colorOverride: stationEvent.EndAnnouncementColor);
 
         // Frontier: radio announcements
         if (stationEvent.EndRadioAnnouncement != null)
@@ -139,7 +139,7 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
             {
                 Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame); // we don't want to send to players who aren't in game (i.e. in the lobby)
                 if (stationEvent.WarningAnnouncement != null)
-                    ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.WarningAnnouncement), playSound: false, colorOverride: stationEvent.WarningAnnouncementColor);
+                    ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.WarningAnnouncement), sender: stationEvent.AnnounceSender is { } send ? Loc.GetString(send) : null, playSound: false, colorOverride: stationEvent.WarningAnnouncementColor);
                 if (stationEvent.WarningRadioAnnouncement != null)
                 {
                     var message = Loc.GetString(stationEvent.WarningRadioAnnouncement);
