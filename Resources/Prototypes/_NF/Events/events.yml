@@ -61,7 +61,7 @@
       max:  10      # Mono
 
 - type: entity
-  id: BaseStationEventShortDelay
+  id: BaseStationEvent
   parent: BaseGameRule
   abstract: true
   components:
