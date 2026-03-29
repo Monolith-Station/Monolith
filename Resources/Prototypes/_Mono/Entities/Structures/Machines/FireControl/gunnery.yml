@@ -52,7 +52,7 @@
   - type: Machine
     board: MachineGCSLowCircuitboard
   - type: FireControlServer
-    processingPower: 24
+    processingPower: 6567
   - type: PassiveThermalSignature # no cheesing it by unanchoring
     signature: 100000 # ~630m
   - type: ThermalSignature
@@ -77,7 +77,7 @@
   - type: Machine
     board: MachineGCSMediumCircuitboard
   - type: FireControlServer
-    processingPower: 42
+    processingPower: 6567
   - type: PassiveThermalSignature
     signature: 250000 # ~1km
   - type: ThermalSignature
@@ -102,7 +102,7 @@
   - type: Machine
     board: MachineGCSHighCircuitboard
   - type: FireControlServer
-    processingPower: 60
+    processingPower: 6567
   - type: PassiveThermalSignature
     signature: 1000000 # ~2km
   - type: ThermalSignature
@@ -127,7 +127,7 @@
   - type: Machine
     board: MachineGCSUltraCircuitboard
   - type: FireControlServer
-    processingPower: 90
+    processingPower: 6567
   - type: PassiveThermalSignature
     signature: 4000000 # ~4km
   - type: ThermalSignature
@@ -154,7 +154,7 @@
   - type: Machine
     board: MachineGCSUltraCircuitboard
   - type: FireControlServer
-    processingPower: 500
+    processingPower: 6567
   - type: PassiveThermalSignature
     signature: 8000000 # ~5.6km
   - type: ThermalSignature
@@ -181,7 +181,7 @@
   - type: Machine
     board: MachineGCSStationCircuitboard
   - type: FireControlServer
-    processingPower: 3000
+    processingPower: 6567
   # no thermal sig
   # TODO: nuke this off ships
   - type: Battery
@@ -208,7 +208,7 @@
   - type: Machine
     board: MachineGCSStationCircuitboard
   - type: FireControlServer
-    processingPower: 3000
+    processingPower: 6567
     enforceMaxConsoles: true
     maxConsoles: 2
   - type: Battery

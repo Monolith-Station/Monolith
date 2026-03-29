@@ -188,3 +188,25 @@
       Glass: 20
       Steel: 20
       UraniumFissile: 2
+      
+- type: entity
+  id: MachineDriveCTLA65Circuitboard
+  parent: BaseMachineCircuitboard
+  name: CTLA-65 bluemoth drive board
+  description: A machine board for an advanced moth powereed bluespace drive.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: MachineFTLDrive50
+    requirements:
+      Capacitor: 1
+      Manipulator: 65
+    componentRequirements:
+      AmeFuelContainer:
+        amount: 3
+        defaultPrototype: AmeJar
+    stackRequirements:
+      Glass: 65
+      Steel: 65
+      Uranium: 65
