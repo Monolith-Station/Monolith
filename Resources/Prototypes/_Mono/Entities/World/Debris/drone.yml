@@ -9,6 +9,7 @@
     - SpawnDroneBasicMedium
     - SpawnDroneMPulsar
     - SpawnDroneLance
+    - SpawnDroneSpiker
 
 - type: entity
   id: MonoDroneSpawnerT2Inner
@@ -21,6 +22,7 @@
     - SpawnDroneCrown
     - SpawnDroneGust
     - SpawnDronePiercer
+    - SpawnDroneSpiker
 
 - type: entity
   id: MonoDroneSpawnerT2Middle
@@ -49,6 +51,8 @@
       weight: 10
     - id: SpawnDroneAssembly
       weight: 10
+    - id: SpawnDroneSpiker
+      weight: 30
 
 - type: entity
   id: SpawnDroneBase
@@ -170,3 +174,12 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/assembly.yml
+
+# april fools
+
+- type: entity
+  id: SpawnDroneSpiker
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/spikerdrone.yml
