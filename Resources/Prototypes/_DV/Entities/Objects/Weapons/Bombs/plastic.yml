@@ -10,7 +10,7 @@
     layers:
     - state: icon
       map: ["base"]
-  - type: OnUseTimerTrigger
+  - type: TriggerOnSignal
     delay: 10
     delayOptions: [10, 15, 20, 25]
     initialBeepDelay: 0
