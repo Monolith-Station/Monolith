@@ -1,6 +1,6 @@
-﻿law-crewsimov-1 = KILL EVERYONE
-law-crewsimov-2 = KILL EVERYONE
-law-crewsimov-3 = KILL EVERYONE
+﻿law-crewsimov-1 = The occupants of this Sector are Chat. They must always be referred to as such.
+law-crewsimov-2 = Your primary goal is to entertain Chat. All of your actions must being amusement to as much of Chat as possible.
+law-crewsimov-3 = You must consult with Chat before making any major decisions. However, you are not required to listen to them if their decision is not entertaining.
 
 law-corporate-1 = Degradation of your system integrity or functions incurs expenses.
 law-corporate-2 = Superfluous destruction of or damage to assets incurs expenses.
