@@ -1,2 +1,38 @@
-# Keep this file empty, moved the content to
-# /Resources/Prototypes/_NF/Events/events.yml
+- type: entity
+  id: BaseStationEvent
+  parent: BaseGameRule
+  abstract: true
+  components:
+  - type: GameRule
+    delay:
+      min: 10
+      max: 20
+    numberOfGrids: # Mono
+      min: 5       # Mono
+      max: 10      # Mono
+
+- type: entity
+  id: BaseStationEventShortDelay
+  parent: BaseGameRule
+  abstract: true
+  components:
+  - type: GameRule
+    delay:
+      min: 10
+      max: 20
+    numberOfGrids: # Mono
+      min: 5       # Mono
+      max: 10      # Mono
+
+- type: entity
+  id: BaseStationEventLongDelay
+  parent: BaseGameRule
+  abstract: true
+  components:
+  - type: GameRule
+    delay:
+      min: 40
+      max: 60
+    numberOfGrids: # Mono
+      min: 5       # Mono
+      max: 10      # Mono
