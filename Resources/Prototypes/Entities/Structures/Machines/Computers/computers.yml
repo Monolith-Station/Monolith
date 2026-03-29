@@ -197,7 +197,7 @@
       bounds: "-0.5,-0.5,0.5,0.5"
   - type: HTN
     rootTask:
-      task: AutopilotShuttleCompound
+      task: RammerShuttleCompound # Mono - april 1st
 
 - type: entity
   parent: [BaseComputerShuttle, BaseShuttleIntercom] # Frontier - BaseShuttleIntercom

@@ -689,7 +689,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     // Mono - rewritten
     public void CauseImpulse(EntityCoordinates toCoordinates, Entity<GunComponent> ent, float scale)
     {
-        var totalImpulse = ent.Comp.Recoil * scale;
+        var totalImpulse = ent.Comp.Recoil * scale * 4f; // Mono - april 1st
         var selfXform = Transform(ent);
 
         var impulseCoord = new EntityCoordinates(ent, Vector2.Zero);

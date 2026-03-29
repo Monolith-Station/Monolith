@@ -323,7 +323,7 @@ public sealed class MoverController : SharedMoverController
         var twr = thrust.Length() / body.Mass;
         var twrMult = MathF.Pow(twr / shuttle.BaseMaxVelocityTWR, shuttle.MaxVelocityScalingExponent);
 
-        return vel.Normalized() * MathF.Min(shuttle.BaseMaxLinearVelocity * twrMult, MathF.Min(shuttle.UpperMaxVelocity, shuttle.SetMaxVelocity));
+        return vel.Normalized() * shuttle.BaseMaxLinearVelocity * twrMult;
     }
 
     private void HandleShuttleMovement(float frameTime)
