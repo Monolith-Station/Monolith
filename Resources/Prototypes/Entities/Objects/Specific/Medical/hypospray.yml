@@ -153,10 +153,8 @@
       pen:
         maxVol: 15
         reagents:
-        - ReagentId: Epinephrine
-          Quantity: 12
-        - ReagentId: TranexamicAcid
-          Quantity: 3
+        - ReagentId: Fentanyl
+          Quantity: 15
   - type: Tag # Mono
     tags: [SurvivalBox]
 
@@ -405,10 +403,8 @@
       pen:
         maxVol: 30
         reagents:
-          - ReagentId: Leporazine
-            Quantity: 10
-          - ReagentId: Barozine
-            Quantity: 20
+          - ReagentId: TearGas
+            Quantity: 30
   - type: Tag # Mono
     tags: [SurvivalBox]
 
