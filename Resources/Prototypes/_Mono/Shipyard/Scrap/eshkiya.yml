@@ -2,22 +2,22 @@
 # GitHub: Corrupt142
 # Discord: Corrupt
 
-# Shuttle Notes: Undermainained, and extremely cramped, anyone with claustrofobia beware!
-
+# Shuttle Notes: Undermainained, and extremely cramped, anyone with claustrophobia beware!
+#
 - type: vessel
-  id: eshkiya
+  id: Eshkiya
   parent: BaseVessel
-  name:  RSC-Eshkiya
+  name: GSI Eshkiya
   description: A small dog fighter for highwaymen with too much confidence on their shoulders, equipped with 4 draupnirs for non-stop firepower, perfect for drowning out cries of agony for those who are lighthearted.
-  price: 41000 # 33K base +25% markup 
-  category: small
+  price: 41000 # 33K base +25% markup
+  category: Small
   group: Scrap
-  access: Mercenary
   shuttlePath: /Maps/_Mono/Shuttles/Scrap/eshkiya.yml
   guidebookPage: Null
+  access: Mercenary
   class:
-  - pursuit
   - Scrapyard
+  - Pursuit
   engine:
   - uranium
 
