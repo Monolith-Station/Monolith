@@ -1,6 +1,6 @@
-chat-radio-ussp = USSP TACCOMM
-chat-radio-ussp-command = USSP STRATCOMM
-chat-radio-letoferol = Letoferol Chimera Hivemind
-chat-radio-cortical-borer = Cortical Borer Hivemind
-chat-radio-remnants = Remnants
-chat-radio-monolithic = Monolith Connection
+chat-radio-ussp = larpcomm
+chat-radio-ussp-command = EVIL larpcomm
+chat-radio-letoferol = fleshmonster
+chat-radio-cortical-borer = hugbox
+chat-radio-remnants = asakim larp
+chat-radio-monolithic = monolarp
