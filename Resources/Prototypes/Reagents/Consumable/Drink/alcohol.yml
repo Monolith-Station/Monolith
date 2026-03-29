@@ -163,6 +163,12 @@
   metabolisms:
     Alcohol:
       effects:
+      - !type:Emote
+        emote: Scream
+      - !type:Jitter
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
