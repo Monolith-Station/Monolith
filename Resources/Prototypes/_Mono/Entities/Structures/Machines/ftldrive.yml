@@ -180,7 +180,7 @@
   parent: MachineFTLDrive
   id: MachineFTLDrive65
   name: CTLA-65 bluespace drive
-  description: 65 kilometers
+  description: 65 kilometers, you can see yara kameronis utter tuff aura being used to power the drive
   components:
   - type: Sprite
     sprite: _Mono/Structures/ShuttleComponents/drive.rsi
@@ -212,3 +212,9 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: 1
+    range: 5
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
