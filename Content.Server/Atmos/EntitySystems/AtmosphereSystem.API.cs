@@ -218,6 +218,17 @@ public partial class AtmosphereSystem
         return true;
     }
 
+    public bool IsTileMapAtmosphere(Entity<GridAtmosphereComponent?>? grid, Entity<MapAtmosphereComponent?>? map, Vector2i tile)
+    {
+        if (grid is {} gridEnt && _atmosQuery.Resolve(gridEnt, ref gridEnt.Comp, false)
+            && gridEnt.Comp.Tiles.TryGetValue(tile, out var tileAtmos))
+        {
+            return tileAtmos.MapAtmosphere;
+        }
+
+        return map is {} mapEnt && _mapAtmosQuery.Resolve(mapEnt, ref mapEnt.Comp, false);
+    }
+
     public bool IsTileMixtureProbablySafe(Entity<GridAtmosphereComponent?>? grid, Entity<MapAtmosphereComponent?> map, Vector2i tile)
     {
         return IsMixtureProbablySafe(GetTileMixture(grid, map, tile));

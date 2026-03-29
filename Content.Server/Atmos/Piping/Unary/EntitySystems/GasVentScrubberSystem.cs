@@ -68,10 +68,12 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
 
             var position = _transformSystem.GetGridTilePositionOrDefault(uid);
             var environment = _atmosphereSystem.GetTileMixture(grid, args.Map, position, true);
+            var mapAtmosphereTile = _atmosphereSystem.IsTileMapAtmosphere(args.Grid, args.Map, position);
+            var harvestMapAtmosphere = mapAtmosphereTile && !_atmosphereSystem.IsTileSpace(args.Grid, args.Map, position);
 
-            Scrub(timeDelta, scrubber, environment, outlet);
+            Scrub(timeDelta, scrubber, environment, outlet, harvestMapAtmosphere);
 
-            if (!scrubber.WideNet)
+            if (!scrubber.WideNet || harvestMapAtmosphere)
                 return;
 
             // Scrub adjacent tiles too.
@@ -88,15 +90,15 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
         private void OnVentScrubberEnterAtmosphere(EntityUid uid, GasVentScrubberComponent component,
             AtmosDeviceEnabledEvent args) => UpdateState(uid, component);
 
-        private void Scrub(float timeDelta, GasVentScrubberComponent scrubber, GasMixture? tile, PipeNode outlet)
+        private void Scrub(float timeDelta, GasVentScrubberComponent scrubber, GasMixture? tile, PipeNode outlet, bool allowImmutableSource = false)
         {
-            Scrub(timeDelta, scrubber.TransferRate*_atmosphereSystem.PumpSpeedup(), scrubber.PumpDirection, scrubber.FilterGases, tile, outlet.Air);
+            Scrub(timeDelta, scrubber.TransferRate*_atmosphereSystem.PumpSpeedup(), scrubber.PumpDirection, scrubber.FilterGases, tile, outlet.Air, allowImmutableSource);
         }
 
         /// <summary>
         /// True if we were able to scrub, false if we were not.
         /// </summary>
-        public bool Scrub(float timeDelta, float transferRate, ScrubberPumpDirection mode, HashSet<Gas> filterGases, GasMixture? tile, GasMixture destination)
+        public bool Scrub(float timeDelta, float transferRate, ScrubberPumpDirection mode, HashSet<Gas> filterGases, GasMixture? tile, GasMixture destination, bool allowImmutableSource = false)
         {
             // Cannot scrub if tile is null or air-blocked.
             if (tile == null
@@ -104,6 +106,9 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
             {
                 return false;
             }
+
+            if (tile.Immutable && !allowImmutableSource)
+                return false;
 
             // Take a gas sample.
             var ratio = MathF.Min(1f, timeDelta * transferRate / tile.Volume);
