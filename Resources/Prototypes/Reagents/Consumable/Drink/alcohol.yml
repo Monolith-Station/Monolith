@@ -165,6 +165,7 @@
       effects:
       - !type:Emote
         emote: Scream
+        probability: 0.3
       - !type:Jitter
       - !type:GenericStatusEffect
         key: Stutter
