@@ -9,7 +9,6 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
-using System;
 
 namespace Content.Server._Mono.Detection;
 
@@ -21,9 +20,11 @@ public sealed class ThermalSignatureSystem : EntitySystem
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private float _updateInterval = 0.5f;
-    private float _updateAccumulator = 0f;
-    private EntityQuery<MapGridComponent> _gridQuery;
+    private static readonly TimeSpan UpdateInterval = TimeSpan.FromSeconds(0.5f);
+    private TimeSpan _nextUpdateTime;
+
+    private const float HeatThreshold = 1f;
+
     private EntityQuery<ThermalSignatureComponent> _sigQuery;
     private EntityQuery<GunComponent> _gunQuery;
 
@@ -32,6 +33,9 @@ public sealed class ThermalSignatureSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<MapGridComponent, MapInitEvent>(OnMapGridMapInit);
+        SubscribeLocalEvent<ThermalSignatureComponent, ComponentShutdown>(OnThermalSignatureShutdown);
 
         // some of this could also be handled in shared but there's no point since PVS is a thing
         SubscribeLocalEvent<MachineThermalSignatureComponent, GetThermalSignatureEvent>(OnMachineGetSignature);
@@ -42,9 +46,22 @@ public sealed class ThermalSignatureSystem : EntitySystem
         SubscribeLocalEvent<ThrusterComponent, GetThermalSignatureEvent>(OnThrusterGetSignature);
         SubscribeLocalEvent<FTLDriveComponent, GetThermalSignatureEvent>(OnFTLGetSignature);
 
-        _gridQuery = GetEntityQuery<MapGridComponent>();
         _sigQuery = GetEntityQuery<ThermalSignatureComponent>();
         _gunQuery = GetEntityQuery<GunComponent>();
+    }
+
+    private void OnMapGridMapInit(Entity<MapGridComponent> entity, ref MapInitEvent _)
+    {
+        if (!_sigQuery.TryComp(entity, out var sigComp))
+            sigComp = EnsureComp<ThermalSignatureComponent>(entity);
+
+        sigComp.TotalHeat = 0f;
+        _gridCompMap.Add(entity.Owner, sigComp);
+    }
+
+    private void OnThermalSignatureShutdown(Entity<ThermalSignatureComponent> entity, ref ComponentShutdown _)
+    {
+        _gridCompMap.Remove(entity);
     }
 
     private void OnGunShot(Entity<ThermalSignatureComponent> ent, ref GunShotEvent args)
@@ -87,32 +104,27 @@ public sealed class ThermalSignatureSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        _updateAccumulator += frameTime;
-        if (_updateAccumulator < _updateInterval)
+        if (_timing.CurTime < _nextUpdateTime)
             return;
-        _updateAccumulator -= _updateInterval;
 
-        var interval = _updateInterval;
+        _nextUpdateTime = _timing.CurTime + UpdateInterval;
 
-        _gridCompMap.Clear();
-
-        var gridQuery = EntityQueryEnumerator<MapGridComponent>();
-        while (gridQuery.MoveNext(out var uid, out _))
-        {
-            if (!_sigQuery.TryComp(uid, out var sigComp))
-                sigComp = EnsureComp<ThermalSignatureComponent>(uid);
-
-            sigComp.TotalHeat = 0f;
-            _gridCompMap.Add(uid, sigComp);
-        }
+        var interval = (float)UpdateInterval.TotalSeconds;
 
         var query = EntityQueryEnumerator<ThermalSignatureComponent>();
         while (query.MoveNext(out var uid, out var sigComp))
         {
-            var ev = new GetThermalSignatureEvent(interval);
+            var ev = new GetThermalSignatureEvent();
             RaiseLocalEvent(uid, ref ev);
+
             sigComp.StoredHeat += ev.Signature * interval;
+
+            // threshold should be really small value so client/server desync wont be a problem
+            if (sigComp.StoredHeat < HeatThreshold)
+                continue;
+
             sigComp.StoredHeat *= MathF.Pow(sigComp.HeatDissipation, interval);
+
             if (_gridCompMap.ContainsKey(uid))
             {
                 sigComp.TotalHeat += sigComp.StoredHeat;
@@ -124,11 +136,9 @@ public sealed class ThermalSignatureSystem : EntitySystem
                 if (xform.GridUid != null && _gridCompMap.TryGetValue(xform.GridUid.Value, out var gridSig))
                     gridSig.TotalHeat += sigComp.StoredHeat;
             }
+
+            Dirty(uid, sigComp);
         }
 
-        foreach (var (uid, sigComp) in _gridCompMap)
-        {
-            Dirty(uid, sigComp); // sync to client
-        }
     }
 }
