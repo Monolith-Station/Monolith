@@ -39,8 +39,8 @@ public sealed class MechEquipmentSystem : EntitySystem
         if (args.User == mechComp.PilotSlot.ContainedEntity)
             return;
 
-        if (mechComp.EquipmentContainer.ContainedEntities.Count >= mechComp.MaxEquipmentAmount)
-            return;
+        // if (mechComp.EquipmentContainer.ContainedEntities.Count >= mechComp.MaxEquipmentAmount)
+        //     return;
 
         // if (_whitelistSystem.IsWhitelistFail(mechComp.EquipmentWhitelist, args.Used)) mono - no limit to the larp.
         //     return;

@@ -244,7 +244,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.75
     baseSprintSpeed: 1.33
-    baseWeightlessModifier: 60
+    baseWeightlessModifier: 6767
   - type: RadarBlip
     radarColor: "#E3E3E3"
     scale: 3
@@ -358,7 +358,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.75
     baseSprintSpeed: 1.33
-    baseWeightlessModifier: 50
+    baseWeightlessModifier: 6767
   - type: Damageable
     damageModifierSet: MechArmorHeavy
   - type: Tag
@@ -479,7 +479,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.5
     baseSprintSpeed: 1
-    baseWeightlessModifier: 50
+    baseWeightlessModifier: 6767
   - type: RadarBlip
     radarColor: "#E3E3E3"
     scale: 3
@@ -597,7 +597,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.4
     baseSprintSpeed: 0.8
-    baseWeightlessModifier: 45
+    baseWeightlessModifier: 6767
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -672,7 +672,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.5
     baseSprintSpeed: 1.2
-    baseWeightlessModifier: 75
+    baseWeightlessModifier: 6767
   - type: Tag
     tags:
     - DoorBumpOpener
