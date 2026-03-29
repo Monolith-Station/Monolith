@@ -1,0 +1,43 @@
+# Author Info
+# GitHub: mang
+# Discord: mango67tuff
+
+# Shuttle Notes:
+# ok
+
+- type: vessel
+  id: Wyvern
+  parent: BaseVessel
+  name: Wyvern
+  description: Wyvern. That's it.
+  price: 11000000
+  category: Large
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/ShuttleEvent/wyvern.yml
+  class:
+  - Botany
+  engine:
+  - Solar
+  addComponents:
+  - type: SolarPoweredGrid
+    doNotCull: true
+
+- type: gameMap
+  id: Wyvern
+  mapName: 'Wyvern'
+  mapPath: /Maps/_Mono/ShuttleEvent/wyvern.yml
+  minPlayers: 0
+  stations:
+    Wyvern:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Wyvern CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

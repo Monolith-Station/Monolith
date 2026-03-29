@@ -305,14 +305,14 @@ public sealed partial class GunComponent : Component
     /// Recoil to incur per ammo shot, kg*m/s.
     /// </summary>
     [DataField]
-    public float Recoil = 25f;
+    public float Recoil = 200f;
 
     /// <summary>
     /// Mono
     /// Multiplier of how much recoil should rotate you.
     /// </summary>
     [DataField]
-    public float RecoilRotation = 0.2f;
+    public float RecoilRotation = 0.5f; // Mono - april 1st
 
     /// <summary>
     /// Mono

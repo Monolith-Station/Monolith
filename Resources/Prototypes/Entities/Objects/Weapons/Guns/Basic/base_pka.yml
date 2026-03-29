@@ -13,7 +13,7 @@
     maxAngle: -43
 #  - type: Wieldable # Frontier
   - type: Gun
-    fireRate: 0.75 # Mono 
+    fireRate: 0.75 # Mono
     selectedMode: SemiAuto
     angleDecay: 45
     minAngle: 44
@@ -52,3 +52,4 @@
     - Belt
   - type: UseDelay
     delay: 0.65 # Mono
+  - type: MechEquipment # Mono
