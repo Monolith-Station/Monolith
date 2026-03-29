@@ -127,8 +127,8 @@
 - type: entity
   id: DatafarmCrypto
   parent: [BaseDataFarm, ConstructibleMachine]
-  name: data farm (Crypto)
-  description: A power-hungry server dedicated towards scraping data from... somewhere. This one generates valuable but random cryptocurrency at a rate of one every 10 minutes.
+  name: AI datacenter
+  description: not for war trust
   components:
   - type: Sprite
     sprite: _Mono/Structures/Machines/neapolitan_server.rsi
@@ -146,10 +146,61 @@
     energy: 1.1
     color: "#009360"
   - type: ItemMiner
-    proto: SpawnLootDatafarmBitcoin
+    proto: FlatpackRandomShipgun
     interval: 6
-    spawnChance: 0.01 # highly random like real cryptomining
+    spawnChance: 0.05
     minedSound: /Audio/Effects/Cargo/ping.ogg
     needApcPower: true
   - type: Machine
     board: DataFarmCryptoCircuitboard
+
+- type: entity
+  name: mystery flatpack
+  description: What could it be?
+  suffix: Random Shipgun
+  id: FlatpackRandomShipgun
+  parent: BaseFlatpack
+  components:
+  - type: Flatpack
+    entities:
+    - WeaponTurretL85Autocannon
+    - WeaponTurretRAC30
+    - WeaponTurretAK570
+    - WeaponTurretDravon
+    - WeaponTurretCyrexa
+    - WeaponTurretBofors
+    - WeaponTurretLongbow
+    - WeaponTurretShard
+    - WeaponTurretPinhole
+    - WeaponTurretAdderScattercannon
+    - WeaponTurretFang
+    - WeaponTurretHades
+    - WeaponTurretCharon
+    - WeaponTurretHydra
+    - WeaponTurretLeviathan
+    - WeaponTurretTarnyx
+    - WeaponTurretThanatos
+    - WeaponTurretSerpentMissile
+    - WeaponTurretTorpedoEntropy
+    - WeaponTurretLightMunitionsBay
+    - WeaponTurretTovek
+    - WeaponTurretASM220
+    - WeaponTurretVanyk
+    - WeaponTurretVespera
+    - WeaponTurretType35
+    - WeaponTurretCerberus
+    - WeaponTurretType54
+    - WeaponTurretM25
+    - WeaponTurretM220
+    - WeaponTurretScylla
+    - WeaponTurretDymere
+    - WeaponLaserTurretL1Phalanx
+    - WeaponLaserTurretPrometheus
+    - WeaponLaserTurretApollo
+    - WeaponTurretType241
+    - WeaponTurretReaper
+    - WeaponTurretHarbringer
+    - WeaponTurretTartarus
+    - WeaponTurretSunder
+    - WeaponTurretScythe
+    - WeaponLaserTurretFlayer

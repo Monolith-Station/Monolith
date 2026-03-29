@@ -14,8 +14,8 @@ namespace Content.Server.Shuttles.Systems;
 public sealed partial class ShuttleSystem
 {
     private const float SpaceFrictionStrength = 0.0075f;
-    private const float DampenDampingStrength = 0.25f;
-    private const float AnchorDampingStrength = 2.5f;
+    private const float DampenDampingStrength = 0.0075f; // Mono - april 1st changes
+    private const float AnchorDampingStrength = 0.0075f; // Mono - april 1st changes
     private void NfInitialize()
     {
         SubscribeLocalEvent<ShuttleConsoleComponent, SetInertiaDampeningRequest>(OnSetInertiaDampening);
