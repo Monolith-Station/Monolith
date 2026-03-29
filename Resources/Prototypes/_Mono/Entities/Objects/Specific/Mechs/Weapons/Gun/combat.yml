@@ -122,8 +122,6 @@
   suffix: Mech Weapon, Gun, Combat, Cannon
   parent: [ BaseMechWeaponRange, MediumMechMountEquipment ]
   components:
-  - type: MechEquipment
-    preventFireOnGrid: true
   - type: Sprite
     sprite: _Mono/Objects/Specific/Mech/tgmc_mecha_weapons.rsi
     state: sniper64x32
@@ -154,8 +152,6 @@
   suffix: Mech Weapon, Gun, Combat, Cannon
   parent: [ BaseMechWeaponRange, MediumMechMountEquipment ]
   components:
-  - type: MechEquipment
-    preventFireOnGrid: true
   - type: Sprite
     sprite: _Mono/Objects/Specific/Mech/tgmc_mecha_weapons.rsi
     state: laserrifle64x32
@@ -182,8 +178,6 @@
   suffix: Mech Weapon, Gun, Combat, Cannon
   parent: [ BaseMechWeaponRange, MediumMechMountEquipment ]
   components:
-  - type: MechEquipment
-    preventFireOnGrid: true
   - type: Sprite
     sprite: _Mono/Objects/Specific/Mech/tgmc_mecha_weapons.rsi
     state: tow64x32
@@ -211,8 +205,6 @@
   suffix: Mech Weapon, Gun, Combat, Missile
   parent: [ BaseMechWeaponRange, HeavyMechMountEquipment ]
   components:
-  - type: MechEquipment
-    preventFireOnGrid: true
   - type: Sprite
     sprite: _Mono/Objects/Specific/Mech/tgmc_mecha_weapons.rsi
     state: rpg64x32
@@ -238,8 +230,6 @@
   suffix: Mech Weapon, Gun, Combat, Cannon
   parent: [ BaseMechWeaponRange, HeavyMechMountEquipment ]
   components:
-  - type: MechEquipment
-    preventFireOnGrid: true
   - type: Sprite
     sprite: _Mono/Objects/Specific/Mech/tgmc_mecha_weapons.rsi
     state: heavycannon64x32
@@ -273,8 +263,6 @@
   suffix: Mech Weapon, Gun, Combat, EnergyCannon
   parent: [ BaseMechWeaponRange, HeavyMechMountEquipment ]
   components:
-  - type: MechEquipment
-    preventFireOnGrid: true
   - type: Sprite
     sprite: _Mono/Objects/Specific/Mech/tgmc_mecha_weapons.rsi
     state: flamer64x32
@@ -306,8 +294,6 @@
   suffix: Mech Weapon, Gun, Combat, EWAR
   parent: [ BaseMechWeaponRange, EWARMechMountEquipment ]
   components:
-  - type: MechEquipment
-    preventFireOnGrid: true
   - type: Sprite
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: tesla
@@ -334,8 +320,6 @@
   suffix: Mech Weapon, Gun, Combat, EWAR
   parent: [ BaseMechWeaponRange, EWARMechMountEquipment ]
   components:
-  - type: MechEquipment
-    preventFireOnGrid: true
   - type: Sprite
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: tesla

@@ -31,7 +31,6 @@
 
 - type: cargoProduct
   id: EngineSingularityGenerator
-  abstract: true # Frontier
   icon:
     sprite: Structures/Power/Generation/Singularity/generator.rsi
     state: icon
@@ -42,7 +41,6 @@
 
 - type: cargoProduct
   id: EngineSingularityContainment
-  abstract: true # Frontier
   icon:
     sprite: Structures/Power/Generation/Singularity/containment.rsi
     state: icon
@@ -54,7 +52,6 @@
 - type: cargoProduct
   name: "emitter crate"
   id: EngineSingularityEmitter
-  abstract: true # Frontier
   description: "Contains an emitter. Used only for dangerous applications."
   icon:
     sprite: Structures/Power/Generation/Singularity/emitter.rsi
@@ -66,7 +63,6 @@
 
 - type: cargoProduct
   id: EngineSingularityCollector
-  abstract: true # Frontier
   icon:
     sprite: Structures/Power/Generation/Singularity/collector.rsi
     state: ca_on
@@ -77,7 +73,6 @@
 
 - type: cargoProduct
   id: EngineParticleAccelerator
-  abstract: true # Frontier
   icon:
     sprite: Structures/Power/Generation/PA/control_box.rsi
     state: completed
@@ -98,7 +93,6 @@
 
 - type: cargoProduct
   id: EngineTeslaGenerator
-  abstract: true # Frontier
   icon:
     sprite: Structures/Power/Generation/Tesla/generator.rsi
     state: icon
@@ -109,7 +103,6 @@
 
 - type: cargoProduct
   id: EngineTeslaCoil
-  abstract: true # Frontier
   icon:
     sprite: Structures/Power/Generation/Tesla/coil.rsi
     state: coil
