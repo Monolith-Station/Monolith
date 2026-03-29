@@ -42,8 +42,8 @@ public sealed class MechEquipmentSystem : EntitySystem
         if (mechComp.EquipmentContainer.ContainedEntities.Count >= mechComp.MaxEquipmentAmount)
             return;
 
-        if (_whitelistSystem.IsWhitelistFail(mechComp.EquipmentWhitelist, args.Used))
-            return;
+        // if (_whitelistSystem.IsWhitelistFail(mechComp.EquipmentWhitelist, args.Used)) mono - no limit to the larp.
+        //     return;
 
         _popup.PopupEntity(Loc.GetString("mech-equipment-begin-install", ("item", uid)), mech);
 
