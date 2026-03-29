@@ -1,5 +1,5 @@
 name: PR Changelogs
-concurrency: commit_action
+concurrency: commit_action-${{ github.event.pull_request.base.ref }} # Mono
 on:
   pull_request_target:
     types: [closed]
@@ -12,15 +12,15 @@ env:
 jobs:
   changelog:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+    if: github.event.pull_request.merged == true
     permissions:
       contents: write
     steps:
-      - name: Checkout Master
+      - name: Checkout Base Branch # Mono
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
-          ref: "${{ vars.CHANGELOG_BRANCH }}"
+          ref: "${{ github.event.pull_request.base.ref }}" # Mono
 
       - name: Setup Git
         run: |
@@ -47,9 +47,9 @@ jobs:
 
       - name: Commit Changelog
         run: |
-          git pull origin main
+          git pull origin "${{ github.event.pull_request.base.ref }}"
           git add "${{ env.CHANGELOG_DIR }}"
           git commit -m "Automated Changelog (#${{ env.PR_NUMBER }})"
-          git push
+          git push origin "${{ github.event.pull_request.base.ref }}"
         shell: bash
         continue-on-error: true
