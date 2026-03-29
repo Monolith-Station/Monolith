@@ -1,0 +1,41 @@
+# Author Info
+# GitHub: gelliii
+# Discord: .gelliii.
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Horsefly
+  parent: BaseVessel
+  name: GSI Horsefly
+  description: A light artillery ship made of scrap fused by a deranged group of mercenaries, it's designed to fire a single shell then die. Isn't supplied with any form of atmosphere, bring your own suit.
+  price: 32500 # it's a heap of scrap
+  category: Small
+  group: Scrap
+  shuttlePath: /Maps/_Mono/Shuttles/Scrap/horsefly.yml
+  guidebookPage: Null
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Horsefly
+  mapName: 'Horsefly'
+  mapPath: /Maps/_Mono/Shuttles/Scrap/horsefly.yml
+  minPlayers: 0
+  stations:
+    Horsefly:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Horsefly SRP-MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
