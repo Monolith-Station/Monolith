@@ -500,7 +500,6 @@
     - SMCybernetics
     # Mono - Mechs
     - WeaponMechCombatArsenal
-    - DynamicAmmoRecipePack
     - SmartGun # Goobstation
     # Mono start
     - MonoTSFWeaponsDynamicMelee
@@ -513,6 +512,11 @@
     - MonoUSSPWeaponsDynamicRanged
     - UniversalShellAmmo
     - ResearchedExplosives
+    - UniversalRailgunAmmo
+    - UniversalMissileAmmo
+    - UniversalOrdinance
+    - SmartGun #Smart SMG
+    - NFMercenaryTechfabDeprecated
     # Mono end
   - type: MaterialStorage
     whitelist:

@@ -1,6 +1,14 @@
 - type: npcFaction
+  id: CC
+  hostile:
+  - SimpleHostile
+  - Zombie
+  - Chimera
+
+- type: npcFaction
   id: TSFMC
   neutral:
+  - CC
   - NanoTrasen
   - SimpleNeutral
   defaultHostile: true
@@ -10,19 +18,23 @@
   friendly:
   - TSFMC
   neutral:
+  - CC
   - NanoTrasen
   - Cat
   - PetsNT
   - SimpleNeutral
   - MD
   - ContrabandDetection
+  - Mouse
   defaultHostile: true
 
 - type: npcFaction
   id: USSP
   neutral:
+  - CC
   - NanoTrasen
   - SimpleNeutral
+  - Mouse
   defaultHostile: true
 
 - type: npcFaction
@@ -35,17 +47,22 @@
   - PetsNT
   - SimpleNeutral
   - MD
+  - Mouse
   defaultHostile: true
 
 - type: npcFaction
   id: MD
+  friendly:
+  - CC
   neutral:
+  - CC
   - NanoTrasen
   - SimpleNeutral
   - Cat
   - PetsNT
   - TSFMC
   - TSFMCTurret
+  - Mouse
   defaultHostile: true
 
 - type: npcFaction
