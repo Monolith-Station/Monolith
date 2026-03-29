@@ -877,7 +877,7 @@
   - type: MachineBoard
     prototype: Thruster
     requirements: # Frontier
-      Capacitor: 4 # Frontier stackRequirements<requirements
+      Capacitor: 1 # Frontier stackRequirements<requirements. Mono 4<1
     stackRequirements:
       Steel: 5
 
