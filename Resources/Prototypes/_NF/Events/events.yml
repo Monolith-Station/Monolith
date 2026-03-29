@@ -85,6 +85,19 @@
     numberOfGrids:  # Mono
       min:  5       # Mono
       max:  10      # Mono
+      
+- type: entity
+  id: BaseStationEventShortDelay
+  parent: BaseGameRule
+  abstract: true
+  components:
+  - type: GameRule
+    delay:
+      min:  5
+      max:  10
+    numberOfGrids:  # Mono
+      min:  5       # Mono
+      max:  10      # Mono
 
 # Frontier: right now you never find them since they spawn on random grids.
 # - type: entity
