@@ -104,6 +104,11 @@ public abstract partial class SharedClawsSystem : EntitySystem
         gunAccuracyComp.SpreadMultiplier = stage.GunSpreadMultiplier;
     }
 
+    public void GrowClaws(TimeSpan bonusGrowth, ClawsComponent component)
+    {
+        component.AccumulatedBonusGrowth += bonusGrowth;
+    }
+
     protected bool TryGetStage<T>(ClawsComponent comp, [NotNullWhen(true)] out T? stage) where T : ClawType
     {
         if (!_protoMan.TryIndex(comp.ClawStage, out var clawProto) ||

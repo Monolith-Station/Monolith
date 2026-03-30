@@ -154,7 +154,7 @@
       flatReductions:
         Heat: 10
   - type: MeleeWeapon # Mono edit
-    canWideSwing: false
+    canWideSwing: true # Mono Edit
     attackRate: 1
     damage:
       types:
