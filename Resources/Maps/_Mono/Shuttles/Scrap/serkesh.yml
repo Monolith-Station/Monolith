@@ -4,7 +4,7 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/30/2026 15:28:46
+  time: 03/30/2026 15:30:56
   entityCount: 1175
 maps: []
 grids:
@@ -2978,6 +2978,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,11.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 430
     components:
     - type: Transform
