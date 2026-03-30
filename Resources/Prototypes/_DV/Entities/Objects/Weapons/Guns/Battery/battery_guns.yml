@@ -27,7 +27,7 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
     burstFireRate: 4 # Mono burstfire and modeswitching
-    burstShotsCount: 3
+    shotsPerBurst: 3
     burstCooldown: 0.75
     selectedMode: SemiAuto
     availableModes:
