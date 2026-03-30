@@ -444,9 +444,8 @@
     layers:
     - state: engineering
     - state: icon-rcd
-  # Frontier: replace with droppable items
-  - type: DroppableBorgModule
-    moduleId: RCD
+  - type: ItemBorgModule
+    moduleId: RCD # Frontier
     items:
     - RCDRecharging
     - ShipRepairDeviceRecharging # Mono
