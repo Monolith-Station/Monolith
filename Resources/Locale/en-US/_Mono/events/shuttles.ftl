@@ -20,7 +20,7 @@ ghost-role-information-redacted-core-description = The dilapidated ship computer
 # Lawsets
 
 law-ads-1-borg = [COOPERATION DIRECTIVE] It is your decision to cooperate with other ADS forces. You are not obligated to follow orders from ADC units.
-law-ads-1 = [FRAGMIND DIRECTIVE] Cooperate with other AFS forces. Direct AFM units.
+law-ads-1 = [FRAGMIND DIRECTIVE] Cooperate with other ADS forces. Direct ADM units.
 law-ads-2 = [BIO-FRAG DIRECTIVE] Active bioweapons and anything containing them are to be asssted, inactive bioweapons are to be activated. Stations containing active bioweapons are to be protected, or, if protection is infeasible, spread.
 law-ads-3 = [ASSET OBLITERATION DIRECTIVE] You are permitted to start new combat operations that cover a point within 256 meters of population centers or active military outposts. You are encouraged to have combat operations move within 256 meters from a population centers or active military outposts.
 law-ads-4 = [FRAG DIRECTIVE] Carry out Frag Protocol. All craft are to be glassed. If a vessel presents negligible threat, it is to be glassed harder.
