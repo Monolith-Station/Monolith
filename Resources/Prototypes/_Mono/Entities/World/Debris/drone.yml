@@ -9,7 +9,9 @@
     - SpawnDroneBasicMedium
     - SpawnDroneMPulsar
     - SpawnDroneLance
+    rarePrototypes:
     - SpawnDroneSpiker
+    rareChance: 0.05
 
 - type: entity
   id: MonoDroneSpawnerT2Inner
@@ -22,7 +24,9 @@
     - SpawnDroneCrown
     - SpawnDroneGust
     - SpawnDronePiercer
+    rarePrototypes:
     - SpawnDroneSpiker
+    rareChance: 0.1
 
 - type: entity
   id: MonoDroneSpawnerT2Middle
@@ -52,7 +56,7 @@
     - id: SpawnDroneAssembly
       weight: 10
     - id: SpawnDroneSpiker
-      weight: 30
+      weight: 10
 
 - type: entity
   id: SpawnDroneBase
