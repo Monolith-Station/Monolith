@@ -118,6 +118,14 @@ public sealed class ThermalSignatureSystem : EntitySystem
             if (_mapGridQuery.HasComp(uid))
             {
                 sigComp.TotalHeat += sigComp.StoredHeat;
+
+                // don't sync it if it didn't change heat much since last time, we don't need to sync 500 cold asteroids every system update
+                if (sigComp.TotalHeat <= sigComp.LastUpdateHeat * HeatChangeThreshold
+                    && sigComp.TotalHeat >= sigComp.LastUpdateHeat / HeatChangeThreshold)
+                    continue;
+
+                sigComp.LastUpdateHeat = sigComp.TotalHeat;
+                Dirty(uid, sigComp);
             }
             else
             {
@@ -126,15 +134,6 @@ public sealed class ThermalSignatureSystem : EntitySystem
                 if (xform.GridUid != null && _sigQuery.TryGetComponent(xform.GridUid.Value, out var gridSig))
                     gridSig.TotalHeat += sigComp.StoredHeat;
             }
-
-            // threshold should be really small value so client/server desync wont be a problem
-            if (sigComp.TotalHeat <= sigComp.LastUpdateHeat * HeatChangeThreshold
-                && sigComp.TotalHeat >= sigComp.LastUpdateHeat / HeatChangeThreshold)
-                continue;
-
-            sigComp.LastUpdateHeat = sigComp.TotalHeat;
-
-            Dirty(uid, sigComp);
         }
     }
 }
