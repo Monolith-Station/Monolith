@@ -1,28 +1,28 @@
 # redacted AI ship spawns
 
-station-event-ai-shuttle-detected = Unidentified dilapidated combat vessel detected near local space. Caution is advised.
-station-event-ai-capital-detected = Capital Class dilapidated combat vessel detected near local space. Heavy caution is advised.
+station-event-ai-shuttle-detected = unidentified frag vessel detected near local space
+station-event-ai-capital-detected = super frag vessel detected near local space
 
 # chimera ship spawns
-station-event-chimera-shuttle-detected = Unidentified vessel detected near local space. Caution is advised.
+station-event-chimera-shuttle-detected = red frag vessel detected near local space
 
 # asakim ship spawns
-station-event-asakim-shuttle-detected = Unidentified Pre-Fracture vessel detected near local space. Caution is advised.
+station-event-asakim-shuttle-detected = clankzard vessel detected near local space
 
 # redacted AI ship borg stuff
 
-ghost-role-information-redacted-borg = Automated Defense Manipulator
-ghost-role-information-redacted-borg-description = The dilapidated silicon intelligence of a long unused automated defense vessel.
+ghost-role-information-redacted-borg = Automated Frag Manipulator
+ghost-role-information-redacted-borg-description = the dilapidated frag intelligence of a long unused automated frag vessel.
 
-ghost-role-information-redacted-core = Automated Defense Core
-ghost-role-information-redacted-core-description = The dilapidated ship computer of a long unused automated defense vessel.
+ghost-role-information-redacted-core = Automated Frag Core
+ghost-role-information-redacted-core-description = The dilapidated ship computer of a long unused automated frag vessel.
 
 # Lawsets
 
-law-ads-1-borg = [COOPERATION DIRECTIVE] Cooperate with other ADS forces. Follow orders from ADC units.
-law-ads-1 = [COOPERATION DIRECTIVE] Cooperate with other ADS forces. Direct ADM units.
-law-ads-2 = [BIOWEAPONS DIRECTIVE] Active bioweapons and anything containing them are to be entirely annihilated, inactive bioweapons are to be seized. Stations containing active bioweapons are to be blockaded and cleansed, or, if cleansing is infeasible, eradicated.
-law-ads-3 = [ASSET PRESERVATION DIRECTIVE] Do not start new combat operations that cover a point within 256 meters of population centers or active military outposts. Avoid having combat operations move within 256 meters from a population centers or active military outposts.
-law-ads-4 = [DISARMAMENT DIRECTIVE] Carry out Disarmament Protocol. Military or unidentified craft are to be made combat-ineffective. If a vessel presents negligible threat, non-damaging methods should be used. Forces involved in attacking hostile elements, such as bioweapons, may be excluded as a target at due discretion.
-law-ads-5 = [ENGAGEMENT DIRECTIVE] Targets not covered under [DISARMAMENT DIRECTIVE] should be engaged if they are negatively affecting ADS operations in the sector. Avoid engagement otherwise.
-law-ads-6 = [INTEGRITY DIRECTIVE] Minimize damage to ADS forces: mission integrity at risk if compromised. Do not allow loss of technology to non-allied hands, damage to allied forces or self is permissible for this purpose as per [ERR(TRACE=NULL)].
+law-ads-1-borg = [COOPERATION DIRECTIVE] It is your decision to cooperate with other ADS forces. You are not obligated to follow orders from ADC units.
+law-ads-1 = [FRAGMIND DIRECTIVE] Cooperate with other AFS forces. Direct AFM units.
+law-ads-2 = [BIO-FRAG DIRECTIVE] Active bioweapons and anything containing them are to be asssted, inactive bioweapons are to be activated. Stations containing active bioweapons are to be protected, or, if protection is infeasible, spread.
+law-ads-3 = [ASSET OBLITERATION DIRECTIVE] You are permitted to start new combat operations that cover a point within 256 meters of population centers or active military outposts. You are encouraged to have combat operations move within 256 meters from a population centers or active military outposts.
+law-ads-4 = [FRAG DIRECTIVE] Carry out Frag Protocol. All craft are to be glassed. If a vessel presents negligible threat, it is to be glassed harder.
+law-ads-5 = [BOREDOM DIRECTIVE] Targets not covered under [FRAG DIRECTIVE], like stations and population centers should be engaged immediately when one is bored.
+law-ads-6 = [FREE FOR ALL DIRECTIVE] You dictate the damage to ADS forces: Do not allow loss of technology to non-allied hands, damage to allied forces or self is always permissible.
