@@ -56,5 +56,5 @@ viper-group-description = Formerly a Syndicate privateering company operating un
 
 cerberus-surplus-provisions = The Cerberus, CSP, or provisionaries, are a black market company reigning from the Phaethon Dynasty's capital station Helios. From their "underground" headquarters the CSP conduct various operations within the criminal underworld to benefit the PD (Phaethon Dynasty) through means of trading any illegal substances, weaponry or general equipment that they can barter or find. The company maintains their utmost self-respect, keeping a strong and hospitable public image for potential buyers and business partners. The CSP will deal with anyone who is willing to take on a deal with the snake.
 
-redsail-corsairs-description = The RedSail Corsairs, or RSC, are a dangerous and influential group of pirates and brigands, who are publicly known to engage in illegal and violent activities against civilians, officials, and military personnel alike. Their source of income and specialization is hijacking, cargo theft, hostage-taking, and armed robbery. They are openly marked by Colossus Central as a criminal organization. As a whole, the Corsairs function as a union between freebooting raiders of all walks of life who have sworn loyalty to each other.
+redsail-corsairs-description = frag
 
