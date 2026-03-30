@@ -306,3 +306,14 @@
   - type: StaticPrice
     price: 4000
     vendPrice: 10000
+    
+- type: entity
+  parent: BaseFlatpack
+  id: FTLDrive65Flatpack
+  name: CTLA-65 bluemoth drive flatpack
+  description: A flatpack used for constructing a 65 65 mango moth drive
+  components:
+  - type: Flatpack
+    entity: MachineFTLDrive65
+  - type: StaticPrice
+    price: 65

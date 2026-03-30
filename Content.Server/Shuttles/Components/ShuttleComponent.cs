@@ -20,7 +20,7 @@ namespace Content.Server.Shuttles.Components
         /// Maximum velocity assuming TWR is BaseMaxVelocityTWR.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        public float BaseMaxLinearVelocity = 75f; // Mono
+        public float BaseMaxLinearVelocity = 7500f; // Mono - april 1st
 
         public const float MaxAngularVelocity = 4f;
 

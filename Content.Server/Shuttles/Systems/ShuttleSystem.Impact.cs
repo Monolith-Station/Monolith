@@ -172,8 +172,8 @@ public sealed partial class ShuttleSystem
 
 
             // Check if either grid has GridGodMode or ForceAnchor protection
-            var ourProtected = HasComp<GridGodModeComponent>(args.OurEntity) || HasComp<ForceAnchorComponent>(args.OurEntity);
-            var otherProtected = HasComp<GridGodModeComponent>(args.OtherEntity) || HasComp<ForceAnchorComponent>(args.OtherEntity);
+            var ourProtected = HasComp<GridGodModeComponent>(args.OurEntity); // || HasComp<ForceAnchorComponent>(args.OurEntity);
+            var otherProtected = HasComp<GridGodModeComponent>(args.OtherEntity); // || HasComp<ForceAnchorComponent>(args.OtherEntity);
 
             // Check if the grids are docked together to prevent impact
             var areGridsDocked = _dockSystem.AreGridsDocked(args.OurEntity, args.OtherEntity);

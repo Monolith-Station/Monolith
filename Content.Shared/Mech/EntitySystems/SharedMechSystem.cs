@@ -78,7 +78,7 @@ public abstract class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<MechPilotComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
         SubscribeLocalEvent<MechEquipmentComponent, ShotAttemptedEvent>(OnShotAttempted); // Goobstation
-        Subs.CVar(_config, GoobCVars.MechGunOutsideMech, value => _canUseMechGunOutside = value, false); // Goobstation
+        Subs.CVar(_config, GoobCVars.MechGunOutsideMech, value => _canUseMechGunOutside = value, true); // Goobstation
     }
 
     // GoobStation: Fixes scram implants or teleports locking the pilot out of being able to move.
@@ -265,11 +265,11 @@ public abstract class SharedMechSystem : EntitySystem
         if (!Resolve(toInsert, ref equipmentComponent))
             return;
 
-        if (component.EquipmentContainer.ContainedEntities.Count >= component.MaxEquipmentAmount)
-            return;
+        // if (component.EquipmentContainer.ContainedEntities.Count >= component.MaxEquipmentAmount)
+        //     return;
 
-        if (_whitelistSystem.IsWhitelistFail(component.EquipmentWhitelist, toInsert))
-            return;
+        // if (_whitelistSystem.IsWhitelistFail(component.EquipmentWhitelist, toInsert)) // Mono - no limit to te larp
+        //     return;
 
         equipmentComponent.EquipmentOwner = uid;
         _container.Insert(toInsert, component.EquipmentContainer);
