@@ -25,6 +25,16 @@
 - type: damageModifierSet # Mono
   id: FactionBorgChassis
   coefficients:
+    Heat: 1
+    Cold: 0
+    Shock: 2.5
+    Blunt: 0.5
+    Slash: 0.6
+    Piercing: 0.6
+
+- type: damageModifierSet # Mono
+  id: FactionBorgChassisAssault
+  coefficients:
     Heat: 0.8
     Cold: 0
     Shock: 2.5
@@ -112,3 +122,35 @@
     Piercing: 7
     Heat: 4
     Structural: 1
+
+- type: damageModifierSet
+  id: MechArmorIndustrial
+  coefficients:
+    Blunt: 0.6
+    Slash: 0.65
+    Piercing: 1.1
+    Shock: 0.35
+    Heat: 0.35
+    Radiation: 0.2
+    Cold: 0
+    Structural: 0.35
+    Caustic: 0.65
+  flatReductions:
+    Blunt: 4
+    Slash: 4
+    Piercing: 6
+    Heat: 5
+
+# IPC
+
+- type: damageModifierSet
+  id: IPCWeakened
+  coefficients:
+    Blunt: 1.3
+    Slash: 1.3
+    Piercing: 1.3
+    Poison: 0
+    Cold: 0.2
+    Heat: 1.9
+    Shock: 3
+    Radiation: 0.45 # RIP

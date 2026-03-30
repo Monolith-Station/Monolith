@@ -4,7 +4,7 @@
   id: BallisticTurretHeavyBase
   parent: BaseWeaponTurret
   name: heavy ballistic turret
-  description: A massively reinforced turret, firing a barrage of 8x65mm SKR rounds that rip up targets. Woe be the fool who walks in front of this.
+  description: A massively reinforced turret, firing a barrage of anti-material 7.62x51mm rounds that rip up targets and mechs alike. Woe be the fool who walks in front of this.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Turrets/heavy_turret.rsi
@@ -44,8 +44,8 @@
     maxCharge: 5000
     startingCharge: 5000
   - type: Gun
-    fireRate: 5
-    projectileSpeed: 100
+    fireRate: 4.5
+    projectileSpeed: 65
     maxAngle: 12
     minAngle: 0
     selectedMode: FullAuto
@@ -54,7 +54,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: Bullet8x65mmSKR
+    proto: Bullet762x51mmAntiMaterial
     fireCost: 25
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -63,6 +63,15 @@
     price: 1500
 
 # Faction Based
+
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyCC
+  suffix: CC, Colossus
+  components:
+  - type: NpcFactionMember
+    factions:
+    - CC
 
 - type: entity
   parent: BallisticTurretHeavyBase
@@ -130,6 +139,106 @@
 - type: entity
   parent: BallisticTurretHeavyBase
   id: WeaponTurretHeavySilicon
+  suffix: Rogue AI
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SiliconsExpeditionNF
+
+# Anti-Chimera Variant
+
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyRIPBase
+  name: heavy ballistic RIP turret
+  description: A variant on the standard heavy balistic turret, firing a barrage of 7.62x51mm RIP ammunition to delete anything unarmored. Chimera hate these.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Turrets/heavy_turret_RIP.rsi
+    drawdepth: Mobs
+    layers:
+    - state: syndie_lethal_RIP
+  - type: ProjectileBatteryAmmoProvider
+    proto: Bullet762x51mmRIP
+    fireCost: 25
+
+# Faction Based
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPCC
+  suffix: CC, Colossus
+  components:
+  - type: NpcFactionMember
+    factions:
+    - CC
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPNanoTrasen
+  suffix: NanoTrasen
+  components:
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPHostile
+  suffix: Hostile
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPAllHostile
+  suffix: All hostile
+  components:
+  - type: NpcFactionMember
+    factions:
+    - HostileUniversally
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPSyndicate
+  suffix: Syndicate
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPTSFMC
+  suffix: TSF
+  components:
+  - type: NpcFactionMember
+    factions:
+    - TSFMCTurret
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPVDN
+  suffix: PDV
+  components:
+  - type: NpcFactionMember
+    factions:
+    - PirateNF
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPMD
+  suffix: Medical
+  components:
+  - type: NpcFactionMember
+    factions:
+    - MD
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPSilicon
   suffix: Rogue AI
   components:
   - type: NpcFactionMember

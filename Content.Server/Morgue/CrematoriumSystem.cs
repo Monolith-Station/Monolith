@@ -33,7 +33,6 @@ public sealed class CrematoriumSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _minds = default!;
     [Dependency] private readonly SharedContainerSystem _containers = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!; // Frontier
-    [Dependency] private readonly SharedMindSystem _mind = default!; // frontier
 
     public override void Initialize()
     {
@@ -128,7 +127,7 @@ public sealed class CrematoriumSystem : EntitySystem
             return false;
         if (TryComp<MobStateComponent>(entity, out var comp) && !_mobState.IsDead(entity, comp))
             return false;
-        if (_mind.TryGetMind(entity, out var _, out var mind) && mind.Session?.State?.Status == SessionStatus.InGame)
+        if (_minds.TryGetMind(entity, out var _, out var mind) && mind.Session?.State?.Status == SessionStatus.InGame)
             return false;
 
         return Cremate(uid, component, storage);

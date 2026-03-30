@@ -58,6 +58,18 @@
     guides:
     - VoltageNetworks
     - Power
+  # Mono
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
 
 - type: entity
   id: CableHVStack
