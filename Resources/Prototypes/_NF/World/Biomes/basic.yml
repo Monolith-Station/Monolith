@@ -294,6 +294,8 @@
   chunkComponents:
   - type: DebrisFeaturePlacerController
     densityNoiseChannel: DensityWall
+    randomCancelChance: 0
+    safetyZoneRadius: 22
     minRange: 9820
     maxRange: 9900
   - type: SimpleDebrisSelector
