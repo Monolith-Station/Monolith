@@ -1,0 +1,38 @@
+# Author Info
+# GitHub: gelliii
+# Discord: .gelliii.
+
+# Shuttle Notes: PR made by Corrupt142
+#
+- type: vessel
+  id: Ziggurat
+  parent: BaseVessel
+  name: GS Ziggurat
+  description: A MILitary interceptor built with afterburners and countermeasures. Comes with 3 fixed firing Prometheus mounts.
+  price: 91000 # 72.5K + 25%~
+  category: Small
+  group: Scrap
+  shuttlePath: /Maps/_Mono/Shuttles/Scrap/ziggurat.yml
+  guidebookPage: ShipyardZiggy
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - APU
+
+- type: gameMap
+  id: Ziggurat
+  mapName: 'GS Ziggurat'
+  mapPath: /Maps/_Mono/Shuttles/Scrap/ziggurat.yml
+  minPlayers: 0
+  stations:
+    Ziggurat:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Ziggurat SRP-MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

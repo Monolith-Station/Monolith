@@ -1,0 +1,37 @@
+# Author Info
+# GitHub: mrrpip
+# Discord: Skye1803
+
+#
+- type: vessel
+  id: Ziggy
+  parent: BaseVessel
+  name: GS Ziggy
+  description: A fragile CIVilian escort with afterburners and countermeasures, bares a Prometheus laser cannon to defend
+  price: 41000 # 37K rounded up + 10% tax.
+  category: Small
+  group: Scrap
+  shuttlePath: /Maps/_Mono/Shuttles/Scrap/ziggy.yml
+  guidebookPage: ShipyardZiggy
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - APU
+
+- type: gameMap
+  id: Ziggy
+  mapName: 'GS Ziggy'
+  mapPath: /Maps/_Mono/Shuttles/Scrap/ziggy.yml
+  minPlayers: 0
+  stations:
+    Ziggy:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Ziggy SRP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

@@ -1,0 +1,82 @@
+<Document>
+  # FIGHTER 'ZIGGURAT' / ESCORT 'ZIGGY'
+  <Box>
+    <GuideEntityEmbed Entity="WeaponLaserTurretPrometheus"/>
+    <GuideEntityEmbed Entity="WeaponTurretFlare"/>
+  </Box>
+  [color=#a4885c]Ship Size:[/color] Small
+
+  [color=#a4885c]Recommended Crew:[/color] 1-2
+
+  [color=#a4885c]Power Gen Type:[/color] Wallmount APU x2.
+
+  [color=#a4885c]Expeditions:[/color] None
+
+  [color=#a4885c]IFF Console:[/color] Yes
+
+  "The Ziggy and it's meaner cousin, the Ziggurat are tuned to fight at range with their Prometheus type laser cannons while using countermeasures and afterburners to escape larger ships before re-engaging on it's own terms, at the cost of being very fragile and prone to APU cook-offs"
+
+  # PREFLIGHT CHECKLIST
+
+  ## 1. Power supply
+
+  ## 1.1. Battery units
+  <Box>
+    <GuideEntityEmbed Entity="SubstationBasic"/>
+    <GuideEntityEmbed Entity="APCBasic"/>
+  </Box>
+
+  - Check that the substation unit is charging. Due to the presence of no other substation, feel free to set power draw to maximum.
+  - If the shuttle is unpowered upon your arrival, the afterburners may have discharged the substation. Disable output on the Substation or pull the APC breakers to allow for a charge and jumpstart.
+
+  ## 1.2. Auxiliary Power Unit wallmounted generator.
+  <Box>
+    <GuideEntityEmbed Entity="GeneratorWallmountAPU"/>
+  </Box>
+
+  - Check that both APUs are routed to the substation by High Voltage power cable. If set properly, each will generate 6KW to power the fighter.
+
+  ## 2. Atmospherics - Waste Loop
+
+  <Box>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="GasPassiveVent"/>
+  </Box>
+
+  - Assure that the red pipes, vent and scrubber are all intact.
+
+  ## 3. Other checks
+  <Box>
+    <GuideEntityEmbed Entity="WeaponTurretFlare"/>
+  </Box>
+
+  - If fire by signal is desired for a lower IFF signature, assure that the GS-002 systems are linked to "Trigger"
+  - The Ziggy will also require it's 20mms to be linked to "Trigger" and "Toggle"
+
+  ## 4. Button links.
+  <Box>
+    <GuideEntityEmbed Entity="ComputerShuttle"/>
+  </Box>
+
+  * - One > Prometheus Laser Cannons, 1 KM range, can pierce shields.
+
+  * - Three/Four > Our recommendation for additional weapon systems and countermasures.
+
+  * - Five > Operates the door bolts. Keep them unbolted during FTL or they will desync.
+
+  * - Six > Blast Doors.
+
+  * - Seven > Main engines. This will allow your substation to recharge faster.
+
+  * - Eight > Afterburners. These will drain power constantly from the substation faster than it can charge. Be careful of continuous use.
+
+  ## Sidenotes
+
+  - Use the 12 o'clock marker on your ship's console to aim if firing by signal.
+
+  - Firing the Prometheus laser systems will spike your thermal signature.
+
+  - Flare based countermeasures will inherit your speed to some extent.
+
+  - Due to the high power requirements of the afterburners, upgrading the substation with a new cell and capacitors would be recommended.
+</Document>
