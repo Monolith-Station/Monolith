@@ -1,14 +1,16 @@
+# Chimera
 
-- type: damageModifierSet # Mono
-  id: Protogen
+- type: damageModifierSet
+  id: Chimera
   coefficients:
-    Heat: 1.3
-    Cold: 1.15
+    Heat: 1.4
+    Cold: 0.6
     Radiation: 1.55
-    Shock: 1.5
-    Blunt: 0.8
-    Slash: 0.9
-    Piercing: 0.9
+    Shock: 1.2
+    Blunt: 0.2
+    Slash: 0.6
+    Piercing: 1
+
 
 # Cyborgs
 
