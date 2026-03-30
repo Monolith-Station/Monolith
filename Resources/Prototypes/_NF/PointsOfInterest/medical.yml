@@ -11,9 +11,9 @@
 - type: pointOfInterest
   id: Medical
   parent: [BasePOI, BaseRepairablePOI]
-  name: 'Medical Dispatch'
-  minimumDistance: 1650
-  maximumDistance: 2700
+  name: 'Hugging Zone'
+  minimumDistance: 1000
+  maximumDistance: 1250
   spawnGroup: Required
   gridPath: /Maps/_NF/POI/medical.yml
   addComponents:
@@ -23,7 +23,7 @@
 
 - type: gameMap
   id: Medical
-  mapName: 'Medical Dispatch'
+  mapName: 'Hugging Zone'
   mapPath: /Maps/_NF/POI/medical.yml
   minPlayers: 0
   stations:
