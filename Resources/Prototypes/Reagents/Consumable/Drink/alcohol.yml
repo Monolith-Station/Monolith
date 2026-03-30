@@ -164,6 +164,12 @@
     Alcohol:
       effects:
       - !type:HealthChange
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
+      - !type:Jitter
+      - !type:GenericStatusEffect
+        key: Stutter
         conditions:
         - !type:ReagentThreshold
           min: 15
