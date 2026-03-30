@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/30/2026 17:34:31
-  entityCount: 267
+  time: 03/30/2026 18:22:35
+  entityCount: 262
 maps: []
 grids:
 - 1
@@ -66,10 +66,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
+        Kudzu: []
         Smoke: []
         Puddle: []
-        Kudzu: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -862,41 +862,12 @@ entities:
     - type: Transform
       pos: -0.5,4.5
       parent: 1
-- proto: CMSemioticEight
-  entities:
-  - uid: 254
-    components:
-    - type: Transform
-      pos: 5.5,-0.5
-      parent: 1
-  - uid: 255
-    components:
-    - type: Transform
-      pos: -4.5,-0.5
-      parent: 1
-- proto: CMSemioticOne
-  entities:
-  - uid: 256
-    components:
-    - type: Transform
-      pos: -4.5,2.5
-      parent: 1
-  - uid: 257
-    components:
-    - type: Transform
-      pos: 5.5,2.5
-      parent: 1
 - proto: CMSemioticSeven
   entities:
   - uid: 252
     components:
     - type: Transform
       pos: 6.5,0.5
-      parent: 1
-  - uid: 253
-    components:
-    - type: Transform
-      pos: -5.5,0.5
       parent: 1
 - proto: ComputerIFF
   entities:
