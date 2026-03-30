@@ -1,100 +1,100 @@
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPShipyard
-  suffix: KA Shipyard
+  suffix: USSP Shipyard
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-ka-shipyard
+    defaultText: station-beacon-ussp-shipyard
     color: "#b40044"
 
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPDockAlpha
-  suffix: KA Docks
+  suffix: USSP Docks
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-ka-dock-alpha
+    defaultText: station-beacon-ussp-dock-alpha
     color: "#b40044"
 
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPDockBeta
-  suffix: KA Docks
+  suffix: USSP Docks
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-ka-dock-beta
+    defaultText: station-beacon-ussp-dock-beta
     color: "#b40044"
 
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPControl
-  suffix: KA Control Room
+  suffix: USSP Control Room
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-ka-control
+    defaultText: station-beacon-ussp-control
     color: "#b40044"
 
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPReception
-  suffix: KA Reception
+  suffix: USSP Reception
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-ka-reception
+    defaultText: station-beacon-ussp-reception
     color: "#b40044"
 
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPDorms
-  suffix: KA Dorms
+  suffix: USSP Dorms
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-ka-dorms
+    defaultText: station-beacon-ussp-dorms
     color: "#b40044"
 
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPCommissar
-  suffix: KA Director
+  suffix: USSP Commissar
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-ka-commissar
+    defaultText: station-beacon-ussp-commissar
     color: "#b40044"
 
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPArmory
-  suffix: KA Armory
+  suffix: USSP Armory
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-ka-armory
+    defaultText: station-beacon-ussp-armory
     color: "#b40044"
 
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPCargo
-  suffix: KA Cargo
+  suffix: USSP Cargo
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-ka-cargo
+    defaultText: station-beacon-ussp-cargo
     color: "#b40044"
 
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPBrig
-  suffix: KA Brig
+  suffix: USSP Brig
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-ka-brig
+    defaultText: station-beacon-ussp-brig
     color: "#b40044"
 
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPServers
-  suffix: KA Servers
+  suffix: USSP Servers
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-ka-servers
+    defaultText: station-beacon-ussp-servers
     color: "#b40044"
 
 # Used in Colossus Central
