@@ -129,7 +129,7 @@ entities:
         Kudzu: []
         MetalFoam: []
     - type: Shuttle
-      dampingModifier: 0.25
+      dampingModifier: 0.35
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
