@@ -63,13 +63,9 @@ public sealed class PlantAnalyzerSystem : EntitySystem
 
         _audio.PlayPvs(ent.Comp.ScanningEndSound, ent);
 
-        // Store the scanned plant for continuous updates
         ent.Comp.ScannedEntity = args.Args.Target.Value;
-
-        // Force an immediate update on the next system tick
         ent.Comp.NextUpdate = TimeSpan.Zero;
 
-        // Open the UI (first update may be dropped — updater will fix it)
         OpenUserInterface(args.User, ent);
 
         args.Handled = true;
