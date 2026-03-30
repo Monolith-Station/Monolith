@@ -382,3 +382,38 @@
   - type: EyeCursorOffset
     maxOffset: 3
     pvsIncrease: 0.3
+
+- type: entity
+  name: Cyborg minigun
+  id: CyborgWeaponMinigun
+  parent: BaseWeaponHeavyMachineGun
+  description: Old highly-inaccurate rotary mini-gun chambered in a small caliber.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+  - type: Gun
+    minAngle: 4
+    maxAngle: 25
+    angleIncrease: 3
+    angleDecay: 20
+    fireRate: 16
+    projectileSpeed: 45
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: CartridgeMinigun
+    fireCost: 20
+  - type: Battery
+    maxCharge: 4000
+    startingCharge: 4000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
+  - type: AmmoCounter
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container

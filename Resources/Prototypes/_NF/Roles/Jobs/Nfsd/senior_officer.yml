@@ -8,9 +8,6 @@
       time: 72000 # 20 hours # mono
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 28800 # 8 hours # mono
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
       time: 36000 # 10 hours # mono
   startingGear: SeniorOfficerGear
   icon: JobIconSergeant

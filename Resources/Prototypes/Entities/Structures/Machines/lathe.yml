@@ -262,6 +262,7 @@
     - NFScience # Frontier
     - NFPouches # Frontier
     - VoidBoots # Mono
+    - CarpEquipment # Mono
     - UpgradeKits # Mono
     - UpgradeKits_Goob # Mono
     - SMSurgery # Shitmed Change
@@ -500,7 +501,6 @@
     - SMCybernetics
     # Mono - Mechs
     - WeaponMechCombatArsenal
-    - DynamicAmmoRecipePack
     - SmartGun # Goobstation
     # Mono start
     - MonoTSFWeaponsDynamicMelee
@@ -513,6 +513,11 @@
     - MonoUSSPWeaponsDynamicRanged
     - UniversalShellAmmo
     - ResearchedExplosives
+    - UniversalRailgunAmmo
+    - UniversalMissileAmmo
+    - UniversalOrdinance
+    - SmartGun #Smart SMG
+    - NFMercenaryTechfabDeprecated
     # Mono end
   - type: MaterialStorage
     whitelist:
