@@ -19,6 +19,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Map; // Mono
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
+using System.Threading.Tasks.Dataflow;
 
 namespace Content.Server._CorvaxNext.Silicons.Borgs;
 
@@ -144,11 +145,14 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
         _userInterface.TryToggleUi(uid, RemoteDeviceUiKey.Key, actor.PlayerSession);
 
+        var aiGrid = Transform(uid).GridUid; // Mono
         var query = EntityManager.EntityQueryEnumerator<AiRemoteControllerComponent>();
         var remoteDevices = new List<RemoteDevicesData>();
 
         while (query.MoveNext(out var queryUid, out var comp))
         {
+            if (Transform(queryUid).GridUid != aiGrid)
+                continue;
             var data = new RemoteDevicesData
             {
                 NetEntityUid = GetNetEntity(queryUid),
