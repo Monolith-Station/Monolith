@@ -4,8 +4,11 @@ job-name-futureagent = Future Agent
 # Navy Stuff
 # All of those changed from Goob
 job-name-navyofficer = Winter Solstice Officer
+job-name-navy-officer = Winter Solstice Officer
 job-name-navy-officer-undercover = Winter Solstice Operative
 job-name-navycaptain = Winter Solstice HiCom
+job-name-navy-captain = Winter Solstice HiCom
+job-name-special-operations-officer = Winter Solstice Special Operations Officer
 job-name-diplomat = TSF Diplomat
 job-name-exec = Executive Access
 job-name-governmentman = The G-Man
