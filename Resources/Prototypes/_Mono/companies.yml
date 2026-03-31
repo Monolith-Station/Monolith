@@ -236,6 +236,7 @@
   description: viper-group-description
   color: "#B82121"
   image: /Textures/_Mono/Companies/thevipergroup.png # Example
+  disabled: true
   logins:
   - Schizm1253
   - Androidonator
@@ -255,6 +256,12 @@
   - Siege_Of_Malta_Never_Happened
   - gelliii
   - Uranio
+  - Jinryuu
+  - FervantTwo8
+  - Exsa
+  - DesriTheRacoon
+  - AngusBeef
+  - ShirouAjisai
 
 - type: company
   id: RedSailCorsairs
@@ -286,10 +293,3 @@
   - chugaa
   - SLDuggy
   - Middleagedman
-
-- type: company
-  id: 65company
-  form: Antagonist
-  name: YARA KAMERONI (羢啇槳揯劶) INDUSTRIES INCORPORATED (钭欆龸)
-  description: 65company-description
-  color: "#14515E"

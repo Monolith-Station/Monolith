@@ -24,9 +24,6 @@
     - SpawnDroneCrown
     - SpawnDroneGust
     - SpawnDronePiercer
-    rarePrototypes:
-    - SpawnDroneSpiker
-    rareChance: 0.1
 
 - type: entity
   id: MonoDroneSpawnerT2Middle
@@ -54,8 +51,6 @@
     - id: SpawnDroneMedusa
       weight: 10
     - id: SpawnDroneAssembly
-      weight: 10
-    - id: SpawnDroneSpiker
       weight: 10
 
 - type: entity
@@ -178,12 +173,3 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/assembly.yml
-
-# april fools
-
-- type: entity
-  id: SpawnDroneSpiker
-  parent: SpawnDroneBase
-  components:
-  - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/spikerdrone.yml

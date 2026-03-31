@@ -177,8 +177,7 @@ public sealed partial class ShuttleConsoleSystem
         _shuttle.GetAllDockedShuttlesIgnoringFTLLock(shuttleUid.Value, dockedGrids);
 
         // Mono
-        var selfCoord = _transform.GetMapCoordinates(xform);
-        foreach (var (console, consoleComp) in _lookup.GetEntitiesInRange<ShuttleConsoleComponent>(selfCoord, ShuttleFTLRange))
+        foreach (var (console, consoleComp) in _lookup.GetEntitiesInRange<ShuttleConsoleComponent>(_transform.GetMapCoordinates(xform), ShuttleFTLRange))
         {
             var consoleXform = Transform(console);
             var consGrid = consoleXform.GridUid;
@@ -200,15 +199,6 @@ public sealed partial class ShuttleConsoleSystem
 
         // Client sends the "adjusted" coordinates and we adjust it back to get the actual transform coordinates.
         var adjustedCoordinates = targetCoordinates.Offset(targetAngle.RotateVec(-shuttlePhysics.LocalCenter));
-
-        var fromWorldPos = selfCoord.Position;
-        var toWorldPos = _transform.ToWorldPosition(adjustedCoordinates);
-        if (fromWorldPos.Length() < 10000 && toWorldPos.Length() > 9700)
-        {
-            _popup.PopupEntity(Loc.GetString("shuttle-ftl-thewall"), ent.Owner, PopupType.Medium);
-            UpdateConsoles(shuttleUid.Value);
-            return;
-        }
 
         var tagEv = new FTLTagEvent();
         RaiseLocalEvent(shuttleUid.Value, ref tagEv);

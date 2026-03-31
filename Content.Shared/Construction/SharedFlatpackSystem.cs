@@ -12,7 +12,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 
 namespace Content.Shared.Construction;
 
@@ -31,7 +30,6 @@ public abstract class SharedFlatpackSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedToolSystem _tool = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -69,7 +67,7 @@ public abstract class SharedFlatpackSystem : EntitySystem
 
         args.Handled = true;
 
-        if (comp.Entity == null && (comp.Entities is not { } entsc || entsc.Count == 0))
+        if (comp.Entity == null)
         {
             Log.Error($"No entity prototype present for flatpack {ToPrettyString(ent)}.");
 
@@ -94,8 +92,7 @@ public abstract class SharedFlatpackSystem : EntitySystem
 
         if (_net.IsServer)
         {
-            var entsp = comp.Entities is { } ents ? _random.Pick(ents) : comp.Entity;
-            var spawn = Spawn(entsp, _map.GridTileToLocal(grid, gridComp, buildPos));
+            var spawn = Spawn(comp.Entity, _map.GridTileToLocal(grid, gridComp, buildPos));
             if (TryComp(spawn, out TransformComponent? spawnXform)) // Frontier: rotatable flatpacks
                 spawnXform.LocalRotation = xform.LocalRotation.GetCardinalDir().ToAngle(); // Frontier: rotatable flatpacks
             _adminLogger.Add(LogType.Construction,
