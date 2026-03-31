@@ -16,6 +16,7 @@ using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.StationAi;
 using Content.Shared.Verbs;
+using Robust.Shared.Map; // Mono
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 
@@ -29,6 +30,8 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
+
+    [Dependency] private readonly IMapManager _map = default!; // Mono
 
     public override void Initialize()
     {
@@ -99,6 +102,9 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
         if (!TryComp<AiRemoteControllerComponent>(entity, out var aiRemoteComp))
             return;
+
+        if (!_map.TryFindGridAt(Transform(ai).MapPosition, out var grid, out var _) || Transform(entity).GridUid != grid)
+            return; // Mono no controlling borgs outside the ai's grid.
 
         if (TryComp(entity, out IntrinsicRadioTransmitterComponent? transmitter))
         {
