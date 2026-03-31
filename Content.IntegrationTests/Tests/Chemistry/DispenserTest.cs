@@ -24,7 +24,8 @@ public sealed class DispenserTest : InteractionTest
         Assert.That(Hands.ActiveHandEntity, Is.Null);
 
         // Open BUI
-        await Interact();
+        await Activate();
+        Assert.That(IsUiOpen(ReagentDispenserUiKey.Key));
 
         // Eject beaker via BUI.
         var ev = new ItemSlotButtonPressedEvent(SharedReagentDispenser.OutputSlotName);

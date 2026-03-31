@@ -16,6 +16,7 @@ namespace Content.Shared.Chemistry
         public const string PillSolutionName = "food";
         public const string BottleSolutionName = "drink";
         public const uint LabelMaxLength = 50;
+        public const uint MaxPillsPerBatch = 50;
     }
 
     [Serializable, NetSerializable]

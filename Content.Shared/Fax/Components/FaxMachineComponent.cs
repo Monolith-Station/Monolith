@@ -1,5 +1,6 @@
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Paper;
+using Content.Shared.Research.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -36,6 +37,20 @@ public sealed partial class FaxMachineComponent : Component
     /// </summary>
     [DataField(required: true)]
     public ItemSlot PaperSlot = new();
+
+    /// <summary>
+    /// Loaded clean normal paper stock used for copying.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
+    public int NormalPaperStock = 0;
+
+    /// <summary>
+    /// Loaded clean office paper stock used for copying office papers.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
+    public int OfficePaperStock = 0;
 
     /// <summary>
     /// Is fax machine should respond to pings in network
@@ -199,11 +214,14 @@ public sealed partial class FaxPrintout
     [DataField] // Frontier
     public bool StampProtected { get; private set; } // Frontier
 
+    [DataField] // Frontier
+    public HashSet<ProtoId<LatheRecipePrototype>> BlueprintRecipes { get; private set; } = new(); // Frontier
+
     private FaxPrintout()
     {
     }
 
-    public FaxPrintout(string content, string name, string? label = null, string? prototypeId = null, string? stampState = null, List<StampDisplayInfo>? stampedBy = null, bool locked = false, bool stampProtected = false) // Frontier: add stampProtected
+    public FaxPrintout(string content, string name, string? label = null, string? prototypeId = null, string? stampState = null, List<StampDisplayInfo>? stampedBy = null, bool locked = false, bool stampProtected = false, HashSet<ProtoId<LatheRecipePrototype>>? blueprintRecipes = null) // Frontier: add stampProtected, blueprintRecipes
     {
         Content = content;
         Name = name;
@@ -213,5 +231,6 @@ public sealed partial class FaxPrintout
         StampedBy = stampedBy ?? new List<StampDisplayInfo>();
         Locked = locked;
         StampProtected = stampProtected; // Frontier
+        BlueprintRecipes = blueprintRecipes ?? new(); // Frontier
     }
 }

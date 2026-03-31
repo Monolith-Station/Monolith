@@ -28,8 +28,14 @@ public sealed partial class ShipOwnershipComponent : Component
     public bool IsOwnerOnline;
 
     /// <summary>
-    /// How long to wait after the owner disconnects before deleting their ship (in seconds)
+    /// Last time any non-ghost player was detected on this ship.
     /// </summary>
     [DataField]
-    public float DeletionTimeoutSeconds = 3600; // 1 hour
+    public TimeSpan LastPlayerActivityTime;
+
+    /// <summary>
+    /// When set, the ship is scheduled to be auto-deleted at this time unless activity resumes.
+    /// </summary>
+    [DataField]
+    public TimeSpan? PendingDeletionTime;
 }

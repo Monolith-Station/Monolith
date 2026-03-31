@@ -17,13 +17,17 @@ public sealed class FaxUiState : BoundUserInterfaceState
     public bool IsPaperInserted { get; }
     public bool CanSend { get; }
     public bool CanCopy { get; }
+    public int NormalPaperStock { get; }
+    public int OfficePaperStock { get; }
 
     public FaxUiState(string deviceName,
         Dictionary<string, string> peers,
         bool canSend,
         bool canCopy,
         bool isPaperInserted,
-        string? destAddress)
+        string? destAddress,
+        int normalPaperStock,
+        int officePaperStock)
     {
         DeviceName = deviceName;
         AvailablePeers = peers;
@@ -31,6 +35,8 @@ public sealed class FaxUiState : BoundUserInterfaceState
         CanSend = canSend;
         CanCopy = canCopy;
         DestinationAddress = destAddress;
+        NormalPaperStock = normalPaperStock;
+        OfficePaperStock = officePaperStock;
     }
 }
 
@@ -79,4 +85,14 @@ public sealed class FaxDestinationMessage : BoundUserInterfaceMessage
     {
         Address = address;
     }
+}
+
+[Serializable, NetSerializable]
+public sealed class FaxTakeNormalPaperMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class FaxTakeOfficePaperMessage : BoundUserInterfaceMessage
+{
 }

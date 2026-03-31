@@ -121,6 +121,36 @@ public sealed class NFCCVars
     public static readonly CVarDef<float> ShipyardSellRate =
         CVarDef.Create("shuttle.shipyard_base_sell_rate", 0.85f, CVar.SERVERONLY);
 
+    /// <summary>
+    /// Enables automatic cleanup of inactive purchased shipyard shuttles.
+    /// </summary>
+    public static readonly CVarDef<bool> ShipyardAutoDeleteEnabled =
+        CVarDef.Create("shuttle.shipyard_auto_delete_enabled", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Owner must be offline for at least this many seconds before deletion can be armed.
+    /// </summary>
+    public static readonly CVarDef<float> ShipyardAutoDeleteOwnerOfflineSeconds =
+        CVarDef.Create("shuttle.shipyard_auto_delete_owner_offline_seconds", 3600f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// No players must be aboard for at least this many seconds before deletion can be armed.
+    /// </summary>
+    public static readonly CVarDef<float> ShipyardAutoDeleteInactiveSeconds =
+        CVarDef.Create("shuttle.shipyard_auto_delete_inactive_seconds", 7200f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Safety grace period after arming deletion. Any player activity cancels it.
+    /// </summary>
+    public static readonly CVarDef<float> ShipyardAutoDeleteGraceSeconds =
+        CVarDef.Create("shuttle.shipyard_auto_delete_grace_seconds", 900f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Interval in seconds between ownership cleanup checks.
+    /// </summary>
+    public static readonly CVarDef<float> ShipyardAutoDeleteCheckIntervalSeconds =
+        CVarDef.Create("shuttle.shipyard_auto_delete_check_interval_seconds", 60f, CVar.SERVERONLY);
+
     /*
      * Salvage
      */
