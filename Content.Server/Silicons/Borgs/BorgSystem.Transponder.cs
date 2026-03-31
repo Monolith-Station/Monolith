@@ -23,6 +23,7 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Emag.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components; // Corvax-Next-AiRemoteControl
 
@@ -78,8 +79,8 @@ public sealed partial class BorgSystem
             comp.NextBroadcast = now + comp.BroadcastDelay;
         }
         //Goobstation Drone transponder start
-        var query2 = EntityQueryEnumerator<BorgTransponderComponent, DroneComponent, DeviceNetworkComponent, MetaDataComponent>();
-        while (query2.MoveNext(out var uid, out  var comp, out var drone, out var device, out var  meta))
+        var query2 = EntityQueryEnumerator<BorgTransponderComponent, DeviceNetworkComponent, MetaDataComponent>();
+        while (query2.MoveNext(out var uid, out  var comp, out var device, out var  meta))
         {
             if (now < comp.NextBroadcast)
                 continue;
