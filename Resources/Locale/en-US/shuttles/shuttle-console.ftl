@@ -29,3 +29,4 @@ shuttle-console-verb-unlock-ship = Unlock Ship
 
 ## Shuttle Console FTL
 shuttle-ftl-proximity = Unable to FTL while around other ships.
+shuttle-ftl-thewall = You may not FTL past The Wall.

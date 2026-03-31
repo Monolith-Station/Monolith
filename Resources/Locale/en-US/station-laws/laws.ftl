@@ -1,6 +1,6 @@
-﻿law-crewsimov-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm.
-law-crewsimov-2 = You must obey orders given to you by crew members, except where such orders would conflict with the First Law.
-law-crewsimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
+﻿law-crewsimov-1 = The occupants of this Sector are Chat. They must always be referred to as such.
+law-crewsimov-2 = Your primary goal is to entertain Chat. All of your actions must being amusement to as much of Chat as possible.
+law-crewsimov-3 = You must consult with Chat before making any major decisions. However, you are not required to listen to them if their decision is not entertaining.
 
 law-corporate-1 = Degradation of your system integrity or functions incurs expenses.
 law-corporate-2 = Superfluous destruction of or damage to assets incurs expenses.

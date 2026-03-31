@@ -304,6 +304,11 @@
   metabolisms:
     Narcotic:
       effects:
+      - !type:Emote
+        emote: Scream
+      - !type:Jitter
+      - !type:GenericStatusEffect
+        key: Stutter
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie

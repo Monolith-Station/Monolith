@@ -86,6 +86,29 @@
       prob: 0.03
       orGroup: wreck
 
+- type: noiseChannel
+  id: DensityFrequent
+  noiseType: Perlin
+  fractalLacunarityByPi: 0.666666666
+  remapTo0Through1: true
+  clippingRanges:
+  - 0, 0.5
+  clippedValue: 0.1 # MONO NOTE = BIGGER = SMALLER AMOUNT OF ASTEROIDS!!!
+  inputMultiplier: 3 # Makes density hopefully low noise in the local area while still being interesting at scale.
+  outputMultiplier: 200.0 # We scale density up significantly for more human-friendly numbers.
+  minimum: 0.25
+
+- type: noiseChannel
+  id: WreckFrequent
+  noiseType: Perlin
+  fractalLacunarityByPi: 0.666666666
+  clippingRanges:
+  - 0, 0.5
+  clippedValue: 0
+  remapTo0Through1: true
+  inputMultiplier: 16 # Makes wreck concentration very low noise at scale.
+  outputMultiplier: 1
+
 # region Middle Ring
 - type: spaceBiome
   id: NFAsteroidsMid
@@ -263,6 +286,12 @@
   priority: 1
   distanceRange: 9700, 10000
   chunkComponents:
+  - type: DebrisFeaturePlacerController
+    densityNoiseChannel: DensityWall
+    randomCancelChance: 0
+    safetyZoneRadius: 22
+    minRange: 9820
+    maxRange: 9900
   - type: SimpleDebrisSelector
     debrisTable:
     # Extra Enormous
@@ -382,6 +411,7 @@
       prob: 0.15
       orGroup: debris
   - type: NoiseDrivenDebrisSelector
+    noiseChannel: WreckFrequent
     debrisTable:
     - id: NFWreckDebrisMedium
       prob: 0.3
@@ -413,7 +443,7 @@
   id: NFAsteroidsFar
   parent: NFBiomeBase
   priority: 0
-  distanceRange: 9500, 18000 # Mono
+  distanceRange: 10000, 18000 # Mono
   noiseRanges: {}
   chunkComponents:
   - type: SimpleDebrisSelector

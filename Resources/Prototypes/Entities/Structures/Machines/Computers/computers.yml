@@ -145,7 +145,7 @@
   - type: RadarConsole
     relativePanning: true # Mono
   - type: WorldLoader
-    radius: 700 # Mono
+    radius: 400 # Mono
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -262,7 +262,7 @@
       - Syndicate
   - type: RadarConsole
   - type: WorldLoader
-    radius: 1536
+    radius: 400
   - type: PointLight
     radius: 1.5
     energy: 1.6

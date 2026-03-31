@@ -25,6 +25,10 @@ public sealed partial class FlatpackComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public EntProtoId? Entity;
 
+    // Mono - april 1st
+    [DataField]
+    public List<EntProtoId>? Entities = null;
+
     /// <summary>
     /// Sound effect played upon the object being unpacked.
     /// </summary>
