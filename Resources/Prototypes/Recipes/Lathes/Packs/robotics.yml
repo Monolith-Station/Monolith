@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 ImHoks <imhokzzzz@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 ## Static
 
 - type: latheRecipePack
@@ -11,6 +7,7 @@
   - PositronicBrain
   - SciFlash
   - CyborgEndoskeleton
+  - AiRemoteBrain
 
 - type: latheRecipePack
   id: BorgModulesStatic
@@ -55,7 +52,6 @@
   id: Robotics
   recipes:
   - ProximitySensor
-  - AiRemoteBrain
 
 - type: latheRecipePack
   id: BorgModules
