@@ -83,11 +83,17 @@
   - type: NoShoesSilentFootsteps
   - type: LanguageKnowledge
     speaks:
-    - TauCetiBasic
     - SiikMaas #Mono - Changed default, SiikTajr disabled
+    - NalRasan
+    - SiikTajr
+    - YaSsa
+    - Delvahii
     understands:
-    - TauCetiBasic
     - SiikMaas #Mono - Changed default, SiikTajr disabled
+    - NalRasan
+    - SiikTajr
+    - YaSsa
+    - Delvahii
   - type: Tag
     tags:
     - CanPilot
