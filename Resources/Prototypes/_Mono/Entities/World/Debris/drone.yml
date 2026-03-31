@@ -9,6 +9,9 @@
     - SpawnDroneBasicMedium
     - SpawnDroneMPulsar
     - SpawnDroneLance
+    rarePrototypes:
+    - SpawnDroneSpiker
+    rareChance: 0.002
 
 - type: entity
   id: MonoDroneSpawnerT2Inner

@@ -266,12 +266,6 @@
     - id: MonoDroneSpawnerT1
       prob: 0.1
       orGroup: wreck
-    - id: MonoDroneSpawnerT2Inner
-      prob: 0.02
-      orGroup: wreck
-    - id: MonoDroneSpawnerT2Middle
-      prob: 0.004
-      orGroup: wreck
 
 - type: noiseChannel
   id: DensityWall
