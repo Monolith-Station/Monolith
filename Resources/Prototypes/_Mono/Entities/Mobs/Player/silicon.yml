@@ -172,11 +172,16 @@
   description: A tender to a automated drone ship, to keep internal mechanisms intact.
   components:
   - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
     layers:
-    - state: base
-    - state: ai
+    - state: synd_engi
+    - state: synd_engi_e
+      map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
+      visible: false
+    - state: synd_engi_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic

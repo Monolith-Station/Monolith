@@ -3,7 +3,7 @@
 - type: entity
   parent: [FoodInjectableBase, ItemHeftyBase]
   id: FoodEggBase
-  description: DO NOT NOTICE
+  description: An egg!
   abstract: true
   components:
   - type: Tag
@@ -67,7 +67,7 @@
   name: eggshells
   parent: BaseItem
   id: Eggshells
-  description: The noticing has resulted in a casualty
+  description: You're walkin' on 'em bud.
   components:
   - type: Food
   - type: Sprite

@@ -14775,7 +14775,7 @@ Entries:
     - type: Add
       message: >-
         The DIS Pluto MK. II has pierced it's way on the hull market. A
-        replacement of the honorable Pluto.
+        replacement of the honorable Pluto. 
     - type: Remove
       message: >-
         DIS Pluto hulls are no longer available on the hull market. We will miss
@@ -14885,7 +14885,7 @@ Entries:
     - type: Tweak
       message: >-
         Spasaka sabotage kit has gotten equipment changes to help with boarding
-        as well as receiving the RX-01 suit.
+        as well as receiving the RX-01 suit. 
   id: 1651
   time: '2025-12-13T08:10:05.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2782
@@ -15226,7 +15226,7 @@ Entries:
     - type: Tweak
       message: >-
         Bluespace crates occur more frequently. By extension there will be fewer
-        solar flares.
+        solar flares. 
     - type: Tweak
       message: >-
         Increased the number of smuggling hints sent out to ships. Happy
@@ -15789,7 +15789,7 @@ Entries:
     - type: Add
       message: >-
         A new challanger! BT-Y Hazel enters the PDV Roster as a small-strafer in
-        place of the Vega featuring a 3 barreled 220m Battery!
+        place of the Vega featuring a 3 barreled 220m Battery! 
     - type: Remove
       message: PDV Vega is now gone, o7.
   id: 1752
@@ -15815,7 +15815,7 @@ Entries:
         The Europa is now a beefy capital ship with medical and cloning
         capabilities. She is now restricted to two vessels active at a time, as
         well as costing 240k. These changes come with the benefit of a heavy
-        upgrade. Glory to Phaethon.
+        upgrade. Glory to Phaethon. 
   id: 1754
   time: '2026-01-05T16:53:42.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/2929
@@ -16677,7 +16677,7 @@ Entries:
     - type: Tweak
       message: >-
         Advanced chemicals now have 0.15u metabolism rate. Pyrazine healing was
-        buffed to 2.
+        buffed to 2. 
     - type: Tweak
       message: Overseer's heavy maul sprite received changes.
   id: 1847
@@ -16904,7 +16904,7 @@ Entries:
     - type: Tweak
       message: >-
         Horizon Energy has begun sale of modernized versions of the Windreign to
-        the Colossus Sector.
+        the Colossus Sector. 
   id: 1871
   time: '2026-02-01T19:28:28.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3141
@@ -17076,7 +17076,7 @@ Entries:
       message: >-
         the local syndicate outpost has finally invested in some automated
         defenses. woe be the raider who tries to illegally park their ship right
-        in front of the outpost.
+        in front of the outpost. 
   id: 1887
   time: '2026-02-11T01:31:25.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3044
@@ -17408,7 +17408,7 @@ Entries:
     - type: Tweak
       message: >-
         Mech Fuel Cell now costs Fissile Uranium (1) and Diamond (1) among other
-        cost changes, but auto-regens to full within 4 minutes.
+        cost changes, but auto-regens to full within 4 minutes. 
     - type: Tweak
       message: >-
         Balance pass on Armored Frame (S2/S4 mech) weapons - RAC-6 spreads
@@ -18895,7 +18895,7 @@ Entries:
     - type: Tweak
       message: >-
         The DIS Femur has seen a light rework, see PR for more details. Report
-        feedback & issues to me on discord (@unicornonlsd)
+        feedback & issues to me on discord (@unicornonlsd) 
   id: 2085
   time: '2026-03-26T05:55:13.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3560
@@ -19158,195 +19158,3 @@ Entries:
   id: 2112
   time: '2026-03-30T16:56:00.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3643
-- author: Ilya246
-  changes:
-    - type: Add
-      message: Added fun!
-    - type: Remove
-      message: Removed fun!
-    - type: Tweak
-      message: Changed fun!
-    - type: Fix
-      message: Fixed ship speed being limited.
-    - type: Fix
-      message: Fixed drive and park modes.
-    - type: Fix
-      message: Fixed autopilot.
-    - type: Fix
-      message: Fixed gun recoil.
-    - type: Fix
-      message: Cryptominers have been fixed to be AI datacenters (not for war trust).
-  id: 2104
-  time: '2026-03-29T14:17:46.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3610
-- author: mikusssssss
-  changes:
-    - type: Add
-      message: 65 drive
-  id: 2105
-  time: '2026-03-29T14:45:36.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3612
-- author: doktor-gonz0
-  changes:
-    - type: Tweak
-      message: Borers now originate from the mythical place called "Detroit".
-  id: 2106
-  time: '2026-03-29T15:47:30.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3616
-- author: mikusssssss
-  changes:
-    - type: Add
-      message: New ways of producing power
-  id: 2107
-  time: '2026-03-29T16:52:59.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3621
-- author: NazrinNya
-  changes:
-    - type: Tweak
-      message: improved mech and weapon larp.
-    - type: Tweak
-      message: improved inventory management.
-    - type: Add
-      message: added wyvern to shipyard
-  id: 2108
-  time: '2026-03-29T16:53:40.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3620
-- author: Ilya246
-  changes:
-    - type: Add
-      message: Added fun!
-    - type: Fix
-      message: Fixed POIs not moving.
-  id: 2109
-  time: '2026-03-29T17:15:36.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3624
-- author: mikusssssss
-  changes:
-    - type: Add
-      message: The ownership of all ATM's has been transferred to the Bank Of America
-  id: 2110
-  time: '2026-03-29T17:56:06.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3625
-- author: mikusssssss
-  changes:
-    - type: Fix
-      message: Names of radio channels
-  id: 2111
-  time: '2026-03-29T18:08:28.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3623
-- author: Redrover1760
-  changes:
-    - type: Remove
-      message: Removed Bomb Collars. Collars are gross, man, eww.
-    - type: Add
-      message: >-
-        Added Nuke Collars. A sudden surge in the supply of nuclear material has
-        redefined the nuclear warfare meta.
-  id: 2112
-  time: '2026-03-29T18:09:11.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3619
-- author: mikusssssss
-  changes:
-    - type: Add
-      message: >-
-        Evil Hidden TSF Ninja Warrior Strategy Of Immediate Explosion has been
-        brought back
-  id: 2113
-  time: '2026-03-29T18:10:01.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3622
-- author: Redrover1760
-  changes:
-    - type: Add
-      message: >-
-        Spikey spinners have been detected upon the Monolith Sector. Please
-        avoid contact with hostile spikey balls.
-  id: 2114
-  time: '2026-03-29T18:37:55.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3627
-- author: mikusssssss
-  changes:
-    - type: Add
-      message: Added larpcomm
-    - type: Remove
-      message: Removed useless commie channel
-  id: 2115
-  time: '2026-03-30T04:38:28.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3626
-- author: burrrkeye
-  changes:
-    - type: Fix
-      message: >-
-        A very crucial bug about Thanatos Mass-Driver was fixed! They now work
-        properly as intended.
-    - type: Fix
-      message: >-
-        A very crucial bug about Charon ships was fixed! They now have the
-        proper guns!
-  id: 2116
-  time: '2026-03-30T15:42:56.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3611
-- author: mikusssssss
-  changes:
-    - type: Add
-      message: Added Caroline
-    - type: Add
-      message: Added new energy low sound effect
-    - type: Remove
-      message: Removed the round start IPC medium battery
-    - type: Tweak
-      message: Changed some values regarding unlocking and locking IPC's
-  id: 2117
-  time: '2026-03-30T15:45:19.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3640
-- author: mikusssssss
-  changes:
-    - type: Tweak
-      message: the drillsite drills are now 65
-  id: 2118
-  time: '2026-03-30T16:22:01.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3615
-- author: mikusssssss
-  changes:
-    - type: Add
-      message: >-
-        Ownership of most vending machines has been transferred to Yara Kameroni
-        Industries (65) :tm:
-  id: 2119
-  time: '2026-03-30T16:41:45.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3641
-- author: tonotom1
-  changes:
-    - type: Tweak
-      message: Barozine's formulation was made way stronger!
-    - type: Tweak
-      message: >-
-        We did not dump Barozine reformulation byproduct anywhere. Do not
-        attempt to investigate.
-  id: 2120
-  time: '2026-03-30T17:07:39.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3642
-- author: mikusssssss
-  changes:
-    - type: Add
-      message: Added 65 company
-  id: 2121
-  time: '2026-03-30T17:33:10.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3645
-- author: Ilya246
-  changes:
-    - type: Tweak
-      message: >-
-        Slightly increased middle ring asteroid spawnrate to encourage
-        prospecting.
-    - type: Add
-      message: The Wall
-  id: 2122
-  time: '2026-03-30T18:15:50.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3648
-- author: mikusssssss
-  changes:
-    - type: Tweak
-      message: 🥚
-  id: 2123
-  time: '2026-03-30T19:41:36.0000000+00:00'
-  url: https://github.com/Monolith-Station/Monolith/pull/3650

@@ -86,38 +86,13 @@
       prob: 0.03
       orGroup: wreck
 
-- type: noiseChannel
-  id: DensityFrequent
-  noiseType: Perlin
-  fractalLacunarityByPi: 0.666666666
-  remapTo0Through1: true
-  clippingRanges:
-  - 0, 0.5
-  clippedValue: 0.1 # MONO NOTE = BIGGER = SMALLER AMOUNT OF ASTEROIDS!!!
-  inputMultiplier: 3 # Makes density hopefully low noise in the local area while still being interesting at scale.
-  outputMultiplier: 200.0 # We scale density up significantly for more human-friendly numbers.
-  minimum: 0.25
-
-- type: noiseChannel
-  id: WreckFrequent
-  noiseType: Perlin
-  fractalLacunarityByPi: 0.666666666
-  clippingRanges:
-  - 0, 0.5
-  clippedValue: 0
-  remapTo0Through1: true
-  inputMultiplier: 16 # Makes wreck concentration very low noise at scale.
-  outputMultiplier: 1
-
 # region Middle Ring
 - type: spaceBiome
   id: NFAsteroidsMid
   parent: NFBiomeBase
   priority: 1
-  distanceRange: 5000, 9700
+  distanceRange: 5000, 9500
   chunkComponents:
-  - type: DebrisFeaturePlacerController
-    densityNoiseChannel: DensityFrequent
   - type: SimpleDebrisSelector
     debrisTable:
     # Extra Enormous
@@ -237,187 +212,6 @@
       prob: 0.15
       orGroup: debris
   - type: NoiseDrivenDebrisSelector
-    noiseChannel: WreckFrequent
-    debrisTable:
-    - id: NFWreckDebrisMedium
-      prob: 0.3
-      orGroup: wreck
-    - id: NFWreckDebrisLarge
-      prob: 0.6
-      orGroup: wreck
-    - id: NFWreckDebrisExtraLarge
-      prob: 1
-      orGroup: wreck
-    - id: NFWreckDebrisHuge
-      prob: 0.6
-      orGroup: wreck
-    - id: NFWreckDebrisExtraHuge
-      prob: 0.3
-      orGroup: wreck
-    - id: NFWreckDebrisEnormous
-      prob: 0.15
-      orGroup: wreck
-    - id: NFWreckDebrisBrassSmall
-      prob: 0.03
-      orGroup: wreck
-    - id: NFWreckDebrisBrassMedium
-      prob: 0.006
-      orGroup: wreck
-    - id: MonoDroneSpawnerT1
-      prob: 0.1
-      orGroup: wreck
-    - id: MonoDroneSpawnerT2Inner
-      prob: 0.02
-      orGroup: wreck
-    - id: MonoDroneSpawnerT2Middle
-      prob: 0.004
-      orGroup: wreck
-
-- type: noiseChannel
-  id: DensityWall
-  noiseType: Perlin
-  fractalLacunarityByPi: 0.666666666
-  remapTo0Through1: true
-  clippingRanges:
-  - 0, 1
-  clippedValue: 0 # MONO NOTE = BIGGER = SMALLER AMOUNT OF ASTEROIDS!!!
-  inputMultiplier: 30 # Makes density hopefully low noise in the local area while still being interesting at scale.
-  outputMultiplier: 0 # We scale density up significantly for more human-friendly numbers.
-  minimum: 2
-
-# region The Wall
-- type: spaceBiome
-  id: MonoTheWall
-  parent: NFBiomeBase
-  priority: 1
-  distanceRange: 9700, 10000
-  chunkComponents:
-  - type: DebrisFeaturePlacerController
-    densityNoiseChannel: DensityWall
-    randomCancelChance: 0
-    safetyZoneRadius: 22
-    minRange: 9820
-    maxRange: 9900
-  - type: SimpleDebrisSelector
-    debrisTable:
-    # Extra Enormous
-    - id: NFAsteroidDebrisExtraEnormous
-      prob: 0.3
-      orGroup: debris
-    - id: NFAsteroidIceDebrisExtraEnormous
-      prob: 0.3
-      orGroup: debris
-    - id: NFAsteroidAndesiteDebrisExtraEnormous
-      prob: 0.3
-      orGroup: debris
-    - id: NFAsteroidBasaltDebrisExtraEnormous
-      prob: 0.3
-      orGroup: debris
-    - id: NFAsteroidSandDebrisExtraEnormous
-      prob: 0.3
-      orGroup: debris
-    - id: NFAsteroidChromiteDebrisExtraEnormous
-      prob: 0.3
-      orGroup: debris
-    - id: NFAsteroidRockDebrisExtraEnormous
-      prob: 0.3
-      orGroup: debris
-    - id: NFAsteroidScrapDebrisExtraEnormous
-      prob: 0.15
-      orGroup: debris
-    # Massive
-    - id: NFAsteroidDebrisMassive
-      prob: 0.6
-      orGroup: debris
-    - id: NFAsteroidIceDebrisMassive
-      prob: 0.6
-      orGroup: debris
-    - id: NFAsteroidAndesiteDebrisMassive
-      prob: 0.6
-      orGroup: debris
-    - id: NFAsteroidBasaltDebrisMassive
-      prob: 0.6
-      orGroup: debris
-    - id: NFAsteroidSandDebrisMassive
-      prob: 0.6
-      orGroup: debris
-    - id: NFAsteroidChromiteDebrisMassive
-      prob: 0.6
-      orGroup: debris
-    - id: NFAsteroidRockDebrisMassive
-      prob: 0.6
-      orGroup: debris
-    - id: NFAsteroidScrapDebrisMassive
-      prob: 0.3
-      orGroup: debris
-    # Extra Massive
-    - id: NFAsteroidDebrisExtraMassive
-      prob: 1
-      orGroup: debris
-    - id: NFAsteroidAndesiteDebrisExtraMassive
-      prob: 1
-      orGroup: debris
-    - id: NFAsteroidBasaltDebrisExtraMassive
-      prob: 1
-      orGroup: debris
-    - id: NFAsteroidSandDebrisExtraMassive
-      prob: 1
-      orGroup: debris
-    - id: NFAsteroidChromiteDebrisExtraMassive
-      prob: 1
-      orGroup: debris
-    - id: NFAsteroidRockDebrisExtraMassive
-      prob: 1
-      orGroup: debris
-    - id: NFAsteroidScrapDebrisExtraMassive
-      prob: 0.5
-      orGroup: debris
-    # Gigantic
-    - id: NFAsteroidDebrisGigantic
-      prob: 0.6
-      orGroup: debris
-    - id: NFAsteroidAndesiteDebrisGigantic
-      prob: 0.6
-      orGroup: debris
-    - id: NFAsteroidBasaltDebrisGigantic
-      prob: 0.6
-      orGroup: debris
-    - id: NFAsteroidSandDebrisGigantic
-      prob: 0.6
-      orGroup: debris
-    - id: NFAsteroidChromiteDebrisGigantic
-      prob: 0.6
-      orGroup: debris
-    - id: NFAsteroidRockDebrisGigantic
-      prob: 0.6
-      orGroup: debris
-    - id: NFAsteroidScrapDebrisGigantic
-      prob: 0.3
-      orGroup: debris
-    # Extra Gigantic
-    - id: NFAsteroidDebrisExtraGigantic
-      prob: 0.3
-      orGroup: debris
-    - id: NFAsteroidAndesiteDebrisExtraGigantic
-      prob: 0.3
-      orGroup: debris
-    - id: NFAsteroidBasaltDebrisExtraGigantic
-      prob: 0.3
-      orGroup: debris
-    - id: NFAsteroidSandDebrisExtraGigantic
-      prob: 0.3
-      orGroup: debris
-    - id: NFAsteroidChromiteDebrisExtraGigantic
-      prob: 0.3
-      orGroup: debris
-    - id: NFAsteroidRockDebrisExtraGigantic
-      prob: 0.3
-      orGroup: debris
-    - id: NFAsteroidScrapDebrisExtraGigantic
-      prob: 0.15
-      orGroup: debris
-  - type: NoiseDrivenDebrisSelector
-    noiseChannel: WreckFrequent
     debrisTable:
     - id: NFWreckDebrisMedium
       prob: 0.3
@@ -449,7 +243,7 @@
   id: NFAsteroidsFar
   parent: NFBiomeBase
   priority: 0
-  distanceRange: 10000, 18000 # Mono
+  distanceRange: 9500, 18000 # Mono
   noiseRanges: {}
   chunkComponents:
   - type: SimpleDebrisSelector

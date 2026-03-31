@@ -39,21 +39,21 @@
       cell_slot:
         locked: true
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellPotato
+        startingItem: PowerCellMedium
   - type: BatterySlotRequiresLock
     itemSlot: cell_slot
   - type: EncryptionHolderRequiresLock
   - type: SiliconEmitSoundOnDrained
-    sound: "/Audio/Ambience/Antag/nukeops_start.ogg" # OPERATIVES STAND BY.... YOUR OBJECTIVES ARE SIMPLE.... DELIVER THE PAYLOAD AND GET OUT BEFORE IT DETONATES........ BEGIN MISSION.
+    sound: "/Audio/_Goobstation/Voice/IPC/energy_low.ogg" # Goobstation - ipc audio
     minInterval: 8
     maxInterval: 12
     popUp: "silicon-power-low"
   - type: Lock
-    locked: false
-    lockOnClick: true
-    unlockOnClick: true
-    lockTime: 1
-    unlockTime: 1
+    locked: true
+    lockOnClick: false
+    unlockOnClick: false
+    lockTime: 5
+    unlockTime: 5
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
@@ -99,12 +99,7 @@
   - type: Silicon
     entityType: enum.SiliconType.Player
     batteryPowered: true
-    drainPerSecond: 0.65 # 1.5 -> hahahahhaha 65 6565 65 65 656565655656565656565656565
-    #▄▄▄▄ ▄▄▄▄ 
-    #█ ‎ ‎ ‎ █    
-    #█▀▀█ ▀▀▀█ 
-    #█▄▄█ ▄▄▄█ 
-          
+    drainPerSecond: 0.65 # 1.5 -> 0.65 - Mono
     chargeThresholdMid: 0.80
     chargeThresholdLow: 0.35
     chargeThresholdCritical: 0.10
