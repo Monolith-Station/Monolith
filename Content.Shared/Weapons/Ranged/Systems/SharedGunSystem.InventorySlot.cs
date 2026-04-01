@@ -1,5 +1,6 @@
 using Content.Shared._Mono.Weapons.Ranged.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Weapons.Ranged.Events;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
@@ -14,11 +15,32 @@ public abstract partial class SharedGunSystem
     public void InitializeInventorySlotProvider()
     {
         SubscribeLocalEvent<InventorySlotProviderComponent, TakeAmmoEvent>(InventoryTakeAmmo);
+        SubscribeLocalEvent<InventorySlotProviderComponent, InventoryEquipActEvent>(InventoryEquip);
+        SubscribeLocalEvent<InventorySlotProviderComponent, GotUnequippedEvent>(InventoryUnEquip);
     }
 
     private void InventoryTakeAmmo(EntityUid uid, InventorySlotProviderComponent component, ref TakeAmmoEvent args)
     {
+        var slotEntity = GetInventoryProviderEntity(uid, component);
 
+        if (slotEntity == null)
+            return;
+
+        UpdateAmmoCount(uid);
+        RaiseLocalEvent(slotEntity.Value, args);
+
+        var ammoEv = new GetAmmoCountEvent();
+        RaiseLocalEvent(slotEntity.Value, ref ammoEv);
+    }
+
+    private void InventoryEquip(EntityUid uid, InventorySlotProviderComponent component, ref InventoryEquipActEvent args)
+    {
+        UpdateAmmoCount(uid);
+    }
+
+    private void InventoryUnEquip(EntityUid uid, InventorySlotProviderComponent component, ref GotUnequippedEvent args)
+    {
+        UpdateAmmoCount(uid);
     }
 
     private EntityUid? GetInventoryProviderEntity(EntityUid uid, InventorySlotProviderComponent component)
