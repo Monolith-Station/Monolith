@@ -4,7 +4,7 @@
   parent: BaseItem
   id: RemoteSignaller
   name: remote signaller
-  description: A handheld device used for remotely sending signals to objects within a small radius of about 15 meters.
+  description: A handheld device used for remotely sending signals to objects within a small radius of about 90 meters. # mono 15->90
   components:
   - type: Sprite
     sprite: Objects/Devices/signaller.rsi
@@ -24,7 +24,7 @@
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
   - type: WirelessNetworkConnection
-    range: 15
+    range: 90 # Mono 15->90
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
@@ -47,7 +47,7 @@
   parent: RemoteSignaller
   id: RemoteSignallerAdvanced
   name: advanced remote signaller
-  description: A handheld device used for remotely sending signals to objects within a small radius of about 50 meters.
+  description: A handheld device used for remotely sending signals to objects within a large radius of about 600 meters. # Mono 50->600. small->large
   components:
   - type: Sprite
     state: advanced
@@ -58,6 +58,6 @@
       right:
       - state: advanced-inhand-right
   - type: WirelessNetworkConnection
-    range: 50
+    range: 600 # Mono 50->600
   - type: StaticPrice
     price: 30

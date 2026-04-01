@@ -17,6 +17,17 @@
     Gold: 500
 
 - type: latheRecipe
+  id: ClothingOuterHardsuitCarp
+  result: ClothingOuterHardsuitCarp
+  completetime: 20
+  materials:
+    Steel: 2000
+    Plastic: 2000
+    Plasma: 700
+    Durathread: 500
+    Diamond: 100 # carp teeth be sharp
+
+- type: latheRecipe
   id: ClothingShoesBootsMagVoid
   result: ClothingShoesBootsMagVoid
   completetime: 10

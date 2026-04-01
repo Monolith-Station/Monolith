@@ -31,6 +31,13 @@
     inherentRadioChannels:
     - Common
     - Traffic
+    typeWhitelist: #Mono
+    - generic
+    - engineering
+    - mining
+    - janitor
+    - medical
+    - service
 
 - type: entity
   id: BorgChassisGeneric
