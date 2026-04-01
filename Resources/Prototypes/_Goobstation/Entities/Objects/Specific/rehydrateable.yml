@@ -115,15 +115,6 @@
     possibleSpawns:
     - MobVoxRandom
 
-- type: entity # mono
-  parent: MonkeyCube
-  id: ResomiCube
-  name: resomi cube
-  components:
-  - type: Rehydratable
-    possibleSpawns:
-    - MobResomiRandom
-
 - type: entity
   parent: MonkeyCube
   id: GoblinCube
