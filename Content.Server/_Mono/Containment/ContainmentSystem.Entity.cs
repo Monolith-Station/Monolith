@@ -7,30 +7,31 @@ using Content.Shared.Mobs.Components;
 namespace Content.Server._Mono.Containment;
 public sealed partial class ContainmentSystem
 {
-    private void UpdateEntity(TransformComponent xform, ContainmentComponent containment)
+    private readonly List<EntityUid?> _entityRemoveQueue = new();
+    private void UpdateEntity(TransformComponent xform, Entity<ContainmentComponent> containment)
     {
-        foreach (var entity in containment.ActiveEntities.ToArray())
+        foreach (var entity in containment.Comp.ActiveEntities)
         {
             if (!entity.HasValue ||
-                !HasComp<TransformComponent>(entity.Value) ||
+                TerminatingOrDeleted(entity) ||
                 xform.Coordinates.TryDistance(EntityManager, Transform(entity.Value).Coordinates, out var distance) &&
-                distance >= containment.Radius)
+                distance >= containment.Comp.Radius)
             {
-                RemoveContainedEntity(containment, entity);
+                RemoveContainedEntity(entity);
                 continue;
             }
 
-            if (!TryComp<ContainableEntityComponent>(entity, out var cont))
+            if (!TryComp<ContainableEntityComponent>(entity, out var containable))
                 continue;
 
-            AddPoints(cont.BasePoints * cont.Multiplier * HealthPenalty(entity, containment), containment.Owner);
-            AdjustMultiplier(cont);
+            AddPoints(GetPointOutput(entity.Value, containable, containment), containment.Owner);
+            AdjustMultiplier(containable);
         }
     }
 
-    private float GetPointOutput(ContainableEntityComponent cont, EntityUid containmentEntity, ContainmentComponent comp)
+    private float GetPointOutput(EntityUid uid, ContainableEntityComponent containable, ContainmentComponent comp)
     {
-        return cont.BasePoints * cont.Multiplier * HealthPenalty(containmentEntity, comp);
+        return containable.BasePoints * containable.Multiplier * HealthPenalty(uid, comp);
     }
 
     private void AdjustMultiplier(ContainableEntityComponent cont)
@@ -67,8 +68,8 @@ public sealed partial class ContainmentSystem
         _audio.PlayPvs(containment.RegisterSound, xform.Coordinates);
     }
 
-    private void RemoveContainedEntity(ContainmentComponent containment, EntityUid? ent)
+    private void RemoveContainedEntity(EntityUid? ent)
     {
-        containment.ActiveEntities.Remove(ent);
+        _entityRemoveQueue.Add(ent);
     }
 }

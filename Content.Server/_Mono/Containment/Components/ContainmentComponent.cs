@@ -14,9 +14,6 @@ public sealed partial class ContainmentComponent : Component
     [ViewVariables]
     public List<EntityUid?> ActiveEntities = [];
 
-    public TimeSpan NextUpdate = TimeSpan.Zero;
-    public float UpdateCooldown = 1f;
-
     [DataField]
     public SoundSpecifier? RegisterSound = new SoundPathSpecifier("/Audio/Machines/scan_finish.ogg");
 }

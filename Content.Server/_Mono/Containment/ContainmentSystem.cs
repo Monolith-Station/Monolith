@@ -1,5 +1,5 @@
 using Content.Server._Mono.Containment.Components;
-using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
 using Content.Server.Research.Systems;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Examine;
@@ -16,6 +16,9 @@ public sealed partial class ContainmentSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+
+    private TimeSpan _updateTimer =  TimeSpan.Zero;
+    private float _updateCooldown = 1f;
     public override void Initialize()
     {
         base.Initialize();
@@ -36,7 +39,7 @@ public sealed partial class ContainmentSystem : EntitySystem
             if (ent == null || !TryComp<ContainableEntityComponent>(ent, out var cont))
                 continue;
 
-            var output = GetPointOutput(cont, ent.Value, component);
+            var output = GetPointOutput(ent.Value, cont, component);
             if (output <= 0)
                 continue;
 
@@ -49,25 +52,30 @@ public sealed partial class ContainmentSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
+        if (_updateTimer < TimeSpan.FromSeconds(_updateCooldown))
+        {
+            _updateTimer += TimeSpan.FromSeconds(frameTime);
+            return;
+        }
+
         var containments = EntityQueryEnumerator<ContainmentComponent>();
 
         while (containments.MoveNext(out var uid, out var containment))
         {
-            containment.NextUpdate += TimeSpan.FromSeconds(frameTime);
-            if (containment.NextUpdate < TimeSpan.FromSeconds(containment.UpdateCooldown))
+            foreach (var ent in _entityRemoveQueue)
+            {
+                if (containment.ActiveEntities.Contains(ent))
+                    containment.ActiveEntities.Remove(ent);
+            }
+
+            if (!this.IsPowered(uid, EntityManager))
                 continue;
 
-            if (TryComp<ApcPowerReceiverComponent>(uid, out var receiver) && !receiver.Powered)
-                continue;
-
-            if (containment.Radius == 0)
-                continue;
-
-            var xform =  Transform(uid);
-            UpdateEntity(xform, containment);
-
-            containment.NextUpdate = TimeSpan.Zero;
+            var xform = Transform(uid);
+            UpdateEntity(xform, (uid, containment));
         }
+
+        _updateTimer -= TimeSpan.FromSeconds(_updateCooldown);
     }
 
     public void AddPoints(float points, EntityUid uid)
