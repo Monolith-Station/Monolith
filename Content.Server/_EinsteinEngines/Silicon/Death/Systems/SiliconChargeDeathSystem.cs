@@ -4,6 +4,7 @@ using Content.Shared.Bed.Sleep;
 using Content.Server._EinsteinEngines.Silicon.Charge;
 using Content.Server._EinsteinEngines.Power.Components;
 using Content.Server.Humanoid;
+using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems; //Monolith IPC rework
@@ -15,7 +16,7 @@ public sealed class SiliconDeathSystem : EntitySystem
     [Dependency] private readonly SleepingSystem _sleep = default!;
     [Dependency] private readonly SiliconChargeSystem _silicon = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearanceSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!; //Monolith IPC rework
+    [Dependency] private readonly DamageableSystem _damage = default!; // mono
 
     public override void Initialize()
     {
@@ -46,16 +47,15 @@ public sealed class SiliconDeathSystem : EntitySystem
         var deadEvent = new SiliconChargeDyingEvent(uid, batteryComp, batteryUid);
         RaiseLocalEvent(uid, deadEvent);
 
-        if (deadEvent.Cancelled)
+        if (deadEvent.Cancelled
+            || siliconDeadComp.ModifierOnDead == null
+            || !TryComp<DamageableComponent>(uid, out var damageComp))
             return;
 
         /*EntityManager.EnsureComponent<SleepingComponent>(uid); Monolith IPC rework edit start
         EntityManager.EnsureComponent<ForcedSleepingComponent>(uid);*/
-
-        if(!TryComp<HandsComponent>(uid, out var handsComp))
-            return;
-        _hands.RemoveHands(uid, handsComp); // edit end
-
+        siliconDeadComp.OriginalModifier = damageComp.DamageModifierSetId;
+        _damage.SetDamageModifierSetId(uid, siliconDeadComp.ModifierOnDead.Value);
 
         if (TryComp(uid, out HumanoidAppearanceComponent? humanoidAppearanceComponent))
         {
@@ -73,8 +73,8 @@ public sealed class SiliconDeathSystem : EntitySystem
         /*RemComp<ForcedSleepingComponent>(uid); Monolith IPC rework edit start
         _sleep.TryWaking(uid, true, null);*/
 
-        _hands.AddHand(uid, "right hand", HandLocation.Right);
-        _hands.AddHand(uid, "left hand", HandLocation.Left); // edit end
+        if (siliconDeadComp.OriginalModifier != null)
+            _damage.SetDamageModifierSetId(uid, siliconDeadComp.OriginalModifier.Value);
 
         siliconDeadComp.Dead = false;
 

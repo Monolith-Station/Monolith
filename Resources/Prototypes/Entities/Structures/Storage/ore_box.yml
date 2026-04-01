@@ -70,6 +70,7 @@
       storagebase: !type:Container
         ents: [ ]
   - type: Dumpable # Frontier
+    multiplier: 0.15 # mono
   - type: MagnetPickup # Frontier
     range: 1.5 # Ore bag has a range of 1.0
   - type: Fixtures
