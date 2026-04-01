@@ -67,6 +67,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         ent.Comp.NextUpdate = TimeSpan.Zero;
 
         OpenUserInterface(args.User, ent);
+        UpdateScannedUser(ent, args.Args.Target.Value);
 
         args.Handled = true;
     }
