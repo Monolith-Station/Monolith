@@ -1,0 +1,41 @@
+- type: entity
+  parent: BaseItem
+  id: WeaponShockMaul
+  name: tintreach
+  description: A heafty hammer designed for violent application of blunt force, and swift application of electrocution after. In a pinch it can serve as a defib, good for saving allies...or taking your time with a hated foe.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Melee/shockmaul.rsi
+    state: icon
+  - type: Item
+    size: Huge
+  - type: MeleeWeapon
+    attackRate: 0.4 # Added electronics make it slower than the breaching hammer
+    range: 1.70
+    damage:
+      types:
+        Blunt: 15
+        Structural: 50
+    bluntStaminaDamageFactor: 1.50 # 15 stamina damage
+    wideAnimationRotation: 270
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 50
+        Shock: 10
+        Structural: 250 
+  - type: Defibrillator # "OH NO...*I* SAY WHEN I SAY WE'RE DONE"
+    zapHeal:
+       types:
+         Asphyxiation: -40
+         Blunt: 15
+  - type: DoAfter
+  - type: UseDelay
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Melee/shockmaul.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage # Frontier - Same as axe
+#mono edit end

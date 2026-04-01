@@ -10,7 +10,7 @@
 # Basic Trade Outpost buying point for economy and great wealth
 - type: pointOfInterest
   id: TradeMall
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: Trade Mall
   minimumDistance: 3500
   maximumDistance: 6500

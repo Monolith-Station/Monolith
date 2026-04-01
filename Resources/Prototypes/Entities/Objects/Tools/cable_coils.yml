@@ -41,6 +41,7 @@
       types: # these are all split across multiple types
         Heat: -3.0
         Shock: -3.0
+        Radiation: -3.0
         #Ion: -3.0 # Goobstation
   # EE Change End
   # FIXME: Used isnt actually implemented so its still unlimited.
@@ -57,6 +58,18 @@
     guides:
     - VoltageNetworks
     - Power
+  # Mono
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
 
 - type: entity
   id: CableHVStack

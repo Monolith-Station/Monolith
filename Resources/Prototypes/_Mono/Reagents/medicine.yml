@@ -158,3 +158,73 @@
       - !type:AdjustReagent
         reagent: NaturalLetoferol
         amount: -3
+
+# Stable version of Leporazine
+
+- type: reagent
+  id: Peranol
+  name: reagent-name-peranol
+  group: Medicine
+  desc: reagent-desc-peranol
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: medicine
+  color: "#8B008B"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.02
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -0.2
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 253.15
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: false
+        amount: -360
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 253.15
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: true
+        amount: -7500
+
+# Claw growth medicine
+
+- type: reagent
+  id: Phenoxzine
+  name: reagent-name-phenoxzine
+  group: Medicine
+  desc: reagent-desc-phenoxzine
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#5571d6"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:ClawsGrowth
+        growth: 20
+
+- type: reagent
+  id: Meroxzine
+  name: reagent-name-meroxzine
+  group: Medicine
+  desc: reagent-desc-meroxzine
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: medicine
+  color: "#7a55d6"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.02
+      effects:
+      - !type:GenericStatusEffect
+        key: ClawsGrowthSuppression
+        component: ClawsGrowthSuppression
+        time: 10
+        type: Add

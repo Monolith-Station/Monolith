@@ -18,6 +18,7 @@
           True: { state: silo_active }
           False: { state: silo }
   - type: OreSilo
+    range: 125 # Mono
   - type: MaterialStorage
     whitelist:
       tags:
@@ -67,3 +68,5 @@
   - type: WiresPanel
   - type: StaticPrice
     price: 1500
+  - type: MaterialStorageMagnetPickup # Mono
+    range: 2

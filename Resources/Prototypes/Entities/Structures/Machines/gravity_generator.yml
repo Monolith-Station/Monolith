@@ -81,6 +81,10 @@
     price: 0 # Frontier 5000<0
   - type: PirateBountyItem # Frontier
     id: GravityGenerator # Frontier
+  # Mono
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 30
 
 - type: entity
   id: GravityGeneratorMini
@@ -141,3 +145,7 @@
     lightRadiusMax: 2.5
   - type: StaticPrice
     price: 300 # Frontier 2000<300
+  # Mono
+  - type: ShipRepairable
+    repairTime: 8
+    repairCost: 20

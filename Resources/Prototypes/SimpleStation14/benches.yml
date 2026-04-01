@@ -16,6 +16,10 @@
     state: middle
   - type: StaticPrice # Frontier
     price: 20 # Frontier: 20
+  # Mono
+  - type: ShipRepairable
+    repairTime: 1
+    repairCost: 1
 
 # Park benches
 - type: entity
@@ -228,7 +232,7 @@
   - type: Construction # Frontier
     graph: SofasGraph # Frontier
     node: BenchSofaRightNode # Frontier
-    
+
 - type: entity
   name: sofa
   id: BenchSofaCorner

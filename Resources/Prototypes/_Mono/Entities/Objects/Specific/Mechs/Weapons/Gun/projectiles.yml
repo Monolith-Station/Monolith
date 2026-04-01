@@ -10,7 +10,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 40
+        Piercing: 30
+        Structural: 45
 
 - type: entity
   id: MechPelletShotgunSpread
@@ -44,7 +45,6 @@
     - state: omnilaser
   - type: RadarBlip
     scale: 0.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 1
@@ -61,7 +61,6 @@
         Piercing: 17
   - type: RadarBlip
     scale: 0.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 1
@@ -80,14 +79,34 @@
         Piercing: 210
   - type: RadarBlip
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: Explosive
-    explosionType: HardBombShipGun
+    explosionType: Default
     totalIntensity: 10
     intensitySlope: 5
     maxIntensity: 25
     maxTileBreak: 1
+
+- type: entity
+  id: 35mmBullet
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 45
+        Structural: 225
+  - type: ShipWeaponProjectile
+  - type: TimedDespawn
+    lifetime: 3
+  - type: PointLight
+    radius: 3.5
+    energy: 0.5
+  - type: RadarBlip
+    scale: 1.25
+    shape: arrow
+    radarColor: "#1df1f5"
 
 - type: entity
   id: 120mmBulletHE
@@ -100,7 +119,7 @@
       types:
         Piercing: 60
         Blunt: 50
-        Structural: 200
+        Structural: 250
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -115,7 +134,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 5
@@ -142,7 +160,6 @@
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 4
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 5
@@ -153,18 +170,18 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 100
-    intensitySlope: 20
-    maxIntensity: 30
+    totalIntensity: 200
+    intensitySlope: 4
+    maxIntensity: 100
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 20
-    detectionRange: 1
-    scanArc: 1
+    detectionRange: 100
+    scanArc: 5
     launchSpeed: 10
-    maxSpeed: 50
+    maxSpeed: 64
 
 - type: entity
   id: BlanketFlare
@@ -206,7 +223,6 @@
     netsync: false
   - type: RadarBlip
     scale: 40
-    requireNoGrid: true
     shape: circle
   - type: Projectile
     deleteOnCollide: false
@@ -219,6 +235,7 @@
   name: Signal Emitter
   categories: [ HideSpawnMenu ]
   components:
+  - type: TargetSeekingTarget
   - type: Physics
     bodyType: Dynamic
     fixedRotation: false
@@ -254,7 +271,6 @@
     netsync: false
   - type: RadarBlip
     scale: 4
-    requireNoGrid: true
     shape: square
   - type: Projectile
     deleteOnCollide: false
@@ -279,7 +295,6 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 1.5
-    requireNoGrid: true
     shape: triangle
     radarColor: "#1df1f5"
   - type: Projectile
@@ -297,7 +312,7 @@
     intensitySlope: 4
     maxIntensity: 3
     maxTileBreak: 1
-    
+
 - type: entity
   id: MechMediumPlasmaProjectile
   name: plasma projectile
@@ -320,7 +335,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 8

@@ -3,9 +3,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 - type: entity
+  save: false
+  name: Urist McHydra
   parent: BaseMobSpeciesOrganic
   id: BaseMobHydrakin
-  name: Urist McHydra
   abstract: true
   components:
   - type: UserInterface # Mono
@@ -21,6 +22,8 @@
     state: full
   - type: BodyEmotes
     soundsId: ReptilianBodyEmotes
+  - type: Hunger
+  - type: Thirst
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Hydrakin
@@ -56,24 +59,23 @@
   - type: HumanoidAppearance
     species: Hydrakin
   - type: ThermalRegulator #Todo, implement hydrakin thermal movement generation
-    metabolismHeat: 800
+    metabolismHeat: 1600
     radiatedHeat: 100
     implicitHeatRegulation: 250
-    sweatHeatRegulation: 350
-    shiveringHeatRegulation: 800
+    sweatHeatRegulation: 400
+    shiveringHeatRegulation: 3000
     normalBodyTemperature: 210.15
-    thermalRegulationTemperatureThreshold: 2
-  - type: PassiveHeatGeneration
-    watts: 5500
-    mobStateModifier:
-      Alive: 1
-      Critical: 0.75
-      Dead: 0
-    minimumTemperature: 293.15 # At this point they will have a "thermal runoff" of sorts and get really hot really fast.
-    maximumTemperature: 340
-    ignoreHeatResistance: true
+    thermalRegulationTemperatureThreshold: 30
+    processWhileCrit: false
   - type: PressureProtection
     lowPressureMultiplier: 1.2
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Hydraspeak
+    understands:
+    - TauCetiBasic
+    - Hydraspeak
   - type: Inventory
     speciesId: hydrakin
     templateId: hydrakin
@@ -100,15 +102,16 @@
             state: head
   - type: Carriable # Frontier: Carrying system from nyanotrasen.
   - type: Speech
-    speechSounds: Lizard
+    speechSounds: Hydrakin
     speechVerb: Reptilian
+    allowedEmotes: ['Trill', 'Wurble',]
   - type: Vocal
     sounds:
       Male: UnisexHydrakin
       Female: UnisexHydrakin
       Unsexed: UnisexHydrakin
   - type: TypingIndicator
-    proto: robot
+    proto: hydrakin
   - type: Hydrakin
 
 - type: entity
@@ -116,7 +119,28 @@
   id: MobHydrakinDummy
   categories: [ HideSpawnMenu ]
   components:
-  # - type: HumanoidAppearance
-  #   species: Hydrakin
+  - type: HumanoidAppearance
+    species: Hydrakin
   - type: Inventory
     speciesId: hydrakin
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: jumpsuit
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: gloves
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: shoes
+      head:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: head

@@ -3,7 +3,7 @@
 - type: latheRecipe
   abstract: true
   id: BasePrizeRecipe
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
   completetime: 4
 
 - type: latheRecipe

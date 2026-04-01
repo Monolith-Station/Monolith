@@ -136,6 +136,10 @@
     containers:
       cash_slot: !type:ContainerSlot
   # End Frontier
+  # Mono
+  - type: ShipRepairable
+    repairTime: 5
+    repairCost: 10
 
 - type: entity
   parent: VendingMachine
@@ -914,7 +918,7 @@
     color: "#9dc5c9"
   - type: GuideHelp
     guides:
-    - Medical Doctor
+    - MedicalDoctor
 
 - type: entity
   parent: VendingMachine

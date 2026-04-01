@@ -15,10 +15,11 @@
   description: AAAAAAAAAAAAAAAAAAAAAAAAA
   components:
   - type: InstantAction
-    useDelay: 1 # 10->1
+    useDelay: 3 # Mono: 10->3
     icon: Interface/Actions/scream.png
     event: !type:ScreamActionEvent
     checkCanInteract: false
+    autoPopulate: false # Mono
 
 - type: entity
   id: ActionTurnUndead
@@ -235,7 +236,7 @@
   components:
   - type: InstantAction
     icon: { sprite: Objects/Weapons/Melee/shields.rsi, state: teleriot-icon }
-    iconOn: Objects/Weapons/Melee/shields.rsi/teleriot-on.png
+    iconOn: { sprite: Objects/Weapons/Melee/shields.rsi, state: teleriot-on }
     event: !type:ToggleActionEvent
 
 - type: entity
@@ -355,3 +356,15 @@
     useDelay: 1
     itemIconStyle: BigAction
     event: !type:ToggleActionEvent
+
+- type: entity
+  id: ActionGravityJump
+  name: Jump
+  description: Activating the advanced propulsion system, you propel yourself a short distance in the direction of your gaze.
+  components:
+  - type: InstantAction
+    useDelay: 8
+    icon:
+      sprite: Interface/Actions/jump.rsi
+      state: icon
+    event: !type:GravityJumpEvent {}

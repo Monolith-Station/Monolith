@@ -58,3 +58,7 @@
     guides:
     - Chef
     - FoodRecipes
+  # Mono
+  - type: ShipRepairable
+    repairTime: 5
+    repairCost: 8

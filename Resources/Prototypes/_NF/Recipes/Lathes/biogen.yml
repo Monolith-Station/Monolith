@@ -31,7 +31,7 @@
   categories:
   - Tools
   completetime: 20 # Mono
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
   materials:
     Biomass: 160 # Mono
 
@@ -60,7 +60,7 @@
   id: NFBioGenFoodMeat
   result: FoodMeat
   parent: BioGenFoodRecipe
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
   completetime: 1 # Mono
   materials:
     Biomass: 5 # Mono

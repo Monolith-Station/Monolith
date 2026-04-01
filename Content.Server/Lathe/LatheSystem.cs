@@ -59,7 +59,6 @@ namespace Content.Server.Lathe
         [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
         [Dependency] private readonly StackSystem _stack = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
-        [Dependency] private readonly ContrabandTurnInSystem _contraband = default!; // Frontier
         [Dependency] private readonly DeviceLinkSystem _deviceLink = default!; // Mono
 
         /// <summary>
@@ -186,19 +185,17 @@ namespace Content.Server.Lathe
         {
             if (args.Storage != uid)
                 return;
-            var materialWhitelist = new List<ProtoId<MaterialPrototype>>();
+            var materialWhitelist = new HashSet<ProtoId<MaterialPrototype>>();
             var recipes = GetAvailableRecipes(uid, component, true);
             foreach (var id in recipes)
             {
                 if (!_proto.TryIndex(id, out var proto))
                     continue;
                 foreach (var (mat, _) in proto.Materials)
-                {
-                    if (!materialWhitelist.Contains(mat))
-                    {
-                        materialWhitelist.Add(mat);
-                    }
-                }
+                    materialWhitelist.Add(mat);
+                // Mono
+                foreach (var (mat, _) in proto.MaterialResult)
+                    materialWhitelist.Add(mat);
             }
 
             var combined = args.Whitelist.Union(materialWhitelist).ToList();
@@ -283,9 +280,7 @@ namespace Content.Server.Lathe
 
             foreach (var (mat, amount) in recipe.Materials)
             {
-                var adjustedAmount = recipe.ApplyMaterialDiscount
-                    ? (int) (-amount * component.FinalMaterialUseMultiplier) // Frontier: MaterialUseMultiplier<FinalMaterialUseMultiplier
-                    : -amount;
+                var adjustedAmount = -AdjustMaterial(amount, recipe.MaterialDiscountScale, component.FinalMaterialUseMultiplier);
 
                 _materialStorage.TryChangeMaterialAmount(uid, mat, adjustedAmount);
             }
@@ -330,15 +325,14 @@ namespace Content.Server.Lathe
 
                     // Frontier: adjust price before merge (stack prices changed once)
                     if (result.Valid)
-                    {
                         ModifyPrintedEntityPrice(uid, comp, result);
-
-                        _contraband.ClearContrabandValue(result);
-                    }
                     // End Frontier
 
                     _stack.TryMergeToContacts(result);
                 }
+
+                // Mono
+                _materialStorage.TryChangeMaterialAmount(uid, comp.CurrentRecipe.MaterialResult.ToDictionary()); // copy
 
                 if (comp.CurrentRecipe.ResultReagents is { } resultReagents &&
                     comp.ReagentOutputSlotId is { } slotId)

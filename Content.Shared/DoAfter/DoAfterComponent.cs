@@ -5,7 +5,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.DoAfter;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(SharedDoAfterSystem))]
+[Access(typeof(SharedDoAfterSystem), Other = AccessPermissions.ReadExecute)] // Mono
 public sealed partial class DoAfterComponent : Component
 {
     [DataField("nextId")]

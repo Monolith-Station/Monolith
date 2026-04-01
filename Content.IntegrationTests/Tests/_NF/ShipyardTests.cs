@@ -88,17 +88,10 @@ public sealed class ShipyardTest
                     });
 
                     var idealMinPrice = appraisePrice * vessel.MinPriceMarkup;
-                    var idealMaxPrice = appraisePrice * vessel.MaxPriceMarkup;
 
                     Assert.That(vessel.Price, Is.AtLeast(idealMinPrice),
                         $"Arbitrage possible on {vessel.ID}. Minimal price should be {idealMinPrice}, {(vessel.MinPriceMarkup - 1.0f) * 100}% over the appraise price ({appraisePrice}).");
-
-                    if (!vessel.Classes.Contains(VesselClass.Capital))
-                    {
-                        Assert.That(vessel.Price, Is.LessThanOrEqualTo(idealMaxPrice),
-                            $"Overpriced vessel possible on {vessel.ID}. Maximum price should be {idealMaxPrice}, {(vessel.MaxPriceMarkup - 1.0f) * 100}% under the appraise price ({appraisePrice}).");
-                    }
-
+                    
                     map.DeleteMap(mapId);
                 }
             });

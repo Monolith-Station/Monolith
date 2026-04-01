@@ -17,6 +17,18 @@ namespace Content.Shared.Fluids.Components
         [DataField]
         public FixedPoint2 OverflowVolume = FixedPoint2.New(20);
 
+        /// <summary>
+        /// Mono - don't bother trying to spill if we're above overflow volume but below this
+        /// </summary>
+        [DataField]
+        public FixedPoint2 OverflowThreshold = FixedPoint2.New(25);
+
+        /// <summary>
+        /// Mono - don't bother waking up for transfers below this portion of our volume
+        /// </summary>
+        [DataField]
+        public float TransferTolerance = 0.005f;
+
         [DataField("solution")] public string SolutionName = "puddle";
 
         /// <summary>

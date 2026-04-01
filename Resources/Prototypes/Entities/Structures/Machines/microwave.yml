@@ -159,6 +159,10 @@
     walkModifier: 0.7
     sprintModifier: 0.7
   - type: DamageExaminable
+  # Mono
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 3
 
 - type: entity
   id: SyndicateMicrowave

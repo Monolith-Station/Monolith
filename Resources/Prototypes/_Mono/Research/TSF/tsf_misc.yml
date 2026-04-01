@@ -65,14 +65,14 @@
   position: 13, 7
 
 - type: technology
-  id: TsfPolaris
-  name: research-technology-tsfmc-polaris-voucher
-  entityIcon: ShipVoucherPolaris
+  id: TsfAltair
+  name: research-technology-tsfmc-altair-voucher
+  entityIcon: ShipVoucherAltair
   discipline: TsfmcShipyard
   tier: 2
   cost: 60000
   recipeUnlocks:
-  - PolarisVoucherTSF
+  - AltairVoucherTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT2
   position: 11, 9
@@ -87,8 +87,7 @@
   recipeUnlocks:
   - FlyssaVoucherTSF
   technologyPrerequisites:
-  - TsfSynthalloyProduction
-  - TsfPolaris
+  - TsfAltair
   position: 13, 14
 
 - type: technology
@@ -158,22 +157,9 @@
   position: 11, -2
 
 - type: technology
-  id: TsfSynthalloyProduction
-  name: research-technology-tsfmc-synthalloy
-  entityIcon: MaterialSynthalloy
-  discipline: TsfmcGear
-  tier: 3
-  cost: 50000
-  recipeUnlocks:
-  - SynthalloyProductionTsf
-  technologyPrerequisites:
-  - UniversalMaterialResearchT3
-  position: 13, 11
-
-- type: technology
   id: TSFBasicBorgModule
   name: research-technology-tsfmc-basic-module
-  entityIcon: BorgModuleSecurity
+  entityIcon: BorgModuleTSFStandardWeapon
   discipline: TsfmcGear
   tier: 1
   cost: 10000
@@ -186,7 +172,7 @@
 - type: technology
   id: TSFAdvancedBorgModule
   name: research-technology-tsfmc-advanced-module
-  entityIcon: BorgModuleSecurity
+  entityIcon: BorgModuleTSFAdvancedWeapon
   discipline: TsfmcGear
   tier: 3
   cost: 65000

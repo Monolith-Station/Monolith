@@ -1,3 +1,5 @@
+#Author: BoskiYourk on github, [I AM NOT SURE] on Discord.
+
 - type: vessel
   id: Ledokol
   parent: BaseVesselAntag
@@ -27,6 +29,9 @@
   stations:
     Ledokol:
       stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Why did I come to this sector?"
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Ledokol MIL{1}'

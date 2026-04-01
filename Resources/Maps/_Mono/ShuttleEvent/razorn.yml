@@ -33,6 +33,12 @@ entities:
     components:
     - type: MetaData
       name: ADS Razor-N
+    # bet
+    - type: InitRepairSnapshot
+    - type: ShipRepairRestrict
+      toolWhitelist:
+        tags:
+        - ADSRepairTool
     - type: Transform
       parent: invalid
     - type: MapGrid

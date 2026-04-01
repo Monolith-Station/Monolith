@@ -10,7 +10,7 @@
 #
 - type: pointOfInterest
   id: USSPCamelot
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'Camelot Station'
   minimumDistance: 10650
   maximumDistance: 12400
@@ -29,11 +29,18 @@
   stations:
     USSPCamelot:
       stationProto: RecordsFrontierOutpostCargo
+      gridComponents:
+        - type: VesselMusic
+          ambientMusicPrototype: CamelotMusic
+        - type: VesselInfo
+          description: "A rickety old station once owned by a now decrepit interstellar power. Cold and dark."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Camelot Station'
         - type: ExtraStationInformation
-          iconPath: /Textures/_NF/Structures/Storage/Crates/secure_ammo.rsi/icon.png
+          icon:
+            sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+            state: icon
           stationSubtext: 'frontier-lobby-camelot-subtext'
           stationDescription: 'frontier-lobby-camelot-description'
           lobbySortOrder: 4

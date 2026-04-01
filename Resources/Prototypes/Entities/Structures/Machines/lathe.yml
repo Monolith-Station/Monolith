@@ -262,6 +262,7 @@
     - NFScience # Frontier
     - NFPouches # Frontier
     - VoidBoots # Mono
+    - CarpEquipment # Mono
     - UpgradeKits # Mono
     - UpgradeKits_Goob # Mono
     - SMSurgery # Shitmed Change
@@ -326,6 +327,7 @@
     - NFServiceBoardsStatic # Frontier
     - NFSalvageBoardsStatic # Frontier
     dynamicPacks:
+    - MonoEconomyLatheBoards # Mono
     - EngineeringBoards
     - CargoBoards
     - MedicalBoards
@@ -499,7 +501,6 @@
     - SMCybernetics
     # Mono - Mechs
     - WeaponMechCombatArsenal
-    - DynamicAmmoRecipePack
     - SmartGun # Goobstation
     # Mono start
     - MonoTSFWeaponsDynamicMelee
@@ -512,6 +513,11 @@
     - MonoUSSPWeaponsDynamicRanged
     - UniversalShellAmmo
     - ResearchedExplosives
+    - UniversalRailgunAmmo
+    - UniversalMissileAmmo
+    - UniversalOrdinance
+    - SmartGun #Smart SMG
+    - NFMercenaryTechfabDeprecated
     # Mono end
   - type: MaterialStorage
     whitelist:
@@ -548,7 +554,7 @@
     runningState: icon
     staticPacks:
     - StaticAmmoRecipePack
-    # - RoundstartShipgunAmmo # Mono
+    - RoundstartShipgunAmmo # Mono
     dynamicPacks:
     - DynamicAmmoRecipePack
     # Mono start

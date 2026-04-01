@@ -19,6 +19,7 @@
   - type: AmmoCounter
   - type: WirelessNetworkConnection
     range: 500
+  - type: GunSignalControl
   - type: Fixtures
     fixtures:
       fix1:
@@ -35,6 +36,7 @@
     minAngle: 0
     maxAngle: 1
     fireRate: 0.2
+    recoil: 50 # 2x
     burstCooldown: 10
     burstFireRate: 2
     shotsPerBurst: 2
@@ -53,6 +55,13 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 2
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1.5,-1.5,1.5,1.5"
   - type: Destructible
     thresholds:
     - trigger:
@@ -77,6 +86,9 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 150
 
 # Bofors 255mm
 
@@ -98,6 +110,7 @@
   - type: AmmoCounter
   - type: WirelessNetworkConnection
     range: 500
+  - type: GunSignalControl
   - type: Fixtures
     fixtures:
       fix1:
@@ -110,10 +123,11 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 455
+    projectileSpeed: 350
     minAngle: 0
     maxAngle: 1
     fireRate: 0.1
+    recoil: 75 # 3x
     shootThermalSignature: 80000000 # ~9km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
@@ -147,10 +161,20 @@
   - type: RadarBlip
     radarColor: "#03FC9D"
     scale: 3.5
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#03FC9D"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1.5,-1.5,1.5,1.5"
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 150
 
 # HADES 255mm
 
@@ -192,6 +216,7 @@
     minAngle: 0
     maxAngle: 0
     fireRate: 0.2
+    recoil: 50 # 2x
     burstCooldown: 10
     burstFireRate: 2
     shotsPerBurst: 2
@@ -216,6 +241,13 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 2.5
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-2,-2,2,2"
   - type: Destructible
     thresholds:
     - trigger:
@@ -231,6 +263,9 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 45
+    repairCost: 300
 
 # Longbow
 
@@ -268,6 +303,7 @@
     minAngle: 0
     maxAngle: 7
     fireRate: 11
+    recoil: 10 # 2/5x
     burstCooldown: 8
     burstFireRate: 11
     shotsPerBurst: 15
@@ -286,6 +322,13 @@
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1.5
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1.5,-1.5,1.5,1.5"
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -313,3 +356,6 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 150

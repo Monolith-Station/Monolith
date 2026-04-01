@@ -1,0 +1,44 @@
+- type: entity
+  parent: ComputerComms
+  id: TSFComputerComms
+  name: TSFMC communications computer
+  description: A communications console used by Trans-Solar installations to make sector-wide announcements.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: comm
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: AccessReader
+    access: [["HeadOfPersonnel"], ["HeadOfSecurity"]]
+  - type: CommunicationsConsole
+    title: comms-console-announcement-title-station
+    canShuttle: false
+    global: true #SR WILL NOT BE IGNORED
+  - type: DeviceNetwork
+    deviceNetId: Wireless # Frontier
+    transmitFrequencyId: ShuttleTimer
+  - type: ActivatableUI
+    key: enum.CommunicationsConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CommunicationsConsoleUiKey.Key:
+        type: CommunicationsConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: CommsComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#3c5eb5"
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong

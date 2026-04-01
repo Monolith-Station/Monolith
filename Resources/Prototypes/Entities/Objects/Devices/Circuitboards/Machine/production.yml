@@ -877,7 +877,7 @@
   - type: MachineBoard
     prototype: Thruster
     requirements: # Frontier
-      Capacitor: 4 # Frontier stackRequirements<requirements
+      Capacitor: 1 # Frontier stackRequirements<requirements. Mono 4<1
     stackRequirements:
       Steel: 5
 
@@ -1316,7 +1316,7 @@
     stackRequirements:
       Steel: 5
       CableHV: 5
-      Uranium: 2
+      Uranium: 5
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -1333,7 +1333,7 @@
       Steel: 10
       Glass: 5
       CableHV: 8
-      Uranium: 2
+      UraniumFissile: 2
 
 - type: entity
   parent: BaseMachineCircuitboard

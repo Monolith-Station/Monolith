@@ -45,6 +45,9 @@
     range: 5
     sound:
       path: /Audio/Ambience/Objects/anomaly_generator.ogg
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 120
 
 - type: entity
   id: MachineHeavyFTLDriveConsole
@@ -135,3 +138,6 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 120

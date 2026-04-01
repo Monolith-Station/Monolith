@@ -10,7 +10,7 @@
 #
 - type: pointOfInterest
   id: Jupiter
-  parent: BaseMobilePOI
+  parent: [BaseMobilePOI, BaseRepairablePOI]
   name: 'PDV Jupiter Class Carrier'
   minimumDistance: 17000
   maximumDistance: 19000
@@ -35,7 +35,7 @@
         - type: StationNameSetup
           mapNameTemplate: 'PDV Jupiter Class Carrier'
         - type: ExtraStationInformation
-          iconPath: /Textures/_NF/Interface/Pirate/piratelogo.png
+          icon: /Textures/_NF/Interface/Pirate/piratelogo.png
           stationSubtext: 'frontier-lobby-jupiter-subtext'
           stationDescription: 'frontier-lobby-jupiter-description'
           lobbySortOrder: 2
@@ -45,7 +45,7 @@
             PDVDenasvar: [ 2, 2 ]
             Pirate: [ 8, 8 ] # Mono
           tags:
-          - RogueCommander
+          - PDVCommand
         - type: StationDeadDropReporting
           messageSet: Pirate
         - type: StationDeadDropHintExempt

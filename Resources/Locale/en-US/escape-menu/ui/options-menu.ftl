@@ -34,6 +34,10 @@ ui-options-ambience-volume = Ambience volume:
 ui-options-lobby-volume = Lobby & Round-end volume:
 ui-options-interface-volume = Interface volume:
 ui-options-ambience-max-sounds = Ambience simultaneous sounds:
+ui-options-combat-music-volume = Combat Music volume:
+ui-options-combat-music-windup = Combat Music activation time:
+ui-options-combat-music-winddown = Combat Music deactivation time:
+ui-options-combat-music-sec-format = { $value } sec
 ui-options-lobby-music = Lobby & Round-end Music
 ui-options-restart-sounds = Round Restart Sounds
 ui-options-event-music = Event Music
@@ -308,3 +312,8 @@ ui-options-function-target-left-arm = Target left arm
 ui-options-function-target-right-arm = Target right arm
 ui-options-function-target-left-leg = Target left leg
 ui-options-function-target-right-leg = Target right leg
+
+## Accessibility — chat highlights
+ui-options-auto-fill-highlights = Automatically fill highlights with character name and job keywords
+ui-options-highlights-color = Highlight color
+ui-options-highlights-color-example = Example highlighted text

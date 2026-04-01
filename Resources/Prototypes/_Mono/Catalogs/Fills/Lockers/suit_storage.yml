@@ -14,7 +14,23 @@
         - id: JetpackVoidFilled
         - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
-    access: [["USSP"]]
+    access: [["Mercenary"]]
+    
+- type: entity
+  id: SuitStorageUsspL10
+  parent: SuitStorageBase
+  suffix: USSP L-10
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: NitrogenTankFilled
+        - id: ClothingOuterHardsuitUsspL10
+        - id: ClothingMaskGasSecurity
+        - id: JetpackMiniFilled
+        - id: ClothingShoesBootsMagSecurity
+  - type: AccessReader #USSP Access currently unused
+    access: [["Mercenary"]]
 
 - type: entity
   id: SuitStorageCommissar
@@ -77,6 +93,23 @@
     - id: ClothingOuterHardsuitM86
     - id: JetpackSecurityFilled
     - id: ClothingShoesBootsMagSecurity
+  - type: AccessReader
+    access: [["Security"]]
+
+#Colonel hardsuit
+- type: entity
+  id: SuitStorageSheriff
+  parent: SuitStorageBase
+  suffix: TSFMC Colonel
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: NitrogenTankFilled
+        - id: ClothingOuterHardsuitNfsdSheriff # Frontier
+        - id: ClothingMaskGasSheriff
+        - id: JetpackNfsdFilled
+        - id: ClothingShoesBootsMagSecurity # Frontier
   - type: AccessReader
     access: [["Security"]]
 

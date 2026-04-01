@@ -10,17 +10,16 @@
   metabolisms:
     Cryogenic:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange #Mono: EvenHealthChange
         conditions:
         - !type:Temperature
           max: 213.0
         damage:
-#          types: #Mono start: RR reversal buff and base 3x effect
+          Brute: -10
+#          types: #Mono start: RR reversal buff and evenheal effect
 #            Blunt: -2
 #            Piercing: -2
 #            Slash: -2
-          groups:
-            Brute: -18
       - !type:HealthScaleEffect
         conditions:
         - !type:Temperature
@@ -55,23 +54,21 @@
   metabolisms:
     Cryogenic:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange #Mono: EvenHealthChange
         conditions:
         - !type:Temperature
           max: 213.0
         damage:
-          types:
-            Poison: -6
-            Radiation: -6 #Mono: -3 >> -6
-            #Cellular: 1 #Mono out
-          groups:
-            Brute: 3
+          Toxin: -10
+#            Poison: -6 #Mono start: RR reversal buff and evenheal effect
+#            Radiation: -3
+#            Cellular: 1
       - !type:HealthScaleEffect
         conditions:
         - !type:Temperature
           max: 213.0
         - !type:TotalDamage
-          min: 200 #Mono start: RR reversal buff
+          min: 200
         healthScale:
           types:
             Poison: 0.98

@@ -32,8 +32,16 @@
 
 - type: entity
   parent: DoorElectronics
-  id: DoorElectronicsRogueCommander
-  suffix: Rogue Command, Locked
+  id: DoorElectronicsGrandVizier
+  suffix: Grand Vizier, Locked
   components:
   - type: AccessReader
-    access: [["RogueCommander"]]
+    access: [["GrandVizier"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsPdvCommand
+  suffix: PDV Command, Locked
+  components:
+  - type: AccessReader
+    access: [["PDVCommand"]]

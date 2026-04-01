@@ -26,7 +26,7 @@ public sealed partial class MonoCVars
     ///     Don't delete non-grids at most this close to a grid.
     /// </summary>
     public static readonly CVarDef<float> CleanupMaxGridDistance =
-        CVarDef.Create("mono.cleanup.max_grid_distance", 20.0f, CVar.SERVERONLY);
+        CVarDef.Create("mono.cleanup.max_grid_distance", 30.0f, CVar.SERVERONLY);
 
     /// <summary>
     ///     How far away from any players can a mob be until it gets cleaned up.
@@ -47,6 +47,12 @@ public sealed partial class MonoCVars
         CVarDef.Create("mono.cleanup.grid.max_value", 30000.0f, CVar.SERVERONLY);
 
     /// <summary>
+    ///     At most how many tiles for a grid to have for it to be cleaned up more aggressively.
+    /// </summary>
+    public static readonly CVarDef<int> GridCleanupAggressiveTiles =
+        CVarDef.Create("mono.grid_cleanup_aggressive_tiles", 10, CVar.SERVERONLY);
+
+    /// <summary>
     ///     Duration, in seconds, for how long a grid has to fulfill cleanup conditions to get cleaned up.
     /// </summary>
     public static readonly CVarDef<float> GridCleanupDuration =
@@ -62,7 +68,25 @@ public sealed partial class MonoCVars
     ///     How much can a spaced entity at most be worth for it to be cleaned up.
     /// </summary>
     public static readonly CVarDef<float> SpaceCleanupMaxValue =
-        CVarDef.Create("mono.cleanup.space.max_value", 10000.0f, CVar.SERVERONLY);
+        CVarDef.Create("mono.cleanup.space.max_value", 3000.0f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     After a shuttle impact, how aggressively to sweep. Makes sweep more willing to delete items close to grids or players.
+    /// </summary>
+    public static readonly CVarDef<float> ImpactSweepAggression =
+        CVarDef.Create("mono.cleanup.impact.aggression", 0.1f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     After a shuttle impact, in how much after the impact to perform the sweep.
+    /// </summary>
+    public static readonly CVarDef<float> ImpactSweepDelay =
+        CVarDef.Create("mono.cleanup.impact.delay", 5.0f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     After a shuttle impact, in how much of a radius to immediately sweep for loose items.
+    /// </summary>
+    public static readonly CVarDef<float> ImpactSweepRadius =
+        CVarDef.Create("mono.cleanup.impact.radius", 60.0f, CVar.SERVERONLY);
 
     #endregion
 
@@ -76,10 +100,29 @@ public sealed partial class MonoCVars
     #region Audio
 
     /// <summary>
-    ///     Whether the client should hear combat music triggered by ship artillery.
+    /// HULLROT: Wether or not to play combat music when combatmode is on.
     /// </summary>
     public static readonly CVarDef<bool> CombatMusicEnabled =
         CVarDef.Create("mono.combat_music.enabled", true, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    /// <summary>
+    /// HULLROT: Combat mode music volume.
+    /// </summary>
+    public static readonly CVarDef<float> CombatMusicVolume =
+        CVarDef.Create("mono.combat_music_volume", 1.5f, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    /// <summary>
+    /// HULLROT: Time needed with combatmode on to turn on combat music.
+    /// </summary>
+    public static readonly CVarDef<int> CombatMusicWindUpTime =
+        CVarDef.Create("mono.combat_music_windup_time", 3, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    /// <summary>
+    /// HULLROT: Time needed with combatmode off to turn off combat music.
+    /// </summary>
+    public static readonly CVarDef<int> CombatMusicWindDownTime =
+        CVarDef.Create("mono.combat_music_winddown_time", 30, CVar.ARCHIVE | CVar.CLIENTONLY);
+
 
     /// <summary>
     ///     Whether to render sounds with echo when they are in 'large' open, rooved areas.
