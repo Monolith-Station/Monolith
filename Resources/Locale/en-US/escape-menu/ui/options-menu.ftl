@@ -312,3 +312,8 @@ ui-options-function-target-left-arm = Target left arm
 ui-options-function-target-right-arm = Target right arm
 ui-options-function-target-left-leg = Target left leg
 ui-options-function-target-right-leg = Target right leg
+
+## Accessibility — chat highlights
+ui-options-auto-fill-highlights = Automatically fill highlights with character name and job keywords
+ui-options-highlights-color = Highlight color
+ui-options-highlights-color-example = Example highlighted text
