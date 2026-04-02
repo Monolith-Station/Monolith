@@ -110,7 +110,6 @@ public sealed partial class BorgSystem : SharedBorgSystem
         var used = args.Used;
         TryComp<BorgBrainComponent>(used, out var brain);
         TryComp<BorgModuleComponent>(used, out var module);
-        TryComp<AiRemoteBrainComponent>(used, out var aiBrain); // Corvax-Next-AiRemoteControl
 
         if (TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
         {
@@ -150,7 +149,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
         }
 
         // Corvax-Next-AiRemoteControl-Start
-        if (component.BrainEntity == null && aiBrain != null &&
+        if (component.BrainEntity == null && TryComp<AiRemoteBrainComponent>(used, out _) &&
     _whitelistSystem.IsWhitelistPassOrNull(component.BrainWhitelist, used))
         {
             EnsureComp<AiRemoteControllerComponent>(uid);
