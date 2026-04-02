@@ -1,5 +1,4 @@
 using Content.Server.Botany.Components;
-using Content.Server.Medical.Components;
 using Content.Shared._NF.PlantAnalyzer;
 using Content.Shared.Atmos;
 using Content.Shared.DoAfter;
