@@ -1,3 +1,34 @@
+#region Random Spawners
+
+- type: entity
+  id: SpawnDroneBase
+  parent: MarkerBase
+  abstract: true
+  components:
+  - type: GridSpawner
+    addComponents:
+    - type: IFF
+      flags: AlwaysShowColor
+      color: "#9a2020"
+    - type: GridCleanupGrid
+      cleanupAcceleration: 3
+      ignorePowered: true
+      ignoreIFF: true
+      ignorePrice: true
+      distanceOverride: 1024 # so it doesn't despawn while in view
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - DroneTitle
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
+
 - type: entity
   id: MonoDroneSpawnerT1
   parent: MarkerBase
@@ -31,53 +62,77 @@
     table: !type:NestedSelector
       tableId: DroneSpawnTableT2Middle
 
+- type: entity
+  id: MonoDroneSpawnerT2Far
+  parent: MarkerBase
+  categories: [Spawner]
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: DroneSpawnTableT2Far
+
+#endregion
+
+#region Tables
+
+- type: entityTable
+  id: DroneTableT21
+  table: !type:GroupSelector
+    children:
+    - id: SpawnDroneWasp
+      weight: 10
+    - id: SpawnDroneCrown
+      weight: 10
+    - id: SpawnDroneGust
+      weight: 10
+    - id: SpawnDronePiercer
+      weight: 10
+
+- type: entityTable
+  id: DroneTableT22
+  table: !type:GroupSelector
+    children:
+    - id: SpawnDroneMedusa
+      weight: 10
+    - id: SpawnDroneAssembly
+      weight: 10
+    - id: SpawnDroneBracket
+      weight: 10
+
+- type: entityTable
+  id: DroneTableT23
+  table: !type:GroupSelector
+    children:
+    - id: SpawnDroneMauler
+      weight: 10
+
 - type: entityTable
   id: DroneSpawnTableT2Middle
   table: !type:GroupSelector
     children:
     # T2 small
-    - id: SpawnDroneWasp
-      weight: 20
-    - id: SpawnDroneCrown
-      weight: 20
-    - id: SpawnDroneGust
-      weight: 20
-    - id: SpawnDronePiercer
+    - !type:NestedSelector
+      tableId: DroneTableT21
       weight: 20
     # T2 medium
-    - id: SpawnDroneMedusa
-      weight: 10
-    - id: SpawnDroneAssembly
+    - !type:NestedSelector
+      tableId: DroneTableT22
       weight: 10
 
-- type: entity
-  id: SpawnDroneBase
-  parent: MarkerBase
-  abstract: true
-  components:
-  - type: GridSpawner
-    addComponents:
-    - type: IFF
-      flags: AlwaysShowColor
-      color: "#9a2020"
-    - type: GridCleanupGrid
-      cleanupAcceleration: 3
-      ignorePowered: true
-      ignoreIFF: true
-      ignorePrice: true
-      distanceOverride: 1024 # so it doesn't despawn while in view
-    - type: RandomMetadata
-      nameSeparator: ""
-      nameSegments:
-      - DroneTitle
-      - " 0x"
-      - DroneHex
-      - DroneHex
-      - DroneHex
-      - DroneHex
-      - DroneHex
-      - DroneHex
-    nameGrid: false
+- type: entityTable
+  id: DroneSpawnTableT2Far
+  table: !type:GroupSelector
+    children:
+    # T2 medium
+    - !type:NestedSelector
+      tableId: DroneTableT22
+      weight: 20
+    # T2 large
+    - !type:NestedSelector
+      tableId: DroneTableT23
+      weight: 10
+
+#endregion
 
 #region Debug
 
@@ -87,6 +142,19 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/needle.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "NEEDLE"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
 
 - type: entity
   id: SpawnDroneWedge
@@ -94,15 +162,21 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/wedge.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "WEDGE"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
 
 #region T1
-
-- type: entity
-  id: SpawnDroneGust
-  parent: SpawnDroneBase
-  components:
-  - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/gust.yml
 
 - type: entity
   id: SpawnDroneBasicSmall
@@ -124,6 +198,19 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/mpulsar.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "PULSAR"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
 
 - type: entity
   id: SpawnDroneLance
@@ -131,8 +218,41 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/lance.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "LANCE"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
 
 #region T2-1
+
+- type: entity
+  id: SpawnDroneGust
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/gust.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "GUST"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
 
 - type: entity
   id: SpawnDroneWasp
@@ -140,6 +260,19 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/wasp.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "WASP"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
 
 - type: entity
   id: SpawnDroneCrown
@@ -147,6 +280,19 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/crown.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "CROWN"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
 
 - type: entity
   id: SpawnDronePiercer
@@ -154,6 +300,19 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/piercer.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "PIERCER"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
 
 #region T2-2
 
@@ -163,6 +322,19 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/medusa.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "MEDUSA"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
 
 - type: entity
   id: SpawnDroneAssembly
@@ -170,3 +342,59 @@
   components:
   - type: GridSpawner
     path: /Maps/_Mono/Shuttles/World/assembly.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "ASSEMBLY"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
+
+- type: entity
+  id: SpawnDroneBracket
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/bracket.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "BRACKET"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
+
+#region T2-3
+
+- type: entity
+  id: SpawnDroneMauler
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/mauler.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "MAULER"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
+
