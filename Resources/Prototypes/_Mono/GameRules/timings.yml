@@ -1,0 +1,50 @@
+- type: entity
+  id: RoundEndRuleHour3
+  parent: BaseGameRule
+  components:
+  - type: RoundEndTimeRule
+    endAt: 10800 # 3 hour
+
+- type: entity
+  id: PortstrikeAnnounceRuleHour4
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    delay:
+      min: 14400
+      max: 14400
+  - type: BlankRule
+  - type: StationEvent
+    earliestStart: 0
+    endAnnouncement: gamerule-portstrike-announce-announcement
+    announceSender: gamerule-portstrike-announce-sender
+    endAudio:
+      path: /Audio/Misc/gamma.ogg
+      params:
+        volume: -2
+
+- type: entity
+  id: PortstrikeAnnounceRuleHour1
+  parent: PortstrikeAnnounceRuleHour4
+  components:
+  - type: GameRule
+    delay:
+      min: 3600
+      max: 3600
+
+# debug rules
+- type: entity
+  id: RoundEndRuleMinute2
+  parent: BaseGameRule
+  components:
+  - type: RoundEndTimeRule
+    endAt: 120
+
+- type: entity
+  id: PortstrikeAnnounceRuleSeconds20
+  parent: PortstrikeAnnounceRuleHour4
+  components:
+  - type: GameRule
+    delay:
+      min: 20
+      max: 20

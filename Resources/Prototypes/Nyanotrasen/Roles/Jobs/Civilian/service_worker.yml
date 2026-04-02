@@ -1,4 +1,4 @@
-﻿- type: job
+- type: job
   id: CCServiceWorker
   name: job-name-service-worker
   description: job-description-service-worker
@@ -12,6 +12,7 @@
   supervisors: job-supervisors-sr
   weight: 60 # Frontier
   displayWeight: 10 # Frontier
+  assignedCompany: Colonial
   canBeAntag: false
   access:
   - Maintenance
@@ -35,5 +36,5 @@
   storage:
     back:
     - EncryptionKeyService # Frontier
-    - ShipVoucherFrontierValet
+    - ShipVoucherFrontierService
 # End Frontier

@@ -14,12 +14,13 @@
   - type: AmmoCounter
   - type: WirelessNetworkConnection
     range: 500
+  - type: GunSignalControl
   - type: Gun
     fireRate: 0.05
     recoil: 2500 # 100x
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 1450
+    projectileSpeed: 790 # projectiles cannot go faster than this
     shootThermalSignature: 18000000 # ~8.5km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg

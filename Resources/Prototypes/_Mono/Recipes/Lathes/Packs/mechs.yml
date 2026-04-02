@@ -74,6 +74,7 @@
   - WeaponMechCombatDisabler
   - WeaponMechCombatFlashbangLauncher
   - WeaponMechCombatMissileRack8
+  - WeaponMechChainSword
 
 #Space Mecha stuff
 - type: latheRecipePack
@@ -86,7 +87,6 @@
   - BroadswordRArm
   - BroadswordRLeg
   - HalberdHarness
-  - SabreHarness
   - FlailHarness
   - FlailHead
   - FlailLArm
@@ -125,6 +125,8 @@
 - type: latheRecipePack
   id: SpaceMechaIFF
   recipes:
+  - MechIFFTSF
+  - MechIFFPDV
   - IFFMechaBlueSquare
   - IFFMechaBlueCircle
   - IFFMechaBlueTriangle

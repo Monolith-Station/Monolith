@@ -357,6 +357,7 @@
   parent: [ WallPlastitaniumDiagonalIndestructible, BaseWallTierTwo ] # Mono
   id: WallPlastitaniumDiagonal
   name: plastitanium wall
+  description: Keeps the air in and the chimera out. #Mono
   suffix: diagonal
   placement:
     mode: SnapgridCenter
@@ -418,7 +419,7 @@
         mask:
         - FullTileMask
         layer:
-        - WallLayer
+        - DiagonalWallLayer # Mono WallLayer->DiagonalWallLayer
   - type: StaticPrice
     price: 50 # Mono
   - type: ArmorThickness
@@ -663,7 +664,7 @@
         mask:
         - FullTileMask
         layer:
-        - WallLayer
+        - DiagonalWallLayer # Mono WallLayer->DiagonalWallLayer
         density: 2000
   - type: Physics
     bodyType: Static
