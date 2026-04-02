@@ -10,6 +10,18 @@
     Slash: 0.9
     Piercing: 0.9
 
+# Chimera
+
+- type: damageModifierSet
+  id: Chimera
+  coefficients:
+    Heat: 1.4
+    Cold: 0.6
+    Radiation: 1.55
+    Shock: 1.2
+    Blunt: 0.2
+    Slash: 0.6
+
 # Cyborgs
 
 - type: damageModifierSet # Mono
