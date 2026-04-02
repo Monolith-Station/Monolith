@@ -76,7 +76,7 @@
     acceleration: 30
     detectionRange: 750
     scanArc: 75
-    launchSpeed: 50
+    launchSpeed: 60
     maxSpeed: 150
     trackDelay: 3
   # destructible components below
@@ -306,8 +306,8 @@
     acceleration: 25
     detectionRange: 750
     scanArc: 45
-    launchSpeed: 60
-    maxSpeed: 145
+    launchSpeed: 50
+    maxSpeed: 140
     trackDelay: 3
   - type: EmpOnTrigger
     range: 7
