@@ -8,7 +8,7 @@ namespace Content.Server._Mono.Grid;
 /// <summary>
 /// This handles grid modification on initialization.
 /// </summary>
-public sealed class GridModifierSystem : EntitySystem
+public sealed class GridModifierSystem : SharedGridModifierSystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
@@ -52,19 +52,5 @@ public sealed class GridModifierSystem : EntitySystem
         }
 
         _snapQueue.Add(uid);
-    }
-
-    public void GetGridEntities(EntityUid gridUid, HashSet<Entity<IComponent>> entities, Type compType)
-    {
-        foreach (var (uid, comp) in EntityManager.GetAllComponents(compType, true))
-        {
-
-            var xform = Transform(uid);
-
-            if (xform.GridUid != gridUid)
-                continue;
-
-            entities.Add((uid, comp));
-        }
     }
 }

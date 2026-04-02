@@ -1,11 +1,9 @@
-using Content.Shared._Mono.Grid;
 using Content.Shared.Whitelist;
 using JetBrains.Annotations;
-using Microsoft.CodeAnalysis;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Server._Mono.Grid.Modifiers;
+namespace Content.Shared._Mono.Grid.Modifiers;
 
 [UsedImplicitly]
 public sealed partial class GridModEntityReplace : GridModifier
@@ -13,13 +11,15 @@ public sealed partial class GridModEntityReplace : GridModifier
     [DataField(required: true)]
     public List<ReplaceData> Data = [];
 
+    [Dependency] private readonly IRobustRandom _random = new RobustRandom();
+
     public override void Modify(EntityUid gridUid, EntityManager system, IComponentFactory? factory = null)
     {
         if (factory == null)
             return;
 
         var whitelistSystem = system.System<EntityWhitelistSystem>();
-        var gridModSystem = system.System<GridModifierSystem>();
+        var gridModSystem = system.System<SharedGridModifierSystem>();
 
         var comp = factory.GetComponent(Comp);
         var ents = new HashSet<Entity<IComponent>>();
@@ -32,22 +32,22 @@ public sealed partial class GridModEntityReplace : GridModifier
             var xform = system.TransformQuery.GetComponent(ent);
 
             if (meta.EntityPrototype == null)
-                return;
+                continue;
 
             foreach (var rD in Data)
             {
                 if (whitelistSystem.IsWhitelistFailOrNull(rD.Whitelist, ent) && meta.EntityPrototype.ID != rD.ToReplace)
                     continue;
 
-                var random = new RobustRandom();
-
-                if (random.Prob(rD.Chance))
+                if (!_random.Prob(rD.Chance))
                     continue;
 
                 var pos = xform.Coordinates;
 
                 system.QueueDeleteEntity(ent);
                 system.SpawnAtPosition(rD.ReplaceWith, pos);
+
+                break;
             }
         }
     }
