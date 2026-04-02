@@ -3,6 +3,7 @@
 - type: entity
   id: BallisticArtilleryBase
   abstract: true
+  parent: BaseMechEquipment
   placement:
     mode: SnapgridCenter
   components:
@@ -89,6 +90,9 @@
   - type: Repairable
     qualities:
     - Applicating
+  - type: Anchorable
+    delay: 1
+
 
 - type: entity
   id: BallisticArtilleryUnanchorable
@@ -102,8 +106,6 @@
   parent: BallisticArtilleryBase
   abstract: true
   components:
-  - type: Anchorable
-    delay: 10
   - type: Pullable
   - type: PirateBountyItem # not putting this on the other, because like. how do you get a cyrexa for your bounty. thats stupid.
     id: ShipWeapon
@@ -111,6 +113,7 @@
 - type: entity
   id: BallisticArtilleryBaseCartridge
   abstract: true
+  parent: BaseMechEquipment
   placement:
     mode: SnapgridCenter
   components:
@@ -199,6 +202,8 @@
   - type: Repairable
     qualities:
     - Applicating
+  - type: Anchorable
+    delay: 1
 
 - type: entity
   id: BallisticArtilleryCartridge
@@ -225,6 +230,7 @@
 - type: entity
   id: BallisticArtilleryBaseMagazine
   abstract: true
+  parent: BaseMechEquipment
   placement:
     mode: SnapgridCenter
   components:
@@ -320,6 +326,8 @@
   - type: Repairable
     qualities:
     - Applicating
+  - type: Anchorable
+    delay: 1
 
 - type: entity
   id: BallisticArtilleryMagazine

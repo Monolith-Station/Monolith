@@ -19,10 +19,6 @@
     - MonolithRuleRoleplaySevenSafeZones
     - MonolithRuleRoleplayEightFactionRoles
     - MonolithRuleRoleplayNineCommandingRoles
-    - MonolithRuleConflictOneRandomDeathmatch
-    - MonolithRuleConflictTwoNewLife
-    - MonolithRuleConflictThreeFairPlay
-    - MonolithRuleConflictFourPortStriking
 
 #MARK: Core Rules
 
@@ -128,31 +124,3 @@
 
 
 # /Roleplay Rules
-
-#MARK: Conflict Rules
-
-- type: guideEntry
-  id: MonolithRuleConflictOneRandomDeathmatch
-  name: guide-entry-monolith-rule-conflict-one-random-deathmatch
-  text: "/ServerInfo/_Mono/Guidebook/Rules/Conflict/One_RandomDeathmatch.xml"
-  ruleEntry: true
-
-- type: guideEntry
-  id: MonolithRuleConflictTwoNewLife
-  name: guide-entry-monolith-rule-conflict-two-new-life
-  text: "/ServerInfo/_Mono/Guidebook/Rules/Conflict/Two_NewLife.xml"
-  ruleEntry: true
-
-- type: guideEntry
-  id: MonolithRuleConflictThreeFairPlay
-  name: guide-entry-monolith-rule-conflict-three-fair-play
-  text: "/ServerInfo/_Mono/Guidebook/Rules/Conflict/Three_FairPlay.xml"
-  ruleEntry: true
-
-- type: guideEntry
-  id: MonolithRuleConflictFourPortStriking
-  name: guide-entry-monolith-rule-conflict-four-port-striking
-  text: "/ServerInfo/_Mono/Guidebook/Rules/Conflict/Four_PortStriking.xml"
-  ruleEntry: true
-
-# /Conflict Rules

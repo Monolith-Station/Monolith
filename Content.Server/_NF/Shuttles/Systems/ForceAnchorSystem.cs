@@ -15,9 +15,9 @@ public sealed partial class ForceAnchorSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ForceAnchorComponent, MapInitEvent>(OnForceAnchorMapInit);
-        SubscribeLocalEvent<ForceAnchorPostFTLComponent, FTLCompletedEvent>(OnForceAnchorPostFTLCompleted);
-        SubscribeLocalEvent<ConsoleFTLAttemptEvent>(OnConsoleFTLAttempt, before: new[] { typeof(ShuttleSystem) });
+        // SubscribeLocalEvent<ForceAnchorComponent, MapInitEvent>(OnForceAnchorMapInit);
+        // SubscribeLocalEvent<ForceAnchorPostFTLComponent, FTLCompletedEvent>(OnForceAnchorPostFTLCompleted);
+        // SubscribeLocalEvent<ConsoleFTLAttemptEvent>(OnConsoleFTLAttempt, before: new[] { typeof(ShuttleSystem) });
     }
 
     /// <summary>

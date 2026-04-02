@@ -8,7 +8,7 @@
   description: The charon's mean older brother, the Thanatos is a force to be reckoned with. It can be remotely activated or linked up to a GCS. This one feeds from an autoloader somewhere, and doesn't need manual reloads.
   components:
   - type: StaticPrice
-    price: 120000
+    price: 65 # 1 april
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/thanatos.rsi
     layers:
@@ -17,22 +17,20 @@
   - type: FireControlRotate
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 40000
-    startingCharge: 40000
+    maxCharge: 6500 # 1 april
+    startingCharge: 6500 # 1 april
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
   - type: GunSignalControl #I'm not certain why a station only gun has it in the description.
   - type: Gun
-    fireRate: 0.1
-    recoil: 2500 # 100x
+    fireRate: 2
+    recoil: 6500 # Mono 1s april :godo:
     minAngle: 0
     maxAngle: 0
-    burstCooldown: 20
-    burstFireRate: 2
-    shotsPerBurst: 2
-    selectedMode: Burst
-    availableModes: Burst
+    # burstCooldown: 20
+    # burstFireRate: 2
+    # shotsPerBurst: 2
     projectileSpeed: 1100
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg
@@ -40,15 +38,15 @@
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 350
+    autoRechargeRate: 65
   - type: SpaceArtillery
-    powerChargeRate: 350
-    powerUsePassive: 1000
-    powerUseActive: 7500
+    powerChargeRate: 65
+    powerUsePassive: 65
+    powerUseActive: 65
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
     proto: ShipRailgunProjectile
-    fireCost: 1500
+    fireCost: 650 # 1april
   - type: Fixtures
     fixtures:
       fix1:
@@ -64,7 +62,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 75000
+        damage: 1 # haha 1st april (paper gun LOL)
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -86,8 +84,8 @@
   - type: ShipGunClass
     shipClass: Superheavy
   - type: ShipRepairable
-    repairTime: 60
-    repairCost: 300
+    repairTime: 65 # :godo: 
+    repairCost: 301 # haha 1st april
 
 
 # If someone wants to make a ship version go nuts, but be SURE it uses ammo

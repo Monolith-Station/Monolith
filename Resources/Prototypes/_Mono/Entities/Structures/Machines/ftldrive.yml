@@ -175,3 +175,46 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+      
+- type: entity
+  parent: MachineFTLDrive
+  id: MachineFTLDrive65
+  name: CTLA-65 bluespace drive
+  description: 65 kilometers, you can see yara kameronis utter tuff aura being used to power the drive
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/ShuttleComponents/drive.rsi
+    snapCardinals: true
+    layers:
+    - state: control
+    - state: control_on
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
+      shader: unshaded
+      color: "#14515E"
+  - type: FTLDrive
+    range: 65000
+    thermalSignature: 65 # ~65 range
+  - type: ThermalSignature
+  - type: ApcPowerReceiver
+    powerLoad: 65 # 65
+  - type: PointLight
+    enabled: false
+    color: "#14515E" # beb color
+    radius: 2.0  
+    energy: 1.5
+  - type: Machine
+    board: MachineDriveCTLA65Circuitboard
+  - type: ShipRepairable
+    repairTime: 0.65
+    repairCost: 65
+  - type: ShipRepairableRestrict
+    toolWhitelist:
+      tags:
+      - ADSRepairTool
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: 1
+    range: 5
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg

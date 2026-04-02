@@ -184,7 +184,10 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
                 .ToList();
         }
 
-        points ??= GeneratePointsInChunk(args.Chunk, density, chunk.Coordinates, chunkMap);
+        if (component.MinRange is { } minr && component.MaxRange is { } maxr)
+            points ??= GeneratePointsInRing(args.Chunk, density, minr, maxr, chunk.Coordinates, chunkMap);
+        else
+            points ??= GeneratePointsInChunk(args.Chunk, density, chunk.Coordinates, chunkMap);
 
         var mapId = map.MapId;
 
@@ -275,6 +278,44 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
         while (enumerator.MoveNext(out var debrisPoint))
         {
             debrisPoints.Add(realCenter + debrisPoint.Value);
+        }
+
+        return debrisPoints;
+    }
+
+    /// <summary>
+    ///     Generates the points to put into a chunk using a poisson disk sampler.
+    /// </summary>
+    private List<Vector2> GeneratePointsInRing(EntityUid chunk, float density, float minr, float maxr, Vector2 coords, EntityUid map)
+    {
+        var wantWidth = maxr - minr;
+        var offs = (int) ((WorldGen.ChunkSize) / 2.0f);
+        var topLeft = new Vector2(-offs, -offs);
+        var lowerRight = new Vector2(offs, offs);
+        var width = lowerRight.X - topLeft.X;
+        var scl = wantWidth / width;
+        topLeft.X *= scl;
+        lowerRight.X *= scl;
+
+        var realCenter = WorldGen.ChunkToWorldCoordsCentered(coords.Floored());
+        if (realCenter.Length() + offs < minr || realCenter.Length() - offs > maxr) return new();
+        var radAdj = (maxr + minr) * 0.5f / realCenter.Length();
+        var rotBy = realCenter.ToAngle();
+        var rotTL = rotBy.RotateVec(topLeft);
+        var rotTR = rotBy.RotateVec(topLeft + new Vector2(offs * 2f, 0f));
+        var sclTL = offs / MathF.Max(MathF.Abs(rotTL.X), MathF.Abs(rotTL.Y));
+        var sclTR = offs / MathF.Max(MathF.Abs(rotTR.X), MathF.Abs(rotTR.Y));
+        var scl2 = MathF.Max(sclTL, sclTR);
+        topLeft.Y *= scl2;
+        lowerRight.Y *= scl2;
+
+        var enumerator = _sampler.SampleRectangle(topLeft, lowerRight, density);
+        var debrisPoints = new List<Vector2>();
+
+        var adjCenter = realCenter * radAdj;
+        while (enumerator.MoveNext(out var debrisPoint))
+        {
+            debrisPoints.Add(adjCenter + rotBy.RotateVec(debrisPoint.Value));
         }
 
         return debrisPoints;

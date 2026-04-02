@@ -69,12 +69,10 @@
   id: StationLaserDrill
   name: advanced automated laser drill
   parent: LaserDrillBase
-  description: A large bluespace automated drill that digs up random materials when powered with 50 kW of HV. Now works in space! You can just make out a scratched off logo starting with an embossed 'N' on the side.
+  description: A large bluespace automated drill that digs up random materials when powered with 50 kW of HV. Now works in space! You can just make out a scratched off logo starting with an embossed '65' on the side.
   components:
-  - type: Anchorable
-    flags: None # 1984
   - type: ItemMiner
-    interval: 20
+    interval: 6.5
 
 - type: entity
   name: random ores
