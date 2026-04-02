@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/29/2026 13:24:50
-  entityCount: 860
+  time: 04/01/2026 21:50:52
+  entityCount: 861
 maps: []
 grids:
 - 1
@@ -101,10 +101,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Smoke: []
         Puddle: []
         MetalFoam: []
+        Smoke: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -598,6 +598,7 @@ entities:
     - type: Roof
       data:
         0,2: 0
+    - type: ThermalSignature
 - proto: AirAlarm
   entities:
   - uid: 10
@@ -3403,6 +3404,13 @@ entities:
     components:
     - type: Transform
       pos: -3.5,-0.5
+      parent: 1
+- proto: OreBox
+  entities:
+  - uid: 418
+    components:
+    - type: Transform
+      pos: 0.5,21.5
       parent: 1
 - proto: OreProcessor
   entities:
