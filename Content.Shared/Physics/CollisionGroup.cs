@@ -75,6 +75,8 @@ public enum CollisionGroup
     SlipLayer = MidImpassable | LowImpassable,
     ItemMask = Impassable | HighImpassable,
     ThrownItem = Impassable | HighImpassable | BulletImpassable,
+    DiagonalWallLayer = Opaque | HighImpassable | MidImpassable | LowImpassable | BulletImpassable, // Mono
+    DiagonalGlassLayer = HighImpassable | MidImpassable | LowImpassable | BulletImpassable, // Mono
     WallLayer = Opaque | Impassable | HighImpassable | MidImpassable | LowImpassable | BulletImpassable | InteractImpassable,
     GlassLayer = Impassable | HighImpassable | MidImpassable | LowImpassable | BulletImpassable | InteractImpassable,
     HalfWallLayer = MidImpassable | LowImpassable,
