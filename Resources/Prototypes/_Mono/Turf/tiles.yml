@@ -1,0 +1,23 @@
+- type: tile
+  id: FloorTileCatwalkHorizontal
+  name: tiles-catwalk-floor-tile-horizontal
+  sprite: /Textures/_Mono/Tiles/catwalk-tile-horizontal.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemCatwalkHorizontal
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorTileCatwalkVertical
+  name: tiles-catwalk-floor-tile-vertical
+  sprite: /Textures/_Mono/Tiles/catwalk-tile-vertical.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemCatwalkVertical
+  heatCapacity: 10000

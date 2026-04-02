@@ -191,7 +191,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         blackboard.Remove<EntityCoordinates>(NPCBlackboard.OwnerCoordinates);
         if (!blackboard.TryGetValue<EntityCoordinates>(TargetKey, out var targetCoordinates, _entManager))
             return;
-        blackboard.TryGetValue<Angle>(AngleKey, out var targetAngle, _entManager);
+        Angle? targetAngle = blackboard.TryGetValue<Angle>(AngleKey, out var keyAngle, _entManager) ? keyAngle : null;
 
         var uid = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
@@ -239,7 +239,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         if (comp == null)
             return HTNOperatorStatus.Failed;
 
-        blackboard.TryGetValue<Angle>(AngleKey, out var targetAngle, _entManager);
+        Angle? targetAngle = blackboard.TryGetValue<Angle>(AngleKey, out var keyAngle, _entManager) ? keyAngle : null;
         comp.InRangeRotation = targetAngle;
 
         // Just keep moving in the background and let the other tasks handle it.

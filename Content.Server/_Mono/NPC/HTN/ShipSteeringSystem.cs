@@ -4,6 +4,7 @@ using Content.Shared._Mono;
 using Content.Shared._Mono.SpaceArtillery;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
@@ -96,7 +97,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         if (ent.Comp.Status == ShipSteeringStatus.InRange)
             return;
 
-        Angle? targetAngle = inRange ? ent.Comp.InRangeRotation : (ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
+        Angle? targetAngle = inRange && ent.Comp.InRangeRotation is { } rot ? rot : (ent.Comp.AlwaysFaceTarget ? toTargetVec.ToWorldAngle() : null);
 
         var config = new SteeringConfig
         {
@@ -383,6 +384,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             var relVel = shipVel - obsVel;
             var toObsVec = obsPos - shipPos;
             var toObsDir = toObsVec.Normalized();
+            // TODO: narrowphase avoidance if we overlap
             var obsDistance = MathF.Max(toObsVec.Length() - sumRadius, 1f);
 
             var obsAccel = Vector2.Zero;
