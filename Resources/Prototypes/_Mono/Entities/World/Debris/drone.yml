@@ -62,6 +62,15 @@
     table: !type:NestedSelector
       tableId: DroneSpawnTableT2Middle
 
+- type: entity
+  id: MonoDroneSpawnerT2Far
+  parent: MarkerBase
+  categories: [Spawner]
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: DroneSpawnTableT2Far
+
 #endregion
 
 #region Tables
@@ -91,16 +100,36 @@
       weight: 10
 
 - type: entityTable
+  id: DroneTableT23
+  table: !type:GroupSelector
+    children:
+    - id: SpawnDroneMauler
+      weight: 10
+
+- type: entityTable
   id: DroneSpawnTableT2Middle
   table: !type:GroupSelector
     children:
     # T2 small
     - !type:NestedSelector
       tableId: DroneTableT21
-      weight: 30
+      weight: 20
     # T2 medium
     - !type:NestedSelector
       tableId: DroneTableT22
+      weight: 10
+
+- type: entityTable
+  id: DroneSpawnTableT2Far
+  table: !type:GroupSelector
+    children:
+    # T2 medium
+    - !type:NestedSelector
+      tableId: DroneTableT22
+      weight: 20
+    # T2 large
+    - !type:NestedSelector
+      tableId: DroneTableT23
       weight: 10
 
 #endregion
@@ -346,3 +375,26 @@
       - DroneHex
       - DroneHex
     nameGrid: false
+
+#region T2-3
+
+- type: entity
+  id: SpawnDroneMauler
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/mauler.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "MAULER"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
+
