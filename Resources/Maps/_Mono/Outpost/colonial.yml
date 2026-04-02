@@ -4473,17 +4473,12 @@ entities:
     - type: IFF
       readOnly: True
     - type: ProtectedGrid
-      hostileMobKillSound: !type:SoundPathSpecifier
-        path: /Audio/Effects/holy.ogg
-      killHostileMobs: True
       preventArtifactTriggers: True
       preventEmpEvents: True
       preventRCDUse: True
-      preventFloorPlacement: True
       preventFloorRemoval: True
     - type: GridGodMode
       protectedEntities: []
-    - type: GridPacifier
     - type: GridRaider
       protectedEntities: []
     - type: ShipGridLock

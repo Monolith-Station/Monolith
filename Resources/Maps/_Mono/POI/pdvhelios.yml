@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/10/2026 07:34:41
-  entityCount: 8415
+  time: 03/05/2026 11:32:18
+  entityCount: 8417
 maps: []
 grids:
 - 1
@@ -4141,6 +4141,11 @@ entities:
           decals:
             470: 4,49
     - type: SpreaderGrid
+      spreadQueues:
+        Smoke: []
+        MetalFoam: []
+        Kudzu: []
+        Puddle: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -4921,7 +4926,6 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
-    - type: ForceAnchor
 - proto: AirAlarm
   entities:
   - uid: 73
@@ -23560,10 +23564,10 @@ entities:
     - type: Transform
       pos: 1.5,45.5
       parent: 1
-  - uid: 1671
+  - uid: 8417
     components:
     - type: Transform
-      pos: -8.5,32.5
+      pos: -5.5,33.5
       parent: 1
 - proto: ClosetMaintenanceFilledRandomMono
   entities:
@@ -24623,6 +24627,13 @@ entities:
     - type: Transform
       pos: 5.5,16.5
       parent: 1
+- proto: CrewMonitoringServer
+  entities:
+  - uid: 2713
+    components:
+    - type: Transform
+      pos: -8.5,32.5
+      parent: 1
 - proto: CurtainsBlackOpen
   entities:
   - uid: 5782
@@ -25479,6 +25490,11 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 6.5,10.5
+      parent: 1
+  - uid: 2796
+    components:
+    - type: Transform
+      pos: -8.5,32.5
       parent: 1
   - uid: 2900
     components:
@@ -44263,12 +44279,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 7.5,63.5
       parent: 1
-  - uid: 2713
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -8.5,32.5
-      parent: 1
   - uid: 5779
     components:
     - type: Transform
@@ -44279,6 +44289,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -7.5,80.5
+      parent: 1
+  - uid: 5808
+    components:
+    - type: Transform
+      pos: -5.5,33.5
       parent: 1
   - uid: 5838
     components:
@@ -44894,6 +44909,11 @@ entities:
       parent: 1
 - proto: SMESAdvanced
   entities:
+  - uid: 1671
+    components:
+    - type: Transform
+      pos: -9.5,32.5
+      parent: 1
   - uid: 2791
     components:
     - type: Transform
@@ -44918,11 +44938,6 @@ entities:
     components:
     - type: Transform
       pos: 0.5,42.5
-      parent: 1
-  - uid: 2796
-    components:
-    - type: Transform
-      pos: -9.5,32.5
       parent: 1
   - uid: 2797
     components:

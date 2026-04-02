@@ -15,15 +15,15 @@
 - type: technology
   id: RogueAdvancedEquipment
   name: research-technology-rogue-advanced-equipment
-  entityIcon: ClothingOuterHardsuitViperGroupStandard
+  entityIcon: ClothingOuterHardsuitPDVMedic
   discipline: RogueEquipment
   tier: 2
   cost: 35000
   recipeUnlocks:
-  - ClothingOuterHardsuitViperGroupStandardRogue
-  - ClothingOuterHardsuitViperGroupMedicRogue
+  - ClothingOuterHardsuitPDVMedic
   - ClothingShoesBootsMagSyndieRogue
   - ClothingMaskGasSyndicateRogue
+  - MechIFFPDV
   technologyPrerequisites:
   - RogueBasicEquipment
   - UniversalMaterialResearchT2

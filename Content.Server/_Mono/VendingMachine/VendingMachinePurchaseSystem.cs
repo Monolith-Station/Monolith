@@ -38,7 +38,6 @@ public sealed class VendingMachinePurchaseSystem : EntitySystem
         var purchaseComponent = AddComp<VendingMachinePurchaseComponent>(purchasedEntity);
         purchaseComponent.PurchaseGrid = vendingTransform.GridUid.Value;
         purchaseComponent.OriginalPurchasePrice = purchasePrice;
-        purchaseComponent.VendingMachine = vendingMachine;
 
         Dirty(purchasedEntity, purchaseComponent);
     }
