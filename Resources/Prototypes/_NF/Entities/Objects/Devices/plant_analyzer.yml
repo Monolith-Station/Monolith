@@ -26,6 +26,8 @@
       scanDelay: 0.8
     scanningEndSound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
+  - type: ItemToggle
+    onUse: false
   - type: Appearance
   - type: GenericVisualizer
     visuals:

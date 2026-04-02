@@ -1,11 +1,15 @@
 using Content.Server.Botany.Components;
-using Content.Server.PowerCell;
+using Content.Server.Medical.Components;
 using Content.Shared._NF.PlantAnalyzer;
 using Content.Shared.Atmos;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Item.ItemToggle;
+using Content.Shared.Item.ItemToggle.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -16,7 +20,7 @@ namespace Content.Server.Botany.Systems;
 public sealed class PlantAnalyzerSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly PowerCellSystem _cell = default!;
+    [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
@@ -28,11 +32,15 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<PlantAnalyzerComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<PlantAnalyzerComponent, PlantAnalyzerDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<PlantAnalyzerComponent, EntGotInsertedIntoContainerMessage>(OnInsertedIntoContainer);
+        SubscribeLocalEvent<PlantAnalyzerComponent, ItemToggledEvent>(OnToggled);
+        SubscribeLocalEvent<PlantAnalyzerComponent, DroppedEvent>(OnDropped);
+        Subs.BuiEvents<PlantAnalyzerComponent>(PlantAnalyzerUiKey.Key, subs => { subs.Event<BoundUIClosedEvent>(OnPlantAnalyzerUiClosed); });
     }
 
     private void OnAfterInteract(Entity<PlantAnalyzerComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Target == null || !args.CanReach || !_cell.HasActivatableCharge(ent, user: args.User))
+        if (args.Target == null || !args.CanReach)
             return;
 
         if (ent.Comp.DoAfter != null)
@@ -66,10 +74,37 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         ent.Comp.ScannedEntity = args.Args.Target.Value;
         ent.Comp.NextUpdate = TimeSpan.Zero;
 
+        _toggle.TryActivate(ent.Owner);
         OpenUserInterface(args.User, ent);
-        UpdateScannedUser(ent, args.Args.Target.Value);
 
         args.Handled = true;
+    }
+
+    private void OnPlantAnalyzerUiClosed(EntityUid uid, PlantAnalyzerComponent comp, BoundUIClosedEvent args)
+    {
+        if (!args.UiKey.Equals(PlantAnalyzerUiKey.Key))
+            return;
+
+        if (!_uiSystem.IsUiOpen(uid, PlantAnalyzerUiKey.Key))
+            _toggle.TryDeactivate(uid);
+    }
+
+    private void OnInsertedIntoContainer(Entity<PlantAnalyzerComponent> uid, ref EntGotInsertedIntoContainerMessage args)
+    {
+        if (uid.Comp.ScannedEntity is { } target)
+            _toggle.TryDeactivate(uid.Owner);
+    }
+
+    private void OnDropped(Entity<PlantAnalyzerComponent> uid, ref DroppedEvent args)
+    {
+        if (uid.Comp.ScannedEntity is { } target)
+            _toggle.TryDeactivate(uid.Owner);
+    }
+
+    private void OnToggled(Entity<PlantAnalyzerComponent> uid, ref ItemToggledEvent args)
+    {
+        if (!args.Activated && uid.Comp.ScannedEntity is { } target)
+            StopAnalyzingEntity(uid, target);
     }
 
 
@@ -84,6 +119,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
     {
         ent.Comp.ScannedEntity = null;
         _uiSystem.CloseUi(ent.Owner, PlantAnalyzerUiKey.Key);
+        _toggle.TryDeactivate(ent.Owner);
     }
 
     public override void Update(float frameTime)

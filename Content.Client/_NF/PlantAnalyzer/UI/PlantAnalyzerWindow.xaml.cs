@@ -15,8 +15,6 @@ namespace Content.Client._NF.PlantAnalyzer.UI;
 public sealed partial class PlantAnalyzerWindow : FancyWindow
 {
     private readonly IEntityManager _entityManager;
-    private readonly ButtonGroup _buttonGroup = new();
-
     private const string IndentedNewline = "\n   ";
 
     public PlantAnalyzerWindow(PlantAnalyzerBoundUserInterface owner)
