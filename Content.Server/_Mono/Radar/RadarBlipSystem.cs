@@ -107,7 +107,8 @@ public sealed partial class RadarBlipSystem : EntitySystem
             if (blipGrid != null)
             {
                 var gridXform = Transform(blipGrid.Value);
-                blipVelocity -= _physics.GetLinearVelocity(blipGrid.Value, coord.Position);
+                if (TryComp<PhysicsComponent>(blipGrid.Value, out var gridBody)) // prevent log spam
+                    blipVelocity -= _physics.GetLinearVelocity(blipGrid.Value, coord.Position, gridBody);
                 // it's local-frame velocity so rotate it too
                 blipVelocity = (-gridXform.LocalRotation).RotateVec(blipVelocity);
                 // and also offset the rotation
