@@ -46,7 +46,7 @@ public sealed partial class ContainmentSystem : EntitySystem
             var meta = MetaData(ent.Value);
             args.PushMarkup(Loc.GetString("containment-examine-verb",
                 ("entity_name", meta.EntityName),
-                ("points", output)));
+                ("points", Math.Round(output, 3))));
         }
     }
 
@@ -62,17 +62,19 @@ public sealed partial class ContainmentSystem : EntitySystem
 
         while (containments.MoveNext(out var uid, out var containment))
         {
+            if (!this.IsPowered(uid, EntityManager))
+                continue;
+
+            var xform = Transform(uid);
+            UpdateEntity(xform, (uid, containment));
+
             foreach (var ent in _entityRemoveQueue)
             {
                 if (containment.ActiveEntities.Contains(ent))
                     containment.ActiveEntities.Remove(ent);
             }
 
-            if (!this.IsPowered(uid, EntityManager))
-                continue;
-
-            var xform = Transform(uid);
-            UpdateEntity(xform, (uid, containment));
+            _entityRemoveQueue.Clear();
         }
 
         _updateTimer -= TimeSpan.FromSeconds(_updateCooldown);
