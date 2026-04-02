@@ -149,7 +149,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
         }
 
         // Corvax-Next-AiRemoteControl-Start
-        if (component.BrainEntity == null && TryComp<AiRemoteBrainComponent>(used, out _) &&
+        if (component.BrainEntity == null && HasComp<AiRemoteBrainComponent>(used) &&
     _whitelistSystem.IsWhitelistPassOrNull(component.BrainWhitelist, used))
         {
             EnsureComp<AiRemoteControllerComponent>(uid);

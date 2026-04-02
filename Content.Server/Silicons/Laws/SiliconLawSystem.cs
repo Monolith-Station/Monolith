@@ -17,7 +17,6 @@ using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Silicons.StationAi; // Corvax-Next-AiRemoteControl
 using Content.Shared.Tag; // Corvax-Next-AiRemoteControl
 using Content.Shared.Wires;
-using Microsoft.VisualBasic;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
