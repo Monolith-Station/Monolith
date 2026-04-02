@@ -346,16 +346,12 @@ namespace Content.Server.VendingMachines
             if (TryComp<MarketModifierComponent>(component.Owner, out var modifier))
                 price *= modifier.Mod;
 
-            var totalPrice = (int) price;
+            var totalPrice = component.RequiresCash ? (int) price : 0;
 
             // If any price has a vendor price, explicitly use its value - higher OR lower, over others.
             var priceVend = _pricing.GetEstimatedVendPrice(proto);
-            if (priceVend > 0.0) // if vending price exists, overwrite it.
+            if (priceVend > 0.0 && component.RequiresCash) // if vending price exists, overwrite it.
                 totalPrice = (int) priceVend;
-
-            if (!component.RequiresCash){ // mono
-                totalPrice = 0;
-            }
 
             if (IsAuthorized(uid, sender, component))
             {

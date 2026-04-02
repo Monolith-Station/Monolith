@@ -31,7 +31,7 @@ namespace Content.Client.VendingMachines
         private int _cashSlotBalance = 0;
         // End Frontier
         [ViewVariables]
-        private bool _requiresCash = false; // mono
+        private bool _requiresCash; // mono
 
         public VendingMachineBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
@@ -86,7 +86,7 @@ namespace Content.Client.VendingMachines
             }
             // End Frontier
 
-            _menu?.Populate(_cachedInventory, _mod, _balance, cashSlotValue, _requiresCash); // Frontier: add _balance, mono
+            _menu?.Populate(_cachedInventory, _mod, _balance, cashSlotValue, _requiresCash); // Frontier: add _balance, mono: add _requiresCash
         }
 
         private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)
