@@ -106,7 +106,7 @@
   - type: MachineBoard
     prototype: ThrusterSecurity
     requirements:
-      Capacitor: 3
+      Capacitor: 1
     stackRequirements:
       Steel: 5
 
@@ -118,7 +118,7 @@
   - type: MachineBoard
     prototype: ThrusterNfsd
     requirements:
-      Capacitor: 3
+      Capacitor: 1
     stackRequirements:
       Steel: 5
 
@@ -130,7 +130,7 @@
   - type: MachineBoard
     prototype: ThrusterUSSP
     requirements:
-      Capacitor: 3
+      Capacitor: 1
     stackRequirements:
       Steel: 5
 
@@ -142,7 +142,7 @@
   - type: MachineBoard
     prototype: ThrusterRogue
     requirements:
-      Capacitor: 3
+      Capacitor: 1
     stackRequirements:
       Steel: 5
 
@@ -154,7 +154,7 @@
   - type: MachineBoard
     prototype: SmallThruster
     requirements:
-      Capacitor: 4
+      Capacitor: 1 # Mono 1<4
     stackRequirements:
       Steel: 5
   - type: StaticPrice

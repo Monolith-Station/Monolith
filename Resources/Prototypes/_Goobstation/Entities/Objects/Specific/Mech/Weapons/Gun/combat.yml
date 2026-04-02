@@ -245,16 +245,21 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_missilerack
   - type: Gun
+  # Mono start
     fireRate: 1
     projectileSpeed: 18 # Mono
-    selectedMode: SemiAuto
+    burstFireRate: 3
+    shotsPerBurst: 6
+    burstCooldown: 5
+    selectedMode: Burst
     availableModes:
-      - SemiAuto
+      - Burst
+  # Mono end
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletWeakRocket
-    fireCost: 75 # 25->100 Mono
+    fireCost: 100 # 25->100 Mono
   - type: Appearance
   - type: AmmoCounter
 
@@ -278,9 +283,12 @@
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: 40mmGrenadeThermobaric
-    fireCost: 100
+    fireCost: 250 # mono 100 -> 250
   - type: Appearance
   - type: AmmoCounter
+  - type: Battery # mono
+    maxCharge: 250
+    startingCharge: 250
 
 - type: entity
   id: WeaponMechCombatFlashbangLauncher

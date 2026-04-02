@@ -20,7 +20,7 @@
   - type: GameRule
     minPlayers: 40
   - type: LoadMapRule
-    preloadedGrid: ChimeraSakuratsu
+    gridPath: /Maps/_Mono/ShuttleEvent/sakuratsu_chimera.yml
 
 - type: entity
   parent: BaseRandomShuttleRule
@@ -35,7 +35,7 @@
   - type: GameRule
     minPlayers: 40
   - type: LoadMapRule
-    preloadedGrid: ChimeraOlympus
+    gridPath: /Maps/_Mono/ShuttleEvent/olympus_chimera.yml
 
 - type: entity
   parent: BaseRandomShuttleRule
@@ -50,7 +50,7 @@
   - type: GameRule
     minPlayers: 40
   - type: LoadMapRule
-    preloadedGrid: ChimeraTethys
+    gridPath: /Maps/_Mono/ShuttleEvent/tethys_chimera.yml
 
 - type: entity
   parent: BaseRandomShuttleRule
@@ -65,5 +65,5 @@
   - type: GameRule
     minPlayers: 40
   - type: LoadMapRule
-    preloadedGrid: ChimeraLegionnaire
+    gridPath: /Maps/_Mono/ShuttleEvent/legionnaire_chimera.yml
 

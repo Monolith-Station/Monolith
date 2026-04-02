@@ -18814,3 +18814,361 @@ Entries:
   id: 2076
   time: '2026-03-24T19:54:07.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3552
+- author: Avalon-Proto
+  changes:
+    - type: Add
+      message: >-
+        Ullman Industries has released a new overcoat, this one with much
+        thicker fur around the neck
+  id: 2077
+  time: '2026-03-24T23:41:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3260
+- author: Lokilife
+  changes:
+    - type: Fix
+      message: You can't lie in space with voidboots anymore
+  id: 2078
+  time: '2026-03-25T00:08:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3551
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Research generating things no longer connect to multiple servers at once
+        when built
+  id: 2079
+  time: '2026-03-25T04:12:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3556
+- author: lopsidedmanboobs
+  changes:
+    - type: Remove
+      message: >-
+        You cannot force people to pay their own ransom during Piracy anymore.
+        View Conflict Rule 3.
+  id: 2080
+  time: '2026-03-25T05:49:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3558
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Clipping Claws now resets growth time, ensuring you do not have to worry
+        about your claws reaching the next stage for a while.
+    - type: Add
+      message: >-
+        Phenoxzine and Meroxzine. Phenoxzine massively boosts claw growth speed,
+        Meroxzine halts it completely for a long period of time.
+  id: 2081
+  time: '2026-03-25T06:13:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3554
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: Ports CMO webbing from Goob, adds it to CMO/DoC lockers.
+  id: 2082
+  time: '2026-03-25T18:33:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3555
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Fireteam leader marine playtime requirement of 10 hours replaced with
+        general tsfmc playtime requirement of 10 hours
+  id: 2083
+  time: '2026-03-25T19:53:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3542
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Energy shields now take damage from reflecting hitscan projectiles,
+        instead of just non-hitscan energy projectiles.
+    - type: Fix
+      message: Non-energy shields properly reduce damage taken.
+    - type: Fix
+      message: Riot and non-energy shields work now.
+  id: 2084
+  time: '2026-03-25T22:18:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3563
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: >-
+        The DIS Femur has seen a light rework, see PR for more details. Report
+        feedback & issues to me on discord (@unicornonlsd) 
+  id: 2085
+  time: '2026-03-26T05:55:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3560
+- author: Redrover1760
+  changes:
+    - type: Remove
+      message: You can no longer sell crates on Helios/Lancelot
+  id: 2086
+  time: '2026-03-26T22:05:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3573
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Tripled the time it takes for a body to start rotting (20 -> 60 minutes)
+  id: 2087
+  time: '2026-03-27T05:49:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3524
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Hydrakin head displacement improved slightly
+  id: 2088
+  time: '2026-03-27T07:19:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3575
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Updates Reptilian Guidebook with recent changes.
+  id: 2089
+  time: '2026-03-27T07:20:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3565
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Reenabled apocalypse gamemode.
+    - type: Tweak
+      message: Apocalypse now requires a 80% majority vote.
+    - type: Tweak
+      message: Some events can now trigger earlier.
+    - type: Fix
+      message: Fixed biothreat spawning chimera only 3 hours in. Now 1 hour.
+  id: 2090
+  time: '2026-03-27T17:58:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3570
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Heavy ballistic turrets now use 51mm antimaterial instead of 65mm.
+        Firerate 5 -> 4.5 Projectile speed 100 -> 65.
+  id: 2091
+  time: '2026-03-27T19:26:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3461
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: >-
+        Installs anti-chimera/hostile mob turrets to CC and MD to guard
+        cryosleep chambers using RIP ammo.
+    - type: Tweak
+      message: Grids with godmode no longer godmode turrets.
+    - type: Tweak
+      message: Turrets are now repairable via welder.
+    - type: Fix
+      message: Turrets no longer shoot mice.
+  id: 2092
+  time: '2026-03-27T21:57:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3582
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Emergancy software update pushed. All turrets are no longer speciest and
+        kill goblins, harpies, felinids, and dwarves on sight.
+  id: 2093
+  time: '2026-03-28T06:41:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3585
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Diagonal Walls/Windows no longer prevent destruction of kudzu/chimera
+        biomass.
+  id: 2094
+  time: '2026-03-28T16:17:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3588
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Death rattle is properly working on grids and planets now
+    - type: Tweak
+      message: >-
+        IPC received system update: Their chassis now becomes more vulnerable to
+        all damage sources instead of losing hands on discharge.
+    - type: Tweak
+      message: Kobolds and Monkeys are now capable of piloting shuttles.
+    - type: Tweak
+      message: Capacitors required for thruster construction/upgrade 4 -> 1.
+    - type: Tweak
+      message: Ore/construction box/bag dumping speed is significantly faster now.
+    - type: Tweak
+      message: Security techfab now includes Mercenary techfab dynamic recipes.
+    - type: Fix
+      message: You actually get the mech pulse rifle in the TSFMC uplink now
+    - type: Tweak
+      message: Salt is now capable of being reprocessed into iron ore.
+  id: 2095
+  time: '2026-03-28T16:21:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3587
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Thruster capacitor upgrades made more impactful.
+  id: 2096
+  time: '2026-03-28T16:42:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3589
+- author: Vinny-Shick
+  changes:
+    - type: Tweak
+      message: Slightly Buffed the Vanyk
+  id: 2097
+  time: '2026-03-28T16:45:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3574
+- author: NazrinNya
+  changes:
+    - type: Remove
+      message: Sabre has been removed from the game.
+    - type: Tweak
+      message: S2 mechs now use heavy mech armor
+    - type: Tweak
+      message: >-
+        S2 mechs received health buffs (1500 -> 1750 for broadsword, 1100 ->
+        2150 for halberd)
+    - type: Tweak
+      message: Halberd is uncapable of using light mounts now.
+    - type: Tweak
+      message: >-
+        LAC-29 now uses 35mm caliber - 45 piercing damage and 225 structural
+        damage. LAC-29 firerate 5 -> 2.5.
+    - type: Tweak
+      message: >-
+        RAC-6 now receives huge accuracy penalty if fired for long amount of
+        time. (>1.5s)
+    - type: Tweak
+      message: >-
+        SRM-8 now fires in burst - 3 rockets per second, 6 rockets in total.
+        Consumes 600 energy.
+    - type: Tweak
+      message: BRM-6 now consumes 250 energy instead of 100.
+  id: 2098
+  time: '2026-03-28T18:16:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3459
+- author: EckoAurum
+  changes:
+    - type: Add
+      message: Added TSF and PDV Medical and Engineering Cyborg Variants.
+    - type: Add
+      message: Engineer cyborgs now have an inbuilt diagnostic hud.
+  id: 2099
+  time: '2026-03-28T18:43:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3444
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Portstrike is now announced.
+    - type: Tweak
+      message: Apocalypse now lasts 3 hours and has 1 hour portstrike.
+    - type: Tweak
+      message: Apocalypse chimera and ADS spawnrates doubled.
+  id: 2100
+  time: '2026-03-28T19:04:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3590
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: 'Fixed portstrike being declared roundstart. '
+  id: 2101
+  time: '2026-03-29T02:40:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3595
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Signaller range buffed to 90 meters.
+    - type: Tweak
+      message: Advanceds Signaller range buffed to 600 meters.
+  id: 2102
+  time: '2026-03-29T05:46:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3594
+- author: AntoineXYZ
+  changes:
+    - type: Add
+      message: Per-character custom keyword chat highlighting
+  id: 2103
+  time: '2026-03-29T06:30:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3571
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: Drone turrets shoot you now.
+  id: 2104
+  time: '2026-03-29T15:15:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3614
+- author: Ilya246
+  changes:
+    - type: Add
+      message: The xenopsychology research now lets you make the carp hardsuit.
+  id: 2105
+  time: '2026-03-29T15:48:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3599
+- author: Scarlet Lightweaver
+  changes:
+    - type: Tweak
+      message: Made the bulwarks gauntlets wideswing.
+  id: 2106
+  time: '2026-03-29T15:49:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3598
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: Adds tools VSC configuration.
+  id: 2107
+  time: '2026-03-29T16:19:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3618
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: windowed shutters now properly fit with the normal kind
+  id: 2108
+  time: '2026-03-29T18:15:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3564
+- author: Isratosh
+  changes:
+    - type: Tweak
+      message: >-
+        All faction thruster variants now require 1 capacitor from 3, in line
+        with the standard model
+  id: 2109
+  time: '2026-03-30T09:23:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3638
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: 'Liberated all handheld instruments: you can play them hands-free'
+  id: 2110
+  time: '2026-03-30T13:56:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3639
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: >-
+        the DIS Rig has seen a full rework. Report any issues to me on the
+        discord (@UnicornOnLSD)
+  id: 2111
+  time: '2026-03-30T16:15:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3514
+- author: lopsidedmanboobs
+  changes:
+    - type: Tweak
+      message: Conflict rules 1 & 2 changed and clarifications added
+  id: 2112
+  time: '2026-03-30T16:56:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3643
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Biomass spread rate, health, and slowdown reduced.
+  id: 2113
+  time: '2026-04-01T16:22:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3635
+- author: UnicornOnLSD
+  changes:
+    - type: Add
+      message: Management has sent an ore box to the DIS Rig after customer complaints.
+  id: 2114
+  time: '2026-04-01T22:08:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3672
