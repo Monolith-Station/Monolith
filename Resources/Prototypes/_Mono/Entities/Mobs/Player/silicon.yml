@@ -118,9 +118,6 @@
     - sprite: Mobs/Silicon/station_ai.rsi
       state: default
   - type: ShowJobIcons
-  - type: Tag
-    tags:
-    - CanPilot
   - type: AdvancedPilot # can use both gunnery and shuttle console even on capitals
 
 - type: entity

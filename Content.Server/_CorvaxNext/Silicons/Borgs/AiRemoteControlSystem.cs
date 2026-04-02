@@ -203,6 +203,6 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
             return;
 
         var fromLaws = _lawSystem.GetLaws(from);
-        _lawSystem.SetLawsSilent(fromLaws.Laws, to);
+        _lawSystem.SetLaws(fromLaws.Laws, to, silent: true);
     }
 }

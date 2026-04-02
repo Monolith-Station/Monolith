@@ -119,6 +119,7 @@
       whitelist:
         tags:
         - StationAi
+        - CanPilot # Mono
   - type: ContainerContainer
     containers:
       station_ai_mind_slot: !type:ContainerSlot
@@ -511,6 +512,7 @@
     - HideContextMenu
     - StationAi
     - NoConsoleSound
+    - CanPilot #Mono
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true

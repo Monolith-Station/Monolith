@@ -17,6 +17,7 @@ using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Silicons.StationAi; // Corvax-Next-AiRemoteControl
 using Content.Shared.Tag; // Corvax-Next-AiRemoteControl
 using Content.Shared.Wires;
+using Microsoft.VisualBasic;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -297,7 +298,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     /// <summary>
     /// Set the laws of a silicon entity while notifying the player.
     /// </summary>
-    public void SetLaws(List<SiliconLaw> newLaws, EntityUid target, SoundSpecifier? cue = null)
+    public void SetLaws(List<SiliconLaw> newLaws, EntityUid target, SoundSpecifier? cue = null, bool silent = false) // AiRemoteControl - silent
     {
         if (!TryComp<SiliconLawProviderComponent>(target, out var component))
             return;
@@ -306,7 +307,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             component.Lawset = new SiliconLawset();
 
         component.Lawset.Laws = newLaws;
-        NotifyLawsChanged(target, cue);
+        if (!silent) // AiRemoteControl - silent
+            NotifyLawsChanged(target, cue);
     }
 
     protected override void OnUpdaterInsert(Entity<SiliconLawUpdaterComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -339,19 +341,6 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             // Corvax-Next-AiRemoteControl-End
         }
     }
-
-    // Corvax-Next-AiRemoteControl-Start
-    public void SetLawsSilent(List<SiliconLaw> newLaws, EntityUid target, SoundSpecifier? cue = null)
-    {
-        if (!TryComp<SiliconLawProviderComponent>(target, out var component))
-            return;
-
-        if (component.Lawset == null)
-            component.Lawset = new SiliconLawset();
-
-        component.Lawset.Laws = newLaws;
-    }
-    // Corvax-Next-AiRemoteControl-End
 }
 
 [ToolshedCommand, AdminCommand(AdminFlags.Admin)]
