@@ -307,38 +307,6 @@
 
 - type: entity
   parent: BaseSecurityPDA
-  id: PublicAffairsLiaisonPDA
-  name: public affairs liaison PDA
-  description: Paperwork, paperwork, paperwork!
-  components:
-  - type: Pda
-    id: PublicAffairsIDCard
-    penSlot:
-      startingItem: PublicAffairsPen
-      priority: -1
-      whitelist:
-        tags:
-        - Write
-    bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
-      priority: -2
-      whitelist:
-        tags:
-        - BookSpaceLaw
-        - BookNfsdSop
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-prosecutor
-  - type: PdaBorderColor
-    borderColor: "#FFFDD0"
-    accentHColor: "#896b49"
-  - type: Icon
-    state: pda-prosecutor
-
-- type: entity
-  parent: BaseSecurityPDA
   id: SrPDA
   name: colonial liaison PDA
   description: Looks like it's been clawed on.
