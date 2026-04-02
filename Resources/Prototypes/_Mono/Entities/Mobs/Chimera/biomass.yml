@@ -34,21 +34,21 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 40
+        damage: 30
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: TrayScanReveal
   - type: Kudzu
     growthTickChance: 0.2
-    spreadChance: 0.5
+    spreadChance: 0.35
     # Heals each time it manages to do a growth tick:
     damageRecovery:
       types:
-        Slash: -1.25
-        Heat: -1.25
-        Cold: -1.25
-        Blunt: -1.5
+        Slash: -1
+        Heat: -1
+        Cold: -1
+        Blunt: -1.25
   - type: Flammable
     fireSpread: true
     alwaysCombustible: true
@@ -58,8 +58,8 @@
         Heat: 9
   - type: AtmosExposed
   - type: SpeedModifierContacts
-    walkSpeedModifier: 0.25
-    sprintSpeedModifier: 0.25
+    walkSpeedModifier: 0.45
+    sprintSpeedModifier: 0.45
     ignoreWhitelist:
       tags:
       - Chimera
