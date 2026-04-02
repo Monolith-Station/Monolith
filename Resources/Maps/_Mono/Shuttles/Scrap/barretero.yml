@@ -1206,9 +1206,6 @@ entities:
     - type: GridCleanupGrid
     - type: GravityShake
       shakeTimes: 10
-    - type: SalvageMobRestrictionsGrid
-      mobsToKill:
-      - invalid
   - uid: 3
     components:
     - type: MetaData
