@@ -2,7 +2,7 @@
   name: SKR-WS MLA-73 (635x40mm caseless)
   parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
   id: WeaponSubMachineGunMla73
-  description: A reliable PDW design, commonly issued to pilots and AFV crewmen. This one has been modified with an integral suppressor. Legends around this weapons say it's a Corporate-Era schematic that's been built by the Phaethon Dynasty.
+  description: A reliable PDW design, commonly issued to pilots and AFV crewmen. This one has been modified with an integral suppressor. Legends around this weapons say it's a Corporate-Era schematic that's been built by the Phaethon Dynasty. Can take 9x19mm smg magazines in a pinch.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/SMGs/mla73.rsi
@@ -36,6 +36,7 @@
         whitelist:
           tags:
           - Magazine635x40mmCaseless
+          - Magazine9x19mmSubMachineGunFMJ
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber

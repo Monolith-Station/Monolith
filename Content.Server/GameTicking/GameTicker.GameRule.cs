@@ -130,6 +130,10 @@ public sealed partial class GameTicker
         if (MetaData(ruleEntity).EntityPrototype?.ID is not { } id) // you really fucked up
             return false;
 
+        // Mono - ensure delayed start rules don't trigger ahead of time.
+        if (TryComp<DelayedStartRuleComponent>(ruleEntity, out var delayComp) && delayComp.RuleStartTime > _gameTiming.CurTime)
+            return false;
+
         // If we already have it, then we just skip the delay as it has already happened.
         if (!RemComp<DelayedStartRuleComponent>(ruleEntity) && ruleData.Delay != null)
         {

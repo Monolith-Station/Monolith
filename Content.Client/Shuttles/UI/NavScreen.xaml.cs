@@ -62,13 +62,13 @@ public sealed partial class NavScreen : BoxContainer
                     !string.IsNullOrEmpty(companyComp.CompanyName))
                 {
                     // Try to match the company ID directly
-                    if (companyComp.CompanyName.Contains(text, StringComparison.OrdinalIgnoreCase))
+                    if (companyComp.CompanyName.Id.Contains(text, StringComparison.OrdinalIgnoreCase))
                     {
                         return true;
                     }
 
                     // Try to match company name from prototype
-                    if (_prototypeManager.TryIndex<CompanyPrototype>(
+                    if (_prototypeManager.TryIndex(
                         companyComp.CompanyName, out var prototype) &&
                         prototype.Name.Contains(text, StringComparison.OrdinalIgnoreCase))
                     {

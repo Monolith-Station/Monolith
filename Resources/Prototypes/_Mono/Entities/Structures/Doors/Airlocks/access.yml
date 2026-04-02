@@ -16,6 +16,15 @@
     containers:
       board: [ DoorElectronicsSecurity ]
 
+- type: entity
+  parent: HighSecDoor
+  id: HighSecTSFMCLocked
+  suffix: TSFMC, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
+
 # Flyssa ports
 
 - type: entity

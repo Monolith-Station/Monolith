@@ -1,7 +1,5 @@
 using Content.Shared._Mono.Traits.Physical;
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Timing;
 
@@ -49,39 +47,13 @@ public sealed class PlateletFactoriesSystem : EntitySystem
 
     private void Tick(EntityUid uid, PlateletFactoriesComponent comp)
     {
-        if (!TryComp<DamageableComponent>(uid, out var damage))
+        if (!TryComp<DamageableComponent>(uid, out var damage)
+            || damage.TotalDamage <= 0
+            || _mobState.IsDead(uid))
             return;
 
-        if (damage.TotalDamage <= 0)
-            return;
-
-        if (TryComp<MobStateComponent>(uid, out var mobState) && _mobState.IsDead(uid, mobState))
-            return;
-
-        var heal = new DamageSpecifier();
-
-        var amountPerTick = Math.Max(0f, comp.HealPerSecond) * Math.Max(0.1f, comp.IntervalSeconds);
-        var multiplier = (TryComp<MobStateComponent>(uid, out var ms) && _mobState.IsCritical(uid, ms))
-            ? comp.CritMultiplier
-            : 1f;
-
-        foreach (var (type, amount) in damage.Damage.DamageDict)
-        {
-            if (amount <= 0)
-                continue;
-
-            var healAmt = FixedPoint2.New(-Math.Min(amount.Float(), amountPerTick * multiplier));
-            if (healAmt == FixedPoint2.Zero)
-                continue;
-
-            var existing = heal.DamageDict.GetValueOrDefault(type);
-            heal.DamageDict[type] = existing + healAmt;
-        }
-
-        if (heal.DamageDict.Count == 0)
-            return;
-
-        _damageable.TryChangeDamage(uid, heal, true, false, damage);
+        var multiplier = _mobState.IsCritical(uid) ? comp.CritMultiplier : 1f;
+        _damageable.TryChangeDamage(uid, comp.DamagePerInterval*multiplier, true, false, damage);
     }
 }
 

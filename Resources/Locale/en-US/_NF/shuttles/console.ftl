@@ -11,7 +11,17 @@ shuttle-console-inertia-dampener-anchor = Park
 # Mono
 shuttle-console-force-anchored = You are not able to FTL an outpost.
 shuttle-console-signature-infrared = Thermal Signature
-shuttle-console-signature-unknown = Unknown
+
+# Mono - Unknowns
+shuttle-console-signature-unknown =
+    { $mass ->
+        [small] Small Unknown
+        [medium] Medium Unknown
+        [large] Large Unknown
+        [huge] Huge Unknown
+        [supermassive] Supermassive Unknown
+       *[other] Unknown
+    }
 
 # Network Port Buttons
 shuttle-console-network-ports = Network Ports

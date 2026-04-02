@@ -1,8 +1,9 @@
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, BaseFactionGearPDVT2 ]
+  parent: [ClothingHeadHardsuitBase, BaseFactionGearPDVT2, ShowSecurityIcons, ClothingHeadSuitWithLightBase]
   id: ClothingHeadHelmetHardsuitPirateScaf
   name: PDV SCAF hardsuit helmet
-  description: An old SCAF suit painted in an PDV tan color scheme. The lighting systems have been replaced with a thermal pulse.
+  description: An old SCAF suit painted in an PDV tan color scheme. Has been outfitted with a thermal pulse scanner.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/scaf_pirate.rsi
@@ -13,6 +14,9 @@
     pulseTime: 3
     isEquipment: true
     toggleAction: PulseThermalVision
+  - type: PointLight
+    radius: 5
+    color: green
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
