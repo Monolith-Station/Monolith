@@ -1,0 +1,17 @@
+﻿names-names-oni-male-dataset-1 = Kiyoshi #é™½
+names-names-oni-male-dataset-2 = Satoshi #æ˜Ž
+names-names-oni-male-dataset-3 = Teru #å…‰
+names-names-oni-male-dataset-4 = Hiroshi
+names-names-oni-male-dataset-5 = Takashi #å¤©
+names-names-oni-male-dataset-6 = Eeichi #æ°¸ä¸€
+names-names-oni-male-dataset-7 = Eeichirou #æ°¸ä¸€æœ—
+names-names-oni-male-dataset-8 = Kyousaburou
+names-names-oni-male-dataset-9 = Tsutomu
+names-names-oni-male-dataset-10 = Tsuyoshi
+names-names-oni-male-dataset-11 = Kenshi
+names-names-oni-male-dataset-12 = Kenji
+names-names-oni-male-dataset-13 = Kenichi
+names-names-oni-male-dataset-14 = Susumu
+names-names-oni-male-dataset-15 = Kyounosukeâ€‹
+names-names-oni-male-dataset-16 = Suisei #Mars
+names-names-oni-male-dataset-17 = Shuten #Reference
