@@ -96,7 +96,7 @@
     guides:
     - Science
   - type: ResearchPointSource
-    pointsPerSecond: 10
+    pointsPerSecond: 30
     active: true
 
 - type: entity
@@ -107,7 +107,7 @@
   components:
   - type: ResearchClient
   - type: ResearchPointSource
-    pointsPerSecond: 35
+    pointsPerSecond: 350
     active: true
   - type: ApcPowerReceiver
     powerLoad: 10000
