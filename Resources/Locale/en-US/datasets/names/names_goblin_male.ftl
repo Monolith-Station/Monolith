@@ -1,1 +1,1 @@
-﻿names-names-goblin-male-dataset-1 = Crirt
+﻿names-goblin-male-dataset-1 = Crirt
