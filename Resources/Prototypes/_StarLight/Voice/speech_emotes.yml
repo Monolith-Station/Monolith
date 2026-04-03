@@ -78,3 +78,30 @@
   - squawks.
   - squawks!
   - squawks?
+
+- type: emote
+  id: Hisses
+  name: chat-emote-name-hiss
+  category: Vocal
+  available: false
+  icon: { sprite: _Starlight/Actions/felionoid.rsi, state: cat_print }
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-hiss"]
+  chatTriggers:
+  - hiss
+  - hiss.
+  - hiss!
+  - hiss?
+  - hissing
+  - hissing.
+  - hissing!
+  - hissing?
+  - hisses
+  - hisses.
+  - hisses!
+  - hisses?
