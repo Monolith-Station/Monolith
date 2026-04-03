@@ -43,6 +43,10 @@
   - type: ShipRepairable
     repairTime: 2
     repairCost: 3
+  - type: Tag
+    tags:
+    - Wall
+    - WallT1
 
 - type: entity
   abstract: true
@@ -87,6 +91,10 @@
   - type: ShipRepairable
     repairTime: 3
     repairCost: 6
+  - type: Tag
+    tags:
+    - Wall
+    - WallT2
 
 - type: entity
   abstract: true
@@ -131,6 +139,10 @@
   - type: ShipRepairable
     repairTime: 5
     repairCost: 8
+  - type: Tag
+    tags:
+    - Wall
+    - WallT3
 
 - type: entity
   abstract: true
@@ -175,6 +187,10 @@
   - type: ShipRepairable
     repairTime: 10
     repairCost: 12
+  - type: Tag
+    tags:
+    - Wall
+    - WallT4
 
 - type: entity
   abstract: true
@@ -400,17 +416,6 @@
     drawdepth: Walls
     sprite: _Mono/Structures/Walls/rplas_diagonal.rsi
     state: state0
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-        density: 500 # No ram-meta
   - type: Destructible
     thresholds:
     - trigger:

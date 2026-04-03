@@ -85,7 +85,7 @@
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 200 #Mono 50 >> 200
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:

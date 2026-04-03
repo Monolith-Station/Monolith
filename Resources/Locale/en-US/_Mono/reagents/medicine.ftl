@@ -21,3 +21,9 @@ reagent-desc-protoletoferol = Letoferol neutralized via electrolysis. Used as a 
 
 reagent-name-peranol = peranol
 reagent-desc-peranol = A more stable version of Leporazine, reducing the body temperature and healing heat burns. It has amplified effect on Hydrakins.
+
+reagent-name-phenoxzine = phenoxzine
+reagent-desc-phenoxzine = A biochemical designed to promote the rapid growth of claws, including Reptilian claws.
+
+reagent-name-meroxzine = meroxzine
+reagent-desc-meroxzine = A biochemical which halts all natural claw growth, including Reptilian claws.

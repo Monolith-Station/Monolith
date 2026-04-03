@@ -25,8 +25,8 @@
 #Light Weapons
 - type: entity
   id: LightMechaAutocannon
-  name: LAC-29 20mm autocannon
-  description: The everyman's mecha rifle. Chambered in 20mm, with balanced stats to tackle both Armored Frames and do light damage against ships. Fits on Light Hardpoints.
+  name: LAC-29 35mm autocannon
+  description: The everyman's mecha rifle. Chambered in 35mm AP rounds, with balanced stats to tackle both Armored Frames and do light damage against ships. Fits on Light Hardpoints.
   suffix: Mech Weapon, Gun, Combat, Rifle
   parent: [ BaseMechWeaponRange, LightMechMountEquipment ]
   components:
@@ -35,7 +35,7 @@
     state: assaultrifle64x32
   - type: Gun
     projectileSpeed: 110
-    fireRate: 5
+    fireRate: 2.5
     minAngle: 0
     maxAngle: 15
     angleIncrease: 1
@@ -48,8 +48,8 @@
   - type: Battery
     maxCharge: 180
   - type: ProjectileBatteryAmmoProvider
-    proto: 20mmBullet
-    fireCost: 45
+    proto: 35mmBullet
+    fireCost: 60
   - type: Appearance
   - type: AmmoCounter
 
@@ -64,11 +64,11 @@
     sprite: _Mono/Objects/Specific/Mech/tgmc_mecha_weapons.rsi
     state: smg64x32
   - type: Gun
-    projectileSpeed: 70
+    projectileSpeed: 55
     fireRate: 14
     minAngle: 0
-    maxAngle: 20
-    angleIncrease: 0.5
+    maxAngle: 35
+    angleIncrease: 1
     angleDecay: 20
     selectedMode: FullAuto
     availableModes:
@@ -79,8 +79,7 @@
     maxCharge: 100
   - type: ProjectileBatteryAmmoProvider
     proto: Bullet45_ACPFMJ_Mech
-    fireCost: 20
-
+    fireCost: 18
   - type: Appearance
   - type: AmmoCounter
 
