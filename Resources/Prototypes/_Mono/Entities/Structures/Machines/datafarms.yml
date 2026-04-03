@@ -96,7 +96,7 @@
     guides:
     - Science
   - type: ResearchPointSource
-    pointsPerSecond: 10
+    pointsPerSecond: 20
     active: true
 
 - type: entity
@@ -107,7 +107,7 @@
   components:
   - type: ResearchClient
   - type: ResearchPointSource
-    pointsPerSecond: 35
+    pointsPerSecond: 200
     active: true
   - type: ApcPowerReceiver
     powerLoad: 10000
@@ -141,6 +141,8 @@
       color: "#b3aa79"
     - state: stripe2
       color: "#009360"
+  - type: ApcPowerReceiver
+    powerLoad: 40000
   - type: PointLight
     radius: 1.1
     energy: 1.1
