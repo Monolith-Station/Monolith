@@ -88,8 +88,6 @@
     sprite: Clothing/Head/Hardsuits/engineering.rsi
     layers:
     - state: icon
-    - state: icon-unshaded
-      shader: unshaded
     - state: light-overlay
       visible: false
       shader: unshaded
