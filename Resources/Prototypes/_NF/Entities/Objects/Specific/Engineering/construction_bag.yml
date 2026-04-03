@@ -45,6 +45,7 @@
       tags:
       - PrizeTicket
   - type: Dumpable
+    multiplier: 0.15 # mono
   - type: ConstructionBag
   - type: StaticPrice
     price: 55.5
@@ -69,7 +70,7 @@
   description: A robust bag of holding for rich construction specialists and engineers alike to carry large amounts of construction materials. Magnetises any nearby construction materials when attached to a belt.
   components:
   - type: MagnetPickup
-    range: 2
+    range: 3
   - type: Sprite
     sprite: _NF/Objects/Specific/Engineering/construction_bag.rsi
     layers:

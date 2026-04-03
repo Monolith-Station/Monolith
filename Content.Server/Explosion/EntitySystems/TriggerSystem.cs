@@ -1,3 +1,4 @@
+using Content.Server._Mono.Planets;
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Explosion.Components;
@@ -39,6 +40,7 @@ using Content.Shared.Projectiles; // Frontier: embed triggers
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server.Explosion.EntitySystems
 {
@@ -83,6 +85,7 @@ namespace Content.Server.Explosion.EntitySystems
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly ElectrocutionSystem _electrocution = default!;
         [Dependency] private readonly StationSystem _station = default!; // Frontier: medical insurance
+        [Dependency] private readonly SharedMapSystem _map = default!; // Frontier: medical insurance
 
         public override void Initialize()
         {
@@ -252,19 +255,19 @@ namespace Content.Server.Explosion.EntitySystems
             var posText = $"({x}, {y})";
 
             // Frontier: Gets station location of the implant
-            var station = _station.GetOwningStation(uid);
-            var stationText = station is null ? null : $"{Name(station.Value)} ";
+            var grid = ownerXform.GridUid;
+            var gridText = grid is null ? "" : MetaData(grid.Value).EntityName;
 
-            if (stationText == null)
-                stationText = "";
+            if (HasComp<MapComponent>(grid) && !HasComp<PlanetMapComponent>(grid))
+                gridText = "";
 
             // Frontier: Gets species of the implant user
             var speciesText = $"";
             if (TryComp<HumanoidAppearanceComponent>(implanted.ImplantedEntity, out var species))
-                speciesText = $" ({species!.Species})";
+                speciesText = $" ({species.Species})";
 
-            var critMessage = Loc.GetString(component.CritMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", stationText!), ("position", posText));
-            var deathMessage = Loc.GetString(component.DeathMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", stationText!), ("position", posText));
+            var critMessage = Loc.GetString(component.CritMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", gridText), ("position", posText));
+            var deathMessage = Loc.GetString(component.DeathMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", gridText), ("position", posText));
 
             if (!TryComp<MobStateComponent>(implanted.ImplantedEntity, out var mobstate))
                 return;
