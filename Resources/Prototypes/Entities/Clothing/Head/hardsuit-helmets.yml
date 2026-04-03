@@ -86,12 +86,6 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/engineering.rsi
-    layers:
-    - state: icon
-    - state: light-overlay
-      visible: false
-      shader: unshaded
-      map: [ "light" ]
   - type: HandheldLight
     addPrefix: false
   - type: ToggleableVisuals
