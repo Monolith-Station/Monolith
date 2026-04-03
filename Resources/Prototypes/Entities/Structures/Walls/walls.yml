@@ -352,6 +352,10 @@
   - type: Construction # Mono
     graph: Girder
     node: plastitaniumWall
+  - type: Tag # Mono
+    tags:
+    - Wall
+    - WallT3
 
 - type: entity
   parent: [ WallPlastitaniumDiagonalIndestructible, BaseWallTierTwo ] # Mono
@@ -419,7 +423,7 @@
         mask:
         - FullTileMask
         layer:
-        - WallLayer
+        - DiagonalWallLayer # Mono WallLayer->DiagonalWallLayer
   - type: StaticPrice
     price: 50 # Mono
   - type: ArmorThickness
@@ -664,7 +668,7 @@
         mask:
         - FullTileMask
         layer:
-        - WallLayer
+        - DiagonalWallLayer # Mono WallLayer->DiagonalWallLayer
         density: 2000
   - type: Physics
     bodyType: Static

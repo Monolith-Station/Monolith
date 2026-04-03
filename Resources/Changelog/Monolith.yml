@@ -18973,3 +18973,319 @@ Entries:
   id: 2093
   time: '2026-03-28T06:41:55.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3585
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Diagonal Walls/Windows no longer prevent destruction of kudzu/chimera
+        biomass.
+  id: 2094
+  time: '2026-03-28T16:17:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3588
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Death rattle is properly working on grids and planets now
+    - type: Tweak
+      message: >-
+        IPC received system update: Their chassis now becomes more vulnerable to
+        all damage sources instead of losing hands on discharge.
+    - type: Tweak
+      message: Kobolds and Monkeys are now capable of piloting shuttles.
+    - type: Tweak
+      message: Capacitors required for thruster construction/upgrade 4 -> 1.
+    - type: Tweak
+      message: Ore/construction box/bag dumping speed is significantly faster now.
+    - type: Tweak
+      message: Security techfab now includes Mercenary techfab dynamic recipes.
+    - type: Fix
+      message: You actually get the mech pulse rifle in the TSFMC uplink now
+    - type: Tweak
+      message: Salt is now capable of being reprocessed into iron ore.
+  id: 2095
+  time: '2026-03-28T16:21:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3587
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Thruster capacitor upgrades made more impactful.
+  id: 2096
+  time: '2026-03-28T16:42:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3589
+- author: Vinny-Shick
+  changes:
+    - type: Tweak
+      message: Slightly Buffed the Vanyk
+  id: 2097
+  time: '2026-03-28T16:45:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3574
+- author: NazrinNya
+  changes:
+    - type: Remove
+      message: Sabre has been removed from the game.
+    - type: Tweak
+      message: S2 mechs now use heavy mech armor
+    - type: Tweak
+      message: >-
+        S2 mechs received health buffs (1500 -> 1750 for broadsword, 1100 ->
+        2150 for halberd)
+    - type: Tweak
+      message: Halberd is uncapable of using light mounts now.
+    - type: Tweak
+      message: >-
+        LAC-29 now uses 35mm caliber - 45 piercing damage and 225 structural
+        damage. LAC-29 firerate 5 -> 2.5.
+    - type: Tweak
+      message: >-
+        RAC-6 now receives huge accuracy penalty if fired for long amount of
+        time. (>1.5s)
+    - type: Tweak
+      message: >-
+        SRM-8 now fires in burst - 3 rockets per second, 6 rockets in total.
+        Consumes 600 energy.
+    - type: Tweak
+      message: BRM-6 now consumes 250 energy instead of 100.
+  id: 2098
+  time: '2026-03-28T18:16:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3459
+- author: EckoAurum
+  changes:
+    - type: Add
+      message: Added TSF and PDV Medical and Engineering Cyborg Variants.
+    - type: Add
+      message: Engineer cyborgs now have an inbuilt diagnostic hud.
+  id: 2099
+  time: '2026-03-28T18:43:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3444
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Portstrike is now announced.
+    - type: Tweak
+      message: Apocalypse now lasts 3 hours and has 1 hour portstrike.
+    - type: Tweak
+      message: Apocalypse chimera and ADS spawnrates doubled.
+  id: 2100
+  time: '2026-03-28T19:04:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3590
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: 'Fixed portstrike being declared roundstart. '
+  id: 2101
+  time: '2026-03-29T02:40:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3595
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Signaller range buffed to 90 meters.
+    - type: Tweak
+      message: Advanceds Signaller range buffed to 600 meters.
+  id: 2102
+  time: '2026-03-29T05:46:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3594
+- author: AntoineXYZ
+  changes:
+    - type: Add
+      message: Per-character custom keyword chat highlighting
+  id: 2103
+  time: '2026-03-29T06:30:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3571
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: Drone turrets shoot you now.
+  id: 2104
+  time: '2026-03-29T15:15:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3614
+- author: Ilya246
+  changes:
+    - type: Add
+      message: The xenopsychology research now lets you make the carp hardsuit.
+  id: 2105
+  time: '2026-03-29T15:48:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3599
+- author: Scarlet Lightweaver
+  changes:
+    - type: Tweak
+      message: Made the bulwarks gauntlets wideswing.
+  id: 2106
+  time: '2026-03-29T15:49:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3598
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: Adds tools VSC configuration.
+  id: 2107
+  time: '2026-03-29T16:19:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3618
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: windowed shutters now properly fit with the normal kind
+  id: 2108
+  time: '2026-03-29T18:15:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3564
+- author: Isratosh
+  changes:
+    - type: Tweak
+      message: >-
+        All faction thruster variants now require 1 capacitor from 3, in line
+        with the standard model
+  id: 2109
+  time: '2026-03-30T09:23:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3638
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: 'Liberated all handheld instruments: you can play them hands-free'
+  id: 2110
+  time: '2026-03-30T13:56:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3639
+- author: UnicornOnLSD
+  changes:
+    - type: Tweak
+      message: >-
+        the DIS Rig has seen a full rework. Report any issues to me on the
+        discord (@UnicornOnLSD)
+  id: 2111
+  time: '2026-03-30T16:15:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3514
+- author: lopsidedmanboobs
+  changes:
+    - type: Tweak
+      message: Conflict rules 1 & 2 changed and clarifications added
+  id: 2112
+  time: '2026-03-30T16:56:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3643
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Biomass spread rate, health, and slowdown reduced.
+  id: 2113
+  time: '2026-04-01T16:22:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3635
+- author: UnicornOnLSD
+  changes:
+    - type: Add
+      message: Management has sent an ore box to the DIS Rig after customer complaints.
+  id: 2114
+  time: '2026-04-01T22:08:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3672
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Added new drone to the far reaches, specially for those who liked the
+        dodging sniper drone.
+    - type: Tweak
+      message: Far reaches 3 now contains slightly more medium drones by proportion.
+    - type: Tweak
+      message: Far reach drones now display their names.
+  id: 2115
+  time: '2026-04-02T17:25:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3559
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added Far Reaches IV and a new drone to find in it.
+    - type: Tweak
+      message: >-
+        Reduced overall drone spawnrate, but increased proportion of more
+        advanced drones further out.
+  id: 2116
+  time: '2026-04-02T18:52:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3677
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Shield ram damage reduction now applies to both colliding grids.
+  id: 2117
+  time: '2026-04-03T09:04:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3678
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: Fixed Cyborgs obtaining non-whitelisted hands.
+  id: 2118
+  time: '2026-04-03T09:50:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3679
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Most of non-poi vend catalogs are completely free now.
+  id: 2119
+  time: '2026-04-03T11:08:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3195
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Added Hullmods, currently admin-only.
+  id: 2120
+  time: '2026-04-03T11:08:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3285
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Faction datafarms now produce 200 science per second instead of 35.
+    - type: Tweak
+      message: >-
+        Normal research datafarms now produce 20 science per second instead of
+        10.
+  id: 2121
+  time: '2026-04-03T17:42:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3681
+- author: chuga-git
+  changes:
+    - type: Add
+      message: >-
+        ASM-220 "Trident" 500mm torpedo rack and GPOB-L Light Munitions Bay are
+        now anchorable. 
+    - type: Add
+      message: ASM-220 HE and ECM torpedos are now significantly faster.
+  id: 2122
+  time: '2026-04-03T17:45:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3673
+- author: Kiithnaras
+  changes:
+    - type: Tweak
+      message: >-
+        Improvements to capacity and firing mechanics of many common Laser and
+        Energy weapons.
+  id: 2123
+  time: '2026-04-03T17:46:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3636
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: >-
+        recipes in the med assembler have been changed to make regenerative
+        meshes and medicated sutures easier to craft
+  id: 2124
+  time: '2026-04-03T18:25:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3680
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Increased TSF Mech Blip visibility
+  id: 2125
+  time: '2026-04-03T18:26:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3667
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        ADCs now get piloting boosts (bonus acceleration, turn, max speed) to
+        give them an advantage over ADMs.
+  id: 2126
+  time: '2026-04-03T18:28:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3602
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Civilian/Merc borg HP buffed 150->200, civ/merc borg burn damage
+        modifier reduced from 1.5 to 1.
+  id: 2127
+  time: '2026-04-03T18:29:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3578

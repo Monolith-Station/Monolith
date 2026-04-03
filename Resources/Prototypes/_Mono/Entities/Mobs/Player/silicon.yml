@@ -78,55 +78,6 @@
   - ADS-Evasion
   - ADS-Apprehension
 
-# base stats for faction borgs
-
-- type: entity
-  parent: BaseBorgChassis
-  id: BaseFactionBorgChassis
-  abstract: true
-  components:
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      200: Critical
-      300: Dead
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
-    baseSprintSpeed : 4.5
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      75: 0.7
-      150: 0.5
-  - type: Damageable
-    damageModifierSet: FactionBorgChassis
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Machines/warning_buzzer.ogg
-          params:
-            volume: 5
-    - trigger:
-        !type:DamageTrigger
-         damage: 400
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:EmptyContainersBehaviour
-        containers:
-        - borg_brain
-        - borg_module
-        - cell_slot
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: ExplosionResistance
-    damageCoefficient: 0.6
-
 - type: entity
   id: AiHeldMono
   description: Components added / removed from an entity that gets inserted into an AI core.
@@ -423,6 +374,10 @@
     - MonoRemnantCoreTitle
     - MonoRemnantAdjective
     - MonoRemnantNoun
+  - type: ShuttleBoostingPilot
+    angularMultiplier: 1.5
+    accelerationMultiplier: 1.4
+    maxVelMultiplier: 1.1
 
 - type: entity
   id: AiHeldRedacted
@@ -694,110 +649,14 @@
 # PDV Cyborgs
 
 - type: entity
-  id: BaseBorgChassisPDV
-  parent: BaseFactionBorgChassis
-  abstract: true
-  components:
-  - type: NpcFactionMember
-    factions:
-    - PirateNF
-  - type: Access
-    tags:
-    - Pirate
-    - PDVCommand
-    - GrandVizier
-    - Mercenary
-  - type: AccessReader
-    access: [["GrandVizier"]]
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Common
-    - Freelance
-    - Traffic
-  - type: ActiveRadio
-    channels:
-    - Common
-    - Freelance
-    - Traffic
-  - type: CollectiveMind
-    channels:
-    - Binary
-    defaultChannel: Binary
-  - type: ShowSyndicateIcons
-  - type: MovementAlwaysTouching
-  - type: Speech
-    speechSounds: SyndieBorg
-    allowedEmotes:
-    - Laugh
-  - type: Vocal
-    sounds:
-      Unsexed: UnisexSiliconSyndicate
-  - type: IonStormTarget
-    chance: 0.2
-  - type: ShowJobIcons
-  - type: SiliconLawProvider
-    laws: PDVLawset
-
-
-- type: entity
-  id: BorgChassisPDV
-  parent: BaseBorgChassisPDV
-  name: PDV assault cyborg
-  description: A purpose built assault cyborg used by the PDV.
-  components:
-  - type: Sprite
-    sprite: _Mono/Mobs/Silicon/PDV/assault.rsi
-    layers:
-    - state: assault
-      map: ["enum.BorgVisualLayers.Body", "movement"]
-    - state: assault_l
-      map: ["enum.BorgVisualLayers.Light"]
-      shader: unshaded
-      visible: false
-    - state: assault_l
-      shader: unshaded
-      map: ["light","enum.BorgVisualLayers.LightStatus"]
-      visible: false
-  - type: LanguageKnowledge
-    speaks:
-    - TauCetiBasic
-    - RobotTalk
-    - Freespeak
-    understands:
-    - TauCetiBasic
-    - RobotTalk
-    - Freespeak
-  - type: BorgChassis
-    maxModules: 8
-    moduleWhitelist:
-      tags:
-      - BorgModuleGeneric
-      - BorgModuleSyndicate
-      - BorgModuleSyndicateAssault
-    hasMindState: assault_l
-    noMindState: assault_l
-  - type: Construction
-    node: derelictcyborg
-  - type: InteractionPopup
-    interactSuccessString: petting-success-derelict-cyborg
-    interactFailureString: petting-failure-derelict-cyborg
-    interactSuccessSound:
-      path: /Audio/Ambience/Objects/periodic_beep.ogg
-
-- type: entity
   id: PlayerBorgPDV
-  parent: BorgChassisPDV
+  parent: BorgChassisSelectablePDV
   suffix: Battery, Module
   components:
   - type: ContainerFill
     containers:
       borg_brain:
       - PositronicBrain
-      borg_module:
-      - BorgModulePDVStandardWeapon
-      - BorgModuleJetpack
-      - BorgModuleTool
-      - BorgModuleGPS
   - type: ItemSlots
     slots:
       cell_slot:
@@ -809,120 +668,14 @@
 # TSF Cyborgs
 
 - type: entity
-  id: BaseBorgChassisTSF
-  parent: BaseFactionBorgChassis
-  abstract: true
-  components:
-  - type: NpcFactionMember
-    factions:
-    - TSFMC
-  - type: Access
-    tags:
-    - Security
-    - Armory
-    - Sergeant
-    - Bailiff
-    - Medical
-    - Chemistry
-    - TsfmcEngineering
-    - Maintenance
-    - External
-    - Command
-    - Brig
-    - Mercenary
-    - Captain
-  - type: AccessReader
-    access: [["Security"], ["Armory"], ["Sergeant"], ["Bailiff"], ["TsfmcEngineering"], ["Brig"]]
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Common
-    - Nfsd
-    - Traffic
-  - type: ActiveRadio
-    channels:
-    - Common
-    - Nfsd
-    - Traffic
-  - type: CollectiveMind
-    channels:
-    - Binary
-    defaultChannel: Binary
-  - type: ShowSyndicateIcons
-  - type: MovementAlwaysTouching
-  - type: Speech
-    speechSounds: SyndieBorg
-    allowedEmotes:
-    - Laugh
-  - type: Vocal
-    sounds:
-      Unsexed: UnisexSiliconSyndicate
-  - type: IonStormTarget
-    chance: 0.2
-  - type: ShowJobIcons
-  - type: SiliconLawProvider
-    laws: TSFMCBorgLawset
-  - type: FootstepModifier
-    footstepSoundCollection:
-      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
-
-- type: entity
-  id: BorgChassisTSF
-  parent: BaseBorgChassisTSF
-  name: TSFMC assault cyborg
-  description: A purpose built assault silicon used by the TSFMC.
-  components:
-  - type: Sprite
-    sprite: _Mono/Mobs/Silicon/TSFMC/assault.rsi
-    layers:
-    - state: assault
-      map: ["enum.BorgVisualLayers.Body", "movement"]
-    - state: assault_l
-      map: ["enum.BorgVisualLayers.Light"]
-      shader: unshaded
-      visible: false
-    - state: assault_l
-      shader: unshaded
-      map: ["light","enum.BorgVisualLayers.LightStatus"]
-  - type: LanguageKnowledge
-    speaks:
-    - TauCetiBasic
-    - RobotTalk
-    - SolCommon
-    understands:
-    - TauCetiBasic
-    - RobotTalk
-    - SolCommon
-  - type: BorgChassis
-    maxModules: 8
-    moduleWhitelist:
-      tags:
-      - BorgModuleGeneric
-      - BorgModuleSyndicate
-      - BorgModuleSyndicateAssault
-    hasMindState: assault_l
-    noMindState: assault_l
-  - type: Construction
-    node: derelictcyborg
-  - type: InteractionPopup
-    interactSuccessString: petting-success-derelict-cyborg
-    interactFailureString: petting-failure-derelict-cyborg
-    interactSuccessSound:
-      path: /Audio/Ambience/Objects/periodic_beep.ogg
-
-- type: entity
   id: PlayerBorgTSF
-  parent: BorgChassisTSF
+  parent: BorgChassisSelectableTSF
   suffix: Battery, Module
   components:
   - type: ContainerFill
     containers:
       borg_brain:
       - PositronicBrain
-      borg_module:
-      - BorgModuleTSFStandardWeapon
-      - BorgModuleJetpack
-      - BorgModuleTool
-      - BorgModuleGPS
   - type: ItemSlots
     slots:
       cell_slot:
