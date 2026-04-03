@@ -1,15 +1,15 @@
 - type: entity
   name: Urist McRaptor
-  parent: [BaseMobSpeciesOrganic]
+  parent: BaseMobSpeciesOrganic
   id: BaseMobResomi
   abstract: true
   components:
   # Starlight-start: Languages
   - type: LanguageKnowledge
     speaks:
-    - GalacticCommon
+    - TauCetiBasic
     understands:
-    - GalacticCommon
+    - TauCetiBasic
   # Starlight-end
 #  - type: Absorbable
 #  - type: Jump
@@ -34,10 +34,8 @@
       Burn:
         sprite: _Starlight/Mobs/Effects/Resomi/burn_damage.rsi
   - type: Bloodstream # Starlight
-    bloodReagents:
-      reagents:
-      - ReagentId: AmmoniaBlood
-        Quantity: 1
+  - type: Bloodstream
+    bloodReagent: AmmoniaBlood
   - type: FireVisuals
     sprite: _Starlight/Mobs/Effects/onfire.rsi
     normalState: Resomi_minor_burning
@@ -265,7 +263,7 @@
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ] # Doesn't work atm, but who knows in the future.
       color: "#ffffff"
-      sprite: _Starlight/Objects/Misc/handcuffs.rsi
+      sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-resomi
       visible: false
     - map: [ "id" ]
@@ -299,7 +297,8 @@
   - type: Speech
     speechVerb: Resomi
     speechSounds: UnisexResomi
-    allowedEmotes: ['Chirp', 'Hisses', 'Purr', 'Growl', 'Trill', 'Scree', 'Call', 'Squawk']
+    allowedEmotes: ['Chirp', 'Purr', 'Growl', 'Trill']
+    # Hisses, Scree, Call, Squawk
   - type: TypingIndicator
     proto: resomi
   - type: Tag

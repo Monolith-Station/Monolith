@@ -3,3 +3,11 @@
   name: Urist McRaptor
   parent: BaseMobResomi
   id: MobResomi
+  components: # Mono/Einstein Engines - languages
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Elyran # Screw it. Why not. I dont care anymore.
+    understands:
+    - TauCetiBasic
+    - Elyran # Screw it. Why not. I dont care anymore.
