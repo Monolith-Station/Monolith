@@ -39,7 +39,9 @@
     - NuclearOperative
     - SyndicateAgent
     - CentralCommand
-    - PDVBase # Frontier
+    - PDVBase # Mono
+    - GrandVizier # Mono
+    - PDVCommand # Mono
   - type: UserInterface
     interfaces:
       enum.SolarControlConsoleUiKey.Key:
