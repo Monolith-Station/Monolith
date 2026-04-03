@@ -374,6 +374,10 @@
     - MonoRemnantCoreTitle
     - MonoRemnantAdjective
     - MonoRemnantNoun
+  - type: ShuttleBoostingPilot
+    angularMultiplier: 1.5
+    accelerationMultiplier: 1.4
+    maxVelMultiplier: 1.1
 
 - type: entity
   id: AiHeldRedacted
