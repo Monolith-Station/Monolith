@@ -1,66 +1,65 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-<<<<<<<< HEAD:Resources/Textures/_Mono/Mobs/Species/Asakim/parts.rsi/meta.json
-    "copyright": "https://github.com/tgstation/tgstation/blob/08898964e67a0d517ca4e47eec7039394b694ac2/icons/mob/species/lizard/bodyparts.dmi",
-    "copyright": "Edited by _starch_ (Discord) from sprites from /tg/, and from sprites edited by PixelTheKermit (github).",
-========
-    "copyright": "Resomi displacement maps created by Huaqas (GitHub)",
->>>>>>>> 4134e46680e (Make Resomi an Odd Amount of Pixels Wide, Add Extra Markings (#2663)):Resources/Textures/_Starlight/Mobs/Species/Resomi/displacement.rsi/meta.json
+    "copyright": "Resomi displacement maps created by Huaqas (GitHub). Feet displacement by Pofitlo with touch0ups by Salem and Huaqas (GitHub).",
     "size": {
         "x": 32,
         "y": 32
     },
+    "load": {
+        "srgb": false
+    },
     "states": [
         {
-            "name": "full"
-        },
-        {
-            "name": "head_f",
+            "name": "jumpsuit",
             "directions": 4
         },
         {
-            "name": "head_m",
+            "name": "ears",
             "directions": 4
         },
         {
-            "name": "l_arm",
+            "name": "back",
             "directions": 4
         },
         {
-            "name": "l_foot",
+            "name": "eyes",
             "directions": 4
         },
         {
-            "name": "l_hand",
+            "name": "head",
             "directions": 4
         },
         {
-            "name": "l_leg",
+            "name": "belt",
             "directions": 4
         },
         {
-            "name": "r_arm",
+            "name": "hands",
             "directions": 4
         },
         {
-            "name": "r_foot",
+            "name": "feet",
             "directions": 4
         },
         {
-            "name": "r_hand",
+            "name": "neck",
             "directions": 4
         },
         {
-            "name": "r_leg",
+            "name": "mask",
             "directions": 4
         },
         {
-            "name": "torso_f",
+            "name": "inHand",
             "directions": 4
         },
         {
-            "name": "torso_m",
+            "name": "suitStorage",
+            "directions": 4
+        },
+        {
+            "name": "outerClothing",
             "directions": 4
         }
     ]
