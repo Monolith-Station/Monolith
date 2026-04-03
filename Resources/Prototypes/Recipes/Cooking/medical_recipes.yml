@@ -15,12 +15,12 @@
   time: 10
   group: Medicinal
   solids:
-    FoodPoppy: 1
     Brutepack: 1
     MaterialCloth1: 1
   reagents:
     TranexamicAcid: 20
     Cryptobiolin: 20
+    Bicaridine: 20
   recipeType: MedicalAssembler # Frontier
 
 - type: microwaveMealRecipe
@@ -30,10 +30,9 @@
   time: 10
   group: Medicinal
   solids:
-    FoodAloe: 1
     Ointment: 1
     MaterialCloth1: 1
   reagents:
-    Sigynate: 20
+    Leporazine: 20
     Dermaline: 20
   recipeType: MedicalAssembler # Frontier
