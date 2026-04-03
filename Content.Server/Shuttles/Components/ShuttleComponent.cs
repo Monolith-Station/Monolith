@@ -105,6 +105,24 @@ namespace Content.Server.Shuttles.Components
         /// </summar>
         [DataField]
         public Vector2 LastThrust = Vector2.Zero;
+
+        /// <summary>
+        /// Multiplier to angular thrust. Set depending on pilot.
+        /// </summary
+        [ViewVariables]
+        public float AngularMultiplier = 1f;
+
+        /// <summary>
+        /// Multiplier to linear thrust. Set depending on pilot.
+        /// </summary
+        [ViewVariables]
+        public float AccelerationMultiplier = 1f;
+
+        /// <summary>
+        /// Multiplier to max velocity. Set depending on pilot.
+        /// </summary
+        [ViewVariables]
+        public float MaxVelMultiplier = 1f;
         // </Mono>
     }
 }

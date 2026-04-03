@@ -1,0 +1,84 @@
+- type: gridModifier
+  id: DegradedHull
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: Occluder
+    data:
+    - chance: 0.25
+      whitelist:
+        tags:
+        - WallT2
+      replaceWith: WallSolid
+    - chance: 0.6
+      whitelist:
+        tags:
+        - WallT3
+      replaceWith: WallReinforced
+    - chance: 1
+      whitelist:
+        tags:
+        - WallT4
+      replaceWith: WallPlastitanium
+
+- type: gridModifier
+  id: DestroyedHull
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: Occluder
+    data:
+    - chance: 0.7
+      toReplace: WallSolid
+      replaceWith: Girder
+    - chance: 0.25
+      whitelist:
+        tags:
+        - WallT2
+      replaceWith: ReinforcedGirder
+    - chance: 0.4
+      whitelist:
+        tags:
+        - WallT2
+      replaceWith: WallSolid
+    - chance: 0.8
+      whitelist:
+        tags:
+        - WallT3
+      replaceWith: WallReinforced
+    - chance: 1
+      whitelist:
+        tags:
+        - WallT4
+      replaceWith: WallReinforced
+
+- type: gridModifier
+  id: ReinforcedHull
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: Occluder
+    data:
+    - chance: 0.8
+      toReplace: WallSolid
+      replaceWith: WallReinforced
+    - chance: 0.45
+      whitelist:
+        tags:
+        - WallT2
+      replaceWith: WallPlastitanium
+    - chance: 0.25
+      whitelist:
+        tags:
+        - WallT3
+      replaceWith: WallPlastitaniumCapital
+
+- type: gridModifier
+  id: DamagedThrusters
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: Thruster
+    data:
+    - chance: 0.25
+      whitelist:
+        components:
+        - Thruster
+      replaceWith: MachineFrameDestroyed
+
