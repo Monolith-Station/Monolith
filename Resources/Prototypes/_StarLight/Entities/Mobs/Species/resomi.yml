@@ -1,6 +1,6 @@
 - type: entity
   name: Urist McRaptor
-  parent: [BaseMobSpeciesOrganic, BaseSpeciesPickupable]
+  parent: [BaseMobSpeciesOrganic]
   id: BaseMobResomi
   abstract: true
   components:
@@ -8,14 +8,12 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-    - Scratch
     understands:
     - GalacticCommon
-    - Scratch
   # Starlight-end
-  - type: Absorbable
-  - type: Jump
-    action: JumpResomi
+#  - type: Absorbable
+#  - type: Jump
+#    action: JumpResomi
   - type: DamageVisuals
     thresholds: [ 10, 30, 50, 70]
     targetLayers:
@@ -38,7 +36,7 @@
   - type: Bloodstream # Starlight
     bloodReagents:
       reagents:
-      - ReagentId: ResomiBlood
+      - ReagentId: AmmoniaBlood
         Quantity: 1
   - type: FireVisuals
     sprite: _Starlight/Mobs/Effects/onfire.rsi
@@ -52,8 +50,6 @@
       - Hair
       - HeadTop
       - HeadSide
-    undergarmentTop: UndergarmentTopTanktopResomi
-    undergarmentBottom: UndergarmentBottomBoxersResomi
   - type: Fixtures
     fixtures:
       fix1:
@@ -80,7 +76,7 @@
     butcheringType: Spike
     spawned:
     - id: FoodMeatChicken
-      amount: 3
+      amount: 5
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -263,8 +259,6 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
     - shader: StencilClear
       sprite: Mobs/Species/Human/parts.rsi
       state: l_leg
@@ -272,7 +266,7 @@
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ] # Doesn't work atm, but who knows in the future.
       color: "#ffffff"
       sprite: _Starlight/Objects/Misc/handcuffs.rsi
-      state: body-overlay-resomi 
+      state: body-overlay-resomi
       visible: false
     - map: [ "id" ]
     - map: [ "gloves" ]
@@ -316,8 +310,7 @@
     - AnomalyHost
     - Resomi
   - type: NightVision
-  - type: FlashModifier
-    modifier: 2
+    flashDurationMultiplier: 2
 
 - type: entity
   parent: BaseSpeciesDummy
