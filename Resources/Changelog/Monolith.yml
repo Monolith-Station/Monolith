@@ -19185,3 +19185,42 @@ Entries:
   id: 2115
   time: '2026-04-02T17:25:02.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3559
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added Far Reaches IV and a new drone to find in it.
+    - type: Tweak
+      message: >-
+        Reduced overall drone spawnrate, but increased proportion of more
+        advanced drones further out.
+  id: 2116
+  time: '2026-04-02T18:52:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3677
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Shield ram damage reduction now applies to both colliding grids.
+  id: 2117
+  time: '2026-04-03T09:04:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3678
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: Fixed Cyborgs obtaining non-whitelisted hands.
+  id: 2118
+  time: '2026-04-03T09:50:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3679
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Most of non-poi vend catalogs are completely free now.
+  id: 2119
+  time: '2026-04-03T11:08:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3195
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Added Hullmods, currently admin-only.
+  id: 2120
+  time: '2026-04-03T11:08:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3285

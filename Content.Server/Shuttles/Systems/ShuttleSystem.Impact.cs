@@ -225,16 +225,19 @@ public sealed partial class ShuttleSystem
             var inelasticVel = totalInertia / (ourMass + otherMass);
 
             // Mono Edit - partial credit to https://github.com/Sector-Crescent/Hullrot/pull/692
-            //ShipShieldedComp is removed when shields are broken, only reduces energy delivered when shields are active. ShipShieldsSystem ln 256.
+            //ShipShieldedComp is removed when shields are broken, reduces both energies when shields are active. ShipShieldsSystem ln 256.
+            float shieldFactor = 1f;
             if (TryComp<ShipShieldedComponent>(args.OurEntity, out var ShipShieldedComponent) //Our ship collision resistance
                 && TryComp<ShipShieldEmitterComponent>(ShipShieldedComponent.Source, out var ShipShieldEmitterComponent)
             )
-                toUsEnergy *= ShipShieldEmitterComponent.CollisionResistanceMultiplier;
+                shieldFactor *= ShipShieldEmitterComponent.CollisionResistanceMultiplier;
 
             if (TryComp<ShipShieldedComponent>(args.OtherEntity, out var OtherShipShieldedComponent) //Other ship collision resistance
                 && TryComp<ShipShieldEmitterComponent>(OtherShipShieldedComponent.Source, out var OtherShipShieldEmitterComponent)
             )
-                toOtherEnergy *= OtherShipShieldEmitterComponent.CollisionResistanceMultiplier;
+                shieldFactor *= OtherShipShieldEmitterComponent.CollisionResistanceMultiplier;
+            toUsEnergy *= shieldFactor;
+            toOtherEnergy *= shieldFactor;
             // Mono Edit end
 
             DoGridImpact((args.OurEntity, ourGrid, ourXform, ourBody), args.OurFixture, inelasticVel, ourVelocity, ourTile, ourTiles, toUsEnergy);
