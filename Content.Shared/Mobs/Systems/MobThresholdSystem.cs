@@ -337,12 +337,14 @@ public sealed class MobThresholdSystem : EntitySystem
     private void CheckThresholds(EntityUid target, MobStateComponent mobStateComponent,
         MobThresholdsComponent thresholdsComponent, DamageableComponent damageableComponent, EntityUid? origin = null)
     {
+
+        var ev = new QueryMobThresholdsEvent();
+        RaiseLocalEvent(target, ref ev);
+        Log.Debug($"ThresholdEvent for {ToPrettyString(target)}: Scale={ev.Scale:F2}, Crit={ev.CritOffset:F2}, Death={ev.DeathOffset:F2}");
+
         foreach (var (threshold, mobState) in thresholdsComponent.Thresholds.Reverse())
         {
             // Mono Begin
-            var ev = new QueryMobThresholdsEvent();
-            RaiseLocalEvent(target, ref ev);
-            Log.Debug($"ThresholdEvent for {ToPrettyString(target)}: Scale={ev.Scale:F2} threshold={threshold:F2}, Crit={ev.CritOffset:F2}, Death={ev.DeathOffset:F2}");
 
             float scale = 1;
             if (ev.Scale != 0) // To scale from being zeroed out from no response i.e. comp not initialized yet.
