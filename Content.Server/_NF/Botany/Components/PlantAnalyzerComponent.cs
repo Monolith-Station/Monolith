@@ -26,12 +26,6 @@ public sealed partial class PlantAnalyzerComponent : Component
     [DataField]
     public SoundSpecifier? ScanningEndSound;
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan NextUpdate = TimeSpan.Zero;
-
-    [DataField]
-    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
-
     [DataField]
     public EntityUid? ScannedEntity;
 

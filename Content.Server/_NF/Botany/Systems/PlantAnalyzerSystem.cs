@@ -37,6 +37,9 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         Subs.BuiEvents<PlantAnalyzerComponent>(PlantAnalyzerUiKey.Key, subs => { subs.Event<BoundUIClosedEvent>(OnPlantAnalyzerUiClosed); });
     }
 
+    private TimeSpan _nextUpdate = TimeSpan.Zero;
+    private TimeSpan _updateInterval = TimeSpan.FromSeconds(1);
+
     private void OnAfterInteract(Entity<PlantAnalyzerComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Target == null || !args.CanReach)
@@ -71,7 +74,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.ScanningEndSound, ent);
 
         ent.Comp.ScannedEntity = args.Args.Target.Value;
-        ent.Comp.NextUpdate = TimeSpan.Zero;
+        _nextUpdate = TimeSpan.Zero;
 
         _toggle.TryActivate(ent.Owner);
         OpenUserInterface(args.User, ent);
@@ -126,10 +129,10 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         var query = EntityQueryEnumerator<PlantAnalyzerComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var analyzer))
         {
-            if (comp.ScannedEntity is not { } target || _timing.CurTime < comp.NextUpdate)
+            if (comp.ScannedEntity is not { } target || _timing.CurTime < _nextUpdate)
                 continue;
 
-            comp.NextUpdate = _timing.CurTime + comp.UpdateInterval;
+            _nextUpdate = _timing.CurTime + _updateInterval;
 
             if (!HasComp<SeedComponent>(target) && !HasComp<PlantHolderComponent>(target) ||
                 !_transformSystem.InRange(Transform(target).Coordinates, analyzer.Coordinates, comp.MaxScanRange))

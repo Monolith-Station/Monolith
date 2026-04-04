@@ -1,16 +1,14 @@
 - type: entity
   name: plant analyzer
   parent: BaseItem
-  id: BasePlantAnalyzer
+  id: PlantAnalyzer
   description: A handheld device that allows you to scan seeds and plants to get detailed information about their genes.
-  abstract: true
   components:
   - type: Sprite
     sprite: _NF/Objects/Devices/plant_analyzer.rsi
     layers:
     - state: plantanalyzer
-    - state: unlit
-      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: unshaded
       shader: unshaded
   - type: Item
     storedRotation: -90
@@ -29,13 +27,3 @@
   - type: ItemToggle
     onUse: false
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.PowerCellSlotVisuals.Enabled:
-        enum.PowerDeviceVisualLayers.Powered:
-          True: { visible: true }
-          False: { visible: false }
-
-- type: entity
-  id: PlantAnalyzer
-  parent: [BasePlantAnalyzer]
