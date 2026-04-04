@@ -1,0 +1,35 @@
+# Author Info
+# Github: TheScienceOfKSP
+# Discord: sweepergiles
+
+- type: vessel
+  id: Pacem
+  parent: BaseVessel
+  name: Pacem 
+  description: A patrol corvette for inner ring defense and patrol. Recommended crew of 2.
+  price: 130000 #Roughly 20% markup from appraisegrid
+  category: Medium
+  group: Sr
+  access: Brig
+  mapchecker_group_override: Security
+  shuttlePath: /Maps/_Mono/Shuttles/pacem.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Pacem
+  mapName: 'Pacem'
+  mapPath: /Maps/_Mono/Shuttles/pacem.yml
+  minPlayers: 0
+  stations:
+    Pacem:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Pacem SEC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'

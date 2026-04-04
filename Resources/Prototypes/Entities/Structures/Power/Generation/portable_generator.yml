@@ -112,6 +112,7 @@
       receiveFrequencyId: BasicDevice
     - type: WirelessNetworkConnection
       range: 200
+    - type: MaterialStorageMagnetPickup # Mono
 
 - type: entity
   abstract: true

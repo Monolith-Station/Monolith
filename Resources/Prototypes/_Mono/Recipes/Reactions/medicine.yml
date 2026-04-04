@@ -124,3 +124,26 @@
       amount: 1
   products:
     Peranol: 4
+
+- type: reaction
+  id: Phenoxzine
+  reactants:
+    Phenol:
+      amount: 2
+    Ammonia:
+      amount: 1
+    Nitrogen:
+      amount: 1
+  products:
+    Phenoxzine: 4
+
+- type: reaction
+  id: Meroxzine
+  minTemp: 340
+  reactants:
+    Phenoxzine:
+      amount: 1
+    Silicon:
+      amount: 1
+  products:
+    Meroxzine: 2

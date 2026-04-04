@@ -43,7 +43,7 @@ public abstract partial class SharedClawsSystem
     public bool TryClipNails(NailClipperComponent component, EntityUid nailClipper, EntityUid user, EntityUid? target = null)
     {
         target ??= user;
-        
+
         if (!TryComp<ClawsComponent>(target, out var claws))
         {
             return false;
@@ -89,13 +89,16 @@ public abstract partial class SharedClawsSystem
 
         if (nailClipper.DeclawChance > _random.NextFloat())
         {
-            Declaw(uid,component);
+            Declaw(uid, component);
             return;
         }
 
         component.ClawStage = component.Claws.GetValueOrDefault(
             Math.Clamp(TryGetStageNumber(component) - nailClipper.StageReduction, 0, int.MaxValue));
         _popup.PopupClient(Loc.GetString("claws-clipping-success"), Transform(uid).Coordinates, uid);
+
+        // Reset current growth progress
+        component.GrowTimer = TimeSpan.Zero;
 
         UpdateClaws(uid, component);
         Dirty(uid, component);

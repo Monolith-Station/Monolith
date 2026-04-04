@@ -4,9 +4,10 @@
   entityIcon: MachineCarpCaller
   discipline: Experimental
   tier: 1
-  cost: 25000
+  cost: 35000
   recipeUnlocks:
   - CarpCallerMachineCircuitboard
+  - ClothingOuterHardsuitCarp
   technologyPrerequisites:
   - BasicParts
   position: 1, -5
@@ -72,3 +73,16 @@
   technologyPrerequisites:
   - BasicResearch
   position: -1, -2
+
+- type: technology
+  id: DataFarmingTechnology
+  name: research-technology-data-farms
+  entityIcon: DatafarmCrypto
+  discipline: Experimental
+  tier: 3
+  cost: 25000
+  recipeUnlocks:
+  - DataFarmResearchCircuitboard
+  technologyPrerequisites:
+  - SuperParts
+  position: 1, 18

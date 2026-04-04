@@ -18,7 +18,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2000
+        damage: 1100
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -43,6 +43,10 @@
   - type: ShipRepairable
     repairTime: 2
     repairCost: 3
+  - type: Tag
+    tags:
+    - Wall
+    - WallT1
 
 - type: entity
   abstract: true
@@ -87,6 +91,10 @@
   - type: ShipRepairable
     repairTime: 3
     repairCost: 6
+  - type: Tag
+    tags:
+    - Wall
+    - WallT2
 
 - type: entity
   abstract: true
@@ -131,6 +139,10 @@
   - type: ShipRepairable
     repairTime: 5
     repairCost: 8
+  - type: Tag
+    tags:
+    - Wall
+    - WallT3
 
 - type: entity
   abstract: true
@@ -175,6 +187,10 @@
   - type: ShipRepairable
     repairTime: 10
     repairCost: 12
+  - type: Tag
+    tags:
+    - Wall
+    - WallT4
 
 - type: entity
   abstract: true
@@ -270,7 +286,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 10000 # Mono - wall buff
+        damage: 10100 # Mono - wall buff
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -310,6 +326,12 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
+        damage: 15100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
         damage: 15000
       behaviors:
       - !type:SpawnEntitiesBehavior
@@ -335,6 +357,12 @@
   components:
   - type: Destructible
     thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 10000
@@ -388,19 +416,14 @@
     drawdepth: Walls
     sprite: _Mono/Structures/Walls/rplas_diagonal.rsi
     state: state0
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-        density: 500 # No ram-meta
   - type: Destructible
     thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 2000
