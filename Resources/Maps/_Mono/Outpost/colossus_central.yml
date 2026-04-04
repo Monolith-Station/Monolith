@@ -75425,18 +75425,21 @@ entities:
     - type: Transform
       pos: 12.5,49.5
       parent: 2
+      type: Godmode
   - uid: 10727
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 32.5,44.5
       parent: 2
+      type: Godmode
   - uid: 10730
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -17.5,65.5
       parent: 2
+      type: Godmode
 - proto: WelderEmpty
   entities:
   - uid: 10478
