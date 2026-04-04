@@ -19289,3 +19289,28 @@ Entries:
   id: 2127
   time: '2026-04-03T18:29:10.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3578
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Burn damage is now added to the red damage overlay
+  id: 2128
+  time: '2026-04-04T00:37:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3682
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Datafarm point generation in descriptions updated.
+    - type: Fix
+      message: >-
+        Factions now use the correct datafarm entity and thus produce 200 points
+        now.
+  id: 2129
+  time: '2026-04-04T03:50:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3685
+- author: TheScienceOfKSP
+  changes:
+    - type: Add
+      message: Added the Pacem, a new ship for Judges.
+  id: 2130
+  time: '2026-04-04T11:14:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3332
