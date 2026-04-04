@@ -14,10 +14,10 @@ public sealed class MobThresholdOffsetSystem : EntitySystem
         SubscribeLocalEvent<MobThresholdOffsetComponent, QueryMobThresholdsEvent>(OnQueryMobThresholds);
     }
 
-    private void OnQueryMobThresholds(EntityUid uid, MobThresholdOffsetComponent component, QueryMobThresholdsEvent ev)
+    private void OnQueryMobThresholds(Entity<MobThresholdOffsetComponent> ent, ref QueryMobThresholdsEvent ev)
     {
-        ev.DeathOffset += component.DeadOffset;
-        ev.CritOffset += component.CritOffset;
+        ev.DeathOffset += ent.Comp.DeadOffset;
+        ev.CritOffset += ent.Comp.CritOffset;
     }
 }
 

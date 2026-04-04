@@ -120,10 +120,10 @@ public sealed class HumanoidPhysicsScalingSystem : EntitySystem
         }
     }
 
-    private void OnQueryMobThresholds(EntityUid uid, HumanoidAppearanceComponent humanoid, QueryMobThresholdsEvent args)
+    private void OnQueryMobThresholds(Entity<HumanoidAppearanceComponent> ent, ref QueryMobThresholdsEvent args)
     {
-        args.Scale = CalculateScale(humanoid);
-        Log.Debug($"Updated damage scale for {ToPrettyString(uid)}: Scale={args.Scale:F2} Height={humanoid.Height:F2}, Width={humanoid.Width:F2}");
+        args.Scale = CalculateScale(ent.Comp);
+        Log.Debug($"Updated damage scale for {ToPrettyString(ent)}: Scale={args.Scale:F2} Height={ent.Comp.Height:F2}, Width={ent.Comp.Width:F2}");
     }
 
     public float CalculateScale(HumanoidAppearanceComponent humanoid)
@@ -147,16 +147,5 @@ public sealed class HumanoidPhysicsScalingSystem : EntitySystem
         }
     }
 }
-public record struct QueryMobThresholdsEvent
-{
-    public float Scale { get; set; } = 1f;
-    public float DeathOffset { get; set; }
-    public float CritOffset { get; set; }
-
-    public QueryMobThresholdsEvent(float scale, float deathOffset, float critOffset)
-    {
-        Scale = scale;
-        DeathOffset = deathOffset;
-        CritOffset = critOffset;
-    }
-}
+[ByRefEvent]
+public record struct QueryMobThresholdsEvent(float Scale, float DeathOffset, float CritOffset);
