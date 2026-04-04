@@ -124,6 +124,7 @@ public sealed class HumanoidPhysicsScalingSystem : EntitySystem
     private void OnQueryMobThresholds(EntityUid uid, HumanoidAppearanceComponent humanoid, QueryMobThresholdsEvent args)
     {
         args.Scale = CalculateScale(humanoid);
+        Log.Debug($"Updated damage scale for {ToPrettyString(uid)}: Scale={args.Scale:F2} Height={humanoid.Height:F2}, Width={humanoid.Width:F2}");
     }
 
     public float CalculateScale(HumanoidAppearanceComponent humanoid)

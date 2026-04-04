@@ -6,6 +6,7 @@ using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Events;
+using Content.Shared.Sprite;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Mobs.Systems;
@@ -341,13 +342,16 @@ public sealed class MobThresholdSystem : EntitySystem
             var ev = new QueryMobThresholdsEvent(); // Mono
             RaiseLocalEvent(target, ev);
 
+            float scale = 1;
+            if (ev.Scale != 0)
+                scale = ev.Scale;
             float offset = 0;
             if (mobState == MobState.Dead)
                 offset += ev.DeathOffset;
             if (mobState == MobState.Critical)
                 offset += ev.CritOffset;
 
-            if (damageableComponent.TotalDamage < threshold * ev.Scale + (FixedPoint2)offset) // Mono
+            if (damageableComponent.TotalDamage < threshold * scale + (FixedPoint2)offset) // Mono
                 continue;
 
             TriggerThreshold(target, mobState, mobStateComponent, thresholdsComponent, origin);
