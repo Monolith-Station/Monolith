@@ -306,3 +306,15 @@
   - type: StaticPrice
     price: 4000
     vendPrice: 10000
+    
+- type: entity
+  parent: MedicalTechFabFlatpack
+  id: ChemMasterFilledFlatpack
+  name: filled chemmaster flatpack
+  description: A flatpack used for constructing a pre-filled ChemMaster 4000.
+  components:
+  - type: Flatpack
+    entity: ChemMasterFilled
+  - type: StaticPrice
+    price: 1000
+    vendPrice: 8000

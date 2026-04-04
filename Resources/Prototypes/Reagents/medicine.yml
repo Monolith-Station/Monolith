@@ -151,11 +151,11 @@
   color: "#ffaa00"
   metabolisms:
     Medicine:
-      metabolismRate: 0.2 # Mono
+      metabolismRate: 0.2 # Mono 0.5 >> 0.2
       effects:
       - !type:EvenHealthChange
         damage:
-          Brute: -2 #Mono 1.5 >> 2
+          Brute: -1 #Mono 1.5 >> 1
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -463,7 +463,7 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
-        probability: 0.02
+        probability: 0.005 # Mono: Longer lasting, less likely to puke your guts...as much
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -924,8 +924,13 @@
           min: 15
         damage:
           types:
-            Poison: 1.5
-            Cellular: 0.5
+            Poison: 1
+      - !type:ModifyBleedAmount # Mono: Causes bleeding in OD
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        amount: 0.5
+        
 
 - type: reagent
   id: Lipozine
@@ -1591,7 +1596,6 @@
   color: "#baa15d"
   metabolisms:
     Medicine:
-      metabolismRate: 0.15 # Mono
       effects:
       - !type:GenericStatusEffect
         key: RadiationProtection
