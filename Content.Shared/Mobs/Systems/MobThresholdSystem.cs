@@ -345,7 +345,7 @@ public sealed class MobThresholdSystem : EntitySystem
             Log.Debug($"ThresholdEvent for {ToPrettyString(target)}: Scale={ev.Scale:F2} threshold={threshold:F2}, Crit={ev.CritOffset:F2}, Death={ev.DeathOffset:F2}");
 
             float scale = 1;
-            if (ev.Scale != 0)
+            if (ev.Scale != 0) // To scale from being zeroed out from no response i.e. comp not initialized yet.
                 scale = ev.Scale;
             float offset = 0;
             if (mobState == MobState.Dead)
