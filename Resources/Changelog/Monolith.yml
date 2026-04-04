@@ -19019,3 +19019,52 @@ Entries:
   id: 2097
   time: '2026-03-28T16:45:49.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3574
+- author: NazrinNya
+  changes:
+    - type: Remove
+      message: Sabre has been removed from the game.
+    - type: Tweak
+      message: S2 mechs now use heavy mech armor
+    - type: Tweak
+      message: >-
+        S2 mechs received health buffs (1500 -> 1750 for broadsword, 1100 ->
+        2150 for halberd)
+    - type: Tweak
+      message: Halberd is uncapable of using light mounts now.
+    - type: Tweak
+      message: >-
+        LAC-29 now uses 35mm caliber - 45 piercing damage and 225 structural
+        damage. LAC-29 firerate 5 -> 2.5.
+    - type: Tweak
+      message: >-
+        RAC-6 now receives huge accuracy penalty if fired for long amount of
+        time. (>1.5s)
+    - type: Tweak
+      message: >-
+        SRM-8 now fires in burst - 3 rockets per second, 6 rockets in total.
+        Consumes 600 energy.
+    - type: Tweak
+      message: BRM-6 now consumes 250 energy instead of 100.
+  id: 2098
+  time: '2026-03-28T18:16:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3459
+- author: EckoAurum
+  changes:
+    - type: Add
+      message: Added TSF and PDV Medical and Engineering Cyborg Variants.
+    - type: Add
+      message: Engineer cyborgs now have an inbuilt diagnostic hud.
+  id: 2099
+  time: '2026-03-28T18:43:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3444
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Portstrike is now announced.
+    - type: Tweak
+      message: Apocalypse now lasts 3 hours and has 1 hour portstrike.
+    - type: Tweak
+      message: Apocalypse chimera and ADS spawnrates doubled.
+  id: 2100
+  time: '2026-03-28T19:04:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3590
