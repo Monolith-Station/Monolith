@@ -25,7 +25,6 @@ public sealed class MobThresholdSystem : EntitySystem
         SubscribeLocalEvent<MobThresholdsComponent, DamageChangedEvent>(OnDamaged);
         SubscribeLocalEvent<MobThresholdsComponent, UpdateMobStateEvent>(OnUpdateMobState);
         SubscribeLocalEvent<MobThresholdsComponent, MobStateChangedEvent>(OnThresholdsMobState);
-        SubscribeLocalEvent<MobThresholdsComponent, QueryMobThresholdsEvent>(OnQueryMobThresholds);
     }
 
     private void OnGetState(EntityUid uid, MobThresholdsComponent component, ref ComponentGetState args)
@@ -474,11 +473,6 @@ public sealed class MobThresholdSystem : EntitySystem
     private void OnThresholdsMobState(Entity<MobThresholdsComponent> ent, ref MobStateChangedEvent args)
     {
         UpdateAllEffects((ent, ent, null, null), args.NewMobState);
-    }
-
-    private void OnQueryMobThresholds(EntityUid uid, QueryMobThresholdsEvent args) // Mono
-    {
-
     }
 
 

@@ -24,11 +24,6 @@ public sealed class HumanoidPhysicsScalingSystem : EntitySystem
     [Dependency] private readonly MobThresholdAdjustmentSystem _mobThresholdsAdjustment = default!;
     [Dependency] private readonly INetManager _net = default!;
 
-    /// <summary>
-    /// The default radius for humanoid hitboxes. This is the baseline from which we scale.
-    /// </summary>
-    private const float DefaultHitboxRadius = 0.35f;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -38,6 +33,8 @@ public sealed class HumanoidPhysicsScalingSystem : EntitySystem
 
         // Listen for when humanoid appearance changes (admin commands, mutations, etc.)
         SubscribeLocalEvent<HumanoidAppearanceComponent, ComponentRemove>(OnHumanoidShutdown);
+
+        SubscribeLocalEvent<HumanoidAppearanceComponent, QueryMobThresholdsEvent>(OnQueryMobThresholds);
     }
 
     private void OnComponentStartup(EntityUid uid, HumanoidAppearanceComponent component, ComponentStartup args)
@@ -133,6 +130,11 @@ public sealed class HumanoidPhysicsScalingSystem : EntitySystem
             _mobThresholdsAdjustment.ScaleMobThresholds(uid, adjustmentComp);
 
 
+    }
+
+    private void OnQueryMobThresholds(EntityUid uid, HumanoidAppearanceComponent humanoid, QueryMobThresholdsEvent args)
+    {
+        args.Scale = CalculateScale(humanoid);
     }
 
     public float CalculateScale(HumanoidAppearanceComponent humanoid)
