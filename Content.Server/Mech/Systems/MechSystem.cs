@@ -121,8 +121,14 @@ public sealed partial class MechSystem : SharedMechSystem
         if (!TryComp<BatteryComponent>(ent.Comp.BatterySlot.ContainedEntity, out var battery))
             return;
 
-        ent.Comp.CriticalPowerState = battery.CurrentCharge / battery.MaxCharge <= 0.05f;
+        //ent.Comp.CriticalPowerState = battery.CurrentCharge / battery.MaxCharge <= 0.05f;
+        // Mono
+        var criticalState = battery.CurrentCharge / battery.MaxCharge <= 0.05f;
+        if (criticalState == ent.Comp.CriticalPowerState)
+            return;
 
+        ent.Comp.CriticalPowerState = criticalState;
+        // End Mono
         Dirty(ent);
         _movementSpeed.RefreshMovementSpeedModifiers(ent);
     }

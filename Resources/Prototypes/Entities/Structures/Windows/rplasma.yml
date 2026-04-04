@@ -166,7 +166,7 @@
         mask:
         - FullTileMask
         layer:
-        - GlassLayer
+        - DiagonalGlassLayer # Mono GlassLayer->DiagonalGlassLayer
         density: 2000
   - type: Airtight
     noAirWhenFullyAirBlocked: false

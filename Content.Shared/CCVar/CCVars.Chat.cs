@@ -65,4 +65,15 @@ public sealed partial class CCVars
             "",
             CVar.SERVER | CVar.SERVERONLY | CVar.ARCHIVE,
             "A message broadcast to each player that joins the lobby.");
+
+    public static readonly CVarDef<string> ChatHighlights =
+        CVarDef.Create("chat.words_highlights", "", CVar.CLIENTONLY | CVar.ARCHIVE,
+            "Per-character custom highlight keywords. Format: one entry per line, 'CharacterName||encoded_keywords'. " +
+            "Encoded keywords use \\n for newlines, \\| for pipes, \\\\ for backslashes.");
+
+    public static readonly CVarDef<bool> ChatAutoFillHighlights =
+        CVarDef.Create("chat.auto_fill_highlights", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Toggles automatically filling the highlights with the character's information.");
+
+    public static readonly CVarDef<string> ChatHighlightsColor =
+        CVarDef.Create("chat.highlights_color", "#17FFC1FF", CVar.CLIENTONLY | CVar.ARCHIVE, "The color in which the highlights will be displayed.");
 }
