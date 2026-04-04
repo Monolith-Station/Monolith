@@ -339,7 +339,8 @@ public sealed class MobThresholdSystem : EntitySystem
     {
         foreach (var (threshold, mobState) in thresholdsComponent.Thresholds.Reverse())
         {
-            var ev = new QueryMobThresholdsEvent(); // Mono
+            // Mono Begin
+            var ev = new QueryMobThresholdsEvent();
             RaiseLocalEvent(target, ref ev);
             Log.Debug($"ThresholdEvent for {ToPrettyString(target)}: Scale={ev.Scale:F2} threshold={threshold:F2}, Crit={ev.CritOffset:F2}, Death={ev.DeathOffset:F2}");
 
@@ -352,7 +353,9 @@ public sealed class MobThresholdSystem : EntitySystem
             if (mobState == MobState.Critical)
                 offset += ev.CritOffset;
 
-            if (damageableComponent.TotalDamage < (threshold + (FixedPoint2)offset) * scale) // Mono
+            // Mono End
+
+            if (damageableComponent.TotalDamage < (threshold + (FixedPoint2)offset) * scale) // Mono - Add threshold scale and offset.
                 continue;
 
             TriggerThreshold(target, mobState, mobStateComponent, thresholdsComponent, origin);
