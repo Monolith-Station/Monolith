@@ -146,8 +146,8 @@ public sealed class PlantAnalyzerSystem : EntitySystem
             }
 
             UpdateScannedUser((uid, comp), target);
-            _nextUpdate -= _updateInterval;
         }
+        _nextUpdate -= _updateInterval;
     }
 
 
