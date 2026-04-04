@@ -1,4 +1,23 @@
 - type: latheRecipePack
+  id: MonoRogueGearDynamic
+  recipes:
+  - ClothingOuterHardsuitPirateScafRogue
+  - ClothingOuterVestWebRogue
+  - ClothingOuterHardsuitPDVMedic
+  - ClothingShoesBootsMagSyndieRogue
+  - ClothingMaskGasSyndicateRogue
+  - ClothingEyesThermalVisionGoggles
+
+- type: latheRecipePack
+  id: MonoRogueGearProDynamic # for syndie hardsuits and shit
+  recipes:
+  - ClothingOuterHardsuitSyndieRogue
+  - ClothingOuterHardsuitSyndieEliteRogue
+  - ClothingOuterHardsuitJuggernautRogue
+  - ClothingOuterHardsuitCybersunStealthRogue
+# - ClothingOuterHardsuitSyndieCommanderRogue
+
+- type: latheRecipePack
   id: MonoRogueWeaponsDynamicMelee
   recipes:
   - EnergySwordRogue
