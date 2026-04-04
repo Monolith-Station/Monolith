@@ -21,7 +21,6 @@ namespace Content.Shared._Mono.Humanoid;
 public sealed class HumanoidPhysicsScalingSystem : EntitySystem
 {
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -148,5 +147,16 @@ public sealed class HumanoidPhysicsScalingSystem : EntitySystem
         }
     }
 }
+public record struct QueryMobThresholdsEvent
+{
+    public float Scale { get; set; } = 1f;
+    public float DeathOffset { get; set; }
+    public float CritOffset { get; set; }
 
-public record struct QueryMobThresholdsEvent(float Scale = 1f, float DeathOffset = 0, float CritOffset = 0);
+    public QueryMobThresholdsEvent(float scale, float deathOffset, float critOffset)
+    {
+        Scale = scale;
+        DeathOffset = deathOffset;
+        CritOffset = critOffset;
+    }
+}
