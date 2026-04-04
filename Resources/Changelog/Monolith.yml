@@ -19335,3 +19335,14 @@ Entries:
   id: 2133
   time: '2026-04-04T20:49:50.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3535
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Jetpacks aren't detected by radar outside of 256 meters.
+    - type: Tweak
+      message: >-
+        Pre-fracture stealth jetpacks aren't detected outside of 16 meters,
+        description updated.
+  id: 2134
+  time: '2026-04-04T21:38:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3592
