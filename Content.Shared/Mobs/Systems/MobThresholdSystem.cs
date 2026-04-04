@@ -344,9 +344,6 @@ public sealed class MobThresholdSystem : EntitySystem
             RaiseLocalEvent(target, ref ev);
             Log.Debug($"ThresholdEvent for {ToPrettyString(target)}: Scale={ev.Scale:F2} threshold={threshold:F2}, Crit={ev.CritOffset:F2}, Death={ev.DeathOffset:F2}");
 
-            float scale = 1;
-            if (ev.Scale != 0) // To scale from being zeroed out from no response i.e. comp not initialized yet.
-                scale = ev.Scale;
             float offset = 0;
             if (mobState == MobState.Dead)
                 offset += ev.DeathOffset;
@@ -355,7 +352,7 @@ public sealed class MobThresholdSystem : EntitySystem
 
             // Mono End
 
-            if (damageableComponent.TotalDamage < (threshold + (FixedPoint2)offset) * scale) // Mono - Add threshold scale and offset.
+            if (damageableComponent.TotalDamage < (threshold + (FixedPoint2)offset) * ev.Scale) // Mono - Add threshold scale and offset.
                 continue;
 
             TriggerThreshold(target, mobState, mobStateComponent, thresholdsComponent, origin);
