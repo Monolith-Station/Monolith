@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared._Mono.Traits.Physical;
 using Content.Shared._Shitmed.Humanoid.Events;
 using Content.Shared.FixedPoint;
@@ -33,23 +34,24 @@ public sealed class HumanoidPhysicsScalingSystem : EntitySystem
         base.Initialize();
 
         // Listen for when a humanoid appearance is loaded (character creation/spawning)
-        SubscribeLocalEvent<HumanoidAppearanceComponent, ProfileLoadFinishedEvent>(OnProfileLoaded);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, ComponentStartup>(OnComponentStartup);
 
         // Listen for when humanoid appearance changes (admin commands, mutations, etc.)
-        SubscribeLocalEvent<HumanoidAppearanceComponent, ComponentShutdown>(OnHumanoidShutdown);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, ComponentRemove>(OnHumanoidShutdown);
     }
 
-    private void OnProfileLoaded(EntityUid uid, HumanoidAppearanceComponent component, ProfileLoadFinishedEvent args)
+    private void OnComponentStartup(EntityUid uid, HumanoidAppearanceComponent component, ComponentStartup args)
     {
+        AssignDefaultHitboxes(uid, component);
         UpdatePhysicsHitbox(uid, component);
     }
 
-    private void OnHumanoidShutdown(EntityUid uid, HumanoidAppearanceComponent component, ComponentShutdown args)
+    private void OnHumanoidShutdown(EntityUid uid, HumanoidAppearanceComponent component, ComponentRemove args)
     {
         // Reset hitbox to default when component is removed
         if (TryComp<FixturesComponent>(uid, out var fixtures))
         {
-            ResetToDefaultHitbox(uid, fixtures);
+            ResetToDefaultHitbox(uid, component, fixtures);
         }
     }
 
@@ -81,6 +83,21 @@ public sealed class HumanoidPhysicsScalingSystem : EntitySystem
         }
     }
 
+    public void AssignDefaultHitboxes(EntityUid uid, HumanoidAppearanceComponent humanoid)
+    {
+        if (!TryComp<FixturesComponent>(uid, out var fixtures))
+            return;
+
+        foreach (var (fixtureId, fixture) in fixtures.Fixtures)
+        {
+            if (fixture.Shape is PhysShapeCircle)
+            {
+                var oldRadius = fixture.Shape.Radius;
+                humanoid.DefaultFixtures[fixtureId] = oldRadius;
+            }
+        }
+    }
+
     /// <summary>
     /// Updates the physics hitbox based on the humanoid's height and width.
     /// </summary>
@@ -93,16 +110,21 @@ public sealed class HumanoidPhysicsScalingSystem : EntitySystem
 
         // Calculate the new radius based on height and width
         // We take the average of height and width for a circular hitbox
-        CalculateScale(uid, humanoid, out var scale);
-        var newRadius = DefaultHitboxRadius * scale;
+        var scale = CalculateScale(humanoid);
         // Update all circular fixtures (most humanoids should have just one main fixture)
         foreach (var (fixtureId, fixture) in fixtures.Fixtures)
         {
-            if (fixture.Shape is PhysShapeCircle circle)
+            if (fixture.Shape is PhysShapeCircle circle && humanoid.DefaultFixtures.TryGetValue(fixtureId, out var oldRadius))
             {
+                var newRadius = oldRadius * scale;
                 _physics.SetRadius(uid, fixtureId, fixture, circle, newRadius, fixtures);
+
+                // Log the change for debugging
+                Log.Debug($"Updated physics hitbox for {ToPrettyString(uid)}: Fixture={fixtureId:F2} Height={humanoid.Height:F2}, Width={humanoid.Width:F2}, Radius={newRadius:F2}");
             }
         }
+
+
 
         // Update Health
         EnsureComp<MobThresholdAdjustmentComponent>(uid, out var adjustmentComp);
@@ -110,13 +132,12 @@ public sealed class HumanoidPhysicsScalingSystem : EntitySystem
         if (_net.IsServer)
             _mobThresholdsAdjustment.ScaleMobThresholds(uid, adjustmentComp);
 
-        // Log the change for debugging
-        Log.Debug($"Updated physics hitbox for {ToPrettyString(uid)}: Height={humanoid.Height:F2}, Width={humanoid.Width:F2}, Radius={newRadius:F2}");
+
     }
 
-    private void CalculateScale(EntityUid uid, HumanoidAppearanceComponent humanoid, out float scale)
+    public float CalculateScale(HumanoidAppearanceComponent humanoid)
     {
-        scale = MathF.Sqrt(MathF.Pow(humanoid.Height, 2) + MathF.Pow(humanoid.Width, 2)) / MathF.Sqrt(2.0f);
+        return MathF.Sqrt(MathF.Pow(humanoid.Height, 2) + MathF.Pow(humanoid.Width, 2)) / MathF.Sqrt(2.0f);
     }
 
     /// <summary>
@@ -124,14 +145,16 @@ public sealed class HumanoidPhysicsScalingSystem : EntitySystem
     /// </summary>
     /// <param name="uid">The entity to reset</param>
     /// <param name="fixtures">The fixtures component</param>
-    private void ResetToDefaultHitbox(EntityUid uid, FixturesComponent fixtures)
+    private void ResetToDefaultHitbox(EntityUid uid, HumanoidAppearanceComponent humanoid, FixturesComponent fixtures)
     {
         foreach (var (fixtureId, fixture) in fixtures.Fixtures)
         {
-            if (fixture.Shape is PhysShapeCircle circle)
+            if (fixture.Shape is PhysShapeCircle circle && humanoid.DefaultFixtures.TryGetValue(fixtureId, out var oldRadius))
             {
-                _physics.SetRadius(uid, fixtureId, fixture, circle, DefaultHitboxRadius, fixtures);
+                _physics.SetRadius(uid, fixtureId, fixture, circle, oldRadius, fixtures);
             }
         }
     }
 }
+
+public record struct QueryMobThresholdsEvent(float Scale = 1f, float Offset = 0f);

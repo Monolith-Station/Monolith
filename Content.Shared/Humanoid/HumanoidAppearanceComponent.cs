@@ -77,6 +77,10 @@ public sealed partial class HumanoidAppearanceComponent : Component
     [DataField, AutoNetworkedField]
     public float Width = 1.0f;
 
+    [DataField, AutoNetworkedField] // Mono - Prescaled radial fixture sizes.
+    public Dictionary<string, float> DefaultFixtures = [];
+
+
     /// <summary>
     ///     Hair color of this humanoid. Used to avoid looping through all markings
     /// </summary>
