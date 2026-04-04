@@ -198,7 +198,7 @@
   - !type:PlantCryoxadone {}
   metabolisms:
     Cryogenic: # Frontier: Medicine<Cryogenic
-      metabolismRate: 0.2
+      metabolismRate: 0.2 # Mono: 0.5 >> 0.2
       effects:
         - !type:EvenHealthChange
           conditions:
@@ -532,7 +532,7 @@
   color: "#bf3d19"
   metabolisms:
     Medicine:
-      metabolismRate: 0.2
+      metabolismRate: 0.2 # Mono 0.5 >> 0.2
       effects:
       - !type:HealthChange
         damage:
