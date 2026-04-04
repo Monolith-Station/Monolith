@@ -1,4 +1,4 @@
-chat-radio-ussp = Kristy Private Line
+kristy-private-line = Kristy Private Line
 chat-radio-ussp-command = USSP STRATCOMM
 chat-radio-letoferol = Letoferol Chimera Hivemind
 chat-radio-cortical-borer = Cortical Borer Hivemind
