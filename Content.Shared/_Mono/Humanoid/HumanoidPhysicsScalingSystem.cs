@@ -21,7 +21,6 @@ namespace Content.Shared._Mono.Humanoid;
 public sealed class HumanoidPhysicsScalingSystem : EntitySystem
 {
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly MobThresholdAdjustmentSystem _mobThresholdsAdjustment = default!;
     [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
@@ -120,16 +119,6 @@ public sealed class HumanoidPhysicsScalingSystem : EntitySystem
                 Log.Debug($"Updated physics hitbox for {ToPrettyString(uid)}: Fixture={fixtureId:F2} Height={humanoid.Height:F2}, Width={humanoid.Width:F2}, Radius={newRadius:F2}");
             }
         }
-
-
-
-        // Update Health
-        EnsureComp<MobThresholdAdjustmentComponent>(uid, out var adjustmentComp);
-        adjustmentComp.Scale = scale;
-        if (_net.IsServer)
-            _mobThresholdsAdjustment.ScaleMobThresholds(uid, adjustmentComp);
-
-
     }
 
     private void OnQueryMobThresholds(EntityUid uid, HumanoidAppearanceComponent humanoid, QueryMobThresholdsEvent args)
