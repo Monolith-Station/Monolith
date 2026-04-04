@@ -1,7 +1,7 @@
 - type: entity
   parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
   id: ClothingModsuitChestplateUSSPVaryag
-  name: Panzerkorps Varyag
+  name: KA Broadsword
   description: Thick plating fused with internal atmosphere control.
   categories: [ HideSpawnMenu ]
   components:
@@ -58,7 +58,7 @@
 - type: entity
   parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
   id: ClothingModsuitChestplateUSSPZastavnik
-  name: Brust Zastavnika
+  name: KA Montante
   description: An imposing armored shell designed to absorb punishment and maintain stability under pressure.
   categories: [ HideSpawnMenu ]
   components:

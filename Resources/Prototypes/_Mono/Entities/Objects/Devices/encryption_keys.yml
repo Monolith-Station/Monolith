@@ -1,8 +1,8 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyUssp
-  name: USSP encryption key
-  description: An encryption key for the USSP tactical-level communications channel.
+  name: KA encryption key
+  description: An encryption key for the Kristy association private line.
   components:
   - type: EncryptionKey
     channels:
@@ -21,8 +21,8 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyUsspCommand
-  name: USSP command encryption key
-  description: An encryption key for the USSP command channel. Due to USSP higher-level networking being defunct, it instead provides access to tactical command.
+  name: KA command encryption key
+  description: An encryption key for the Kristy association private line.
   components:
   - type: EncryptionKey
     channels:

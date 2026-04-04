@@ -3,8 +3,8 @@
 - type: entity
   parent: NFClothingBackpack
   id: ClothingBackpackUSSP
-  name: USSP backpack
-  description: This is evidently repurposed from some industrial use.
+  name: KA Contractor backpack
+  description: Simple backpack with Kristy Association logo.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Back/Backpacks/ussp.rsi
@@ -12,8 +12,8 @@
 - type: entity
   parent: NFClothingDuffel # Frontier: ClothingBackpackDuffelNFClothingDuffel
   id: ClothingBackpackDuffelUSSP
-  name: USSP duffel bag
-  description: This is evidently repurposed from some industrial use.
+  name: KA Contractor duffel bag
+  description: Simple duffel bag with Kristy Association logo.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Back/Duffels/ussp.rsi
@@ -21,8 +21,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelUSSP
-  name: USSP satchel
-  description: This is evidently repurposed from some industrial use.
+  name: KA Contractor satchel
+  description: Simple satchel with Kristy Association logo.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Back/Satchels/ussp.rsi

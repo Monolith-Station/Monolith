@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatUSSPOfficerCap
-  name: USSP officer cap
-  description: A green cap used by officer of the USSP.
+  name: Old-fashioned cap
+  description: A worn-out green cap.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hats/ussp_officer_cap.rsi
@@ -12,8 +12,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatUSSPCommissarCap
-  name: USSP commisar cap
-  description: A white cap used by commisars of the USSP.
+  name: Navy officer cap
+  description: A white cap used by hight fleet officers.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hats/ussp_commissar_cap.rsi

@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowMedicalIcons]
   id: ClothingHeadHelmetHardsuitUsspL27
-  name: USSP L-27 tacsuit helmet
-  description: The standard combat suit of USSP naval operations, outfitted with a medical hud too!
+  name: KA Gladius tacsuit helmet
+  description: The combat suit of Kristy contractors, outfitted with a medical hud too!
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -31,8 +31,8 @@
 - type: entity
   parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowMedicalIcons]
   id: ClothingHeadHelmetHardsuitUsspL10
-  name: USSP L-10 lightsuit helmet
-  description: An old USSP model of combat suit that is still in use in the frontlines.
+  name: KA Dagger lightsuit helmet
+  description: Lightweight combat hardsuit, used by the association's light contractor troops.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -61,8 +61,8 @@
 - type: entity
   parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowMedicalIcons]
   id: ClothingHeadHelmetHardsuitUsspL10A
-  name: USSP L-10-A lightsuit helmet
-  description: An old USSP model of combat suit that is still in use in the frontlines.
+  name: KA Dagger lightsuit helmet
+  description: Lightweight combat hardsuit, used by the association's light contractor troops.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -91,8 +91,8 @@
 - type: entity
   parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase,]
   id: ClothingHeadHelmetHardsuitUsspM10
-  name: USSP M-10 scoutsuit helmet
-  description: A new prototype of combat suit using the old L-10 as a baseline. It has a integrated mass scanner in his helmet.
+  name: KA Stiletto scoutsuit
+  description: A modification of the Dagger lightsuit. It has a integrated mass scanner in his helmet.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -130,8 +130,8 @@
 - type: entity
   parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowMedicalIcons, ShowSecurityIcons]
   id: ClothingHeadHelmetHardsuitUsspL30
-  name: USSP L-30 Commissar parade hardsuit tactical helmet
-  description: The commissar's parade hardsuit helmet, outfitted with a medical hud too to check on the troops!
+  name: KA Falkata parade hardsuit tactical helmet
+  description: A highly decorated parade hardsuit helmet, outfitted with a medical hud too to check on the troops!
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -160,8 +160,8 @@
 - type: entity
   parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowMedicalIcons, ShowSecurityIcons]
   id: ClothingHeadHelmetHardsuitOfficerCombat
-  name: USSP UF-16 "Voenkom" commissar tacsuit helmet
-  description: Cold, imposing, and unmistakably Union -- developed to instill discipline and fear. It's visor grants enhanced battlefield awareness with It's built-in command control map. Ideal for Commissars overseeing frontline operations.
+  name: KA Claymore tacsuit helmet
+  description: Highly armored helmet. It's visor grants enhanced battlefield awareness with It's built-in command control map.
   categories: [ HideSpawnMenu ]  
   components:
   - type: Sprite
