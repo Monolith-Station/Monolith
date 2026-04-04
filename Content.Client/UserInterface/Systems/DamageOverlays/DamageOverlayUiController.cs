@@ -95,16 +95,16 @@ public sealed class DamageOverlayUiController : UIController
         {
             case MobState.Alive:
                 {
-                    if (EntityManager.HasComponent<PainNumbnessComponent>(entity))
+                    if (!EntityManager.HasComponent<PainNumbnessComponent>(entity))
                     {
-                        _overlay.BruteLevel = 0;
-                    }
-                    else if (damageable.DamagePerGroup.TryGetValue("Brute", out var bruteDamage))
-                    {
-                        _overlay.BruteLevel = FixedPoint2.Min(1f, bruteDamage / critThreshold).Float();
+                        if (damageable.DamagePerGroup.TryGetValue("Brute", out var bruteDamage))
+                            _overlay.BruteLevel = FixedPoint2.Min(1f, bruteDamage / critThreshold).Float();
                         if (damageable.DamagePerGroup.TryGetValue("Burn", out var burnDamage)) // Adds burn damage to pain overlay - Mono
                             _overlay.BruteLevel = FixedPoint2.Min(1f, _overlay.BruteLevel + (burnDamage / critThreshold)).Float();
+
                     }
+                    else
+                        _overlay.BruteLevel = 0;
 
                     if (damageable.DamagePerGroup.TryGetValue("Airloss", out var oxyDamage))
                     {
