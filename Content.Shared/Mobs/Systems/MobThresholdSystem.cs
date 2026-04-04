@@ -338,7 +338,16 @@ public sealed class MobThresholdSystem : EntitySystem
     {
         foreach (var (threshold, mobState) in thresholdsComponent.Thresholds.Reverse())
         {
-            if (damageableComponent.TotalDamage < threshold)
+            var ev = new QueryMobThresholdsEvent(); // Mono
+            RaiseLocalEvent(target, ev);
+
+            float offset = 0;
+            if (mobState == MobState.Dead)
+                offset += ev.DeathOffset;
+            if (mobState == MobState.Critical)
+                offset += ev.CritOffset;
+
+            if (damageableComponent.TotalDamage < threshold * ev.Scale + (FixedPoint2)offset) // Mono
                 continue;
 
             TriggerThreshold(target, mobState, mobStateComponent, thresholdsComponent, origin);

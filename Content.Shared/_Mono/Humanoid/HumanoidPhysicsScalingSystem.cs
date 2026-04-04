@@ -159,4 +159,4 @@ public sealed class HumanoidPhysicsScalingSystem : EntitySystem
     }
 }
 
-public record struct QueryMobThresholdsEvent(float Scale = 1f, float Offset = 0f);
+public record struct QueryMobThresholdsEvent(float Scale = 1f, float DeathOffset = 0, float CritOffset = 0);

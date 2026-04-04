@@ -80,8 +80,8 @@
     components:
     - BorgChassis
   components:
-  - type: MobThresholdAdjustment
-    deathThresholdMod: 15
+  - type: MobThresholdOffset
+    deadOffset: 15
 
 - type: trait
   id: WillToDie
@@ -91,14 +91,15 @@
   cost: -1
   mutuallyExclusiveTraits:
   - WillToLive
+  - Redshirt
   speciesBlacklist:
   - IPC
   blacklist:
     components:
     - BorgChassis
   components:
-  - type: MobThresholdAdjustment
-    deathThresholdMod: -15
+  - type: MobThresholdOffset
+    deadOffset: -15
 
 
 - type: trait
@@ -253,14 +254,15 @@
   cost: -8
   mutuallyExclusiveTraits:
   - WillToLive
+  - WillToDie
   speciesBlacklist:
   - IPC
   blacklist:
     components:
     - BorgChassis
   components:
-  - type: MobThresholdAdjustment
-    deathThresholdMod: -100
+  - type: MobThresholdOffset
+    deadOffset: -100
 
 - type: trait
   id: StrikingCalluses
