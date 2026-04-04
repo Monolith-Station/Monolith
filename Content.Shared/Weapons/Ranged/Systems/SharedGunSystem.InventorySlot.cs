@@ -15,16 +15,23 @@ public abstract partial class SharedGunSystem
     public void InitializeInventorySlotProvider()
     {
         SubscribeLocalEvent<InventorySlotProviderComponent, TakeAmmoEvent>(InventoryTakeAmmo);
-        SubscribeLocalEvent<InventorySlotProviderComponent, InventoryEquipActEvent>(InventoryEquip);
+        SubscribeLocalEvent<InventorySlotProviderComponent, GotEquippedEvent>(InventoryEquip);
         SubscribeLocalEvent<InventorySlotProviderComponent, GotUnequippedEvent>(InventoryUnEquip);
     }
 
     private void InventoryTakeAmmo(EntityUid uid, InventorySlotProviderComponent component, ref TakeAmmoEvent args)
     {
-        var slotEntity = GetInventoryProviderEntity(uid, component);
+        Logger.Info("real! 1");
+
+        if (args.User == null)
+            return;
+
+        var slotEntity = GetInventoryProviderEntity(args.User.Value, component);
 
         if (slotEntity == null)
             return;
+
+        Logger.Info("real! 2");
 
         UpdateAmmoCount(uid);
         RaiseLocalEvent(slotEntity.Value, args);
@@ -33,8 +40,9 @@ public abstract partial class SharedGunSystem
         RaiseLocalEvent(slotEntity.Value, ref ammoEv);
     }
 
-    private void InventoryEquip(EntityUid uid, InventorySlotProviderComponent component, ref InventoryEquipActEvent args)
+    private void InventoryEquip(EntityUid uid, InventorySlotProviderComponent component, ref GotEquippedEvent args)
     {
+        Logger.Info("real!");
         UpdateAmmoCount(uid);
     }
 
