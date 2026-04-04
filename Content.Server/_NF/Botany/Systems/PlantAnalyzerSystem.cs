@@ -23,7 +23,6 @@ public sealed class PlantAnalyzerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
 
     public override void Initialize()
@@ -126,13 +125,18 @@ public sealed class PlantAnalyzerSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
+
+        if (_nextUpdate < _updateInterval)
+        {
+            _nextUpdate += TimeSpan.FromSeconds(frameTime);
+            return;
+        }
+
         var query = EntityQueryEnumerator<PlantAnalyzerComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var analyzer))
         {
-            if (comp.ScannedEntity is not { } target || _timing.CurTime < _nextUpdate)
+            if (comp.ScannedEntity is not { } target)
                 continue;
-
-            _nextUpdate = _timing.CurTime + _updateInterval;
 
             if (!HasComp<SeedComponent>(target) && !HasComp<PlantHolderComponent>(target) ||
                 !_transformSystem.InRange(Transform(target).Coordinates, analyzer.Coordinates, comp.MaxScanRange))
@@ -142,6 +146,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
             }
 
             UpdateScannedUser((uid, comp), target);
+            _nextUpdate -= _updateInterval;
         }
     }
 
