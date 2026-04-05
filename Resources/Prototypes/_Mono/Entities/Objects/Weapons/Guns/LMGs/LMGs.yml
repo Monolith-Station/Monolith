@@ -397,11 +397,11 @@
     sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
   - type: Gun
     minAngle: 4
-    maxAngle: 25
+    maxAngle: 16
     angleIncrease: 3
     angleDecay: 20
     fireRate: 16
-    projectileSpeed: 45
+    projectileSpeed: 50
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
   - type: ProjectileBatteryAmmoProvider
