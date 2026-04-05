@@ -120,7 +120,7 @@
 - type: utilityQuery
   id: NearbyShuttleTargetsLongRange
   query:
-  - !type:NearbyHostileShuttlesQuery
+  - !type:NearbyNpcTargetsQuery
     range: 4000
     blacklist:
       tags:

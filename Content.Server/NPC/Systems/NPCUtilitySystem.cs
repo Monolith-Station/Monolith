@@ -494,7 +494,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                 break;
             }
             // Mono - TODO: consider factions
-            case NearbyHostileShuttlesQuery shuttlesQuery:
+            case NearbyNpcTargetsQuery shuttlesQuery:
             {
                 var xform = Transform(owner);
                 var ownGrid = xform.GridUid;
@@ -502,11 +502,13 @@ public sealed class NPCUtilitySystem : EntitySystem
                 {
                     var targetXform = Transform(target);
                     var targetGrid = targetXform.GridUid;
-                    if (targetComp.NeedGrid && targetGrid == null ||
-                        targetGrid == ownGrid ||
-                        (_transform.GetWorldPosition(target) - _transform.GetWorldPosition(xform)).Length() > shuttlesQuery.Range ||
-                        targetComp.NeedPower && !this.IsPowered(target, EntityManager) ||
-                        targetGrid != null && _whitelistSystem.IsBlacklistPass(shuttlesQuery.Blacklist, targetGrid.Value))
+                    if (targetComp.NeedGrid != NpcTargetGridMode.Either // if we care about grid..
+                          // ..and our (non-)need for grid is equal to the (non-)absence of a grid
+                          && (targetComp.NeedGrid == NpcTargetGridMode.OnGrid) == (targetGrid == null)
+                        || targetGrid == ownGrid
+                        || (_transform.GetWorldPosition(target) - _transform.GetWorldPosition(xform)).Length() > shuttlesQuery.Range
+                        || targetComp.NeedPower && !this.IsPowered(target, EntityManager)
+                        || targetGrid != null && _whitelistSystem.IsBlacklistPass(shuttlesQuery.Blacklist, targetGrid.Value))
                     {
                         continue;
                     }
