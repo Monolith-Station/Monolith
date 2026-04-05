@@ -34,7 +34,7 @@
 - type: entity
   id: VanykCartridge
   name: 150mm HEAT missile
-  description: An individual ASM-302 HEAT missile used in the Vanyk.
+  description: An individual ASM-150 HEAT missile used in the Vanyk.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -44,7 +44,7 @@
   - type: Item
     size: Huge
   - type: CartridgeAmmo
-    proto: ShipMissileASM302
+    proto: ShipMissileASM150
     deleteOnSpawn: true
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi

@@ -1,8 +1,8 @@
 - type: entity
   id: WeaponTurretASM220
-  name: ASM-220 "Trident" 500mm torpedo rack
-  parent: BallisticArtilleryCartridge
-  description: A heavy built-in torpedo rack for cruisers which relies on manual loading, usually done at harbor. Despite this, it has the largest missiles in the sector.
+  name: ASM-220 "Trident" Torpedo Rack
+  parent: BallisticArtilleryUnanchorableCartridge
+  description: A heavy built-in torpedo rack for cruisers which relies on manual loading, usually done at harbor. Despite this, it has the largest missiles in the sector at 550mm.
   components:
   - type: StaticPrice
     price: 10000
