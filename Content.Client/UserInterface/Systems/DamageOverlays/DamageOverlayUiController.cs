@@ -76,7 +76,7 @@ public sealed class DamageOverlayUiController : UIController
     {
         if (mobState == null && !EntityManager.TryGetComponent(entity, out mobState) ||
             thresholds == null && !EntityManager.TryGetComponent(entity, out thresholds) ||
-            damageable == null && !EntityManager.TryGetComponent(entity, out  damageable))
+            damageable == null && !EntityManager.TryGetComponent(entity, out damageable))
             return;
 
         if (!_mobThresholdSystem.TryGetIncapThreshold(entity, out var foundThreshold, thresholds))
@@ -94,47 +94,48 @@ public sealed class DamageOverlayUiController : UIController
         switch (mobState.CurrentState)
         {
             case MobState.Alive:
-            {
-                if (EntityManager.HasComponent<PainNumbnessComponent>(entity))
                 {
-                    _overlay.BruteLevel = 0;
-                }
-                else if (damageable.DamagePerGroup.TryGetValue("Brute", out var bruteDamage))
-                {
-                    _overlay.BruteLevel = FixedPoint2.Min(1f, bruteDamage / critThreshold).Float();
-                }
+                    if (!EntityManager.HasComponent<PainNumbnessComponent>(entity)) // Mono - makes this look better
+                    {
+                        if (damageable.DamagePerGroup.TryGetValue("Brute", out var bruteDamage))
+                            _overlay.BruteLevel = FixedPoint2.Min(1f, bruteDamage / critThreshold).Float();
+                        if (damageable.DamagePerGroup.TryGetValue("Burn", out var burnDamage)) // Adds burn damage to pain overlay - Mono
+                            _overlay.BruteLevel = FixedPoint2.Min(1f, _overlay.BruteLevel + (burnDamage / critThreshold)).Float();
+                    }
+                    else
+                        _overlay.BruteLevel = 0;
 
-                if (damageable.DamagePerGroup.TryGetValue("Airloss", out var oxyDamage))
-                {
-                    _overlay.OxygenLevel = FixedPoint2.Min(1f, oxyDamage / critThreshold).Float();
-                }
+                    if (damageable.DamagePerGroup.TryGetValue("Airloss", out var oxyDamage))
+                    {
+                        _overlay.OxygenLevel = FixedPoint2.Min(1f, oxyDamage / critThreshold).Float();
+                    }
 
-                if (_overlay.BruteLevel < 0.05f) // Don't show damage overlay if they're near enough to max.
-                {
-                    _overlay.BruteLevel = 0;
-                }
+                    if (_overlay.BruteLevel < 0.05f) // Don't show damage overlay if they're near enough to max.
+                    {
+                        _overlay.BruteLevel = 0;
+                    }
 
-                _overlay.CritLevel = 0;
-                _overlay.DeadLevel = 0;
-                break;
-            }
+                    _overlay.CritLevel = 0;
+                    _overlay.DeadLevel = 0;
+                    break;
+                }
             case MobState.Critical:
-            {
-                if (!_mobThresholdSystem.TryGetDeadPercentage(entity,
-                        FixedPoint2.Max(0.0, damageable.TotalDamage), out var critLevel))
-                    return;
-                _overlay.CritLevel = critLevel.Value.Float();
+                {
+                    if (!_mobThresholdSystem.TryGetDeadPercentage(entity,
+                            FixedPoint2.Max(0.0, damageable.TotalDamage), out var critLevel))
+                        return;
+                    _overlay.CritLevel = critLevel.Value.Float();
 
-                _overlay.BruteLevel = 0;
-                _overlay.DeadLevel = 0;
-                break;
-            }
+                    _overlay.BruteLevel = 0;
+                    _overlay.DeadLevel = 0;
+                    break;
+                }
             case MobState.Dead:
-            {
-                _overlay.BruteLevel = 0;
-                _overlay.CritLevel = 0;
-                break;
-            }
+                {
+                    _overlay.BruteLevel = 0;
+                    _overlay.CritLevel = 0;
+                    break;
+                }
         }
     }
 }
