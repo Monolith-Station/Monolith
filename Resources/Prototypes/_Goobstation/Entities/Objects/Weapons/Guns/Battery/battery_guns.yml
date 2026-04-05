@@ -63,3 +63,76 @@
     autoRechargeRate: 75 # Mono - 75 < 35
   - type: PirateBountyItem # Mono
     id: TSFLaserWeapon
+
+- type: entity
+  name: DT-12 Lawbringer
+  parent: [BaseWeaponBatterySmall]
+  id: WeaponEnergyGunLawbringer
+  description: Sometimes rank is a function of firepower. A versatile energy gun with a myriad of firing modes designed for the Judges. Self-recharges after a 5 second delay.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode
+      shader: unshaded
+      map: [ "Firemode" ]
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - suitStorage
+    - belt
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDetain
+    fireCost: 20
+  - type: AmmoSelector
+    prototypes:
+    - BulletEnergyGunPulse
+    - BulletEnergyGunDetain
+    - BulletEnergyGunExecute
+    - BulletEnergyGunHotshot
+    - BulletEnergyGunSleepshot
+    - BulletEnergyGunBigshot
+    - BulletEnergyGunExploShot
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.AmmoSelectorUiKey.Key
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+    onUse: false
+  - type: Appearance
+  - type: ItemToggleColor
+  - type: ToggleableVisuals
+    spriteLayer: Firemode
+    inhandVisuals:
+      left:
+      - state: mode-inhand-left
+        shader: unshaded
+      right:
+      - state: mode-inhand-right
+        shader: unshaded
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: StaticPrice
+    price: 750
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+    autoRechargePause: true
+    autoRechargePauseTime: 5

@@ -51,7 +51,8 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -63,6 +64,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -144,7 +146,8 @@
     - type: EyeProtection
       protectionTime: 5
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -156,6 +159,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -245,7 +249,8 @@
     - type: EyeProtection
       protectionTime: 5
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -257,6 +262,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -337,7 +343,8 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -349,6 +356,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -440,7 +448,8 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -452,6 +461,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
