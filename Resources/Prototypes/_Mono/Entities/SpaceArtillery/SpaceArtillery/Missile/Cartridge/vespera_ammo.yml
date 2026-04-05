@@ -34,7 +34,7 @@
 - type: entity
   id: VesperaCartridge
   name: 50mm HE missile
-  description: An individual ASM-417 HE missile for the Vespera.
+  description: An individual ADMP-50 HE missile for the Vespera.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -43,7 +43,7 @@
   - type: Item
     size: Huge
   - type: CartridgeAmmo
-    proto: ShipMissileASM417
+    proto: ShipMissileASM50
     deleteOnSpawn: true
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
