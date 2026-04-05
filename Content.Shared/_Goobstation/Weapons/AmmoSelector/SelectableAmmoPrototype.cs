@@ -19,7 +19,7 @@ public sealed partial class SelectableAmmoPrototype : IPrototype
     public string Desc = default!;
 
     [DataField(required: true)]
-    public string EntProtoId = default!; // this has to be a string because of how hitscan projectiles work
+    public EntProtoId ProtoId = default!; // this has to be a string because of how hitscan projectiles work
 
     [DataField]
     public Color? Color;
