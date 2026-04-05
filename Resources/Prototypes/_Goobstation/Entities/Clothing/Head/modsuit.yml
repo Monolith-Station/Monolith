@@ -21,7 +21,6 @@
       - state: equipped-HEAD
       head-vox:
       - state: equipped-HEAD-vox
-      
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -99,7 +98,8 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 3
@@ -111,6 +111,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -199,7 +200,8 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -211,6 +213,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -300,7 +303,8 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -312,6 +316,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -390,7 +395,8 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -402,6 +408,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -480,7 +487,8 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -492,6 +500,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -580,7 +589,8 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -592,6 +602,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -670,7 +681,8 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -682,6 +694,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -770,7 +783,8 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -782,6 +796,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour

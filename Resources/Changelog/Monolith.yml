@@ -19355,3 +19355,33 @@ Entries:
   id: 2135
   time: '2026-04-04T21:44:56.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3521
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Drones will now target people that are offgrid.
+  id: 2136
+  time: '2026-04-05T06:49:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3693
+- author: NazrinNya
+  changes:
+    - type: Remove
+      message: '"Stinky" trait'
+  id: 2137
+  time: '2026-04-05T10:30:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3697
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Drone cores will no longer endlessly keep firing at dead people.
+  id: 2138
+  time: '2026-04-05T12:21:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3699
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: >-
+        Lawbringer has been added to the game, available for judges and overseer
+        roundstart.
+  id: 2139
+  time: '2026-04-05T14:00:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3696
