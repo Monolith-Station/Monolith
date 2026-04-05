@@ -45,7 +45,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     /// <summary>
     /// Entity of controlling console
     /// </summary>
-    private EntityUid? _consoleEntity;
+    protected EntityUid? _consoleEntity; // Mono
 
     protected Angle? _rotation; // Mono
 
@@ -94,6 +94,12 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     protected const float RadarUpdateInterval = 0f;
     protected float _updateAccumulator = 0f;
 
+    protected bool _angleLocal = true;
+
+    // makes panning keep the off-ent offset but not its rotation
+    private bool _panningRotate = true;
+    private Vector2 _panOffset = Vector2.Zero;
+
     private bool _wasPanned = false;
     private EntityCoordinates? _oldCoordinates;
     #endregion
@@ -135,7 +141,8 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             return;
 
         _coordinates = coordinates;
-        _rotation = angle;
+        if (_angleLocal)
+            _rotation = angle;
     }
 
     public void SetConsole(EntityUid? consoleEntity)
@@ -160,11 +167,18 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             if (!RelativePanning)
                 _rotation = new Angle(0);
         }
-        if (_oldCoordinates == null)
+        if (_oldCoordinates == null || _rotation == null)
             return;
 
-        var offs = (_rotation ?? new Angle(0)).RotateVec(InverseMapPosition(MidPointVector));
-        _coordinates = _oldCoordinates.Value.Offset(offs);
+        var coordEntRot = _transform.GetWorldRotation(_oldCoordinates.Value.EntityId);
+        var unRot = _rotation.Value;
+        if (!_angleLocal)
+            unRot -= coordEntRot;
+
+        var offs = InverseMapPosition(MidPointVector);
+        _coordinates = _oldCoordinates.Value.Offset(unRot.RotateVec(offs));
+        if (_consoleEntity != null)
+            _panOffset = _transform.ToWorldPosition(_coordinates.Value) - _transform.GetWorldPosition(_consoleEntity.Value);
     }
 
     protected override void KeyBindDown(GUIBoundKeyEventArgs args)
@@ -235,13 +249,14 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
     private void TryFireAtPosition(Vector2 relativePosition)
     {
-        if (_coordinates == null || _rotation == null || OnRadarClick == null)
+        if (_coordinates == null || _rotation == null || OnRadarClick == null || _consoleEntity == null)
             return;
 
         var a = InverseScalePosition(relativePosition);
         var relativeWorldPos = new Vector2(a.X, -a.Y);
         relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
-        var coords = _coordinates.Value.Offset(relativeWorldPos);
+        var coords = _transform.ToCoordinates(_transform.ToMapCoordinates(_coordinates.Value)).Offset(relativeWorldPos);
+        coords = _transform.WithEntityId(coords, _consoleEntity.Value);
         OnRadarClick?.Invoke(coords);
     }
 
@@ -279,12 +294,6 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
         ActualRadarRange = Math.Clamp(ActualRadarRange, WorldMinRange, WorldMaxRange);
 
-        // Mono
-        RelativePanning = state.RelativePanning;
-        Draggable = state.Pannable;
-        if (!Draggable)
-            _wasPanned = false; // also reset
-
         RotateWithEntity = state.RotateWithEntity;
 
         // Frontier
@@ -321,12 +330,39 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             return;
         }
 
+        // Mono
+        if (EntManager.TryGetComponent<RadarConsoleComponent>(_consoleEntity, out var radar))
+        {
+            _panningRotate = RelativePanning = radar.RelativePanning;
+            Draggable = radar.Pannable;
+            if (!Draggable)
+                _wasPanned = false; // also reset
+            var lockRotation = radar.NoRotate;
+            if (lockRotation)
+            {
+                RotateWithEntity = false;
+                _panningRotate = false;
+                _angleLocal = false;
+                _rotation = Angle.Zero;
+            }
+            else
+                _panningRotate = true;
+        }
+        // Mono - TODO: fix this mess and related messes
+        // probably just use an enum and switch modes around
+        // i am too tired to do this so if anyone is seeing this do that please
+        var coordEntRot = _transform.GetWorldRotation(_coordinates.Value.EntityId);
+        if (!_panningRotate && _consoleEntity != null && EntManager.TryGetComponent<TransformComponent>(_consoleEntity, out var consXform))
+            _coordinates = consXform.Coordinates.Offset((-coordEntRot).RotateVec(_panOffset));
+
+        var worldRot = _rotation.Value;
+        if (_angleLocal)
+            worldRot += coordEntRot;
+
         var mapPos = _transform.ToMapCoordinates(_coordinates.Value);
-        var posMatrix = Matrix3Helpers.CreateTransform(_coordinates.Value.Position, _rotation.Value);
-        var ourEntRot = _wasPanned && !RelativePanning ? new Angle(0) : RotateWithEntity ? _transform.GetWorldRotation(xform) : _rotation.Value;
-        var ourEntMatrix = Matrix3Helpers.CreateTransform(_transform.GetWorldPosition(xform), ourEntRot);
-        var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
-        Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);
+        var mapCoord = _transform.ToCoordinates(mapPos);
+        var worldToShuttle = Matrix3Helpers.CreateTranslation(-mapCoord.Position) * Matrix3Helpers.CreateRotation(-worldRot);
+        Matrix3x2.Invert(worldToShuttle, out var shuttleToWorld);
         var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
         var worldToView = worldToShuttle * shuttleToView;
 
@@ -334,7 +370,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         DrawShields(handle, xform, worldToShuttle);
 
         // Frontier Corvax: north line drawing
-        var rot = ourEntRot + _rotation.Value;
+        var rot = worldRot;
         DrawNorthLine(handle, rot);
 
         // Draw our grid in detail
@@ -361,7 +397,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
         handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, radarPosVerts, Color.Lime);
 
-        var viewBounds = new Box2Rotated(new Box2(-WorldRange, -WorldRange, WorldRange, WorldRange).Translated(mapPos.Position), rot, mapPos.Position);
+        var viewBounds = new Box2Rotated(new Box2(-WorldRange, -WorldRange, WorldRange, WorldRange).Translated(mapPos.Position), worldRot, mapPos.Position);
         var viewAABB = viewBounds.CalcBoundingBox();
 
         _grids.Clear();
@@ -629,7 +665,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             if (blip.Config.RespectZoom)
                 box.Box = new Box2(box.Box.BottomLeft * MinimapScale, box.Box.TopRight * MinimapScale);
             if (blip.Config.Rotate)
-                box.Rotation = ourEntRot - blip.Rotation;
+                box.Rotation = worldRot - blip.Rotation;
 
             if (blip.GridUid is { } grid)
             {

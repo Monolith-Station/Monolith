@@ -46,5 +46,11 @@ public sealed partial class RadarConsoleComponent : Component
 
     [DataField]
     public bool RelativePanning = false;
+
+    /// <summary>
+    /// Whether to always face north-up.
+    /// </summary>
+    [DataField]
+    public bool NoRotate = false;
     // </Mono>
 }
