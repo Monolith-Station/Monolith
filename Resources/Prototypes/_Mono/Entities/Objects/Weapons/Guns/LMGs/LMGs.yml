@@ -397,8 +397,8 @@
     sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
   - type: Gun
     minAngle: 4
-    maxAngle: 16
-    angleIncrease: 3
+    maxAngle: 12
+    angleIncrease: 2
     angleDecay: 20
     fireRate: 16
     projectileSpeed: 50
