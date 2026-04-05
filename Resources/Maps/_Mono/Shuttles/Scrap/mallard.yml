@@ -4,7 +4,7 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/04/2026 22:52:02
+  time: 04/05/2026 00:10:01
   entityCount: 814
 maps: []
 grids:
@@ -458,6 +458,26 @@ entities:
     components:
     - type: Transform
       pos: -2.5,4.5
+      parent: 1
+- proto: AlwaysPoweredlightRed
+  entities:
+  - uid: 733
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,9.5
+      parent: 1
+  - uid: 734
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,-3.5
+      parent: 1
+  - uid: 735
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,3.5
       parent: 1
 - proto: APCBasic
   entities:
@@ -3344,6 +3364,34 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5,0.5
       parent: 1
+- proto: PoweredlightExterior
+  entities:
+  - uid: 731
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,21.5
+      parent: 1
+- proto: PoweredlightGreen
+  entities:
+  - uid: 659
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,3.5
+      parent: 1
+  - uid: 732
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -6.5,9.5
+      parent: 1
+  - uid: 736
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -9.5,-3.5
+      parent: 1
 - proto: PoweredlightOrange
   entities:
   - uid: 494
@@ -3362,50 +3410,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -2.5,-10.5
-      parent: 1
-- proto: PoweredlightRed
-  entities:
-  - uid: 659
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -7.5,3.5
-      parent: 1
-  - uid: 731
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,-3.5
-      parent: 1
-  - uid: 732
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -9.5,-3.5
-      parent: 1
-  - uid: 733
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,21.5
-      parent: 1
-  - uid: 734
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 2.5,3.5
-      parent: 1
-  - uid: 735
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 1.5,9.5
-      parent: 1
-  - uid: 736
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -6.5,9.5
       parent: 1
 - proto: PoweredSmallLight
   entities:
