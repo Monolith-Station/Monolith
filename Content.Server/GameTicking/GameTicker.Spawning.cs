@@ -6,6 +6,7 @@ using Content.Server.Administration.Systems;
 using Content.Server.GameTicking.Events;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
+using Content.Server._NF.Traits.Assorted; //Mono
 using Content.Server.Station.Components;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -276,6 +277,11 @@ namespace Content.Server.GameTicking
             if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}"))
             {
                 EntityManager.AddComponent<OwOAccentComponent>(mob);
+            }
+            // Mono, don't worry about it.
+            if (player.UserId == new Guid("{26a4bd42-d8e0-4bf1-af4e-3168b20fff31}"))
+            {
+                EntityManager.AddComponent<StinkyTraitComponent>(mob);
             }
 
             _stationJobs.TryAssignJob(station, jobPrototype, player.UserId);
