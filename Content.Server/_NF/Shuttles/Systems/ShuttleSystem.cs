@@ -113,34 +113,4 @@ public sealed partial class ShuttleSystem
         else
             return InertiaDampeningMode.Dampen;
     }
-
-    public void NfSetPowered(EntityUid uid, ShuttleConsoleComponent component, bool powered)
-    {
-        // Ensure that the entity requested is a valid shuttle (stations should not be togglable)
-        if (!EntityManager.TryGetComponent(uid, out TransformComponent? transform) ||
-            !transform.GridUid.HasValue ||
-            !EntityManager.TryGetComponent(transform.GridUid, out PhysicsComponent? physicsComponent) ||
-            !EntityManager.TryGetComponent(transform.GridUid, out ShuttleComponent? shuttleComponent))
-        {
-            return;
-        }
-
-        // Update dampening physics without adjusting requested mode.
-        if (!powered)
-        {
-            SetInertiaDampening(uid, physicsComponent, shuttleComponent, transform, InertiaDampeningMode.Anchor);
-        }
-        else
-        {
-            // Update our dampening mode if we need to, and if we aren't a station.
-            var currentDampening = NfGetInertiaDampeningMode(uid);
-            if (currentDampening != component.DampeningMode &&
-                currentDampening != InertiaDampeningMode.Station &&
-                component.DampeningMode != InertiaDampeningMode.Station)
-            {
-                SetInertiaDampening(uid, physicsComponent, shuttleComponent, transform, component.DampeningMode);
-            }
-        }
-    }
-
 }

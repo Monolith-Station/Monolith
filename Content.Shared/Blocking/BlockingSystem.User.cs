@@ -43,7 +43,7 @@ public sealed partial class BlockingSystem : SharedBlockingSystem // Mono
 
     private void OnUserDamageModified(EntityUid uid, BlockingUserComponent component, DamageModifyEvent args)
     {
-        if (TryComp<ItemToggleComponent>(component.BlockingItem, out var toggleComponent) && TryComp<BlockingComponent>(component.BlockingItem, out var blocking)) // Mono
+        if (TryComp<BlockingComponent>(component.BlockingItem, out var blocking)) // Mono
         {
             if (args.Damage.GetTotal() <= 0)
                 return;
@@ -52,7 +52,7 @@ public sealed partial class BlockingSystem : SharedBlockingSystem // Mono
             if (!TryComp<DamageableComponent>(component.BlockingItem, out var dmgComp))
                 return;
 
-            if (!toggleComponent.Activated) // Mono
+            if (TryComp<ItemToggleComponent>(component.BlockingItem, out var toggleComponent) && !toggleComponent.Activated) // Mono
                 return;
 
             var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;

@@ -10,6 +10,8 @@ armor-plate-examinable-verb-message = Examine protection and durability characte
 armor-plate-attributes-examine = This armor plate:
 armor-plate-initial-durability = Is rated for [color=yellow]{ $durability }[/color] standard units of damage.
 
+armor-plate-item-durability = Durability: [color={$durabilityColor}]{$percent}%[/color]
+
 armor-plate-gait-speed = speed
 armor-plate-gait-walk = walking speed
 armor-plate-gait-sprint = running speed

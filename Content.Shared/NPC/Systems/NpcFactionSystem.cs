@@ -348,6 +348,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
         {
             if (iteratedFaction.Neutral.Contains(faction) ||
                 iteratedFaction.Friendly.Contains(faction) ||
+                !faction.DefaultHostileIncluded || // Mono
                 faction.ID == iteratedFaction.ID)
                 continue;
 
