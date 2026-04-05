@@ -43,6 +43,21 @@
   - type: Clothing
     sprite: _Mono/Clothing/Neck/Misc/heavyovercoat.rsi
 
+# Viper Group
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckViperGroupMantle
+  name: viper group mantle
+  description: A mantle bearing the colours and mark of a viper.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Misc/viper_group_mantle.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Misc/viper_group_mantle.rsi
+  - type: Item
+    size: Normal
+
 # Bomb Collars
 
 - type: entity
