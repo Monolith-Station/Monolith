@@ -16,7 +16,7 @@ public sealed partial class GridSpawnerComponent : Component
     [DataField]
     public ProtoId<LocalizedDatasetPrototype>? NameDataset = null;
 
-    [DataField]
+    [DataField, AlwaysPushInheritance]
     public ComponentRegistry AddComponents = new();
 
     [DataField]

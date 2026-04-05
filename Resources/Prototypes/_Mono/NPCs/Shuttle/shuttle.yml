@@ -116,7 +116,7 @@
 - type: utilityQuery
   id: NearbyShuttleTargets
   query:
-  - !type:NearbyHostileShuttlesQuery
+  - !type:NearbyNpcTargetsQuery
     blacklist:
       tags:
       - ShuttleAIIgnore
@@ -127,6 +127,8 @@
       exponent: 1
       yOffset: 0
       xOffset: 0
+  - !type:TargetIsAliveOrNACon
+    curve: !type:BoolCurve
 
 - type: htnCompound
   id: ShuttleRamCompound

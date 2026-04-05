@@ -331,6 +331,41 @@
       - state: equipped-decor-shoulder-patch
         color: "#cd6b6b"
 
+#Viper Group
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitViperGroupUniform
+  name: viper group uniform
+  description: A uniform bearing the colours of the vipers.
+  components:
+  - type: StaticPrice
+    price: 700
+    vendPrice: 1150
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/viper_group_uniform.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/viper_group_uniform.rsi
+  - type: SuitSensor
+    randomMode: false
+    mode: SensorVitals
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitViperGroupTurtleneck
+  name: viper group turtleneck
+  description: A turtleneck bearing the colours of the vipers.
+  components:
+  - type: StaticPrice
+    price: 700
+    vendPrice: 1150
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/viper_group_turtleneck.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/viper_group_turtleneck.rsi
+  - type: SuitSensor
+    randomMode: false
+    mode: SensorVitals
+
 #PMC camo suits
 - type: entity
   parent: ClothingUniformBase

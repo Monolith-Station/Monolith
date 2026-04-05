@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 03/27/2026 19:43:44
-  entityCount: 10732
+  entityCount: 10733
 maps:
 - 1
 grids:
@@ -14994,6 +14994,13 @@ entities:
 - proto: BiomeSourceFarReachesIII
   entities:
   - uid: 998
+    components:
+    - type: Transform
+      pos: -24.5489,50.522743
+      parent: 2
+- proto: BiomeSourceFarReachesIV
+  entities:
+  - uid: 12345
     components:
     - type: Transform
       pos: -24.5489,50.522743
