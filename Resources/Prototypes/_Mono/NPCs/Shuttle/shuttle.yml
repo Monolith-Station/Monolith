@@ -116,7 +116,7 @@
 - type: utilityQuery
   id: NearbyShuttleTargets
   query:
-  - !type:NearbyHostileShuttlesQuery
+  - !type:NearbyNpcTargetsQuery
     blacklist:
       tags:
       - ShuttleAIIgnore

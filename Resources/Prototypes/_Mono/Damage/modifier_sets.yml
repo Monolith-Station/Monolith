@@ -27,7 +27,7 @@
 - type: damageModifierSet # Mono
   id: BaseBorgChassis
   coefficients:
-    Heat: 1.5
+    Heat: 1
     Cold: 0
     Shock: 2.5
     Blunt: 0.6
@@ -152,6 +152,7 @@
     Slash: 4
     Piercing: 6
     Heat: 5
+
 
 # IPC
 
