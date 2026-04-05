@@ -35,12 +35,13 @@ public sealed class JetpackSystem : SharedJetpackSystem
     /// </summary>
     private void OnJetpackActivated(EntityUid uid, ActiveJetpackComponent component, ComponentStartup args)
     {
-        if (TryComp<JetpackComponent>(uid, out var jetpack) && jetpack.Stealth == false)
+        if (TryComp<JetpackComponent>(uid, out var jetpack) && jetpack.DetectionRange > 0)
         {
             var blip = EnsureComp<RadarBlipComponent>(uid);
             blip.Config.Color = Color.Cyan;
             blip.Config.Bounds = new(-0.25f, -0.25f, 0.25f, 0.25f);
             blip.VisibleFromOtherGrids = true;
+            blip.MaxDistance = jetpack.DetectionRange;
         }
     }
 
