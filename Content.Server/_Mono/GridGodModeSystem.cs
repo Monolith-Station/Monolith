@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Damage.Systems;
+using Content.Server.NPC.HTN;
 using Content.Server.Spreader;
 using Content.Shared._Mono;
 using Content.Shared.Damage.Components;
@@ -68,7 +69,7 @@ public sealed class GridGodModeSystem : EntitySystem
     /// </summary>
     private void ProcessEntityOnGrid(EntityUid gridUid, EntityUid entityUid, GridGodModeComponent component)
     {
-        // Don't apply GodMode to organic entities, ghosts, or kudzu
+        // Don't apply GodMode to organic entities, ghosts, npcs, or kudzu
         if (IsOrganic(entityUid) || HasComp<GhostComponent>(entityUid) || HasComp<KudzuComponent>(entityUid))
             return;
 
@@ -118,6 +119,12 @@ public sealed class GridGodModeSystem : EntitySystem
 
         // Also consider anything with a MobStateComponent as organic
         if (HasComp<MobStateComponent>(entityUid))
+        {
+            return true;
+        }
+
+        // Also check for anything with HTN such as NPCs, such as turrets.
+        if (HasComp<HTNComponent>(entityUid))
         {
             return true;
         }

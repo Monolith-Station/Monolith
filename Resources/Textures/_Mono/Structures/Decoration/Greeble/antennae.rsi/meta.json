@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by Onezero0 for Monolith",
+  "size": {
+    "x": 32,
+    "y": 96
+  },
+  "states": [
+	  {
+      "name": "antenna1"
+    },
+    {
+      "name": "antenna1_unshaded",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          1.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "antenna2"
+    },
+    {
+      "name": "antenna2_unshaded",
+      "delays": [
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ]
+      ]
+    }
+  ]
+}

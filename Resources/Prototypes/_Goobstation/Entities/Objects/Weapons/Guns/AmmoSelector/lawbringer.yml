@@ -1,0 +1,72 @@
+# Lawbringer Projectiles
+- type: selectableAmmo
+  id: BulletEnergyGunPulse
+  desc: Throws back enemies a fair distance, along with disorenting them.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: pulse
+  color: blue
+  protoId: BulletPulse
+  fireCost: 75
+
+- type: selectableAmmo
+  id: BulletEnergyGunDetain
+  desc: Causes large amounts of stamina damage, and disorients the enemy.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    state: omnilaser
+  color: blue
+  protoId: BulletDetain
+  fireCost: 20
+
+- type: selectableAmmo
+  id: BulletEnergyGunExecute
+  desc: A highly damaging bolt. Great for putting things down.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: execute
+  color: green
+  protoId: BulletExecute
+  fireCost: 50
+
+- type: selectableAmmo
+  id: BulletEnergyGunHotshot
+  desc: A firey bolt, capable of lighting foes on fire.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: hotshot
+  color: red
+  protoId: BulletHotshot
+  fireCost: 50
+
+- type: selectableAmmo
+  id: BulletEnergyGunSleepshot
+  desc: A lightly-damaging bolt, capable of removing stimulants from a targets system, and inducing drowsiness.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: sleepshot
+  color: pink
+  protoId: BulletSleepshot
+  fireCost: 125
+
+- type: selectableAmmo
+  id: BulletEnergyGunBigshot
+  desc: While dealing less damage to living creatures, this bolt is especially effective at tearing apart structures.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: bigshot
+  color: gray
+  protoId: BulletBigshot
+  fireCost: 50
+
+## Mono start
+
+- type: selectableAmmo
+  id: BulletEnergyGunExploShot
+  desc: An explosive bolt, effective againt multiple targets.
+  icon:
+    sprite: Objects/Weapons/Grenades/grenade.rsi
+    state: icon
+  color: orange
+  protoId: BulletExplode
+  fireCost: 125
