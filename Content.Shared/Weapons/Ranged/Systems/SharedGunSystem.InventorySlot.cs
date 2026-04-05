@@ -21,8 +21,6 @@ public abstract partial class SharedGunSystem
 
     private void InventoryTakeAmmo(EntityUid uid, InventorySlotProviderComponent component, ref TakeAmmoEvent args)
     {
-        Logger.Info("real! 1");
-
         if (args.User == null)
             return;
 
@@ -30,8 +28,6 @@ public abstract partial class SharedGunSystem
 
         if (slotEntity == null)
             return;
-
-        Logger.Info("real! 2");
 
         UpdateAmmoCount(uid);
         RaiseLocalEvent(slotEntity.Value, args);
@@ -42,7 +38,6 @@ public abstract partial class SharedGunSystem
 
     private void InventoryEquip(EntityUid uid, InventorySlotProviderComponent component, ref GotEquippedEvent args)
     {
-        Logger.Info("real!");
         UpdateAmmoCount(uid);
     }
 
