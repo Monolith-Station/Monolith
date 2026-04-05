@@ -1,0 +1,42 @@
+- type: technology
+  id: ViperGroupApparel
+  name: research-technology-viper-group-apparel
+  entityIcon: ClothingNeckViperGroupMantle
+  discipline: ViperGroup
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - ClothingNeckViperGroupMantle
+  - ClothingUniformJumpsuitViperGroupUniform
+  - ClothingUniformJumpsuitViperGroupTurtleneck
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 18, 1
+
+- type: technology
+  id: ViperGroupHardsuitBasic
+  name: research-technology-viper-group-basic
+  entityIcon: ClothingOuterHardsuitViperGroupStandard
+  discipline: ViperGroup
+  tier: 2
+  cost: 40000
+  recipeUnlocks:
+  - ClothingOuterHardsuitViperGroupStandard
+  - ClothingOuterHardsuitViperGroupMedic
+  technologyPrerequisites:
+  - ViperGroupApparel
+  - UniversalMaterialResearchT2
+  position: 18, 2
+
+- type: technology
+  id: ViperGroupHardsuitJuggernaut
+  name: research-technology-viper-group-juggernaut
+  entityIcon: ClothingOuterHardsuitViperGroupJuggernaut
+  discipline: ViperGroup
+  tier: 3
+  cost: 20000
+  recipeUnlocks:
+  - ClothingOuterHardsuitViperGroupJuggernaut
+  technologyPrerequisites:
+  - ViperGroupHardsuitBasic
+  position: 18, 3

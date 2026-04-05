@@ -119,19 +119,10 @@
 
 - type: utilityQuery
   id: NearbyShuttleTargetsLongRange
+  parent: NearbyShuttleTargets
   query:
-  - !type:NearbyHostileShuttlesQuery
+  - !type:NearbyNpcTargetsQuery
     range: 4000
-    blacklist:
-      tags:
-      - ShuttleAIIgnore
-  considerations:
-  - !type:TargetInverseDistanceCon
-    curve: !type:QuadraticCurve
-      slope: 1
-      exponent: 1
-      yOffset: 0
-      xOffset: 0
 
 - type: htnCompound
   id: AttackerShuttleSmartStaticCompound
