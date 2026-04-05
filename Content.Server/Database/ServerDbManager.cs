@@ -359,6 +359,7 @@ namespace Content.Server.Database
 
         Task<List<string>> GetPlayerCompanies(Guid player, CancellationToken cancel = default);
         Task<IEnumerable<CompanyMemberRecord>> GetCompanyMembers(ProtoId<CompanyPrototype> company, CancellationToken cancel = default);
+        Task<IEnumerable<CompanyMemberRecord>> GetAllCompanyMembers(CancellationToken cancel = default);
         Task<CompanyMemberRecord?> GetCompanyMember(ProtoId<CompanyPrototype> company, Guid player, CancellationToken cancel = default);
         Task SetCompanyOwner(ProtoId<CompanyPrototype> company, Guid player, bool owner);
         Task<bool> RemoveCompanyMember(Guid player, ProtoId<CompanyPrototype> company);
@@ -1126,6 +1127,12 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetCompanyMembers(company, cancel));
+        }
+
+        public Task<IEnumerable<CompanyMemberRecord>> GetAllCompanyMembers(CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAllCompanyMembers(cancel));
         }
 
         public Task<CompanyMemberRecord?> GetCompanyMember(ProtoId<CompanyPrototype> company, Guid player, CancellationToken cancel = default)

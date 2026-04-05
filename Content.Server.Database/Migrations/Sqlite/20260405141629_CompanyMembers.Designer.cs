@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    [Migration("20260326150802_CompanyMembers")]
+    [Migration("20260405141629_CompanyMembers")]
     partial class CompanyMembers
     {
         /// <inheritdoc />
@@ -562,6 +562,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<string>("CompanyId")
                         .HasColumnType("TEXT")
                         .HasColumnName("company_id");
+
+                    b.Property<bool>("Owner")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("owner");
 
                     b.HasKey("PlayerUserId", "CompanyId")
                         .HasName("PK_company_members");

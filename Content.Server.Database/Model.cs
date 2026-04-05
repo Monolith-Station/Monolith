@@ -1355,7 +1355,7 @@ namespace Content.Server.Database
         [Required, ForeignKey("Player")]
         public Guid PlayerUserId { get; set; }
         public Player Player { get; set; } = default!;
-        public bool Owner;
+        public bool Owner { get; set; } = false;
 
         [Required]
         public string CompanyId { get; set; } = default!;

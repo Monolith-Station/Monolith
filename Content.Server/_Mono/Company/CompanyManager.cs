@@ -41,13 +41,14 @@ public sealed class CompanyManager
         var sw = new Stopwatch();
         sw.Start();
 
+        var members = await _db.GetAllCompanyMembers();
         foreach (var proto in _proto.EnumeratePrototypes<CompanyPrototype>())
         {
-            var members = await GetCompanyMembers(proto.ID);
-            _companies.Add(proto.ID, members);
+            _companies.Add(proto.ID, new());
+            _companies[proto.ID].UnionWith(members.Where(m => m.Company == proto.ID).ToHashSet());
         }
 
-        _sawmill.Info($"All companies members data loaded in {sw.Elapsed.TotalSeconds:.2}s");
+        _sawmill.Info($"All company members data loaded in {sw.Elapsed.TotalSeconds:.2}s");
     }
 
     private void OnConnected(object? sender, NetChannelArgs e)
@@ -55,20 +56,24 @@ public sealed class CompanyManager
         SendCompanyWhitelist(e.Channel);
     }
 
-    private async Task<HashSet<CompanyMemberRecord>> GetCompanyMembers(ProtoId<CompanyPrototype> company)
+    private async Task<HashSet<CompanyMemberRecord>> QueryCompanyMembers(ProtoId<CompanyPrototype> company)
     {
-        var members = await _db.GetCompanyMembers(company);
-        return members.ToHashSet();
+        return (await _db.GetCompanyMembers(company)).ToHashSet();
     }
 
-    public HashSet<CompanyMemberRecord> GetCompanyMembersCached(ProtoId<CompanyPrototype> company)
+    public HashSet<CompanyMemberRecord> GetCompanyMembers(ProtoId<CompanyPrototype> company)
     {
         if (!_companies.TryGetValue(company, out var members))
             return new();
         return members;
     }
 
-    public CompanyMemberRecord? GetCompanyMemberCached(ProtoId<CompanyPrototype> company, NetUserId player)
+    public HashSet<CompanyMemberRecord> GetAllCompanyMembers()
+    {
+        return _companies.Values.SelectMany(v => v).ToHashSet();
+    }
+
+    public CompanyMemberRecord? GetCompanyMember(ProtoId<CompanyPrototype> company, NetUserId player)
     {
         if (!_companies.TryGetValue(company, out var members))
             return null;
@@ -112,26 +117,27 @@ public sealed class CompanyManager
         return member != null && member.Value.Owner;
     }
 
-    public void SetOwner(ProtoId<CompanyPrototype> company, ICommonSession session, bool owner)
+    public bool SetOwner(ProtoId<CompanyPrototype> company, ICommonSession session, bool owner)
     {
-        var cached = GetCompanyMemberCached(company, session.UserId);
+        var cached = GetCompanyMember(company, session.UserId);
 
         if (cached is not { } member)
-            return;
+            return false;
 
         if (owner == member.Owner)
-            return;
+            return true;
 
         _db.SetCompanyOwner(company, session.UserId, owner);
 
         _companies[company].RemoveWhere(w => w.PlayerUserId == session.UserId);
         member.Owner = owner; // company member is struct so we got a copy here
         _companies[company].Add(member);
+        return true;
     }
 
     public bool IsMember(NetUserId player, ProtoId<CompanyPrototype> company)
     {
-        var member = GetCompanyMemberCached(company, player);
+        var member = GetCompanyMember(company, player);
         return member != null;
     }
 
@@ -145,7 +151,7 @@ public sealed class CompanyManager
             SendCompanyWhitelist(session.Channel);
     }
 
-    public HashSet<ProtoId<CompanyPrototype>> GetPlayerCompaniesCached(NetUserId player)
+    public HashSet<ProtoId<CompanyPrototype>> GetPlayerCompanies(NetUserId player)
     {
         var res = new HashSet<ProtoId<CompanyPrototype>>();
 
@@ -163,7 +169,7 @@ public sealed class CompanyManager
     {
         var msg = new MsgCompanyWhitelist
         {
-            Whitelist = GetPlayerCompaniesCached(player.UserId)
+            Whitelist = GetPlayerCompanies(player.UserId)
         };
 
         _net.ServerSendMessage(msg, player);

@@ -28,9 +28,10 @@ public sealed class CompanyCommand : ToolshedCommand
             return;
         }
 
-        if (ctx.Session != null && !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist) && !_company.IsOwner(ctx.Session, company))
+        if (ctx.Session == null
+            || !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist)
+                && !_company.IsOwner(ctx.Session, company)) // owner can add members
         {
-
             ctx.WriteLine(Loc.GetString("cmd-company-not-enough-permissions"));
             return;
         }
@@ -59,20 +60,16 @@ public sealed class CompanyCommand : ToolshedCommand
         [CommandInvocationContext] IInvocationContext ctx,
         [CommandArgument] ICommonSession session)
     {
-        if (ctx.Session != null && !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist))
+        if (ctx.Session == null
+            || !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist)
+                && ctx.Session != session) // allow looking at own companies
         {
-
             ctx.WriteLine(Loc.GetString("cmd-company-not-enough-permissions"));
             return;
         }
 
         var guid = session.UserId;
-        var whitelists = _company.GetPlayerCompaniesCached(guid);
-        if (whitelists.Count == 0)
-        {
-            ctx.WriteLine(Loc.GetString("cmd-company-playercompanies-whitelisted-none", ("player", session.Name)));
-            return;
-        }
+        var whitelists = _company.GetPlayerCompanies(guid);
 
         ctx.WriteLine(Loc.GetString("cmd-company-playercompanies-whitelisted-for",
             ("player", session.Name),
@@ -90,19 +87,16 @@ public sealed class CompanyCommand : ToolshedCommand
             return;
         }
 
-        if (ctx.Session != null && !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist) && !_company.IsOwner(ctx.Session, company))
+        if (ctx.Session == null
+            || !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist)
+                && !_company.IsMember(ctx.Session.UserId, company)) // members can see other members
         {
 
             ctx.WriteLine(Loc.GetString("cmd-company-not-enough-permissions"));
             return;
         }
 
-        var whitelisted = _company.GetCompanyMembersCached(company);
-        if (whitelisted.Count == 0)
-        {
-            ctx.WriteLine(Loc.GetString("cmd-company-members-whitelisted-none", ("company", company)));
-            return;
-        }
+        var whitelisted = _company.GetCompanyMembers(company);
 
         var members = whitelisted.Where(w => !w.Owner).Select(m => m.LastSeenUserName);
         var owners = whitelisted.Where(w => w.Owner).Select(m => m.LastSeenUserName);
@@ -127,10 +121,22 @@ public sealed class CompanyCommand : ToolshedCommand
             return;
         }
 
-        if (ctx.Session != null && !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist))
+        // only admins can set owner
+        if (ctx.Session == null
+            || !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist))
         {
 
             ctx.WriteLine(Loc.GetString("cmd-company-not-enough-permissions"));
+            return;
+        }
+
+        // check if we're trying to owner a non-member
+        if (!_company.IsMember(ctx.Session.UserId, company))
+        {
+            ctx.WriteLine(Loc.GetString("cmd-company-was-not-whitelisted",
+                ("player", session.Name),
+                ("companyId", company.Id),
+                ("companyName", companyPrototype.Name)));
             return;
         }
 
@@ -150,7 +156,9 @@ public sealed class CompanyCommand : ToolshedCommand
             return;
         }
 
-        if (ctx.Session != null && !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist) && !_company.IsOwner(ctx.Session, company))
+        if (ctx.Session == null
+            || !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist)
+                && !_company.IsOwner(ctx.Session, company)) // owner can remove members
         {
 
             ctx.WriteLine(Loc.GetString("cmd-company-not-enough-permissions"));
@@ -162,7 +170,7 @@ public sealed class CompanyCommand : ToolshedCommand
 
         if (!isWhitelisted)
         {
-            ctx.WriteLine(Loc.GetString("cmd-company-memberremove-was-not-whitelisted",
+            ctx.WriteLine(Loc.GetString("cmd-company-was-not-whitelisted",
                 ("player", session.Name),
                 ("companyId", company.Id),
                 ("companyName", companyPrototype.Name)));

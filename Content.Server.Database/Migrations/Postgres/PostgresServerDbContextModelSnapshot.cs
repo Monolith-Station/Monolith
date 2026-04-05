@@ -581,22 +581,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("blacklist", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.CompanyMember", b =>
-                {
-                    b.Property<Guid>("PlayerUserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("player_user_id");
-
-                    b.Property<string>("CompanyId")
-                        .HasColumnType("text")
-                        .HasColumnName("company_id");
-
-                    b.HasKey("PlayerUserId", "CompanyId")
-                        .HasName("PK_company_members");
-
-                    b.ToTable("company_members", (string)null);
-                });
-
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Property<int>("Id")
@@ -1696,19 +1680,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Profile");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.CompanyMember", b =>
-                {
-                    b.HasOne("Content.Server.Database.Player", "Player")
-                        .WithMany("CompanyMembers")
-                        .HasForeignKey("PlayerUserId")
-                        .HasPrincipalKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_company_members_player_player_user_id");
-
-                    b.Navigation("Player");
-                });
-
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.HasOne("Content.Server.Database.Server", "Server")
@@ -1737,7 +1708,7 @@ namespace Content.Server.Database.Migrations.Postgres
 
                             b1.HasKey("ConnectionLogId");
 
-                            b1.ToTable("connection_log");
+                            b1.ToTable("connection_log", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("ConnectionLogId")
@@ -1782,7 +1753,7 @@ namespace Content.Server.Database.Migrations.Postgres
 
                             b1.HasKey("PlayerId");
 
-                            b1.ToTable("player");
+                            b1.ToTable("player", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("PlayerId")
@@ -1905,7 +1876,7 @@ namespace Content.Server.Database.Migrations.Postgres
 
                             b1.HasKey("ServerBanId");
 
-                            b1.ToTable("server_ban");
+                            b1.ToTable("server_ban", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("ServerBanId")
@@ -1982,7 +1953,7 @@ namespace Content.Server.Database.Migrations.Postgres
 
                             b1.HasKey("ServerRoleBanId");
 
-                            b1.ToTable("server_role_ban");
+                            b1.ToTable("server_role_ban", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("ServerRoleBanId")
@@ -2108,8 +2079,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("AdminWatchlistsLastEdited");
 
                     b.Navigation("AdminWatchlistsReceived");
-
-                    b.Navigation("CompanyMembers");
 
                     b.Navigation("JobWhitelists");
                 });

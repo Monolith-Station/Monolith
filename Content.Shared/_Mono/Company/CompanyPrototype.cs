@@ -13,15 +13,6 @@ public sealed partial class CompanyPrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     /// <summary>
-    /// The form / type of company ("type" is a bad word).
-    /// Assign "Neutral"
-    /// Assign "Protagonist"
-    /// Assign "Antagonist"
-    /// </summary>
-    [DataField(required: true)]
-    public CompanyForm Form { get; private set; } = default!;
-
-    /// <summary>
     /// The name of the company.
     /// </summary>
     [DataField(required: true)]
@@ -55,11 +46,4 @@ public sealed partial class CompanyPrototype : IPrototype
     /// </summary>
     [DataField]
     public string? Image { get; private set; }
-}
-
-public enum CompanyForm
-{
-    Neutral,
-    Protagonist,
-    Antagonist
 }

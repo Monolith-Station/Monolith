@@ -15,8 +15,8 @@ using NpgsqlTypes;
 namespace Content.Server.Database.Migrations.Postgres
 {
     [DbContext(typeof(PostgresServerDbContext))]
-    [Migration("20260326150847_CompanyMembers")]
-    partial class CompanyMembers
+    [Migration("20260405143404_CompanyMembers2")]
+    partial class CompanyMembers2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -593,6 +593,10 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Property<string>("CompanyId")
                         .HasColumnType("text")
                         .HasColumnName("company_id");
+
+                    b.Property<bool>("Owner")
+                        .HasColumnType("boolean")
+                        .HasColumnName("owner");
 
                     b.HasKey("PlayerUserId", "CompanyId")
                         .HasName("PK_company_members");

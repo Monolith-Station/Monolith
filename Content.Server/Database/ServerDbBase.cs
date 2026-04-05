@@ -1992,6 +1992,22 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             });
         }
 
+        public async Task<IEnumerable<CompanyMemberRecord>> GetAllCompanyMembers(CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+            var members = await db.DbContext.CompanyMembers
+                .Include(c => c.Player)
+                .ToListAsync(cancel);
+
+            return members.Select(m => new CompanyMemberRecord()
+            {
+                Company = m.CompanyId,
+                Owner = m.Owner,
+                PlayerUserId = m.PlayerUserId,
+                LastSeenUserName = m.Player.LastSeenUserName,
+            });
+        }
+
         public async Task<CompanyMemberRecord?> GetCompanyMember(ProtoId<CompanyPrototype> company, Guid player, CancellationToken cancel)
         {
             await using var db = await GetDb(cancel);
@@ -2017,7 +2033,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         {
             await using var db = await GetDb();
             await db.DbContext.CompanyMembers
-                .Where(w => w.CompanyId == company)
+                .Where(w => w.CompanyId == company.Id)
                 .Where(w => w.PlayerUserId == player)
                 .ExecuteUpdateAsync(setters => setters.SetProperty(m => m.Owner, owner));
         }

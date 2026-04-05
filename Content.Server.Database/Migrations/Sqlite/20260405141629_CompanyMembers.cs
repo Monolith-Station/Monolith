@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Content.Server.Database.Migrations.Postgres
+namespace Content.Server.Database.Migrations.Sqlite
 {
     /// <inheritdoc />
     public partial class CompanyMembers : Migration
@@ -15,8 +15,9 @@ namespace Content.Server.Database.Migrations.Postgres
                 name: "company_members",
                 columns: table => new
                 {
-                    player_user_id = table.Column<Guid>(type: "uuid", nullable: false),
-                    company_id = table.Column<string>(type: "text", nullable: false)
+                    player_user_id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    company_id = table.Column<string>(type: "TEXT", nullable: false),
+                    owner = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
