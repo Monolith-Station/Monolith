@@ -4,7 +4,7 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/30/2026 15:30:56
+  time: 04/05/2026 13:19:51
   entityCount: 1175
 maps: []
 grids:
@@ -124,10 +124,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        Smoke: []
-        Kudzu: []
         MetalFoam: []
+        Kudzu: []
+        Smoke: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.35
     - type: GridPathfinding
@@ -517,6 +517,7 @@ entities:
     - type: RadiationGridResistance
     - type: ShipGridLock
       locked: False
+    - type: ThermalSignature
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -689,7 +690,7 @@ entities:
           - SpaceArtilleryLoad
 - proto: AmmoLoaderSmall
   entities:
-  - uid: 64
+  - uid: 28
     components:
     - type: Transform
       pos: 2.5,9.5
@@ -701,37 +702,37 @@ entities:
           - SpaceArtilleryLoad
 - proto: APCBasic
   entities:
-  - uid: 28
+  - uid: 29
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -0.5,19.5
       parent: 1
-  - uid: 29
+  - uid: 30
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -3.5,13.5
       parent: 1
-  - uid: 30
+  - uid: 31
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,5.5
       parent: 1
-  - uid: 31
+  - uid: 32
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 4.5,7.5
       parent: 1
-  - uid: 32
+  - uid: 33
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,11.5
       parent: 1
-  - uid: 33
+  - uid: 34
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -739,32 +740,32 @@ entities:
       parent: 1
 - proto: AtmosDeviceFanDirectional
   entities:
-  - uid: 34
+  - uid: 35
     components:
     - type: Transform
       pos: 0.5,-2.5
       parent: 1
-  - uid: 35
+  - uid: 36
     components:
     - type: Transform
       pos: 1.5,-2.5
       parent: 1
 - proto: Autolathe
   entities:
-  - uid: 36
+  - uid: 37
     components:
     - type: Transform
       pos: 4.5,10.5
       parent: 1
 - proto: BlastDoor
   entities:
-  - uid: 37
+  - uid: 38
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,16.5
       parent: 1
-  - uid: 38
+  - uid: 39
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -772,7 +773,7 @@ entities:
       parent: 1
 - proto: ButtonFrameCaution
   entities:
-  - uid: 39
+  - uid: 40
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -780,7 +781,7 @@ entities:
       parent: 1
 - proto: ButtonFrameCautionSecurity
   entities:
-  - uid: 40
+  - uid: 41
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -788,117 +789,117 @@ entities:
       parent: 1
 - proto: CableApcExtension
   entities:
-  - uid: 41
+  - uid: 42
     components:
     - type: Transform
       pos: 0.5,-0.5
       parent: 1
-  - uid: 42
+  - uid: 43
     components:
     - type: Transform
       pos: 1.5,-1.5
       parent: 1
-  - uid: 43
+  - uid: 44
     components:
     - type: Transform
       pos: 0.5,-1.5
       parent: 1
-  - uid: 44
-    components:
-    - type: Transform
-      pos: -1.5,5.5
-      parent: 1
   - uid: 45
     components:
     - type: Transform
-      pos: -0.5,5.5
+      pos: -1.5,5.5
       parent: 1
   - uid: 46
     components:
     - type: Transform
-      pos: 0.5,5.5
+      pos: -0.5,5.5
       parent: 1
   - uid: 47
     components:
     - type: Transform
-      pos: 0.5,4.5
+      pos: 0.5,5.5
       parent: 1
   - uid: 48
     components:
     - type: Transform
-      pos: 0.5,3.5
+      pos: 0.5,4.5
       parent: 1
   - uid: 49
     components:
     - type: Transform
-      pos: 0.5,2.5
+      pos: 0.5,3.5
       parent: 1
   - uid: 50
     components:
     - type: Transform
-      pos: 0.5,1.5
+      pos: 0.5,2.5
       parent: 1
   - uid: 51
     components:
     - type: Transform
-      pos: 0.5,0.5
+      pos: 0.5,1.5
       parent: 1
   - uid: 52
     components:
     - type: Transform
-      pos: 1.5,3.5
+      pos: 0.5,0.5
       parent: 1
   - uid: 53
     components:
     - type: Transform
-      pos: 2.5,3.5
+      pos: 1.5,3.5
       parent: 1
   - uid: 54
     components:
     - type: Transform
-      pos: 3.5,3.5
+      pos: 2.5,3.5
       parent: 1
   - uid: 55
     components:
     - type: Transform
-      pos: -0.5,3.5
+      pos: 3.5,3.5
       parent: 1
   - uid: 56
     components:
     - type: Transform
-      pos: -1.5,3.5
+      pos: -0.5,3.5
       parent: 1
   - uid: 57
     components:
     - type: Transform
-      pos: -1.5,5.5
+      pos: -1.5,3.5
       parent: 1
   - uid: 58
     components:
     - type: Transform
-      pos: -1.5,6.5
+      pos: -1.5,5.5
       parent: 1
   - uid: 59
     components:
     - type: Transform
-      pos: -1.5,7.5
+      pos: -1.5,6.5
       parent: 1
   - uid: 60
     components:
     - type: Transform
-      pos: -2.5,7.5
+      pos: -1.5,7.5
       parent: 1
   - uid: 61
     components:
     - type: Transform
-      pos: -3.5,7.5
+      pos: -2.5,7.5
       parent: 1
   - uid: 62
     components:
     - type: Transform
-      pos: -4.5,7.5
+      pos: -3.5,7.5
       parent: 1
   - uid: 63
+    components:
+    - type: Transform
+      pos: -4.5,7.5
+      parent: 1
+  - uid: 64
     components:
     - type: Transform
       pos: -4.5,8.5
@@ -5601,6 +5602,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,13.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        13:
+        - - Pressed
+          - DoorBolt
+        7:
+        - - Pressed
+          - DoorBolt
   - uid: 810
     components:
     - type: Transform
@@ -5609,10 +5618,10 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        37:
+        38:
         - - Pressed
           - Toggle
-        38:
+        39:
         - - Pressed
           - Toggle
 - proto: SMESAdvanced
