@@ -4,7 +4,7 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/05/2026 00:10:01
+  time: 04/05/2026 00:20:53
   entityCount: 814
 maps: []
 grids:
@@ -75,8 +75,8 @@ entities:
       spreadQueues:
         Smoke: []
         Kudzu: []
-        Puddle: []
         MetalFoam: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -3322,15 +3322,21 @@ entities:
   - uid: 175
     components:
     - type: Transform
+      anchored: True
       pos: 1.5,-1.5
       parent: 1
+    - type: Physics
+      bodyType: Static
 - proto: OxygenCanister
   entities:
   - uid: 515
     components:
     - type: Transform
+      anchored: True
       pos: 0.5,-0.5
       parent: 1
+    - type: Physics
+      bodyType: Static
 - proto: PoweredDimSmallLight
   entities:
   - uid: 496
