@@ -390,6 +390,11 @@ public sealed class NPCUtilitySystem : EntitySystem
                 return _statusEffectsSystem.HasStatusEffect(targetUid, "Stun") ? 1f : 0f;
             }
             // End Frontier
+            // Mono
+            case TargetIsAliveOrNACon:
+            {
+                return !TryComp<MobStateComponent>(targetUid, out var mobState) || _mobState.IsAlive(targetUid, mobState) ? 1f : 0f;
+            }
             default:
                 throw new NotImplementedException();
         }
