@@ -19394,3 +19394,41 @@ Entries:
   id: 2140
   time: '2026-04-05T14:21:52.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3489
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Scythe burst RPS decreased fom 7.5 RPS to 4 RPS
+  id: 2141
+  time: '2026-04-05T18:03:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3688
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Wyvern and other t2 ADS ships (razor-N and Zenith-E) are rarer.
+  id: 2142
+  time: '2026-04-05T18:23:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3691
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaks and standardizes shipgun HPs. Guns of the same class and usage
+        have similar HP totals. 
+    - type: Tweak
+      message: >-
+        Overall decrease shipgun HP to be more reasonable but still somewhat
+        tanky.
+    - type: Fix
+      message: Increased some undersized shipgun hitboxes.
+  id: 2143
+  time: '2026-04-05T18:33:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3583
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Shuttle consoles no longer automatically swap to anchor dampening mode
+        when depowered.
+  id: 2144
+  time: '2026-04-05T18:42:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3706

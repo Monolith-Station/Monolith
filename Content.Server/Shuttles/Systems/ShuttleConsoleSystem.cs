@@ -202,7 +202,6 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     {
         DockingInterfaceState? dockState = null;
         UpdateState(uid, ref dockState);
-        _shuttle.NfSetPowered(uid, component, args.Powered); // Frontier
 
         // Handle job slots when power changes
         HandleJobSlotsOnPowerChange(uid, component, args.Powered);

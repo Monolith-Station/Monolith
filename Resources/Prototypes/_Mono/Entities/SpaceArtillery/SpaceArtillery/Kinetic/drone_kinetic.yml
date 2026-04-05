@@ -1,7 +1,9 @@
 - type: entity
   id: WeaponTurretShard
   name: Light mass driver "Shard"
-  parent: BallisticArtillery
+  parent:
+  - BallisticArtillery
+  - BallisticArtilleryTier2HP
   description: Ultralight mass driver weapon of unknown origin, designated "Shard" during initial reverse engineering attempts. Light damage, but long range and little upkeep to mount on ships.
   suffix: DRONE ONLY
   components:
@@ -44,17 +46,6 @@
   - type: ApcPowerReceiver
     powerLoad: 1500
   - type: Actions
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 6000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: RadarBlip
     radarColor: "#0080FF"
     scale: 1.5
@@ -67,7 +58,9 @@
 - type: entity
   id: WeaponTurretPinhole
   name: Pinhole-class railgun
-  parent: BallisticArtillery
+  parent:
+  - BallisticArtillery
+  - BallisticArtilleryTier4HP
   description: Mass driver weapon of unknown origin. Reverse engineering attempts have indicated extremely high projectile velocity and high-mass projectiles with unresolved ship-pushing payload.
   suffix: DRONE ONLY
   components:
@@ -111,17 +104,6 @@
     autoRecharge: true
     autoRechargeRate: 8000
   - type: Actions
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 10000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: RadarBlip
     radarColor: "#4080FF"
     scale: 2.5
