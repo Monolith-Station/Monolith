@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/05/2026 00:20:53
-  entityCount: 814
+  time: 04/05/2026 11:28:17
+  entityCount: 816
 maps: []
 grids:
 - 1
@@ -73,10 +73,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
+        Puddle: []
+        MetalFoam: []
         Smoke: []
         Kudzu: []
-        MetalFoam: []
-        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -2349,6 +2349,17 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
+- proto: ComputerWallmountStationRecords
+  entities:
+  - uid: 815
+    components:
+    - type: Transform
+      pos: -0.5,12.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
 - proto: CrateAmmoSecureMercenary
   entities:
   - uid: 498
@@ -3337,6 +3348,48 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
+- proto: PosterContrabandC20r
+  entities:
+  - uid: 647
+    components:
+    - type: Transform
+      pos: -6.5,-0.5
+      parent: 1
+- proto: PosterContrabandHighEffectEngineering
+  entities:
+  - uid: 643
+    components:
+    - type: Transform
+      pos: -3.5,-3.5
+      parent: 1
+- proto: PosterContrabandMissingGloves
+  entities:
+  - uid: 644
+    components:
+    - type: Transform
+      pos: -2.5,3.5
+      parent: 1
+- proto: PosterContrabandPunchShit
+  entities:
+  - uid: 646
+    components:
+    - type: Transform
+      pos: -0.5,8.5
+      parent: 1
+- proto: PosterContrabandRevolver
+  entities:
+  - uid: 645
+    components:
+    - type: Transform
+      pos: -3.5,12.5
+      parent: 1
+- proto: PosterLegitSafetyInternals
+  entities:
+  - uid: 816
+    components:
+    - type: Transform
+      pos: -1.5,17.5
+      parent: 1
 - proto: PoweredDimSmallLight
   entities:
   - uid: 496
@@ -3879,33 +3932,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -6.5,4.5
-      parent: 1
-- proto: RandomPosterContraband
-  entities:
-  - uid: 643
-    components:
-    - type: Transform
-      pos: -1.5,-3.5
-      parent: 1
-  - uid: 644
-    components:
-    - type: Transform
-      pos: -2.5,2.5
-      parent: 1
-  - uid: 645
-    components:
-    - type: Transform
-      pos: -0.5,8.5
-      parent: 1
-  - uid: 646
-    components:
-    - type: Transform
-      pos: -1.5,17.5
-      parent: 1
-  - uid: 647
-    components:
-    - type: Transform
-      pos: -6.5,-0.5
       parent: 1
 - proto: RustedThruster
   entities:
