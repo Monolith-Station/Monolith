@@ -30,6 +30,9 @@ public sealed partial class ReflectComponent : Component
     public SoundSpecifier? SoundOnReflect = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/laser_sear_wall.ogg");
 
     // WD START
+    /// <summary>
+    /// How much damage does the reflecting item take on reflect?
+    /// </summary>
     [DataField, AutoNetworkedField]
     public float DamageOnReflectModifier;
     // WD END

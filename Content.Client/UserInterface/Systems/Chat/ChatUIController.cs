@@ -44,7 +44,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.UserInterface.Systems.Chat;
 
-public sealed class ChatUIController : UIController
+public sealed partial class ChatUIController : UIController
 {
     [Dependency] private readonly IClientAdminManager _admin = default!;
     [Dependency] private readonly IChatManager _manager = default!;
@@ -248,6 +248,8 @@ public sealed class ChatUIController : UIController
 
         _config.OnValueChanged(CCVars.ChatWindowOpacity, OnChatWindowOpacityChanged);
 
+        InitializeHighlights();
+
     }
 
     public void OnScreenLoad()
@@ -434,6 +436,7 @@ public sealed class ChatUIController : UIController
     private void OnAttachedChanged(EntityUid uid)
     {
         UpdateChannelPermissions();
+        UpdateAutoFillHighlights();
     }
 
     private void AddSpeechBubble(ChatMessage msg, SpeechBubble.SpeechType speechType)
@@ -877,6 +880,11 @@ public sealed class ChatUIController : UIController
             }
         }
 
+        foreach (var highlight in _highlights)
+        {
+            msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, highlight, "color", _highlightsColor);
+        }
+
         // Log all incoming chat to repopulate when filter is un-toggled
         if (!msg.HideChat)
         {
@@ -912,7 +920,6 @@ public sealed class ChatUIController : UIController
             case ChatChannel.Dead:
                 if (_ghost is not {IsGhost: true})
                     break;
-
                 AddSpeechBubble(msg, SpeechBubble.SpeechType.Say);
                 break;
 

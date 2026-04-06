@@ -1,0 +1,168 @@
+# base stats for faction borgs
+
+- type: entity
+  parent: BaseBorgChassis
+  id: BaseFactionBorgChassis
+  abstract: true
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      300: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4.5
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      75: 0.7
+      150: 0.5
+  - type: Damageable
+    damageModifierSet: FactionBorgChassis
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+         damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - borg_module
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+
+- type: entity
+  id: BaseBorgChassisTSF
+  parent: BaseFactionBorgChassis
+  abstract: true
+  components:
+  - type: NpcFactionMember
+    factions:
+    - TSFMC
+  - type: Access
+    tags:
+    - Security
+    - Armory
+    - Sergeant
+    - Bailiff
+    - Medical
+    - Chemistry
+    - TsfmcEngineering
+    - Maintenance
+    - External
+    - Command
+    - Brig
+    - Mercenary
+    - Captain
+  - type: AccessReader
+    access: [["Security"], ["Armory"], ["Sergeant"], ["Bailiff"], ["TsfmcEngineering"], ["Brig"]]
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Nfsd
+    - Traffic
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Nfsd
+    - Traffic
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    - SolCommon
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+    - SolCommon
+  - type: CollectiveMind
+    channels:
+    - Binary
+    defaultChannel: Binary
+  - type: ShowSyndicateIcons
+  - type: MovementAlwaysTouching
+  - type: Speech
+    speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
+  - type: IonStormTarget
+    chance: 0.1
+  - type: ShowJobIcons
+  - type: SiliconLawProvider
+    laws: TSFMCBorgLawset
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+
+- type: entity
+  id: BaseBorgChassisPDV
+  parent: BaseFactionBorgChassis
+  abstract: true
+  components:
+  - type: NpcFactionMember
+    factions:
+    - PirateNF
+  - type: Access
+    tags:
+    - Pirate
+    - PDVCommand
+    - GrandVizier
+    - Mercenary
+  - type: AccessReader
+    access: [["GrandVizier"]]
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Freelance
+    - Traffic
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Freelance
+    - Traffic
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    - Freespeak
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+    - Freespeak
+  - type: CollectiveMind
+    channels:
+    - Binary
+    defaultChannel: Binary
+  - type: ShowSyndicateIcons
+  - type: MovementAlwaysTouching
+  - type: Speech
+    speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
+  - type: IonStormTarget
+    chance: 0.1
+  - type: ShowJobIcons
+  - type: SiliconLawProvider
+    laws: PDVLawset
