@@ -204,9 +204,9 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
-  - type: Construction #Constructible art
+  - type: Construction
     graph: RepairableTurret
-    node: repairTurret #Mono end
+    node: repairTurret
 
 - type: entity
   parent: WeaponTurretHeavyRIPBase
