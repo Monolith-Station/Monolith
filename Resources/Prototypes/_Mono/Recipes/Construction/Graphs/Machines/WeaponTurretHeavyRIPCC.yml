@@ -1,7 +1,9 @@
 #WeaponTurretHeavyRIPCC
 - type: constructionGraph
   id: RepairableTurret
-  start: breakTurret
+  start: start
+  graph:
+  - node: start
   graph:
   - node: breakTurret
     entity: WeaponTurretRepairableBroken
