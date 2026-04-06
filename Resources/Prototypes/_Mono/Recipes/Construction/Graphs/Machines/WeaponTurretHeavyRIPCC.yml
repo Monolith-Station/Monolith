@@ -4,7 +4,6 @@
   start: start
   graph:
   - node: start
-  graph:
   - node: breakTurret
     entity: WeaponTurretRepairableBroken
     edges:
