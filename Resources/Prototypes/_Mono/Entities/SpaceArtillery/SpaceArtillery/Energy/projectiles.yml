@@ -323,7 +323,7 @@
     scale: 2.5
     shape: triangle
   - type: TimedDespawn
-    lifetime: 10
+    lifetime: 6
   - type: PointLight
     radarColor: "#ffffff"
   - type: ExplodeOnTrigger
