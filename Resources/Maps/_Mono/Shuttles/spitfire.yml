@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/26/2026 03:26:36
-  entityCount: 266
+  time: 04/06/2026 21:13:02
+  entityCount: 260
 maps: []
 grids:
 - 1
@@ -78,8 +78,8 @@ entities:
       spreadQueues:
         MetalFoam: []
         Kudzu: []
-        Smoke: []
         Puddle: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -309,21 +309,6 @@ entities:
     - type: Transform
       pos: 0.5,-3.5
       parent: 1
-- proto: AmmoLoaderSmall
-  entities:
-  - uid: 25
-    components:
-    - type: Transform
-      pos: 1.5,1.5
-      parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        22:
-        - - AmmoLoaderLoad
-          - SpaceArtilleryLoad
-        23:
-        - - AmmoLoaderLoad
-          - SpaceArtilleryLoad
 - proto: APCBasic
   entities:
   - uid: 124
@@ -1141,12 +1126,6 @@ entities:
     - type: Transform
       pos: 0.5,5.5
       parent: 1
-  - uid: 98
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,1.5
-      parent: 1
 - proto: Poweredlight
   entities:
   - uid: 112
@@ -1193,14 +1172,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -1.5,-1.5
-      parent: 1
-- proto: Rack
-  entities:
-  - uid: 93
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,1.5
       parent: 1
 - proto: RadarEdgeMarkerDiagonal
   entities:
@@ -1478,6 +1449,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,7.5
       parent: 1
+- proto: SecurityTechFab
+  entities:
+  - uid: 25
+    components:
+    - type: Transform
+      pos: 1.5,1.5
+      parent: 1
 - proto: SubstationWallBasic
   entities:
   - uid: 123
@@ -1493,30 +1471,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-1.5
-      parent: 1
-- proto: SunnyMagazine
-  entities:
-  - uid: 42
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5491178,1.5262753
-      parent: 1
-  - uid: 64
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.53036785,1.5075252
-      parent: 1
-  - uid: 126
-    components:
-    - type: Transform
-      pos: 0.52740705,1.7467515
-      parent: 1
-  - uid: 127
-    components:
-    - type: Transform
-      pos: 0.5086571,1.7467515
       parent: 1
 - proto: TableReinforced
   entities:
@@ -1874,7 +1828,7 @@ entities:
       parent: 1
 - proto: WeaponTurretM220
   entities:
-  - uid: 45
+  - uid: 42
     components:
     - type: Transform
       rot: 3.141592653589793 rad
