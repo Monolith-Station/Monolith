@@ -122,14 +122,14 @@
   position: 20, -3
 
 - type: technology
-  id: PDVBasicBorgModule
-  name: research-technology-pdv-basic-module
-  entityIcon: BorgModulePDVStandardWeapon
+  id: PDVBasicBorg
+  name: research-technology-pdv-basic-cyborg
+  entityIcon: BorgChipPDV
   discipline: RogueGear
   tier: 1
   cost: 10000
   recipeUnlocks:
-  - BasicBorgCombatModulePDV
+  - BasicBorgPDV
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: 20, -4

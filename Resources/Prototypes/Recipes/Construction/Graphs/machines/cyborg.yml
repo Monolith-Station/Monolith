@@ -5,7 +5,7 @@
   - node: start
     entity: CyborgEndoskeleton
     edges:
-    - to: cyborg
+    - to: finish # mono - cyborg
       steps:
       - assemblyId: generic
         guideString: borg-construction-guide-string
@@ -31,7 +31,40 @@
 
       - tool: Screwing
         doAfter: 0.5
+  #Mono start      
+  - node: finish
+    edges:
+    - to: cyborg
+      steps:
+      - tool: Welding
+        doAfter: 1
+    - to: tsfcyborg
+      steps:
+      - tag: CyborgChipTSF
+        name: TSF Cyborg Chip
+        icon:
+          sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+          state: tsf
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
+    - to: pdvcyborg
+      steps:
+      - tag: CyborgChipPDV
+        name: PDV Cyborg Chip
+        icon:
+          sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+          state: pdv
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
+  
+  - node: tsfcyborg
+    entity: BorgChassisSelectableTSF
 
+  - node: pdvcyborg
+    entity: BorgChassisSelectablePDV
+  #Mono End
   - node: cyborg
     entity: BorgChassisSelectable
 

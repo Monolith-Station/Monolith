@@ -21,6 +21,20 @@
 # TSF Modules
 
 - type: entity
+  id: BorgChipTSF
+  parent: BaseItem
+  name: TSFMC Cyborg Chip
+  description: A modification chip to transform a civilian cyborg during the last stage of construction.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: tsf
+  - type: Tag
+    tags:
+    - CyborgChipTSF
+
+- type: entity
   id: BorgModuleTSFStandardWeapon
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseFactionGearTSFT2 ]
   name: TSFMC weapon cyborg module
@@ -75,6 +89,20 @@
     icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: tsfadvanced-weapon-module }
 
 # PDV Modules
+
+- type: entity
+  id: BorgChipPDV
+  parent: BaseItem
+  name: PDV Cyborg Chip
+  description: A modification chip to transform a civilian cyborg during the last stage of construction.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: pdv
+  - type: Tag
+    tags:
+    - CyborgChipPDV
 
 - type: entity
   id: BorgModulePDVStandardWeapon
