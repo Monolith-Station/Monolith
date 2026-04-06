@@ -181,4 +181,11 @@ public sealed partial class MonoCVars
         CVarDef.Create("mono.detection.visual_multiplier", 16f, CVar.ARCHIVE | CVar.REPLICATED);
 
     #endregion
+
+    #region Misc
+
+    public static readonly CVarDef<bool> CompanyWhitelist =
+        CVarDef.Create("mono.company_whitelist", true, CVar.ARCHIVE | CVar.REPLICATED);
+
+    #endregion
 }

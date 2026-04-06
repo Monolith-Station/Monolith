@@ -303,7 +303,10 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void OnSpawnTriggered(EntityUid uid, TriggerOnSpawnComponent component, MapInitEvent args)
         {
-            Trigger(uid);
+            if (component.timerOnly == true)
+                StartTimer(uid,uid);
+            else
+                Trigger(uid);
         }
 
         private void OnActivate(EntityUid uid, TriggerOnActivateComponent component, ActivateInWorldEvent args)

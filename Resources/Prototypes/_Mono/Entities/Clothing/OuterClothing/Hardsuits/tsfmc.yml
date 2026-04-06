@@ -72,7 +72,7 @@
   parent: [ClothingOuterHardsuitBase, BaseFactionGearTSFT3]
   id: ClothingOuterHardsuitM86
   name: M86 Mk.3(R) hardsuit
-  description: An armored hardsuit, designed to be an upgrade for the M82 series. The extra armor gives it some more weight to move around.
+  description: An armored hardsuit, designed to be an upgrade for the M82 series. The extra general armor gives it significant weight to move around.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/m86.rsi
@@ -84,7 +84,7 @@
     highPressureMultiplier: 0.03
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.3
   - type: Armor
     modifiers:
       coefficients:
@@ -92,11 +92,11 @@
         Slash: 0.4
         Piercing: 0.4
         Shock: 0.8
-        Heat: 0.8
+        Heat: 0.5
         Radiation: 0.5
         Caustic: 0.6
   - type: StaminaDamageResistance
-    coefficient: 0.4
+    coefficient: 0.2
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -117,7 +117,7 @@
   parent: ClothingOuterHardsuitBaseNFNfsd
   id: ClothingOuterHardsuitNfsdSheriff
   name: TSFMC M92 colonel tacsuit
-  description: A heavy, gilded tacsuit, capable of taking a lot of physical damage. Usually assigned to commanding officers of TSF flagships.
+  description: A heavy, gilded tacsuit, stripped of its shield but now capable of taking a lot of physical damage. Usually assigned to commanding officers of TSF flagships.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/tsfmc_colonel.rsi # Mono
@@ -157,7 +157,7 @@
   parent: [ClothingOuterHardsuitJuggernaut, EnergyShieldClothing, BaseFactionGearTSFT3 ] # Jugger Suit
   id: ClothingOuterHardsuitNfsdExperimental
   name: TSFMC M92-X tacsuit
-  description: An experimental modification of the M92 tacsuit for spec-ops units of the TSFMC. Durable, and comes with an integrated soft-shield, but at the cost of insulation and heft.
+  description: An experimental modification of the M92 tacsuit for spec-ops units of the TSFMC. Durable, and comes with an integrated soft-shield along with numerous gadgets at the cost of insulation and solid armor.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/tsfmc_experimental.rsi # Mono
@@ -183,7 +183,7 @@
       coefficients:
         Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.5
+        Piercing: 0.6
         Heat: 0.7
         Radiation: 0.5
         Caustic: 0.8
@@ -201,33 +201,33 @@
   - type: Blocking
     passiveBlockModifier:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.7
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
     activeBlockModifier:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.7
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
       flatReductions:
         Heat: 5
         Piercing: 5
-    passiveBlockFraction: 0.8
-    activeBlockFraction: 0.8
+    passiveBlockFraction: 0.6
+    activeBlockFraction: 0.6
     isClothing: true
   - type: Damageable
     damageContainer: Shield
   - type: Battery
-    maxCharge: 100
-    startingCharge: 100
+    maxCharge: 150
+    startingCharge: 150
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 0.1
+    autoRechargeRate: 0.15
   - type: RechargeableBlocking
   - type: UseDelay
-    delay: 20
+    delay: 10
 
 # MARSOC only
 
