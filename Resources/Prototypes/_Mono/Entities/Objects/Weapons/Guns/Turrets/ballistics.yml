@@ -151,7 +151,7 @@
   parent: BallisticTurretHeavyBase
   id: WeaponTurretHeavyRIPBase
   name: heavy ballistic RIP turret
-  description: A variant on the standard heavy balistic turret, firing a barrage of 7.62x51mm RIP ammunition to delete anything unarmored. Chimera hate these.
+  description: A variant on the standard heavy ballistic turret, firing a barrage of 7.62x51mm RIP ammunition to delete anything unarmored. Chimera hate these.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Turrets/heavy_turret_RIP.rsi
@@ -161,6 +161,26 @@
   - type: ProjectileBatteryAmmoProvider
     proto: Bullet762x51mmRIP
     fireCost: 25
+
+# Repairable wrecked state for RIP turrets tasked with anti-spawncamp (making them soft-indestructible)
+
+- type: entity
+  parent: BaseStructure
+  id: WeaponTurretRepairableBroken
+  name: heavy ballistic RIP turret (broken)
+  description: Chimera prefer it like this. It looks like it can be brought back with a bit of welding or nanites.
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+    noRot: true
+    drawdepth: Mobs
+    layers:
+    - state: syndie_broken
+  - type: Construction
+    graph: RepairableTurret
+    node: breakTurret
 
 # Faction Based
 
@@ -172,6 +192,21 @@
   - type: NpcFactionMember
     factions:
     - CC
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+       # TODO: Construction graph
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: breakTurret
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+  - type: Construction #Constructible art
+    graph: RepairableTurret
+    node: repairTurret #Mono end
 
 - type: entity
   parent: WeaponTurretHeavyRIPBase
