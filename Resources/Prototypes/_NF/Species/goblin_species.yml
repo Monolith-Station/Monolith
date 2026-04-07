@@ -2,7 +2,7 @@
 - type: species
   id: Goblin
   name: species-name-goblin
-  roundStart: true
+  roundStart: false # Mono: nuked (genuinely fucking hate this one btw)
   prototype: MobGoblin
   sprites: MobGoblinSprites
   markingLimits: MobGoblinMarkingLimits

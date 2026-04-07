@@ -5,23 +5,23 @@
   children:
   - Arachnid
   - Diona # Note: Frontier changes inside
-  - Dwarf # Note: Frontier changes inside
+#  - Dwarf # Note: Frontier changes inside
   - Human
   - Moth
   - Reptilian # Monolith changes inside
-  - SlimePerson
-  - Vox
-  - Goblin # Frontier
+#  - SlimePerson
+#  - Vox
+#  - Goblin # Frontier
   - Vulpkanin # DeltaV
-  - Harpy # DeltaV
-  - Felinid # DeltaV
-  - Oni # DeltaV
+#  - Harpy # DeltaV
+#  - Felinid # DeltaV
+#  - Oni # DeltaV
   - Chitinid # DeltaV
   - Resomi # Floof
   - Protogen # Mono
   - IPC # EE
-  - Rodentia # DeltaV
-  - Tajaran # Goobstation
+#  - Rodentia # DeltaV
+  - Tajaran # Goobstation, tajarans are basically felinids so removing the felinid guidebook option is smart i think
   - Hydrakin # Monolith/Obelisk
 
 - type: guideEntry
