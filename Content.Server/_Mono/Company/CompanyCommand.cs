@@ -19,45 +19,6 @@ public sealed class CompanyCommand : ToolshedCommand
     [CommandImplementation("addmember")]
     public async void Add(
         [CommandInvocationContext] IInvocationContext ctx,
-        [CommandArgument] ICommonSession session,
-        [CommandArgument] ProtoId<CompanyPrototype> company)
-    {
-        if (!_prototypes.TryIndex(company, out var companyPrototype))
-        {
-            ctx.ReportError(new NotAValidPrototype(company, nameof(CompanyPrototype)));
-            return;
-        }
-
-        if (ctx.Session == null
-            || !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist)
-                && !_company.IsOwner(ctx.Session, company)) // owner can add members
-        {
-            ctx.WriteLine(Loc.GetString("cmd-company-not-enough-permissions"));
-            return;
-        }
-
-        var guid = session.UserId;
-        var isWhitelisted = _company.IsMember(guid, company);
-
-        if (isWhitelisted)
-        {
-            ctx.WriteLine(Loc.GetString("cmd-company-memberadd-already-whitelisted",
-                ("player", session.Name),
-                ("companyId", company.Id),
-                ("companyName", companyPrototype.Name)));
-            return;
-        }
-
-        _company.AddMember(guid, company);
-        ctx.WriteLine(Loc.GetString("cmd-company-memberadd-added",
-            ("player", session.Name),
-            ("companyId", company.Id),
-            ("companyName", companyPrototype.Name)));
-    }
-
-    [CommandImplementation("addmemberbyname")]
-    public async void AddByName(
-        [CommandInvocationContext] IInvocationContext ctx,
         [CommandArgument] string username,
         [CommandArgument] ProtoId<CompanyPrototype> company)
     {
@@ -97,21 +58,21 @@ public sealed class CompanyCommand : ToolshedCommand
     [CommandImplementation("playercompanies")]
     public async void GetPlayerWhitelist(
         [CommandInvocationContext] IInvocationContext ctx,
-        [CommandArgument] ICommonSession session)
+        [CommandArgument] string username)
     {
         if (ctx.Session == null
             || !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist)
-                && ctx.Session != session) // allow looking at own companies
+                && !string.Equals(ctx.Session.Name, username, StringComparison.OrdinalIgnoreCase)) // allow looking at own companies
         {
             ctx.WriteLine(Loc.GetString("cmd-company-not-enough-permissions"));
             return;
         }
 
-        var guid = session.UserId;
-        var whitelists = _company.GetPlayerCompanies(guid);
+        var userId = await _company.GetNetUserIdByNameAsync(username);
+        var whitelists = _company.GetPlayerCompanies(userId.Value);
 
         ctx.WriteLine(Loc.GetString("cmd-company-playercompanies-whitelisted-for",
-            ("player", session.Name),
+            ("player", username),
             ("companies", string.Join(", ", whitelists))));
     }
 
@@ -150,7 +111,7 @@ public sealed class CompanyCommand : ToolshedCommand
     public async void SetOwner(
         [CommandInvocationContext] IInvocationContext ctx,
         [CommandArgument] ProtoId<CompanyPrototype> company,
-        [CommandArgument] ICommonSession session,
+        [CommandArgument] string username,
         [CommandArgument] bool owner
     )
     {
@@ -170,23 +131,24 @@ public sealed class CompanyCommand : ToolshedCommand
         }
 
         // check if we're trying to owner a non-member
-        if (!_company.IsMember(session.UserId, company))
+        var userId = await _company.GetNetUserIdByNameAsync(username);
+        if (!_company.IsMember(userId.Value, company))
         {
             ctx.WriteLine(Loc.GetString("cmd-company-was-not-whitelisted",
-                ("player", session.Name),
+                ("player", username),
                 ("companyId", company.Id),
                 ("companyName", companyPrototype.Name)));
             return;
         }
 
-        _company.SetOwner(company, session, owner);
-        ctx.WriteLine(Loc.GetString("cmd-company-setowner-success", ("player", session.Name), ("status", owner)));
+        _company.SetOwner(company, userId.Value, owner);
+        ctx.WriteLine(Loc.GetString("cmd-company-setowner-success", ("player", username), ("status", owner)));
     }
 
     [CommandImplementation("removemember")]
     public async void Remove(
         [CommandInvocationContext] IInvocationContext ctx,
-        [CommandArgument] ICommonSession session,
+        [CommandArgument] string username,
         [CommandArgument] ProtoId<CompanyPrototype> company)
     {
         if (!_prototypes.TryIndex(company, out var companyPrototype))
@@ -204,21 +166,21 @@ public sealed class CompanyCommand : ToolshedCommand
             return;
         }
 
-        var guid = session.UserId;
-        var isWhitelisted = _company.IsMember(guid, company);
+        var userId = await _company.GetNetUserIdByNameAsync(username);
+        var isWhitelisted = _company.IsMember(userId.Value, company);
 
         if (!isWhitelisted)
         {
             ctx.WriteLine(Loc.GetString("cmd-company-was-not-whitelisted",
-                ("player", session.Name),
+                ("player", username),
                 ("companyId", company.Id),
                 ("companyName", companyPrototype.Name)));
             return;
         }
 
-        await _company.RemoveMember(guid, company);
+        await _company.RemoveMember(userId.Value, company);
         ctx.WriteLine(Loc.GetString("cmd-company-memberremove-removed",
-            ("player", session.Name),
+            ("player", username),
             ("companyId", company.Id),
             ("companyName", companyPrototype.Name)));
     }
