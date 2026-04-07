@@ -56,7 +56,7 @@
 
 - type: entity
   name: advanced jaws of life # Mono
-  parent: JawsOfLife
+  parent: [ BaseFactionGearPDVT1, JawsOfLife ] # Mono
   id: SyndicateJawsOfLife
   description: Useful for entering the station or its departments.
   components:

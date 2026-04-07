@@ -368,7 +368,7 @@
 
 - type: entity
   name: energy shield
-  parent: BaseItem
+  parent: [ BaseItem, BaseFactionGearPDVT2 ] # Mono
   id: EnergyShield
   description: An advanced, self-recharging energy shield that can be fit in your pocket when folded. Extremely effective defensive tool against energy weapons. # Mono
   components:
