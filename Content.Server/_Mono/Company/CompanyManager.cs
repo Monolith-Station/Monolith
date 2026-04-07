@@ -135,9 +135,9 @@ public sealed class CompanyManager
         return true;
     }
 
-    public bool SetOwnerByNetUserId(ProtoId<CompanyPrototype> company, NetUserId, bool owner)
+    public bool SetOwnerByNetUserId(ProtoId<CompanyPrototype> company, NetUserId userId, bool owner)
     {
-        var cached = GetCompanyMember(company, UserId);
+        var cached = GetCompanyMember(company, userId);
 
         if (cached is not { } member)
             return false;
@@ -145,9 +145,9 @@ public sealed class CompanyManager
         if (owner == member.Owner)
             return true;
 
-        _db.SetCompanyOwner(company, UserId, owner);
+        _db.SetCompanyOwner(company, userId, owner);
 
-        _companies[company].RemoveWhere(w => w.PlayerUserId == UserId);
+        _companies[company].RemoveWhere(w => w.PlayerUserId == userId);
         member.Owner = owner; // company member is struct so we got a copy here
         _companies[company].Add(member);
         return true;
