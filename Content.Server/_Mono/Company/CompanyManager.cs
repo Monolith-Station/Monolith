@@ -135,6 +135,24 @@ public sealed class CompanyManager
         return true;
     }
 
+    public bool SetOwnerByNetUserId(ProtoId<CompanyPrototype> company, NetUserId, bool owner)
+    {
+        var cached = GetCompanyMember(company, UserId);
+
+        if (cached is not { } member)
+            return false;
+
+        if (owner == member.Owner)
+            return true;
+
+        _db.SetCompanyOwner(company, UserId, owner);
+
+        _companies[company].RemoveWhere(w => w.PlayerUserId == UserId);
+        member.Owner = owner; // company member is struct so we got a copy here
+        _companies[company].Add(member);
+        return true;
+    }
+
     public bool IsMember(NetUserId player, ProtoId<CompanyPrototype> company)
     {
         var member = GetCompanyMember(company, player);
@@ -149,6 +167,12 @@ public sealed class CompanyManager
 
         if (_player.TryGetSessionById(new NetUserId(player), out var session))
             SendCompanyWhitelist(session.Channel);
+    }
+
+    public async Task<NetUserId?> GetNetUserIdByNameAsync(string username)
+    {
+        var record = await _db.GetPlayerRecordByUserName(username);
+        return record?.UserId;
     }
 
     public HashSet<ProtoId<CompanyPrototype>> GetPlayerCompanies(NetUserId player)

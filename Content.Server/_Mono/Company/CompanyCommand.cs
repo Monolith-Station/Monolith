@@ -55,6 +55,45 @@ public sealed class CompanyCommand : ToolshedCommand
             ("companyName", companyPrototype.Name)));
     }
 
+    [CommandImplementation("addmemberbyname")]
+    public async void AddByName(
+        [CommandInvocationContext] IInvocationContext ctx,
+        [CommandArgument] string username,
+        [CommandArgument] ProtoId<CompanyPrototype> company)
+    {
+        if (!_prototypes.TryIndex(company, out var companyPrototype))
+        {
+            ctx.ReportError(new NotAValidPrototype(company, nameof(CompanyPrototype)));
+            return;
+        }
+
+        if (ctx.Session == null
+            || !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist)
+                && !_company.IsOwner(ctx.Session, company)) // owner can add members
+        {
+            ctx.WriteLine(Loc.GetString("cmd-company-not-enough-permissions"));
+            return;
+        }
+
+        var userId = await _company.GetNetUserIdByNameAsync(username);
+        var isWhitelisted = _company.IsMember(userId.Value, company);
+
+        if (isWhitelisted)
+        {
+            ctx.WriteLine(Loc.GetString("cmd-company-memberadd-already-whitelisted",
+                ("player", username),
+                ("companyId", company.Id),
+                ("companyName", companyPrototype.Name)));
+            return;
+        }
+
+        _company.AddMember(userId.Value, company);
+        ctx.WriteLine(Loc.GetString("cmd-company-memberadd-added",
+            ("player", username),
+            ("companyId", company.Id),
+            ("companyName", companyPrototype.Name)));
+    }
+
     [CommandImplementation("playercompanies")]
     public async void GetPlayerWhitelist(
         [CommandInvocationContext] IInvocationContext ctx,
