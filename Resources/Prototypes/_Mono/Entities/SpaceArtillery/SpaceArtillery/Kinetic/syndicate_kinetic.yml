@@ -7,7 +7,9 @@
   id: WeaponTurretAdderScattercannon
   name: Adder scattercannon
   suffix: PDV ONLY, SYN ONLY
-  parent: BallisticArtillery
+  parent:
+  - BallisticArtillery
+  - BallisticArtilleryTier1HP
   description: A large, twin-barrelled scatter cannon, firing bursts of canister shot to shred any incoming missiles or potential boarders. Uses a self loading mechanism similar to the anaconda handgun.
   components:
   - type: StaticPrice
@@ -53,17 +55,6 @@
   - type: ProjectileBatteryAmmoProvider
     proto: AdderSpread
     fireCost: 15
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 7500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: RadiationBlocker
     resistance: 8
   - type: RadarBlip
@@ -82,7 +73,9 @@
   id: WeaponTurretFang
   name: Fang heavy 90mm autocannon
   suffix: PDV ONLY, SYN ONLY
-  parent: BallisticArtillery
+  parent:
+  - BallisticArtillery
+  - BallisticArtilleryTier3HP
   description: A heavy 90mm autocannon of syndicate design, created during the corporate war. Made for shattering opponent destroyers. Uses a self loading mechanism similar to the anaconda handgun.
   components:
   - type: StaticPrice
@@ -127,17 +120,6 @@
   - type: ProjectileBatteryAmmoProvider
     proto: 90mmBullet
     fireCost: 50
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 12500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1.5
@@ -148,6 +130,17 @@
       respectZoom: true
       rotate: true
       bounds: "-1.5,-1.5,1.5,1.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
@@ -234,6 +227,12 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15000 # Slightly tankier than T4
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
@@ -249,7 +248,9 @@
   id: WeaponTurretLeviathan
   name: LEVIATHAN 520mm howitzer
   suffix: PDV ONLY, SYN ONLY
-  parent: BallisticArtilleryUnanchorable
+  parent:
+  - BallisticArtilleryUnanchorable
+  - BallisticArtilleryTier4HP
   description: A heavy artillery gun of syndicate origin, the leviathan is tyrannic testiment of Syndicate ingenuity, designed to send a message. Able to crack NanoTrasen battleships, and small fighters in a single shell. Loads with a similar mechanism as the anaconda handgun.
   components:
   - type: StaticPrice
@@ -311,17 +312,6 @@
       respectZoom: true
       rotate: true
       bounds: "-2,-2,2,2"
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 25000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass

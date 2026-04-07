@@ -1,7 +1,6 @@
 # "None" - DO NOT REMOVE!
 - type: company
   id: None
-  form: Neutral # Do NOT apply "Neutral" to anywhere outside "None"
   name: None
   color: "#FFFFFF"
 
@@ -11,57 +10,35 @@
 
 - type: company
   id: TSF
-  form: Protagonist
   name: TSF
   color: "#047ABD"
   disabled: true
 
 - type: company
   id: PDV
-  form: Antagonist
   name: PDV
   color: "#D2B48C"
   disabled: true
 
 - type: company
   id: MD
-  form: Protagonist
   name: MED
   color: "#3B8EEA"
   disabled: true
 
 - type: company
   id: Colonial
-  form: Protagonist
   name: Colonial Staff
   color: "#279659"
   disabled: true
 
 - type: company
   id: TSFHighComm
-  form: Protagonist
   name: Winter Solstice
   description: winter-solstice-description
   color: "#008CE3"
   disabled: true
-  logins: # admins only here !!! or your PR will be CLOSED!!!! also serves as a example for ur whitelisted factions
-  - localhost@Ark
-  - Ark
-  - DisguisedBear
-  - JuneCat
-  - AwareFoxy
-  - Avalon_Proto
-  - Archylle
-  - Arcticular
-  - ArtemisYK
-  - NigelSugar
-  - Reverence
-  - BluHNT
-  - DrOktober
-  - Archylle
-  - neoscav
-  - UnhipPaladin
-  - Onezero0
+  whitelisted: true
 # DO NOT TOUCH
 
 # ====TSF / Protag. Companies====
@@ -70,7 +47,6 @@
 
 - type: company
   id: DrakeIndustries
-  form: Protagonist
   name: Drake Industries
   description: drake-industries-description
   color: "#C97D7D"
@@ -78,7 +54,6 @@
 
 - type: company
   id: SteelHammerManufacturing
-  form: Protagonist
   name: Steel Hammer Manufacturing
   description: steel-hammer-description
   color: "#92a2a1"
@@ -86,7 +61,6 @@
 
 - type: company
   id: HarmonyMedicalEnterprises
-  form: Protagonist
   name: Harmony Medical Enterprises
   description: harmony-medical-enterprises-description
   color: "#FC7303"
@@ -94,7 +68,6 @@
 
 - type: company
   id: MidnightArmsCo
-  form: Protagonist
   name: Midnight Arms Co.
   description: midnight-arms-co-description
   color: "#FF2E2E"
@@ -102,7 +75,6 @@
 
 - type: company
   id: USSP
-  form: Antagonist
   name: USSP
   color: "#B01340"
   disabled: false # Mercs are now USSP-pilled.
@@ -112,7 +84,6 @@
 
 - type: company
   id: DarkMatterEnterprises
-  form: Protagonist
   name: Dark Matter Enterprises
   description: dark-matter-enterprises-description
   color: "#BF00B9"
@@ -120,14 +91,12 @@
 
 - type: company
   id: AetherionDynamics
-  form: Protagonist
   name: Aetherion Dynamics
   description: aetherion-dynamics-description
   color: "#7E72B2"
 
 - type: company
   id: HorizonEnergy
-  form: Protagonist
   name: Horizon Energy
   description: horizon-energy-description
   color: "#69E37F"
@@ -138,7 +107,6 @@
 
 - type: company
   id: UniversalStatesOfAmerica
-  form: Protagonist
   name: Universal States of America
   description: universal-states-of-america-description
   color: "#0A3161"
@@ -146,14 +114,12 @@
 
 - type: company
   id: CivilDefenseMilita
-  form: Protagonist
   name: Civil Defense Militia
   description: civil-defense-milita-description
   color: "#666600"
 
 - type: company
   id: UllmanIndustries
-  form: Protagonist
   name: Ullman Industries
   description: ullman-industries-description
   color: "#52326A"
@@ -161,7 +127,6 @@
 
 - type: company
   id: NosskeEienResearchandDevelopment
-  form: Protagonist
   name: Nosske-Eien Research and Development
   description: nosske-eien-rnd-description
   color: "#9573AF"
@@ -169,7 +134,6 @@
 
 - type: company
   id: blackhawkpmc
-  form: Protagonist
   name: Blackhawk Military Contracting
   description: blackhawkpmc-description
   color: "#419E23"
@@ -180,14 +144,12 @@
 
 #- type: company
 #  id: ZealotsOfBalaam
-#  form: Protagonist
 #  name: Zealots Of Balaam
 #  description: zealots-of-balaam-description
 #  color: "#BC7F58"
 
 #- type: company
 #  id: CultOfTheMachineGod
-#  form: Protagonist
 #  name: Cult of the Machine God
 #  description: cult-of-the-machine-god-description
 #  color: "#DEBC50"
@@ -195,7 +157,6 @@
 
 - type: company
   id: TheHive
-  form: Protagonist
   name: The Hive
   description: The-Hive-description
   color: "#5918a8"
@@ -204,92 +165,32 @@
 
 - type: company
   id: paycheckbratva
-  form: Antagonist
   name: Paycheck Bratva
   description: paycheck-bratva-description
   color: "#7a0303"
 
 - type: company
   id: CerberusSurplusProvisions
-  form: Antagonist
   name: Cerberus Surplus Provisionaries
   description: cerberus-surplus-provisions
   color: "#aa1010"
   image: /Textures/_Mono/Companies/CSP.png
   disabled: true
-  logins:
-    - GoobieWoob
-    - Coolzman
-    - Lumpy_the_Clown
-    - coolfied
-    - Callington
-    - Operator_Talon5
-    - CdrGreenwall
-    - MarssSett18
-    - Administratorx # Hopefully this doesnt get denied because it has adminstrator in it smh
-    - MSMarvin
+  whitelisted: true
 
 - type: company
   id: TheViperGroup
-  form: Antagonist
   name: Viper Group
   description: viper-group-description
   color: "#B82121"
   image: /Textures/_Mono/Companies/thevipergroup.png # Example
-  disabled: true
-  logins:
-  - Schizm1253
-  - Androidonator
-  - Archylle
-  - Battieralarm3
-  - bubz_bs
-  - capslfern
-  - DrOktober
-  - Ermac10108
-  - Ghost581
-  - hellcat76
-  - HungryCuban
-  - Scyron
-  - SwadianSupremacy
-  - Traildog
-  - PH77SER
-  - Siege_Of_Malta_Never_Happened
-  - gelliii
-  - Uranio
-  - Jinryuu
-  - FervantTwo8
-  - Exsa
-  - DesriTheRacoon
-  - AngusBeef
-  - ShirouAjisai
+  whitelisted: true
 
 - type: company
   id: RedSailCorsairs
-  form: Antagonist
-  name: RedSail Corsairs 
+  name: RedSail Corsairs
   description: redsail-corsairs-description
   color: "#930000"
   image: /Textures/_Mono/Companies/redsailcorsairs.png
   disabled: true
-  logins: # Waiting for others to give me theyr SS14 names, 17 total 
-  - Corrupt
-  - Jasos
-  - Luksu
-  - FervantTwo8
-  - Wawa_pull
-  - Pffy
-  - SouthernSaint
-  - Abbyssl
-  - MSMarvin
-  - Dusky
-  - soulvapor
-  - EmmaFaith
-  - Ether
-  - MapleSilk
-  - Spacepeing
-  - zigcraft 
-  - burrrkeye
-  - enkidienne
-  - chugaa
-  - SLDuggy
-  - Middleagedman
+  whitelisted: true

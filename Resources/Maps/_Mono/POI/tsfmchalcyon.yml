@@ -10974,15 +10974,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 24.5,-13.5
       parent: 1
-- proto: BaseResearchAndDevelopmentPointSource
+- proto: DatafarmResearchFaction
   entities:
   - uid: 1217
     components:
     - type: Transform
       pos: -3.5,9.5
       parent: 1
-    missingComponents:
-    - Anchorable
 - proto: Bed
   entities:
   - uid: 1218

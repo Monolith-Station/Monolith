@@ -96,18 +96,18 @@
     guides:
     - Science
   - type: ResearchPointSource
-    pointsPerSecond: 10
+    pointsPerSecond: 20
     active: true
 
 - type: entity
   id: DatafarmResearchFaction
   parent: BaseDataFarmIndestructible
   name: bolted data farm (Research)
-  description: A power-hungry server dedicated towards scraping data from... somewhere. This one generates research points at a rate of 35 per second. It seems to be bolted to the floor.
+  description: A power-hungry server dedicated towards scraping data from... somewhere. This one generates research points at a rate of 200 per second. It seems to be bolted to the floor.
   components:
   - type: ResearchClient
   - type: ResearchPointSource
-    pointsPerSecond: 35
+    pointsPerSecond: 200
     active: true
   - type: ApcPowerReceiver
     powerLoad: 10000
@@ -116,7 +116,7 @@
   id: DatafarmResearch
   parent: [BaseDataFarmResearch, ConstructibleMachine]
   name: data farm (Research)
-  description: A power-hungry server dedicated towards scraping data from... somewhere. This one generates research points at a rate of 10 per second.
+  description: A power-hungry server dedicated towards scraping data from... somewhere. This one generates research points at a rate of 20 per second.
   components:
   - type: PointLight
     radius: 1.1
@@ -141,6 +141,8 @@
       color: "#b3aa79"
     - state: stripe2
       color: "#009360"
+  - type: ApcPowerReceiver
+    powerLoad: 40000
   - type: PointLight
     radius: 1.1
     energy: 1.1

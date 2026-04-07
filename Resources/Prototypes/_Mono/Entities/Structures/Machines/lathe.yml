@@ -2,7 +2,7 @@
   id: FactionLathe
   parent: BaseLatheLube
   name: military multi-purpose assembler
-  description: Prints out items researched with TSFMC/PDV R&D servers.
+  description: Capable of producing a wide variety of things. Compatible with all kinds of fabrication template encryptions.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -45,6 +45,8 @@
     - MonoUSSPArmorDynamic
     - MonoUSSPMiscDynamic
     - MonoUSSPWeaponsDynamicRanged
+    # Viper Group start
+    - MonoViperGroupDynamic
     # Universal shit (stuff like shipgun ammo)
     - UniversalRailgunAmmo
     - UniversalMissileAmmo

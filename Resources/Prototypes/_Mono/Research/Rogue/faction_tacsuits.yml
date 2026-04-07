@@ -1,3 +1,4 @@
+
 - type: technology
   id: RogueBasicEquipment
   name: research-technology-rogue-basic-equipment
@@ -45,28 +46,15 @@
   position: 20, 11
 
 - type: technology
-  id: RogueStealthsuit
-  name: research-technology-rogue-stealthsuit
+  id: RogueSuperArmor
+  name: research-technology-rogue-super-armor
   entityIcon: ClothingOuterHardsuitCybersunStealth
   discipline: RogueEquipment
   tier: 2
   cost: 20000
   recipeUnlocks:
   - ClothingOuterHardsuitCybersunStealthRogue
-  technologyPrerequisites:
-  - RogueSyndicateTacsuits
-  position: 21, 11
-
-- type: technology
-  id: RogueSyndicateTacsuitsT3
-  name: research-technology-rogue-syndicate-tacsuits-t3
-  entityIcon: ClothingOuterHardsuitJuggernaut
-  discipline: RogueEquipment
-  tier: 3
-  cost: 65000
-  recipeUnlocks:
   - ClothingOuterHardsuitJuggernautRogue
-# - ClothingOuterHardsuitSyndieCommanderRogue
   technologyPrerequisites:
   - RogueSyndicateTacsuits
   position: 21, 12

@@ -1,6 +1,7 @@
 - type: entity
   save: false
   id: PlayerSiliconHumanoidBase
+  # Mono TODO: reparent this to BaseMobSpecies
   parent: [BaseMob, MobDamageable, MobCombat, MobAtmosExposed, MobFlammable]
   abstract: true
   components:
@@ -328,3 +329,6 @@
     shape:
       - 0, 0, 4, 4
       - 0, 3, 6, 5
+  # Mono
+  - type: ShipNpcTarget
+    needGrid: NoGrid

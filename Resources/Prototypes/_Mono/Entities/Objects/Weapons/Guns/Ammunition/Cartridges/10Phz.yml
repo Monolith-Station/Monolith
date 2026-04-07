@@ -1,0 +1,30 @@
+- type: entity
+  id: BaseCartridge10Phz
+  name: cartridge (10Phz DEW)
+  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  description: A small chemical-laser cell for use in Directed Energy Weapons. Capable of firing an intermediate pulsed laser.
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - Cartridge10Phz
+  - type: HitscanAmmo
+    casingPrototype: ChemicalSlop
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/10Phz.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 1
+
+- type: entity
+  id: Cartridge10Phz
+  name: cartridge (10Phz DEW)
+  parent: [ BaseCartridge10Phz, Hitscan10Phz ]
+  components:
+  - type: HitscanAmmo
+    casingPrototype: ChemicalSlop

@@ -3,7 +3,9 @@
 - type: entity
   id: WeaponTurretL85Autocannon
   name: L85 20mm autocannon
-  parent: BallisticArtilleryMagazine
+  parent:
+  - BallisticArtilleryMagazine
+  - BallisticArtilleryTier1HP
   description: A light 20mm ballistic autocannon designed for rapid fire point defense and suppressing smaller targets at close range. Cheap, light, and can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
@@ -88,7 +90,9 @@
 - type: entity
   id: WeaponTurretRAC30
   name: RAC-30 Draupnir Autocannon
-  parent: BallisticArtilleryMagazine
+  parent:
+  - BallisticArtilleryMagazine
+  - BallisticArtilleryTier2HP
   description: A heavy duty rapid rife 30mm autocannon, originally mounted as a dogfighting weapon on atmospheric craft.
   components:
   - type: StaticPrice
@@ -136,17 +140,6 @@
           tags:
           - Magazine30mm
         whitelistFailPopup: gun-magazine-whitelist-fail
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 10000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: RadiationBlocker
     resistance: 8
   - type: RadarBlip
