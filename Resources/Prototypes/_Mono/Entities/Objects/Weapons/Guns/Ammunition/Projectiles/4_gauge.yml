@@ -62,7 +62,7 @@
     damage:
       types:
         Piercing: 24
-    armorPenetration: -0.5
+    armorPenetration: -0.2
 
 - type: entity
   id: Pellet23x75mmBuckshotSpread
@@ -240,7 +240,7 @@
     damage:
       types:
         Piercing: 40
-    armorPenetration: -0.2
+    armorPenetration: -0.5
 
 - type: entity
   id: Pellet23x75mmOOBuckshotSpread
