@@ -102,9 +102,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 6 # totalIntensity goes first, please.
-    intensitySlope: 1
-    maxIntensity: 1
+    totalIntensity: 9 # totalIntensity goes first, please.
+    intensitySlope: 2
+    maxIntensity: 3
     maxTileBreak: 1
 
 # 90mm

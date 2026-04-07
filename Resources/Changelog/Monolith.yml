@@ -19401,3 +19401,120 @@ Entries:
   id: 2141
   time: '2026-04-05T18:03:54.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3688
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Wyvern and other t2 ADS ships (razor-N and Zenith-E) are rarer.
+  id: 2142
+  time: '2026-04-05T18:23:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3691
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaks and standardizes shipgun HPs. Guns of the same class and usage
+        have similar HP totals. 
+    - type: Tweak
+      message: >-
+        Overall decrease shipgun HP to be more reasonable but still somewhat
+        tanky.
+    - type: Fix
+      message: Increased some undersized shipgun hitboxes.
+  id: 2143
+  time: '2026-04-05T18:33:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3583
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Shuttle consoles no longer automatically swap to anchor dampening mode
+        when depowered.
+  id: 2144
+  time: '2026-04-05T18:42:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3706
+- author: 10kee
+  changes:
+    - type: Fix
+      message: >-
+        Guidebook now correctly lists shift duration as six hours rather than
+        eight.
+  id: 2145
+  time: '2026-04-05T20:30:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3708
+- author: OneZerooo0
+  changes:
+    - type: Add
+      message: You can now print "Sticky bombs" with explosive research.
+    - type: Add
+      message: TSF get the "Smilodon" DEW LMG and the "Calico" DEW rifle
+    - type: Add
+      message: TSF get the "Osiris" grenade launcher.
+    - type: Add
+      message: PDV get the "Sultan" 4-gauge shotgun and "Panzero" portable anti-tank.
+    - type: Add
+      message: PDV are able to print "Dirty bombs" - radioactive area denial devices.
+    - type: Tweak
+      message: >-
+        Energy shields have reduced reflect chance and their reflected
+        projectiles deal less damage.
+    - type: Remove
+      message: >-
+        Ashstorm is no longer available to TSF. It has been superseded by the
+        Smilodon.
+    - type: Tweak
+      message: Buffed M86 heat/explosive/stamina protection
+    - type: Tweak
+      message: Buffed M92X soft shield and nerfed its base resistances.
+    - type: Tweak
+      message: Energy shields can break from lots of damage from lasers.
+    - type: Tweak
+      message: Energy swords can reflect lasers now.
+    - type: Tweak
+      message: Faction researches have been condensed and generalized.
+    - type: Tweak
+      message: Batteries contain lead now.
+  id: 2146
+  time: '2026-04-05T21:34:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3075
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Increased 57mm explosive damage
+  id: 2147
+  time: '2026-04-05T21:42:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3334
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Hristov structural damage 250->500
+  id: 2148
+  time: '2026-04-05T22:13:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3709
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Buffed FMC/DC turn in values for faction items.
+  id: 2149
+  time: '2026-04-06T15:53:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3707
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Siebel blast doors start open. You can now enter the ship properly.
+  id: 2150
+  time: '2026-04-06T17:15:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3716
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: Fixed a bug causing AI's to be round removed during cyborg control.
+  id: 2151
+  time: '2026-04-07T01:43:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3720
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Gunnery servers no longer passively make a large thermal signature.
+  id: 2152
+  time: '2026-04-07T18:35:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3723

@@ -5,7 +5,6 @@ using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Roles;
-using Content.Shared.Roles.Jobs;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -19,10 +18,9 @@ namespace Content.Server._Mono.Company;
 public sealed class CompanySystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
-
+    [Dependency] private readonly CompanyManager _manager = default!;
 
     // Dictionary to store original company preferences for players
     private readonly Dictionary<string, string> _playerOriginalCompanies = new();
@@ -74,10 +72,9 @@ public sealed class CompanySystem : EntitySystem
             // or if their preference is "None"
             if (string.IsNullOrEmpty(profileCompany))
             {
-                // Check for company login whitelists
                 foreach (var companyProto in _prototypeManager.EnumeratePrototypes<CompanyPrototype>())
                 {
-                    if (companyProto.Logins.Contains(args.Player.Name))
+                    if (_manager.IsAllowed(args.Player, companyProto))
                     {
                         companyComp.CompanyName = companyProto.ID;
                         loginFound = true;
