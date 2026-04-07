@@ -1,0 +1,94 @@
+- type: entity
+  name: explosive grenade
+  description: Grenade that creates a small but devastating explosion.
+  categories: [ HideSpawnMenu ]
+  parent: ExGrenade
+  id: ExGrenadeLaunched
+  components:
+  - type: TriggerOnSpawn
+    timerOnly: true
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible # to not make large instant death explosions when firing multiple
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 800
+      behaviors:
+      - !type:TriggerBehavior
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  name: sticky bomb
+  description: An anti-tank sticky bomb based on old designs, still effective even in space. Packs a punch, but has a long delay.
+  categories: [ HideSpawnMenu ]
+  parent: StickyGrenade
+  id: StickyGrenadeLaunched
+  components:
+  - type: TriggerOnSpawn
+    timerOnly: true
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible # to not make large instant death explosions when firing multiple
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1600
+      behaviors:
+      - !type:TriggerBehavior
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  name: flashbang
+  description: Eeeeeeeeeeeeeeeeeeeeee.
+  categories: [ HideSpawnMenu ]
+  parent: GrenadeFlashBang
+  id: GrenadeFlashBangLaunched
+  components:
+  - type: TriggerOnSpawn
+    timerOnly: true
+
+- type: entity
+  name: EMP grenade
+  description: A grenade designed to wreak havoc on electronic systems.
+  categories: [ HideSpawnMenu ]
+  parent: EmpGrenade
+  id: EmpGrenadeLaunched
+  components:
+  - type: TriggerOnSpawn
+    timerOnly: true
+
+- type: entity
+  name: smoke grenade
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  categories: [ HideSpawnMenu ]
+  parent: SmokeGrenade
+  id: SmokeGrenadeLaunched
+  components:
+  - type: TriggerOnSpawn
+    timerOnly: true
+
+- type: entity
+  name: cleanade
+  description: Special grenade for janitors, releasing large cloud of space cleaner foam.
+  categories: [ HideSpawnMenu ]
+  parent: CleanerGrenade
+  id: CleanerGrenadeLaunched
+  components:
+  - type: TriggerOnSpawn
+    timerOnly: true
+
+- type: entity
+  name: metal foam grenade
+  description: An emergency tool used for patching up holes. Almost as good as real walls.
+  categories: [ HideSpawnMenu ]
+  parent: MetalFoamGrenade
+  id: MetalFoamGrenadeLaunched
+  components:
+  - type: TriggerOnSpawn
+    timerOnly: true
+
+
+

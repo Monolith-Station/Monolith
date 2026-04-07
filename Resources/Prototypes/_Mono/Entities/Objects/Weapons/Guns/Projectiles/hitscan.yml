@@ -39,13 +39,13 @@
   - type: HitscanBasicVisuals
     muzzleFlash:
       sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
-      state: ui_muzzle_pulse
+      state: uv_muzzle_laser
     travelFlash:
       sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
-      state: ui_pulse
+      state: uv_beam
     impactFlash:
      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
-     state: ui_impact_pulse
+     state: uv_impact_laser
 
 - type: entity
   id: UllmanPulseHeavy
