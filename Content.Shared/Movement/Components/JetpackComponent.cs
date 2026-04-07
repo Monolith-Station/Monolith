@@ -1,6 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared._Mono.Radar;
 
 namespace Content.Shared.Movement.Components;
 
@@ -27,8 +28,8 @@ public sealed partial class JetpackComponent : Component
     public float WeightlessModifier = 1.2f;
 
     /// <summary>
-    /// Mono - Determines whether a jetpack shows up on blip radar.
+    /// Mono - Determines the range that a jetpack shows up on blip radar.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("stealth")]
-    public bool Stealth = false;
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public float DetectionRange = 256f;
 }

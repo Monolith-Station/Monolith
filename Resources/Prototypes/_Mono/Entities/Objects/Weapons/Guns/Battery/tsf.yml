@@ -1,0 +1,180 @@
+
+- type: entity
+  name: "'Calico' DEW-20-C energy rifle"
+  parent: [BaseWeaponRifle, BaseGunWieldable, BaseC2ContrabandUnredeemable]
+  id: WeaponDEWCalico
+  description: A cartridge-fed directed energy weapon used by Trans-Solarian Federation soldiers. Due to it using chemical-laser cartridges, it is unaffected by EMP, making it a favorite among the marines able to requisition one.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/calico.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -5
+    maxAngle: -12
+  - type: Gun
+    minAngle: 5
+    maxAngle: 15
+    angleIncrease: 27
+    angleDecay: 2
+    fireRate: 3.5
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/emitter.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine700Thz
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine700Thz
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge700Thz
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge700Thz
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/calico_inhands_32x.rsi
+  - type: Item
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/calico_inhands_32x.rsi
+  - type: StaticPrice
+    price: 2400
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 1
+
+
+- type: entity
+  name: "'Smilodon' DEW-50-C automatic energy weapon"
+  parent: [BaseWeaponRifle, BaseGunWieldable, BaseC2ContrabandUnredeemable]
+  id: WeaponDEWSmilodon
+  description: Modified from the original "Calico" DEW, the "Smilodon" carries the philosophy of its predecessor into the world of LMGs - Capable of using battery boxes *and* chemical magazines while also having secondary storage for on-the-go marines, the Smilodon's only failures are the downsides of laser-based weapons and its bulky frame.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/smilodon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: mag2-0
+      map: ["enum.ItemCabinetVisuals.Layer"]
+  - type: Gun
+    minAngle: 0
+    maxAngle: 20
+    angleIncrease: 2
+    angleDecay: 5
+    fireRate: 6
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    shotsPerBurst: 10
+    burstCooldown: 0.6
+    burstFireRate: 10
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - LargeMilitaryPowerCell
+          - Magazine700Thz
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      ItemCabinet:
+        name: Secondary Magazine
+        ejectOnInteract: false
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 3
+        whitelist:
+          tags:
+          - LargeMilitaryPowerCell
+          - Magazine700Thz
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge700Thz
+  - type: ItemCabinet
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      ItemCabinet: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/calico_inhands_32x.rsi
+  - type: Item
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/calico_inhands_32x.rsi
+  - type: StaticPrice
+    price: 5000
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 1
+  - type: GunRequiresWield
+  - type: PirateBountyItem
+    id: ExperimentalFactionWeapon
+  - type: HeldSpeedModifier
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.95
+    walkModifier: 0.95
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: WieldDelay
+    baseDelay: 1
+    modifiedDelay: 1
+    preventFiring: true
+  - type: GenericVisualizer
+    visuals:
+      enum.ItemCabinetVisuals.ContainsItem:
+        enum.ItemCabinetVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }

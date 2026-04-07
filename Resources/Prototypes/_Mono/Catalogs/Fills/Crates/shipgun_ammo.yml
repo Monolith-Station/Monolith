@@ -62,7 +62,7 @@
 - type: entity
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBoxVanyk
-  name: ASM-302 Vanyk HEAT missile box
+  name: ASM-150 Vanyk HEAT missile box
   description: Contains 60 missles. 2 full loads.
   components:
   - type: StorageFill
@@ -73,7 +73,7 @@
 - type: entity
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBoxVespera
-  name: ASM-417 Vespera HE missile box
+  name: ADMP-50 Vespera HE missile box
   description: Contains 12 bursts of 13 missiles. 2 full loads.
   components:
   - type: StorageFill
@@ -84,7 +84,7 @@
 - type: entity
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBoxTovek
-  name: ASM-557 Tovek EMPHE missile box
+  name: ASM-250 Tovek EMPHE missile box
   description: Contains 4 missiles, 2 loads worth.
   components:
   - type: StorageFill

@@ -274,11 +274,19 @@ public sealed class MoverController : SharedMoverController
     //
 
     /// <summary>
+    /// Get a shuttle's torque.
+    /// </summary>
+    public float GetTorque(ShuttleComponent shuttle)
+    {
+        return shuttle.AngularThrust * shuttle.AngularMultiplier;
+    }
+
+    /// <summary>
     /// Get a shuttle's angular acceleration.
     /// </summary>
     public float GetAngularAcceleration(ShuttleComponent shuttle, PhysicsComponent body)
     {
-        return shuttle.AngularThrust * body.InvI;
+        return GetTorque(shuttle) * body.InvI;
     }
 
     /// <summary>
@@ -302,7 +310,7 @@ public sealed class MoverController : SharedMoverController
         // prevent NaNs
         dir *= dir.X == 0 ? vertScale : dir.Y == 0 ? horizScale : MathF.Min(horizScale, vertScale);
 
-        return dir;
+        return dir * shuttle.AccelerationMultiplier;
     }
 
     public Vector2 GetDirectionAccel(Vector2 dir, ShuttleComponent shuttle, PhysicsComponent body)
@@ -323,7 +331,7 @@ public sealed class MoverController : SharedMoverController
         var twr = thrust.Length() / body.Mass;
         var twrMult = MathF.Pow(twr / shuttle.BaseMaxVelocityTWR, shuttle.MaxVelocityScalingExponent);
 
-        return vel.Normalized() * MathF.Min(shuttle.BaseMaxLinearVelocity * twrMult, MathF.Min(shuttle.UpperMaxVelocity, shuttle.SetMaxVelocity));
+        return vel.Normalized() * MathF.Min(shuttle.BaseMaxLinearVelocity * twrMult * shuttle.MaxVelMultiplier, MathF.Min(shuttle.UpperMaxVelocity, shuttle.SetMaxVelocity));
     }
 
     private void HandleShuttleMovement(float frameTime)
@@ -335,6 +343,9 @@ public sealed class MoverController : SharedMoverController
             // query all our pilots for input
             var toRemove = new List<EntityUid>();
 
+            var angularMul = 0f;
+            var accelMul = 0f;
+            var maxVelMul = 0f;
             foreach (var pilot in piloted.InputSources)
             {
                 var inputsEv = new GetShuttleInputsEvent(frameTime, uid);
@@ -343,7 +354,12 @@ public sealed class MoverController : SharedMoverController
                 if (!inputsEv.GotInput)
                     toRemove.Add(pilot);
                 else if (inputsEv.Input != null)
+                {
                     inputs.Add(inputsEv.Input.Value);
+                    angularMul += inputsEv.AngularMul;
+                    accelMul += inputsEv.AccelMul;
+                    maxVelMul += inputsEv.MaxVelMul;
+                }
             }
 
             foreach (var remUid in toRemove)
@@ -359,6 +375,7 @@ public sealed class MoverController : SharedMoverController
             {
                 _thruster.DisableLinearThrusters(shuttle);
                 PhysicsSystem.SetSleepingAllowed(uid, body, true);
+                shuttle.AngularMultiplier = shuttle.AccelerationMultiplier = shuttle.MaxVelMultiplier = 1f;
                 continue;
             }
             PhysicsSystem.SetSleepingAllowed(uid, body, false);
@@ -376,6 +393,13 @@ public sealed class MoverController : SharedMoverController
             linearInput /= count;
             angularInput /= count;
             brakeInput /= count;
+
+            angularMul /= count;
+            accelMul /= count;
+            maxVelMul /= count;
+            shuttle.AngularMultiplier = angularMul;
+            shuttle.AccelerationMultiplier = accelMul;
+            shuttle.MaxVelMultiplier = maxVelMul;
 
             var shuttleNorthAngle = _xformSystem.GetWorldRotation(uid);
 
@@ -524,7 +548,7 @@ public sealed class MoverController : SharedMoverController
             }
             else
             {
-                var torque = shuttle.AngularThrust * -angularInput;
+                var torque = GetTorque(shuttle) * -angularInput;
 
                 // Need to cap the velocity if 1 tick of input brings us over cap so we don't continuously
                 // edge onto the cap over and over.
