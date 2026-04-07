@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: Mapleflavourds
+# Discord: Maples @magnomia
+
+# Shuttle Notes:
+# A small obstainly military ship, designed to avoid conflict yet has simple enough armaments to output atleast a little bit of a resistance.
+
+- type: vessel
+  id: Canary
+  parent: BaseVessel
+  name: LOV Canary
+  description: yesy
+  price: 38500 # 31k~ * 1.2 = ~37k 
+  category: Small
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/canary.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Canary
+  mapName: 'LOV Canary'
+  mapPath: /Maps/_Mono/Shuttles/canary.yml
+  minPlayers: 0
+  stations:
+    Canary:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Canary MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
