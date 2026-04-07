@@ -12,7 +12,7 @@ research-technology-rogue-jaws = Advanced Jaws of Life
 research-technology-rogue-energy-dagger = Experimental Plasma Weaponization
 research-technology-rogue-basic-guns = Basic Ballistics
 research-technology-rogue-thermals = Thermal Imaging
-research-technology-pdv-basic-cyborg = PDV Basic Cyborg Developpment
+research-technology-pdv-basic-cyborg = PDV Basic Cyborg Development
 
 # T2 rogue
 research-technology-rogue-advanced-guns = Advanced Ballistics
