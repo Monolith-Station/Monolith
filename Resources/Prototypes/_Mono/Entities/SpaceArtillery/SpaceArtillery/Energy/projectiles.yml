@@ -477,7 +477,9 @@
     damage:
      types:
        Heat: 120
-       Structural: 125
+       Structural: 250
+  - type: HitscanRadarSignature
+    radarColor: "#5d46e2"
   - type: HitscanSpawnEntity
     spawnedEntity: PrometheusExplosion
   - type: HitscanBasicRaycast

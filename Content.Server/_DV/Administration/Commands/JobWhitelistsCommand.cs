@@ -29,6 +29,7 @@ public sealed class JobWhitelistsCommand : LocalizedCommands
         {
             shell.WriteLine(Loc.GetString("cmd-ban-invalid-arguments"));
             shell.WriteLine(Help);
+            return;
         }
 
         var located = await _locator.LookupIdByNameOrIdAsync(args[0]);
