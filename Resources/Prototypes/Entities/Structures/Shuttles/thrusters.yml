@@ -128,7 +128,7 @@
   # Mono
   - type: ShipRepairable
     repairTime: 5
-    repairCost: 10
+    repairCost: 5
 
 - type: entity
   id: ThrusterUnanchored
@@ -238,7 +238,7 @@
   # Mono
   - type: ShipRepairable
     repairTime: 6
-    repairCost: 12
+    repairCost: 6
 
 - type: entity
   id: GyroscopeUnanchored
@@ -325,4 +325,4 @@
     - type: ShipRepairable
       repairTo: Thruster
       repairTime: 6
-      repairCost: 12
+      repairCost: 6
