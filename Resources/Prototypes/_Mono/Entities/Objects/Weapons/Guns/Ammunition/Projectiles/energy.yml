@@ -1,0 +1,111 @@
+
+# slop
+
+- type: entity
+  parent: BaseItem
+  id: ChemicalSlop
+  name: chemical slop
+  description: According to 9 out of 10 doctors, this causes cancer. Seems to be disintegrating.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/700Thz.rsi
+    state: pile
+  - type: Tag
+    tags:
+    - Trash
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Hydrogen
+          Quantity: 1
+        - ReagentId: Fluorine
+          Quantity: 1
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+  - type: ScoopableSolution
+    solution: food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: TimedDespawn
+    lifetime: 35
+
+# actual hitscans
+
+# 400Thz
+
+- type: entity
+  id: Hitscan400Thz # Used as a parent for the cartridge's ammo capabilities, not actually fired
+  parent: BasicHitscan
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 25
+        Structural: 10
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_laser
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: beam
+    impactFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: impact_laser
+  - type: HitscanAmmo
+
+# 700Thz
+
+- type: entity
+  id: Hitscan700Thz # Used as a parent for the cartridge's ammo capabilities, not actually fired
+  parent: BasicHitscan
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 35
+        Structural: 50
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: uv_muzzle_laser
+    travelFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: uv_beam
+    impactFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: uv_impact_laser
+  - type: HitscanAmmo
+
+# 10Phz
+
+- type: entity
+  id: Hitscan10Phz # Used as a parent for the cartridge's ammo capabilities, not actually fired
+  parent: BasicHitscan
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Radiation: 45
+        Heat: 15
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: rad_muzzle_laser
+    travelFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: rad_beam
+    impactFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: rad_impact_laser
+  - type: HitscanAmmo
+  - type: HitscanBasicRaycast
+    maxDistance: 512

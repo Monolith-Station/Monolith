@@ -1,6 +1,6 @@
 - type: entity
   name: TSFMC energy sword
-  parent: EnergySword
+  parent: [ BaseFactionGearTSFT2, EnergySword ]
   id: EnergySwordNfsd
   description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
   components:

@@ -98,6 +98,9 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         if (!_mind.TryGetMind(ai, out var mindId, out var mind))
             return;
 
+        if (_mind.TryGetMind(entity, out _, out _))
+            return;
+
         if (!TryComp<StationAiHeldComponent>(ai, out var stationAiHeldComp))
             return;
 
