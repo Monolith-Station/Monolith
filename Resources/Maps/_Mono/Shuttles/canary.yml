@@ -4,7 +4,7 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/08/2026 11:45:21
+  time: 04/08/2026 11:54:46
   entityCount: 418
 maps: []
 grids:
@@ -435,7 +435,7 @@ entities:
       pos: -0.5,6.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -7908.699
+      secondsUntilStateChange: -8190.6772
       state: Opening
     - type: DeviceLinkSource
       linkedPorts:
@@ -2931,19 +2931,19 @@ entities:
       rot: 3.141592653589793 rad
       pos: 7.5,4.5
       parent: 1
-- proto: WeaponTurretCerberus
+- proto: WeaponLaserTurretPrometheus
   entities:
   - uid: 95
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 4.5,6.5
+      pos: -5.5,6.5
       parent: 1
   - uid: 185
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -5.5,6.5
+      pos: 4.5,6.5
       parent: 1
 - proto: WindoorSecure
   entities:
