@@ -3,7 +3,9 @@
 - type: entity
   id: WeaponTurretThanatos
   name: THANATOS twin mass driver
-  parent: BallisticArtilleryUnanchorable
+  parent:
+  - BallisticArtilleryUnanchorable
+  - BallisticArtilleryTier5HP
   suffix: STATION ONLY, Recharging Ammo
   description: The charon's mean older brother, the Thanatos is a force to be reckoned with. It can be remotely activated or linked up to a GCS. This one feeds from an autoloader somewhere, and doesn't need manual reloads.
   components:
@@ -54,23 +56,12 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
+          bounds: "-0.6,-0.6,0.6,0.6"
         density: 1500
         mask:
         - MachineMask
         layer:
         - MachineLayer
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 75000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: RadarBlip
     radarColor: "#CF0E0E"
     scale: 3

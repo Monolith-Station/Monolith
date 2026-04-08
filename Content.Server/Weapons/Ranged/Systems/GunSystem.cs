@@ -165,7 +165,8 @@ public sealed partial class GunSystem : SharedGunSystem
                     CreateAndFireProjectiles(ent.Value, newAmmo, offset);
 
                     break;
-                case HitscanAmmoComponent:
+
+                case HitscanAmmoComponent hitscanammo:
                     if (ent == null)
                         break;
 
@@ -179,10 +180,13 @@ public sealed partial class GunSystem : SharedGunSystem
                     };
                     RaiseLocalEvent(ent.Value, ref hitscanEv);
 
-                    Del(ent);
-
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
+                    // Mono start
+                    Spawn(hitscanammo.CasingPrototype, fromEnt);
+                    Del(ent);
+                    // Mono end
                     break;
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }

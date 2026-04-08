@@ -4,7 +4,9 @@
 - type: entity
   id: WeaponTurretCyrexa
   name: CYREXA 220mm cannon
-  parent: BallisticArtilleryUnanchorableCartridge
+  parent:
+  - BallisticArtilleryUnanchorableCartridge
+  - BallisticArtilleryTier4HP
   description: A main battery with dual barrels, delivering rapid, punishing salvos at extreme range. Fires 220mm auto shells with slightly reduced brute strength. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
@@ -62,17 +64,6 @@
       respectZoom: true
       rotate: true
       bounds: "-1.5,-1.5,1.5,1.5"
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 20000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: BallisticAmmoProvider
     infiniteUnspawned: true
     whitelist:
@@ -95,7 +86,9 @@
 - type: entity
   id: WeaponTurretBofors
   name: Bofors 255mm cannon
-  parent: BallisticArtilleryUnanchorableCartridge
+  parent:
+  - BallisticArtilleryUnanchorableCartridge
+  - BallisticArtilleryTier3HP
   description: A single-barrel, heavy artillery cannon designed for cruisers, delivering massive impact with each long-range shot. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
@@ -138,17 +131,6 @@
     powerUsePassive: 2000
     powerUseActive: 0
   - type: Actions
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 25000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: BallisticAmmoProvider
     infiniteUnspawned: true
     whitelist:
@@ -181,7 +163,9 @@
 - type: entity
   id: WeaponTurretHades
   name: HADES 255mm cannon
-  parent: BallisticArtilleryUnanchorable
+  parent:
+  - BallisticArtilleryUnanchorable
+  - BallisticArtilleryTier5HP
   description: One of the largest chemical-based kinetic weapons in the sector. Its power is only rivaled by mass drivers such as the M381. Automatically reloads full-power 255mm shells.
   components:
   - type: StaticPrice
@@ -248,17 +232,6 @@
       respectZoom: true
       rotate: true
       bounds: "-2,-2,2,2"
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 40000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
@@ -272,7 +245,9 @@
 - type: entity
   id: WeaponTurretLongbow
   name: L65-"Longbow" 90mm autocannon
-  parent: BallisticArtilleryMagazine
+  parent:
+  - BallisticArtilleryMagazine
+  - BallisticArtilleryTier4HP
   description: Fires 90mm shells in a 20 round burst from an internal autoloader.
   components:
   - type: StaticPrice
@@ -341,17 +316,6 @@
           tags:
           - Magazine90mm
         whitelistFailPopup: gun-magazine-whitelist-fail
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 20000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass

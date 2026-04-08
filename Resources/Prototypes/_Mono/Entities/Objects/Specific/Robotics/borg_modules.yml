@@ -22,7 +22,7 @@
 
 - type: entity
   id: BorgModuleTSFStandardWeapon
-  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearTSFT2 ]
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseFactionGearTSFT2 ]
   name: TSFMC weapon cyborg module
   components:
   - type: Sprite
@@ -39,8 +39,26 @@
     icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: tsfstandard-weapon-module }
 
 - type: entity
+  id: BorgModuleTSFStandardAssault
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseFactionGearTSFT2 ]
+  name: TSFMC basic assault cyborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: tsf
+    - state: icon-tsf
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - EnergySwordNfsd
+    - UllmanWeaponPulsePistol
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: tsfstandard-weapon-module }
+
+- type: entity
   id: BorgModuleTSFAdvancedWeapon
-  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearTSFT3 ]
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseFactionGearTSFT3 ]
   name: TSFMC advanced weapon cyborg module
   components:
   - type: Sprite
@@ -60,7 +78,7 @@
 
 - type: entity
   id: BorgModulePDVStandardWeapon
-  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearPDVT2 ]
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseFactionGearPDVT2 ]
   name: PDV weapon cyborg module
   components:
   - type: Sprite
@@ -71,14 +89,32 @@
   - type: ItemBorgModule
     moduleId: Security
     items:
-    - EnergySword
+    - Machete
     - WeaponPistolAnaconda
   - type: BorgModuleIcon
     icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: pdvstandard-weapon-module }
 
 - type: entity
+  id: BorgModulePDVStandardAssault
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseFactionGearPDVT2 ]
+  name: PDV basic assault cyborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: pdv
+    - state: icon-pdv
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - Machete
+    - CyborgWeaponMinigun
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: pdvstandard-weapon-module }
+
+- type: entity
   id: BorgModulePDVAdvancedWeapon
-  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearPDVT3 ]
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseFactionGearPDVT3 ]
   name: PDV advanced weapon cyborg module
   components:
   - type: Sprite

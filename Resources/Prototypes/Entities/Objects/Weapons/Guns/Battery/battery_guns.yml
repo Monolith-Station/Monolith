@@ -22,8 +22,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+    maxCharge: 1500 # Mono: 1k >> 1.5k
+    startingCharge: 1500 # Mono: 1k >> 1.5k
   - type: StaticPrice
     price: 500
   - type: Cautery # Shitmed
@@ -68,7 +68,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedLightLaser
-    fireCost: 50
+    fireCost: 20 # Mono: pistol lasers shoot efficiently
   - type: PowerCellSlot
     cellSlotId: gun_magazine
   - type: ItemSlots
@@ -107,6 +107,9 @@
   - type: Tag
     tags:
     - Sidearm
+  - type: Battery # Mono: Keeps charge for smaller energy weapons
+    maxCharge: 1000
+    startingCharge: 1000
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/taser.rsi
     quickEquip: false
@@ -146,6 +149,14 @@
       shader: unshaded
   - type: Item
     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+  - type: Gun
+    burstCooldown: 0.75
+    burstFireRate: 3
+    shotsPerBurst: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - Burst
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -169,7 +180,7 @@
       shader: unshaded
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
-    fireCost: 83.3
+    fireCost: 33.3 # Mono: 83.3 >> 33.3
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -201,7 +212,7 @@
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
-    fireCost: 62.5
+    fireCost: 35 # Mono: 62.5 >> 35
   - type: Battery
     maxCharge: 500
     startingCharge: 500
@@ -262,7 +273,7 @@
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedLaserPractice
-    fireCost: 35 #Mono: 62.5 >> 35
+    fireCost: 30 #Mono: 62.5 >> 30
   - type: StaticPrice
     price: 300
 
@@ -276,9 +287,14 @@
     price: 500
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser #Mono: RedLaser >> RedMediumLaser
-    fireCost: 35 #Mono: 62.5 >> 35
+    fireCost: 30 #Mono: 62.5 >> 30
   - type: PirateBountyItem # Mono
     id: StandardFactionLongarm
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
 
 - type: entity
   name: LWC pulse pistol
@@ -495,7 +511,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
-    fireCost: 250
+    fireCost: 160
   - type: Battery
     maxCharge: 4000
     startingCharge: 4000
@@ -555,7 +571,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
     proto: XrayLaser
-    fireCost: 200
+    fireCost: 133.3
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -727,7 +743,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
-    fireCost: 100
+    fireCost: 50 # Mono: 100 >> 50
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 40
@@ -774,10 +790,10 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
-    fireCost: 100
+    fireCost: 50 # Mono: 100 >> 50
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 30
+    autoRechargeRate: 20 # Mono 30 >> 20
   - type: MagazineVisuals
     magState: mag
     steps: 5
