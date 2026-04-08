@@ -1,0 +1,78 @@
+<Document>
+  # CANARY-CLASS MILITARY TRANSPORT
+  <Box>
+  <GuideEntityEmbed Entity="MercenaryTechFab"/>
+  <GuideEntityEmbed Entity="WeaponLaserTurretPrometheus"/>
+  <GuideEntityEmbed Entity="WeaponLaserTurretL1Phalanx"/>
+  </Box>  
+
+  [color=#a4885c]Ship Size:[/color] Small
+
+  [color=#a4885c]Recommended Crew:[/color] 1-2
+
+  [color=#a4885c]Power Gen Type:[/color] Uranium
+
+  [color=#a4885c]Expeditions:[/color] None
+
+  [color=#a4885c]IFF Console:[/color] Included
+
+  "Canary-class shuttles are small military ships unsuited for the majority of shuttle combat, with equipment suiting a ground-based approach."
+
+  # PREFLIGHT CHECKLIST
+
+  ## 1. Power supply
+
+  ## 1.1. Battery units
+  <Box>
+  <GuideEntityEmbed Entity="SMESBasic"/>
+  <GuideEntityEmbed Entity="SubstationBasic"/>
+  <GuideEntityEmbed Entity="APCBasic"/>
+  </Box>
+
+  - Check that the S.U.P.E.R.P.A.C.M.A.N. generator unit is anchored to the floor.
+  - Check that the SMES unit is anchored to the floor.
+  - Check that the wall mounted substation unit is in working order to the floor.
+  - Check that the engineering bay APC's toggled on.
+  - Check the APC units current Load* (W).
+  - Check that the main rooms APC unit's Main Breaker is toggled on.
+  - Check the APC units' current Load* (W).
+
+  ## 1.2. S.U.P.E.R.P.A.C.M.A.N. generator unit.
+  <Box>
+  <GuideEntityEmbed Entity="PortableGeneratorSuperPacmanShuttle"/>
+  <GuideEntityEmbed Entity="FuelUranium"/>
+  </Box>
+
+  - Check that the generator unit is properly anchored.
+  - Check that the generator unit is connected to the cable terminal of your SMES via HV.
+  - Check the fuel remaining of the generator unit.
+  - Set the generator unit output power to 36 kW.
+  - Enable Injection.
+
+  ## 2. Atmospherics
+  
+  <Box>
+  <GuideEntityEmbed Entity="AirCanister"/>
+  <GuideEntityEmbed Entity="GasPort"/>
+  <GuideEntityEmbed Entity="GasVentScrubber"/>
+  <GuideEntityEmbed Entity="GasVentPump"/>
+  </Box>
+
+  - Check that the air canister is anchored to the connector port.
+  - Check that the air alarm is on the proper settings
+  - Ensure the air vents are not locked out
+
+  ## 3. Other checks
+  <Box>
+  <GuideEntityEmbed Entity="Gyroscope"/>
+  <GuideEntityEmbed Entity="GravityGeneratorMini"/>
+  </Box>
+
+  - Check that the gyroscope is anchored, powered, and enabled.
+  - Check that the mini gravity generator is anchored, powered, and enabled.
+
+  ## Sidenotes
+
+  * - Canary-class shuttles are equipped with two APC units that can be used to appraise the ship's total power consumption. Unmodified Canarys requires ~36 kW of power to remain operational.
+
+</Document>
