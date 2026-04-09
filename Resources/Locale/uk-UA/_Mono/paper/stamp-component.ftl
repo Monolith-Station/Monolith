@@ -1,0 +1,1 @@
+stamp-component-stamped-name-paycheck-bratva = Paycheck Bratva
