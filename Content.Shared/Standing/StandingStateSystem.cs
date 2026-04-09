@@ -187,27 +187,18 @@ public sealed class StandingStateSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        var chance = ent.Comp.LyingDodgeChance;
-
-        if (chance <= 0)
-            return;
-
-        var other = args.OtherEntity;
-
         // ONLY apply collision prevention logic to projectiles
         // This check must come FIRST to prevent non-projectiles from being affected
-        if (!TryComp(other, out ProjectileComponent? projectile))
+        if (!TryComp<ProjectileComponent>(args.OtherEntity, out var projectile))
             return;
 
         // Check distance between shooter and target, if too close, hit always.
-        if (projectile.Shooter is not null)
+        if (projectile.Shooter is { } shooter)
         {
-            var shooter = (EntityUid)projectile.Shooter;
-
-            if (_transform.InRange((Entity<TransformComponent?>)shooter, (Entity<TransformComponent?>)ent.Owner, 3f))
+            if (_transform.InRange(shooter, ent.Owner, 3f))
                 return;
         }
-        if (TryComp<StandingStateComponent>(ent, out var standingState) && standingState.CurrentState != StandingState.Standing && _random.Prob(chance))
+        if (TryComp<StandingStateComponent>(ent, out var standingState) && standingState.CurrentState != StandingState.Standing && _random.Prob(ent.Comp.LyingDodgeChance))
         {
             args.Cancelled = true;
         }
