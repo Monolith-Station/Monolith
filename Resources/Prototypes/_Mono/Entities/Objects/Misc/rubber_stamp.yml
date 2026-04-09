@@ -73,21 +73,21 @@
 # PDV
 
 - type: entity
-  name: the sultan's rubber stamp
+  name: pdv overwatch's rubber stamp
   parent: RubberStampBase
-  id: RubberStampPDVSultan
+  id: RubberStampPDVOverwatch
   categories: [ DoNotMap ]
   components:
   - type: Stamp
-    stampedName: stamp-component-stamped-name-pdv-sultan
+    stampedName: stamp-component-stamped-name-pdv-overwatch
     stampedColor: "#D2B48C"
-    stampState: "paper_stamp-mono-sultan"
+    stampState: "paper_stamp-mono-overwatch"
   - type: Sprite
     state: stamp-qm
     protected: True
   - type: Tag
     tags:
-    - PDVSultanStamp
+    - PDVOverwatchStamp
 
 
 - type: entity
