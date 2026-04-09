@@ -181,7 +181,7 @@ public sealed class StandingStateSystem : EntitySystem
         return true;
     }
 
-    /// MONO BEGIN: Crawling causes some projectiles based on rng to miss you.
+    /// MONO: Crawling causes some projectiles based on rng to miss you.
     private void PreventCollide(Entity<StandingStateComponent> ent, ref PreventCollideEvent args)
     {
         if (args.Cancelled)
@@ -199,7 +199,6 @@ public sealed class StandingStateSystem : EntitySystem
         if (ent.Comp.CurrentState != StandingState.Standing && _random.Prob(ent.Comp.LyingDodgeChance))
             args.Cancelled = true;
     }
-    // MONO END
 }
 
 [ByRefEvent]
