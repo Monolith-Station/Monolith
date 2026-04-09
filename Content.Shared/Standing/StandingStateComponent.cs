@@ -16,6 +16,9 @@ public sealed partial class StandingStateComponent : Component
     // WD EDIT END
 
     // Mono Start
+    /// <summary>
+    /// Chance for a projectile to miss the target if they are not standing.
+    /// </summary>
     [DataField, AutoNetworkedField]
     public float LyingDodgeChance = 0.5f;
     // Mono End
