@@ -21,6 +21,12 @@ public sealed partial class StandingStateComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float LyingDodgeChance = 0.5f;
+
+    /// <summary>
+    /// Range between shooter and target at where projectiles will always hit
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float HitRange = 3f;
     // Mono End
 
     [DataField, AutoNetworkedField]
