@@ -207,7 +207,6 @@ public sealed class StandingStateSystem : EntitySystem
             if (_transform.InRange((Entity<TransformComponent?>)shooter, (Entity<TransformComponent?>)ent.Owner, 3f))
                 return;
         }
-        // Mono
         if (TryComp<StandingStateComponent>(ent, out var standingState) && standingState.CurrentState != StandingState.Standing && _random.Prob(chance))
         {
             args.Cancelled = true;

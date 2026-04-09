@@ -18,6 +18,7 @@ public sealed partial class StandingStateComponent : Component
     // Mono Start
     [DataField, AutoNetworkedField]
     public float LyingDodgeChance = 0.5f;
+    // Mono End
 
     [DataField, AutoNetworkedField]
     public bool Standing { get; set; } = true;
