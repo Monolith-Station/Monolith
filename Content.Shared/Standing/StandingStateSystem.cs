@@ -39,7 +39,7 @@ public sealed class StandingStateSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<StandingStateComponent, AttemptMobCollideEvent>(OnMobCollide);
         SubscribeLocalEvent<StandingStateComponent, AttemptMobTargetCollideEvent>(OnMobTargetCollide);
-        SubscribeLocalEvent<StandingStateComponent, PreventCollideEvent>(PreventCollide);
+        SubscribeLocalEvent<StandingStateComponent, PreventCollideEvent>(PreventCollide); // Mono
     }
 
     private void OnMobTargetCollide(Entity<StandingStateComponent> ent, ref AttemptMobTargetCollideEvent args)
