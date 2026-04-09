@@ -131,7 +131,7 @@ public sealed class CompanyCommand : ToolshedCommand
         }
 
         // check if we're trying to owner a non-member
-        if (!_company.IsMember(ctx.Session.UserId, company))
+        if (!_company.IsMember(session.UserId, company))
         {
             ctx.WriteLine(Loc.GetString("cmd-company-was-not-whitelisted",
                 ("player", session.Name),
