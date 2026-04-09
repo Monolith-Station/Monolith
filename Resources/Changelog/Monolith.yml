@@ -19511,3 +19511,44 @@ Entries:
   id: 2151
   time: '2026-04-07T01:43:58.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3720
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Gunnery servers no longer passively make a large thermal signature.
+  id: 2152
+  time: '2026-04-07T18:35:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3723
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Far reaches drone targeting range doubled.
+  id: 2153
+  time: '2026-04-08T23:36:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3728
+- author: Ghost581X
+  changes:
+    - type: Fix
+      message: Crawling no longer makes you evade shipgun fire.
+  id: 2154
+  time: '2026-04-09T15:19:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3579
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Removed shuttle speedcap.
+    - type: Tweak
+      message: >-
+        Shuttles now accelerate in their movement direction exponentially more
+        slowly depending on velocity.
+  id: 2155
+  time: '2026-04-09T16:17:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3698
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Projectiles now miss targets lying down 50% of the time, unless the
+        shooter is close (within 3 tiles)
+  id: 2156
+  time: '2026-04-09T17:22:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3734
