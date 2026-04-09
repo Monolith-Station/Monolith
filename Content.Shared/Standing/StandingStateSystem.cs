@@ -193,15 +193,11 @@ public sealed class StandingStateSystem : EntitySystem
             return;
 
         // Check distance between shooter and target, if too close, hit always.
-        if (projectile.Shooter is { } shooter)
-        {
-            if (_transform.InRange(shooter, ent.Owner, ent.Comp.HitRange))
-                return;
-        }
+        if (projectile.Shooter is { } shooter && _transform.InRange(shooter, ent.Owner, ent.Comp.HitRange))
+            return;
+
         if (ent.Comp.CurrentState != StandingState.Standing && _random.Prob(ent.Comp.LyingDodgeChance))
-        {
             args.Cancelled = true;
-        }
     }
     // MONO END
 }
