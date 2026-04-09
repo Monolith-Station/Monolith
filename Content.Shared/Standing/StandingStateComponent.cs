@@ -15,6 +15,10 @@ public sealed partial class StandingStateComponent : Component
     public StandingState CurrentState { get; set; } = StandingState.Standing;
     // WD EDIT END
 
+    // Mono Start
+    [DataField, AutoNetworkedField]
+    public float LyingDodgeChance = 0.5f;
+
     [DataField, AutoNetworkedField]
     public bool Standing { get; set; } = true;
 
