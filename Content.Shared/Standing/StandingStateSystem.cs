@@ -198,7 +198,7 @@ public sealed class StandingStateSystem : EntitySystem
             if (_transform.InRange(shooter, ent.Owner, ent.Comp.HitRange))
                 return;
         }
-        if (TryComp<StandingStateComponent>(ent, out var standingState) && standingState.CurrentState != StandingState.Standing && _random.Prob(ent.Comp.LyingDodgeChance))
+        if (ent.Comp.CurrentState != StandingState.Standing && _random.Prob(ent.Comp.LyingDodgeChance))
         {
             args.Cancelled = true;
         }
