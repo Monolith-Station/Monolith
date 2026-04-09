@@ -151,12 +151,6 @@ public sealed class CompanyManager
             SendCompanyWhitelist(session.Channel);
     }
 
-    public async Task<NetUserId?> GetNetUserIdByNameAsync(string username)
-    {
-        var record = await _db.GetPlayerRecordByUserName(username);
-        return record?.UserId;
-    }
-
     public HashSet<ProtoId<CompanyPrototype>> GetPlayerCompanies(NetUserId player)
     {
         var res = new HashSet<ProtoId<CompanyPrototype>>();
