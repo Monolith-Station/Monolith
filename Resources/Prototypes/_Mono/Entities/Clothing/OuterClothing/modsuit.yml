@@ -1,36 +1,15 @@
 - type: entity
-  parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
+  parent: ClothingModsuitChestplateBase
   id: ClothingModsuitChestplateUSSPVaryag
   name: Panzerkorps Varyag
   description: Thick plating fused with internal atmosphere control.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
-  - type: AllowSuitStorage
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Modsuits/ussp-varyag.rsi
-    layers:
-    - state: chestplate
-    - state: chestplate-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ outerClothing ]
   - type: ClothingSpeedModifier
     walkModifier: 0.90
     sprintModifier: 0.85
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING-sealed
-      outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: StaminaDamageResistance
@@ -44,50 +23,21 @@
         Heat: 0.75
         Radiation: 0.5
         Caustic: 0.5
-  - type: ComponentToggler
-    components:
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
   - type: FireProtection
     reduction: 0.7
 
 - type: entity
-  parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
+  parent: ClothingModsuitChestplateBase
   id: ClothingModsuitChestplateUSSPZastavnik
   name: Brust Zastavnika
   description: An imposing armored shell designed to absorb punishment and maintain stability under pressure.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
-  - type: AllowSuitStorage
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Modsuits/ussp-zastavnik.rsi
-    layers:
-    - state: chestplate
-    - state: chestplate-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ outerClothing ]
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING-sealed
-      outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox
   - type: ExplosionResistance
     damageCoefficient: 0.3
   - type: StaminaDamageResistance
@@ -101,47 +51,18 @@
         Heat: 0.55
         Caustic: 0.4
         Radiation: 0.35
-  - type: ComponentToggler
-    components:
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
   - type: FireProtection
     reduction: 0.5
 
 - type: entity
-  parent: [ ClothingOuterBase, GeigerCounterClothing, BaseFactionGearPDVT3 ] # Mono - add geiger
+  parent: [ ClothingModsuitChestplateBase, BaseFactionGearPDVT3 ]
   id: ClothingModsuitChestplateRogue
   name: RX-01 modsuit chestplate
   description: The chestpiece has some warning label on the inside about radiation leaks- and a note next to it 'Remove this label in the final product - Felix
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
-  - type: AllowSuitStorage
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Modsuits/rogue.rsi
-    layers:
-    - state: chestplate
-    - state: chestplate-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ outerClothing ]
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING-sealed
-      outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox
   - type: ExplosionResistance
     damageCoefficient: 0.45
   - type: StaminaDamageResistance
@@ -161,43 +82,21 @@
         Radiation: 0.2
         Caustic: 0.3
         Poison: 0.8
-  - type: ComponentToggler
-    components:
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
 
 # Volta
 
 - type: entity
-  parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
+  parent: ClothingModsuitChestplateBase
   id: ClothingModsuitChestplateVolta
   name: Volta Modsuit Chestplate
   description: Reinforced military modification of Sapper Modsuit, featuring better bullet resistance.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
-  - type: AllowSuitStorage
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Modsuits/tsfmc-volta.rsi
-    layers:
-    - state: chestplate
-    - state: chestplate-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ outerClothing ]
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -218,14 +117,6 @@
         Heat: 0.5
         Shock: 0.9
         Radiation: 0.0
-  - type: ComponentToggler
-    components:
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
   - type: StaminaDamageResistance
     coefficient: 0.9
   - type: FireProtection
@@ -234,14 +125,12 @@
 # Gallóglach
 
 - type: entity
-  parent: [ ClothingOuterBase ] # Mono
+  parent: ClothingModsuitChestplateBase
   id: ClothingModsuitChestplateMercenary
   name: mercenary modsuit chestplate
   description: A well rounded modsuit that focuses on mobility with its Actuator Enhancement System allowing its wearer to leap across the battlefield for rapid redeployment.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
-  - type: AllowSuitStorage
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Modsuits/mercenary.rsi
     layers:
@@ -249,13 +138,6 @@
     - state: chestplate-sealed
       visible: false
       map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ outerClothing ]
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -266,7 +148,7 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
   - type: ExplosionResistance
-    damageCoefficient: 0.70 # Mono
+    damageCoefficient: 0.7 # Mono
   - type: Armor
     modifiers:
       coefficients:
@@ -275,16 +157,6 @@
         Piercing: 0.55
         Heat: 0.6
         Caustic: 0.45 # Mono
-        Radiation: .75 # Mono
-  - type: ComponentToggler
-    components:
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+        Radiation: 0.75 # Mono
   - type: StaminaDamageResistance
     coefficient: 0.7 # Mono
-  - type: FireProtection
-    reduction: 0.5 # Mono
