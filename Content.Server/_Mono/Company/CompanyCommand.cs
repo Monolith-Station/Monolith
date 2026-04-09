@@ -16,7 +16,6 @@ public sealed class CompanyCommand : ToolshedCommand
     [Dependency] private readonly CompanyManager _company = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly IAdminManager _admin = default!;
-
     [Dependency] private readonly IPlayerLocator _playerLocator = default!;
 
     [CommandImplementation("addmember")]
