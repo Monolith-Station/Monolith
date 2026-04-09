@@ -68,7 +68,7 @@ public sealed class CompanyCommand : ToolshedCommand
     {
         if (ctx.Session == null
             || !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist)
-                && !string.Equals(ctx.Session.Name, username, StringComparison.OrdinalIgnoreCase)) // allow looking at own companies
+                && ctx.Session.Name != username) // allow looking at own companies
         {
             ctx.WriteLine(Loc.GetString("cmd-company-not-enough-permissions"));
             return;
