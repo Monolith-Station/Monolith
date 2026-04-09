@@ -1,6 +1,6 @@
-id-card-access-level-ussp = СРСП
-id-card-access-level-ussp-high = USSP Secure
-id-card-access-level-ussp-command = USSP Command
+id-card-access-level-ussp = Асоціація Крісті
+id-card-access-level-ussp-high = Офіцер Асоціації Крісті
+id-card-access-level-ussp-command = Командування Асоціації Крісті
 id-card-access-level-ussp-debug = MAKE A ISSUE ON THE GITHUB IF YOU SEE THIS
 
 id-card-access-level-voucher = IGNORE, VOUCHER SHITCODE

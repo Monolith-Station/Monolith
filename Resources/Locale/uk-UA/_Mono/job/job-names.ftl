@@ -1,12 +1,12 @@
 # MARK: USSP
-job-name-ussp-commissar = Комісар СРСП
-job-name-ussp-sergeant = Сержант СРСП
-job-name-ussp-corporal = Єфрєйтор СРСП
-job-name-ussp-medic = Бойовий медик СРСП
-job-name-ussp-rifleman = Стрілець СРСП
-job-supervisors-ussp-highcomm = Компартія
-job-supervisors-ussp-commissars = Комісари
-job-supervisors-ussp-sergeant = Сержанти
+job-name-ussp-commissar = Командир АК
+job-name-ussp-sergeant = Сержант АК
+job-name-ussp-corporal = Капрал АК
+job-name-ussp-medic = Бойовий медик АК
+job-name-ussp-rifleman = Стрілець АК
+job-supervisors-ussp-highcomm = Головне Командування
+job-supervisors-ussp-commissars = Командири
+job-supervisors-ussp-sergeant = Офіцери
 
 # MARK: MD
 job-name-md-medic = Рятувальник
