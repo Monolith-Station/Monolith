@@ -15,19 +15,17 @@ public sealed partial class StandingStateComponent : Component
     public StandingState CurrentState { get; set; } = StandingState.Standing;
     // WD EDIT END
 
-    // Mono Start
     /// <summary>
-    /// Chance for a projectile to miss the target if they are not standing.
+    /// Mono: Chance for a projectile to miss the target if they are not standing.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float LyingDodgeChance = 0.5f;
 
     /// <summary>
-    /// Range between shooter and target at where projectiles will always hit
+    /// Mono: Range between shooter and target at where projectiles will always hit
     /// </summary>
     [DataField, AutoNetworkedField]
     public float HitRange = 3f;
-    // Mono End
 
     [DataField, AutoNetworkedField]
     public bool Standing { get; set; } = true;
