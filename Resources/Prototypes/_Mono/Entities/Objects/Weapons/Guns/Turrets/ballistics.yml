@@ -1,5 +1,4 @@
 # Base Heavy Turret
-
 - type: entity
   id: BallisticTurretHeavyBase
   parent: BaseWeaponTurret
@@ -63,7 +62,6 @@
     price: 1500
 
 # Faction Based
-
 - type: entity
   parent: BallisticTurretHeavyBase
   id: WeaponTurretHeavyCC
@@ -146,7 +144,6 @@
     - SiliconsExpeditionNF
 
 # Anti-Chimera Variant
-
 - type: entity
   parent: BallisticTurretHeavyBase
   id: WeaponTurretHeavyRIPBase
@@ -163,7 +160,6 @@
     fireCost: 25
 
 # Repairable wrecked state for RIP turrets tasked with anti-spawncamp (making them soft-indestructible)
-
 - type: entity
   parent: BaseStructure
   id: WeaponTurretRepairableBroken
@@ -182,7 +178,6 @@
     node: breakTurret
 
 # Faction Based
-
 - type: entity
   parent: WeaponTurretHeavyRIPBase
   id: WeaponTurretHeavyRIPCC
