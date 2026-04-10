@@ -1,8 +1,6 @@
 using Content.Server.Gatherable.Components;
-using Content.Shared.Destructible;
 using Content.Shared.Mining.Components;
 using Content.Shared.Projectiles;
-using Robust.Shared.Physics.Events;
 
 namespace Content.Server.Gatherable;
 
@@ -38,7 +36,7 @@ public sealed partial class GatherableSystem
             return;
         }
 
-        Gather(args.Target, gathering, gatherable);
+        Gather(args.Target, gathering, gatherable, gathering.Comp.BreakTileOnGather);
         gathering.Comp.Amount--;
 
         if (gathering.Comp.Amount <= 0)

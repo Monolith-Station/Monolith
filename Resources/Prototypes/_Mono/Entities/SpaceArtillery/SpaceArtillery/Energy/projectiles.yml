@@ -465,6 +465,7 @@
   - type: HitscanBasicRaycast
     maxDistance: 600
   - type: HitscanGathering
+    breakTileOnGather: true
 
 # Prometheus
 

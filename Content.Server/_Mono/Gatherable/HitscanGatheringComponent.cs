@@ -6,5 +6,6 @@ namespace Content.Server._Mono.Gatherable;
 [RegisterComponent]
 public sealed partial class HitscanGatheringComponent : Component
 {
-
+    [DataField]
+    public bool BreakTileOnGather;
 }

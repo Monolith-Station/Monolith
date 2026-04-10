@@ -17,6 +17,6 @@ public sealed class GatherableSystemHitscan : EntitySystem
         if (!TryComp<GatherableComponent>(ev.Target, out var gatherable))
             return;
 
-        _gather.Gather(ev.Target, ent, gatherable);
+        _gather.Gather(ev.Target, ent, gatherable, ent.Comp.BreakTileOnGather);
     }
 }
