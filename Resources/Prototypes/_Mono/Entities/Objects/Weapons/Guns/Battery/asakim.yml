@@ -26,9 +26,9 @@
     fireRate: 6
     burstFireRate: 15
     shotsPerBurst: 5
+    burstCooldown: 1
     selectedMode: FullAuto
     availableModes:
-    - SemiAuto
     - Burst
     - FullAuto
     soundGunshot:
@@ -45,7 +45,7 @@
     price: 1750
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 15
+    autoRechargeRate: 35
 
 - type: entity
   name: kunisa-pattern plasma autopulser
@@ -68,9 +68,9 @@
     fireRate: 6
     burstFireRate: 15
     shotsPerBurst: 5
+    burstCooldown: 1
     selectedMode: FullAuto
     availableModes:
-    - SemiAuto
     - Burst
     - FullAuto
     soundGunshot:
@@ -84,7 +84,7 @@
     fireCost: 25
   - type: Appearance
   - type: StaticPrice
-    price: 1750
+    price: 1000
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 30
+    autoRechargeRate: 50

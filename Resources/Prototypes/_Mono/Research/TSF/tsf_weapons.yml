@@ -15,61 +15,40 @@
   position: 12, 2
 
 - type: technology
-  id: TsfAnnie
-  name: research-technology-tsfmc-annie
+  id: TsfAdvancedWeapons
+  name: research-technology-tsfmc-advanced-weapons
   entityIcon: WeaponRifleAnnie
   discipline: TsfmcWeaponry
   tier: 2
-  cost: 25000
+  cost: 30000
   recipeUnlocks:
   - WeaponRifleAnnieTSF
+  - WeaponLMGGrizzlyTSF
+  - WeaponDEWCalico
+  - Magazine700Thz
+  - AmmoBox700Thz
+  - AmmoBox68x52mmCaselessBig
+  - AmmoBox57x28mmBigFMJ
   technologyPrerequisites:
   - TsfBasicGuns
   - UniversalMaterialResearchT2
   position: 12, 7
 
 - type: technology
-  id: TsfGrizzly
-  name: research-technology-tsfmc-grizzly
-  entityIcon: WeaponLMGGrizzly
-  discipline: TsfmcWeaponry
-  tier: 2
-  cost: 40000
-  recipeUnlocks:
-  - WeaponLMGGrizzlyTSF
-  - AmmoBox68x52mmCaselessBig
-  technologyPrerequisites:
-  - TsfAnnie
-  - UniversalMaterialResearchT2
-  position: 12, 8
-
-- type: technology
-  id: TsfMarsocGuns
-  name: research-technology-tsfmc-mr8
-  entityIcon: WeaponRifleMR8C
-  discipline: TsfmcWeaponry
-  tier: 3
-  cost: 40000 # Raise back to 75k when MR-8B is balanced (never)
-  recipeUnlocks:
-  #- WeaponLMGMR8BTSF
-  - WeaponRifleMR8CTSF
-  - AmmoBox8x65mmSKR
-  #- Magazine8x65mmSKRBox
-  #- Magazine8x65mmEmptyBox
-  technologyPrerequisites:
-  - TsfAnnie
-  - UniversalMaterialResearchT3
-  position: 12, 12
-
-- type: technology
-  id: TsfIcws
-  name: research-technology-tsfmc-xlr556
+  id: TsfSuperWeapons
+  name: research-technology-tsfmc-super-weapons
   entityIcon: WeaponRifleXlr556
   discipline: TsfmcWeaponry
   tier: 3
   cost: 30000
   recipeUnlocks:
   - WeaponRifleXlr556Tsf
+  - WeaponRifleMR8CTSF
+  - WeaponDEWSmilodon
+  - WeaponLauncherTSFOsiris
+  - LargePowerCell400Thz # For smilodon
+  - LargePowerCell700Thz # For smilodon
   technologyPrerequisites:
-  - TsfMarsocGuns
-  position: 12, 13
+  - TsfAdvancedWeapons
+  - UniversalMaterialResearchT3
+  position: 12, 12

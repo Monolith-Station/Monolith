@@ -35,7 +35,9 @@
         - type: StationNameSetup
           mapNameTemplate: 'TSFMC Secondary Outpost'
         - type: ExtraStationInformation
-          iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
+          icon:
+            sprite: _NF/Structures/Decoration/banner.rsi
+            state: nfsd-banner
           stationSubtext: 'frontier-lobby-tsfmc-secondary-subtext'
           stationDescription: 'frontier-lobby-tsfmc-secondary-description'
           lobbySortOrder: 2

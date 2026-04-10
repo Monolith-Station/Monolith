@@ -71,37 +71,7 @@ public abstract class SharedActionsSystem : EntitySystem
         SubscribeAllEvent<RequestPerformActionEvent>(OnActionRequest);
     }
 
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var worldActionQuery = EntityQueryEnumerator<WorldTargetActionComponent>();
-        while (worldActionQuery.MoveNext(out var uid, out var action))
-        {
-            if (IsCooldownActive(action) || !ShouldResetCharges(action))
-                continue;
-
-            ResetCharges(uid, dirty: true);
-        }
-
-        var instantActionQuery = EntityQueryEnumerator<InstantActionComponent>();
-        while (instantActionQuery.MoveNext(out var uid, out var action))
-        {
-            if (IsCooldownActive(action) || !ShouldResetCharges(action))
-                continue;
-
-            ResetCharges(uid, dirty: true);
-        }
-
-        var entityActionQuery = EntityQueryEnumerator<EntityTargetActionComponent>();
-        while (entityActionQuery.MoveNext(out var uid, out var action))
-        {
-            if (IsCooldownActive(action) || !ShouldResetCharges(action))
-                continue;
-
-            ResetCharges(uid, dirty: true);
-        }
-    }
+    // Mono - removed Update()
 
     private void OnActionMapInit(EntityUid uid, BaseActionComponent component, MapInitEvent args)
     {
@@ -167,7 +137,12 @@ public abstract class SharedActionsSystem : EntitySystem
         result = ev.Action;
 
         if (result != null)
+        {
+            // Mono
+            if (!IsCooldownActive(result) && ShouldResetCharges(result))
+                ResetCharges(uid.Value, dirty: true, action: result);
             return true;
+        }
 
         if (logError)
             Log.Error($"Failed to get action from action entity: {ToPrettyString(uid.Value)}. Trace: {Environment.StackTrace}");
@@ -362,9 +337,10 @@ public abstract class SharedActionsSystem : EntitySystem
         Dirty(actionId.Value, action);
     }
 
-    public void ResetCharges(EntityUid? actionId, bool update = false, bool dirty = false)
+    public void ResetCharges(EntityUid actionId, bool update = false, bool dirty = false,
+        BaseActionComponent? action = null) // Mono
     {
-        if (!TryGetActionData(actionId, out var action))
+        if (action == null && !TryGetActionData(actionId, out action))
             return;
 
         action.Charges = action.MaxCharges;
@@ -373,7 +349,7 @@ public abstract class SharedActionsSystem : EntitySystem
             UpdateAction(actionId, action);
 
         if (dirty)
-            Dirty(actionId.Value, action);
+            Dirty(actionId, action);
     }
 
     private void OnActionsGetState(EntityUid uid, ActionsComponent component, ref ComponentGetState args)
