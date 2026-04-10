@@ -83,7 +83,9 @@ public sealed partial class GatherableSystem : EntitySystem
 
         component.Gathered = true; // mono
 
-        var pos = _transform.GetMapCoordinates(gatheredUid);
+        var xform = Transform(gatheredUid); // mono
+
+        var pos = xform.Coordinates; // mono
 
         foreach (var (tag, table) in component.Loot)
         {
@@ -103,8 +105,6 @@ public sealed partial class GatherableSystem : EntitySystem
         // mono start
         if (!deleteTileOnGather)
             return;
-
-        var xform = Transform(gatheredUid);
 
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
