@@ -58,7 +58,7 @@ public sealed partial class GatherableSystem : EntitySystem
         args.Handled = true;
     }
 
-    public void Gather(EntityUid gatheredUid, EntityUid? gatherer = null, GatherableComponent? component = null, bool deleteTileOnGather = false)
+    public void Gather(EntityUid gatheredUid, EntityUid? gatherer = null, GatherableComponent? component = null, bool deleteTileOnGather = false) // mono
     {
         if (!Resolve(gatheredUid, ref component))
             return;
