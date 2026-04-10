@@ -191,7 +191,6 @@
     - trigger:
         !type:DamageTrigger
         damage: 750
-       # TODO: Construction graph
       behaviors:
       - !type:ChangeConstructionNodeBehavior
         node: breakTurret
