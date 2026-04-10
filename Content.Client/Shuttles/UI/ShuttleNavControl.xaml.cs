@@ -47,7 +47,8 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     /// </summary>
     protected EntityUid? _consoleEntity; // Mono
 
-    protected Angle? _rotation; // Mono
+    // Mono - is world rotation of the view.
+    protected Angle? _rotation;
 
     private Dictionary<NetEntity, List<DockingPortState>> _docks = new();
 
@@ -65,7 +66,6 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     public bool ShowIFF { get; set; } = true;
     public bool ShowIFFShuttles { get; set; } = true;
     public bool ShowDocks { get; set; } = true;
-    public bool RotateWithEntity { get; set; } = true;
 
     public float MaximumIFFDistance { get; set; } = 3000f; // Frontier // Mono - 3000 by default to not gigaclutter
     public bool HideCoords { get; set; } = false; // Frontier
@@ -88,20 +88,17 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     public List<EntityUid>? Detectors = null;
 
     #region Mono
-    public bool RelativePanning = false;
-
     // These 2 handle timing updates
     protected const float RadarUpdateInterval = 0f;
     protected float _updateAccumulator = 0f;
 
-    protected bool _angleLocal = true;
+    protected bool _relativePanning = false;
+    protected bool _angleFollow = true;
 
-    // makes panning keep the off-ent offset but not its rotation
-    private bool _panningRotate = true;
-    private Vector2 _panOffset = Vector2.Zero;
+    // offset off our coordinates in the view's rotation frame
+    protected Vector2 _panOffset = Vector2.Zero;
 
     private bool _wasPanned = false;
-    private EntityCoordinates? _oldCoordinates;
     #endregion
 
     protected bool _isMouseDown;
@@ -141,8 +138,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             return;
 
         _coordinates = coordinates;
-        if (_angleLocal)
-            _rotation = angle;
+        _rotation = angle;
     }
 
     public void SetConsole(EntityUid? consoleEntity)
@@ -160,25 +156,16 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         if (!_draggin || _coordinates == null)
             return;
 
-        if (!_wasPanned)
-        {
-            _wasPanned = true;
-            _oldCoordinates = RelativePanning ? _coordinates.Value : _transform.ToCoordinates(_transform.ToMapCoordinates(_coordinates.Value));
-            if (!RelativePanning)
-                _rotation = new Angle(0);
-        }
-        if (_oldCoordinates == null || _rotation == null)
-            return;
+        if (!_relativePanning
+            && _coordinates?.EntityId is { } coordEnt
+            && EntManager.TryGetComponent<TransformComponent>(coordEnt, out var coordXform)
+            && coordXform.MapUid != coordEnt
+        )
+            _coordinates = _transform.ToCoordinates(_transform.ToMapCoordinates(_coordinates.Value));
 
-        var coordEntRot = _transform.GetWorldRotation(_oldCoordinates.Value.EntityId);
-        var unRot = _rotation.Value;
-        if (!_angleLocal)
-            unRot -= coordEntRot;
 
-        var offs = InverseMapPosition(MidPointVector);
-        _coordinates = _oldCoordinates.Value.Offset(unRot.RotateVec(offs));
-        if (_consoleEntity != null)
-            _panOffset = _transform.ToWorldPosition(_coordinates.Value) - _transform.GetWorldPosition(_consoleEntity.Value);
+        _wasPanned = true;
+        _panOffset = InverseMapPosition(MidPointVector);
     }
 
     protected override void KeyBindDown(GUIBoundKeyEventArgs args)
@@ -198,21 +185,11 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         base.KeyBindUp(args);
 
         if (args.Function != EngineKeyFunctions.UIClick)
-        {
             return;
-        }
 
         _isMouseDown = false;
 
-        if (_coordinates == null || _rotation == null || OnRadarClick == null)
-        {
-            return;
-        }
-
-        var a = InverseScalePosition(args.RelativePosition);
-        var relativeWorldPos = a with { Y = -a.Y };
-        relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
-        var coords = _coordinates.Value.Offset(relativeWorldPos);
+        var coords = GetMouseEntityCoordinates(args.RelativePosition);
         OnRadarClick?.Invoke(coords);
     }
 
@@ -249,14 +226,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
     private void TryFireAtPosition(Vector2 relativePosition)
     {
-        if (_coordinates == null || _rotation == null || OnRadarClick == null || _consoleEntity == null)
-            return;
-
-        var a = InverseScalePosition(relativePosition);
-        var relativeWorldPos = new Vector2(a.X, -a.Y);
-        relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
-        var coords = _transform.ToCoordinates(_transform.ToMapCoordinates(_coordinates.Value)).Offset(relativeWorldPos);
-        coords = _transform.WithEntityId(coords, _consoleEntity.Value);
+        var coords = GetMouseEntityCoordinates(relativePosition);
         OnRadarClick?.Invoke(coords);
     }
 
@@ -272,10 +242,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         }
 
         var pos = _uiManager.MousePositionScaled.Position - GlobalPosition;
-        var relativeWorldPos = _rotation.Value.RotateVec(pos);
-
-        // I am not sure why the resulting point is 20 units under the mouse.
-        return _coordinates.Value.Offset(relativeWorldPos);
+        return GetMouseEntityCoordinates(pos);
     }
 
     public void UpdateState(NavInterfaceState state)
@@ -293,8 +260,6 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             WorldMinRange = WorldMaxRange;
 
         ActualRadarRange = Math.Clamp(ActualRadarRange, WorldMinRange, WorldMaxRange);
-
-        RotateWithEntity = state.RotateWithEntity;
 
         // Frontier
         if (state.MaxIffRange != null)
@@ -333,33 +298,20 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         // Mono
         if (EntManager.TryGetComponent<RadarConsoleComponent>(_consoleEntity, out var radar))
         {
-            _panningRotate = RelativePanning = radar.RelativePanning;
             Draggable = radar.Pannable;
-            if (!Draggable)
-                _wasPanned = false; // also reset
-            var lockRotation = radar.NoRotate;
-            if (lockRotation)
-            {
-                RotateWithEntity = false;
-                _panningRotate = false;
-                _angleLocal = false;
-                _rotation = Angle.Zero;
-            }
-            else
-                _panningRotate = true;
+            _angleFollow = !radar.NoRotate;
+            _relativePanning = radar.RelativePanning;
         }
-        // Mono - TODO: fix this mess and related messes
-        // probably just use an enum and switch modes around
-        // i am too tired to do this so if anyone is seeing this do that please
-        var coordEntRot = _transform.GetWorldRotation(_coordinates.Value.EntityId);
-        if (!_panningRotate && _consoleEntity != null && EntManager.TryGetComponent<TransformComponent>(_consoleEntity, out var consXform))
-            _coordinates = consXform.Coordinates.Offset((-coordEntRot).RotateVec(_panOffset));
+        var coordEnt = _coordinates.Value.EntityId;
+        var coordEntRot = _transform.GetWorldRotation(coordEnt);
+        if (_angleFollow && EntManager.TryGetComponent<TransformComponent>(coordEnt, out var coordXform))
+            _rotation = coordEntRot;
+        else
+            _rotation = Angle.Zero;
 
         var worldRot = _rotation.Value;
-        if (_angleLocal)
-            worldRot += coordEntRot;
 
-        var mapPos = _transform.ToMapCoordinates(_coordinates.Value);
+        var mapPos = _transform.ToMapCoordinates(_coordinates.Value).Offset(_rotation.Value.RotateVec(_panOffset));
         var mapCoord = _transform.ToCoordinates(mapPos);
         var worldToShuttle = Matrix3Helpers.CreateTranslation(-mapCoord.Position) * Matrix3Helpers.CreateRotation(-worldRot);
         Matrix3x2.Invert(worldToShuttle, out var shuttleToWorld);
@@ -370,8 +322,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         DrawShields(handle, xform, worldToShuttle);
 
         // Frontier Corvax: north line drawing
-        var rot = worldRot;
-        DrawNorthLine(handle, rot);
+        DrawNorthLine(handle, worldRot);
 
         // Draw our grid in detail
         var ourGridId = xform.GridUid;
@@ -462,9 +413,8 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             //shouldDrawIFF = NfCheckShouldDrawIffRangeCondition(shouldDrawIFF, mapCenter, curGridToWorld); // Frontier code
             // Frontier: range checks // Mono
             var gridMapPos = _transform.ToMapCoordinates(new EntityCoordinates(gUid, gridBody.LocalCenter)).Position;
-            var ourPos = _transform.ToMapCoordinates(_coordinates.Value);
             if (!hideLabel) // Mono - show thermal signatures even at long range
-                shouldDrawIFF = NfCheckShouldDrawIffRangeCondition(shouldDrawIFF, ourPos.Position - gridMapPos);
+                shouldDrawIFF = NfCheckShouldDrawIffRangeCondition(shouldDrawIFF, mapPos.Position - gridMapPos);
             // End Frontier
 
             // Mono
@@ -909,9 +859,21 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
     protected Vector2 InverseScalePosition(Vector2 value)
     {
-        // Account for UI scaling: value is unscaled, so adjust by UIScale
         var scaledValue = value * UIScale;
         return (scaledValue - MidPointVector) / MinimapScale;
+    }
+
+    // Mono
+    protected EntityCoordinates GetMouseEntityCoordinates(Vector2 relativePosition)
+    {
+        if (_coordinates is not { } cord || _rotation is not { } rot)
+            return new();
+
+        var screenRelativeWorldPos = InverseMapPosition(relativePosition);
+        var relativeWorldPos = rot.RotateVec(screenRelativeWorldPos);
+        var coordEntRot = _transform.GetWorldRotation(cord.EntityId);
+        var coords = cord.Offset((-coordEntRot).RotateVec(relativeWorldPos));
+        return coords;
     }
 
     public class BlipData

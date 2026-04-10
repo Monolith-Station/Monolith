@@ -71,10 +71,8 @@ public sealed class FireControlNavControl : ShuttleNavControl
         var coordEntRot = _transform.GetWorldRotation(_coordinates.Value.EntityId);
 
         var worldRot = _rotation.Value;
-        if (_angleLocal)
-            worldRot += coordEntRot;
 
-        var mapPos = _transform.ToMapCoordinates(_coordinates.Value);
+        var mapPos = _transform.ToMapCoordinates(_coordinates.Value).Offset(_rotation.Value.RotateVec(_panOffset));
         var mapCoord = _transform.ToCoordinates(mapPos);
         var worldToShuttle = Matrix3Helpers.CreateTranslation(-mapCoord.Position) * Matrix3Helpers.CreateRotation(-worldRot);
         Matrix3x2.Invert(worldToShuttle, out var shuttleToWorld);
@@ -132,16 +130,7 @@ public sealed class FireControlNavControl : ShuttleNavControl
 
         _lastCursorUpdateTime = (float)currentTime;
 
-        // Convert mouse position to world coordinates for missile tracking
-        if (_coordinates == null || _rotation == null || OnRadarClick == null || _consoleEntity == null)
-            return;
-
-        var a = InverseScalePosition(relativePosition);
-        var relativeWorldPos = new Vector2(a.X, -a.Y);
-        relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
-        var coords = _transform.ToCoordinates(_transform.ToMapCoordinates(_coordinates.Value)).Offset(relativeWorldPos);
-        coords = _transform.WithEntityId(coords, _consoleEntity.Value);
-
+        var coords = GetMouseEntityCoordinates(relativePosition);
         // This will update the server of our cursor position without triggering actual firing
         OnRadarClick?.Invoke(coords);
     }

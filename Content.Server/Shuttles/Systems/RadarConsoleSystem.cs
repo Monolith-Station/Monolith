@@ -62,8 +62,6 @@ public sealed class RadarConsoleSystem : SharedRadarConsoleSystem
                 state = _console.GetNavState(uid, docks);
             }
 
-            state.RotateWithEntity = !component.FollowEntity;
-
             // Frontier: ghost radar restrictions
             if (component.MaxIffRange != null)
                 state.MaxIffRange = component.MaxIffRange.Value;

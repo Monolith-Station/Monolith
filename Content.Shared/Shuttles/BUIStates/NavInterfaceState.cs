@@ -21,8 +21,6 @@ public sealed class NavInterfaceState
 
     public Dictionary<NetEntity, List<DockingPortState>> Docks;
 
-    public bool RotateWithEntity = true;
-
     /// <summary>
     /// Custom display names for network port buttons.
     /// Key is the port ID, value is the display name.
