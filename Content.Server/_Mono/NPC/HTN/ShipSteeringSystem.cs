@@ -356,7 +356,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
             var dirAccel = _mover.GetWorldDirectionAccel(dir, ctx.Shuttle, ctx.ShipBody, ctx.ShipXform);
             if (dirAccel.LengthSquared() == 0f) {
-                dirAccel = dir * forwardAccel * (Vector2.Dot(dir, forwardAccelDir) + 1);
+                dirAccel = dir * forwardAccel * (Vector2.Dot(dir, forwardAccelDir) + 1) * 0.5f;
             }
 
             for (var depth = 1; depth <= config.EvasionSectorDepth; depth++)
