@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/05/2026 17:52:12
-  entityCount: 831
+  time: 04/10/2026 11:04:31
+  entityCount: 832
 maps: []
 grids:
 - 1
@@ -77,10 +77,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
         Kudzu: []
-        Puddle: []
+        MetalFoam: []
         Smoke: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -3334,6 +3334,14 @@ entities:
     components:
     - type: Transform
       pos: -5.5,0.5
+      parent: 1
+- proto: LockerWallMaterialsFuelPlasmaFilled
+  entities:
+  - uid: 832
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,-0.5
       parent: 1
 - proto: MachineFrame
   entities:
