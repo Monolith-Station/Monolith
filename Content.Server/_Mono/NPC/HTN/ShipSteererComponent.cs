@@ -94,7 +94,7 @@ public sealed partial class ShipSteererComponent : Component
     /// How much to enlarge grid search forward distance for collision evasion.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float GridSearchDistanceBuffer = 96f;
+    public float GridSearchDistanceBuffer = 256f;
 
     /// <summary>
     /// Up to how fast can we be going before being considered in range, if not null.
