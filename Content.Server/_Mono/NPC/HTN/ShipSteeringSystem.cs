@@ -344,6 +344,10 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var simTime = brake.BrakeAccel == 0f ? 10f : 2f * ctx.ShipBody.LinearVelocity.Length() / brake.BrakeAccel;
         simTime += config.BaseEvasionTime;
 
+        var forwardAccelVec = _mover.GetDirectionAccel(new Vector2(0f, 1f), ctx.Shuttle, ctx.ShipBody, ctx.ShipXform);
+        var forwardAccelDir = NormalizedOrZero(forwardAccelVec);
+        var forwardAccel = forwardAccelVec.Length();
+
         _sectors.Clear();
         for (var i = 0; i < config.EvasionSectorCount; i++)
         {
@@ -351,6 +355,9 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             var dir = angle.ToVec();
 
             var dirAccel = _mover.GetWorldDirectionAccel(dir, ctx.Shuttle, ctx.ShipBody, ctx.ShipXform);
+            if (dirAccel.LengthSquared() == 0f) {
+                dirAccel = dir * forwardAccel * (Vector2.Dot(dir, forwardAccelDir) + 1) * 0.5f;
+            }
 
             for (var depth = 1; depth <= config.EvasionSectorDepth; depth++)
             {

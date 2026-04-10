@@ -19573,3 +19573,12 @@ Entries:
   id: 2159
   time: '2026-04-09T21:23:05.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3731
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed ship AI sitting around doing nothing when missing thrust
+        directions, in particular, on Medusa.
+  id: 2160
+  time: '2026-04-10T10:18:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3743
