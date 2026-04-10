@@ -103,13 +103,8 @@ public sealed partial class GatherableSystem : EntitySystem
             }
         }
         // mono start
-        if (!deleteTileOnGather)
-            return;
-
-        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
-            return;
-
-        _map.SetTile((xform.GridUid.Value, grid), xform.Coordinates, new Tile(_tileDefinitionManager["Space"].TileId));
+        if (deleteTileOnGather && TryComp<MapGridComponent>(xform.GridUid, out var grid))
+            _map.SetTile((xform.GridUid.Value, grid), xform.Coordinates, new Tile(_tileDefinitionManager["Space"].TileId));
         // mono end
     }
 }
