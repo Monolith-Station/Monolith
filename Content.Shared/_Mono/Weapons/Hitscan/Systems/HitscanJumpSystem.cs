@@ -70,9 +70,8 @@ public sealed class HitscanJumpSystem : EntitySystem
             }
         }
 
-        if (closest.HasValue &&
-            coords.TryDelta(EntityManager, _transform, Transform(closest.Value).Coordinates, out var oD))
-            delta = oD;
+        if (closest.HasValue)
+            delta = _transform.ToWorldPosition(coords) - _transform.ToWorldPosition(Transform(closest.Value).Coordinates);
 
         return closest.HasValue;
     }
@@ -103,9 +102,8 @@ public sealed class HitscanJumpSystem : EntitySystem
             }
         }
 
-        if (closest.HasValue &&
-            coords.TryDelta(EntityManager, _transform, Transform(closest.Value).Coordinates, out var oD))
-            delta = oD;
+        if (closest.HasValue)
+            delta = _transform.ToWorldPosition(coords) - _transform.ToWorldPosition(Transform(closest.Value).Coordinates);
 
         return closest.HasValue;
     }
