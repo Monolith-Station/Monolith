@@ -16,6 +16,5 @@ public sealed partial class ShuttleBoostingPilotSystem : EntitySystem
     {
         args.AngularMul *= ent.Comp.AngularMultiplier;
         args.AccelMul *= ent.Comp.AccelerationMultiplier;
-        args.MaxVelMul *= ent.Comp.MaxVelMultiplier;
     }
 }
