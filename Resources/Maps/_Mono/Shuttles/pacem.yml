@@ -117,7 +117,7 @@ entities:
         Smoke: []
         Puddle: []
     - type: Shuttle
-      dampingModifier: 0.25
+      dampingModifier: 0.30
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
