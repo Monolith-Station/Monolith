@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/11/2026 12:36:36
-  entityCount: 256
+  time: 04/11/2026 12:41:50
+  entityCount: 259
 maps: []
 grids:
 - 1
@@ -97,7 +97,20 @@ entities:
     - type: DecalGrid
       chunkCollection:
         version: 2
-        nodes: []
+        nodes:
+        - node:
+            color: '#F1B223FF'
+            id: Bot
+          decals:
+            1: -1,2
+            2: 0,2
+            3: 1,2
+            4: 1,0
+        - node:
+            color: '#FF2631FF'
+            id: Bot
+          decals:
+            5: -1,0
     - type: GridAtmosphere
       version: 2
       data:
@@ -432,21 +445,19 @@ entities:
       parent: 1
 - proto: ComputerEliteRadar
   entities:
-  - uid: 117
+  - uid: 116
     components:
     - type: Transform
-      pos: -0.5,2.5
+      pos: 1.5,2.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerGunneryConsole
-  entities:
-  - uid: 116
+  - uid: 117
     components:
     - type: Transform
-      pos: 1.5,2.5
+      pos: -0.5,2.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -1019,6 +1030,27 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 1.5,3.5
+      parent: 1
+- proto: Railing
+  entities:
+  - uid: 257
+    components:
+    - type: Transform
+      pos: 1.5,1.5
+      parent: 1
+  - uid: 258
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,0.5
+      parent: 1
+- proto: RailingCornerSmall
+  entities:
+  - uid: 259
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,1.5
       parent: 1
 - proto: ScuttleDeviceRazorN
   entities:
