@@ -2196,7 +2196,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             var companies = _prototypeManager.EnumeratePrototypes<CompanyPrototype>()
-                .Where(c => !c.Disabled && _companyManager.IsAllowed(c))
+                .Where(c => !c.Disabled && _companyManager.IsAllowed(c.ID))
                 .ToList();
             companies.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.Ordinal));
 
