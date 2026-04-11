@@ -19638,3 +19638,12 @@ Entries:
   id: 2167
   time: '2026-04-11T08:47:32.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3749
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Guns on mechs or people now properly inherit velocity of the shooter.
+    - type: Fix
+      message: 'Fixed gunnery console on non-1x UI scale. '
+  id: 2168
+  time: '2026-04-11T15:45:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3753

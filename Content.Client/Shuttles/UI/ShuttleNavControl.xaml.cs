@@ -878,7 +878,8 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         if (_coordinates is not { } cord || _rotation is not { } rot)
             return new();
 
-        var screenRelativeWorldPos = InverseMapPosition(relativePosition);
+        // multiply by UIScale because UI is Very Intelligent and doesn't scale mouse position for whatever reason
+        var screenRelativeWorldPos = InverseMapPosition(relativePosition * UIScale);
         var relativeWorldPos = rot.RotateVec(screenRelativeWorldPos);
         var coordEntRot = _transform.GetWorldRotation(cord.EntityId);
         var coords = cord.Offset((-coordEntRot).RotateVec(relativeWorldPos));
