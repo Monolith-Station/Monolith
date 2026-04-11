@@ -31,6 +31,7 @@
     isEquipment: true
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: DetectionRangeMultiplier # upgraded thermal sensors
     infraredMultiplier: 1.5
     visualMultiplier: 2

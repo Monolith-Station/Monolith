@@ -19518,3 +19518,123 @@ Entries:
   id: 2152
   time: '2026-04-07T18:35:47.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3723
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Far reaches drone targeting range doubled.
+  id: 2153
+  time: '2026-04-08T23:36:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3728
+- author: Ghost581X
+  changes:
+    - type: Fix
+      message: Crawling no longer makes you evade shipgun fire.
+  id: 2154
+  time: '2026-04-09T15:19:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3579
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Removed shuttle speedcap.
+    - type: Tweak
+      message: >-
+        Shuttles now accelerate in their movement direction exponentially more
+        slowly depending on velocity.
+  id: 2155
+  time: '2026-04-09T16:17:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3698
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Projectiles now miss targets lying down 50% of the time, unless the
+        shooter is close (within 3 tiles)
+  id: 2156
+  time: '2026-04-09T17:22:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3734
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Fixed oversights from ship HP changes.
+  id: 2157
+  time: '2026-04-09T17:40:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3735
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: 12 gauge damage buff
+  id: 2158
+  time: '2026-04-09T18:21:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3528
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Ported the ability for guns to have damage modifiers.
+  id: 2159
+  time: '2026-04-09T21:23:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3731
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed ship AI sitting around doing nothing when missing thrust
+        directions, in particular, on Medusa.
+  id: 2160
+  time: '2026-04-10T10:18:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3743
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Plant Analyzer QOL: No longer needs charging, can identify unviable
+        mutation, no longer needs advanced scan, added a scrollbar for
+        displaying many chems, made the scanner update in realtime, reduced scan
+        time to match health analyzer (0.8s), simplified jargon words in
+        attributes
+  id: 2161
+  time: '2026-04-10T12:25:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3586
+- author: AntoineXYZ
+  changes:
+    - type: Fix
+      message: Fixed chat highlighting not working for radio messages
+  id: 2162
+  time: '2026-04-10T12:39:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3711
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Gunnery console radar screens now always face north-up.
+  id: 2163
+  time: '2026-04-10T14:49:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3705
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Potentially reduced autopilot/ship AI grid collision likelihood.
+  id: 2164
+  time: '2026-04-10T15:16:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3745
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed RSC company being unselectable.
+  id: 2165
+  time: '2026-04-10T18:58:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3746
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Gunnery console rotation is no longer always north. Also fixed mech and
+        other mass scanners.
+  id: 2166
+  time: '2026-04-11T06:05:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3748
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed shipguns sometimes not firing where you aim.
+  id: 2167
+  time: '2026-04-11T08:47:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3749
