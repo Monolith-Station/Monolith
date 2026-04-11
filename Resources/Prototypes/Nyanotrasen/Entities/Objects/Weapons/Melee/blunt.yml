@@ -1,6 +1,6 @@
 - type: entity
   name: kanabou
-  parent: BaseItem
+  parent: [ BaseItem, BaseFactionGearPDVT1 ] # Mono
   id: Kanabou
   description: The classic oni weapon, for those that forgo subtlety.
   components:

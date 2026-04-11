@@ -438,6 +438,7 @@
 # NFSD
 - type: entity
   parent:
+  - BaseFactionGearTSFT1
   - VehicleHoverbikeMailcarrier
   id: VehicleHoverbikeNfsd
   name: TSFMC hoverbike
@@ -529,6 +530,7 @@
 # Pirate
 - type: entity
   parent:
+  - BaseFactionGearPDVT1
   - VehicleHoverbikeMailcarrier
   id: VehicleHoverbikePirate
   name: pirate hoverbike

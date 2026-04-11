@@ -1,6 +1,18 @@
 # Frontier-specific contraband targets.
 # If you need multiple currency types, specify them in the actual object instead of inheriting multiple parents here.
 
+- type: entity # Used to mark registered / PMC versions of faction gear
+  id: BaseNonContraGear
+  abstract: true
+  components:
+  - type: Contraband
+    hideCarryStatus: true
+    severity: Registered
+    allowedDepartments: [ Civilian ]
+    turnInValues:
+      FederationMilitaryCredit: 0
+      Doubloon: 0
+
 - type: entity # Mono
   id: BaseFactionGearT0
   abstract: true

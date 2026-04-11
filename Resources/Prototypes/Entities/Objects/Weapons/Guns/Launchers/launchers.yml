@@ -26,7 +26,7 @@
 
 - type: entity
   name: PA china lake
-  parent: [BaseWeaponLauncher, BaseGunWieldable]
+  parent: [ BaseWeaponLauncher, BaseGunWieldable, BaseFactionGearPDVT3 ] # Mono
   id: WeaponLauncherChinaLake
   description: PLOOP.
   components:
@@ -59,7 +59,7 @@
 
 - type: entity
   name: PA RPG-7
-  parent: BaseWeaponLauncher
+  parent: [ BaseWeaponLauncher, BaseFactionGearOtherFactionT2 ] # Mono
   id: WeaponLauncherRocket
   description: A modified ancient rocket-propelled grenade launcher.
   components:

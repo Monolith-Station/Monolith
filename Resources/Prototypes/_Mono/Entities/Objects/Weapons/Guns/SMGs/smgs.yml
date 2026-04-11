@@ -1,6 +1,6 @@
 - type: entity
   name: SKR-WS MLA-73 (635x40mm caseless)
-  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
+  parent: [ BaseWeaponSubMachineGun, BaseGunWieldable, BaseFactionGearPDVT2 ]
   id: WeaponSubMachineGunMla73
   description: A reliable PDW design, commonly issued to pilots and AFV crewmen. This one has been modified with an integral suppressor. Legends around this weapons say it's a Corporate-Era schematic that's been built by the Phaethon Dynasty. Can take 9x19mm smg magazines in a pinch.
   components:
@@ -53,7 +53,7 @@
 
 - type: entity
   name: NCI AK-220 (9x19mm)
-  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
+  parent: [ BaseWeaponSubMachineGun, BaseGunWieldable, BaseFactionGearOtherFactionT0 ]
   id: WeaponSubMachineGunAK220
   description: A mass produced 9x19mm bullpup SMG. The design originates from the USSP, but various TSF and PDV manufacturers produce it via licenses or suspiciously similar "original" designs.
   components:

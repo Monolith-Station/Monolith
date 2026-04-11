@@ -79,7 +79,7 @@
 
 - type: entity
   name: MA PDW-58 Atreides (5.7x28mm)
-  parent: BaseWeaponSubMachineGun
+  parent: [ BaseWeaponSubMachineGun, BaseFactionGearPDVT2 ] # Mono
   id: WeaponSubMachineGunAtreides
   description: Midnight Arms Co. Streamlined SMG that's commonly found use among uprisings and criminals. Uses 5.7x28mm ammo.
   components:
@@ -123,7 +123,7 @@
 
 - type: entity
   name: CS C-20r submachine gun (9x19mm)
-  parent: BaseWeaponSubMachineGun
+  parent: [ BaseWeaponSubMachineGun, BaseFactionGearPDVT1 ] # Mono
   id: WeaponSubMachineGunC20r
   description: A Corporate-Era SMG, once used by Nuclear Operatives, it now finds purchase among the Phaethon Dynasty. Uses 9x19mm ammo.
   components:
@@ -163,7 +163,7 @@
 
 - type: entity
   name: TCA M-5 Drozd (.45 ACP)
-  parent: BaseWeaponSubMachineGun
+  parent: [ BaseWeaponSubMachineGun, BaseFactionGearTSFT1 ] # Mono
   id: WeaponSubMachineGunDrozd
   description: An SMG that once found use among NT security forces, now has found itself as one of the most reliable boarding and anti-boarding weapons on the market. Uses .45 ACP ammo.
   components:

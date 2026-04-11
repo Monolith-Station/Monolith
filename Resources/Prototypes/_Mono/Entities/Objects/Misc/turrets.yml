@@ -195,6 +195,7 @@
   description: A disassembled and packed MK-290 sentry system.
   suffix: TSFMC, Packed
   parent:
+  - BaseFactionGearTSFT3
   - BaseItem
   components:
   - type: WeaponCaseInsertable

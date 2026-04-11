@@ -2,7 +2,7 @@
 
 - type: entity
   name: NT-WS Mk.348 "Hailstorm" directed kinetic pulse weapon
-  parent: BaseItem
+  parent: [ BaseItem, BaseFactionGearOtherFactionT2 ]
   id: WeaponLauncherMk348
   description: A bulky multi-barreled weapon firing 9x19mm. Ammo is fed via boxes, which is moved inside the gun to each respective barrel. Be glad you aren't the one having to maintain this awful mechanism.
   components:

@@ -9,3 +9,5 @@ contraband-examine-text-faction-gear-3 = [color=#ff55ff]This item belongs to a m
 contraband-examine-text-monolith-loot-1 = [color=#b83afc]This item is related to a Monolithic anomaly and is of some technological interest.
 contraband-examine-text-monolith-loot-2 = [color=#b83afc]This item is related to a Monolithic anomaly and is of considerable technological interest.
 contraband-examine-text-monolith-loot-3 = [color=#b83afc]This item is related to a Monolithic anomaly and is of great technological interest.
+
+contraband-examine-text-registered = [color=#bbaa22]This item is registered for civil and mercenary usage.

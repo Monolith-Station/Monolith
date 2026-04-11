@@ -1,6 +1,6 @@
 - type: entity
   name: NT-WS SM-27 MPSSM missile launcher
-  parent: [ BaseWeaponLauncher, BaseGunWieldable ]
+  parent: [ BaseWeaponLauncher, BaseGunWieldable, BaseFactionGearOtherFactionT2 ]
   id: WeaponLauncherMPSSM
   suffix: HEAT
   description: A multipurpose man-portable launcher, capable of firing both guided anti-ship and unguided HEAT warheads.

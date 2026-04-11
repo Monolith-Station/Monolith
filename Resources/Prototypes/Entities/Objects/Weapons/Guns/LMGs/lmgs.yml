@@ -95,7 +95,7 @@
 - type: entity
   name: PA L6B SAW (7.62x39mm)
   id: WeaponLightMachineGunL6
-  parent: BaseWeaponLightMachineGun
+  parent: [ BaseWeaponLightMachineGun, BaseFactionGearPDVT3 ] # Mono
   description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses 7.62x39mm ammo. No longer in production, it serves as a remnant of humanity's greed and ambition during The Fracture.
   components:
   - type: Sprite

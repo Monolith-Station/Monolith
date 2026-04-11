@@ -89,7 +89,7 @@
 
 - type: entity
   name: LWC PT-45A viper (9x19mm)
-  parent: BaseWeaponPistol
+  parent: [ BaseWeaponPistol, BaseFactionGearPDVT1 ] # Mono
   id: WeaponPistolViper
   description: A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses 9x19mm ammo. While the schematics to build new Vipers has been lost, they are so abundant from the Corporate War that building new ones is no longer required.
   components:
@@ -197,7 +197,7 @@
 
 - type: entity
   name: CS PT-72 cobra (635x40mm)
-  parent: BaseWeaponPistol
+  parent: [ BaseWeaponPistol, BaseFactionGearTaxedT1 ] # Mono
   id: WeaponPistolCobra
   description: A rugged, robust spec-ops handgun with an inbuilt silencer. Uses 6.35x40mm Caseless ammo. A common sight among Phaethon imperials, they are the most commonly seen sidearm among boarding crews or agents.
   components:
@@ -247,7 +247,7 @@
 
 - type: entity
   name: MA Mk-58 (.45 ACP)
-  parent: BaseWeaponPistol
+  parent: [ BaseWeaponPistol, BaseFactionGearTSFT1 ] # Mono
   id: WeaponPistolMk58
   description: The Mark 58 Offensive Handgun, the most abundant sidearm in the entire galaxy. Commonly called a Corporate War fragment, it was used until the bitter end. Uses .45 ACP ammo.
   components:

@@ -1,7 +1,7 @@
 
 - type: entity
   name: "'Basilisk' DEW-15-XXR radiation rifle"
-  parent: [BaseWeaponRifle, BaseGunWieldable, BaseC2ContrabandUnredeemable]
+  parent: [ BaseWeaponRifle, BaseGunWieldable, BaseFactionGearPDVT2 ]
   id: WeaponDEWBasilisk
   description: A dubious rifle reverse engineered by the Dynasty for use against Federation personnel. Probably not the safest to use, but its beams are not on the visible light spectrum and it is immune to EMP due to using chemical-based cartridges.
   components:

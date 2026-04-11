@@ -278,7 +278,7 @@
 
 - type: entity
   name: energy cutlass
-  parent: BaseMeleeWeaponEnergy
+  parent: [ BaseMeleeWeaponEnergy, BaseFactionGearPDVT1 ] # Mono
   id: EnergyCutlass
   description: An exotic energy weapon.
   components:

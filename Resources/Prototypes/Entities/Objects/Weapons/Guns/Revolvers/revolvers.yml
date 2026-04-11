@@ -100,7 +100,7 @@
 
 - type: entity
   name: Inspector (.45 magnum)
-  parent: BaseWeaponRevolver
+  parent: [ BaseWeaponRevolver, BaseFactionGearTSFT1 ] # Mono
   id: WeaponRevolverInspector
   description: A detective's best friend. Uses .45 magnum ammo. On the handle is a label that says 'for authorized use only.'
   components:
@@ -115,7 +115,7 @@
 
 - type: entity
   name: NT Mateba (.45 magnum)
-  parent: BaseWeaponRevolver
+  parent: [ BaseWeaponRevolver, BaseFactionGearOtherFactionT1 ] # Mono
   id: WeaponRevolverMateba
   description: A legendary sidearm from the Corporate Era, once used by corporate kill-teams, it now belongs to TSF Officers across the galaxy. Uses .45 magnum ammo. On the handle is a label that says 'for authorized use only.'
   components:
@@ -138,7 +138,7 @@
 
 - type: entity
   name: LWC Python (.45 magnum)
-  parent: BaseWeaponRevolver
+  parent: [ BaseWeaponRevolver, BaseFactionGearPDVT1 ] # Mono
   id: WeaponRevolverPython
   description: A revolver that is commonly found around Phaethon Dynasty space, it's typically used by high-ranking imperials. Uses .45 magnum ammo. # Frontier
   components:

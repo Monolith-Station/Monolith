@@ -1,4 +1,5 @@
 - type: entity
+  parent: BaseNonContraGear
   id: WeaponLoadoutRegisteredBase
   categories: [ HideSpawnMenu ]
   components:

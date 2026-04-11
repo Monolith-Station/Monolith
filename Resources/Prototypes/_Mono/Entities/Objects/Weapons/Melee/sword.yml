@@ -273,8 +273,8 @@
 # Vizier's sword
 
 - type: entity
+  parent: [ CaptainSabre, BaseFactionGearPDVT3 ]
   name: officer's shamshir
-  parent: CaptainSabre
   id: WeaponVizierShamshir
   description: A uniquely curved sword, a sharp weapon styled after weapons of old, made of pale plastitanium. Primed to strike and sever.
   components:

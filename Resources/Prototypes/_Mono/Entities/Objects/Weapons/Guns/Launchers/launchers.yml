@@ -80,7 +80,7 @@
 
 - type: entity
   name: MANPAT "Panzero" disposable anti-tank
-  parent: [ BaseItem ] # Frontier: BaseMajorContraband<BaseC3Contraband
+  parent: [ BaseItem, BaseFactionGearPDVT2 ]
   id: WeaponLauncherPanzero
   description: Based on old designs, the "Panzero" is a (relatively) easy-to-carry disposable anti-tank rocket launcher. Devastating against mechs and walls, not very good at much else.
   components:
@@ -145,7 +145,7 @@
 
 - type: entity
   name: GP-909 'Osiris' Grenade Launcher
-  parent: [ BaseWeaponLauncher, BaseItem ] # Frontier: BaseMinorContraband<BaseC1Contraband
+  parent: [ BaseWeaponLauncher, BaseItem, BaseFactionGearTSFT2 ]
   id: WeaponLauncherTSFOsiris
   description: The TSF's powerful solution to things that don't have enough boom. Capable of firing most standard grenades.
   components:

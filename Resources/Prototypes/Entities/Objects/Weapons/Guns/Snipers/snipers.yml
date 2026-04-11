@@ -82,7 +82,7 @@
 
 - type: entity
   name: SKR-WS M96 Hristov (14.5x114mm)
-  parent: [BaseWeaponSniper, BaseGunWieldable]
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseFactionGearPDVT2 ] # Mono
   id: WeaponSniperHristov
   description: A portable anti-material rifle. Fires high velocity 14.5mm shells. Uses 145x114mm ammo.
   components:

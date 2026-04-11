@@ -72,7 +72,7 @@
 
 - type: entity
   name: NCI AK-502 (7.62x39mm)
-  parent: BaseWeaponRifle
+  parent: [ BaseWeaponRifle, BaseFactionGearOtherFactionT0 ]
   id: WeaponRifleAK502
   description: A standard-issue USSP combat rifle. Uses 7.62x39mm ammo.
   components:

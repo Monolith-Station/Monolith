@@ -8,7 +8,7 @@
 
 - type: entity
   suffix: EMP
-  parent: WeaponLauncherRocket
+  parent: [ WeaponLauncherRocket, BaseFactionGearTSFT3 ]
   id: WeaponLauncherRocketEmp
   components:
   - type: Gun
@@ -18,6 +18,8 @@
     whitelist:
       tags:
         - CartridgeRocketEmp # Mono: projectile speed is higher on the EMP RPG, so obviously we make sure ONLY EMPs work with it.
+  - type: PirateBountyItem # Mono
+    id: ExperimentalFactionWeapon
 
 - type: entity
   name: mail RPDS
@@ -43,7 +45,7 @@
 
 - type: entity
   name: TSFMC grenade launcher
-  parent: WeaponLauncherChinaLake
+  parent: [ WeaponLauncherChinaLake, BaseFactionGearTSFT1 ]
   id: WeaponLauncherNfsdLake
   description: Able to lob both grenades and darts!
   components:
@@ -59,3 +61,5 @@
         - LessLethalGrenade # Mono
   - type: StaticPrice
     price: 50
+  - type: PirateBountyItem # Mono
+    id: StandardFactionLongarm

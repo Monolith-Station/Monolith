@@ -79,7 +79,7 @@
 - type: entity
   name: PA M-12 Bulldog (12 gauge)
   # Don't parent to BaseWeaponShotgun because it differs significantly
-  parent: [BaseItem, BaseGunWieldable]
+  parent: [ BaseItem, BaseGunWieldable, BaseFactionGearPDVT2 ] # Mono
   id: WeaponShotgunBulldog
   description: An automatic magazine-fed shotgun for close-quarters combat. Kicks like a mule on steroids. Uses 12 gauge shotgun shells.
   components:
@@ -174,7 +174,7 @@
 
 - type: entity
   name: Enforcer (12 gauge)
-  parent: [BaseWeaponShotgun, BaseGunWieldable]
+  parent: [ BaseWeaponShotgun, BaseGunWieldable, BaseFactionGearTSFT1 ] # Mono
   id: WeaponShotgunEnforcer
   description: A premium semi-automatic shotgun, and the pride of all security forces. Uses 12 gauge shotgun shells.
   components: # intend for Enforcer to have wider choke for semi-auto function
@@ -229,8 +229,6 @@
     - WeaponShotgunKammerer
   - type: BallisticAmmoProvider
     capacity: 5
-  - type: PirateBountyItem # Mono
-    id: StandardFactionLongarm
 
 - type: entity
   name: sawn-off shotgun (12 gauge)

@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, BaseFactionGearTSFT2]
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearTSFT1 ]
   id: ClothingOuterHardsuitM82c
   name: M82c hardsuit
   description: A hardsuit issued to marines operating in low-pressure and high-risk environments. Specialized in bullet protection.
@@ -41,9 +41,11 @@
   - type: StaticPrice
     price: 5000
     vendPrice: 7500
+  - type: PirateBountyItem
+    id: ClothingOuterHardsuitTacsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitM82c, BaseFactionGearTSFT2 ]
+  parent: [ ClothingOuterHardsuitM82c, BaseFactionGearTSFT1 ]
   id: ClothingOuterHardsuitM82b
   name: M82b hardsuit
   description: Corpsman variant of the M82c outfitted with caustic and radiological shielding. Some of the blunt-absorbent gel layer is sacrificed for the NBC protection.
@@ -67,9 +69,11 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
+  - type: PirateBountyItem
+    id: ClothingOuterHardsuitTacsuit
 
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseFactionGearTSFT3]
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearTSFT2 ]
   id: ClothingOuterHardsuitM86
   name: M86 Mk.3(R) hardsuit
   description: An armored hardsuit, designed to be an upgrade for the M82 series. The extra general armor gives it significant weight to move around.
@@ -112,9 +116,11 @@
   - type: StaticPrice
     price: 7500
     vendPrice: 1000
+  - type: PirateBountyItem
+    id: ClothingOuterHardsuitTacsuitHighValue
 
 - type: entity
-  parent: ClothingOuterHardsuitBaseNFNfsd
+  parent: [ ClothingOuterHardsuitBaseNFNfsd, BaseFactionGearTSFT3 ]
   id: ClothingOuterHardsuitNfsdSheriff
   name: TSFMC M92 colonel tacsuit
   description: A heavy, gilded tacsuit, stripped of its shield but now capable of taking a lot of physical damage. Usually assigned to commanding officers of TSF flagships.
@@ -154,7 +160,7 @@
     id: ClothingOuterHardsuitTacsuitHighValue
 
 - type: entity
-  parent: [ClothingOuterHardsuitJuggernaut, EnergyShieldClothing, BaseFactionGearTSFT3 ] # Jugger Suit
+  parent: [ ClothingOuterHardsuitJuggernaut, EnergyShieldClothing, BaseFactionGearTSFT3 ] # Jugger Suit
   id: ClothingOuterHardsuitNfsdExperimental
   name: TSFMC M92-X tacsuit
   description: An experimental modification of the M92 tacsuit for spec-ops units of the TSFMC. Durable, and comes with an integrated soft-shield along with numerous gadgets at the cost of insulation and solid armor.
@@ -260,3 +266,5 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.875
+  - type: PirateBountyItem
+    id: ClothingOuterHardsuitTacsuitHighValue

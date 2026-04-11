@@ -151,7 +151,7 @@
 
 - type: entity
   name: PD-VI "Sultan's Pulsar" shotgun (4 gauge)
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC3SyndicateContraband]
+  parent: [ BaseWeaponShotgun, BaseGunWieldable, BaseFactionGearPDVT1 ]
   id: WeaponShotgunSultanPulsar
   description: A beast of a bolt-action shotgun, capable of firing the Sultan's finest 4-gauge with exceptional accuracy. Overkill for most space fauna, but using this means its certain you're hunting the most dangerous game.
   components:

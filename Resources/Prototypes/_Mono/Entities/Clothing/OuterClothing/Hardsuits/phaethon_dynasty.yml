@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT2 ]
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT1 ]
   id: ClothingOuterHardsuitPirateScaf
   name: PDV SCAF hardsuit
   description: An old SCAF suit painted in an PDV tan color scheme. The armor feels degraded, but lighter.
@@ -115,7 +115,7 @@
     - RogueHardsuit
 
 - type: entity
-  parent: ClothingOuterHardsuitSyndieCommander
+  parent: [ ClothingOuterHardsuitSyndieCommander, BaseFactionGearPDVT3 ]
   id: ClothingOuterHardsuitVizier
   name: PDV CV-67 combat tacsuit
   description: An adorned tacsuit designed with an imperfect nanolaminate composition. High maneuverability, sturdy armor.
@@ -137,7 +137,7 @@
     - RogueHardsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitSyndieElite, EnergyShieldClothing ]
+  parent: [ ClothingOuterHardsuitSyndieElite, EnergyShieldClothing, BaseFactionGearPDVT2 ]
   id: ClothingOuterHardsuitAshenElite
   name: PDV CV-53 combat tacsuit
   description: Originally based off of the CV-32 hardsuit, the CV-53 tacsuit sacrifices conventional armor plating for environmental protection, and a rechargeable hard-shield.
