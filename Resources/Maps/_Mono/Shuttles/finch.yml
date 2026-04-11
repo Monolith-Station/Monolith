@@ -4,7 +4,7 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/11/2026 02:48:00
+  time: 04/11/2026 03:08:45
   entityCount: 1153
 maps: []
 grids:
@@ -123,10 +123,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        MetalFoam: []
-        Puddle: []
         Smoke: []
+        MetalFoam: []
+        Kudzu: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -3159,15 +3159,6 @@ entities:
       startingCharge: 0
 - proto: ComputerTabletopAdvancedRadar
   entities:
-  - uid: 358
-    components:
-    - type: Transform
-      pos: -0.5,5.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
   - uid: 513
     components:
     - type: Transform
@@ -3183,6 +3174,17 @@ entities:
     components:
     - type: Transform
       pos: 0.5,3.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+- proto: ComputerTabletopIFF
+  entities:
+  - uid: 358
+    components:
+    - type: Transform
+      pos: -0.5,5.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -6876,12 +6878,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -6.5,-1.5
       parent: 1
-  - uid: 715
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,7.5
-      parent: 1
   - uid: 723
     components:
     - type: Transform
@@ -7464,6 +7460,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 0.5,-13.5
+      parent: 1
+  - uid: 715
+    components:
+    - type: Transform
+      pos: -0.5,7.5
       parent: 1
   - uid: 718
     components:
