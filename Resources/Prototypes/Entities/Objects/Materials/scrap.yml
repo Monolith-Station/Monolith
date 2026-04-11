@@ -231,7 +231,7 @@
   - type: MultiHandedItem
   - type: Item
     heldPrefix: closet
-    size: Huge
+    size: Large # Mono
     shape:
     - 0,0,5,2
   - type: PhysicalComposition
@@ -248,7 +248,7 @@
     layers:
     - state: junk-fax
   - type: Item
-    size: Huge
+    size: Normal # Mono
   - type: PhysicalComposition
     materialComposition:
       Plastic: 800 # 8 sheets
@@ -351,7 +351,7 @@
     layers:
     - state: junk-jetpack
   - type: Item
-    size: Huge
+    size: Large # Mono
     heldPrefix: jetpack
   - type: PhysicalComposition
     materialComposition:
@@ -389,7 +389,7 @@
     layers:
     - state: junk-mop-bucket
   - type: Item
-    size: Huge
+    size: Normal # Mono
   - type: PhysicalComposition
     materialComposition:
       Plastic: 1500 # 15 sheets

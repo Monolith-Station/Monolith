@@ -10,10 +10,10 @@
     state: mecha_kineticgun
   - type: Gun
     projectileSpeed: 40 # Mono
-    fireRate: 1
-    selectedMode: SemiAuto
+    fireRate: 1.5 # Mono
+    selectedMode: FullAuto # Mono
     availableModes:
-      - SemiAuto
+      - FullAuto # Mono
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
   - type: ProjectileBatteryAmmoProvider

@@ -1,0 +1,85 @@
+- type: entity
+  parent: BaseStructureDynamic
+  id: ScrapBox
+  name: scrap box
+  description: A large storage container for collecting and holding scrap chunks.
+  components:
+  - type: StaticPrice
+    price: 625
+  - type: Anchorable
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 450
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 3
+            max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Climbable
+
+  # scrapbox-specific
+  - type: Sprite
+    noRot: true
+    sprite: _Mono/Structures/Storage/scrapbox.rsi
+    layers:
+    - state: scrapbox
+    - state: scrapbox-top
+      map: [ top ]
+      visible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { visible: false }
+          False: { visible: true }
+  - type: Storage
+    grid:
+    - 0,0,39,9
+    maxItemSize: Large
+    storageOpenSound: /Audio/Effects/closetopen.ogg
+    storageCloseSound: /Audio/Effects/closetclose.ogg
+    whitelist:
+      tags:
+      - Recyclable
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+  - type: Dumpable
+    multiplier: 0.15
+  - type: MagnetPickup
+    range: 1.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        # very not dense to make it easy to pull
+        density: 20
+        mask:
+        #- MachineMask
+        - SmallMobMask  # Frontier
+        layer:
+        - MachineLayer

@@ -25,6 +25,7 @@
       types:
         Structural: 60 # ~10 seconds for solid wall / ~21 secods for reinforced wall - 40->60 - Mono
   - type: MiningGatheringSoft
+  - type: MiningGatheringHard # Mono
 
 - type: entity
   id: WeaponMechMeleeDrillDiamond
