@@ -138,6 +138,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             return;
 
         _coordinates = coordinates;
+        _rotation = Angle.Zero;
         // Mono - TODO: either remove this or make this do anything
         // _rotation = angle;
     }
