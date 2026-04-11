@@ -312,7 +312,6 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             _rotation = Angle.Zero;
 
         var worldRot = _rotation.Value;
-
         var mapPos = _transform.ToMapCoordinates(_coordinates.Value).Offset(_rotation.Value.RotateVec(_panOffset));
         var mapCoord = _transform.ToCoordinates(mapPos);
         var worldToShuttle = Matrix3Helpers.CreateTranslation(-mapCoord.Position) * Matrix3Helpers.CreateRotation(-worldRot);
@@ -325,6 +324,14 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
         // Frontier Corvax: north line drawing
         DrawNorthLine(handle, worldRot);
+
+        // Mono
+        DrawAzimuthScale(handle, worldRot);
+
+        if (worldRot != Angle.Zero)
+        {
+            DrawCompassOverlay(handle, coordEntRot);
+        }
 
         // Draw our grid in detail
         var ourGridId = xform.GridUid;
@@ -871,7 +878,8 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         if (_coordinates is not { } cord || _rotation is not { } rot)
             return new();
 
-        var screenRelativeWorldPos = InverseMapPosition(relativePosition);
+        // multiply by UIScale because UI is Very Intelligent and doesn't scale mouse position for whatever reason
+        var screenRelativeWorldPos = InverseMapPosition(relativePosition * UIScale);
         var relativeWorldPos = rot.RotateVec(screenRelativeWorldPos);
         var coordEntRot = _transform.GetWorldRotation(cord.EntityId);
         var coords = cord.Offset((-coordEntRot).RotateVec(relativeWorldPos));
