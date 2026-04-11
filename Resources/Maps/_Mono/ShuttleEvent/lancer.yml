@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/27/2026 22:16:56
-  entityCount: 263
+  time: 04/11/2026 12:36:26
+  entityCount: 260
 maps: []
 grids:
 - 1
@@ -83,10 +83,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
+        MetalFoam: []
         Smoke: []
         Kudzu: []
-        MetalFoam: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -118,20 +118,14 @@ entities:
       locked: False
     - type: Roof
       data: {}
+    - type: ThermalSignature
 - proto: APCBasic
-  entities:
-  - uid: 128
-    components:
-    - type: Transform
-      pos: -0.5,-0.5
-      parent: 1
-- proto: ButtonFrameCautionSecurity
   entities:
   - uid: 4
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,0.5
+      rot: 3.141592653589793 rad
+      pos: -0.5,-0.5
       parent: 1
 - proto: CableApcExtension
   entities:
@@ -139,6 +133,16 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-1.5
+      parent: 1
+  - uid: 18
+    components:
+    - type: Transform
+      pos: 0.5,3.5
+      parent: 1
+  - uid: 30
+    components:
+    - type: Transform
+      pos: 0.5,4.5
       parent: 1
   - uid: 33
     components:
@@ -149,6 +153,16 @@ entities:
     components:
     - type: Transform
       pos: -1.5,-1.5
+      parent: 1
+  - uid: 128
+    components:
+    - type: Transform
+      pos: 0.5,5.5
+      parent: 1
+  - uid: 129
+    components:
+    - type: Transform
+      pos: 0.5,6.5
       parent: 1
   - uid: 153
     components:
@@ -379,26 +393,6 @@ entities:
     - type: Transform
       pos: 1.5,-0.5
       parent: 1
-  - uid: 146
-    components:
-    - type: Transform
-      pos: 0.5,0.5
-      parent: 1
-  - uid: 147
-    components:
-    - type: Transform
-      pos: 0.5,1.5
-      parent: 1
-  - uid: 148
-    components:
-    - type: Transform
-      pos: 0.5,2.5
-      parent: 1
-  - uid: 149
-    components:
-    - type: Transform
-      pos: 0.5,3.5
-      parent: 1
 - proto: Catwalk
   entities:
   - uid: 6
@@ -498,6 +492,11 @@ entities:
     components:
     - type: Transform
       pos: -1.5,5.5
+      parent: 1
+  - uid: 147
+    components:
+    - type: Transform
+      pos: -0.5,1.5
       parent: 1
   - uid: 178
     components:
@@ -773,10 +772,10 @@ entities:
       parent: 1
 - proto: PlayerStationAiRedacted
   entities:
-  - uid: 18
+  - uid: 146
     components:
     - type: Transform
-      pos: -0.5,1.5
+      pos: 0.5,-0.5
       parent: 1
 - proto: PoweredWarmSmallLight
   entities:
@@ -1069,14 +1068,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,-1.5
       parent: 1
-- proto: SignalButton
-  entities:
-  - uid: 30
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,0.5
-      parent: 1
 - proto: SpawnRedactedBorg
   entities:
   - uid: 181
@@ -1086,9 +1077,10 @@ entities:
       parent: 1
 - proto: SubstationWallBasic
   entities:
-  - uid: 129
+  - uid: 142
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: 1.5,-0.5
       parent: 1
 - proto: SurveillanceCameraAssembly
@@ -1159,14 +1151,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,6.5
-      parent: 1
-- proto: SurveillanceCameraSecurity
-  entities:
-  - uid: 142
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,-0.5
       parent: 1
 - proto: ThrusterLarge
   entities:
@@ -1564,11 +1548,6 @@ entities:
     components:
     - type: Transform
       pos: 0.5,4.5
-      parent: 1
-  - uid: 151
-    components:
-    - type: Transform
-      pos: 0.5,-0.5
       parent: 1
   - uid: 258
     components:
