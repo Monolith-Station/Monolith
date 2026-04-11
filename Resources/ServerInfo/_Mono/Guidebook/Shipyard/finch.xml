@@ -1,0 +1,102 @@
+<Document>
+  # TAKEAWAY-CLASS SERVICE SHUTTLE
+  <Box>
+  <GuideEntityEmbed Entity="ServiceTechFab"/>
+  <GuideEntityEmbed Entity="KitchenElectricRange"/>
+  <GuideEntityEmbed Entity="hydroponicsTray"/>
+  </Box>
+  <Box>
+  <GuideEntityEmbed Entity="PaintingNightHawks"/>
+  <GuideEntityEmbed Entity="ShelfBar"/>
+  </Box>
+    [color=#a4885c]Ship Size:[/color] Medium
+
+	[color=#a4885c]Recommended Crew:[/color] 1-3
+
+	[color=#a4885c]Power Gen Type:[/color] Uranium, Solar
+
+	[color=#a4885c]Expeditions:[/color] None
+
+	[color=#a4885c]IFF Console:[/color] None
+
+  "An aptly named medium botanical-kitchen vessel with a customer-facing gantry for ordering to-go. Also comes with dine-in."
+
+  # PREFLIGHT CHECKLIST
+
+  ## 1. Power supply
+
+  ## 1.1. Battery units
+  <Box>
+  <GuideEntityEmbed Entity="SMESBasic"/>
+  <GuideEntityEmbed Entity="SubstationBasic"/>
+  <GuideEntityEmbed Entity="APCBasic"/>
+  </Box>
+
+  - Check that the S.U.P.E.R.P.A.C.M.A.N. generator unit is connected to the cable terminal.
+  - Check that the SMES unit is anchored to the floor.
+  - Check that the substation unit is anchored to the floor.
+  - Check that all APC unit's Main Breakers are toggled on.
+  
+  ## 1.2. Solar control
+  <Box>
+  <GuideEntityEmbed Entity="SolarPanel"/>
+  <GuideEntityEmbed Entity="ComputerSolarControl"/>
+  </Box>
+  
+  -Adjust the solar control computer's tracking angle to match the sun angle.
+  -Check and adjust panel angular velocity until tracking is stable.
+
+  ## 1.3. S.U.P.E.R.P.A.C.M.A.N. generator unit.
+  <Box>
+  <GuideEntityEmbed Entity="PortableGeneratorSuperPacmanShuttle"/>
+  </Box>
+  <Box>
+  <GuideEntityEmbed Entity="FuelUranium"/>
+  <GuideEntityEmbed Entity="ComputerPowerMonitoring"/>
+  </Box>
+
+  - Check power sourced by solar panels at power monitoring computer* (W).
+  - Check the power monitoring computer's current network Load* (W).
+  - Check the fuel remaining in the generator unit.
+  - Set the generator unit output power to cover solar power shortfall.
+
+  ## 2. Atmospherics
+
+  ## 2.1. Distribution Loop
+  <Box>
+  <GuideEntityEmbed Entity="OxygenCanister"/>
+  <GuideEntityEmbed Entity="NitrogenCanister"/>
+  <GuideEntityEmbed Entity="GasMixer"/>
+  <GuideEntityEmbed Entity="GasPressurePump"/>
+  </Box>
+
+  - Ensure O2 and N2 canisters are anchored to mixer connector ports.
+  - Check that the mixer settings are suitable (~22% oxygen, ~78% nitrogen, 101.325 kpa).
+  - Enable the gas mixer.
+
+  ## 2.2. Waste Loop
+  <Box>
+  <GuideEntityEmbed Entity="AirAlarm"/>
+  <GuideEntityEmbed Entity="GasValve"/>
+  </Box>
+
+  - Ensure manual waste valve is in the open position.
+
+  ## 3. Other checks
+  <Box>
+  <GuideEntityEmbed Entity="Gyroscope"/>
+  <GuideEntityEmbed Entity="GravityGeneratorMini"/>
+  <GuideEntityEmbed Entity="ButtonFrameCaution"/>
+  </Box>
+
+  - Check that the gyroscope is anchored, powered, and enabled.
+  - Check that the mini gravity generator is anchored, powered, and enabled.
+  - Check that the thrusters are powered, and enabled.**
+
+  ## Sidenotes
+
+  * - Takeaway-class service shuttles are equipped with a power monitoring computer that can be used to appraise the ship's total power production and consumption. An unmodified Takeaway-class shuttle requires ~26.25 kW of power to remain operational.
+  
+  ** - The bridge houses a thruster power switch that enables conservation of power. The thrusters will be disabled when the indicator strobe is on. In the incident of external tampering, this switch can also be used to cycle and correct the thrusters. Take care to observe power draw at the power monitoring computer upon making changes. 
+
+</Document>

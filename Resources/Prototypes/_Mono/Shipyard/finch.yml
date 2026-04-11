@@ -1,0 +1,38 @@
+# Author Info
+# GitHub: Mapleflavourds
+# Discord: Maples @magnomia
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Finch
+  parent: BaseVessel
+  name: LOV Finch
+  description: A meduim combat-oriented ship, with streaking grills down both sides, protecting its broadside.
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/finch.yml
+  guidebookPage: null
+  class:
+  - Pursuit
+  engine:
+  - Plasma # Pinch fusion gen kind, not the pacman kind. ya I stole that commnent fuck you - love maple (i dont thinkkkk theres another cata for z-pinch)
+
+- type: gameMap
+  id: Finch
+  mapName: 'LOV Finch'
+  mapPath: /Maps/_Mono/Shuttles/finch.yml
+  minPlayers: 0
+  stations:
+    Finch:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Finch MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
