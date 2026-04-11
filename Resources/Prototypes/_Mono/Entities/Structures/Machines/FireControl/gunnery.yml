@@ -252,7 +252,6 @@
           type: WiresBoundUserInterface
   - type: RadarConsole
     relativePanning: true
-    noRotate: true
   - type: WorldLoader
     radius: 384 # Mono
   - type: Computer
