@@ -4,7 +4,7 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/05/2026 08:31:12
+  time: 04/11/2026 11:50:40
   entityCount: 680
 maps: []
 grids:
@@ -112,12 +112,12 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
-        Kudzu: []
         Smoke: []
         Puddle: []
+        MetalFoam: []
+        Kudzu: []
     - type: Shuttle
-      dampingModifier: 0.30
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -5082,19 +5082,19 @@ entities:
       parent: 430
     - type: Physics
       canCollide: False
-- proto: WeaponTurretCyrexa
+- proto: WeaponTurretBofors
   entities:
   - uid: 622
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -6.5,6.5
+      rot: 1.5707963267948966 rad
+      pos: 7.5,6.5
       parent: 1
   - uid: 623
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 7.5,6.5
+      rot: -1.5707963267948966 rad
+      pos: -6.5,6.5
       parent: 1
 - proto: WeaponTurretL85Autocannon
   entities:
