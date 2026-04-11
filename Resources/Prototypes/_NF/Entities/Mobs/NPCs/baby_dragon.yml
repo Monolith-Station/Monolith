@@ -88,6 +88,7 @@
         toggleAction: ActionObserverShowRadar
   - type: RadarConsole # Mono
     followEntity: true
+    noRotate: true
     maxIffRange: 0
     hideCoords: false
   - type: RandomSprite

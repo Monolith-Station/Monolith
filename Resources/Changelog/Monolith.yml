@@ -19608,3 +19608,33 @@ Entries:
   id: 2163
   time: '2026-04-10T14:49:46.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3705
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Potentially reduced autopilot/ship AI grid collision likelihood.
+  id: 2164
+  time: '2026-04-10T15:16:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3745
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed RSC company being unselectable.
+  id: 2165
+  time: '2026-04-10T18:58:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3746
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Gunnery console rotation is no longer always north. Also fixed mech and
+        other mass scanners.
+  id: 2166
+  time: '2026-04-11T06:05:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3748
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed shipguns sometimes not firing where you aim.
+  id: 2167
+  time: '2026-04-11T08:47:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3749

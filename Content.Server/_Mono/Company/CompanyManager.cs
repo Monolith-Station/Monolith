@@ -147,7 +147,7 @@ public sealed class CompanyManager
 
         await _db.RemoveCompanyMember(player, company);
 
-        if (_player.TryGetSessionById(new NetUserId(player), out var session))
+        if (_player.TryGetSessionById(player, out var session))
             SendCompanyWhitelist(session.Channel);
     }
 

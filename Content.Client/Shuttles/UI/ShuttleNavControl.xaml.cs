@@ -48,7 +48,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     protected EntityUid? _consoleEntity; // Mono
 
     // Mono - is world rotation of the view.
-    protected Angle? _rotation;
+    protected Angle? _rotation = Angle.Zero;
 
     private Dictionary<NetEntity, List<DockingPortState>> _docks = new();
 
@@ -138,7 +138,8 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             return;
 
         _coordinates = coordinates;
-        _rotation = angle;
+        // Mono - TODO: either remove this or make this do anything
+        // _rotation = angle;
     }
 
     public void SetConsole(EntityUid? consoleEntity)
@@ -302,6 +303,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             _angleFollow = !radar.NoRotate;
             _relativePanning = radar.RelativePanning;
         }
+        // Mono - TODO: remove _rotation and make it a method instead
         var coordEnt = _coordinates.Value.EntityId;
         var coordEntRot = _transform.GetWorldRotation(coordEnt);
         if (_angleFollow && EntManager.TryGetComponent<TransformComponent>(coordEnt, out var coordXform))
