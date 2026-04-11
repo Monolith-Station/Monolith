@@ -48,7 +48,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     protected EntityUid? _consoleEntity; // Mono
 
     // Mono - is world rotation of the view.
-    protected Angle? _rotation;
+    protected Angle? _rotation = Angle.Zero;
 
     private Dictionary<NetEntity, List<DockingPortState>> _docks = new();
 
@@ -138,7 +138,6 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             return;
 
         _coordinates = coordinates;
-        _rotation = Angle.Zero;
         // Mono - TODO: either remove this or make this do anything
         // _rotation = angle;
     }
