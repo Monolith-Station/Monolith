@@ -415,7 +415,7 @@
 
 - type: entity
   name: RS-2 Malandro (4.6x30mm)
-  parent: [BaseWeaponSubMachineGun]
+  parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunMalandro
   description: A rugged, run down SMG chambered in 4.6x30mm designed for short range shootouts, featuring a 10 round burst at the cost of accuracy.
   components:
