@@ -16,6 +16,9 @@ public abstract class SharedDockingSystem : EntitySystem
         if (shuttle == null)
             return false;
 
+        if (TryComp<FTLComponent>(shuttle, out var ftl) && (ftl.State & (FTLState.Available | FTLState.Cooldown)) != 0)
+            return false;
+
         return !HasComp<PreventPilotComponent>(shuttle.Value);
     }
 
