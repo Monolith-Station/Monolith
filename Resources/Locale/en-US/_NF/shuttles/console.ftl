@@ -20,8 +20,6 @@ shuttle-console-ftl-disabled = Disabled
 shuttle-console-docks = Docks
 shuttle-console-undock-all = Undock All
 
-
-
 # Mono - Unknowns
 shuttle-console-signature-unknown =
     { $mass ->
