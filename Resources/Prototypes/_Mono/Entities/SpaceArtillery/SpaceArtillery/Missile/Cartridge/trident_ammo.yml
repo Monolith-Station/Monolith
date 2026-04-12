@@ -73,11 +73,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 20
+    acceleration: 30
     detectionRange: 750
     scanArc: 75
-    launchSpeed: 25
-    maxSpeed: 70
+    launchSpeed: 60
+    maxSpeed: 150
     trackDelay: 3
   # destructible components below
   - type: Damageable
@@ -179,8 +179,8 @@
     acceleration: 70
     detectionRange: 750
     scanArc: 15
-    launchSpeed: 45
-    maxSpeed: 250
+    launchSpeed: 60
+    maxSpeed: 275
     trackDelay: 1
   - type: Explosive
     explosionType: Default
@@ -303,11 +303,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 20
+    acceleration: 25
     detectionRange: 750
     scanArc: 45
-    launchSpeed: 25
-    maxSpeed: 70
+    launchSpeed: 50
+    maxSpeed: 140
     trackDelay: 3
   - type: EmpOnTrigger
     range: 7

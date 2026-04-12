@@ -2,16 +2,22 @@
 // if wizden ever does something to this system we're FUCKED
 // regards.
 
+using System.Xml.Schema;
 using Content.Shared._White;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
+using Content.Shared.Projectiles;
 using Content.Shared.Rotation;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Random;
+using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Shared.Standing;
 
@@ -22,6 +28,8 @@ public sealed class StandingStateSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!; // WD EDIT
     [Dependency] private readonly SharedBuckleSystem _buckle = default!; // WD EDIT
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // Mono
+    [Dependency] private readonly IRobustRandom _random = default!; // Mono
 
     // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
     private const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;
@@ -31,6 +39,7 @@ public sealed class StandingStateSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<StandingStateComponent, AttemptMobCollideEvent>(OnMobCollide);
         SubscribeLocalEvent<StandingStateComponent, AttemptMobTargetCollideEvent>(OnMobTargetCollide);
+        SubscribeLocalEvent<StandingStateComponent, PreventCollideEvent>(PreventCollide); // Mono
     }
 
     private void OnMobTargetCollide(Entity<StandingStateComponent> ent, ref AttemptMobTargetCollideEvent args)
@@ -170,6 +179,25 @@ public sealed class StandingStateSystem : EntitySystem
         _movement.RefreshMovementSpeedModifiers(uid); // WD EDIT
         _movement.RefreshWeightlessModifiers(uid); // Mono edit
         return true;
+    }
+
+    /// Mono Method: Crawling causes some projectiles based on rng to miss you.
+    private void PreventCollide(Entity<StandingStateComponent> ent, ref PreventCollideEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        // ONLY apply collision prevention logic to projectiles
+        // This check must come FIRST to prevent non-projectiles from being affected
+        if (!TryComp<ProjectileComponent>(args.OtherEntity, out var projectile))
+            return;
+
+        // Check distance between shooter and target, if too close, hit always.
+        if (projectile.Shooter is { } shooter && _transform.InRange(shooter, ent.Owner, ent.Comp.HitRange))
+            return;
+
+        if (ent.Comp.CurrentState != StandingState.Standing && _random.Prob(ent.Comp.LyingDodgeChance))
+            args.Cancelled = true;
     }
 }
 

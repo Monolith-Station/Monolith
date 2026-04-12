@@ -16,6 +16,7 @@
     lowPressureMultiplier: 1000
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: DetectionRangeMultiplier
     infraredMultiplier: 0.5
     visualMultiplier: 0.75
@@ -69,6 +70,7 @@
     toggleAction: PulseThermalVision
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
     singleUser: true

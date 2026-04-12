@@ -9,6 +9,7 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
+    requiresCash: true
     # ejectState: eject-unshaded  No sprite, see chefvend/dinnerware/BODA/etc for expamples
   - type: Advertise
     pack: CuddlyCritterAds
@@ -40,6 +41,7 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
+    requiresCash: true
     # ejectState: eject-unshaded  No sprite, see chefvend/dinnerware/BODA/etc for expamples
   - type: Advertise
     pack: AstroVendAds
@@ -79,6 +81,7 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
+    requiresCash: true
 #  - type: Advertise
 #    pack: FlatpackVendAds
   - type: Sprite
@@ -190,6 +193,7 @@
   components:
   - type: VendingMachine
     pack: BountyVendPOIInventory
+    requiresCash: true
 
 - type: entity
   id: VendingMachineArcadia
@@ -204,6 +208,7 @@
       offState: off
       brokenState: broken
       normalState: normal-unshaded
+      requiresCash: true
       # ejectState: eject-unshaded  No sprite, see chefvend/dinnerware/BODA/etc for expamples
       # denyState: deny-unshaded
       ejectDelay: 3
@@ -264,6 +269,7 @@
   components:
     - type: VendingMachine
       pack: LessLethalVendPOIInventory
+      requiresCash: true
 
 - type: entity
   parent: VendingMachine
@@ -281,6 +287,7 @@
       ejectState: eject-unshaded
       denyState: deny-unshaded
       ejectDelay: 3
+      requiresCash: true
     - type: Advertise
       pack: LessLethalVendAds
     - type: Sprite
@@ -311,6 +318,7 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
+    requiresCash: true
 #  - type: Advertise
 #    pack: AutoTuneVendAds
   - type: Sprite
@@ -360,6 +368,7 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
+    requiresCash: true
   - type: Advertise
     pack: MegaSeedAds
   - type: Sprite
@@ -390,6 +399,7 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
+    requiresCash: true
   - type: Advertise
     pack: NfsdDrobeAds
   - type: Sprite
@@ -440,6 +450,7 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
+    requiresCash: true
   - type: Advertise
     pack: NfsdDrobeAds
   - type: Sprite
@@ -462,6 +473,7 @@
   components:
   - type: VendingMachine
     pack: NFPTechInventory
+    requiresCash: true
   - type: AccessReader
     access: [["HeadOfPersonnel"]]
   - type: MarketModifier
@@ -562,6 +574,7 @@
     ejectState: eject-unshaded
     denyState: deny-unshaded
     ejectDelay: 2.1
+    requiresCash: true
   - type: Advertise
     pack: FuelVendAds
   - type: SpeakOnUIClosed
@@ -586,6 +599,7 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
+    requiresCash: true
     # ejectState: eject-unshaded  No sprite, see chefvend/dinnerware/BODA/etc for expamples
   - type: Advertise
     pack: CiviMedAds
@@ -634,6 +648,7 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
+    requiresCash: true
     # ejectState: eject-unshaded  No sprite, see chefvend/dinnerware/BODA/etc for expamples
   - type: Advertise
     pack: ValetDrobeAds
@@ -667,6 +682,7 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
+    requiresCash: true
     # ejectState: eject-unshaded  No sprite, see chefvend/dinnerware/BODA/etc for expamples
   - type: Advertise
     pack: MailVendAds
@@ -696,6 +712,7 @@
   components:
   - type: VendingMachine
     pack: WeaponryWorksVendPOIInventory
+    requiresCash: true
 
 - type: entity
   parent: [VendingMachineEngivend, BaseStructureDisableAnchoring]
@@ -704,6 +721,7 @@
   components:
   - type: VendingMachine
     pack: EngiVendPOIInventory
+    requiresCash: true
 
 - type: entity
   parent: [VendingMachineVendomat, BaseStructureDisableAnchoring]
@@ -712,6 +730,7 @@
   components:
   - type: VendingMachine
     pack: VendomatPOIInventory
+    requiresCash: true
 
 - type: entity
   parent: [VendingMachineYouTool, BaseStructureDisableAnchoring]
@@ -720,6 +739,7 @@
   components:
   - type: VendingMachine
     pack: YouToolPOIInventory
+    requiresCash: true
 
 - type: entity
   parent: [VendingMachineSalvage, BaseStructureDisableAnchoring]
@@ -728,6 +748,7 @@
   components:
   - type: VendingMachine
     pack: NFSalvageEquipmentPOIInventory
+    requiresCash: true
 
 - type: entity
   parent: [VendingMachineMediDrobe, BaseStructureDisableAnchoring]
@@ -736,6 +757,7 @@
   components:
   - type: VendingMachine
     pack: MediDrobeInventory
+    requiresCash: true
 
 - type: entity
   parent: [VendingMachinePottedPlantVend, BaseStructureDisableAnchoring]
@@ -744,6 +766,7 @@
   components:
   - type: VendingMachine
     pack: PottedPlantVendInventory
+    requiresCash: true
 
 - type: entity
   parent: [VendingMachineGames, BaseStructureDisableAnchoring]
@@ -752,6 +775,7 @@
   components:
   - type: VendingMachine
     pack: GoodCleanFunInventory
+    requiresCash: true
 
 - type: entity
   parent: [VendingMachineCigs, BaseStructureDisableAnchoring]
@@ -760,6 +784,7 @@
   components:
   - type: VendingMachine
     pack: CigaretteMachineInventory
+    requiresCash: true
 
 - type: entity
   parent: [VendingMachineBooze, BaseStructureDisableAnchoring]
@@ -768,6 +793,7 @@
   components:
   - type: VendingMachine
     pack: BoozeOMatInventory
+    requiresCash: true
 
 # Gas Tank Dispenser
 
@@ -778,3 +804,4 @@
   components:
   - type: VendingMachine
     pack: TankDispenserEVAPOIInventory
+    requiresCash: true

@@ -38,6 +38,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 using Content.Client._NF.Emp.Overlays; // Frontier
+using Content.Client._Mono.Company; // Mono
 
 namespace Content.Client.Entry
 {
@@ -75,6 +76,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly DebugMonitorManager _debugMonitorManager = default!;
         [Dependency] private readonly TitleWindowManager _titleWindowManager = default!;
         [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+        [Dependency] private readonly CompanyManager _companyManager = default!; // Mono
 
         public override void Init()
         {
@@ -137,6 +139,7 @@ namespace Content.Client.Entry
             _extendedDisconnectInformation.Initialize();
             _jobRequirements.Initialize();
             _playbackMan.Initialize();
+            _companyManager.Initialize();
 
             //AUTOSCALING default Setup!
             _configManager.SetCVar("interface.resolutionAutoScaleUpperCutoffX", 1080);
