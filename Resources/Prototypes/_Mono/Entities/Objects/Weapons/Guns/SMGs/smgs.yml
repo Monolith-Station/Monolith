@@ -427,9 +427,9 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    minAngle: 3
-    maxAngle: 20
-    angleIncrease: 3
+    minAngle: 2
+    maxAngle: 15
+    angleIncrease: 2
     angleDecay: 2
     fireRate: 7.5
     soundGunshot:
