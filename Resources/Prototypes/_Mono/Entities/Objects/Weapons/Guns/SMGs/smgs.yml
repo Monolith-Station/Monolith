@@ -420,7 +420,7 @@
   description: A rugged, run down SMG chambered in 4.6x30mm designed for short range shootouts, featuring a 10 round burst at the cost of accuracy.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/SMGs/rs-2_malandro.rsi
+    sprite: _Mono/Objects/Weapons/Guns/SMGs/rs-2_malandro.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
