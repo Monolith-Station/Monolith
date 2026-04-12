@@ -4,10 +4,10 @@ using Content.Shared.Weapons.Ranged.Systems;
 
 namespace Content.Shared._Mono.Weapons.Ranged.Overheat;
 
-public sealed class GunOverheatSystem : EntitySystem
+public abstract class SharedGunOverheatSystem : EntitySystem
 {
     private float _updateCooldown = 0.25f;
-    private float _updateTimer = 0f;
+    private float _updateTimer;
 
     [Dependency] private readonly SharedGunSystem _gun = default!;
 
