@@ -137,3 +137,18 @@
       state: robot
     - sprite: Mobs/Silicon/chassis.rsi
       state: robot_e
+
+#RSC
+
+- type: entity
+  id: SpawnPointMercenary
+  parent: SpawnPointJobBase
+  name: 
+  components:
+  - type: SpawnPoint
+    job_id: Mercenary
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: mercenary
