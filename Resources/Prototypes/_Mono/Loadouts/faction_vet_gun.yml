@@ -150,6 +150,16 @@
   inhand:
   - WeaponCaseWsprRegistered
 
+- type: loadout
+  id: ContractorSpecialGunMalandro
+  name: RS-2 Malandro gun case
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCivVet
+  price: 35000
+  inhand:
+  - WeaponCaseLongMalandroRegistered
+
 # Misc playtime weapons
 
 - type: loadout
