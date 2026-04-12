@@ -101,3 +101,12 @@
   components:
   - type: StaticPrice
     price: 250
+
+- type: entity #Disabler SMG
+  parent:
+  - BaseWeaponSubMachineGun
+  id: WeaponSubMachineGunMalandro
+  suffix: Registered
+  components:
+  - type: StaticPrice
+    price: 1000

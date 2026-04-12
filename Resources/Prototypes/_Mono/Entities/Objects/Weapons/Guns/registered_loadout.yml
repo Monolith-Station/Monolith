@@ -79,3 +79,9 @@
   parent: [WeaponLoadoutRegisteredBase, WeaponRifleMR3C]
   id: WeaponRifleMR3CRegistered
   suffix: Registered
+
+- type: entity
+  parent: [WeaponLoadoutRegisteredBase, WeaponRS-2 Malandro]
+  id: WeaponSubMachineGunMalandroRegistered
+  suffix: Registered
+
