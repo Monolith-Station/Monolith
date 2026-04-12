@@ -19647,3 +19647,30 @@ Entries:
   id: 2168
   time: '2026-04-11T15:45:12.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3753
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Explosive shipgun projectiles no longer sink their explosion into one
+        wall.
+  id: 2169
+  time: '2026-04-11T20:32:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3756
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Made acceleration scaling affect low velocities less.
+    - type: Fix
+      message: >-
+        Fixed oversight making ships 2x slower to accelerate in their velocity
+        direction than intended.
+  id: 2170
+  time: '2026-04-12T09:27:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3764
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: You can no longer dock to grids while charging up FTL.
+  id: 2171
+  time: '2026-04-12T10:10:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3765
