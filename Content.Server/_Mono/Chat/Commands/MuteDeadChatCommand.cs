@@ -5,7 +5,7 @@ using Content.Server.Chat.Systems;
 using Robust.Server.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Server.Chat.Commands;
+namespace Content.Server._Mono.Chat.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
 public sealed class MuteDeadChatCommand : IConsoleCommand
