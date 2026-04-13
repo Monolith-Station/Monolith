@@ -115,7 +115,7 @@ public sealed class StationAiVisionSystem : EntitySystem
         _singleTiles.Clear();
         _job.Grid = (grid.Owner, grid.Comp2);
         _job.VisibleTiles = _singleTiles;
-        _parallel.ProcessNow(_job, _job.Data.Count);
+        _parallel.ProcessSerialNow(_job, _job.Data.Count); // # MONO - evil hack that worked on localhost, try it on the live server
 
         return _job.VisibleTiles.Contains(tile);
     }
