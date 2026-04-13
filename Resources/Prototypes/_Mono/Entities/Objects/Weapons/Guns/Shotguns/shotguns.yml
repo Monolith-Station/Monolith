@@ -2,7 +2,7 @@
   name: Big Leady (4 gauge)
   parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponShotgunBigLeady
-  description: A massive 4 gauge (23x75mm) shotgun made to kill what any caliber bellow autocannon cant.
+  description: A large 4 gauge (23x75mm) shotgun made to kill what any caliber below an autocannon cant.
   components: # intend for BigLeady to have tighter choke for slower fire rate and/or manual cycling
   - type: Item
     size: Normal
@@ -38,7 +38,7 @@
   name: Big Johnny (4 gauge)
   parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponShotgunBigJohnny
-  description: A massive 4 gauge (23x75mm) shotgun made to kill what any caliber bellow autocannon cant. This one is outfitted with various tactical additions and is made for CQC at the cost of low ammo capacity.
+  description: A large 4 gauge (23x75mm) shotgun made to kill what any caliber below an autocannon cant. This one is outfitted with various tactical additions and is made for CQC at the cost of low ammo capacity.
   components: # intend for BigLeady to have tighter choke for slower fire rate and/or manual cycling
   - type: Item
     size: Normal
@@ -60,7 +60,7 @@
     tags:
     - WeaponShotgunBigLeady
   - type: BallisticAmmoProvider # Goobstation
-    autoCycle: false
+    autoCycle: true
     whitelist:
       tags:
       - ShellShotgun23x75mmBuckshot
@@ -74,12 +74,16 @@
   - type: LaserPointer
     targetedColor: "#FF0000"
     defaultColor: "#FF0000"
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 1
 
 - type: entity
   name: Big Buddy (4 gauge)
   parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponShotgunBigBuddy
-  description: A massive 4 gauge (23x75mm) shotgun made to kill what any caliber bellow autocannon cant.
+  description: A massive 4 gauge (23x75mm) shotgun made to kill what any caliber below an autocannon cant.
   components: # intend for BigBuddy to have tighter choke for slower fire rate and/or manual cycling
   - type: Item
     size: Normal
@@ -142,3 +146,49 @@
   - type: StaticPrice
     price: 600
     vendPrice: 3000
+
+# PDV
+
+- type: entity
+  name: PD-VI "Sultan's Pulsar" shotgun (4 gauge)
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC3SyndicateContraband]
+  id: WeaponShotgunSultanPulsar
+  description: A beast of a bolt-action shotgun, capable of firing the Sultan's finest 4-gauge with exceptional accuracy. Overkill for most space fauna, but using this means its certain you're hunting the most dangerous game.
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,5,0
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/SultansPulsar_inhands_64x.rsi
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/SultansPulsar.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/SultansPulsar_inhands_64x.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
+    fireRate: 1.2
+    selectedMode: Semiauto
+    availableModes:
+    - SemiAuto
+  - type: GunSpreadModifier
+    spread: 0.4
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun23x75mmBuckshot
+    capacity: 8
+    proto: ShellShotgun23x75mmBuckshot
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: StaticPrice
+    price: 20000
+    vendPrice: 20000
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8
+    sprintModifier: 0.95
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 1

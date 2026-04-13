@@ -17,10 +17,10 @@ namespace Content.Server.Shuttles.Components
         public const float BrakeCoefficient = 1.5f;
 
         /// <summary>
-        /// Maximum velocity assuming TWR is BaseMaxVelocityTWR.
+        /// Mono - velocity that 2x slowdown will be applied at. (4x at 2x this, 8x at 3x this, etc.)
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        public float BaseMaxLinearVelocity = 75f; // Mono
+        public float BaseMaxLinearVelocity = 80f;
 
         public const float MaxAngularVelocity = 4f;
 
@@ -77,34 +77,22 @@ namespace Content.Server.Shuttles.Components
 
         // <Mono>
         /// <summary>
-        /// Limit to max velocity set by a shuttle console.
-        /// </summary>
-        [DataField]
-        public float SetMaxVelocity = 140f;
-
-        /// <summary>
-        /// At what Thrust-Weight-Ratio should this ship have the base max velocity as its maximum velocity.
-        /// </summary>
-        [DataField]
-        public float BaseMaxVelocityTWR = 8f;
-
-        /// <summary>
-        /// How much should TWR affect max velocity.
-        /// </summary>
-        [DataField]
-        public float MaxVelocityScalingExponent = 0.25f; // 16x thrust = 2x max speed
-
-        /// <summary>
-        /// Don't allow max velocity to go beyond this value.
-        /// </summary>
-        [DataField]
-        public float UpperMaxVelocity = 140f; // we ball
-
-        /// <summary>
         /// Thrust acceleration vector last update.
         /// </summar>
         [DataField]
         public Vector2 LastThrust = Vector2.Zero;
+
+        /// <summary>
+        /// Multiplier to angular thrust. Set depending on pilot.
+        /// </summary
+        [ViewVariables]
+        public float AngularMultiplier = 1f;
+
+        /// <summary>
+        /// Multiplier to linear thrust. Set depending on pilot.
+        /// </summary
+        [ViewVariables]
+        public float AccelerationMultiplier = 1f;
         // </Mono>
     }
 }
