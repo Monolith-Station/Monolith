@@ -61,6 +61,12 @@
         volume: 5
     initialBeepDelay: 0
     beepInterval: 2 # 2 beeps total (at 0 and 2)
+  - type: Tag
+    tags:
+    - GrenadeLaunchable
+  - type: CartridgeAmmo
+    proto: ExGrenadeLaunched
+    deleteOnSpawn: true
 
 - type: entity
   name: flashbang
@@ -89,6 +95,10 @@
   - type: Tag
     tags:
     - GrenadeFlashBang
+    - GrenadeLaunchable
+  - type: CartridgeAmmo
+    proto: GrenadeFlashBangLaunched
+    deleteOnSpawn: true
 
 - type: entity
   id: GrenadeFlashEffect
@@ -366,6 +376,12 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
+  - type: Tag
+    tags:
+    - GrenadeLaunchable
+  - type: CartridgeAmmo
+    proto: EmpGrenadeLaunched
+    deleteOnSpawn: true
 
 - type: entity
   name: holy hand grenade
@@ -409,6 +425,12 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Items/smoke_grenade_prime.ogg
+  - type: Tag
+    tags:
+    - GrenadeLaunchable
+  - type: CartridgeAmmo
+    proto: SmokeGrenadeLaunched
+    deleteOnSpawn: true
 
 - type: entity
   parent: SmokeGrenade
@@ -426,6 +448,12 @@
       reagents:
       - ReagentId: SpaceCleaner
         Quantity: 30
+  - type: Tag
+    tags:
+    - GrenadeLaunchable
+  - type: CartridgeAmmo
+    proto: CleanerGrenadeLaunched
+    deleteOnSpawn: true
 
 - type: entity
   parent: SmokeGrenade
@@ -457,6 +485,12 @@
     smokePrototype: AluminiumMetalFoam
   - type: StaticPrice
     price: 350
+  - type: Tag
+    tags:
+    - GrenadeLaunchable
+  - type: CartridgeAmmo
+    proto: MetalFoamGrenadeLaunched
+    deleteOnSpawn: true
 
 - type: entity
   parent: GrenadeBase # Prevent inheriting DeleteOnTrigger from SmokeGrenade

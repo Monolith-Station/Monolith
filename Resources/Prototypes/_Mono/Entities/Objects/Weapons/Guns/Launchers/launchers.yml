@@ -17,7 +17,7 @@
       map: [ "unshaded" ]
       shader: unshaded
       visible: false
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: unshaded
     inhandVisuals:
       left:
@@ -59,7 +59,7 @@
       map: [ "unshaded" ]
       shader: unshaded
       visible: false
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: unshaded
       inhandVisuals:
         left:
@@ -75,3 +75,115 @@
         unshaded:
           True: { visible: true }
           False: { visible: false }
+
+# disposable rocket launchers
+
+- type: entity
+  name: MANPAT "Panzero" disposable anti-tank
+  parent: [ BaseItem ] # Frontier: BaseMajorContraband<BaseC3Contraband
+  id: WeaponLauncherPanzero
+  description: Based on old designs, the "Panzero" is a (relatively) easy-to-carry disposable anti-tank rocket launcher. Devastating against mechs and walls, not very good at much else.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/panzero.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/panzero_inhands_32x.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    minAngle: 1
+    maxAngle: 4
+    projectileSpeed: 30
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: BallisticAmmoProvider
+    proto: PanzeroRocket
+    capacity: 1
+    cycleable: false
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.80
+    sprintModifier: 0.70
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: WieldDelay
+    baseDelay: 2
+    modifiedDelay: 2
+    preventFiring: true
+  - type: Appearance
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/panzero_inhands_32x.rsi
+    storedRotation: -90
+    #storedSprite:
+    #  state: storage
+    #  sprite: _Mono/Objects/Weapons/Guns/Launchers/panzero_inhands_32x.rsi
+    size: Normal
+    shape:
+    - 0,0,0,3
+  - type: StaticPrice
+    price: 500
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/explosive_mouse.rsi
+      state: all
+
+# grenade launcher
+
+- type: entity
+  name: GP-909 'Osiris' Grenade Launcher
+  parent: [ BaseWeaponLauncher, BaseItem ] # Frontier: BaseMinorContraband<BaseC1Contraband
+  id: WeaponLauncherTSFOsiris
+  description: The TSF's powerful solution to things that don't have enough boom. Capable of firing most standard grenades.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/osiris.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Large
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/osiris_inhands_32x.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    projectileSpeed: 30
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - FullAuto
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    clumsyProof: true
+  - type: BallisticAmmoProvider # Goobstation
+    autoCycle: true
+    whitelist:
+      tags:
+      - GrenadeLaunchable
+    capacity: 6
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: Appearance
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: WieldDelay
+    baseDelay: 2
+    modifiedDelay: 2
+    preventFiring: true

@@ -1,8 +1,8 @@
 # VESPERA
 
 - type: entity
-  id: ShipMissileASM417
-  name: ASM-417 50mm Mini Missile
+  id: ShipMissileASM50
+  name: ASM-50 50mm Mini Missile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -46,11 +46,11 @@
     maxSpeed: 180
     trackDelay: 0.1
 
-# ASM-302
+# VANYK
 
 - type: entity
-  id: ShipMissileASM302
-  name: ASM-302 150mm missile
+  id: ShipMissileASM150
+  name: ASM-150 150mm missile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -97,8 +97,8 @@
 # TOVEK
 
 - type: entity
-  id: ShipMissileASM557
-  name: ASM-557 Hybrid EMP Missile
+  id: ShipMissileASM250
+  name: ASM-250 Hybrid EMP Missile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:

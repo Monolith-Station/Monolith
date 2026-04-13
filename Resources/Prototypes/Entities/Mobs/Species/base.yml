@@ -6,6 +6,7 @@
   - MobPolymorphable
   - MobCombat
   - StripableInventoryBase
+  # Mono TODO: PlayerSiliconHumanoidBase is not parented to this for whatever reason, so fix that
   id: BaseMobSpecies
   abstract: true
   components:
@@ -229,6 +230,9 @@
   - type: Targeting # Shitmed Change
   - type: SurgeryTarget # Shitmed Change
   - type: ExaminableCharacter # WWDP
+  # Mono
+  - type: ShipNpcTarget
+    needGrid: NoGrid
 
 - type: entity
   save: false
