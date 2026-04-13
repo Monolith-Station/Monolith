@@ -61,6 +61,8 @@ namespace Content.Server.Lathe
         [Dependency] private readonly ContrabandTurnInSystem _contraband = default!; // Mono
         [Dependency] private readonly TransformSystem _transform = default!;
         [Dependency] private readonly DeviceLinkSystem _deviceLink = default!; // Mono
+        private ISawmill _sawmill = default!;
+
 
         /// <summary>
         /// Per-tick cache
@@ -100,6 +102,8 @@ namespace Content.Server.Lathe
             // Mono
             SubscribeLocalEvent<LatheComponent, SignalReceivedEvent>(OnSignalReceived);
             SubscribeLocalEvent<LatheHeatProducingComponent, ExaminedEvent>(OnHeatExamine);
+
+            _sawmill = Logger.GetSawmill("Lathe");
         }
         public override void Update(float frameTime)
         {
@@ -265,7 +269,7 @@ namespace Content.Server.Lathe
 
             // Frontier: handle batches
             var batch = component.Queue.First();
-            var actor = component.Queue.First().Actor;
+            var actor = batch.Actor;
             var recipe = batch.Recipe;
             // <Mono> - resources now consumed as the production goes
             if (!CanProduce(uid, recipe, 1, component))
@@ -299,6 +303,7 @@ namespace Content.Server.Lathe
             lathe.StartTime = _timing.CurTime;
             lathe.ProductionLength = time * component.FinalTimeMultiplier; // Frontier: TimeMultiplier<FinalTimeMultiplier
             lathe.Actor = GetEntity(actor);
+            _sawmill.Debug($"Added actor {actor} to entity printing.");
             component.CurrentRecipe = recipe;
 
             var ev = new LatheStartPrintingEvent(recipe);
@@ -333,7 +338,7 @@ namespace Content.Server.Lathe
                         // End Frontier
 
                         // Mono: Handle printable contraband
-                        _contraband.HandleContrabandValueByCompany(uid, prodComp.Actor);
+                        _contraband.HandleContrabandValueByCompany(result, prodComp.Actor);
                     }
 
                     _stack.TryMergeToContacts(result);
@@ -501,6 +506,7 @@ namespace Content.Server.Lathe
             if (_proto.TryIndex(args.ID, out LatheRecipePrototype? recipe))
             {
                 // Frontier: batching recipes
+                _sawmill.Debug($"Added actor {args.Actor} to initial lathe message.");
                 if (TryAddToQueue(uid, recipe, args.Quantity, component, args.Actor))
                 {
                     _adminLogger.Add(LogType.Action,

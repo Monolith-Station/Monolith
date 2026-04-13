@@ -16,6 +16,7 @@ public enum ContrabandPalletConsoleUiKey : byte
 public abstract class SharedContrabandTurnInSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prot = default!;
+    private ISawmill _sawmill = default!;
 
     public void ClearContrabandValue(EntityUid item)
     {
@@ -44,11 +45,12 @@ public abstract class SharedContrabandTurnInSystem : EntitySystem
     // Mono: Remove Contraband currencies
     public void HandleContrabandValueByCompany(EntityUid item, EntityUid? actor)
     {
-        // Get the company of the person who queued the item. Checks for valid company prototype, as well as an uplink currency.
+        // Get the company of the person who queued the item. Checks for valid company prototype, as well as an uplink currency attached to the company.
         if (!TryComp<CompanyComponent>(actor, out var company)
-            || !_prot.Resolve<CompanyPrototype>(company.CompanyName, out var companyProto)
+            || !_prot.Resolve(company.CompanyName, out var companyProto)
             || companyProto.CompanyUplinkCurrency is not { } currency)
         {
+            Logger.Debug($"Clearing all Contraband for {item}");
             ClearContrabandValue(item);
             return;
         }
@@ -63,8 +65,12 @@ public abstract class SharedContrabandTurnInSystem : EntitySystem
         {
             foreach (var valueKey in contraband.TurnInValues.Keys)
             {
-                if (valueKey == currency)
+                // For faction members, if the faction currency matches the contraband value, keep its value.
+                if (valueKey.Id != currency.Id)
+                {
+                    Logger.Debug($"Ignoring removal for {item} from currency {valueKey} to {currency}");
                     continue;
+                }
                 contraband.TurnInValues[valueKey] = 0;
             }
         }
