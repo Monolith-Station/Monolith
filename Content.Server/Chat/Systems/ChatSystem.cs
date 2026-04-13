@@ -868,11 +868,19 @@ public sealed partial class ChatSystem : SharedChatSystem
         var playerName = Name(source);
         string wrappedMessage;
         // Mono - add short title
-
         if (!_adminManager.IsAdmin(player) && // mono - player dead chat mute
-            _deadChatMuted.TryGetValue(player.UserId, out var muteExpiry) &&
-            (muteExpiry == null || muteExpiry > _timing.CurTime))
-            return;
+            _deadChatMuted.TryGetValue(player.UserId, out var muteExpiry))
+        {
+            if (muteExpiry != null && muteExpiry <= _timing.CurTime)
+                _deadChatMuted.Remove(player.UserId);
+            else
+            {
+                var notification = muteExpiry == null ? Loc.GetString("dead-chat-muted-notification-null") : Loc.GetString("dead-chat-muted-notification-timed",
+                        ("minutes", Math.Ceiling((muteExpiry.Value - _timing.CurTime).TotalMinutes)));
+                _chatManager.DispatchServerMessage(player, notification, suppressLog: true);
+                return;
+            }
+        }
 
         if (_adminManager.GetAdminData(player) is { } data)
         {

@@ -35,13 +35,13 @@ public sealed class MuteDeadChatCommand : IConsoleCommand
         TimeSpan? expiry = null;
         if (args.Length == 2)
         {
-            if (!float.TryParse(args[1], out var seconds) || seconds <= 0)
+            if (!float.TryParse(args[1], out var minutes) || minutes <= 0)
             {
                 shell.WriteError(Loc.GetString("mute-dead-chat-command-invalid-duration"));
                 return;
             }
 
-            expiry = _timing.CurTime + TimeSpan.FromMinutes(seconds);
+            expiry = _timing.CurTime + TimeSpan.FromMinutes(minutes);
         }
 
         var chatSystem = _entManager.System<ChatSystem>();
@@ -51,7 +51,7 @@ public sealed class MuteDeadChatCommand : IConsoleCommand
         {
             shell.WriteLine(Loc.GetString("mute-dead-chat-command-muted-timed",
                 ("player", player.Name),
-                ("seconds", args[1])));
+                ("minutes", args[1])));
         }
         else
         {
