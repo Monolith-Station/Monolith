@@ -39,6 +39,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared._RMC14.CCVar;
 
@@ -70,6 +71,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly DiscordChatLink _discordLink = default!;
     [Dependency] private readonly LanguageSystem _language = default!; // Einstein Engines - Language
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // Goobstation - Starlight collective mind port
+    [Dependency] private readonly IGameTiming _timing = default!; // Mono
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -83,6 +85,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     private bool _critLoocEnabled;
     private bool _DeadchatEnabled; // RMC14
     private readonly bool _adminLoocEnabled = true;
+    private readonly Dictionary<NetUserId, TimeSpan?> _deadChatMuted = new(); // Mono - per-player dead chat mute; null = permanent
 
     public override void Initialize()
     {
@@ -124,7 +127,20 @@ public sealed partial class ChatSystem : SharedChatSystem
             Loc.GetString(val ? "chat-manager-crit-looc-chat-enabled-message" : "chat-manager-crit-looc-chat-disabled-message"));
     }
 
-        private void OnDeadChatEnabledChanged(bool val)
+    public bool MuteDeadChat(NetUserId userId, TimeSpan? expiry)
+    {
+        if (_deadChatMuted.TryGetValue(userId, out var existing) &&
+            (existing == null || existing > _timing.CurTime))
+        {
+            _deadChatMuted.Remove(userId);
+            return false;
+        }
+
+        _deadChatMuted[userId] = expiry;
+        return true;
+    }
+
+    private void OnDeadChatEnabledChanged(bool val)
     {
         if (_DeadchatEnabled == val)
             return;
@@ -866,6 +882,11 @@ public sealed partial class ChatSystem : SharedChatSystem
         string wrappedMessage;
         // Mono - add short title
         if (!_adminManager.IsAdmin(player) && !_DeadchatEnabled) // RMC14 - Check the status of the "rmc.dead_chat_enabled" CCvar before continuing.
+            return;
+
+        if (!_adminManager.IsAdmin(player) && // mono - player dead chat mute
+            _deadChatMuted.TryGetValue(player.UserId, out var muteExpiry) &&
+            (muteExpiry == null || muteExpiry > _timing.CurTime))
             return;
 
         if (_adminManager.GetAdminData(player) is { } data)
