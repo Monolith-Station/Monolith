@@ -244,7 +244,7 @@ namespace Content.Server.Lathe
             if (component.Queue.Count > 0 && component.Queue[^1].Recipe.ID == recipe.ID)
                 component.Queue[^1].ItemsRequested += quantity;
             else
-                component.Queue.Add(new LatheRecipeBatch(recipe, 0, quantity, actor));
+                component.Queue.Add(new LatheRecipeBatch(recipe, 0, quantity, GetNetEntity(actor)));
             // End Frontier
             // component.Queue.Add(recipe); // Frontier
 
@@ -298,7 +298,7 @@ namespace Content.Server.Lathe
             var lathe = EnsureComp<LatheProducingComponent>(uid);
             lathe.StartTime = _timing.CurTime;
             lathe.ProductionLength = time * component.FinalTimeMultiplier; // Frontier: TimeMultiplier<FinalTimeMultiplier
-            lathe.Actor = actor;
+            lathe.Actor = GetEntity(actor);
             component.CurrentRecipe = recipe;
 
             var ev = new LatheStartPrintingEvent(recipe);
