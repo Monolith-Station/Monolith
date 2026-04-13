@@ -333,8 +333,7 @@ namespace Content.Server.Lathe
                         // End Frontier
 
                         // Mono: Handle printable contraband
-                        if (prodComp.Actor is { } actor)
-                            _contraband.HandleContrabandValueByCompany(uid, actor);
+                        _contraband.HandleContrabandValueByCompany(uid, prodComp.Actor);
                     }
 
                     _stack.TryMergeToContacts(result);

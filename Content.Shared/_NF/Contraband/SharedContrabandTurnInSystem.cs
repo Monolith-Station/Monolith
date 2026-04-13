@@ -42,7 +42,7 @@ public abstract class SharedContrabandTurnInSystem : EntitySystem
     }
 
     // Mono: Remove Contraband currencies
-    public void HandleContrabandValueByCompany(EntityUid item, EntityUid actor)
+    public void HandleContrabandValueByCompany(EntityUid item, EntityUid? actor)
     {
         // Get the company of the person who queued the item. Checks for valid company prototype, as well as an uplink currency.
         if (!TryComp<CompanyComponent>(actor, out var company)
