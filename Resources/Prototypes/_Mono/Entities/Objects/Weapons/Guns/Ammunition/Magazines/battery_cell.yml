@@ -1,38 +1,4 @@
 - type: entity
-  id: MilitaryPowerCellMG
-  parent: BaseMilitaryPowerCell
-  name: EM72 Ashstorm battery cell
-  description: A round battery cell designed for a EM72 Ashstorm.
-  components:
-  - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_mg.rsi
-    layers:
-    - map: [ "enum.PowerCellVisualLayers.Base" ]
-      state: icon
-    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
-      state: o4
-      shader: unshaded
-  - type: Item
-  - type: Battery
-    maxCharge: 3000
-    startingCharge: 3000
-  - type: HitscanBatteryAmmoProvider
-    proto: MediumOverchargedLaser
-    fireCost: 15
-  - type: Tag
-    tags:
-    - MilitaryPowerCell
-    - MilitaryPowerCellMG
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 300
-      Gold: 40
-      Glass: 160
-      Plasma: 200
-    chemicalComposition:
-      Zinc: 20
-
-- type: entity
   id: PulsedPlasmaLaserCanister
   parent: BaseMilitaryPowerCell
   name: NT PPL magnetic storage container
@@ -69,3 +35,96 @@
       Uranium: 150
     chemicalComposition:
       Zinc: 20
+
+# tsf
+
+- type: entity
+  id: MilitaryPowerCellMG
+  parent: BaseMilitaryPowerCell
+  name: EM72 Ashstorm battery cell
+  description: A round battery cell designed for a EM72 Ashstorm.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_mg.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: icon
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o4
+      shader: unshaded
+  - type: Item
+  - type: Battery
+    maxCharge: 3000
+    startingCharge: 3000
+  - type: HitscanBatteryAmmoProvider
+    proto: MediumOverchargedLaser
+    fireCost: 15
+  - type: Tag
+    tags:
+    - MilitaryPowerCell
+    - MilitaryPowerCellMG
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 300
+      Gold: 40
+      Glass: 160
+      Plasma: 200
+    chemicalComposition:
+      Zinc: 20
+
+# 400Thz
+
+- type: entity
+  id: LargePowerCell400Thz
+  parent: BaseMilitaryPowerCell
+  name: DEW-1R 400Thz battery box (large)
+  description: A large and militarized power box for directed energy weapons. Tuned to fire low-frequency lasers with high capacity but low recharge speed. Vulnerable to EMP.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Power/tsfbattery.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: base
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+      color: "#ff6e6e"
+  - type: Item
+    size: Normal
+  - type: Battery
+    maxCharge: 10000
+    startingCharge: 10000
+  - type: HitscanBatteryAmmoProvider
+    proto: Hitscan400Thz
+    fireCost: 100
+  - type: Tag
+    tags:
+    - LargeMilitaryPowerCell
+
+# 700Thz
+
+- type: entity
+  id: LargePowerCell700Thz
+  parent: BaseMilitaryPowerCell
+  name: DEW-VU 700Thz battery box (large)
+  description: A large and militarized power box for directed energy weapons. Tuned to fire high-frequency lasers with low capacity and low recharge speed. Vulnerable to EMP.
+  components:
+    - type: Sprite
+      sprite: _Mono/Objects/Power/tsfbattery.rsi
+      layers:
+        - map: [ "enum.PowerCellVisualLayers.Base" ]
+          state: base
+        - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+          state: o2
+          shader: unshaded
+    - type: Item
+      size: Normal
+    - type: Battery
+      maxCharge: 10000
+      startingCharge: 10000
+    - type: HitscanBatteryAmmoProvider
+      proto: Hitscan700Thz
+      fireCost: 250
+    - type: Tag
+      tags:
+        - LargeMilitaryPowerCell

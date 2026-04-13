@@ -59,10 +59,10 @@
       - SecurityUplink
 
 - type: listing
-  id: UplinkSecurityAshstorm
-  name:  uplink-security-ashstorm-name
-  description: uplink-security-ashstorm-desc
-  productEntity: ClothingBackpackDuffelAshstormBundle
+  id: UplinkSecuritySmilodon
+  name:  uplink-security-smilodon-name
+  description: uplink-security-smilodon-desc
+  productEntity: ClothingBackpackDuffelSmilodonBundle
   cost:
     FederationMilitaryCredit: 250
   categories:
@@ -356,4 +356,4 @@
       whitelist:
         - Sheriff
         - Bailiff
-        - SeniorOfficer 
+        - SeniorOfficer
