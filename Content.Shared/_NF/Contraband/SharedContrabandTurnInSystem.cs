@@ -75,7 +75,7 @@ public abstract class SharedContrabandTurnInSystem : EntitySystem
                 // For faction members, if the faction currency matches the contraband value, keep its value.
                 if (valueKey.Id != currency.Id)
                 {
-                    _sawmill.Debug($"Ignoring removal for {item} from currency {valueKey} to {currency}");
+                    _sawmill.Debug($"Ignoring removal for {item} of faction currency {valueKey} from company {currency}");
                     continue;
                 }
                 contraband.TurnInValues[valueKey] = 0;
