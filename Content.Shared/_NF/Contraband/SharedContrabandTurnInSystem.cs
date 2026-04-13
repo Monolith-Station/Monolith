@@ -1,5 +1,6 @@
 using Content.Shared._Mono.Company;
 using Content.Shared.Contraband;
+using Content.Shared.Store;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -15,6 +16,7 @@ public enum ContrabandPalletConsoleUiKey : byte
 public abstract class SharedContrabandTurnInSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prot = default!;
+
     public void ClearContrabandValue(EntityUid item)
     {
         // Clear contraband value for printed items
@@ -40,7 +42,7 @@ public abstract class SharedContrabandTurnInSystem : EntitySystem
     }
 
     // Mono: Remove Contraband currencies
-    public void ClearContrabandValueByCompany(EntityUid item, EntityUid actor)
+    public void HandleContrabandValueByCompany(EntityUid item, EntityUid actor)
     {
         // Get the company of the person who queued the item. Checks for valid company prototype, as well as an uplink currency.
         if (!TryComp<CompanyComponent>(actor, out var company)
@@ -51,7 +53,11 @@ public abstract class SharedContrabandTurnInSystem : EntitySystem
             return;
         }
 
+        CleanContrabandValueByCompany(item, currency);
+    }
 
+    private void CleanContrabandValueByCompany(EntityUid item, ProtoId<CurrencyPrototype> currency)
+    {
         // Clear contraband value for printed items
         if (TryComp<ContrabandComponent>(item, out var contraband))
         {
@@ -70,7 +76,7 @@ public abstract class SharedContrabandTurnInSystem : EntitySystem
             {
                 foreach (var ent in container.ContainedEntities)
                 {
-                    ClearContrabandValue(ent);
+                    CleanContrabandValueByCompany(ent, currency);
                 }
             }
         }
