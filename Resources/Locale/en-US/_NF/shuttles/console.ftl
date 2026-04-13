@@ -12,14 +12,6 @@ shuttle-console-inertia-dampener-anchor = Park
 shuttle-console-force-anchored = You are not able to FTL an outpost.
 shuttle-console-signature-infrared = Thermal Signature
 
-# these were missing for some reason, frontier issue
-shuttle-console-network-connect-tooltip = The buttons on the shuttle console send a signal when pressed, use a multitool on the console and connect it up to a device!
-shuttle-console-ftl-lock = FTL Lock
-shuttle-console-ftl-enabled = Enabled
-shuttle-console-ftl-disabled = Disabled
-shuttle-console-docks = Docks
-shuttle-console-undock-all = Undock All
-
 # Mono - Unknowns
 shuttle-console-signature-unknown =
     { $mass ->
@@ -33,6 +25,7 @@ shuttle-console-signature-unknown =
 
 # Network Port Buttons
 shuttle-console-network-ports = Network Ports
+shuttle-console-network-connect-tooltip = The buttons on the shuttle console send a signal when pressed, use a multitool on the console and connect it up to a device!
 
 # Device Link Buttons
 shuttle-console-device-button-1 = Port 1
