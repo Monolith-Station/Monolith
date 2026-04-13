@@ -11,11 +11,14 @@
   name: TSF-LOV Granton
   description: Ill do this later
   category: Medium
-  group: Shipyard
+  group: Security
+  access: Security
+
   shuttlePath: /Maps/_Mono/Shuttles/Nfsd/granton.yml
   guidebookPage: Null
   class:
   - Pursuit
+  - Patrol
   engine:
   - Plasma
 
@@ -38,6 +41,6 @@
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            Contractor: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
-            Mercenary: [ 0, 0 ]
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+
