@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/10/2026 04:01:32
-  entityCount: 741
+  time: 04/13/2026 20:59:51
+  entityCount: 743
 maps: []
 grids:
 - 1
@@ -90,8 +90,8 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
-        MetalFoam: []
         Kudzu: []
+        MetalFoam: []
         Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -279,7 +279,7 @@ entities:
             0: 24392
           1,1:
             0: 4913
-            1: 2176
+            1: 128
           1,2:
             0: 563
           1,3:
@@ -293,7 +293,7 @@ entities:
           -2,0:
             0: 20034
           -2,1:
-            1: 544
+            1: 32
             0: 2176
           -2,-1:
             1: 16384
@@ -719,16 +719,6 @@ entities:
     components:
     - type: Transform
       pos: 5.5,19.5
-      parent: 1
-  - uid: 618
-    components:
-    - type: Transform
-      pos: 4.5,18.5
-      parent: 1
-  - uid: 619
-    components:
-    - type: Transform
-      pos: 4.5,19.5
       parent: 1
   - uid: 620
     components:
@@ -2794,26 +2784,6 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
-- proto: Paper
-  entities:
-  - uid: 270
-    components:
-    - type: MetaData
-      name: scrawled note
-    - type: Transform
-      pos: 5.3020205,8.442321
-      parent: 1
-    - type: Paper
-      content: >-
-        The original shield generator is in bad shape. Took a good hit in the last raid and I haven't been able to repair it since... Damn shame. They don't make 'em like they used to anymore.
-
-
-        I've jury rigged a sentinel gen we had laying back in storage. I think we nabbed it off a civ a bit ago. Bit underpowered, but it gets the job done.
-
-
-        Cheers,
-
-        Operative Checkmate
 - proto: PortableGeneratorSuperPacmanShuttle
   entities:
   - uid: 205
@@ -2890,9 +2860,21 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-3.5
       parent: 1
-- proto: PoweredlightRed
+- proto: PoweredStrobeRedEnabled
   entities:
   - uid: 31
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,4.5
+      parent: 1
+  - uid: 280
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -6.5,6.5
+      parent: 1
+  - uid: 331
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -2901,34 +2883,46 @@ entities:
   - uid: 419
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,4.5
+      rot: -1.5707963267948966 rad
+      pos: -3.5,13.5
       parent: 1
   - uid: 436
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -3.5,13.5
+      rot: 1.5707963267948966 rad
+      pos: 7.5,6.5
       parent: 1
   - uid: 437
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,-5.5
+      rot: 1.5707963267948966 rad
+      pos: 5.5,19.5
       parent: 1
   - uid: 443
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,14.5
-      parent: 1
-  - uid: 444
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,14.5
       parent: 1
-  - uid: 445
+  - uid: 444
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,19.5
+      parent: 1
+  - uid: 619
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,14.5
+      parent: 1
+  - uid: 641
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,-5.5
+      parent: 1
+  - uid: 743
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4663,25 +4657,27 @@ entities:
       parent: 293
     - type: Physics
       canCollide: False
-- proto: WeaponTurretFang
+- proto: WeaponTurretAdderScattercannon
   entities:
-  - uid: 280
+  - uid: 445
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
+      rot: 1.5707963267948966 rad
+      pos: 7.5,6.5
+      parent: 1
+  - uid: 618
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
       pos: -6.5,6.5
       parent: 1
+- proto: WeaponTurretFang
+  entities:
   - uid: 284
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.5,19.5
-      parent: 1
-  - uid: 331
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 7.5,6.5
       parent: 1
   - uid: 342
     components:
