@@ -18,6 +18,13 @@ public abstract class SharedContrabandTurnInSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prot = default!;
     private ISawmill _sawmill = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _sawmill = Logger.GetSawmill("Contraband");
+    }
+
     public void ClearContrabandValue(EntityUid item)
     {
         // Clear contraband value for printed items
@@ -50,7 +57,7 @@ public abstract class SharedContrabandTurnInSystem : EntitySystem
             || !_prot.Resolve(company.CompanyName, out var companyProto)
             || companyProto.CompanyUplinkCurrency is not { } currency)
         {
-            Logger.Debug($"Clearing all Contraband for {item}");
+            _sawmill.Debug($"Clearing all Contraband for {item}");
             ClearContrabandValue(item);
             return;
         }
@@ -68,7 +75,7 @@ public abstract class SharedContrabandTurnInSystem : EntitySystem
                 // For faction members, if the faction currency matches the contraband value, keep its value.
                 if (valueKey.Id != currency.Id)
                 {
-                    Logger.Debug($"Ignoring removal for {item} from currency {valueKey} to {currency}");
+                    _sawmill.Debug($"Ignoring removal for {item} from currency {valueKey} to {currency}");
                     continue;
                 }
                 contraband.TurnInValues[valueKey] = 0;
