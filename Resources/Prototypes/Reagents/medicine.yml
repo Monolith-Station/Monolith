@@ -26,6 +26,7 @@
   color: "#3a1d8a"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -136,7 +137,7 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: -3
+            Radiation: -4 # Mono 3 >> 4
           groups:
             Brute: 1.5
 
@@ -150,10 +151,11 @@
   color: "#ffaa00"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono 0.5 >> 0.2
       effects:
       - !type:EvenHealthChange
         damage:
-          Brute: -2 #Mono 1.5 >> 2
+          Brute: -1 #Mono 1.5 >> 1
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -196,6 +198,7 @@
   - !type:PlantCryoxadone {}
   metabolisms:
     Cryogenic: # Frontier: Medicine<Cryogenic
+      metabolismRate: 0.2 # Mono: 0.5 >> 0.2
       effects:
         - !type:EvenHealthChange
           conditions:
@@ -230,6 +233,7 @@
   worksOnTheDead: true # Frontier
   metabolisms:
     Cryogenic: # Frontier: Medicine<Cryogenic
+      metabolismRate: 0.2 # Mono
       effects:
         - !type:HealthChange
           conditions:
@@ -261,6 +265,7 @@
   color: "#215263"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -296,6 +301,7 @@
   color: "#0041a8"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -389,8 +395,8 @@
           min: 0
           max: 20
         damage:
-          Brute: -1 # Mono: 0.5 >> 1
-          Burn: -1 # Mono: 0.5 >> 1
+          Brute: -2 # Mono: 0.5 >> 2
+          Burn: -2 # Mono: 0.5 >> 2
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -446,6 +452,7 @@
   color: "#4cb580"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -456,7 +463,7 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
-        probability: 0.02
+        probability: 0.005 # Mono: Longer lasting, less likely to puke your guts...as much
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -525,6 +532,7 @@
   color: "#bf3d19"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono 0.5 >> 0.2
       effects:
       - !type:HealthChange
         damage:
@@ -606,6 +614,7 @@
   color: "#ff867d"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         conditions:
@@ -885,15 +894,43 @@
   color: "#00e5ff"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 #Mono: Slower metabolism rate
       effects:
-      - !type:EvenHealthChange
+      - !type:EvenHealthChange #Mono: Low damage healing
         conditions:
+        - !type:ReagentThreshold
+          min: 0
+          max: 15
         - !type:TotalDamage
           max: 50
         damage:
           Brute: -1
           Burn: -1
           Toxin: -0.5
+      - !type:EvenHealthChange #Mono: High damage healing
+        conditions:
+        - !type:ReagentThreshold
+          min: 0
+          max: 15
+        - !type:TotalDamage
+          min: 50
+        damage:
+          Brute: -0.25
+          Burn: -0.25
+          Toxin: -0.12
+      - !type:HealthChange # Mono: Overdose, low rate compounded by slow metabolism
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        damage:
+          types:
+            Poison: 1
+      - !type:ModifyBleedAmount # Mono: Causes bleeding in OD
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        amount: 0.5
+        
 
 - type: reagent
   id: Lipozine
