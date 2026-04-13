@@ -1,0 +1,43 @@
+# Author Info
+# GitHub: Mapleflavourds
+# Discord: Maples @magnomia
+
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Granton
+  parent: BaseVessel
+  name: TSF-LOV Granton
+  description: Ill do this later
+  category: Medium
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/granton.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Granton
+  mapName: 'Granton'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/granton.yml
+  minPlayers: 0
+  stations:
+    Granton:
+      gridComponents:
+      - type: VesselInfo
+        description: "Let's ride into the sunset and never come back" 
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Granton TSF{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
