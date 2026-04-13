@@ -1,34 +1,12 @@
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingModsuitGauntletsBase
   id: ClothingModsuitGauntletsUSSPVaryag
   name: Ruki Varyaga
   description: Pressure-sealing and shock-resistant gauntlets.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Hands/Modsuits/ussp-varyag.rsi
-    layers:
-    - state: gauntlets
-    - state: gauntlets-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ gloves ]
-  - type: DamageOnInteractProtection
-    damageProtection:
-      flatReductions:
-        Heat: 10
-  - type: Insulated
-  - type: Fiber
-    fiberMaterial: fibers-modular
-    fiberColor: fibers-black
-  - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -38,36 +16,14 @@
       - state: equipped-HAND-sealed-vox
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingModsuitGauntletsBase
   id: ClothingModsuitGauntletsUSSPZastavnik
   name: Kuvshiny Zastavnika
   description: Oversized gauntlets with reinforced knuckles and integrated crush dampeners.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Hands/Modsuits/ussp-zastavnik.rsi
-    layers:
-    - state: gauntlets
-    - state: gauntlets-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ gloves ]
-  - type: DamageOnInteractProtection
-    damageProtection:
-      flatReductions:
-        Heat: 10
-  - type: Insulated
-  - type: Fiber
-    fiberMaterial: fibers-modular
-    fiberColor: fibers-black
-  - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -77,36 +33,14 @@
       - state: equipped-HAND-sealed-vox
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingModsuitGauntletsBase
   id: ClothingModsuitGauntletsRogue
   name: RX-01 modsuit gauntlets
   description: Non-conductive mesh, pressure-sealed seams. Surprisingly legal. Proudly produced in Sector by Ullman Industries.
   categories: [HideSpawnMenu]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Hands/Modsuits/rogue.rsi
-    layers:
-    - state: gauntlets
-    - state: gauntlets-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ gloves ]
-  - type: DamageOnInteractProtection
-    damageProtection:
-      flatReductions:
-        Heat: 10
-  - type: Insulated
-  - type: Fiber
-    fiberMaterial: fibers-modular
-    fiberColor: fibers-black
-  - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -118,36 +52,14 @@
 # Volta
 # Uses exact same gloves as sapper ones, feel free to make them more unique
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingModsuitGauntletsBase
   id: ClothingModsuitGauntletsVolta
   name: Volta Modsuit Gauntlets
   description: Oil stained modular suit gloves for easily pushing buttons on an RCD.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Hands/Modsuits/tsfmc-volta.rsi
-    layers:
-    - state: gauntlets
-    - state: gauntlets-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ gloves ]
-  - type: DamageOnInteractProtection
-    damageProtection:
-      flatReductions:
-        Heat: 10
-  - type: Insulated
-  - type: Fiber
-    fiberMaterial: fibers-modular
-    fiberColor: fibers-black
-  - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -160,36 +72,14 @@
 
 # Gallóglach
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingModsuitGauntletsBase
   id: ClothingModsuitGauntletsMercenary
   name: mercenary modsuit gauntlets
   description: The knuckle guards glow when you seal the suit...for no apparent reason. Doubles as literal Finger Guns chambered in .45, so they literally pack a punch and then some.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Hands/Modsuits/mercenary.rsi
-    layers:
-    - state: gauntlets
-    - state: gauntlets-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ gloves ]
-  - type: DamageOnInteractProtection
-    damageProtection:
-      flatReductions:
-        Heat: 10
-  - type: Insulated
-  - type: Fiber
-    fiberMaterial: fibers-modular
-    fiberColor: fibers-black
-  - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
