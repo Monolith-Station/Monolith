@@ -2,23 +2,19 @@
 # GitHub: Mapleflavourds
 # Discord: Maples @magnomia
 
-
-# Shuttle Notes:
-#
 - type: vessel
   id: Granton
-  parent: BaseVessel
+  parent: BaseVesselAntag
   name: TSF-LOV Granton
-  description: Ill do this later
+  description: later
   category: Medium
   group: Security
   access: Security
-
   shuttlePath: /Maps/_Mono/Shuttles/Nfsd/granton.yml
   guidebookPage: Null
   class:
-  - Pursuit
   - Patrol
+  - Pursuit
   engine:
   - Plasma
 
@@ -29,18 +25,19 @@
   minPlayers: 0
   stations:
     Granton:
+      stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: "Let's ride into the sunset and never come back" 
-      stationProto: StandardFrontierVessel
+        description: "ya."
       components:
-        - type: StationNameSetup
-          mapNameTemplate: 'Granton TSF{1}'
-          nameGenerator:
-            !type:NanotrasenNameGenerator
-            prefixCreator: '14'
-        - type: StationJobs
-          availableJobs:
+      - type: StationNameSetup
+        mapNameTemplate: 'Granton TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
           Deputy: [ 0, 0 ]
           TsfBorg: [ 0, 0 ]
+
 
