@@ -182,7 +182,7 @@
   - type: Explosive
     explosionType: Default
     totalIntensity: 300
-    intensitySlope: 60
+    intensitySlope: 12
     maxIntensity: 12
     maxTileBreak: 3
   - type: GatheringProjectile
@@ -221,7 +221,7 @@
   - type: Explosive
     explosionType: Default
     totalIntensity: 800
-    intensitySlope: 100
+    intensitySlope: 20
     maxIntensity: 20
     maxTileBreak: 4
   - type: GatheringProjectile
@@ -363,7 +363,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 20
+    totalIntensity: 45
     intensitySlope: 5
     maxIntensity: 5
     maxTileBreak: 1
