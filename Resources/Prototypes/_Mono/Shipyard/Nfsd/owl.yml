@@ -1,0 +1,41 @@
+#made by aOkay30
+- type: vessel
+  id: Owl
+  parent: BaseVesselAntag
+  name: TSF-ASN Owl
+  description: A lightly-armed and armored stealth carrier fitted with 1 mech bay. Intended to support solo mech pilots logistically. Can fit up to one S4 mech and has a shockingly low thermal signature when parked.
+  price: 45000
+  purchasable: true
+  category: Small
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/owl.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Plasma
+  - Solar
+  addComponents:
+  - type: SolarPoweredGrid
+    doNotCull: true
+    trackOnInit: true
+
+- type: gameMap
+  id: Owl
+  mapName: 'Owl'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/owl.yml
+  minPlayers: 0
+  stations:
+    Owl:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Owl TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
