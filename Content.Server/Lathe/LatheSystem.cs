@@ -364,8 +364,9 @@ namespace Content.Server.Lathe
                 }
 
                 // <Mono>
+                // Add the actor that previously queued to looped items
                 if (comp.Loop)
-                    TryAddToQueue(uid, comp.CurrentRecipe, 1, comp, prodComp.Actor, true); // Mono - Adds actor
+                    TryAddToQueue(uid, comp.CurrentRecipe, 1, comp, prodComp.Actor, true);
 
                 _deviceLink.SendSignal(uid, comp.ProducedPort, true);
                 // </Mono>
