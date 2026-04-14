@@ -384,6 +384,10 @@ public abstract class SharedMechSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
+        // Mono: Ensures mechs can't be entered if broken
+        if (component.Broken)
+            return false;
+
         return IsEmpty(component) && _actionBlocker.CanMove(toInsert);
     }
 
