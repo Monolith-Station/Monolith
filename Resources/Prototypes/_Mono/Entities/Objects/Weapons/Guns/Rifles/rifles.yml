@@ -1,6 +1,6 @@
 - type: entity
   name: VFD MR-8C DMR (8x65mm SKR)
-  parent: [BaseWeaponRifle, BaseGunWieldable]
+  parent: [BaseWeaponRifle, BaseGunWieldable, BaseFactionGearTSFT2]
   id: WeaponRifleMR8C
   description: The DMR variant of the MR-8 series, firing with incredible accuracy. Chambered in 8x65mm SKR. A label on the side reads "FOR MILITARY USE ONLY".
   components:
@@ -134,7 +134,7 @@
 
 - type: entity
   name: VFD XLR-556 ICWS (5.56x45mm)
-  parent: [BaseWeaponRifle, BaseGunWieldable, BaseFactionGearTSFT1]
+  parent: [BaseWeaponRifle, BaseGunWieldable, BaseFactionGearTSFT2]
   id: WeaponRifleXlr556
   description: A proposed next-gen "rifle" for TSF standard infantry. Chambered in 5.56x45mm rifle rounds, its RPM is incredible - but with great firerate comes great fire control...
   components:
