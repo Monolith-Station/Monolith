@@ -136,7 +136,7 @@ public sealed class ThermalSignatureSystem : EntitySystem
             ent.Comp.TotalHeat += ent.Comp.StoredHeat;
 
             // don't sync it if it didn't change heat much since last time, we don't need to sync 500 cold asteroids every system update
-            if (sent.Comp.TotalHeat <= ent.Comp.LastUpdateHeat * HeatChangeThreshold
+            if (ent.Comp.TotalHeat <= ent.Comp.LastUpdateHeat * HeatChangeThreshold
                 && ent.Comp.TotalHeat >= ent.Comp.LastUpdateHeat / HeatChangeThreshold)
                 continue;
 
