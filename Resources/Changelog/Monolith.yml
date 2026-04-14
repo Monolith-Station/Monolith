@@ -19851,3 +19851,12 @@ Entries:
   id: 2191
   time: '2026-04-14T13:50:47.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3790
+- author: chuga-git
+  changes:
+    - type: Fix
+      message: >-
+        Reverts projectile explosion fix, pending a proper patch for off-grid
+        explosions to make them not extremely inconsistent.
+  id: 2192
+  time: '2026-04-14T16:21:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3788
