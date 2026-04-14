@@ -139,7 +139,7 @@
   - type: Flatpack
     entity: ResearchAndDevelopmentServerUssp
   - type: StaticPrice
-    vendPrice: 1500
+    vendPrice: 105000 #Faction token + 5%
   - type: Sprite
     layers:
     - state: science_server
@@ -181,7 +181,7 @@
   - type: Flatpack
     entity: FactionLathe
   - type: StaticPrice
-    vendPrice: 1500
+    vendPrice: 26250 #1.75x the price of a Mercenary fab.
   - type: Sprite
     layers:
     - state: science_server
@@ -306,3 +306,15 @@
   - type: StaticPrice
     price: 4000
     vendPrice: 10000
+    
+- type: entity
+  parent: MedicalTechFabFlatpack
+  id: ChemMasterFilledFlatpack
+  name: filled chemmaster flatpack
+  description: A flatpack used for constructing a pre-filled ChemMaster 4000.
+  components:
+  - type: Flatpack
+    entity: ChemMasterFilled
+  - type: StaticPrice
+    price: 1000
+    vendPrice: 8000

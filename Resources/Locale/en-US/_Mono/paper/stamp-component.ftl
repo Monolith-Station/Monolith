@@ -1,1 +1,10 @@
 stamp-component-stamped-name-paycheck-bratva = Paycheck Bratva
+stamp-component-stamped-name-winter-solstice = Winter Solstice
+stamp-component-stamped-name-tsf-colonel = TSFMC Colonel
+stamp-component-stamped-name-tsf-captain = TSFMC Captain
+stamp-component-stamped-name-ussp-stratcomm = USSP STRATCOMM
+stamp-component-stamped-name-ussp = USSP
+stamp-component-stamped-name-pdv-overwatch = Phaethon Dynasty Local Overwatch
+stamp-component-stamped-name-pdv-vizier = The Sultan's Grand Vizier
+stamp-component-stamped-name-pdv-asvaran = The Sultan's Asvaran
+stamp-component-stamped-name-pdv-spasaka = The Sultan's Spasaka
