@@ -3,6 +3,7 @@
   id: ClothingHelmetHardsuitAsakim
   name: kasature-pattern combat harness helmet
   description: Part of an advanced pre-fracture combat harness.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/asakim.rsi
@@ -30,6 +31,7 @@
     isEquipment: true
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: DetectionRangeMultiplier # upgraded thermal sensors
     infraredMultiplier: 1.5
     visualMultiplier: 2

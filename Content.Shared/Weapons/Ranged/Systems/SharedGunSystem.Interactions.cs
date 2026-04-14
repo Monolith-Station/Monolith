@@ -18,6 +18,11 @@ public abstract partial class SharedGunSystem
         {
             args.PushMarkup(Loc.GetString("gun-selected-mode-examine", ("color", ModeExamineColor),
                 ("mode", GetLocSelector(component.SelectedMode))));
+
+            if (component.DamageModifier != 1f)
+                args.PushMarkup(Loc.GetString("gun-damage-modifier-examine", ("color", FireRateExamineColor),
+                    ("damage", $"{component.DamageModifier.ToString("#.##")}")));
+
             //args.PushMarkup(Loc.GetString("gun-fire-rate-examine", ("color", FireRateExamineColor), // Emberfall
             //    ("fireRate", $"{component.FireRateModified:0.0}"))); // Emberfall
         }

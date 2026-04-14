@@ -2264,7 +2264,7 @@ entities:
     - type: Transform
       pos: -0.5,7.5
       parent: 1
-- proto: MaterialSynthalloy1
+- proto: SheetPlastitanium1
   entities:
   - uid: 497
     components:
@@ -2691,13 +2691,6 @@ entities:
     components:
     - type: Transform
       pos: -1.441217,-0.46731663
-      parent: 1
-- proto: TechDiskSynthalloy
-  entities:
-  - uid: 625
-    components:
-    - type: Transform
-      pos: -0.13515687,-4.4134455
       parent: 1
 - proto: ThrusterSecurity
   entities:

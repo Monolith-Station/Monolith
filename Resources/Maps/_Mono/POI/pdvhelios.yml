@@ -4926,7 +4926,6 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
-    - type: ForceAnchor
 - proto: AirAlarm
   entities:
   - uid: 73
@@ -9194,7 +9193,7 @@ entities:
     - type: Transform
       pos: 1.5,67.5
       parent: 1
-- proto: BaseResearchAndDevelopmentPointSource
+- proto: DatafarmResearchFaction
   entities:
   - uid: 316
     components:

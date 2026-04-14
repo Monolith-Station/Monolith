@@ -7,35 +7,13 @@
   cost: 5000
   recipeUnlocks:
   - ForensicsScannerTSF
-  technologyPrerequisites:
-  - UniversalMaterialResearchT1
-  position: 12, -2
-
-- type: technology
-  id: TsfPocketCrowbar
-  name: research-technology-tsfmc-pocket-crowbar
-  entityIcon: CrowbarPocket
-  discipline: TsfmcGear
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
+  - DemagTSF
+  - ClothingEyesNightVisionGoggles
+  - MotionDetectorTSF
   - CrowbarPocketTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: 12, -1
-
-- type: technology
-  id: TsfDemag
-  name: research-technology-tsfmc-demag
-  entityIcon: Demag
-  discipline: TsfmcGear
-  tier: 2
-  cost: 5000
-  recipeUnlocks:
-  - DemagTSF
-  technologyPrerequisites:
-  - UniversalMaterialResearchT1
-  position: 12, -3
 
 - type: technology
   id: TsfmcMopp
@@ -65,14 +43,14 @@
   position: 13, 7
 
 - type: technology
-  id: TsfPolaris
-  name: research-technology-tsfmc-polaris-voucher
-  entityIcon: ShipVoucherPolaris
+  id: TsfAltair
+  name: research-technology-tsfmc-altair-voucher
+  entityIcon: ShipVoucherAltair
   discipline: TsfmcShipyard
   tier: 2
   cost: 60000
   recipeUnlocks:
-  - PolarisVoucherTSF
+  - AltairVoucherTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT2
   position: 11, 9
@@ -87,8 +65,7 @@
   recipeUnlocks:
   - FlyssaVoucherTSF
   technologyPrerequisites:
-  - TsfSynthalloyProduction
-  - TsfPolaris
+  - TsfAltair
   position: 13, 14
 
 - type: technology
@@ -103,7 +80,7 @@
   - MeshTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -4
+  position: 12, -2
 
 - type: technology
   id: TsfNanofoam
@@ -129,46 +106,7 @@
     - PortableRecharger
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -5
-
-- type: technology
-  id: TsfNvd
-  name: research-technology-tsfmc-nvd
-  entityIcon: ClothingEyesNightVisionGoggles
-  discipline: TsfmcGear
-  tier: 1
-  cost: 15000
-  recipeUnlocks:
-    - ClothingEyesNightVisionGoggles
-  technologyPrerequisites:
-  - TsfForensics
-  position: 13, -2
-
-- type: technology
-  id: TsfMotionDetector
-  name: research-technology-tsfmc-motion-detector
-  entityIcon: MotionDetector
-  discipline: TsfmcGear
-  tier: 1
-  cost: 20000
-  recipeUnlocks:
-  - MotionDetectorTSF
-  technologyPrerequisites:
-  - TsfForensics
-  position: 11, -2
-
-- type: technology
-  id: TsfSynthalloyProduction
-  name: research-technology-tsfmc-synthalloy
-  entityIcon: MaterialSynthalloy
-  discipline: TsfmcGear
-  tier: 3
-  cost: 50000
-  recipeUnlocks:
-  - SynthalloyProductionTsf
-  technologyPrerequisites:
-  - UniversalMaterialResearchT3
-  position: 13, 11
+  position: 12, -3
 
 - type: technology
   id: TSFBasicBorgModule
@@ -181,7 +119,7 @@
   - BasicBorgCombatModuleTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -6
+  position: 12, -4
 
 - type: technology
   id: TSFAdvancedBorgModule

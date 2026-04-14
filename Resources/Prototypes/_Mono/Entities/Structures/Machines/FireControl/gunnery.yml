@@ -53,9 +53,6 @@
     board: MachineGCSLowCircuitboard
   - type: FireControlServer
     processingPower: 24
-  - type: PassiveThermalSignature # no cheesing it by unanchoring
-    signature: 100000 # ~630m
-  - type: ThermalSignature
   - type: Battery
     maxCharge: 125
     startingCharge: 125
@@ -78,9 +75,6 @@
     board: MachineGCSMediumCircuitboard
   - type: FireControlServer
     processingPower: 42
-  - type: PassiveThermalSignature
-    signature: 250000 # ~1km
-  - type: ThermalSignature
   - type: Battery
     maxCharge: 250
     startingCharge: 250
@@ -103,9 +97,6 @@
     board: MachineGCSHighCircuitboard
   - type: FireControlServer
     processingPower: 60
-  - type: PassiveThermalSignature
-    signature: 1000000 # ~2km
-  - type: ThermalSignature
   - type: Battery
     maxCharge: 500
     startingCharge: 500
@@ -128,9 +119,6 @@
     board: MachineGCSUltraCircuitboard
   - type: FireControlServer
     processingPower: 90
-  - type: PassiveThermalSignature
-    signature: 4000000 # ~4km
-  - type: ThermalSignature
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
@@ -155,9 +143,6 @@
     board: MachineGCSUltraCircuitboard
   - type: FireControlServer
     processingPower: 500
-  - type: PassiveThermalSignature
-    signature: 8000000 # ~5.6km
-  - type: ThermalSignature
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000

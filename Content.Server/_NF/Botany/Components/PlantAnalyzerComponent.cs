@@ -1,5 +1,6 @@
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Botany.Components;
 
@@ -13,13 +14,7 @@ public sealed partial class PlantAnalyzerComponent : Component
     public partial struct PlantAnalyzerSetting
     {
         [DataField]
-        public bool AdvancedScan;
-
-        [DataField]
         public float ScanDelay;
-
-        [DataField]
-        public float AdvScanDelay;
     }
 
     [DataField, ViewVariables]
@@ -30,4 +25,10 @@ public sealed partial class PlantAnalyzerComponent : Component
 
     [DataField]
     public SoundSpecifier? ScanningEndSound;
+
+    [DataField]
+    public EntityUid? ScannedEntity;
+
+    [DataField]
+    public float MaxScanRange = 2.5f;
 }

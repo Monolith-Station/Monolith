@@ -1,0 +1,49 @@
+- type: latheRecipe
+  parent: MonoHardsuitT2Recipe
+  id: ClothingNeckViperGroupMantle
+  result: ClothingNeckViperGroupMantle
+  materials:
+    Cloth: 500
+
+- type: latheRecipe
+  parent: MonoHardsuitT2Recipe
+  id: ClothingUniformJumpsuitViperGroupUniform
+  result: ClothingUniformJumpsuitViperGroupUniform
+  materials:
+    Cloth: 500
+
+- type: latheRecipe
+  parent: MonoHardsuitT2Recipe
+  id: ClothingUniformJumpsuitViperGroupTurtleneck
+  result: ClothingUniformJumpsuitViperGroupTurtleneck
+  materials:
+    Cloth: 500
+
+- type: latheRecipe
+  parent: MonoHardsuitT2Recipe
+  id: ClothingOuterHardsuitViperGroupStandard
+  result: ClothingOuterHardsuitViperGroupStandard
+  materials:
+    Steel: 3000
+    Plasteel: 5000
+    Cloth: 1500
+
+- type: latheRecipe
+  parent: MonoHardsuitT2Recipe
+  id: ClothingOuterHardsuitViperGroupMedic
+  result: ClothingOuterHardsuitViperGroupMedic
+  materials:
+    Steel: 2500
+    Plasteel: 4000
+    Cloth: 2000
+    Silver: 500
+
+- type: latheRecipe
+  parent: MonoHardsuitT2Recipe
+  id: ClothingOuterHardsuitViperGroupJuggernaut
+  result: ClothingOuterHardsuitViperGroupJuggernaut
+  materials:
+    Steel: 3000
+    Plasteel: 6000
+    Durathread: 1000
+    Silver: 2000

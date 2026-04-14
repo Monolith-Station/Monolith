@@ -3,6 +3,7 @@
   id: ClothingHeadHelmetHardsuitTrauma
   name: armed trauma unit T-23 tacsuit helmet
   description: The standard combat suit of the Armed Trauma Unit, outfitted with a limited-range radar hud as well as a medical hud.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/trauma.rsi
@@ -15,6 +16,7 @@
     lowPressureMultiplier: 1000
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: DetectionRangeMultiplier
     infraredMultiplier: 0.5
     visualMultiplier: 0.75
@@ -47,6 +49,7 @@
   id: ClothingHeadHelmetHardsuitTraumaLeader
   name: armed trauma unit T-53 tacsuit helmet
   description: The commander's tacsuit in the Armed Trauma Unit, outfitted with a medical and long-range radar hud as well as thermals and night vision.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/trauma_leader.rsi
@@ -67,6 +70,7 @@
     toggleAction: PulseThermalVision
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
     singleUser: true
