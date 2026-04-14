@@ -168,7 +168,7 @@
   name: retro laser blaster
   parent: [ BaseWeaponBatterySmall, BaseFactionGearPDVT1 ] # Mono
   id: WeaponLaserGun
-  description: A civilian grade weapon using light amplified by the stimulated emission of radiation.
+  description: Old but reliable laser gun using light amplified by the stimulated emission of radiation. # Mono
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
