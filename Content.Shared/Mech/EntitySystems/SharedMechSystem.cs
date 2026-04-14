@@ -593,7 +593,7 @@ public abstract class SharedMechSystem : EntitySystem
     {
         args.Handled = true;
 
-        args.CanDrop |= CanInsert(uid, args.Dragged, component); // Mono: removed redundant broken check
+        args.CanDrop |= CanInsert(uid, args.Dragged, component); // Mono: moved mech broken check to CanInsert
     }
     //private void OnEmagged(EntityUid uid, MechComponent component, ref GotEmaggedEvent args) // Goobstation
     //{
