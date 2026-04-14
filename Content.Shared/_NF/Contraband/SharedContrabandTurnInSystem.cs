@@ -1,8 +1,8 @@
-using Content.Shared._Mono.Company;
+using Content.Shared._Mono.Company; // Mono
 using Content.Shared.Contraband;
-using Content.Shared.Store;
+using Content.Shared.Store; // Mono
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes; // Mono
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._NF.Contraband;
@@ -15,6 +15,7 @@ public enum ContrabandPalletConsoleUiKey : byte
 
 public abstract class SharedContrabandTurnInSystem : EntitySystem
 {
+    // Mono Begin
     [Dependency] private readonly IPrototypeManager _prot = default!;
     private ISawmill _sawmill = default!;
 
@@ -24,6 +25,7 @@ public abstract class SharedContrabandTurnInSystem : EntitySystem
 
         _sawmill = Logger.GetSawmill("Contraband");
     }
+    // Mono End
 
     public void ClearContrabandValue(EntityUid item)
     {
@@ -75,7 +77,7 @@ public abstract class SharedContrabandTurnInSystem : EntitySystem
                 // For faction members, if the faction currency matches the contraband value, keep its value.
                 if (valueKey.Id != currency.Id)
                 {
-                    _sawmill.Debug($"Ignoring removal for {item} of faction currency {valueKey} from company {currency}");
+                    _sawmill.Debug($"Ignoring contraband removal for {item} of faction currency {valueKey} from company {currency}");
                     continue;
                 }
                 contraband.TurnInValues[valueKey] = 0;

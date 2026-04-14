@@ -27,7 +27,6 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    private ISawmill _sawmill = default!;
 
     private EntityQuery<MobStateComponent> _mobQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -44,7 +43,6 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
         SubscribeLocalEvent<ContrabandPalletConsoleComponent, ContrabandPalletSellMessage>(OnPalletSale);
         SubscribeLocalEvent<ContrabandPalletConsoleComponent, ContrabandPalletAppraiseMessage>(OnPalletAppraise);
         SubscribeLocalEvent<ContrabandPalletConsoleComponent, BoundUIOpenedEvent>(OnPalletUIOpen);
-        _sawmill = Logger.GetSawmill("Contraband");
     }
 
     private void UpdatePalletConsoleInterface(EntityUid uid, ContrabandPalletConsoleComponent comp)

@@ -49,7 +49,7 @@ public sealed partial class CompanyPrototype : IPrototype
     public string? Image { get; private set; }
 
     /// <summary>
-    /// The Currency Prototype bound to the Company.
+    /// The (typically Uplink) Currency Prototype bound to the Company.
     /// Used for handling printing contraband items.
     /// </summary>
     [DataField]
