@@ -8,10 +8,9 @@
   name: TSF-LOV Granton
   description: later
   price: 138300 #112,000 * 1.2 = like somewhere around that
-
   category: Medium
   group: Security
-  access: Security
+  access: Armory
   shuttlePath: /Maps/_Mono/Shuttles/Nfsd/granton.yml
   guidebookPage: Null
   class:
@@ -30,7 +29,7 @@
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: "ya."
+        description: "Let's ride into the sunset and never come back."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Granton TSF{1}'

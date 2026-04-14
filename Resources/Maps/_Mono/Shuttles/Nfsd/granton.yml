@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/13/2026 20:21:09
-  entityCount: 825
+  time: 04/14/2026 02:32:58
+  entityCount: 826
 maps: []
 grids:
 - 1
@@ -98,8 +98,8 @@ entities:
       spreadQueues:
         MetalFoam: []
         Smoke: []
-        Kudzu: []
         Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -493,30 +493,22 @@ entities:
         457:
         - - DoorStatus
           - DoorBolt
-- proto: AirlockNfsd
+- proto: AirlockNfsdLocked
   entities:
   - uid: 185
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,-16.5
+      pos: 0.5,-17.5
       parent: 1
   - uid: 445
     components:
     - type: Transform
       pos: 1.5,-11.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -12222.713
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 535
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,-17.5
+      pos: -0.5,-16.5
       parent: 1
 - proto: AirlockShuttleNfsd
   entities:
@@ -554,6 +546,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.5,-11.5
+      parent: 1
+- proto: AtmosDeviceFanDirectional
+  entities:
+  - uid: 798
+    components:
+    - type: Transform
+      pos: 0.5,-25.5
       parent: 1
 - proto: AtmosFixBlockerMarker
   entities:
