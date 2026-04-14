@@ -144,8 +144,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 continue;
 
             var xform = Transform(uid);
-            var lastMap = _transformSystem.GetMapCoordinates(xform);
-            var lastPosition = lastMap.Position;
+            var lastPosition = _transformSystem.GetWorldPosition(xform);
             var rayDirection = currentVelocity / velLen;
             // Ensure rayDistance is not zero to prevent issues with IntersectRay if frametime or velocity is zero.
             var rayDistance = velLen * frameTime;
@@ -244,9 +243,9 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                     return false;
 
                 // teleport us so we hit it
+                // this is cursed but i don't think there's a better way to force a collision here
                 var hitXform = Transform(minHit.Uid.Value);
-                var hitMapCoord = lastMap.Offset(rayDirection * minHit.Distance);
-                var hitPos = _transformSystem.ToCoordinates(hitMapCoord);
+                var hitPos = hitXform.Coordinates;
                 // if we somehow hit something not directly parented to space or a grid
                 if (hitXform.Coordinates.EntityId != hitXform.GridUid && hitXform.GridUid != null)
                     hitPos = _transformSystem.WithEntityId(hitPos, hitXform.GridUid.Value);
