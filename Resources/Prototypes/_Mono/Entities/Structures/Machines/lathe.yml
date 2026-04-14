@@ -66,6 +66,11 @@
       - Ingot
   - type: RequireProjectileTarget
 
+- type: entity
+  id: FactionLatheImmmovable
+  parent: [FactionLathe, BaseStructureDisableToolUse]
+  suffix: IMMOVABLE
+
 # economy
 
 - type: entity

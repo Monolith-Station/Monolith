@@ -323,15 +323,15 @@
     scale: 2.5
     shape: triangle
   - type: TimedDespawn
-    lifetime: 10
+    lifetime: 6
   - type: PointLight
     radarColor: "#ffffff"
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 45
-    intensitySlope: 25
-    maxIntensity: 15
+    totalIntensity: 25
+    intensitySlope: 3
+    maxIntensity: 7
 
 # Harbinger
 
