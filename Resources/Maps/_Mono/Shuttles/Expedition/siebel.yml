@@ -1581,7 +1581,7 @@ entities:
     - type: Transform
       pos: 5.5,12.5
       parent: 1
-- proto: BlastDoor
+- proto: BlastDoorOpen
   entities:
   - uid: 136
     components:

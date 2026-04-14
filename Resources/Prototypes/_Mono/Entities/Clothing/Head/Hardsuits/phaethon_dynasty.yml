@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingHeadHelmetHardsuitSyndie, ShowSecurityIcons]
   id: ClothingHeadHelmetHardsuitAshen
-  name: PDV CV-32 combat tacsuit helmet
-  description: A combat tacsuit designed in the Phaethon Dynasty.
+  name: PDV CV-32 combat hardsuit helmet
+  description: A combat hardsuit helmet designed by the Phaethon Dynasty.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -49,8 +49,8 @@
 - type: entity
   parent: [ClothingHeadHelmetHardsuitSyndieElite, ShowSecurityIcons]
   id: ClothingHeadHelmetHardsuitAshenElite
-  name: PDV CV-53 combat hardsuit helmet
-  description: Based off of the CV-32, sacrifices combat protection for environment protection.
+  name: PDV CV-53 combat tacsuit helmet
+  description: Based off of the CV-32 hardsuit, this tacsuit sacrifices heavy armor plates for environmental protection.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

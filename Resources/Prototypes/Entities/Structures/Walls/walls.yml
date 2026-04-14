@@ -352,6 +352,10 @@
   - type: Construction # Mono
     graph: Girder
     node: plastitaniumWall
+  - type: Tag # Mono
+    tags:
+    - Wall
+    - WallT3
 
 - type: entity
   parent: [ WallPlastitaniumDiagonalIndestructible, BaseWallTierTwo ] # Mono

@@ -44,7 +44,26 @@ public sealed partial class RadarConsoleComponent : Component
     [DataField]
     public bool Pannable = true;
 
+    /// <summary>
+    /// Whether to still follow the console after being panned.
+    /// </summary>
     [DataField]
     public bool RelativePanning = false;
+
+    /// <summary>
+    /// Whether to always face north-up.
+    /// </summary>
+    [DataField]
+    public bool NoRotate = false;
+
+    // supported behavior modes:
+    // |  panned  | unpanned |  panned  | unpanned |   bool   |
+    // | rotation | rotation |  anchor  |  anchor  | settings |
+    // |----------|----------|----------|----------|----------|
+    // | north    | north    | follow   | static   | 00       |
+    // | north    | follow   | static   | follow   | 01       |
+    // | follow   | follow   | follow   | follow   | 10       |
+    // | north    | north    | follow   | follow   | 11       |
+
     // </Mono>
 }

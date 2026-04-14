@@ -49,6 +49,7 @@
     lowPressureMultiplier: 1000
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
     singleUser: true
@@ -162,6 +163,7 @@
     lowPressureMultiplier: 1000
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
     singleUser: true
