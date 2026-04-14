@@ -1,7 +1,7 @@
 - type: entity
   name: breaching charge
   description: A breaching explosive for security officers to break through walls.
-  parent: [ SeismicCharge, BaseFactionGearTSFT1 ] # Mono
+  parent: SeismicCharge
   id: BreachingCharge
   components:
   - type: Sprite
