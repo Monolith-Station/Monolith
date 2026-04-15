@@ -325,8 +325,10 @@ public abstract partial class InventorySystem
     // Mono: Clothing whitelists
     public bool IsFailWhitelistClothing(EntityUid itemUid, EntityUid target, ClothingComponent clothing)
     {
+        var whitelisted = false;
+
         if (_whitelistSystem.IsWhitelistFail(clothing.Whitelist, target))
-            return true;
+            whitelisted = true;
 
         if (clothing.WhitelistCheckOrgans && TryComp<BodyComponent>(target, out var body))
         {
@@ -334,12 +336,12 @@ public abstract partial class InventorySystem
 
             foreach ((var id, var _) in organs)
             {
-                if (_whitelistSystem.IsWhitelistFail(clothing.Whitelist, id))
-                    return true;
+                if (_whitelistSystem.IsWhitelistPassOrNull(clothing.Whitelist, id))
+                    return false;
             }
         }
 
-        return false;
+        return whitelisted;
     }
 
     public bool TryUnequip(
