@@ -12,6 +12,7 @@ using Content.Shared.Medical.CPR;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Traits.Assorted;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
