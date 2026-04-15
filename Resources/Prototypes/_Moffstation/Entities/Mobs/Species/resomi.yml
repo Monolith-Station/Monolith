@@ -43,8 +43,6 @@
       - Hair
       - HeadTop
       - HeadSide
-    undergarmentTop: UndergarmentTopTanktopResomi
-    undergarmentBottom: UndergarmentBottomBoxersResomi
   - type: Icon
     sprite: _Moffstation/Mobs/Species/Resomi/parts.rsi
     state: full
@@ -250,8 +248,6 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
     - shader: StencilClear
       sprite: Mobs/Species/Human/parts.rsi
       state: l_leg
