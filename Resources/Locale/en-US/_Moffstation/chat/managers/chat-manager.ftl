@@ -1,8 +1,3 @@
-chat-manager-client-hourly-playtime-notice =
-    You've played {$hours} { $hours ->
-    [1]hour
-    *[other]hours
-        } and {$minutes} { $minutes ->
-    [1]minute
-    *[other]minutes
-        } today. It's currently {$time}.
+chat-speech-verb-name-resomi = Resomi
+chat-speech-verb-resomi-1 = squawks
+chat-speech-verb-resomi-2 = chirps

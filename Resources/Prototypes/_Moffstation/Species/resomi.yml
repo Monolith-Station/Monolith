@@ -6,15 +6,11 @@
   sprites: MobResomiSprites
   defaultSkinTone: "#faf7f7"
   markingLimits: MobResomiMarkingLimits
-  maleFirstNames: names_resomi_unisex
-  femaleFirstNames: names_resomi_unisex
+  maleFirstNames: NamesResomiUnisex
+  femaleFirstNames: NamesResomiUnisex
   naming: First
   dollPrototype: MobResomiDummy
   skinColoration: Hues
-  sexes: # Goobstation - why bother having male/female names and soundCollections if they were only available unsexed?
-  - Unsexed
-  - Male
-  - Female
 
 - type: speciesBaseSprites
   id: MobResomiSprites
