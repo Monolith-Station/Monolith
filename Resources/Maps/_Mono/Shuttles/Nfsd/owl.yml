@@ -479,8 +479,8 @@ entities:
       pos: -1.5,0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 5
   - uid: 14
@@ -504,9 +504,9 @@ entities:
       pos: -0.5,-2.5
       parent: 1
     - type: UserInterface
-      actors:
-        enum.ApcUiKey.Key:
-        - invalid
+      # actors:
+      #   enum.ApcUiKey.Key:
+      #   # - invalid
     - type: ActiveUserInterface
 - proto: AtmosDeviceFanDirectional
   entities:
@@ -1735,8 +1735,8 @@ entities:
       pos: 2.5,-6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
 - proto: Firelock
   entities:
   - uid: 230
@@ -1746,8 +1746,8 @@ entities:
       pos: 0.5,-2.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 3
       - 5
@@ -1757,8 +1757,8 @@ entities:
       pos: 1.5,-5.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 3
       - 2
@@ -2173,8 +2173,8 @@ entities:
       pos: -0.5,0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 5
     - type: AtmosPipeColor
@@ -2189,11 +2189,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,-0.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 5
+    # - type: DeviceNetwork
+    #   configurators:
+    #   - invalid
+    #   deviceLists:
+    #   - 5
     - type: AtmosPipeColor
       color: '#990000FF'
     - type: AtmosPipeLayers
@@ -3277,8 +3277,8 @@ entities:
       pos: -0.5,-6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+    #   configurators:
+    #   - invalid
 - proto: SolarPanelUranium
   entities:
   - uid: 412
