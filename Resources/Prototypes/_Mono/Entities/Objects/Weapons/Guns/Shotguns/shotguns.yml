@@ -202,7 +202,7 @@
   description: A beast of a bolt-action shotgun, capable of firing the Sultan's finest 4-gauge with exceptional accuracy, modified to replenish ammunition from an assault borg's internal capacitors.
   components:
   - type: Item
-    size: Normal
+    size: Huge
     shape:
     - 0,0,5,0
     sprite: _Mono/Objects/Weapons/Guns/Shotguns/SultansPulsar_inhands_64x.rsi
@@ -211,8 +211,6 @@
     layers:
     - state: icon
       map: [ "enum.GunVisualLayers.Base" ]
-  - type: Clothing
-    sprite: _Mono/Objects/Weapons/Guns/Shotguns/SultansPulsar_inhands_64x.rsi
   - type: Gun
     minAngle: 1
     maxAngle: 2
@@ -239,13 +237,9 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
-        ents: []
   - type: StaticPrice
     price: 2000
     vendPrice: 20000
-  - type: EyeCursorOffset
-    maxOffset: 3
-    pvsIncrease: 1
   - type: EmitSoundOnPickup
     sound:
       collection: ShotgunsPickUp
