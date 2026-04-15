@@ -254,7 +254,7 @@ public abstract class SharedJetpackSystem : EntitySystem
     // Mono
     private void OnJetpackUserMagbootsToggled(EntityUid uid, JetpackUserComponent component, ref MagbootsToggledEvent args)
     {
-        if (!args.State || !IsEnabled(component.Jetpack) || Transform(uid).GridUid == null || !TryComp<JetpackComponent>(component.Jetpack, out var jetpack))
+        if (!args.State || !IsEnabled(component.Jetpack) || _gravity.IsWeightless(uid) || !TryComp<JetpackComponent>(component.Jetpack, out var jetpack))
             return;
 
         _popup.PopupClient(Loc.GetString("jetpack-to-grid"), uid, uid);
