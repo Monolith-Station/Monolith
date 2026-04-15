@@ -3,26 +3,13 @@
   name: metabolizer-type-hydrakin
 
 - type: entity
-  id: BaseHydrakinOrgan
-  name: hydrakin organ
+  id: BaseAsakimOrgan
+  name: asakim organ
   parent: [ BaseItem ]
   abstract: true
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi # Placeholder.
-  - type: SolutionContainerManager
-    solutions:
-      organ:
-        reagents:
-        - ReagentId: Fat
-          Quantity: 10
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fat
-          Quantity: 5
-        - ReagentId: AmmoniaBlood
-          Quantity: 5
 
 - type: entity
   id: OrganHydrakinStomach
@@ -35,7 +22,7 @@
   - type: Organ
     slotId: stomach
   - type: Metabolizer
-    maxReagents: 3
+    maxReagents: 5 # More reagents, more!
     metabolizerTypes: [ Animal, Hydrakin ]
     groups:
     - id: Food
@@ -87,7 +74,7 @@
   name: hydrakin heart
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Hydrakin ]
+    maxReagents: 2
 
 - type: entity
   id: OrganHydrakinLungs
