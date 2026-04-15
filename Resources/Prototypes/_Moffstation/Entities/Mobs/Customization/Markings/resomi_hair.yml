@@ -1,7 +1,8 @@
 - type: marking
   id: HairResomiBackstrafe
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiBackstrafe
@@ -9,7 +10,8 @@
 - type: marking
   id: HairResomiBurstShort
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiBurstShort
@@ -17,7 +19,8 @@
 - type: marking
   id: HairResomiDefault
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiDefault
@@ -25,7 +28,8 @@
 - type: marking
   id: HairResomiDroopy
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiDroopy
@@ -33,7 +37,8 @@
 - type: marking
   id: HairResomiEars
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiEars
@@ -41,7 +46,8 @@
 - type: marking
   id: HairResomiFluffymohawk
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiFluffymohawk
@@ -49,7 +55,8 @@
 - type: marking
   id: HairResomiHedge
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiHedge
@@ -57,7 +64,8 @@
 - type: marking
   id: HairResomiLongway
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiLongway
@@ -65,7 +73,8 @@
 - type: marking
   id: HairResomiMane
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiMane
@@ -73,7 +82,8 @@
 - type: marking
   id: HairResomiManeBeardless
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiManeBeardless
@@ -81,7 +91,8 @@
 - type: marking
   id: HairResomiMohawk
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiMohawk
@@ -89,7 +100,8 @@
 - type: marking
   id: HairResomiMushroom
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiMushroom
@@ -97,7 +109,8 @@
 - type: marking
   id: HairResomiNotree
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiNotree
@@ -105,7 +118,8 @@
 - type: marking
   id: HairResomiSpiky
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiSpiky
@@ -113,7 +127,8 @@
 - type: marking
   id: HairResomiPointy
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiPointy
@@ -121,7 +136,8 @@
 - type: marking
   id: HairResomiTwies
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiTwies
@@ -129,7 +145,8 @@
 - type: marking
   id: HairResomiUpright
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiUpright
@@ -137,7 +154,8 @@
 - type: marking
   id: HairResomiLong
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiLong
@@ -145,7 +163,8 @@
 - type: marking
   id: HairResomiColonel
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiColonel
@@ -153,7 +172,8 @@
 - type: marking
   id: HairResomiWedge
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiWedge
@@ -161,7 +181,8 @@
 - type: marking
   id: HairResomiSamurai
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiSamurai
@@ -169,7 +190,8 @@
 - type: marking
   id: HairResomiCube
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiCube
@@ -177,7 +199,8 @@
 - type: marking
   id: HairResomiAerodynamic
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiAerodynamic
@@ -185,7 +208,8 @@
 - type: marking
   id: HairResomiBun
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiBun
@@ -193,7 +217,8 @@
 - type: marking
   id: HairResomiCowlick
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiCowlick
@@ -201,7 +226,8 @@
 - type: marking
   id: HairResomiCrest
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiCrest
@@ -209,7 +235,8 @@
 - type: marking
   id: HairResomiCrowned
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiCrowned
@@ -217,7 +244,8 @@
 - type: marking
   id: HairResomiMohawkAlt
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiMohawk_Alt
@@ -225,7 +253,8 @@
 - type: marking
   id: HairResomiPeel
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiPeel
@@ -233,7 +262,8 @@
 - type: marking
   id: HairResomiPonytail
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiPonytail
@@ -241,7 +271,8 @@
 - type: marking
   id: HairResomiSleek
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiSleek
@@ -249,7 +280,8 @@
 - type: marking
   id: HairResomiSoap
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiSoap
@@ -257,7 +289,8 @@
 - type: marking
   id: HairResomiSpikyAlt
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiSpiky_Alt
@@ -265,7 +298,8 @@
 - type: marking
   id: HairResomiSweptup
   bodyPart: Hair
-  groupWhitelist: [ Resomi ]
+  markingCategory: Hair
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiSweptup

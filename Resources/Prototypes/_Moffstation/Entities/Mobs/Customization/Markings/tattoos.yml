@@ -1,11 +1,12 @@
 - type: marking
   id: ResomiTattooEyeLeft
   bodyPart: Eyes
+  markingCategory: Eyes
   coloring:
     layers:
       eye_left:
         type: !type:EyeColoring
-  groupWhitelist: [ Resomi ]
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_eyes.rsi
       state: eye_left
@@ -13,11 +14,12 @@
 - type: marking
   id: ResomiTattooEyeRight
   bodyPart: Eyes
+  markingCategory: Eyes
   coloring:
     layers:
       eye_right:
         type: !type:EyeColoring
-  groupWhitelist: [ Resomi ]
+  speciesRestriction: [ Resomi ]
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_eyes.rsi
       state: eye_right

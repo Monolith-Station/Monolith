@@ -2,11 +2,13 @@
 - type: marking
   id: ResomiGauzeBlindfold
   bodyPart: Eyes
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_blindfold_resomi
@@ -14,26 +16,29 @@
 - type: marking
   id: ResomiGauzeHead
   bodyPart: Head
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_head_resomi
-
 
 
 # Eyes
 - type: marking
   id: ResomiLeftEyePad
   bodyPart: Eyes
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_lefteye_1_resomi
@@ -41,11 +46,13 @@
 - type: marking
   id: ResomiLeftEyePatch
   bodyPart: Eyes
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_lefteye_2_resomi
@@ -53,11 +60,13 @@
 - type: marking
   id: ResomiRightEyePad
   bodyPart: Eyes
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_righteye_1_resomi
@@ -65,26 +74,29 @@
 - type: marking
   id: ResomiRightEyePatch
   bodyPart: Eyes
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_righteye_2_resomi
-
 
 
 # Chest
 - type: marking
   id: ResomiGauzeStomach
   bodyPart: Chest
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_abdomen_resomi
@@ -92,11 +104,13 @@
 - type: marking
   id: ResomiGauzeShoulderRight
   bodyPart: Chest
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_shoulder_r_resomi
@@ -104,26 +118,29 @@
 - type: marking
   id: ResomiGauzeShoulderLeft
   bodyPart: Chest
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_shoulder_l_resomi
-
 
 
 # Arms
 - type: marking
   id: ResomiGauzeLeftArm
   bodyPart: LArm
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_leftarm_resomi
@@ -131,26 +148,29 @@
 - type: marking
   id: ResomiGauzeRightArm
   bodyPart: RArm
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_rightarm_resomi
-
 
 
 # Hands
 - type: marking
   id: ResomiGauzeBoxerwrapRight
   bodyPart: RHand
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_boxerwrap_r_resomi
@@ -158,26 +178,29 @@
 - type: marking
   id: ResomiGauzeBoxerwrapLeft
   bodyPart: LHand
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_boxerwrap_l_resomi
-
 
 
 # Legs
 - type: marking
   id: ResomiGauzeLegRight
   bodyPart: RLeg
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_upperleg_r_resomi
@@ -185,26 +208,29 @@
 - type: marking
   id: ResomiGauzeLegLeft
   bodyPart: LLeg
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_upperleg_l_resomi
-
 
 
 # Feet
 - type: marking
   id: ResomiGauzeFootRight
   bodyPart: RFoot
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_lowerleg_r_resomi
@@ -212,11 +238,13 @@
 - type: marking
   id: ResomiGauzeFootLeft
   bodyPart: LFoot
-  groupWhitelist: [ Resomi ]
+  markingCategory: Overlay
+  speciesRestriction: [ Resomi ]
   coloring:
     default:
-      type: null
-      fallbackColor: '#FFFFFF'
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_gauze.rsi
       state: gauze_lowerleg_l_resomi
