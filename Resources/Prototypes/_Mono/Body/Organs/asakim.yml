@@ -5,7 +5,8 @@
   description: A mess of flesh and silicon, veins interlaced with unknown implants and cybernetics.
   components:
   - type: Tag
-    tag: AsakimBrain
+    tags:
+    - AsakimBrain
 
 - type: entity
   id: OrganAsakimEyes
