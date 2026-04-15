@@ -1,0 +1,71 @@
+- type: emote
+  id: Trill
+  name: chat-emote-name-trill
+  category: Vocal
+  available: false
+  icon: { sprite: _Moffstation/Actions/resomi.rsi, state: bird_call }
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-trill"]
+  chatTriggers:
+  - trill
+  - trills
+  - trilling
+
+- type: emote
+  id: Scree
+  name: chat-emote-name-scree
+  category: Vocal
+  available: false
+  icon: { sprite: _Moffstation/Actions/resomi.rsi, state: bird_call }
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-scree"]
+  chatTriggers:
+  - scree
+  - screeing
+  - screes
+
+- type: emote
+  id: Call
+  name: chat-emote-name-call
+  category: Vocal
+  available: false
+  icon: { sprite: _Moffstation/Actions/resomi.rsi, state: bird_call }
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-call"]
+  chatTriggers:
+  - call
+  - calling
+  - calls
+
+- type: emote
+  id: Squawk
+  name: chat-emote-name-squawk
+  category: Vocal
+  available: false
+  icon: { sprite: _Moffstation/Actions/resomi.rsi, state: bird_call }
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-squawk"]
+  chatTriggers:
+  - squawk
+  - squawking
+  - squawks

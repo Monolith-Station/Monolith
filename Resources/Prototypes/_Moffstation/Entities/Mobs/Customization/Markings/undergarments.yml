@@ -1,0 +1,37 @@
+# Top Undergarments
+- type: marking
+  id: UndergarmentTopTanktopResomi
+  bodyPart: UndergarmentTop
+  groupWhitelist: [ Resomi ]
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Moffstation/Mobs/Customization/undergarments.rsi
+    state: tanktop_resomi
+
+# Bottom Undergarments
+- type: marking
+  id: UndergarmentBottomBoxersResomi
+  bodyPart: UndergarmentBottom
+  groupWhitelist: [ Resomi ]
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Moffstation/Mobs/Customization/undergarments.rsi
+    state: boxers_resomi
+
+- type: marking
+  id: UndergarmentBottomThongResomi
+  bodyPart: UndergarmentBottom
+  groupWhitelist: [ Resomi ]
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Moffstation/Mobs/Customization/undergarments.rsi
+    state: thong_resomi
