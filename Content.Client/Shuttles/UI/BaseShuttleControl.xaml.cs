@@ -202,7 +202,7 @@ public partial class BaseShuttleControl : MapGridControl
                 handle.DrawLine(outer + sideOffset, inner + sideOffset, tickColor.WithAlpha(0.46f));
             }
 
-            if (!isMajor || isNorth)
+            if (!isMajor)
                 continue;
 
             var label = degrees.ToString();
@@ -279,7 +279,7 @@ public partial class BaseShuttleControl : MapGridControl
                 handle.DrawLine(outer + sideOffset, inner + sideOffset, tickColor.WithAlpha(0.46f));
             }
 
-            if (!isMajor || isNorth)
+            if (!isMajor)
                 continue;
 
             var label = degrees.ToString();

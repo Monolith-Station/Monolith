@@ -119,6 +119,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     private BoxContainer? _radarModeButtons;
     private RadarModeButton? _radarAzimuthButton;
     private RadarModeButton? _radarRotationButton;
+    private RadarModeButton? _radarAnchorButton;
     private RadarAzimuthMode _azimuthMode;
 
     public ShuttleNavControl() : this(64f, 256f, 256f) { } // Mono
@@ -179,6 +180,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         _radarModeButtons = new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            SeparationOverride = 2,
             HorizontalExpand = false,
             VerticalExpand = false,
             MouseFilter = MouseFilterMode.Stop,
@@ -201,8 +203,16 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             _angleFollow ^= true;
         };
 
+        _radarAnchorButton = CreateRadarModeButton(RadarModeButtonIcon.Anchor);
+        _radarAnchorButton.OnPressed += _ =>
+        {
+            _relativePanning ^= true;
+            // TODO: Add a reset-panned-view action once coordinate handling is finalized.
+        };
+
         _radarModeButtons.AddChild(_radarAzimuthButton);
         _radarModeButtons.AddChild(_radarRotationButton);
+        _radarModeButtons.AddChild(_radarAnchorButton);
 
         parent.AddChild(_radarModeButtons);
         LayoutContainer.SetAnchorAndMarginPreset(_radarModeButtons, LayoutContainer.LayoutPreset.BottomLeft, margin: 10);
@@ -222,9 +232,9 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         _relativePanning = radar.RelativePanning;
     }
 
-    private static RadarModeButton CreateRadarModeButton()
+    private static RadarModeButton CreateRadarModeButton(RadarModeButtonIcon icon = RadarModeButtonIcon.None)
     {
-        return new RadarModeButton
+        return new RadarModeButton(icon)
         {
             MinWidth = 16f,
             MaxWidth = 16f,
@@ -236,8 +246,21 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         };
     }
 
+    internal enum RadarModeButtonIcon : byte
+    {
+        None,
+        Anchor,
+    }
+
     public sealed class RadarModeButton : BaseButton
     {
+        private readonly RadarModeButtonIcon _icon;
+
+        internal RadarModeButton(RadarModeButtonIcon icon)
+        {
+            _icon = icon;
+        }
+
         protected override Vector2 MeasureOverride(Vector2 availableSize)
         {
             return new Vector2(16f, 16f);
@@ -255,6 +278,24 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             var center = new Vector2(PixelSize.X * 0.5f, PixelSize.Y * 0.5f);
             var radius = MathF.Min(PixelSize.X, PixelSize.Y) * 0.42f;
             handle.DrawCircle(center, radius, Color.White.WithAlpha(alpha));
+
+            if (_icon != RadarModeButtonIcon.Anchor)
+                return;
+
+            var iconColor = Color.Black.WithAlpha(0.95f);
+            var top = center + new Vector2(0f, -4f);
+            var stemTop = center + new Vector2(0f, -2f);
+            var bottom = center + new Vector2(0f, 4f);
+            var crossLeft = center + new Vector2(-3.5f, 0.5f);
+            var crossRight = center + new Vector2(3.5f, 0.5f);
+            var leftFluke = center + new Vector2(-3.5f, 1.8f);
+            var rightFluke = center + new Vector2(3.5f, 1.8f);
+
+            handle.DrawCircle(top, 1.5f, iconColor, false);
+            handle.DrawLine(stemTop, bottom, iconColor);
+            handle.DrawLine(crossLeft, crossRight, iconColor);
+            handle.DrawLine(bottom, leftFluke, iconColor);
+            handle.DrawLine(bottom, rightFluke, iconColor);
         }
     }
 
