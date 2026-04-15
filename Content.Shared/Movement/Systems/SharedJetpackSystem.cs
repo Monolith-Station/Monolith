@@ -169,6 +169,12 @@ public abstract class SharedJetpackSystem : EntitySystem
 
             return;
         }
+        else if (TryComp<MovedByPressureComponent>(uid, out var movedPressure) && !movedPressure.Enabled) // Mono
+        {
+            _popup.PopupClient(Loc.GetString("jetpack-no-enabled-magboots"), uid, args.Performer);
+
+            return;
+        }
 
         SetEnabled(uid, component, !IsEnabled(uid));
     }
