@@ -7,9 +7,6 @@ using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Movement.Components; // Mono
-using Content.Shared.Movement.Systems; // Mono
-using Content.Shared.Popups; // Mono
 using Robust.Shared.Containers;
 
 namespace Content.Shared.Clothing;
@@ -23,8 +20,6 @@ public sealed class SharedMagbootsSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] private readonly SharedItemSystem _item = default!;
-    [Dependency] private readonly SharedJetpackSystem _jetpack = default!; // Mono
-    [Dependency] private readonly SharedPopupSystem _popup = default!; // Mono
 
     public override void Initialize()
     {
@@ -91,20 +86,5 @@ public sealed class SharedMagbootsSystem : EntitySystem
     private void OnIsWeightless(Entity<MagbootsComponent> ent, ref InventoryRelayedEvent<IsWeightlessEvent> args)
     {
         OnIsWeightless(ent, ref args.Args);
-
-        // Mono: Disable jetpack if enabled magboots are on and the user is on a gravity-supporting grid or map. This is done here because the jetpack user component is on the mob, not the magboots.
-
-        if (!_toggle.IsActivated(ent.Owner))
-            return;
-
-        if (ent.Comp.RequiresGrid && !_gravity.EntityOnGravitySupportingGridOrMap(args.Args.Entity))
-            return;
-
-        if (!TryComp<JetpackUserComponent>(args.Args.Entity, out var jetpackUser) || !TryComp<JetpackComponent>(jetpackUser.Jetpack, out var jetpack))
-            return;
-
-        _jetpack.SetEnabled(jetpackUser.Jetpack, jetpack, false, args.Args.Entity);
-        _popup.PopupClient(Loc.GetString("jetpack-to-grid"), args.Args.Entity, args.Args.Entity);
-        args.Args.Handled = true;
     }
 }
