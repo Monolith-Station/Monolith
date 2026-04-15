@@ -83,7 +83,7 @@ public sealed partial class ClothingComponent : Component
     /// Also checks organs for required components/tags if WhitelistCheckOrgan is true.
     /// </summary>
     [DataField]
-    public EntityWhitelist Whitelist;
+    public EntityWhitelist? Whitelist = null;
 
     /// <summary>
     /// Whether we should check organs for the whitelist.
