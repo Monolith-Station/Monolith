@@ -239,7 +239,7 @@ public abstract class SharedJetpackSystem : EntitySystem
 
     protected virtual bool CanEnable(EntityUid uid, JetpackComponent component)
     {
-        return true;
+        return _gravity.IsWeightless(uid); // Mono
     }
 
     // EE: check parent
