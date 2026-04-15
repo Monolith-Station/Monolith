@@ -328,7 +328,7 @@ public abstract partial class InventorySystem
         if (_whitelistSystem.IsWhitelistFail(clothing.Whitelist, itemUid))
             return true;
 
-        if (clothing.WhitelistCheckOrgan && TryComp<BodyComponent>(target, out var body))
+        if (clothing.WhitelistCheckOrgans && TryComp<BodyComponent>(target, out var body))
         {
             var organs = _body.GetBodyOrgans(target, body);
 

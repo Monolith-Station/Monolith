@@ -89,7 +89,7 @@ public sealed partial class ClothingComponent : Component
     /// Whether we should check organs for the whitelist.
     /// </summary>
     [DataField]
-    public bool WhitelistCheckOrgan = false;
+    public bool WhitelistCheckOrgans = false;
 }
 
 [Serializable, NetSerializable]
