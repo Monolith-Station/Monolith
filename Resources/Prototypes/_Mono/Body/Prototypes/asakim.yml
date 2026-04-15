@@ -9,12 +9,12 @@
       - torso
       organs:
         brain: OrganAsakimBrain
-        eyes: OrganHumanEyes
+        eyes: OrganAsakimEyes
     torso:
       part: TorsoAsakim
       organs:
-        heart: OrganAnimalHeart
-        lungs: OrganHumanLungs
+        heart: OrganAsakimHeart
+        lungs: OrganAsakimLungs
         stomach: OrganReptilianStomach
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
