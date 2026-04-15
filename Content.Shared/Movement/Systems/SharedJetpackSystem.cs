@@ -121,7 +121,7 @@ public abstract class SharedJetpackSystem : EntitySystem
         if (TryComp<JetpackComponent>(component.Jetpack, out var jetpack)
             && (!CanEnableOnGrid(args.Transform.GridUid)
                 || !UserNotParented(uid, jetpack) // EE
-                || (TryComp<MovedByPressureComponent>(uid, out var movedPressure) && !movedPressure.Enabled))) // Mono
+                || TryComp<MovedByPressureComponent>(uid, out var movedPressure) && !movedPressure.Enabled)) // Mono
         {
             SetEnabled(component.Jetpack, jetpack, false, uid);
 
