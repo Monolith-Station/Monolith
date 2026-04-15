@@ -1,22 +1,4 @@
 - type: emote
-  id: Trill
-  name: chat-emote-name-trill
-  category: Vocal
-  available: false
-  icon: { sprite: _Moffstation/Actions/resomi.rsi, state: bird_call }
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: ["chat-emote-msg-trill"]
-  chatTriggers:
-  - trill
-  - trills
-  - trilling
-
-- type: emote
   id: Scree
   name: chat-emote-name-scree
   category: Vocal
