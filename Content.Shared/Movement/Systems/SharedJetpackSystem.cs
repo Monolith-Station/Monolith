@@ -1,3 +1,4 @@
+using Content.Shared.Atmos.Components; // Mono
 using Content.Shared.Actions;
 using Content.Shared._EE.CCVar; // EE
 using Content.Shared.Gravity;
@@ -119,7 +120,8 @@ public abstract class SharedJetpackSystem : EntitySystem
         // https://discord.com/channels/310555209753690112/310555209753690112/1270067921682694234
         if (TryComp<JetpackComponent>(component.Jetpack, out var jetpack)
             && (!CanEnableOnGrid(args.Transform.GridUid)
-            || !UserNotParented(uid, jetpack))) // EE
+                || !UserNotParented(uid, jetpack) // EE
+                || (TryComp<MovedByPressureComponent>(uid, out var movedPressure) && !movedPressure.Enabled))) // Mono
         {
             SetEnabled(component.Jetpack, jetpack, false, uid);
 
