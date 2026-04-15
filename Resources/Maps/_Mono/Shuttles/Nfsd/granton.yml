@@ -4,7 +4,7 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/14/2026 02:32:58
+  time: 04/15/2026 00:42:24
   entityCount: 826
 maps: []
 grids:
@@ -481,18 +481,14 @@ entities:
       - 552
       - 551
       - 550
-- proto: AirlockExternalGlassNfsd
+- proto: AirlockExternalGlassNfsdLocked
   entities:
-  - uid: 456
+  - uid: 320
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: 0.5,-22.5
       parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        457:
-        - - DoorStatus
-          - DoorBolt
 - proto: AirlockNfsdLocked
   entities:
   - uid: 185
@@ -510,18 +506,13 @@ entities:
     - type: Transform
       pos: -0.5,-16.5
       parent: 1
-- proto: AirlockShuttleNfsd
+- proto: AirlockShuttleNfsdLocked
   entities:
-  - uid: 457
+  - uid: 456
     components:
     - type: Transform
       pos: 0.5,-25.5
       parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        456:
-        - - DoorStatus
-          - DoorBolt
 - proto: APCBasic
   entities:
   - uid: 290
@@ -3099,7 +3090,15 @@ entities:
       parent: 1
 - proto: LockableButtonArmory
   entities:
-  - uid: 320
+  - uid: 342
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,-9.5
+      parent: 1
+- proto: LockableButtonTSFMC
+  entities:
+  - uid: 457
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -3113,12 +3112,6 @@ entities:
         336:
         - - Pressed
           - Toggle
-  - uid: 342
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -4.5,-9.5
-      parent: 1
 - proto: LockerMedicineFilled
   entities:
   - uid: 560
