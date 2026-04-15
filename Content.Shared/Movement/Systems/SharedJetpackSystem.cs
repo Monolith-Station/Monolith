@@ -10,6 +10,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
+using Content.Shared.Clothing; // Mono
 
 namespace Content.Shared.Movement.Systems;
 
@@ -33,6 +34,7 @@ public abstract class SharedJetpackSystem : EntitySystem
 
         SubscribeLocalEvent<JetpackUserComponent, RefreshWeightlessModifiersEvent>(OnJetpackUserWeightlessMovement);
         SubscribeLocalEvent<JetpackUserComponent, CanWeightlessMoveEvent>(OnJetpackUserCanWeightless);
+        SubscribeLocalEvent<JetpackUserComponent, MagbootsToggledEvent>(OnJetpackUserMagbootsToggled); // Mono
         SubscribeLocalEvent<JetpackUserComponent, EntParentChangedMessage>(OnJetpackUserEntParentChanged);
         SubscribeLocalEvent<JetpackComponent, EntGotInsertedIntoContainerMessage>(OnJetpackMoved);
 
@@ -248,6 +250,17 @@ public abstract class SharedJetpackSystem : EntitySystem
             || xform.ParentUid == xform.MapUid;
     }
     // End EE
+
+    // Mono
+    private void OnJetpackUserMagbootsToggled(EntityUid uid, JetpackUserComponent component, ref MagbootsToggledEvent args)
+    {
+        if (!args.State || !IsEnabled(component.Jetpack) || Transform(uid).GridUid == null || !TryComp<JetpackComponent>(component.Jetpack, out var jetpack))
+            return;
+
+        _popup.PopupClient(Loc.GetString("jetpack-to-grid"), uid, uid);
+        SetEnabled(component.Jetpack, jetpack, false, uid);
+    }
+    // End Mono
 }
 
 [Serializable, NetSerializable]
