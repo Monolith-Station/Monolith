@@ -1,4 +1,3 @@
-using Content.Shared.Atmos.Components; // Mono
 using Content.Shared.Actions;
 using Content.Shared._EE.CCVar; // EE
 using Content.Shared.Gravity;
@@ -23,6 +22,7 @@ public abstract class SharedJetpackSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly IConfigurationManager _config = default!; // EE
+    [Dependency] private readonly SharedGravitySystem _gravity = default!; // Mono
 
     public override void Initialize()
     {
@@ -121,7 +121,7 @@ public abstract class SharedJetpackSystem : EntitySystem
         if (TryComp<JetpackComponent>(component.Jetpack, out var jetpack)
             && (!CanEnableOnGrid(args.Transform.GridUid)
                 || !UserNotParented(uid, jetpack) // EE
-                || TryComp<MovedByPressureComponent>(uid, out var movedPressure) && !movedPressure.Enabled)) // Mono
+                || !_gravity.IsWeightless(uid))) // Mono
         {
             SetEnabled(component.Jetpack, jetpack, false, uid);
 
@@ -163,15 +163,10 @@ public abstract class SharedJetpackSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (TryComp(uid, out TransformComponent? xform) && !CanEnableOnGrid(xform.GridUid))
+        if (TryComp(uid, out TransformComponent? xform) && !CanEnableOnGrid(xform.GridUid)
+        || !_gravity.IsWeightless(uid)) // Mono
         {
             _popup.PopupClient(Loc.GetString("jetpack-no-station"), uid, args.Performer);
-
-            return;
-        }
-        else if (Transform(uid).GridUid != null && TryComp<MovedByPressureComponent>(uid, out var movedPressure) && !movedPressure.Enabled) // Mono
-        {
-            _popup.PopupClient(Loc.GetString("jetpack-no-enabled-magboots"), uid, args.Performer);
 
             return;
         }
