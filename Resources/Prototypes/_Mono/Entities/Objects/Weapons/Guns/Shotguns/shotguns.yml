@@ -197,7 +197,7 @@
 
 - type: entity
   name: PD-VI-C "Sultan's Pulsar" shotgun (4 gauge buckshot)
-  parent: [ BaseWeaponShotgun, BaseGunWieldable ]
+  parent: [ BaseItem ]
   id: WeaponShotgunSultanPulsarCyborg
   description: A beast of a bolt-action shotgun, capable of firing the Sultan's finest 4-gauge with exceptional accuracy, modified to replenish ammunition from an assault borg's internal capacitors.
   components:
@@ -208,14 +208,21 @@
     sprite: _Mono/Objects/Weapons/Guns/Shotguns/SultansPulsar_inhands_64x.rsi
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Shotguns/SultansPulsar.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Guns/Shotguns/SultansPulsar_inhands_64x.rsi
-  - type: GunRequiresWield
   - type: Gun
+    minAngle: 1
+    maxAngle: 2
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
     fireRate: 1.2
-    selectedMode: Semiauto
+    projectileSpeed: 40 # Mono
+    selectedMode: SemiAuto
     availableModes:
     - SemiAuto
   - type: GunSpreadModifier
@@ -232,10 +239,19 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
+        ents: []
   - type: StaticPrice
     price: 2000
     vendPrice: 20000
-  - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 3
     pvsIncrease: 1
+  - type: EmitSoundOnPickup
+    sound:
+      collection: ShotgunsPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: ShotgunsDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: ShotgunsDrop
