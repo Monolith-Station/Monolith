@@ -166,7 +166,7 @@ public abstract class SharedJetpackSystem : EntitySystem
             return;
 
         if (TryComp(uid, out TransformComponent? xform) && !CanEnableOnGrid(xform.GridUid)
-        || !_gravity.IsWeightless(uid)) // Mono
+        || !_gravity.IsWeightless(args.Performer)) // Mono
         {
             _popup.PopupClient(Loc.GetString("jetpack-no-station"), uid, args.Performer);
 
