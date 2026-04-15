@@ -133,8 +133,8 @@
 - type: entity
   parent: BaseNFFlatpack
   id: RDServerUSSPFlatpack
-  name: ussp research and development server flatpack
-  description: A flatpack used for constructing a USSP research and development server.
+  name: KA research and development server flatpack
+  description: A flatpack used for constructing a KA research and development server.
   components:
   - type: Flatpack
     entity: ResearchAndDevelopmentServerUssp
