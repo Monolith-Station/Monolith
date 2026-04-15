@@ -118,6 +118,8 @@ marking-ResomiRArmCoat-r_leg_coat = Right Arm Coat
 
 marking-ResomiTail = Resomi Tail
 marking-ResomiTail-tail = Resomi Tail
+marking-ResomiTailBird = Resomi Bird Tail
+marking-ResomiTailBird-tail_bird = Resomi Bird Tail
 marking-ResomiTailFeathered = Resomi Tail (Feathered)
 marking-ResomiTailFeathered-tail = Resomi Tail
 marking-ResomiTailFeathered-tail_feathers = Resomi Tail Feathers

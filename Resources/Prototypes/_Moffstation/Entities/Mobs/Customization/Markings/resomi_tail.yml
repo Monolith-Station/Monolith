@@ -20,6 +20,15 @@
     state: tail
 
 - type: marking
+  id: ResomiTailBird
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Moffstation/Mobs/Customization/Resomi/resomi_tail_markings.rsi
+    state: tail_bird
+
+- type: marking
   id: ResomiTailComplex
   bodyPart: Tail
   markingCategory: Tail
