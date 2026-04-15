@@ -23,10 +23,12 @@
             </BoxContainer>
         </BoxContainer>
 
-        <ui:ShuttleNavControl Name="NavRadar"
-                              HorizontalExpand="True"
-                              VerticalExpand="True"
-                              MinHeight="400"/>
+        <LayoutContainer>
+            <ui:ShuttleNavControl Name="NavRadar"
+                                  HorizontalExpand="True"
+                                  VerticalExpand="True"
+                                  MinHeight="400"/>
+        </LayoutContainer>
 
     </GridContainer>
 </controls:FancyWindow>
