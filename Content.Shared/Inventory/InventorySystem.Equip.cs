@@ -332,7 +332,7 @@ public abstract partial class InventorySystem
         {
             var organs = _body.GetBodyOrgans(target, body);
 
-            foreach ((EntityUid id, Body.Organ.OrganComponent _) in organs)
+            foreach ((var id, var _) in organs)
             {
                 if (_whitelistSystem.IsWhitelistFail(clothing.Whitelist, id))
                     return true;

@@ -1,19 +1,6 @@
-- type: metabolizerType
-  id: Hydrakin
-  name: metabolizer-type-hydrakin
-
-- type: entity
-  id: BaseAsakimOrgan
-  name: asakim organ
-  parent: [ BaseItem ]
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi # Placeholder. TODO: Add unique sprites.
-
 - type: entity
   id: OrganAsakimBrain
-  parent: [ BaseAsakimOrgan, OrganHumanBrain ]
+  parent: [ OrganHumanBrain ]
   name: asakim brain
   description: A mess of flesh and silicon, veins interlaced with unknown implants and cybernetics.
   components:
@@ -22,12 +9,11 @@
 
 - type: entity
   id: OrganAsakimEyes
-  parent: [ BaseAsakimOrgan, OrganHumanEyes ]
+  parent: [ OrganHumanEyes ]
   name: asakim eyes
   description: They reflect off the darkness.
   components:
-  - type: Organ # Shitmed Change
-    slotId: eyes # Shitmed Change
+  - type: Organ
     onAdd:
     - type: NightVision
       isEquipment: false
@@ -36,7 +22,7 @@
 
 - type: entity
   id: OrganAsakimHeart
-  parent: [ BaseAsakimOrgan , OrganAnimalHeart ]
+  parent: [ OrganAnimalHeart ]
   name: asakim heart
   description: A large heart, capable of metabolizing more chemicals at once.
   components:
@@ -51,12 +37,11 @@
 
 - type: entity
   id: OrganAsakimLungs
-  parent: [ BaseAsakimOrgan , OrganHumanLungs ]
+  parent: [ OrganHumanLungs ]
   name: asakim lungs
   description: Heavy, huge lungs, genetically engineered to assist in energizing the body's raw strength in melee.
   components:
   - type: Organ
-    slotId: lungs
     onAdd:
     - type: BonusMeleeDamage
       damageModifierSet:
