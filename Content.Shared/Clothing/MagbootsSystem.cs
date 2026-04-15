@@ -70,7 +70,7 @@ public sealed class SharedMagbootsSystem : EntitySystem
             _alerts.ClearAlert(user, ent.Comp.MagbootsAlert);
 
         // Mono
-        var ev = new MagbootsToggledEvent(user, ent.Owner, state);
+        var ev = new MagbootsToggledEvent(ent.Owner, state);
         RaiseLocalEvent(user, ref ev);
     }
 
@@ -94,4 +94,4 @@ public sealed class SharedMagbootsSystem : EntitySystem
 }
 
 [ByRefEvent]
-public record struct MagbootsToggledEvent(EntityUid User, EntityUid Magboots, bool State); // Mono
+public record struct MagbootsToggledEvent(EntityUid Magboots, bool State); // Mono
