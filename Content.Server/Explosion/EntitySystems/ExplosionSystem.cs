@@ -36,7 +36,6 @@ using Robust.Shared.Timing; // Mono
 using Content.Shared.Stacks;
 using Content.Server.Stack;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server.Explosion.EntitySystems;
 
@@ -69,8 +68,6 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<ProjectileComponent> _projectileQuery;
     private EntityQuery<StackComponent> _stackQuery; // Mono
-
-    private List<Entity<MapGridComponent>> _foundGrids = new(); // Mono
 
     /// <summary>
     ///     "Tile-size" for space when there are no nearby grids to use as a reference.
@@ -247,26 +244,6 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         return r0 * (MathF.Sqrt(12 * totalIntensity / v0 - 3) / 6 + 0.5f);
     }
 
-    // Mono - hack to make explosions hook onto any nearby grid
-    public bool TryFindGridNear(
-        EntityUid mapEnt,
-        Vector2 worldPos,
-        [NotNullWhen(true)] out Entity<MapGridComponent>? grid)
-    {
-        grid = null;
-
-        var rangeVec = new Vector2(1f, 1f);
-        var aabb = new Box2(worldPos - rangeVec, worldPos + rangeVec);
-
-        _foundGrids.Clear();
-        _mapManager.FindGridsIntersecting(mapEnt, aabb, ref _foundGrids, false, false);
-        if (_foundGrids.Count == 0)
-            return false;
-
-        grid = _foundGrids[0];
-        return true;
-    }
-
     /// <summary>
     ///     Queue an explosions, centered on some entity.
     /// </summary>
@@ -287,13 +264,12 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
 
         var mapPos = _transformSystem.GetMapCoordinates(pos);
 
-        // Mono
-        var coord = _transformSystem.ToCoordinates(mapPos);
-        if (pos.MapUid != null && TryFindGridNear(pos.MapUid.Value, mapPos.Position, out var grid))
-            coord = _transformSystem.WithEntityId(coord, grid.Value);
+        var posFound = _transformSystem.TryGetMapOrGridCoordinates(uid, out var gridPos, pos);
+        if (!posFound)
+            return;
 
         // Mono - MapCoordinates -> EntityCoordinates
-        QueueExplosion(coord, typeId, totalIntensity, slope, maxTileIntensity, uid, tileBreakScale, maxTileBreak, canCreateVacuum, addLog: false);
+        QueueExplosion(gridPos!.Value, typeId, totalIntensity, slope, maxTileIntensity, uid, tileBreakScale, maxTileBreak, canCreateVacuum, addLog: false);
 
         if (!addLog)
             return;
@@ -303,18 +279,18 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         if (user == null)
         {
             _adminLogger.Add(LogType.Explosion, LogImpact.High,
-                $"{ToPrettyString(uid):entity} exploded ({typeId}) at {coord} with intensity {totalIntensity} slope {slope}");
+                $"{ToPrettyString(uid):entity} exploded ({typeId}) at Pos:{(posFound ? $"{mapPos:coordinates}" : "[Grid or Map not found]")} at Grid:{(gridFound ? $"{gridPos:coordinates}" : "Grid Not Found)}")} with intensity {totalIntensity} slope {slope}");
         }
         else
         {
             _adminLogger.Add(LogType.Explosion, LogImpact.High,
-                $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at {coord} with intensity {totalIntensity} slope {slope}");
+                $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at Pos:{(posFound ? $"{mapPos:coordinates}" : "[Grid or Map not found]")} at Grid:{(gridFound ? $"{gridPos:coordinates}" : "Grid Not Found)}")} with intensity {totalIntensity} slope {slope}");
             var alertMinExplosionIntensity = _cfg.GetCVar(CCVars.AdminAlertExplosionMinIntensity);
             if (alertMinExplosionIntensity > -1
             && totalIntensity >= alertMinExplosionIntensity
             && curTime > NextAlertTime) // Mono
             {
-                _chat.SendAdminAlert(user.Value, $"caused {ToPrettyString(uid)} to explode ({typeId}:{totalIntensity}) at {coord}");
+                _chat.SendAdminAlert(user.Value, $"caused {ToPrettyString(uid)} to explode ({typeId}:{totalIntensity}) at Pos:{(posFound ? $"{mapPos:coordinates}" : "[Grid or Map not found]")} at Grid:{(gridFound ? $"{gridPos:coordinates}" : "Grid Not Found)}")}");
                 NextAlertTime = curTime + AlertCooldown; // Mono
             }
         }
