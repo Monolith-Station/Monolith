@@ -19878,3 +19878,75 @@ Entries:
   id: 2194
   time: '2026-04-14T21:01:36.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3276
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked sprite layers for balaclavas and neck items, increasing their
+        priority
+  id: 2195
+  time: '2026-04-15T10:36:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3795
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Mechs can no longer be entered if they are destroyed mid-entering.
+  id: 2196
+  time: '2026-04-15T20:16:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3792
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: CPRing now respects the unrevivable trait
+    - type: Fix
+      message: CPR revivals now notify the ghost they've been revived.
+  id: 2197
+  time: '2026-04-15T20:56:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3799
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        TSF and PDV AI no longer require whitelist, instead require appropiate
+        faction playtime.
+  id: 2198
+  time: '2026-04-15T22:26:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3800
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Temporarily buffed shipgun explosions to compensate for explosion fix,
+        pending rebalance.
+    - type: Fix
+      message: Fixed explosions that are slightly offgrid working not as expected.
+    - type: Fix
+      message: Reapplied raycasted projectile explosion fix.
+  id: 2199
+  time: '2026-04-16T12:45:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3789
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Yowie randomized last names are no longer are an invalid character and
+        instead just don't exist
+  id: 2200
+  time: '2026-04-16T15:24:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3803
+- author: ziz11
+  changes:
+    - type: Add
+      message: Added mode change buttons to radar interfaces.
+  id: 2201
+  time: '2026-04-16T15:55:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3794
+- author: doublechest
+  changes:
+    - type: Fix
+      message: >-
+        Fixed not being able to move when entering the grid with jetpacks and
+        magboots enabled
+  id: 2202
+  time: '2026-04-16T16:04:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3781
