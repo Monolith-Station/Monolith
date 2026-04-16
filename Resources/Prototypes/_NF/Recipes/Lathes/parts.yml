@@ -6,9 +6,10 @@
   parent: BasePartRecipe
   completetime: 2.5
   materials:
-    Steel: 80
-    Plastic: 80
+    Steel: 120
+    Plastic: 120
     Plasma: 75
+    Gold: 50
 
 - type: latheRecipe
   abstract: true
@@ -20,6 +21,7 @@
     Plastic: 150
     Plasma: 75
     Gold: 75
+    UraniumFissile: 10
 
 # Recipes
 
