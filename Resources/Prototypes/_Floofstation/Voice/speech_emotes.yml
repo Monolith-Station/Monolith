@@ -1,16 +1,16 @@
-- type: emote ## goobstation - edited for monolith
-  id: Yip
-  name: chat-emote-name-yip
-  category: Vocal
-  available: false
-  icon: { sprite: Mobs/Animals/kobold.rsi, state: full }
-  chatMessages: [ "chat-emote-msg-yip" ]
-#  whitelist: # Mono edit.
-#    tags:
-#    - ReptilianEmotes
-  blacklist:
-    components:
-      - BorgChassis
-  chatTriggers:
-  - yip
-  - yips
+# - type: emote ## goobstation - edited for monolith ### monolith again: we reimplemented yip
+#   id: Yip
+#   name: chat-emote-name-yip
+#   category: Vocal
+#   available: false
+#   icon: { sprite: Mobs/Animals/kobold.rsi, state: full }
+#   chatMessages: [ "chat-emote-msg-yip" ]
+# #  whitelist: # Mono edit.
+# #    tags:
+# #    - ReptilianEmotes
+#   blacklist:
+#     components:
+#       - BorgChassis
+#   chatTriggers:
+#   - yip
+#   - yips
