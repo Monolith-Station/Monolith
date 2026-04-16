@@ -1,4 +1,5 @@
 using Content.Server.Atmos.Components;
+using Content.Server.Destructible; // Mono
 using Content.Server.Fluids.EntitySystems;
 using Content.Server._Mono.NPC.HTN; // Mono
 using Content.Server.NPC.Queries;
@@ -12,6 +13,7 @@ using Content.Server.Shuttles.Components; // Mono
 using Content.Server.Storage.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Hands.Components;
@@ -19,16 +21,20 @@ using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.NPC.Components; // Mono
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Physics;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Server.Weapons.Ranged.Systems; // Mono
 using Content.Shared.Whitelist;
 using Microsoft.Extensions.ObjectPool;
 using Robust.Server.Containers;
+using Robust.Shared.Physics.Components; // Mono
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
@@ -58,9 +64,15 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!; // Frontier
+    [Dependency] private readonly DestructibleSystem _destructible = default!; // Mono
+    [Dependency] private readonly GunSystem _gun = default!; // Mono
+    [Dependency] private readonly NPCCombatSystem _npcCombat = default!;
 
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;
+    private EntityQuery<PhysicsComponent> _physicsQuery; // Mono
+    private EntityQuery<RequireProjectileTargetComponent> _requireTargetQuery; // Mono
+    private EntityQuery<NpcFactionMemberComponent> _factionQuery; // Mono
 
     private ObjectPool<HashSet<EntityUid>> _entPool =
         new DefaultObjectPool<HashSet<EntityUid>>(new SetPolicy<EntityUid>(), 256);
@@ -75,6 +87,9 @@ public sealed class NPCUtilitySystem : EntitySystem
         base.Initialize();
         _puddleQuery = GetEntityQuery<PuddleComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
+        _physicsQuery = GetEntityQuery<PhysicsComponent>(); // Mono
+        _requireTargetQuery = GetEntityQuery<RequireProjectileTargetComponent>(); // Mono
+        _factionQuery = GetEntityQuery<NpcFactionMemberComponent>(); // Mono
     }
 
     /// <summary>
@@ -352,6 +367,17 @@ public sealed class NPCUtilitySystem : EntitySystem
                 }
 
                 return _examine.InRangeUnOccluded(owner, targetUid, radius + bufferRange, null) ? 1f : 0f;
+            }
+            // Mono
+            case GunTargetGoodCon con:
+            {
+                if (!_gun.TryGetGun(owner, out var gunUid, out var gun))
+                    return 0f;
+
+                var radius = blackboard.GetValueOrDefault<float>(blackboard.GetVisionRadiusKey(EntityManager), EntityManager);
+                const float bufferRange = 0.5f;
+
+                return _npcCombat.InRangeGoodTarget((gunUid, gun), owner, targetUid, radius + bufferRange, con.ShootThroughThreshold) ? 1f : 0f;
             }
             case TargetIsAliveCon:
             {

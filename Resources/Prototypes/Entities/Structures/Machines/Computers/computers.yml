@@ -945,6 +945,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: RadarConsole
+    noRotate: true # Mono
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
   - type: UserInterface

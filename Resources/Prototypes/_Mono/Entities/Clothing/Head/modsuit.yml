@@ -5,27 +5,8 @@
   description: Sealed, reinforced, and intimidating.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Head/Modsuits/ussp-varyag.rsi
-    layers:
-    - state: helmet
-    - state: helmet-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: HideLayerClothing # This helmet don't have sprite on unsealed state
-    slots:
-    - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      head:
-      - state: equipped-HEAD-sealed
-      head-vox:
-      - state: equipped-HEAD-sealed-vox
   - type: Armor
     modifiers:
       coefficients:
@@ -33,23 +14,6 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
-  - type: ComponentToggler
-    components:
-    - type: BreathMask
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      heatingCoefficient: 0.01
-      coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: ToggleableVisuals
     spriteLayer: light
@@ -82,12 +46,6 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2
 
 - type: entity
   parent: [BaseClothingModsuitHelmet, ShowMedicalIcons, ShowSecurityIcons]
@@ -96,27 +54,8 @@
   description: A reinforced helmet with deep armor plating and visor shielding. Favored by serzhants for frontline presence.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Head/Modsuits/ussp-zastavnik.rsi
-    layers:
-    - state: helmet
-    - state: helmet-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      head:
-      - state: equipped-HEAD-sealed
-      head-vox:
-      - state: equipped-HEAD-sealed-vox
   - type: Armor
     modifiers:
       coefficients:
@@ -127,21 +66,6 @@
         Radiation: 0.8
   - type: ComponentToggler
     components:
-    - type: BreathMask
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      heatingCoefficient: 0.01
-      coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
     - type: FlashImmunity
     - type: EyeProtection
       protectionTime: 5
@@ -177,12 +101,6 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2
 
 - type: entity
   parent: [BaseClothingModsuitHelmet, ShowMedicalIcons, ShowSecurityIcons]
@@ -191,27 +109,8 @@
   description: Does not currently feature an AI companion- note to self, sell helmet AI as separate purchase.
   categories: [HideSpawnMenu]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Head/Modsuits/rogue.rsi
-    layers:
-    - state: helmet
-    - state: helmet-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      head:
-      - state: equipped-HEAD-sealed
-      head-vox:
-      - state: equipped-HEAD-sealed-vox
   - type: Armor
     modifiers:
       coefficients:
@@ -230,21 +129,6 @@
     isEquipment: true
   - type: ComponentToggler
     components:
-    - type: BreathMask
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      heatingCoefficient: 0.01
-      coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
     - type: FlashImmunity
     - type: EyeProtection
       protectionTime: 5
@@ -280,12 +164,6 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2
 
 # Volta
 - type: entity
@@ -295,27 +173,8 @@
   description: A reinforced sapper's plate, reimburced with higher quality CCTV and military-grade flashlight, doesn't make you look any better though.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Head/Modsuits/tsfmc-volta.rsi
-    layers:
-    - state: helmet
-    - state: helmet-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      head:
-      - state: equipped-HEAD-sealed
-      head-vox:
-      - state: equipped-HEAD-sealed-vox
   - type: Armor
     modifiers:
       coefficients:
@@ -374,12 +233,6 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2
 
 # Gallóglach
 - type: entity
@@ -389,19 +242,11 @@
   description: The visor is sky blue, so your enemies don't realize you haven't put them on their backs yet. Comes with a built in Mass Scanner in its HUD.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Head/Modsuits/mercenary.rsi
-    layers:
-    - state: helmet
-    - state: helmet-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: DetectionRangeMultiplier
     infraredMultiplier: 0.5
     visualMultiplier: 0.75
@@ -412,16 +257,6 @@
     interfaces:
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      head:
-      - state: equipped-HEAD-sealed
-      head-vox:
-      - state: equipped-HEAD-sealed-vox
   - type: Armor
     modifiers:
       coefficients:
@@ -430,23 +265,6 @@
         Piercing: 0.90
         Heat: 0.90
         Radiation: 0.5
-  - type: ComponentToggler
-    components:
-    - type: BreathMask
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      heatingCoefficient: 0.01
-      coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: ToggleableVisuals
     spriteLayer: light
@@ -479,9 +297,3 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2

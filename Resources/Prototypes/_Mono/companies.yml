@@ -13,12 +13,14 @@
   name: TSF
   color: "#047ABD"
   disabled: true
+  companyUplinkCurrency: FederationMilitaryCredit
 
 - type: company
   id: PDV
   name: PDV
   color: "#D2B48C"
   disabled: true
+  companyUplinkCurrency: Doubloon
 
 - type: company
   id: MD
@@ -192,5 +194,4 @@
   description: redsail-corsairs-description
   color: "#930000"
   image: /Textures/_Mono/Companies/redsailcorsairs.png
-  disabled: true
   whitelisted: true
