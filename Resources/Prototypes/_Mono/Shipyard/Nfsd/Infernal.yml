@@ -1,0 +1,40 @@
+#Author: Mosterdamus
+
+- type: vessel
+  id: Infernal
+  parent: BaseVesselAntag
+  name: TSF-PIN Infernal
+  description: Attack ship with the main armament of CHARON and 220 guns.
+  limit: 6
+  price: 270000
+  category: Large
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/Infernal.yml
+  guidebookPage: null
+  class:
+  - Frigate
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Infernal
+  mapName: 'Infernal'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/Infernal.yml
+  minPlayers: 0
+  stations:
+    Infernal:
+      stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Enough guns to destroy enemy ships."
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Infernal TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
