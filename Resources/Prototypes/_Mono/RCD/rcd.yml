@@ -1,0 +1,64 @@
+# Walls
+- type: rcd
+  id: WallReinforced
+  category: WallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/reinforced_wall.png
+  mode: ConstructObject
+  prototype: WallReinforced
+  cost: 6
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+# Docking
+
+- type: rcd
+  id: AirlockShuttle
+  category: Airlocks
+  sprite: /Textures/_Mono/Interface/Radial/RCD/airlock_shuttle.png
+  mode: ConstructObject
+  prototype: AirlockShuttle
+  cost: 25
+  delay: 15
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: AirlockGlassShuttle
+  category: Airlocks
+  sprite: /Textures/_Mono/Interface/Radial/RCD/airlock_glass_shuttle.png
+  mode: ConstructObject
+  prototype: AirlockGlassShuttle
+  cost: 25
+  delay: 15
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct4
+
+# Electicity
+
+- type: rcd
+  id: SMES
+  category: Electrical
+  sprite: /Textures/_Mono/Interface/Radial/RCD/smes.png
+  mode: ConstructObject
+  prototype: SMESBasicEmpty
+  cost: 12
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: Substation
+  category: Electrical
+  sprite: /Textures/_Mono/Interface/Radial/RCD/substation.png
+  mode: ConstructObject
+  prototype: SubstationBasicEmpty
+  cost: 12
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
