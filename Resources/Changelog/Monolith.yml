@@ -19977,3 +19977,28 @@ Entries:
   id: 2205
   time: '2026-04-16T16:35:54.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3804
+- author: DieselMohawkTheSequel
+  changes:
+    - type: Tweak
+      message: Faction Access added to ID consoles
+    - type: Add
+      message: ID box added to Vizier locker
+    - type: Fix
+      message: DoC can no longer steal from the CC bank and vice versa
+  id: 2206
+  time: '2026-04-16T18:27:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3454
+- author: TheRex191
+  changes:
+    - type: Fix
+      message: Fixed portable gaslocks not docking.
+  id: 2207
+  time: '2026-04-16T19:32:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3807
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Overseer no longer requires whitelist to be played.
+  id: 2208
+  time: '2026-04-16T19:44:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3808
