@@ -79,14 +79,14 @@ public sealed partial class ClothingComponent : Component
     public TimeSpan StripDelay = TimeSpan.Zero;
 
     /// <summary>
-    /// Whitelist required to wear clothing.
+    /// Mono: Whitelist required to wear clothing. Checks the wearer for whitelist.
     /// Also checks organs for required components/tags if WhitelistCheckOrgan is true.
     /// </summary>
     [DataField]
     public EntityWhitelist? Whitelist = null;
 
     /// <summary>
-    /// Whether we should check organs for the whitelist.
+    /// Mono: Whether we should check organs for the whitelist in addition to the target.
     /// </summary>
     [DataField]
     public bool WhitelistCheckOrgans = false;
