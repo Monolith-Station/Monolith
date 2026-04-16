@@ -176,6 +176,7 @@ public sealed partial class NavScreen : BoxContainer
         var (_, worldRot, worldMatrix) = _xformSystem.GetWorldPositionRotationMatrix(gridXform);
         var worldPos = Vector2.Transform(gridBody.LocalCenter, worldMatrix);
 
+        // Mono - remap to [0, 360)
         var displayRot = (-worldRot).Reduced();
         var displayRotDegrees = displayRot.FlipPositive().Degrees;
 

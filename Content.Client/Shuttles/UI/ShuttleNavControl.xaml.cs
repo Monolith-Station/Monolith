@@ -93,12 +93,10 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     protected const float RadarUpdateInterval = 0f;
     protected float _updateAccumulator = 0f;
 
+    // doesn't support absolute panning and angle follow, but why would you need that?
     protected bool _relativePanning = false;
     protected bool _angleFollow = true;
     private bool _radarModeDefaultsApplied;
-
-    // offset off our coordinates in the view's rotation frame
-    protected Vector2 _panOffset = Vector2.Zero;
 
     private bool _wasPanned = false;
     #endregion
@@ -120,6 +118,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     private RadarModeButton? _radarAzimuthButton;
     private RadarModeButton? _radarRotationButton;
     private RadarModeButton? _radarAnchorButton;
+    private RadarModeButton? _radarResetButton;
     private RadarAzimuthMode _azimuthMode;
 
     public ShuttleNavControl() : this(64f, 256f, 256f) { } // Mono
@@ -167,6 +166,43 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         ApplyRadarModeDefaults();
     }
 
+    // converts Offset to world-relative offset so we can modify radar parameters without conversion headaches
+    // call this before potentially rotation-modifying operations and PanToEnt() after
+    private void PanToWorld()
+    {
+        if (!_angleFollow || _coordinates is not { } cord)
+            return;
+        var coordEntRot = _transform.GetWorldRotation(cord.EntityId);
+        Offset = coordEntRot.RotateVec(Offset);
+    }
+
+    // converts world-relative Offset to relative to current view
+    // call this after potentially rotation-modifying operations and PanToWorld() before
+    private void PanToEnt()
+    {
+        if (!_angleFollow || _coordinates is not { } cord)
+            return;
+        var coordEntRot = _transform.GetWorldRotation(cord.EntityId);
+        Offset = (-coordEntRot).RotateVec(Offset);
+    }
+
+    // reanchor our view to console or grid
+    private void ReanchorView()
+    {
+        if (_consoleEntity is not { } cons
+        || _coordinates is not { } cord
+        || !EntManager.TryGetComponent<TransformComponent>(cons, out var xform))
+            return;
+
+        PanToWorld();
+        var anchTo = cons;
+        if (xform.GridUid != null)
+            anchTo = xform.GridUid.Value;
+        _coordinates = _transform.WithEntityId(cord, anchTo);
+        _relativePanning = true;
+        PanToEnt();
+    }
+
     private void EnsureRadarModeButtons()
     {
         if (_radarModeButtons != null)
@@ -186,7 +222,8 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             MouseFilter = MouseFilterMode.Stop,
         };
 
-        _radarAzimuthButton = CreateRadarModeButton();
+        _radarAzimuthButton = CreateRadarModeButton(RadarModeButtonIcon.Azimuth);
+        _radarAzimuthButton.ToolTip = Loc.GetString("shuttle-console-button-azimuth");
         _radarAzimuthButton.OnPressed += _ =>
         {
             _azimuthMode = _azimuthMode switch
@@ -197,22 +234,56 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             };
         };
 
-        _radarRotationButton = CreateRadarModeButton();
+        _radarRotationButton = CreateRadarModeButton(RadarModeButtonIcon.Rotation);
+        _radarRotationButton.ToolTip = Loc.GetString("shuttle-console-button-rotation");
         _radarRotationButton.OnPressed += _ =>
         {
+            PanToWorld();
             _angleFollow ^= true;
+            PanToEnt();
         };
 
         _radarAnchorButton = CreateRadarModeButton(RadarModeButtonIcon.Anchor);
+        _radarAnchorButton.ToolTip = Loc.GetString("shuttle-console-button-anchor");
         _radarAnchorButton.OnPressed += _ =>
         {
-            _relativePanning ^= true;
-            // TODO: Add a reset-panned-view action once coordinate handling is finalized.
+            if (_coordinates is not { } cord)
+                return;
+
+            // if we're anchored or not yet bound to map, just deanchor
+            if (_relativePanning || !EntManager.HasComponent<MapComponent>(cord.EntityId))
+            {
+                PanToWorld();
+                // we're deanchoring, so simply detach our view to the map
+                _coordinates = _transform.ToCoordinates(_transform.ToMapCoordinates(cord));
+                _relativePanning = false;
+                _wasPanned = true;
+                PanToEnt();
+            }
+            else
+            {
+                ReanchorView();
+            }
+        };
+
+        _radarResetButton = CreateRadarModeButton(RadarModeButtonIcon.Reset);
+        _radarResetButton.ToolTip = Loc.GetString("shuttle-console-button-reset");
+        _radarResetButton.OnPressed += _ =>
+        {
+            _radarModeDefaultsApplied = false;
+            ApplyRadarModeDefaults();
+            if (EntManager.TryGetComponent<TransformComponent>(_consoleEntity, out var xform))
+            {
+                Offset = Vector2.Zero;
+                _coordinates = xform.Coordinates;
+                ReanchorView();
+            }
         };
 
         _radarModeButtons.AddChild(_radarAzimuthButton);
         _radarModeButtons.AddChild(_radarRotationButton);
         _radarModeButtons.AddChild(_radarAnchorButton);
+        _radarModeButtons.AddChild(_radarResetButton);
 
         parent.AddChild(_radarModeButtons);
         LayoutContainer.SetAnchorAndMarginPreset(_radarModeButtons, LayoutContainer.LayoutPreset.BottomLeft, margin: 10);
@@ -249,7 +320,10 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     internal enum RadarModeButtonIcon : byte
     {
         None,
+        Azimuth,
+        Rotation,
         Anchor,
+        Reset
     }
 
     public sealed class RadarModeButton : BaseButton
@@ -279,23 +353,77 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             var radius = MathF.Min(PixelSize.X, PixelSize.Y) * 0.42f;
             handle.DrawCircle(center, radius, Color.White.WithAlpha(alpha));
 
-            if (_icon != RadarModeButtonIcon.Anchor)
-                return;
+            var up = new Vector2(0f, -radius);
+            var down = new Vector2(0f, radius);
+            var leftOffs = new Vector2(-radius, 0f);
+            var rightOffs = new Vector2(radius, 0f);
+            var top = center + up;
+            var bottom = center + down;
+            var left = center + leftOffs;
+            var right = center + rightOffs;
 
-            var iconColor = Color.Black.WithAlpha(0.95f);
-            var top = center + new Vector2(0f, -4f);
-            var stemTop = center + new Vector2(0f, -2f);
-            var bottom = center + new Vector2(0f, 4f);
-            var crossLeft = center + new Vector2(-3.5f, 0.5f);
-            var crossRight = center + new Vector2(3.5f, 0.5f);
-            var leftFluke = center + new Vector2(-3.5f, 1.8f);
-            var rightFluke = center + new Vector2(3.5f, 1.8f);
+            switch (_icon) {
+                case RadarModeButtonIcon.Azimuth:
+                {
+                    var iconColor = Color.Black.WithAlpha(0.95f);
+                    var topLeft = center + (up + leftOffs) / MathF.Sqrt(2f);
+                    var topRight = center + (up + rightOffs) / MathF.Sqrt(2f);
+                    var bottomLeft = center + (down + leftOffs) / MathF.Sqrt(2f);
+                    var bottomRight = center + (down + rightOffs) / MathF.Sqrt(2f);
 
-            handle.DrawCircle(top, 1.5f, iconColor, false);
-            handle.DrawLine(stemTop, bottom, iconColor);
-            handle.DrawLine(crossLeft, crossRight, iconColor);
-            handle.DrawLine(bottom, leftFluke, iconColor);
-            handle.DrawLine(bottom, rightFluke, iconColor);
+                    handle.DrawLine(topLeft, bottomRight, iconColor);
+                    handle.DrawLine(bottomLeft, topRight, iconColor);
+                    handle.DrawLine(left, right, iconColor);
+                    handle.DrawLine(bottom, top, iconColor);
+                    break;
+                }
+                case RadarModeButtonIcon.Rotation:
+                {
+                    var iconColor = Color.Yellow.WithAlpha(0.95f);
+                    var innerRatio = 0.8f;
+                    var segCount = 3;
+                    var prevOffs = up * innerRatio;
+                    for (var i = 0; i < segCount; i++)
+                    {
+                        var angle = Angle.FromDegrees(120f * i / (float)segCount - 15f);
+                        var thisOffs = angle.RotateVec(up * innerRatio);
+                        var thisPointUp = center + thisOffs;
+                        var thisPointDown = center - thisOffs;
+                        var oldPointUp = center + prevOffs;
+                        var oldPointDown = center - prevOffs;
+                        handle.DrawLine(oldPointUp, thisPointUp, iconColor);
+                        handle.DrawLine(oldPointDown, thisPointDown, iconColor);
+                        prevOffs = thisOffs;
+                    }
+                    break;
+                }
+                case RadarModeButtonIcon.Anchor:
+                {
+                    var iconColor = Color.Blue.WithAlpha(0.95f);
+                    var stemTop = center + up * 0.5f;
+                    var crossLeft = center + leftOffs * 0.3f + up * 0.7f;
+                    var crossRight = center + rightOffs * 0.3f + up * 0.7f;;
+                    var leftFluke = center + leftOffs * 0.6f + down * 0.6f;
+                    var rightFluke = center + rightOffs * 0.6f + down * 0.6f;
+                    var innerRadius = radius * 0.4f;
+                    var innerTop = center + up * 0.6f;
+
+                    handle.DrawCircle(innerTop, innerRadius, iconColor, false);
+                    handle.DrawLine(stemTop, bottom, iconColor);
+                    handle.DrawLine(crossLeft, crossRight, iconColor);
+                    handle.DrawLine(bottom, leftFluke, iconColor);
+                    handle.DrawLine(bottom, rightFluke, iconColor);
+                    break;
+                }
+                case RadarModeButtonIcon.Reset:
+                {
+                    var iconColor = Color.Red.WithAlpha(0.95f);
+                    handle.DrawLine(left, right, iconColor);
+                    break;
+                }
+                default:
+                    break;
+            }
         }
     }
 
@@ -318,7 +446,6 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
 
         _wasPanned = true;
-        _panOffset = InverseMapPosition(MidPointVector);
     }
 
     protected override void KeyBindDown(GUIBoundKeyEventArgs args)
@@ -464,7 +591,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             _rotation = Angle.Zero;
 
         var worldRot = _rotation.Value;
-        var mapPos = _transform.ToMapCoordinates(_coordinates.Value).Offset(_rotation.Value.RotateVec(_panOffset));
+        var mapPos = _transform.ToMapCoordinates(_coordinates.Value).Offset(_rotation.Value.RotateVec(Offset));
         var mapCoord = _transform.ToCoordinates(mapPos);
         var worldToShuttle = Matrix3Helpers.CreateTranslation(-mapCoord.Position) * Matrix3Helpers.CreateRotation(-worldRot);
         Matrix3x2.Invert(worldToShuttle, out var shuttleToWorld);
