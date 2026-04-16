@@ -435,10 +435,10 @@
   suffix: AutoRecharge
   components:
   - type: LimitedCharges
-    maxCharges: 90 # 20 -> 90
-    charges: 90 # 20 -> 90
+    maxCharges: 90 # mono 20 -> 90
+    charges: 90 # mono 20 -> 90
   - type: AutoRecharge
-    rechargeDuration: 4
+    rechargeDuration: 10
 
 - type: entity
   id: RCDExperimental
