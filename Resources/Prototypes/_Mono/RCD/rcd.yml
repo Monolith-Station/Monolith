@@ -16,7 +16,7 @@
 - type: rcd
   id: AirlockShuttle
   category: Airlocks
-  sprite: /Textures/Structures/Doors/Airlocks/Standard/shuttle.rsi/closed.png
+  sprite: /Textures/_Mono/Interface/Radial/RCD/airlock_shuttle.png
   mode: ConstructObject
   prototype: AirlockShuttle
   cost: 25
@@ -28,7 +28,7 @@
 - type: rcd
   id: AirlockGlassShuttle
   category: Airlocks
-  sprite: /Textures/Structures/Doors/Airlocks/Glass/shuttle.rsi/closed.png
+  sprite: /Textures/_Mono/Interface/Radial/RCD/airlock_glass_shuttle.png
   mode: ConstructObject
   prototype: AirlockGlassShuttle
   cost: 25
@@ -42,7 +42,7 @@
 - type: rcd
   id: SMES
   category: Electrical
-  sprite: /Textures/Structures/Power/smes.rsi/smes.png
+  sprite: /Textures/_Mono/Interface/Radial/RCD/smes.png
   mode: ConstructObject
   prototype: SMESBasicEmpty
   cost: 12
@@ -54,7 +54,7 @@
 - type: rcd
   id: Substation
   category: Electrical
-  sprite: /Textures/Structures/Power/substation.rsi/substation.png
+  sprite: /Textures/_Mono/Interface/Radial/RCD/substation.png
   mode: ConstructObject
   prototype: SubstationBasicEmpty
   cost: 12
