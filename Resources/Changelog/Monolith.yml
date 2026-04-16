@@ -19878,3 +19878,37 @@ Entries:
   id: 2194
   time: '2026-04-14T21:01:36.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3276
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked sprite layers for balaclavas and neck items, increasing their
+        priority
+  id: 2195
+  time: '2026-04-15T10:36:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3795
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Mechs can no longer be entered if they are destroyed mid-entering.
+  id: 2196
+  time: '2026-04-15T20:16:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3792
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: CPRing now respects the unrevivable trait
+    - type: Fix
+      message: CPR revivals now notify the ghost they've been revived.
+  id: 2197
+  time: '2026-04-15T20:56:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3799
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        TSF and PDV AI no longer require whitelist, instead require appropiate
+        faction playtime.
+  id: 2198
+  time: '2026-04-15T22:26:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3800
