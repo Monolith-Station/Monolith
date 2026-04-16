@@ -1,0 +1,42 @@
+- type: job
+  id: RscSwashbuckler
+  name: job-name-md-swashbuckler
+  description: job-description-md-swashbuckler
+  playTimeTracker: RscSwashbuckler
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15 hrs
+  startingGear: RscSwashbucklerGear
+  alwaysUseSpawner: true
+  icon: "JobIconMedicalDoctor"
+  supervisors: job-supervisors-doc
+  weight: 170
+  displayWeight: 55 # Second from the top
+  assignedCompany: RSC
+  canBeAntag: false
+  accessGroups:
+  - GeneralAccess
+  - Medical
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+        - RedSailCorsairs
+      - type: SurgerySpeedModifier
+        SpeedModifier: 1.75
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: RscSwashbucklerGear
+  equipment:
+    pocket1: HypoMini
+    pocket2: MedicalAppraisalTool
+  storage:
+    back:
+    - RubberStampDoc
+    - BoxFolderMedicalDoctor
