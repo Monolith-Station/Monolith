@@ -23,6 +23,7 @@
   - ContractorSpecialGunSmartSMG
   - ContractorSpecialGunMla34
   - ContractorSpecialGunMla79
+  - ContractorSpecialGunMalandro
 
 # TSF playtime weapons
 
@@ -117,6 +118,17 @@
   price: 32500
   inhand:
   - WeaponCaseBigLeadyRegistered
+
+- type: loadout
+  id: ContractorSpecialGunMalandro
+  name: RS-2 Malandro gun case
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCivVet
+  price: 35000
+  inhand:
+  - WeaponCaseMalandroRegistered
+
 
 # Rogue playtime weapons
 
