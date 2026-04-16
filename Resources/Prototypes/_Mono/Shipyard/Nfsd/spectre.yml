@@ -1,0 +1,42 @@
+#Author: aOkay30 on discoord
+
+- type: vessel
+  id: Spectre
+  parent: BaseVesselAntag
+  name: TSF-ASN Spectre
+  description: A cramped and lightly armored boarding shuttle, armed with two L-1 Phalanxes and a stealth mode to increase survivability.
+  price: 35000
+  category: Small
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/spectre.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Uranium
+  - Solar
+  addComponents:
+    - type: SolarPoweredGrid
+      doNotCull: true
+      trackOnInit: true
+
+- type: gameMap
+  id: Spectre
+  mapName: 'Spectre'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/spectre.yml
+  minPlayers: 0
+  stations:
+    Spectre:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Spectre TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+
