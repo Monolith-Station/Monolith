@@ -5,11 +5,18 @@
   playTimeTracker: JobHeadOfPersonnel
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 72000 # 20 hrs
+      time: 360000 # 100 hrs
     - !type:RoleTimeRequirement
       role: JobSecurityGuard
-      time: 7200 # 2 hrs as security guard - mono
-  whitelisted: true
+      time: 18000 # 5 hrs as security guard - mono
+    # Factions are required here because Overseer needs to actually understand how both factions work.
+    - !type:RoleTimeRequirement
+      role: JobPirate
+      time: 36000 # 10 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hours
+  whitelisted: false
   startingGear: SrGear
   alwaysUseSpawner: true
   assignedCompany: Colonial
