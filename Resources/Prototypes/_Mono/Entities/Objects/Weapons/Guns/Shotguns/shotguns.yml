@@ -230,7 +230,7 @@
     count: 8
     proto: ShellShotgun23x75mmBuckshot
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 2.5
+    rechargeCooldown: 5
     rechargeSound:
       path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
   - type: AmmoCounter
