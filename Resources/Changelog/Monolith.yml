@@ -19925,3 +19925,148 @@ Entries:
   id: 2199
   time: '2026-04-16T12:45:27.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3789
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Yowie randomized last names are no longer are an invalid character and
+        instead just don't exist
+  id: 2200
+  time: '2026-04-16T15:24:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3803
+- author: ziz11
+  changes:
+    - type: Add
+      message: Added mode change buttons to radar interfaces.
+  id: 2201
+  time: '2026-04-16T15:55:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3794
+- author: doublechest
+  changes:
+    - type: Fix
+      message: >-
+        Fixed not being able to move when entering the grid with jetpacks and
+        magboots enabled
+  id: 2202
+  time: '2026-04-16T16:04:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3781
+- author: Illumos
+  changes:
+    - type: Add
+      message: Added yip & whine emote to Vulpkanin, from the fox sounds.
+    - type: Tweak
+      message: Old Vulpkanin whine is now called "whimper".
+  id: 2203
+  time: '2026-04-16T16:16:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3538
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixes the Sentinel's AME locker being unreachable by cyborgs.
+  id: 2204
+  time: '2026-04-16T16:18:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3531
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: RCD have been severely buffed.
+    - type: Tweak
+      message: Super part rating has upped to 4, Advanced part rating has upped to 3.
+    - type: Tweak
+      message: Super parts now require fissile uranium to be produced.
+  id: 2205
+  time: '2026-04-16T16:35:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3804
+- author: DieselMohawkTheSequel
+  changes:
+    - type: Tweak
+      message: Faction Access added to ID consoles
+    - type: Add
+      message: ID box added to Vizier locker
+    - type: Fix
+      message: DoC can no longer steal from the CC bank and vice versa
+  id: 2206
+  time: '2026-04-16T18:27:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3454
+- author: TheRex191
+  changes:
+    - type: Fix
+      message: Fixed portable gaslocks not docking.
+  id: 2207
+  time: '2026-04-16T19:32:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3807
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Overseer no longer requires whitelist to be played.
+  id: 2208
+  time: '2026-04-16T19:44:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3808
+- author: lopsidedmanboobs
+  changes:
+    - type: Add
+      message: >-
+        You cannot borg players during piracy unless they attack you, the
+        pirate. Review rule 3 for changes.
+    - type: Tweak
+      message: >-
+        Companies that are known pirates/antagonistic (Redsail Corsairs as an
+        example) can be Killed on Sight. Review rule 1 for changes. 
+  id: 2209
+  time: '2026-04-17T00:41:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3809
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Significantly upgraded ship AI (autopilot) behavior. Should be less
+        awkward and no longer make easily avoidable mistakes (will still make
+        unavoidable mistakes, though, so don't go going 300 on a Serkesh).
+  id: 2210
+  time: '2026-04-17T14:52:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3811
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: Tweaked wyvern to be boardable!
+  id: 2211
+  time: '2026-04-17T16:56:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3812
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Asakim clothing slowdown resistance lowered from 100% to 20%
+    - type: Tweak
+      message: Asakim suit now has 20% slowdown.
+    - type: Tweak
+      message: >-
+        Lowered Asakim suit stam resist to 60% from 90%, to be in line with the
+        cybersun jugsuit.
+    - type: Tweak
+      message: Asakim suit now requires an Asakim brain to wear.
+    - type: Remove
+      message: >-
+        Brainswapping with Asakim is no longer considered an exploit in the
+        rules.
+    - type: Add
+      message: Clothing whitelist mechanics.
+    - type: Tweak
+      message: >-
+        Some Asakim abilities moved to new Asakim organs. Eyes give NVs, Lungs
+        give bonus damage, Heart can process 5 reagents at once.
+    - type: Tweak
+      message: >-
+        Removes handheld radio and storage implant from Asakim Loadout. Adds
+        Cognizine bottle and empty syringe.
+  id: 2212
+  time: '2026-04-17T17:00:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3798
+- author: OneZerooo0
+  changes:
+    - type: Add
+      message: Added a new guidebook page for the TSFMC.
+    - type: Tweak
+      message: Guidebook got a little bit more organized.
+  id: 2213
+  time: '2026-04-17T20:42:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3814
