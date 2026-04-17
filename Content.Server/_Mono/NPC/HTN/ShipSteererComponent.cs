@@ -52,7 +52,7 @@ public sealed partial class ShipSteererComponent : Component
     /// Try to evade collisions this far into the future even if stationary.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float BaseEvasionTime = 10f;
+    public float BaseEvasionTime = 4f;
 
     /// <summary>
     /// How unwilling we are to use brake to adjust our velocity. Higher means less willing.
