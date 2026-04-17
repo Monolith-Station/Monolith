@@ -1,3 +1,4 @@
+using Content.Server._Mono.Projectiles.TargetSeeking;
 using Content.Server.Physics.Controllers;
 using Content.Server.Shuttles.Components;
 using Content.Shared._Mono;
@@ -19,6 +20,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     [Dependency] private readonly MoverController _mover = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TargetSeekingSystem _seeking = default!;
 
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<ProjectileGridPhaseComponent> _phaseQuery;
@@ -227,11 +229,12 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var avoidanceVec = CalculateAvoidanceVector(ctx, config, brakeCtx, navVec);
 
         // use avoidance vector if available or proceed with thrust as normal
+        var wasNav = navVec;
         var wishInputVec = avoidanceVec ?? navVec;
 
         var rotWish = wishInputVec;
         if (avoidanceVec != null && config.AvoidanceNoRotate)
-            rotWish = CalculateNavigationVector(ctx, brakeCtx);
+            rotWish = wasNav;
 
         // process angular input
         var rotControl = CalculateRotationControl(ctx, config, rotWish, ref rotationCompensation);
@@ -519,21 +522,19 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         if (brake.LeftoverBrakePath > destDistance)
             return -linVelDir;
 
-        // mirror linVelDir in relation to toTargetDir
-        var adjustVec = -(linVelDir - toDestDir * Vector2.Dot(linVelDir, toDestDir));
-        var adjustDir = NormalizedOrZero(adjustVec);
-
-        var wishThrustDir = toDestDir + 2f * adjustVec;
-
-        var wishThrustVec = _mover.GetWorldDirectionAccel(wishThrustDir, ctx.Shuttle, ctx.ShipBody, ctx.ShipXform);
-        var adjustAccel = Vector2.Dot(adjustDir, wishThrustVec);
-
-        var maxAdjust = Vector2.Dot(-adjustDir, relVel);
-
-        adjustVec *= adjustAccel == 0f ? 0f : float.Clamp(maxAdjust / (adjustAccel * ctx.FrameTime), 0f, 1f);
+        var accelEstVec = _mover.GetWorldDirectionAccel(toDestVec, ctx.Shuttle, ctx.ShipBody, ctx.ShipXform);
+        var accelEst = accelEstVec.Length();
+        // fallback to forward accel
+        if (accelEst == 0f)
+        {
+            var forwardAccelVec = _mover.GetDirectionAccel(new Vector2(0f, 1f), ctx.Shuttle, ctx.ShipBody, ctx.ShipXform);
+            accelEst = forwardAccelVec.Length();
+        }
+        // takes target relative to us
+        var wishAngle = _seeking.CalculateAdvancedTracking(toDestVec, -relVel, accelEst);
 
         // do not yet process whether we can actually accelerate well in that direction
-        return toDestDir + 2f * adjustVec;
+        return wishAngle.ToWorldVec();
     }
 
     private readonly record struct RotationResult(float RotationInput, float WishAngleVel);
