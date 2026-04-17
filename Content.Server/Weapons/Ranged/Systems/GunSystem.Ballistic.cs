@@ -7,7 +7,7 @@ namespace Content.Server.Weapons.Ranged.Systems;
 public sealed partial class GunSystem
 {
     /// <summary>
-    /// Adds an ammo entity to a BallisticAmmoProvider 
+    /// Adds an ammo entity to a BallisticAmmoProvider (Mono - entire method)
     /// </summary>
     public void AddBallisticAmmo(EntityUid uid, Entity<BallisticAmmoProviderComponent?> ammoEntity)
     {
