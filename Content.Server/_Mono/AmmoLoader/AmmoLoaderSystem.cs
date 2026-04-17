@@ -26,7 +26,6 @@ public sealed class AmmoLoaderSystem : EntitySystem
     [Dependency] private readonly GunSystem _gun = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    
     public override void Initialize()
     {
         base.Initialize();
