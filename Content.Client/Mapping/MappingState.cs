@@ -1,6 +1,7 @@
 
 /// Reserve - File heavily edited by PR: Mapping editor.
 /// See https://github.com/space-wizards/space-station-14/pull/34302
+/// https://github.com/Monolith-Station/Monolith/pull/3810
 /// and https://github.com/Reserve-Station/Reserve-Station/pull/82 for more details.
 
 using System.Linq;
@@ -172,17 +173,6 @@ public sealed class MappingState : GameplayStateBase
         _mapping.LoadFavorites();
         ReloadPrototypes();
         UpdateLocale();
-    }
-
-    private bool HandleOpenContextMenu(in PointerInputCmdArgs args)
-    {
-        Deselect();
-
-        var coords = args.Coordinates.ToMap(_entityManager, _transform);
-        if (_verbs.TryGetEntityMenuEntities(coords, out var entities))
-            _entityMenuController.OpenRootMenu(entities);
-
-        return true;
     }
 
     protected override void Shutdown()

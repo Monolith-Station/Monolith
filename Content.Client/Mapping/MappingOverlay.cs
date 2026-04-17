@@ -1,12 +1,10 @@
 /// Reserve - File heavily edited by PR: Mapping editor.
 /// See https://github.com/space-wizards/space-station-14/pull/34302
+/// https://github.com/Monolith-Station/Monolith/pull/3810
 /// and https://github.com/Reserve-Station/Reserve-Station/pull/82 for more details.
 
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
-using Robust.Client.Input;
-using Robust.Client.Player;
-using Robust.Client.UserInterface;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using static Content.Client.Mapping.MappingState;
@@ -15,12 +13,10 @@ namespace Content.Client.Mapping;
 
 public sealed class MappingOverlay : Overlay
 {
+    private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
+
     [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
-
-    // 1 off in case something else uses these colors since we use them to compare
-    private static readonly Color PickColor = new(1, 255, 0);
-    private static readonly Color DeleteColor = new(255, 1, 0);
     private readonly SpriteSystem _sprite;
 
     private readonly Dictionary<EntityUid, Color> _oldColors = new();
@@ -34,8 +30,10 @@ public sealed class MappingOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
 
+        _sprite = _entities.System<SpriteSystem>();
+
         _state = state;
-        _shader = _prototypes.Index<ShaderPrototype>("unshaded").Instance();
+        _shader = _prototypes.Index(UnshadedShader).Instance();
     }
 
     protected override void Draw(in OverlayDrawArgs args)

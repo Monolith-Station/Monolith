@@ -1,17 +1,6 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 poemota <142114334+poeMota@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-
 /// Reserve - File heavily edited by PR: Mapping editor.
 /// See https://github.com/space-wizards/space-station-14/pull/34302
+/// https://github.com/Monolith-Station/Monolith/pull/3810
 /// and https://github.com/Reserve-Station/Reserve-Station/pull/82 for more details.
 
 using Lidgren.Network;
