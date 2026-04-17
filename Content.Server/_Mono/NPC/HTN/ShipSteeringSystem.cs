@@ -379,58 +379,82 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             var relVel = shipVel - obsVel;
             var toObsVec = obsPos - shipPos;
             var toObsDir = toObsVec.Normalized();
-            // TODO: narrowphase avoidance if we overlap
-            var obsDistance = MathF.Max(toObsVec.Length() - sumRadius, 1f);
 
-            var obsAccel = Vector2.Zero;
-            if (_shuttleQuery.TryComp(obstacle.Ent, out var obsShuttle))
-                obsAccel = obsShuttle.LastThrust;
+            // Distances to bounding planes
+            var obsDistanceFront = MathF.Max(toObsVec.Length() - sumRadius, 1f);
+            var obsDistanceCenter = toObsVec.Length();
 
-            // get time-to-collide with the accel of each sector
-            //
-            // r = obsDistance
-            // d = sumRadius
-            // p = vt + at^2 / 2
-            // solve for: dot(p, toObsDir) = r
-            // condition for no hit: abs(dot(p, toObsVec.rotate(90))) > d
-            // p = (x, y)
-            // toObsDir = (u, v)
-            // ux + vy = r
-            // x = v_x*t + a_x * t^2 / 2
-            // y = v_y*t + a_y * t^2 / 2
-            // u(v_x*t + 0.5*a_x*t^2) + v(v_y*t + 0.5*a_y*t^2) = r
-            // t^2 * (0.5*(u*a_x + v*a_y)) + t * (u*v_x + v*v_y) - r = 0
-            // k = 0.5 * u*a_x + v*a_y = 0.5 * dot(toObsDir, a)
-            // l = u*v_x + v*v_y = dot(toObsDir, vel)
-            // m = -r
-            // t = (-l + sqrt(l^2 - 4km)) / (2k)
-            // if 4km > l^2, no hit
-            // if t<0, no hit
-            //
-            // https://www.desmos.com/calculator/foyraxlzs7 graphed version
             var l = Vector2.Dot(toObsDir, relVel);
             for (var i = 0; i < _sectors.Count; i++)
             {
                 var sector = _sectors[i];
 
-                var accel = sector.Accel - obsAccel; // account for relative accel
+                var accel = sector.Accel;
                 var k = 0.5f * Vector2.Dot(toObsDir, accel);
-                var m = -obsDistance;
-                float t;
-                if (k*k < l*l / 1024f)
-                    t = l != 0f ? -m / l : -1f;
+
+                // 1. Solve crossing the Front Tangent Plane (Entering the obstacle bounds)
+                float t_f;
+                if (k * k < l * l / 1024f)
+                    t_f = l != 0f ? obsDistanceFront / l : -1f;
                 else
-                    t = 4*k*m > l*l || k == 0f ? -1f : ((-l + MathF.Sqrt(l*l - 4*k*m)) * 0.5f / k);
-                if (t < 0f || t > simTime)
+                {
+                    var desc_f = l * l + 4f * k * obsDistanceFront;
+                    t_f = desc_f < 0f || k == 0f ? -1f : ((-l + MathF.Sqrt(desc_f)) * 0.5f / k);
+                }
+
+                if (t_f < 0f || t_f > simTime)
                     continue;
 
-                t = MathF.Max(0f, t - ctx.FrameTime);
+                // 2. Resolve longitudinal exit/stop trajectory
+                Vector2 p_end;
+                if (k * k < l * l / 1024f)
+                {
+                    float t_c = l != 0f ? obsDistanceCenter / l : -1f;
+                    if (t_c < 0f) t_c = t_f; // Failsafe bounds
+                    p_end = relVel * t_c + 0.5f * accel * t_c * t_c;
+                }
+                else
+                {
+                    var desc_c = l * l + 4f * k * obsDistanceCenter;
+                    if (desc_c < 0f)
+                    {
+                        // The ship stops longitudinally inside the front half of the obstacle
+                        var t_stop = -l / (2f * k);
+                        p_end = relVel * t_stop + 0.5f * accel * t_stop * t_stop;
+                    }
+                    else
+                    {
+                        var t_c = ((-l + MathF.Sqrt(desc_c)) * 0.5f / k);
+                        if (t_c < 0f) t_c = t_f; // Failsafe bounds
+                        p_end = relVel * t_c + 0.5f * accel * t_c * t_c;
+                    }
+                }
 
-                var endAt = relVel*t + 0.5f*accel*t*t;
-                var proj = MathF.Abs(Vector2.Dot(endAt, new Vector2(-toObsDir.Y, toObsDir.X)));
-                // Log.Info($"Avoid dir {aDir} time {t}, proj {proj} (k l m {k} {l} {m}) accel {accel}");
-                if (proj > sumRadius)
+                // 3. Line-segment to Circle-Center intersection.
+                // Represents exact path traveled while navigating across the physical dimension of the obstacle.
+                var p_start = relVel * t_f + 0.5f * accel * t_f * t_f;
+                var seg = p_end - p_start;
+                var l2 = seg.LengthSquared();
+                var hits = false;
+
+                if (l2 == 0f)
+                {
+                    if ((p_start - toObsVec).LengthSquared() <= sumRadius * sumRadius)
+                        hits = true;
+                }
+                else
+                {
+                    // Find closest point on the segment to the obstacle's actual center point
+                    var t_seg = Math.Clamp(Vector2.Dot(toObsVec - p_start, seg) / l2, 0f, 1f);
+                    var proj = p_start + seg * t_seg;
+                    if ((proj - toObsVec).LengthSquared() <= sumRadius * sumRadius)
+                        hits = true;
+                }
+
+                if (!hits)
                     continue;
+
+                var t = MathF.Max(0f, t_f - ctx.FrameTime);
 
                 var ctime = sector.ImpactTime;
                 if ((ctime == null || ctime > t) && (!sector.Priority || obstacle.IsGrid))
@@ -451,7 +475,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             var sector = _sectors[i];
             if (sector.ImpactTime == null)
             {
-                var toWishSq = (wishDir - NormalizedOrZero(sector.Accel)).LengthSquared();
+                var toWishSq = (wishDir - NormalizedOrZero(sector.Accel) * sector.Scale).LengthSquared();
                 if (toWishSq < closestDistance)
                 {
                     closestDistance = toWishSq;
