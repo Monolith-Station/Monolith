@@ -13282,8 +13282,6 @@ entities:
       pos: 11.5,-20.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6
   - uid: 1701
@@ -13293,8 +13291,6 @@ entities:
       pos: 12.5,-20.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6
   - uid: 1702
@@ -13448,8 +13444,6 @@ entities:
       pos: 8.5,-20.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6
   - uid: 1921
@@ -13459,8 +13453,6 @@ entities:
       pos: 10.5,-20.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6
   - uid: 1922
@@ -13470,8 +13462,6 @@ entities:
       pos: 9.5,-20.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6
 - proto: FlippoLighter
