@@ -20070,3 +20070,29 @@ Entries:
   id: 2213
   time: '2026-04-17T20:42:34.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3814
+- author: burrrkeye
+  changes:
+    - type: Fix
+      message: Asakim now spawn with filled oxygen tank.
+  id: 2214
+  time: '2026-04-18T14:17:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3818
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Nerfed damage output of Annies/WSPR.
+    - type: Tweak
+      message: Sultan's Pulsar is now actually pump-action.
+    - type: Tweak
+      message: Nerfed PDV CV- armors slightly.
+    - type: Tweak
+      message: Reduced M92-x shield movespeed debuff.
+    - type: Tweak
+      message: DEW-Smilodon properly calibrates aim while firing.
+    - type: Tweak
+      message: 400thz boxes have doubled capacity but reduced damage.
+    - type: Tweak
+      message: Most heavy rifles now need wielding to fire.
+  id: 2215
+  time: '2026-04-18T14:20:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3815

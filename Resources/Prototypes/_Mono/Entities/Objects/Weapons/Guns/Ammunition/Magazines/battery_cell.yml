@@ -96,7 +96,7 @@
     startingCharge: 10000
   - type: HitscanBatteryAmmoProvider
     proto: Hitscan400Thz
-    fireCost: 100
+    fireCost: 50
   - type: Tag
     tags:
     - LargeMilitaryPowerCell
