@@ -57,12 +57,6 @@ public sealed partial class ShipFireGunsOperator : HTNOperator, IHtnConditionalS
     [DataField]
     public bool RequirePowered = true;
 
-    /// <summary>
-    /// Stop targeting if beyond this range.
-    /// </summary>
-    [DataField]
-    public float MaxTargetingRange = 2000f;
-
     private const string TargetingCancelToken = "ShipTargetingCancelToken";
 
     public override void Initialize(IEntitySystemManager sysManager)
@@ -122,7 +116,7 @@ public sealed partial class ShipFireGunsOperator : HTNOperator, IHtnConditionalS
         if (comp == null)
             return HTNOperatorStatus.Finished;
 
-        if (target.EntityId == EntityUid.Invalid || !xform.Coordinates.TryDistance(_entManager, target, out var distance) || distance > MaxTargetingRange)
+        if (target.EntityId == EntityUid.Invalid)
             return HTNOperatorStatus.Finished;
 
         if (ShutdownState == HTNPlanState.PlanFinished)

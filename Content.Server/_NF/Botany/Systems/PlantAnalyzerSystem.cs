@@ -1,37 +1,47 @@
 using Content.Server.Botany.Components;
-using Content.Server.PowerCell;
+using Content.Shared._NF.PlantAnalyzer;
+using Content.Shared.Atmos;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Content.Shared._NF.PlantAnalyzer;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Item.ItemToggle;
+using Content.Shared.Item.ItemToggle.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using System.Linq;
-using System.Text;
-using Content.Shared.Atmos;
 
 namespace Content.Server.Botany.Systems;
 
 public sealed class PlantAnalyzerSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly PowerCellSystem _cell = default!;
+    [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly TransformSystem _transformSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<PlantAnalyzerComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<PlantAnalyzerComponent, PlantAnalyzerDoAfterEvent>(OnDoAfter);
-        SubscribeLocalEvent<PlantAnalyzerComponent, PlantAnalyzerSetMode>(OnModeSelected);
+        SubscribeLocalEvent<PlantAnalyzerComponent, EntGotInsertedIntoContainerMessage>(OnInsertedIntoContainer);
+        SubscribeLocalEvent<PlantAnalyzerComponent, ItemToggledEvent>(OnToggled);
+        SubscribeLocalEvent<PlantAnalyzerComponent, DroppedEvent>(OnDropped);
+        Subs.BuiEvents<PlantAnalyzerComponent>(PlantAnalyzerUiKey.Key, subs => { subs.Event<BoundUIClosedEvent>(OnPlantAnalyzerUiClosed); });
     }
+
+    private TimeSpan _nextUpdate = TimeSpan.Zero;
+    private TimeSpan _updateInterval = TimeSpan.FromSeconds(1);
 
     private void OnAfterInteract(Entity<PlantAnalyzerComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Target == null || !args.CanReach || !_cell.HasActivatableCharge(ent, user: args.User))
+        if (args.Target == null || !args.CanReach)
             return;
 
         if (ent.Comp.DoAfter != null)
@@ -39,51 +49,65 @@ public sealed class PlantAnalyzerSystem : EntitySystem
 
         if (HasComp<SeedComponent>(args.Target) || TryComp<PlantHolderComponent>(args.Target, out var plantHolder) && plantHolder.Seed != null)
         {
+            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, ent.Comp.Settings.ScanDelay,
+                new PlantAnalyzerDoAfterEvent(), ent, target: args.Target, used: ent)
+            {
+                NeedHand = true,
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                MovementThreshold = 0.01f
+            };
 
-            if (ent.Comp.Settings.AdvancedScan)
-            {
-                var doAfterArgs = new DoAfterArgs(EntityManager, args.User, ent.Comp.Settings.AdvScanDelay, new PlantAnalyzerDoAfterEvent(), ent, target: args.Target, used: ent)
-                {
-                    NeedHand = true,
-                    BreakOnDamage = true,
-                    BreakOnMove = true,
-                    MovementThreshold = 0.01f
-                };
-                _doAfterSystem.TryStartDoAfter(doAfterArgs, out ent.Comp.DoAfter);
-            }
-            else
-            {
-                var doAfterArgs = new DoAfterArgs(EntityManager, args.User, ent.Comp.Settings.ScanDelay, new PlantAnalyzerDoAfterEvent(), ent, target: args.Target, used: ent)
-                {
-                    NeedHand = true,
-                    BreakOnDamage = true,
-                    BreakOnMove = true,
-                    MovementThreshold = 0.01f
-                };
-                _doAfterSystem.TryStartDoAfter(doAfterArgs, out ent.Comp.DoAfter);
-            }
+            _doAfterSystem.TryStartDoAfter(doAfterArgs, out ent.Comp.DoAfter);
+
         }
     }
 
     private void OnDoAfter(Entity<PlantAnalyzerComponent> ent, ref PlantAnalyzerDoAfterEvent args)
     {
         ent.Comp.DoAfter = null;
-        // Double charge use for advanced scan.
-        if (ent.Comp.Settings.AdvancedScan)
-        {
-            if (!_cell.TryUseActivatableCharge(ent, user: args.User))
-                return;
-        }
-        if (args.Handled || args.Cancelled || args.Args.Target == null || !_cell.TryUseActivatableCharge(ent.Owner, user: args.User))
+
+        if (args.Handled || args.Cancelled || args.Args.Target == null)
             return;
 
         _audio.PlayPvs(ent.Comp.ScanningEndSound, ent);
 
+        ent.Comp.ScannedEntity = args.Args.Target.Value;
+        _nextUpdate = TimeSpan.Zero;
+
+        _toggle.TryActivate(ent.Owner);
         OpenUserInterface(args.User, ent);
-        UpdateScannedUser(ent, args.Args.Target.Value);
 
         args.Handled = true;
     }
+
+    private void OnPlantAnalyzerUiClosed(EntityUid uid, PlantAnalyzerComponent comp, BoundUIClosedEvent args)
+    {
+        if (!args.UiKey.Equals(PlantAnalyzerUiKey.Key))
+            return;
+
+        if (!_uiSystem.IsUiOpen(uid, PlantAnalyzerUiKey.Key))
+            _toggle.TryDeactivate(uid);
+    }
+
+    private void OnInsertedIntoContainer(Entity<PlantAnalyzerComponent> uid, ref EntGotInsertedIntoContainerMessage args)
+    {
+        if (uid.Comp.ScannedEntity is { } target)
+            _toggle.TryDeactivate(uid.Owner);
+    }
+
+    private void OnDropped(Entity<PlantAnalyzerComponent> uid, ref DroppedEvent args)
+    {
+        if (uid.Comp.ScannedEntity is { } target)
+            _toggle.TryDeactivate(uid.Owner);
+    }
+
+    private void OnToggled(Entity<PlantAnalyzerComponent> uid, ref ItemToggledEvent args)
+    {
+        if (!args.Activated && uid.Comp.ScannedEntity is { } target)
+            StopAnalyzingEntity(uid, target);
+    }
+
 
     private void OpenUserInterface(EntityUid user, EntityUid analyzer)
     {
@@ -92,6 +116,40 @@ public sealed class PlantAnalyzerSystem : EntitySystem
 
         _uiSystem.OpenUi(analyzer, PlantAnalyzerUiKey.Key, actor.PlayerSession);
     }
+    private void StopAnalyzingEntity(Entity<PlantAnalyzerComponent> ent, EntityUid target)
+    {
+        ent.Comp.ScannedEntity = null;
+        _uiSystem.CloseUi(ent.Owner, PlantAnalyzerUiKey.Key);
+        _toggle.TryDeactivate(ent.Owner);
+    }
+
+    public override void Update(float frameTime)
+    {
+
+        if (_nextUpdate < _updateInterval)
+        {
+            _nextUpdate += TimeSpan.FromSeconds(frameTime);
+            return;
+        }
+
+        var query = EntityQueryEnumerator<PlantAnalyzerComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var analyzer))
+        {
+            if (comp.ScannedEntity is not { } target)
+                continue;
+
+            if (!HasComp<SeedComponent>(target) && !HasComp<PlantHolderComponent>(target) ||
+                !_transformSystem.InRange(Transform(target).Coordinates, analyzer.Coordinates, comp.MaxScanRange))
+            {
+                StopAnalyzingEntity((uid, comp), target);
+                continue;
+            }
+
+            UpdateScannedUser((uid, comp), target);
+        }
+        _nextUpdate -= _updateInterval;
+    }
+
 
     public void UpdateScannedUser(Entity<PlantAnalyzerComponent> ent, EntityUid target)
     {
@@ -102,12 +160,12 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         {
             if (seedComp.Seed != null)
             {
-                var state = ObtainingGeneDataSeed(seedComp.Seed, target, false, ent.Comp.Settings.AdvancedScan);
+                var state = ObtainingGeneDataSeed(seedComp.Seed, target, false);
                 _uiSystem.ServerSendUiMessage(ent.Owner, PlantAnalyzerUiKey.Key, state);
             }
             else if (seedComp.SeedId != null && _prototypeManager.TryIndex(seedComp.SeedId, out SeedPrototype? protoSeed))
             {
-                var state = ObtainingGeneDataSeed(protoSeed, target, false, ent.Comp.Settings.AdvancedScan);
+                var state = ObtainingGeneDataSeed(protoSeed, target, false);
                 _uiSystem.ServerSendUiMessage(ent.Owner, PlantAnalyzerUiKey.Key, state);
             }
         }
@@ -115,7 +173,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         {
             if (plantComp.Seed != null)
             {
-                var state = ObtainingGeneDataSeed(plantComp.Seed, target, true, ent.Comp.Settings.AdvancedScan);
+                var state = ObtainingGeneDataSeed(plantComp.Seed, target, true);
                 _uiSystem.ServerSendUiMessage(ent.Owner, PlantAnalyzerUiKey.Key, state);
             }
         }
@@ -124,7 +182,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
     /// <summary>
     ///     Analysis of seed from prototype.
     /// </summary>
-    public PlantAnalyzerScannedSeedPlantInformation ObtainingGeneDataSeed(SeedData seedData, EntityUid target, bool isTray, bool scanIsAdvanced)
+    public PlantAnalyzerScannedSeedPlantInformation ObtainingGeneDataSeed(SeedData seedData, EntityUid target, bool isTray)
     {
         // Get trickier fields first.
         AnalyzerHarvestType harvestType = AnalyzerHarvestType.Unknown;
@@ -169,29 +227,21 @@ public sealed class PlantAnalyzerSystem : EntitySystem
             Production = seedData.Production,
             GrowthStages = seedData.GrowthStages,
             SeedPotency = seedData.Potency,
-            Speciation = mutationStrings.ToArray()
+            Speciation = mutationStrings.ToArray(),
+            NutrientConsumption = seedData.NutrientConsumption,
+            WaterConsumption = seedData.WaterConsumption,
+            IdealHeat = seedData.IdealHeat,
+            HeatTolerance = seedData.HeatTolerance,
+            IdealLight = seedData.IdealLight,
+            LightTolerance = seedData.LightTolerance,
+            ToxinsTolerance = seedData.ToxinsTolerance,
+            LowPressureTolerance = seedData.LowPressureTolerance,
+            HighPressureTolerance = seedData.HighPressureTolerance,
+            PestTolerance = seedData.PestTolerance,
+            WeedTolerance = seedData.WeedTolerance,
+            Mutations = GetMutationFlags(seedData)
         };
 
-        if (scanIsAdvanced)
-        {
-            AdvancedScanInfo advancedInfo = new()
-            {
-                NutrientConsumption = seedData.NutrientConsumption,
-                WaterConsumption = seedData.WaterConsumption,
-                IdealHeat = seedData.IdealHeat,
-                HeatTolerance = seedData.HeatTolerance,
-                IdealLight = seedData.IdealLight,
-                LightTolerance = seedData.LightTolerance,
-                ToxinsTolerance = seedData.ToxinsTolerance,
-                LowPressureTolerance = seedData.LowPressureTolerance,
-                HighPressureTolerance = seedData.HighPressureTolerance,
-                PestTolerance = seedData.PestTolerance,
-                WeedTolerance = seedData.WeedTolerance,
-                Mutations = GetMutationFlags(seedData)
-            };
-
-            ret.AdvancedInfo = advancedInfo;
-        }
         return ret;
     }
 
@@ -202,6 +252,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         if (plant.Seedless || plant.PermanentlySeedless) ret |= MutationFlags.Seedless;
         if (plant.Ligneous) ret |= MutationFlags.Ligneous;
         if (plant.CanScream) ret |= MutationFlags.CanScream;
+        if (!plant.Viable) ret |= MutationFlags.Unviable;
 
         return ret;
     }
@@ -245,15 +296,4 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         return gasFlags;
     }
 
-    private void OnModeSelected(Entity<PlantAnalyzerComponent> ent, ref PlantAnalyzerSetMode args)
-    {
-        SetMode(ent, args.AdvancedScan);
-    }
-
-    public void SetMode(Entity<PlantAnalyzerComponent> ent, bool isAdvMode)
-    {
-        if (ent.Comp.DoAfter != null)
-            return;
-        ent.Comp.Settings.AdvancedScan = isAdvMode;
-    }
 }

@@ -1,6 +1,7 @@
 using Content.Shared._Mono.Claws;
 using Content.Shared._Mono.Claws.ClawTypes;
 using Content.Shared._Mono.Claws.Components;
+using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Random;
 
@@ -36,10 +37,18 @@ public sealed class ClawsSystem : SharedClawsSystem
             if (TryGetStage<Declawed>(comp, out var declawed))
                 UpdateDeclaw(uid, declawed, comp, _updateCooldown);
 
+            if (HasComp<ClawsGrowthSuppressionComponent>(uid))
+            {
+                comp.AccumulatedBonusGrowth = TimeSpan.Zero;
+                continue;
+            }
+
             if (!_protoMan.TryIndex(comp.ClawStage, out var claw) || !claw.CanGrow)
                 continue;
 
-            comp.GrowTimer += TimeSpan.FromSeconds(_updateCooldown);
+            comp.GrowTimer += TimeSpan.FromSeconds(_updateCooldown) + comp.AccumulatedBonusGrowth;
+
+            comp.AccumulatedBonusGrowth = TimeSpan.Zero;
 
             if (comp.GrowTimer < claw.GrowCooldown)
             {
@@ -50,6 +59,9 @@ public sealed class ClawsSystem : SharedClawsSystem
 
             comp.GrowTimer = TimeSpan.Zero;
             comp.ClawStage = comp.Claws.GetValueOrDefault(TryGetStageNumber(comp) + 1);
+
+            if (comp.ClawGrowthNotification != null)
+                _popup.PopupEntity(Loc.GetString(comp.ClawGrowthNotification), uid, uid, PopupType.Large);
 
             UpdateClaws(uid, comp);
             Dirty(uid, comp);

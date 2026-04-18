@@ -41,8 +41,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 4
-        Heat: 27
+        Piercing: 20
+        Heat: 10
 
 - type: entity
   id: Bullet762x51mmUranium
@@ -98,3 +98,17 @@
         Piercing: 13
         Structural: 40
     armorPenetration: 0.8
+
+#anti-structure (heavy balistic turrets):
+- type: entity
+  id: Bullet762x51mmAntiMaterial
+  parent: BaseBullet
+  name: bullet (7.62x51mm Anti-Material)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+        Structural: 40
+    armorPenetration: 0.3

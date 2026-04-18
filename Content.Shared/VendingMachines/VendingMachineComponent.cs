@@ -247,6 +247,12 @@ namespace Content.Shared.VendingMachines
         [DataField]
         public double? LastPurchasePrice;
         // End Frontier: taxes, cash slot
+
+        /// <summary>
+        /// Mono: Makes all positions in vending machines free if set false
+        /// </summary>
+        [DataField]
+        public bool RequiresCash = false;
     }
 
     [Serializable, NetSerializable]

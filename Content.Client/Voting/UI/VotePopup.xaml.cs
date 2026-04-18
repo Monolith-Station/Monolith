@@ -64,7 +64,11 @@ namespace Content.Client.Voting.UI
                 var entry = _vote.Entries[i];
                 if (_vote.DisplayVotes)
                 {
-                    _voteButtons[i].Text = Loc.GetString("ui-vote-button", ("text", entry.Text), ("votes", entry.Votes));
+                    // Mono
+                    if (entry.RealVotes != entry.Votes)
+                        _voteButtons[i].Text = Loc.GetString("ui-vote-button-weighted", ("text", entry.Text), ("votes", entry.Votes), ("realvotes", entry.RealVotes));
+                    else
+                        _voteButtons[i].Text = Loc.GetString("ui-vote-button", ("text", entry.Text), ("votes", entry.Votes));
                 }
                 else
                 {

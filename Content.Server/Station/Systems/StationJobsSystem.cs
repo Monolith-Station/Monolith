@@ -257,7 +257,7 @@ public sealed partial class StationJobsSystem : EntitySystem
 
         // Enforce the MaxJobSlots limit
         var clampedAmount = Math.Min(amount, MaxJobSlots);
-        
+
         var jobList = stationJobs.JobList;
 
         switch (jobList.ContainsKey(jobPrototypeId))
@@ -537,7 +537,7 @@ public sealed partial class StationJobsSystem : EntitySystem
                     stationDisplay = new StationDisplayInformation(
                         stationSubtext: extraStationInformation.StationSubtext,
                         stationDescription: extraStationInformation.StationDescription,
-                        stationIcon: extraStationInformation.IconPath,
+                        stationIcon: extraStationInformation.Icon,
                         lobbySortOrder: extraStationInformation.LobbySortOrder
                     );
                 }

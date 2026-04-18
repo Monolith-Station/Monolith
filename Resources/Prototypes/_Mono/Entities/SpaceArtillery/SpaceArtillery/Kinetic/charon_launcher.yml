@@ -1,5 +1,6 @@
 - type: entity
   id: WeaponTurretCharonBase
+  parent: BallisticArtilleryTier4HP
   name: M381 CHARON mass driver
   abstract: true
   components:
@@ -20,7 +21,7 @@
     recoil: 2500 # 100x
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 1450
+    projectileSpeed: 790 # projectiles cannot go faster than this
     shootThermalSignature: 18000000 # ~8.5km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg
@@ -42,17 +43,6 @@
         - MachineMask
         layer:
         - MachineLayer
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 35000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: RadarBlip
     radarColor: "#CF0E0E"
     scale: 3

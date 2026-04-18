@@ -16,4 +16,10 @@ public sealed partial class PilotedShuttleComponent : Component
     /// </summary>
     [DataField]
     public HashSet<EntityUid> InputSources = new();
+
+    /// <summary>
+    ///     Amount of sources currently actively providing input.
+    /// </summary>
+    [DataField]
+    public int ActiveSources = 0;
 }

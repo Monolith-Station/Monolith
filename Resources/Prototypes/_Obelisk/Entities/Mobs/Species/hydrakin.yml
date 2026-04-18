@@ -59,22 +59,14 @@
   - type: HumanoidAppearance
     species: Hydrakin
   - type: ThermalRegulator #Todo, implement hydrakin thermal movement generation
-    metabolismHeat: 800
+    metabolismHeat: 1600
     radiatedHeat: 100
     implicitHeatRegulation: 250
-    sweatHeatRegulation: 350
-    shiveringHeatRegulation: 800
+    sweatHeatRegulation: 400
+    shiveringHeatRegulation: 3000
     normalBodyTemperature: 210.15
-    thermalRegulationTemperatureThreshold: 2
-  - type: PassiveHeatGeneration
-    watts: 5500
-    mobStateModifier:
-      Alive: 1
-      Critical: 0.75
-      Dead: 0
-    minimumTemperature: 293.15 # At this point they will have a "thermal runoff" of sorts and get really hot really fast.
-    maximumTemperature: 340
-    ignoreHeatResistance: true
+    thermalRegulationTemperatureThreshold: 30
+    processWhileCrit: false
   - type: PressureProtection
     lowPressureMultiplier: 1.2
   - type: LanguageKnowledge
