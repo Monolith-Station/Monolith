@@ -4,8 +4,7 @@
   id: Vulture
   parent: BaseVessel
   name: UI Vulture
-  description: A heavy material reclaiming ship manufacted by Ullman industries originally for deep-space mining and planet cracking, but has been up-gunned and sold to the Phaethon Dynasty a while ago. Nowadays it has found a new place within the heavy miner market of the Colossus sector, becoming the pinnacle of UI shipworks accessible to anyone with sufficently large pockets. Equiped with a full array or PTKs and 3 mining lasers, accompanied by a single 255mm Bofors cannon.
-  limit: 2
+  description: A heavy material reclaiming ship manufacted by Ullman industries originally for deep-space mining and planet cracking, but has been up-gunned and sold to the Phaethon Dynasty a while ago. Nowadays it has found a new place within the heavy miner market of the Colossus sector after an extensive retrofit. The Pinnacle of UI shipworks, available now! Equiped with a full array of mining pulsers and 3 mining lasers, some point defense, accompanied by a single 255mm Bofors cannon.
   price: 312000
   category: Large
   group: Shipyard
@@ -36,5 +35,5 @@
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            Pirate: [ 0, 0 ]
-            PdvBorg: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
+            Contractor: [ 0, 0 ]
