@@ -320,7 +320,10 @@ public sealed class MoverController : SharedMoverController
         {
             var velLenSq = localVel.LengthSquared();
             var dirCompVel = localVel * dot / velLenSq;
-            var scaledComp = dirCompVel / MathF.Pow(2f, localVel.Length() / shuttle.BaseMaxLinearVelocity + 1f);
+            var velRatio = localVel.Length() / shuttle.BaseMaxLinearVelocity;
+            // less effect at lower velocities
+            var exponent = velRatio * MathF.Pow(velRatio / (1f + velRatio), 3f);
+            var scaledComp = dirCompVel / MathF.Pow(2f, exponent);
             dir = dir - dirCompVel + scaledComp;
         }
 

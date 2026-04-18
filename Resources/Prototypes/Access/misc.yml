@@ -76,4 +76,21 @@
   - Hydroponics
   - Atmospherics
 
+- type: accessGroup
+  id: AllAccessMono
+  tags:
+  #- EmergencyShuttleRepealAll
+  - Captain
+  - Command
+  - Security
+  - Brig
+  - Mail
+  - Medical
+  - Mercenary
+  - Service
+  - StationTrafficController
+  - Maintenance
+  - External
+  - Janitor
+  - Chemistry
 # Mono end

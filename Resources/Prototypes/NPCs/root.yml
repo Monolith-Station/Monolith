@@ -8,18 +8,11 @@
         - !type:HTNPrimitiveTask
           operator: !type:UtilityOperator
             proto: NearbyGunTargets
-        
+
         - !type:HTNPrimitiveTask
           preconditions:
             - !type:KeyExistsPrecondition
               key: Target
-            - !type:TargetInRangePrecondition
-              targetKey: Target
-              # TODO: Non-scuffed
-              rangeKey: RangedRange
-            - !type:TargetInLOSPrecondition
-              targetKey: Target
-              rangeKey: RangedRange
           operator: !type:GunOperator
             targetKey: Target
             requireLOS: true

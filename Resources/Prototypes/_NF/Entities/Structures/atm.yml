@@ -260,8 +260,6 @@
     containers:
       board: !type:Container
       station-bank-ATM-cashSlot: !type:ContainerSlot
-  - type: AccessReader
-    access: [["HeadOfPersonnel"], ["HeadOfSecurity"]]
 
 - type: entity
   parent: BaseStationAdminBankATM
@@ -273,6 +271,8 @@
     account: Frontier
   - type: CompanyAccessReader
     requiredCompany: Colonial
+  - type: AccessReader
+    access: [["HeadOfPersonnel"]]
 
 - type: entity
   parent: BaseStationAdminBankATM
@@ -284,6 +284,8 @@
     account: Nfsd
   - type: CompanyAccessReader
     requiredCompany: TSF
+  - type: AccessReader
+    access: [["HeadOfSecurity"]]
 
 - type: entity
   parent: BaseStationAdminBankATM
@@ -295,6 +297,8 @@
     account: Medical
   - type: CompanyAccessReader
     requiredCompany: MD
+  - type: AccessReader
+    access: [["ChiefMedicalOfficer"]]
 
 - type: entity
   parent: BaseStationAdminBankATM
