@@ -384,6 +384,10 @@ public abstract class SharedMechSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
+        // Mono: Ensures mechs can't be entered if broken
+        if (component.Broken)
+            return false;
+
         return IsEmpty(component) && _actionBlocker.CanMove(toInsert);
     }
 
@@ -589,7 +593,7 @@ public abstract class SharedMechSystem : EntitySystem
     {
         args.Handled = true;
 
-        args.CanDrop |= !component.Broken && CanInsert(uid, args.Dragged, component);
+        args.CanDrop |= CanInsert(uid, args.Dragged, component); // Mono: moved mech broken check to CanInsert
     }
     //private void OnEmagged(EntityUid uid, MechComponent component, ref GotEmaggedEvent args) // Goobstation
     //{
