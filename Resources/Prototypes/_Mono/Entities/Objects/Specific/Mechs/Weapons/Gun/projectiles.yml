@@ -95,8 +95,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 45
-        Structural: 225
+        Piercing: 35
+        Structural: 80
   - type: ShipWeaponProjectile
   - type: TimedDespawn
     lifetime: 3
@@ -117,16 +117,16 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 60
-        Blunt: 50
-        Structural: 250
+        Piercing: 30
+        Blunt: 20
+        Structural: 75
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 15
-    intensitySlope: 20
-    totalIntensity: 15
-    maxTileBreak: 1
+    totalIntensity: 30
+    intensitySlope: 2
+    maxIntensity: 4
+    maxTileBreak: 2
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
     layers:
@@ -300,7 +300,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 70
+        Piercing: 30
+        Structural: 60
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
     layers:
@@ -308,8 +309,8 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 12
-    intensitySlope: 4
+    totalIntensity: 27
+    intensitySlope: 3
     maxIntensity: 3
     maxTileBreak: 1
 
@@ -322,9 +323,9 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 25
-        Structural: 400
-        Heat: 50
+        Radiation: 10
+        Structural: 600
+        Heat: 40
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
     layers:
@@ -343,7 +344,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 25
-    intensitySlope: 12
-    maxIntensity: 15
+    totalIntensity: 40
+    intensitySlope: 4
+    maxIntensity: 6
     maxTileBreak: 1
