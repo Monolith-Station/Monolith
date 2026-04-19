@@ -238,6 +238,20 @@
       Steel: 100
       Glass: 30
 
+- type: entity
+  parent: BaseNFFlatpack
+  id: ScrapBoxFlatpack
+  name: construction box flatpack
+  description: A flatpack used for constructing a scrap box.
+  components:
+  - type: Flatpack
+    entity: ConstructionBox
+  - type: StaticPrice
+    price: 500
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Glass: 30
 
 - type: entity
   parent: BaseNFFlatpack

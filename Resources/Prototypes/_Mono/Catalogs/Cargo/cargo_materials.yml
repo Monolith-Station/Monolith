@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: CargoScrapBox
+  icon:
+    sprite: _Mono/Structures/Storage/scrapbox.rsi
+    state: scrapBox
+  product: ScrapBox
+  cost: 1000
+  category: cargoproduct-category-name-materials
+  group: market
