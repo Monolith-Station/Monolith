@@ -47,7 +47,7 @@ public sealed partial class ArtifactSystem : EntitySystem
     /// </summary>
     /// <remarks>
     /// General balancing (for fully unlocked artifacts):
-    /// Simple (1-2 Nodes): 1-2K
+    /// Simple (1-2 Nodes): 13K
     /// Medium (5-8 Nodes): 6-7K
     /// Complex (7-12 Nodes): 10-11K
     /// </remarks>
@@ -61,7 +61,7 @@ public sealed partial class ArtifactSystem : EntitySystem
     /// </summary>
     /// <remarks>
     /// General balancing (for fully unlocked artifacts):
-    /// Simple (1-2 Nodes): ~10K
+    /// Simple (1-2 Nodes): ~16K
     /// Medium (5-8 Nodes): ~30-40K
     /// Complex (7-12 Nodes): ~60-80K
     ///
@@ -270,7 +270,7 @@ public sealed partial class ArtifactSystem : EntitySystem
 
         if (TryComp<BiasedArtifactComponent>(uid, out var bias) &&
             TryComp<TraversalDistorterComponent>(bias.Provider, out var trav) &&
-            _random.Prob(trav.BiasChance) &&
+            _random.Prob(MathF.Min(1.0f,trav.BiasChance)) &&
             this.IsPowered(bias.Provider, EntityManager))
         {
             switch (trav.BiasDirection)
