@@ -164,6 +164,22 @@
     - USSPStamp
 
 - type: entity
+  name: ussp taccomm's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampUSSPTaccomm
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-ussp-taccomm
+    stampedColor: "#ff0026"
+    stampState: "paper_stamp-mono-ussp-taccomm"
+  - type: Sprite
+    state: stamp-syndicate
+  - type: Tag
+    tags:
+    - USSPTaccommStamp
+
+- type: entity
   name: ussp stratcomm's rubber stamp
   parent: RubberStampBase
   id: RubberStampUSSPStratcomm
