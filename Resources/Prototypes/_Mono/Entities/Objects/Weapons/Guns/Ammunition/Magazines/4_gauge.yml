@@ -17,7 +17,7 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
   - type: Item
-    size: Small
+    size: Small # Probably needs tweaking.
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
