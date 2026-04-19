@@ -221,7 +221,7 @@
     scale: 4
     shape: triangle
   - type: TimedDespawn
-    lifetime: 15
+    lifetime: 6.5
   - type: PointLight
     radius: 5
     color: orange
@@ -235,11 +235,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 30
+    acceleration: 80
     detectionRange: 1000
     scanArc: 45
-    launchSpeed: 25
-    maxSpeed: 100
+    launchSpeed: 100
+    maxSpeed: 300
     trackDelay: 2
   - type: EmpOnTrigger
     range: 7

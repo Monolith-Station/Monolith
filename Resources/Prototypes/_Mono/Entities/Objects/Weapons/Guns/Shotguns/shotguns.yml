@@ -168,7 +168,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
-    fireRate: 1.2
+    fireRate: 0.7
     selectedMode: Semiauto
     availableModes:
     - SemiAuto
@@ -182,12 +182,13 @@
     proto: ShellShotgun23x75mmBuckshot
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+    autoCycle: false
   - type: StaticPrice
     price: 20000
     vendPrice: 20000
   - type: SpeedModifiedOnWield
     walkModifier: 0.8
-    sprintModifier: 0.95
+    sprintModifier: 0.90
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 3
