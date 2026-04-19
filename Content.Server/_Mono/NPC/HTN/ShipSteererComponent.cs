@@ -58,13 +58,13 @@ public sealed partial class ShipSteererComponent : Component
     /// How unwilling we are to use brake to adjust our velocity. Higher means less willing.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float BrakeThreshold = 0.75f;
+    public float BrakeThreshold = 0.3f;
 
     /// <summary>
     /// How much larger to consider the ship for collision evasion purposes.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float EvasionBuffer = 6f;
+    public float EvasionBuffer = 3f;
 
     /// <summary>
     /// How many evasion sectors to init on the outer ring.

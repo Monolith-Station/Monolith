@@ -1,8 +1,10 @@
 using Content.Server._Mono.Projectiles.TargetSeeking;
 using Content.Server.Physics.Controllers;
 using Content.Server.Shuttles.Components;
+using Content.Server.Shuttles.Systems;
 using Content.Shared._Mono;
 using Content.Shared._Mono.SpaceArtillery;
+using Content.Shared._NF.Shuttles.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -20,6 +22,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     [Dependency] private readonly MoverController _mover = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly TargetSeekingSystem _seeking = default!;
 
     private EntityQuery<MapGridComponent> _gridQuery;
@@ -226,7 +229,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         // check obstacle avoidance
         ScanForObstacles(ctx, config, brakeCtx);
-        var avoidanceVec = CalculateAvoidanceVector(ctx, config, brakeCtx, navVec);
+        var avoidanceRes = CalculateAvoidanceVector(ctx, config, brakeCtx, navVec);
+        var avoidanceVec = avoidanceRes.AvoidVec;
 
         // use avoidance vector if available or proceed with thrust as normal
         var wasNav = navVec;
@@ -240,12 +244,17 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var rotControl = CalculateRotationControl(ctx, config, rotWish, ref rotationCompensation);
 
         // process brake input
-        var brakeInput = CalculateBrake(ctx, config, wishInputVec, rotControl, brakeCtx);
+        var brakeInput = CalculateBrake(ctx, config, wishInputVec, rotControl, brakeCtx, avoidanceRes.AllBad);
 
         // convert wish-input to ship context
         var strafeInput = (-ctx.ShipNorthAngle).RotateVec(wishInputVec);
         strafeInput = GetGoodThrustVector(strafeInput, ctx.Shuttle) * MathF.Min(1f, wishInputVec.Length());
-        // Log.Info($"input {strafeInput} norot {wishInputVec}");
+
+        // also set us to anchor dampening if we wish to brake
+        if (brakeInput == 1f)
+            _shuttle.SetInertiaDampening(ctx.ShipUid, ctx.ShipBody, ctx.Shuttle, ctx.ShipXform, InertiaDampeningMode.Anchor);
+        else
+            _shuttle.SetInertiaDampening(ctx.ShipUid, ctx.ShipBody, ctx.Shuttle, ctx.ShipXform, InertiaDampeningMode.Off);
 
         return new ShuttleInput(strafeInput, rotControl.RotationInput, brakeInput);
     }
@@ -255,7 +264,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // check our brake thrust
         var brakeVec = GetGoodThrustVector((-ctx.ShipNorthAngle).RotateVec(-ctx.ShipBody.LinearVelocity), ctx.Shuttle);
         var brakeAccelVec = _mover.GetDirectionAccel(brakeVec, ctx.Shuttle, ctx.ShipBody, ctx.ShipXform);
-        var brakeAccel = brakeAccelVec.Length();
+        var brakeAccel = brakeAccelVec.Length() * (ShuttleComponent.BrakeCoefficient + 1f);
 
         var linVelLenSq = ctx.ShipBody.LinearVelocity.LengthSquared();
 
@@ -330,31 +339,18 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
     }
 
-    private Vector2? CalculateAvoidanceVector(
+    private record struct AvoidanceResult(Vector2? AvoidVec, bool AllBad);
+
+    private AvoidanceResult CalculateAvoidanceVector(
         in SteeringContext ctx,
         in SteeringConfig config,
         in BrakeContext brake,
-        Vector2 wishDir,
-        bool exactMargin = false)
+        Vector2 wishDir)
     {
         var shipPos = ctx.ShipPos.Position;
         var shipVel = ctx.ShipBody.LinearVelocity;
+        // we have to take radius so that if we rotate it doesn't clip us into the obstacle
         var shipRadius = ctx.ShipGrid.LocalAABB.Size.Length() / 2f + config.EvasionBuffer;
-        if (exactMargin && shipVel != Vector2.Zero)
-        {
-            // we're evading with exact margin, try to project both of our AABB's diagonals onto a perpendicular to our velocity vector
-            // then get max to get the projection of our AABB
-            // this might still crash us if we rotate in-route but we just hope that doesn't happen
-            var diagA = ctx.ShipGrid.LocalAABB.Size * 0.5f; // radius,  so take half-diagonal
-            var diagB = new Vector2(-diagA.X, diagA.Y);
-            diagA = ctx.ShipNorthAngle.RotateVec(diagA);
-            diagB = ctx.ShipNorthAngle.RotateVec(diagB);
-            var velDir = shipVel.Normalized();
-            var velPerp = new Vector2(-velDir.Y, velDir.X);
-            var projA = MathF.Abs(Vector2.Dot(velPerp, diagA));
-            var projB = MathF.Abs(Vector2.Dot(velPerp, diagB));
-            shipRadius = MathF.Max(projA, projB);
-        }
 
         var targetVec = ctx.DestMapPos.Position - shipPos;
         var normTarget = NormalizedOrZero(targetVec);
@@ -513,19 +509,13 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             }
         }
 
-        // okay, we're about to collide, retry with zero margin to see if we can do anything
-        if (!exactMargin && closestSector == null)
-        {
-            return CalculateAvoidanceVector(ctx, config, brake, wishDir, true);
-        }
-
         var chosenI = closestSector ?? bestSector;
         var chosen = _sectors[chosenI];
         // original wishDir is clear
         if (chosen.Scale == -1f)
-            return null;
+            return new(null, false);
 
-        return NormalizedOrZero(chosen.Input) * chosen.Scale;
+        return new(NormalizedOrZero(chosen.Input) * chosen.Scale, closestSector == null);
     }
 
     // navigation for if we aren't avoiding a collision
@@ -608,23 +598,17 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         in SteeringConfig config,
         Vector2 wishInputVec,
         RotationResult rot,
-        in BrakeContext brake)
+        in BrakeContext brake,
+        bool aggressive)
     {
-
         var brakeInput = 0f;
         var linVel = ctx.ShipBody.LinearVelocity;
         var angleVel = ctx.ShipBody.AngularVelocity;
 
-        // brake if we're:
-        //   moving opposite to desired direction
-        //   && not wanting to rotate much or want to brake our rotation as well
-        if (Vector2.Dot(NormalizedOrZero(wishInputVec), NormalizedOrZero(-linVel)) >= config.BrakeThreshold
-            && (MathF.Abs(rot.RotationInput) < 1f - config.BrakeThreshold
-                || rot.WishAngleVel * angleVel < 0
-                || MathF.Abs(rot.WishAngleVel) < MathF.Abs(angleVel)))
-        {
+        // brake if we're moving opposite to desired direction
+        var dotThreshold = aggressive ? 0f : config.BrakeThreshold;
+        if (Vector2.Dot(NormalizedOrZero(wishInputVec), NormalizedOrZero(-linVel)) > dotThreshold)
             brakeInput = 1f;
-        }
 
         return brakeInput;
     }
