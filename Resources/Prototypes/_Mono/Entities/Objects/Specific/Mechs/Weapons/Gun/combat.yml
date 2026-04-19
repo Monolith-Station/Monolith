@@ -161,7 +161,7 @@
     state: laserrifle64x32
   - type: Gun
     projectileSpeed: 150
-    fireRate: 1
+    fireRate: 0.15
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
