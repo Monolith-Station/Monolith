@@ -336,7 +336,7 @@
         id: WeaponTurretType35
 
 - type: mappingTemplate
-  id: Medical
+  id: MedicalBay
   rootType: Entity
   children:
   - !type:MappingTemplatePrototype
@@ -491,7 +491,7 @@
     id: ServiceTechFab
 
 - type: mappingTemplate
-  id: Science
+  id: Xenoarcheology
   rootType: Entity
   children:
   - !type:MappingTemplatePrototype
@@ -599,7 +599,7 @@
   # pipes, ports etc in Systems - Atmosphere template already
 
 - type: mappingTemplate
-  id: Exdedition
+  id: Expedition
   rootType: Entity
   children:
   - !type:MappingTemplatePrototype
