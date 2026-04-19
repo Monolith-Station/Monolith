@@ -1,14 +1,15 @@
-# Mono - modsuit overhaul - see #2755 
+# Mono - modsuit overhaul - see #2755
+# Mono - modsuits cleanup - see #3733
 
 - type: entity
-  parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
-  id: ClothingModsuitChestplateStandard
-  name: standard modsuit chestplate
+  abstract: true
+  parent: [ ClothingOuterBase, AllowSuitStorageClothing, GeigerCounterClothing, ClothingArmorPlate ] # Mono - add geiger, armor plates
+  id: ClothingModsuitChestplateBase
+  name: modsuit chestplate
   description: A special modular suit spaceproof cover designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
-  - type: AllowSuitStorage
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Modsuits/standard.rsi
     layers:
@@ -20,9 +21,6 @@
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
-  - type: ClothingSpeedModifier
-    walkModifier: 1 
-    sprintModifier: 1
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -31,18 +29,8 @@
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
-      outerClothing-resomi:
-      - state: equipped-OUTERCLOTHING-sealed-resomi
-  - type: StaminaDamageResistance
-    coefficient: 0.9
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.85
-        Radiation: 0.6
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox
   - type: ComponentToggler
     components:
     - type: PressureProtection
@@ -55,14 +43,44 @@
     reduction: 0.5
 
 - type: entity
-  parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
+  parent: ClothingModsuitChestplateBase
+  id: ClothingModsuitChestplateStandard
+  name: standard modsuit chestplate
+  description: A special modular suit spaceproof cover designed for compact folding inside modular suit control.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/standard.rsi
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: StaminaDamageResistance
+    coefficient: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+        Radiation: 0.6
+
+- type: entity
+  parent: ClothingModsuitChestplateBase
   id: ClothingModsuitChestplateSecurity
   name: soldat MODsuit chestplate
   description: A robust modular suit cover with ceramic inserts for extra protection.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
-  - type: AllowSuitStorage
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Modsuits/security.rsi
     layers:
@@ -70,25 +88,18 @@
     - state: chestplate-sealed
       visible: false
       map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ outerClothing ]
-  - type: ClothingSpeedModifier
-    walkModifier: 0.87
-    sprintModifier: 0.87
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
-      outerClothing-resomi:
-      - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.87
+    sprintModifier: 0.87
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: StaminaDamageResistance
@@ -101,27 +112,14 @@
         Piercing: 0.45
         Heat: 0.6
         Radiation: 0.6
-  - type: ComponentToggler
-    components:
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
-  - type: FireProtection
-    reduction: 0.5
-
 
 - type: entity
-  parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
+  parent: ClothingModsuitChestplateBase
   id: ClothingModsuitChestplateHeadOfSecurity
   name: bulwark modsuit chestplate
   description: A robust modular suit cover with EXTRA ceramic inserts for slightly more protection.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
-  - type: AllowSuitStorage
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Modsuits/headofsecurity.rsi
     layers:
@@ -129,25 +127,18 @@
     - state: chestplate-sealed
       visible: false
       map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ outerClothing ]
-  - type: ClothingSpeedModifier
-    walkModifier: 0.90
-    sprintModifier: 0.90
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
-      outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: StaminaDamageResistance
@@ -161,26 +152,14 @@
         Heat: 0.45
         Caustic: 0.5
         Radiation: 0.4
-  - type: ComponentToggler
-    components:
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
-  - type: FireProtection
-    reduction: 0.5
 
 - type: entity
-  parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
+  parent: ClothingModsuitChestplateBase
   id: ClothingModsuitChestplateParamedic
   name: sanitater modsuit chestplate
   description: A white and blue-ish-grey steel plate for keeping out the harsh void of space and the occasional bullet.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
-  - type: AllowSuitStorage
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Modsuits/paramedic.rsi
     layers:
@@ -188,25 +167,19 @@
     - state: chestplate-sealed
       visible: false
       map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ outerClothing ]
-  - type: ClothingSpeedModifier
-    walkModifier: 1.05
-    sprintModifier: 1.05
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox
+
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
-      outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+  - type: ClothingSpeedModifier
+    walkModifier: 1.05
+    sprintModifier: 1.05
   - type: ExplosionResistance
     damageCoefficient: 1
   - type: Armor
@@ -219,28 +192,16 @@
         Caustic: 0.6
         Radiation: 0.6
         Poison: 0.6
-  - type: ComponentToggler
-    components:
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
   - type: StaminaDamageResistance
     coefficient: 0.9
-  - type: FireProtection
-    reduction: 0.5
 
 - type: entity
-  parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
+  parent: ClothingModsuitChestplateBase
   id: ClothingModsuitChestplateEngineer
   name: sapper modsuit chestplate
   description: A tough armor plate to defend against harsh atmospheric conditions and shockwaves.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
-  - type: AllowSuitStorage
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Modsuits/engineer.rsi
     layers:
@@ -248,25 +209,18 @@
     - state: chestplate-sealed
       visible: false
       map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ outerClothing ]
-  - type: ClothingSpeedModifier
-    walkModifier: 0.95 # Mono
-    sprintModifier: 0.95 # Mono
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
-      outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95 # Mono
+    sprintModifier: 0.95 # Mono
   - type: ExplosionResistance
     damageCoefficient: 0.25 # Mono
   - type: Armor
@@ -279,28 +233,16 @@
         Shock: 0.4 # Mono
         Caustic: 0.4 # Mono
         Radiation: 0 # Mono
-  - type: ComponentToggler
-    components:
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
   - type: StaminaDamageResistance
     coefficient: 0.7 # Mono
-  - type: FireProtection
-    reduction: 0.5 # Mono
 
 - type: entity
-  parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
+  parent: ClothingModsuitChestplateBase
   id: ClothingModsuitChestplateAtmostech
   name: aeolus modsuit chestplate
   description: A fire-proof armor plate to defend against harsh atmospheric conditions.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
-  - type: AllowSuitStorage
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Modsuits/atmostech.rsi
     layers:
@@ -308,25 +250,18 @@
     - state: chestplate-sealed
       visible: false
       map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ outerClothing ]
-  - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.95
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
-      outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
   - type: ExplosionResistance
     damageCoefficient: 0.6
   - type: Armor
@@ -337,28 +272,18 @@
         Piercing: 0.85
         Heat: 0.2
         Radiation: 0.3
-  - type: ComponentToggler
-    components:
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
   - type: StaminaDamageResistance
     coefficient: 0.9
   - type: FireProtection
     reduction: 0.0
 
 - type: entity
-  parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
+  parent: ClothingModsuitChestplateBase
   id: ClothingModsuitChestplateResearchDirector
   name: minerva modsuit chestplate
   description: A bulky bomb and bat proof chunk of steel.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
-  - type: AllowSuitStorage
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Modsuits/researchdirector.rsi
     layers:
@@ -366,25 +291,18 @@
     - state: chestplate-sealed
       visible: false
       map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ outerClothing ]
-  - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
-      outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Armor
@@ -397,28 +315,16 @@
         Shock: 0.8
         Caustic: 0.5
         Radiation: 0.1
-  - type: ComponentToggler
-    components:
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
   - type: StaminaDamageResistance
     coefficient: 0.9
-  - type: FireProtection
-    reduction: 0.5
 
 - type: entity
-  parent: [ ClothingOuterBase, GeigerCounterClothing ] # Mono - add geiger
+  parent: ClothingModsuitChestplateBase
   id: ClothingModsuitChestplateCaptain
   name: magnate modsuit chestplate
   description: This shit is made out of DIAMONDS, man, this armor was forged with GEMS.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
-  - type: AllowSuitStorage
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Modsuits/captain.rsi
     layers:
@@ -426,25 +332,19 @@
     - state: chestplate-sealed
       visible: false
       map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ outerClothing ]
-  - type: ClothingSpeedModifier
-    walkModifier: 0.90
-    sprintModifier: 0.90
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox
+
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
-      outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
@@ -455,16 +355,5 @@
         Piercing: 0.5
         Heat: 0.5
         Radiation: 0.4
-  - type: ComponentToggler
-    components:
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
   - type: StaminaDamageResistance
     coefficient: 0.7
-  - type: FireProtection
-    reduction: 0.5
-

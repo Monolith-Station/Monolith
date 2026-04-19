@@ -72,7 +72,7 @@ public sealed class FireControlNavControl : ShuttleNavControl
 
         var worldRot = _rotation.Value;
 
-        var mapPos = _transform.ToMapCoordinates(_coordinates.Value).Offset(_rotation.Value.RotateVec(_panOffset));
+        var mapPos = _transform.ToMapCoordinates(_coordinates.Value).Offset(_rotation.Value.RotateVec(Offset));
         var mapCoord = _transform.ToCoordinates(mapPos);
         var worldToShuttle = Matrix3Helpers.CreateTranslation(-mapCoord.Position) * Matrix3Helpers.CreateRotation(-worldRot);
         Matrix3x2.Invert(worldToShuttle, out var shuttleToWorld);
