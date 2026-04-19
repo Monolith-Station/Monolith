@@ -10,7 +10,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 30
+        Piercing: 15
         Structural: 45
 
 - type: entity
@@ -32,13 +32,13 @@
   - type: Projectile
     damage:
       types:
-        Structural: 150
-        Piercing: 150
+        Structural: 250
+        Piercing: 50
         Shock: 0
   - type: EmpOnTrigger
     range: 4
     energyConsumption: 2700000
-    disableDuration: 30
+    disableDuration: 10
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
@@ -66,28 +66,6 @@
     lifetime: 1
 
 - type: entity
-  id: 60mmMechShell
-  name: 60mm shell
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Projectile
-    damage:
-      types:
-        Structural: 420
-        Blunt: 100
-        Piercing: 210
-  - type: RadarBlip
-    scale: 2.5
-    shape: triangle
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 10
-    intensitySlope: 5
-    maxIntensity: 25
-    maxTileBreak: 1
-
-- type: entity
   id: 35mmBullet
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -96,7 +74,7 @@
     damage:
       types:
         Piercing: 35
-        Structural: 80
+        Structural: 70
   - type: ShipWeaponProjectile
   - type: TimedDespawn
     lifetime: 3
