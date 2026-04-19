@@ -1,5 +1,6 @@
 # Reserve - File heavily edited by PR: Mapping editor.
 # See https://github.com/space-wizards/space-station-14/pull/34302
+# https://github.com/Monolith-Station/Monolith/pull/3810
 # and https://github.com/Reserve-Station/Reserve-Station/pull/82 for more details.
 
 # WWDP edit start
@@ -75,23 +76,27 @@
       - !type:MappingTemplatePrototype
         id: CableTerminal
       - !type:MappingTemplatePrototype
-        id: SMESBasic
+        id: BaseSMES
       - !type:MappingTemplatePrototype
         id: SubstationBasic
       - !type:MappingTemplatePrototype
-        id: APCBasic
+        id: SubstationWallBasic
+      - !type:MappingTemplatePrototype
+        id: BaseAPC
+      - !type:MappingTemplatePrototype
+        id: LargeAPC
       - !type:MappingTemplatePrototype
         id: CableHV
-      - !type:MappingTemplatePrototype
-        id: RandomCableHVSpawner
+      #- !type:MappingTemplatePrototype
+      #  id: RandomCableHVSpawner
       - !type:MappingTemplatePrototype
         id: CableMV
-      - !type:MappingTemplatePrototype
-        id: RandomCableMVSpawner
+      #- !type:MappingTemplatePrototype
+      #  id: RandomCableMVSpawner
       - !type:MappingTemplatePrototype
         id: CableApcExtension
-      - !type:MappingTemplatePrototype
-        id: RandomCableApcExtensionSpawner
+      #- !type:MappingTemplatePrototype
+      #  id: RandomCableApcExtensionSpawner
   - !type:MappingTemplatePrototype
     id: Disposal
     children:
@@ -120,6 +125,7 @@
         id: PoweredLightPostSmall
 
 - type: mappingTemplate
+  abstract: true # Mono - in case we need it later
   id: Common
   rootType: Entity
   children:
@@ -460,6 +466,7 @@
     # WWDP edit end
 
 - type: mappingTemplate
+  abstract: true # Mono - in case we need it later
   id: Service
   rootType: Entity
   children:
@@ -1060,6 +1067,7 @@
       # WWDP edit end
 
 - type: mappingTemplate
+  abstract: true # Mono - in case we need it later
   id: Cargo
   rootType: Entity
   children:
@@ -1270,6 +1278,7 @@
           id: SalvageMagnet # WWDP edit
 
 - type: mappingTemplate
+  abstract: true # Mono - in case we need it later
   id: Command
   rootType: Entity
   children:
@@ -1654,6 +1663,7 @@
     # Reserve edit end
 
 - type: mappingTemplate
+  abstract: true # Mono - in case we need it later
   id: Medical
   rootType: Entity
   children:
@@ -2125,6 +2135,7 @@
     # Reserve edit end
 
 - type: mappingTemplate
+  abstract: true # Mono - in case we need it later
   id: Science
   rootType: Entity
   children:
@@ -2391,6 +2402,7 @@
     # WWDP edit end
 
 - type: mappingTemplate
+  abstract: true # Mono - in case we need it later
   id: Engineering
   rootType: Entity
   children:
@@ -3073,6 +3085,7 @@
       # WWDP edit end
 
 - type: mappingTemplate
+  abstract: true # Mono - in case we need it later
   id: Security
   rootType: Entity
   children:
@@ -3412,6 +3425,7 @@
     # Reserve edit end
 # WWDP edit start
 - type: mappingTemplate
+  abstract: true # Mono - in case we need it later
   id: JusticeDepartment #changed due to same id with Goob HOS sword.
   rootType: Entity
   children:
