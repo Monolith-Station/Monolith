@@ -184,14 +184,17 @@ namespace Content.Shared.Lathe
         private static int NextIndex = 0; // Mono
         public int Index; // Mono - for de-queuing recipes to work properly
         public LatheRecipePrototype Recipe;
+        public NetEntity? Actor; // Mono - Log the person who queued the recipe.
         public int ItemsPrinted;
         public int ItemsRequested;
 
-        public LatheRecipeBatch(LatheRecipePrototype recipe, int itemsPrinted, int itemsRequested)
+        public LatheRecipeBatch(LatheRecipePrototype recipe, int itemsPrinted, int itemsRequested,
+            NetEntity? actor) // Mono
         {
             Recipe = recipe;
             ItemsPrinted = itemsPrinted;
             ItemsRequested = itemsRequested;
+            Actor = actor; // Mono
             Index = NextIndex++; // Mono
         }
     }

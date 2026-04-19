@@ -638,6 +638,10 @@
   components:
   - type: StationBankATM
     account: Frontier
+  - type: CompanyAccessReader
+    requiredCompany: Colonial
+  - type: AccessReader
+    access: [["HeadOfPersonnel"]]
 
 - type: entity
   parent: BaseComputerTabletopStationAdminBankATM
@@ -647,6 +651,10 @@
   components:
   - type: StationBankATM
     account: Nfsd
+  - type: CompanyAccessReader
+    requiredCompany: TSF
+  - type: AccessReader
+    access: [["HeadOfSecurity"]]
 
 - type: entity
   parent: BaseComputerTabletopStationAdminBankATM
@@ -656,6 +664,10 @@
   components:
   - type: StationBankATM
     account: Medical
+  - type: CompanyAccessReader
+    requiredCompany: MD
+  - type: AccessReader
+    access: [["ChiefMedicalOfficer"]]
 
 - type: entity
   parent: [BaseStructureIndestructible, BaseStructureComputerTabletop, ComputerContrabandPalletConsole]
