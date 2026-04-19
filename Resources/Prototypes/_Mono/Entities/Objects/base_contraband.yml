@@ -126,8 +126,8 @@
   - type: Contraband
     severity: OtherFactionGear1
     turnInValues:
-      FederationMilitaryCredit: 5
-      Doubloon: 5
+      FederationMilitaryCredit: 10
+      Doubloon: 10
 
 - type: entity
   parent: BaseFactionGearOtherFactionT0
@@ -137,8 +137,8 @@
   - type: Contraband
     severity: OtherFactionGear2
     turnInValues:
-      FederationMilitaryCredit: 15
-      Doubloon: 15
+      FederationMilitaryCredit: 30
+      Doubloon: 30
 
 - type: entity
   parent: BaseFactionGearOtherFactionT0
@@ -172,8 +172,8 @@
   - type: Contraband
     severity: OtherFactionGear1
     turnInValues:
-      FederationMilitaryCredit: 5
-      Doubloon: 5
+      FederationMilitaryCredit: 10
+      Doubloon: 10
 
 - type: entity
   parent: BaseFactionGearTaxedT0
@@ -183,8 +183,8 @@
   - type: Contraband
     severity: OtherFactionGear2
     turnInValues:
-      FederationMilitaryCredit: 15
-      Doubloon: 15
+      FederationMilitaryCredit: 30
+      Doubloon: 30
 
 - type: entity
   parent: BaseFactionGearTaxedT0
