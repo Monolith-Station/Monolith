@@ -1258,8 +1258,8 @@
       shader: unshaded
   - type: EmpOnTrigger
     range: 0.3
-    energyConsumption: 60000
-    disableDuration: 1.5
+    energyConsumption: 100000
+    disableDuration: 0
 
 - type: entity
   id: BulletRocketEmp
