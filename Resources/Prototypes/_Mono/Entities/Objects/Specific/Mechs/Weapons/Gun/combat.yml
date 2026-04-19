@@ -269,7 +269,7 @@
 - type: entity
   id: HeavyMechProjector
   name: RAVAGER-type Plasma Cannon
-  description: Based on the MARAUDER, the Ravager sacrifices range for portability. Extremely inaccurate, and subpar lensing causes the projectiles to dissipate only a few seconds away. Devastating up close. Fits on Large Hardpoints.
+  description: Based on the MARAUDER, the Ravager sacrifices range for firerate and portability. Extremely inaccurate, and subpar lensing causes the projectiles to dissipate only a few seconds away. Devastating up close. Fits on Large Hardpoints.
   suffix: Mech Weapon, Gun, Combat, EnergyCannon
   parent: [ BaseMechWeaponRange, HeavyMechMountEquipment ]
   components:
