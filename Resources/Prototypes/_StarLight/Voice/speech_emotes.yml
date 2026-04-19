@@ -1,0 +1,31 @@
+- type: emote
+  id: Whine
+  name: chat-emote-name-whine
+  category: Vocal
+  available: false
+  chatMessages: [whines.]
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatTriggers:
+  - whine
+  - whines
+
+- type: emote
+  id: Yip
+  name: chat-emote-name-yip
+  category: Vocal
+  available: false
+  chatMessages: [yips.]
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatTriggers:
+  - yip
+  - yips
