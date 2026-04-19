@@ -1,5 +1,24 @@
 #4 gauge boxes use Fully powered Box cost
 #Magazines
+- type: latheRecipe
+  parent: BaseAmmoFMJFullyPoweredAmmoBoxRecipe
+  id: ClothingBackpackJack # Wasn't sure where to put this. It's a magazine and a backpack.
+  result: ClothingBackpackJack
+  materials:
+    Steel: 2590 #You get 1.5 boxes of 4 gauge.
+    Plasteel: 425
+
+- type: latheRecipe
+  parent: BaseAmmoFMJFullyPoweredAmmoBoxRecipe
+  id: Magazine4_gaugeBuckshot
+  result: Magazine4_gaugeBuckshot
+  materials:
+    Steel: 2590 #You get 1.5 boxes of 4 gauge.
+
+- type: latheRecipe
+  parent: BaseAmmoFMJFullyPoweredAmmoBoxRecipe
+  id: Magazine4_gaugeEmpty
+  result: Magazine4_gaugeEmpty
 
 #Boxes
 
