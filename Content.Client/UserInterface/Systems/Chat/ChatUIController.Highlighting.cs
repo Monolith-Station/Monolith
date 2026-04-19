@@ -257,7 +257,7 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
         }
 
         // Make it so it doesn't hightlight your own name when you are talking
-        keyword = StartAtSign.Replace(keyword, @"(?<=\[BubbleContent\].*)");
+        keyword = StartAtSign.Replace(keyword, @"(?<=\[BubbleContent\].*|""\[/color\].*)");
 
         return keyword;
     }

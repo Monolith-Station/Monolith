@@ -52,7 +52,7 @@ public sealed partial class ShipSteererComponent : Component
     /// Try to evade collisions this far into the future even if stationary.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float BaseEvasionTime = 10f;
+    public float BaseEvasionTime = 4f;
 
     /// <summary>
     /// How unwilling we are to use brake to adjust our velocity. Higher means less willing.
@@ -88,7 +88,7 @@ public sealed partial class ShipSteererComponent : Component
     /// How much to enlarge grid search bounds for collision evasion.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float GridSearchBuffer = 192f;
+    public float GridSearchBuffer = 312f;
 
     /// <summary>
     /// How much to enlarge grid search forward distance for collision evasion.

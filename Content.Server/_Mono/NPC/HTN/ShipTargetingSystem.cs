@@ -70,8 +70,9 @@ public sealed partial class ShipTargetingSystem : EntitySystem
                 continue;
 
             var linVel = shipBody.LinearVelocity;
-            var targetVel = targetGrid == null ? Vector2.Zero : _physics.GetMapLinearVelocity(targetGrid.Value);
-            var leadBy = 1f - MathF.Pow(1f - comp.LeadingAccuracy, frameTime);
+            var targetVel = targetGrid == null ? _physics.GetMapLinearVelocity(targetUid) : _physics.GetMapLinearVelocity(targetGrid.Value);
+            var leadingAccuracy = targetGrid == null ? comp.OffgridLeadingAccuracy : comp.LeadingAccuracy;
+            var leadBy = 1f - MathF.Pow(1f - leadingAccuracy, frameTime);
             comp.CurrentLeadingVelocity = Vector2.Lerp(comp.CurrentLeadingVelocity, targetVel, leadBy);
 
             comp.WeaponCheckAccum -= frameTime;

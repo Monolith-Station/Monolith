@@ -368,9 +368,9 @@
 
 - type: entity
   name: energy shield
-  parent: BaseItem
+  parent: [ BaseItem, BaseFactionGearPDVT2 ] # Mono
   id: EnergyShield
-  description: Exotic energy shield, when folded, can even fit in your pocket.
+  description: An advanced, self-recharging energy shield that can be fit in your pocket when folded. Extremely effective defensive tool against energy weapons. # Mono
   components:
     - type: ItemToggle
       predictable: false # WD EDIT
@@ -408,7 +408,7 @@
       heldPrefix: eshield
     - type: UseDelay
       delay: 0.5
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: shield
       inhandVisuals:
         left:
@@ -425,8 +425,8 @@
       color: "#678AD9" # WD EDIT
     - type: ItemTogglePointLight
     - type: Reflect
-      reflectProb: 1 # WD EDIT
-      damageOnReflectModifier: 1 # Goob edit
+      reflectProb: 0.9 # Mono EDIT
+      damageOnReflectModifier: 0.2 # Mono edit
       reflects:
         - Energy
     - type: Blocking
@@ -510,7 +510,7 @@
       heldPrefix: teleriot
     - type: UseDelay
       delay: 0.5
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: shield
       inhandVisuals:
         left:

@@ -8,7 +8,7 @@ namespace Content.Client.Shuttles.UI
     public sealed partial class ShuttleConsoleWindow
     {
         public event Action<NetEntity?, InertiaDampeningMode>? OnInertiaDampeningModeChanged;
-        public event Action<NetEntity?, float>? OnMaxShuttleSpeedChanged;
+        public event Action<float?>? OnMaxShuttleSpeedChanged;
         public event Action<string, string>? OnNetworkPortButtonPressed;
 
         private void NfInitialize()
@@ -18,11 +18,11 @@ namespace Content.Client.Shuttles.UI
                 OnInertiaDampeningModeChanged?.Invoke(entity, mode);
             };
 
-            NavContainer.OnMaxShuttleSpeedChanged += (entityUid, maxSpeed) =>
+            NavContainer.OnMaxShuttleSpeedChanged += (maxSpeed) =>
             {
-                OnMaxShuttleSpeedChanged?.Invoke(entityUid, maxSpeed);
+                OnMaxShuttleSpeedChanged?.Invoke(maxSpeed);
             };
-            
+
             NavContainer.OnNetworkPortButtonPressed += (sourcePort, targetPort) =>
             {
                 OnNetworkPortButtonPressed?.Invoke(sourcePort, targetPort);

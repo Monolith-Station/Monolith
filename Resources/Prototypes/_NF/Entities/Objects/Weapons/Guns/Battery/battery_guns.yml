@@ -91,14 +91,18 @@
     startingCharge: 4000
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
-    fireCost: 80
+    fireCost: 32
   - type: Gun
     selectedMode: FullAuto
     availableModes:
+    - Burst
     - FullAuto
     fireRate: 8
     minAngle: 1
     maxAngle: 10
+    burstFireRate: 12
+    shotsPerBurst: 5
+    burstCooldown: 0.5
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
@@ -135,6 +139,14 @@
       - state: inhand-right
       - state: inhand-right-unshaded
         shader: unshaded
+  - type: Gun
+    burstCooldown: 0.75
+    burstFireRate: 3
+    shotsPerBurst: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - Burst
   - type: StaticPrice # Mono
     price: 150
 
