@@ -334,11 +334,27 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         in SteeringContext ctx,
         in SteeringConfig config,
         in BrakeContext brake,
-        Vector2 wishDir)
+        Vector2 wishDir,
+        bool exactMargin = false)
     {
         var shipPos = ctx.ShipPos.Position;
         var shipVel = ctx.ShipBody.LinearVelocity;
         var shipRadius = ctx.ShipGrid.LocalAABB.Size.Length() / 2f + config.EvasionBuffer;
+        if (exactMargin && shipVel != Vector2.Zero)
+        {
+            // we're evading with exact margin, try to project both of our AABB's diagonals onto a perpendicular to our velocity vector
+            // then get max to get the projection of our AABB
+            // this might still crash us if we rotate in-route but we just hope that doesn't happen
+            var diagA = ctx.ShipGrid.LocalAABB.Size * 0.5f; // radius,  so take half-diagonal
+            var diagB = new Vector2(-diagA.X, diagA.Y);
+            diagA = ctx.ShipNorthAngle.RotateVec(diagA);
+            diagB = ctx.ShipNorthAngle.RotateVec(diagB);
+            var velDir = shipVel.Normalized();
+            var velPerp = new Vector2(-velDir.Y, velDir.X);
+            var projA = MathF.Abs(Vector2.Dot(velPerp, diagA));
+            var projB = MathF.Abs(Vector2.Dot(velPerp, diagB));
+            shipRadius = MathF.Max(projA, projB);
+        }
 
         var targetVec = ctx.DestMapPos.Position - shipPos;
         var normTarget = NormalizedOrZero(targetVec);
@@ -348,6 +364,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         simTime += config.BaseEvasionTime;
 
         var forwardAccelVec = _mover.GetDirectionAccel(new Vector2(0f, 1f), ctx.Shuttle, ctx.ShipBody, ctx.ShipXform);
+        forwardAccelVec = ctx.ShipNorthAngle.RotateVec(forwardAccelVec);
         var forwardAccelDir = NormalizedOrZero(forwardAccelVec);
         var forwardAccel = forwardAccelVec.Length();
 
@@ -365,12 +382,13 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             for (var depth = 1; depth <= config.EvasionSectorDepth; depth++)
             {
                 if (i % depth == 0)
-                    _sectors.Add(new(dirAccel / depth, 1f / depth));
+                    // ship accel does not preserve input direction, so record original input
+                    _sectors.Add(new(dir, dirAccel / depth, 1f / depth));
             }
         }
         // set scale to -1 to mark it as the wish-sector
         var wishDirThrust = _mover.GetWorldDirectionAccel(wishDir, ctx.Shuttle, ctx.ShipBody, ctx.ShipXform);
-        _sectors.Add(new(wishDirThrust, -1f));
+        _sectors.Add(new(wishDir, wishDirThrust, -1f));
 
         foreach (var obstacle in _avoidEnts)
         {
@@ -463,7 +481,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 if ((ctime == null || ctime > t) && (!sector.Priority || obstacle.IsGrid))
                 {
                     var priority = obstacle.IsGrid || sector.Priority;
-                    _sectors[i] = new(sector.Accel, sector.Scale, t, priority);
+                    _sectors[i] = new(sector.Input, sector.Accel, sector.Scale, t, priority);
                 }
             }
         }
@@ -495,13 +513,19 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             }
         }
 
+        // okay, we're about to collide, retry with zero margin to see if we can do anything
+        if (!exactMargin && closestSector == null)
+        {
+            return CalculateAvoidanceVector(ctx, config, brake, wishDir, true);
+        }
+
         var chosenI = closestSector ?? bestSector;
         var chosen = _sectors[chosenI];
         // original wishDir is clear
         if (chosen.Scale == -1f)
             return null;
 
-        return NormalizedOrZero(chosen.Accel) * chosen.Scale;
+        return NormalizedOrZero(chosen.Input) * chosen.Scale;
     }
 
     // navigation for if we aren't avoiding a collision
@@ -733,5 +757,5 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
     private readonly record struct ObstacleCandidate(Entity<TransformComponent, PhysicsComponent> Ent, Vector2 Pos, float Radius, bool IsGrid);
 
-    private record struct EvadeCandidate(Vector2 Accel, float Scale, float? ImpactTime = null, bool Priority = false);
+    private record struct EvadeCandidate(Vector2 Input, Vector2 Accel, float Scale, float? ImpactTime = null, bool Priority = false);
 }

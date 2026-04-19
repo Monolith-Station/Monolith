@@ -34,7 +34,7 @@ public sealed partial class ShipSteererComponent : Component
     /// Prevents collision avoidance from triggering ship rotation.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public bool AvoidanceNoRotate = true;
+    public bool AvoidanceNoRotate = false;
 
     /// <summary>
     /// If AlwaysFaceTarget is true or InRangeRotation is set, how much of a difference in angle (in radians) to accept.
