@@ -11,7 +11,7 @@
       types:
         Structural: 9000
         Blunt: 5000
-    penetrationThreshold: 2500
+    penetrationThreshold: 400000
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
@@ -29,6 +29,7 @@
     color: "#19AFFF"
   - type: ExplodeOnTrigger
   - type: Explosive
+    deleteAfterExplosion: false
     explosionType: Default
     totalIntensity: 1500
     intensitySlope: 40
