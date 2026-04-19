@@ -141,7 +141,7 @@
     preventFiring: true
   - type: Gun
     damageModifier: 0.65
-    minAngle: 35
+    minAngle: 35 # Might need increasing for slugs.
     maxAngle: 60
     angleIncrease: 4
     angleDecay: 16
