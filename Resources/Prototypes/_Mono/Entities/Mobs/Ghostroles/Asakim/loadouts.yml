@@ -7,7 +7,7 @@
     outerClothing: ClothingOuterHardsuitAsakimUnremoveable
     shoes: ClothingShoesBootsMagAsakim
     pocket1: CrowbarPocket
-    pocket2: DoubleEmergencyOxygenTank
+    pocket2: DoubleEmergencyOxygenTankFilled
     belt: ClothingBeltWebbingsBigBlack
     suitStorage: OxygenTankFilled
   inhand:
@@ -15,14 +15,14 @@
   - WeaponPhaseBlade
   storage:
     back:
-    - RadioHandheldNF
     - DoubleEmergencyOxygenTankFilled
     - MedkitCombatFilled
     - MedkitCombatFilled
     - SyringeCaseAltFilled
     - JetpackMiniFilled
-    - StorageImplanter
     - FreedomImplanter
+    - CognizineChemistryBottle
+    - Syringe
     belt:
     - CombatMedipen
     - CombatMedipen
