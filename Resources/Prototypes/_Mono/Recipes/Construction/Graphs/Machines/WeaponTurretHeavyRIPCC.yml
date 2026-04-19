@@ -1,0 +1,36 @@
+#WeaponTurretHeavyRIPCC
+- type: constructionGraph
+  id: RepairableTurret
+  start: start
+  graph:
+  - node: start
+  - node: breakTurret
+    entity: WeaponTurretRepairableBroken
+    edges:
+      - to: repairTurret
+        steps:
+        - tool: Welding        
+          doAfter: 12
+        - tool: Welding        
+          doAfter: 12
+        - tool: Welding        
+          doAfter: 12
+        completed:
+          - !type:SpawnPrototype    
+            prototype: WeaponTurretHeavyRIPCC
+          - !type:DeleteEntity {}
+      - to: repairTurret
+        steps:
+        - tool: Applicating
+          doAfter: 12
+        - tool: Applicating
+          doAfter: 12
+        - tool: Applicating
+          doAfter: 12
+        completed:
+          - !type:SpawnPrototype    
+            prototype: WeaponTurretHeavyRIPCC
+          - !type:DeleteEntity {}
+          
+  - node: repairTurret
+    entity: WeaponTurretHeavyRIPCC

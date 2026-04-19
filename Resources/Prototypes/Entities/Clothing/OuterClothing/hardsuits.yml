@@ -687,7 +687,7 @@
         Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.9
-    sprintModifier: 0.9
+    sprintModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
@@ -768,7 +768,7 @@
         Blunt: 0.6
         Slash: 0.6
         Piercing: 0.6
-        Heat: 0.2
+        Heat: 0.35
         Radiation: 0.01
         Caustic: 0.5
   - type: Item
