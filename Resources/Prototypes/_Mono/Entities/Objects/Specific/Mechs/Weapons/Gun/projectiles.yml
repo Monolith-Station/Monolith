@@ -11,7 +11,7 @@
     damage:
       types:
         Piercing: 18
-        Structural: 50
+        Structural: 55
 
 - type: entity
   id: MechPelletShotgunSpread
@@ -32,11 +32,11 @@
   - type: Projectile
     damage:
       types:
-        Structural: 250
-        Piercing: 100
+        Structural: 550
+        Piercing: 150
         Shock: 0
   - type: EmpOnTrigger
-    range: 4
+    range: 5
     energyConsumption: 2700000
     disableDuration: 10
   - type: Sprite
@@ -97,7 +97,7 @@
       types:
         Piercing: 30
         Blunt: 20
-        Structural: 300
+        Structural: 350
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -278,8 +278,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 30
-        Structural: 60
+        Piercing: 50
+        Structural: 100
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
     layers:
