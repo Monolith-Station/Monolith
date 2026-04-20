@@ -19,8 +19,7 @@ namespace Content.Server._Crescent.ShipShields;
 public sealed partial class ShipShieldsSystem : EntitySystem
 {
     private const string ShipShieldPrototype = "ShipShield";
-    private const float Padding = 50f;
-    private const float CollisionThreshold = 50f;
+
     //private const float DeflectionSpread = 25f;
     private const float EmitterUpdateRate = 1.5f;
 
@@ -104,26 +103,22 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         base.Initialize();
         _projectileQuery = GetEntityQuery<ProjectileComponent>();
 
-        SubscribeLocalEvent<ShipShieldComponent, StartCollideEvent>(OnCollide);
+        SubscribeLocalEvent<ShipShieldComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<ShipShieldEmitterComponent, ComponentShutdown>(OnEmitterShutdown); // Mono
 
         InitializeCommands();
         InitializeEmitters();
     }
 
-    private void OnCollide(EntityUid uid, ShipShieldComponent component, StartCollideEvent args)
+    private void OnPreventCollide(EntityUid uid, ShipShieldComponent component, PreventCollideEvent args)
     {
         // only handle ship weapons for now. engine update introduced physics regressions. Let's polish everything else and circle back yeah?
-        if (!HasComp<ShipWeaponProjectileComponent>(args.OtherEntity))
-            return;
-
-        if (!_projectileQuery.TryGetComponent(args.OtherEntity, out var projectile))
-            return;
-        if (projectile.Weapon is not null)
+        if (!HasComp<ShipWeaponProjectileComponent>(args.OtherEntity) ||
+        !_projectileQuery.TryGetComponent(args.OtherEntity, out var projectile) ||
+        projectile.Weapon is { } weapon && component.Shielded == Transform(weapon).GridUid) // dont collide with projectiles coming from the same , grid  SPCR 2025
         {
-            // dont collide with projectiles coming from the same , grid  SPCR 2025
-            if (component.Shielded == Transform(projectile.Weapon.Value).GridUid)
-                return;
+            args.Cancelled = true;
+            return;
         }
 
         //if (TryComp<TimedDespawnComponent>(args.OtherEntity, out var despawn))
@@ -140,12 +135,13 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         //deflectionVector = new Vector2((float) (Math.Cos(angle) * deflectionVector.X - Math.Sin(angle) * deflectionVector.Y), (float) (Math.Sin(angle) * deflectionVector.X - Math.Cos(angle) * deflectionVector.Y));
 
         // instead of reflecting the projectile, just delete it. this works better for gameplay and intuiting what is going on in a fight.
+        // why shoot the projectile again when you can just 180 its physics, huh?
         //_gun.ShootProjectile(args.OtherEntity, deflectionVector, _physicsSystem.GetMapLinearVelocity(uid), uid, null, velocity.Length());
 
-        if (component.Source != null)
+        if (component.Source is { } source)
         {
             var ev = new ShieldDeflectedEvent(args.OtherEntity, projectile);
-            RaiseLocalEvent(component.Source.Value, ref ev);
+            RaiseLocalEvent(source, ref ev);
         }
     }
 
@@ -194,7 +190,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         _transformSystem.SetCoordinates(shield, gridCenter);
         _transformSystem.SetWorldRotation(shield, _transformSystem.GetWorldRotation(entity));
 
-        var chain = GenerateOvalFixture(shield, "shield", shieldPhysics, mapGrid);
+        var chain = GenerateOvalFixture(shield, "shield", shieldPhysics, mapGrid, shieldVisuals.Padding);
 
         List<Vector2> roughPoly = new();
 
@@ -212,7 +208,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         internalPoly.Set(roughPoly);
 
         _fixtureSystem.TryCreateFixture(shield, internalPoly, "internalShield",
-            hard: false, // To be set to Hard once code is made to actually make this shit work
+            hard: true, // To be set to Hard once code is made to actually make this shit work
             collisionLayer: (int)CollisionGroup.BulletImpassable, // Mono - Only blocks bullets
             body: shieldPhysics);
 
@@ -238,7 +234,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         return true;
     }
 
-    private ChainShape GenerateOvalFixture(EntityUid uid, string name, PhysicsComponent physics, MapGridComponent mapGrid, float padding = Padding)
+    private ChainShape GenerateOvalFixture(EntityUid uid, string name, PhysicsComponent physics, MapGridComponent mapGrid, float padding)
     {
         float radius;
         float scale;
