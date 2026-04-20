@@ -9,6 +9,7 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.Examine;
 using Content.Server.Explosion.Components;
 using Content.Shared.Explosion.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Crescent.ShipShields;
 public partial class ShipShieldsSystem
@@ -17,6 +18,7 @@ public partial class ShipShieldsSystem
     [Dependency] private readonly TriggerSystem _trigger = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     public void InitializeEmitters()
     {
         SubscribeLocalEvent<ShipShieldEmitterComponent, ShieldDeflectedEvent>(OnShieldDeflected);
@@ -41,9 +43,9 @@ public partial class ShipShieldsSystem
             _trigger.Trigger(args.Deflected);
         }
 
-        if (TryComp<ExplosiveComponent>(args.Deflected, out var exp))
+        if (TryComp<ExplosiveComponent>(args.Deflected, out var exp) && _prototypeManager.TryIndex(exp.ExplosionType, out var type))
         {
-            component.Damage += exp.TotalIntensity;
+            component.Damage += exp.TotalIntensity * (float)type.DamagePerIntensity.GetTotal();
         }
 
         component.Damage += (float)args.Projectile.Damage.GetTotal();
