@@ -181,7 +181,7 @@ public sealed partial class BlockingSystem : SharedBlockingSystem // Mono
     private void OnShutdown(EntityUid uid, BlockingComponent component, ComponentShutdown args)
     {
         //In theory the user should not be null when this fires off
-        if (component.User is { } user)
+        if (component.User is { } user) // Mono - better nullable check
         {
             _actionsSystem.RemoveProvidedActions(user, uid);
             StopBlockingHelper(uid, component, user);
