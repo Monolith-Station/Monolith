@@ -25,6 +25,12 @@ public sealed partial class ShipShieldEmitterComponent : Component
     public float DamageExp = 1.1f;
 
     /// <summary>
+    /// Damage modifier to flatly modify the amount of energy consumed.
+    /// </summary>
+    [DataField]
+    public float JoulePerDamage = 0.1f;
+
+    /// <summary>
     /// Rate at which the emitter heals/reduces its damage per second when powered.
     /// </summary>
     [DataField]

@@ -128,6 +128,7 @@
     maxDraw: 150000
     unpoweredBonus: 8
     damageLimit: 300000
+    joulePerDamage: 0.05
     damageOverloadTimePunishment: 45
     shieldColor: "#FF9933"
     collisionResistanceMultiplier: 0.0
@@ -385,7 +386,7 @@
     baseDraw: 20000
     maxDraw: 60000
     unpoweredBonus: 3 # Mono
-    damageLimit: 5000 # Mono
+    damageLimit: 75000 # Mono
     damageOverloadTimePunishment: 80
     shieldColor: "#3399FF"
     collisionResistanceMultiplier: 0.5
