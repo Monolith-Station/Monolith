@@ -20206,3 +20206,16 @@ Entries:
   id: 2227
   time: '2026-04-20T00:56:18.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3824
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Autopilot/ship AI made better at getting itself out of difficult
+        situations.
+    - type: Tweak
+      message: >-
+        Ship AI can now change the ship's dampening mode to park or cruise. Yes,
+        it can drive a Caracara on cruise now.
+  id: 2228
+  time: '2026-04-20T18:34:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3833
