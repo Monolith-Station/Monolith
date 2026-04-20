@@ -33,9 +33,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     /// Projectiles slower than this will rely on standard StartCollideEvent.
     /// </summary>
     private const float MinRaycastVelocity = 75f;
-    private const float RaycastResetVelocity = 20f; // velocity to reset to if we want to reset it
-    private const float GridLookupRange = 6f;
-    private List<Entity<MapGridComponent>> _grids = new();
     // </Mono>
 
     public override void Initialize()
@@ -76,10 +73,13 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             // mono start
             if (!component.NoDamageDelete)
                 return null;
+
+            var spEv = new ProjectileSpentEvent();
+            RaiseLocalEvent(uid, spEv);
             // mono end
 
             component.ProjectileSpent = true;
-            if (component.DeleteOnCollide && component.ProjectileSpent)
+            if (component.DeleteOnCollide)
                 QueueDel(uid);
             return null;
         }
@@ -125,6 +125,15 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             component.ProjectileSpent = true;
         }
 
+        // Mono
+        if (component.ProjectileSpent)
+        {
+            var spEv = new ProjectileSpentEvent();
+            RaiseLocalEvent(uid, spEv);
+            if (component.DeleteOnCollide)
+                QueueDel(uid);
+        }
+
         return modifiedDamage;
     }
 
@@ -138,12 +147,12 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             if (projectileComp.ProjectileSpent || TerminatingOrDeleted(uid))
                 continue;
 
-            var currentVelocity = physicsComp.LinearVelocity;
+            var xform = Transform(uid);
+            var currentVelocity = projectileComp.RaycastResetVelocity ?? _physics.GetMapLinearVelocity(uid, physicsComp, xform);
             var velLen = currentVelocity.Length();
-            if (velLen < MinRaycastVelocity)
+            if (velLen < MinRaycastVelocity && projectileComp.RaycastResetVelocity == null)
                 continue;
 
-            var xform = Transform(uid);
             var lastMap = _transformSystem.GetMapCoordinates(xform);
             var lastPosition = lastMap.Position;
             var rayDirection = currentVelocity / velLen;
@@ -162,44 +171,15 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 false); // IncludeNonHard = false
 
             // do not process other grid velocity if we are gridded
-            if (ProcessHits(hits) || xform.GridUid != null)
-                continue;
-
-            // no hit, but a grid might still phase into *us*
-            var rayBox = new Box2(new Vector2(-GridLookupRange, -GridLookupRange) + lastPosition,
-                                    new Vector2(GridLookupRange, rayDistance + GridLookupRange) + lastPosition);
-
-            var rayBoxRotated = new Box2Rotated(rayBox, rayDirection.ToWorldAngle() - new Angle(Math.PI), lastPosition);
-            _grids.Clear();
-            _mapMan.FindGridsIntersecting(xform.MapID, rayBoxRotated, ref _grids);
-
-            // raycast but in terms relative to the grid, basically: temporarily pretend we have -gridVel velocity added to us, and the grid is stationary
-            foreach (var grid in _grids)
+            if (!ProcessHits(hits) && projectileComp.RaycastResetVelocity is { } resetVel)
             {
-                if (!_physQuery.TryComp(grid, out var gridBody))
-                    continue;
-
-                var gridVel = gridBody.LinearVelocity;
-                var relVel = currentVelocity - gridVel;
-                // raycast from us into the grid
-                var relVelLen = relVel.Length();
-                if (relVelLen < MinRaycastVelocity)
-                    continue;
-
-                var gridRayDir = relVel / relVelLen;
-                var gridRayLen = relVelLen * frameTime;
-
-                var gridHits = _physics.IntersectRay(xform.MapID,
-                    new CollisionRay(lastPosition, gridRayDir, projFix.CollisionMask),
-                    gridRayLen,
-                    uid, // Entity to ignore (self)
-                    false); // IncludeNonHard = false
-
-                if (ProcessHits(gridHits, grid))
-                    break;
+                var parentVel = _physics.GetMapLinearVelocity(xform.ParentUid);
+                var resetTo = resetVel - parentVel;
+                _physics.SetLinearVelocity(uid, resetTo, body: physicsComp);
+                projectileComp.RaycastResetVelocity = null;
             }
 
-            bool ProcessHits(IEnumerable<RayCastResults> hits, EntityUid? gridNeeded = null)
+            bool ProcessHits(IEnumerable<RayCastResults> hits)
             {
                 // Process the closest hit
                 // IntersectRay results are not guaranteed to be sorted by distance, so we go through them all.
@@ -233,10 +213,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                     if (otherEv.Cancelled)
                         continue;
 
-                    var thisHitXform = Transform(hitEnt);
-                    if (gridNeeded != null && thisHitXform.GridUid != gridNeeded)
-                        continue;
-
                     if (hit.Distance < minHit.Distance)
                         minHit = (hitEnt, hit.Distance);
                 }
@@ -251,9 +227,18 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 if (hitXform.Coordinates.EntityId != hitXform.GridUid && hitXform.GridUid != null)
                     hitPos = _transformSystem.WithEntityId(hitPos, hitXform.GridUid.Value);
 
+                if (projectileComp.RaycastResetVelocity == null)
+                {
+                    var parentVel = _physics.GetMapLinearVelocity(xform.ParentUid);
+                    projectileComp.RaycastResetVelocity = currentVelocity + parentVel; // record specifically world velocity
+                    var curVel = physicsComp.LinearVelocity;
+                    curVel.Normalize();
+                    var resetTo = 1f / frameTime;
+                    curVel *= resetTo;
+                    _physics.SetLinearVelocity(uid, curVel, body: physicsComp);
+                }
+
                 _transformSystem.SetCoordinates(uid, hitPos);
-                if (projectileComp.RaycastResetVelocity)
-                    _physics.SetLinearVelocity(uid, rayDirection * RaycastResetVelocity);
 
                 return true;
             }
