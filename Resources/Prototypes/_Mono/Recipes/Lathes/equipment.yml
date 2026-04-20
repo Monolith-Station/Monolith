@@ -39,57 +39,51 @@
 
 #Armor Plates
 - type: latheRecipe
-  id: ArmorPlateLight
+  id: ArmorPlateBlunt_Slash
   categories:
   - ArmorNF
-  result: ArmorPlateLight
-  completetime: 5
+  result: ArmorPlateBlunt_Slash
+  completetime: 15
   materials:
-    Steel: 300
-    Durathread: 800
-
-- type: latheRecipe
-  id: ArmorPlateMedium
-  categories:
-  - ArmorNF
-  result: ArmorPlateMedium
-  completetime: 5
-  materials:
-    Steel: 300
-    Durathread: 400
+    Plasteel: 2000
+    Durathread: 500
     Plastic: 1000
 
 - type: latheRecipe
-  id: ArmorPlateTactical
+  id: ArmorPlatePierce
   categories:
   - ArmorNF
-  result: ArmorPlateTactical
-  completetime: 5
+  result: ArmorPlatePierce
+  completetime: 15
   materials:
-    Steel: 300
-    Durathread: 400
-    Plastic: 400
-    Plasteel: 1000
+    Durathread: 500
+    Plastic: 500
+    Plastitanium: 1500
 
 - type: latheRecipe
-  id: ArmorPlateRefractive
+  id: ArmorPlateHeat
   categories:
   - ArmorNF
-  result: ArmorPlateRefractive
-  completetime: 5
+  result: ArmorPlateHeat
+  completetime: 15
   materials:
-    Durathread: 400
-    UraniumGlass: 1000
-    PlasmaGlass: 1000
+    Steel: 600
+    Durathread: 500
+    PlasmaGlass: 1500
+    UraniumGlass: 1500
 
 - type: latheRecipe
-  id: ArmorPlateSteel
+  id: ArmorPlateSpeed
   categories:
   - ArmorNF
-  result: ArmorPlateSteel
-  completetime: 5
+  result: ArmorPlateSpeed
+  completetime: 15
   materials:
-    Steel: 1000
+    Durathread: 1000
+    Brass: 3000
+    Plastitanium: 1000
+
+# ASMGT
 
 - type: latheRecipe
   id: WeaponTurretAsmgtNtPacked

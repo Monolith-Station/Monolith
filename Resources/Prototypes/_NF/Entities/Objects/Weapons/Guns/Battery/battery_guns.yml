@@ -15,7 +15,7 @@
   - type: Clothing
     sprite: _NF/Objects/Weapons/Guns/Projectiles/emp.rsi
   - type: Gun
-    fireRate: 1
+    fireRate: 0.15
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -37,8 +37,8 @@
   - type: Appearance
   - type: EmpDescription
     range: 2
-    energyConsumption: 2700000
-    disableDuration: 30
+    energyConsumption: 400000
+    disableDuration: 5
   - type: PirateBountyItem # Mono
     id: StandardFactionLongarm
 

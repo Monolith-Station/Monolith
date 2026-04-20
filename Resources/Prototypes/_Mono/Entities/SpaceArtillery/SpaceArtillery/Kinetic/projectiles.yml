@@ -272,7 +272,7 @@
       types:
         Structural: 12000
         Blunt: 2000
-        penetrationThreshold: 2500
+    penetrationThreshold: 2500
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
     layers:
@@ -291,6 +291,7 @@
     color: "#fc5a03"
   - type: ExplodeOnTrigger
   - type: Explosive
+    deleteAfterExplosion: false
     explosionType: Default
     totalIntensity: 1400
     intensitySlope: 10
