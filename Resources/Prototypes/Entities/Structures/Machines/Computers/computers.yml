@@ -196,6 +196,7 @@
       rotate: true
       bounds: "-0.5,-0.5,0.5,0.5"
   - type: HTN
+    sleepPlayerCheckRangeOverride: 4000 # to allow alternative usages and not spotaneously flee when people close
     rootTask:
       task: AutopilotShuttleCompound
 
