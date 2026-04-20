@@ -110,11 +110,13 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         InitializeEmitters();
     }
 
-    private void OnPreventCollide(EntityUid uid, ShipShieldComponent component, PreventCollideEvent args)
+    private void OnPreventCollide(EntityUid uid, ShipShieldComponent component, ref PreventCollideEvent args)
     {
         // only handle ship weapons for now. engine update introduced physics regressions. Let's polish everything else and circle back yeah?
-        if (!HasComp<ShipWeaponProjectileComponent>(args.OtherEntity) ||
+        if (TerminatingOrDeleted(args.OtherEntity) ||
+        !HasComp<ShipWeaponProjectileComponent>(args.OtherEntity) ||
         !_projectileQuery.TryGetComponent(args.OtherEntity, out var projectile) ||
+        projectile.ProjectileSpent ||
         projectile.Weapon is { } weapon && component.Shielded == Transform(weapon).GridUid) // dont collide with projectiles coming from the same , grid  SPCR 2025
         {
             args.Cancelled = true;
