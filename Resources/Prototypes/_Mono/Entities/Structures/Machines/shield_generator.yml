@@ -82,7 +82,7 @@
     powerLoad: 60000
   - type: Appearance
   - type: ShipShieldEmitter
-    damageLimit: 35000
+    damageLimit: 70000
     damageOverloadTimePunishment: 40
     healPerSecond: 120 # Base is 250
     damageExp: 1.15 # Base is 1.1
@@ -127,8 +127,8 @@
     baseDraw: 80000
     maxDraw: 150000
     unpoweredBonus: 8
-    damageLimit: 90000
-    damageOverloadTimePunishment: 30
+    damageLimit: 300000
+    damageOverloadTimePunishment: 45
     shieldColor: "#FF9933"
     collisionResistanceMultiplier: 0.0
   - type: Sprite
@@ -201,7 +201,7 @@
     baseDraw: 60000
     maxDraw: 100000
     unpoweredBonus: 8
-    damageLimit: 55000
+    damageLimit: 110000
     damageOverloadTimePunishment: 35
     shieldColor: "#FF0A70"
     collisionResistanceMultiplier: 0.05
@@ -269,7 +269,7 @@
   suffix: ADS ONLY
   components:
   - type: ShipShieldEmitter
-    damageLimit: 65000
+    damageLimit: 130000
     damageOverloadTimePunishment: 40
     healPerSecond: 120 # Base is 250
     damageExp: 1.15 # Base is 1.1
@@ -299,7 +299,7 @@
     baseDraw: 30000 # Base is 50000
     maxDraw: 75000 # Base is 150000
     unpoweredBonus: 4 # Base is 6
-    damageLimit: 50000
+    damageLimit: 100000
     damageOverloadTimePunishment: 100
     shieldColor: "#9933FF"
     collisionResistanceMultiplier: 0.6
