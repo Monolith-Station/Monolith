@@ -55,6 +55,12 @@ public sealed partial class ShipSteererComponent : Component
     public float BaseEvasionTime = 4f;
 
     /// <summary>
+    /// Don't use anchor below this velocity.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float AnchorMaxVelocity = 5f;
+
+    /// <summary>
     /// How unwilling we are to use brake to adjust our velocity. Higher means less willing.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]

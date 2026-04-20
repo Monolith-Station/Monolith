@@ -117,6 +117,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             EvasionSectorDepth = ent.Comp.EvasionSectorDepth,
             MaxObstructorDistance = ent.Comp.MaxObstructorDistance,
             MinObstructorDistance = ent.Comp.MinObstructorDistance,
+            AnchorMaxVelocity = ent.Comp.AnchorMaxVelocity,
             EvasionBuffer = ent.Comp.EvasionBuffer,
             SearchBuffer = ent.Comp.GridSearchBuffer,
             ScanDistanceBuffer = ent.Comp.GridSearchDistanceBuffer,
@@ -251,7 +252,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         strafeInput = GetGoodThrustVector(strafeInput, ctx.Shuttle) * MathF.Min(1f, wishInputVec.Length());
 
         // also set us to anchor dampening if we wish to brake
-        if (brakeInput == 1f)
+        if (brakeInput == 1f && ctx.ShipBody.LinearVelocity.Length() >= config.AnchorMaxVelocity)
             _shuttle.SetInertiaDampening(ctx.ShipUid, ctx.ShipBody, ctx.Shuttle, ctx.ShipXform, InertiaDampeningMode.Anchor);
         else
             _shuttle.SetInertiaDampening(ctx.ShipUid, ctx.ShipBody, ctx.Shuttle, ctx.ShipXform, InertiaDampeningMode.Off);
@@ -264,7 +265,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // check our brake thrust
         var brakeVec = GetGoodThrustVector((-ctx.ShipNorthAngle).RotateVec(-ctx.ShipBody.LinearVelocity), ctx.Shuttle);
         var brakeAccelVec = _mover.GetDirectionAccel(brakeVec, ctx.Shuttle, ctx.ShipBody, ctx.ShipXform);
-        var brakeAccel = brakeAccelVec.Length() * (ShuttleComponent.BrakeCoefficient + 1f);
+        var brakeAccel = brakeAccelVec.Length() * (ShuttleComponent.BrakeCoefficient + 1f); // + 1 since we can layer brake and normal thrust
 
         var linVelLenSq = ctx.ShipBody.LinearVelocity.LengthSquared();
 
@@ -723,6 +724,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         public bool AvoidanceNoRotate;
         public int EvasionSectorCount;
         public int EvasionSectorDepth;
+        public float AnchorMaxVelocity;
         public float BaseEvasionTime;
         public float MaxObstructorDistance;
         public float MinObstructorDistance;
