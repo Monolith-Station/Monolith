@@ -10,8 +10,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 15
-        Structural: 45
+        Piercing: 18
+        Structural: 50
 
 - type: entity
   id: MechPelletShotgunSpread
@@ -73,8 +73,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 35
-        Structural: 70
+        Piercing: 45
+        Structural: 225
   - type: ShipWeaponProjectile
   - type: TimedDespawn
     lifetime: 3
@@ -97,7 +97,7 @@
       types:
         Piercing: 30
         Blunt: 20
-        Structural: 250
+        Structural: 300
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
