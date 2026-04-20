@@ -20110,3 +20110,99 @@ Entries:
   id: 2217
   time: '2026-04-19T02:04:24.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3827
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        EMP emitter firerate reduced, disable duration and energy consumption
+        reduced substantially.
+    - type: Tweak
+      message: >-
+        EMP bullets no longer disable equipment/cybernetics/etc and instead only
+        drain energy. Energy drain reduced.
+  id: 2218
+  time: '2026-04-19T21:42:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3834
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: AI can now access multiple consoles at once again
+  id: 2219
+  time: '2026-04-19T23:08:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3840
+- author: OneZerooo0
+  changes:
+    - type: Tweak
+      message: You can now choose an armor plate to start with in loadout.
+    - type: Tweak
+      message: M82 armors and PDV SCAF armor have been buffed.
+    - type: Tweak
+      message: CV-32 now has 10% slowdown rather than 15%.
+    - type: Remove
+      message: Removed old armor plates.
+    - type: Add
+      message: >-
+        Added four new armor modules: Blunt/Slash, Pierce, Heat and Speed
+        plates.
+  id: 2220
+  time: '2026-04-19T23:32:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3822
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: Readds asakim handheld radio to asakim loadouts
+  id: 2221
+  time: '2026-04-19T23:54:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3841
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Asteroids have LARP-y names now instead of "asteroid debris extra
+        massive".
+  id: 2222
+  time: '2026-04-20T00:06:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3842
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked L6/Grizzly/Ratel (slight accuracy buffs, faster wielding, etc)
+        stats to be more useful compared to an actual rifle.
+  id: 2223
+  time: '2026-04-20T00:07:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3832
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: >-
+        tweaks the paper stamp title on the USSP stamp and WS stamp has now
+        become TSF Local Operations Command.
+  id: 2224
+  time: '2026-04-20T00:47:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3831
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Jumpsuit signature blips now only show when off grid.
+  id: 2225
+  time: '2026-04-20T00:48:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3816
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed projectile penetration. This means Charon can penetrate weak walls
+        now.
+  id: 2226
+  time: '2026-04-20T00:51:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3828
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Mechs can now wideswing.
+    - type: Tweak
+      message: Wideswinging now only costs stamina if you hit multiple targets.
+  id: 2227
+  time: '2026-04-20T00:56:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3824

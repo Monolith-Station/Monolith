@@ -29,6 +29,7 @@
     color: "#19AFFF"
   - type: ExplodeOnTrigger
   - type: Explosive
+    deleteAfterExplosion: false
     explosionType: Default
     totalIntensity: 1500
     intensitySlope: 40
