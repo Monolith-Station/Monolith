@@ -412,11 +412,11 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
                 // 1. Solve crossing the Front Tangent Plane (Entering the obstacle bounds)
                 float t_f;
-                if (k * k < l * l / 1024f)
+                var desc_f = l * l + 4f * k * obsDistanceFront;
+                if (desc_f < 0f)
                     t_f = l != 0f ? obsDistanceFront / l : -1f;
                 else
                 {
-                    var desc_f = l * l + 4f * k * obsDistanceFront;
                     t_f = desc_f < 0f || k == 0f ? -1f : ((-l + MathF.Sqrt(desc_f)) * 0.5f / k);
                 }
 
@@ -425,27 +425,18 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
                 // 2. Resolve longitudinal exit/stop trajectory
                 Vector2 p_end;
-                if (k * k < l * l / 1024f)
+                var desc_c = l * l + 4f * k * obsDistanceCenter;
+                if (desc_c < 0f)
                 {
-                    float t_c = l != 0f ? obsDistanceCenter / l : -1f;
-                    if (t_c < 0f) t_c = t_f; // Failsafe bounds
-                    p_end = relVel * t_c + 0.5f * accel * t_c * t_c;
+                    // The ship stops longitudinally inside the front half of the obstacle
+                    var t_stop = -l / (2f * k);
+                    p_end = relVel * t_stop + 0.5f * accel * t_stop * t_stop;
                 }
                 else
                 {
-                    var desc_c = l * l + 4f * k * obsDistanceCenter;
-                    if (desc_c < 0f)
-                    {
-                        // The ship stops longitudinally inside the front half of the obstacle
-                        var t_stop = -l / (2f * k);
-                        p_end = relVel * t_stop + 0.5f * accel * t_stop * t_stop;
-                    }
-                    else
-                    {
-                        var t_c = ((-l + MathF.Sqrt(desc_c)) * 0.5f / k);
-                        if (t_c < 0f) t_c = t_f; // Failsafe bounds
-                        p_end = relVel * t_c + 0.5f * accel * t_c * t_c;
-                    }
+                    var t_c = ((-l + MathF.Sqrt(desc_c)) * 0.5f / k);
+                    if (t_c < 0f) t_c = t_f; // Failsafe bounds
+                    p_end = relVel * t_c + 0.5f * accel * t_c * t_c;
                 }
 
                 // 3. Line-segment to Circle-Center intersection.
