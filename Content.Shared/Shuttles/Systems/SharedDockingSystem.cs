@@ -13,7 +13,6 @@ public abstract class SharedDockingSystem : EntitySystem
 
     public bool CanShuttleDock(EntityUid? shuttle, SharedDockingComponent dockComp) //Mono, I trust the null check in DockingSystem.cs
     {
-
         if (shuttle == null)
             return false;
 
