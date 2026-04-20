@@ -17,5 +17,11 @@ public sealed partial class LatheProducingComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan ProductionLength;
+
+    /// <summary>
+    /// The Entity that queued this recipe - Mono
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public EntityUid? Actor;
 }
 

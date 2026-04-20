@@ -1,17 +1,4 @@
 - type: technology
-  id: RogueEdagger
-  name: research-technology-rogue-energy-dagger
-  entityIcon: EnergyDaggerLoud
-  discipline: RogueWeaponry
-  tier: 1
-  cost: 15000
-  recipeUnlocks:
-  - EnergyDaggerRogue
-  technologyPrerequisites:
-  - UniversalMaterialResearchT1
-  position: 19, 2
-
-- type: technology
   id: RogueEsword
   name: research-technology-rogue-energy-weapon
   entityIcon: EnergySword
@@ -21,8 +8,8 @@
   recipeUnlocks:
   - EnergyShieldRogue
   - EnergySwordRogue
+  - EnergyDaggerRogue
   technologyPrerequisites:
-  - RogueEdagger
   - UniversalMaterialResearchT2
   position: 19, 6
 
@@ -49,6 +36,9 @@
   recipeUnlocks:
   - WeaponSubMachineGunC20rRogue
   - WeaponRevolverPythonRogue
+  - WeaponRifleM90Rogue
+  - WeaponShotgunSultanPulsar
+  - PrintableDirtyBomb
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: 20, 2
@@ -61,31 +51,18 @@
   tier: 2
   cost: 55000
   recipeUnlocks:
-  - WeaponRifleM90Rogue
   - WeaponSubMachineGunWt550Rogue
+  - WeaponSubMachineGunAtreidesRogue
+  - WeaponShotgunBulldogRogue
+  - WeaponLauncherPanzeroRogue
   technologyPrerequisites:
   - RogueBasicGuns
   - UniversalMaterialResearchT2
   position: 20, 7
 
 - type: technology
-  id: RogueCQCGuns
-  name: research-technology-rogue-cqc-guns
-  entityIcon: WeaponShotgunBulldog
-  discipline: RogueWeaponry
-  tier: 2
-  cost: 35000
-  recipeUnlocks:
-  - WeaponSubMachineGunAtreidesRogue
-  - WeaponShotgunBulldogRogue
-  - AmmoBox57x28mmBigFMJ
-  technologyPrerequisites:
-  - RogueAdvancedGuns
-  position: 20, 8
-
-- type: technology
-  id: RogueHristov
-  name: research-technology-rogue-hristov
+  id: RogueHeavyWeapons
+  name: research-technology-rogue-heavy-weapons
   entityIcon: WeaponSniperHristov
   discipline: RogueWeaponry
   tier: 3
@@ -94,6 +71,9 @@
   - WeaponSniperHristovRogue
   - AmmoBox145x114mm
   - AmmoBox145x114mmBig
+  - WeaponDEWBasilisk
+  - Magazine10Phz # for basilisk
+  - AmmoBox10Phz # for basilisk
   technologyPrerequisites:
   - RogueAdvancedGuns
   - UniversalMaterialResearchT3
@@ -116,5 +96,5 @@
   - MagazineAsmgtUniversal635x40mm
   - AmmoBox635x40mmCaselessBig
   technologyPrerequisites:
-  - RogueCQCGuns
-  position: 21, 8
+  - RogueAdvancedGuns
+  position: 21, 7

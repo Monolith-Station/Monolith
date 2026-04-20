@@ -80,7 +80,7 @@
     openState: tsfgygax-open
     brokenState: tsfgygax-broken
   - type: RadarBlip # Mono
-    radarColor: "#047ABD"
+    radarColor: "#028EDE"
     scale: 1.5
     requireNoGrid: true
     shape: square
@@ -134,7 +134,7 @@
     openState: tsfdurand-open
     brokenState: tsfdurand-broken
   - type: RadarBlip # Mono
-    radarColor: "#047ABD"
+    radarColor: "#028EDE"
     scale: 1.5
     requireNoGrid: true
     shape: square
@@ -227,7 +227,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2000
+        damage: 5000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -297,7 +297,7 @@
     openState: tsfbroadsword-open
     brokenState: tsfbroadsword-broken
   - type: RadarBlip
-    radarColor: "#047ABD"
+    radarColor: "#028EDE"
     scale: 3
     requireNoGrid: true
     shape: square
@@ -380,7 +380,7 @@
     openState: tsfbroadsword-open
     brokenState: tsfbroadsword-broken
   - type: RadarBlip
-    radarColor: "#047ABD"
+    radarColor: "#028EDE"
     scale: 3
     requireNoGrid: true
     shape: square
@@ -525,7 +525,7 @@
     openState: tsfflail-open
     brokenState: tsfflail-broken
   - type: RadarBlip
-    radarColor: "#047ABD"
+    radarColor: "#028EDE"
     scale: 3
     requireNoGrid: true
     shape: square
@@ -570,7 +570,7 @@
     criticalPowerStateSpeedPenalty: 0.85
     maxEquipmentAmount: 3
     airtight: true
-    maxIntegrity: 2250
+    maxIntegrity: 4000
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -579,7 +579,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 3000
+        damage: 8000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -616,7 +616,7 @@
     openState: tsfflail-open
     brokenState: tsfflail-broken
   - type: RadarBlip
-    radarColor: "#047ABD"
+    radarColor: "#028EDE"
     scale: 3
     requireNoGrid: true
     shape: square
@@ -651,7 +651,7 @@
     criticalPowerStateSpeedPenalty: 0.95
     maxEquipmentAmount: 1
     airtight: true
-    maxIntegrity: 2000
+    maxIntegrity: 3000
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -660,7 +660,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 3000
+        damage: 6000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -691,7 +691,7 @@
     openState: tsfflail-open
     brokenState: tsfflail-broken
   - type: RadarBlip
-    radarColor: "#047ABD"
+    radarColor: "#028EDE"
     scale: 3
     requireNoGrid: true
     shape: square
