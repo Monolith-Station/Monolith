@@ -7,30 +7,31 @@
   # cost: 5000
   # - UniversalMaterialResearchT1
   # position: 10, 0
-  
+
 - type: technology
   id: UniversalArmorPlatesT1
   name: research-technology-universal-armorplates-1
-  entityIcon: ArmorPlateMedium
+  entityIcon: ArmorPlateBlunt_Slash
   discipline: FactionUniversal
   tier: 1
   cost: 10000
   recipeUnlocks:
-  - ArmorPlateMedium
+  - ArmorPlateBlunt_Slash
+  - ArmorPlatePierce
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: 11, 3
-  
+
 - type: technology
   id: UniversalArmorPlatesT2
   name: research-technology-universal-armorplates-2
-  entityIcon: ArmorPlateTactical
+  entityIcon: ArmorPlateHeat
   discipline: FactionUniversal
   tier: 2
   cost: 15000
   recipeUnlocks:
-  - ArmorPlateTactical
-  - ArmorPlateRefractive
+  - ArmorPlateHeat
+  - ArmorPlateSpeed
   technologyPrerequisites:
   - UniversalArmorPlatesT1
   - UniversalMaterialResearchT2
