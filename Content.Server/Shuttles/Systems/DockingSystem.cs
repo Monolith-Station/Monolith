@@ -468,10 +468,9 @@ namespace Content.Server.Shuttles.Systems
 
             var shuttleUid = Transform(console.Value).GridUid;
             var otherShuttleUid = Transform(targetDock.Value).GridUid; // Mono
-            var gasDocking = (ourDockComp.DockType & targetDockComp.DockType & DockType.Gas) != DockType.None; // Mono
 
             // Mono - check both grids, but allow gas docks to target PreventPilot grids (e.g. debris/meteors).
-            if (!CanShuttleDock(shuttleUid) || (!gasDocking && !CanShuttleDock(otherShuttleUid)))
+            if (!CanShuttleDock(shuttleUid, ourDockComp) || (!CanShuttleDock(otherShuttleUid, targetDockComp)))
             {
                 _popup.PopupCursor(Loc.GetString("shuttle-console-dock-fail"));
                 return;
