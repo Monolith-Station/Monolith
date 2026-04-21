@@ -116,8 +116,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
     {
         // only handle ship weapons for now. engine update introduced physics regressions. Let's polish everything else and circle back yeah?
         // Ensuring projectiles coming froms same grid don't hit shield is handled by ProjectileGridPhaseComponent
-        if (TerminatingOrDeleted(args.OtherEntity) ||
-        !_shipWeaponProjectileQuery.HasComponent(args.OtherEntity) ||
+        if (!_shipWeaponProjectileQuery.HasComponent(args.OtherEntity) ||
         !_projectileQuery.TryGetComponent(args.OtherEntity, out var projectile) ||
         projectile.ProjectileSpent)
         {
