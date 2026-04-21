@@ -210,8 +210,8 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         internalPoly.Set(roughPoly);
 
         _fixtureSystem.TryCreateFixture(shield, internalPoly, "internalShield",
-            hard: true, // To be set to Hard once code is made to actually make this shit work
-            collisionLayer: (int)CollisionGroup.BulletImpassable, // Mono - Only blocks bullets
+            hard: true,
+            collisionLayer: (int)CollisionGroup.BulletImpassable, // Mono - Only try to block bullets
             body: shieldPhysics);
 
         _physicsSystem.WakeBody(shield, body: shieldPhysics);
