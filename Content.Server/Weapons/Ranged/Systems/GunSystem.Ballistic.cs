@@ -9,12 +9,12 @@ public sealed partial class GunSystem
     /// <summary>
     /// Adds an ammo entity to a BallisticAmmoProvider (Mono - entire method)
     /// </summary>
-    public void AddBallisticAmmo(EntityUid uid, Entity<BallisticAmmoProviderComponent?> ammoEntity)
+    public void AddBallisticAmmo(Entity<BallisticAmmoProviderComponent?> ent, EntityUid ammoEntity)
     {
-        if (!Resolve(ammoEntity, ref ammoEntity.Comp))
+        if (!Resolve(ent, ref ent.Comp))
             return;
-        ammoEntity.Comp.Entities.Add(ammoEntity);
-        DirtyField(uid, ammoEntity.Comp, nameof(BallisticAmmoProviderComponent.Entities));
+        ent.Comp.Entities.Add(ammoEntity);
+        DirtyField(ent, ent.Comp, nameof(BallisticAmmoProviderComponent.Entities));
     }
 
     protected override void Cycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates)

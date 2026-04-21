@@ -388,7 +388,7 @@ public sealed class AmmoLoaderSystem : EntitySystem
         {
             _containers.Remove(ammoEntity, loader.Comp.Container);
             _containers.Insert(ammoEntity, artilleryAmmo.Container);
-            _gun.AddBallisticAmmo(gunUid, ammoEntity, artilleryAmmo);
+            _gun.AddBallisticAmmo((gunUid, artilleryAmmo), ammoEntity);
             return true;
         }
 
