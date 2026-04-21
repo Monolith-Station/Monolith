@@ -12,6 +12,7 @@ using Content.Shared.Explosion.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Crescent.ShipShields;
+
 public partial class ShipShieldsSystem
 {
     private const float MAX_EMP_DAMAGE = 10000f;
