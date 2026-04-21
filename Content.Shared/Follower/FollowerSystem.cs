@@ -147,6 +147,8 @@ public sealed class FollowerSystem : EntitySystem
 
     private void OnAfterHandleState(Entity<FollowerComponent> entity, ref AfterAutoHandleStateEvent args)
     {
+        if (TerminatingOrDeleted(entity) || TerminatingOrDeleted(entity.Comp.Following)) // Mono: Ensure the entities exist.
+            return;
         StartFollowingEntity(entity, entity.Comp.Following);
     }
 
@@ -173,8 +175,6 @@ public sealed class FollowerSystem : EntitySystem
     /// <param name="entity">The entity to be followed</param>
     public void StartFollowingEntity(EntityUid follower, EntityUid entity)
     {
-        if (TerminatingOrDeleted(follower) || TerminatingOrDeleted(entity)) // Mono: Ensure the entities exist.
-            return;
 
         // No recursion for you
         var targetXform = Transform(entity);
