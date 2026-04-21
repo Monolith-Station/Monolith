@@ -82,7 +82,7 @@
     powerLoad: 60000
   - type: Appearance
   - type: ShipShieldEmitter
-    damageLimit: 70000
+    damageLimit: 30000
     damageOverloadTimePunishment: 40
     healPerSecond: 120 # Base is 250
     damageExp: 1.15 # Base is 1.1
@@ -122,13 +122,13 @@
   suffix: POI ONLY
   components:
   - type: ShipShieldEmitter
-    healPerSecond: 2000
+    damageLimit: 100000
+    healPerSecond: 2500
     damageExp: 0.5
     baseDraw: 80000
     maxDraw: 150000
     unpoweredBonus: 8
-    damageLimit: 300000
-    joulePerDamage: 0.05
+    joulePerDamage: 0.25
     damageOverloadTimePunishment: 45
     shieldColor: "#FF9933"
     collisionResistanceMultiplier: 0.0
@@ -197,12 +197,12 @@
   suffix: TSF CAPITAL ONLY
   components:
   - type: ShipShieldEmitter
-    healPerSecond: 150
+    damageLimit: 75000
+    healPerSecond: 950
     damageExp: 0.5
     baseDraw: 60000
     maxDraw: 100000
     unpoweredBonus: 8
-    damageLimit: 110000
     damageOverloadTimePunishment: 35
     shieldColor: "#FF0A70"
     collisionResistanceMultiplier: 0.05
@@ -270,9 +270,9 @@
   suffix: ADS ONLY
   components:
   - type: ShipShieldEmitter
-    damageLimit: 130000
+    damageLimit: 75000
     damageOverloadTimePunishment: 40
-    healPerSecond: 120 # Base is 250
+    healPerSecond: 1050 # Base is 250
     damageExp: 1.15 # Base is 1.1
     baseDraw: 40000 # Base is 50000
     maxDraw: 100000 # Base is 150000
@@ -295,12 +295,12 @@
   suffix: ADS/TSF ONLY, SCI VOUCHER SHIPS ONLY
   components:
   - type: ShipShieldEmitter
-    healPerSecond: 100 # Base is 250
+    damageLimit: 55000
+    healPerSecond: 700 # Base is 250
     damageExp: 1.15 # Base is 1.1
     baseDraw: 30000 # Base is 50000
     maxDraw: 75000 # Base is 150000
     unpoweredBonus: 4 # Base is 6
-    damageLimit: 100000
     damageOverloadTimePunishment: 100
     shieldColor: "#9933FF"
     collisionResistanceMultiplier: 0.6
@@ -381,12 +381,12 @@
   name: MS-100 "Sentinel" Shield Generator
   components:
   - type: ShipShieldEmitter
-    healPerSecond: 80 # Mono
+    damageLimit: 35000 # Mono
+    healPerSecond: 500 # Mono
     damageExp: 1.2 # Mono
     baseDraw: 20000
     maxDraw: 60000
     unpoweredBonus: 3 # Mono
-    damageLimit: 75000 # Mono
     damageOverloadTimePunishment: 80
     shieldColor: "#3399FF"
     collisionResistanceMultiplier: 0.5
