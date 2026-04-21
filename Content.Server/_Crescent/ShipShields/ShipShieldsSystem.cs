@@ -29,6 +29,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
     [Dependency] private readonly PvsOverrideSystem _pvsSys = default!;
 
     private EntityQuery<ProjectileComponent> _projectileQuery;
+    private EntityQuery<ShipWeaponProjectileComponent> _shipWeaponProjectileQuery;
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -102,6 +103,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
     {
         base.Initialize();
         _projectileQuery = GetEntityQuery<ProjectileComponent>();
+        _shipWeaponProjectileQuery = GetEntityQuery<ShipWeaponProjectileComponent>();
 
         SubscribeLocalEvent<ShipShieldComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<ShipShieldEmitterComponent, ComponentShutdown>(OnEmitterShutdown); // Mono
@@ -113,11 +115,11 @@ public sealed partial class ShipShieldsSystem : EntitySystem
     private void OnPreventCollide(EntityUid uid, ShipShieldComponent component, ref PreventCollideEvent args)
     {
         // only handle ship weapons for now. engine update introduced physics regressions. Let's polish everything else and circle back yeah?
+        // Ensuring projectiles coming froms same grid don't hit shield is handled by ProjectileGridPhaseComponent
         if (TerminatingOrDeleted(args.OtherEntity) ||
-        !HasComp<ShipWeaponProjectileComponent>(args.OtherEntity) ||
+        !_shipWeaponProjectileQuery.HasComponent(args.OtherEntity) ||
         !_projectileQuery.TryGetComponent(args.OtherEntity, out var projectile) ||
-        projectile.ProjectileSpent ||
-        projectile.Weapon is { } weapon && component.Shielded == Transform(weapon).GridUid) // dont collide with projectiles coming from the same , grid  SPCR 2025
+        projectile.ProjectileSpent)
         {
             args.Cancelled = true;
             return;
