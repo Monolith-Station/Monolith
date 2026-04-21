@@ -137,7 +137,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         //deflectionVector = new Vector2((float) (Math.Cos(angle) * deflectionVector.X - Math.Sin(angle) * deflectionVector.Y), (float) (Math.Sin(angle) * deflectionVector.X - Math.Cos(angle) * deflectionVector.Y));
 
         // instead of reflecting the projectile, just delete it. this works better for gameplay and intuiting what is going on in a fight.
-        // why shoot the projectile again when you can just 180 its physics, huh?
+        // why shoot the projectile again when you can just 180 its physics, tho?
         //_gun.ShootProjectile(args.OtherEntity, deflectionVector, _physicsSystem.GetMapLinearVelocity(uid), uid, null, velocity.Length());
 
         if (component.Source is { } source)
