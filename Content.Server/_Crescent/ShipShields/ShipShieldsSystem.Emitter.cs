@@ -77,7 +77,7 @@ public partial class ShipShieldsSystem
             return;
 
         /// Raise damage to the power of the growth exponent
-        emitter.AdditionalLoad = (float)Math.Clamp(Math.Pow(emitter.Damage, emitter.DamageExp), 0f, emitter.MaxDraw) * emitter.PowerModifier;
+        emitter.AdditionalLoad = (float)Math.Clamp(Math.Pow(emitter.Damage, emitter.DamageExp) * emitter.PowerModifier, 0f, emitter.MaxDraw);
 
         receiver.Load = emitter.BaseDraw + emitter.AdditionalLoad;
     }
