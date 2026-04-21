@@ -59,7 +59,11 @@ public partial class ShipShieldsSystem
         if (!args.IsInDetailsRange)
             return;
 
-        args.PushMarkup(Loc.GetString("shield-emitter-examine", ("basedraw", component.BaseDraw), ("additional", component.AdditionalLoad)));
+        args.PushMarkup(Loc.GetString("shield-emitter-examine", ("basedraw", component.BaseDraw), ("additional", CalculateLoadDamage(uid, component))));
+    }
+    private float CalculateLoadDamage(EntityUid uid, ShipShieldEmitterComponent emitter)
+    {
+        return (float)Math.Clamp(Math.Pow(emitter.Damage, emitter.DamageExp) * emitter.PowerModifier, 0f, emitter.MaxDraw);
     }
 
     private void AdjustEmitterLoad(EntityUid uid, ShipShieldEmitterComponent? emitter = null, ApcPowerReceiverComponent? receiver = null)
@@ -67,9 +71,6 @@ public partial class ShipShieldsSystem
         if (!Resolve(uid, ref emitter, ref receiver))
             return;
 
-        /// Raise damage to the power of the growth exponent
-        emitter.AdditionalLoad = (float)Math.Clamp(Math.Pow(emitter.Damage, emitter.DamageExp) * emitter.PowerModifier, 0f, emitter.MaxDraw);
-
-        receiver.Load = emitter.BaseDraw + emitter.AdditionalLoad;
+        receiver.Load = emitter.BaseDraw + CalculateLoadDamage(uid, emitter);
     }
 }
