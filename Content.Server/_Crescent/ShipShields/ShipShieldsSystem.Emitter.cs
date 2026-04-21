@@ -65,9 +65,8 @@ public partial class ShipShieldsSystem
             return;
         }
 
-        var additionalLoad = (float) Math.Clamp(Math.Pow(component.Damage * component.JoulePerDamage, component.DamageExp), 0f, component.MaxDraw);
-        var ratio = additionalLoad / component.BaseDraw;
-        ratio = (float) Math.Ceiling(ratio * 100);
+        var ratio = component.AdditionalLoad / component.BaseDraw;
+        ratio = (float)Math.Ceiling(ratio * 100);
 
         args.PushMarkup(Loc.GetString("shield-emitter-examine-damaged", ("percent", ratio)));
     }
@@ -78,8 +77,8 @@ public partial class ShipShieldsSystem
             return;
 
         /// Raise damage to the power of the growth exponent
-        var additionalLoad = (float) Math.Clamp(Math.Pow(emitter.Damage * emitter.JoulePerDamage, emitter.DamageExp), 0f, emitter.MaxDraw);
+        emitter.AdditionalLoad = (float)Math.Clamp(Math.Pow(emitter.Damage, emitter.DamageExp), 0f, emitter.MaxDraw) * emitter.PowerModifier;
 
-        receiver.Load = emitter.BaseDraw + additionalLoad;
+        receiver.Load = emitter.BaseDraw + emitter.AdditionalLoad;
     }
 }
