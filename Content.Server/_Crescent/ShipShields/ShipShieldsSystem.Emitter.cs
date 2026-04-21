@@ -59,16 +59,7 @@ public partial class ShipShieldsSystem
         if (!args.IsInDetailsRange)
             return;
 
-        if (component.Damage == 0f)
-        {
-            args.PushMarkup(Loc.GetString("shield-emitter-examine-undamaged"));
-            return;
-        }
-
-        var ratio = component.AdditionalLoad / component.BaseDraw;
-        ratio = (float)Math.Ceiling(ratio * 100);
-
-        args.PushMarkup(Loc.GetString("shield-emitter-examine-damaged", ("percent", ratio)));
+        args.PushMarkup(Loc.GetString("shield-emitter-examine", ("basedraw", component.BaseDraw), ("additional", component.AdditionalLoad)));
     }
 
     private void AdjustEmitterLoad(EntityUid uid, ShipShieldEmitterComponent? emitter = null, ApcPowerReceiverComponent? receiver = null)
