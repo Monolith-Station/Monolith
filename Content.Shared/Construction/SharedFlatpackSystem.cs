@@ -81,7 +81,8 @@ public abstract class SharedFlatpackSystem : EntitySystem
 
         var buildPos = _map.TileIndicesFor(grid, gridComp, xform.Coordinates);
 
-        // Mono fix - makes this logic smarter using existing anchorable logic
+        // Mono fix - makes this logic smarter using existing anchorable logic.
+        // Could be made better by getting the actual collison layers and mask of the spawned entity, but that's kind of complicated before its spawned.
         if (!_anchorable.TileFree(gridComp, buildPos, ent.Comp.CollisionLayer, ent.Comp.CollisionMask))
         {
             _popup.PopupPredicted(Loc.GetString("flatpack-unpack-no-room"), uid, args.User); // Mono, predict the popup
