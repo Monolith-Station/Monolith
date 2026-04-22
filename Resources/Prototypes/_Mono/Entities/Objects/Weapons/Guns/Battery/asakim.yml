@@ -45,7 +45,7 @@
     price: 1750
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 35
+    autoRechargeRate: 60
 
 - type: entity
   name: kunisa-pattern plasma autopulser
@@ -87,4 +87,4 @@
     price: 1000
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 40
+    autoRechargeRate: 60
