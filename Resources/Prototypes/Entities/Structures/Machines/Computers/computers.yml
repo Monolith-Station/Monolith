@@ -196,6 +196,7 @@
       rotate: true
       bounds: "-0.5,-0.5,0.5,0.5"
   - type: HTN
+    sleepPlayerCheckRangeOverride: 4000 # to allow alternative usages and not spotaneously flee when people close
     rootTask:
       task: AutopilotShuttleCompound
 
@@ -465,9 +466,6 @@
     board: CriminalRecordsComputerCircuitboard
   - type: AccessReader
     access: [["Security"]]
-  - type: GuideHelp
-    guides:
-    - CriminalRecords
   # Mono
   - type: ShipRepairable
     repairTime: 4
@@ -494,9 +492,6 @@
     color: "#1f8c28"
   - type: Computer
     board: StationRecordsComputerCircuitboard
-  - type: GuideHelp
-    guides:
-    - Forensics
   # Mono
   - type: ShipRepairable
     repairTime: 4
@@ -756,7 +751,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: AccessReader
-    access: [["HeadOfPersonnel"], ["HeadOfSecurity"]]
+    access: [["HeadOfPersonnel"], ["HeadOfSecurity"], ["ChiefMedicalOfficer"]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-station
     global: true #SR WILL NOT BE IGNORED
@@ -945,6 +940,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: RadarConsole
+    noRotate: true # Mono
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
   - type: UserInterface

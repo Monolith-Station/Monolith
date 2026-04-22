@@ -376,8 +376,7 @@
     - MonoRemnantNoun
   - type: ShuttleBoostingPilot
     angularMultiplier: 1.5
-    accelerationMultiplier: 1.4
-    maxVelMultiplier: 1.1
+    accelerationMultiplier: 1.5
 
 - type: entity
   id: AiHeldRedacted
@@ -520,6 +519,12 @@
     raffle:
       settings: default
     prototype: TSFMCAICore
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50 hrs
+    - !type:RoleTimeRequirement
+      role: JobWarden
+      time: 54000 # 15 hours
   - type: GhostTakeoverAvailable
   - type: RandomMetadata
     nameSegments: [ TSFMCCoreNameset ]
@@ -600,6 +605,12 @@
     raffle:
       settings: default
     prototype: PDVAICore
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50 hrs
+    - !type:RoleTimeRequirement
+      role: JobPirateFirstMate
+      time: 54000 # 15 hours
   - type: GhostTakeoverAvailable
   - type: RandomMetadata
     nameSegments: [ PDVCoreNameset ]

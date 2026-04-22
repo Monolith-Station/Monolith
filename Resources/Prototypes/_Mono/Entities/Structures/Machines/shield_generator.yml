@@ -82,10 +82,10 @@
     powerLoad: 60000
   - type: Appearance
   - type: ShipShieldEmitter
-    damageLimit: 8000
+    damageLimit: 60000
     damageOverloadTimePunishment: 40
-    healPerSecond: 120 # Base is 250
-    damageExp: 1.15 # Base is 1.1
+    healPerSecond: 600 # Base is 250
+    damageExp: 1.05 # Base is 1.1
     baseDraw: 40000 # Base is 50000
     maxDraw: 100000 # Base is 150000
     unpoweredBonus: 7 # Base is 6
@@ -122,13 +122,14 @@
   suffix: POI ONLY
   components:
   - type: ShipShieldEmitter
-    healPerSecond: 2000
-    damageExp: 0.5
+    damageLimit: 250000
+    healPerSecond: 1000
+    damageExp: 1
     baseDraw: 80000
     maxDraw: 150000
-    unpoweredBonus: 8
-    damageLimit: 10000
-    damageOverloadTimePunishment: 30
+    unpoweredBonus: 7
+    powerModifier: 0.25
+    damageOverloadTimePunishment: 45
     shieldColor: "#FF9933"
     collisionResistanceMultiplier: 0.0
   - type: Sprite
@@ -196,12 +197,12 @@
   suffix: TSF CAPITAL ONLY
   components:
   - type: ShipShieldEmitter
-    healPerSecond: 150
-    damageExp: 0.5
+    damageLimit: 120000
+    healPerSecond: 800
+    damageExp: 1
     baseDraw: 60000
     maxDraw: 100000
-    unpoweredBonus: 8
-    damageLimit: 8000
+    unpoweredBonus: 6
     damageOverloadTimePunishment: 35
     shieldColor: "#FF0A70"
     collisionResistanceMultiplier: 0.05
@@ -269,13 +270,13 @@
   suffix: ADS ONLY
   components:
   - type: ShipShieldEmitter
-    damageLimit: 8000
+    damageLimit: 120000
     damageOverloadTimePunishment: 40
-    healPerSecond: 120 # Base is 250
-    damageExp: 1.15 # Base is 1.1
+    healPerSecond: 950 # Base is 250
+    damageExp: 1.05 # Base is 1.1
     baseDraw: 40000 # Base is 50000
     maxDraw: 100000 # Base is 150000
-    unpoweredBonus: 7 # Base is 6
+    unpoweredBonus: 6 # Base is 6
     shieldColor: "#FF3333"
     collisionResistanceMultiplier: 0.05
   - type: ShipRepairable
@@ -294,12 +295,12 @@
   suffix: ADS/TSF ONLY, SCI VOUCHER SHIPS ONLY
   components:
   - type: ShipShieldEmitter
-    healPerSecond: 100 # Base is 250
-    damageExp: 1.15 # Base is 1.1
+    damageLimit: 95000
+    healPerSecond: 750 # Base is 250
+    damageExp: 1.05 # Base is 1.1
     baseDraw: 30000 # Base is 50000
     maxDraw: 75000 # Base is 150000
     unpoweredBonus: 4 # Base is 6
-    damageLimit: 40000
     damageOverloadTimePunishment: 100
     shieldColor: "#9933FF"
     collisionResistanceMultiplier: 0.6
@@ -380,12 +381,12 @@
   name: MS-100 "Sentinel" Shield Generator
   components:
   - type: ShipShieldEmitter
-    healPerSecond: 80 # Mono
-    damageExp: 1.2 # Mono
+    damageLimit: 65000 # Mono
+    healPerSecond: 500 # Mono
+    damageExp: 1.05 # Mono
     baseDraw: 20000
     maxDraw: 60000
     unpoweredBonus: 3 # Mono
-    damageLimit: 5000 # Mono
     damageOverloadTimePunishment: 80
     shieldColor: "#3399FF"
     collisionResistanceMultiplier: 0.5
