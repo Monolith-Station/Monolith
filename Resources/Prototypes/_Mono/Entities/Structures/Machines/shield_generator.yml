@@ -197,7 +197,7 @@
   suffix: TSF CAPITAL ONLY
   components:
   - type: ShipShieldEmitter
-    damageLimit: 120000
+    damageLimit: 85000
     healPerSecond: 800
     damageExp: 1
     baseDraw: 60000
@@ -270,7 +270,7 @@
   suffix: ADS ONLY
   components:
   - type: ShipShieldEmitter
-    damageLimit: 120000
+    damageLimit: 75000
     damageOverloadTimePunishment: 40
     healPerSecond: 950 # Base is 250
     damageExp: 1.05 # Base is 1.1
@@ -295,7 +295,7 @@
   suffix: ADS/TSF ONLY, SCI VOUCHER SHIPS ONLY
   components:
   - type: ShipShieldEmitter
-    damageLimit: 95000
+    damageLimit: 130000
     healPerSecond: 750 # Base is 250
     damageExp: 1.05 # Base is 1.1
     baseDraw: 30000 # Base is 50000
