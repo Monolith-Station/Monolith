@@ -70,7 +70,7 @@ public abstract class SharedFlatpackSystem : EntitySystem
 
         args.Handled = true;
 
-        if (comp.Entity == null)
+        if (comp.Entity is not { } flatpackEntity)
         {
             Log.Error($"No entity prototype present for flatpack {ToPrettyString(ent)}.");
 
@@ -80,10 +80,9 @@ public abstract class SharedFlatpackSystem : EntitySystem
         }
 
         var buildPos = _map.TileIndicesFor(grid, gridComp, xform.Coordinates);
-        var coords = _map.ToCenterCoordinates(grid, buildPos);
 
         // Mono fix - makes this logic smarter using existing anchorable logic
-        if (TryComp<PhysicsComponent>(uid, out var anchorBody) && !_anchorable.TileFree(coords, anchorBody, grid, gridComp))
+        if (!_anchorable.TileFree(gridComp, buildPos, ent.Comp.CollisionLayer, ent.Comp.CollisionMask))
         {
             _popup.PopupPredicted(Loc.GetString("flatpack-unpack-no-room"), uid, args.User); // Mono, predict the popup
             return;
@@ -91,7 +90,7 @@ public abstract class SharedFlatpackSystem : EntitySystem
 
         if (_net.IsServer)
         {
-            var spawn = Spawn(comp.Entity, _map.GridTileToLocal(grid, gridComp, buildPos));
+            var spawn = Spawn(flatpackEntity, _map.GridTileToLocal(grid, gridComp, buildPos));
             if (TryComp(spawn, out TransformComponent? spawnXform)) // Frontier: rotatable flatpacks
                 spawnXform.LocalRotation = xform.LocalRotation.GetCardinalDir().ToAngle(); // Frontier: rotatable flatpacks
             _adminLogger.Add(LogType.Construction,

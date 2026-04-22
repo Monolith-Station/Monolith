@@ -1,8 +1,11 @@
+using Content.Shared.Physics;
 using Content.Shared.Tools;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Construction.Components;
 
@@ -37,6 +40,21 @@ public sealed partial class FlatpackComponent : Component
     /// </summary>
     [DataField]
     public Dictionary<string, Color> BoardColors = new();
+
+
+    /// <summary>
+    /// Collision layer assumption of the unflatpacked object. Used for checking if unpackable.
+    /// </summary>
+    [ViewVariables]
+    [DataField("layer", customTypeSerializer: typeof(FlagSerializer<CollisionLayer>))]
+    public int CollisionLayer = (int)CollisionGroup.MachineLayer;
+
+    /// <summary>
+    /// Collision mask assumption of the unflatpacked object. Used for checking if unpackable.
+    /// </summary>
+    [ViewVariables]
+    [DataField("mask", customTypeSerializer: typeof(FlagSerializer<CollisionMask>))]
+    public int CollisionMask = (int)CollisionGroup.MachineMask;
 }
 
 [Serializable, NetSerializable]
