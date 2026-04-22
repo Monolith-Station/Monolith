@@ -287,15 +287,6 @@ public sealed partial class AnchorableSystem : EntitySystem
         return TileFree(grid, tileIndices, anchorBody.CollisionLayer, anchorBody.CollisionMask);
     }
 
-    public bool TileFree(EntityCoordinates coordinates, PhysicsComponent anchorBody, EntityUid gridUid, MapGridComponent? grid) // Mono: Alternate method
-    {
-        if (!Resolve(gridUid, ref grid))
-            return false;
-
-        var tileIndices = _map.TileIndicesFor(gridUid, grid, coordinates);
-        return TileFree(grid, tileIndices, anchorBody.CollisionLayer, anchorBody.CollisionMask);
-    }
-
     /// <summary>
     /// Returns true if no hard anchored entities match the collision layer or mask specified.
     /// </summary>
@@ -336,7 +327,7 @@ public sealed partial class AnchorableSystem : EntitySystem
 
     public bool AnyUnstackablesAnchoredAt(EntityCoordinates location)
     {
-        var gridUid = location.GetGridUid(EntityManager);
+        var gridUid = _transformSystem.GetGrid(location);
 
         if (!TryComp<MapGridComponent>(gridUid, out var grid))
             return false;
