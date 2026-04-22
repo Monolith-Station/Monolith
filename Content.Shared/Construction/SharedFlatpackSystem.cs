@@ -12,6 +12,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Content.Shared.Construction.EntitySystems;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Shared.Construction;
 
@@ -30,6 +32,7 @@ public abstract class SharedFlatpackSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedToolSystem _tool = default!;
+    [Dependency] private readonly AnchorableSystem _anchorable = default!; // Mono
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -79,14 +82,10 @@ public abstract class SharedFlatpackSystem : EntitySystem
         var buildPos = _map.TileIndicesFor(grid, gridComp, xform.Coordinates);
         var coords = _map.ToCenterCoordinates(grid, buildPos);
 
-        // TODO FLATPAK
-        // Make this logic smarter. This should eventually allow for shit like building microwaves on tables and such.
-        // Also: make it ignore ghosts
-        if (_entityLookup.AnyEntitiesIntersecting(coords, LookupFlags.Dynamic | LookupFlags.Static))
+        // Mono fix - makes this logic smarter using existing anchorable logic
+        if (TryComp<PhysicsComponent>(uid, out var anchorBody) && !_anchorable.TileFree(coords, anchorBody, grid, gridComp))
         {
-            // this popup is on the server because the predicts on the intersection is crazy
-            if (_net.IsServer)
-                _popup.PopupEntity(Loc.GetString("flatpack-unpack-no-room"), uid, args.User);
+            _popup.PopupPredicted(Loc.GetString("flatpack-unpack-no-room"), uid, args.User); // Mono, predict the popup
             return;
         }
 
