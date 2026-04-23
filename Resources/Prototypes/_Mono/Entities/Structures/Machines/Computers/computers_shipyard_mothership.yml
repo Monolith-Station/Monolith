@@ -80,7 +80,7 @@
   components:
   - type: ShipyardListing
     shuttles:
-    - Antlion
+    - lion
     - StratoRat
 
 - type: entity
@@ -136,6 +136,9 @@
   components:
   - type: ShipyardListing
     shuttles:
+    - Rook
+    - Taser
+    - Hound
     - Ant
     - Worm
     - Insect
