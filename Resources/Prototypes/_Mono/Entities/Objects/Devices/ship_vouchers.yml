@@ -343,3 +343,63 @@
     - Ravager
   - type: StaticPrice
     vendPrice: 325000
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherRook
+  name: rook LPC
+  description: A small card that contains the data for the procurement of a Rook class drone. 
+  components:
+  - type: Sprite
+    layers:
+    - state: mtech
+    - state: stripesec
+    - state: vouchermilitary
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Custom
+    companyName: Colonial
+    vessels:
+    - Rook
+  - type: StaticPrice
+    vendPrice: 20000
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherTaser
+  name: taser LPC
+  description: A small card that contains the data for the procurement of a taser class drone. 
+  components:
+  - type: Sprite
+    layers:
+    - state: mtech
+    - state: stripesec
+    - state: vouchermilitary
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Custom
+    companyName: Colonial
+    vessels:
+    - Taser
+  - type: StaticPrice
+    vendPrice: 15000
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherHound
+  name: hound LPC
+  description: A small card that contains the data for the procurement of a Hound class drone
+  components:
+  - type: Sprite
+    layers:
+    - state: mtech
+    - state: stripesec
+    - state: vouchermilitary
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Custom
+    companyName: Colonial
+    vessels:
+    - Hound
+  - type: StaticPrice
+    vendPrice: 20000
