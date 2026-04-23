@@ -108,6 +108,7 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
     - type: MachineFrame
+      frameSize: 3x2
     - type: ContainerContainer
       containers:
         machine_board: !type:Container

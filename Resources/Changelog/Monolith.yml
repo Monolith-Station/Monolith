@@ -20110,3 +20110,248 @@ Entries:
   id: 2217
   time: '2026-04-19T02:04:24.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3827
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        EMP emitter firerate reduced, disable duration and energy consumption
+        reduced substantially.
+    - type: Tweak
+      message: >-
+        EMP bullets no longer disable equipment/cybernetics/etc and instead only
+        drain energy. Energy drain reduced.
+  id: 2218
+  time: '2026-04-19T21:42:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3834
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: AI can now access multiple consoles at once again
+  id: 2219
+  time: '2026-04-19T23:08:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3840
+- author: OneZerooo0
+  changes:
+    - type: Tweak
+      message: You can now choose an armor plate to start with in loadout.
+    - type: Tweak
+      message: M82 armors and PDV SCAF armor have been buffed.
+    - type: Tweak
+      message: CV-32 now has 10% slowdown rather than 15%.
+    - type: Remove
+      message: Removed old armor plates.
+    - type: Add
+      message: >-
+        Added four new armor modules: Blunt/Slash, Pierce, Heat and Speed
+        plates.
+  id: 2220
+  time: '2026-04-19T23:32:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3822
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: Readds asakim handheld radio to asakim loadouts
+  id: 2221
+  time: '2026-04-19T23:54:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3841
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Asteroids have LARP-y names now instead of "asteroid debris extra
+        massive".
+  id: 2222
+  time: '2026-04-20T00:06:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3842
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked L6/Grizzly/Ratel (slight accuracy buffs, faster wielding, etc)
+        stats to be more useful compared to an actual rifle.
+  id: 2223
+  time: '2026-04-20T00:07:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3832
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: >-
+        tweaks the paper stamp title on the USSP stamp and WS stamp has now
+        become TSF Local Operations Command.
+  id: 2224
+  time: '2026-04-20T00:47:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3831
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Jumpsuit signature blips now only show when off grid.
+  id: 2225
+  time: '2026-04-20T00:48:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3816
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed projectile penetration. This means Charon can penetrate weak walls
+        now.
+  id: 2226
+  time: '2026-04-20T00:51:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3828
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Mechs can now wideswing.
+    - type: Tweak
+      message: Wideswinging now only costs stamina if you hit multiple targets.
+  id: 2227
+  time: '2026-04-20T00:56:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3824
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Autopilot/ship AI made better at getting itself out of difficult
+        situations.
+    - type: Tweak
+      message: >-
+        Ship AI can now change the ship's dampening mode to park or cruise. Yes,
+        it can drive a Caracara on cruise now.
+  id: 2228
+  time: '2026-04-20T18:34:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3833
+- author: Onezero0
+  changes:
+    - type: Add
+      message: Added "Let There Be Chaos" by ksho to the PDV combat soundtrack.
+    - type: Remove
+      message: Removed homeworld battle 4 from the PDV combat soundtrack.
+  id: 2229
+  time: '2026-04-20T19:15:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3823
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        PDV Bank increased to 423k per hour naturally, to compete with the TSF
+        bank. 
+  id: 2230
+  time: '2026-04-21T02:20:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3851
+- author: kasature90
+  changes:
+    - type: Add
+      message: First aid kits and Compact Defibrillators now use Baystation12 textures.
+  id: 2231
+  time: '2026-04-21T22:24:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3848
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Tea visual layers don't cause errors now.
+    - type: Fix
+      message: Shields are less laggy.
+    - type: Fix
+      message: >-
+        Shields now take the full damage of any explosive projectile explosion
+        they block.
+    - type: Tweak
+      message: >-
+        Shield durability and recharge buffed dramatically to compensate for
+        taking much more damage now.
+    - type: Tweak
+      message: >-
+        Examining a shield generator now tells you the exact wattage it is
+        consuming from both base consumption and damage.
+  id: 2232
+  time: '2026-04-22T02:22:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3596
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: More rad resistance for walls.
+  id: 2233
+  time: '2026-04-22T13:25:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3854
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Atmos/NPC short term memory optimizations
+  id: 2234
+  time: '2026-04-22T15:22:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3853
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Flatpacks now can be unpacked in shields, in railings, etc.
+  id: 2235
+  time: '2026-04-22T18:19:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3856
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: >-
+        A deep-space mining station has now been weathered by monolithic
+        radiation fields.
+  id: 2236
+  time: '2026-04-22T21:46:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3419
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: A label mishap for 90mm and 57mm cargo crates was fixed.
+  id: 2237
+  time: '2026-04-22T21:47:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3857
+- author: kasature90
+  changes:
+    - type: Add
+      message: Retextured small-arms cartridges & shotgun shells.
+  id: 2238
+  time: '2026-04-22T21:56:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3852
+- author: EckoAurum
+  changes:
+    - type: Add
+      message: Large Thrusters are now craftable and upgradeable.
+  id: 2239
+  time: '2026-04-22T23:15:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3703
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Shield balance retweaked to what it was around before, MS-250 with slow
+        and tanky, MS-500 with fast recharge and collision resist etc,
+        descriptions added to shielding.
+  id: 2240
+  time: '2026-04-23T00:01:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3860
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added bunk beds for mappers.
+  id: 2241
+  time: '2026-04-23T00:17:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3859
+- author: Loldaddy5676
+  changes:
+    - type: Add
+      message: Spitfire fighter to CC sec ship roster
+    - type: Remove
+      message: Removed caput
+  id: 2242
+  time: '2026-04-23T01:18:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3566
+- author: Loldaddy5676
+  changes:
+    - type: Add
+      message: added 3 new drones to the ravagers drone shipyard
+    - type: Tweak
+      message: Changed armor values on the soldat and bulwark suit
+    - type: Tweak
+      message: bofors removed in exchange for tarnyx, and 20mm replaced with phalanx
+    - type: Tweak
+      message: thorax docking glitch fixed, it also has improvements
+  id: 2243
+  time: '2026-04-23T01:49:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3203

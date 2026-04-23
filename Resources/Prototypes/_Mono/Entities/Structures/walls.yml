@@ -47,6 +47,8 @@
     tags:
     - Wall
     - WallT1
+  - type: RadiationBlocker
+    resistance: 2
 
 - type: entity
   abstract: true
@@ -95,6 +97,8 @@
     tags:
     - Wall
     - WallT2
+  - type: RadiationBlocker
+    resistance: 3
 
 - type: entity
   abstract: true
@@ -143,6 +147,8 @@
     tags:
     - Wall
     - WallT3
+  - type: RadiationBlocker
+    resistance: 4
 
 - type: entity
   abstract: true
@@ -191,6 +197,8 @@
     tags:
     - Wall
     - WallT4
+  - type: RadiationBlocker
+    resistance: 5
 
 - type: entity
   abstract: true
@@ -233,6 +241,8 @@
     price: 75
   - type: ArmorThickness
     thickness: 20
+  - type: RadiationBlocker
+    resistance: 5
 
 - type: entity
   parent: WallReinforced

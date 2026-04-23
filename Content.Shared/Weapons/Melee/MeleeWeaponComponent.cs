@@ -195,4 +195,5 @@ public sealed partial class MeleeWeaponComponent : Component
 public sealed class GetMeleeWeaponEvent : HandledEntityEventArgs
 {
     public EntityUid? Weapon;
+    public EntityUid? User; // Mono
 }
