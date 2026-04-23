@@ -64,3 +64,22 @@
   - WeaponSubMachineSmart # Goobstation
   - MagazineSmart # Goobstation
   - ASMGTUniversallyHostile # Mono
+
+- type: latheRecipePack
+  id: NFToolboxes
+  recipes:
+  ## Basic storage
+  - ToolboxArtisticNF
+  - ToolboxElectricalNF
+  - ToolboxMechanicalNF
+  - ToolboxEmergencyNF
+
+- type: latheRecipePack
+  id: NFClothingIFF
+  recipes:
+  - ClothingNeckIFFNeutral
+  - ClothingNeckIFFGreen
+  - ClothingNeckIFFRed
+  - ClothingNeckIFFBlue
+  - ClothingNeckIFFOrange
+  - ClothingNeckIFFPurple

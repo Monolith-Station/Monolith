@@ -1,52 +1,9 @@
 - type: latheRecipePack
   id: NFMercenaryTechfabDeprecatedStatic
   recipes:
-# Shared lathe recipes
-## Basic tools
-  - Wirecutter
-  - Screwdriver
-  - Welder
-  - Wrench
-  - CrowbarGreen
-  - Multitool
-  - FlashlightLantern
-  - AppraisalTool
-  - HandLabeler
-  - Signaller
-  - ClothingMaskWeldingGas
-## Basic storage
-  - ToolboxArtisticNF
-  - ToolboxElectricalNF
-  - ToolboxMechanicalNF
-  - ToolboxEmergencyNF
-## Basic parts
-  - CableStack
-  - LightTube
-  - LedLightTube
-  - SodiumLightTube
-  - ExteriorLightTube
-  - LightBulb
-  - LedLightBulb
-  - SodiumLightBulb
-  - ExteriorLightBulb
-  - ConveyorBeltAssembly
-  - PowerCellSmall
-  - PowerCellMedium
-## Basic electronics
-  - SignalTimerElectronics
-  - CellRechargerCircuitboard
-  - BorgChargerCircuitboard
-  - WeaponCapacitorRechargerCircuitboard
-  - AirTank
 # Mercenary techfab
 ## Clothing / Armor
   - RiotShield
-  - ClothingNeckIFFNeutral
-  - ClothingNeckIFFGreen
-  - ClothingNeckIFFRed
-  - ClothingNeckIFFBlue
-  - ClothingNeckIFFOrange
-  - ClothingNeckIFFPurple
   - ClothingHeadHelmetMercenary
   - ClothingHeadHelmetBasic
   - ClothingOuterVestWebMercenary
@@ -77,17 +34,13 @@
   - WeaponCaseShortExplosives
 ## Weapons
   - CombatKnife
-  - WeaponLaserSvalinn # After the changes made to windows shouldn't be that much of an issue now if it's widely available
   - WeaponLaserPistolNF # After the changes made to windows shouldn't be that much of an issue now if it's widely available
-  - WeaponRevolverArgenti
   - WeaponPistolMk58NF
   - WeaponShotgunDoubleBarreled
   - WeaponShotgunHelepolis
   - WeaponRifleNovaliteC1
   - WeaponRifleGestio
   - WeaponSubMachineGunKnallstock # Mono
-  - BaseBallBatNF
-  - CrossbowModern
   - WeaponPistolPollock
   ## Cyborg Modules
   - BorgModuleMercenary # mono
@@ -114,22 +67,22 @@
   - TelescopicShield
   - ClothingOuterArmorBulletproofNF
   - ClothingOuterCoatBHTrench
-  - ClothingOuterArmorPunkRandomized
-  - ClothingOuterArmorPunkRed
-  - ClothingOuterArmorPunkGreen
-  - ClothingOuterArmorPunkOrange
-  - ClothingOuterArmorElitePunkRandomized
-  - ClothingBeltPunkRandomized
-  - ClothingShoesBootsPunkRandomized
-  - ClothingEyesPunkGoggles
-  - ClothingEyesPunkInfoShades
-  - ClothingMaskPunkHalf
-  - ClothingUniformRandomPunkTanktop
-  - ClothingUniformRandomPunkTanktopShorts
-  - ClothingUniformRandomPunkCroptop
-  - ClothingUniformRandomPunkCroptopShorts
-  - ClothingOuterCoatLettermanRandomized
-  - ClothingOuterCoatBomberRandomized
+  #- ClothingOuterArmorPunkRandomized # Mono start
+  #- ClothingOuterArmorPunkRed
+  #- ClothingOuterArmorPunkGreen
+  #- ClothingOuterArmorPunkOrange
+  #- ClothingOuterArmorElitePunkRandomized
+  #- ClothingBeltPunkRandomized
+  #- ClothingShoesBootsPunkRandomized
+  #- ClothingEyesPunkGoggles
+  #- ClothingEyesPunkInfoShades
+  #- ClothingMaskPunkHalf
+  #- ClothingUniformRandomPunkTanktop
+  #- ClothingUniformRandomPunkTanktopShorts
+  #- ClothingUniformRandomPunkCroptop
+  #- ClothingUniformRandomPunkCroptopShorts
+  #- ClothingOuterCoatLettermanRandomized
+  #- ClothingOuterCoatBomberRandomized # Mono end
 ## EVA / Hardsuits
   - ClothingOuterHardsuitCap
   - ClothingOuterHardsuitMercenary
