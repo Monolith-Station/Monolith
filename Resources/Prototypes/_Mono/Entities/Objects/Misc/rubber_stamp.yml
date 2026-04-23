@@ -13,3 +13,185 @@
   - type: Tag
     tags:
       - PaycheckBratvaStamp
+
+# TSF
+
+- type: entity
+  name: TSF local operations command rubber stamp
+  parent: RubberStampBase
+  id: RubberStampWinterSolstice
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-winter-solstice
+    stampedColor: "#008ce3"
+    stampState: "paper_stamp-mono-solstice"
+  - type: Sprite
+    sprite: _NF/Objects/Misc/stamps.rsi
+    state: stamp-psychologist
+    protected: True
+  - type: Tag
+    tags:
+    - WinterSolsticeStamp
+
+- type: entity
+  name: tsf colonel's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampTSFColonel
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-tsf-colonel
+    stampedColor: "#047ABD"
+    stampState: "paper_stamp-mono-colonel"
+  - type: Sprite
+    sprite: _NF/Objects/Misc/stamps.rsi
+    state: stamp-doc
+    protected: True
+  - type: Tag
+    tags:
+    - TSFColonelStamp
+
+- type: entity
+  name: tsf captain's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampTSFCaptain
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-tsf-captain
+    stampedColor: "#263749"
+    stampState: "paper_stamp-mono-captain"
+  - type: Sprite
+    sprite: _NF/Objects/Misc/stamps.rsi
+    state: stamp-sheriff
+    protected: True
+  - type: Tag
+    tags:
+    - TSFCaptainStamp
+
+# PDV
+
+- type: entity
+  name: pdv overwatch's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampPDVOverwatch
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-pdv-overwatch
+    stampedColor: "#D2B48C"
+    stampState: "paper_stamp-mono-overwatch"
+  - type: Sprite
+    state: stamp-qm
+    protected: True
+  - type: Tag
+    tags:
+    - PDVOverwatchStamp
+
+
+- type: entity
+  name: pdv grand vizier's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampPDVVizier
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-pdv-vizier
+    stampedColor: "#533980"
+    stampState: "paper_stamp-mono-vizier"
+  - type: Sprite
+    state: stamp-rd
+    protected: True
+  - type: Tag
+    tags:
+    - PDVVizierStamp
+
+- type: entity
+  name: pdv asvaran's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampPDVAsvaran
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-pdv-asvaran
+    stampedColor: "#823434"
+    stampState: "paper_stamp-mono-asvaran"
+  - type: Sprite
+    state: stamp-lawyer
+    protected: True
+  - type: Tag
+    tags:
+    - PDVAsvaranStamp
+
+- type: entity
+  name: pdv spasaka's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampPDVSpasaka
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-pdv-spasaka
+    stampedColor: "#533980"
+    stampState: "paper_stamp-mono-spasaka"
+  - type: Sprite
+    state: stamp-wizard
+    protected: True
+  - type: Tag
+    tags:
+    - PDVSpasakaStamp
+
+# USSP
+
+- type: entity
+  name: ussp's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampUSSP
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-ussp
+    stampedColor: "#b2224b"
+    stampState: "paper_stamp-mono-ussp"
+  - type: StaticPrice
+    price: 50
+    vendPrice: 500
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/stamps.rsi
+    state: stamp-ussp
+  - type: Tag
+    tags:
+    - USSPStamp
+
+- type: entity
+  name: USSP TACCOMM rubber stamp
+  parent: RubberStampBase
+  id: RubberStampUSSPTaccomm
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-ussp-taccomm
+    stampedColor: "#ff0026"
+    stampState: "paper_stamp-mono-ussp-taccomm"
+  - type: Sprite
+    state: stamp-syndicate
+  - type: Tag
+    tags:
+    - USSPTaccommStamp
+
+- type: entity
+  name: ussp stratcomm's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampUSSPStratcomm
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-ussp-stratcomm
+    stampedColor: "#ff0026"
+    stampState: "paper_stamp-mono-ussp-stratcomm"
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/stamps.rsi
+    state: stamp-ussp-stratcomm
+  - type: Tag
+    tags:
+    - USSPStratcommStamp

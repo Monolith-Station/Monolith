@@ -1,6 +1,8 @@
 using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Components;
 using Content.Server.DoAfter;
+using Content.Server.EUI;
+using Content.Server.Ghost;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Atmos.Rotting;
@@ -9,9 +11,11 @@ using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
 
 using Content.Shared.Medical.CPR;
+using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Traits.Assorted;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
@@ -32,6 +36,8 @@ public sealed class CPRSystem : EntitySystem
     [Dependency] private readonly RottingSystem _rottingSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!; // Mono
+    [Dependency] private readonly EuiManager _euiManager = default!; // Mono
 
     public override void Initialize()
     {
@@ -103,25 +109,40 @@ public sealed class CPRSystem : EntitySystem
 
     private void OnCPRDoAfter(Entity<CPRTrainingComponent> performer, ref CPRDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || !args.Target.HasValue)
+        if (args.Cancelled || args.Handled || args.Target is not { } target) // Mono: replaces args.Target with target, makes target not nullable
         {
             performer.Comp.CPRPlayingStream = _audio.Stop(performer.Comp.CPRPlayingStream);
             return;
         }
 
         if (!performer.Comp.CPRHealing.Empty)
-            _damageable.TryChangeDamage(args.Target, performer.Comp.CPRHealing, true, origin: performer);
+            _damageable.TryChangeDamage(target, performer.Comp.CPRHealing, true, origin: performer);
 
         if (performer.Comp.RotReductionMultiplier > 0)
             _rottingSystem.ReduceAccumulator(
                 (EntityUid)args.Target, performer.Comp.DoAfterDuration * performer.Comp.RotReductionMultiplier);
 
         if (_robustRandom.Prob(performer.Comp.ResuscitationChance)
-            && _mobThreshold.TryGetThresholdForState((EntityUid)args.Target, MobState.Dead, out var threshold)
-            && TryComp<DamageableComponent>(args.Target, out var damageableComponent)
-            && TryComp<MobStateComponent>(args.Target, out var state)
+            && _mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold)
+            && TryComp<DamageableComponent>(target, out var damageableComponent)
+            && !HasComp<UnrevivableComponent>(target) // Mono: Checks unreviveability
+            && TryComp<MobStateComponent>(target, out var state)
             && damageableComponent.TotalDamage < threshold)
+        {
             _mobStateSystem.ChangeMobState(args.Target.Value, MobState.Critical, state, performer);
+
+            // Mono Edit: Informs the ghost they've been revived.
+            if (_mind.TryGetMind(target, out _, out var mind) &&
+                mind.Session is { } playerSession)
+            {
+                // notify them they're being revived.
+                if (mind.CurrentEntity != target)
+                {
+                    _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind), playerSession);
+                }
+            }
+        }
+
 
         var isAlive = _mobStateSystem.IsAlive(args.Target.Value);
         args.Repeat = !isAlive;

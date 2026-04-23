@@ -6,6 +6,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Toolshed.TypeParsers;
+using Content.Server.Administration;
 
 namespace Content.Server._Mono.Company;
 
@@ -15,11 +16,12 @@ public sealed class CompanyCommand : ToolshedCommand
     [Dependency] private readonly CompanyManager _company = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly IAdminManager _admin = default!;
+    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
 
     [CommandImplementation("addmember")]
     public async void Add(
         [CommandInvocationContext] IInvocationContext ctx,
-        [CommandArgument] ICommonSession session,
+        [CommandArgument] string username,
         [CommandArgument] ProtoId<CompanyPrototype> company)
     {
         if (!_prototypes.TryIndex(company, out var companyPrototype))
@@ -36,21 +38,25 @@ public sealed class CompanyCommand : ToolshedCommand
             return;
         }
 
-        var guid = session.UserId;
-        var isWhitelisted = _company.IsMember(guid, company);
+        var lookup = await _playerLocator.LookupIdByNameAsync(username);
+        if (lookup == null)
+        {
+            ctx.WriteLine(Loc.GetString("cmd-company-player-not-found", ("player", username)));
+            return;
+        }
 
-        if (isWhitelisted)
+        if (_company.IsMember(lookup.UserId, company))
         {
             ctx.WriteLine(Loc.GetString("cmd-company-memberadd-already-whitelisted",
-                ("player", session.Name),
+                ("player", username),
                 ("companyId", company.Id),
                 ("companyName", companyPrototype.Name)));
             return;
         }
 
-        _company.AddMember(guid, company);
+        _company.AddMember(lookup.UserId, company);
         ctx.WriteLine(Loc.GetString("cmd-company-memberadd-added",
-            ("player", session.Name),
+            ("player", username),
             ("companyId", company.Id),
             ("companyName", companyPrototype.Name)));
     }
@@ -58,21 +64,26 @@ public sealed class CompanyCommand : ToolshedCommand
     [CommandImplementation("playercompanies")]
     public async void GetPlayerWhitelist(
         [CommandInvocationContext] IInvocationContext ctx,
-        [CommandArgument] ICommonSession session)
+        [CommandArgument] string username)
     {
         if (ctx.Session == null
             || !_admin.HasAdminFlag(ctx.Session, AdminFlags.Whitelist)
-                && ctx.Session != session) // allow looking at own companies
+                && ctx.Session.Name != username) // allow looking at own companies
         {
             ctx.WriteLine(Loc.GetString("cmd-company-not-enough-permissions"));
             return;
         }
 
-        var guid = session.UserId;
-        var whitelists = _company.GetPlayerCompanies(guid);
+        var lookup = await _playerLocator.LookupIdByNameAsync(username);
+        if (lookup == null)
+        {
+            ctx.WriteLine(Loc.GetString("cmd-company-player-not-found", ("player", username)));
+            return;
+        }
 
+        var whitelists = _company.GetPlayerCompanies(lookup.UserId);
         ctx.WriteLine(Loc.GetString("cmd-company-playercompanies-whitelisted-for",
-            ("player", session.Name),
+            ("player", username),
             ("companies", string.Join(", ", whitelists))));
     }
 
@@ -111,7 +122,7 @@ public sealed class CompanyCommand : ToolshedCommand
     public async void SetOwner(
         [CommandInvocationContext] IInvocationContext ctx,
         [CommandArgument] ProtoId<CompanyPrototype> company,
-        [CommandArgument] ICommonSession session,
+        [CommandArgument] string username,
         [CommandArgument] bool owner
     )
     {
@@ -131,23 +142,30 @@ public sealed class CompanyCommand : ToolshedCommand
         }
 
         // check if we're trying to owner a non-member
-        if (!_company.IsMember(ctx.Session.UserId, company))
+        var lookup = await _playerLocator.LookupIdByNameAsync(username);
+        if (lookup == null)
+        {
+            ctx.WriteLine(Loc.GetString("cmd-company-player-not-found", ("player", username)));
+            return;
+        }
+
+        if (!_company.IsMember(lookup.UserId, company))
         {
             ctx.WriteLine(Loc.GetString("cmd-company-was-not-whitelisted",
-                ("player", session.Name),
+                ("player", username),
                 ("companyId", company.Id),
                 ("companyName", companyPrototype.Name)));
             return;
         }
 
-        _company.SetOwner(company, session, owner);
-        ctx.WriteLine(Loc.GetString("cmd-company-setowner-success", ("player", session.Name), ("status", owner)));
+        _company.SetOwner(company, lookup.UserId, owner);
+        ctx.WriteLine(Loc.GetString("cmd-company-setowner-success", ("player", username), ("status", owner)));
     }
 
     [CommandImplementation("removemember")]
     public async void Remove(
         [CommandInvocationContext] IInvocationContext ctx,
-        [CommandArgument] ICommonSession session,
+        [CommandArgument] string username,
         [CommandArgument] ProtoId<CompanyPrototype> company)
     {
         if (!_prototypes.TryIndex(company, out var companyPrototype))
@@ -165,21 +183,25 @@ public sealed class CompanyCommand : ToolshedCommand
             return;
         }
 
-        var guid = session.UserId;
-        var isWhitelisted = _company.IsMember(guid, company);
+        var lookup = await _playerLocator.LookupIdByNameAsync(username);
+        if (lookup == null)
+        {
+            ctx.WriteLine(Loc.GetString("cmd-company-player-not-found", ("player", username)));
+            return;
+        }
 
-        if (!isWhitelisted)
+        if (!_company.IsMember(lookup.UserId, company))
         {
             ctx.WriteLine(Loc.GetString("cmd-company-was-not-whitelisted",
-                ("player", session.Name),
+                ("player", username),
                 ("companyId", company.Id),
                 ("companyName", companyPrototype.Name)));
             return;
         }
 
-        await _company.RemoveMember(guid, company);
+        await _company.RemoveMember(lookup.UserId, company);
         ctx.WriteLine(Loc.GetString("cmd-company-memberremove-removed",
-            ("player", session.Name),
+            ("player", username),
             ("companyId", company.Id),
             ("companyName", companyPrototype.Name)));
     }

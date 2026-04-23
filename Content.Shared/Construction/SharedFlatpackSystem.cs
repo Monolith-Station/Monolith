@@ -12,6 +12,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Content.Shared.Construction.EntitySystems;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Shared.Construction;
 
@@ -30,6 +32,7 @@ public abstract class SharedFlatpackSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedToolSystem _tool = default!;
+    [Dependency] private readonly AnchorableSystem _anchorable = default!; // Mono
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -67,7 +70,7 @@ public abstract class SharedFlatpackSystem : EntitySystem
 
         args.Handled = true;
 
-        if (comp.Entity == null)
+        if (comp.Entity is not { } flatpackEntity)
         {
             Log.Error($"No entity prototype present for flatpack {ToPrettyString(ent)}.");
 
@@ -77,22 +80,18 @@ public abstract class SharedFlatpackSystem : EntitySystem
         }
 
         var buildPos = _map.TileIndicesFor(grid, gridComp, xform.Coordinates);
-        var coords = _map.ToCenterCoordinates(grid, buildPos);
 
-        // TODO FLATPAK
-        // Make this logic smarter. This should eventually allow for shit like building microwaves on tables and such.
-        // Also: make it ignore ghosts
-        if (_entityLookup.AnyEntitiesIntersecting(coords, LookupFlags.Dynamic | LookupFlags.Static))
+        // Mono fix - makes this logic smarter using existing anchorable logic.
+        // Could be made better by getting the actual collison layers and mask of the spawned entity, but that's kind of complicated before its spawned.
+        if (!_anchorable.TileFree(gridComp, buildPos, ent.Comp.CollisionLayer, ent.Comp.CollisionMask))
         {
-            // this popup is on the server because the predicts on the intersection is crazy
-            if (_net.IsServer)
-                _popup.PopupEntity(Loc.GetString("flatpack-unpack-no-room"), uid, args.User);
+            _popup.PopupPredicted(Loc.GetString("flatpack-unpack-no-room"), uid, args.User); // Mono, predict the popup
             return;
         }
 
         if (_net.IsServer)
         {
-            var spawn = Spawn(comp.Entity, _map.GridTileToLocal(grid, gridComp, buildPos));
+            var spawn = Spawn(flatpackEntity, _map.GridTileToLocal(grid, gridComp, buildPos));
             if (TryComp(spawn, out TransformComponent? spawnXform)) // Frontier: rotatable flatpacks
                 spawnXform.LocalRotation = xform.LocalRotation.GetCardinalDir().ToAngle(); // Frontier: rotatable flatpacks
             _adminLogger.Add(LogType.Construction,
