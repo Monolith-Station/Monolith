@@ -11,7 +11,7 @@
   - type: CartridgeAmmo
     proto: Bullet127x99mm
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/14.5x114mm_casing.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/big_ammo_casing.rsi
     layers:
     - state: base
       map: ["enum.AmmoVisualLayers.Base"]
@@ -32,7 +32,7 @@
   - type: CartridgeAmmo
     proto: Bullet127x99mmExplosive
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/14.5x114mm_casing.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/big_ammo_casing_steel.rsi
     layers:
     - state: base
       map: ["enum.AmmoVisualLayers.Base"]

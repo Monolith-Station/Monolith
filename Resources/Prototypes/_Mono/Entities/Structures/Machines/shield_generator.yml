@@ -119,6 +119,7 @@
   id: ShieldGeneratorPOI
   parent: ShieldGeneratorBase
   name: FS-421 "Fortress" Outpost Shield Generator
+  description: The Fortress. The latest and greatest in static, large-scale shielding.
   suffix: POI ONLY
   components:
   - type: ShipShieldEmitter
@@ -194,10 +195,11 @@
   id: ShieldGeneratorTSFCapital
   parent: ShieldGeneratorBase
   name: LM-212 "Vanguard" Capital Shield Generator
+  description: A heavy capital shield. Good durability, quick recharge and anti-collison built in one.
   suffix: TSF CAPITAL ONLY
   components:
   - type: ShipShieldEmitter
-    damageLimit: 120000
+    damageLimit: 85000
     healPerSecond: 800
     damageExp: 1
     baseDraw: 60000
@@ -267,10 +269,11 @@
   id: ShieldGenerator
   parent: ShieldGeneratorBase
   name: MS-500 "Titan" Shield Generator
+  description: The Titan. Advanced shielding, with a quick recharge time, and excels against colisions.
   suffix: ADS ONLY
   components:
   - type: ShipShieldEmitter
-    damageLimit: 120000
+    damageLimit: 75000
     damageOverloadTimePunishment: 40
     healPerSecond: 950 # Base is 250
     damageExp: 1.05 # Base is 1.1
@@ -292,10 +295,11 @@
   id: ShieldGeneratorMedium
   parent: ShieldGeneratorBase
   name: MS-250 "Aegis" Shield Generator
+  description: The Aegis. Advanced shielding, with a long recharge time, with very high durability.
   suffix: ADS/TSF ONLY, SCI VOUCHER SHIPS ONLY
   components:
   - type: ShipShieldEmitter
-    damageLimit: 95000
+    damageLimit: 180000
     healPerSecond: 750 # Base is 250
     damageExp: 1.05 # Base is 1.1
     baseDraw: 30000 # Base is 50000
@@ -379,6 +383,7 @@
   id: ShieldGeneratorSmall
   parent: ShieldGeneratorBase
   name: MS-100 "Sentinel" Shield Generator
+  description: The Sentinel. A good, reliable shield.
   components:
   - type: ShipShieldEmitter
     damageLimit: 65000 # Mono
