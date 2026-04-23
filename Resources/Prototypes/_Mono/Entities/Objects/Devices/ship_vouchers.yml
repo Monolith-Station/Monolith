@@ -343,6 +343,7 @@
     - Ravager
   - type: StaticPrice
     vendPrice: 325000
+    
 - type: entity
   parent: BaseShipLPC
   id: ShipVoucherRook
@@ -408,5 +409,4 @@
     - Rac-Man
     - Bow-Man
   - type: StaticPrice
-    vendPrice: 20000
     vendPrice: 30000
