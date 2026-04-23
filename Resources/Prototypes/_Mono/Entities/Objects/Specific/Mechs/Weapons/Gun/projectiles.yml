@@ -148,7 +148,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 200
+    totalIntensity: 300
     intensitySlope: 4
     maxIntensity: 100
   - type: GatheringProjectile
@@ -156,10 +156,10 @@
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 20
-    detectionRange: 100
-    scanArc: 5
-    launchSpeed: 10
-    maxSpeed: 64
+    detectionRange: 175
+    scanArc: 10
+    launchSpeed: 50
+    maxSpeed: 120
 
 - type: entity
   id: BlanketFlare
