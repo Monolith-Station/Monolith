@@ -114,7 +114,8 @@ namespace Content.Server.VendingMachines
 
             if (HasComp<ApcPowerReceiverComponent>(uid))
             {
-                TryUpdateVisualState(uid, component);
+                if (TryComp<VendingMachineComponent>(uid, out var vendingMachine)) // Mono
+                    TryUpdateVisualState(uid, vendingMachine); // Mono
             }
         }
 
@@ -687,7 +688,8 @@ namespace Content.Server.VendingMachines
         //}
 
         // Frontier: cash slot logic
-        private void OnEntityInserted(Entity<VendingMachineComponent> ent, ref EntInsertedIntoContainerMessage args)
+        /// <remarks> Mono - This should ideally be seperated out into its own system seperate from vending machines, since we'd like Ironman players to use shipyard consoles</remarks>>
+        private void OnEntityInserted(Entity<CreditReceiverComponent> ent, ref EntInsertedIntoContainerMessage args) // Mono - Seperation of Cash from VendingMachineComp
         {
             if (ent.Comp.CashSlotName != null
             && ent.Comp.CurrencyStackType != null
@@ -704,7 +706,7 @@ namespace Content.Server.VendingMachines
             Dirty(ent, ent.Comp);
         }
 
-        private void OnEntityRemoved(Entity<VendingMachineComponent> ent, ref EntRemovedFromContainerMessage args)
+        private void OnEntityRemoved(Entity<CreditReceiverComponent> ent, ref EntRemovedFromContainerMessage args) // Mono
         {
             ent.Comp.CashSlotBalance = 0;
             Dirty(ent, ent.Comp);
