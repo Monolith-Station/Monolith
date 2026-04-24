@@ -38,6 +38,7 @@ using Content.Server.Stack;
 using Content.Server._Mono.VendingMachine;
 using Content.Shared._Mono.Traits.Physical;
 using Robust.Shared.Containers; // Frontier
+using Content.Shared._Mono.Economy.Component; // Mono - Seperation of cash payment from VendingMachineComp
 
 namespace Content.Server.VendingMachines
 {
@@ -72,8 +73,8 @@ namespace Content.Server.VendingMachines
             SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
             //SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse); // Frontier: Upstream - #28984
-            SubscribeLocalEvent<VendingMachineComponent, EntInsertedIntoContainerMessage>(OnEntityInserted); // Frontier
-            SubscribeLocalEvent<VendingMachineComponent, EntRemovedFromContainerMessage>(OnEntityRemoved); // Frontier
+            SubscribeLocalEvent<CreditReceiverComponent, EntInsertedIntoContainerMessage>(OnEntityInserted); // Frontier // Mono - Seperation of Cash from VendingMachineComp
+            SubscribeLocalEvent<CreditReceiverComponent, EntRemovedFromContainerMessage>(OnEntityRemoved); // Frontier // Mono - Seperation of Cash from VendingMachineComp
 
             SubscribeLocalEvent<VendingMachineComponent, ActivatableUIOpenAttemptEvent>(OnActivatableUIOpenAttempt);
 
@@ -107,7 +108,7 @@ namespace Content.Server.VendingMachines
             //args.Price += price; Frontier - This is used to price the worth of a vending machine with the inventory it has.
         }
 
-        protected override void OnMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args)
+        protected override void OnMapInit(EntityUid uid, CreditReceiverComponent component, MapInitEvent args) // Mono
         {
             base.OnMapInit(uid, component, args);
 
