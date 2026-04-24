@@ -99,7 +99,7 @@
   unit: materials-unit-chunk
   icon: { sprite: /Textures/_NF/Objects/Materials/ore.rsi, state: scrapore }
   color: "#FFD700"
-  price: 0.1
+  price: 2.5 # Mono - based off steel + 2x ore discount
 
 # Spawner for lathe: yield random mats if processed in ore processor
 - type: entity
