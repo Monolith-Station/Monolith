@@ -29,6 +29,13 @@ public sealed class VendingMachineSystem : SharedVendingMachineSystem
             bui.Refresh();
         }
     }
+    private void OnVendingCashMoneyAfterState(EntityUid uid, CreditReceiverComponent component, ref AfterAutoHandleStateEvent args)
+    {
+        if (_uiSystem.TryGetOpenUi<VendingMachineBoundUserInterface>(uid, VendingMachineUiKey.Key, out var bui))
+        {
+            bui.Refresh();
+        }
+    }
 
     // Frontier
     private void OnEntityInserted(Entity<VendingMachineComponent> ent, ref EntInsertedIntoContainerMessage args)
