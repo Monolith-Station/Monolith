@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 264.0.0
+  engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 11/15/2025 15:28:11
+  time: 04/24/2026 00:58:36
   entityCount: 223
 maps: []
 grids:
@@ -33,14 +33,13 @@ entities:
     components:
     - type: MetaData
       name: ADS Razor-N
-    # bet
+    - type: Transform
+      parent: invalid
     - type: InitRepairSnapshot
     - type: ShipRepairRestrict
       toolWhitelist:
         tags:
         - ADSRepairTool
-    - type: Transform
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -70,6 +69,11 @@ entities:
       fixtures: {}
     - type: OccluderTree
     - type: SpreaderGrid
+      spreadQueues:
+        Puddle: []
+        Smoke: []
+        Kudzu: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -179,6 +183,7 @@ entities:
     - type: RadiationGridResistance
     - type: ShipGridLock
       locked: False
+    - type: ThermalSignature
 - proto: APCBasic
   entities:
   - uid: 4
@@ -1056,12 +1061,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,-3.5
       parent: 1
-- proto: ScuttleDeviceRazorN
+- proto: ScuttleDeviceWyvern
   entities:
   - uid: 125
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -0.5,-3.5
       parent: 1
 - proto: SpawnRedactedBorg
