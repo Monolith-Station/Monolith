@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Economy.Component;
 using Content.Shared.VendingMachines;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -18,6 +19,7 @@ public sealed class VendingMachineSystem : SharedVendingMachineSystem
         SubscribeLocalEvent<VendingMachineComponent, AppearanceChangeEvent>(OnAppearanceChange);
         SubscribeLocalEvent<VendingMachineComponent, AnimationCompletedEvent>(OnAnimationCompleted);
         SubscribeLocalEvent<VendingMachineComponent, AfterAutoHandleStateEvent>(OnVendingAfterState);
+        SubscribeLocalEvent<CreditReceiverComponent, AfterAutoHandleStateEvent>(OnVendingCashMoneyAfterState);
         SubscribeLocalEvent<VendingMachineComponent, EntInsertedIntoContainerMessage>(OnEntityInserted); // Frontier
         SubscribeLocalEvent<VendingMachineComponent, EntRemovedFromContainerMessage>(OnEntityRemoved); // Frontier
     }
