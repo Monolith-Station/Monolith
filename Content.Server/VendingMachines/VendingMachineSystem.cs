@@ -361,11 +361,13 @@ namespace Content.Server.VendingMachines
 
                 int cashSlotBalance = 0;
                 Entity<StackComponent>? cashEntity = null;
-                if (component.CashSlotName != null
-                    && component.CurrencyStackType != null
-                    && ItemSlots.TryGetSlot(uid, component.CashSlotName, out var cashSlot)
+
+                if (TryComp<CreditReceiverComponent>(uid, out var creditComponent) // Mono start - Seperation of Cash from VendingMachineComp
+                    && creditComponent.CashSlotName != null
+                    && creditComponent.CurrencyStackType != null
+                    && ItemSlots.TryGetSlot(uid, creditComponent.CashSlotName, out var cashSlot)
                     && TryComp<StackComponent>(cashSlot?.ContainerSlot?.ContainedEntity, out var stackComp)
-                    && stackComp!.StackTypeId == component.CurrencyStackType)
+                    && stackComp!.StackTypeId == creditComponent.CurrencyStackType) // Mono end
                 {
                     cashSlotBalance = stackComp!.Count;
                     cashEntity = (cashSlot!.ContainerSlot!.ContainedEntity.Value, stackComp!);
@@ -384,11 +386,12 @@ namespace Content.Server.VendingMachines
 
                 if (TryEjectVendorItem(uid, type, itemId, component.CanShoot, component))
                 {
-                    if (cashEntity != null)
+                    if (creditComponent != null && cashEntity != null) // Mono start - Dumb edit so a seperate component can keep track of cash
                     {
                         var newCashSlotBalance = Math.Max(cashSlotBalance - totalPrice, 0);
                         _stack.SetCount(cashEntity.Value.Owner, newCashSlotBalance, cashEntity.Value.Comp);
-                        component.CashSlotBalance = newCashSlotBalance;
+                        creditComponent.CashSlotBalance = newCashSlotBalance;
+                        Dirty(uid, creditComponent); // Mono end
                         paidFully = true; // Either we paid fully with cash, or we need to withdraw the remainder
                     }
                     if (totalPrice > cashSlotBalance && !HasComp<Content.Shared._Mono.Traits.Physical.IronmanComponent>(sender))

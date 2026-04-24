@@ -1,6 +1,7 @@
 using Content.Shared.Emag.Components;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared._Mono.Economy.Component; // Mono
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
@@ -27,16 +28,18 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<VendingMachineComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<CreditReceiverComponent, MapInitEvent>(OnMapInit); // Mono - Separation of cash from VendingMachineComp
         SubscribeLocalEvent<VendingMachineComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<VendingMachineComponent, GotUnEmaggedEvent>(OnUnemagged); // Frontier
 
         SubscribeLocalEvent<VendingMachineRestockComponent, AfterInteractEvent>(OnAfterInteract);
     }
 
-    protected virtual void OnMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args)
+    /// <remarks> Mono - What sort of abysmal d*gsh*t is this, Frontier? </remarks>
+    protected virtual void OnMapInit(EntityUid uid, CreditReceiverComponent component, MapInitEvent args)
     {
-        RestockInventoryFromPrototype(uid, component, component.InitialStockQuality);
+        if (TryComp<VendingMachineComponent>(uid, out var vendingMachine)) // Mono
+            RestockInventoryFromPrototype(uid, vendingMachine, vendingMachine.InitialStockQuality); // Mono
 
         // Frontier: create the cash slot if this entity has one
         if (component.CashSlot != null && component.CashSlotName != null)
