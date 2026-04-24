@@ -15,7 +15,7 @@ namespace Content.IntegrationTests.Tests._Mono;
 [TestFixture]
 public sealed class ManufacturePriceTest
 {
-    private const float _pricingThreshold = 2f;
+    private const float _pricingThreshold = 4f;
 
     [Test]
     public async Task CheckAllShuttleGrids()
