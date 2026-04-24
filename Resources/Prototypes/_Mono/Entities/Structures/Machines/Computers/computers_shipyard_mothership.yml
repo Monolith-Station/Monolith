@@ -106,7 +106,6 @@
     - map: ["computerLayerKeys"]
       state: blackmarket_key
 
-
 - type: entity
   id: PDVMotleyAnneCarrierComputer
   parent: BaseCarrierComputer
@@ -139,3 +138,13 @@
     - Rook
     - Taser
     - Hound
+
+- type: entity
+  id: BalorCarrierComputer
+  parent: BaseCarrierComputer
+  name: balor shipyard console
+  components:
+  - type: ShipyardListing
+    shuttles:
+    - Rac-Man
+    - Bow-Man
