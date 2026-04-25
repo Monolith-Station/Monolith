@@ -38,6 +38,7 @@ using Content.Server.Stack;
 using Content.Server._Mono.VendingMachine;
 using Content.Shared._Mono.Traits.Physical;
 using Robust.Shared.Containers; // Frontier
+using Content.Server._Mono.Economy; // Mono - Seperation of cash payment from VendingMachineComp
 using Content.Shared._Mono.Economy.Component; // Mono - Seperation of cash payment from VendingMachineComp
 
 namespace Content.Server.VendingMachines
