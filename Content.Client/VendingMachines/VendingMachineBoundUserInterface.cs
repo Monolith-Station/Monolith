@@ -58,10 +58,10 @@ namespace Content.Client.VendingMachines
                 _menu.Title = Loc.GetString("vending-machine-nf-fallback-title");
             // End Frontier: no exceptions
             _menu.OnItemSelected += OnItemSelected;
-            Refresh();
+            Update();
         }
 
-        public void Refresh()
+        public override void Update()
         {
             var system = EntMan.System<VendingMachineSystem>();
             _cachedInventory = system.GetAllInventory(Owner);
