@@ -62,6 +62,7 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly IAdminLogManager _adminLogger = default!; // Frontier
         [Dependency] private readonly StackSystem _stack = default!; // Frontier
         [Dependency] private readonly VendingMachinePurchaseSystem _vendingPurchase = default!; // Mono
+        [Dependency] private readonly CreditReceiverSystem _cashSystem = default!; // Mono - Pwease chwose two pway wiw cawsh ow cwedit
 
         private const float WallVendEjectDistanceFromWall = 1f;
 
