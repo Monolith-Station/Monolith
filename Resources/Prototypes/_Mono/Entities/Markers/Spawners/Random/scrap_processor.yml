@@ -237,6 +237,7 @@
     - id: ContainmentFieldGeneratorCircuitboard
     - id: SolarAssemblyFlatpack
     - id: CentrifugeLatheMiniCircuitboard # Mono: Economy
+    #- id: IndustrialLatheMachineCircuitboard # Mono: Economy
     #Atmos
     - !type:GroupSelector
       weight: 2
