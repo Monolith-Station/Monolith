@@ -23,9 +23,13 @@
   assignedCompany: TSF
   canBeAntag: false
   accessGroups:
-  - AllAccess
-  access: # Mono
+  - AllAccessMono #Mono Start
+  access:
   - TsfmcEngineering
+  - HeadOfSecurity
+  - Bailiff
+  - Sergeant
+  - Frontier #Mono End
   special:
   - !type:AddComponentSpecial
     components:
