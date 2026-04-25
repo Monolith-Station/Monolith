@@ -74,9 +74,6 @@ namespace Content.Server.VendingMachines
             SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
             //SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse); // Frontier: Upstream - #28984
-            SubscribeLocalEvent<CreditReceiverComponent, EntInsertedIntoContainerMessage>(OnEntityInserted); // Frontier // Mono - Seperation of Cash from VendingMachineComp
-            SubscribeLocalEvent<CreditReceiverComponent, EntRemovedFromContainerMessage>(OnEntityRemoved); // Frontier // Mono - Seperation of Cash from VendingMachineComp
-
             SubscribeLocalEvent<VendingMachineComponent, ActivatableUIOpenAttemptEvent>(OnActivatableUIOpenAttempt);
 
             Subs.BuiEvents<VendingMachineComponent>(VendingMachineUiKey.Key, subs =>
@@ -687,31 +684,5 @@ namespace Content.Server.VendingMachines
         //        component.NextEmpEject = _timing.CurTime;
         //    }
         //}
-
-        // Frontier: cash slot logic
-        /// <remarks> Mono - This should ideally be seperated out into its own system seperate from vending machines, since we'd like Ironman players to use shipyard consoles</remarks>>
-        private void OnEntityInserted(Entity<CreditReceiverComponent> ent, ref EntInsertedIntoContainerMessage args) // Mono - Seperation of Cash from VendingMachineComp
-        {
-            if (ent.Comp.CashSlotName != null
-            && ent.Comp.CurrencyStackType != null
-            && ItemSlots.TryGetSlot(ent, ent.Comp.CashSlotName, out var slot)
-            && TryComp<StackComponent>(slot?.ContainerSlot?.ContainedEntity, out var stack)
-            && stack.StackTypeId == ent.Comp.CurrencyStackType)
-            {
-                ent.Comp.CashSlotBalance = stack.Count;
-            }
-            else
-            {
-                ent.Comp.CashSlotBalance = 0;
-            }
-            Dirty(ent, ent.Comp);
-        }
-
-        private void OnEntityRemoved(Entity<CreditReceiverComponent> ent, ref EntRemovedFromContainerMessage args) // Mono
-        {
-            ent.Comp.CashSlotBalance = 0;
-            Dirty(ent, ent.Comp);
-        }
-        // End Frontier: cash slot logic
     }
 }
