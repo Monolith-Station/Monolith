@@ -5,7 +5,7 @@
 - type: entity
   id: BaseHydrakinOrgan
   name: hydrakin organ
-  parent: [BaseItem]
+  parent: [ BaseItem ]
   abstract: true
   components:
   - type: Sprite

@@ -142,7 +142,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
     private void OnToggleRemoteDevicesScreen(EntityUid uid, StationAiHeldComponent component, ToggleRemoteDevicesScreenEvent args)
     {
-        if (args.Handled || !TryComp<ActorComponent>(uid, out var actor))
+        if (args.Handled || !TryComp<ActorComponent>(args.Performer, out var actor))
             return;
         args.Handled = true;
 
