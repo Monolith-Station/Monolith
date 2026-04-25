@@ -85,6 +85,9 @@ public sealed class SmokeSystem : EntitySystem
         if (_smokeAffectedQuery.HasComponent(args.OtherEntity))
             return;
 
+        if (TerminatingOrDeleted(args.OtherEntity)) // Mono: Testfail fix
+            return;
+
         var smokeAffected = AddComp<SmokeAffectedComponent>(args.OtherEntity);
         smokeAffected.SmokeEntity = entity;
         smokeAffected.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(1);
@@ -102,6 +105,9 @@ public sealed class SmokeSystem : EntitySystem
         var exists = Exists(entity);
 
         if (!TryComp<PhysicsComponent>(args.OtherEntity, out var body))
+            return;
+
+        if (TerminatingOrDeleted(args.OtherEntity)) // Mono: Testfail fix
             return;
 
         foreach (var ent in _physics.GetContactingEntities(args.OtherEntity, body))

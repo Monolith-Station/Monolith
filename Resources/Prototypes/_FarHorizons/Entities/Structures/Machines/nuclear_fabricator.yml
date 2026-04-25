@@ -1,0 +1,73 @@
+- type: entity
+  id: NuclearFabricator
+  parent: BaseLatheLube
+  name: nuclear fabricator
+  description: An ISFNC-certified fabricator for making components certified for use in nuclear reactors. Its a load of bullshit.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/nfr_assembler.rsi # Mono
+    snapCardinals: false
+    offset: 0.5, 0
+    noRot: false
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: rad-paint # Mono
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: NuclearFabricatorMachineCircuitboard
+  - type: Transform # Mono
+    anchored: true
+    noRot: false
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+  - type: OreSiloClient
+  - type: Construction # Mono
+    graph: Machine2x1
+  - type: Lathe
+    idleState: icon
+    runningState: building
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticPacks:
+    - ReactorPartsBasic
+    dynamicPacks:
+    - ReactorFuelRods
+    - ReactorControlRods
+    - ReactorGasChannels
+    - ReactorHeatExchangers
+  # - type: EmagLatheRecipes
+  #   emagStaticPacks:
+  #   - StarlightSecurityEmagWeaponsStatic
+  #   - StarlightSecurityAmmoStatic
+  #   - StarlightSecurityAmmoEmagStatic
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - blueprint
+  - type: RequireProjectileTarget # Mono
+  - type: Fixtures # Mono
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,1.3,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer

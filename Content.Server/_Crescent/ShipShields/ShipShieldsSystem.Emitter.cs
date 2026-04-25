@@ -9,14 +9,17 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.Examine;
 using Content.Server.Explosion.Components;
 using Content.Shared.Explosion.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Crescent.ShipShields;
+
 public partial class ShipShieldsSystem
 {
     private const float MAX_EMP_DAMAGE = 10000f;
     [Dependency] private readonly TriggerSystem _trigger = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     public void InitializeEmitters()
     {
         SubscribeLocalEvent<ShipShieldEmitterComponent, ShieldDeflectedEvent>(OnShieldDeflected);
@@ -25,7 +28,7 @@ public partial class ShipShieldsSystem
     }
 
 
-    private void OnRemoved(Entity<ShipShieldEmitterComponent> owner,ref ComponentRemove remove)
+    private void OnRemoved(Entity<ShipShieldEmitterComponent> owner, ref ComponentRemove remove)
     {
         var parent = Transform(owner.Owner).GridUid;
         if (parent is null)
@@ -41,20 +44,13 @@ public partial class ShipShieldsSystem
             _trigger.Trigger(args.Deflected);
         }
 
-        if (TryComp<ExplosiveComponent>(args.Deflected, out var exp))
+        if (TryComp<ExplosiveComponent>(args.Deflected, out var exp) && _prototypeManager.TryIndex(exp.ExplosionType, out var type))
         {
-            component.Damage += exp.TotalIntensity;
+            component.Damage += exp.TotalIntensity * (float)type.DamagePerIntensity.GetTotal();
         }
 
-        if (TryComp<ProjectileComponent>(args.Deflected, out var proj))
-        {
-            component.Damage += (float) proj.Damage.GetTotal();
-            proj.ProjectileSpent = true;
-        }
-        else if (TryComp<PhysicsComponent>(args.Deflected, out var phys))
-        {
-            component.Damage += phys.FixturesMass;
-        }
+        component.Damage += (float)args.Projectile.Damage.GetTotal();
+        args.Projectile.ProjectileSpent = true;
 
         QueueDel(args.Deflected);
     }
@@ -64,17 +60,12 @@ public partial class ShipShieldsSystem
         if (!args.IsInDetailsRange)
             return;
 
-        if (component.Damage == 0f)
-        {
-            args.PushMarkup(Loc.GetString("shield-emitter-examine-undamaged"));
-            return;
-        }
+        args.PushMarkup(Loc.GetString("shield-emitter-examine", ("basedraw", component.BaseDraw), ("additional", CalculateLoadDamage(component))));
+    }
 
-        var additionalLoad = (float) Math.Clamp(Math.Pow(component.Damage, component.DamageExp), 0f, component.MaxDraw);
-        var ratio = additionalLoad / component.BaseDraw;
-        ratio = (float) Math.Ceiling(ratio * 100);
-
-        args.PushMarkup(Loc.GetString("shield-emitter-examine-damaged", ("percent", ratio)));
+    private static float CalculateLoadDamage(ShipShieldEmitterComponent emitter)
+    {
+        return (float)Math.Clamp(Math.Pow(emitter.Damage, emitter.DamageExp) * emitter.PowerModifier, 0f, emitter.MaxDraw);
     }
 
     private void AdjustEmitterLoad(EntityUid uid, ShipShieldEmitterComponent? emitter = null, ApcPowerReceiverComponent? receiver = null)
@@ -82,9 +73,6 @@ public partial class ShipShieldsSystem
         if (!Resolve(uid, ref emitter, ref receiver))
             return;
 
-        /// Raise damage to the power of the growth exponent
-        var additionalLoad = (float) Math.Clamp(Math.Pow(emitter.Damage, emitter.DamageExp), 0f, emitter.MaxDraw);
-
-        receiver.Load = emitter.BaseDraw + additionalLoad;
+        receiver.Load = emitter.BaseDraw + CalculateLoadDamage(emitter);
     }
 }

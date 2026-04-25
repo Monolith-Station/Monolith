@@ -60,8 +60,10 @@
       collection: VulpkaninSnarls
     Bark:
       collection: VulpkaninBarks
+    Yip: # Starlight / Monolith - yip & whine [
+      collection: VulpkaninYips
     Whine:
-      collection: VulpkaninWhines
+      collection: VulpkaninWhines  # Starlight / Monolith - yip & whine ]
     Howl:
       collection: VulpkaninHowls
     Awoo:
@@ -118,8 +120,8 @@
       collection: VulpkaninSnarls
     Bark:
       collection: VulpkaninBarks
-    Whine:
-      collection: VulpkaninWhines
+    Whimper:
+      collection: VulpkaninWhimpers # Starlight / Monolith: Rename to whimper
     Howl:
       collection: VulpkaninMaleHowl #Monolith
     Awoo:
@@ -130,6 +132,10 @@
       collection: MaleDeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
+    Yip: # Starlight / Monolith - yip & whine [
+      collection: VulpkaninYips
+    Whine:
+      collection: VulpkaninWhines  # Starlight / Monolith - yip & whine ]
 
 - type: emoteSounds
   id: FemaleVulpkanin
@@ -166,8 +172,8 @@
       collection: VulpkaninSnarls
     Bark:
       collection: VulpkaninBarks
-    Whine:
-      collection: VulpkaninWhines
+    Whimper:
+      collection: VulpkaninWhimpers # Starlight / Monolith: Rename to whimper
     Howl:
       collection: VulpkaninFemaleHowl #Monolith
     Awoo:
@@ -178,6 +184,10 @@
       collection: FemaleDeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
+    Yip: # Starlight / Monolith - yip & whine [
+      collection: VulpkaninYips
+    Whine:
+      collection: VulpkaninWhines  # Starlight / Monolith - yip & whine ]
 
 - type: emoteSounds
   id: MobDog
@@ -190,8 +200,10 @@
       collection: VulpkaninSnarls
     Bark:
       collection: VulpkaninBarks
+    Yip: # Starlight / Monolith - yip & whine [
+      collection: VulpkaninYips
     Whine:
-      collection: VulpkaninWhines
+      collection: VulpkaninWhines  # Starlight / Monolith - yip & whine ]
     Howl:
       collection: VulpkaninHowls
     Awoo:
