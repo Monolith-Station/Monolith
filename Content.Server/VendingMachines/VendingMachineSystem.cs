@@ -32,14 +32,11 @@ using Robust.Shared.Audio.Systems;
 using Content.Server.Administration.Logs; // Frontier
 using Content.Shared.Database; // Frontier
 using Content.Shared._NF.Bank.BUI; // Frontier
-using Content.Server._NF.Contraband.Systems; // Frontier
-using Content.Shared.Stacks; // Frontier
 using Content.Server.Stack;
 using Content.Server._Mono.VendingMachine;
 using Content.Shared._Mono.Traits.Physical;
-using Robust.Shared.Containers; // Frontier
 using Content.Shared._Mono.Economy; // Mono - Seperation of cash payment from VendingMachineComp
-using Content.Shared._Mono.Economy.Component; // Mono - Seperation of cash payment from VendingMachineComp
+using Content.Shared._Mono.Economy.Component;
 
 namespace Content.Server.VendingMachines
 {
@@ -60,7 +57,6 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly BankSystem _bankSystem = default!; // Frontier
         [Dependency] private readonly PopupSystem _popupSystem = default!; // Frontier
         [Dependency] private readonly IAdminLogManager _adminLogger = default!; // Frontier
-        [Dependency] private readonly StackSystem _stack = default!; // Frontier
         [Dependency] private readonly VendingMachinePurchaseSystem _vendingPurchase = default!; // Mono
         [Dependency] private readonly SharedCreditReceiverSystem _cash = default!; // Mono - Pwease chwose two pway wiw cawsh ow cwedit
 
@@ -360,18 +356,8 @@ namespace Content.Server.VendingMachines
                 if (!HasComp<IronmanComponent>(sender) && TryComp<BankAccountComponent>(sender, out var bank))
                     bankBalance = bank.Balance;
 
-                int cashSlotBalance = 0;
-                Entity<StackComponent>? cashEntity = null;
-
-                if (TryComp<CreditReceiverComponent>(uid, out var creditComponent) // Mono start - Seperation of Cash from VendingMachineComp
-                    && _cash.CanPayWithCredit((uid,creditComponent))
-                    && ItemSlots.TryGetSlot(uid, creditComponent.CashSlotName!, out var cashSlot) //Fixme - This whole monolith needs to be ripped out and into sharedCreditReceiverSystem + the ! is a bandaid
-                    && TryComp<StackComponent>(cashSlot?.ContainerSlot?.ContainedEntity, out var stackComp)
-                    && stackComp!.StackTypeId == creditComponent.CurrencyStackType) // Mono end
-                {
-                    cashSlotBalance = stackComp!.Count;
-                    cashEntity = (cashSlot!.ContainerSlot!.ContainedEntity.Value, stackComp!);
-                }
+                TryComp<CreditReceiverComponent>(uid, out var creditComponent);
+                _cash.TryGetCash(uid, out var cashEntity, out var cashSlotBalance);
 
                 if (totalPrice > bankBalance + cashSlotBalance)
                 {
@@ -386,13 +372,10 @@ namespace Content.Server.VendingMachines
 
                 if (TryEjectVendorItem(uid, type, itemId, component.CanShoot, component))
                 {
-                    if (creditComponent != null && cashEntity != null) // Mono start - Dumb edit so a seperate component can keep track of cash
+
+                    if (_cash.TryGetCashSlot(uid, out var _)) // Mono
                     {
-                        var newCashSlotBalance = Math.Max(cashSlotBalance - totalPrice, 0);
-                        _stack.SetCount(cashEntity.Value.Owner, newCashSlotBalance, cashEntity.Value.Comp);
-                        creditComponent.CashSlotBalance = newCashSlotBalance;
-                        Dirty(uid, creditComponent); // Mono end
-                        paidFully = true; // Either we paid fully with cash, or we need to withdraw the remainder
+                       paidFully = _cash.TryCashPayment(uid, totalPrice, out var _, true);
                     }
                     if (totalPrice > cashSlotBalance && !HasComp<Content.Shared._Mono.Traits.Physical.IronmanComponent>(sender))
                         paidFully = _bankSystem.TryBankWithdraw(sender, totalPrice - cashSlotBalance);

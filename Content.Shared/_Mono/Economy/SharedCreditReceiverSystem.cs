@@ -13,6 +13,7 @@ namespace Content.Shared._Mono.Economy;
 /// <remarks>Mostly to be used in other systems that like to implement this behavior to avoid code duplication.</remarks>
 public abstract partial class SharedCreditReceiverSystem : EntitySystem
 {
+    private readonly ISawmill _log = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!; // Frontier
     [Dependency] protected readonly ItemSlotsSystem ItemSlots = default!; // Frontier
 
@@ -145,22 +146,47 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
         return true;
     }
 
-    public bool TryGetCashEntity(EntityUid uid, [NotNullWhen(true)] out Entity<CreditReceiverComponent>? cashEntity)
+    /// <summary>
+    /// Attempts to process cash payment.
+    /// </summary>
+    /// <param name="uid">UID of the machine.</param>
+    /// <param name="amount">The amount to be deposited.</param>
+    /// <param name="partialPaymentAllowed">Boolean to ask if we require the amount to be fully paid here.</param>
+    /// <param name="remainingDebt">Returns any remaining currency that needs to be paid if partialPaymentAllowed is true, otherwise 0.</param>
+    /// <returns>Whether the transaction was successfully or not</returns>
+    /// <remarks>By default, will only return true if the full amount can be payed. If you want to use this in tandem with <paramref name="partialPaymentAllowed"/> so true/false depends on if there was no debt remains to be paid.</remarks>
+    public bool TryCashPayment(EntityUid uid, int amount, out int remainingDebt, bool partialPaymentAllowed = false)
     {
-        cashEntity = null;
-        if (!TryComp<CreditReceiverComponent>(uid, out var receiver)) { return false; }
+        remainingDebt = 0;
+        if (amount <= 0)
+        {
+            _log.Info($"TryCashPayment: {amount} is invalid from Uid {uid}");
+            return false;
+        }
 
-        if (!TryGetCashSlot(uid, out var slot))
+        if (!TryComp<CreditReceiverComponent>(uid, out var receiver))
+        {
+            _log.Info($"TryCashPayment: {uid} has somehow got money stuck inside.");
+            return false;
+        }
+
+        // Failed to find money
+        if (!TryGetCash(uid, out var cash, out var balance))
             return false;
 
-        if (!TryComp<StackComponent>(slot.ContainerSlot!.ContainedEntity, out var stackComp)
-            && stackComp!.StackTypeId == receiver.CurrencyStackType)
+        // Broke spacer alert
+        if (!partialPaymentAllowed && balance - amount < 0)
             return false;
 
-        if (slot!.ContainerSlot == null) // Fixme - possible null reference
-            return false;
+        if (partialPaymentAllowed)
+            remainingDebt = Math.Abs(amount - balance);
 
-        cashEntity = slot.ContainerSlot!.ContainedEntity!.Value!;
+        var newCashSlotBalance = Math.Max(balance - amount, 0);
+
+        // Finally, we adjust the currency and the component to complete the transaction.
+        _stack.SetCount(cash.Value.Owner, newCashSlotBalance, cash.Value.Comp);
+        receiver.CashSlotBalance = newCashSlotBalance;
+        Dirty(uid, receiver);
         return true;
     }
 
