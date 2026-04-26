@@ -38,7 +38,7 @@ using Content.Server.Stack;
 using Content.Server._Mono.VendingMachine;
 using Content.Shared._Mono.Traits.Physical;
 using Robust.Shared.Containers; // Frontier
-using Content.Server._Mono.Economy; // Mono - Seperation of cash payment from VendingMachineComp
+using Content.Shared._Mono.Economy; // Mono - Seperation of cash payment from VendingMachineComp
 using Content.Shared._Mono.Economy.Component; // Mono - Seperation of cash payment from VendingMachineComp
 
 namespace Content.Server.VendingMachines
@@ -62,7 +62,7 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly IAdminLogManager _adminLogger = default!; // Frontier
         [Dependency] private readonly StackSystem _stack = default!; // Frontier
         [Dependency] private readonly VendingMachinePurchaseSystem _vendingPurchase = default!; // Mono
-        [Dependency] private readonly CreditReceiverSystem _cashSystem = default!; // Mono - Pwease chwose two pway wiw cawsh ow cwedit
+        [Dependency] private readonly SharedCreditReceiverSystem _cash = default!; // Mono - Pwease chwose two pway wiw cawsh ow cwedit
 
         private const float WallVendEjectDistanceFromWall = 1f;
 
@@ -107,7 +107,7 @@ namespace Content.Server.VendingMachines
             //args.Price += price; Frontier - This is used to price the worth of a vending machine with the inventory it has.
         }
 
-        protected override void OnMapInit(EntityUid uid, CreditReceiverComponent component, MapInitEvent args) // Mono
+        protected override void OnMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args) // Mono
         {
             base.OnMapInit(uid, component, args);
 
@@ -364,9 +364,8 @@ namespace Content.Server.VendingMachines
                 Entity<StackComponent>? cashEntity = null;
 
                 if (TryComp<CreditReceiverComponent>(uid, out var creditComponent) // Mono start - Seperation of Cash from VendingMachineComp
-                    && creditComponent.CashSlotName != null
-                    && creditComponent.CurrencyStackType != null
-                    && ItemSlots.TryGetSlot(uid, creditComponent.CashSlotName, out var cashSlot)
+                    && _cash.CanPayWithCredit((uid,creditComponent))
+                    && ItemSlots.TryGetSlot(uid, creditComponent.CashSlotName!, out var cashSlot) //Fixme - This whole monolith needs to be ripped out and into sharedCreditReceiverSystem + the ! is a bandaid
                     && TryComp<StackComponent>(cashSlot?.ContainerSlot?.ContainedEntity, out var stackComp)
                     && stackComp!.StackTypeId == creditComponent.CurrencyStackType) // Mono end
                 {
