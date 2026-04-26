@@ -87,15 +87,61 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
         return true;
     }
 
+    // Try to implement ItemSlots.TryGetSlot(uid, creditComponent.CashSlotName, out var cashSlot) && TryComp<StackComponent>(cashSlot?.ContainerSlot?.ContainedEntity, out var stackComp) && stackComp!.StackTypeId == creditComponent.CurrencyStackType
+    /// <summary>
+    /// Method to grab the currency in a CreditReceiver, as specified in the components slot
+    /// </summary>
+    /// <param name="uid">The CreditReceiver entity, like a Vending Machine</param>
+    /// <param name="stack">Null or EntityUID/StackComponent tuple, like a stack of spesos</param>
+    /// <returns>True if successfully retrieved the contained currency, false if else.</returns>
+    public bool TryGetCash(EntityUid uid, [NotNullWhen(true)] out Entity<StackComponent>? stack, [NotNullWhen(true)] out int balance)
+    {
+        stack = null;
+        balance = 0;
+
+        // We dont accept cash here, buddy.
+        if (!TryComp<CreditReceiverComponent>(uid, out var receiver))
+            return false;
+
+        // In if in yaml a parent has CreditReceiver but doesn't actually want cash behavior, set these to null.
+        if (receiver.CashSlotName == null)
+            return false;
+
+        // If there's no money in the bag, we fail to return anything.
+        if (!TryGetCashSlot(uid, out var cashSlot)
+            || cashSlot.ContainerSlot == null)
+            return false;
+
+        // This whole system assumes the currency item is a stack of items.
+        if ( cashSlot.ContainerSlot.ContainedEntity == null
+            || !TryComp<StackComponent>(cashSlot.ContainerSlot.ContainedEntity, out var stackComp))
+            return false;
+
+        // Sanity check that the stack item is of the same type as specified in the CreditReceiverComponent.CurrencyStackType
+        if (stackComp.StackTypeId != receiver.CurrencyStackType)
+            return false;
+
+        stack = cashSlot.ContainerSlot.ContainedEntity!; // I am double and triple sure there are no nulls when we get here.
+        balance = receiver.CashSlotBalance;
+        return true;
+    }
+
+    /// <summary>
+    /// Not sure why you would want this when <see cref="TryGetCash"/> exists
+    /// </summary>
     public bool TryGetCashSlot(EntityUid uid, [NotNullWhen(true)] out ItemSlot? slot)
     {
         slot = null;
 
-        if (!TryComp<CreditReceiverComponent>(uid, out var receiver)) { return false; }
+        if (!TryComp<CreditReceiverComponent>(uid, out var receiver))
+            return false;
 
-        if (receiver.CashSlot == null) { return false; }
+        if (receiver.CashSlot == null || receiver.CashSlotName == null)
+            return false;
 
-        slot = receiver.CashSlot; // Fixme - Possible null reference
+        ItemSlots.TryGetSlot(uid, receiver.CashSlotName, out var cashSlot);
+
+        slot = cashSlot!; // Fixme - Possible null reference
         return true;
     }
 
@@ -104,11 +150,10 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
         cashEntity = null;
         if (!TryComp<CreditReceiverComponent>(uid, out var receiver)) { return false; }
 
-        if (!TryGetCashSlot(uid, out var slot)
-            || slot == null)
+        if (!TryGetCashSlot(uid, out var slot))
             return false;
 
-        if (!TryComp<StackComponent>(slot?.ContainerSlot?.ContainedEntity, out var stackComp)
+        if (!TryComp<StackComponent>(slot.ContainerSlot!.ContainedEntity, out var stackComp)
             && stackComp!.StackTypeId == receiver.CurrencyStackType)
             return false;
 
