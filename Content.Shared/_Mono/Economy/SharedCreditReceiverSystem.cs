@@ -93,9 +93,9 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
 
         if (!TryComp<CreditReceiverComponent>(uid, out var receiver)) { return false; }
 
-        if (receiver == null || slot == null) { return false; } // Fixme - Possible null reference
+        if (receiver.CashSlot == null) { return false; }
 
-        slot = receiver.CashSlot!; // Fixme - Possible null reference
+        slot = receiver.CashSlot; // Fixme - Possible null reference
         return true;
     }
 
