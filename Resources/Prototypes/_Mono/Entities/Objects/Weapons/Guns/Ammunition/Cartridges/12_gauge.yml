@@ -20,11 +20,10 @@
       params:
         variation: 0.06
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/12_gauge_shell.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
     layers:
       - state: base
         map: [ "enum.AmmoVisualLayers.Base" ]
-    scale: 0.6, 0.6
   - type: Appearance
   - type: SpentAmmoVisuals
   - type: StaticPrice
@@ -209,12 +208,12 @@
   components:
   - type: Sprite
     layers:
-      - state: RIP
+      - state: base
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: Pellet12_gaugeSlugRIP
   - type: SpentAmmoVisuals
-    state: "RIP"
+    state: "base"
 
 #armor-piercing:
 - type: entity
@@ -224,12 +223,12 @@
   components:
   - type: Sprite
     layers:
-      - state: slug-AP
+      - state: blank
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: Pellet12_gaugeSlugAP
   - type: SpentAmmoVisuals
-    state: "slug-AP"
+    state: "blank"
 
 - type: entity
   id: ShellShotgun12_gaugeFlechette
@@ -238,9 +237,9 @@
   components:
   - type: Sprite
     layers:
-      - state: flechette
+      - state: slug
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: Pellet12_gaugeFlechetteSpread
   - type: SpentAmmoVisuals
-    state: "flechette"
+    state: "slug"

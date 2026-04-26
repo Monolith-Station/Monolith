@@ -1,0 +1,69 @@
+# capsules
+
+- type: entity
+  id: CapsuleEconomy
+  name: storage capsule
+  description: Used for storing chemicals and other substances needed for industrial processes. Can be opened by alt-clicking.
+  parent: BaseEconomyGood
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "canister_open"}
+          False: {state: "canister"}
+  - type: Appearance
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    layers:
+    - state: canister
+      map: ["enum.OpenableVisuals.Layer"]
+  - type: Openable
+    sound:
+      collection: flaskOpenSounds
+    closeable: true
+    closeSound:
+      collection: flaskCloseSounds
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 500
+
+- type: entity
+  id: CapsuleLargeEconomy
+  name: large storage capsule
+  description: Used for storing chemicals and other substances needed for industrial processes. Much larger than its predecessor. Can be opened by alt-clicking.
+  parent: BaseEconomyGood
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "canister2_open"}
+          False: {state: "canister2"}
+  - type: Appearance
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    layers:
+    - state: canister2
+      map: ["enum.OpenableVisuals.Layer"]
+  - type: Openable
+    sound:
+      collection: flaskOpenSounds
+    closeable: true
+    closeSound:
+      collection: flaskCloseSounds
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 200
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 1000
+      Plastic: 1000
+      Glass: 500
+
+# end capsules

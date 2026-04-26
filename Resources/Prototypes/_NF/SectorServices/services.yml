@@ -35,7 +35,7 @@
       BlackMarket:
         !type:SectorBankAccountInfo
         balance: 8000
-        increasePerSecond: 18 # ~65K per hour, they get ALOT just from people smuggling anyways.
+        increasePerSecond: 120 # ~432k per hour, with the decoupling of smuggling from PDV they need a boost now while TSF gets tons of money just from the sector operating too.
 # mono edit end
 
  # A global source of character records (DNA, fingerprints, criminal records, etc.)
