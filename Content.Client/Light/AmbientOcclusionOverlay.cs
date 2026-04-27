@@ -131,6 +131,9 @@ public sealed class AmbientOcclusionOverlay : Overlay
         worldHandle.UseShader(_proto.Index<ShaderPrototype>("StencilEqualDraw").Instance());
         worldHandle.DrawTextureRect(_aoTarget!.Texture, worldBounds, color);
 
+        worldHandle.UseShader(_proto.Index<ShaderPrototype>("StencilClear").Instance());
+        worldHandle.DrawRect(worldBounds, Color.White);
+
         args.WorldHandle.SetTransform(Matrix3x2.Identity);
         args.WorldHandle.UseShader(null);
     }
