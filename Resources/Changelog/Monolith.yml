@@ -20447,3 +20447,72 @@ Entries:
   id: 2254
   time: '2026-04-25T14:42:31.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3878
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Asteroids made to load ahead of your velocity to prevent them from
+        spawning in front of you when going fast.
+  id: 2255
+  time: '2026-04-26T01:32:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3882
+- author: GOLDMASK990
+  changes:
+    - type: Tweak
+      message: Changed USSP Remnant company description.
+  id: 2256
+  time: '2026-04-26T01:34:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3738
+- author: chuga-git
+  changes:
+    - type: Fix
+      message: torpedos no longer break when loaded using an ammo loader.
+    - type: Fix
+      message: >-
+        CHARON nuclear slugs no longer turn into regular slugs when loaded using
+        an ammo loader.
+  id: 2257
+  time: '2026-04-26T01:37:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3787
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Trico and Omni no longer kill you on OD, but instead consume more per
+        metabolism (less severe knowledge check punishment). Omni OD threshold
+        reduced to 60
+    - type: Tweak
+      message: >-
+        Bicar now reduces bleeding slightly. Tranexamic now has 0.2 metabolism.
+        Oligomers buffed 2 brute/u >> 2.5 to match bicar's per u healing
+  id: 2258
+  time: '2026-04-26T16:20:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3888
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Lowers ADC piloting boost to 1.2x from 1.5x
+  id: 2259
+  time: '2026-04-26T16:23:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3861
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed reactor explosions being too weak.
+  id: 2260
+  time: '2026-04-26T17:12:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3889
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed map parallax being the default one. Welcome back background rocks.
+  id: 2261
+  time: '2026-04-26T21:51:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3891
+- author: Ark
+  changes:
+    - type: Fix
+      message: Crystallizer GUI can no longer be accessed by Ghosts.
+  id: 2262
+  time: '2026-04-27T00:07:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3894
