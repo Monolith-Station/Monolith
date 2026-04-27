@@ -52,7 +52,7 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
 
         var verb = new AlternativeVerb
         {
-            Text = Loc.GetString("artifact-crusher-verb-start-crushing"),
+            Text = Loc.GetString("item-toggle-activate"), // so it works for the organ harvester. it might be stupid but who really cares
             Priority = 2,
             Act = () => StartCrushing((ent, ent.Comp, entityStorageComp))
         };
