@@ -58,7 +58,7 @@ public sealed partial class ArtifactComponent : Component
     /// to determine the monetary value of the artifact
     /// </summary>
     [DataField("priceMultiplier"), ViewVariables(VVAccess.ReadWrite)]
-    public float PriceMultiplier = 0.35f; // Frontier: 0.175 < 0.35 //Mono: 0.4f -> 0.35f (PointDangerMultiplier increased so we can reduce this a bit)
+    public float PriceMultiplier = 0.4f; // Frontier: 0.175 < 0.4
 
     /// <summary>
     /// The base amount of research points for each artifact node.
@@ -77,7 +77,7 @@ public sealed partial class ArtifactComponent : Component
     /// Used for calculating the research point value of an artifact node.
     /// </summary>
     [DataField("pointDangerMultiplier"), ViewVariables(VVAccess.ReadWrite)]
-    public float PointDangerMultiplier = 2.25f; // Mono: 1.35 < 2.25 //Note: Why tf does frontier use < instead of -> ???
+    public float PointDangerMultiplier = 1.8f; // Mono: 1.35 < 1.8 //Note: Why tf does frontier use < instead of -> ???
 
     /// <summary>
     /// The sound that plays when an artifact is activated
