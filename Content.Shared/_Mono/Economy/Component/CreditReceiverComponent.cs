@@ -4,7 +4,7 @@ using Content.Shared.Containers.ItemSlots;
 namespace Content.Shared._Mono.Economy.Component;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-//[Access(typeof(SharedCreditReceiverSystem))]
+[Access(typeof(SharedCreditReceiverSystem))]
 public sealed partial class CreditReceiverComponent : Robust.Shared.GameObjects.Component
 {
     // Item slot for cash
