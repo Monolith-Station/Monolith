@@ -22,6 +22,4 @@ public sealed partial class CreditReceiverSystem : SharedCreditReceiverSystem
             bui.Update();
         }
     }
-
-
 }
