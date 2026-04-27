@@ -356,8 +356,7 @@ namespace Content.Server.VendingMachines
                 if (!HasComp<IronmanComponent>(sender) && TryComp<BankAccountComponent>(sender, out var bank))
                     bankBalance = bank.Balance;
 
-                TryComp<CreditReceiverComponent>(uid, out var creditComponent);
-                _cash.TryGetCash(uid, out var cashEntity, out var cashSlotBalance);
+                _cash.TryGetCash(uid, out _, out var cashSlotBalance);
 
                 if (totalPrice > bankBalance + cashSlotBalance)
                 {
@@ -372,13 +371,10 @@ namespace Content.Server.VendingMachines
 
                 if (TryEjectVendorItem(uid, type, itemId, component.CanShoot, component))
                 {
+                    paidFully = _cash.TryCashPayment(uid, totalPrice, out var _, true); // Mono - Attempt to pay with cash before credit
 
-                    if (_cash.TryGetCashSlot(uid, out var _)) // Mono
-                    {
-                       paidFully = _cash.TryCashPayment(uid, totalPrice, out var _, true);
-                    }
                     if (totalPrice > cashSlotBalance && !HasComp<Content.Shared._Mono.Traits.Physical.IronmanComponent>(sender))
-                        paidFully = _bankSystem.TryBankWithdraw(sender, totalPrice - cashSlotBalance);
+                        paidFully = _bankSystem.TryBankWithdraw(sender, totalPrice - cashSlotBalance); // Mono - if cash was not enough, pay the difference with credit
 
                     // If we paid completely, pay our station taxes
                     if (paidFully)
