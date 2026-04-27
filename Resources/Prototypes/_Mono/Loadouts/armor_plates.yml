@@ -1,0 +1,27 @@
+- type: loadout # Blunt/Slash armor plate
+  id: ContractorArmorPlateBlunt_Slash
+  price: 1500
+  storage:
+    back:
+    - ArmorPlateBlunt_Slash
+
+- type: loadout # Pierce armor plate
+  id: ContractorArmorPlatePierce
+  price: 1500
+  storage:
+    back:
+    - ArmorPlatePierce
+
+- type: loadout # Blunt/Slash armor plate
+  id: FactionArmorPlateBlunt_Slash
+  price: 0
+  storage:
+    back:
+    - ArmorPlateBlunt_Slash
+
+- type: loadout # Pierce armor plate
+  id: FactionArmorPlatePierce
+  price: 0
+  storage:
+    back:
+    - ArmorPlatePierce

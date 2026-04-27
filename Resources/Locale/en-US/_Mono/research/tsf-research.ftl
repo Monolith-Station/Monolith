@@ -9,28 +9,21 @@ research-technology-tsfmc-experimental-equipment = Experimental TSFMC Equipment
 research-technology-tsfmc-mopp-equipment = Chemical Protection Gear
 
 # T1 TSFMC
-research-technology-tsfmc-guns = Ballistics Production
-research-technology-tsfmc-forensics = Forensics Analysis
-research-technology-tsfmc-pocket-crowbar = Compact Prying Technology
-research-technology-tsfmc-industrial-storage = Material Storage Solutions
-research-technology-tsfmc-industrial-processing = Industrial Processing
+research-technology-tsfmc-guns = Standard Ballistics Production
+research-technology-tsfmc-forensics = Forensics Analysis Devices
 research-technology-tsfmc-portable-recharger = Portable Recharger
-research-technology-tsfmc-nvd = Night Vision Devices
 research-technology-tsfmc-motion-detector = Biosignature IFF Technology
 research-technology-tsfmc-basic-module = TSFMC Basic Cyborg Module Developpment
 
 # T2 TSFMC
-research-technology-tsfmc-annie = M-27 Annie
-research-technology-tsfmc-grizzly = MMG-68 Grizzly
+research-technology-tsfmc-advanced-weapons = Advanced Portable Weapons Technology
 research-technology-tsfmc-nanofoam = Nanomaterial Growth
-research-technology-tsfmc-demag = System Reset Technology
 research-technology-tsfmc-eshield = Energy Shielding
 research-technology-tsfmc-advanced-meds = Reconstructive Technologies
 research-technology-tsfmc-altair-voucher = Altair Procurement LPC
 
 # T3 TSFMC
 research-technology-tsfmc-flyssa-voucher = Flyssa Procurement LPC
-research-technology-tsfmc-mr8 = MARSOC Firearms Development
-research-technology-tsfmc-xlr556 = Infantry Combat Weapon System
+research-technology-tsfmc-super-weapons = State-of-the-art Weapons Manufacturing
 research-technology-tsfmc-synthalloy = Experimental Material Science
 research-technology-tsfmc-advanced-module = TSFMC Advanced Cyborg Module Developpment

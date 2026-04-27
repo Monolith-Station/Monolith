@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": "CC0-1.0",
-  "copyright": "Created by EmoGarbage404 (github) for Space Staiton 14 and modified by alzore_(Discord)",
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Baystation12",
   "size": {
     "x": 32,
     "y": 32
@@ -11,18 +11,32 @@
       "name": "icon"
     },
     {
-      "name": "inhand-left",
-      "directions": 4
+      "name": "screen",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "ready"
     },
     {
       "name": "inhand-right",
       "directions": 4
     },
     {
-      "name": "ready"
-    },
-    {
-      "name": "screen"
+      "name": "inhand-left",
+      "directions": 4
     }
   ]
 }

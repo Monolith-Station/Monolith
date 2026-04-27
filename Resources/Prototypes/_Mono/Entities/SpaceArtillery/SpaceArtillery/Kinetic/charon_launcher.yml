@@ -1,5 +1,6 @@
 - type: entity
   id: WeaponTurretCharonBase
+  parent: BallisticArtilleryTier4HP
   name: M381 CHARON mass driver
   abstract: true
   components:
@@ -42,17 +43,6 @@
         - MachineMask
         layer:
         - MachineLayer
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 35000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: RadarBlip
     radarColor: "#CF0E0E"
     scale: 3

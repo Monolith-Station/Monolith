@@ -80,7 +80,7 @@
     Plasteel: 1200
     Plastic: 900
 
-# TSF Grizzly
+# TSF Heavy Weapons
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -95,6 +95,19 @@
     Steel: 3500
     Plasteel: 2000
     Plastic: 1200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLauncherTSFOsiris
+  result: WeaponLauncherTSFOsiris
+  categories:
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3500
+    Plasteel: 3000
+    Plastic: 1200
+    UraniumDepleted: 500
 
 # Rogues MlA-73
 
@@ -159,6 +172,53 @@
     Plastitanium: 2500
     Silver: 250
 
+# TSF energy
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponDEWCalico
+  result: WeaponDEWCalico
+  categories:
+  - Rifles
+  - Energy
+  - Weapons
+  materials:
+    Steel: 500
+    Plasteel: 1500
+    Silver: 250
+    Plasma: 250
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponDEWSmilodon
+  result: WeaponDEWSmilodon
+  categories:
+  - MGs
+  - Energy
+  - Weapons
+  materials:
+    Steel: 500
+    Plasteel: 2500
+    Silver: 500
+    Gold: 500
+    Plasma: 1000
+
+# PDV energy
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponDEWBasilisk
+  result: WeaponDEWBasilisk
+  categories:
+  - Rifles
+  - Energy
+  - Weapons
+  materials:
+    Steel: 500
+    Plasteel: 1500
+    Silver: 250
+    Uranium: 250
+
 # syndicate ballistics
 
 - type: latheRecipe
@@ -205,6 +265,20 @@
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
+  id: WeaponShotgunSultanPulsar
+  result: WeaponShotgunSultanPulsar
+  categories:
+  - Shotguns
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 700
+    Plasteel: 750
+    Plastic: 1000
+    Wood: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
   id: WeaponRifleM90Rogue
   result: WeaponRifleM90
   categories:
@@ -216,8 +290,6 @@
     Plasteel: 800
     Plastic: 1200
     Silver: 100
-
-# cqc ballistics
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -246,6 +318,21 @@
     Plastic: 800
     Silver: 200
 
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLauncherPanzeroRogue
+  result: WeaponLauncherPanzero
+  categories:
+  - Explosive
+  - Weapons
+  - Antitank
+  materials:
+    Steel: 2000
+    Plasteel: 500
+    Plastic: 500
+    Silver: 200
+    Plasma: 500
+
 # hristov
 
 - type: latheRecipe
@@ -257,6 +344,7 @@
   - AntiMaterial
   - Ballistic
   - Weapons
+  - Antitank
   materials:
     Steel: 7500
     Plasteel: 3000
