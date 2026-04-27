@@ -140,9 +140,10 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
         if (receiver.CashSlot == null || receiver.CashSlotName == null)
             return false;
 
-        ItemSlots.TryGetSlot(uid, receiver.CashSlotName, out var cashSlot);
+        if (!ItemSlots.TryGetSlot(uid, receiver.CashSlotName, out var cashSlot))
+            return false;
 
-        slot = cashSlot!; // Fixme - Possible null reference
+        slot = cashSlot;
         return true;
     }
 
