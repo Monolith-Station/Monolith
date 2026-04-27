@@ -1,7 +1,9 @@
 - type: entity
   id: WeaponTurretLightMunitionsBay
   name: GPOB-L Light Munitions Bay
-  parent: BallisticArtilleryUnanchorableCartridge
+  parent:
+  - BallisticArtilleryCartridge
+  - BallisticArtilleryTier3HP
   description: A relatively small, armored munitions bay capable of holding up to two lightweight ordinance packages. Typically found on light spacecraft, particularly bombers, and provide a limited use method of damaging targets far above the user's weight class.
   components:
   - type: StaticPrice
@@ -16,7 +18,7 @@
     range: 700
   - type: GunSignalControl
   - type: Gun
-    projectileSpeed: 10
+    projectileSpeed: 50
     fireRate: 0.8
     recoil: 5
     shootThermalSignature: 8000000 # ~2.8km
@@ -35,17 +37,6 @@
     capacity: 2
     soundInsert:
       path: /Audio/Items/rped.ogg
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 20000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: Actions
   - type: RadarBlip
     radarColor: "#ff9d00"

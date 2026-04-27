@@ -202,7 +202,6 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     {
         DockingInterfaceState? dockState = null;
         UpdateState(uid, ref dockState);
-        _shuttle.NfSetPowered(uid, component, args.Powered); // Frontier
 
         // Handle job slots when power changes
         HandleJobSlotsOnPowerChange(uid, component, args.Powered);
@@ -293,23 +292,15 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
                 processedMainGrid = true;
             }
 
-            if (TryComp<FTLLockComponent>(dockedEntity, out var ftlLock))
-            {
-                Logger.DebugS("shuttle", $"Setting FTL lock for {ToPrettyString(dockedEntity)} to {args.Enabled}");
-                ftlLock.Enabled = args.Enabled;
-                Dirty(dockedEntity, ftlLock);
-            }
+            SetFTLLock(dockedEntity, args.Enabled);
+            Logger.DebugS("shuttle", $"Setting FTL lock for {ToPrettyString(dockedEntity)} to {args.Enabled}");
         }
 
         // If we didn't process the main grid yet, do it now
         if (!processedMainGrid && shuttleGrid != null)
         {
-            if (TryComp<FTLLockComponent>(shuttleGrid, out var ftlLock))
-            {
-                Logger.DebugS("shuttle", $"Setting FTL lock for main grid {ToPrettyString(shuttleGrid.Value)} to {args.Enabled}");
-                ftlLock.Enabled = args.Enabled;
-                Dirty(shuttleGrid.Value, ftlLock);
-            }
+            SetFTLLock(shuttleGrid.Value, args.Enabled);
+            Logger.DebugS("shuttle", $"Setting FTL lock for main grid {ToPrettyString(shuttleGrid.Value)} to {args.Enabled}");
         }
     }
 
@@ -325,27 +316,26 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         var modified = false;
 
         // Modify the main shuttle if it has the component
-        if (TryComp<FTLLockComponent>(shuttleUid, out var shuttleFtlLock))
-        {
-            shuttleFtlLock.Enabled = enabled;
-            Dirty(shuttleUid, shuttleFtlLock);
-            modified = true;
-        }
+        SetFTLLock(shuttleUid, enabled);
+        modified = true;
 
         // Modify any docked entities if provided
         foreach (var dockedEntityNet in dockedEntities)
         {
             var dockedEntity = GetEntity(dockedEntityNet);
 
-            if (TryComp<FTLLockComponent>(dockedEntity, out var ftlLock))
-            {
-                ftlLock.Enabled = enabled;
-                Dirty(dockedEntity, ftlLock);
-                modified = true;
-            }
+            SetFTLLock(dockedEntity, enabled);
+            modified = true;
         }
 
         return modified;
+    }
+
+    public void SetFTLLock(EntityUid shuttleUid, bool enabled)
+    {
+        var ftlLock = EnsureComp<FTLLockComponent>(shuttleUid);
+        ftlLock.Enabled = enabled;
+        Dirty(shuttleUid, ftlLock);
     }
 
     /// <summary>
@@ -566,9 +556,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
             angle,
             docks,
             _shuttle.NfGetInertiaDampeningMode(entity), // Frontier: inertia dampening
-            portNames,
-            entity.Comp1.Pannable, // Mono
-            entity.Comp1.RelativePanning); // Mono
+            portNames);
     }
 
     /// <summary>

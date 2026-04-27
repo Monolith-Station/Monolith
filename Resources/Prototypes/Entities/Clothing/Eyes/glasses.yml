@@ -179,9 +179,6 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-  - type: GuideHelp
-    guides:
-    - Security
     # - Antagonists # Frontier: guidebook entry removed
   - type: IdentityBlocker
     coverage: EYES
@@ -241,6 +238,9 @@
   - type: GroupExamine
   - type: IdentityBlocker
     coverage: EYES
+  - type: ThermalSight
+  - type: StaticPrice # Mono
+    price: 60
 
 - type: entity
   parent: ClothingEyesBase

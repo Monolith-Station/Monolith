@@ -31,10 +31,16 @@ public sealed partial class ShipSteererComponent : Component
     public bool AvoidProjectiles = false;
 
     /// <summary>
-    /// If AlwaysFaceTarget is true, how much of a difference in angle (in radians) to accept.
+    /// Prevents collision avoidance from triggering ship rotation.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float AlwaysFaceTargetOffset = 0.01f;
+    public bool AvoidanceNoRotate = false;
+
+    /// <summary>
+    /// If AlwaysFaceTarget is true or InRangeRotation is set, how much of a difference in angle (in radians) to accept.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float RotationTolerance = 0.0333f;
 
     /// <summary>
     /// Whether to avoid obstacles.
@@ -46,19 +52,25 @@ public sealed partial class ShipSteererComponent : Component
     /// Try to evade collisions this far into the future even if stationary.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float BaseEvasionTime = 10f;
+    public float BaseEvasionTime = 4f;
+
+    /// <summary>
+    /// Don't use anchor below this velocity.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float AnchorMaxVelocity = 5f;
 
     /// <summary>
     /// How unwilling we are to use brake to adjust our velocity. Higher means less willing.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float BrakeThreshold = 0.75f;
+    public float BrakeThreshold = 0.3f;
 
     /// <summary>
     /// How much larger to consider the ship for collision evasion purposes.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float EvasionBuffer = 6f;
+    public float EvasionBuffer = 3f;
 
     /// <summary>
     /// How many evasion sectors to init on the outer ring.
@@ -82,7 +94,7 @@ public sealed partial class ShipSteererComponent : Component
     /// How much to enlarge grid search bounds for collision evasion.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float GridSearchBuffer = 96f;
+    public float GridSearchBuffer = 312f;
 
     /// <summary>
     /// How much to enlarge grid search forward distance for collision evasion.
@@ -95,6 +107,12 @@ public sealed partial class ShipSteererComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float? InRangeMaxSpeed = null;
+
+    /// <summary>
+    /// Global angle to rotate to while in range.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public Angle? InRangeRotation = null;
 
     /// <summary>
     /// Whether to try to match velocity with target.
@@ -167,19 +185,13 @@ public sealed partial class ShipSteererComponent : Component
     /// How fast to accumulate the rotational offset integral, rad/s/rad (also affected by sqrt of angular acceleration).
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float RotationCompensationGain = 0.03f;
+    public float RotationCompensationGain = 0.1f;
 
     /// <summary>
     /// Target rotation in relation to movement direction.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float TargetRotation = 0f;
-
-    /// <summary>
-    /// Controls how much to ease in when turning with really high angular accelerations.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float TurnEaseIn = 0.2f;
 }
 
 public enum ShipSteeringStatus : byte

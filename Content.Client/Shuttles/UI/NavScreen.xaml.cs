@@ -62,13 +62,13 @@ public sealed partial class NavScreen : BoxContainer
                     !string.IsNullOrEmpty(companyComp.CompanyName))
                 {
                     // Try to match the company ID directly
-                    if (companyComp.CompanyName.Contains(text, StringComparison.OrdinalIgnoreCase))
+                    if (companyComp.CompanyName.Id.Contains(text, StringComparison.OrdinalIgnoreCase))
                     {
                         return true;
                     }
 
                     // Try to match company name from prototype
-                    if (_prototypeManager.TryIndex<CompanyPrototype>(
+                    if (_prototypeManager.TryIndex(
                         companyComp.CompanyName, out var prototype) &&
                         prototype.Name.Contains(text, StringComparison.OrdinalIgnoreCase))
                     {
@@ -176,14 +176,15 @@ public sealed partial class NavScreen : BoxContainer
         var (_, worldRot, worldMatrix) = _xformSystem.GetWorldPositionRotationMatrix(gridXform);
         var worldPos = Vector2.Transform(gridBody.LocalCenter, worldMatrix);
 
-        // Get the positive reduced angle.
-        var displayRot = -worldRot.Reduced();
+        // Mono - remap to [0, 360)
+        var displayRot = (-worldRot).Reduced();
+        var displayRotDegrees = displayRot.FlipPositive().Degrees;
 
         GridPosition.Text = Loc.GetString("shuttle-console-position-value",
             ("X", $"{worldPos.X:0.0}"),
             ("Y", $"{worldPos.Y:0.0}"));
         GridOrientation.Text = Loc.GetString("shuttle-console-orientation-value",
-            ("angle", $"{displayRot.Degrees:0.0}"));
+            ("angle", $"{displayRotDegrees:0.0}"));
 
         var gridVelocity = gridBody.LinearVelocity;
         gridVelocity = displayRot.RotateVec(gridVelocity);

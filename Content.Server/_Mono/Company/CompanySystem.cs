@@ -4,7 +4,7 @@ using Content.Shared.Access.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
-using Content.Shared.Roles.Jobs;
+using Content.Shared.Roles;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -18,60 +18,12 @@ namespace Content.Server._Mono.Company;
 public sealed class CompanySystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly CompanyManager _manager = default!;
 
     // Dictionary to store original company preferences for players
     private readonly Dictionary<string, string> _playerOriginalCompanies = new();
-
-    private readonly HashSet<string> _tsfJobs = new()
-    {
-        "Sheriff",
-        "Bailiff",
-        "SeniorOfficer", // Sergeant
-        "Deputy",
-        "Brigmedic",
-        "NFDetective",
-        "PublicAffairsLiaison",
-        "Cadet",
-        "TsfEngineer",
-        "TsfBorg",
-    };
-
-    private readonly HashSet<string> _rogues = new()
-    {
-        "PirateCaptain",
-        "PirateFirstMate",
-        "Pirate",
-        "PDVInfiltrator",
-        "PdvBorg",
-    };
-
-    // private readonly HashSet<string> _usspJobs = new()
-    // {
-    //    "USSPCommissar",
-    //    "USSPSergeant",
-    //    "USSPCorporal",
-    //    "USSPMedic",
-    //    "USSPRifleman"
-    //};
-
-    private readonly HashSet<string> _colonialJobs = new()
-    {
-        "StationRepresentative",
-        "StationTrafficController",
-        "SecurityGuard",
-        "NFJanitor",
-        "MailCarrier",
-        "Valet",
-    };
-
-    private readonly HashSet<string> _mdJobs = new()
-    {
-        "DirectorOfCare",
-        "MdMedic",
-    };
 
     public override void Initialize()
     {
@@ -93,7 +45,7 @@ public sealed class CompanySystem : EntitySystem
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
     {
         // Add the company component with the player's saved company
-        var companyComp = EnsureComp<Shared._Mono.Company.CompanyComponent>(args.Mob);
+        var companyComp = EnsureComp<CompanyComponent>(args.Mob);
 
         var playerId = args.Player.UserId.ToString();
         var profileCompany = args.Profile.Company;
@@ -104,36 +56,14 @@ public sealed class CompanySystem : EntitySystem
             _playerOriginalCompanies[playerId] = profileCompany;
         }
 
-        // todo - make this a switch statement or something lol. who cares.
-        // Check if player's job is one of the TSF jobs
-        if (args.JobId != null && _tsfJobs.Contains(args.JobId))
+        var assigned = false;
+        if (args.JobId != null)
         {
-            // Assign TSF company
-            companyComp.CompanyName = "TSF";
+            var job = _prototypeManager.Index<JobPrototype>(args.JobId);
+            companyComp.CompanyName = job.AssignedCompany;
+            assigned = companyComp.CompanyName != "None";
         }
-        // Check if player's job is one of the Rogue jobs
-        else if (args.JobId != null && _rogues.Contains(args.JobId))
-        {
-            // Assign Rogue company
-            companyComp.CompanyName = "PDV";
-        }
-        // Check if player's job is one of the USSP jobs
-        //else if (args.JobId != null && _usspJobs.Contains(args.JobId))
-        //{
-        //    // Assign USSP company
-        //    companyComp.CompanyName = "USSP";
-        //}
-        else if (args.JobId != null && _colonialJobs.Contains(args.JobId))
-        {
-            // Assign MD company
-            companyComp.CompanyName = "Colonial";
-        }
-        else if (args.JobId != null && _mdJobs.Contains(args.JobId))
-        {
-            // Assign MD company
-            companyComp.CompanyName = "MD";
-        }
-        else
+        if (!assigned)
         {
             // Only consider whitelist if the player has NO specific company preference
             bool loginFound = false;
@@ -142,10 +72,9 @@ public sealed class CompanySystem : EntitySystem
             // or if their preference is "None"
             if (string.IsNullOrEmpty(profileCompany))
             {
-                // Check for company login whitelists
                 foreach (var companyProto in _prototypeManager.EnumeratePrototypes<CompanyPrototype>())
                 {
-                    if (companyProto.Logins.Contains(args.Player.Name))
+                    if (_manager.IsAllowed(args.Player, companyProto))
                     {
                         companyComp.CompanyName = companyProto.ID;
                         loginFound = true;

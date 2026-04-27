@@ -49,6 +49,9 @@
     rsi:
       sprite: _RMC14/Interface/MousePointer/rifle_mouse.rsi
       state: all
+  - type: Tag
+    tags:
+    - IgnoreClawPenalty # Mono
 
 - type: entity
   id: BowImprovised

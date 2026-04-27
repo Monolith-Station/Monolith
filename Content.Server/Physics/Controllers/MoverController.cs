@@ -75,6 +75,7 @@ public sealed class MoverController : SharedMoverController
             return;
 
         args.Input = input;
+        args.SetMaxVelocity = entity.Comp.SetMaxVelocity;
     }
 
     private void PilotedShuttleRelayEvent<TEvent>(Entity<PilotedShuttleComponent> entity, ref TEvent args)
@@ -274,18 +275,26 @@ public sealed class MoverController : SharedMoverController
     //
 
     /// <summary>
+    /// Get a shuttle's torque.
+    /// </summary>
+    public float GetTorque(ShuttleComponent shuttle)
+    {
+        return shuttle.AngularThrust * shuttle.AngularMultiplier;
+    }
+
+    /// <summary>
     /// Get a shuttle's angular acceleration.
     /// </summary>
     public float GetAngularAcceleration(ShuttleComponent shuttle, PhysicsComponent body)
     {
-        return shuttle.AngularThrust * body.InvI;
+        return GetTorque(shuttle) * body.InvI;
     }
 
     /// <summary>
-    /// Get shuttle thrust in a given direction.
+    /// Get shuttle thrust force in a given direction.
     /// Takes local direction.
     /// </summary>
-    public Vector2 GetDirectionThrust(Vector2 dir, ShuttleComponent shuttle, PhysicsComponent body)
+    public Vector2 GetDirectionThrust(Vector2 dir, ShuttleComponent shuttle, PhysicsComponent body, TransformComponent xform)
     {
         if (dir.Length() == 0f)
             return Vector2.Zero;
@@ -302,23 +311,48 @@ public sealed class MoverController : SharedMoverController
         // prevent NaNs
         dir *= dir.X == 0 ? vertScale : dir.Y == 0 ? horizScale : MathF.Min(horizScale, vertScale);
 
-        return dir;
+        var northAngle = xform.LocalRotation;
+        var localVel = (-northAngle).RotateVec(body.LinearVelocity);
+
+        // scale our velocity-wards component by 1 / (vel/basemax + 1)
+        var dot = Vector2.Dot(dir, localVel);
+        if (dot > 0f)
+        {
+            var velLenSq = localVel.LengthSquared();
+            var dirCompVel = localVel * dot / velLenSq;
+            var velRatio = localVel.Length() / shuttle.BaseMaxLinearVelocity;
+            // less effect at lower velocities
+            var exponent = velRatio * MathF.Pow(velRatio / (1f + velRatio), 3f);
+            var scaledComp = dirCompVel / MathF.Pow(2f, exponent);
+            dir = dir - dirCompVel + scaledComp;
+        }
+
+        return dir * shuttle.AccelerationMultiplier;
     }
 
     /// <summary>
-    /// Helper function to extrapolate max velocity for a given Vector2 (really, its angle) and shuttle.
+    /// Get shuttle acceleration in a given direction.
     /// Takes local direction.
     /// </summary>
-    public Vector2 ObtainMaxVel(Vector2 vel, ShuttleComponent shuttle, PhysicsComponent body) // mono
+    public Vector2 GetDirectionAccel(Vector2 dir, ShuttleComponent shuttle, PhysicsComponent body, TransformComponent xform)
     {
-        if (vel.Length() == 0f)
-            return Vector2.Zero;
+        return GetDirectionThrust(dir, shuttle, body, xform) * body.InvMass;
+    }
 
-        var thrust = GetDirectionThrust(vel, shuttle, body);
-        var twr = thrust.Length() / body.Mass;
-        var twrMult = MathF.Pow(twr / shuttle.BaseMaxVelocityTWR, shuttle.MaxVelocityScalingExponent);
+    /// <summary>
+    /// Get shuttle thrust force in a given world direction.
+    /// </summary>
+    public Vector2 GetWorldDirectionThrust(Vector2 dir, ShuttleComponent shuttle, PhysicsComponent body, TransformComponent xform)
+    {
+        return xform.LocalRotation.RotateVec(GetDirectionThrust((-xform.LocalRotation).RotateVec(dir), shuttle, body, xform));
+    }
 
-        return vel.Normalized() * MathF.Min(shuttle.BaseMaxLinearVelocity * twrMult, MathF.Min(shuttle.UpperMaxVelocity, shuttle.SetMaxVelocity));
+    /// <summary>
+    /// Get shuttle acceleration in a given world direction.
+    /// </summary>
+    public Vector2 GetWorldDirectionAccel(Vector2 dir, ShuttleComponent shuttle, PhysicsComponent body, TransformComponent xform)
+    {
+        return GetWorldDirectionThrust(dir, shuttle, body, xform) * body.InvMass;
     }
 
     private void HandleShuttleMovement(float frameTime)
@@ -330,6 +364,9 @@ public sealed class MoverController : SharedMoverController
             // query all our pilots for input
             var toRemove = new List<EntityUid>();
 
+            var angularMul = 0f;
+            var accelMul = 0f;
+            var setMaxVel = (float?)0f;
             foreach (var pilot in piloted.InputSources)
             {
                 var inputsEv = new GetShuttleInputsEvent(frameTime, uid);
@@ -338,7 +375,15 @@ public sealed class MoverController : SharedMoverController
                 if (!inputsEv.GotInput)
                     toRemove.Add(pilot);
                 else if (inputsEv.Input != null)
+                {
                     inputs.Add(inputsEv.Input.Value);
+                    angularMul += inputsEv.AngularMul;
+                    accelMul += inputsEv.AccelMul;
+                    if (setMaxVel != null && inputsEv.SetMaxVelocity != null)
+                        setMaxVel += inputsEv.SetMaxVelocity;
+                    else
+                        setMaxVel = null;
+                }
             }
 
             foreach (var remUid in toRemove)
@@ -346,11 +391,15 @@ public sealed class MoverController : SharedMoverController
                 piloted.InputSources.Remove(remUid);
             }
 
+            shuttle.LastThrust = Vector2.Zero;
+
             var count = inputs.Count;
+            piloted.ActiveSources = count;
             if (count == 0)
             {
                 _thruster.DisableLinearThrusters(shuttle);
                 PhysicsSystem.SetSleepingAllowed(uid, body, true);
+                shuttle.AngularMultiplier = shuttle.AccelerationMultiplier = 1f;
                 continue;
             }
             PhysicsSystem.SetSleepingAllowed(uid, body, false);
@@ -369,7 +418,16 @@ public sealed class MoverController : SharedMoverController
             angularInput /= count;
             brakeInput /= count;
 
+            angularMul /= count;
+            accelMul /= count;
+            if (setMaxVel != null)
+                setMaxVel /= count;
+            shuttle.AngularMultiplier = angularMul;
+            shuttle.AccelerationMultiplier = accelMul;
+
             var shuttleNorthAngle = _xformSystem.GetWorldRotation(uid);
+
+            var xform = Transform(uid);
 
             // handle movement: brake
             if (brakeInput > 0f)
@@ -381,7 +439,7 @@ public sealed class MoverController : SharedMoverController
 
                     // Get velocity relative to the shuttle so we know which thrusters to fire
                     var shuttleVelocity = (-shuttleNorthAngle).RotateVec(body.LinearVelocity);
-                    var force = GetDirectionThrust(-shuttleVelocity, shuttle, body);
+                    var force = GetDirectionThrust(-shuttleVelocity, shuttle, body, xform);
 
                     if (force.X < 0f)
                     {
@@ -420,6 +478,7 @@ public sealed class MoverController : SharedMoverController
                     else if (impulse.Length() > maxForce)
                         impulse = impulse.Normalized() * maxForce;
 
+                    shuttle.LastThrust += impulse / body.FixturesMass;
                     PhysicsSystem.ApplyForce(uid, impulse, body: body);
                 }
                 else
@@ -464,7 +523,7 @@ public sealed class MoverController : SharedMoverController
                 var linearDir = angle.GetDir();
                 var dockFlag = linearDir.AsFlag();
 
-                var totalForce = GetDirectionThrust(linearInput, shuttle, body);
+                var totalForce = GetDirectionThrust(linearInput, shuttle, body, xform);
 
                 // Won't just do cardinal directions.
                 foreach (DirectionFlag dir in Enum.GetValues(typeof(DirectionFlag)))
@@ -488,21 +547,25 @@ public sealed class MoverController : SharedMoverController
                 }
 
                 var localVel = (-shuttleNorthAngle).RotateVec(body.LinearVelocity);
-                // vector of max velocity we can be traveling with along current direction
-                var maxVelocity = ObtainMaxVel(localVel, shuttle, body);
-                // vector of max velocity we can be traveling with along wish-direction
-                var maxWishVelocity = ObtainMaxVel(totalForce, shuttle, body);
-                // if we're going faster than we can be, thrust to adjust our velocity to the max wish-direction velocity
-                if (localVel.LengthSquared() > maxVelocity.LengthSquared())
+                if (setMaxVel is { } speed && localVel.LengthSquared() != 0f && totalForce.LengthSquared() != 0f)
                 {
-                    var velDelta = maxWishVelocity - localVel;
-                    var maxForceLength = velDelta.Length() * body.Mass / frameTime;
-                    var appliedLength = MathF.Min(totalForce.Length(), maxForceLength);
-                    totalForce = velDelta.Length() == 0 ? Vector2.Zero : velDelta.Normalized() * appliedLength;
+                    // vector of max velocity we can be traveling with along current direction
+                    var maxVelocity = localVel.Normalized() * speed;
+                    // vector of max velocity we can be traveling with along wish-direction
+                    var maxWishVelocity = totalForce.Normalized() * speed;
+                    // if we're going faster than we can be, thrust to adjust our velocity to the max wish-direction velocity
+                    if (localVel.Length() / maxVelocity.Length() > 0.999f)
+                    {
+                        var velDelta = maxWishVelocity - localVel;
+                        var maxForceLength = velDelta.Length() * body.Mass / frameTime;
+                        var appliedLength = MathF.Min(totalForce.Length(), maxForceLength);
+                        totalForce = velDelta.Length() == 0 ? Vector2.Zero : velDelta.Normalized() * appliedLength;
+                    }
                 }
 
                 totalForce = shuttleNorthAngle.RotateVec(totalForce);
 
+                shuttle.LastThrust += totalForce / body.FixturesMass;
                 if (totalForce.Length() > 0f)
                     PhysicsSystem.ApplyForce(uid, totalForce, body: body);
             }
@@ -514,7 +577,7 @@ public sealed class MoverController : SharedMoverController
             }
             else
             {
-                var torque = shuttle.AngularThrust * -angularInput;
+                var torque = GetTorque(shuttle) * -angularInput;
 
                 // Need to cap the velocity if 1 tick of input brings us over cap so we don't continuously
                 // edge onto the cap over and over.

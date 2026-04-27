@@ -44,6 +44,7 @@
   - ContractorFirearm # Mono
   - ContractorMag # Mono
   - CivGunCaseSpecial # Mono
+  - ContractorArmorPlates # Mono
 
 # Pilot
 - type: roleLoadout
@@ -71,6 +72,7 @@
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
+  - ContractorArmorPlates # Mono
   - ContractorFirearm # Mono
   - ContractorMag # Mono
   - CivGunCaseSpecial # Mono
@@ -106,6 +108,7 @@
   - ContractorBureaucracy
   - NFSpeciesSpecific
   - CivGunCaseSpecial # Mono
+  - ContractorArmorPlates # Mono
 
 # Frontier
 - type: roleLoadout
@@ -125,10 +128,14 @@
   - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
+  - ContractorUtility # Mono
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
+  - ContractorFirearm # Mono
+  - ContractorMag # Mono
+  - ContractorArmorPlates # Mono
 
 - type: roleLoadout
   id: JobNFJanitor
@@ -146,9 +153,13 @@
   - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
+  - ContractorUtility # Mono
   - ContractorFun
   - ContractorTrinkets
   - NFSpeciesSpecific
+  - ContractorFirearm # Mono
+  - ContractorMag # Mono
+  - ContractorArmorPlates # Mono
 
 - type: roleLoadout
   id: JobMailCarrier
@@ -166,10 +177,14 @@
   - MailCarrierWallet
   - ContractorCartridge
   - ContractorImplanter
+  - ContractorUtility # Mono
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
+  - ContractorFirearm # Mono
+  - ContractorMag # Mono
+  - ContractorArmorPlates # Mono
 
 - type: roleLoadout
   id: JobStationTrafficController
@@ -189,10 +204,14 @@
   - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
+  - ContractorUtility # Mono
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
+  - ContractorFirearm # Mono
+  - ContractorMag # Mono
+  - ContractorArmorPlates # Mono
 
 # Mono edit
 - type: roleLoadout
@@ -220,10 +239,12 @@
   - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
+  - ContractorUtility # Mono
  # - ContractorFun # Mono - no fun allowed
   - StationRepTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
+  - ContractorArmorPlates # Mono
 
 - type: roleLoadout
   id: JobSecurityGuard
@@ -248,11 +269,13 @@
   - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
+  - ContractorUtility # Mono
   - ContractorEncryptionKey
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
+  - FactionArmorPlates # Mono
 
 - type: roleLoadout
   id: JobDirectorOfCare
@@ -273,11 +296,13 @@
   - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
+  - ContractorUtility # Mono
   - ContractorEncryptionKey
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
+  - ContractorArmorPlates # Mono
 
 # Nfsd
 

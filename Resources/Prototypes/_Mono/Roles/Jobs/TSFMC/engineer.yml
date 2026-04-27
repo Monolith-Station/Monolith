@@ -11,8 +11,8 @@
   supervisors: job-supervisors-sergeant
   weight: 130
   displayWeight: 20
+  assignedCompany: TSF
   canBeAntag: false
-  guides: [ BasicLore, TransSolarFederation ] # Mono
   access:
   - TsfmcEngineering
   accessGroups:

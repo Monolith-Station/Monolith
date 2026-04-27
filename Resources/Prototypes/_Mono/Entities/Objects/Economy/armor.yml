@@ -1,0 +1,373 @@
+# T1
+
+- type: entity
+  name: basic armor plate
+  description: A simple, refined "armor" alloy plate useful for things that need structural stability.
+  parent: ArmorPlateEconomy1Broken
+  id: ArmorPlateEconomy1
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "armor1"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ArmorPlateEconomy1Broken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
+  name: broken basic armor plate
+  description: Wreckage from a simple armor plate. Not very surprising.
+  parent: BaseEconomyGoodTier1
+  id: ArmorPlateEconomy1Broken
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "armor1_broken"
+  - type: StaticPrice
+    price: 500
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Item
+    size: Huge
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.15,0.15,0.15"
+        density: 40
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+        restitution: 0.3  # fite me
+        friction: 0.2
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 1000
+      Plasteel: 500
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+
+# T2
+
+- type: entity
+  name: heavy armor plate
+  description: A heavier, layered alloy armor plate. Heavy, but strong. Useful for things that need significant structural stability, or more commonly, the ability to take a hit.
+  parent: ArmorPlateEconomy2Broken
+  id: ArmorPlateEconomy2
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "armor2"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ArmorPlateEconomy2Broken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 3000
+
+- type: entity
+  name: broken heavy armor plate
+  description: Wreckage from a heavy alloy armor plate. A little concerning.
+  parent: BaseEconomyGoodTier2
+  id: ArmorPlateEconomy2Broken
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "armor2_broken"
+  - type: StaticPrice
+    price: 1000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Item
+    size: Huge
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 40
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+        restitution: 0.3  # fite me
+        friction: 0.4
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.6
+  - type: HeldSpeedModifier
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 3000
+      Plasteel: 1000
+      Silver: 500
+
+- type: entity
+  name: composite armor plate fragment
+  description: A fragment from a ceramic/carbide armor plate. Useful for smaller-scale applications.
+  parent: BaseEconomyGoodTier2
+  id: ArmorPlateEconomy3Fragment
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+  - type: Item
+    size: Normal
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 20
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+        restitution: 0.3  # fite me
+        friction: 0.2
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "armor3_fragment"
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.95
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 1000
+      Plasteel: 1000
+      Silver: 500
+    chemicalComposition:
+      Carbon: 15
+      Silicon: 15
+
+# T3
+
+- type: entity
+  name: composite armor plate
+  description: A relatively difficult-to-produce ceramic/carbide armor plate. Lightweight for the amount of protection it grants, but it is still exceptionally heavy, making it primarily useful in ship hulls. Can be cut into two fragments.
+  parent: ArmorPlateEconomy3Broken
+  id: ArmorPlateEconomy3
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "armor3"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ArmorPlateEconomy3Broken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 6000
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+      - id: ArmorPlateEconomy3Fragment
+        amount: 2
+
+- type: entity
+  name: broken composite armor plate
+  description: Wreckage from an advanced ceramic/carbide alloy armor plate. Kind of concerning.
+  parent: BaseEconomyGoodTier3
+  id: ArmorPlateEconomy3Broken
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "armor3_broken"
+  - type: StaticPrice
+    price: 3000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Item
+    size: Huge
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 60
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+        restitution: 0.3  # fite me
+        friction: 0.4
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.6
+  - type: HeldSpeedModifier
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 4000
+      Plasteel: 2000
+      Silver: 1000
+    chemicalComposition:
+      Carbon: 25
+      Silicon: 25
+
+# T4
+
+- type: entity
+  name: EMAG armor plate
+  description: A state-of-the-art EMAG electromagnetic armor plate. Exceptional resistance even when unpowered, but still very heavy. Useful for high-power reactor shielding, infantry armor, FTL drives, and most things that undergo significant stress.
+  parent: ArmorPlateEconomy4Broken
+  id: ArmorPlateEconomy4
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+  - type: StaticPrice
+    price: 9000
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "armor4"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ArmorPlateEconomy4Broken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  name: broken EMAG armor plate
+  description: Wreckage from an advanced ceramic/carbide alloy armor plate. Extremely concerning.
+  parent: BaseEconomyGoodTier4
+  id: ArmorPlateEconomy4Broken
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "armor4_broken"
+  - type: StaticPrice
+    price: 6000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 800
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Item
+    size: Huge
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+        restitution: 0.3  # fite me
+        friction: 0.6
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.5
+  - type: HeldSpeedModifier
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 4000
+      Plasteel: 2000
+      Silver: 1000
+      Gold: 1000
+      Plastitanium: 500
+    chemicalComposition:
+      Carbon: 25
+      Silicon: 25

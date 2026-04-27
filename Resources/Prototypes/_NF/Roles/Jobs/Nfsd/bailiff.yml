@@ -17,8 +17,8 @@
   supervisors: job-supervisors-sheriff
   weight: 150
   displayWeight: 60
+  assignedCompany: TSF
   canBeAntag: false
-  guides: [ BasicLore, TransSolarFederation ] # Mono
   access:
   - Armory
   - Sergeant
@@ -56,3 +56,4 @@
 #    - ShipVoucherNfsdBailiff # Mono
     - RubberStampBailiff
     - RadioHandheldNF # Mono
+    - RubberStampTSFCaptain # Mono

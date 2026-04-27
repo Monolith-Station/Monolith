@@ -12,7 +12,7 @@
   - type: CartridgeAmmo
     proto: Bullet57x28mmFMJ
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/pistol_ammo_casing_steel.rsi
     layers:
       - state: base
         map: [ "enum.AmmoVisualLayers.Base" ]
