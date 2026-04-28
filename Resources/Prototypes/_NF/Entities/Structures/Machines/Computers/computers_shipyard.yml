@@ -1,6 +1,6 @@
 - type: entity
   name: shipyard console
-  parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, BaseComputer]
+  parent: [CreditReceiver, BaseStructureDisableToolUse, BaseStructureIndestructible, BaseComputer] # Mono - Separation of cash from VendingMachines for ironman players
   id: ComputerShipyardBase
   description: Used to purchase and sell shuttles
   abstract: true

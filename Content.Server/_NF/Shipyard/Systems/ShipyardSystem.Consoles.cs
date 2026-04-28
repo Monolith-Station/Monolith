@@ -44,6 +44,7 @@ using Content.Shared._NF.Bank.BUI;
 using Content.Shared._NF.ShuttleRecords;
 using Content.Server.StationEvents.Components;
 using Content.Shared._Mono.Company;
+using Content.Shared._Mono.Economy.Component;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Player;
@@ -206,6 +207,11 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         }
         else
         {
+            int cashCredit = 0;
+            if (TryComp<CreditReceiverComponent>(shipyardConsoleUid, out var cash))
+            {
+                cashCredit = cash.CashSlotBalance;
+            }
             if (bank.Balance <= vessel.Price)
             {
                 Del(shuttleUid);

@@ -6,6 +6,7 @@ namespace Content.Shared._NF.Shipyard.BUI;
 public sealed class ShipyardConsoleInterfaceState : BoundUserInterfaceState
 {
     public int Balance;
+    public int Cash = 0; // Mono
     public readonly bool AccessGranted;
     public readonly string? ShipDeedTitle;
     public int ShipSellValue;

@@ -301,6 +301,7 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
     public void UpdateState(ShipyardConsoleInterfaceState state)
     {
         BalanceLabel.Text = BankSystemExtensions.ToSpesoString(state.Balance);
+        CashSlotLabel.Text = BankSystemExtensions.ToSpesoString(state.Cash);
         var shipPrice = 0;
         if (!state.FreeListings)
             shipPrice = state.ShipSellValue;
