@@ -230,14 +230,14 @@ public sealed partial class CCVars
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> ImpactDamageMultiplier =
-        CVarDef.Create("shuttle.impact.damage_multiplier", 0.00005f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.damage_multiplier", 0.00001f, CVar.SERVERONLY);
 
     /// <summary>
     /// Multiplier of additional structural damage to do
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> ImpactStructuralDamage =
-        CVarDef.Create("shuttle.impact.structural_damage", 5f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.structural_damage", 2f, CVar.SERVERONLY);
 
     /// <summary>
     /// Kinetic energy required to spawn sparks
@@ -258,7 +258,7 @@ public sealed partial class CCVars
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> ImpactSlowdown =
-        CVarDef.Create("shuttle.impact.slowdown", 3.2f, CVar.SERVERONLY); //Previously: 1.6f
+        CVarDef.Create("shuttle.impact.slowdown", 4f, CVar.SERVERONLY); //Previously: 1.6f
 
     /// <summary>
     /// Minimum velocity change from impact for special throw effects (e.g. stuns, beakers breaking) to occur
