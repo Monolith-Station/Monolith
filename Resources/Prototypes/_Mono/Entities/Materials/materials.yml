@@ -7,6 +7,15 @@
   icon: { sprite: _Mono/Objects/Materials/pyrogel.rsi, state: icon }
   color: "#C0C0C0"
   price: 5
+  properties: # FH edit
+    electrical: 5
+    thermal: 6
+    hard: 1
+    density: 2
+    chemical: 2
+    reflective: 4
+    molitz_bubbles: 1
+    plasma_offgas: 4
 
 - type: entity
   parent: MaterialBase
@@ -45,6 +54,15 @@
   icon: { sprite: /Textures/_Mono/Objects/Materials/iridite.rsi, state: iridite }
   color: "#252229"
   price: 12.5 # 1250/sheet
+  properties: # FH edit
+    electrical: 12
+    thermal: 8
+    hard: 8
+    density: 2
+    chemical: 9
+    reflective: 1
+    molitz_bubbles: 0
+    plasma_offgas: 0
 
 - type: entity
   parent: MaterialBase
@@ -113,6 +131,15 @@
   icon: { sprite: /Textures/_Mono/Objects/Materials/plastitanium.rsi, state: plastitanium }
   color: "#5c5c5c"
   price: 6 # 600/sheet
+  properties: # FH edit
+    electrical: 3
+    thermal: 5
+    hard: 12
+    density: 9
+    chemical: 6
+    reflective: 3
+    molitz_bubbles: 0
+    plasma_offgas: 0
 
 - type: entity
   parent: MaterialBase
@@ -183,6 +210,14 @@
   icon: { sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi, state: uranium }
   color: "#8a8568"
   price: 250 # 25000/sheet
+  properties: # FH edit
+    electrical: 4
+    thermal: 3
+    hard: 5
+    density: 7
+    chemical: 6
+    radioactive: 9
+    n_radioactive: 8
 
 - type: entity
   parent: MaterialBase
@@ -266,6 +301,14 @@
   icon: { sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi, state: depleted }
   color: "#14211d"
   price: 20 # 250/sheet
+  properties: # FH edit
+    electrical: 4
+    thermal: 3
+    hard: 12
+    density: 12
+    chemical: 6
+    radioactive: 1
+    n_radioactive: 1
 
 - type: entity
   parent: MaterialBase

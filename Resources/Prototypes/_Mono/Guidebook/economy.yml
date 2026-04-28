@@ -1,0 +1,21 @@
+- type: guideEntry
+  id: Economy
+  name: Economy
+  text: "/ServerInfo/_Mono/Guidebook/Economy/Economy.xml"
+  priority: 1
+  children:
+  - EconomyRecipes
+
+- type: guideEntry
+  id: EconomyRecipes
+  name: Economy Recipes
+  text: "/ServerInfo/_Mono/Guidebook/Economy/EconomyRecipes.xml"
+  priority: 2
+  children:
+  - ArcFurnace
+
+- type: guideEntry
+  id: ArcFurnace
+  name: Arc Furnace Recipes
+  text: "/ServerInfo/_Mono/Guidebook/Economy/ArcFurnace.xml"
+  priority: 3
