@@ -76,8 +76,8 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 10000
-    startingCharge: 10000
+    maxCharge: 40000
+    startingCharge: 40000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
@@ -94,16 +94,16 @@
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 500
+    autoRechargeRate: 350
   - type: SpaceArtillery
-    powerChargeRate: 500
+    powerChargeRate: 350
     powerUsePassive: 500
     powerUseActive: 0
   - type: FireControlRotate
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
     proto: CerberusSpread
-    fireCost: 1000
+    fireCost: 500
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 2.5
