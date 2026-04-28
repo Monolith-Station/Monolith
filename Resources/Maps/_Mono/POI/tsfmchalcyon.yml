@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 264.0.0
+  engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/05/2026 04:31:32
-  entityCount: 10073
+  time: 04/28/2026 07:01:21
+  entityCount: 10074
 maps: []
 grids:
 - 1
@@ -226,10 +226,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Puddle: []
-        Smoke: []
+        Kudzu: []
         MetalFoam: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -3561,6 +3561,7 @@ entities:
       id: TSFMCHalcyon
     - type: ShipGridLock
       locked: False
+    - type: ThermalSignature
   - uid: 2
     components:
     - type: MetaData
@@ -10973,13 +10974,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 24.5,-13.5
-      parent: 1
-- proto: DatafarmResearchFaction
-  entities:
-  - uid: 1217
-    components:
-    - type: Transform
-      pos: -3.5,9.5
       parent: 1
 - proto: Bed
   entities:
@@ -28711,18 +28705,6 @@ entities:
     - type: Transform
       pos: 35.223602,-15.403384
       parent: 1
-- proto: ComputerAdvancedRadar
-  entities:
-  - uid: 4605
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 8.5,-1.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
 - proto: ComputerAlert
   entities:
   - uid: 4606
@@ -29153,6 +29135,18 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 8.5,25.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+- proto: ComputerTabletopAdvancedRadar
+  entities:
+  - uid: 10074
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,-18.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -30461,6 +30455,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 15.5,-14.5
+      parent: 1
+- proto: DatafarmResearchFaction
+  entities:
+  - uid: 1217
+    components:
+    - type: Transform
+      pos: -3.5,9.5
       parent: 1
 - proto: DefaultStationBeaconBar
   entities:
@@ -53091,7 +53092,7 @@ entities:
   - uid: 7968
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
+      rot: 3.141592653589793 rad
       pos: 15.5,-18.5
       parent: 1
   - uid: 7969
@@ -53590,6 +53591,18 @@ entities:
     - type: Transform
       pos: -5.300394,-11.105583
       parent: 1
+- proto: TSFCarrierComputer
+  entities:
+  - uid: 4605
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,-1.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
 - proto: TSFComputerComms
   entities:
   - uid: 8054
