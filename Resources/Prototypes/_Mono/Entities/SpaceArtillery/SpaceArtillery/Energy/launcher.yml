@@ -27,7 +27,7 @@
     recoil: 5 # 1/5x
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 150
+    projectileSpeed: 180
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -76,8 +76,8 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 40000
-    startingCharge: 40000
+    maxCharge: 10000
+    startingCharge: 10000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
@@ -86,7 +86,7 @@
     recoil: 8
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 150
+    projectileSpeed: 180
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -94,16 +94,16 @@
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 350
+    autoRechargeRate: 500
   - type: SpaceArtillery
-    powerChargeRate: 350
+    powerChargeRate: 500
     powerUsePassive: 500
     powerUseActive: 0
   - type: FireControlRotate
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
     proto: CerberusSpread
-    fireCost: 500
+    fireCost: 1000
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 2.5
@@ -145,7 +145,7 @@
     recoil: 5 # 1/5x
     minAngle: 0
     maxAngle: 5
-    projectileSpeed: 185
+    projectileSpeed: 220
     shootThermalSignature: 500000 # ~5.6km with continuous fire
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/autopulse_laser_fire_01.ogg
@@ -275,7 +275,7 @@
     range: 500
   - type: Gun
     fireRate: 0.2
-    projectileSpeed: 140
+    projectileSpeed: 170
     shootThermalSignature: 2000000 # ~1414m after firing - relatively low
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -1056,7 +1056,7 @@
     range: 500
   - type: Gun
     recoil: 10 # 2/5x
-    projectileSpeed: 150
+    projectileSpeed: 180
     minAngle: 0
     maxAngle: 4
     burstCooldown: 2
