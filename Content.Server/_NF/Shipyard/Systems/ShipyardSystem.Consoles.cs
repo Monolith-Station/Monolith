@@ -423,7 +423,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         var purchaseEv = new ShipyardShuttlePurchaseEvent(shuttleUid, player); // Mono: half of this shit could be an event.
         RaiseLocalEvent(purchaseEv);
-        RefreshState(shipyardConsoleUid, bank.Balance, _cash.GetCashBalance(shipyardConsoleUid), true, name, sellValue, targetId, (ShipyardConsoleUiKey)args.UiKey, voucherUsed);
+        RefreshState(shipyardConsoleUid, bank.Balance, cashBalance, true, name, sellValue, targetId, (ShipyardConsoleUiKey)args.UiKey, voucherUsed); // Mono
     }
 
     private void TryParseShuttleName(ShuttleDeedComponent deed, string name)
@@ -569,7 +569,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             refreshId = null;
         }
 
-        RefreshState(uid, bank.Balance, _cash.GetCashBalance(uid), true, null, 0, refreshId, (ShipyardConsoleUiKey)args.UiKey, voucherUsed);
+        RefreshState(uid, bank.Balance, _cash.GetCashBalance(uid), true, null, 0, refreshId, (ShipyardConsoleUiKey)args.UiKey, voucherUsed); // Mono
     }
 
     /// <summary>
@@ -635,7 +635,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             // For now we'll just let them see the cooldown message when they try to use it
         }
 
-        RefreshState(uid, bank.Balance, _cash.GetCashBalance(uid), true, fullName, sellValue, targetId, (ShipyardConsoleUiKey)args.UiKey, voucherUsed);
+        RefreshState(uid, bank.Balance, _cash.GetCashBalance(uid), true, fullName, sellValue, targetId, (ShipyardConsoleUiKey)args.UiKey, voucherUsed); // Mono
     }
 
     private void ConsolePopup(EntityUid uid, string text)
@@ -731,7 +731,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             var cashBalance = 0;
             if (TryComp<CreditReceiverComponent>(uid, out var receiverComponent)
                 && _cash.CanPayWithCredit((uid, receiverComponent))
-                && _cash.TryGetCashBalance(uid, out var cash))
+                && _cash.TryGetCashBalance(uid, out var cash)) // Mono
             {
                 cashBalance = cash.Value;
             }
@@ -739,7 +739,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             var fullName = deed != null ? GetFullName(deed) : null;
             RefreshState(uid,
                 bank.Balance,
-                cashBalance,
+                cashBalance, // Mono
                 true,
                 fullName,
                 sellValue,
@@ -919,11 +919,11 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         return (available, unavailable);
     }
 
-    private void RefreshState(EntityUid uid, int balance, int cashBalance, bool access, string? shipDeed, int shipSellValue, EntityUid? targetId, ShipyardConsoleUiKey uiKey, bool freeListings)
+    private void RefreshState(EntityUid uid, int balance, int cashBalance, bool access, string? shipDeed, int shipSellValue, EntityUid? targetId, ShipyardConsoleUiKey uiKey, bool freeListings) // Mono
     {
         var newState = new ShipyardConsoleInterfaceState(
             balance,
-            cashBalance,
+            cashBalance, // Mono
             access,
             shipDeed,
             shipSellValue,
@@ -1076,7 +1076,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
             // Update the UI with the new ship name, preserving the original sell value
             var fullName = GetFullName(deed);
-            RefreshState(uid, balance, _cash.GetCashBalance(uid), true, fullName, originalSellValue, targetId, (ShipyardConsoleUiKey)args.UiKey, false);
+            RefreshState(uid, balance, _cash.GetCashBalance(uid), true, fullName, originalSellValue, targetId, (ShipyardConsoleUiKey)args.UiKey, false); // Mono
 
             _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low,
                 $"{ToPrettyString(player):actor} renamed ship from '{oldName}' to '{GetFullName(deed)}' via {ToPrettyString(uid)}");
@@ -1147,7 +1147,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             balance = bank.Balance;
 
         // Update the UI
-        RefreshState(uid, balance, _cash.GetCashBalance(uid), true, null, 0, targetId, (ShipyardConsoleUiKey)args.UiKey, false);
+        RefreshState(uid, balance, _cash.GetCashBalance(uid), true, null, 0, targetId, (ShipyardConsoleUiKey)args.UiKey, false); // Mono
 
         _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low,
             $"{ToPrettyString(player):actor} unassigned deed for ship '{shipName}' from {ToPrettyString(targetId)} via {ToPrettyString(uid)}");
