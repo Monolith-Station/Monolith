@@ -65,7 +65,7 @@
     rsi:
       sprite: _RMC14/Interface/MousePointer/pistol_mouse.rsi
       state: all
-  - type: WieldDelay
+  - type: WieldDelay # Monoo
     baseDelay: 0.4
     modifiedDelay: 0.4
     preventFiring: true

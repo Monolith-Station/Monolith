@@ -11,7 +11,7 @@
   - type: Gun
     minAngle: 21
     maxAngle: 32   
-  - type: WieldDelay
+  - type: WieldDelay # Mono
     baseDelay: 0.4
     modifiedDelay: 0.4
     preventFiring: true
