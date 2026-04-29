@@ -689,7 +689,10 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             return;
 
         if (args.Container.ID != component.TargetIdSlot.ID)
-            return;
+        {
+            if (!(_cash.TryGetCashSlot(uid, out var slot) && args.Container.ID != slot.Name))
+                return;
+        }
 
         // kind of cursed. We need to update the UI when an Id is entered, but the UI needs to know the player characters bank account.
         if (!TryComp<ActivatableUIComponent>(uid, out var uiComp) || uiComp.Key == null)
