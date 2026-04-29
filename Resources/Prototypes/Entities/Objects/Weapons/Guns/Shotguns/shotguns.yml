@@ -64,6 +64,10 @@
     rsi:
       sprite: _RMC14/Interface/MousePointer/shotgun_mouse.rsi
       state: all
+  - type: WieldDelay # Mono
+    baseDelay: 0.4
+    modifiedDelay: 0.4
+    preventFiring: true
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
