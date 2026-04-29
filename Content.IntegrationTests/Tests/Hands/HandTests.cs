@@ -45,6 +45,7 @@ public sealed class HandTests
         await pair.RunTicksSync(5);
 
         EntityUid player = default;
+
         // Mono: wait until entity is setup.
         await server.WaitAssertion(() =>
         {

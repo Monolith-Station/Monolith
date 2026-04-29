@@ -48,7 +48,7 @@ jobs:
     - name: Run Shipyard Tests
       shell: pwsh
       run: |
-        $env:DOTNET_gcServer=1
+        $env:DOTNET_gcServer=0
         dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --filter FullyQualifiedName~ShipyardTest -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
   ci-success:
     name: Build & Run Shipyard Tests
