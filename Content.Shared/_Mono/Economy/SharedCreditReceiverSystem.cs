@@ -64,6 +64,18 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
 
     #region API
 
+    /// <summary>
+    /// Simples way of interaction. If there's cash in a creditReceiver, you get the count.
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <returns>0 if there's no money or incompatible, an int otherwise.</returns>
+    /// <remarks>For building more complex logic, try using <see cref="TryGetCash"/> or <see cref="TryGetCashBalance"/> instead.</remarks>
+    public int GetCashBalance(EntityUid uid)
+    {
+        return TryGetCashBalance(uid, out var balance) ? (int)balance : 0;
+    }
+
+
     public bool CanPayWithCredit(Entity<CreditReceiverComponent> ent)
     {
         return TryComp<CreditReceiverComponent>(ent.Owner, out var creditComponent) && creditComponent.CashSlotName != null && creditComponent.CurrencyStackType != null;
@@ -75,6 +87,7 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
     /// <param name="uid">EntityUID to be checked</param>
     /// <param name="amount">If true, stores here the amount of currency found.</param>
     /// <returns>Returns true if the entity has the CreditReceiverComponent and how much cash is stored. Returns false if the entity does not accept currency.</returns>
+    /// <remarks>When you don't care about the boolean and just care about the int, try using <see cref="GetCashBalance"/> instead.</remarks>
     public bool TryGetCashBalance(EntityUid uid, [NotNullWhen(true)] out int? amount)
     {
         amount = null;
@@ -95,6 +108,7 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
     /// <param name="uid">The CreditReceiver entity, like a Vending Machine</param>
     /// <param name="stack">Null or EntityUID/StackComponent tuple, like a stack of spesos</param>
     /// <returns>True if successfully retrieved the contained currency, false if else.</returns>
+    /// <remarks>When you don't care about the boolean and just care about the int, try using <see cref="GetCashBalance"/> instead.</remarks>
     public bool TryGetCash(EntityUid uid, [NotNullWhen(true)] out Entity<StackComponent>? stack, [NotNullWhen(true)] out int balance)
     {
         stack = null;
@@ -148,7 +162,7 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
     }
 
     /// <summary>
-    /// Attempts to process cash payment.
+    /// Attempts to process cash payment, reduce the currency's stack and dirties the component.
     /// </summary>
     /// <param name="uid">UID of the machine.</param>
     /// <param name="amount">The amount to be deposited.</param>
