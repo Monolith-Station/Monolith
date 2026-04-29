@@ -248,14 +248,11 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - shader: StencilClear
-      sprite: Mobs/Species/Human/parts.rsi
-      state: l_leg
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
-      sprite: _Moffstation/Objects/Misc/handcuffs.rsi
-      state: body-overlay-resomi 
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
       visible: false
     - map: [ "id" ]
     - map: [ "gloves" ]
