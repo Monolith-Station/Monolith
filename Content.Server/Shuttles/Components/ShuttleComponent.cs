@@ -20,7 +20,7 @@ namespace Content.Server.Shuttles.Components
         /// Mono - velocity that 2x slowdown will be applied at. (4x at 2x this, 8x at 3x this, etc.)
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        public float BaseMaxLinearVelocity = 80f;
+        public float BaseMaxLinearVelocity = 50f;
 
         public const float MaxAngularVelocity = 4f;
 

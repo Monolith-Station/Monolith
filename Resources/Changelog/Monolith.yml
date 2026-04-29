@@ -20362,3 +20362,219 @@ Entries:
   id: 2244
   time: '2026-04-23T09:54:38.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3866
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: M92-X battery recharge rate while active buffed.
+  id: 2245
+  time: '2026-04-23T13:23:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3863
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Flatpacks now use the collision of the flatpacked entity, so they can be
+        opened on tables and aren't blocked by ghosts.
+  id: 2246
+  time: '2026-04-24T13:32:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3864
+- author: SixplyDev
+  changes:
+    - type: Tweak
+      message: Changed Sultan's shotgun sell price!
+    - type: Fix
+      message: Fixed a really easy little effort cash flow method!
+  id: 2247
+  time: '2026-04-24T15:27:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3874
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        ASM-220 torpedoes should be less likely to blow themselves or their own
+        launcher up now.
+  id: 2248
+  time: '2026-04-24T18:13:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3870
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Sultan Pulsar no longer uses a static price, instead based off
+        materials.
+  id: 2249
+  time: '2026-04-24T19:27:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3876
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Tarantula update again, used the wrong file
+  id: 2250
+  time: '2026-04-25T01:05:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3849
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Autopulser capacity reduced, ADM version maxangle increased to match
+        asakim version.
+  id: 2251
+  time: '2026-04-25T01:05:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3862
+- author: lopsidedmanboobs
+  changes:
+    - type: Tweak
+      message: >-
+        Clarified that in-game relationships between characters is forbidden
+        under Core Rule 0. Read it for more details & the exception within.
+  id: 2252
+  time: '2026-04-25T03:02:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3879
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Small (5x5) and normal (7x7) sized nuclear-fission reactors for TSF,
+        PDV, USSP, CC, and Civilians. Currently not mapped anywhere, with
+        corresponding turbines (3x2 and 3x5).
+  id: 2253
+  time: '2026-04-25T09:27:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3838
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed loadout UI windows having the wrong title.
+  id: 2254
+  time: '2026-04-25T14:42:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3878
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Asteroids made to load ahead of your velocity to prevent them from
+        spawning in front of you when going fast.
+  id: 2255
+  time: '2026-04-26T01:32:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3882
+- author: GOLDMASK990
+  changes:
+    - type: Tweak
+      message: Changed USSP Remnant company description.
+  id: 2256
+  time: '2026-04-26T01:34:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3738
+- author: chuga-git
+  changes:
+    - type: Fix
+      message: torpedos no longer break when loaded using an ammo loader.
+    - type: Fix
+      message: >-
+        CHARON nuclear slugs no longer turn into regular slugs when loaded using
+        an ammo loader.
+  id: 2257
+  time: '2026-04-26T01:37:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3787
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Trico and Omni no longer kill you on OD, but instead consume more per
+        metabolism (less severe knowledge check punishment). Omni OD threshold
+        reduced to 60
+    - type: Tweak
+      message: >-
+        Bicar now reduces bleeding slightly. Tranexamic now has 0.2 metabolism.
+        Oligomers buffed 2 brute/u >> 2.5 to match bicar's per u healing
+  id: 2258
+  time: '2026-04-26T16:20:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3888
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Lowers ADC piloting boost to 1.2x from 1.5x
+  id: 2259
+  time: '2026-04-26T16:23:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3861
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed reactor explosions being too weak.
+  id: 2260
+  time: '2026-04-26T17:12:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3889
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed map parallax being the default one. Welcome back background rocks.
+  id: 2261
+  time: '2026-04-26T21:51:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3891
+- author: Ark
+  changes:
+    - type: Fix
+      message: Crystallizer GUI can no longer be accessed by Ghosts.
+  id: 2262
+  time: '2026-04-27T00:07:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3894
+- author: 77seven77seven
+  changes:
+    - type: Add
+      message: >-
+        Organs now have a value (2500), and you can now sell them! Printed
+        organs have a value as well, but a significantly small one. If this is
+        abused, prepare to get this shit fucking nerfed into the ground, chuds.
+    - type: Add
+      message: >-
+        Added new Organ Harvester machine, a repurposed Artifact Crusher,
+        basically a hydraulic press with a circular saw.
+  id: 2263
+  time: '2026-04-28T22:04:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3899
+- author: kasature90
+  changes:
+    - type: Add
+      message: Retextured most grenades, and changed flashbang & smoke grenade SFX.
+  id: 2264
+  time: '2026-04-28T22:08:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3898
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: The Energy Shield now has a 10% slowdown when held.
+    - type: Tweak
+      message: The TSFMC "Smilodon" laser LMG's ammo boxes are now EMP resistant.
+  id: 2265
+  time: '2026-04-28T22:11:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3907
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Ship slowdown now kicks in significantly earlier.
+  id: 2266
+  time: '2026-04-28T22:53:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3904
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added heavy-duty airlocks.
+    - type: Tweak
+      message: Buffed high-sec airlock HP.
+  id: 2267
+  time: '2026-04-28T22:54:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3881
+- author: Corrupt142
+  changes:
+    - type: Fix
+      message: Nuked VG jumpsuit sale price to 0 was 700
+  id: 2268
+  time: '2026-04-28T22:54:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3872
+- author: kasature90
+  changes:
+    - type: Remove
+      message: >-
+        Removed flash protection from Syndicate gasmask, Watchdog gasmask, &
+        Welding gas mask.
+  id: 2269
+  time: '2026-04-28T23:59:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3897
