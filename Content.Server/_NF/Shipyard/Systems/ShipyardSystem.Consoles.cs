@@ -38,6 +38,7 @@ using System.Text.RegularExpressions;
 using Content.Server._Mono.Economy;
 using Content.Server._Mono.Shipyard;
 using Content.Server.Shuttles.Systems;
+using Content.Server.Stack;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Access;
@@ -51,6 +52,9 @@ using Content.Shared.Shuttles.Components;
 using Robust.Shared.Player;
 using Content.Shared._Mono.Ships.Components;
 using Content.Shared._Mono.Shipyard;
+using Content.Shared._Mono.Traits.Physical; // Mono
+using Content.Shared.Coordinates; // Mono
+using Content.Shared.Stacks; // Mono
 using Content.Shared.Tag;
 using Robust.Shared.Timing;
 
@@ -79,9 +83,11 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly CreditReceiverSystem _cash = default!;
+    [Dependency] private readonly StackSystem _stackSystem = default!; // Mono
 
     private static readonly ProtoId<TagPrototype> CrewedShuttleTag = "CrewedShuttle";
     private static readonly Regex DeedRegex = new(@"\s*\([^()]*\)");
+    private const string CreditPrototype = "Credit"; // Mono
 
     public void InitializeConsole()
     {
@@ -181,6 +187,9 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             return;
         }
 
+        // Mono - whether we use a voucher or not, we need the current balance here.
+        _cash.TryGetCash(shipyardConsoleUid, out var cash, out var cashBalance);
+
         // Keep track of whether or not a voucher was used.
         // TODO: voucher purchase should be done in a separate function.
         bool voucherUsed = false;
@@ -209,12 +218,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         }
         else
         {
-            int cashCredit = 0;
-            if (TryComp<CreditReceiverComponent>(shipyardConsoleUid, out var cash))
-            {
-                cashCredit = cash.CashSlotBalance;
-            }
-            if (bank.Balance <= vessel.Price)
+            if (bank.Balance + cashBalance < vessel.Price) // Mono - Only proceed if we have enough combined funds to buy shit.
             {
                 Del(shuttleUid);
                 ConsolePopup(player, Loc.GetString("cargo-console-insufficient-funds", ("cost", vessel.Price)));
@@ -222,13 +226,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
                 return;
             }
 
-            if (!_bank.TryBankWithdraw(player, vessel.Price))
-            {
-                Del(shuttleUid);
-                ConsolePopup(player, Loc.GetString("cargo-console-insufficient-funds", ("cost", vessel.Price)));
-                PlayDenySound(player, shipyardConsoleUid, component);
-                return;
-            }
+            _cash.TryCashPayment(shipyardConsoleUid, vessel.Price, out var remainingDebt, true); // Mono
+            _bank.TryBankWithdraw(player, remainingDebt); // Mono
         }
 
         // Add company information to the shuttle from the ID card or voucher
@@ -544,8 +543,18 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             }
             bill = int.Max(0, bill);
 
-            _bank.TryBankDeposit(player, bill);
-            PlayConfirmSound(player, uid, component);
+            if (HasComp<IronmanComponent>(args.Actor)) // Mono start - Ironman players cannot access their bank, so they need physical money
+            {
+                //spawn the cash stack for Ironman players
+                _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low, $"{ToPrettyString(player):actor} withdrew {bill} from {ToPrettyString(uid)}");
+                var stackPrototype = _prototypeManager.Index<StackPrototype>(CreditPrototype);
+                _stackSystem.Spawn(bill, stackPrototype, uid.ToCoordinates());
+            }
+            else
+            {
+                _bank.TryBankDeposit(player, bill);
+                PlayConfirmSound(player, uid, component);
+            } // Mono end
         }
 
         var name = GetFullName(deed);
