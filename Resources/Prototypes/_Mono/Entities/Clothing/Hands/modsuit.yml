@@ -67,9 +67,6 @@
       - state: equipped-HAND-sealed
       gloves-vox:
       - state: equipped-HAND-sealed-vox
-      gloves-resomi:
-      - state: equipped-HAND-sealed-resomi
-
 # Gallóglach
 - type: entity
   parent: ClothingModsuitGauntletsBase
@@ -87,8 +84,6 @@
       - state: equipped-HAND-sealed
       gloves-vox:
       - state: equipped-HAND-sealed-vox
-      gloves-resomi:
-      - state: equipped-HAND-sealed-resomi
   - type: Gun
     fireRate: 2
     selectedMode: SemiAuto
