@@ -1,0 +1,70 @@
+# essentially a shitty copy-paste job of the artifact crusher :)
+
+- type: entity
+  id: MachineOrganHarvester
+  parent: [ ConstructibleMachine, BaseMachinePowered ]
+  name: organ harvester
+  description: It uses an eerily familiar mechanism to do the dirty work for you. Wouldn't wanna be on the wrong side of that, no way no how. Due to... experimental choices of the design team, or lack there-of, it absolutely decimates the body of the 'patient'.
+  components:
+  - type: ArtifactCrusher
+    crushingDamage:
+      types:
+        Sharp: 25 # youchies
+  - type: Machine
+    board: OrganHarvesterMachineCircuitboard
+  - type: WiresPanel
+  - type: Sprite
+    sprite: Structures/Machines/organ_harvester.rsi
+    offset: 0,0.5
+    noRot: true
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: door-closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: piston
+      map: ["pistonlayer"]
+    - state: glass
+    - state: lights
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 50
+        mask:
+        - HighImpassable
+        layer:
+        - HighImpassable
+  - type: EntityStorage
+    capacity: 1
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ArtifactCrusherVisuals.Crushing:
+        pistonlayer:
+          True: {state: piston-push}
+          False: {state: piston}
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: EntityStorageVisuals
+    stateDoorClosed: door-closed
+    openDrawDepth: 0
+    closedDrawDepth: 4
+  - type: Construction
+    containers:
+    - machine_board
+    - machine_parts
+    - entity_storage
+    - output_container
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      entity_storage: !type:Container
+      output_container: !type:Container

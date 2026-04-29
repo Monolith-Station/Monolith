@@ -76,8 +76,8 @@
 - type: entity
   id: CentrifugeLatheMini
   parent: BaseLatheLube
-  name: miniature economy centrifuge
-  description: A medium sized industrial gas centrifuge for "bulk" processing isotopes, materials and generally making things go spinny. Not as fast or efficient as its station-bound brother, but useful for smaller operations.
+  name: miniature economy uranium processing centrifuge
+  description: A medium sized industrial gas centrifuge for "bulk" processing isotopes, materials and generally making things go spinny. Not as fast or efficient as its station-bound brother, but useful for smaller operations. Too small to reprocess nuclear fuel.
   components:
   - type: Sprite
     sprite: _Mono/Structures/Machines/centrifuge.rsi
