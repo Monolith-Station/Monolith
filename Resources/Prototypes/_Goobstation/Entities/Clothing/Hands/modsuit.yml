@@ -135,8 +135,6 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-      gloves-resomi:
-      - state: equipped-HAND-sealed-resomi
       gloves-vox:
       - state: equipped-HAND-sealed-vox
 
@@ -155,8 +153,6 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-      gloves-resomi:
-      - state: equipped-HAND-sealed-resomi
       gloves-vox:
       - state: equipped-HAND-sealed-vox
 
@@ -191,8 +187,6 @@
     clothingVisuals:
         hands:
         - state: equipped-HAND
-        hands-resomi:
-        - state: equipped-HAND-resomi
         hands-vox:
         - state: equipped-HAND-vox
   - type: SealableClothingVisuals
@@ -200,7 +194,5 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-      gloves-resomi:
-      - state: equipped-HAND-sealed-resomi
       gloves-vox:
       - state: equipped-HAND-sealed-vox
