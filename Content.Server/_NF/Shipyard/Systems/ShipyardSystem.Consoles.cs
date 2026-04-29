@@ -35,6 +35,7 @@ using static Content.Shared._NF.Shipyard.Components.ShuttleDeedComponent;
 using Content.Server.Shuttles.Components;
 using Content.Server._NF.Station.Components;
 using System.Text.RegularExpressions;
+using Content.Server._Mono.Economy;
 using Content.Server._Mono.Shipyard;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.UserInterface;
@@ -77,6 +78,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private readonly ShuttleConsoleLockSystem _shuttleConsoleLock = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly CreditReceiverSystem _cash = default!;
 
     private static readonly ProtoId<TagPrototype> CrewedShuttleTag = "CrewedShuttle";
     private static readonly Regex DeedRegex = new(@"\s*\([^()]*\)");
@@ -421,7 +423,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         var purchaseEv = new ShipyardShuttlePurchaseEvent(shuttleUid, player); // Mono: half of this shit could be an event.
         RaiseLocalEvent(purchaseEv);
-        RefreshState(shipyardConsoleUid, bank.Balance, true, name, sellValue, targetId, (ShipyardConsoleUiKey)args.UiKey, voucherUsed);
+        RefreshState(shipyardConsoleUid, bank.Balance, _cash.GetCashBalance(shipyardConsoleUid), true, name, sellValue, targetId, (ShipyardConsoleUiKey)args.UiKey, voucherUsed);
     }
 
     private void TryParseShuttleName(ShuttleDeedComponent deed, string name)
@@ -567,7 +569,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             refreshId = null;
         }
 
-        RefreshState(uid, bank.Balance, true, null, 0, refreshId, (ShipyardConsoleUiKey)args.UiKey, voucherUsed);
+        RefreshState(uid, bank.Balance, _cash.GetCashBalance(uid), true, null, 0, refreshId, (ShipyardConsoleUiKey)args.UiKey, voucherUsed);
     }
 
     /// <summary>
@@ -633,7 +635,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             // For now we'll just let them see the cooldown message when they try to use it
         }
 
-        RefreshState(uid, bank.Balance, true, fullName, sellValue, targetId, (ShipyardConsoleUiKey)args.UiKey, voucherUsed);
+        RefreshState(uid, bank.Balance, _cash.GetCashBalance(uid), true, fullName, sellValue, targetId, (ShipyardConsoleUiKey)args.UiKey, voucherUsed);
     }
 
     private void ConsolePopup(EntityUid uid, string text)
@@ -723,9 +725,18 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
                 sellValue = CalculateShipResaleValue((uid, component), sellValue);
             }
 
+            var cashBalance = 0;
+            if (TryComp<CreditReceiverComponent>(uid, out var receiverComponent)
+                && _cash.CanPayWithCredit((uid, receiverComponent))
+                && _cash.TryGetCashBalance(uid, out var cash))
+            {
+                cashBalance = cash.Value;
+            }
+
             var fullName = deed != null ? GetFullName(deed) : null;
             RefreshState(uid,
                 bank.Balance,
+                cashBalance,
                 true,
                 fullName,
                 sellValue,
@@ -905,10 +916,11 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         return (available, unavailable);
     }
 
-    private void RefreshState(EntityUid uid, int balance, bool access, string? shipDeed, int shipSellValue, EntityUid? targetId, ShipyardConsoleUiKey uiKey, bool freeListings)
+    private void RefreshState(EntityUid uid, int balance, int cashBalance, bool access, string? shipDeed, int shipSellValue, EntityUid? targetId, ShipyardConsoleUiKey uiKey, bool freeListings)
     {
         var newState = new ShipyardConsoleInterfaceState(
             balance,
+            cashBalance,
             access,
             shipDeed,
             shipSellValue,
@@ -1061,7 +1073,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
             // Update the UI with the new ship name, preserving the original sell value
             var fullName = GetFullName(deed);
-            RefreshState(uid, balance, true, fullName, originalSellValue, targetId, (ShipyardConsoleUiKey)args.UiKey, false);
+            RefreshState(uid, balance, _cash.GetCashBalance(uid), true, fullName, originalSellValue, targetId, (ShipyardConsoleUiKey)args.UiKey, false);
 
             _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low,
                 $"{ToPrettyString(player):actor} renamed ship from '{oldName}' to '{GetFullName(deed)}' via {ToPrettyString(uid)}");
@@ -1132,7 +1144,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             balance = bank.Balance;
 
         // Update the UI
-        RefreshState(uid, balance, true, null, 0, targetId, (ShipyardConsoleUiKey)args.UiKey, false);
+        RefreshState(uid, balance, _cash.GetCashBalance(uid), true, null, 0, targetId, (ShipyardConsoleUiKey)args.UiKey, false);
 
         _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low,
             $"{ToPrettyString(player):actor} unassigned deed for ship '{shipName}' from {ToPrettyString(targetId)} via {ToPrettyString(uid)}");
