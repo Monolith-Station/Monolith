@@ -151,11 +151,13 @@
   color: "#ffaa00"
   metabolisms:
     Medicine:
-      metabolismRate: 0.2 # Mono 0.5 >> 0.2
+      metabolismRate: 0.2 # Mono 1.5 >> 1
       effects:
       - !type:EvenHealthChange
         damage:
-          Brute: -1 #Mono 1.5 >> 1
+          Brute: -1
+      - !type:ModifyBleedAmount # Mono: buff to differentiate more from trico
+        amount: -0.25
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -709,7 +711,7 @@
       effects:
       - !type:EvenHealthChange
         damage:
-          Brute: -2 #Mono -1.75 >> -2
+          Brute: -2.5 #Mono -1.75 >> -2.5
           Airloss: -1
       - !type:HealthChange
         conditions:
@@ -871,6 +873,7 @@
   color: "#ba7d7d"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 #Mono: Slower metabolism rate
       effects:
       # Medium-large quantities can hurt you instead,
       # but still technically stop your bleeding.
@@ -898,9 +901,6 @@
       effects:
       - !type:EvenHealthChange #Mono: Low damage healing
         conditions:
-        - !type:ReagentThreshold
-          min: 0
-          max: 15
         - !type:TotalDamage
           max: 50
         damage:
@@ -909,27 +909,18 @@
           Toxin: -0.5
       - !type:EvenHealthChange #Mono: High damage healing
         conditions:
-        - !type:ReagentThreshold
-          min: 0
-          max: 15
         - !type:TotalDamage
           min: 50
         damage:
           Brute: -0.25
           Burn: -0.25
           Toxin: -0.12
-      - !type:HealthChange # Mono: Overdose, low rate compounded by slow metabolism
+      - !type:AdjustReagent # Mono: Overdose, penalize metabolism
         conditions:
         - !type:ReagentThreshold
           min: 15
-        damage:
-          types:
-            Poison: 1
-      - !type:ModifyBleedAmount # Mono: Causes bleeding in OD
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
-        amount: 0.5
+        reagent: Tricordrazine
+        amount: -0.8
         
 
 - type: reagent
@@ -959,26 +950,19 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:EvenHealthChange # Mono - Overdose
+      - !type:EvenHealthChange
         conditions:
-        - !type:ReagentThreshold
-          min: 0
-          max: 100
         damage:
           Burn: -1.5
           Toxin: -1.5
           Airloss: -1.5
           Brute: -1.5   
-      - !type:HealthChange # Mono - Added overdose
+      - !type:AdjustReagent # Mono: Overdose, penalize metabolism
         conditions:
         - !type:ReagentThreshold
-          min: 100
-        damage:
-          groups:
-            Burn: 1
-            Toxin: 1
-            Airloss: 1
-            Brute: 1
+          min: 60
+        reagent: Omnizine
+        amount: -1.0
 
 - type: reagent
   id: Ultravasculine

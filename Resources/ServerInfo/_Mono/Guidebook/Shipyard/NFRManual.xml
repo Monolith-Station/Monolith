@@ -1,0 +1,40 @@
+<Document>
+  # NUCLEAR FISSION REACTOR VESSEL OPERATION MANUAL
+  <Box>
+    [color=#999999][italic]DISTRIBUTED BY INTERNATIONAL SPACEFLIGHT NUCLEAR COMMISSION - 23-04-2357[italic][/color]
+  </Box>
+
+  ## STARTUP
+  [color=#999999]SKIP STEP 2 AND 3 FOR RESTARTS W/O REFUELING[/color]
+
+  - 1 - Ensure that the reactor and turbine controls are independent, and that turbine RPM is not linked to control rod insertion.
+  - 2 - Turn on the [color=cyan][bold]PRIMARY COOLANT PUMP[/bold][/color]
+  - 3 - Insert fuel rods into designated spots.
+    -- Assuming (0,0) is the topleft corner, for a [color=cyan][bold]standard 5x5 grid[/bold][/color] reactor layout, this is (1,1), (3,1), (1,3) and (3,3).
+    -- Assuming (0,0) is the topleft corner, for a [color=cyan][bold]standard 7x7 grid[/bold][/color] reactor layout, this is (1,4), (3,4), and (5,4).
+  - 4 - Raise the control rods to 70%-50% insertion.
+  - 5 - Monitor turbine RPM until temperature & RPM are holding stable.
+  - 6 (FOR CREWS LACKING SUFFICIENT STAFF) - Connect the turbine [color=Cyan]high RPM[/color] port to the reactor [color=OrangeRed][bold]control rod down[/bold][/color] signal port, and connect the turbine [color=Cyan]low RPM[/color] port to the reactor [color=OrangeRed][bold]control rod up[/bold][/color] signal port.
+    -- Automatic control rod insertion is not recommended for turbine flow rates exceeding 200.
+    -- Automatic control rod insertion is not recommended for larger reactors.
+
+  ## GAS COOLANT REFILL
+  [color=#999999]USE INCASE OF EMPTY RESERVE CANISTER[/color]
+
+  - 1 If the primary gas coolant loop is empty, refill with 1-2 H2O canisters depending on layout size.
+    -- Filling a gas loop with >2 canisters is not recommended for standard operation. Always check with an analyzer before pumping.
+  - 2 If the emergency gas coolant reserve is empty, have a CO2, Frezon, or other neutron-absorbing gas canister to replace the empty reserve.
+
+  ## EMERGENCY TURBINE SHUTDOWN
+  [color=#999999]USE INCASE OF TURBINE RPM OVERLOAD[/color]
+
+  - 1 Set the turbine FLOW RATE to 100
+  - 2 Maximize the STATOR LOAD to remove as much energy as possible from the gas.
+
+  ## SIDENOTES
+
+  - For operator and engineer safety, remote consoles and radiation protection equipment is recommended.
+  - Protective gloves are required for handling reactor rods with a temperature exceeding 80c/353k.
+  -- No protection is currently available for rods exceeding temperatures of 500c/773k.
+
+</Document>

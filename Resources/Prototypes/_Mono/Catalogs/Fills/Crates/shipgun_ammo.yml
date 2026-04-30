@@ -38,7 +38,7 @@
 - type: entity
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBox57mm
-  name: Dravon 57mm HE drum box
+  name: AK-570 57mm HE drum box
   description: Contains one box of 57mm high-explosive ammunition. Provides an artillery piece with infinite high-explosive rounds. Buy in case you lost the ammo it came with.
   components:
   - type: StorageFill
@@ -49,7 +49,7 @@
 - type: entity
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBox90mm
-  name: AK-570 90mm HE box
+  name: Dravon 90mm HE box
   description: Contains one box of 90mm high-explosive ammunition. Provides an artillery piece with infinite high-explosive rounds. Buy in case you lost the ammo it came with.
   components:
   - type: StorageFill

@@ -3,7 +3,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Ghost;
 using Content.Server.Popups;
-using Content.Server.Repairable;
+using Content.Shared.Repairable;
 using Content.Server.Stack;
 using Content.Server.Wires;
 using Content.Shared.Body.Systems;

@@ -211,10 +211,10 @@
     id: ExperimentalFactionWeapon
 
 - type: entity
-  name: TCA MMG-68 "Grizzly" (6.8x52mm Caseless)
+  name: TCA MMG-68 "Grizzly" (6.8x52mm caseless)
   parent: [BaseWeaponLightMachineGun, BaseGunWieldable]
   id: WeaponLMGGrizzly
-  description: A medium machine gun chambered in 6.8x52mm Caseless, accepts both box and standard magazines. A label on the side reads "FOR MILITARY USE ONLY". The weight of the machine gun make it hard to wield easily. To assist with standardization, it also accepts 5.56x45mm and 7.62x39mm.
+  description: A medium machine gun chambered in 6.8x52mm caseless, accepts both box and standard magazines. A label on the side reads "FOR MILITARY USE ONLY". The weight of the machine gun make it hard to wield easily. To assist with standardization, it also accepts 5.56x45mm and 7.62x39mm.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/LMGs/grizzly/Grizzly-icon.rsi
@@ -224,14 +224,14 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: GunWieldBonus
-    minAngle: -20
-    maxAngle: -20
+    minAngle: 0
+    maxAngle: 0
   - type: Gun
-    minAngle: 24
-    maxAngle: 36
-    angleIncrease: 3
-    angleDecay: 34
-    fireRate: 6 # 360 rpm
+    minAngle: 0 # forcewield anyways
+    maxAngle: 12
+    angleIncrease: 1
+    angleDecay: 12
+    fireRate: 8 # same as L6, but more accurate and heavier
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -288,7 +288,7 @@
   - type: Appearance
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Guns/LMGs/grizzly/Grizzly-inhands.rsi
-    unequipDelay: 4
+    unequipDelay: 0.5
   - type: StaticPrice
     price: 2500
   - type: GunRequiresWield
@@ -296,14 +296,14 @@
     id: ExperimentalFactionWeapon
   - type: HeldSpeedModifier
   - type: ClothingSpeedModifier
-    sprintModifier: 0.9
-    walkModifier: 0.9
+    sprintModifier: 0.95
+    walkModifier: 0.95
   - type: SpeedModifiedOnWield
-    walkModifier: 0.4
-    sprintModifier: 0.35
+    walkModifier: 0.5
+    sprintModifier: 0.4
   - type: WieldDelay
-    baseDelay: 2
-    modifiedDelay: 2
+    baseDelay: 1.2
+    modifiedDelay: 1.2
     preventFiring: true
 
 - type: entity
@@ -326,14 +326,14 @@
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Guns/LMGs/ratel/Ratel-inhands.rsi
   - type: GunWieldBonus
-    minAngle: -20
-    maxAngle: -30
+    minAngle: -25
+    maxAngle: -35
   - type: Gun
     minAngle: 25
     maxAngle: 40
-    angleIncrease: 5
-    angleDecay: 34
-    fireRate: 5 # 300 rpm
+    angleIncrease: 7
+    angleDecay: 28
+    fireRate: 6 # 360 rpm
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -376,12 +376,16 @@
   - type: StaticPrice
     price: 2500
   - type: SpeedModifiedOnWield
-    walkModifier: 0.85
-    sprintModifier: 0.75
+    walkModifier: 0.6
+    sprintModifier: 0.5 # lower firerate than grizzly but more accurate and bit more damage
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 3
     pvsIncrease: 0.3
+  - type: WieldDelay
+    baseDelay: 0.8
+    modifiedDelay: 0.8
+    preventFiring: true
 
 - type: entity
   name: Cyborg minigun

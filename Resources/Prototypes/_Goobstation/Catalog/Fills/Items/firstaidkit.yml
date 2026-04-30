@@ -10,5 +10,5 @@
       - id: StasiziumAutoInjector
         amount: 8
   - type: Sprite
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    sprite: _NF/Objects/Specific/Medical/firstaidkits.rsi # Mono - change to _NF because its there for some reason
     state: purplekit

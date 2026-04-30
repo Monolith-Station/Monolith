@@ -17,11 +17,12 @@
     minAngle: -20
     maxAngle: -34
   - type: Gun
-    minAngle: 21
-    maxAngle: 38
+    minAngle: 22
+    maxAngle: 40
     angleIncrease: 5
     angleDecay: 20
-    fireRate: 9.5
+    fireRate: 8
+    damageModifier: 0.9
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/mla_fire.ogg
   - type: ChamberMagazineAmmoProvider

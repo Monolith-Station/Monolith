@@ -1,0 +1,127 @@
+- type: entity
+  id: AirlockHeavyAssembly
+  name: heavy-duty airlock assembly
+  description: It opens, it closes, and maybe crushes you. An uparmored & more advanced model, for use in heavy industrial & military applications. Faster & smoother opening, more strength, and more deadly when crushing you.
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/standard.rsi
+    state: "assembly"
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 200
+        mask:
+        - FullTileMask
+        layer:
+        - HumanoidBlockLayer
+  - type: Anchorable
+    delay: 2
+  - type: Pullable
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Construction
+    graph: HeavyAirlock
+    node: assembly
+  placement:
+    mode: SnapgridCenter
+
+- type: entity
+  parent: AirlockHeavyAssembly
+  id: AirlockHeavyAssemblyGlass
+  suffix: Glass
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Glass/standard.rsi
+    state: "assembly"
+
+#TSFMC
+- type: entity
+  parent: AirlockHeavyAssembly
+  id: AirlockHeavyAssemblyTSFMC
+  suffix: TSFMC
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/tsfmc.rsi
+    state: "assembly"
+
+#PDV
+- type: entity
+  parent: AirlockHeavyAssembly
+  id: AirlockHeavyAssemblyPDV
+  suffix: PDV
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/pdv.rsi
+    state: "assembly"
+
+#USSP
+- type: entity
+  parent: AirlockHeavyAssembly
+  id: AirlockHeavyAssemblyUSSP
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/ussp.rsi
+    state: "assembly"
+
+#Security
+- type: entity
+  parent: AirlockHeavyAssembly
+  id: AirlockHeavyAssemblySecurity
+  suffix: Security
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/security.rsi
+    state: "assembly"
+
+#Command
+- type: entity
+  parent: AirlockHeavyAssembly
+  id: AirlockHeavyAssemblyCommand
+  suffix: Command
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/command.rsi
+    state: "assembly"
+
+#Grey
+- type: entity
+  parent: AirlockHeavyAssembly
+  id: AirlockHeavyAssemblyGrey
+  suffix: Grey
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/grey.rsi
+    state: "assembly"
+
+#Engineering
+- type: entity
+  parent: AirlockHeavyAssembly
+  id: AirlockHeavyAssemblyEngineering
+  suffix: Engineering
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/engineering.rsi
+    state: "assembly"

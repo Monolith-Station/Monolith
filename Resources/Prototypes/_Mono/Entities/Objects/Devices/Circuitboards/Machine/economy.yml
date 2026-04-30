@@ -19,3 +19,26 @@
       GlassBeaker:
         amount: 4
         defaultPrototype: Beaker
+
+- type: entity
+  id: IndustrialLatheEconomyMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: industrial lathe machine board
+  description: A machine printed circuit board for an industrial economy lathe.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: IndustrialLatheEconomy
+    requirements:
+      MatterBin: 2
+      Manipulator: 4
+      Capacitor: 2
+    stackRequirements:
+      Glass: 5
+      Plasteel: 10
+      CableHV: 5
+    tagRequirements:
+      GlassBeaker:
+        amount: 1
+        defaultPrototype: Beaker
