@@ -78,10 +78,10 @@
 - type: rcd
   id: Lattice
   name: rcd-component-lattice
-  category: Lattices
+  category: WallsAndFlooring
   sprite: /Textures/Interface/Radial/RCD/plating.png
   mode: ConstructTile
-  prototype: Plating
+  prototype: Lattice
   cost: 1
   delay: 1
   collisionMask: InteractImpassable
