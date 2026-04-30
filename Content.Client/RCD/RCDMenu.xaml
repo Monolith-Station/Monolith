@@ -15,9 +15,6 @@
         <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-walls-and-flooring'}" TargetLayer="WallsAndFlooring" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/walls_and_flooring.png"/>
         </ui:RadialMenuTextureButtonWithSector>
-        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-lattices'}" TargetLayer="Lattices" Visible="False">
-            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/walls_and_flooring.png"/>
-        </ui:RadialMenuTextureButtonWithSector>
         <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-windows-and-grilles'}" TargetLayer="WindowsAndGrilles" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/windows_and_grilles.png"/>
         </ui:RadialMenuTextureButtonWithSector>
@@ -34,9 +31,6 @@
 
     <!-- Walls and flooring -->
     <ui:RadialContainer Name="WallsAndFlooring"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
-
-    <!-- Lattices -->
-    <ui:RadialContainer Name="Lattices"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
 
     <!-- Windows and grilles -->
     <ui:RadialContainer Name="WindowsAndGrilles"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
