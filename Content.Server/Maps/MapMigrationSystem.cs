@@ -21,7 +21,7 @@ public sealed class MapMigrationSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly IResourceManager _resMan = default!;
 
-    private static readonly string[] MigrationFiles = { "/migration.yml", "/nf_migration.yml", "/mono_migration.yml" }; // Monolith: custom migration file
+    private static readonly string[] MigrationFiles = { "/migration.yml", "/nf_migration.yml", "/mono_migration.yml", "/aurum_migration.yml" }; // Monolith: custom migration file // Aurum
 
     public override void Initialize()
     {
