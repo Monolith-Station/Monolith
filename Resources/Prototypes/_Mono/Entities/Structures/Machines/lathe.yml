@@ -66,13 +66,18 @@
       - Ingot
   - type: RequireProjectileTarget
 
+- type: entity
+  id: FactionLatheImmmovable
+  parent: [FactionLathe, BaseStructureDisableToolUse]
+  suffix: IMMOVABLE
+
 # economy
 
 - type: entity
   id: CentrifugeLatheMini
   parent: BaseLatheLube
-  name: miniature economy centrifuge
-  description: A medium sized industrial gas centrifuge for "bulk" processing isotopes, materials and generally making things go spinny. Not as fast or efficient as its station-bound brother, but useful for smaller operations.
+  name: miniature economy uranium processing centrifuge
+  description: A medium sized industrial gas centrifuge for "bulk" processing isotopes, materials and generally making things go spinny. Not as fast or efficient as its station-bound brother, but useful for smaller operations. Too small to reprocess nuclear fuel.
   components:
   - type: Sprite
     sprite: _Mono/Structures/Machines/centrifuge.rsi
@@ -102,3 +107,126 @@
       - Ingot
       - Ore
   - type: RequireProjectileTarget
+  - type: GuideHelp
+    guides:
+    - Economy
+
+- type: entity
+  id: IndustrialLatheEconomy
+  parent: BaseLatheLube
+  name: industrial steel lathe
+  description: Capable of forming metal into all types of shapes. Essential for starting to create most advanced items.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/altolathe.rsi
+    layers:
+    - state: icon
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: IndustrialLatheEconomyMachineCircuitboard
+  - type: Lathe
+    producingSound: /Audio/Machines/circuitprinter.ogg
+    idleState: icon
+    runningState: building
+    staticPacks:
+    - EconomyBasic
+    # dynamicPacks:
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: RequireProjectileTarget
+  - type: GuideHelp
+    guides:
+    - Economy
+
+- type: entity
+  id: IndustrialFurnaceEconomy
+  parent: [ BaseMachinePowered, BaseStructureDisableToolUse ]
+  name: industrial arc furnace
+  description: An advanced arc furnace capable of melting ore and refining material through heat. Essential for creating advanced alloys.
+  components:
+  - type: Sprite
+    offset: 0.5,0
+    sprite: _Mono/Structures/Machines/2x1arcfurnace.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning" ]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: RequireProjectileTarget
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 900000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "1.4,0.4,-0.4,-0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  # microwave comps
+  - type: GuideHelp
+    guides:
+    - ArcFurnace
+  - type: Microwave
+    capacity: 15
+    explosionChance: 0
+    lightningChance: 0
+    baseHeatMultiplier: 300
+    temperatureUpperThreshold: 3300
+    maxItemSize: Ginormous
+    validRecipeTypes: ArcFurnace
+    beginCookingSound: /Audio/Machines/machine_switch.ogg
+    foodDoneSound: /Audio/Effects/Shuttle/radar_ping.ogg
+    loopingSound: /Audio/_Mono/Structures/Economy/furnace.ogg
+    key: ArcFurnaceKey
+  - type: ActivatableUI
+    key: enum.MicrowaveUiKey.ArcFurnaceKey
+  - type: ContainerContainer
+    containers:
+      microwave_entity_container: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: UserInterface
+    interfaces:
+      enum.MicrowaveUiKey.ArcFurnaceKey:
+        type: AssemblerBoundUserInterface
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.VisualState:
+        enum.MicrowaveVisualizerLayers.Base:
+          Idle: { state: "icon" }
+          Cooking: { state: "building" }
+        enum.MicrowaveVisualizerLayers.BaseUnlit:
+          Idle: { state: "unlit" }
+          Broken: { state: "panel" }
+          Cooking: { state: "unlit" }
+      enum.PowerDeviceVisuals.Powered:
+        enum.MicrowaveVisualizerLayers.BaseUnlit:
+          True: { visible: true }
+          False: { visible: false }

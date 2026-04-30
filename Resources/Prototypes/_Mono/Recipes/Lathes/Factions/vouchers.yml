@@ -110,6 +110,48 @@
     Silver: 10000
     Gold: 5000
 
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: TaserVoucherCC
+  result: ShipVoucherTaser
+  materials:
+    Steel: 2500
+    Plasteel: 1000
+    Plastic: 1000
+    Glass: 2000
+    Plasma: 1000
+    Uranium: 1000
+    Silver: 500
+    Gold: 500
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: RookrVoucherCC
+  result: ShipVoucherRook
+  materials:
+    Steel: 2500
+    Plasteel: 2000
+    Plastic: 1500
+    Glass: 2000
+    Plasma: 1000
+    Uranium: 2500
+    Silver: 1000
+    Gold: 1000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: HoundVoucherCC
+  result: ShipVoucherHound
+  materials:
+    Steel: 2500
+    Plasteel: 2000
+    Plastic: 1500
+    Glass: 2000
+    Plasma: 1500
+    Uranium: 2500
+    Silver: 1500
+    Gold: 1500
+
 # PDV
 
 - type: latheRecipe

@@ -17,6 +17,15 @@
     shoes: ClothingShoesClothwrap
 
 - type: loadout
+  id: ContractorClothingShoesClothwrapBlack # Mono
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  price: 0 # Mono
+  equipment:
+    shoes: ClothingShoesClothwrapBlack
+
+- type: loadout
   id: ContractorClothingShoesTourist
   hideEffects:
   - !type:GroupLoadoutEffect

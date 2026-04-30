@@ -50,7 +50,7 @@
     sprite: Clothing/Mask/gassyndicate.rsi
   - type: Clothing
     sprite: Clothing/Mask/gassyndicate.rsi
-  - type: FlashImmunity
+  # - type: FlashImmunity # Mono
   - type: EyeProtection
   - type: Armor
     modifiers:
@@ -705,7 +705,7 @@
     state: icon
   - type: Clothing
     sprite: Clothing/Mask/welding-gas.rsi
-  - type: FlashImmunity
+  #- type: FlashImmunity # You dont deserve this. # Mono
   - type: EyeProtection
   - type: PhysicalComposition
     materialComposition:

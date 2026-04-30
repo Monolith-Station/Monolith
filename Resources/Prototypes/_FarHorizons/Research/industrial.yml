@@ -1,0 +1,52 @@
+- type: technology
+  id: NuclearPowerGeneration
+  name: research-technology-nuclear-power
+  entityIcon: NuclearReactorSmall # Mono
+  discipline: Industrial
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - NuclearFabricatorMachineCircuitboard
+  - NuclearReactorMonitorComputerCircuitboard
+  - GasTurbineMonitorComputerCircuitboard
+  - UraniumReactorFuelRod
+  - PlasmaReactorFuelRod
+  - UraniumGlassReactorFuelRod
+  - SilverReactorControlRod
+  - PlasteelReactorControlRod
+  - PlasmaGlassReactorControlRod
+  - SilverReactorGasChannel
+  - PlasteelReactorGasChannel
+  - PlasmaGlassReactorGasChannel
+  - SilverReactorHeatExchanger
+  - PlasteelReactorHeatExchanger
+  - PlasmaGlassReactorHeatExchanger
+  technologyPrerequisites:
+  - PowerGeneration
+  - AdvancedParts # Mono
+  #radioChannels:
+  #- Engineering
+  position: -3, 4 # Mono
+
+- type: technology
+  id: NuclearPowerRecycling
+  name: research-technology-nuclear-recycling
+  entityIcon: NuclearCentrifuge # Mono
+  discipline: Industrial
+  tier: 2
+  cost: 12500
+  recipeUnlocks:
+  - NuclearCentrifugeMachineCircuitboard
+  - PlutoniumReactorFuelRod
+  - BananiumReactorFuelRod
+  - GoldReactorControlRod
+  - DiamondReactorControlRod
+  - GoldReactorGasChannel
+  - DiamondReactorGasChannel
+  - GoldReactorHeatExchanger
+  - DiamondReactorHeatExchanger
+  technologyPrerequisites:
+  - NuclearPowerGeneration
+  #radioChannels:
+  #- Engineering
+  position: -3, 5 # Mono

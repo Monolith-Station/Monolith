@@ -26,7 +26,6 @@ public sealed class AmmoLoaderSystem : EntitySystem
     [Dependency] private readonly GunSystem _gun = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -388,8 +387,8 @@ public sealed class AmmoLoaderSystem : EntitySystem
         if (HasComp<CartridgeAmmoComponent>(ammoEntity))
         {
             _containers.Remove(ammoEntity, loader.Comp.Container);
-            _gun.AddBallisticAmmo(gunUid, artilleryAmmo, 1);
-            Del(ammoEntity);
+            _containers.Insert(ammoEntity, artilleryAmmo.Container);
+            _gun.AddBallisticAmmo((gunUid, artilleryAmmo), ammoEntity);
             return true;
         }
 

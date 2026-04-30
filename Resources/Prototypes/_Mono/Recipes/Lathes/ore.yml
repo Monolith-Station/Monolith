@@ -4,3 +4,18 @@
   completetime: 0.06
   materials:
     RawSalt: 350
+
+# Economy materials
+- type: latheRecipe
+  id: SheetCopper
+  result: SheetCopper1
+  completetime: 0.06
+  materials:
+    CopperOre: 100
+
+- type: latheRecipe
+  id: SheetLithium
+  result: SheetLithium1
+  completetime: 0.06
+  materials:
+    LithiumOre: 150

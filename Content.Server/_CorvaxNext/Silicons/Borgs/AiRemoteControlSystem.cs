@@ -98,6 +98,9 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         if (!_mind.TryGetMind(ai, out var mindId, out var mind))
             return;
 
+        if (_mind.TryGetMind(entity, out _, out _))
+            return;
+
         if (!TryComp<StationAiHeldComponent>(ai, out var stationAiHeldComp))
             return;
 
@@ -139,7 +142,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
     private void OnToggleRemoteDevicesScreen(EntityUid uid, StationAiHeldComponent component, ToggleRemoteDevicesScreenEvent args)
     {
-        if (args.Handled || !TryComp<ActorComponent>(uid, out var actor))
+        if (args.Handled || !TryComp<ActorComponent>(args.Performer, out var actor))
             return;
         args.Handled = true;
 

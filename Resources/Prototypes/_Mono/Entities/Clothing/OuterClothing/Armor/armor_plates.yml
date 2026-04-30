@@ -1,57 +1,25 @@
-#FIRST GENERATION PLATES
-# Durathread
+# Blunt and Slash
 - type: entity
   parent: BaseItem
-  id: ArmorPlateLight
-  name: durathread plate
-  description: A lightweight protective plate made from advanced durathread fibers. Initially manufactured by Aether, but the process has long been reverse-engineered.
-  suffix: Light
+  id: ArmorPlateBlunt_Slash
+  name: blunt/slash armor plate
+  description: An armor module consisting of additional protective plasteel plating and shock absorbant plastic. Protects against blunt force and slash attacks. Vulnerable to heat.
   components:
   - type: Sprite
-    sprite: _Mono/Clothing/ArmorPlate/armor_light.rsi
-    state: icon
+    sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
+    state: blunt_slash
   - type: Item
-    sprite: _Mono/Clothing/ArmorPlate/armor_light.rsi
-    size: Normal
-  - type: ArmorPlateItem
-    maxDurability: 25
-    walkSpeedModifier: 0.94
-    sprintSpeedModifier: 0.94
-    staminaDamageMultiplier: 1.0
-    absorptionRatios:
-      Piercing: 1
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 25
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-
-# Ceramic
-- type: entity
-  parent: BaseItem
-  id: ArmorPlateMedium
-  name: ceramic plate
-  description: A medium-weight ceramic composite plate manufactured with a material process proprietary to Aether.
-  suffix: Medium
-  components:
-  - type: Sprite
-    sprite: _Mono/Clothing/ArmorPlate/armor_medium.rsi
-    state: icon
-  - type: Item
-    sprite: _Mono/Clothing/ArmorPlate/armor_medium.rsi
+    sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
     size: Normal
   - type: ArmorPlateItem
     maxDurability: 50
-    walkSpeedModifier: 0.92
-    sprintSpeedModifier: 0.92
+    walkSpeedModifier: 0.95
+    sprintSpeedModifier: 0.95
     staminaDamageMultiplier: 1.0
     absorptionRatios:
-      Piercing: 1
+      Blunt: 0.7
+      Slash: 0.7
+      Burn: 1.2
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -63,144 +31,97 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
-# Plasteel
 - type: entity
   parent: BaseItem
-  id: ArmorPlateTactical
-  name: plasteel plate
-  description: A heavy-duty plasteel plate manufactured by a layered cold-stamping process proprietary to Aether.
-  suffix: Tactical
+  id: ArmorPlatePierce
+  name: pierce armor plate
+  description: An armor module consisting of robust plastitanium plating. Protects against firearms and piercing attacks. Vulnerable to heat.
   components:
   - type: Sprite
-    sprite: _Mono/Clothing/ArmorPlate/armor_tactical.rsi
-    state: icon
+    sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
+    state: pierce
   - type: Item
-    sprite: _Mono/Clothing/ArmorPlate/armor_tactical.rsi
+    sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
     size: Normal
   - type: ArmorPlateItem
-    maxDurability: 75
-    walkSpeedModifier: 0.90
-    sprintSpeedModifier: 0.90
+    maxDurability: 50
+    walkSpeedModifier: 0.95
+    sprintSpeedModifier: 0.95
     staminaDamageMultiplier: 1.0
     absorptionRatios:
-      Piercing: 1
+      Piercing: 0.7
+      Burn: 1.2
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
-# Plastitanium
 - type: entity
   parent: BaseItem
-  id: ArmorPlatePlastitanium
-  name: plastitanium plate
-  description: An advanced plastitanium composite plate manufactured by Aether.
-  suffix: Admeme
+  id: ArmorPlateHeat
+  name: heat armor plate
+  description: An armor module consisting of iridite shielding and heat diffusion systems, capable of diffracting incoming laser assaults. Vulnerable to piercing attacks.
   components:
   - type: Sprite
-    sprite: _Mono/Clothing/ArmorPlate/armor_plastitanium.rsi
-    state: icon
+    sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
+    state: heat
   - type: Item
-    sprite: _Mono/Clothing/ArmorPlate/armor_plastitanium.rsi
+    sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
     size: Normal
   - type: ArmorPlateItem
-    maxDurability: 100
-    walkSpeedModifier: 1.0
-    sprintSpeedModifier: 1.0
-    staminaDamageMultiplier: 0.0
+    maxDurability: 50
+    walkSpeedModifier: 0.95
+    sprintSpeedModifier: 0.95
+    staminaDamageMultiplier: 1.0
     absorptionRatios:
-      Piercing: 1
+      Heat: 0.7
+      Piercing: 1.2
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
-#PLATE EXPANSION PACK
-# Refractive
 - type: entity
   parent: BaseItem
-  id: ArmorPlateRefractive
-  name: plas-uranium laminate plate
-  description: An iridescent plate manufactured by a plasma-uranium glass nanolamination process proprietary to Union Wrightworks. Tuned to stop emissions in the weapons energy-band via total internal reflection.
-  suffix: Refractive
+  id: ArmorPlateSpeed
+  name: speed armor plate
+  description: An armor module consisting of replacement brass plating for shedding weight. Increases your speed, but makes you vulnerable to most damage.
   components:
   - type: Sprite
-    sprite: _Mono/Clothing/ArmorPlate/armor_refractive.rsi
-    state: icon
+    sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
+    state: speed
   - type: Item
-    sprite: _Mono/Clothing/ArmorPlate/armor_refractive.rsi
+    sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
     size: Normal
   - type: ArmorPlateItem
-    maxDurability: 60
-    walkSpeedModifier: 0.9
-    sprintSpeedModifier: 0.9
-    staminaDamageMultiplier: 0.8
-    damageMultipliers:
-      Blunt: 5
-      Slash: 5
-      Piercing: 5
-      Heat: 0.75
+    maxDurability: 25
+    walkSpeedModifier: 1.1
+    sprintSpeedModifier: 1.1
+    staminaDamageMultiplier: 2
     absorptionRatios:
-      Blunt: 0.05
-      Slash: 0.05
-      Piercing: 0.05
-      Heat: 1
-      Radiation: 0.5
+      Burn: 1.2
+      Piercing: 1.2
+      Blunt: 1.2
+      Slash: 1.2
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 60
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-        
-# Steel
-- type: entity
-  parent: BaseItem
-  id: ArmorPlateSteel
-  name: steel armor plate
-  description: Rolled, work-hardened steel. Obsolete yet time-tested. Heavy and prone to spalling, but its simplicity means it will outlive its owner.
-  suffix: Obsolete
-  components:
-  - type: Sprite
-    sprite: _Mono/Clothing/ArmorPlate/armor_obsolete.rsi
-    state: icon
-  - type: Item
-    sprite: _Mono/Clothing/ArmorPlate/armor_obsolete.rsi
-    size: Normal
-  - type: ArmorPlateItem
-    maxDurability: 60
-    walkSpeedModifier: 0.9
-    sprintSpeedModifier: 0.85
-    staminaDamageMultiplier: 1.65
-    damageMultipliers:
-      Piercing: 0.5
-    absorptionRatios:
-      Blunt: 0.15
-      Slash: 0.15
-      Piercing: 0.3
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 60 
+        damage: 25
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

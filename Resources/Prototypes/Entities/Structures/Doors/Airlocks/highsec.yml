@@ -111,12 +111,12 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1500
+        damage: 3500 # Mono
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: IconSmooth
-    key: walls
+    key: airlocks
     mode: NoSprite
   - type: Construction
     graph: Airlock
