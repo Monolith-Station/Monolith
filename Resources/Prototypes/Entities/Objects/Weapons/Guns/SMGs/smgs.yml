@@ -65,8 +65,9 @@
     rsi:
       sprite: _RMC14/Interface/MousePointer/pistol_mouse.rsi
       state: all
-  - type: UseDelay # Mono
-    delay: 0.4
+  - type: WieldDelay # Monoo
+    baseDelay: 0.4
+    modifiedDelay: 0.4
     preventFiring: true
   # Goobstation edit start
   - type: EmitSoundOnPickup
