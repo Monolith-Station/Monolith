@@ -21,6 +21,7 @@ public sealed class ShipShieldOverlay : Overlay
     private readonly IEntityManager _entManager;
     private readonly ShaderInstance _unshadedShader;
     private readonly List<DrawVertexUV2D> _verts = new(128); // Mono
+    private readonly Texture _shieldTexture;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowWorld;
 
@@ -30,6 +31,7 @@ public sealed class ShipShieldOverlay : Overlay
         _entManager = entityManager;
         _fixture = _entManager.EntitySysManager.GetEntitySystem<FixtureSystem>();
         _physics = _entManager.EntitySysManager.GetEntitySystem<Robust.Client.Physics.PhysicsSystem>();
+        _shieldTexture = _resourceCache.GetTexture("/Textures/_Crescent/ShipShields/shieldtex.png");
 
         _unshadedShader = prototypeManager.Index<ShaderPrototype>("unshaded").Instance();
 
@@ -56,9 +58,7 @@ public sealed class ShipShieldOverlay : Overlay
             if (fixture is not { Shape: ChainShape chain })
                 continue;
 
-            var texture = _resourceCache.GetTexture("/Textures/_Crescent/ShipShields/shieldtex.png");
-
-            DrawShield(handle, uid, chain, xform, texture, visuals.ShieldColor, _verts);
+            DrawShield(handle, uid, chain, xform, _shieldTexture, visuals.ShieldColor, _verts);
             _verts.Clear(); // Clear for next shield - Mono
         }
     }

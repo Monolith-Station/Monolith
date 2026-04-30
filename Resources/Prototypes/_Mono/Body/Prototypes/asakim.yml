@@ -8,13 +8,13 @@
       connections:
       - torso
       organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
+        brain: OrganAsakimBrain
+        eyes: OrganAsakimEyes
     torso:
       part: TorsoAsakim
       organs:
-        heart: OrganAnimalHeart
-        lungs: OrganHumanLungs
+        heart: OrganAsakimHeart
+        lungs: OrganAsakimLungs
         stomach: OrganReptilianStomach
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys

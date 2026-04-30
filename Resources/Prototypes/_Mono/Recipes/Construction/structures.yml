@@ -122,3 +122,38 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
+
+  #Airlocks
+- type: construction
+  name: heavy-duty airlock
+  id: AirlockHeavy
+  graph: HeavyAirlock
+  startNode: start
+  targetNode: airlock
+  category: construction-category-structures
+  description: It opens, it closes, and maybe crushes you.
+  icon:
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/standard.rsi
+    state: assembly
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: heavy-duty glass airlock
+  id: AirlockHeavyGlass
+  graph: HeavyAirlock
+  startNode: start
+  targetNode: glassAirlock
+  category: construction-category-structures
+  description: It opens, it closes, and maybe crushes you.
+  icon:
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Glass/standard.rsi
+    state: assembly
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

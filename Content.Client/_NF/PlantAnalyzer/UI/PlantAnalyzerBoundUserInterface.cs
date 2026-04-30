@@ -34,11 +34,6 @@ public sealed class PlantAnalyzerBoundUserInterface : BoundUserInterface
         _window.Populate(cast);
     }
 
-    public void AdvPressed(bool scanMode)
-    {
-        SendMessage(new PlantAnalyzerSetMode(scanMode));
-    }
-
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);

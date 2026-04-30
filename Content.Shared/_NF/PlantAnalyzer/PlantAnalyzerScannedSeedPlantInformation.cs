@@ -11,28 +11,20 @@ public sealed class PlantAnalyzerScannedSeedPlantInformation : BoundUserInterfac
     public NetEntity? TargetEntity;
     public bool IsTray;
 
+    //Basic tab
     public string? SeedName;
-    public string[]? SeedChem;
-    public AnalyzerHarvestType HarvestType;
-    public GasFlags ExudeGases;
-    public GasFlags ConsumeGases;
-    public float Endurance;
     public int SeedYield;
+    public float SeedPotency;
+    public AnalyzerHarvestType HarvestType;
     public float Lifespan;
     public float Maturation;
     public float Production;
     public int GrowthStages;
-    public float SeedPotency;
-    public string[]? Speciation; // Currently only available on server, we need to send strings to the client.
-    public AdvancedScanInfo? AdvancedInfo;
-}
-
-/// <summary>
-///     Information gathered in an advanced scan.
-/// </summary>
-[Serializable, NetSerializable]
-public struct AdvancedScanInfo
-{
+    public float Endurance;
+    public GasFlags ConsumeGases;
+    public GasFlags ExudeGases;
+    public string[]? SeedChem;
+    //Tolerances tab
     public float NutrientConsumption;
     public float WaterConsumption;
     public float IdealHeat;
@@ -44,6 +36,8 @@ public struct AdvancedScanInfo
     public float HighPressureTolerance;
     public float PestTolerance;
     public float WeedTolerance;
+    //Mutations tab
+    public string[]? Speciation; // Currently only available on server, we need to send strings to the client.
     public MutationFlags Mutations;
 }
 
@@ -56,6 +50,7 @@ public enum MutationFlags : byte
     Seedless = 2,
     Ligneous = 4,
     CanScream = 8,
+    Unviable = 16,
 }
 
 [Flags]
@@ -79,15 +74,4 @@ public enum AnalyzerHarvestType : byte
     Repeat,
     NoRepeat,
     SelfHarvest
-}
-
-
-[Serializable, NetSerializable]
-public sealed class PlantAnalyzerSetMode : BoundUserInterfaceMessage
-{
-    public bool AdvancedScan { get; }
-    public PlantAnalyzerSetMode(bool advancedScan)
-    {
-        AdvancedScan = advancedScan;
-    }
 }

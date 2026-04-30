@@ -184,7 +184,7 @@
   - type: PlacementReplacement
     key: walls # For construction if this eventually supports it.
   - type: IconSmooth
-    key: walls
+    key: airlocks
     mode: NoSprite
   # Mono
   - type: Construction
@@ -240,6 +240,7 @@
   - type: StaticPrice
     price: 100
   - type: Docking
+    dockType: Gas
     receiveOnly: true
   - type: DeviceNetwork
     prefix: device-address-prefix-portable-gaslock
