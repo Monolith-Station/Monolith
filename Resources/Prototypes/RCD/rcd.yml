@@ -74,6 +74,21 @@
   rotation: Fixed
   fx: EffectRCDConstruct1
 
+  # Lattice
+- type: rcd
+  id: Lattice
+  name: rcd-component-lattice
+  category: Lattices
+  sprite: /Textures/Interface/Radial/RCD/plating.png
+  mode: ConstructTile
+  prototype: Plating
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
 # Walls
 - type: rcd
   id: WallSolid
