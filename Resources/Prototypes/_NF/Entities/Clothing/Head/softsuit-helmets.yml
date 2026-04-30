@@ -21,21 +21,21 @@
     radiatingBehaviourId: radiating
   - type: LightBehaviour
     behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        interpolate: Linear
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
-        isLooped: true
+    - !type:FadeBehaviour
+      id: radiating
+      interpolate: Linear
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      minValue: 0.1
+      maxValue: 2.0
+      isLooped: true
   - type: Battery # Apparently lights on helmets don't work without batteries. Bummer.
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
     startingCharge: 600
@@ -55,8 +55,9 @@
       - state: equipped-head-base
       - state: equipped-head-reinforced-points
       - state: equipped-head-visor
+  - type: ItemTogglePointLight
   - type: PointLight
-    #color: "#adffe6"
+    color: "#adffe6"
     enabled: false
     radius: 3
     energy: 2

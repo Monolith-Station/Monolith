@@ -88,7 +88,7 @@
     graph: ClockworkGirder
     node: clockworkWall
   - type: IconSmooth
-    key: walls
+    key: clockwalls # Mono
     base: clock
   - type: RCDDeconstructable # Frontier
     cost: 6 # Frontier
@@ -117,7 +117,7 @@
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: IconSmooth
-    key: walls
+    key: clownwalls # Mono
     base: clown
   - type: Fixtures
     fixtures:
@@ -149,7 +149,7 @@
     graph: Girder
     node: meatWall
   - type: IconSmooth
-    key: walls
+    key: meatwalls # Mono
     base: meat
 
 - type: entity
@@ -165,7 +165,7 @@
   - type: Icon
     sprite: Structures/Walls/cult.rsi
   - type: IconSmooth
-    key: walls
+    key: cultwalls # Mono
     base: cult
 
 - type: entity
@@ -203,7 +203,7 @@
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: IconSmooth
-    key: walls
+    key: diamondwalls # Mono
     base: diamond
 
 - type: entity
@@ -237,7 +237,7 @@
         - WallLayer
         density: 4000
   - type: IconSmooth
-    key: walls
+    key: goldwalls # Mono
     base: gold
 
 - type: entity
@@ -253,7 +253,7 @@
   - type: Icon
     sprite: Structures/Walls/ice.rsi
   - type: IconSmooth
-    key: walls
+    key: icewalls # Mono
     base: ice
 
 - type: entity
@@ -276,7 +276,7 @@
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: IconSmooth
-    key: walls
+    key: plasmawalls # Mono
     base: plasma
   - type: RadiationBlocker
     resistance: 5
@@ -301,7 +301,7 @@
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: IconSmooth
-    key: walls
+    key: plasticwalls # Mono
     base: plastic
 
 - type: entity
@@ -319,7 +319,7 @@
   - type: Icon
     sprite: Structures/Walls/plastitanium.rsi
   - type: IconSmooth
-    key: walls
+    key: plastitaniumwalls # Mono
     base: plastitanium
   - type: Fixtures
     fixtures:
@@ -399,7 +399,7 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: plastitaniumwalls
     base: state
   - type: Icon
     sprite: Structures/Walls/plastitanium_diagonal.rsi
@@ -443,7 +443,7 @@
     graph: Girder
     node: reinforcedWall
   - type: IconSmooth
-    key: walls
+    key: reinforcedwalls # Mono
     base: reinf_over
   - type: Appearance
   - type: GenericVisualizer
@@ -494,7 +494,7 @@
     graph: Girder
     node: reinforcedWallRust
   - type: IconSmooth
-    key: walls
+    key: reinforcedwalls # Mono
     base: reinf_over
   - type: RCDDeconstructable #Frontier
     cost: 6 #Frontier
@@ -520,7 +520,7 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: reinforcedwalls # Mono
     base: state
   - type: Icon
     sprite: Structures/Walls/reinforced_diagonal.rsi
@@ -566,7 +566,7 @@
   - type: Icon
     sprite: Structures/Walls/riveted.rsi
   - type: IconSmooth
-    key: walls
+    key: rivetedwalls # Mono
     base: riveted
   - type: StaticPrice
     price: 70 # Frontier: 150<115
@@ -592,7 +592,7 @@
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: IconSmooth
-    key: walls
+    key: sandstonewalls # Mono
     base: sandstone
 
 - type: entity
@@ -615,7 +615,7 @@
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: IconSmooth
-    key: walls
+    key: silverwalls # Mono
     base: silver
 
 #shuttle walls
@@ -643,7 +643,7 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: exteriorshuttlewalls # Mono
     base: state
   - type: Icon
     sprite: Structures/Walls/shuttle_diagonal.rsi
@@ -701,7 +701,7 @@
     graph: Girder
     node: shuttleWall
   - type: IconSmooth
-    key: walls
+    key: exteriorshuttlewalls # Mono
     base: state
   - type: Appearance
   - type: GenericVisualizer
@@ -753,7 +753,7 @@
     graph: Girder
     node: shuttleInteriorWall
   - type: IconSmooth
-    key: walls
+    key: interiorshuttlewalls # Mono
     base: state
 #  - type: Reflect # Frontier
 #    reflectProb: 1 # Frontier
@@ -779,7 +779,7 @@
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: IconSmooth
-    key: walls
+    key: solidwalls # Mono
     base: solid
 
 - type: entity
@@ -798,7 +798,7 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: solidwalls # Mono
     base: state
   - type: Icon
     sprite: Structures/Walls/solid_diagonal.rsi
@@ -845,7 +845,7 @@
     graph: Girder
     node: wallrust
   - type: IconSmooth
-    key: walls
+    key: solidwalls # Mono
     base: solid
 
 - type: entity
@@ -931,7 +931,7 @@
         - WallLayer
         density: 6000
   - type: IconSmooth
-    key: walls
+    key: uraniumwalls # Mono
     base: uranium
   - type: RadiationBlocker
     resistance: 6
@@ -1031,7 +1031,7 @@
   - type: Icon
     sprite: Structures/Walls/necropolis.rsi
   - type: IconSmooth
-    key: walls
+    key: necropoliswalls # Mono
     base: necropolis
 
 - type: entity
@@ -1047,7 +1047,7 @@
   - type: Icon
     sprite: Structures/Walls/mining.rsi
   - type: IconSmooth
-    key: walls
+    key: miningwalls # Mono
     base: mining
   - type: RandomIconSmooth
     randomStates:
@@ -1071,7 +1071,7 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: miningwalls # Mono
     base: state
   - type: Icon
     sprite: Structures/Walls/mining_diagonal.rsi

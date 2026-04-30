@@ -10,4 +10,10 @@ public sealed partial class ShipShieldVisualsComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public Color ShieldColor = Color.White;
+
+    /// <summary>
+    /// The extra padding of this shield.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Padding = 50f;
 }
