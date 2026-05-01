@@ -9,7 +9,9 @@
   - WeaponRifleSVSUSSP
   - WeaponSniperMosinUSSP
   - WeaponSubMachineGunAK220USSP
-  position: 16, 2
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 15, 1
 
 - type: technology
   id: UsspMediumGuns
@@ -24,7 +26,7 @@
   technologyPrerequisites:
   - UsspBasicGuns
   - UniversalMaterialResearchT2
-  position: 16, 7
+  position: 15, 6
 
 - type: technology
   id: UsspAk410
@@ -37,7 +39,7 @@
   - WeaponRifleAK410USSP
   technologyPrerequisites:
   - UsspMediumGuns
-  position: 16, 8
+  position: 15, 7
 
 - type: technology
   id: UsspAdvancedGuns
@@ -53,7 +55,7 @@
   technologyPrerequisites:
   - UsspMediumGuns
   - UniversalMaterialResearchT3
-  position: 16, 12
+  position: 15, 11
 
 - type: technology
   id: UsspAdvancedAmmo
@@ -67,4 +69,4 @@
   - AmmoBox23x75mmFlashbang
   technologyPrerequisites:
   - UsspAdvancedGuns
-  position: 16, 13
+  position: 15, 12
