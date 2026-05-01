@@ -61,7 +61,7 @@
   rotation: Fixed
   fx: EffectRCDConstruct1
 
-  # Lattice
+  # Lattice - Mono
 - type: rcd
   id: Lattice
   name: rcd-component-lattice
@@ -440,7 +440,7 @@
     - CanBuildOnEmptyTile
   fx: EffectRCDConstruct1
 
-# Plating
+# Plating - Mono
 - type: rcd
   id: Plating
   name: rcd-component-plating

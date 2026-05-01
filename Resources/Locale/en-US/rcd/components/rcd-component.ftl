@@ -47,7 +47,7 @@ rcd-component-lighting = Lighting
 rcd-component-deconstruct = deconstruct
 rcd-component-floor-steel = steel tile
 
-## Lattice and Plating in their own catagory beacause they're big.
+## Lattice and Plating. Mono
 
 rcd-component-plating = Plating
 rcd-component-PlatingCornerNE = Plating corner NE

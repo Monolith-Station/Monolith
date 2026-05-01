@@ -16,10 +16,10 @@
         <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-walls-and-flooring'}" TargetLayer="WallsAndFlooring" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/walls_and_flooring.png"/>
         </ui:RadialMenuTextureButtonWithSector>
-        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-latticetiles'}" TargetLayer="LatticeTiles" Visible="False">
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-latticetiles'}" TargetLayer="LatticeTiles" Visible="False">     <!-- Mono -->
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/lattice.png"/>
         </ui:RadialMenuTextureButtonWithSector>
-        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-platingtiles'}" TargetLayer="PlatingTiles" Visible="False">
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-platingtiles'}" TargetLayer="PlatingTiles" Visible="False">     <!-- Mono -->
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/plating.png"/>
         </ui:RadialMenuTextureButtonWithSector>
         <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-windows-and-grilles'}" TargetLayer="WindowsAndGrilles" Visible="False">
@@ -40,10 +40,10 @@
     <!-- Walls and flooring -->
     <ui:RadialContainer Name="WallsAndFlooring"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
 
-    <!-- Lattices -->
+    <!-- Lattices Mono -->
     <ui:RadialContainer Name="LatticeTiles"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
 
-    <!-- Plating -->
+    <!-- Plating Mono -->
     <ui:RadialContainer Name="PlatingTiles"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
 
     <!-- Windows and grilles -->
