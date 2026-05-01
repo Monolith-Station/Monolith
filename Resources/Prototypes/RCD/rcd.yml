@@ -31,19 +31,6 @@
   fx: EffectRCDDeconstruct4
 
 # Flooring
-- type: rcd
-  id: Plating
-  name: rcd-component-plating
-  category: WallsAndFlooring
-  sprite: /Textures/Interface/Radial/RCD/plating.png
-  mode: ConstructTile
-  prototype: Plating
-  cost: 1
-  delay: 1
-  collisionMask: InteractImpassable
-  rules:
-    - CanBuildOnEmptyTile
-  fx: EffectRCDConstruct1
 
 - type: rcd
   id: FloorSteel
@@ -78,10 +65,26 @@
 - type: rcd
   id: Lattice
   name: rcd-component-lattice
-  category: WallsAndFlooring
+  category: LatticeTiles
   sprite: /Textures/Interface/Radial/RCD/plating.png
   mode: ConstructTile
   prototype: Lattice
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+# Plating
+
+- type: rcd
+  id: Plating
+  name: rcd-component-plating
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating.png
+  mode: ConstructTile
+  prototype: Plating
   cost: 1
   delay: 1
   collisionMask: InteractImpassable
