@@ -1,28 +1,37 @@
 ﻿- type: entity
-  parent: BaseMachinePowered #TODO machine component 
+  parent: [BaseMachinePowered, ConstructibleMachine]
   id: MachineOreMagnet
-  name: ore magnet # TODO cool name
-  description: TODO cool description
+  name: ore magnet
+  description: Uses a powerful magnet to suck in ore. Has internal storage.
   components:
+  - type: MagnetPickup
+    magnetEnabled: false
+    magnetCanBeEnabled: false
+    range: 30
   - type: Sprite
-    sprite: _NF/Structures/Specific/Explorers/salvageradar.rsi
+    sprite: Structures/Machines/salvage.rsi
     layers:
-    - state: base
-    - state: unshaded
+    - state: salvage-magnet
+    - state: salvage-magnet-o4
       shader: unshaded
-  - type: PointLight # TODO?
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: salvage-magnet-ready-blinking
+      visible: false
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: LitOnPowered
+  - type: PointLight
     radius: 1.5
     energy: 1.6
     color: "#3db83b"
     castShadows: false
-  - type: AmbientSound # TODO 
-    volume: -9
+  - type: AmbientSound
+    volume: -10
     range: 5
     sound:
       path: /Audio/Ambience/Objects/hdd_buzz.ogg
   - type: Appearance
   - type: ApcPowerReceiver
-    powerLoad: 6000 # TODO more?
+    powerLoad: 7000
   - type: ExtensionCableReceiver
   - type: Damageable
     damageContainer: Inorganic
@@ -73,17 +82,39 @@
         ents: [ ]
   - type: Dumpable
     multiplier: 0.15
-  - type: MagnetPickup
-    range: 30
+  - type: ItemToggle
+    soundActivate: &soundActivate
+      collection: sparks
+      params:
+        variation: 0.25
+    soundDeactivate: *soundActivate
+    onUse: false
+    onAltUse: true
+    onActivate: false
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: True }
+          False: { visible: False }
+  - type: ItemToggleExamine
+    on: item-toggle-examine-magnet-on
+    off: item-toggle-examine-magnet-off
+  - type: Machine
+    board: OreMagnetMachineCircuitboard
 
 - type: entity
-  name: ore magnet flatpack #TODO 
+  name: ore magnet flatpack
   id: OreMagnetFlatpack
   parent: BaseNFFlatpack
   description: A flatpack used for constructing an ore magnet.
   components:
   - type: Flatpack
-    entity: MachineSalvageRadar
+    entity: MachineOreMagnet
   - type: StaticPrice
     price: 6500
     vendPrice: 10000
