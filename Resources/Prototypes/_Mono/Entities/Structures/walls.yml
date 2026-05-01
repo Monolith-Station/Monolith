@@ -250,7 +250,7 @@
   suffix: OUTPOST ONLY
   components:
   - type: IconSmooth
-    key: walls
+    key: reinforcedwalls # Mono
     base: reinf_over
   - type: Destructible
     thresholds:
@@ -316,7 +316,7 @@
         acts: ["Destruction"]
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: reinforcedwalls # Mono
     base: state
   - type: Icon
     sprite: Structures/Walls/reinforced_diagonal.rsi

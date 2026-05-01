@@ -45,6 +45,8 @@
   abstract: true
   components:
   - type: Gibbable
+  - type: StaticPrice
+    price: 4500
 
 - type: entity
   id: OrganHumanBrain

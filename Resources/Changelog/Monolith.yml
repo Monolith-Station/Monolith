@@ -20516,3 +20516,83 @@ Entries:
   id: 2262
   time: '2026-04-27T00:07:51.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3894
+- author: 77seven77seven
+  changes:
+    - type: Add
+      message: >-
+        Organs now have a value (2500), and you can now sell them! Printed
+        organs have a value as well, but a significantly small one. If this is
+        abused, prepare to get this shit fucking nerfed into the ground, chuds.
+    - type: Add
+      message: >-
+        Added new Organ Harvester machine, a repurposed Artifact Crusher,
+        basically a hydraulic press with a circular saw.
+  id: 2263
+  time: '2026-04-28T22:04:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3899
+- author: kasature90
+  changes:
+    - type: Add
+      message: Retextured most grenades, and changed flashbang & smoke grenade SFX.
+  id: 2264
+  time: '2026-04-28T22:08:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3898
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: The Energy Shield now has a 10% slowdown when held.
+    - type: Tweak
+      message: The TSFMC "Smilodon" laser LMG's ammo boxes are now EMP resistant.
+  id: 2265
+  time: '2026-04-28T22:11:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3907
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Ship slowdown now kicks in significantly earlier.
+  id: 2266
+  time: '2026-04-28T22:53:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3904
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added heavy-duty airlocks.
+    - type: Tweak
+      message: Buffed high-sec airlock HP.
+  id: 2267
+  time: '2026-04-28T22:54:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3881
+- author: Corrupt142
+  changes:
+    - type: Fix
+      message: Nuked VG jumpsuit sale price to 0 was 700
+  id: 2268
+  time: '2026-04-28T22:54:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3872
+- author: kasature90
+  changes:
+    - type: Remove
+      message: >-
+        Removed flash protection from Syndicate gasmask, Watchdog gasmask, &
+        Welding gas mask.
+  id: 2269
+  time: '2026-04-28T23:59:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3897
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: >-
+        Different types of windows/walls/airlocks no longer weirdly merge into
+        each other.
+  id: 2270
+  time: '2026-04-29T21:25:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3908
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added Lithium & Copper for future industry/economy reworks. Currently
+        serves no purpose until then except for money.
+  id: 2271
+  time: '2026-04-29T23:04:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3867
