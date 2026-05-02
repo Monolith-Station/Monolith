@@ -28,16 +28,16 @@
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/lighting.png"/>
         </ui:RadialMenuTextureButtonWithSector>
 
-        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-windows-and-grilles'}" TargetLayer="Piping" Visible="False">
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-piping'}" TargetLayer="Piping" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RPD/fourway.png"/>
         </ui:RadialMenuTextureButtonWithSector>
-        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-airlocks'}" TargetLayer="AtmosphericUtility" Visible="False">
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-atmosphericutility'}" TargetLayer="AtmosphericUtility" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RPD/port.png"/>
         </ui:RadialMenuTextureButtonWithSector>
-        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-electrical'}" TargetLayer="PumpsValves" Visible="False">
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-pumps'}" TargetLayer="PumpsValves" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RPD/pump_volume.png"/>
         </ui:RadialMenuTextureButtonWithSector>
-        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-lighting'}" TargetLayer="Vents" Visible="False">
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-vents'}" TargetLayer="Vents" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RPD/vent_passive.png"/>
         </ui:RadialMenuTextureButtonWithSector>
         
