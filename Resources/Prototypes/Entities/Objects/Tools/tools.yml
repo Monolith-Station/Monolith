@@ -596,8 +596,8 @@
   description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
   suffix: AutoRecharge
   components:
-- type: AutoRecharge
-  rechargeDuration: 10
+  - type: AutoRecharge
+    rechargeDuration: 10
 
 #Other
 - type: entity
