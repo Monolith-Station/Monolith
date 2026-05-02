@@ -4,15 +4,15 @@ research-discipline-ussp-equipment = USSP Equipment
 research-discipline-ussp-shipyard = USSP Heavy Industry
 
 # T1 USSP
-research-technology-ussp-guns-basic = USSP Basic Armaments
 research-technology-ussp-ships-basic = USSP Tier I Ships
+research-technology-ussp-suits-basic = USSP Basic Equipment
+research-technology-ussp-explosives-medium = USSP Weaponized Explosives
 
 # T2 USSP
 research-technology-ussp-guns-medium = USSP Standard Armaments
 research-technology-ussp-guns-ak410 = USSP Specialized Armaments
 research-technology-ussp-ships-medium = USSP Tier II Ships
 research-technology-ussp-suits-medium = USSP Standard Equipment
-research-technology-ussp-explosives-medium = USSP Weaponized Explosives
 
 # T3 USSP
 research-technology-ussp-guns-advanced = USSP Advanced Armaments
