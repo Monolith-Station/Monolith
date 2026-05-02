@@ -594,9 +594,6 @@
     description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
     suffix: AutoRecharge
     components:
-  - type: LimitedCharges
-    maxCharges: 90 # mono 20 -> 90
-    charges: 90 # mono 20 -> 90
   - type: AutoRecharge
     rechargeDuration: 10
 
