@@ -21,6 +21,11 @@
   - type: Anchorable
   - type: Rotatable
   - type: Destructible
+  - type: RCDDeconstructable
+    cost: 1
+    delay: 2
+    fx: EffectRCDDeconstruct2
+    rpd: true
     thresholds:
     - trigger: # for nukes
         !type:DamageTrigger
