@@ -9,7 +9,7 @@
   - BasicVoucherUssp
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 17, 1
+  position: 12, 4
 
 - type: technology
   id: UsspMediumShips
@@ -22,7 +22,7 @@
   - IntermediateVoucherUssp
   technologyPrerequisites:
   - UsspBasicShips
-  position: 17, 2
+  position: 13, 4
 
 - type: technology
   id: UsspAdvancedShips
@@ -36,7 +36,7 @@
   technologyPrerequisites:
   - UsspMediumShips
   - UniversalMaterialResearchT2
-  position: 17, 6
+  position: 14, 4
 
 - type: technology
   id: UsspLedokol
@@ -50,4 +50,4 @@
   - LedokolRamVoucherUssp
   technologyPrerequisites:
   - UsspAdvancedShips
-  position: 17, 7
+  position: 15, 4

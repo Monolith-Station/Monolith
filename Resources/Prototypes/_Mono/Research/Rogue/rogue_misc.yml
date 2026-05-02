@@ -24,7 +24,7 @@
   - SaintieVoucherRogue
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 22, 4
+  position: 22, 5
 
 - type: technology
   id: RogueDockyard
@@ -37,7 +37,7 @@
   - MotleyAnneVoucherRogue
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 22, 6
+  position: 22, 7
 
 - type: technology
   id: RogueMotleyAnneFighters
@@ -53,7 +53,7 @@
   technologyPrerequisites:
   - UniversalMaterialResearchT2
   - RogueDockyard
-  position: 22, 7
+  position: 22, 8
 
 - type: technology
   id: RogueJaws
@@ -94,7 +94,7 @@
   - AccessBreakerRogue
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 21, 4
+  position: 21, 5
 
 - type: technology
   id: RogueThermals
