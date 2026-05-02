@@ -580,23 +580,23 @@
     sprite: Objects/Tools/rpd.rsi
 
 
- - type: entity
-   id: RPDEmpty
-   parent: RPD
-   suffix: Empty
-   components:
-   - type: LimitedCharges
-     charges: 0
+- type: entity
+  id: RPDEmpty
+  parent: RPD
+  suffix: Empty
+  components:
+  - type: LimitedCharges
+    charges: 0
 
 
- - type: entity
-   id: RPDRecharging
-   parent: RPD
-   name: experimental RPD
-   description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
-   suffix: AutoRecharge
-   components:
- - type: AutoRecharge
+- type: entity
+  id: RPDRecharging
+  parent: RPD
+  name: experimental RPD
+  description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
+  suffix: AutoRecharge
+  components:
+- type: AutoRecharge
   rechargeDuration: 10
 
 #Other
