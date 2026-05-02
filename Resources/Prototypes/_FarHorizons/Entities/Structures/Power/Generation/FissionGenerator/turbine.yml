@@ -104,6 +104,7 @@
     - NuclearReactor
     - Power
   # Mono
+  - type: RequiresGrid
   - type: ShipRepairable
     repairTime: 30
     repairCost: 75

@@ -127,6 +127,7 @@
   - type: PassiveThermalSignature # Mono
     signature: 5000000
   # Mono
+  - type: RequiresGrid
   - type: ShipRepairable
     repairTime: 45
     repairCost: 200

@@ -20474,3 +20474,178 @@ Entries:
   id: 2257
   time: '2026-04-26T01:37:07.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3787
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Trico and Omni no longer kill you on OD, but instead consume more per
+        metabolism (less severe knowledge check punishment). Omni OD threshold
+        reduced to 60
+    - type: Tweak
+      message: >-
+        Bicar now reduces bleeding slightly. Tranexamic now has 0.2 metabolism.
+        Oligomers buffed 2 brute/u >> 2.5 to match bicar's per u healing
+  id: 2258
+  time: '2026-04-26T16:20:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3888
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Lowers ADC piloting boost to 1.2x from 1.5x
+  id: 2259
+  time: '2026-04-26T16:23:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3861
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed reactor explosions being too weak.
+  id: 2260
+  time: '2026-04-26T17:12:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3889
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed map parallax being the default one. Welcome back background rocks.
+  id: 2261
+  time: '2026-04-26T21:51:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3891
+- author: Ark
+  changes:
+    - type: Fix
+      message: Crystallizer GUI can no longer be accessed by Ghosts.
+  id: 2262
+  time: '2026-04-27T00:07:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3894
+- author: 77seven77seven
+  changes:
+    - type: Add
+      message: >-
+        Organs now have a value (2500), and you can now sell them! Printed
+        organs have a value as well, but a significantly small one. If this is
+        abused, prepare to get this shit fucking nerfed into the ground, chuds.
+    - type: Add
+      message: >-
+        Added new Organ Harvester machine, a repurposed Artifact Crusher,
+        basically a hydraulic press with a circular saw.
+  id: 2263
+  time: '2026-04-28T22:04:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3899
+- author: kasature90
+  changes:
+    - type: Add
+      message: Retextured most grenades, and changed flashbang & smoke grenade SFX.
+  id: 2264
+  time: '2026-04-28T22:08:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3898
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: The Energy Shield now has a 10% slowdown when held.
+    - type: Tweak
+      message: The TSFMC "Smilodon" laser LMG's ammo boxes are now EMP resistant.
+  id: 2265
+  time: '2026-04-28T22:11:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3907
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Ship slowdown now kicks in significantly earlier.
+  id: 2266
+  time: '2026-04-28T22:53:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3904
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added heavy-duty airlocks.
+    - type: Tweak
+      message: Buffed high-sec airlock HP.
+  id: 2267
+  time: '2026-04-28T22:54:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3881
+- author: Corrupt142
+  changes:
+    - type: Fix
+      message: Nuked VG jumpsuit sale price to 0 was 700
+  id: 2268
+  time: '2026-04-28T22:54:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3872
+- author: kasature90
+  changes:
+    - type: Remove
+      message: >-
+        Removed flash protection from Syndicate gasmask, Watchdog gasmask, &
+        Welding gas mask.
+  id: 2269
+  time: '2026-04-28T23:59:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3897
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: >-
+        Different types of windows/walls/airlocks no longer weirdly merge into
+        each other.
+  id: 2270
+  time: '2026-04-29T21:25:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3908
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added Lithium & Copper for future industry/economy reworks. Currently
+        serves no purpose until then except for money.
+  id: 2271
+  time: '2026-04-29T23:04:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3867
+- author: Ark
+  changes:
+    - type: Add
+      message: >-
+        Added ambient occlusion to walls so they have shadows around them.
+        Ported from Wizden.
+  id: 2272
+  time: '2026-05-02T05:18:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3893
+- author: Mapleflavoureds
+  changes:
+    - type: Add
+      message: corner lattice and plating tiles have come to the RCD
+  id: 2273
+  time: '2026-05-02T05:19:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3919
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added an awesome & beautiful CRT-esque shader to enable immersive
+        silicon gameplay. Needs species vision filters enabled in Extra settings
+        to apply.
+  id: 2274
+  time: '2026-05-02T05:46:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3902
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        Fixed an issue where the retro-monitor overlay would be applied when it
+        shouldn't be.
+    - type: Tweak
+      message: Species vision filters are now on by default.
+  id: 2275
+  time: '2026-05-02T07:38:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3924
+- author: Mapleflavoureds
+  changes:
+    - type: Add
+      message: added "fyi", "ts" and "pmo" as speech un-abbreviations
+  id: 2276
+  time: '2026-05-02T14:21:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3923
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added a basic NFR setup to the Buran. Might be reverted, might not,
+        don't get used to it.
+  id: 2277
+  time: '2026-05-02T14:41:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3887
