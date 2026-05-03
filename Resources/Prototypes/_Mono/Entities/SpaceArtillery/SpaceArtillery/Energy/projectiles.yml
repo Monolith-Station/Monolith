@@ -61,7 +61,7 @@
     scale: 2.5
     shape: triangle
   - type: TimedDespawn
-    lifetime: 12.2
+    lifetime: 10
   - type: PointLight
     color: "#FF0040"
   - type: ExplodeOnTrigger
