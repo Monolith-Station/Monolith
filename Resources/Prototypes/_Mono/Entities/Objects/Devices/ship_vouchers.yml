@@ -836,13 +836,14 @@
     sprite: _Mono/Objects/Misc/lpcnew.rsi
     layers:
     - state: mtech
+    - state: stripesec
     - state: stripeussp
     - state: vouchermilitary
     - state: icon_fighter
     - state: screen
-      color: "#eb0023"
+      color: "#2E6F40"
     - state: screen8
-      color: "#eb0023"
+      color: "#32CD32"
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: true
