@@ -579,7 +579,6 @@
   - type: Sprite
     sprite: Objects/Tools/rpd.rsi
 
-
 - type: entity
   id: RPDEmpty
   parent: RPD
@@ -587,7 +586,6 @@
   components:
   - type: LimitedCharges
     charges: 0
-
 
 - type: entity
   id: RPDRecharging
