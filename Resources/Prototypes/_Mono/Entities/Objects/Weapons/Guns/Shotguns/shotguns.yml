@@ -130,7 +130,7 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Item
     size: Huge
-    sprite: _Mono/Objects/Weapons/Guns/Shotguns/jack_inhands_64x.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/jack_inhands_32x.rsi
     shape:
     - 0,0,4,3
   - type: Wieldable
@@ -150,12 +150,12 @@
     availableModes:
     - Burst
     burstCooldown: 4
-    burstFireRate: 3
+    burstFireRate: 4.5
     shotsPerBurst: 3
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
   - type: GunSpreadModifier
-    spread: 1.75
+    spread: 1.5
   - type: LaserPointer
     targetedColor: "#FF0000"
     defaultColor: "#FF0000"
@@ -168,7 +168,7 @@
       nfsd: 0.2
   - type: Appearance
   - type: Clothing
-    sprite: _Mono/Objects/Weapons/Guns/Shotguns/jack_inhands_64x.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/jack_inhands_32x.rsi
     slots:
     - Back
     - suitStorage
