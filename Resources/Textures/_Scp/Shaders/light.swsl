@@ -1,0 +1,71 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform lowp float base_haze;
+uniform lowp float hueta_divisor;
+
+const lowp float[3] weights = float[](0.2, 0.0625, 0.0375);
+
+// Function to adjust alpha
+lowp float adjustAlpha(lowp vec4 background) {
+    lowp float avgColor = dot(background.rgb, vec3(0.3333));
+    lowp float boost = (1.0 - (1.0 - avgColor) / 1.15);
+    lowp float transition = clamp((avgColor - 0.035) / hueta_divisor, 0.0, 2.0);
+    return boost * (1.0 - transition) + transition;
+}
+
+// Function to add haze effect
+lowp vec4 addHaze(lowp vec4 color, lowp float intensity) {
+    lowp vec3 haze = vec3(0.9, 0.85, 0.8);
+    return vec4(mix(color.rgb, haze, intensity), color.a);
+}
+
+// Function to perform enhanced blur calculation
+lowp vec4 enhancedBlur(lowp vec2 offset, lowp vec2 uv, lowp vec2 frag, lowp int step) {
+    lowp vec4 bsample = texture2D(TEXTURE, uv + offset * TEXTURE_PIXEL_SIZE) * weights[step];
+    bsample = addHaze(bsample, base_haze);
+    bsample.a *= adjustAlpha(zTextureSpec(SCREEN_TEXTURE, (frag + offset) * SCREEN_PIXEL_SIZE));
+    return bsample;
+}
+
+// Function to calculate offset based on index
+lowp vec2 calculateOffset(lowp int index, lowp float step) {
+    lowp vec3 offsetBase = vec3(1.0, 0.0, -1.0);
+    lowp vec2 offsets[8];
+    offsets[0] = offsetBase.xy;
+    offsets[1] = -offsetBase.xy;
+    offsets[2] = offsetBase.yx;
+    offsets[3] = -offsetBase.yx;
+    offsets[4] = offsetBase.xx;
+    offsets[5] = offsetBase.xz;
+    offsets[6] = offsetBase.zx;
+    offsets[7] = offsetBase.zz;
+
+    return offsets[index % 8] * step;
+}
+
+void fragment() {
+    lowp vec4 sprite = zTexture(UV);
+
+    if (sprite.a == 0.0) {
+        discard;
+    }
+
+    lowp vec3 offsetBase = vec3(1.0, 0.0, -1.0);
+    lowp vec4 sum = enhancedBlur(vec2(0), UV.xy, FRAGCOORD.xy, 0);
+
+    lowp vec4 bsample;
+    lowp float floatstep = 0.0;
+
+    for (lowp int i = 0; i < 2; i++) {
+        floatstep += 1.0;
+
+        for (lowp int j = 0; j < 8; j++) {
+            lowp vec2 offset = calculateOffset(j, floatstep);
+            bsample = enhancedBlur(offset, UV.xy, FRAGCOORD.xy, i + 1);
+            sum += bsample;
+        }
+    }
+
+    sum = addHaze(sum, 0.2);
+
+    COLOR = sum;
+}

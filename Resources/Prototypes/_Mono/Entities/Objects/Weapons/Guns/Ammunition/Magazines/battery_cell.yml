@@ -78,7 +78,7 @@
   id: LargePowerCell400Thz
   parent: BaseMilitaryPowerCell
   name: DEW-1R 400Thz battery box (large)
-  description: A large and militarized power box for directed energy weapons. Tuned to fire low-frequency lasers with high capacity but low recharge speed. Vulnerable to EMP.
+  description: A large and militarized power box for directed energy weapons. Tuned to fire low-frequency lasers with high capacity but low recharge speed. Slightly resistant to EMP.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Power/tsfbattery.rsi
@@ -94,6 +94,8 @@
   - type: Battery
     maxCharge: 10000
     startingCharge: 10000
+  - type: EmpResistance
+    coefficient: 0.002
   - type: HitscanBatteryAmmoProvider
     proto: Hitscan400Thz
     fireCost: 50
@@ -107,7 +109,7 @@
   id: LargePowerCell700Thz
   parent: BaseMilitaryPowerCell
   name: DEW-VU 700Thz battery box (large)
-  description: A large and militarized power box for directed energy weapons. Tuned to fire high-frequency lasers with low capacity and low recharge speed. Vulnerable to EMP.
+  description: A large and militarized power box for directed energy weapons. Tuned to fire high-frequency lasers with low capacity and low recharge speed. Resistant to EMP.
   components:
     - type: Sprite
       sprite: _Mono/Objects/Power/tsfbattery.rsi
@@ -122,6 +124,8 @@
     - type: Battery
       maxCharge: 10000
       startingCharge: 10000
+    - type: EmpResistance
+      coefficient: 0.001
     - type: HitscanBatteryAmmoProvider
       proto: Hitscan700Thz
       fireCost: 250
