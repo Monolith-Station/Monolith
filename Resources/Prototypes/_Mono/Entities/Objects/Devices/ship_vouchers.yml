@@ -837,6 +837,12 @@
     - state: mtech
     - state: stripeussp
     - state: vouchermilitary
+    - state: icon_fighter
+    - state: screen
+      color: "#eb0023"
+    - state: screen8
+      color: "#eb0023"
+      shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: true
     consoleType: Custom
