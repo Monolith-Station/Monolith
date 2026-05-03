@@ -57,6 +57,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : DefaultWindow
 
         CameraView.ViewportSize = new Vector2i(500, 500);
         CameraView.Eye = _defaultEye; // sure
+        CameraView.Shader = _prototypeManager.Index<ShaderPrototype>("crt_vhs").Instance().Duplicate(); // Mono - fix shader ID
         CameraViewBackground.Stretch = TextureRect.StretchMode.Scale;
         CameraViewBackground.Texture = texture;
         CameraViewBackground.ShaderOverride = shader;

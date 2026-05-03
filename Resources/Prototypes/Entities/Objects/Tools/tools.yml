@@ -362,7 +362,6 @@
     availablePrototypes:
     - WallSolid
     - FloorSteel
-    - Plating
     - Catwalk
     - Grille
     - Window
@@ -385,6 +384,60 @@
     - AirlockGlassShuttle
     - SMES
     - Substation
+    - Plating # Not mono, taken in for prettiness
+    - PlatingCornerNE
+    - PlatingCornerNW
+    - PlatingCornerSE
+    - PlatingCornerSW
+    - PlatingHalfV
+    - PlatingHalfH
+    - PlatingWedgeN
+    - PlatingWedgeE
+    - PlatingWedgeS
+    - PlatingWedgeW
+    - PlatingHalfTiltNESLower
+    - PlatingHalfTiltSEWLower
+    - PlatingHalfTiltSWNLower
+    - PlatingHalfTiltNWELower
+    - PlatingHalfTiltNESUpper
+    - PlatingHalfTiltSEWUpper
+    - PlatingHalfTiltSWNUpper
+    - PlatingHalfTiltNWEUpper
+    - PlatingHalfTiltNEWLower
+    - PlatingHalfTiltSENLower
+    - PlatingHalfTiltSWELower
+    - PlatingHalfTiltNWSLower
+    - PlatingHalfTiltNEWUpper
+    - PlatingHalfTiltSENUpper
+    - PlatingHalfTiltSWEUpper
+    - PlatingHalfTiltNWSUpper
+    - Lattice
+    - LatticeCornerNE
+    - LatticeCornerNW
+    - LatticeCornerSE
+    - LatticeCornerSW
+    - LatticeHalfV
+    - LatticeHalfH
+    - LatticeWedgeN
+    - LatticeWedgeE
+    - LatticeWedgeS
+    - LatticeWedgeW
+    - LatticeHalfTiltNESLower
+    - LatticeHalfTiltSEWLower
+    - LatticeHalfTiltSWNLower
+    - LatticeHalfTiltNWELower
+    - LatticeHalfTiltNESUpper
+    - LatticeHalfTiltSEWUpper
+    - LatticeHalfTiltSWNUpper
+    - LatticeHalfTiltNWEUpper
+    - LatticeHalfTiltNEWLower
+    - LatticeHalfTiltSENLower
+    - LatticeHalfTiltSWELower
+    - LatticeHalfTiltNWSLower
+    - LatticeHalfTiltNEWUpper
+    - LatticeHalfTiltSENUpper
+    - LatticeHalfTiltSWEUpper
+    - LatticeHalfTiltNWSUpper
     delayMultiplier: 0.65 # Mono
   - type: LimitedCharges
     maxCharges: 125 # mono 30 -> 125
