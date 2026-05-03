@@ -9,7 +9,7 @@
   - UllmanWeaponPulsePistol
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 18, 1
+  position: 15, 2
 
 - type: technology
   id: UllmanWeaponHiEnd
@@ -28,7 +28,7 @@
   technologyPrerequisites:
   - UniversalMaterialResearchT2
   - UllmanPulseAdv
-  position: 18, 7
+  position: 15, 8
 
 - type: technology
   id: UllmanHardsuitBasic
@@ -42,7 +42,7 @@
   - UllmanHardsuitEngineer
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 17, 1
+  position: 15, 1
 
 
 - type: technology
@@ -57,7 +57,7 @@
   - UllmanHardsuitEnforcerMKII
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 17, 7
+  position: 15, 7
 
 
 
