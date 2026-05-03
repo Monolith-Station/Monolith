@@ -61,6 +61,7 @@
     understands:
     - TauCetiBasic
     - RobotTalk
+  - type: RetroMonitorView # Mono
 
 - type: entity
   parent: MMI
@@ -157,3 +158,4 @@
       understands:
       - TauCetiBasic # Added since posi brains should be able to understand TauCetiBasic (they can in a chassis)
       - RobotTalk
+    - type: RetroMonitorView # Mono

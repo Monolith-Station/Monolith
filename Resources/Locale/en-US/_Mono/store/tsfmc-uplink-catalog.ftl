@@ -82,14 +82,32 @@ uplink-security-ashstorm-desc = The TSF-EM72 Ashstorm is a directed-energy light
 uplink-security-smilodon-name = DEW-50-C 'Smilodon'
 uplink-security-smilodon-desc = The DEW-50-C Smilodon is a directed-energy light machine gun used by the TSF. Devastating.
 
-uplink-security-medium-voucher-name = TSFMC Medium Ship Voucher
-uplink-security-medium-voucher-desc = A single use voucher for any small to medium sized ship.
+uplink-security-t0-voucher-name = TSFMC Tier 0 Ship Voucher
+uplink-security-t0-voucher-desc = A single-use voucher for any small ship.
 
-uplink-security-capital-voucher-name = TSFMC Capital Ship Voucher
-uplink-security-capital-voucher-desc = A single use voucher for any small to capital sized ship.
+uplink-security-t1-spica-voucher-name = TSFMC Spica LPC [T1]
+uplink-security-t1-spica-voucher-desc = A small card that contains the data for the procurement of a Spica-class escort from the flagship's reserves.
 
-uplink-security-flyssa-voucher-name = TSFMC Flyssa Ship Voucher
-uplink-security-flyssa-voucher-desc = A single use voucher for the Flyssa.
+uplink-security-t1-dagger-voucher-name = TSFMC Dagger LPC [T1]
+uplink-security-t1-dagger-voucher-desc = A small card that contains the data for the procurement of a Dagger-class railgun destroyer from the flagship's reserves.
+
+uplink-security-t1-tarantula-voucher-name = TSFMC Tarantula LPC [T1]
+uplink-security-t1-tarantula-voucher-desc = A small card that contains the data for the procurement of a Tarantula-class escort from the flagship's reserves.
+
+uplink-security-t1-sentinel-voucher-name = TSFMC Sentinel LPC [T1]
+uplink-security-t1-sentinel-voucher-desc = A small card that contains the data for the procurement of a Sentinel-class escort from the flagship's reserves.
+
+uplink-security-t1-aldebaran-voucher-name = TSFMC Aldebaran LPC [T1]
+uplink-security-t1-aldebaran-voucher-desc = A small card that contains the data for the procurement of an Aldebaran-class frigate from the flagship's reserves.
+
+uplink-security-t2-andromeda-voucher-name = TSFMC Andromeda LPC [T2]
+uplink-security-t2-andromeda-voucher-desc = A small card that contains the data for the procurement of an Andromeda-class cruiser from the flagship's reserves.
+
+uplink-security-t3-altair-voucher-name = TSFMC Altair LPC [T3]
+uplink-security-t3-altair-voucher-desc = A small card that contains the data for the procurement of an Altair-class frigate from the flagship's reserves.
+
+uplink-security-flyssa-voucher-name = TSFMC Flyssa LPC [T4]
+uplink-security-flyssa-voucher-desc = A small card that contains the data for the procurement of a Flyssa-class destroyer from the flagship's reserves.
 
 uplink-security-sentry-mk290-name = MK-290 Deployable Sentry System
 uplink-security-sentry-mk290-desc = A multipurpose portable sentry, capable of feeding from 5.56x45mm, 6.8x52mm, and 7.62x39mm magazines. Requires a screwdriver to disassemble once placed.

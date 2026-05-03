@@ -20578,3 +20578,120 @@ Entries:
   id: 2269
   time: '2026-04-28T23:59:40.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3897
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: >-
+        Different types of windows/walls/airlocks no longer weirdly merge into
+        each other.
+  id: 2270
+  time: '2026-04-29T21:25:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3908
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added Lithium & Copper for future industry/economy reworks. Currently
+        serves no purpose until then except for money.
+  id: 2271
+  time: '2026-04-29T23:04:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3867
+- author: Ark
+  changes:
+    - type: Add
+      message: >-
+        Added ambient occlusion to walls so they have shadows around them.
+        Ported from Wizden.
+  id: 2272
+  time: '2026-05-02T05:18:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3893
+- author: Mapleflavoureds
+  changes:
+    - type: Add
+      message: corner lattice and plating tiles have come to the RCD
+  id: 2273
+  time: '2026-05-02T05:19:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3919
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added an awesome & beautiful CRT-esque shader to enable immersive
+        silicon gameplay. Needs species vision filters enabled in Extra settings
+        to apply.
+  id: 2274
+  time: '2026-05-02T05:46:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3902
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        Fixed an issue where the retro-monitor overlay would be applied when it
+        shouldn't be.
+    - type: Tweak
+      message: Species vision filters are now on by default.
+  id: 2275
+  time: '2026-05-02T07:38:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3924
+- author: Mapleflavoureds
+  changes:
+    - type: Add
+      message: added "fyi", "ts" and "pmo" as speech un-abbreviations
+  id: 2276
+  time: '2026-05-02T14:21:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3923
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added a basic NFR setup to the Buran. Might be reverted, might not,
+        don't get used to it.
+  id: 2277
+  time: '2026-05-02T14:41:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3887
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        Actually fixed the film grain shader appearing when unwanted. Do "cvar
+        shader.grain_toggle_overlay true" in console if you liked it somehow.
+  id: 2278
+  time: '2026-05-02T22:21:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3928
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Brought back walls of different types having iconsmooth.
+  id: 2279
+  time: '2026-05-03T00:05:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3926
+- author: Onezero0
+  changes:
+    - type: Add
+      message: Added roundstart LPCs to faction bases, plus new central static uplinks!
+    - type: Add
+      message: >-
+        You can now buy LPCs for all faction ships from static and/or
+        colonel/vizier uplinks.
+    - type: Remove
+      message: Removed USSP, Colonel, and TSF medium vouchers.
+    - type: Tweak
+      message: >-
+        TESTMERGE: Most faction ships are now locked behind LPCs. These LPCs
+        have unlimited uses, but have "short" (one hour) cooldowns. Remember to
+        transfer the deed to your ID by swiping the LPC on your ID after buying
+        a ship with an LPC.
+  id: 2280
+  time: '2026-05-03T01:21:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3886
+- author: lopsidedmanboobs
+  changes:
+    - type: Add
+      message: >-
+        FTL's & Densavars are now in RPR9 and expected to uphold harsher RP
+        standards.
+    - type: Remove
+      message: You can no longer KOS for Command Bounties.
+  id: 2281
+  time: '2026-05-03T09:39:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3933

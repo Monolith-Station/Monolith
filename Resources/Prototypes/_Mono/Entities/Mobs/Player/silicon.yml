@@ -119,6 +119,7 @@
       state: default
   - type: ShowJobIcons
   - type: AdvancedPilot # can use both gunnery and shuttle console even on capitals
+  - type: RetroMonitorView
 
 - type: entity
   id: BaseBorgChassisRedacted
