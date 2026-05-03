@@ -96,7 +96,7 @@
     state: state0
   - type: IconSmooth
     mode: DiagonalNF
-    key: uraniumwalls # Mono
+    key: walls
     base: state
   - type: Icon
     sprite: _NF/Structures/Walls/uranium_diagonal.rsi

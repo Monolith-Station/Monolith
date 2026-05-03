@@ -232,46 +232,141 @@
         tags:
           - SecurityUplink
 
+# Vouchers
+
 - type: listing
-  id: UplinkSecurityMediumVoucher
-  name:  uplink-security-medium-voucher-name
-  description: uplink-security-medium-voucher-desc
-  productEntity: ShipVoucherNfsdSergeant
+  id: UplinkSecurityT0Voucher
+  name:  uplink-security-t0-voucher-name
+  description: uplink-security-t0-voucher-desc
+  productEntity: ShipVoucherTsfT0
   cost:
     FederationMilitaryCredit: 25
   categories:
   - UplinkSecurityVouchers
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - SecurityUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - Bailiff
-        - SeniorOfficer
-        - Sheriff
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+# start T1
 
 - type: listing
-  id: UplinkSecurityCapitalVoucher
-  name:  uplink-security-capital-voucher-name
-  description: uplink-security-capital-voucher-desc
-  productEntity: ShipVoucherNfsdBailiff
+  id: UplinkSecurityT1VoucherSpica
+  name:  uplink-security-t1-spica-voucher-name
+  description: uplink-security-t1-spica-voucher-desc
+  productEntity: ShipVoucherSpica
   cost:
-    FederationMilitaryCredit: 125
+    FederationMilitaryCredit: 90
   categories:
   - UplinkSecurityVouchers
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - SecurityUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - Bailiff
-        - Sheriff
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
 
-# Misc
+- type: listing
+  id: UplinkSecurityT1VoucherDagger
+  name:  uplink-security-t1-dagger-voucher-name
+  description: uplink-security-t1-dagger-voucher-desc
+  productEntity: ShipVoucherDagger
+  cost:
+    FederationMilitaryCredit: 100
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+- type: listing
+  id: UplinkSecurityT1VoucherTarantula
+  name:  uplink-security-t1-tarantula-voucher-name
+  description: uplink-security-t1-tarantula-voucher-desc
+  productEntity: ShipVoucherTarantula
+  cost:
+    FederationMilitaryCredit: 110
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+- type: listing
+  id: UplinkSecurityT1VoucherSentinel
+  name:  uplink-security-t1-sentinel-voucher-name
+  description: uplink-security-t1-sentinel-voucher-desc
+  productEntity: ShipVoucherSentinel
+  cost:
+    FederationMilitaryCredit: 110
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+- type: listing
+  id: UplinkSecurityT1VoucherAldebaran
+  name:  uplink-security-t1-aldebaran-voucher-name
+  description: uplink-security-t1-aldebaran-voucher-desc
+  productEntity: ShipVoucherAldebaran
+  cost:
+    FederationMilitaryCredit: 90
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+# end T1
+
+# start T2
+
+- type: listing
+  id: UplinkSecurityT2VoucherAndromeda
+  name:  uplink-security-t2-andromeda-voucher-name
+  description: uplink-security-t2-andromeda-voucher-desc
+  productEntity: ShipVoucherAndromeda
+  cost:
+    FederationMilitaryCredit: 180
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+# end T2
+
+# start T3
+
+- type: listing
+  id: UplinkSecurityT3VoucherAltair
+  name:  uplink-security-t3-altair-voucher-name
+  description: uplink-security-t3-altair-voucher-desc
+  productEntity: ShipVoucherAltair
+  cost:
+    FederationMilitaryCredit: 400
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+# end T3
+
+# start T4
 
 - type: listing
   id: UplinkSecurityFlyssaVoucher
@@ -286,11 +381,11 @@
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - SecurityUplink
-  - !type:BuyerJobCondition
-    whitelist:
-    - Bailiff
-    - Sheriff
+      - FactionStaticUplinkTsf
+
+# end T4
+
+# Misc
 
 - type: listing
   id: UplinkSecurityFactionRDServer

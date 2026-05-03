@@ -1295,3 +1295,186 @@
 #    whitelist:
 #      tags:
 #      - PirateUplink
+
+# Vouchers
+
+- type: listing
+  id: UplinkPDVT0Voucher
+  name:  uplink-pdv-t0-voucher-name
+  description: uplink-pdv-t0-voucher-desc
+  productEntity: ShipVoucherPdvT0
+  cost:
+    Doubloon: 25
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+# start T1
+
+- type: listing
+  id: UplinkSecurityT1VoucherHourglass
+  name:  uplink-pdv-t1-hourglass-voucher-name
+  description: uplink-pdv-t1-hourglass-voucher-desc
+  productEntity: ShipVoucherHourglass
+  cost:
+    Doubloon: 80
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
+  id: UplinkSecurityT1VoucherFenrir
+  name:  uplink-pdv-t1-fenrir-voucher-name
+  description: uplink-pdv-t1-fenrir-voucher-desc
+  productEntity: ShipVoucherFenrir
+  cost:
+    Doubloon: 100
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
+  id: UplinkSecurityT1VoucherScorpion
+  name:  uplink-pdv-t1-scorpion-voucher-name
+  description: uplink-pdv-t1-scorpion-voucher-desc
+  productEntity: ShipVoucherScorpion
+  cost:
+    Doubloon: 120
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
+  id: UplinkSecurityT1VoucherBastion
+  name:  uplink-pdv-t1-bastion-voucher-name
+  description: uplink-pdv-t1-bastion-voucher-desc
+  productEntity: ShipVoucherBastion
+  cost:
+    Doubloon: 110
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
+  id: UplinkSecurityT1VoucherNeptune
+  name:  uplink-pdv-t1-neptune-voucher-name
+  description: uplink-pdv-t1-neptune-voucher-desc
+  productEntity: ShipVoucherNeptune
+  cost:
+    Doubloon: 130
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+# end T1
+
+# start T2
+
+- type: listing
+  id: UplinkSecurityT2VoucherEuropa
+  name:  uplink-pdv-t2-europa-voucher-name
+  description: uplink-pdv-t2-europa-voucher-desc
+  productEntity: ShipVoucherEuropa
+  cost:
+    Doubloon: 200
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
+  id: UplinkSecurityT2VoucherVulture
+  name:  uplink-pdv-t2-vulture-voucher-name
+  description: uplink-pdv-t2-vulture-voucher-desc
+  productEntity: ShipVoucherVulture
+  cost:
+    Doubloon: 200
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
+  id: UplinkSecurityT2VoucherMotleyAnne
+  name:  uplink-pdv-t2-motleyanne-voucher-name
+  description: uplink-pdv-t2-motleyanne-voucher-desc
+  productEntity: ShipVoucherMotleyAnne
+  cost:
+    Doubloon: 200
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+# end T2
+
+# start T3
+
+- type: listing
+  id: UplinkSecurityT3VoucherSaintie
+  name:  uplink-pdv-t3-saintie-voucher-name
+  description: uplink-pdv-t3-saintie-voucher-desc
+  productEntity: ShipVoucherSaintie
+  cost:
+    Doubloon: 400
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+# end T3
+
+# start T4
+
+- type: listing
+  id: UplinkSecurityT4VoucherSaturn
+  name:  uplink-pdv-t4-saturn-voucher-name
+  description: uplink-pdv-t4-saturn-voucher-desc
+  productEntity: ShipVoucherSaturn
+  cost:
+    Doubloon: 750
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+# end T4

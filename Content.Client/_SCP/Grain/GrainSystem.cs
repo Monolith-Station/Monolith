@@ -1,4 +1,6 @@
-﻿using Robust.Client.Graphics;
+﻿using Content.Shared._Scp.ScpCCVars; // Mono
+using Robust.Client.Graphics; // Mono
+using Robust.Shared.Configuration; // Mono
 using Robust.Shared.Player;
 
 namespace Content.Client._Scp.Grain;
@@ -7,6 +9,7 @@ namespace Content.Client._Scp.Grain;
 public sealed class GrainOverlaySystem : EntitySystem
 {
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Mono
 
     private GrainOverlay _overlay = default!;
 
@@ -18,6 +21,8 @@ public sealed class GrainOverlaySystem : EntitySystem
 
         SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetached);
+
+        Subs.CVar(_cfg, ScpCCVars.GrainToggleOverlay, OnGrainCvarChanged); // Mono
     }
 
     private void OnPlayerAttached(LocalPlayerAttachedEvent args)
@@ -36,20 +41,33 @@ public sealed class GrainOverlaySystem : EntitySystem
     {
         if (_overlayManager.HasOverlay<GrainOverlay>())
             _overlayManager.RemoveOverlay(_overlay);
-        else
+        else if (_cfg.GetCVar(ScpCCVars.GrainToggleOverlay)) // Mono
             _overlayManager.AddOverlay(_overlay);
     }
 
     public void AddOverlay()
     {
-        if (!_overlayManager.HasOverlay<GrainOverlay>())
+        if (!_overlayManager.HasOverlay<GrainOverlay>() && _cfg.GetCVar(ScpCCVars.GrainToggleOverlay)) // Mono
             _overlayManager.AddOverlay(_overlay);
     }
 
     public void RemoveOverlay()
     {
         if (_overlayManager.HasOverlay<GrainOverlay>())
+            _overlayManager.RemoveOverlay(_overlay); // Mono
+    }
+    // Mono start
+    private void OnGrainCvarChanged(bool enabled)
+    {
+        if (enabled)
+        {
             _overlayManager.AddOverlay(_overlay);
+        }
+        else
+        {
+            _overlayManager.RemoveOverlay(_overlay);
+        }
+        // Mono end
     }
 
     #endregion
