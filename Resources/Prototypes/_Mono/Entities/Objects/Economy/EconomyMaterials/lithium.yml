@@ -1,0 +1,80 @@
+- type: entity
+  parent: MaterialBase
+  id: MaterialLithium
+  name: lithium
+  description: Lithium is a soft, brittle metal widely used in a range of electronic applications, most notably alkali-batteries. Its also dangerously reactive!
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/industry-sheets.rsi
+    state: lithium_3
+    layers:
+    - state: lithium_3
+      map: ["base"]
+  - type: Tag
+    tags:
+    - Sheet
+  - type: Item
+    sprite: _Mono/Objects/Materials/industry-sheets.rsi
+    heldPrefix: lithium
+  - type: Stack
+    stackType: Lithium
+    count: 100
+    baseLayer: base
+    layerStates:
+    - lithium
+    - lithium_2
+    - lithium_3
+  - type: Material
+  - type: Appearance
+  - type: PhysicalComposition
+    materialComposition:
+      Lithium: 100
+  - type: Extractable
+    grindableSolutionName: plate
+  - type: SolutionContainerManager
+    solutions:
+      plate:
+        reagents:
+        - ReagentId: Lithium
+          Quantity: 5 # It isn't very dense.
+
+- type: entity
+  parent: MaterialLithium
+  id: SheetLithium1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialLithium
+  id: SheetLithium10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: MaterialLithium
+  id: SheetLithium50
+  suffix: 50
+  components:
+  - type: Stack
+    count: 50
+
+- type: material
+  id: Lithium
+  stackEntity: SheetLithium1
+  name: materials-lithium
+  unit: materials-unit-sheet
+  icon: { sprite: /Textures/_Mono/Objects/Materials/industry-sheets.rsi, state: lithium }
+  color: "#4B4B4E"
+  price: 0.3 # 30/sheet
+
+- type: stack
+  id: Lithium
+  name: lithium
+  icon: { sprite: /Textures/_Mono/Objects/Materials/industry-sheets.rsi, state: lithium }
+  spawn: SheetLithium1
+  maxCount: 100

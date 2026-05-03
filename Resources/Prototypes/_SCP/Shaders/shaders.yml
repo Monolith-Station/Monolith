@@ -1,0 +1,19 @@
+- type: shader
+  id: crt_vhs
+  kind: source
+  path: "/Textures/_Scp/Shaders/crt_vhs.swsl"
+
+- type: shader
+  id: Grain
+  kind: source
+  path: "/Textures/_Scp/Shaders/grain.swsl"
+
+- type: shader
+  id: Vignette
+  kind: source
+  path: "/Textures/_Scp/Shaders/vignette.swsl"
+
+- type: shader
+  id: LightingOverlay
+  kind: source
+  path: "/Textures/_Scp/Shaders/light.swsl"

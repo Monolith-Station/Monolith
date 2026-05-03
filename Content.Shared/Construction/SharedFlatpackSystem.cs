@@ -14,6 +14,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Content.Shared.Construction.EntitySystems;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Physics;
 
 namespace Content.Shared.Construction;
 
@@ -79,13 +81,18 @@ public abstract class SharedFlatpackSystem : EntitySystem
             return;
         }
 
+        if (!PrototypeManager.Resolve(comp.Entity, out var proto) ||
+            !proto.TryGetComponent<FixturesComponent>(out var fixture, EntityManager.ComponentFactory))
+        {
+            return;
+        }
+
+        var (layer, mask) = SharedPhysicsSystem.GetHardCollision(fixture);
         var buildPos = _map.TileIndicesFor(grid, gridComp, xform.Coordinates);
 
-        // Mono fix - makes this logic smarter using existing anchorable logic.
-        // Could be made better by getting the actual collison layers and mask of the spawned entity, but that's kind of complicated before its spawned.
-        if (!_anchorable.TileFree(gridComp, buildPos, ent.Comp.CollisionLayer, ent.Comp.CollisionMask))
+        if (!_anchorable.TileFree(gridComp, buildPos, layer, mask))
         {
-            _popup.PopupPredicted(Loc.GetString("flatpack-unpack-no-room"), uid, args.User); // Mono, predict the popup
+            _popup.PopupPredicted(Loc.GetString("flatpack-unpack-no-room"), uid, args.User);
             return;
         }
 

@@ -40,6 +40,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
+    key: miningwindows # Mono
     base: mwindow
   - type: Appearance
   - type: DamageVisuals
@@ -53,6 +54,7 @@
 
 - type: entity
   parent: ShuttleWindow
+  name: mining window # Mono
   id: MiningWindowDiagonal
   suffix: diagonal
   placement:
@@ -69,7 +71,7 @@
     - Diagonal
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Frontier: windows<walls
+    key: miningwindows # Mono
     base: state
   - type: Icon
     sprite: Structures/Windows/mining_diagonal.rsi

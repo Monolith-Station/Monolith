@@ -5,6 +5,7 @@ store-category-piratemedical = Medical
 store-category-pirateutility = Utility
 store-category-pirateammo = Ammunition
 store-category-pirateexplosives = Explosives
+store-category-pdvvouchers = Vouchers
 store-category-pirategambling = Gambling
 # Mono edit end
 

@@ -273,6 +273,11 @@
   result: ArtifactCrusherMachineCircuitboard
 
 - type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: OrganHarvesterMachineCircuitboard
+  result: OrganHarvesterMachineCircuitboard
+
+- type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: AnomalyVesselCircuitboard
   result: AnomalyVesselCircuitboard
