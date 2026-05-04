@@ -297,10 +297,10 @@
       - FactionStaticUplinkTsf
 
 - type: listing
-  id: UplinkSecurityT1VoucherSentinel
-  name:  uplink-security-t1-sentinel-voucher-name
-  description: uplink-security-t1-sentinel-voucher-desc
-  productEntity: ShipVoucherSentinel
+  id: UplinkSecurityT1VoucherPernach
+  name:  uplink-security-t1-pernach-voucher-name
+  description: uplink-security-t1-pernach-voucher-desc
+  productEntity: ShipVoucherPernach
   cost:
     FederationMilitaryCredit: 110
   categories:

@@ -94,8 +94,8 @@ uplink-security-t1-dagger-voucher-desc = A small card that contains the data for
 uplink-security-t1-tarantula-voucher-name = TSFMC Tarantula LPC [T1]
 uplink-security-t1-tarantula-voucher-desc = A small card that contains the data for the procurement of a Tarantula-class escort from the flagship's reserves.
 
-uplink-security-t1-sentinel-voucher-name = TSFMC Sentinel LPC [T1]
-uplink-security-t1-sentinel-voucher-desc = A small card that contains the data for the procurement of a Sentinel-class escort from the flagship's reserves.
+uplink-security-t1-pernach-voucher-name = TSFMC Pernach LPC [T1]
+uplink-security-t1-pernach-voucher-desc = A small card that contains the data for the procurement of a Pernach-class escort from the flagship's reserves.
 
 uplink-security-t1-aldebaran-voucher-name = TSFMC Aldebaran LPC [T1]
 uplink-security-t1-aldebaran-voucher-desc = A small card that contains the data for the procurement of an Aldebaran-class frigate from the flagship's reserves.
