@@ -35,6 +35,16 @@ public sealed partial class MappingScreen : InGameScreen
     private bool _decalCleanable;
 
     private bool _decalAuto;
+    public float DecalRotation
+    {
+        get => _decalRotation;
+        set
+        {
+            _decalRotation = value;
+            _rotationSpinBox.Value = value;
+            UpdateDecal();
+        }
+    }
 
     public override ChatBox ChatBox => GetWidget<ChatBox>()!;
 
@@ -149,7 +159,7 @@ public sealed partial class MappingScreen : InGameScreen
         }
         else
         {
-            Flip.Texture.TexturePath = "/Textures/_Wizden/Interface/VerbIcons/rotate_ccw.svg.192dpi.png";
+            Flip.Texture.TexturePath = "/Textures/Interface/VerbIcons/rotate_ccw.svg.192dpi.png";
 
             HideLeftSide.OnPressed -= OnToggleLeftContainer;
             HideLeftSide.OnPressed += OnToggleRightContainer;

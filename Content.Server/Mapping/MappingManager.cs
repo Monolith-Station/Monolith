@@ -18,6 +18,8 @@ using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Utility;
 using YamlDotNet.Core;
 using YamlDotNet.RepresentationModel;
+using Content.Shared._Mono.CCVar;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.Mapping;
 
@@ -32,6 +34,7 @@ public sealed class MappingManager : IPostInjectInit
     [Dependency] private readonly ISerializationManager _serialization = default!; //Reserve - Wizden mapping editor
     [Dependency] private readonly IResourceManager _resourceMan = default!; //Reserve - Wizden mapping editor
     [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!; //Reserve - Wizden mapping editor
 
     private ISawmill _sawmill = default!;
     private ZStdCompressionContext _zstd = default!;
@@ -97,8 +100,16 @@ public sealed class MappingManager : IPostInjectInit
     //Reserve - Wizden mapping editor begin
     private void OnMappingFavoritesSave(MappingFavoritesSaveMessage message)
     {
-        var mapping = new MappingDataNode();
-        mapping.Add("prototypes", _serialization.WriteValue(message.PrototypeIDs, notNullableOverride: true));
+        if (!_config.GetCVar(MonoCVars.MappingEditorFavoritesSaving))
+        {
+            _sawmill.Error("Saving of favorites not enabled. To continue, toggle cvar mono.mapping_editor_favorites_saving .");
+            return;
+        }
+
+        var mapping = new MappingDataNode
+        {
+            { "prototypes", _serialization.WriteValue(message.PrototypeIDs, notNullableOverride: true) }
+        };
 
         var path = new ResPath(FavoritesPath);
         using var writer = _resourceMan.UserData.OpenWriteText(path);
@@ -108,6 +119,12 @@ public sealed class MappingManager : IPostInjectInit
 
     private void OnMappingFavoritesLoad(MappingFavoritesLoadMessage message)
     {
+        if (!_config.GetCVar(MonoCVars.MappingEditorFavoritesSaving))
+        {
+            _sawmill.Error("Saving of favorites not enabled. To continue, toggle cvar mono.mapping_editor_favorites_saving .");
+            return;
+        }
+
         var path = new ResPath(FavoritesPath);
 
         if (!_resourceMan.UserData.Exists(path))
@@ -117,7 +134,7 @@ public sealed class MappingManager : IPostInjectInit
         {
             var reader = _resourceMan.UserData.OpenText(path);
             var documents = DataNodeParser.ParseYamlStream(reader).First();
-            var mapping = (MappingDataNode) documents.Root;
+            var mapping = (MappingDataNode)documents.Root;
 
             if (!mapping.TryGet("prototypes", out var prototypesNode))
                 return;

@@ -113,6 +113,7 @@ public sealed class MappingState : GameplayStateBase
         base.Startup();
 
         UserInterfaceManager.LoadScreen<MappingScreen>();
+        Screen.Tiles.HierarchicalSearch = true;
         _loadController.LoadScreen();
 
         var context = _input.Contexts.GetContext("common");
@@ -1166,6 +1167,12 @@ public sealed class MappingState : GameplayStateBase
             {
                 OnSelected(Screen.Decals, button);
                 Screen.SelectDecal(decal);
+
+                // Decal rotation
+                var angle = decal.Angle;
+                var degrees = Math.Round(angle.Theta * (180.0 / Math.PI), 1); // rad to degrees
+                Screen.DecalRotation = (float)degrees;
+
                 return true;
             }
         }
@@ -1270,7 +1277,7 @@ public sealed class MappingState : GameplayStateBase
 
         if (_decal.GetActiveDecal() is { Decal: not null })
         {
-            Screen.ChangeDecalRotation(90f);
+            // Screen.ChangeDecalRotation(90f); // Reserve - Why. We need to match decal's rotation we pick
             return true;
         }
 
