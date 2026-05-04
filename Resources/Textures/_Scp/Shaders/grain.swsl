@@ -8,7 +8,8 @@
 light_mode unshaded;
 
 uniform sampler2D SCREEN_TEXTURE; // Текстура экрана
-uniform lowp float strength = 40.0; // Сила эффекта зерна
+
+const lowp float strength = 40.0; // Сила эффекта зерна - Mono edit: Use constant
 
 void fragment()
 {

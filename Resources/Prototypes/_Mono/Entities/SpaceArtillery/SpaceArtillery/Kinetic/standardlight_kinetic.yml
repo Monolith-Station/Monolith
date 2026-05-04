@@ -6,6 +6,7 @@
   parent:
   - BallisticArtilleryMagazine
   - BallisticArtilleryTier1HP
+  suffix: Small, T1
   description: A light 20mm ballistic autocannon designed for rapid fire point defense and suppressing smaller targets at close range. Cheap, light, and can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
@@ -93,6 +94,7 @@
   parent:
   - BallisticArtilleryMagazine
   - BallisticArtilleryTier2HP
+  suffix: Medium, T2
   description: A heavy duty rapid rife 30mm autocannon, originally mounted as a dogfighting weapon on atmospheric craft.
   components:
   - type: StaticPrice

@@ -13,7 +13,7 @@ public sealed partial class ScpCCVars
     /// Выключен ли шейдер зернистости? // Shitty translation, dont take as fact - "Is the grain shader disabled?"
     /// </summary>
     public static readonly CVarDef<bool> GrainToggleOverlay =
-        CVarDef.Create("shader.grain_toggle_overlay", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("shader.grain_toggle_overlay", false, CVar.CLIENTONLY | CVar.ARCHIVE); // Mono - false by default
 
     /// <summary>
     /// Сила шейдера зернистости // Shitty translation, dont take as fact - "The power of the grain shader"
