@@ -92,3 +92,6 @@ shipyard-console-engine-Welding = Welding Fuel
 shipyard-console-engine-Plasma = Plasma
 shipyard-console-engine-Uranium = Uranium
 shipyard-console-engine-Bananium = Bananium
+# Mono start
+shipyard-console-engine-NFR = NFR
+# Mono end

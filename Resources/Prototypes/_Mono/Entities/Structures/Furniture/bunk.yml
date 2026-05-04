@@ -1,0 +1,26 @@
+- type: entity
+  name: bunk bed
+  id: BunkBottom
+  suffix: Bottom
+  parent: Bed
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Furniture/Beds/bunk.rsi
+    state: bottom_bunk
+    noRot: true
+  - type: InteractionOutline
+
+- type: entity
+  name: bunk bed
+  id: BunkTop
+  suffix: Top
+  parent: Bed
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Furniture/Beds/bunk.rsi
+    layers:
+    - state: top_bunk
+    - state: top_bunk_posts
+    - state: top_bunk_ladder
+    noRot: true
+  - type: InteractionOutline
