@@ -6,6 +6,7 @@
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier2HP
+  suffix: Medium, T2
   description: Launches magnetically contained balls of plasma at targets. Can be remotely activated, or linked up to a GCS.
   components:
   - type: StaticPrice
@@ -65,6 +66,7 @@
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier3HP
+  suffix: Medium, T2
   description: Borrowing from the design of the Marauder, the Cerberus fires very similar shots, but in a tight spread of 3 blasts
   components:
   - type: StaticPrice
@@ -123,7 +125,7 @@
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier2HP
-  suffix: TSF ONLY, ADS ONLY
+  suffix: Medium, T2
   description: A rapidly firing energy weapon, dealing a large amount of damage to its targets. Takes a long time to recharge.
   components:
   - type: StaticPrice
@@ -183,7 +185,7 @@
   name: M25 mining pulser
   parent:
   - BallisticArtillery
-  - BallisticArtilleryTier0HP
+  - BallisticArtilleryTier1HP
   - ConstructibleMachine #Could possibly create a ConstructibleTurret proto if more are added; comps currently do nothing upgrade wise
   description: Uses mechanisms to launch... something. Destroys rock easily. Limited range.
   components:
@@ -256,6 +258,7 @@
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier2HP
+  suffix: Medium, T2
   description: Launches EMP projectiles at ships, disabling systems with powerful electromagnetic pulses. Ideal for non-lethal engagements and can be remotely activated or linked to a GCS.
   components:
   - type: StaticPrice
@@ -312,7 +315,7 @@
   parent:
   - BallisticArtilleryUnanchorable
   - BallisticArtilleryTier3HP
-  suffix: TSF ONLY
+  suffix: Large, T3
   description: A more specialized energy weapon, the Scylla fires a massive burst of plasma projectiles down range, in a huge spew to erase large and small targets alike.
   components:
   - type: StaticPrice
@@ -382,7 +385,7 @@
   parent:
   - BallisticArtilleryUnanchorable
   - BallisticArtilleryTier5HP
-  suffix: TSF ONLY, Supercapital/Outpost Only
+  suffix: Station, T5
   description: Aetherion Dynamics' most iconic supercapital battery. Fires enormous ionized gas projectiles that melt through the toughest ship armor. Can be remotely activated or linked to a GCS.
   components:
   - type: StaticPrice
@@ -462,6 +465,7 @@
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier1HP
+  suffix: Small, T1
   description: A light laser emplacement designed by the Pantheon Collective, used to shred threats of all types.
   components:
   - type: StaticPrice
@@ -516,6 +520,7 @@
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier2HP
+  suffix: Medium, T2
   description: A heavier laser cannon mount, after the relative failure of the Apollo and its subsequent conversion into a mining laser, the Prometheus comes to the field as the new heavy laser cannon, perfect for melting through hostile hulls.
   components:
   - type: StaticPrice
@@ -580,6 +585,7 @@
   parent:
   - BallisticArtilleryUnanchorable
   - BallisticArtilleryTier4HP # This shit is massive lol
+  suffix: Large, T3
   name: L-20 Apollo Mining Laser Cannon
   description: One of the Pantheon Collective's top weapons, the Apollo is aptly named for its beams heating surfaces to beyond the temperature of nearby stars.
   components:
@@ -649,7 +655,7 @@
   name: Curio-8640 plasma lance "Malice"
   parent:
   - BallisticArtilleryUnanchorable
-  - BallisticArtilleryTier6HP
+  - BallisticArtilleryTier5HP
   suffix: ADS ONLY
   description: A devastating weapon, known for glassing whole fleets when used en masse
   components:

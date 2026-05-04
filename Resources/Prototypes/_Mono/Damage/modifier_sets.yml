@@ -167,3 +167,44 @@
     Heat: 1.9
     Shock: 3
     Radiation: 0.45 # RIP
+
+# Walls
+
+- type: damageModifierSet
+  id: WallDefense1
+  coefficients:
+    Shock: 1
+    Heat: 1
+    Structural: 1
+  flatReductions:
+    Blunt: 10
+    Slash: 10
+    Piercing: 10
+    Heat: 10
+    Structural: 10
+
+- type: damageModifierSet
+  id: WallDefense2
+  coefficients:
+    Shock: 0.9
+    Heat: 0.9
+    Structural: 1
+  flatReductions:
+    Blunt: 20
+    Slash: 20
+    Piercing: 20
+    Heat: 20
+    Structural: 20
+
+- type: damageModifierSet
+  id: WallDefense3
+  coefficients:
+    Shock: 0.8
+    Heat: 0.8
+    Structural: 1
+  flatReductions:
+    Blunt: 30
+    Slash: 30
+    Piercing: 30
+    Heat: 30
+    Structural: 30

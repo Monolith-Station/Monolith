@@ -1,102 +1,102 @@
-﻿const lowp float SCANLINES_OPACITY = 0.4;
-const lowp float SCANLINES_WIDTH = 0.4;
-const lowp float GRILLE_OPACITY = 0.15;
-const lowp vec2 RESOLUTION = vec2(1280.0, 960.0);
+﻿const mediump float SCANLINES_OPACITY = 0.4;
+const mediump float SCANLINES_WIDTH = 0.4;
+const mediump float GRILLE_OPACITY = 0.15;
+const highp vec2 RESOLUTION = vec2(1280.0, 960.0);
 const bool PIXELATE = true;
 const bool ROLL = false;
-const lowp float ROLL_SPEED = 1.5;
-const lowp float ROLL_SIZE = 0.5;
-const lowp float ROLL_VARIATION = 3.0;
-const lowp float DISTORT_INTENSITY = 0.05;
-const lowp float NOISE_OPACITY = 0.1;
-const lowp float NOISE_SPEED = 5.0;
-const lowp float STATIC_NOISE_INTENSITY = 0.05;
-const lowp float ABERRATION = 0.005;
-const lowp float BRIGHTNESS = 1;
+const mediump float ROLL_SPEED = 1.5;
+const mediump float ROLL_SIZE = 0.5;
+const mediump float ROLL_VARIATION = 3.0;
+const mediump float DISTORT_INTENSITY = 0.05;
+const mediump float NOISE_OPACITY = 0.1;
+const mediump float NOISE_SPEED = 5.0;
+const mediump float STATIC_NOISE_INTENSITY = 0.05;
+const mediump float ABERRATION = 0.005;
+const mediump float BRIGHTNESS = 1.0;
 const bool DISCOLOR = true;
-const lowp float WARP_AMOUNT = 0.1;
+const mediump float WARP_AMOUNT = 0.1;
 const bool CLIP_WARP = true;
-const lowp float VIGNETTE_INTENSITY = 0.2;
-const lowp float VIGNETTE_OPACITY = 2.0;
+const mediump float VIGNETTE_INTENSITY = 0.2;
+const mediump float VIGNETTE_OPACITY = 2.0;
 
 // Новые параметры VHS эффектов
-const lowp float HORIZONTAL_JITTER = 0.00; // Горизонтальное дрожание
-const lowp float JITTER_SPEED = 0.00;      // Скорость дрожания
-const lowp float COLOR_DEGRADATION = 0.4;  // Деградация цвета
-const lowp float VERTICAL_JUMP = 0.0;     // Вертикальные скачки
-const lowp float VERTICAL_JUMP_PERIOD = 0.0; // Период вертикальных скачков
-const lowp float TAPE_WAVE_AMOUNT = 0.005;   // Волнистость ленты
-const lowp float TAPE_CREASE_AMOUNT = 0.01; // Эффект замятой ленты
-const lowp float TAPE_CREASE_PERIOD = 5.0; // Период замятостей ленты
-const lowp float HEAD_SWITCHING_NOISE = 0.0; // Шум переключения головок
-const lowp float BLEEDING = 0.05;          // Растекание цветов
+const mediump float HORIZONTAL_JITTER = 0.00; // Горизонтальное дрожание
+const mediump float JITTER_SPEED = 0.00;      // Скорость дрожания
+const mediump float COLOR_DEGRADATION = 0.4;  // Деградация цвета
+const mediump float VERTICAL_JUMP = 0.0;     // Вертикальные скачки
+const mediump float VERTICAL_JUMP_PERIOD = 0.0; // Период вертикальных скачков
+const mediump float TAPE_WAVE_AMOUNT = 0.005;   // Волнистость ленты
+const mediump float TAPE_CREASE_AMOUNT = 0.01; // Эффект замятой ленты
+const mediump float TAPE_CREASE_PERIOD = 5.0; // Период замятостей ленты
+const mediump float HEAD_SWITCHING_NOISE = 0.0; // Шум переключения головок
+const mediump float BLEEDING = 0.05;          // Растекание цветов
 
 uniform sampler2D SCREEN_TEXTURE;
 
-const lowp float PI = 3.14159265359;
+const highp float PI = 3.14159265359;
 
 // Функция генерации шума
-lowp float rand(lowp vec2 co) {
+highp float rand(highp vec2 co) {
     return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
 }
 
-lowp vec2 warp(lowp vec2 uv) {
-    lowp vec2 delta = uv - 0.5;
-    lowp float delta2 = dot(delta, delta);
-    lowp float delta4 = delta2 * delta2;
-    lowp float delta_offset = delta4 * WARP_AMOUNT;
+highp vec2 warp(highp vec2 uv) {
+    highp vec2 delta = uv - 0.5;
+    highp float delta2 = dot(delta, delta);
+    highp float delta4 = delta2 * delta2;
+    highp float delta_offset = delta4 * WARP_AMOUNT;
 
     // Добавляем волнистость ленты
-    lowp float wave = sin(uv.y * 20.0 + TIME * 2.0) * TAPE_WAVE_AMOUNT * 0.01;
+    highp float wave = sin(uv.y * 20.0 + TIME * 2.0) * TAPE_WAVE_AMOUNT * 0.01;
 
     // Добавляем замятости ленты (случайно появляющиеся)
-    lowp float crease = sin(TIME * 0.5) > 0.96 ?
+    highp float crease = sin(TIME * 0.5) > 0.96 ?
         sin(uv.y * 120.0 + TIME * 10.0) * TAPE_CREASE_AMOUNT * 0.04 : 0.0;
 
     return uv + delta * delta_offset + vec2(wave + crease, 0.0);
 }
 
-lowp float vignette(lowp vec2 uv) {
+highp float vignette(highp vec2 uv) {
     uv *= 1.0 - uv.xy;
-    lowp float vignette = uv.x * uv.y * 15.0;
-    return pow(vignette, VIGNETTE_INTENSITY * VIGNETTE_OPACITY);
+    highp float vignette = uv.x * uv.y * 15.0;
+    return pow(max(vignette, 0.001), VIGNETTE_INTENSITY * VIGNETTE_OPACITY);
 }
 
 // Функция для создания эффекта scanlines (строк развертки)
-lowp float scanlines(lowp vec2 uv) {
-    lowp float lines = sin(uv.y * RESOLUTION.y * PI * SCANLINES_WIDTH);
+highp float scanlines(highp vec2 uv) {
+    highp float lines = sin(uv.y * RESOLUTION.y * PI * SCANLINES_WIDTH);
     lines = abs(lines) * SCANLINES_OPACITY;
     return 1.0 - lines;
 }
 
 // Функция для создания эффекта grille (сетки пикселей)
-lowp float grille(lowp vec2 uv) {
-    lowp float dots = sin(uv.x * RESOLUTION.x * PI * 0.7);
+highp float grille(highp vec2 uv) {
+    highp float dots = sin(uv.x * RESOLUTION.x * PI * 0.7);
     dots = abs(dots) * GRILLE_OPACITY;
     return 1.0 - dots;
 }
 
 void fragment() {
     // Применяем горизонтальное дрожание
-    lowp float jitter = HORIZONTAL_JITTER * (rand(vec2(TIME * JITTER_SPEED, TIME * JITTER_SPEED)) - 0.5);
+    highp float jitter = HORIZONTAL_JITTER * (rand(vec2(TIME * JITTER_SPEED, TIME * JITTER_SPEED)) - 0.5);
 
     // Применяем вертикальные скачки (тайминг VHS)
-    lowp float vjump = VERTICAL_JUMP * step(0.99, sin(TIME * VERTICAL_JUMP_PERIOD));
+    highp float vjump = VERTICAL_JUMP * step(0.99, sin(TIME * VERTICAL_JUMP_PERIOD));
 
     // Применяем искажение от переключения головок внизу кадра
-    lowp float head_noise = HEAD_SWITCHING_NOISE * step(0.95, UV.y) * sin(TIME * 20.0 + UV.x * 50.0);
+    highp float head_noise = HEAD_SWITCHING_NOISE * step(0.95, UV.y) * sin(TIME * 20.0 + UV.x * 50.0);
 
     // Искаженные координаты UV
-    lowp vec2 uv = warp(UV + vec2(jitter, vjump + head_noise));
-    lowp vec2 text_uv = PIXELATE ? ceil(uv * RESOLUTION) / RESOLUTION : uv;
+    highp vec2 uv = warp(UV + vec2(jitter, vjump + head_noise));
+    highp vec2 text_uv = PIXELATE ? ceil(uv * RESOLUTION) / RESOLUTION : uv;
 
-    lowp vec4 text;
+    highp vec4 text;
 
     // Применяем эффект rolling и хроматическую аберрацию
     if (ROLL) {
-        lowp vec2 roll_uv = vec2(0.0);
-        lowp float time = TIME;
-        lowp float roll_line = smoothstep(0.3, 0.9, sin(uv.y * ROLL_SIZE - (time * ROLL_SPEED)));
+        highp vec2 roll_uv = vec2(0.0);
+        highp float time = TIME;
+        highp float roll_line = smoothstep(0.3, 0.9, sin(uv.y * ROLL_SIZE - (time * ROLL_SPEED)));
         roll_line *= roll_line * smoothstep(0.3, 0.9, sin(uv.y * ROLL_SIZE * ROLL_VARIATION - (time * ROLL_SPEED * ROLL_VARIATION)));
         roll_uv = vec2((roll_line * DISTORT_INTENSITY * (1. - UV.x)), 0.0);
 
@@ -114,20 +114,20 @@ void fragment() {
 
     // Применяем растекание цветов (color bleeding)
     if (BLEEDING > 0.0) {
-        lowp vec4 bleed_left = texture(SCREEN_TEXTURE, text_uv - vec2(0.003, 0.0));
+        highp vec4 bleed_left = texture(SCREEN_TEXTURE, text_uv - vec2(0.003, 0.0));
         text.r += bleed_left.r * BLEEDING * 0.3;
     }
 
     // Деградация цветов VHS
     if (DISCOLOR) {
-        lowp float colorShift = COLOR_DEGRADATION * sin(TIME * 0.2);
+        highp float colorShift = COLOR_DEGRADATION * sin(TIME * 0.2);
         text.r *= 1.0 + colorShift * 0.125;
         text.g *= 1.0 - colorShift * 0.08;
         text.b *= 1.0 + colorShift * 0.05;
     }
 
     // Добавляем статический шум
-    lowp float static_noise = rand(uv + vec2(TIME * NOISE_SPEED, 0.0)) * STATIC_NOISE_INTENSITY;
+    highp float static_noise = rand(uv + vec2(TIME * NOISE_SPEED, 0.0)) * STATIC_NOISE_INTENSITY;
     text.rgb += vec3(static_noise) * NOISE_OPACITY;
 
     // Применяем scanlines и grille для CRT эффекта

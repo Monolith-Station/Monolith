@@ -2,6 +2,7 @@
   id: WeaponTurretCharonBase
   parent: BallisticArtilleryTier4HP
   name: M381 CHARON mass driver
+  suffix: Capital, T4
   abstract: true
   components:
   - type: StaticPrice
@@ -21,7 +22,7 @@
     recoil: 2500 # 100x
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 790 # projectiles cannot go faster than this
+    projectileSpeed: 700 # projectiles cannot go faster than this
     shootThermalSignature: 18000000 # ~8.5km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg
@@ -87,7 +88,7 @@
   id: WeaponTurretCharonReload
   name: M381 CHARON mass driver
   parent: [WeaponTurretCharonBase, BallisticArtilleryUnanchorableCartridge]
-  suffix: Ship, Manual Reload, No Rotate
+  suffix: Spinal, T4
   description: A capital-class railgun that fires a massive slug at extreme velocity, capable of catastrophic damage to enemy ships. Heavy linear accelerator, can be remotely activated or linked up to a GCS.
   components:
   - type: BallisticAmmoProvider
