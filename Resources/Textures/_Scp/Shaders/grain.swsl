@@ -8,8 +8,7 @@
 light_mode unshaded;
 
 uniform sampler2D SCREEN_TEXTURE; // Текстура экрана
-
-const lowp float strength = 40.0; // Сила эффекта зерна - Mono edit: Use constant
+uniform highp float strength; // Сила эффекта зерна - Mono edit: Move to params
 
 void fragment()
 {
@@ -19,14 +18,14 @@ void fragment()
     // UV координаты:
     // U соответствует горизонтальной оси (X), V - вертикальной (Y).
     // Здесь UV используется для определения позиции каждого пикселя на экране.
-    lowp vec4 color = texture(SCREEN_TEXTURE, UV);
+    highp vec4 color = texture(SCREEN_TEXTURE, UV);
 
     // Создаем временной фактор для анимации зерна.
-    lowp float timeFactor = TIME * 10.0;
+    highp float timeFactor = TIME * 10.0;
 
     // Генерируем псевдослучайное число на основе UV координат и времени.
     // Это создает уникальное значение для каждого пикселя, которое меняется со временем.
-    lowp float x = (UV.x + 4.0) * (UV.y + 4.0) * timeFactor;
+    highp float x = (UV.x + 4.0) * (UV.y + 4.0) * timeFactor;
 
     // mod:
     // Функция mod возвращает остаток от деления одного числа на другое.
@@ -36,12 +35,12 @@ void fragment()
     // 3. Генерации псевдослучайных чисел.
 
     // Здесь mod используется для создания повторяющегося, но визуально случайного паттерна.
-    lowp float modX = mod(x, 13.0) + 1.0;
-    lowp float modY = mod(x, 123.0) + 1.0;
+    highp float modX = mod(x, 13.0) + 1.0;
+    highp float modY = mod(x, 123.0) + 1.0;
 
     // Еще раз используем mod для ограничения значения зерна в диапазоне от -0.005 до 0.005.
     // Это контролирует интенсивность эффекта зерна.
-    lowp float grainValue = mod(modX * modY, 0.01) - 0.005;
+    highp float grainValue = mod(modX * modY, 0.01) - 0.005;
 
     // Применяем эффект зерна к цвету.
     // Уменьшаем яркость пикселя пропорционально значению зерна и силе эффекта.
