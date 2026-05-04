@@ -59,7 +59,7 @@ highp vec2 warp(highp vec2 uv) {
 highp float vignette(highp vec2 uv) {
     uv *= 1.0 - uv.xy;
     highp float vignette = uv.x * uv.y * 15.0;
-    return pow(max(vignette. 0.001), VIGNETTE_INTENSITY * VIGNETTE_OPACITY);
+    return pow(max(vignette, 0.001), VIGNETTE_INTENSITY * VIGNETTE_OPACITY);
 }
 
 // Функция для создания эффекта scanlines (строк развертки)
