@@ -3,7 +3,10 @@
 - type: entity
   id: WeaponTurretAK570
   name: AK570 57mm autocannon
-  parent: BallisticArtilleryMagazine
+  parent:
+  - BallisticArtilleryMagazine
+  - BallisticArtilleryTier2HP
+  suffix: Medium, T2
   description: A dual-barrel, heavy 57mm autocannon firing general-purpose APHE rounds, effective for sustained fire against medium targets. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
@@ -47,7 +50,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: Magazine57mm
+        startingItem: Magazine57mmHE
         insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
         priority: 2
@@ -55,17 +58,6 @@
           tags:
           - Magazine57mm
         whitelistFailPopup: gun-magazine-whitelist-fail
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 12500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1.5
@@ -83,7 +75,10 @@
 - type: entity
   id: WeaponTurretDravon
   name: ADBP-7 DRAVON 90mm Autocannon
-  parent: BallisticArtilleryMagazine
+  parent:
+  - BallisticArtilleryMagazine
+  - BallisticArtilleryTier2HP
+  suffix: Medium, T2
   description: A single-barrel autocannon made by Aetherion Dynamics. Medium artillery piece with high impact but relatively low fire rate, firing HEAT shells to damage ship armor and systems. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
@@ -119,7 +114,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: Magazine90mm
+        startingItem: 90mmMagazineHE
         insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
         priority: 2
@@ -127,17 +122,6 @@
           tags:
           - Magazine90mm
         whitelistFailPopup: gun-magazine-whitelist-fail
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 9000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1.5

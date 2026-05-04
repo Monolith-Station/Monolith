@@ -61,6 +61,12 @@
         volume: 5
     initialBeepDelay: 0
     beepInterval: 2 # 2 beeps total (at 0 and 2)
+  - type: Tag
+    tags:
+    - GrenadeLaunchable
+  - type: CartridgeAmmo
+    proto: ExGrenadeLaunched
+    deleteOnSpawn: true
 
 - type: entity
   name: flashbang
@@ -74,7 +80,7 @@
     range: 7
   - type: SoundOnTrigger
     sound:
-      path: "/Audio/Effects/flash_bang.ogg"
+      path: "/Audio/_Mono/Weapons/Grenades/flashbang_explode_1.ogg" # Mono
   - type: DeleteOnTrigger
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
@@ -82,13 +88,13 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
-  - type: GuideHelp
-    guides:
-    - Security
-    #- Antagonists # Frontier: removed guidebook entry
   - type: Tag
     tags:
     - GrenadeFlashBang
+    - GrenadeLaunchable
+  - type: CartridgeAmmo
+    proto: GrenadeFlashBangLaunched
+    deleteOnSpawn: true
 
 - type: entity
   id: GrenadeFlashEffect
@@ -366,6 +372,12 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
+  - type: Tag
+    tags:
+    - GrenadeLaunchable
+  - type: CartridgeAmmo
+    proto: EmpGrenadeLaunched
+    deleteOnSpawn: true
 
 - type: entity
   name: holy hand grenade
@@ -404,11 +416,17 @@
     duration: 30
     spreadAmount: 50
   - type: SoundOnTrigger
-    sound: /Audio/Items/smoke_grenade_smoke.ogg
+    sound: /Audio/_Mono/Weapons/Grenades/smoke_bomb.ogg # Mono
   - type: DeleteOnTrigger
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Items/smoke_grenade_prime.ogg
+  - type: Tag
+    tags:
+    - GrenadeLaunchable
+  - type: CartridgeAmmo
+    proto: SmokeGrenadeLaunched
+    deleteOnSpawn: true
 
 - type: entity
   parent: SmokeGrenade
@@ -426,6 +444,12 @@
       reagents:
       - ReagentId: SpaceCleaner
         Quantity: 30
+  - type: Tag
+    tags:
+    - GrenadeLaunchable
+  - type: CartridgeAmmo
+    proto: CleanerGrenadeLaunched
+    deleteOnSpawn: true
 
 - type: entity
   parent: SmokeGrenade
@@ -457,6 +481,12 @@
     smokePrototype: AluminiumMetalFoam
   - type: StaticPrice
     price: 350
+  - type: Tag
+    tags:
+    - GrenadeLaunchable
+  - type: CartridgeAmmo
+    proto: MetalFoamGrenadeLaunched
+    deleteOnSpawn: true
 
 - type: entity
   parent: GrenadeBase # Prevent inheriting DeleteOnTrigger from SmokeGrenade

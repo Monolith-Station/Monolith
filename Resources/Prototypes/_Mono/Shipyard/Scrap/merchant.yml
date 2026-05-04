@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: Corrupt142
+# Discord: Corrupt
+
+# Shuttle Notes: Made on behalf of synthetic_086
+
+- type: vessel
+  id: Merchant
+  parent: BaseVessel
+  name: MAWC Merchant
+  description: An "Experimental" civilian starliner design, developed with the ability to sell goods in it's rear with a compact storage module! Just don't mind the military IFF. Supposedly manufactured by a certain shady weapons corporation.
+  price: 290000 # 210K base + 80K markup
+  category: Large
+  group: Scrap
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/Scrap/merchant.yml
+  guidebookPage: Null
+  class:
+  - Capital
+  - Scrapyard
+  engine:
+  - AME
+
+- type: gameMap
+  id: Merchant
+  mapName: 'MAWC Merchant'
+  mapPath: /Maps/_Mono/Shuttles/Scrap/merchant.yml
+  minPlayers: 0
+  stations:
+    Merchant:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Merchant MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

@@ -13,7 +13,7 @@
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
+    damageModifierSet: WallDefense1
   - type: Destructible
     thresholds:
     - trigger:
@@ -27,7 +27,7 @@
           collection: MetalSlam
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 2500
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -43,6 +43,12 @@
   - type: ShipRepairable
     repairTime: 2
     repairCost: 3
+  - type: Tag
+    tags:
+    - Wall
+    - WallT1
+  - type: RadiationBlocker
+    resistance: 2
 
 - type: entity
   abstract: true
@@ -57,12 +63,12 @@
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
+    damageModifierSet: WallDefense2
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2100
+        damage: 3500
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -71,7 +77,7 @@
           collection: MetalSlam
     - trigger:
         !type:DamageTrigger
-        damage: 2000
+        damage: 3000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -87,6 +93,12 @@
   - type: ShipRepairable
     repairTime: 3
     repairCost: 6
+  - type: Tag
+    tags:
+    - Wall
+    - WallT2
+  - type: RadiationBlocker
+    resistance: 3
 
 - type: entity
   abstract: true
@@ -101,12 +113,12 @@
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
+    damageModifierSet: WallDefense3
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 3600
+        damage: 4000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -131,6 +143,12 @@
   - type: ShipRepairable
     repairTime: 5
     repairCost: 8
+  - type: Tag
+    tags:
+    - Wall
+    - WallT3
+  - type: RadiationBlocker
+    resistance: 4
 
 - type: entity
   abstract: true
@@ -145,12 +163,12 @@
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
+    damageModifierSet: WallDefense3
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 5100
+        damage: 4500
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -159,7 +177,7 @@
           collection: MetalSlam
     - trigger:
         !type:DamageTrigger
-        damage: 5000
+        damage: 4000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -175,6 +193,12 @@
   - type: ShipRepairable
     repairTime: 10
     repairCost: 12
+  - type: Tag
+    tags:
+    - Wall
+    - WallT4
+  - type: RadiationBlocker
+    resistance: 5
 
 - type: entity
   abstract: true
@@ -190,7 +214,7 @@
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
+    damageModifierSet: WallDefense3
   - type: Destructible
     thresholds:
     - trigger:
@@ -217,6 +241,8 @@
     price: 75
   - type: ArmorThickness
     thickness: 20
+  - type: RadiationBlocker
+    resistance: 5
 
 - type: entity
   parent: WallReinforced
@@ -270,7 +296,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 10000 # Mono - wall buff
+        damage: 10100 # Mono - wall buff
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -310,6 +336,12 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
+        damage: 15100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
         damage: 15000
       behaviors:
       - !type:SpawnEntitiesBehavior
@@ -335,6 +367,12 @@
   components:
   - type: Destructible
     thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 10000
@@ -388,19 +426,14 @@
     drawdepth: Walls
     sprite: _Mono/Structures/Walls/rplas_diagonal.rsi
     state: state0
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-        density: 500 # No ram-meta
   - type: Destructible
     thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 2000

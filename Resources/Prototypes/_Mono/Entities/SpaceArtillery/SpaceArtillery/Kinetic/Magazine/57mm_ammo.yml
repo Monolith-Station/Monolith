@@ -1,5 +1,5 @@
 - type: entity
-  id: Magazine57mm
+  id: Magazine57mmHE
   name: "57mm HE ammo loader"
   description: "An ammunition loader containing infinite 57mm high-explosive rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
@@ -11,7 +11,7 @@
     size: Small
   - type: BallisticAmmoProvider
     infiniteUnspawned: true
-    proto: 57mmCartridge
+    proto: 57mmCartridgeHE
     capacity: 1 # normally should hold 600
     mayTransfer: true
     whitelist:
@@ -21,21 +21,15 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_shipgun_box.rsi
+    sprite: _Mono/Objects/SpaceArtillery/magazines.rsi
     layers:
-    - state: base
+    - state: 57mmHE
       map: [ "enum.GunVisualLayers.Base" ]
-    - state: mag-0
-      map: [ "enum.GunVisualLayers.Mag" ]
-  - type: MagazineVisuals
-    magState: mag
-    steps: 4
-    zeroVisible: false
   - type: Appearance
 
 - type: entity
-  id: 57mmCartridge
-  name: cartridge (57mm)
+  id: 57mmCartridgeHE
+  name: cartridge (57mm HE)
   parent: BaseCartridge
   components:
   - type: Tag
@@ -44,14 +38,13 @@
     - 57mmCartridge
   - type: CartridgeAmmo
     deleteOnSpawn: true
-    proto: 57mmBullet
+    proto: 57mmBulletHE
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
     layers:
-    - state: 57mm
+    - state: 57mmHE
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
-  - type: SpentAmmoVisuals
   - type: StaticPrice
     price: 1
   - type: Destructible

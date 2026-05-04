@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by synthetic_086 on discord",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "empty",
+      "directions": 4
+    },
+    {
+      "name": "empty_l",
+      "directions": 4
+    },
+    {
+      "name": "assault",
+      "directions": 4
+    },
+    {
+      "name": "assault_l",
+      "directions": 4
+    },
+    {
+      "name": "engineer",
+      "directions": 4
+    },
+    {
+      "name": "engineer_l",
+      "directions": 4
+    },
+    {
+      "name": "medical",
+      "directions": 4
+    },
+    {
+      "name": "medical_l",
+      "directions": 4
+    }
+  ]
+}

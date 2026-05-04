@@ -93,7 +93,7 @@
     shuttles:
     - Hazel
     - Tethys
-    - Spyglass MKII
+    - SpyglassMKII
   - type: Sprite
     sprite: _NF/Structures/Machines/computers.rsi
     layers:
@@ -136,6 +136,6 @@
   components:
   - type: ShipyardListing
     shuttles:
-    - Ant
-    - Worm
-    - Insect
+    - Rook
+    - Taser
+    - Hound

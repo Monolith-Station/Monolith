@@ -241,3 +241,14 @@
   fallbacks:
   - TsfmcClothingOuterArmorBPVestLight
 
+# armor plates
+- type: loadoutGroup
+  id: FactionArmorPlates
+  name: loadout-group-contractor-armorplates
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - FactionArmorPlatePierce
+  - FactionArmorPlateBlunt_Slash
+  fallbacks:
+  - FactionArmorPlatePierce

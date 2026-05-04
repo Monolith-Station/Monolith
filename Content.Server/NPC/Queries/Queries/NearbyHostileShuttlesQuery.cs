@@ -6,12 +6,12 @@ using Content.Shared.Whitelist;
 namespace Content.Server.NPC.Queries.Queries;
 
 /// <summary>
-/// Returns nearby shuttles considered hostile from <see cref="FactionSystem"/>
+/// Returns nearby entities tagged with ShipNpcTargetComponent.
 /// </summary>
-public sealed partial class NearbyHostileShuttlesQuery : UtilityQuery
+public sealed partial class NearbyNpcTargetsQuery : UtilityQuery
 {
     [DataField]
-    public float Range = 2000f;
+    public float Range = 4000f;
 
     // TODO: make this use factions
     [DataField]

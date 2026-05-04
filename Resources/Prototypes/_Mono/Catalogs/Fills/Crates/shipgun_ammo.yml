@@ -38,23 +38,23 @@
 - type: entity
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBox57mm
-  name: Dravon 57mm HE drum box
+  name: AK-570 57mm HE drum box
   description: Contains one box of 57mm high-explosive ammunition. Provides an artillery piece with infinite high-explosive rounds. Buy in case you lost the ammo it came with.
   components:
   - type: StorageFill
     contents:
-    - id: Magazine57mm
+    - id: Magazine57mmHE
       amount: 1
 
 - type: entity
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBox90mm
-  name: AK-570 90mm HE box
+  name: Dravon 90mm HE box
   description: Contains one box of 90mm high-explosive ammunition. Provides an artillery piece with infinite high-explosive rounds. Buy in case you lost the ammo it came with.
   components:
   - type: StorageFill
     contents:
-    - id: Magazine90mm
+    - id: 90mmMagazineHE
       amount: 1
 
 # Missiles
@@ -62,29 +62,29 @@
 - type: entity
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBoxVanyk
-  name: ASM-302 Vanyk HEAT missile box
-  description: Contains 24 missiles. 2 full loads.
+  name: ASM-150 Vanyk HEAT missile box
+  description: Contains 60 missles. 2 full loads.
   components:
   - type: StorageFill
     contents:
-    - id: VanykCartridge
-      amount: 24 # 2 reloads
+    - id: VanykMagazine
+      amount: 2 # 2 reloads
 
 - type: entity
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBoxVespera
-  name: ASM-417 Vespera HE missile box
-  description: Contains 2 bursts of 13 missiles. One full load.
+  name: ADMP-50 Vespera HE missile box
+  description: Contains 12 bursts of 13 high-explosive missiles. 2 full loads.
   components:
   - type: StorageFill
     contents:
-    - id: VesperaMagazine
-      amount: 1 # 1 reload
+    - id: MissileMagazine50mmHE
+      amount: 2 # 2 reload
 
 - type: entity
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBoxTovek
-  name: ASM-557 Tovek EMPHE missile box
+  name: ASM-250 Tovek EMPHE missile box
   description: Contains 4 missiles, 2 loads worth.
   components:
   - type: StorageFill

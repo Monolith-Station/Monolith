@@ -71,7 +71,6 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly ShuttleRecordsSystem _shuttleRecordsSystem = default!;
     [Dependency] private readonly ShuttleConsoleLockSystem _shuttleConsoleLock = default!;
@@ -184,6 +183,22 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         bool voucherUsed = false;
         if (voucher is not null)
         {
+			// Mono: Check if voucher has a purchase cooldown, and if it is still in cooldown cancel purchase
+			var remainingTime = voucher.NextBuyAt - _timing.CurTime; // Mono
+
+			if (_timing.CurTime >= voucher.NextBuyAt)
+			{
+				voucher.NextBuyAt = _timing.CurTime + voucher.Cooldown;
+			}
+			else
+			{
+				ConsolePopup(player, Loc.GetString("ship-voucher-cooldown-active", ("remainingTime", Math.Round(remainingTime.TotalMinutes))));
+            	PlayDenySound(player, shipyardConsoleUid, component);
+                Del(shuttleUid);
+				return;
+			}
+			// End mono
+
             if (voucher!.RedemptionsLeft <= 0)
             {
                 Del(shuttleUid);
@@ -1086,6 +1101,13 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             PlayDenySound(player, uid, component);
             return;
         }
+
+        if (TryComp<ShipyardVoucherComponent>(targetId, out var voucher) && voucher.CanBeUnassigned != true) // Mono: If voucher is not allowed to unassign deeds, fail.
+        {
+            ConsolePopup(player, Loc.GetString("shipyard-console-no-unassign"));
+            PlayDenySound(player, uid, component);
+            return;
+        } // end mono
 
         // Check if the player is on cooldown
         var cooldown = EnsureComp<ShipyardUnassignCooldownComponent>(player);

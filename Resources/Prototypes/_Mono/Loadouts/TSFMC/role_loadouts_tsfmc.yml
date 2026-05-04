@@ -1,6 +1,6 @@
 # Nfsd
 - type: roleLoadout
-  id: JobCadet
+  id: JobCadet # Unused
   groups:
   - TsfmcHead
   - TsfmcNeck
@@ -25,6 +25,7 @@
   - NfsdSpeciesSpecific
   - TsfmcFirearm
   - TsfmcMag
+  - FactionArmorPlates
   canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
@@ -52,6 +53,7 @@
   - NfsdSpeciesSpecific
   - TsfmcFirearm
   - TsfmcMag
+  - FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
@@ -79,10 +81,11 @@
   - NfsdSpeciesSpecific
   - TsfmcFirearm
   - TsfmcMag
+  - FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobBailiff
+  id: JobBailiff # Captain
   groups:
   - TsfmcHead
   - TsfmcNeckCaptain
@@ -106,6 +109,7 @@
   - NfsdSpeciesSpecific
   - TsfmcFirearm
   - TsfmcMag
+  - FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
@@ -133,6 +137,7 @@
   - NfsdSpeciesSpecific
   - TsfmcFirearm
   - TsfmcMag
+  - FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
@@ -159,6 +164,7 @@
   - NfsdSpeciesSpecific
   - TsfmcFirearmColonel
   - TsfmcMag
+  - FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
@@ -184,4 +190,5 @@
   - ContractorFun
   - ContractorTrinkets
   - NfsdSpeciesSpecific
+  - FactionArmorPlates
   canCustomizeName: true
