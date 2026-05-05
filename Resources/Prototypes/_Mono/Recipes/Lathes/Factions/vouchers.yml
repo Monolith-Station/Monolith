@@ -93,23 +93,6 @@
     Silver: 3000
     Gold: 3000
 
-
-- type: latheRecipe
-  parent: BaseVoucherRecipe
-  id: SaturnVoucherRogue
-  result: ShipVoucherSaturn
-  completetime: 10
-  materials:
-    Steel: 60000
-    Plasteel: 85000
-    Plastic: 50000
-    Glass: 10000
-    Plasma: 7500
-    UraniumFissile: 1000
-    UraniumDepleted: 5000
-    Silver: 10000
-    Gold: 10000
-
 # Merc
 
 - type: latheRecipe
