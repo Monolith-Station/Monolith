@@ -2220,7 +2220,7 @@
     brokenState: broken
     normalState: normal
     denyState: deny
-    ejectDelay: 2
+    ejectDelay: 0.6 #Mono
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/chemvend.rsi
     layers:
@@ -2247,7 +2247,7 @@
     brokenState: broken
     normalState: normal
     denyState: deny
-    ejectDelay: 2
+    ejectDelay: 0.6 #Mono
   - type: AccessReader
     access: [["SyndicateAgent"]]
 

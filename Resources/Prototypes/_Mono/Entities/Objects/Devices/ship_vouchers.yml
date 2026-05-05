@@ -10,7 +10,6 @@
     sprite: _Mono/Objects/Misc/newlpc.rsi
     state: icon
   - type: ShipyardVoucher
-    canBeUnassigned: false
     destroyOnEmpty: false
     cooldown: 1800 # thirty minutes
 
