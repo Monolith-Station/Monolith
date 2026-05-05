@@ -67,9 +67,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 50
-    intensitySlope: 10
-    maxIntensity: 10
+    totalIntensity: 30
+    intensitySlope: 6
+    maxIntensity: 6
 
 - type: entity
   name: cerberus spread
@@ -149,9 +149,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 5
-    intensitySlope: 5
-    maxIntensity: 5
+    totalIntensity: 3
+    intensitySlope: 3
+    maxIntensity: 3
 
 # Type 241
 
@@ -434,9 +434,9 @@
     damage:
      types:
       Heat: 35
-      Structural: 50
+      Structural: 35
   - type: HitscanBasicRaycast
-    maxDistance: 400
+    maxDistance: 512
 
 # Apollo
 
@@ -477,7 +477,7 @@
     damage:
      types:
        Heat: 120
-       Structural: 250
+       Structural: 500
   - type: HitscanRadarSignature
     radarColor: "#5d46e2"
   - type: HitscanSpawnEntity
@@ -606,6 +606,6 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 50
-    intensitySlope: 10
-    maxIntensity: 10
+    totalIntensity: 80
+    intensitySlope: 8
+    maxIntensity: 8

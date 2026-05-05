@@ -20709,3 +20709,113 @@ Entries:
   id: 2283
   time: '2026-05-03T16:38:28.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3932
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Fixed some drivers crashing from grain texture.
+  id: 2284
+  time: '2026-05-04T02:52:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3938
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Walls are weaker and some shipguns deal more damage.
+    - type: Tweak
+      message: Fangs use AP ammo now.
+    - type: Tweak
+      message: 'Shipgun ammo sprites have been updated. '
+    - type: Tweak
+      message: >-
+        Standard Charon slugs now penetrate armor rather than explode. Nukes are
+        unchanged.
+    - type: Tweak
+      message: Phalanx has slightly more range.
+  id: 2285
+  time: '2026-05-04T06:49:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3769
+- author: Huaqas
+  changes:
+    - type: Tweak
+      message: >-
+        Resomi are now an odd amount of pixels wide just like every other
+        species. Someone finally connected them to the local Wi-Fi so they could
+        download the software latest update.
+    - type: Add
+      message: Added 24 new hairstyles for Resomi.
+    - type: Add
+      message: >-
+        Added 80 Marking options for Resomi. Including head, chest, arm, leg
+        markings, gauze, and a bunch of tail customization options. Check them
+        out!
+    - type: Add
+      message: Resomi now have purple organs. Crack one open to sea for yourself!
+    - type: Add
+      message: Resomi have a deathgrasp sound now. Kill one to hear to it!
+    - type: Tweak
+      message: Resomi sounds have been tweaked to sound more like birds.
+    - type: Add
+      message: Resomi now have three new emotes! Scree! Squawk! and Call!
+    - type: Fix
+      message: >-
+        Fixed an issue with Resomi damage overlays making Resomi look more
+        beaten up then they actually are.
+    - type: Remove
+      message: Removed ERP.
+  id: 2286
+  time: '2026-05-04T06:52:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3796
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: >-
+        A new "Experimental" Civilian starliner has appeared on the shipyard
+        console!
+  id: 2287
+  time: '2026-05-04T06:53:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3437
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Shader crash fixes round 2
+  id: 2288
+  time: '2026-05-04T16:38:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3943
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: >-
+        Changed MAWC merchant price to 320K, lowered armour and replaced L-1s
+        with 20mm
+  id: 2289
+  time: '2026-05-04T18:11:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3941
+- author: Corrupt142
+  changes:
+    - type: Remove
+      message: Removed merchant
+  id: 2290
+  time: '2026-05-05T13:12:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3947
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Lowers the eject delay on the ChemVend.
+  id: 2291
+  time: '2026-05-05T16:36:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3944
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Biomass is now drawn above structures and below mobs. So you can hit it
+        easily.
+  id: 2292
+  time: '2026-05-05T17:17:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3949
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: modified gun layout on the serkesh to be less OP
+  id: 2293
+  time: '2026-05-05T17:22:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3942

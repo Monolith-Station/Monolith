@@ -1,20 +1,20 @@
 - type: entity
-  id: VesperaMagazine
+  id: MissileMagazine50mmHE
   name: "Vespera 50mm HE missile autoloader"
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
     tags:
-    - VesperaMagazine
+    - MissileMagazine50mm
   - type: Item
     size: Small
   - type: BallisticAmmoProvider
-    proto: VesperaCartridge
+    proto: MissileCartridge50mmHE
     capacity: 78
     mayTransfer: true
     whitelist:
       tags:
-      - VesperaCartridge
+      - MissileCartridge50mm
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
@@ -32,18 +32,18 @@
   - type: Appearance
 
 - type: entity
-  id: VesperaCartridge
+  id: MissileCartridge50mmHE
   name: 50mm HE missile
-  description: An individual ADMP-50 HE missile for the Vespera.
+  description: An individual ADMP-50 high-explosive missile for a 50mm missile launcher.
   parent: BaseGrenade
   components:
   - type: Tag
     tags:
-    - VesperaCartridge
+    - MissileCartridge50mm
   - type: Item
     size: Huge
   - type: CartridgeAmmo
-    proto: ShipMissileASM50
+    proto: MissileProjectile50mmHE
     deleteOnSpawn: true
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
