@@ -15,7 +15,7 @@
         - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
     access: [["Mercenary"]]
-    
+
 - type: entity
   id: SuitStorageUsspL10
   parent: SuitStorageBase
@@ -144,3 +144,22 @@
         - id: ClothingShoesBootsMagSyndie
         - id: ClothingMaskGasSyndicate
         - id: JetpackBlackFilled # Frontier
+
+# Viper Group
+
+- type: entity
+  id: SuitStorageViper
+  parent: SuitStorageBase
+  suffix: Viper Group - Jackal
+  components:
+  - type: StorageFill
+    contents:
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: ClothingOuterHardsuitViperGroupStandard
+      - id: ClothingMaskGasSecurity
+      - id: JetpackVoidFilled #Not sure on the jetpack, but figured as they're cooped up with the USSP, if fits.
+      - id: ClothingShoesBootsMagSecurity
+      - id: ClothingNeckViperGroupMantle
+  - type: AccessReader
+    access: [ [ "Viper" ] ]

@@ -118,3 +118,26 @@
   components:
   - type: Sprite
     sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/grey.rsi
+
+
+# Companies
+
+- type: entity
+  parent: AirlockHeavy
+  id: AirlockHeavyViper
+  suffix: Viper Group, locked
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/security.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViper ]
+
+- type: entity
+  parent: AirlockHeavyViper
+  id: AirlockHeavyViperCommand
+  suffix: Viper Group Command, locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViperCommand ]
