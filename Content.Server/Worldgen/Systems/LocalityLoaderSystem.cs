@@ -29,9 +29,9 @@ public sealed class LocalityLoaderSystem : BaseWorldSystem
         SubscribeLocalEvent<SpaceDebrisComponent, EntityTerminatingEvent>(OnDebrisDespawn);
 
         _loadedQuery = GetEntityQuery<LoadedChunkComponent>(); // Mono: Cached Queries
-        _controllerQuery = GetEntityQuery<WorldControllerComponent>();
-        _chunkLoaderQuery = GetEntityQuery<ChunkLoaderComponent>();
-        TransformQuery = GetEntityQuery<TransformComponent>();
+        _controllerQuery = GetEntityQuery<WorldControllerComponent>(); // Mono
+        _chunkLoaderQuery = GetEntityQuery<ChunkLoaderComponent>(); // Mono
+        TransformQuery = GetEntityQuery<TransformComponent>(); // Mono
     }
     // Frontier
 
@@ -42,7 +42,7 @@ public sealed class LocalityLoaderSystem : BaseWorldSystem
 
         while (e.MoveNext(out var uid, out var loadable, out var xform))
         {
-            if (!_controllerQuery.TryComp(xform.MapUid, out var controller))
+            if (!_controllerQuery.TryComp(xform.MapUid, out var controller)) // Mono
             {
                 RaiseLocalEvent(uid, new LocalStructureLoadedEvent());
                 RemCompDeferred<LocalityLoaderComponent>(uid);
@@ -65,13 +65,13 @@ public sealed class LocalityLoaderSystem : BaseWorldSystem
                         // Mono edit start
                         var distance = loadable.LoadingDistance;
 
-                        if (_chunkLoaderQuery.TryComp(loader, out var cLoad))
+                        if (_chunkLoaderQuery.TryComp(loader, out var cLoad)) // Mono
                             distance = cLoad.LoadingDistance;
 
-                        if (!TransformQuery.TryComp(loader, out var loaderXform))
+                        if (!TransformQuery.TryComp(loader, out var loaderXform)) // Mono
                             continue;
 
-                        if ((_xformSys.GetWorldPosition(loaderXform) - worldPos).LengthSquared() > distance * distance)
+                        if ((_xformSys.GetWorldPosition(loaderXform) - worldPos).LengthSquared() > distance * distance) // Mono - use LengthSquared
                             continue;
                         // Mono edit end
                         RaiseLocalEvent(uid, new LocalStructureLoadedEvent());
