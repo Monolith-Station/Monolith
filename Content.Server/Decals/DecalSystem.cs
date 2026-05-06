@@ -438,7 +438,7 @@ namespace Content.Server.Decals
 
             foreach (var ent in _dirtyChunks.Keys)
             {
-                if (TryGetEntity(ent, out var uid) && _decalGridQuery.TryComp(uid, out var decals))
+                if (TryGetEntity(ent, out var uid) && _decalGridQuery.TryComp(uid, out var decals)) // Mono: Use entity query.
                     Dirty(uid.Value, decals);
             }
 
