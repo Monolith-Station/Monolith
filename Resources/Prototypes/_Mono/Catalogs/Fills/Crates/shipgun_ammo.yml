@@ -43,7 +43,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: Magazine57mm
+    - id: Magazine57mmHE
       amount: 1
 
 - type: entity
@@ -54,7 +54,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: Magazine90mm
+    - id: 90mmMagazineHE
       amount: 1
 
 # Missiles
@@ -74,11 +74,11 @@
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBoxVespera
   name: ADMP-50 Vespera HE missile box
-  description: Contains 12 bursts of 13 missiles. 2 full loads.
+  description: Contains 12 bursts of 13 high-explosive missiles. 2 full loads.
   components:
   - type: StorageFill
     contents:
-    - id: VesperaMagazine
+    - id: MissileMagazine50mmHE
       amount: 2 # 2 reload
 
 - type: entity

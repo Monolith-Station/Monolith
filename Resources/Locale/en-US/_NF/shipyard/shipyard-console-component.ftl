@@ -13,6 +13,7 @@ shipyard-console-already-deeded = ID card already has a Deed.
 shipyard-console-invalid-station = Not a valid station.
 shipyard-console-no-bank = No bank account found.
 shipyard-console-no-deed = No ship deed found.
+shipyard-console-no-unassign = Card is restricted from unassigning deed.
 shipyard-console-sale-reqs = Ship must be docked and all crew disembarked.
 shipyard-console-sale-not-docked = Ship must be docked.
 shipyard-console-sale-organic-aboard = All crew must disembark. {$name} is still aboard.

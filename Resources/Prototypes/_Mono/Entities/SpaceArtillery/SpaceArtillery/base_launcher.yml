@@ -8,7 +8,7 @@
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
+    damageModifierSet: WallDefense2
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -296,20 +296,24 @@
 # Durabilities - You can vary from this, this is just the main standard. Size of the gun is often used when deciding durability. More size, more likely to get hit.
 
 - type: entity
-  id: BallisticArtilleryTier0HP # Mining equipment.
+  id: BallisticArtilleryTier1HP # Basic weapons, e.g PD. Reinforced wall level.
+  suffix: T1
   abstract: true
   components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: WallDefense1
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1250
+        damage: 4000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 3500
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -318,39 +322,15 @@
           collection: MetalBreak
 
 - type: entity
-  id: BallisticArtilleryTier1HP # Basic PD. Rwall level.
+  id: BallisticArtilleryTier2HP # Normal weapons, slightly stronger than plastitanium. This is the baseline durability for your average sized anchorable weapon.
   abstract: true
+  suffix: T2
   components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: WallDefense2
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 2500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 2000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-
-- type: entity
-  id: BallisticArtilleryTier2HP # Heavy Autocannons, Missiles, light pre-fracture weaponry, 1.4x stronger than plastitanium, 1x Reinforced Plastitanium Health. This is the baseline durability for your average sized anchorable weapon.
-  abstract: true
-  components:
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 5500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 5000
@@ -362,14 +342,18 @@
           collection: MetalBreak
 
 - type: entity
-  id: BallisticArtilleryTier3HP # Specialized weapons. Charons. Torpedos, some of the bigger medium sized guns. 2.1x Plastitanium health, Around 1.5x Reinforced Plastitanium Health. Typical for Larger-class weapons.
+  id: BallisticArtilleryTier3HP # Medium weapons. Reinforced plastitanium level. Typical for medium-class weapons. In-between heavy artillery and standard anchorables.
   abstract: true
+  suffix: T3
   components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: WallDefense2
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 8500
+        damage: 10000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -384,9 +368,13 @@
           collection: MetalBreak
 
 - type: entity
-  id: BallisticArtilleryTier4HP # Capital Weapons. Cyrexas, main cannons. Anything really big. 3.5x Plastitanium health, 2.5x Reinforced Plastitanium Health.
+  id: BallisticArtilleryTier4HP # Capital Weapons. Cyrexas, main cannons. Anything really big.
   abstract: true
+  suffix: T4
   components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: WallDefense3
   - type: Destructible
     thresholds:
     - trigger:
@@ -397,7 +385,7 @@
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 12500
+        damage: 10000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -406,42 +394,24 @@
           collection: MetalBreak
 
 - type: entity
-  id: BallisticArtilleryTier5HP # Supercapital class armament, station outpost weaponry and capital pre-fracture weaponry, around 4x Reinforced Plastitanium Health. This is 1.25x outpost plastitanium HP btw.
+  id: BallisticArtilleryTier5HP # Supercapital class armament, station outpost weaponry and capital pre-fracture weaponry, around 4x Reinforced Plastitanium Health.
   abstract: true
+  suffix: T5
   components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: WallDefense3
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 25000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 20000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-
-- type: entity
-  id: BallisticArtilleryTier6HP # Supercapital class pre-fracture armament. 5x Reinforced Plastitanium Health. Meant as the final boss of durability.
-  abstract: true
-  components:
-  - type: Destructible
-    thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 25000
+        damage: 15000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

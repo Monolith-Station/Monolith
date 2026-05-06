@@ -170,9 +170,7 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - NamesFirst
-    - NamesLast
-    nameFormat: name-format-standard
+    - NamesResomiUnisex
 
 - type: entity # mono
   parent: MobHydrakin
