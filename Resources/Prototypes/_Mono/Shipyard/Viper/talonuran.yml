@@ -1,0 +1,40 @@
+# Author Info
+# GitHub: gelliii
+# Discord: .gelliii.
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Talonuran
+  parent: BaseVessel
+  name: VG Talonuran
+  description: A small heavy support craft, comissioned by the Viper Group for fleet support. Magboots suggested.
+  price: 47500
+  category: Small
+  group: Viper
+  shuttlePath: /Maps/_Mono/Shuttles/Viper/talonuran.yml
+  guidebookPage: Null
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Talonuran
+  mapName: 'VG Talonuran'
+  mapPath: /Maps/_Mono/Shuttles/Viper/talonuran.yml
+  minPlayers: 0
+  stations:
+    Talonuran:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Talonuran MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
