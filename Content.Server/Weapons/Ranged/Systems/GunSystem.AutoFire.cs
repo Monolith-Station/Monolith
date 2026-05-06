@@ -45,7 +45,7 @@ public sealed partial class GunSystem
             else if (_autoShootGunQuery.TryComp(uid, out var autoShoot))
             {
                 // Mono
-                if (autoShoot.RemainingTime <= TimeSpan.FromSeconds(0))
+                if (autoShoot.RemainingTime <= TimeSpan.Zero)
                 {
                     if (!autoShoot.Enabled)
                         continue;

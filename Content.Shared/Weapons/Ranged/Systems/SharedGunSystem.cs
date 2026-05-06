@@ -351,7 +351,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     protected void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun)
     {
-        if (_autoShootGunQuery.TryComp(gunUid, out var auto) && !auto.CanFire && auto.RemainingTime <= TimeSpan.FromSeconds(0)) // Frontier // Mono
+        if (_autoShootGunQuery.TryComp(gunUid, out var auto) && !auto.CanFire && auto.RemainingTime <= TimeSpan.Zero) // Frontier // Mono
             return; // Frontier
 
         if (gun.FireRateModified <= 0f ||
@@ -617,8 +617,6 @@ public abstract partial class SharedGunSystem : EntitySystem
     // Mono - used for multiple-per-frame projectile offset
     public override void Update(float frameTime)
     {
-        base.Update(frameTime);
-
         _lastFrameTime = frameTime;
     }
 
