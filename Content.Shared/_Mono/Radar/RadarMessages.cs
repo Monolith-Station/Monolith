@@ -110,8 +110,8 @@ public partial struct BlipConfig : IEquatable<BlipConfig>
             && Bounds == other.Bounds;
     }
 
-    public readonly override int GetHashCode()
+    public override readonly int GetHashCode()
     {
-        throw new NotSupportedException("BlipConfig should not be used as a dictionary key.");
+        throw new NotSupportedException("BlipConfig is not supported with GetHashCode().");
     }
 }
