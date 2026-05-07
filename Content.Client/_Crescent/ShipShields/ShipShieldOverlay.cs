@@ -10,11 +10,13 @@ using Content.Client.Resources;
 using Robust.Client.Physics;
 using Robust.Shared.Prototypes;
 using System.Runtime.InteropServices;
+using Robust.Client.GameObjects;
 
 namespace Content.Client._Crescent.ShipShields;
 
 public sealed class ShipShieldOverlay : Overlay
 {
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     private readonly FixtureSystem _fixture;
     private readonly SharedPhysicsSystem _physics;
     private readonly IResourceCache _resourceCache;
@@ -22,6 +24,7 @@ public sealed class ShipShieldOverlay : Overlay
     private readonly ShaderInstance _unshadedShader;
     private readonly List<DrawVertexUV2D> _verts = new(128); // Mono
     private readonly Texture _shieldTexture;
+    private readonly Box2 _bounds = new(-16, -16, 16, 16);
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowWorld;
 
@@ -51,7 +54,8 @@ public sealed class ShipShieldOverlay : Overlay
             if (xform.MapID != args.MapId)
                 continue;
 
-            // TODO: We can probably at least test its parent grid is in PVS range...?
+            if (!_bounds.Contains(_transform.GetWorldPosition(xform)))
+                continue;
 
             var fixture = _fixture.GetFixtureOrNull(uid, "shield", fixtures);
 
