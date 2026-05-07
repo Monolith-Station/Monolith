@@ -16,7 +16,6 @@ namespace Content.Client._Crescent.ShipShields;
 
 public sealed class ShipShieldOverlay : Overlay
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     private readonly FixtureSystem _fixture;
     private readonly SharedPhysicsSystem _physics;
     private readonly IResourceCache _resourceCache;
