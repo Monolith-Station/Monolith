@@ -135,7 +135,7 @@ public sealed partial class RadarBlipSystem : EntitySystem
     {
         for (var i = 0; i < _tempPaletteCache.Count; i++)
         {
-            if (_tempPaletteCache[i] == config)
+            if (_tempPaletteCache[i].Equals(config))
                 return (ushort)i;
         }
 
