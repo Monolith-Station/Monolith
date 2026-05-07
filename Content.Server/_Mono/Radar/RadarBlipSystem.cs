@@ -18,13 +18,15 @@ public sealed partial class RadarBlipSystem : EntitySystem
     private readonly List<HitscanNetData> _tempHitscansCache = new();
     private readonly List<EntityUid> _tempSourcesCache = new();
     private readonly List<BlipConfig> _tempPaletteCache = new();
-    private readonly Dictionary<BlipConfig, ushort> _paletteIndex = new();
+    private EntityQuery<PhysicsComponent> _physicsQuery;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeNetworkEvent<RequestBlipsEvent>(OnBlipsRequested);
         SubscribeLocalEvent<RadarBlipComponent, ComponentShutdown>(OnBlipShutdown);
+
+        _physicsQuery = GetEntityQuery<PhysicsComponent>();
     }
 
     private void OnBlipsRequested(RequestBlipsEvent ev, EntitySessionEventArgs args)
@@ -55,7 +57,6 @@ public sealed partial class RadarBlipSystem : EntitySystem
         _tempHitscansCache.Clear();
         _tempSourcesCache.Clear();
         _tempPaletteCache.Clear();
-        _paletteIndex.Clear();
     }
 
     private void OnBlipShutdown(EntityUid blipUid, RadarBlipComponent component, ComponentShutdown args)
@@ -65,11 +66,8 @@ public sealed partial class RadarBlipSystem : EntitySystem
         RaiseNetworkEvent(removalEv);
     }
 
-    private void AssembleBlipsReport(EntityUid uid, List<EntityUid> sources, RadarConsoleComponent? component = null)
+    private void AssembleBlipsReport(EntityUid uid, List<EntityUid> sources, RadarConsoleComponent component)
     {
-        if (!Resolve(uid, ref component))
-            return;
-
         var radarXform = Transform(uid);
         var radarGrid = radarXform.GridUid;
         var radarMapId = radarXform.MapID;
@@ -107,7 +105,7 @@ public sealed partial class RadarBlipSystem : EntitySystem
             if (blipGrid != null)
             {
                 var gridXform = Transform(blipGrid.Value);
-                if (TryComp<PhysicsComponent>(blipGrid.Value, out var gridBody)) // prevent log spam
+                if (_physicsQuery.TryComp(blipGrid.Value, out var gridBody)) // prevent log spam
                     blipVelocity -= _physics.GetLinearVelocity(blipGrid.Value, coord.Position, gridBody);
                 // it's local-frame velocity so rotate it too
                 blipVelocity = (-gridXform.LocalRotation).RotateVec(blipVelocity);
@@ -135,31 +133,27 @@ public sealed partial class RadarBlipSystem : EntitySystem
     /// </summary>
     private ushort GetOrAddConfig(BlipConfig config)
     {
-        if (_paletteIndex.TryGetValue(config, out var index))
-            return index;
+        for (var i = 0; i < _tempPaletteCache.Count; i++)
+        {
+            if (_tempPaletteCache[i] == config)
+                return (ushort)i;
+        }
 
         if (_tempPaletteCache.Count >= ushort.MaxValue)
         {
             Log.Error($"Blip config count overflow! Reached max {ushort.MaxValue}, but trying to add more.");
             return 0;
         }
-
-        index = (ushort)_tempPaletteCache.Count;
+        var index = (ushort)_tempPaletteCache.Count;
         _tempPaletteCache.Add(config);
-        _paletteIndex[config] = index;
         return index;
     }
 
     /// <summary>
     /// Assembles trajectory information for hitscan projectiles to be displayed on radar
     /// </summary>
-    private void AssembleHitscanReport(EntityUid uid, List<EntityUid> sources, RadarConsoleComponent? component = null)
+    private void AssembleHitscanReport(EntityUid uid, List<EntityUid> sources, RadarConsoleComponent component)
     {
-        if (!Resolve(uid, ref component))
-            return;
-
-        var radarXform = Transform(uid);
-
         var hitscanQuery = EntityQueryEnumerator<HitscanRadarComponent>();
 
         while (hitscanQuery.MoveNext(out var hitscanUid, out var hitscan))
@@ -167,7 +161,7 @@ public sealed partial class RadarBlipSystem : EntitySystem
             if (!hitscan.Enabled)
                 continue;
 
-            if (!NearAnySources(hitscan.StartPosition, sources, component.MaxRange) && NearAnySources(hitscan.EndPosition, sources, component.MaxRange))
+            if (!NearAnySources(hitscan.StartPosition, sources, component.MaxRange) && !NearAnySources(hitscan.EndPosition, sources, component.MaxRange))
                 continue;
 
             _tempHitscansCache.Add(new(hitscan.StartPosition, hitscan.EndPosition, hitscan.LineThickness, hitscan.RadarColor));
