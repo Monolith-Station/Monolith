@@ -112,6 +112,6 @@ public partial struct BlipConfig : IEquatable<BlipConfig>
 
     public readonly override int GetHashCode()
     {
-        return 0;
+        throw new NotSupportedException("BlipConfig should not be used as a dictionary key.");
     }
 }
