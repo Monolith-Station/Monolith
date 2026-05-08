@@ -70,7 +70,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     private float _minRaycastVelocity; // Mono
     private bool _adaptiveRaycasting; // Mono
     private const int BasePhysicsTickrate = 60; // Mono
-    private int _physicsTickrate;
+    private int _physicsTickrate; // Mono
 
     public override void Initialize()
     {
@@ -96,6 +96,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         Subs.CVar(_cfg, MonoCVars.ProjectileRaycastSpeedThreshold, value => _minRaycastVelocity = value, true);
         Subs.CVar(_cfg, MonoCVars.ProjectileAdaptiveRaycastThreshold, value => _adaptiveRaycasting = value, true);
         Subs.CVar(_cfg, CVars.TargetMinimumTickrate, value => _physicsTickrate = value, true);
+        // Mono End
     }
 
     /// <summary>
@@ -119,7 +120,11 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         EnsureComp<MetaDataComponent>(uid);
     }
 
-    // Mono
+    /// <summary>
+    /// Mono: Handles whether a projectile is raycasted based off projectile speed.
+    /// </summary>
+    /// <param name="speed"></param>
+    /// <returns></returns>
     public bool ShouldRaycastProjectile(float speed)
     {
         if (_adaptiveRaycasting && speed > _minRaycastVelocity * (_physicsTickrate / BasePhysicsTickrate))
