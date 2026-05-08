@@ -114,4 +114,14 @@ public partial struct BlipConfig : IEquatable<BlipConfig>
     {
         throw new NotSupportedException("BlipConfig is not supported with GetHashCode().");
     }
+
+    public static bool operator ==(BlipConfig left, BlipConfig right)
+    {
+        return left.Equals(right);
+    }
+
+    public static bool operator !=(BlipConfig left, BlipConfig right)
+    {
+        return !(left == right);
+    }
 }
