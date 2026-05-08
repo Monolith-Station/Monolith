@@ -44,7 +44,7 @@ public sealed partial class RadarBlipsSystem : EntitySystem
     {
         for (var i = 0; i < _blips.Count; i++)
         {
-            if (_blips[i].Uid.Equals(args.NetBlipUid))
+            if (_blips[i].Uid == args.NetBlipUid)
             {
                 _blips.RemoveAt(i);
                 return;
