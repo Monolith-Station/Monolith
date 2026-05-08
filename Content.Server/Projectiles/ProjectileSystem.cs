@@ -13,6 +13,8 @@ using Robust.Shared.Physics.Systems;
 using System.Linq;
 using System.Numerics;
 using Content.Server.Gatherable.Components;
+using Robust.Shared.Configuration;
+using Content.Shared._Mono.CCVar;
 
 namespace Content.Server.Projectiles;
 
@@ -23,6 +25,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     [Dependency] private readonly IMapManager _mapMan = default!; // Mono
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     // <Mono>
     private EntityQuery<PhysicsComponent> _physQuery;
@@ -32,8 +35,8 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     /// Minimum velocity for a projectile to be considered for raycast hit detection.
     /// Projectiles slower than this will rely on standard StartCollideEvent.
     /// </summary>
-    private const float MinRaycastVelocity = 75f;
-    // </Mono>
+    private float _minRaycastVelocity;
+    private bool _adaptiveRaycasting;
 
     public override void Initialize()
     {
@@ -42,7 +45,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         // Mono
         _physQuery = GetEntityQuery<PhysicsComponent>();
         _fixQuery = GetEntityQuery<FixturesComponent>();
-
         // Mono
         UpdatesBefore.Add(typeof(SharedPhysicsSystem));
     }
@@ -150,7 +152,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             var xform = Transform(uid);
             var currentVelocity = projectileComp.RaycastResetVelocity ?? _physics.GetMapLinearVelocity(uid, physicsComp, xform);
             var velLen = currentVelocity.Length();
-            if (velLen < MinRaycastVelocity && projectileComp.RaycastResetVelocity == null)
+            if (!ShouldRaycastProjectile(velLen) && projectileComp.RaycastResetVelocity == null)
                 continue;
 
             var lastMap = _transformSystem.GetMapCoordinates(xform);
