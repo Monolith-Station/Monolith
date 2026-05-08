@@ -64,13 +64,12 @@
   fx: EffectRCDConstruct2
 
 - type: rcd
-  id: APCbasic
+  id: BaseAPC
   category: Electrical
-  sprite: /Textures/Interface/Radial/RCD/cable_terminal.png
+  sprite: /Textures/Interface/Radial/RCD/apc.png
   mode: ConstructObject
-  prototype: APCbasic
+  prototype: BaseAPC
   cost: 6
   delay: 2
-  collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
