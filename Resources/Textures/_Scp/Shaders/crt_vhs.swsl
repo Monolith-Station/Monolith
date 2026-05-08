@@ -130,7 +130,7 @@ void fragment() {
 
     // Деградация цветов VHS
     if (DISCOLOR) {
-        highp float colorShift = COLOR_DEGRADATION * sin(TIME * 0.2);
+        highp float colorShift = COLOR_DEGRADATION * sin(t_color * 0.2);
         text.r *= 1.0 + colorShift * 0.125;
         text.g *= 1.0 - colorShift * 0.08;
         text.b *= 1.0 + colorShift * 0.05;
