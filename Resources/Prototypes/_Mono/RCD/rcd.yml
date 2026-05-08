@@ -62,3 +62,15 @@
   collisionMask: FullTileMask
   rotation: Fixed
   fx: EffectRCDConstruct2
+
+- type: rcd
+  id: APCbasic
+  category: Electrical
+  sprite: /Textures/Interface/Radial/RCD/cable_terminal.png
+  mode: ConstructObject
+  prototype: APCbasic
+  cost: 6
+  delay: 2
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
