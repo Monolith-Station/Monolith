@@ -99,6 +99,10 @@
   - type: Store
     balance:
       FederationMilitaryCredit: 125
+  - type: Tag
+    tags:
+      - SecurityUplink
+      - FactionStaticUplinkTsf
 
 - type: entity
   parent: BaseSecurityUplinkRadio

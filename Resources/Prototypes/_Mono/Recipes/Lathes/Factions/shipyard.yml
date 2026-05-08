@@ -1,0 +1,154 @@
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherTsfT0Recipe
+  result: ShipVoucherTsfT0
+  completetime: 30
+  materials:
+    Steel: 5000
+    Copper: 5000
+    Plasteel: 5000
+    Glass: 5000
+    Plasma: 2500
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherTsfT1RandomRecipe
+  result: ShipVoucherTsfT1Random
+  completetime: 50
+  materials:
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 5000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    UraniumDepleted: 1000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherTsfT2RandomRecipe
+  result: ShipVoucherTsfT2Random
+  completetime: 100
+  materials:
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 10000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    UraniumDepleted: 1000
+    UraniumFissile: 250
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: AltairVoucherTSF
+  result: ShipVoucherAltair
+  completetime: 100
+  materials:
+    Steel: 40000
+    Plasteel: 20000
+    Plastic: 30000
+    Glass: 10000
+    Plasma: 5000
+    UraniumFissile: 600
+    UraniumDepleted: 4000
+    Silver: 10000
+    Gold: 5000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: FlyssaVoucherTSF
+  result: ShipVoucherFlyssa
+  completetime: 130
+  materials:
+    Steel: 40000
+    Plasteel: 55000
+    Plastic: 50000
+    Glass: 9000
+    Plasma: 500
+    UraniumFissile: 1000
+    UraniumDepleted: 5000
+    Silver: 5000
+    Gold: 5000
+
+# PDV
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherPdvT0Recipe
+  result: ShipVoucherPdvT0
+  completetime: 30
+  materials:
+    Steel: 5000
+    Copper: 5000
+    Plasteel: 5000
+    Glass: 5000
+    Plasma: 2500
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherPdvT1RandomRecipe
+  result: ShipVoucherPdvT1Random
+  completetime: 50
+  materials:
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 5000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    UraniumDepleted: 1000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherPdvT2RandomRecipe
+  result: ShipVoucherPdvT2Random
+  completetime: 100
+  materials:
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 10000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    UraniumDepleted: 1000
+    UraniumFissile: 250
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: SaintieVoucherRogue
+  result: ShipVoucherSaintie
+  materials:
+    Steel: 30000
+    Plasteel: 20000
+    Plastic: 30000
+    Glass: 5000
+    Plasma: 5000
+    UraniumFissile: 600
+    UraniumDepleted: 4000
+    Silver: 5000
+    Gold: 5000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: SaturnVoucherRogue
+  result: ShipVoucherSaturn
+  completetime: 10
+  materials:
+    Steel: 60000
+    Plasteel: 85000
+    Plastic: 50000
+    Glass: 10000
+    Plasma: 7500
+    UraniumFissile: 1000
+    UraniumDepleted: 5000
+    Silver: 10000
+    Gold: 10000
