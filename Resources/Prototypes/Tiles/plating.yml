@@ -15,7 +15,7 @@
 - type: tile
   id: PlatingSpace
   name: tiles-plating-space
-  sprite: /Textures/Tiles/plating.png
+  sprite: /Textures/Tiles/clockwork_floor.png # clock work floor so when you look up "plating" in tiles menu while mapping its easy to see the difference
   baseTurf: Space
   isSubfloor: true
   deconstructTools: [ Axing ] # DeltaV - The return of fireaxe prying
