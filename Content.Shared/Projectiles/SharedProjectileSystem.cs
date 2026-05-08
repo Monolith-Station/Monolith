@@ -122,9 +122,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     // Mono
     public bool ShouldRaycastProjectile(float speed)
     {
-        if (_adaptiveRaycasting && speed >= _minRaycastVelocity * (_physicsTickrate / BasePhysicsTickrate))
+        if (_adaptiveRaycasting && speed > _minRaycastVelocity * (_physicsTickrate / BasePhysicsTickrate))
             return true;
-        else if (speed >= _minRaycastVelocity)
+        else if (speed > _minRaycastVelocity)
             return true;
 
         return false;
