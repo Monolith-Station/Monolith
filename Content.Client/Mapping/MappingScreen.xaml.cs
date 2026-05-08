@@ -129,6 +129,7 @@ public sealed partial class MappingScreen : InGameScreen
         GridVV.Texture.TexturePath = "/Textures/Interface/VerbIcons/vv.svg.192dpi.png";
         PipesColor.Texture.TexturePath = "/Textures/_Wizden/Interface/VerbIcons/paint-roller-solid.svg.192dpi.png";
         ChatButton.Texture.TexturePath = "/Textures/_Wizden/Interface/VerbIcons/comment-dots-regular.svg.192dpi.png";
+        MassScannerButton.Texture.TexturePath = "/Textures/Interface/Actions/actions_ai.rsi/mass_scanner.png";
 
         HideLeftSide.OnPressed += OnToggleLeftContainer;
         HideRightSide.OnPressed += OnToggleRightContainer;

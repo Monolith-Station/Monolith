@@ -20,6 +20,7 @@ using Content.Shared.Decals;
 using Content.Shared.Input;
 using Content.Shared.Mapping;
 using Content.Shared.Maps;
+using Content.Shared.Shuttles.BUIStates;
 using Robust.Client.Console;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -63,6 +64,7 @@ public sealed class MappingState : GameplayStateBase
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
     [Dependency] private readonly ILocalizationManager _localization = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
 
     private EntityMenuUIController _entityMenuController = default!;
 
@@ -97,12 +99,15 @@ public sealed class MappingState : GameplayStateBase
 
     public CursorMeta Meta { get; }
 
+    private readonly SharedUserInterfaceSystem _ui;
     public MappingState()
     {
         IoCManager.InjectDependencies(this);
 
         _sawmill = _log.GetSawmill("mapping");
         _loadController = UserInterfaceManager.GetUIController<GameplayStateLoadController>();
+
+        _ui = _entitySystemManager.GetEntitySystem<SharedUserInterfaceSystem>();
 
         Meta = new CursorMeta();
     }
@@ -150,6 +155,7 @@ public sealed class MappingState : GameplayStateBase
         Screen.GridVV.OnPressed += OnGridVVPressed;
         Screen.PipesColor.OnPressed += OnPipesColorPressed;
         Screen.ChatButton.OnPressed += OnChatButtonPressed;
+        Screen.MassScannerButton.OnPressed += OnMassScannerButtonPressed;
         _placement.PlacementChanged += OnPlacementChanged;
         _mapping.OnFavoritePrototypesLoaded += OnFavoritesLoaded;
 
@@ -201,6 +207,7 @@ public sealed class MappingState : GameplayStateBase
         Screen.GridVV.OnPressed -= OnGridVVPressed;
         Screen.PipesColor.OnPressed -= OnPipesColorPressed;
         Screen.ChatButton.OnPressed -= OnChatButtonPressed;
+        Screen.MassScannerButton.OnPressed -= OnMassScannerButtonPressed;
         _placement.PlacementChanged -= OnPlacementChanged;
         _prototypeManager.PrototypesReloaded -= OnPrototypesReloaded;
         _mapping.OnFavoritePrototypesLoaded -= OnFavoritesLoaded;
@@ -1038,6 +1045,16 @@ public sealed class MappingState : GameplayStateBase
     {
         Screen.Chat.Visible = args.Button.Pressed;
     }
+
+    private void OnMassScannerButtonPressed(ButtonEventArgs args)
+    {
+        var session = _player.LocalSession;
+        if (session?.AttachedEntity is not { } entityUid)
+            return;
+
+        _ui.TryToggleUi(entityUid, RadarConsoleUiKey.Key, session);
+    }
+
     #endregion
 
     #region Handle Bindings

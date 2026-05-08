@@ -82,6 +82,8 @@
                         <BoxContainer HorizontalExpand="True"/>
                         <mapping:MappingActionsButton Name="ChatButton" Access="Public"
                                                       ToolTip="{Loc 'mapping-chat-button-tooltip'}" />
+                        <mapping:MappingActionsButton Name="MassScannerButton" Access="Public"
+                                                      ToolTip="{Loc 'mapping-mass-scanner-button-tooltip'}" />
                         <BoxContainer HorizontalExpand="True" />
                         <mapping:MappingActionsButton Name="HideRightSide" Access="Public" ToggleMode="False"
                                                       ToolTip="{Loc 'mapping-hide-right-side-tooltip'}" SetWidth="24"

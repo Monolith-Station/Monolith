@@ -24,6 +24,7 @@ mapping-grid-vv-tooltip = View grid variables
 mapping-pipes-color-tooltip = Paint the pipes
                               Click on the pipe to paint in the currently selected color
 mapping-chat-button-tooltip = Toggle chat visibility
+mapping-mass-scanner-button-tooltip = Toggle mass scanner
 
 mapping-hide-left-side-tooltip = Collapse left side
 mapping-hide-right-side-tooltip = Collapse right side
