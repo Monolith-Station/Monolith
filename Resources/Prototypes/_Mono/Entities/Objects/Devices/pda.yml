@@ -424,17 +424,6 @@
     accentVColor: "#d9a200"
 
 - type: entity
-  parent: VGInfanteerPDA
-  id: VGPrivateerPDA
-  name: VG privateer PDA
-  components:
-  - type: Pda
-    id: VGPrivateerIDCard
-  - type: PdaBorderColor
-    borderColor: "#6b0000"
-    accentVColor: "#202020"
-
-- type: entity
   parent: BaseVGPDA
   id: VGLieutenantPDA
   name: VG Lieutenant PDA
