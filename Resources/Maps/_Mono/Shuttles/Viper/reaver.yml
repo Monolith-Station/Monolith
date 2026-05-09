@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 05/09/2026 14:30:38
-  entityCount: 323
+  time: 05/09/2026 20:17:53
+  entityCount: 336
 maps: []
 grids:
 - 1
@@ -86,10 +86,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Puddle: []
         MetalFoam: []
         Kudzu: []
+        Smoke: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -477,6 +477,21 @@ entities:
     - type: Transform
       pos: 0.5,-4.5
       parent: 1
+- proto: AmmoLoaderSmall
+  entities:
+  - uid: 336
+    components:
+    - type: Transform
+      pos: 3.5,-3.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        327:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
+        10:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
 - proto: APCBasic
   entities:
   - uid: 184
@@ -484,6 +499,76 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,-2.5
+      parent: 1
+- proto: Asm220TorpedoHE
+  entities:
+  - uid: 11
+    components:
+    - type: Transform
+      parent: 10
+    - type: Physics
+      canCollide: False
+  - uid: 129
+    components:
+    - type: Transform
+      pos: -2.6007462,-1.1550143
+      parent: 1
+  - uid: 130
+    components:
+    - type: Transform
+      parent: 10
+    - type: Physics
+      canCollide: False
+  - uid: 131
+    components:
+    - type: Transform
+      parent: 10
+    - type: Physics
+      canCollide: False
+  - uid: 132
+    components:
+    - type: Transform
+      parent: 10
+    - type: Physics
+      canCollide: False
+  - uid: 328
+    components:
+    - type: Transform
+      parent: 327
+    - type: Physics
+      canCollide: False
+  - uid: 329
+    components:
+    - type: Transform
+      parent: 327
+    - type: Physics
+      canCollide: False
+  - uid: 330
+    components:
+    - type: Transform
+      parent: 327
+    - type: Physics
+      canCollide: False
+  - uid: 331
+    components:
+    - type: Transform
+      parent: 327
+    - type: Physics
+      canCollide: False
+  - uid: 333
+    components:
+    - type: Transform
+      pos: -2.4132462,-1.5050144
+      parent: 1
+  - uid: 334
+    components:
+    - type: Transform
+      pos: -2.4632463,-1.7175143
+      parent: 1
+  - uid: 335
+    components:
+    - type: Transform
+      pos: -2.6257463,-1.3175144
       parent: 1
 - proto: AtmosDeviceFanDirectional
   entities:
@@ -1308,8 +1393,6 @@ entities:
       pos: 2.5,-0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 198
     - type: AtmosPipeColor
@@ -1323,8 +1406,6 @@ entities:
       pos: 1.5,-1.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 198
     - type: AtmosPipeColor
@@ -1510,6 +1591,14 @@ entities:
     components:
     - type: Transform
       pos: 0.5,0.5
+      parent: 1
+- proto: Rack
+  entities:
+  - uid: 332
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-1.5
       parent: 1
 - proto: RadarEdgeMarkerDiagonal
   entities:
@@ -1923,13 +2012,6 @@ entities:
     components:
     - type: Transform
       pos: -2.5,-2.5
-      parent: 1
-- proto: SuitStorageViperWL
-  entities:
-  - uid: 129
-    components:
-    - type: Transform
-      pos: 3.5,-3.5
       parent: 1
 - proto: ThrusterLargeRogue
   entities:
@@ -2389,15 +2471,7 @@ entities:
     - type: Transform
       pos: 6.5,-4.5
       parent: 1
-- proto: WeaponTurretM220
-  entities:
-  - uid: 3
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,2.5
-      parent: 1
-- proto: WeaponTurretVespera
+- proto: WeaponTurretASM220
   entities:
   - uid: 10
     components:
@@ -2405,10 +2479,50 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,3.5
       parent: 1
-  - uid: 11
+    - type: BallisticAmmoProvider
+      entities:
+      - 11
+      - 130
+      - 131
+      - 132
+    - type: ContainerContainer
+      containers:
+        ballistic-ammo: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 11
+          - 130
+          - 131
+          - 132
+  - uid: 327
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 2.5,3.5
+      parent: 1
+    - type: BallisticAmmoProvider
+      entities:
+      - 328
+      - 329
+      - 330
+      - 331
+    - type: ContainerContainer
+      containers:
+        ballistic-ammo: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 328
+          - 329
+          - 330
+          - 331
+- proto: WeaponTurretM220
+  entities:
+  - uid: 3
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,2.5
       parent: 1
 ...
