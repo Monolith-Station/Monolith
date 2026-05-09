@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/30/2026 14:33:46
-  entityCount: 323
+  time: 05/09/2026 13:08:15
+  entityCount: 326
 maps: []
 grids:
 - 1
@@ -86,10 +86,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Kudzu: []
         MetalFoam: []
+        Smoke: []
         Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -439,6 +439,7 @@ entities:
     - type: RadiationGridResistance
     - type: ShipGridLock
       locked: False
+    - type: ThermalSignature
 - proto: AirAlarm
   entities:
   - uid: 198
@@ -462,20 +463,19 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
-- proto: AirlockHatch
-  entities:
-  - uid: 112
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,-4.5
-      parent: 1
-- proto: AirlockShuttleSyndicate
+- proto: AirlockExternalGlassShuttleViperLocked
   entities:
   - uid: 138
     components:
     - type: Transform
       pos: 0.5,-6.5
+      parent: 1
+- proto: AirlockHatchViper
+  entities:
+  - uid: 112
+    components:
+    - type: Transform
+      pos: 0.5,-4.5
       parent: 1
 - proto: APCBasic
   entities:
@@ -484,13 +484,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,-2.5
-      parent: 1
-- proto: Ashtray
-  entities:
-  - uid: 217
-    components:
-    - type: Transform
-      pos: 1.2458689,0.72664976
       parent: 1
 - proto: AtmosDeviceFanDirectional
   entities:
@@ -1462,6 +1455,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,-2.5
       parent: 1
+- proto: NFAshtray
+  entities:
+  - uid: 217
+    components:
+    - type: Transform
+      pos: 1.2458689,0.72664976
+      parent: 1
 - proto: NFBedrollFolded
   entities:
   - uid: 189
@@ -1501,6 +1501,8 @@ entities:
     - type: Transform
       pos: -1.5,-2.5
       parent: 1
+    - type: FuelGenerator
+      targetPower: 42000
 - proto: PoweredDimSmallLight
   entities:
   - uid: 134
@@ -1895,6 +1897,25 @@ entities:
 - proto: SpawnPointLatejoin
   entities:
   - uid: 271
+    components:
+    - type: Transform
+      pos: 2.5,-3.5
+      parent: 1
+- proto: SpawnPointVGCommander
+  entities:
+  - uid: 324
+    components:
+    - type: Transform
+      pos: 2.5,-3.5
+      parent: 1
+  - uid: 325
+    components:
+    - type: Transform
+      pos: 2.5,-3.5
+      parent: 1
+- proto: SpawnPointVGLieutenant
+  entities:
+  - uid: 326
     components:
     - type: Transform
       pos: 2.5,-3.5

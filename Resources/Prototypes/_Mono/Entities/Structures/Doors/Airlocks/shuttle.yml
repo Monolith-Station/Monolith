@@ -213,3 +213,21 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
+
+- type: entity
+  parent: AirlockShuttleSyndicate
+  id: AirlockExternalShuttleViperLocked
+  suffix: External, Docking, Viper Group, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViper ]
+
+- type: entity
+  parent: AirlockGlassShuttleSyndicate
+  id: AirlockExternalGlassShuttleViperLocked
+  suffix: Viper Group, Locked, Glass
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViper ]

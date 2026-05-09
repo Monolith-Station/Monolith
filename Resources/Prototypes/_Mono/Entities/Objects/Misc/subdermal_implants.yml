@@ -12,3 +12,18 @@
       - Dead
     - type: Rattle
       radioChannel: "Ussp"
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ViperTrackingImplant
+  name: Viper Group tracking implant
+  description: This implant has a tracking device monitor for the Viper Group's private radio channel.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Critical
+    - Dead
+  - type: Rattle
+    radioChannel: "Viper"

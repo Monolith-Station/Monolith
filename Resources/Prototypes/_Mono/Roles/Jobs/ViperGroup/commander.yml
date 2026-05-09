@@ -3,11 +3,8 @@
   name: job-name-vg-commander
   description: job-description-vg-commander
   playTimeTracker: JobVGCommander
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 32400 # 9 hrs
-  whitelisted: true # I don't think we actually have company specific job whitelists. Leaving this comment here to ask upon PR creation.
-  startingGear: ViperInfanteerGear
+  whitelisted: true # I'm not certain who gets this.
+  startingGear: ViperRadioGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   icon: "JobIconVGCommander" # TODO - new USSP icons
@@ -17,7 +14,7 @@
   displayWeight: 52
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, UsspTrackingImplant ]
+    implants: [ MindShieldImplant, ViperTrackingImplant ]
   - !type:AddComponentSpecial
     components:
     - type: MailDisabled
@@ -33,4 +30,4 @@
     - NovaCygniBasic
   accessGroups:
   - GeneralAccess
-  - ViperLow
+  - ViperHigh

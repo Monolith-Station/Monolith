@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/01/2026 12:01:01
-  entityCount: 242
+  time: 05/09/2026 13:11:12
+  entityCount: 243
 maps: []
 grids:
 - 1
@@ -82,10 +82,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Kudzu: []
-        Puddle: []
         MetalFoam: []
+        Smoke: []
+        Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -401,6 +401,7 @@ entities:
     - type: RadiationGridResistance
     - type: ShipGridLock
       locked: False
+    - type: ThermalSignature
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -412,19 +413,19 @@ entities:
       devices:
       - 128
       - 123
-- proto: AirlockHatch
-  entities:
-  - uid: 3
-    components:
-    - type: Transform
-      pos: 0.5,4.5
-      parent: 1
-- proto: AirlockShuttleSyndicate
+- proto: AirlockExternalShuttleViperLocked
   entities:
   - uid: 4
     components:
     - type: Transform
       pos: 0.5,-0.5
+      parent: 1
+- proto: AirlockHatchViper
+  entities:
+  - uid: 3
+    components:
+    - type: Transform
+      pos: 0.5,4.5
       parent: 1
 - proto: APCBasic
   entities:
@@ -1287,6 +1288,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -0.5,3.5
       parent: 1
+- proto: LockerWallMaterialsFuelUraniumFilled
+  entities:
+  - uid: 243
+    components:
+    - type: Transform
+      pos: -0.5,4.5
+      parent: 1
 - proto: NFBedrollFolded
   entities:
   - uid: 110
@@ -1310,6 +1318,8 @@ entities:
     - type: Transform
       pos: 1.5,3.5
       parent: 1
+    - type: FuelGenerator
+      targetPower: 35000
 - proto: PoweredDimSmallLight
   entities:
   - uid: 143
