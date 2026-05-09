@@ -113,12 +113,6 @@
     ports:
     - Toggle
   - type: Gun
-    selectedMode: Burst
-    availableModes:
-    - Burst
-    burstFireRate: 25
-    shotsPerBurst: 25
-    burstCooldown: 3
     fireRate: 25
     recoil: 5 # 1/5x
     projectileSpeed: 180
