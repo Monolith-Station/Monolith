@@ -105,6 +105,8 @@
     children:
     - id: SpawnDroneMauler
       weight: 10
+    - id: SpawnDroneQuake
+      weight: 10
 
 - type: entityTable
   id: DroneSpawnTableT2Middle
@@ -398,3 +400,22 @@
       - DroneHex
     nameGrid: false
 
+- type: entity
+  id: SpawnDroneQuake
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /Maps/_Mono/Shuttles/World/quake.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "QUAKE"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
