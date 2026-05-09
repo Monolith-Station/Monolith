@@ -17,3 +17,8 @@ job-name-tsf-borg = TSFMC Cyborg
 
 # MARK: PDV
 job-name-pdv-borg = PDV Cyborg
+
+# MARK: Viper Group
+job-name-vg-infanteer = VG Infanteer
+job-name-vg-lieutenant = VG Lieutenant
+job-name-vg-commander = VG Commander

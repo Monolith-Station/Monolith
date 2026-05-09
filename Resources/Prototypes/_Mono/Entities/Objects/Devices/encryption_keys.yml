@@ -85,3 +85,23 @@
     #- Nfsd #Deliberately excluded: You don't command them
     #- Freelance
     defaultChannel: Command
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyViper
+  name: ViperGroup encryption key
+  description: An encryption key for the Viper Group tactical-level communications channel.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Viper
+    defaultChannel: Viper
+  - type: Item
+    sprite: _Mono/Objects/Devices/encryption_keys.rsi
+  - type: Sprite
+    sprite: _Mono/Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_red
+    - state: viper_label
+  #- type: PirateBountyItem
+  #  id: EncryptionKeyFaction > Unsure if these should stay as the USSP minor faction/company has it.

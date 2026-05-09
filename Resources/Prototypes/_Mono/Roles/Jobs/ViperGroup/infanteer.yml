@@ -1,0 +1,43 @@
+- type: job
+  id: VGInfanteer
+  name: job-name-vg-infanteer
+  description: job-description-vg-infanteer
+  playTimeTracker: JobVGInfanteer
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 32400 # 9 hrs
+  whitelisted: true # I don't think we actually have company specific job whitelists. Leaving this comment here to ask upon PR creation.
+  startingGear: ViperInfanteerGear
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  icon: "JobIconVGInfanteer"
+  supervisors: job-supervisors-vg-infanteer
+  canBeAntag: false
+  weight: 10 #Going off the info I was given, low weight as it's a company-whitelist role.
+  displayWeight: 50
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, UsspTrackingImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: MailDisabled
+    - type: SpecialSectorStationRecord
+      recordGeneration: FalseRecord
+    - type: NpcFactionMember
+      factions:
+      - VG
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - NovaCygniBasic
+    languagesUnderstood:
+    - NovaCygniBasic
+  accessGroups:
+  - GeneralAccess
+  - ViperLow
+
+- type: startingGear
+  id: ViperInfanteerGear
+  storage:
+    back:
+    - RadioHandheldNF
+

@@ -99,3 +99,21 @@
     - Snout
     - HeadTop
     - HeadSide
+
+#Recolor for loadouts
+
+- type: entity
+  parent: ClothingHelmetHardsuitMercenaryWarlord
+  id: ClothingHelmetHardsuitViperWarlord
+  name: WL-01 helmet
+  description: A heavy headgear piece accompanying the Warlord suit, it offers flash inmunity aswell mass scanner support. Now in Viper Group colors!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/viper_group_warlordsuit.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/viper_group_warlordsuit.rsi
+  - type: PointLight
+    radius: 8
+    energy: 3
+    color: "#eb772a"

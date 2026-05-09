@@ -369,3 +369,96 @@
     showControl: true
     isEnabled: true
     attachedToSuit: true # Mono
+
+# Viper Group
+
+- type: entity
+  parent: BasePDA
+  id: BaseVGPDA
+  description: A basic personal computer for access restriction and organization, retrofitted with old Gorlex PDA parts.
+  abstract: true
+  components:
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - BountyContractsCartridge
+    - AstroNavCartridge
+  - type: Sprite
+    sprite: _Mono/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Icon
+    sprite: _Mono/Objects/Devices/pda.rsi
+    state: pda
+
+- type: entity
+  parent: BaseVGPDA
+  id: VGInfanteerPDA
+  name: VG infanteer PDA
+  components:
+  - type: Pda
+    id: VGInfanteerIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-viperlow
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: PdaBorderColor
+    borderColor: "#6b0000"
+    accentVColor: "#d9a200"
+
+- type: entity
+  parent: VGInfanteerPDA
+  id: VGPrivateerPDA
+  name: VG privateer PDA
+  components:
+  - type: Pda
+    id: VGPrivateerIDCard
+  - type: PdaBorderColor
+    borderColor: "#6b0000"
+    accentVColor: "#202020"
+
+- type: entity
+  parent: BaseVGPDA
+  id: VGLieutenantPDA
+  name: VG Lieutenant PDA
+  components:
+  - type: Pda
+    id: VGLieutenantIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-viperhigh
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: PdaBorderColor
+    borderColor: "#202020"
+    accentVColor: "#6b0000"
+
+- type: entity
+  parent: VGLieutenantPDA
+  id: VGCommanderPDA
+  name: VG commander PDA
+  components:
+  - type: Pda
+    id: VGCommanderIDCard

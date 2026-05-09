@@ -234,3 +234,55 @@
         type: ChameleonBoundUserInterface
   - type: Contraband # Frontier
     hideValues: true # Frontier
+
+#MARK: Viper Group
+- type: entity
+  parent: IDCardStandard
+  id: VGInfanteerIDCard
+  name: VG infanteer ID card
+  components:
+  - type: PresetIdCard
+    job: VGInfanteer
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/id_cards.rsi
+    layers:
+    - state: vgbase
+    - state: id_infanteer
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: default
+
+- type: entity
+  parent: IDCardStandard
+  id: VGLieutenantIDCard
+  name: VG lieutenant ID card
+  components:
+  - type: PresetIdCard
+    job: VGLieutenant
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/id_cards.rsi
+    layers:
+    - state: vgbase
+    - state: id_lieutenant
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: default
+
+- type: entity
+  parent: IDCardStandard
+  id: VGCommanderIDCard
+  name: VG commander ID card
+  components:
+  - type: PresetIdCard
+    job: VGCommander
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/id_cards.rsi
+    layers:
+    - state: vgbase
+    - state: id_commander
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: default

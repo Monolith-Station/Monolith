@@ -138,3 +138,26 @@
   - type: Tag  # Mono
     tags:
     - RogueHardsuit
+
+# Recolor for loadouts
+
+- type: entity
+  parent: ClothingOuterHardsuitMercenaryWarlord
+  id: ClothingOuterHardsuitMercenaryViper
+  name: VG WL-01
+  description: Nicknamed "Warlord",a former state-of-the-art technology in military equipment, now widespread among the mercenaries and black markets due to its schematics being revealed to the public, the warlord combat suit has been modified to withstand space depressurized atmosphere, rating it space capable. Now in Viper Group colors!
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/viper_group_warlordsuit.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/viper_group_warlordsuit.rsi
+  - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHelmetHardsuitViperWarlord
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
