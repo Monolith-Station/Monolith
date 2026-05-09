@@ -88,10 +88,10 @@ void fragment() {
     highp float t_noise  = mod(TIME, 100.0);                        // noise scroll
 
     // Применяем горизонтальное дрожание
-    highp float jitter = HORIZONTAL_JITTER * (rand(vec2(t_jitter * JITTER_SPEED, t_jitter * JITTER_SPEED)) - 0.5);
+    highp float jitter = HORIZONTAL_JITTER * (rand(vec2(t_jitter, t_jitter)) - 0.5);
 
     // Применяем вертикальные скачки (тайминг VHS)
-    highp float vjump = VERTICAL_JUMP * step(0.99, sin(t_vjump * VERTICAL_JUMP_PERIOD));
+    highp float vjump = VERTICAL_JUMP * step(0.99, sin(t_vjump));
 
     // Применяем искажение от переключения головок внизу кадра
     highp float head_noise = HEAD_SWITCHING_NOISE * step(0.95, UV.y) * sin(t_head * 20.0 + UV.x * 50.0);
