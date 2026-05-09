@@ -43,3 +43,20 @@
     containers:
       board: [ DoorElectronicsPdvCommand ]
 
+- type: entity
+  parent: AirlockHatchSyndicate
+  id: AirlockHatchViper
+  suffix: Viper Group, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViper ]
+
+- type: entity
+  parent: AirlockHatchSyndicate
+  id: AirlockHatchViperCommand
+  suffix: Viper Group Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViperCommand ]

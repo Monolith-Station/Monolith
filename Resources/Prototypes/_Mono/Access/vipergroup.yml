@@ -1,0 +1,20 @@
+- type: accessLevel
+  id: Viper
+  name: id-card-access-level-vg
+
+- type: accessLevel
+  id: ViperCommand
+  name: id-card-access-level-vg-command
+
+- type: accessGroup
+  id: ViperHigh
+  tags:
+  - Viper
+  - ViperCommand
+  - Mercenary
+
+- type: accessGroup
+  id: ViperLow
+  tags:
+  - Viper
+  - Mercenary

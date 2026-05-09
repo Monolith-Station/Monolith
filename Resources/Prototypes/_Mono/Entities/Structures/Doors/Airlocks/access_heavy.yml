@@ -188,3 +188,26 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCaptain ]
+
+
+# Companies.
+
+- type: entity
+  parent: AirlockHeavyCommand
+  id: AirlockHeavyViperLocked
+  suffix: Viper Group, Locked
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/security.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViper ]
+
+- type: entity
+  parent: AirlockHeavyViperLocked
+  id: AirlockHeavyViperCommandLocked
+  suffix: Viper Group Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViperCommand ]

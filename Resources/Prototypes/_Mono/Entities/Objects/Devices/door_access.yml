@@ -12,7 +12,7 @@
   suffix: USSP Secure, Locked
   components:
   - type: AccessReader
-    access: [["Mercenary"]]
+    access: [["Mercenary"]] # Might want to change these door sets for freeport, Corrupt. -Mrrpip
 
 - type: entity
   parent: DoorElectronics
@@ -45,3 +45,19 @@
   components:
   - type: AccessReader
     access: [["PDVCommand"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsViper
+  suffix: Viper Group, Locked
+  components:
+  - type: AccessReader
+    access: [["Viper"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsViperCommand
+  suffix: Viper Group Command, Locked
+  components:
+  - type: AccessReader
+    access: [["ViperCommand"]]
