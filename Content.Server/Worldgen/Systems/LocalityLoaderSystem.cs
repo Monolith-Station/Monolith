@@ -20,10 +20,18 @@ public sealed class LocalityLoaderSystem : BaseWorldSystem
 {
     [Dependency] private readonly TransformSystem _xformSys = default!;
     [Dependency] private readonly LinkedLifecycleGridSystem _linkedLifecycleGrid = default!;
+    private EntityQuery<LoadedChunkComponent> _loadedQuery;
+    private EntityQuery<WorldControllerComponent> _controllerQuery;
+    private EntityQuery<ChunkLoaderComponent> _chunkLoaderQuery;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<SpaceDebrisComponent, EntityTerminatingEvent>(OnDebrisDespawn);
+
+        _loadedQuery = GetEntityQuery<LoadedChunkComponent>(); // Mono: Cached Queries
+        _controllerQuery = GetEntityQuery<WorldControllerComponent>(); // Mono
+        _chunkLoaderQuery = GetEntityQuery<ChunkLoaderComponent>(); // Mono
+        TransformQuery = GetEntityQuery<TransformComponent>(); // Mono
     }
     // Frontier
 
@@ -31,13 +39,10 @@ public sealed class LocalityLoaderSystem : BaseWorldSystem
     public override void Update(float frameTime)
     {
         var e = EntityQueryEnumerator<LocalityLoaderComponent, TransformComponent>();
-        var loadedQuery = GetEntityQuery<LoadedChunkComponent>();
-        var xformQuery = GetEntityQuery<TransformComponent>();
-        var controllerQuery = GetEntityQuery<WorldControllerComponent>();
 
         while (e.MoveNext(out var uid, out var loadable, out var xform))
         {
-            if (!controllerQuery.TryGetComponent(xform.MapUid, out var controller))
+            if (!_controllerQuery.TryComp(xform.MapUid, out var controller)) // Mono
             {
                 RaiseLocalEvent(uid, new LocalStructureLoadedEvent());
                 RemCompDeferred<LocalityLoaderComponent>(uid);
@@ -46,12 +51,13 @@ public sealed class LocalityLoaderSystem : BaseWorldSystem
 
             var coords = GetChunkCoords(uid, xform);
             var done = false;
+            var worldPos = _xformSys.GetWorldPosition(xform); // Mono
             for (var i = -1; i < 2 && !done; i++)
             {
                 for (var j = -1; j < 2 && !done; j++)
                 {
                     var chunk = GetOrCreateChunk(coords + (i, j), xform.MapUid!.Value, controller);
-                    if (!loadedQuery.TryGetComponent(chunk, out var loaded) || loaded.Loaders is null)
+                    if (!_loadedQuery.TryGetComponent(chunk, out var loaded) || loaded.Loaders is null)
                         continue;
 
                     foreach (var loader in loaded.Loaders)
@@ -59,13 +65,13 @@ public sealed class LocalityLoaderSystem : BaseWorldSystem
                         // Mono edit start
                         var distance = loadable.LoadingDistance;
 
-                        if (TryComp<ChunkLoaderComponent>(loader, out var cLoad))
+                        if (_chunkLoaderQuery.TryComp(loader, out var cLoad)) // Mono
                             distance = cLoad.LoadingDistance;
 
-                        if (!xformQuery.TryGetComponent(loader, out var loaderXform))
+                        if (!TransformQuery.TryComp(loader, out var loaderXform)) // Mono
                             continue;
 
-                        if ((_xformSys.GetWorldPosition(loaderXform) - _xformSys.GetWorldPosition(xform)).Length() > distance)
+                        if ((_xformSys.GetWorldPosition(loaderXform) - worldPos).LengthSquared() > distance * distance) // Mono - use LengthSquared
                             continue;
                         // Mono edit end
                         RaiseLocalEvent(uid, new LocalStructureLoadedEvent());

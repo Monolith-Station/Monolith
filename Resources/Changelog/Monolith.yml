@@ -20828,3 +20828,93 @@ Entries:
   id: 2294
   time: '2026-05-06T17:25:20.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3957
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Changes the grid name and announcements for the Solarian Vault
+  id: 2295
+  time: '2026-05-06T20:50:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3954
+- author: 77seven77seven
+  changes:
+    - type: Tweak
+      message: >-
+        All remaining instances of the Colonial Liaison removed and replaced
+        with "Overseer"
+    - type: Add
+      message: >-
+        There is now a deny sound when failing to FTL due to the proximity of
+        other ships.
+    - type: Fix
+      message: >-
+        MD Doctors no longer get the stamp of the Director of Care, and instead
+        get a doctor's stamp.
+    - type: Fix
+      message: >-
+        The Director of Care now gets the stamp of the Director of Care and not
+        the stamp of the Chief Medical Officer.
+  id: 2296
+  time: '2026-05-06T20:51:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3934
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        EMP emitter duration, firerate, recharge, and energy consumption
+        re-buffed.
+  id: 2297
+  time: '2026-05-06T21:21:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3931
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixes duplicate consoles on the Tarantula.
+  id: 2298
+  time: '2026-05-06T21:28:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3952
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Major gun shooting lag optimizations
+  id: 2299
+  time: '2026-05-06T21:33:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3959
+- author: Svarshik
+  changes:
+    - type: Fix
+      message: Fixed spasaka modsuit's pressure protection
+  id: 2300
+  time: '2026-05-06T21:56:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3945
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Shipyard terminals FINALLY have unique sprites instead of all using the
+        blackmarket sprite. Also, the PDV shipyard finally uses a proper name.
+  id: 2301
+  time: '2026-05-06T22:18:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3939
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: A few more optimizations
+  id: 2302
+  time: '2026-05-06T22:28:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3962
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: >-
+        Nerfed the Draupnir; It now fires in 25-round bursts, with a 3 second
+        cooldown between bursts.
+  id: 2303
+  time: '2026-05-07T00:48:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3960
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Projectiles are now adapted for lower tickrates, and don't phase.
+  id: 2304
+  time: '2026-05-08T06:44:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3968
