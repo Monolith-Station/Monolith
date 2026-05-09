@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 05/09/2026 13:08:15
-  entityCount: 326
+  time: 05/09/2026 14:30:38
+  entityCount: 323
 maps: []
 grids:
 - 1
@@ -86,9 +86,9 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
         Smoke: []
         Puddle: []
+        MetalFoam: []
         Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -1414,15 +1414,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,-0.5
       parent: 1
-- proto: JetpackMiniFilled
-  entities:
-  - uid: 131
-    components:
-    - type: Transform
-      parent: 129
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: LockableButtonUSSP
   entities:
   - uid: 23
@@ -1476,24 +1467,6 @@ entities:
     - type: Transform
       pos: -0.5,-1.5
       parent: 1
-- proto: NitrogenTankFilled
-  entities:
-  - uid: 130
-    components:
-    - type: Transform
-      parent: 129
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: OxygenTankFilled
-  entities:
-  - uid: 132
-    components:
-    - type: Transform
-      parent: 129
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: PortableGeneratorSuperPacmanShuttle
   entities:
   - uid: 146
@@ -1951,22 +1924,13 @@ entities:
     - type: Transform
       pos: -2.5,-2.5
       parent: 1
-- proto: SuitStorageBase
+- proto: SuitStorageViperWL
   entities:
   - uid: 129
     components:
     - type: Transform
       pos: 3.5,-3.5
       parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 132
-          - 130
-          - 131
 - proto: ThrusterLargeRogue
   entities:
   - uid: 84

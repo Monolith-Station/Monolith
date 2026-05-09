@@ -148,7 +148,24 @@
 # Viper Group
 
 - type: entity
-  id: SuitStorageViper
+  id: SuitStorageViperWL
+  parent: SuitStorageBase
+  suffix: Viper Group - Warlord
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitMercenaryViper
+    - id: ClothingMaskGasSecurity
+    - id: JetpackVoidFilled #Not sure on the jetpack, but figured as they're cooped up with the USSP, if fits.
+    - id: ClothingShoesBootsMagSecurity
+    - id: ClothingNeckViperGroupMantle
+  - type: AccessReader
+    access: [ [ "Viper" ] ]
+
+- type: entity
+  id: SuitStorageViperJackal
   parent: SuitStorageBase
   suffix: Viper Group - Jackal
   components:
