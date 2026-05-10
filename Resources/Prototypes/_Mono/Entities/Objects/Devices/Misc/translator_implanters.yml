@@ -1,0 +1,15 @@
+- type: entity
+  id: NovaCygniTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: nova cygni translator implanter
+  components:
+  - type: Implanter
+    implant: NovaCygniTranslatorImplant
+
+- type: entity
+  id: GaryTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: gary translator implanter
+  components:
+  - type: Implanter
+    implant: GaryTranslatorImplant
