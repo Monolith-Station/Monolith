@@ -37,15 +37,15 @@ public sealed partial class GunSystem
             if (gun.BurstActivated)
             {
                 var parent = _transform.GetParentUid(uid);
-                if (HasComp<DamageableComponent>(parent))
+                if (_damageableQuery.HasComp(parent))
                     AttemptShoot(parent, uid, gun, gun.ShootCoordinates ?? new EntityCoordinates(uid, gun.DefaultDirection));
                 else
                     AttemptShoot(uid, uid, gun);
             }
-            else if (TryComp(uid, out AutoShootGunComponent? autoShoot))
+            else if (_autoShootGunQuery.TryComp(uid, out var autoShoot))
             {
                 // Mono
-                if (autoShoot.RemainingTime <= TimeSpan.FromSeconds(0))
+                if (autoShoot.RemainingTime <= TimeSpan.Zero)
                 {
                     if (!autoShoot.Enabled)
                         continue;

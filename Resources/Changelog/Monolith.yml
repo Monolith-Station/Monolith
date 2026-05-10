@@ -20789,3 +20789,163 @@ Entries:
   id: 2289
   time: '2026-05-04T18:11:13.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3941
+- author: Corrupt142
+  changes:
+    - type: Remove
+      message: Removed merchant
+  id: 2290
+  time: '2026-05-05T13:12:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3947
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Lowers the eject delay on the ChemVend.
+  id: 2291
+  time: '2026-05-05T16:36:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3944
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Biomass is now drawn above structures and below mobs. So you can hit it
+        easily.
+  id: 2292
+  time: '2026-05-05T17:17:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3949
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: modified gun layout on the serkesh to be less OP
+  id: 2293
+  time: '2026-05-05T17:22:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3942
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Ship radar markings temporarily disabled as apparently a major lag
+        source, to be redone later.
+  id: 2294
+  time: '2026-05-06T17:25:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3957
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Changes the grid name and announcements for the Solarian Vault
+  id: 2295
+  time: '2026-05-06T20:50:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3954
+- author: 77seven77seven
+  changes:
+    - type: Tweak
+      message: >-
+        All remaining instances of the Colonial Liaison removed and replaced
+        with "Overseer"
+    - type: Add
+      message: >-
+        There is now a deny sound when failing to FTL due to the proximity of
+        other ships.
+    - type: Fix
+      message: >-
+        MD Doctors no longer get the stamp of the Director of Care, and instead
+        get a doctor's stamp.
+    - type: Fix
+      message: >-
+        The Director of Care now gets the stamp of the Director of Care and not
+        the stamp of the Chief Medical Officer.
+  id: 2296
+  time: '2026-05-06T20:51:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3934
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        EMP emitter duration, firerate, recharge, and energy consumption
+        re-buffed.
+  id: 2297
+  time: '2026-05-06T21:21:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3931
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixes duplicate consoles on the Tarantula.
+  id: 2298
+  time: '2026-05-06T21:28:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3952
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Major gun shooting lag optimizations
+  id: 2299
+  time: '2026-05-06T21:33:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3959
+- author: Svarshik
+  changes:
+    - type: Fix
+      message: Fixed spasaka modsuit's pressure protection
+  id: 2300
+  time: '2026-05-06T21:56:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3945
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Shipyard terminals FINALLY have unique sprites instead of all using the
+        blackmarket sprite. Also, the PDV shipyard finally uses a proper name.
+  id: 2301
+  time: '2026-05-06T22:18:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3939
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: A few more optimizations
+  id: 2302
+  time: '2026-05-06T22:28:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3962
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: >-
+        Nerfed the Draupnir; It now fires in 25-round bursts, with a 3 second
+        cooldown between bursts.
+  id: 2303
+  time: '2026-05-07T00:48:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3960
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Projectiles are now adapted for lower tickrates, and don't phase.
+  id: 2304
+  time: '2026-05-08T06:44:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3968
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Reverted draupnir nerf.
+  id: 2305
+  time: '2026-05-09T12:59:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3973
+- author: Mapleflavoureds
+  changes:
+    - type: Add
+      message: Added APC to RCD!
+  id: 2306
+  time: '2026-05-09T13:00:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3971
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        PERFORMANCE TEST: in response to server performance issues, expedition
+        consoles have been disabled to test server performance without
+        expeditions. This will be reverted in a day.
+  id: 2307
+  time: '2026-05-09T18:17:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3977
+- author: Mapleflavoureds
+  changes:
+    - type: Fix
+      message: 'Fixed corner plating somehow being space proof '
+  id: 2308
+  time: '2026-05-09T20:56:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3969
