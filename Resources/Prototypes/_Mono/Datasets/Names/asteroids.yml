@@ -1,0 +1,76 @@
+- type: dataset
+  id: AsteroidDiscoverer
+  values:
+  - /LINEAR # Real near-earth asteroid survey
+  - /LINEAR-NEAT # Real near-earth asteroid survey
+  - /LONEOS # Real near-earth asteroid survey
+  - /NEAT # Real near-earth asteroid survey
+  - /STARRS # Real near-earth asteroid survey
+  - /NEOWISE # Real near-earth asteroid survey
+  - /ATLAS # Real near-earth asteroid survey
+  - /INSO
+  - /NCRO
+  # The following names are mostly taken from the first page of https://en.wikipedia.org/w/index.php?title=Category:Discoveries_by_LINEAR
+  - /INSO-Shoemaker
+  - /INSO-Anderson
+  - /INSO-Russel
+  - /INSO-Kowal
+  - /INSO-Mueller
+  - /INSO-Pigott
+  - /INSO-Kowalski
+  - /INSO-Catalina
+  - /INSO-Skiff
+
+- type: dataset
+  id: AsteroidDiscovererMajor # For the 3 largest sizes
+  values:
+  # The following names are mostly taken from the first page of https://en.wikipedia.org/w/index.php?title=Category:Discoveries_by_LINEAR
+  - Morrow
+  - Cilla
+  - Delaney
+  - Barel
+  - Samcoulson
+  - Alag
+  - Ardeishar
+  - Beaumont
+  - Gracecai
+  - Cotingkeh
+  - Criscione
+  - Fergunsonsam
+  - Shishir
+  - Shashank
+  - Cassadrury
+  - Vincenthuang
+  - Kefennel
+  - Mikewang
+  - Navamijain
+  - Elanfiller
+  - Andrewnorton
+  - Aayushkaran
+  - Adzic
+  - Ananyakarthik
+  - Kottler
+  - Krishnamani
+  - Alkon
+  - Bradenmilford
+  - Anderson
+  - Bibee
+  - Beranek
+  - Benbohn
+  - Ksenborisova
+  - Schiavo
+  - Ikezi
+  - Darone
+  - Yanhua
+  - Ronaldhsu
+  - Gorin
+  - Grigery
+  - Kathyfries
+  - Glassman
+  - Harper
+  - Jaworski
+  - Weissman
+  - Fichtelman
+  - Eriopis
+  - Brookebowers
+  - Maichin

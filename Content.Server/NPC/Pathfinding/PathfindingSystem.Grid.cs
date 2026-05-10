@@ -400,8 +400,8 @@ public sealed partial class PathfindingSystem
 
     private void BuildBreadcrumbs(GridPathfindingChunk chunk, Entity<MapGridComponent> grid)
     {
-        var sw = new Stopwatch();
-        sw.Start();
+        // var sw = new Stopwatch(); // Mono - these are unused
+        // sw.Start();
         var points = chunk.Points;
         var gridOrigin = chunk.Origin * ChunkSize;
         var tileEntities = new ValueList<EntityUid>();
@@ -622,8 +622,7 @@ public sealed partial class PathfindingSystem
                         (Vector2) (poly.TopRight + Vector2i.One) / SubStep + polyOffset);
                     var polyData = points[x * SubStep + poly.Left, y * SubStep + poly.Bottom].Data;
 
-                    var neighbors = new HashSet<PathPoly>();
-                    tilePoly.Add(new PathPoly(grid, chunk.Origin, GetIndex(x, y), box, polyData, neighbors));
+                    tilePoly.Add(new PathPoly(grid, chunk.Origin, GetIndex(x, y), box, polyData)); // Mono - neighbors optional field, don't make it unless necessary
                 }
             }
         }
@@ -650,11 +649,14 @@ public sealed partial class PathfindingSystem
     /// </summary>
     private void ClearPoly(PathPoly poly)
     {
-        foreach (var neighbor in poly.Neighbors)
+        if (poly.HasNeighbors) // Mono - guard check
         {
-            neighbor.Neighbors.Remove(poly);
+            foreach (var neighbor in poly.Neighbors)
+            {
+                neighbor.Neighbors.Remove(poly);
+            }
+            poly.Neighbors.Clear(); // Mono
         }
-
         // If any paths have a ref to it let them know that the class is no longer a valid node.
         poly.Data.Flags = PathfindingBreadcrumbFlag.Invalid;
         poly.Neighbors.Clear();

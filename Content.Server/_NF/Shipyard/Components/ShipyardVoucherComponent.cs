@@ -48,4 +48,22 @@ public sealed partial class ShipyardVoucherComponent : Component
     /// </summary>
     [DataField]
     public string? CompanyName;
+
+    /// <summary>
+    ///     Mono: Delay between purchases with this voucher
+    /// </summary>
+    [DataField]
+    public TimeSpan Cooldown = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    ///     Mono: Current purchase delay on this voucher
+    /// </summary>
+    [DataField, AutoPausedField]
+    public TimeSpan NextBuyAt = TimeSpan.FromSeconds(0);
+
+    /// <summary>
+    ///     Mono: Whether this voucher is allowed to have its deed unassigned.
+    /// </summary>
+    [DataField]
+    public bool CanBeUnassigned = true;
 }

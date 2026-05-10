@@ -78,7 +78,7 @@
   name: "'Smilodon' DEW-50-C automatic energy weapon"
   parent: [BaseWeaponRifle, BaseGunWieldable, BaseC2ContrabandUnredeemable]
   id: WeaponDEWSmilodon
-  description: Modified from the original "Calico" DEW, the "Smilodon" carries the philosophy of its predecessor into the world of LMGs - Capable of using battery boxes *and* chemical magazines while also having secondary storage for on-the-go marines, the Smilodon's only failures are the downsides of laser-based weapons and its bulky frame.
+  description: Modified from the original "Calico" DEW, the "Smilodon" carries the philosophy of its predecessor into the world of LMGs - Capable of using battery boxes *and* chemical magazines while also having secondary storage for on-the-go marines, the Smilodon's only failures are the downsides of laser-based weapons and its bulky frame. Continued firing calibrates spread.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/LMGs/smilodon.rsi
@@ -90,20 +90,16 @@
     - state: mag2-0
       map: ["enum.ItemCabinetVisuals.Layer"]
   - type: Gun
-    minAngle: 0
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 5
-    fireRate: 6
+    minAngle: 1
+    maxAngle: 22
+    angleIncrease: -0.5
+    angleDecay: -3
+    fireRate: 5
     selectedMode: FullAuto
     availableModes:
     - FullAuto
-    - Burst
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-    shotsPerBurst: 10
-    burstCooldown: 0.6
-    burstFireRate: 10
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
@@ -178,3 +174,6 @@
         enum.ItemCabinetVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
+  - type: GunWieldBonus
+    minAngle: 0
+    maxAngle: 0

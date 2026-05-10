@@ -81,7 +81,7 @@ public sealed partial class ExplosionSystem
 
         // As above, but for space-based explosion propagating from space onto grids.
         HashSet<EntityUid> encounteredGrids = new();
-        Dictionary<EntityUid, HashSet<Vector2i>>? previousGridJump;
+        // Dictionary<EntityUid, HashSet<Vector2i>>? previousGridJump; // Mono
 
         // variables for transforming between grid and space-coordinates
         var spaceMatrix = Matrix3x2.Identity;
@@ -174,14 +174,27 @@ public sealed partial class ExplosionSystem
 
             // In order to treat "cost" of moving off a grid on the same level as moving onto a grid, both space -> grid and grid -> space have to be delayed by one iteration.
             previousSpaceJump = spaceJump;
-            previousGridJump = spaceData?.GridJump;
             spaceJump = new();
 
             var newTileCount = 0;
 
-            if (previousGridJump != null)
-                encounteredGrids.UnionWith(previousGridJump.Keys);
+            // Mono - explosion fix, feat. gemini from googer
+            // 1. Process space expansion FIRST.
+            // If space-data is null, but some grid-based explosion reached space, we need to initialize it.
+            if (spaceData == null && previousSpaceJump.Count != 0)
+                spaceData = new ExplosionSpaceTileFlood(this, epicenter, referenceGrid, localGrids, maxDistance);
 
+            // If the explosion has reached space, do that neighbors finding step as well.
+            if (spaceData != null)
+                newTileCount += spaceData.AddNewTiles(iteration, previousSpaceJump);
+
+            // 2. Feed the new grid jumps immediately into THIS iteration (0 delay for Space -> Grid transitions)
+            var currentGridJump = spaceData?.GridJump;
+
+            if (currentGridJump != null)
+                encounteredGrids.UnionWith(currentGridJump.Keys);
+
+            // 3. Process grids and immediate space->grid jumps
             foreach (var grid in encounteredGrids)
             {
                 // is this a new grid, for which we must create a new explosion data set
@@ -205,17 +218,9 @@ public sealed partial class ExplosionSystem
                 }
 
                 // get the new neighbours, and populate gridToSpaceTiles in the process.
-                newTileCount += data.AddNewTiles(iteration, previousGridJump?.GetValueOrDefault(grid));
+                newTileCount += data.AddNewTiles(iteration, currentGridJump?.GetValueOrDefault(grid));
                 spaceJump.UnionWith(data.SpaceJump);
             }
-
-            // if space-data is null, but some grid-based explosion reached space, we need to initialize it.
-            if (spaceData == null && previousSpaceJump.Count != 0)
-                spaceData = new ExplosionSpaceTileFlood(this, epicenter, referenceGrid, localGrids, maxDistance);
-
-            // If the explosion has reached space, do that neighbors finding step as well.
-            if (spaceData != null)
-                newTileCount += spaceData.AddNewTiles(iteration, previousSpaceJump);
 
             // Does adding these tiles bring us above the total target intensity?
             tilesInIteration.Add(newTileCount);
