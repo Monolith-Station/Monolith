@@ -143,6 +143,15 @@
     factions:
     - SiliconsExpeditionNF
 
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyViper
+  suffix: Viper #I'm not sure where we'd actually need a gun this big, but hey.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - VGTurret
+
 # Anti-Chimera Variant
 - type: entity
   parent: BallisticTurretHeavyBase
@@ -272,3 +281,12 @@
   - type: NpcFactionMember
     factions:
     - SiliconsExpeditionNF
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPViper # ... Also not sure why we wouldn't just use the basic CC one for spawncamp purposes but hey.
+  suffix: Viper
+  components:
+  - type: NpcFactionMember
+    factions:
+    - VGTurret

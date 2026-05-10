@@ -70,6 +70,15 @@
     - PirateNF
 
 - type: entity
+  parent: BaseWeaponBallisticTurret
+  id: WeaponTurretViper
+  suffix: Viper
+  components:
+  - type: NpcFactionMember
+    factions:
+    - VGTurret
+
+- type: entity
   parent: BaseWeaponTurretNF
   id: BaseMk290Sentry
   name: MK-290 Sentry

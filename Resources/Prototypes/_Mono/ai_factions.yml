@@ -82,15 +82,13 @@
   defaultHostile: true
 
 - type: npcFaction
-  id: VGTurret
+  id: VGTurret # Doesn't like intruders.
   friendly:
   - VG
   neutral:
-  - NanoTrasen
   - Cat
   - PetsNT
   - SimpleNeutral
-  - MD
   - Mouse
   - USSP
   defaultHostile: true
