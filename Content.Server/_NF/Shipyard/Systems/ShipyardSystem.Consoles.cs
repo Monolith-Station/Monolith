@@ -1102,7 +1102,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             return;
         }
 
-        if (!TryComp<ShipyardVoucherComponent>(targetId, out var voucher) || voucher.CanBeUnassigned != true) // Mono: If voucher is not allowed to unassign deeds, fail.
+        if (TryComp<ShipyardVoucherComponent>(targetId, out var voucher) && voucher.CanBeUnassigned != true) // Mono: If voucher is not allowed to unassign deeds, fail.
         {
             ConsolePopup(player, Loc.GetString("shipyard-console-no-unassign"));
             PlayDenySound(player, uid, component);
