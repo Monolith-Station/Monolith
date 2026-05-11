@@ -265,6 +265,9 @@ uplink-pdv-t0-voucher-desc = A single-use voucher for any small ship.
 uplink-pdv-t1-hourglass-voucher-name = PDV Hourglass LPC [T1]
 uplink-pdv-t1-hourglass-voucher-desc = A small card that contains the data for the procurement of an Hourglass-class escort from the flagship's reserves.
 
+uplink-pdv-t1-garm-voucher-name = PDV Garm LPC [T1]
+uplink-pdv-t1-garm-voucher-desc = A small card that contains the data for the procurement of an Garm-class bomber-type support ship from the flagship's reserves.
+
 uplink-pdv-t1-fenrir-voucher-name = PDV Fenrir LPC [T1]
 uplink-pdv-t1-fenrir-voucher-desc = A small card that contains the data for the procurement of a Fenrir-class railgun destroyer from the flagship's reserves.
 

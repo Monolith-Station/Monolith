@@ -1316,10 +1316,10 @@
 # start T1
 
 - type: listing
-  id: UplinkSecurityT1VoucherHourglass
-  name:  uplink-pdv-t1-hourglass-voucher-name
-  description: uplink-pdv-t1-hourglass-voucher-desc
-  productEntity: ShipVoucherHourglass
+  id: UplinkSecurityT1VoucherGarm
+  name:  uplink-pdv-t1-garm-voucher-name
+  description: uplink-pdv-t1-garm-voucher-desc
+  productEntity: ShipVoucherGarm
   cost:
     Doubloon: 80
   categories:

@@ -1,0 +1,40 @@
+#Author: lexaSvarshik on Github, zero_null_null on Discord.
+
+- type: vessel
+  id: Garm
+  parent: BaseVesselAntag
+  name: WEN Garm
+  description: Gruff hull with 3 GPOL's and long-range Bofors artillery for station bombardments and fleet support.
+  price: 105200 # 86700 appraisegrid
+  purchasable: false # voucher only
+  category: Medium
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/garm.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Garm
+  mapName: 'WEN Garm'
+  mapPath: /Maps/_Mono/Shuttles/BlackMarket/garm.yml
+  minPlayers: 0
+  stations:
+    Garm:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Old cargo hull, now carries heavy bombardment arnament, capable of sending stations back to the Stone Age."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Garm PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]
