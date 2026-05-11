@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: Mrrpip
+# Discord: Skye1803
+
+# Shuttle Notes: Thanks again for sending me to original Slasher yml file, Corrupt!
+#
+- type: vessel
+  id: Solidus
+  parent: BaseVessel
+  name: VG Solidus
+  description: A medium fighter outsourced by the Viper Group. It was designed recently with the comfort of familiar, Drakon-esque weaponry.
+  price: 99250
+  category: Medium
+  group: Viper
+  access: Viper
+  shuttlePath: /Maps/_Mono/Shuttles/Viper/solidus.yml
+  guidebookPage: Null
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Solidus
+  mapName: 'VG Solidus'
+  mapPath: /Maps/_Mono/Shuttles/Viper/solidus.yml
+  minPlayers: 0
+  stations:
+    Solidus:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Solidus MIL{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          VGInfanteer: [ 0, 0 ]
+          VGLieutenant: [ 0, 0 ]
+          VGCommander: [ 0, 0 ]
