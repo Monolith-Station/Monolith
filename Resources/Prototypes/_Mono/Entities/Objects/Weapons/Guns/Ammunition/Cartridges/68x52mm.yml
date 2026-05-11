@@ -53,3 +53,52 @@
         map: [ "enum.AmmoVisualLayers.Tip" ]
         color: "#dbdbdb"
 
+# Mono AP syst
+#anti-flesh:
+- type: entity
+  id: Cartridge68x52mmCaselessHP
+  name: cartridge (6.8x52mm STANAG Caseless HP)
+  parent: BaseCartridge68x52mmCaseless
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet68x52mmCaselessHP
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#90EE90"
+
+- type: entity
+  id: Cartridge68x52mmCaselessRIP
+  name: cartridge (6.8x52mm STANAG Caseless RIP)
+  parent: BaseCartridge68x52mmCaseless
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet68x52mmCaselessRIP
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#C04000"
+
+#armor-piercing:
+
+- type: entity
+  id: Cartridge68x52mmCaselessPlasteelAP
+  name: cartridge (6.8x52mm STANAG Caseless AP)
+  parent: BaseCartridge68x52mmCaseless
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet68x52mmCaselessPlasteelAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#888888"
+

@@ -196,6 +196,7 @@
       rotate: true
       bounds: "-0.5,-0.5,0.5,0.5"
   - type: HTN
+    sleepPlayerCheckRangeOverride: 4000 # to allow alternative usages and not spotaneously flee when people close
     rootTask:
       task: AutopilotShuttleCompound
 
@@ -1210,16 +1211,16 @@
           enum.WiresVisualLayers.MaintenancePanel:
             True: { visible: false }
             False: { visible: true }
-    - type: SalvageExpeditionConsole
-    - type: ActivatableUI
-      key: enum.SalvageConsoleUiKey.Expedition
-    - type: ActivatableUIRequiresPower
-    - type: UserInterface
-      interfaces:
-        enum.SalvageConsoleUiKey.Expedition:
-          type: SalvageExpeditionConsoleBoundUserInterface
-        enum.WiresUiKey.Key:
-          type: WiresBoundUserInterface
+#    - type: SalvageExpeditionConsole
+#    - type: ActivatableUI
+#      key: enum.SalvageConsoleUiKey.Expedition
+#    - type: ActivatableUIRequiresPower
+#    - type: UserInterface
+#      interfaces:
+#        enum.SalvageConsoleUiKey.Expedition:
+#          type: SalvageExpeditionConsoleBoundUserInterface
+#        enum.WiresUiKey.Key:
+#          type: WiresBoundUserInterface
     - type: Computer
       board: SalvageExpeditionsComputerCircuitboard
     - type: PointLight

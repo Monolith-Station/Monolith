@@ -1,0 +1,80 @@
+- type: entity
+  parent: MaterialBase
+  id: MaterialCopper
+  name: copper
+  description: Copper is used in a lot of electronics. Maybe even all of them. It might even be an understatement to say that.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/industry-sheets.rsi
+    state: copper_3
+    layers:
+    - state: copper_3
+      map: ["base"]
+  - type: Tag
+    tags:
+    - Sheet
+  - type: Item
+    sprite: _Mono/Objects/Materials/industry-sheets.rsi
+    heldPrefix: copper
+  - type: Stack
+    stackType: Copper
+    count: 100
+    baseLayer: base
+    layerStates:
+    - copper
+    - copper_2
+    - copper_3
+  - type: Material
+  - type: Appearance
+  - type: PhysicalComposition
+    materialComposition:
+      Copper: 100
+  - type: Extractable
+    grindableSolutionName: plate
+  - type: SolutionContainerManager
+    solutions:
+      plate:
+        reagents:
+        - ReagentId: Copper
+          Quantity: 10
+
+- type: entity
+  parent: MaterialCopper
+  id: SheetCopper1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialCopper
+  id: SheetCopper10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: MaterialCopper
+  id: SheetCopper50
+  suffix: 50
+  components:
+  - type: Stack
+    count: 50
+
+- type: material
+  id: Copper
+  stackEntity: SheetCopper1
+  name: materials-copper
+  unit: materials-unit-sheet
+  icon: { sprite: /Textures/_Mono/Objects/Materials/industry-sheets.rsi, state: copper }
+  color: "#C26B25"
+  price: 0.1 # 10/sheet
+
+- type: stack
+  id: Copper
+  name: copper
+  icon: { sprite: /Textures/_Mono/Objects/Materials/industry-sheets.rsi, state: copper }
+  spawn: SheetCopper1
+  maxCount: 100

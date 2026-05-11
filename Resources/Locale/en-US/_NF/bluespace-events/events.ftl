@@ -9,8 +9,7 @@ station-event-bluespace-scrap-end-announcement = Critical bluespace instability 
 
 station-event-bluespace-vault-start-announcement = A Solarian armored supply-vault is inbound to the sector. The TSFMC may declare the vault a restricted No Fly Zone. Station accounts will be rewarded for its safe return.
 station-event-bluespace-vault-warning-announcement = Remote FTL procedures initialized, five minutes until vault extraction.
-station-event-bluespace-vault-end-announcement = We have retrieved the vault from this area of Colossus space. Station accounts have been subsidized.
-
+station-event-bluespace-vault-end-announcement = We have retrieved the vault from this area of Colossus space. TSFMC accounts have been subsidized.
 station-event-bluespace-cache-start-announcement = A Syndicate weapons cache is inbound to the sector. The TSFMC may declare the cache a No Fly Zone. Station accounts will be rewarded for guarding the cache.
 station-event-bluespace-cache-warning-announcement = Remote FTL procedures initialized, five minutes until weapons cache extraction.
 station-event-bluespace-cache-end-announcement = We have retrieved the Syndicate weapons cache from your sector. Station accounts have been paid.
@@ -42,5 +41,5 @@ station-event-bluespace-generic-ftl-end-announcement = To ensure safer passage i
 station-event-bluespace-name-BrokenMcDelivery = McDelivery
 station-event-bluespace-name-Cave = Cave
 station-event-bluespace-name-UnidentifiedVessel = Unidentified Vessel
-station-event-bluespace-name-SecureNTVault = Secure NT Vault
+station-event-bluespace-name-SecureNTVault = Secure Solarian Vault
 station-event-bluespace-name-SyndicateWeaponsCache = Syndicate Weapons Cache

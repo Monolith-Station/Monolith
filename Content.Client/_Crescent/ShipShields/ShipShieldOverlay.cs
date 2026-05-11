@@ -10,6 +10,7 @@ using Content.Client.Resources;
 using Robust.Client.Physics;
 using Robust.Shared.Prototypes;
 using System.Runtime.InteropServices;
+using Robust.Client.GameObjects;
 
 namespace Content.Client._Crescent.ShipShields;
 
@@ -21,6 +22,7 @@ public sealed class ShipShieldOverlay : Overlay
     private readonly IEntityManager _entManager;
     private readonly ShaderInstance _unshadedShader;
     private readonly List<DrawVertexUV2D> _verts = new(128); // Mono
+    private readonly Texture _shieldTexture;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowWorld;
 
@@ -30,6 +32,7 @@ public sealed class ShipShieldOverlay : Overlay
         _entManager = entityManager;
         _fixture = _entManager.EntitySysManager.GetEntitySystem<FixtureSystem>();
         _physics = _entManager.EntitySysManager.GetEntitySystem<Robust.Client.Physics.PhysicsSystem>();
+        _shieldTexture = _resourceCache.GetTexture("/Textures/_Crescent/ShipShields/shieldtex.png");
 
         _unshadedShader = prototypeManager.Index<ShaderPrototype>("unshaded").Instance();
 
@@ -49,35 +52,40 @@ public sealed class ShipShieldOverlay : Overlay
             if (xform.MapID != args.MapId)
                 continue;
 
-            // TODO: We can probably at least test its parent grid is in PVS range...?
-
             var fixture = _fixture.GetFixtureOrNull(uid, "shield", fixtures);
 
             if (fixture is not { Shape: ChainShape chain })
                 continue;
 
-            var texture = _resourceCache.GetTexture("/Textures/_Crescent/ShipShields/shieldtex.png");
+            // Mono: No need to draw the shield locally if its out of range.
+            var transform = _physics.GetPhysicsTransform(uid, xform);
+            var worldBounds = new Box2();
+            foreach (var vertex in chain.Vertices)
+            {
+                var worldPos = VertexToWorldPos(vertex, transform);
+                worldBounds = worldBounds.ExtendToContain(worldPos);
+            }
+            if (!args.WorldAABB.Intersects(worldBounds))
+                continue;
 
-            DrawShield(handle, uid, chain, xform, texture, visuals.ShieldColor, _verts);
+            DrawShield(handle, chain, transform, _shieldTexture, visuals.ShieldColor, _verts);
             _verts.Clear(); // Clear for next shield - Mono
         }
     }
 
     private void DrawShield(
         DrawingHandleWorld handle,
-        EntityUid uid,
         ChainShape chain,
-        TransformComponent xform,
+        Transform transform,
         Texture tex,
         Color color,
         List<DrawVertexUV2D> verts)
     {
         // The vertices of this fixture are defined relative to local position,
         // so we'll have to add them to this and then use the matrix to put them back in world position.
-        var localPos = xform.LocalPosition;
-
         // If "Transforms" ever get deprecated go ahead and check how DebugPHysicsSystem is drawing chains in this hellworld future
-        var transform = _physics.GetPhysicsTransform(uid);
+
+        // Mono Update: Just use transform.Position for world position already for corners
 
         for (int i = 1; i < chain.Count; i++)
         {
@@ -88,10 +96,10 @@ public sealed class ShipShieldOverlay : Overlay
             var rightVertex = VertexToWorldPos(chain.Vertices[i], transform);
 
             // bottom left corner
-            var leftCorner = Corner(localPos, leftVertex, transform);
+            var leftCorner = Corner(leftVertex, transform);
 
             // bottom right corner
-            var rightCorner = Corner(localPos, rightVertex, transform);
+            var rightCorner = Corner(rightVertex, transform);
 
             // Assemble 2 triangles.
 
@@ -114,10 +122,9 @@ public sealed class ShipShieldOverlay : Overlay
         return Transform.Mul(transform, vertexPos);
     }
 
-    private static Vector2 Corner(Vector2 localPos, Vector2 vertexPos, Transform transform, float radius = 1.3f)
+    private static Vector2 Corner(Vector2 vertexPos, Transform transform, float radius = 1.3f)
     {
-        var localXform = Transform.Mul(transform, localPos);
-        var cornerPos = Vector2.Subtract(vertexPos, localXform);
+        var cornerPos = Vector2.Subtract(vertexPos, transform.Position);
         cornerPos.Normalize();
         cornerPos *= radius;
 
