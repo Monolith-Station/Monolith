@@ -4,7 +4,7 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 05/11/2026 15:09:52
+  time: 05/11/2026 17:10:41
   entityCount: 901
 maps: []
 grids:
@@ -549,9 +549,9 @@ entities:
             58: -2,-2
     - type: SpreaderGrid
       spreadQueues:
+        Kudzu: []
         Smoke: []
         Puddle: []
-        Kudzu: []
         MetalFoam: []
       updateAccumulator: 0.8333049
     - type: ThermalSignature
@@ -2723,6 +2723,17 @@ entities:
     - type: Transform
       pos: 1.5,-2.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        48:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
+        46:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
+        47:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
     - type: LanguageSpeaker
       understoodLanguages:
       - TauCetiBasic
@@ -5157,7 +5168,7 @@ entities:
     - type: Label
       currentLabel: tequila
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.01343279
+      sprayFizzinessThresholdRoll: 0.73587495
     - type: Physics
       canCollide: False
     - type: NameModifier
@@ -5293,7 +5304,7 @@ entities:
     - type: Label
       currentLabel: water
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.867068
+      sprayFizzinessThresholdRoll: 0.20813718
     - type: Physics
       canCollide: False
     - type: NameModifier
