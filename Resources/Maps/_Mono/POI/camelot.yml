@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 05/11/2026 13:23:22
-  entityCount: 11646
+  time: 05/11/2026 13:37:21
+  entityCount: 11647
 maps: []
 grids:
 - 1
@@ -7696,7 +7696,7 @@ entities:
       pos: 1.5,2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -2939.6006
+      secondsUntilStateChange: -3774.7957
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7739,7 +7739,7 @@ entities:
       pos: -30.5,38.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -46133.277
+      secondsUntilStateChange: -46968.473
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -25697,7 +25697,7 @@ entities:
       pos: 22.5,53.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -41327.047
+      secondsUntilStateChange: -42162.242
       state: Closing
   - uid: 4605
     components:
@@ -25710,7 +25710,7 @@ entities:
       pos: 22.5,55.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -41329.047
+      secondsUntilStateChange: -42164.242
       state: Closing
   - uid: 9858
     components:
@@ -78038,6 +78038,14 @@ entities:
     components:
     - type: Transform
       pos: 18.5,55.5
+      parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 11647
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,26.5
       parent: 1
 - proto: WaterTankHighCapacity
   entities:
