@@ -4,7 +4,7 @@
   description: job-description-vg-infanteer
   playTimeTracker: JobVGInfanteer
   whitelisted: true # Everyone who has the company whitelist, I'd assume.
-  startingGear: ViperInfanteerGear
+  startingGear: ViperRadioGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   icon: "JobIconVGInfanteer"
@@ -26,7 +26,6 @@
   accessGroups:
   - GeneralAccess
   - ViperLow
-  - ViperCommand
 
 - type: startingGear
   id: ViperRadioGear
