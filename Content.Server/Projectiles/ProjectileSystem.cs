@@ -1,18 +1,13 @@
 using Content.Server.Destructible;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
-using Content.Shared.Physics;
 using Content.Shared.Projectiles;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics; // Mono;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
-using System.Linq;
-using System.Numerics;
-using Content.Server.Gatherable.Components;
 
 namespace Content.Server.Projectiles;
 
@@ -20,7 +15,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
 {
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
 
-    [Dependency] private readonly IMapManager _mapMan = default!; // Mono
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
@@ -28,12 +22,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     private EntityQuery<PhysicsComponent> _physQuery;
     private EntityQuery<FixturesComponent> _fixQuery;
 
-    /// <summary>
-    /// Minimum velocity for a projectile to be considered for raycast hit detection.
-    /// Projectiles slower than this will rely on standard StartCollideEvent.
-    /// </summary>
-    private const float MinRaycastVelocity = 75f;
-    // </Mono>
 
     public override void Initialize()
     {
@@ -42,7 +30,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         // Mono
         _physQuery = GetEntityQuery<PhysicsComponent>();
         _fixQuery = GetEntityQuery<FixturesComponent>();
-
         // Mono
         UpdatesBefore.Add(typeof(SharedPhysicsSystem));
     }
@@ -63,7 +50,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             damageRequired -= damageableComponent.TotalDamage;
             damageRequired = FixedPoint2.Max(damageRequired, FixedPoint2.Zero);
         }
-        var deleted = Deleted(target);
+        // var deleted = Deleted(target); // Mono: Unused
 
         // Call base implementation to handle damage application and other effects
         var modifiedDamage = base.ProjectileCollide(projectile, target, collisionCoordinates, predicted);
@@ -150,7 +137,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             var xform = Transform(uid);
             var currentVelocity = projectileComp.RaycastResetVelocity ?? _physics.GetMapLinearVelocity(uid, physicsComp, xform);
             var velLen = currentVelocity.Length();
-            if (velLen < MinRaycastVelocity && projectileComp.RaycastResetVelocity == null)
+            if (!ShouldRaycastProjectile(velLen) && projectileComp.RaycastResetVelocity == null)
                 continue;
 
             var lastMap = _transformSystem.GetMapCoordinates(xform);

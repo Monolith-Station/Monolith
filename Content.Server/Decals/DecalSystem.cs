@@ -55,6 +55,8 @@ namespace Content.Server.Decals
             new DefaultObjectPool<Dictionary<NetEntity, HashSet<Vector2i>>>(
                 new DefaultPooledObjectPolicy<Dictionary<NetEntity, HashSet<Vector2i>>>(), 64);
 
+        private EntityQuery<DecalGridComponent> _decalGridQuery; // Mono
+
         public override void Initialize()
         {
             base.Initialize();
@@ -73,6 +75,8 @@ namespace Content.Server.Decals
             SubscribeLocalEvent<PostGridSplitEvent>(OnGridSplit);
 
             Subs.CVar(_conf, CVars.NetPVS, OnPvsToggle, true);
+
+            _decalGridQuery = GetEntityQuery<DecalGridComponent>(); // Mono
         }
 
         private void OnPvsToggle(bool value)
@@ -434,15 +438,17 @@ namespace Content.Server.Decals
 
             foreach (var ent in _dirtyChunks.Keys)
             {
-                if (TryGetEntity(ent, out var uid) && TryComp(uid, out DecalGridComponent? decals))
+                if (TryGetEntity(ent, out var uid) && _decalGridQuery.TryComp(uid, out var decals)) // Mono: Use entity query.
                     Dirty(uid.Value, decals);
             }
 
+            /* // Mono edit: early return is redundant, if PVS is disabled, it will clear at end anyways.
             if (!PvsEnabled)
             {
                 _dirtyChunks.Clear();
                 return;
             }
+            */
 
             if (PvsEnabled)
             {

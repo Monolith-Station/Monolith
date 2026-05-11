@@ -25,7 +25,7 @@ public sealed partial class GrapplingGunComponent : Component
     /// Margin between max length and the grappling gun when reeling the grappling hook in.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float RopeMargin = 0.2f;
+    public float RopeMargin = 5f; // Mono - 0.2->5
 
     /// <summary>
     /// Margin from the min length for the rope to be considered fully reeled-in, preventing it from being reeled in further

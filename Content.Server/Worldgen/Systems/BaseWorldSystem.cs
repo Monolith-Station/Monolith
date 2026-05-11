@@ -13,6 +13,7 @@ public abstract class BaseWorldSystem : EntitySystem
 {
     [Dependency] private readonly WorldControllerSystem _worldController = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    protected EntityQuery<TransformComponent> TransformQuery;
 
     /// <summary>
     ///     Gets a chunk's coordinates in chunk space as an integer value.

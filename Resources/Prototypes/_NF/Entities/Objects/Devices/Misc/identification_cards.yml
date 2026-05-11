@@ -197,7 +197,7 @@
 - type: entity
   parent: HoPIDCard
   id: SrIDCard
-  name: colonial liaison ID card
+  name: overseer ID card
   components:
   - type: PresetIdCard
     job: StationRepresentative
@@ -207,7 +207,7 @@
   id: CCServiceWorkerNFIDCard #Mono
   name: colossus sector service ID card
   description: An identification card belonging to a service worker in the Colossus Sector.
-  components: 
+  components:
   - type: PresetIdCard
     job: ServiceWorker
   - type: Sprite
