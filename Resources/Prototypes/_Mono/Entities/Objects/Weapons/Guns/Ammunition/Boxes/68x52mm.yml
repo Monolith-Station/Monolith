@@ -81,6 +81,53 @@
       map: ["enum.GunVisualLayers.Mag"]
     - state: rubber
 
+# Mono AP syst
+#anti-flesh:
+- type: entity
+  parent: BaseAmmoBox68x52mmCaseless
+  id: AmmoBox68x52mmCaselessHP
+  name: ammunition box (6.8x52mm STANAG Caseless HP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge68x52mmCaselessHP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseAmmoBox68x52mmCaseless
+  id: AmmoBox68x52mmCaselessRIP
+  name: ammunition box (6.8x52mm STANAG Caseless RIP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge68x52mmCaselessRIP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#armor-piercing:
+
+- type: entity
+  parent: BaseAmmoBox68x52mmCaseless
+  id: AmmoBox68x52mmCaselessPlasteelAP
+  name: ammunition box (6.8x52mm STANAG Caseless AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge68x52mmCaselessPlasteelAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#big ammo boxes
 - type: entity
   parent: BaseAmmoBox68x52mmCaseless
   id: AmmoBox68x52mmCaselessBig
