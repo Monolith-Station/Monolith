@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 05/11/2026 17:10:41
-  entityCount: 901
+  time: 05/13/2026 06:17:31
+  entityCount: 928
 maps: []
 grids:
 - 2
@@ -551,8 +551,8 @@ entities:
       spreadQueues:
         Kudzu: []
         Smoke: []
-        Puddle: []
         MetalFoam: []
+        Puddle: []
       updateAccumulator: 0.8333049
     - type: ThermalSignature
     - type: GridAtmosphere
@@ -616,7 +616,8 @@ entities:
             3: 8
             0: 2048
           0,-1:
-            2: 13107
+            2: 4915
+            4: 8192
             0: 136
           0,0:
             2: 1
@@ -708,6 +709,25 @@ entities:
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14996
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -4221,24 +4241,12 @@ entities:
       parent: 324
     - type: Physics
       canCollide: False
-  - uid: 658
-    components:
-    - type: Transform
-      parent: 325
-    - type: Physics
-      canCollide: False
 - proto: Cartridge762x39mmFMJ
   entities:
   - uid: 652
     components:
     - type: Transform
       parent: 326
-    - type: Physics
-      canCollide: False
-  - uid: 654
-    components:
-    - type: Transform
-      parent: 327
     - type: Physics
       canCollide: False
 - proto: Catwalk
@@ -4260,6 +4268,66 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.5,-10.5
+      parent: 2
+  - uid: 553
+    components:
+    - type: Transform
+      pos: 4.5,-12.5
+      parent: 2
+  - uid: 554
+    components:
+    - type: Transform
+      pos: 4.5,-13.5
+      parent: 2
+  - uid: 606
+    components:
+    - type: Transform
+      pos: 5.5,-12.5
+      parent: 2
+  - uid: 607
+    components:
+    - type: Transform
+      pos: 5.5,-13.5
+      parent: 2
+  - uid: 608
+    components:
+    - type: Transform
+      pos: -8.5,-12.5
+      parent: 2
+  - uid: 609
+    components:
+    - type: Transform
+      pos: -8.5,-13.5
+      parent: 2
+  - uid: 610
+    components:
+    - type: Transform
+      pos: -7.5,-12.5
+      parent: 2
+  - uid: 611
+    components:
+    - type: Transform
+      pos: -7.5,-13.5
+      parent: 2
+  - uid: 620
+    components:
+    - type: Transform
+      pos: 3.5,-2.5
+      parent: 2
+  - uid: 621
+    components:
+    - type: Transform
+      pos: 3.5,-3.5
+      parent: 2
+  - uid: 622
+    components:
+    - type: Transform
+      pos: 4.5,-2.5
+      parent: 2
+  - uid: 623
+    components:
+    - type: Transform
+      pos: 4.5,-3.5
       parent: 2
 - proto: ChairFolding
   entities:
@@ -4821,6 +4889,17 @@ entities:
     - type: Transform
       pos: 0.5,0.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        46:
+        - - device-button-1
+          - Trigger
+        928:
+        - - device-button-1
+          - Trigger
+        927:
+        - - device-button-1
+          - Trigger
     - type: Battery
       startingCharge: 0
     - type: ContainerContainer
@@ -4979,11 +5058,86 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5,-9.5
       parent: 2
+  - uid: 325
+    components:
+    - type: Transform
+      pos: 3.5,-16.5
+      parent: 2
+  - uid: 327
+    components:
+    - type: Transform
+      pos: 4.5,-16.5
+      parent: 2
   - uid: 473
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -0.5,-8.5
+      parent: 2
+  - uid: 612
+    components:
+    - type: Transform
+      pos: -6.5,-6.5
+      parent: 2
+  - uid: 613
+    components:
+    - type: Transform
+      pos: -5.5,-7.5
+      parent: 2
+  - uid: 614
+    components:
+    - type: Transform
+      pos: -6.5,-11.5
+      parent: 2
+  - uid: 615
+    components:
+    - type: Transform
+      pos: -5.5,-10.5
+      parent: 2
+  - uid: 616
+    components:
+    - type: Transform
+      pos: -7.5,-4.5
+      parent: 2
+  - uid: 617
+    components:
+    - type: Transform
+      pos: -7.5,-1.5
+      parent: 2
+  - uid: 618
+    components:
+    - type: Transform
+      pos: -5.5,-0.5
+      parent: 2
+  - uid: 619
+    components:
+    - type: Transform
+      pos: -3.5,0.5
+      parent: 2
+  - uid: 624
+    components:
+    - type: Transform
+      pos: 3.5,-5.5
+      parent: 2
+  - uid: 625
+    components:
+    - type: Transform
+      pos: 5.5,-15.5
+      parent: 2
+  - uid: 626
+    components:
+    - type: Transform
+      pos: -7.5,-16.5
+      parent: 2
+  - uid: 627
+    components:
+    - type: Transform
+      pos: -6.5,-16.5
+      parent: 2
+  - uid: 653
+    components:
+    - type: Transform
+      pos: -8.5,-15.5
       parent: 2
 - proto: DefibrillatorCabinetFilled
   entities:
@@ -5168,7 +5322,7 @@ entities:
     - type: Label
       currentLabel: tequila
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.73587495
+      sprayFizzinessThresholdRoll: 0.14614305
     - type: Physics
       canCollide: False
     - type: NameModifier
@@ -5304,7 +5458,7 @@ entities:
     - type: Label
       currentLabel: water
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.20813718
+      sprayFizzinessThresholdRoll: 0.057979967
     - type: Physics
       canCollide: False
     - type: NameModifier
@@ -5535,6 +5689,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -0.5,-10.5
       parent: 2
+    - type: GasMixer
+      inletTwoConcentration: 0.22000003
+      inletOneConcentration: 0.78
     - type: AtmosPipeColor
       color: '#00BEBEFF'
 - proto: GasPassiveGateAlt2
@@ -8373,6 +8530,17 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,-10.5
       parent: 2
+  - uid: 654
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,-5.5
+      parent: 2
+  - uid: 657
+    components:
+    - type: Transform
+      pos: 4.5,-4.5
+      parent: 2
   - uid: 925
     components:
     - type: Transform
@@ -8720,6 +8888,47 @@ entities:
       parent: 48
     - type: Physics
       canCollide: False
+- proto: LockerWallColorGenericBlack
+  entities:
+  - uid: 926
+    components:
+    - type: Transform
+      pos: 1.5,0.5
+      parent: 2
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 927
+          - 928
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14923
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: LockerWallMaterialsBasicFilled
   entities:
   - uid: 361
@@ -8825,28 +9034,12 @@ entities:
       unspawnedCount: 40
     - type: Physics
       canCollide: False
-  - uid: 657
-    components:
-    - type: Transform
-      parent: 325
-    - type: BallisticAmmoProvider
-      unspawnedCount: 40
-    - type: Physics
-      canCollide: False
 - proto: Magazine762x39mmFMJ
   entities:
   - uid: 651
     components:
     - type: Transform
       parent: 326
-    - type: BallisticAmmoProvider
-      unspawnedCount: 30
-    - type: Physics
-      canCollide: False
-  - uid: 653
-    components:
-    - type: Transform
-      parent: 327
     - type: BallisticAmmoProvider
       unspawnedCount: 30
     - type: Physics
@@ -9145,6 +9338,25 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: PaperDyedTan
+  entities:
+  - uid: 658
+    components:
+    - type: Transform
+      pos: -0.22987506,0.39460254
+      parent: 2
+    - type: Paper
+      content: >2-
+                 So, if you want your bombs to not explode via contact with eachother midair - use BUTTON 1 on shuttle console that will trigger firing sequence with slight delay for each bomb bay.
+
+           Timers stored in locker near.
+
+
+                 Bomb them back to the Stone Age! Glory to Sultan.
+
+
+
+                                                                                                                  - Eva
 - proto: PlushieLizard
   entities:
   - uid: 434
@@ -10322,6 +10534,48 @@ entities:
       parent: 3
     - type: Physics
       canCollide: False
+- proto: SignalTimerItem
+  entities:
+  - uid: 927
+    components:
+    - type: MetaData
+      name: timer (timer 2 - 0.8s)
+    - type: Transform
+      parent: 926
+    - type: SignalTimer
+      delay: 0.8
+    - type: DeviceLinkSource
+      linkedPorts:
+        48:
+        - - Timer
+          - Trigger
+    - type: Physics
+      canCollide: False
+    - type: Label
+      currentLabel: timer 2 - 0.8s
+    - type: NameModifier
+      baseName: timer
+    - type: InsideEntityStorage
+  - uid: 928
+    components:
+    - type: MetaData
+      name: timer (timer 1 - 0.4s)
+    - type: Transform
+      parent: 926
+    - type: SignalTimer
+      delay: 0.4
+    - type: DeviceLinkSource
+      linkedPorts:
+        47:
+        - - Timer
+          - Trigger
+    - type: Physics
+      canCollide: False
+    - type: Label
+      currentLabel: timer 1 - 0.4s
+    - type: NameModifier
+      baseName: timer
+    - type: InsideEntityStorage
 - proto: SinkWide
   entities:
   - uid: 350
@@ -10417,7 +10671,7 @@ entities:
         weapon2: !type:ContainerSlot
           showEnts: False
           occludes: True
-          ent: 325
+          ent: null
         weapon3: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -10425,7 +10679,7 @@ entities:
         weapon4: !type:ContainerSlot
           showEnts: False
           occludes: True
-          ent: 327
+          ent: null
         weapon5: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -12477,6 +12731,8 @@ entities:
   entities:
   - uid: 872
     components:
+    - type: MetaData
+      name: Garm
     - type: Transform
       pos: -0.5,-2.5
       parent: 2
@@ -12498,22 +12754,6 @@ entities:
           ent: 652
     - type: Physics
       canCollide: False
-  - uid: 327
-    components:
-    - type: Transform
-      parent: 323
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 653
-        gun_chamber: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 654
-    - type: Physics
-      canCollide: False
 - proto: WeaponSubMachineGunMalandro
   entities:
   - uid: 324
@@ -12530,22 +12770,6 @@ entities:
           showEnts: False
           occludes: True
           ent: 656
-    - type: Physics
-      canCollide: False
-  - uid: 325
-    components:
-    - type: Transform
-      parent: 323
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 657
-        gun_chamber: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 658
     - type: Physics
       canCollide: False
 - proto: WeaponTurretBofors
