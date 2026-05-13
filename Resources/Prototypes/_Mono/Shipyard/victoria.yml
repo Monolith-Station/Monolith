@@ -1,15 +1,18 @@
-# Author Info
+# Original Author Info (IHR Victoria)
 # GitHub: Daunter131
 # Discord: Daunter
-
+# Author Info (NOV Victoria)
+# Github: The-Aisen
+# Discord: ich_bin_aisenberg
+#
 # Shuttle Notes:
 #
 - type: vessel
   id: Victoria
   parent: BaseVessel
-  name: IHR Victoria
-  description: A reworked hull from an unknown salvage ship manufacturer refitted for xenoarcheology that still holds onto some of its mining and salvaging capabilities.
-  price: 45000
+  name: NOV Victoria
+  description: A reworked hull from an unknown salvage ship, thought by a machine intelligence for the scientist that needs all of the manufactoring capabilities imaginable.
+  price: 60000
   category: Medium
   group: Shipyard
   shuttlePath: /Maps/_Mono/Shuttles/victoria.yml
