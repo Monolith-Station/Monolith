@@ -1,0 +1,30 @@
+﻿- type: entity
+  id: NuclearFabricatorMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: nuclear fabricator machine board
+  description: A machine printed circuit board for a nuclear fabricator. Uses a 2x1 machine frame. #
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: NuclearFabricator
+    frameSize: 2x1 # Mono
+    requirements: # Mono - change from stackRequirements to requirements
+      Manipulator: 5
+    stackRequirements:
+      Glass: 3
+
+- type: entity
+  id: NuclearCentrifugeMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: nuclear centrifuge machine board
+  description: A machine printed circuit board for a nuclear centrifuge.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: NuclearCentrifuge
+    requirements: # Mono - change from stackRequirements to requirements
+      Manipulator: 5
+    stackRequirements:
+      Plasteel: 5
