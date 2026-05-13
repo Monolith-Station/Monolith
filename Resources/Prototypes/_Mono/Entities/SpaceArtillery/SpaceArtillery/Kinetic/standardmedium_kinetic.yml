@@ -6,6 +6,7 @@
   parent:
   - BallisticArtilleryMagazine
   - BallisticArtilleryTier2HP
+  suffix: Medium, T2
   description: A dual-barrel, heavy 57mm autocannon firing general-purpose APHE rounds, effective for sustained fire against medium targets. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
@@ -49,7 +50,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: Magazine57mm
+        startingItem: Magazine57mmHE
         insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
         priority: 2
@@ -77,6 +78,7 @@
   parent:
   - BallisticArtilleryMagazine
   - BallisticArtilleryTier2HP
+  suffix: Medium, T2
   description: A single-barrel autocannon made by Aetherion Dynamics. Medium artillery piece with high impact but relatively low fire rate, firing HEAT shells to damage ship armor and systems. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
@@ -112,7 +114,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: Magazine90mm
+        startingItem: 90mmMagazineHE
         insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
         priority: 2

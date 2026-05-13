@@ -1,0 +1,469 @@
+- type: listing
+  id: UplinkSecurityAnnie
+  name:  uplink-security-annie-name
+  description: uplink-security-annie-desc
+  productEntity: WeaponRifleAnnie
+  cost:
+    FederationMilitaryCredit: 75
+  categories:
+    - UplinkSecurityWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityEg4
+  name:  uplink-security-eg4-name
+  description: uplink-security-eg4-desc
+  productEntity: WeaponEnergyRevolver
+  cost:
+    FederationMilitaryCredit: 35
+  categories:
+  - UplinkSecurityWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityMk290
+  name:  uplink-security-sentry-mk290-name
+  description: uplink-security-sentry-mk290-desc
+  productEntity: WeaponTurretMk290Packed
+  cost:
+    FederationMilitaryCredit: 100
+  categories:
+  - UplinkSecurityWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityMR8C
+  name:  uplink-security-mr8c-name
+  description: uplink-security-mr8c-desc
+  productEntity: WeaponRifleMR8C
+  cost:
+    FederationMilitaryCredit: 125
+  categories:
+  - UplinkSecurityWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkSecuritySmilodon
+  name:  uplink-security-smilodon-name
+  description: uplink-security-smilodon-desc
+  productEntity: ClothingBackpackDuffelSmilodonBundle
+  cost:
+    FederationMilitaryCredit: 250
+  categories:
+    - UplinkSecurityWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+
+- type: listing
+  id: UplinkSecuritySurgeryDuffel
+  name:  uplink-security-surgery-duffel-name
+  description: uplink-security-surgery-duffel-desc
+  productEntity: ClothingBackpackDuffelSurgeryAdvancedFilled
+  icon: { sprite: Objects/Specific/Medical/Surgery/scalpel.rsi, state: laser }
+  cost:
+    FederationMilitaryCredit: 20
+  categories:
+    - UplinkSecurityUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - Brigmedic
+        - Bailiff
+        - Sheriff
+
+
+- type: listing
+  id: UplinkSecurityPortableRecharger
+  name:  uplink-security-portable-recharger-name
+  description: uplink-security-portable-recharger-desc
+  productEntity: PortableRecharger
+  cost:
+    FederationMilitaryCredit: 35
+  categories:
+  - UplinkSecurityUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityCash75000
+  name: uplink-security-cash75000-name
+  description: uplink-security-cash75000-desc
+  productEntity: SpaceCash75000
+  icon: { sprite: _NF/Objects/Economy/cash.rsi, state: cash_100000 }
+  cost:
+    FederationMilitaryCredit: 50
+  categories:
+    - UplinkSecurityUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+
+#- type: listing
+#  id: UplinkSecurityMagazineSubsonic
+#  name:  uplink-subsonic-mag-name
+#  description: uplink-subsonic-mag-desc
+#  productEntity: Magazine762x39mmSubsonic
+#  cost:
+#    FederationMilitaryCredit: 3
+#  categories:
+#  - UplinkSecurityAmmo
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - SecurityUplink
+
+#- type: listing
+#  id: UplinkSecurityBoxSubsonic
+#  name:  uplink-subsonic-box-name
+#  description: uplink-subsonic-box-desc
+#  productEntity: AmmoBox762x39mmSubsonic
+#  cost:
+#    FederationMilitaryCredit: 10
+#  categories:
+#  - UplinkSecurityAmmo
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityMagazine8x65mm
+  name:  uplink-security-8x65mm-magazine-name
+  description: uplink-security-8x65mm-magazine-desc
+  productEntity: Magazine8x65mmSKR
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+  - UplinkSecurityAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityBoxSKR
+  name:  uplink-security-8x65mm-box-name
+  description: uplink-security-8x65mm-box-desc
+  productEntity: AmmoBox8x65mmSKR
+  cost:
+    FederationMilitaryCredit: 12
+  categories:
+  - UplinkSecurityAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityMagazine68x52mm
+  name:  uplink-security-68x52mm-magazine-name
+  description: uplink-security-68x52mm-magazine-desc
+  productEntity: Magazine68x52mmCaseless
+  cost:
+    FederationMilitaryCredit: 2
+  categories:
+  - UplinkSecurityAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityBox68x52mm
+  name:  uplink-security-68x52mm-box-name
+  description: uplink-security-68x52mm-box-desc
+  productEntity: AmmoBox68x52mmCaselessBig
+  cost:
+    FederationMilitaryCredit: 8
+  categories:
+  - UplinkSecurityAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityNavyOfficerSword
+  name:  uplink-security-navyofficersword-name
+  description: uplink-security-navyofficersword-desc
+  productEntity: ClothingBeltSheathFilledNavy
+  icon: { sprite: _Mono/Objects/Weapons/Melee/ccsabre.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 10
+  categories:
+    - UplinkSecurityWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+
+# Vouchers
+
+- type: listing
+  id: UplinkSecurityT0Voucher
+  name:  uplink-security-t0-voucher-name
+  description: uplink-security-t0-voucher-desc
+  productEntity: ShipVoucherTsfT0
+  cost:
+    FederationMilitaryCredit: 25
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+# start T1
+
+- type: listing
+  id: UplinkSecurityT1VoucherSpica
+  name:  uplink-security-t1-spica-voucher-name
+  description: uplink-security-t1-spica-voucher-desc
+  productEntity: ShipVoucherSpica
+  cost:
+    FederationMilitaryCredit: 90
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+- type: listing
+  id: UplinkSecurityT1VoucherDagger
+  name:  uplink-security-t1-dagger-voucher-name
+  description: uplink-security-t1-dagger-voucher-desc
+  productEntity: ShipVoucherDagger
+  cost:
+    FederationMilitaryCredit: 100
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+- type: listing
+  id: UplinkSecurityT1VoucherTarantula
+  name:  uplink-security-t1-tarantula-voucher-name
+  description: uplink-security-t1-tarantula-voucher-desc
+  productEntity: ShipVoucherTarantula
+  cost:
+    FederationMilitaryCredit: 110
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+- type: listing
+  id: UplinkSecurityT1VoucherSentinel
+  name:  uplink-security-t1-sentinel-voucher-name
+  description: uplink-security-t1-sentinel-voucher-desc
+  productEntity: ShipVoucherSentinel
+  cost:
+    FederationMilitaryCredit: 110
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+- type: listing
+  id: UplinkSecurityT1VoucherMercury
+  name:  uplink-security-t1-mercury-voucher-name
+  description: uplink-security-t1-mercury-voucher-desc
+  productEntity: ShipVoucherMercury
+  cost:
+    FederationMilitaryCredit: 100 # Needs 2 man crew for GCS so its discounted
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+- type: listing
+  id: UplinkSecurityT1VoucherAldebaran
+  name:  uplink-security-t1-aldebaran-voucher-name
+  description: uplink-security-t1-aldebaran-voucher-desc
+  productEntity: ShipVoucherAldebaran
+  cost:
+    FederationMilitaryCredit: 90
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+# end T1
+
+# start T2
+
+- type: listing
+  id: UplinkSecurityT2VoucherAndromeda
+  name:  uplink-security-t2-andromeda-voucher-name
+  description: uplink-security-t2-andromeda-voucher-desc
+  productEntity: ShipVoucherAndromeda
+  cost:
+    FederationMilitaryCredit: 180
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+# end T2
+
+# start T3
+
+- type: listing
+  id: UplinkSecurityT3VoucherAltair
+  name:  uplink-security-t3-altair-voucher-name
+  description: uplink-security-t3-altair-voucher-desc
+  productEntity: ShipVoucherAltair
+  cost:
+    FederationMilitaryCredit: 400
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+# end T3
+
+# start T4
+
+- type: listing
+  id: UplinkSecurityFlyssaVoucher
+  name:  uplink-security-flyssa-voucher-name
+  description: uplink-security-flyssa-voucher-desc
+  productEntity: ShipVoucherFlyssa
+  cost:
+    FederationMilitaryCredit: 750
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+# end T4
+
+# Misc
+
+- type: listing
+  id: UplinkSecurityFactionRDServer
+  name:  uplink-faction-server-name
+  description: uplink-faction-server-desc
+  productEntity: RDServerTSFFlatpack
+  cost:
+    FederationMilitaryCredit: 100
+  categories:
+  - UplinkSecurityUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityFactionLathe
+  name:  uplink-faction-lathe-name
+  description: uplink-faction-lathe-desc
+  productEntity: FactionLatheFlatpack
+  cost:
+    FederationMilitaryCredit: 50
+  categories:
+  - UplinkSecurityUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+# - type: listing
+#   id: UplinkSecurityAuroraExosuit
+#   name:  uplink-exosuit-aurora-name
+#   description: uplink-exosuit-aurora-desc
+#   productEntity: ClothingOuterExosuitAurora
+#   cost:
+#     FederationMilitaryCredit: 125
+#   categories:
+#   - UplinkSecurityHardsuits
+#   conditions:
+#   - !type:StoreWhitelistCondition
+#     whitelist:
+#       tags:
+#       - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityPulseRifle
+  name:  uplink-security-pulserifle-name
+  description: uplink-security-pulserifle-desc
+  productEntity: WeaponPulseRifle
+  icon: { sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi, state: base }
+  cost:
+    FederationMilitaryCredit: 100
+  categories:
+    - UplinkSecurityWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - Sheriff
+        - Bailiff
+        - SeniorOfficer

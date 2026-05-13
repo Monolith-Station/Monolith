@@ -151,3 +151,50 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+
+# Mono AP syst
+#anti-flesh:
+
+- type: entity
+  id: Magazine68x52mmCaselessHP
+  name: "magazine (6.8x52mm STANAG Caseless HP)"
+  parent: BaseMagazine68x52mmCaseless
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge68x52mmCaselessHP
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine68x52mmCaselessRIP
+  name: "magazine (6.8x52mm STANAG Caseless RIP)"
+  parent: BaseMagazine68x52mmCaseless
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge68x52mmCaselessRIP
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#armor-piercing:
+
+- type: entity
+  id: Magazine68x52mmCaselessPlasteelAP
+  name: "magazine (6.8x52mm STANAG Caseless AP)"
+  parent: BaseMagazine68x52mmCaseless
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge68x52mmCaselessPlasteelAP
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
