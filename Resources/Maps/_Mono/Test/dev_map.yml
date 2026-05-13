@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Grid
+  category: Map
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 05/13/2026 08:51:31
-  entityCount: 1708
-maps: []
+  time: 05/13/2026 10:42:36
+  entityCount: 1709
+maps:
+- 1
 grids:
 - 2
-orphans:
-- 2
+orphans: []
 nullspace: []
 tilemap:
   0: Space
@@ -23,11 +23,21 @@ tilemap:
 entities:
 - proto: ""
   entities:
+  - uid: 1
+    components:
+    - type: MetaData
+      name: NFDev
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: GridTree
+    - type: Broadphase
+    - type: OccluderTree
   - uid: 2
     components:
     - type: MetaData
     - type: Transform
-      parent: invalid
+      parent: 1
     - type: MapGrid
       chunks:
         -1,0:
@@ -388,10 +398,10 @@ entities:
     - type: StationTransit
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         MetalFoam: []
         Puddle: []
         Smoke: []
+        Kudzu: []
     - type: GridPathfinding
     - type: NavMap
     - type: ShipGridLock
@@ -8005,21 +8015,21 @@ entities:
       parent: 2
 - proto: SpawnPointVGCommander
   entities:
-  - uid: 1
+  - uid: 1707
     components:
     - type: Transform
       pos: -4.5,1.5
       parent: 2
 - proto: SpawnPointVGInfanteer
   entities:
-  - uid: 1707
+  - uid: 1708
     components:
     - type: Transform
       pos: -4.5,1.5
       parent: 2
 - proto: SpawnPointVGLieutenant
   entities:
-  - uid: 1708
+  - uid: 1709
     components:
     - type: Transform
       pos: -4.5,1.5
