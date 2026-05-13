@@ -6,10 +6,13 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared._NF.Bank.Components; // Frontier
-using Content.Shared.Containers.ItemSlots; // Frontier
+//using Content.Shared.Containers.ItemSlots; // Frontier // Mono
+using Content.Shared._Mono.Economy.Component; // Mono
 
 namespace Content.Shared.VendingMachines
 {
+    /// Mono Change: Anything related to actually accepting physical cash or other currencies has been
+    /// moved over to <see cref="CreditReceiverComponent"/>. <seealso cref="CreditReceiverComponent.CashSlot"/>
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
     public sealed partial class VendingMachineComponent : Component
     {
