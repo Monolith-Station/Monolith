@@ -1,5 +1,5 @@
-- type: entity
-  id: CreditReceiver # Mono - Seperate processing of physical payment from vending machines
+﻿- type: entity
+  id: CreditReceiver # Mono - Made it an abstract parent so any future changes for vending machines are less likely to break.
   abstract: true
   description: Allows the machine to accept payment with physical credit. Change the whitelist to allow for different currencies.
   components:
@@ -17,7 +17,7 @@
 
 - type: entity
   id: VendingMachine
-  parent: [BaseMachinePowered, CreditReceiver]
+  parent: [BaseMachinePowered, CreditReceiver] # Mono
   name: vending machine
   description: Just add capitalism!
   abstract: true
