@@ -102,9 +102,9 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: shipyard_blackmarket
+      state: shipyard_pdv
     - map: ["computerLayerKeys"]
-      state: blackmarket_key
+      state: telesci_key
 
 
 - type: entity
@@ -139,3 +139,13 @@
     - Rook
     - Taser
     - Hound
+
+- type: entity
+  id: BalorCarrierComputer
+  parent: BaseCarrierComputer
+  name: balor shipyard console
+  components:
+  - type: ShipyardListing
+    shuttles:
+    - Rac-Man
+    - Bow-Man

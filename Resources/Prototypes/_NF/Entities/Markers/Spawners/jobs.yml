@@ -134,7 +134,7 @@
 - type: entity
   id: SpawnPointStationRepresentative
   parent: SpawnPointHeadOfPersonnel
-  name: colonial liaison
+  name: overseer
   components:
   - type: SpawnPoint
     job_id: StationRepresentative

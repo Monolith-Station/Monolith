@@ -1211,16 +1211,16 @@
           enum.WiresVisualLayers.MaintenancePanel:
             True: { visible: false }
             False: { visible: true }
-    - type: SalvageExpeditionConsole
-    - type: ActivatableUI
-      key: enum.SalvageConsoleUiKey.Expedition
-    - type: ActivatableUIRequiresPower
-    - type: UserInterface
-      interfaces:
-        enum.SalvageConsoleUiKey.Expedition:
-          type: SalvageExpeditionConsoleBoundUserInterface
-        enum.WiresUiKey.Key:
-          type: WiresBoundUserInterface
+#    - type: SalvageExpeditionConsole
+#    - type: ActivatableUI
+#      key: enum.SalvageConsoleUiKey.Expedition
+#    - type: ActivatableUIRequiresPower
+#    - type: UserInterface
+#      interfaces:
+#        enum.SalvageConsoleUiKey.Expedition:
+#          type: SalvageExpeditionConsoleBoundUserInterface
+#        enum.WiresUiKey.Key:
+#          type: WiresBoundUserInterface
     - type: Computer
       board: SalvageExpeditionsComputerCircuitboard
     - type: PointLight

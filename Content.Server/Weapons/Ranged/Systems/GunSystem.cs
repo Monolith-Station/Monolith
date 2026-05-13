@@ -44,6 +44,8 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly RequireProjectileTargetSystem _requireProjectileTarget = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    private EntityQuery<AutoShootGunComponent> _autoShootGunQuery; // Mono
+    private EntityQuery<DamageableComponent> _damageableQuery; // Mono
 
     private const float DamagePitchVariation = 0.05f;
 
@@ -57,6 +59,9 @@ public sealed partial class GunSystem : SharedGunSystem
         SubscribeLocalEvent<AutoShootGunComponent, ExaminedEvent>(OnGunExamine); // Frontier
         SubscribeLocalEvent<AutoShootGunComponent, PowerChangedEvent>(OnPowerChange); // Frontier
         SubscribeLocalEvent<AutoShootGunComponent, AnchorStateChangedEvent>(OnAnchorChange); // Frontier
+
+        _autoShootGunQuery = GetEntityQuery<AutoShootGunComponent>(); // Mono
+        _damageableQuery = GetEntityQuery<DamageableComponent>(); // Mono
     }
 
     private void OnBallisticPrice(EntityUid uid, BallisticAmmoProviderComponent component, ref PriceCalculationEvent args)
