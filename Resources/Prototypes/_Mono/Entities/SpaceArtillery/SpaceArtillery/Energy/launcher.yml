@@ -598,8 +598,8 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 100000 # 10 seconds of constant fire, 200 rock walls destroyed per full mag
-    startingCharge: 100000
+    maxCharge: 150000 # 15 seconds of constant fire, 250 rock walls destroyed per full mag. 2-3 mining pulsars needed to equal its output.
+    startingCharge: 150000
   - type: BatterySelfRecharger
     autoRechargePause: true
     autoRechargePauseTime: 30
