@@ -126,7 +126,7 @@
   - BallisticArtillery
   - BallisticArtilleryTier2HP
   suffix: Medium, T2
-  description: A rapidly firing energy weapon, dealing a large amount of damage to its targets. Takes a long time to recharge.
+  description: A rapidly firing energy weapon, well known for its devastating burst followed by a constant stream of plasma.
   components:
   - type: StaticPrice
     price: 4000
@@ -137,8 +137,8 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 15500
-    startingCharge: 15500
+    maxCharge: 18000
+    startingCharge: 18000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
@@ -155,7 +155,7 @@
       path: /Audio/Weapons/click.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 220
+    autoRechargeRate: 2250
   - type: SpaceArtillery
     powerChargeRate: 700
     powerUsePassive: 100
@@ -198,8 +198,8 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 40000
-    startingCharge: 40000
+    maxCharge: 2250 # 15 seconds of constant fire, 75 rock walls destroyed per full mag
+    startingCharge: 3000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
@@ -338,9 +338,9 @@
     maxAngle: 8
     fireRate: 1
     recoil: 10 # 2/5x
-    burstCooldown: 16
-    burstFireRate: 50
-    shotsPerBurst: 50
+    burstCooldown: 4;
+    burstFireRate: 100
+    shotsPerBurst: 100
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 500000 # ~5.6km with continuous fire
@@ -350,7 +350,7 @@
       path: /Audio/Weapons/click.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 300
+    autoRechargeRate: 30000
   - type: SpaceArtillery
     powerChargeRate: 700
     powerUsePassive: 100
@@ -486,7 +486,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 20
+    fireRate: 15
     recoil: 0
     minAngle: 0
     maxAngle: 0
@@ -541,7 +541,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 0.15
+    fireRate: 0.3
     recoil: 5
     minAngle: 0
     maxAngle: 0
@@ -551,7 +551,7 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: SpaceArtillery
-    powerChargeRate: 200
+    powerChargeRate: 20000
     powerUsePassive: 300
     powerUseActive: 0
   - type: FireControlRotate
@@ -598,8 +598,8 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 50000
-    startingCharge: 50000
+    maxCharge: 100000 # 10 seconds of constant fire, 200 rock walls destroyed per full mag
+    startingCharge: 100000
   - type: BatterySelfRecharger
     autoRechargePause: true
     autoRechargePauseTime: 30
