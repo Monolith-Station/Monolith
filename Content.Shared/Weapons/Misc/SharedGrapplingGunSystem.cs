@@ -22,6 +22,7 @@ using Robust.Shared.Timing;
 // Mono
 using Robust.Shared.Player;
 using Robust.Shared.GameStates;
+using System.Numerics;
 
 namespace Content.Shared.Weapons.Misc;
 
@@ -229,11 +230,17 @@ public abstract class SharedGrapplingGunSystem : VirtualController
             var bodyAWorldPos = _transform.GetWorldPosition(physicalHook);
             var bodyBWorldPos = _transform.GetWorldPosition(physicalGrapple);
 
+            // Mono
+            var bodyAVel = _physics.GetMapLinearVelocity(physicalHook);
+            var bodyBVel = _physics.GetMapLinearVelocity(physicalGrapple);
+            var velDiff = bodyAVel - bodyBVel;
+            var margin = grappling.RopeMargin + velDiff.Length() * frameTime; // Mono
+
             // The solver does not handle setting the rope's length, but we still need to work with a copy of it to prevent jank.
             var ropeLength = (bodyAWorldPos - bodyBWorldPos).Length();
 
             // Rope should just break, instantly, if the user is teleported past its max length
-            if (ropeLength >= distance.MaxLength + grappling.RopeMargin)
+            if (ropeLength >= distance.MaxLength + margin)
             {
                 Ungrapple((uid, grappling), true);
                 continue;
@@ -250,10 +257,10 @@ public abstract class SharedGrapplingGunSystem : VirtualController
 
 
             // TODO: Contracting DistanceJoints should be in engine
-            if (distance.MaxLength >= ropeLength + grappling.RopeMargin)
+            if (distance.MaxLength >= ropeLength + margin)
             {
-                distance.MaxLength = MathF.Max(distance.MinLength + grappling.RopeMargin, distance.MaxLength - grappling.ReelRate * frameTime);
-                distance.MaxLength = MathF.Max(ropeLength + grappling.RopeMargin, distance.MaxLength);
+                distance.MaxLength = MathF.Max(distance.MinLength + margin, distance.MaxLength - grappling.ReelRate * frameTime);
+                distance.MaxLength = MathF.Max(ropeLength + margin, distance.MaxLength);
                 ropeLength = MathF.Min(distance.MaxLength, ropeLength);
 
                 distance.Length = ropeLength;
@@ -263,7 +270,7 @@ public abstract class SharedGrapplingGunSystem : VirtualController
             {
                 SetReeling(uid, grappling, false, null);
             }
-            else if (ropeLength >= distance.MaxLength - grappling.RopeMargin)
+            else if (ropeLength >= distance.MaxLength - margin)
             {
                 var targetDirection = (bodyAWorldPos - bodyBWorldPos).Normalized();
 

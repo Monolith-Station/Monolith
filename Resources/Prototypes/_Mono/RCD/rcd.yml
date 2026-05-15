@@ -62,3 +62,14 @@
   collisionMask: FullTileMask
   rotation: Fixed
   fx: EffectRCDConstruct2
+
+- type: rcd
+  id: BaseAPC
+  category: Electrical
+  sprite: /Textures/Interface/Radial/RCD/apc.png
+  mode: ConstructObject
+  prototype: BaseAPC
+  cost: 6
+  delay: 2
+  rotation: User
+  fx: EffectRCDConstruct0
