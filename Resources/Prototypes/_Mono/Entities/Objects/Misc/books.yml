@@ -1,0 +1,18 @@
+- type: entity
+  id: BookUSSPLaw
+  parent: BaseGuidebook
+  name: USSP law
+  description: A set of Soviet mandates for keeping unity and patriotism at an all time high. Vodka not included.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#665d43"
+    - state: decor_middle_segmented_top
+      color: "#b40505"
+    - state: decor_middle_segmented_bottom
+      color: "#ffd900"
+  - type: GuideHelp
+    guides:
+    - USSP_Entry
