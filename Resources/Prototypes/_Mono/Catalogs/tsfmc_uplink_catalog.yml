@@ -312,6 +312,21 @@
       - FactionStaticUplinkTsf
 
 - type: listing
+  id: UplinkSecurityT1VoucherMercury
+  name:  uplink-security-t1-mercury-voucher-name
+  description: uplink-security-t1-mercury-voucher-desc
+  productEntity: ShipVoucherMercury
+  cost:
+    FederationMilitaryCredit: 100 # Needs 2 man crew for GCS so its discounted
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+- type: listing
   id: UplinkSecurityT1VoucherAldebaran
   name:  uplink-security-t1-aldebaran-voucher-name
   description: uplink-security-t1-aldebaran-voucher-desc

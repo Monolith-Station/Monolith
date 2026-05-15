@@ -1,0 +1,34 @@
+# Author Info
+# GitHub: kasasture90
+# Discord: _starch_
+
+# Maintainer Info
+# GitHub: kasasture90
+# Discord: _starch_
+
+# Notes:
+- type: pointOfInterest
+  id: Zvezda
+  parent: BasePOI
+  name: 'Zvezda Orbital Habitation'
+  minimumDistance: 10000
+  maximumDistance: 15000
+  spawnGroup: Optional
+  gridPath: /Maps/_Mono/POI/Dungeons/zvezda.yml
+  addComponents:
+  - type: IFF
+    color: "#17bf65"
+    readOnly: true
+
+- type: gameMap
+  id: Zvezda
+  mapName: 'Zvezda Orbital Habitation'
+  mapPath: /Maps/_Mono/POI/Dungeons/zvezda.yml
+  minPlayers: 0
+  stations:
+    Zvezda:
+      stationProto: RecordsFrontierOutpostCargo
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Zvezda Orbital Habitation'
+        - type: StationDeadDropHintExempt
