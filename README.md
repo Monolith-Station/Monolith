@@ -1,20 +1,20 @@
-<p align="center"> <img alt="Frontier Station 14" width="880" height="300" src="https://raw.githubusercontent.com/Monolith-Station/Monolith/89d435f0d2c54c4b0e6c3b1bf4493c9c908a6ac7/Resources/Textures/_Mono/Logo/logo.png?raw=true" /></p>
+<img width="800" height="266" alt="image" src="https://github.com/user-attachments/assets/31c2d0dd-37c1-42d6-a759-44f8a22d26f7" />
 
-Monolith is a fork of [Frontier Station 14](https://github.com/new-frontiers-14/frontier-station-14) that runs on the [Robust Toolbox](https://github.com/space-wizards/RobustToolbox) engine written in C#.
+Cataclysm14 is a fork of [Monolith](https://github.com/Monolith-Station/Monolith) that runs on the [Robust Toolbox](https://github.com/space-wizards/RobustToolbox) engine written in C#.
 
-This is the primary repo for Monolith.
+This is the primary repo for Cataclysm14.
 
 If you want to host or create content for Monolith, this is the repo you need. It contains both RobustToolbox and the content pack for development of new content packs.
 
 ## Links
 
-[Discord](https://discord.gg/mxY4h2JuUw) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/)
+[Discord](https://discord.gg/AHGNVzKSpa) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/)
 
 ## Contributing
 
 We are happy to accept contributions from anybody. Get in Discord if you want to help. Don't be afraid to ask for help either!
 
-We are not currently accepting translations of the game on our main repository. If you would like to translate the game into another language consider creating a fork or contributing to a fork.
+We accept translations of the game on our main repository. Tho if you would like to translate the game into another language consider creating a fork or contributing to a fork.
 
 ## Building
 
@@ -24,7 +24,7 @@ We provide some scripts shown below to make the job easier.
 ### Build dependencies
 
 > - Git
-> - .NET SDK 10.0
+> - .NET SDK 9.0.101
 
 
 ### Windows
