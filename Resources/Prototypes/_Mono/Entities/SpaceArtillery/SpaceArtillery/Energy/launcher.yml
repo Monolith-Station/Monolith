@@ -28,7 +28,7 @@
     recoil: 5 # 1/5x
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 150
+    projectileSpeed: 180
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -88,7 +88,7 @@
     recoil: 8
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 150
+    projectileSpeed: 180
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -147,7 +147,7 @@
     recoil: 5 # 1/5x
     minAngle: 0
     maxAngle: 5
-    projectileSpeed: 185
+    projectileSpeed: 220
     shootThermalSignature: 500000 # ~5.6km with continuous fire
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/autopulse_laser_fire_01.ogg
@@ -278,7 +278,7 @@
     range: 500
   - type: Gun
     fireRate: 0.2
-    projectileSpeed: 140
+    projectileSpeed: 170
     shootThermalSignature: 2000000 # ~1414m after firing - relatively low
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -1062,7 +1062,7 @@
     range: 500
   - type: Gun
     recoil: 10 # 2/5x
-    projectileSpeed: 150
+    projectileSpeed: 180
     minAngle: 0
     maxAngle: 4
     burstCooldown: 2

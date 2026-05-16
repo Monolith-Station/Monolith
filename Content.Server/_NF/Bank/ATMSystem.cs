@@ -15,14 +15,17 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Content.Server.Administration.Logs;
+using Content.Shared._Mono.CCVar; // Mono
 using Content.Shared.Database;
 using Robust.Shared.Audio.Systems;
 using Content.Shared._NF.Bank.BUI;
+using Robust.Shared.Configuration; // Mono
 
 namespace Content.Server._NF.Bank;
 
 public sealed partial class BankSystem
 {
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Mono
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -56,9 +59,10 @@ public sealed partial class BankSystem
             ConsolePopup(player, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit));
+                new BankATMMenuInterfaceState(0, false, deposit, deposit)); // Mono
             return;
         }
+        GetTaxedDepositAmount(deposit, bank.Balance, out var taxedDeposit); // Mono
 
         // check for sufficient funds
         if (bank.Balance < args.Amount)
@@ -66,7 +70,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-insufficient-funds"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(bank.Balance, true, deposit));
+                new BankATMMenuInterfaceState(bank.Balance, true, taxedDeposit, deposit)); // Mono
             return;
         }
 
@@ -76,7 +80,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-transaction-denied"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(bank.Balance, true, deposit));
+                new BankATMMenuInterfaceState(bank.Balance, true, taxedDeposit, deposit)); // Mono
             return;
         }
 
@@ -89,7 +93,7 @@ public sealed partial class BankSystem
         _stackSystem.Spawn(args.Amount, stackPrototype, uid.ToCoordinates());
 
         _uiSystem.SetUiState(uid, args.UiKey,
-            new BankATMMenuInterfaceState(bank.Balance, true, deposit));
+            new BankATMMenuInterfaceState(bank.Balance, true, taxedDeposit, deposit)); // Mono
     }
 
     private void OnDeposit(EntityUid uid, BankATMComponent component, BankDepositMessage args)
@@ -108,9 +112,10 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit));
+                new BankATMMenuInterfaceState(0, false, deposit, deposit)); // Mono
             return;
         }
+        GetTaxedDepositAmount(deposit, bank.Balance, out var taxedDeposit); // Mono
 
         // validating the cash slot was setup correctly in the yaml
         if (component.CashSlot.ContainerSlot is not BaseContainer cashSlot)
@@ -119,7 +124,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit));
+                new BankATMMenuInterfaceState(0, false, taxedDeposit, deposit)); // Mono
             return;
         }
 
@@ -131,7 +136,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-wrong-cash"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit));
+                new BankATMMenuInterfaceState(0, false, taxedDeposit, deposit)); // Mono
             return;
         }
 
@@ -142,7 +147,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-wrong-cash"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit));
+                new BankATMMenuInterfaceState(0, false, taxedDeposit, deposit)); // Mono
             return;
         }
 
@@ -155,15 +160,14 @@ public sealed partial class BankSystem
             TrySectorDeposit(account, tax, LedgerEntryType.AtmTax); // Mono BlackMarketAtmTax->AtmTax
             deposit -= tax; // Charge the user whether or not the deposit went through.
         }
-        deposit = int.Max(0, deposit);
 
         // try to deposit the inserted cash into a player's bank acount. Validation happens on the banking system but we still indicate error.
-        if (!TryBankDeposit(player, deposit))
+        if (!TryBankDeposit(player, taxedDeposit))
         {
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-transaction-denied"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(bank.Balance, true, deposit));
+                new BankATMMenuInterfaceState(bank.Balance, true, taxedDeposit, deposit)); // Mono
             return;
         }
 
@@ -174,7 +178,7 @@ public sealed partial class BankSystem
         // yeet and delete the stack in the cash slot after success
         _containerSystem.CleanContainer(cashSlot);
         _uiSystem.SetUiState(uid, args.UiKey,
-            new BankATMMenuInterfaceState(bank.Balance, true, 0));
+            new BankATMMenuInterfaceState(bank.Balance, true, 0, 0)); // Mono
         return;
     }
 
@@ -193,12 +197,13 @@ public sealed partial class BankSystem
 
             if (!TryComp<BankAccountComponent>(player, out var bank))
                 continue;
+            GetTaxedDepositAmount(deposit, bank.Balance, out var taxedDeposit); // Mono
 
             BankATMMenuInterfaceState newState;
             if (component.CashSlot.ContainerSlot?.ContainedEntity is not { Valid : true } cash)
-                newState = new BankATMMenuInterfaceState(bank.Balance, true, 0);
+                newState = new BankATMMenuInterfaceState(bank.Balance, true, 0, 0); // Mono
             else
-                newState = new BankATMMenuInterfaceState(bank.Balance, true, deposit);
+                newState = new BankATMMenuInterfaceState(bank.Balance, true, taxedDeposit, deposit); // Mono
 
             _uiSystem.SetUiState(uid, uiComp.Key, newState);
         }
@@ -217,12 +222,14 @@ public sealed partial class BankSystem
         {
             _log.Info($"{player} has no bank account");
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit));
+                new BankATMMenuInterfaceState(0, false, deposit, deposit)); // Mono
             return;
         }
 
+        GetTaxedDepositAmount(deposit, bank.Balance, out var taxedDeposit); // Mono
+
         _uiSystem.SetUiState(uid, args.UiKey,
-            new BankATMMenuInterfaceState(bank.Balance, true, deposit));
+            new BankATMMenuInterfaceState(bank.Balance, true, taxedDeposit, deposit)); // Mono
     }
 
     private void GetInsertedCashAmount(BankATMComponent component, out int amount)
@@ -245,6 +252,30 @@ public sealed partial class BankSystem
         amount = cashStack.Count;
         return;
     }
+
+    // Mono start
+    private void GetTaxedDepositAmount(int deposit, int balance, out int amount)
+    {
+        var threshold = _cfg.GetCVar(MonoCVars.DepositThreshold); // Default is 1000000
+        var high_exp = _cfg.GetCVar(MonoCVars.DepositHighExp); // Default is 2
+
+        var deposit_low = Math.Max(Math.Min(deposit, threshold - balance), 0);
+        var deposit_high = Math.Max(0, deposit + Math.Min(balance - threshold, 0));
+        var bank_high = Math.Max(balance, threshold);
+        var adj_exp = high_exp + 1f;
+        var taxedDeposit = 0;
+        if (deposit >= 1)
+        {
+            taxedDeposit = (int)Math.Round(deposit_low + MathF.Pow(MathF.Pow(bank_high, adj_exp) + deposit_high * adj_exp * MathF.Pow(threshold, high_exp), 1f / adj_exp) - bank_high);
+        }
+        else
+        {
+            taxedDeposit = 0;
+        }
+        amount = taxedDeposit;
+        return;
+    }
+    // Mono end
 
     private void PlayDenySound(EntityUid uid, BankATMComponent component)
     {
