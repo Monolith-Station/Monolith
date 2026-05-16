@@ -276,9 +276,9 @@
   description: A navy blue beret worn by member of the TSFMC.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hats/sr_beret.rsi
+    sprite: _Mono/Clothing/Head/Hats/tsf_blue_beret.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hats/sr_beret.rsi
+    sprite: _Mono/Clothing/Head/Hats/tsf_blue_beret.rsi
 
 - type: entity
   parent: ClothingHeadHatHopcap
@@ -287,6 +287,6 @@
   description: A standard issue utlity cover of the trans-solarian federation marine corps.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hats/stc_cap.rsi
+    sprite: _Mono/Clothing/Head/Hats/tsf_utility_cap.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hats/stc_cap.rsi
+    sprite: _Mono/Clothing/Head/Hats/tsf_utility_cap.rsi
