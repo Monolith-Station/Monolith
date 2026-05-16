@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 05/16/2026 18:34:13
-  entityCount: 261
+  time: 05/16/2026 18:46:24
+  entityCount: 266
 maps: []
 grids:
 - 1
@@ -351,6 +351,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,7.5
+      parent: 1
+- proto: AtmosDeviceFanDirectional
+  entities:
+  - uid: 266
+    components:
+    - type: Transform
+      pos: 0.5,0.5
       parent: 1
 - proto: Bed
   entities:
@@ -1356,6 +1363,35 @@ entities:
       parent: 1
     - type: FuelGenerator
       targetPower: 45000
+- proto: PoweredLEDSmallLight
+  entities:
+  - uid: 262
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,5.5
+      parent: 1
+- proto: PoweredlightBlue
+  entities:
+  - uid: 263
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,5.5
+      parent: 1
+- proto: PoweredWarmSmallLight
+  entities:
+  - uid: 264
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,2.5
+      parent: 1
+  - uid: 265
+    components:
+    - type: Transform
+      pos: 0.5,9.5
+      parent: 1
 - proto: RadarEdgeMarkerDiagonal
   entities:
   - uid: 154
