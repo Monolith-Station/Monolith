@@ -199,7 +199,7 @@
   - type: AmmoCounter
   - type: Battery
     maxCharge: 2250 # 15 seconds of constant fire, 75 rock walls destroyed per full mag
-    startingCharge: 3000
+    startingCharge: 2250
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
