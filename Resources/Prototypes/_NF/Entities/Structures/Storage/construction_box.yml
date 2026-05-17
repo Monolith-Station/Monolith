@@ -1,0 +1,43 @@
+- type: entity
+  id: ConstructionBox
+  categories: [ HideSpawnMenu ] # Mono: depricated, Use NF variant
+  name: construction box
+  description: A large storage container for holding materials.
+  parent: PlantBox
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 450
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 3
+            max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Storage
+    whitelist:
+      tags:
+      - Ingot
+      - RodMetal1
+      - Sheet
+      - CableCoil
+      components:
+      - ConstructionMaterials
+      - ResearchDisk # Mono
+    blacklist:
+      tags:
+      - PrizeTicket
