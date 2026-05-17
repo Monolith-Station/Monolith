@@ -749,3 +749,45 @@
   storage:
     back:
     - WeaponPistolHawk4
+
+- type: loadout #Mateba
+  id: FactionMatebaLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRevolverMateba
+
+- type: loadout #Python
+  id: FactionPythonLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRevolverPython
+
+- type: loadout #Inspector Exactly the same as the python why does this even exist
+  id: FactionInspectorLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRevolverInspector
+
+- type: loadout #Laser Pistol
+  id: FactionLaserPistolLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponLaserPistolNF
+
+- type: loadout # Energy Revolver EG-4
+  id: FactionEnergyRevolverLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponEnergyRevolver
+
+- type: loadout #N1984 Which is actually just M1911 but whatever
+  id: Faction1984Loadout
+  price: 0
+  storage:
+    back:
+    - WeaponPistol1984

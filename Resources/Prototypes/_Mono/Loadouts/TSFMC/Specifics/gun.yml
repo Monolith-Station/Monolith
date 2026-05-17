@@ -26,27 +26,26 @@
 
 - type: loadoutGroup
   id: TsfmcSidearm
-  name: loadout-group-weapon
+  name: loadout-group-pistol
   minLimit: 1
   loadouts:
-  - FactionLecterLoadout
-  - FactionDrozdLoadout
+  - SecurityGuardMk58Loadout
+  - FactionInspectorLoadout
   - FactionVulcanLoadout
-  - FactionEnergyGunLoadout
-  # - FactionBanditLoadout
+  - FactionLaserPistolLoadout
+  - ContractorDisablerLoadout
   fallbacks:
   - FactionVulcanLoadout
 
 - type: loadoutGroup
   id: TsfmcCommandSidearm
-  name: loadout-group-weapon
+  name: loadout-group-pistol
   minLimit: 1
   loadouts:
-  - FactionLecterLoadout
-  - FactionDrozdLoadout
-  - FactionVulcanLoadout
+  - Faction1984Loadout # Because it's cooler than the mk58
+  - FactionMatebaLoadout
+  - FactionEnergyRevolverLoadout
   - FactionEnergyGunLoadout
-  # - FactionBanditLoadout
   fallbacks:
   - FactionVulcanLoadout
 
@@ -61,7 +60,6 @@
   - Faction762x51mmAmmoLoadout #Vulcan
   - FactionRechargerLoadout #Energy
   # - Faction8x65mmAmmoLoadout #Bandit
-  - FactionAcpPistolAmmoLoadout #MK58
   fallbacks:
   - TSFCaselessAmmoBoxLoadout #Lecter
 
@@ -74,7 +72,7 @@
 
 - type: loadoutGroup
   id: TsfmcSidearmAmmo
-  name: loadout-group-magazine
+  name: loadout-group-pistol-magazine
   minLimit: 1
   loadouts:
   - TSFCaselessAmmoBoxLoadout # Lecter
@@ -82,14 +80,6 @@
   - FactionAcpSmgEmpAmmoLoadout #Drozd EMP
   - Faction762x51mmAmmoLoadout #Vulcan
   - FactionRechargerLoadout #Energy
-  # - Faction8x65mmAmmoLoadout #Bandit
   - FactionAcpPistolAmmoLoadout #MK58
   fallbacks:
-  - TSFCaselessAmmoBoxLoadout #Lecter
-
-- type: loadout # Lecter ammo - putting it here because other factions shouldnt be using this
-  id: TSFCaselessAmmoBoxLoadout
-  price: 0
-  storage:
-    back:
-    - BoxMagazine68x52mmFMJ
+  - FactionAcpPistolAmmoLoadout #MK58
