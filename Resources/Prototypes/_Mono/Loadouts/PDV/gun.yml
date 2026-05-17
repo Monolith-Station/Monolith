@@ -26,6 +26,26 @@
   - FactionHawk4Pistol
 
 - type: loadoutGroup
+  id: RogueSidearm
+  name: loadout-group-pistol
+  minLimit: 1
+  loadouts:
+  - WeaponRevolverPython
+  - WeaponPistolViper
+  fallbacks:
+  - WeaponPistolViper
+
+- type: loadoutGroup
+  id: RogueCommandSidearm
+  name: loadout-group-pistol
+  minLimit: 1
+  loadouts:
+  - WeaponRevolverPython
+  - WeaponPistolViper
+  fallbacks:
+  - WeaponPistolViper
+
+- type: loadoutGroup
   id: RogueMag
   name: loadout-group-magazine
   minLimit: 1
@@ -38,3 +58,12 @@
   fallbacks:
   - Faction9x19SMGAmmoLoadout #C20r
 
+- type: loadoutGroup
+  id: RoguePistolMag
+  name: loadout-group-pistol-magazine
+  minLimit: 1
+  loadouts:
+  - Mercenary9x19mmPistolAmmoLoadout #Viper
+  - FactionMagnum45Loadout # Inspector/Python/Mateba
+  fallbacks:
+  - Mercenary9x19mmPistolAmmoLoadout #Viper
