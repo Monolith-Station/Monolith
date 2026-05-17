@@ -805,3 +805,10 @@
   storage:
     back:
     - WeaponPistolViper
+
+- type: loadout # Energy Sword
+  id: FactionEnergySword
+  price: 0
+  storage:
+    back:
+    - EnergySword

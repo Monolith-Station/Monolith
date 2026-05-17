@@ -16,14 +16,13 @@
   name: loadout-group-weapon
   minLimit: 1
   loadouts:
-  - FactionHawk4Pistol
   - FactionC20RLoadout
   - FactionWt550Loadout
   # - FactionLecterLoadout
   - FactionAkmLoadout
   - FactionEnergyGunLoadout
   fallbacks:
-  - FactionHawk4Pistol
+  - FactionC20RLoadout
 
 - type: loadoutGroup
   id: RogueSidearm
@@ -42,6 +41,7 @@
   loadouts:
   - FactionHawk4Pistol
   - FactionMatebaLoadout
+  - FactionEnergySword
   fallbacks:
   - FactionHawk4Pistol
 
