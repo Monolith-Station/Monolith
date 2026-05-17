@@ -74,6 +74,7 @@
   name: loadout-group-pistol-magazine
   minLimit: 1
   loadouts:
+  - FactionRechargerLoadout #Energy
   - FactionMagnum45Loadout # Inspector/Python/Mateba
   - FactionAcpPistolAmmoLoadout #MK58
   fallbacks:
