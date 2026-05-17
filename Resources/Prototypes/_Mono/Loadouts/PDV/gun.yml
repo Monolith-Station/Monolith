@@ -30,20 +30,20 @@
   name: loadout-group-pistol
   minLimit: 1
   loadouts:
-  - WeaponRevolverPython
-  - WeaponPistolViper
+  - FactionPythonLoadout
+  - FactionViperLoadout
   fallbacks:
-  - WeaponPistolViper
+  - FactionViperLoadout
 
 - type: loadoutGroup
   id: RogueCommandSidearm
   name: loadout-group-pistol
   minLimit: 1
   loadouts:
-  - WeaponRevolverPython
-  - WeaponPistolViper
+  - FactionHawk4Pistol
+  - FactionMatebaLoadout
   fallbacks:
-  - WeaponPistolViper
+  - FactionHawk4Pistol
 
 - type: loadoutGroup
   id: RogueMag
