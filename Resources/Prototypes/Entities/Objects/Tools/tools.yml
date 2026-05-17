@@ -598,7 +598,7 @@
       changeSound:
         path: /Audio/Items/change_drill.ogg
 
-- type: entity
+- type: entity #goob port to mono
   id: RPD
   parent: RCD
   name: RPD
