@@ -764,14 +764,21 @@
     back:
     - WeaponRevolverPython
 
-- type: loadout #Inspector Exactly the same as the python why does this even exist
+- type: loadout # Inspector Exactly the same as the python why does this even exist
   id: FactionInspectorLoadout
   price: 0
   storage:
     back:
     - WeaponRevolverInspector
 
-- type: loadout #Laser Pistol
+- type: loadout #.45 Magnum Ammo
+  id: FactionMagnum45Loadout
+  price: 0
+  storage:
+    back:
+    - AmmoBox45_magnumFMJ
+
+- type: loadout # Laser Pistol
   id: FactionLaserPistolLoadout
   price: 0
   storage:
@@ -785,9 +792,16 @@
     back:
     - WeaponEnergyRevolver
 
-- type: loadout #N1984 Which is actually just M1911 but whatever
-  id: Faction1984Loadout
+- type: loadout # Pulse Pistol
+  id: FactionPulsePistol
   price: 0
   storage:
     back:
-    - WeaponPistol1984
+    - WeaponPulsePistol
+
+- type: loadout #Viper
+  id: FactionViperLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponPistolViperPMC

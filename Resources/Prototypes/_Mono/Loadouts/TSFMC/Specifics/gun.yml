@@ -31,23 +31,22 @@
   loadouts:
   - SecurityGuardMk58Loadout
   - FactionInspectorLoadout
-  - FactionVulcanLoadout
   - FactionLaserPistolLoadout
   - ContractorDisablerLoadout
   fallbacks:
-  - FactionVulcanLoadout
+  - SecurityGuardMk58Loadout
 
 - type: loadoutGroup
   id: TsfmcCommandSidearm
   name: loadout-group-pistol
   minLimit: 1
   loadouts:
-  - Faction1984Loadout # Because it's cooler than the mk58
+  - SecurityGuardMk58Loadout
   - FactionMatebaLoadout
   - FactionEnergyRevolverLoadout
-  - FactionEnergyGunLoadout
+  - FactionPulsePistol
   fallbacks:
-  - FactionVulcanLoadout
+  - SecurityGuardMk58Loadout
 
 - type: loadoutGroup
   id: TsfmcMag
@@ -75,11 +74,7 @@
   name: loadout-group-pistol-magazine
   minLimit: 1
   loadouts:
-  - TSFCaselessAmmoBoxLoadout # Lecter
-  - FactionAcpSmgAmmoLoadout #Drozd
-  - FactionAcpSmgEmpAmmoLoadout #Drozd EMP
-  - Faction762x51mmAmmoLoadout #Vulcan
-  - FactionRechargerLoadout #Energy
+  - FactionMagnum45Loadout # Inspector/Python/Mateba
   - FactionAcpPistolAmmoLoadout #MK58
   fallbacks:
   - FactionAcpPistolAmmoLoadout #MK58
