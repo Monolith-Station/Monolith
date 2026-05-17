@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 264.0.0
+  engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/05/2026 11:32:18
-  entityCount: 8417
+  time: 04/25/2026 19:24:55
+  entityCount: 8421
 maps: []
 grids:
 - 1
@@ -4142,10 +4142,10 @@ entities:
             470: 4,49
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
         MetalFoam: []
         Kudzu: []
         Puddle: []
+        Smoke: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -4926,6 +4926,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
+    - type: ThermalSignature
 - proto: AirAlarm
   entities:
   - uid: 73
@@ -9192,13 +9193,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,67.5
-      parent: 1
-- proto: DatafarmResearchFaction
-  entities:
-  - uid: 316
-    components:
-    - type: Transform
-      pos: -9.5,30.5
       parent: 1
 - proto: Bed
   entities:
@@ -25620,6 +25614,13 @@ entities:
     - type: Transform
       pos: -15.5,13.5
       parent: 1
+- proto: DatafarmResearchFaction
+  entities:
+  - uid: 316
+    components:
+    - type: Transform
+      pos: -9.5,30.5
+      parent: 1
 - proto: DefaultStationBeaconAI
   entities:
   - uid: 8415
@@ -27719,14 +27720,14 @@ entities:
   - uid: 8041
     components:
     - type: Transform
-      pos: -14.271528,17.739185
+      pos: -14.340534,17.71554
       parent: 1
 - proto: EnergySword
   entities:
   - uid: 8042
     components:
     - type: Transform
-      pos: -14.443307,17.953777
+      pos: -14.538451,17.986563
       parent: 1
 - proto: ExtinguisherCabinetFilled
   entities:
@@ -44668,6 +44669,26 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.520905,51.31806
       parent: 1
+- proto: ShipVoucherPdvT1Random
+  entities:
+  - uid: 4236
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.6628923,26.53316
+      parent: 1
+  - uid: 4238
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.6524754,25.511616
+      parent: 1
+  - uid: 8419
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.204559,26.095356
+      parent: 1
 - proto: ShuttersNormal
   entities:
   - uid: 2772
@@ -46625,6 +46646,18 @@ entities:
     - type: Transform
       pos: -3.5,10.5
       parent: 1
+  - uid: 8420
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,25.5
+      parent: 1
+  - uid: 8421
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,26.5
+      parent: 1
 - proto: TableReinforcedGlass
   entities:
   - uid: 2867
@@ -47145,6 +47178,13 @@ entities:
     components:
     - type: Transform
       pos: 14.5,32.5
+      parent: 1
+- proto: VendingMachinePDVUplink
+  entities:
+  - uid: 8418
+    components:
+    - type: Transform
+      pos: -14.5,15.5
       parent: 1
 - proto: VendingMachineSeeds
   entities:
@@ -53606,23 +53646,11 @@ entities:
     - type: Transform
       pos: -13.5,26.5
       parent: 1
-  - uid: 4236
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -7.5,25.5
-      parent: 1
   - uid: 4237
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -7.5,24.5
-      parent: 1
-  - uid: 4238
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -7.5,26.5
       parent: 1
   - uid: 4239
     components:
@@ -54366,7 +54394,7 @@ entities:
   - uid: 8036
     components:
     - type: Transform
-      pos: -14.537911,17.362242
+      pos: -14.507201,17.34028
       parent: 1
 - proto: WeaponCaseLongM90Expedition
   entities:

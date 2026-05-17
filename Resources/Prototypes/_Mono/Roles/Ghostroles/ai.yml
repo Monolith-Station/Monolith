@@ -4,3 +4,17 @@
   description: ghost-role-information-vessel-core-description
   rules: ghost-role-information-silicon-rules
   entityPrototype: StationAiBrainVessel
+
+- type: ghostRole
+  id: TSFMCAICore
+  name: ghost-role-information-tsfmc-core
+  description: ghost-role-information-tsfmc-core-description
+  rules: ghost-role-information-silicon-rules
+  entityPrototype: StationAiBrainTSFMC
+
+- type: ghostRole
+  id: PDVAICore
+  name: ghost-role-information-pdv-core
+  description: ghost-role-information-pdv-description
+  rules: ghost-role-information-silicon-rules
+  entityPrototype: StationAiBrainPDV

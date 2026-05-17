@@ -19,7 +19,7 @@
     maxAngle: 20
     angleIncrease: 5
     angleDecay: 25
-    fireRate: 4
+    fireRate: 3
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -69,6 +69,7 @@
     id: StandardFactionLongarm
   # - type: StaticPrice # Frontier: overvalued
   #  price: 1300
+  - type: GunRequiresWield
 
 - type: entity
   name: ceremonial rifle (7.62x51mm)

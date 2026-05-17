@@ -218,7 +218,7 @@ public class RCDSystem : EntitySystem
         // </Mono>
         var ev = new RCDDoAfterEvent(GetNetCoordinates(mapGridData.Value.Location), component.ConstructionDirection, component.ProtoId, cost, EntityManager.GetNetEntity(effect));
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: args.Target, used: uid)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay*component.DelayMultiplier, ev, uid, target: args.Target, used: uid) // Mono - add delay multiplier.
         {
             BreakOnDamage = true,
             BreakOnHandChange = true,

@@ -86,10 +86,6 @@
     materialComposition:
       Steel: 100
       Plastic: 100
-  - type: GuideHelp
-    guides:
-    - Security
-    # - Antagonists # Frontier: guidebook entry removed
 
 - type: entity
   name: cyborg stun baton
@@ -177,9 +173,6 @@
     materialComposition:
       Steel: 100
       Plastic: 100
-  - type: GuideHelp
-    guides:
-    - Security
 
 - type: entity
   name: truncheon
@@ -213,10 +206,6 @@
   - type: Appearance
   - type: StaticPrice
     price: 80
-  - type: GuideHelp
-    guides:
-    - Security
-    # - Antagonists # Frontier: guidebook entry removed
 
 - type: entity
   name: flash
@@ -270,10 +259,6 @@
         enum.FlashVisuals.LightLayer:
           True: {visible: true}
           False: {visible: false}
-  - type: GuideHelp
-    guides:
-    - Security
-  # - Antagonists # Frontier: guidebook entry removed
 
 - type: entity
   name: flash
@@ -326,7 +311,3 @@
     radius: 0
     softness: 0
     enabled: true
-  - type: GuideHelp
-    guides:
-    - Security
-  # - Antagonists # Frontier: guidebook entry removed

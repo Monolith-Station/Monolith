@@ -90,9 +90,6 @@
         sprite: _NF/Structures/Doors/Airlocks/Standard/nfsd.rsi # Frontier: Swap security to NFSD
         state: closed
     - type: LogProbeCartridge
-    - type: GuideHelp
-      guides:
-      - Forensics
 
 - type: entity
   parent: NFBasePDACartridge # Frontier: BaseItem<NFBasePDACartridge

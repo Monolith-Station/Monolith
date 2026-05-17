@@ -301,6 +301,24 @@
       Steel: 5
 
 - type: entity
+  id: OrganHarvesterMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: organ harvester machine board
+  description: A machine printed circuit board for an organ harvester.
+  components:
+  - type: Sprite
+    state: security # the red icon implies its dangerous or something
+  - type: MachineBoard
+    prototype: MachineOrganHarvester
+    componentRequirements:
+      BoneSaw:
+        amount: 1
+        defaultPrototype: SawElectric
+    stackRequirements:
+      Glass: 1
+      Steel: 3
+
+- type: entity
   parent: BaseMachineCircuitboard
   id: AnomalyVesselCircuitboard
   name: anomaly vessel machine board

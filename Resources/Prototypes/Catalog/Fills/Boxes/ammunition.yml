@@ -35,10 +35,10 @@
 
 # 762x39mm
 - type: entity
-  name: box of 762x39mm magazines
+  name: box of 7.62x39mm magazines
   parent: BoxMagazine
   id: BoxMagazine762x39mmFMJ
-  description: A box full of 762x39mm magazines.
+  description: A box full of 7.62x39mm magazines.
   components:
   - type: StorageFill
     contents:
@@ -46,10 +46,10 @@
         amount: 4
 
 - type: entity
-  name: box of 762x39mm (practice) magazines
+  name: box of 7.62x39mm (practice) magazines
   parent: BoxMagazine
   id: BoxMagazine762x39mmPractice
-  description: A box full of 762x39mm (practice) magazines.
+  description: A box full of 7.62x39mm (practice) magazines.
   components:
   - type: StorageFill
     contents:
@@ -93,10 +93,10 @@
 
 # 762x51mm
 - type: entity
-  name: box of 762x51mm magazines
+  name: box of 7.62x51mm magazines
   parent: BoxMagazine
   id: BoxMagazine762x51mmFMJ
-  description: A box full of 762x51mm magazines.
+  description: A box full of 7.62x51mm magazines.
   components:
   - type: StorageFill
     contents:
@@ -104,10 +104,10 @@
         amount: 4
 
 - type: entity
-  name: box of 762x51mm (rubber) magazines
+  name: box of 7.62x51mm (rubber) magazines
   parent: BoxMagazine
   id: BoxMagazine762x51mmRubber
-  description: A box full of 762x51mm (rubber) magazines.
+  description: A box full of 7.62x51mm (rubber) magazines.
   components:
   - type: StorageFill
     contents:
@@ -115,10 +115,10 @@
         amount: 4
 
 - type: entity
-  name: box of 762x51mm (practice) magazines
+  name: box of 7.62x51mm (practice) magazines
   parent: BoxMagazine
   id: BoxMagazine762x51mmPractice
-  description: A box full of 762x51mm (practice) magazines.
+  description: A box full of 7.62x51mm (practice) magazines.
   components:
   - type: StorageFill
     contents:
@@ -128,10 +128,10 @@
 #mono edit
 # 762x54mmRFMJ
 - type: entity
-  name: box of 762x54mmR magazines
+  name: box of 7.62x54mmR magazines
   parent: BoxMagazine
   id: BoxMagazine762x54mmRFMJ
-  description: A box full of 762x54mmR magazines.
+  description: A box full of 7.62x54mmR magazines.
   components:
   - type: StorageFill
     contents:

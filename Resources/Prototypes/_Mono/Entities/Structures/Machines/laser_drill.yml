@@ -100,6 +100,8 @@
     - SpaceQuartz15
     - UraniumOre15
     - Coal15
+    - LithiumOre15
+    - CopperOre15
     chance: 0.95
     offset: 0.0
     rarePrototypes:
@@ -151,6 +153,22 @@
 - type: entity
   parent: UraniumOre
   id: UraniumOre15
+  suffix: Fifteen
+  components:
+  - type: Stack
+    count: 15
+
+- type: entity
+  parent: LithiumOre
+  id: LithiumOre15
+  suffix: Fifteen
+  components:
+  - type: Stack
+    count: 15
+
+- type: entity
+  parent: CopperOre
+  id: CopperOre15
   suffix: Fifteen
   components:
   - type: Stack

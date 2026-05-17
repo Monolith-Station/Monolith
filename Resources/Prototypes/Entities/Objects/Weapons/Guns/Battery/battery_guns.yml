@@ -643,10 +643,6 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
-  - type: GuideHelp
-    guides:
-    - Security
-    # - Antagonists # Frontier: removed guidebook entry
 
 - type: entity
   name: disabler SMG

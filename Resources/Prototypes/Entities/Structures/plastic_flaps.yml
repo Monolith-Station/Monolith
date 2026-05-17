@@ -36,7 +36,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: IconSmooth
-    key: walls
+    key: plasticflaps # Mono
     mode: NoSprite
   - type: StaticPrice
     price: 100

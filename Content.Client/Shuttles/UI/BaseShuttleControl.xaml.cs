@@ -202,7 +202,7 @@ public partial class BaseShuttleControl : MapGridControl
                 handle.DrawLine(outer + sideOffset, inner + sideOffset, tickColor.WithAlpha(0.46f));
             }
 
-            if (!isMajor || isNorth)
+            if (!isMajor)
                 continue;
 
             var label = degrees.ToString();
@@ -214,6 +214,83 @@ public partial class BaseShuttleControl : MapGridControl
                     : regularLabelColor;
             var labelSize = handle.GetDimensions(Font, label, labelScale);
             var labelPosition = GetEdgeLabelPosition(edgePoint, inwardNormal, labelSize, viewportSize, labelOffset);
+            handle.DrawString(Font, labelPosition + new Vector2(1f, 1f), label, labelScale, labelShadowColor);
+            handle.DrawString(Font, labelPosition, label, labelScale, labelColor);
+        }
+    }
+
+    protected void DrawAzimuthRing(DrawingHandleScreen handle, Angle rotation)
+    {
+        const int azimuthMinorTickStepDegrees = 10;
+        const int azimuthMajorTickInterval = 3;
+        const int azimuthCardinalTickInterval = 9;
+        const float ringInset = 16f;
+        const float minorTickLength = 5f;
+        const float majorTickLength = 9f;
+        const float cardinalTickLength = 12f;
+        const float labelPadding = 5f;
+        const float regularLabelScale = 0.62f;
+        const float cardinalLabelScale = 0.72f;
+
+        var origin = MidPointVector;
+        var radius = MathF.Max(8f, SizeFull * 0.5f - ringInset);
+
+        var subtleGray = Color.FromHex("#676767");
+        var northAccent = Color.FromHex("#7F7442");
+        var eastAccent = Color.FromHex("#456273");
+        var baseTickColor = subtleGray.WithAlpha(0.34f);
+        var majorTickColor = subtleGray.WithAlpha(0.5f);
+        var cardinalTickColor = subtleGray.WithAlpha(0.68f);
+        var regularLabelColor = subtleGray.WithAlpha(0.76f);
+        var cardinalLabelColor = subtleGray.WithAlpha(0.9f);
+        var labelShadowColor = Color.Black.WithAlpha(0.36f);
+
+        handle.DrawCircle(origin, radius, subtleGray.WithAlpha(0.12f), false);
+
+        for (var step = 0; step < 360 / azimuthMinorTickStepDegrees; step++)
+        {
+            var degrees = step * azimuthMinorTickStepDegrees;
+            var direction = GetAzimuthDirection(rotation, degrees);
+            var isCardinal = step % azimuthCardinalTickInterval == 0;
+            var isMajor = step % azimuthMajorTickInterval == 0;
+            var isNorth = degrees == 0;
+            var isEast = degrees == 90;
+            var tickLength = isCardinal
+                ? cardinalTickLength
+                : isMajor
+                    ? majorTickLength
+                    : minorTickLength;
+
+            var outer = origin + direction * radius;
+            var inner = origin + direction * (radius - tickLength);
+            var tickColor = isNorth
+                ? northAccent.WithAlpha(0.58f)
+                : isEast
+                    ? eastAccent.WithAlpha(0.58f)
+                    : isCardinal
+                        ? cardinalTickColor
+                        : isMajor
+                            ? majorTickColor
+                            : baseTickColor;
+            handle.DrawLine(outer, inner, tickColor);
+            if (isNorth)
+            {
+                var sideOffset = new Vector2(-direction.Y, direction.X) * 0.35f;
+                handle.DrawLine(outer + sideOffset, inner + sideOffset, tickColor.WithAlpha(0.46f));
+            }
+
+            if (!isMajor)
+                continue;
+
+            var label = degrees.ToString();
+            var labelScale = isCardinal ? cardinalLabelScale : regularLabelScale;
+            var labelColor = isEast
+                ? eastAccent.WithAlpha(0.76f)
+                : isCardinal
+                    ? cardinalLabelColor
+                    : regularLabelColor;
+            var labelSize = handle.GetDimensions(Font, label, labelScale);
+            var labelPosition = origin + direction * (radius - tickLength - labelPadding) - labelSize * 0.5f;
             handle.DrawString(Font, labelPosition + new Vector2(1f, 1f), label, labelScale, labelShadowColor);
             handle.DrawString(Font, labelPosition, label, labelScale, labelColor);
         }

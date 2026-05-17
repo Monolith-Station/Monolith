@@ -1,3 +1,4 @@
+using Content.Shared.Store;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Mono.Company;
@@ -46,4 +47,11 @@ public sealed partial class CompanyPrototype : IPrototype
     /// </summary>
     [DataField]
     public string? Image { get; private set; }
+
+    /// <summary>
+    /// The (typically Uplink) Currency Prototype bound to the Company.
+    /// Used for handling printing contraband items.
+    /// </summary>
+    [DataField]
+    public ProtoId<CurrencyPrototype>? CompanyUplinkCurrency { get; private set; }
 }

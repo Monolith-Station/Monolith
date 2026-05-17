@@ -4,12 +4,14 @@
               xmlns:ui="clr-namespace:Content.Client.Shuttles.UI"
               xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls"
               xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
-                <ui:ShuttleNavControl Name="NavRadar"
-                                 MouseFilter="Stop"
-                                 VerticalAlignment="Stretch"
-                                 VerticalExpand="True"
-                                 HorizontalExpand="True"
-                                 Margin="5 4 10 5"/>
+                <!-- Mono - wrap -->
+                <controls:LayoutContainer Margin="5 4 10 5">
+                    <ui:ShuttleNavControl Name="NavRadar"
+                                     MouseFilter="Stop"
+                                     VerticalAlignment="Stretch"
+                                     VerticalExpand="True"
+                                     HorizontalExpand="True"/>
+                </controls:LayoutContainer>
                 <!-- Nav controls -->
                 <controls:PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="4 4 4 4">
                     <controls:PanelContainer.PanelOverride>
@@ -212,36 +214,43 @@
                                                      Text="{controls:Loc 'shuttle-console-device-button-1'}"
                                                      TextAlign="Center"
                                                      StyleClasses="ButtonSquare"
+                                                     ToolTip="{controls:Loc 'shuttle-console-network-connect-tooltip'}"
                                                      SetWidth="55"/>
                                     <controls:Button Name="DeviceButton2"
                                                      Text="{controls:Loc 'shuttle-console-device-button-2'}"
                                                      TextAlign="Center"
                                                      StyleClasses="ButtonSquare"
+                                                     ToolTip="{controls:Loc 'shuttle-console-network-connect-tooltip'}"
                                                      SetWidth="55"/>
                                     <controls:Button Name="DeviceButton3"
                                                      Text="{controls:Loc 'shuttle-console-device-button-3'}"
                                                      TextAlign="Center"
                                                      StyleClasses="ButtonSquare"
+                                                     ToolTip="{controls:Loc 'shuttle-console-network-connect-tooltip'}"
                                                      SetWidth="55"/>
                                     <controls:Button Name="DeviceButton4"
                                                      Text="{controls:Loc 'shuttle-console-device-button-4'}"
                                                      TextAlign="Center"
                                                      StyleClasses="ButtonSquare"
+                                                     ToolTip="{controls:Loc 'shuttle-console-network-connect-tooltip'}"
                                                      SetWidth="55"/>
                                     <controls:Button Name="DeviceButton5"
                                                      Text="{controls:Loc 'shuttle-console-device-button-5'}"
                                                      TextAlign="Center"
                                                      StyleClasses="ButtonSquare"
+                                                     ToolTip="{controls:Loc 'shuttle-console-network-connect-tooltip'}"
                                                      SetWidth="55"/>
                                     <controls:Button Name="DeviceButton6"
                                                      Text="{controls:Loc 'shuttle-console-device-button-6'}"
                                                      TextAlign="Center"
                                                      StyleClasses="ButtonSquare"
+                                                     ToolTip="{controls:Loc 'shuttle-console-network-connect-tooltip'}"
                                                      SetWidth="55"/>
                                     <controls:Button Name="DeviceButton7"
                                                      Text="{controls:Loc 'shuttle-console-device-button-7'}"
                                                      TextAlign="Center"
                                                      StyleClasses="ButtonSquare"
+                                                     ToolTip="{controls:Loc 'shuttle-console-network-connect-tooltip'}"
                                                      SetWidth="55"/>
                                     <controls:Button Name="DeviceButton8"
                                                      Text="{controls:Loc 'shuttle-console-device-button-8'}"
