@@ -2,7 +2,7 @@
   parent: [BaseMachinePowered, ConstructibleMachine]
   id: MachineOreMagnet
   name: ore magnet
-  description: Uses a powerful magnet to suck in ore. Has internal storage.
+  description: Uses a powerful magnet to suck in ore. Has an internal storage.
   components:
   - type: MagnetPickup
     magnetEnabled: false
@@ -49,6 +49,7 @@
           SheetSteel1:
             min: 1
             max: 2
+  - type: Rotatable
   - type: Physics
     bodyType: Static
   - type: Fixtures
