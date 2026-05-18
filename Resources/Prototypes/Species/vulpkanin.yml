@@ -20,8 +20,8 @@
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
     SnoutCover: MobHumanoidAnyMarking
-    UndergarmentTop: MobHumanoidAnyMarking
-    UndergarmentBottom: MobHumanoidAnyMarking
+    #UndergarmentTop: MobHumanoidAnyMarking # Mono
+    #UndergarmentBottom: MobHumanoidAnyMarking # Mono
     Chest: MobVulpkaninTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -64,12 +64,12 @@
       points: 1
       required: true
       defaultMarkings: [ VulpEar ]
-    UndergarmentTop:
-      points: 1
-      required: false
-    UndergarmentBottom:
-      points: 1
-      required: false
+    #UndergarmentTop: # Mono
+    #  points: 1
+    #  required: false
+    #UndergarmentBottom:
+    #  points: 1
+    #  required: false
     Arms:
       points: 6
       required: false
