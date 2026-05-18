@@ -41,7 +41,8 @@
   - type: Sprite
     sprite: Mobs/Species/Vox/organs.rsi
     state: brain
-  - type: Edible
+  - type: Organ
+  - type: Food
     destroyOnEmpty: false
   - type: SolutionContainerManager
     solutions:
