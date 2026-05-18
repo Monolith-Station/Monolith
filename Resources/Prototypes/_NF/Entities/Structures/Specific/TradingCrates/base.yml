@@ -118,8 +118,8 @@
         - MachineLayer
   - type: Contraband
     turnInValues:
-      FederationMilitaryCredit: 12 # Mono
-      Doubloon: 12 # Mono
+      FederationMilitaryCredit: 20 # Mono 12 -> 25 (50 of each currency is about 47.5k, that means this is less than half of 50k, so each one is worth about 20k to a faction member PURELY based of money, so people have more a reason to talk to factions)
+      Doubloon: 20 # Mono 12 -> 25
   - type: ShipyardSellCondition
     blockSale: true
     reason: shipyard-console-contraband-onboard
@@ -137,3 +137,6 @@
     scale: 1.5
     shape: hexagon
     visibleFromOtherGrids: true
+  - type: PassiveThermalSignature
+    signature: 500000 # ~500m i think, need to test this to make sure it doesnt break deaddrops 
+  - type: ThermalSignature
