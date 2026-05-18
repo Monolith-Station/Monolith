@@ -108,7 +108,12 @@
             Quantity: 10
           - ReagentId: Omnizine
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteIron
   parent: SoakedCigarette
@@ -123,7 +128,12 @@
             Quantity: 10
           - ReagentId: Iron
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteTricordrazine
   parent: SoakedCigarette
@@ -138,7 +148,12 @@
             Quantity: 10
           - ReagentId: Tricordrazine
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteDylovene
   parent: SoakedCigarette
@@ -153,7 +168,12 @@
             Quantity: 10
           - ReagentId: Dylovene
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteDermaline
   parent: SoakedCigarette
@@ -168,7 +188,12 @@
             Quantity: 10
           - ReagentId: Dermaline
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteArithrazine
   parent: SoakedCigarette
@@ -183,7 +208,12 @@
             Quantity: 10
           - ReagentId: Arithrazine
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteIpecac
   parent: SoakedCigarette
@@ -196,7 +226,6 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-<<<<<<< HEAD
           - ReagentId: Ipecac
             Quantity: 2
       food:
@@ -204,10 +233,6 @@
         reagents:
         - ReagentId: ToxinTrash
           Quantity: 5
-=======
-          - ReagentId: Nutriment
-            Quantity: 10
->>>>>>> 7873ff6608 (Vox can eat cigs for their reagents!)
 
 - type: entity
   id: CigaretteBicaridine
@@ -223,7 +248,12 @@
             Quantity: 10
           - ReagentId: Bicaridine
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteDexalin
   parent: SoakedCigarette
@@ -238,7 +268,12 @@
             Quantity: 10
           - ReagentId: Dexalin
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigarettePax
   parent: SoakedCigarette
@@ -251,19 +286,14 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-<<<<<<< HEAD
           - ReagentId: Pax
             Quantity: 2
       food:
         maxVol: 5
         reagents:
         - ReagentId: ToxinTrash
-          Quantity: 5
-=======
-          - ReagentId: Saline
-            Quantity: 10
->>>>>>> 7873ff6608 (Vox can eat cigs for their reagents!)
-
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteBbqSauce
   parent: SoakedCigarette
@@ -278,7 +308,12 @@
             Quantity: 10
           - ReagentId: BbqSauce
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteBlackPepper
   parent: SoakedCigarette
@@ -293,7 +328,12 @@
             Quantity: 10
           - ReagentId: Blackpepper
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteCapsaicinOil
   parent: SoakedCigarette
@@ -308,7 +348,12 @@
             Quantity: 10
           - ReagentId: CapsaicinOil
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteBread
   parent: SoakedCigarette
@@ -321,17 +366,13 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Radium
-            Quantity: 10
-<<<<<<< HEAD
-      food:            
+          - ReagentId: Bread
+            Quantity: 10         
       food:
         maxVol: 5
         reagents:
         - ReagentId: ToxinTrash
           Quantity: 5
-=======
->>>>>>> 7873ff6608 (Vox can eat cigs for their reagents!)
 
 - type: entity
   id: CigaretteMilk
@@ -347,9 +388,14 @@
             Quantity: 10
           - ReagentId: Milk
             Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
 
 - type: entity
-  id: CigaretteBanana
+  id: CigaretteBanana2
   parent: SoakedCigarette
   name: Clown Adjancency Bonus
   components:
@@ -362,7 +408,12 @@
             Quantity: 10
           - ReagentId: BananaHonk
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteSpaceDrugs
   parent: SoakedCigarette
@@ -377,7 +428,12 @@
             Quantity: 10
           - ReagentId: SpaceDrugs
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteMuteToxin
   parent: SoakedCigarette
@@ -390,9 +446,14 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: SodiumPolyacrylate
+          - ReagentId: MuteToxin
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteMold
   parent: SoakedCigarette
@@ -407,7 +468,12 @@
             Quantity: 10
           - ReagentId: Mold
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteLicoxide
   parent: SoakedCigarette
@@ -422,7 +488,12 @@
             Quantity: 10
           - ReagentId: Licoxide
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteWeldingFuel
   parent: SoakedCigarette
@@ -437,7 +508,12 @@
             Quantity: 10
           - ReagentId: WeldingFuel
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteTHC
   parent: SoakedCigarette
@@ -452,7 +528,12 @@
             Quantity: 10
           - ReagentId: RobustHarvest
             Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigarettePhlogiston
   parent: SoakedCigarette
@@ -467,7 +548,12 @@
           Quantity: 10
         - ReagentId: Phlogiston
           Quantity: 10
-
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5 
+          
 - type: entity
   id: CigaretteBanana
   parent: SoakedCigarette
@@ -482,18 +568,8 @@
           Quantity: 10
         - ReagentId: Potassium
           Quantity: 10
-
-- type: entity
-  id: CigaretteBlackPepper
-  parent: SoakedCigarette
-  name: English Spice
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 40
+      food:
+        maxVol: 5
         reagents:
-        - ReagentId: Nicotine
-          Quantity: 10
-        - ReagentId: Blackpepper
-          Quantity: 10
+        - ReagentId: ToxinTrash
+          Quantity: 5 

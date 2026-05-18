@@ -28,7 +28,7 @@
     specialDigestible:
       tags:
       - Trash
-      - ClothMade
+      - ClothMade # terrible efficiency from cloth eating
     isSpecialDigestibleExclusive: false
   - type: Sprite
     sprite: Mobs/Species/Vox/organs.rsi
@@ -57,16 +57,8 @@
         - ReagentId: GreyMatter
           Quantity: 5
   - type: BorgBrain
-=======
     specialExtraDiet: true
->>>>>>> fd77fcd8a2 (Whitelist no longer, now the diet exclusion var is a bool.)
-=======
     isSpecialDigestiableExclusive: false
->>>>>>> 66b895999b (Clean-up)
-=======
-    isSpecialDigestibleExclusive: false
->>>>>>> 88462f5f48 (Update Resources/Prototypes/Body/Organs/vox.yml
-)
 
 - type: entity
   parent: OrganHumanLiver
