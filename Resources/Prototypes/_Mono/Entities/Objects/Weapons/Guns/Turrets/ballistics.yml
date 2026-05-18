@@ -1,5 +1,4 @@
 # Base Heavy Turret
-
 - type: entity
   id: BallisticTurretHeavyBase
   parent: BaseWeaponTurret
@@ -63,7 +62,6 @@
     price: 1500
 
 # Faction Based
-
 - type: entity
   parent: BallisticTurretHeavyBase
   id: WeaponTurretHeavyCC
@@ -146,12 +144,11 @@
     - SiliconsExpeditionNF
 
 # Anti-Chimera Variant
-
 - type: entity
   parent: BallisticTurretHeavyBase
   id: WeaponTurretHeavyRIPBase
   name: heavy ballistic RIP turret
-  description: A variant on the standard heavy balistic turret, firing a barrage of 7.62x51mm RIP ammunition to delete anything unarmored. Chimera hate these.
+  description: A variant on the standard heavy ballistic turret, firing a barrage of 7.62x51mm RIP ammunition to delete anything unarmored. Chimera hate these.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Turrets/heavy_turret_RIP.rsi
@@ -162,8 +159,25 @@
     proto: Bullet762x51mmRIP
     fireCost: 25
 
-# Faction Based
+# Repairable wrecked state for RIP turrets tasked with anti-spawncamp (making them soft-indestructible)
+- type: entity
+  parent: BaseStructure
+  id: WeaponTurretRepairableBroken
+  name: heavy ballistic RIP turret (broken)
+  description: Chimera prefer it like this. It looks like it can be brought back online with a bit of welding or nanites.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+    noRot: true
+    drawdepth: Mobs
+    layers:
+    - state: syndie_broken
+  - type: Construction
+    graph: RepairableTurret
+    node: breakTurret
 
+# Faction Based
 - type: entity
   parent: WeaponTurretHeavyRIPBase
   id: WeaponTurretHeavyRIPCC
@@ -172,6 +186,20 @@
   - type: NpcFactionMember
     factions:
     - CC
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: breakTurret
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+  - type: Construction
+    graph: RepairableTurret
+    node: repairTurret
 
 - type: entity
   parent: WeaponTurretHeavyRIPBase

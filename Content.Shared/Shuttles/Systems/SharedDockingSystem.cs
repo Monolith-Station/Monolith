@@ -11,12 +11,15 @@ public abstract class SharedDockingSystem : EntitySystem
     public const float DockRange = 1f + 0.2f;
     public static readonly double AlignmentTolerance = Angle.FromDegrees(15).Theta;
 
-    public bool CanShuttleDock(EntityUid? shuttle)
+    public bool CanShuttleDock(EntityUid? shuttle, SharedDockingComponent dockComp) //Mono, I trust the null check in DockingSystem.cs
     {
         if (shuttle == null)
             return false;
 
-        return !HasComp<PreventPilotComponent>(shuttle.Value);
+        if (TryComp<FTLComponent>(shuttle, out var ftl) && (ftl.State & (FTLState.Starting | FTLState.Travelling | FTLState.Arriving)) != 0)
+            return false;
+
+        return !HasComp<PreventPilotComponent>(shuttle.Value) || dockComp.DockType.HasFlag(DockType.Gas);
     }
 
     public bool CanShuttleUndock(EntityUid? shuttle)

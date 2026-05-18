@@ -1,7 +1,7 @@
 - type: entity
-  id: 255mmCartridge
-  name: 255mm shell
-  description: A chemically-propelled shell for Bofors 255mm cannons.
+  id: 255mmCartridgeAPHE
+  name: 255mm APHE shell
+  description: A chemically-propelled armor-piercing high-explosive shell for 255mm cannons.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -10,12 +10,52 @@
   - type: Item
     size: Huge
   - type: CartridgeAmmo
-    proto: ShipBoforsProjectile
+    proto: 255mmBulletAPHE
     deleteOnSpawn: true
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
     layers:
-    - state: 255mm
+    - state: 255mmAPHE
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 3
+    totalIntensity: 75
+  - type: ExplodeOnTrigger
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+
+- type: entity
+  id: 255mmCartridgeEMP
+  name: 255mm EMP shell
+  description: A chemically-propelled electromagnetic pulse shell for 255mm cannons.
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - 255mmCartridge
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: 255mmBulletEMP
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
+    layers:
+    - state: 255mmEMP
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals

@@ -12,7 +12,12 @@ public record struct ShuttleInput(Vector2 Strafe, float Rotation, float Brakes);
 ///     Also queries for multipliers to acceleration and max speed.
 /// </summary>
 [ByRefEvent]
-public record struct GetShuttleInputsEvent(float FrameTime, EntityUid ShuttleUid, ShuttleInput? Input = null, bool GotInput = false, float AngularMul = 1f, float AccelMul = 1f, float MaxVelMul = 1f);
+public record struct GetShuttleInputsEvent(float FrameTime, EntityUid ShuttleUid, ShuttleInput? Input = null, bool GotInput = false)
+{
+    public float AngularMul = 1f;
+    public float AccelMul = 1f;
+    public float? SetMaxVelocity = null;
+}
 
 [ByRefEvent]
 public record struct PilotedShuttleRelayedEvent<TEvent>(TEvent Args);

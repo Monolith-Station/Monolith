@@ -35724,13 +35724,15 @@ entities:
     - type: Transform
       pos: -38.359024,21.641636
       parent: 1
-- proto: FactionLathe
+- proto: FactionLatheImmmovable
   entities:
   - uid: 5671
     components:
     - type: Transform
       pos: -41.5,41.5
       parent: 1
+    missingComponents:
+    - Anchorable
 - proto: FaxMachineUSSP
   entities:
   - uid: 5672
@@ -35738,6 +35740,8 @@ entities:
     - type: Transform
       pos: -37.5,30.5
       parent: 1
+    missingComponents:
+    - Anchorable
 - proto: FenceMetalCorner
   entities:
   - uid: 5674
@@ -52379,6 +52383,8 @@ entities:
     - type: Transform
       pos: 2.5,25.5
       parent: 1
+    missingComponents:
+    - Anchorable
 - proto: MachineOutpostCore
   entities:
   - uid: 269

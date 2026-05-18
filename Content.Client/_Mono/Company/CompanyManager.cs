@@ -34,7 +34,7 @@ public sealed partial class CompanyManager
         if (!_config.GetCVar(MonoCVars.CompanyWhitelist))
             return true;
 
-        if (!_proto.TryIndex(company, out var companyPrototype) ||
+        if (!_proto.Resolve(company, out var companyPrototype) ||
             !companyPrototype.Whitelisted)
         {
             return true;

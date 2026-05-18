@@ -13,6 +13,7 @@ shipyard-console-already-deeded = ID card already has a Deed.
 shipyard-console-invalid-station = Not a valid station.
 shipyard-console-no-bank = No bank account found.
 shipyard-console-no-deed = No ship deed found.
+shipyard-console-no-unassign = Card is restricted from unassigning deed.
 shipyard-console-sale-reqs = Ship must be docked and all crew disembarked.
 shipyard-console-sale-not-docked = Ship must be docked.
 shipyard-console-sale-organic-aboard = All crew must disembark. {$name} is still aboard.
@@ -20,7 +21,7 @@ shipyard-console-sale-organic-aboard = All crew must disembark. {$name} is still
 shipyard-console-sale-invalid-ship = Ship is invalid and cannot be sold.
 shipyard-console-sale-unknown-reason = Ship cannot be sold: {reason}
 shipyard-console-deed-label = Registered Ship:
-shipyard-console-appraisal-label = Shuttle Resale Value:{" "}
+shipyard-console-appraisal-label = Shuttle Resale Value (Taxed):{" "}
 shipyard-console-no-voucher-redemptions = All voucher redemptions have been used.
 shipyard-console-invalid-voucher-type = This voucher cannot be used at this console.
 shipyard-console-denied = You cannot purchase this ship at this time.
@@ -92,3 +93,6 @@ shipyard-console-engine-Welding = Welding Fuel
 shipyard-console-engine-Plasma = Plasma
 shipyard-console-engine-Uranium = Uranium
 shipyard-console-engine-Bananium = Bananium
+# Mono start
+shipyard-console-engine-NFR = NFR
+# Mono end

@@ -83,6 +83,11 @@
   id: SmartfridgeCircuitboard
   result: SmartfridgeCircuitboard
 
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: LargeThrusterMachineCircuitboard
+  result: LargeThrusterMachineCircuitboard
+
 # Datafarm
 
 - type: latheRecipe

@@ -190,3 +190,12 @@ chatsan-replacement-66 = something
 
 chatsan-word-67 = allg
 chatsan-replacement-67 = all good
+
+chatsan-word-68 = ts
+chatsan-replacement-68 = this shit
+
+chatsan-word-69 = fyi
+chatsan-replacement-69 = for your information
+
+chatsan-word-70 = pmo
+chatsan-replacement-70 = pisses me off

@@ -181,3 +181,16 @@
       amount: 1
     - id: Magazine8x65mmSKR
       amount: 2
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseMalandroRegistered
+  suffix: Loadout, Malandro
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunMalandroRegistered
+      amount: 1
+    - id: Magazine46x30mmSubMachineGunFMJ
+      amount: 4
+    

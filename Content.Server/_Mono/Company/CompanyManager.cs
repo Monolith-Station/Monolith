@@ -117,9 +117,9 @@ public sealed class CompanyManager
         return member != null && member.Value.Owner;
     }
 
-    public bool SetOwner(ProtoId<CompanyPrototype> company, ICommonSession session, bool owner)
+    public bool SetOwner(ProtoId<CompanyPrototype> company, NetUserId userId, bool owner)
     {
-        var cached = GetCompanyMember(company, session.UserId);
+        var cached = GetCompanyMember(company, userId);
 
         if (cached is not { } member)
             return false;
@@ -127,9 +127,9 @@ public sealed class CompanyManager
         if (owner == member.Owner)
             return true;
 
-        _db.SetCompanyOwner(company, session.UserId, owner);
+        _db.SetCompanyOwner(company, userId, owner);
 
-        _companies[company].RemoveWhere(w => w.PlayerUserId == session.UserId);
+        _companies[company].RemoveWhere(w => w.PlayerUserId == userId);
         member.Owner = owner; // company member is struct so we got a copy here
         _companies[company].Add(member);
         return true;
@@ -147,7 +147,7 @@ public sealed class CompanyManager
 
         await _db.RemoveCompanyMember(player, company);
 
-        if (_player.TryGetSessionById(new NetUserId(player), out var session))
+        if (_player.TryGetSessionById(player, out var session))
             SendCompanyWhitelist(session.Channel);
     }
 

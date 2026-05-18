@@ -457,18 +457,20 @@ namespace Content.Server.Shuttles.Systems
                 return;
             }
 
-            var shuttleUid = Transform(console.Value).GridUid;
-
-            if (!CanShuttleDock(shuttleUid))
+            if (!TryGetEntity(args.DockEntity, out var ourDock) ||
+                !TryGetEntity(args.TargetDockEntity, out var targetDock) ||
+                !TryComp(ourDock, out DockingComponent? ourDockComp) ||
+                !TryComp(targetDock, out DockingComponent? targetDockComp))
             {
                 _popup.PopupCursor(Loc.GetString("shuttle-console-dock-fail"));
                 return;
             }
 
-            if (!TryGetEntity(args.DockEntity, out var ourDock) ||
-                !TryGetEntity(args.TargetDockEntity, out var targetDock) ||
-                !TryComp(ourDock, out DockingComponent? ourDockComp) ||
-                !TryComp(targetDock, out DockingComponent? targetDockComp))
+            var shuttleUid = Transform(console.Value).GridUid;
+            var otherShuttleUid = Transform(targetDock.Value).GridUid; // Mono
+
+            // Mono - check both grids
+            if (!CanShuttleDock(shuttleUid, ourDockComp) || !CanShuttleDock(otherShuttleUid, targetDockComp))
             {
                 _popup.PopupCursor(Loc.GetString("shuttle-console-dock-fail"));
                 return;
