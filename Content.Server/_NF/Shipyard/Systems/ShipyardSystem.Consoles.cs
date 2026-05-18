@@ -385,7 +385,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
                 sellValue = (int)_pricing.AppraiseGrid((EntityUid)(deed?.ShuttleUid!), LacksPreserveOnSaleComp);
 
             // Adjust for taxes
-            sellValue = CalculateShipResaleValue((shipyardConsoleUid, component), sellValue);
+            sellValue = CalculateShipResaleValue((shipyardConsoleUid, component), sellValue, bank.Balance); // Mono - bank.Balance added
         }
 
         SendPurchaseMessage(shipyardConsoleUid, player, name, component.ShipyardChannel, secret: false);
@@ -514,7 +514,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             return;
         }
 
-        var saleResult = TrySellShuttle(stationUid, shuttleUid, uid, out var bill);
+        var saleResult = TrySellShuttle(stationUid, shuttleUid, uid, bank.Balance, out var bill);
         if (saleResult.Error != ShipyardSaleError.Success)
         {
             switch (saleResult.Error)
@@ -630,7 +630,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         if (deed?.ShuttleUid != null)
         {
             sellValue = (int)_pricing.AppraiseGrid((EntityUid)(deed?.ShuttleUid!), LacksPreserveOnSaleComp);
-            sellValue = CalculateShipResaleValue((uid, component), sellValue);
+            sellValue = CalculateShipResaleValue((uid, component), sellValue, bank.Balance); // Mono - bank.Balance added
         }
 
         var fullName = deed != null ? GetFullName(deed) : null;
@@ -730,7 +730,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             if (deed?.ShuttleUid != null)
             {
                 sellValue = (int)_pricing.AppraiseGrid(deed.ShuttleUid.Value, LacksPreserveOnSaleComp);
-                sellValue = CalculateShipResaleValue((uid, component), sellValue);
+                sellValue = CalculateShipResaleValue((uid, component), sellValue, bank.Balance); // Mono - bank.Balance added
             }
 
             var fullName = deed != null ? GetFullName(deed) : null;
@@ -982,7 +982,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             return _baseSaleRate * taxRate;
     }
 
-    private int CalculateShipResaleValue(Entity<ShipyardConsoleComponent?> console, int baseAppraisal)
+    private int CalculateShipResaleValue(Entity<ShipyardConsoleComponent?> console, int baseAppraisal, int playerBalance) // Mono - playerBalance int
     {
         if (!Resolve(console, ref console.Comp))
             return 0;
@@ -990,9 +990,9 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         int resaleValue = baseAppraisal;
         if (!console.Comp.IgnoreBaseSaleRate)
             resaleValue = (int)(_baseSaleRate * resaleValue);
-
-        resaleValue -= CalculateTotalSalesTax(console.Comp, resaleValue);
-        return resaleValue;
+        var unBalanceTaxedResaleValue = resaleValue - CalculateTotalSalesTax(console.Comp, resaleValue);
+        _bank.GetTaxedDepositAmount(unBalanceTaxedResaleValue, playerBalance, out var taxedOutput);
+        return taxedOutput;
     }
 
     // Calculates total sales tax over all accounts.

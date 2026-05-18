@@ -21023,3 +21023,145 @@ Entries:
   id: 2318
   time: '2026-05-14T13:25:22.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3937
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added exponential deposit taxes, gets higher the richer you are. Don't
+        try to cheese it by just withdrawing, it doesn't work that way in this
+        life.
+  id: 2319
+  time: '2026-05-16T00:59:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3956
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: 'Rebalanced almost every Energy/mining shipgun:'
+  id: 2320
+  time: '2026-05-16T01:03:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3998
+- author: GOLDMASK990
+  changes:
+    - type: Fix
+      message: USSP Language Implanters now print correctly
+  id: 2321
+  time: '2026-05-16T01:04:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3996
+- author: Mapleflavoureds
+  changes:
+    - type: Tweak
+      message: Fixed neptune disabled thruster
+  id: 2322
+  time: '2026-05-16T01:08:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4001
+- author: Mapleflavoureds
+  changes:
+    - type: Tweak
+      message: Asteroids no longer produce infection anomalies
+  id: 2323
+  time: '2026-05-16T01:10:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4000
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Updated the UI for the latejoin, health analyzer, and chat menu (only
+        for Separated UI & lobby chat).
+    - type: Fix
+      message: Fixed the chat filter menu & radial menus using the old UI colors.
+  id: 2324
+  time: '2026-05-16T13:29:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3981
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: shuffles VG and USSP research node locations around.
+    - type: Tweak
+      message: The T1 USSP guns have been made roundstart buildable.
+    - type: Tweak
+      message: USSP subsonic ammo has been folded into the AK-410 node.
+    - type: Tweak
+      message: USSP explosives research have been merged together.
+    - type: Remove
+      message: The USSP T3 advanced ammo node has been removed.
+    - type: Fix
+      message: Fixed a duplicate research node name. (T1/T2 USSP armor)
+    - type: Tweak
+      message: moves UI gear to the MatSci side of research.
+    - type: Tweak
+      message: Shuffles a few faction nodes about.
+    - type: Tweak
+      message: Moves the armor plate research nodes.
+    - type: Tweak
+      message: PDV gear moved to where the TSF gear goes.
+  id: 2325
+  time: '2026-05-16T14:06:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3918
+- author: IronmoonHeathen
+  changes:
+    - type: Add
+      message: 'TSFMC High Command has issued two new set of standard headwear. '
+  id: 2326
+  time: '2026-05-16T14:55:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4006
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Expeds now work again.
+  id: 2327
+  time: '2026-05-16T15:03:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4007
+- author: chuga-git
+  changes:
+    - type: Tweak
+      message: Significantly nerfed ship ramming.
+    - type: Tweak
+      message: Nerfed ASF-59 "Flail" health.
+    - type: Tweak
+      message: Nerfed ASF-59-B "Mace" health.
+    - type: Tweak
+      message: Buffed projectile speeds of several shipguns.
+  id: 2328
+  time: '2026-05-16T15:06:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3903
+- author: Corrupt142
+  changes:
+    - type: Fix
+      message: Fixed mining pulser not working
+  id: 2329
+  time: '2026-05-16T20:08:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4011
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed shipyard sales not being taxed properly.
+  id: 2330
+  time: '2026-05-16T21:54:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4010
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: >-
+        Added a support fighter designed to work with the ocelot, TSF Jaguar!
+        armed with a TARYNX and plenty of PD to shred anything that lacks
+        armour.
+    - type: Tweak
+      message: >-
+        Updated ocelot to the latest mapping standards/changed up its gun
+        layout.
+  id: 2331
+  time: '2026-05-18T07:33:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4009
+- author: IronmoonHeathen
+  changes:
+    - type: Add
+      message: >-
+        Added sidearm category for PDV and TSF. Roughly based on roundstart
+        obtainable uplink item or existing loadout weapon option
+    - type: Tweak
+      message: >-
+        Hawk pistol is moved from PDV primary to PDV command secondary. Making
+        it possible for them to also start with a longarm option now
+  id: 2332
+  time: '2026-05-18T10:20:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4013

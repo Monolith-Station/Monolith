@@ -20,10 +20,16 @@ public sealed class BankATMMenuInterfaceState : BoundUserInterfaceState
     /// </summary>
     public int Deposit;
 
-    public BankATMMenuInterfaceState(int balance, bool enabled, int deposit)
+    /// <summary>
+    /// how much cash is inserted - without tax calculations - Mono change
+    /// </summary>
+    public int DepositUntaxed;
+
+    public BankATMMenuInterfaceState(int balance, bool enabled, int deposit, int depositUntaxed)
     {
         Balance = balance;
         Enabled = enabled;
         Deposit = deposit;
+        DepositUntaxed = depositUntaxed;
     }
 }

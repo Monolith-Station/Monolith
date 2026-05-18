@@ -188,7 +188,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     /// <param name="stationUid">The ID of the station that the shuttle is docked to</param>
     /// <param name="shuttleUid">The grid ID of the shuttle to be appraised and sold</param>
     /// <param name="consoleUid">The ID of the console being used to sell the ship</param>
-    public ShipyardSaleResult TrySellShuttle(EntityUid stationUid, EntityUid shuttleUid, EntityUid consoleUid, out int bill)
+    public ShipyardSaleResult TrySellShuttle(EntityUid stationUid, EntityUid shuttleUid, EntityUid consoleUid, int playerBalance, out int bill) // Mono - int playerBalance
     {
         ShipyardSaleResult result = new ShipyardSaleResult();
         bill = 0;
@@ -259,7 +259,12 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             CleanGrid(shuttleUid, consoleUid);
         }
 
-        bill = (int)_pricing.AppraiseGrid(shuttleUid, LacksPreserveOnSaleComp);
+        // Mono start
+        var untaxedInput = (int)_pricing.AppraiseGrid(shuttleUid, LacksPreserveOnSaleComp);
+        _bank.GetTaxedDepositAmount(untaxedInput, playerBalance, out var taxedOutput);
+        bill = taxedOutput;
+        // Mono end
+
         QueueDel(shuttleUid);
         _sawmill.Info($"Sold shuttle {shuttleUid} for {bill}");
 

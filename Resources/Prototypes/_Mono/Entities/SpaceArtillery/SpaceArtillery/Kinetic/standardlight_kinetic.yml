@@ -28,7 +28,7 @@
   - type: Gun
     fireRate: 12
     recoil: 5 # 1/5x
-    projectileSpeed: 160
+    projectileSpeed: 192
     minAngle: 0
     maxAngle: 5
     shootThermalSignature: 10000 # relatively low for a shipgun, ~693m signature if firing continuously
@@ -115,7 +115,7 @@
   - type: Gun
     fireRate: 25
     recoil: 5 # 1/5x
-    projectileSpeed: 180
+    projectileSpeed: 216
     minAngle: 0
     maxAngle: 4
     shootThermalSignature: 100000 # ~4.5km if firing continuously
