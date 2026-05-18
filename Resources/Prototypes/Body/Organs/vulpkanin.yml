@@ -3,6 +3,7 @@
   parent: OrganAnimalStomach
   categories: [ HideSpawnMenu ]
   components:
+  - type: Stomach # Mono
   - type: SolutionContainerManager
     solutions:
       stomach:

@@ -1,9 +1,4 @@
 - type: damageModifierSet
-  id: Vulpkanin
-  coefficients:
-    Heat: 1.1 # 1.15->1.1 - Mono
-
-- type: damageModifierSet
   id: Harpy
   coefficients:
     Blunt: 1.1 # 1.15->1.1 - Mono

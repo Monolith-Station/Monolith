@@ -77,3 +77,5 @@ chat-emote-msg-snarl = snarls.
 chat-emote-msg-whine = whines.
 chat-emote-msg-howl = howls.
 chat-emote-msg-growl = growls.
+chat-emote-msg-whimper = whimpers.
+chat-emote-msg-awoo = awoos.

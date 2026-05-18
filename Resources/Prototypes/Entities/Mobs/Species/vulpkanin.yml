@@ -17,7 +17,14 @@
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
-    allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl' ]
+    allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl', 'Yip', 'Whimper' ] # Starlight / Monolith: Add yip, whine; rename old whine to whimper
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - Canilunzt
+    understands:
+    - TauCetiBasic
+    - Canilunzt
   - type: Vocal
     sounds:
       Male: MaleVulpkanin
@@ -63,6 +70,7 @@
     interactSuccessString: petting-success-soft-floofy-vulp
     messagePerceivedByOthers: petting-success-soft-floofy-vulp-others
     interactFailureString: petting-failure-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg # Mono
   - type: Sprite # Drawlayers. Top to bottom in order I believe.
     netsync: false
     layers:
@@ -174,6 +182,13 @@
           32:
             sprite: Mobs/Species/Vulpkanin/displacement.rsi
             state: belt
+  - type: ShortWhitelist # Frontier
+    scale: 0.8 # Frontier
+    density: 140 # Frontier
+    pseudoItem: true # Frontier
+    cosmeticOnly: false # Frontier
+  - type: TallWhitelist # Frontier
+    scale: 1.2 # Frontier
 
 - type: entity
   parent: [BaseSpeciesDummy]

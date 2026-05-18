@@ -568,17 +568,19 @@
     Scream:
       collection: VulpkaninScreams
     Growl:
-      collection: VulpkaninGrowls
+      collection: VulpkaninMaleGrowl #Monolith
     Snarl:
       collection: VulpkaninSnarls
     Bark:
       collection: VulpkaninBarks
     Whine:
-      collection: VulpkaninWhines
+      collection: SLVulpkaninWhines #Mono
+    Whimper:
+      collection: VulpkaninWhimpers # Starlight / Monolith: Rename to whimper
     Crying:
       collection: VulpkaninWhines
     Howl:
-      collection: VulpkaninHowls
+      collection: VulpkaninMaleHowl #Monolith
     Weh:
       collection: Weh
     Hew:
@@ -589,6 +591,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Belch: # Frontier
+      collection: Belch # Frontier
+    Yip: # Starlight / Monolith - yip & whine
+      collection: VulpkaninYips
 
 - type: emoteSounds
   id: FemaleVulpkanin
@@ -610,17 +616,19 @@
     Scream:
       collection: VulpkaninScreams
     Growl:
-      collection: VulpkaninGrowls
+      collection: VulpkaninFemaleGrowl #Monolith
     Snarl:
       collection: VulpkaninSnarls
     Bark:
       collection: VulpkaninBarks
+    Whimper:
+      collection: VulpkaninWhimpers # Starlight / Monolith: Rename to whimper
     Whine:
-      collection: VulpkaninWhines
+      collection: SLVulpkaninWhines #Mono
     Crying:
       collection: VulpkaninWhines
     Howl:
-      collection: VulpkaninHowls
+      collection: VulpkaninFemaleHowl #Monolith
     Weh:
       collection: Weh
     Hew:
@@ -631,6 +639,10 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Belch: # Frontier
+      collection: Belch # Frontier
+    Yip: # Starlight / Monolith - yip & whine
+      collection: VulpkaninYips
 
 # body emotes
 - type: emoteSounds
