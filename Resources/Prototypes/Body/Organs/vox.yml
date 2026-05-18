@@ -44,7 +44,6 @@
   - type: Organ
   - type: Food
   - type: SolutionContainerManager
-    destroyOnEmpty: false
     solutions:
       organ:
         reagents:
