@@ -43,11 +43,11 @@
 
 - type: startingGear
   id: BrigmedicGear
-  equipment:
-    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+#  equipment:
+#    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:
     back:
     - EncryptionKeyMedical
-    - Magazine45_ACPPistolFMJ
+#    - Magazine45_ACPPistolFMJ # Mono
     - BaseSecurityUplinkRadioOfficer #Mono: Changed to officer uplink
     - RadioHandheldNF # Mono

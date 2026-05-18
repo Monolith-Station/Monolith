@@ -1,35 +1,34 @@
-#Author: Starch(!)
+#Author: Corrupt(!)
 
 - type: vessel
-  id: Ocelot
+  id: Jaguar
   parent: BaseVesselAntag
-  name: TSF-SKR Ocelot
-  description: A highly manouverable corvette designed to work in tandem with the jaguar, with the ability to reveal cloaked ships. Armed with 2x cerberus plasma scattercannons, 2x Plasma autopulsers and 2x 20mm PD cannons
-  price: 68500
+  name: TSF-SKR Jaguar
+  description: A support fighter to assist other ships in combat, armed with TARYNX EMP cannon for disabling ships and 4 L-1 phalanxes to shred anything that gets too close.
+  price: 58500
   category: Small
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/ocelot.yml
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/jaguar.yml
   guidebookPage: Null
   class:
   - Patrol
   engine:
   - Uranium
-  cloakHunter: true
   company:
   - TSF
 
 - type: gameMap
-  id: Ocelot
-  mapName: 'Ocelot'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/ocelot.yml
+  id: Jaguar
+  mapName: 'Jaguar'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/jaguar.yml
   minPlayers: 0
   stations:
-    Ocelot:
+    Jaguar:
       stationProto: StandardFrontierSecurityVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Ocelot TSF{1}'
+        mapNameTemplate: 'Jaguar TSF{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
