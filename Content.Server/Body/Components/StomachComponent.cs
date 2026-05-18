@@ -52,7 +52,6 @@ namespace Content.Server.Body.Components
         /// </summary>
         [DataField]
         public bool IsSpecialDigestibleExclusive = true;
-        [DataField]
 
         /// <summary>
         ///     Used to track how long each reagent has been in the stomach
