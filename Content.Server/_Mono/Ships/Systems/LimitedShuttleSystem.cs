@@ -1,5 +1,6 @@
 using Content.Server.Power.Components;
 using Content.Server.Shuttles.Components;
+using Content.Server._NF.Shipyard;
 using Content.Shared._Mono.Ships.Components;
 using Content.Shared._Mono.Shipyard;
 using Content.Shared._NF.Shipyard;

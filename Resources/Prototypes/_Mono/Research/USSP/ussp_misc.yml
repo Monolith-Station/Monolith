@@ -1,27 +1,16 @@
-- type: technology
-  id: UsspBasicExplosives
-  name: research-technology-ussp-explosives-basic
-  entityIcon: SeismicCharge
-  discipline: Ussp
-  tier: 1
-  cost: 20000
-  recipeUnlocks:
-  - SeismicChargeUSSP
-  - TearGasGrenadeUSSP
-  technologyPrerequisites:
-  - UniversalMaterialResearchT1
-  position: 16, -1
 
 - type: technology
   id: UsspMediumExplosives
   name: research-technology-ussp-explosives-medium
   entityIcon: GrenadeShrapnel
   discipline: Ussp
-  tier: 2
-  cost: 50000
+  tier: 1
+  cost: 60000
   technologyPrerequisites:
-  - UsspBasicExplosives
+  - UniversalMaterialResearchT1
   recipeUnlocks:
   - GrenadeShrapnelUSSP
   - GrenadeIncendiaryUSSP
-  position: 16, -2
+  - SeismicChargeUSSP
+  - TearGasGrenadeUSSP
+  position: 12, 3

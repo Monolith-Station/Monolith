@@ -42,8 +42,12 @@
   - WeaponRifleGestio
   - WeaponSubMachineGunKnallstock # Mono
   - WeaponPistolPollock
+  - WeaponRifleSVSUSSP #Mono
+  - WeaponSniperMosinUSSP #Mono
+  - WeaponSubMachineGunAK220USSP #Mono
   ## Cyborg Modules
   - BorgModuleMercenary # mono
+
 
 - type: latheRecipePack
   id: NFMercenaryTechfabDeprecated
@@ -152,6 +156,8 @@
   - UllmanWeaponPulseRifle
   - UllmanWeaponPulseSniper
   - UllmanMeleePlasmaBlade
+  ## LPC
+  - BalorDroneVoucherMerc
 #Mono end
 
 - type: latheRecipePack

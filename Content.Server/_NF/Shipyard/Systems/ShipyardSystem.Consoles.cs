@@ -183,6 +183,22 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         bool voucherUsed = false;
         if (voucher is not null)
         {
+			// Mono: Check if voucher has a purchase cooldown, and if it is still in cooldown cancel purchase
+			var remainingTime = voucher.NextBuyAt - _timing.CurTime; // Mono
+
+			if (_timing.CurTime >= voucher.NextBuyAt)
+			{
+				voucher.NextBuyAt = _timing.CurTime + voucher.Cooldown;
+			}
+			else
+			{
+				ConsolePopup(player, Loc.GetString("ship-voucher-cooldown-active", ("remainingTime", Math.Round(remainingTime.TotalMinutes))));
+            	PlayDenySound(player, shipyardConsoleUid, component);
+                Del(shuttleUid);
+				return;
+			}
+			// End mono
+
             if (voucher!.RedemptionsLeft <= 0)
             {
                 Del(shuttleUid);
@@ -369,7 +385,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
                 sellValue = (int)_pricing.AppraiseGrid((EntityUid)(deed?.ShuttleUid!), LacksPreserveOnSaleComp);
 
             // Adjust for taxes
-            sellValue = CalculateShipResaleValue((shipyardConsoleUid, component), sellValue);
+            sellValue = CalculateShipResaleValue((shipyardConsoleUid, component), sellValue, bank.Balance); // Mono - bank.Balance added
         }
 
         SendPurchaseMessage(shipyardConsoleUid, player, name, component.ShipyardChannel, secret: false);
@@ -498,7 +514,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             return;
         }
 
-        var saleResult = TrySellShuttle(stationUid, shuttleUid, uid, out var bill);
+        var saleResult = TrySellShuttle(stationUid, shuttleUid, uid, bank.Balance, out var bill);
         if (saleResult.Error != ShipyardSaleError.Success)
         {
             switch (saleResult.Error)
@@ -614,7 +630,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         if (deed?.ShuttleUid != null)
         {
             sellValue = (int)_pricing.AppraiseGrid((EntityUid)(deed?.ShuttleUid!), LacksPreserveOnSaleComp);
-            sellValue = CalculateShipResaleValue((uid, component), sellValue);
+            sellValue = CalculateShipResaleValue((uid, component), sellValue, bank.Balance); // Mono - bank.Balance added
         }
 
         var fullName = deed != null ? GetFullName(deed) : null;
@@ -714,7 +730,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             if (deed?.ShuttleUid != null)
             {
                 sellValue = (int)_pricing.AppraiseGrid(deed.ShuttleUid.Value, LacksPreserveOnSaleComp);
-                sellValue = CalculateShipResaleValue((uid, component), sellValue);
+                sellValue = CalculateShipResaleValue((uid, component), sellValue, bank.Balance); // Mono - bank.Balance added
             }
 
             var fullName = deed != null ? GetFullName(deed) : null;
@@ -966,7 +982,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             return _baseSaleRate * taxRate;
     }
 
-    private int CalculateShipResaleValue(Entity<ShipyardConsoleComponent?> console, int baseAppraisal)
+    private int CalculateShipResaleValue(Entity<ShipyardConsoleComponent?> console, int baseAppraisal, int playerBalance) // Mono - playerBalance int
     {
         if (!Resolve(console, ref console.Comp))
             return 0;
@@ -974,9 +990,9 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         int resaleValue = baseAppraisal;
         if (!console.Comp.IgnoreBaseSaleRate)
             resaleValue = (int)(_baseSaleRate * resaleValue);
-
-        resaleValue -= CalculateTotalSalesTax(console.Comp, resaleValue);
-        return resaleValue;
+        var unBalanceTaxedResaleValue = resaleValue - CalculateTotalSalesTax(console.Comp, resaleValue);
+        _bank.GetTaxedDepositAmount(unBalanceTaxedResaleValue, playerBalance, out var taxedOutput);
+        return taxedOutput;
     }
 
     // Calculates total sales tax over all accounts.
@@ -1085,6 +1101,13 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             PlayDenySound(player, uid, component);
             return;
         }
+
+        if (TryComp<ShipyardVoucherComponent>(targetId, out var voucher) && voucher.CanBeUnassigned != true) // Mono: If voucher is not allowed to unassign deeds, fail.
+        {
+            ConsolePopup(player, Loc.GetString("shipyard-console-no-unassign"));
+            PlayDenySound(player, uid, component);
+            return;
+        } // end mono
 
         // Check if the player is on cooldown
         var cooldown = EnsureComp<ShipyardUnassignCooldownComponent>(player);

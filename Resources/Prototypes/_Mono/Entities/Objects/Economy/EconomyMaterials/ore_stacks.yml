@@ -1,0 +1,41 @@
+- type: stack
+  id: CopperOre
+  name: copper ore
+  icon: { sprite: /Textures/_Mono/Objects/Materials/ore.rsi, state: malachite }
+  spawn: CopperOre1
+  maxCount: 100
+
+- type: material
+  id: CopperOre
+  stackEntity: CopperOre1
+  name: materials-raw-copper
+  unit: materials-unit-chunk
+  icon: { sprite: _Mono/Objects/Materials/ore.rsi, state: malachite }
+  price: 0.05
+
+- type: stack
+  id: LithiumOre
+  name: lithium ore
+  icon: { sprite: /Textures/_Mono/Objects/Materials/ore.rsi, state: lithium }
+  spawn: LithiumOre1
+  maxCount: 100
+
+- type: material
+  id: LithiumOre
+  stackEntity: LithiumOre1
+  name: materials-raw-lithium
+  unit: materials-unit-chunk
+  icon: { sprite: _Mono/Objects/Materials/ore.rsi, state: lithium }
+  price: 0.05
+
+- type: ore
+  id: LithiumOre
+  oreEntity: LithiumOre1
+  minOreYield: 1
+  maxOreYield: 3
+
+- type: ore
+  id: CopperOre
+  oreEntity: CopperOre1
+  minOreYield: 1
+  maxOreYield: 5

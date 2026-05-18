@@ -80,7 +80,7 @@
     range: 7
   - type: SoundOnTrigger
     sound:
-      path: "/Audio/Effects/flash_bang.ogg"
+      path: "/Audio/_Mono/Weapons/Grenades/flashbang_explode_1.ogg" # Mono
   - type: DeleteOnTrigger
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
@@ -416,7 +416,7 @@
     duration: 30
     spreadAmount: 50
   - type: SoundOnTrigger
-    sound: /Audio/Items/smoke_grenade_smoke.ogg
+    sound: /Audio/_Mono/Weapons/Grenades/smoke_bomb.ogg # Mono
   - type: DeleteOnTrigger
   - type: TimerTriggerVisuals
     primingSound:

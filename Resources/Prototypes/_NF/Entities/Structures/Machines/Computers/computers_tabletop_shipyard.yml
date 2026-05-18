@@ -73,10 +73,10 @@
       state: generic_keyboard_tabletop
     - map: ["computerLayerScreen"]
       sprite: _NF/Structures/Machines/computers.rsi
-      state: shipyard_blackmarket
+      state: shipyard_pdv # Mono
     - map: ["computerLayerKeys"]
       sprite: _NF/Structures/Machines/computers.rsi
-      state: blackmarket_key
+      state: telesci_key # Mono
 
 - type: entity
   parent: [BaseStructureIndestructible, BaseStructureComputerTabletop, ComputerShipyardExpedition]
@@ -93,10 +93,10 @@
       state: generic_keyboard_tabletop
     - map: ["computerLayerScreen"]
       sprite: _NF/Structures/Machines/computers.rsi
-      state: shipyard_blackmarket
+      state: shipyard_expedition # Mono
     - map: ["computerLayerKeys"]
       sprite: _NF/Structures/Machines/computers.rsi
-      state: blackmarket_key
+      state: telesci_key # Mono
 
 - type: entity
   parent: [BaseStructureIndestructible, BaseStructureComputerTabletop, ComputerShipyardScrap]
@@ -113,7 +113,7 @@
       state: generic_keyboard_tabletop
     - map: ["computerLayerScreen"]
       sprite: _NF/Structures/Machines/computers.rsi
-      state: shipyard_blackmarket
+      state: shipyard_scrapyard # Mono
     - map: ["computerLayerKeys"]
       sprite: _NF/Structures/Machines/computers.rsi
-      state: blackmarket_key
+      state: telesci_key # Mono
