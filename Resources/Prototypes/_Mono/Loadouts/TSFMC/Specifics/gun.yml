@@ -37,18 +37,6 @@
   - SecurityGuardMk58Loadout
 
 - type: loadoutGroup
-  id: TsfmcCommandSidearm
-  name: loadout-group-pistol
-  minLimit: 1
-  loadouts:
-  - SecurityGuardMk58Loadout
-  - FactionMatebaLoadout
-  - FactionEnergyRevolverLoadout
-  - FactionPulsePistol
-  fallbacks:
-  - SecurityGuardMk58Loadout
-
-- type: loadoutGroup
   id: TsfmcMag
   name: loadout-group-magazine
   minLimit: 1

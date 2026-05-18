@@ -35,17 +35,6 @@
   - FactionViperLoadout
 
 - type: loadoutGroup
-  id: RogueCommandSidearm
-  name: loadout-group-pistol
-  minLimit: 1
-  loadouts:
-  - FactionHawk4Pistol
-  - FactionMatebaLoadout
-  - FactionEnergySword
-  fallbacks:
-  - FactionHawk4Pistol
-
-- type: loadoutGroup
   id: RogueMag
   name: loadout-group-magazine
   minLimit: 1

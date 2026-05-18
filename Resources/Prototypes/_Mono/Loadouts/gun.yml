@@ -750,13 +750,6 @@
     back:
     - WeaponPistolHawk4
 
-- type: loadout #Mateba
-  id: FactionMatebaLoadout
-  price: 0
-  storage:
-    back:
-    - WeaponRevolverMateba
-
 - type: loadout #Python
   id: FactionPythonLoadout
   price: 0
@@ -785,30 +778,9 @@
     back:
     - WeaponLaserPistolNF
 
-- type: loadout # Energy Revolver EG-4
-  id: FactionEnergyRevolverLoadout
-  price: 0
-  storage:
-    back:
-    - WeaponEnergyRevolver
-
-- type: loadout # Pulse Pistol
-  id: FactionPulsePistol
-  price: 0
-  storage:
-    back:
-    - WeaponPulsePistol
-
 - type: loadout #Viper
   id: FactionViperLoadout
   price: 0
   storage:
     back:
     - WeaponPistolViper
-
-- type: loadout # Energy Sword
-  id: FactionEnergySword
-  price: 0
-  storage:
-    back:
-    - EnergySword
