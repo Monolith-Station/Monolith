@@ -50,7 +50,7 @@
     rootTask:
       task: RammerShuttleCompound
   - type: StaticPrice
-    price: 20000
+    price: 40000 # Mono buff, sells for 50k at depots, buffed due to removal of blackbox money
   - type: ApcPowerReceiver
     powerLoad: 1000 # suspiciously low power-using AI
   - type: ExtensionCableReceiver
