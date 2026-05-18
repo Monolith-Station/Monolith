@@ -55,6 +55,9 @@
     powerLoad: 1000 # suspiciously low power-using AI
   - type: ExtensionCableReceiver
   - type: TargetSeekingTarget
+  - type: PassiveThermalSignature
+    signature: 2000000 # ~2km uh maybe? i like, uh, i think
+  - type: ThermalSignature
 
 - type: entity
   id: NpcStationAiApproacher
