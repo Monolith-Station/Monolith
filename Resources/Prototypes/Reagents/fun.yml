@@ -45,7 +45,7 @@
         conditions:
         - !type:OrganType
           type: Vox
-          factor: 0.10 
+        factor: 0.10 
 
 - type: reagent
   id: BuzzochloricBees

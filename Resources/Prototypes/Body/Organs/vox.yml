@@ -29,7 +29,6 @@
       tags:
       - Trash
       - ClothMade # terrible efficiency from cloth eating
-    isSpecialDigestibleExclusive: false
   - type: Sprite
     sprite: Mobs/Species/Vox/organs.rsi
 
@@ -44,8 +43,8 @@
     state: brain
   - type: Organ
   - type: Food
-    destroyOnEmpty: false
   - type: SolutionContainerManager
+    destroyOnEmpty: false
     solutions:
       organ:
         reagents:
@@ -57,8 +56,6 @@
         - ReagentId: GreyMatter
           Quantity: 5
   - type: BorgBrain
-    specialExtraDiet: true
-    isSpecialDigestiableExclusive: false
 
 - type: entity
   parent: OrganHumanLiver
