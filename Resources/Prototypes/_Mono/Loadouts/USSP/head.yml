@@ -1,12 +1,17 @@
 - type: loadout
   id: USSPHelmet
   equipment:
-    head: ClothingHeadHelmetMercenaryBlack
+    head: ClothingHeadHelmetCombatUSSP
+
+- type: loadout
+  id: USSPHeavyHelmet
+  equipment:
+    head: ClothingHeadHelmetHeavyUSSP
 
 - type: loadout
   id: USSPBeret
   equipment:
-    head: ClothingHeadHatBeretSecurity
+    head: ClothingHeadHatBeret
 
 - type: loadout
   id: USSPOfficerCap

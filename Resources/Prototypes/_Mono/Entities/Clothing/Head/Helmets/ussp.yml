@@ -26,3 +26,16 @@
   - type: StaticPrice
     price: 500
     vendPrice: 2500
+
+- type: entity
+  parent: ClothingHeadHelmetBase
+  id: ClothingHeadHelmetCombatUSSP
+  name: USSP combat helmet
+  description: A mass produced helmet used all accross the Armed Forces of the USSP.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Helmets/merc_helmet.rsi
+    color: "#6f7755"
+  - type: Clothing
+    sprite: Clothing/Head/Helmets/merc_helmet.rsi
+    color: "#6f7755"

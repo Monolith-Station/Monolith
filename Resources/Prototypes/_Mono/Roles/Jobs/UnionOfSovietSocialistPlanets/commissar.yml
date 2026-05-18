@@ -10,9 +10,9 @@
   - !type:RoleTimeRequirement
     role: JobUSSPSergeant
     time: 10800 # 3 hrs
-  - !type:RoleTimeRequirement
-    role: JobUSSPMedic
-    time: 10800 # 3 hrs
+  # - !type:RoleTimeRequirement
+  #   role: JobUSSPMedic
+  #   time: 10800 # 3 hrs
   - !type:OverallPlaytimeRequirement
     time: 144000 # 40 hrs
   startingGear: USSPCommissarGear
@@ -20,6 +20,7 @@
   hideConsoleVisibility: true
   icon: "JobIconHeadOfSecurity" # TODO - new USSP icons
   supervisors: job-supervisors-ussp-highcomm
+  assignedCompany: USSP
   canBeAntag: false
   weight: 40
   displayWeight: 40

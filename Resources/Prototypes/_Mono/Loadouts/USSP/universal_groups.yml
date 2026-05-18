@@ -28,20 +28,24 @@
   loadouts:
   - USSPCombatWebbing
   - USSPCombatWebbingLarge
+  - MercenaryClothingBeltWebbingsNormalBlack
+  - MercenaryClothingBeltWebbingsBigBlack
+  - MercenaryClothingBeltWebbingsNormalRangerGreen
+  - MercenaryClothingBeltWebbingsBigRangerGreen
   fallbacks:
   - USSPCombatWebbing
 
-- type: loadoutGroup
-  id: USSPBeltMedic
-  name: loadout-group-contractor-belt
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - USSPCombatWebbing
-  - USSPCombatWebbingLarge
-  - USSPCombatWebbingMedical
-  fallbacks:
-  - USSPCombatWebbingMedical
+# - type: loadoutGroup
+#   id: USSPBeltMedic
+#   name: loadout-group-contractor-belt
+#   minLimit: 1
+#   maxLimit: 1
+#   loadouts:
+#   - USSPCombatWebbing
+#   - USSPCombatWebbingLarge
+#   - USSPCombatWebbingMedical
+#   fallbacks:
+#   - USSPCombatWebbingMedical
 
 #- type: loadoutGroup
 #  id: USSPBackpackCorporal
@@ -62,6 +66,7 @@
   - USSPClothingL10A
   subgroups:
   - TsfmcOuterClothing
+  - USSPOuterClothing
 
 - type: loadoutGroup
   id: USSPOuterClothing
@@ -82,13 +87,12 @@
   - USSPClothingJumpsuit
 
 - type: loadoutGroup
-  id: USSPMedhud
+  id: USSPGlasses
   name: loadout-group-contractor-glasses
-  hidden: true # No point in showing this, it gets auto-selected.
   minLimit: 1
   loadouts:
-  - USSPMedHud
-  fallbacks:
+  - MercenaryClothingEyesBallisticGogglesGreen
+  - MercenaryClothingEyesGlassesSunglasses
   - USSPMedHud
 
 - type: loadoutGroup
@@ -96,6 +100,7 @@
   name: loadout-group-contractor-head
   loadouts:
   - USSPHelmet
+  - USSPHeavyHelmet
   - USSPBeret
   - ContractorClothingHeadHatUshanka
 
@@ -132,3 +137,17 @@
   loadouts:
   - USSPOfficerCap
   - ContractorClothingHeadHatUshanka
+
+- type: loadoutGroup
+  id: USSPGloves
+  name: loadout-group-contractor-gloves
+  loadouts:
+  - MercenaryClothingHandsGlovesTacticalCombatBlack
+  - MercenaryClothingHandsGlovesTacticalCombatRangerGreen
+
+- type: loadoutGroup
+  id: USSPBalaclava
+  name: loadout-group-contractor-balaclava
+  loadouts:
+  - MercenaryClothingBalaclavaSkiMaskBlack
+  - MercenaryClothingBalaclavaSkiMaskRangerGreen

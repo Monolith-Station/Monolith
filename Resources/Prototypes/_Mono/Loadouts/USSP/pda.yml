@@ -16,35 +16,35 @@
 
 # corporal
 
-- type: loadout
-  id: USSPCorporalPDA
-  equipment:
-    id: USSPCorporalPDA
+# - type: loadout
+#   id: USSPCorporalPDA
+#   equipment:
+#     id: USSPCorporalPDA
 
-- type: loadoutGroup
-  id: USSPCorporalPDA
-  name: loadout-group-contractor-id
-  hidden: true # No point in showing this, it gets auto-selected.
-  loadouts:
-  - USSPCorporalPDA
-  fallbacks:
-  - USSPCorporalPDA
+# - type: loadoutGroup
+#   id: USSPCorporalPDA
+#   name: loadout-group-contractor-id
+#   hidden: true # No point in showing this, it gets auto-selected.
+#   loadouts:
+#   - USSPCorporalPDA
+#   fallbacks:
+#   - USSPCorporalPDA
 
-# combat medic
+# # combat medic
 
-- type: loadout
-  id: USSPMedicPDA
-  equipment:
-    id: USSPMedicPDA
+# - type: loadout
+#   id: USSPMedicPDA
+#   equipment:
+#     id: USSPMedicPDA
 
-- type: loadoutGroup
-  id: USSPMedicPDA
-  name: loadout-group-contractor-id
-  hidden: true # No point in showing this, it gets auto-selected.
-  loadouts:
-  - USSPMedicPDA
-  fallbacks:
-  - USSPMedicPDA
+# - type: loadoutGroup
+#   id: USSPMedicPDA
+#   name: loadout-group-contractor-id
+#   hidden: true # No point in showing this, it gets auto-selected.
+#   loadouts:
+#   - USSPMedicPDA
+#   fallbacks:
+#   - USSPMedicPDA
 
 # sergeant
 

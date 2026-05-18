@@ -80,9 +80,9 @@ public sealed partial class IdCardConsoleComponent : Component
         "Sergeant", // Frontier
         "Service",
         "StationTrafficController", // Frontier
-        //"USSP", // Mono
-        //"USSPHigh", // Mono
-        //"USSPCommand", // Mono
+        "USSP", // Mono
+        "USSPHigh", // Mono
+        "USSPCommand", // Mono
         //"Theatre",
     };
 

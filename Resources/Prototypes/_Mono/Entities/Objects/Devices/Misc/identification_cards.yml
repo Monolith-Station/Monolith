@@ -16,31 +16,31 @@
   - type: Item
     heldPrefix: default
 
-- type: entity
-  parent: CadetIDCard
-  id: USSPCorporalIDCard
-  name: USSP efreitor ID card
-  components:
-  - type: PresetIdCard
-    job: USSPCorporal
-  - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
-    layers:
-    - state: default
-    - state: idsecurityofficer
+# - type: entity
+#   parent: CadetIDCard
+#   id: USSPCorporalIDCard
+#   name: USSP efreitor ID card
+#   components:
+#   - type: PresetIdCard
+#     job: USSPCorporal
+#   - type: Sprite
+#     sprite: Objects/Misc/id_cards.rsi
+#     layers:
+#     - state: default
+#     - state: idsecurityofficer
 
-- type: entity
-  parent: IDCardStandard
-  id: USSPMedicIDCard
-  name: USSP combat medic ID card
-  components:
-  - type: PresetIdCard
-    job: USSPMedic
-  - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
-    layers:
-    - state: default
-    - state: idbrigmedic
+# - type: entity
+#   parent: IDCardStandard
+#   id: USSPMedicIDCard
+#   name: USSP combat medic ID card
+#   components:
+#   - type: PresetIdCard
+#     job: USSPMedic
+#   - type: Sprite
+#     sprite: Objects/Misc/id_cards.rsi
+#     layers:
+#     - state: default
+#     - state: idbrigmedic
 
 - type: entity
   parent: IDCardStandard

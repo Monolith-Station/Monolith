@@ -3,11 +3,13 @@
   groups:
   - USSPHead
   - USSPJumpsuit
-  - TsfmcGloves
+  - USSPGloves
   - USSPBackpack
-  - TsfmcOuterClothing
+  - USSPOuterClothing
   - TsfmcShoes
   - TsfmcFace
+  - USSPBalaclava
+  - USSPGlasses
   - USSPBelt
   - USSPEars
   - NfsdBoxSurvival
@@ -18,56 +20,58 @@
   - UsspFirearm
   - UsspMag
 
-- type: roleLoadout
-  id: JobUSSPCorporal
-  groups:
-  - USSPHead
-  - USSPJumpsuit
-  - TsfmcGloves
-  - USSPBackpack
-  - USSPOuterClothing
-  - TsfmcShoes
-  - TsfmcFace
-  - USSPBelt
-  - USSPEars
-  - NfsdBoxSurvival
-  - USSPCorporalPDA
-  - ContractorWallet
-  - ContractorEncryptionKey
-  - NfsdSpeciesSpecific
-  - UsspFirearm
-  - UsspMag
+# - type: roleLoadout
+#   id: JobUSSPCorporal
+#   groups:
+#   - USSPHead
+#   - USSPJumpsuit
+#   - TsfmcGloves
+#   - USSPBackpack
+#   - USSPOuterClothing
+#   - TsfmcShoes
+#   - TsfmcFace
+#   - USSPBelt
+#   - USSPEars
+#   - NfsdBoxSurvival
+#   - USSPCorporalPDA
+#   - ContractorWallet
+#   - ContractorEncryptionKey
+#   - NfsdSpeciesSpecific
+#   - UsspFirearm
+#   - UsspMag
 
 
-- type: roleLoadout
-  id: JobUSSPMedic
-  groups:
-  - USSPHead
-  - USSPJumpsuit
-  - TsfmcBrigmedicGloves
-  - USSPBackpack
-  - USSPOuterClothing
-  - TsfmcShoes
-  - TsfmcFace
-  - USSPEars
-  - NfsdBoxSurvival
-  - USSPMedicPDA
-  - ContractorWallet
-  - ContractorEncryptionKey
-  - NfsdSpeciesSpecific
-  - USSPMedhud
-  - USSPBeltMedic
-  - UsspFirearm
-  - UsspMag
+# - type: roleLoadout
+#   id: JobUSSPMedic
+#   groups:
+#   - USSPHead
+#   - USSPJumpsuit
+#   - TsfmcBrigmedicGloves
+#   - USSPBackpack
+#   - USSPOuterClothing
+#   - TsfmcShoes
+#   - TsfmcFace
+#   - USSPEars
+#   - NfsdBoxSurvival
+#   - USSPMedicPDA
+#   - ContractorWallet
+#   - ContractorEncryptionKey
+#   - NfsdSpeciesSpecific
+#   - USSPMedhud
+#   - USSPBeltMedic
+#   - UsspFirearm
+#   - UsspMag
 
 - type: roleLoadout
   id: JobUSSPSergeant
   groups:
   - USSPJumpsuit
-  - TsfmcGloves
+  - USSPGloves
   - USSPBackpackSergeant
   - TsfmcShoes
   - TsfmcFace
+  - USSPBalaclava
+  - USSPGlasses
   - USSPBelt
   - USSPEarsCommand
   - NfsdBoxSurvival
@@ -84,7 +88,7 @@
   id: JobUSSPCommissar
   groups:
   - USSPJumpsuit
-  - TsfmcGloves
+  - MonoMercenaryGloves
   - USSPBackpackSergeant
   - USSPOuterClothingOfficer
   - TsfmcShoes
