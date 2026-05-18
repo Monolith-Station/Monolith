@@ -96,8 +96,6 @@
   - type: ItemTax # Mono
     taxAccounts:
       Frontier: 0.3
-  - type: PassiveThermalSignature # Mono
-    signature: 225 # if nothing else is generating heat, 30m radius, 60m with 4 mobs, 120 with 16
 
 - type: entity
   parent:
