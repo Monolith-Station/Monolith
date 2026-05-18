@@ -48,31 +48,16 @@ namespace Content.Server.Body.Components
         public EntityWhitelist? SpecialDigestible = null;
 
         /// <summary>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c854413368 (Update Content.Server/Body/Components/StomachComponent.cs)
         /// Controls whitelist behavior. If true, this stomach can digest <i>only</i> food that passes the whitelist. If false, it can digest normal food <i>and</i> any food that passes the whitelist.
         /// </summary>
         [DataField]
         public bool IsSpecialDigestibleExclusive = true;
-=======
-        ///     A bool for if the diet is exclusive to a whitelist. If they have additional foods they can eat on top of the human diet, that would be true. Else, it is false.
-        /// </summary>
         [DataField]
+
+        /// <summary>
         public bool SpecialExtraDiet = false;
->>>>>>> fd77fcd8a2 (Whitelist no longer, now the diet exclusion var is a bool.)
-=======
         ///     A bool for if the diet is exclusive to a whitelist. If they have additional foods they can eat on top of the human diet, that would be false. Else, it is true.
         /// </summary>
-        [DataField]
-<<<<<<< HEAD
-        public bool IsSpecialDigestiableExclusive = true;
->>>>>>> 66b895999b (Clean-up)
-=======
-        public bool IsSpecialDigestibleExclusive = true;
->>>>>>> c6ab8505d9 (Update Content.Server/Body/Components/StomachComponent.cs)
 
         /// <summary>
         ///     Used to track how long each reagent has been in the stomach
