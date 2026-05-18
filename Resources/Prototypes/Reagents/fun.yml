@@ -45,7 +45,7 @@
         conditions:
         - !type:OrganType
           type: Vox
-        factor: 0.10 #Vox will get 0.10 hunger per unit of Fiber, moths appear to get 3.00 per unit.
+          factor: 0.10 
 
 - type: reagent
   id: BuzzochloricBees
