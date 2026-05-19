@@ -15,7 +15,7 @@ namespace Content.Server._Mono.MonoCoins;
 public sealed class CurrencyBalanceCommand : LocalizedCommands
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly MonoCoinsManager _coins = default!;
 
     public override string Command => "currency:balance";
 
@@ -50,8 +50,8 @@ public sealed class CurrencyBalanceCommand : LocalizedCommands
 
         try
         {
-            var balance = await _db.GetMonoCoinsAsync(userId);
-            shell.WriteLine($"{playerName} has {balance} MonoCoins");
+            var balance = await _coins.GetMonoCoinsBalanceAsync(userId);
+            shell.WriteLine($"{playerName} has ${balance}");
         }
         catch (Exception ex)
         {

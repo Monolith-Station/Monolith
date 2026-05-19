@@ -16,7 +16,7 @@ namespace Content.Server._Mono.MonoCoins;
 public sealed class CurrencyTransferCommand : LocalizedCommands
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly MonoCoinsManager _coins = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
 
     public override string Command => "currency:transfer";
@@ -31,7 +31,7 @@ public sealed class CurrencyTransferCommand : LocalizedCommands
 
         var targetPlayerName = args[0];
 
-        if (!int.TryParse(args[1], out var amount))
+        if (!long.TryParse(args[1], out var amount))
         {
             shell.WriteError("Amount must be a valid integer.");
             return;
@@ -71,7 +71,7 @@ public sealed class CurrencyTransferCommand : LocalizedCommands
         // Prevent self-transfer
         if (senderSession.UserId == targetSession.UserId)
         {
-            shell.WriteError("You cannot transfer MonoCoins to yourself.");
+            shell.WriteError("You cannot transfer currency to yourself.");
             return;
         }
 
@@ -81,29 +81,22 @@ public sealed class CurrencyTransferCommand : LocalizedCommands
         try
         {
             // Check if sender has enough MonoCoins
-            var senderBalance = await _db.GetMonoCoinsAsync(senderUserId);
+            var senderBalance = await _coins.GetMonoCoinsBalanceAsync(senderUserId);
             if (senderBalance < amount)
             {
-                shell.WriteError($"Insufficient MonoCoins. You have {senderBalance} MonoCoins, cannot transfer {amount}.");
+                shell.WriteError($"Insufficient currency. You have ${senderBalance}, cannot transfer ${amount}.");
                 return;
             }
 
             // Perform the transfer (subtract from sender, add to target)
-            var success = await _db.TrySubtractMonoCoinsAsync(senderUserId, amount);
-            if (!success)
-            {
-                shell.WriteError("Transfer failed. Please try again.");
-                return;
-            }
-
-            var newTargetBalance = await _db.AddMonoCoinsAsync(targetUserId, amount);
-            var newSenderBalance = await _db.GetMonoCoinsAsync(senderUserId);
+            var newSenderBalance = await _coins.AddMonoCoinsAsync(senderUserId, -amount);
+            var newTargetBalance = await _coins.AddMonoCoinsAsync(targetUserId, amount);
 
             // Notify both players
-            shell.WriteLine($"Successfully transferred {amount} MonoCoins to {targetPlayerName}. New balance: {newSenderBalance}");
+            shell.WriteLine($"Successfully transferred ${amount} to {targetPlayerName}. New balance: ${newSenderBalance}");
 
             // Notify the target player via chat
-            var notificationMessage = $"Received {amount} MonoCoins from {senderSession.Name}. New balance: {newTargetBalance}";
+            var notificationMessage = $"Received ${amount} from {senderSession.Name}. New balance: ${newTargetBalance}";
             _chatManager.ChatMessageToOne(
                 ChatChannel.Notifications,
                 notificationMessage,
