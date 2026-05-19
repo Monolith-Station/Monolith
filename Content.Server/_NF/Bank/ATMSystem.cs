@@ -76,6 +76,8 @@ public sealed partial class BankSystem
             return;
         }
 
+        state.Enabled = true;
+
         // try to actually withdraw from the bank. Validation happens on the banking system but we still indicate error.
         if (!TryBankWithdraw(player, args.Amount))
         {
@@ -94,8 +96,6 @@ public sealed partial class BankSystem
         //spawn the cash stack of whatever cash type the ATM is configured to.
         var stackPrototype = _prototypeManager.Index<StackPrototype>(component.CashType);
         _stackSystem.Spawn(args.Amount, stackPrototype, uid.ToCoordinates());
-
-        state.Enabled = true;
 
         _uiSystem.SetUiState(uid, args.UiKey, state);
     }
