@@ -27,7 +27,7 @@
   - ClothingHandsGlovesMoppTsf
   technologyPrerequisites:
   - TsfmcAdvancedEquipment
-  position: 13, 6
+  position: 13, 7
 
 - type: technology
   id: TsfEshield
@@ -40,7 +40,7 @@
   - EnergyShieldTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 13, 7
+  position: 12, 9
 
 - type: technology
   id: TsfTierOneVouchers
@@ -68,7 +68,7 @@
   technologyPrerequisites:
   - TsfTierOneVouchers
   - UniversalMaterialResearchT2
-  position: 11, 6
+  position: 11, 7
 
 - type: technology
   id: TsfTierThreeVouchers
@@ -83,7 +83,7 @@
   technologyPrerequisites:
   - TsfTierTwoVouchers
   - UniversalMaterialResearchT3
-  position: 11, 9
+  position: 11, 12
 
 - type: technology
   id: TsfMeds
@@ -110,7 +110,7 @@
   - NanolaminateFoamGrenadeTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 12, 4
+  position: 12, 10
 
 - type: technology
   id: TsfPortableRecharger
@@ -150,4 +150,4 @@
   technologyPrerequisites:
   - UniversalMaterialResearchT3
   - TSFBasicBorgModule
-  position: 14, 11
+  position: 12, 14
