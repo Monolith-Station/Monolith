@@ -99,3 +99,44 @@
     - Snout
     - HeadTop
     - HeadSide
+
+- type: entity
+  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons]
+  id: ClothingHeadHelmetHardsuitViperGroupInitiate
+  name: BROOD mk.I viper hardsuit helmet
+  description: A hardsuit helmet with signature markings of the Viper Group. Has a built-in navigation system complemented by flash resistant viewports.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/viper_group_initiate.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/viper_group_initiate.rsi
+  - type: PointLight
+    color: "#eb772a"
+  - type: RadarConsole
+    followEntity: true
+    noRotate: true
+  - type: ActivatableUI
+    key: enum.RadarConsoleUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: FlashImmunity
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
