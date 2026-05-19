@@ -3,6 +3,7 @@
  * Copyright (c) 2024 New Frontiers Contributors
  * See AGPLv3.txt for details.
  */
+using Content.Server._Mono.MonoCoins;
 using Content.Server.Popups;
 using Content.Server.Stack;
 using Content.Shared._NF.Bank.BUI;
@@ -45,12 +46,13 @@ public sealed partial class BankSystem
 
     private void OnWithdraw(EntityUid uid, BankATMComponent component, BankWithdrawMessage args)
     {
-
         if (args.Actor is not { Valid : true } player)
             return;
 
         // to keep the window stateful
         GetInsertedCashAmount(component, out var deposit);
+
+        var state = new BankATMMenuInterfaceState(0, 0, false, deposit);
 
         // check for a bank account
         if (!TryComp<BankAccountComponent>(player, out var bank))
@@ -58,31 +60,34 @@ public sealed partial class BankSystem
             _log.Info($"{player} has no bank account");
             ConsolePopup(player, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
-            _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit, deposit)); // Mono
+            _uiSystem.SetUiState(uid, args.UiKey, state);
             return;
         }
-        GetTaxedDepositAmount(deposit, bank.Balance, out var taxedDeposit); // Mono
+
+        state.Balance = bank.Balance;
+        state.Savings = GetEntSavings(player);
 
         // check for sufficient funds
         if (bank.Balance < args.Amount)
         {
             ConsolePopup(args.Actor, Loc.GetString("bank-insufficient-funds"));
             PlayDenySound(uid, component);
-            _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(bank.Balance, true, taxedDeposit, deposit)); // Mono
+            _uiSystem.SetUiState(uid, args.UiKey, state);
             return;
         }
+
+        state.Enabled = true;
 
         // try to actually withdraw from the bank. Validation happens on the banking system but we still indicate error.
         if (!TryBankWithdraw(player, args.Amount))
         {
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-transaction-denied"));
             PlayDenySound(uid, component);
-            _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(bank.Balance, true, taxedDeposit, deposit)); // Mono
+            _uiSystem.SetUiState(uid, args.UiKey, state);
             return;
         }
+
+        state.Balance = bank.Balance;
 
         ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-withdraw-successful"));
         PlayConfirmSound(uid, component);
@@ -92,8 +97,7 @@ public sealed partial class BankSystem
         var stackPrototype = _prototypeManager.Index<StackPrototype>(component.CashType);
         _stackSystem.Spawn(args.Amount, stackPrototype, uid.ToCoordinates());
 
-        _uiSystem.SetUiState(uid, args.UiKey,
-            new BankATMMenuInterfaceState(bank.Balance, true, taxedDeposit, deposit)); // Mono
+        _uiSystem.SetUiState(uid, args.UiKey, state);
     }
 
     private void OnDeposit(EntityUid uid, BankATMComponent component, BankDepositMessage args)
@@ -105,17 +109,21 @@ public sealed partial class BankSystem
         // Dynamically knows what kind of cash to look for according to BankATMComponent
         GetInsertedCashAmount(component, out var deposit);
 
+        var state = new BankATMMenuInterfaceState(0, 0, false, deposit);
+
         // make sure the user actually has a bank
         if (!TryComp<BankAccountComponent>(player, out var bank))
         {
             _log.Info($"{player} has no bank account");
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
-            _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit, deposit)); // Mono
+            _uiSystem.SetUiState(uid, args.UiKey, state);
             return;
         }
-        GetTaxedDepositAmount(deposit, bank.Balance, out var taxedDeposit); // Mono
+
+        state.Balance = bank.Balance;
+        if (_playerManager.TryGetSessionByEntity(player, out var session))
+            state.Savings = _coins.GetMonoCoinsBalance(session.UserId) ?? 0;
 
         // validating the cash slot was setup correctly in the yaml
         if (component.CashSlot.ContainerSlot is not BaseContainer cashSlot)
@@ -123,8 +131,7 @@ public sealed partial class BankSystem
             _log.Info($"ATM has no cash slot");
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
-            _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, taxedDeposit, deposit)); // Mono
+            _uiSystem.SetUiState(uid, args.UiKey, state);
             return;
         }
 
@@ -135,8 +142,7 @@ public sealed partial class BankSystem
             _log.Info($"ATM cash slot contains bad stack prototype");
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-wrong-cash"));
             PlayDenySound(uid, component);
-            _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, taxedDeposit, deposit)); // Mono
+            _uiSystem.SetUiState(uid, args.UiKey, state);
             return;
         }
 
@@ -146,8 +152,7 @@ public sealed partial class BankSystem
             _log.Info($"{stackComponent.StackTypeId} is not {component.CashType}");
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-wrong-cash"));
             PlayDenySound(uid, component);
-            _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, taxedDeposit, deposit)); // Mono
+            _uiSystem.SetUiState(uid, args.UiKey, state);
             return;
         }
 
@@ -161,13 +166,14 @@ public sealed partial class BankSystem
             deposit -= tax; // Charge the user whether or not the deposit went through.
         }
 
+        state.Enabled = true;
+
         // try to deposit the inserted cash into a player's bank acount. Validation happens on the banking system but we still indicate error.
-        if (!TryBankDeposit(player, taxedDeposit))
+        if (!TryBankDeposit(player, deposit))
         {
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-transaction-denied"));
             PlayDenySound(uid, component);
-            _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(bank.Balance, true, taxedDeposit, deposit)); // Mono
+            _uiSystem.SetUiState(uid, args.UiKey, state);
             return;
         }
 
@@ -175,10 +181,14 @@ public sealed partial class BankSystem
         PlayConfirmSound(uid, component);
         _adminLogger.Add(LogType.ATMUsage, LogImpact.Low, $"{ToPrettyString(player):actor} deposited {deposit} into {ToPrettyString(component.Owner)}");
 
+        state.Deposit = 0;
+        state.Balance = bank.Balance;
+        if (session != null)
+            state.Savings = _coins.GetMonoCoinsBalance(session.UserId) ?? 0;
+
         // yeet and delete the stack in the cash slot after success
         _containerSystem.CleanContainer(cashSlot);
-        _uiSystem.SetUiState(uid, args.UiKey,
-            new BankATMMenuInterfaceState(bank.Balance, true, 0, 0)); // Mono
+        _uiSystem.SetUiState(uid, args.UiKey, state);
         return;
     }
 
@@ -197,15 +207,16 @@ public sealed partial class BankSystem
 
             if (!TryComp<BankAccountComponent>(player, out var bank))
                 continue;
-            GetTaxedDepositAmount(deposit, bank.Balance, out var taxedDeposit); // Mono
 
-            BankATMMenuInterfaceState newState;
+            var state = new BankATMMenuInterfaceState(bank.Balance, 0, true, deposit);
+            state.Savings = GetEntSavings(player);
+
             if (component.CashSlot.ContainerSlot?.ContainedEntity is not { Valid : true } cash)
-                newState = new BankATMMenuInterfaceState(bank.Balance, true, 0, 0); // Mono
+                state.Deposit = 0;
             else
-                newState = new BankATMMenuInterfaceState(bank.Balance, true, taxedDeposit, deposit); // Mono
+                state.Deposit = deposit;
 
-            _uiSystem.SetUiState(uid, uiComp.Key, newState);
+            _uiSystem.SetUiState(uid, uiComp.Key, state);
         }
     }
 
@@ -218,18 +229,20 @@ public sealed partial class BankSystem
 
         GetInsertedCashAmount(component, out var deposit);
 
+        var state = new BankATMMenuInterfaceState(0, 0, false, deposit);
+
         if (!TryComp<BankAccountComponent>(player, out var bank))
         {
             _log.Info($"{player} has no bank account");
-            _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit, deposit)); // Mono
+            _uiSystem.SetUiState(uid, args.UiKey, state);
             return;
         }
 
-        GetTaxedDepositAmount(deposit, bank.Balance, out var taxedDeposit); // Mono
+        state.Balance = bank.Balance;
+        state.Savings = GetEntSavings(player);
 
-        _uiSystem.SetUiState(uid, args.UiKey,
-            new BankATMMenuInterfaceState(bank.Balance, true, taxedDeposit, deposit)); // Mono
+        state.Enabled = true;
+        _uiSystem.SetUiState(uid, args.UiKey, state);
     }
 
     private void GetInsertedCashAmount(BankATMComponent component, out int amount)
@@ -253,30 +266,6 @@ public sealed partial class BankSystem
         return;
     }
 
-    // Mono start
-    public void GetTaxedDepositAmount(int deposit, int balance, out int amount)
-    {
-        double threshold = _cfg.GetCVar(MonoCVars.DepositThreshold); // Default is 1000000
-        double high_exp = _cfg.GetCVar(MonoCVars.DepositHighExp); // Default is 2
-
-        double deposit_low = Math.Max(Math.Min(deposit, threshold - balance), 0);
-        double deposit_high = Math.Max(0, deposit + Math.Min(balance - threshold, 0));
-        double bank_high = Math.Max(balance, threshold);
-        double adj_exp = high_exp + 1f;
-        var taxedDeposit = 0;
-        if (deposit >= 1)
-        {
-            taxedDeposit = (int)Math.Round(deposit_low + Math.Pow(Math.Pow(bank_high, adj_exp) + deposit_high * adj_exp * Math.Pow(threshold, high_exp), 1f / adj_exp) - bank_high);
-        }
-        else
-        {
-            taxedDeposit = 0;
-        }
-        amount = taxedDeposit;
-        return;
-    }
-    // Mono end
-
     private void PlayDenySound(EntityUid uid, BankATMComponent component)
     {
         _audio.PlayPvs(_audio.GetSound(component.ErrorSound), uid);
@@ -291,5 +280,12 @@ public sealed partial class BankSystem
     {
         if (actor is { Valid: true } player)
             _popup.PopupEntity(text, player);
+    }
+
+    private long GetEntSavings(EntityUid uid)
+    {
+        if (_playerManager.TryGetSessionByEntity(uid, out var session))
+            return _coins.GetMonoCoinsBalance(session.UserId) ?? 0;
+        return 0;
     }
 }
