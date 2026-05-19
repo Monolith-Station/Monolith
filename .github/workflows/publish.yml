@@ -15,9 +15,17 @@ jobs:
     - name: Install dependencies
       run: sudo apt-get install -y python3-paramiko python3-lxml
 
+    - name: Generate GitHub App Token
+      id: app-token
+      uses: actions/create-github-app-token@v1
+      with:
+        app-id: ${{ secrets.APP_ID }}
+        private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
     - uses: actions/checkout@v4.2.2
       with:
         submodules: 'recursive'
+        token: ${{ steps.app-token.outputs.token }}
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4.1.0
       with:
@@ -49,7 +57,7 @@ jobs:
     - name: Publish changelog (Discord)
       run: Tools/actions_changelogs_since_last_run.py
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
 
     #- name: Publish changelog (RSS)
