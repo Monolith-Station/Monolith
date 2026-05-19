@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by Greenwall-Exe, Vox modifications by 10KE",
+    "copyright": "Made by Greenwall-Exe, Vox modifications by 10KE | Vulp sprite by LexaSvarshik (github)",
     "size": {
         "x": 32,
         "y": 32
@@ -27,6 +27,14 @@
         },
         {
             "name": "equipped-HEAD-sealed-vox",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HEAD-vulpkanin",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HEAD-sealed-vulpkanin",
             "directions": 4
         }
     ]
