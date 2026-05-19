@@ -1,0 +1,15 @@
+ent-MonoPlanetmapOreSand = planet mineral spawner
+    .suffix = Soft
+    .desc = { ent-MarkerBase.desc }
+ent-MonoPlanetmapOreSnow = planet mineral spawner
+    .suffix = Soft
+    .desc = { ent-MarkerBase.desc }
+ent-MonoPlanetmapOreChromite = planet mineral spawner
+    .suffix = Soft
+    .desc = { ent-MarkerBase.desc }
+ent-MonoPlanetmapOreBasalt = planet mineral spawner
+    .suffix = Soft
+    .desc = { ent-MarkerBase.desc }
+ent-MonoPlanetmapOreBase = planet mineral spawner
+    .suffix = Soft
+    .desc = { ent-MarkerBase.desc }

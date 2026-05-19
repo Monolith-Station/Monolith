@@ -1,0 +1,16 @@
+ent-BaseCrossbow = арбалет
+    .desc = Хрясь-вжух - нацелься и пальни.
+ent-BaseCrossbowWieldable = { ent-BaseCrossbow }
+    .desc = { ent-BaseCrossbow.desc }
+ent-CrossbowModern = { ent-BaseCrossbowWieldable }
+    .desc = { ent-BaseCrossbowWieldable.desc }
+ent-CrossbowImprovised = самодельный арбалет
+    .desc = { ent-BaseCrossbowWieldable.desc }
+ent-CrossbowBloodCult = арбалет культа
+    .desc = { ent-BaseCrossbowWieldable.desc }
+ent-CrossbowModernHand = одноручный арбалет
+    .desc = { ent-BaseCrossbow.desc }
+ent-CrossbowImprovisedHand = одноручный самодельный арбалет
+    .desc = { ent-BaseCrossbow.desc }
+ent-CrossbowBloodCultHand = одноручный арбалет культа
+    .desc = { ent-BaseCrossbow.desc }

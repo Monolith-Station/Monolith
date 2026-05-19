@@ -1,0 +1,16 @@
+ent-FoodMeatResomi = raw resomi meat
+    .desc = A slab of raw resomi. Remember to wash your hands!
+ent-FoodMeatResomiBattered = breaded resomi
+    .desc = A resomi fillet dredged in a gloopy flour and egg mixture.
+ent-FoodMeatResomiSteak = cooked resomi steak
+    .desc = A perfectly cooked resomi steak. Surprisingly tender.
+ent-FoodMeatResomiFried = fried resomi
+    .desc = A crispy fried resomi fillet. Tastes like space chicken.
+ent-FoodMeatResomiCutlet = raw resomi cutlet
+    .desc = A thin slice of raw resomi meat, ready for breading or frying.
+ent-FoodMeatResomiCutletCooked = cooked resomi cutlet
+    .desc = A cooked slice of resomi meat, golden and juicy.
+ent-FoodMeatResomiBucket = bucket of fried resomi
+    .desc = A bucket filled with several crispy fried resomi pieces.
+ent-FoodMeatChickenBucket = bucket of fried chicken
+    .desc = A bucket filled with several crispy fried chicken pieces.

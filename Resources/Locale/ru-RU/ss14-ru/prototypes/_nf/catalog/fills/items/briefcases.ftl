@@ -1,0 +1,13 @@
+ent-SpaceCashExpedition = credits
+    .desc = A briefcase full of bills fresh from the digital mint. Smells like success and unpaid taxes.
+    .suffix = Money
+ent-SpaceCashExpeditionT1 = credits (5,000)
+    .desc = { ent-SpaceCashExpedition.desc }
+ent-SpaceCashExpeditionT2 = credits (10,000)
+    .desc = { ent-SpaceCashExpedition.desc }
+ent-SpaceCashExpeditionT3 = credits (20,000)
+    .desc = { ent-SpaceCashExpedition.desc }
+ent-SpaceCashExpeditionT4 = credits (40,000)
+    .desc = { ent-SpaceCashExpedition.desc }
+ent-SpaceCashExpeditionT5 = credits (70,000)
+    .desc = { ent-SpaceCashExpedition.desc }

@@ -557,7 +557,7 @@
       sprite: Mobs/Species/Human/parts.rsi
       state: full
     - type: RandomMetadata
-      nameSegments: [ names_death_commando ]
+      nameSegments: [ NamesDeathCommando ]
     - type: RandomHumanoidSpawner
       settings: SyndicateAgent
 
@@ -599,8 +599,8 @@
       settings: Cluwne
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
 
 - type: randomHumanoidSettings
   id: Cluwne

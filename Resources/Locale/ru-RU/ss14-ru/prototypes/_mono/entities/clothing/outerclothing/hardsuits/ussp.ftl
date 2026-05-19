@@ -1,0 +1,12 @@
+ent-ClothingOuterHardsuitUsspL27 = USSP L-27 tacsuit
+    .desc = The standard combat suit of USSP naval operations.
+ent-ClothingOuterHardsuitUsspL10 = USSP L-10 lightsuit
+    .desc = An old USSP model of combat suit that is still in use in the frontlines.
+ent-ClothingOuterHardsuitUsspL10A = USSP L-10-A lightsuit
+    .desc = An old USSP model of combat suit that is still in use in the frontlines.
+ent-ClothingOuterHardsuitUsspM10 = USSP M-10 scoutsuit
+    .desc = A new prototype of combat suit using the old L-10 as a baseline. It has a integrated mass scanner in his helmet.
+ent-ClothingOuterHardsuitUsspL30 = USSP L-30 Naval Commissar parade hardsuit.
+    .desc = A highly decorated hardsuit with upgraded mobility and higher quality lighter armor plates to quickly convey orders on the frontline. (or not be sweaty in a parade)
+ent-ClothingOuterHardsuitOfficerCombat = USSP UF-16 "Voenkom" commissar tacsuit
+    .desc = Developed by Union armament manufacturers for use by members of the commissariat on the frontlines. Features enhanced plating for survivability, allowing commanders to continue to give orders even while under heavy fire.

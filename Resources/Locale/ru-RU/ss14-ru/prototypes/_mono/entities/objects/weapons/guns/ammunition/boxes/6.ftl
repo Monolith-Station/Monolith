@@ -1,0 +1,14 @@
+ent-BaseAmmoBox635x40mmCaseless = { ent-BaseItem }
+    .desc = { ent-BaseItem.desc }
+ent-AmmoBox635x40mmCaseless = ammunition box (635x40mm Caseless)
+    .desc = { ent-BaseAmmoBox635x40mmCaseless.desc }
+ent-AmmoBox635x40mmCaselessPractice = ammunition box (635x40mm Caseless practice)
+    .desc = { ent-BaseAmmoBox635x40mmCaseless.desc }
+ent-AmmoBox635x40mmCaselessBigRubber = big ammunition box (635x40mm Caseless rubber)
+    .suffix = Big
+    .desc = { ent-BaseAmmoBox635x40mmCaseless.desc }
+ent-AmmoBox635x40mmCaselessRubber = ammunition box (635x40mm Caseless rubber)
+    .desc = { ent-BaseAmmoBox635x40mmCaseless.desc }
+ent-AmmoBox635x40mmCaselessBig = big ammunition box (635x40mm Caseless)
+    .suffix = Big
+    .desc = { ent-BaseAmmoBox635x40mmCaseless.desc }

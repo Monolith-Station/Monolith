@@ -1,0 +1,12 @@
+ent-ClothingMaskDrakeIndustries = drake industries respirator
+    .desc = A pretty uncommon design in the sector. Following industrial rebreather models, it affixes on the jaw and covers the lower part of the wearer's face. It's filters are connected internally. It bears the colors of Drake Industries.
+ent-ClothingMaskDrakeIndustriesWatchdog = watchdog respirator
+    .desc = A clunky respirator following the original design from Drake Industries. This one comes wih a polarized visor to protect the eyes during hostile encounters.
+ent-ClothingMaskCOG = depricated cult mask
+    .desc = A metal mask with a damaged right eye. The functioning one glows with a blue hue.
+ent-ClothingMaskSOM40 = S.O.M. 40 gasmask
+    .desc = Special. Operation. Mask. number 40. A tactical combat gas mask made to fit over a balaclava.
+ent-ClothingMaskSOM41 = S.O.M. 41 gasmask
+    .desc = Special. Operation. Mask. number 41. A tactical combat gas mask made to fit over a balaclava.
+ent-ClothingMaskSOM42 = S.O.M. 42 gasmask
+    .desc = Special. Operation. Mask. number 42. A tactical combat gas mask made to fit over a balaclava.

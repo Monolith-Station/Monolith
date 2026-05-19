@@ -1,0 +1,9 @@
+ent-AirlockShuttleAssemblyNfsd = external airlock assembly
+    .desc = An incomplete structure necessary for connecting two space craft together.
+    .suffix = TSFMC, Docking
+ent-AirlockGlassShuttleNfsd = external airlock
+    .desc = Necessary for connecting two space craft together.
+    .suffix = TSFMC, Glass, Docking
+ent-AirlockShuttleNfsd = external airlock
+    .desc = Necessary for connecting two space craft together.
+    .suffix = TSFMC, Docking

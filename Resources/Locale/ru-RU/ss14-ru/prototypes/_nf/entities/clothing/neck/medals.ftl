@@ -1,0 +1,16 @@
+ent-ClothingNeckMedalNfsdStarGold = звезда доблести
+    .desc = За смелые акты самопожертвования и преданности долгу в тяжёлых обстоятельствах.
+ent-ClothingNeckMedalNfsdShieldGold =  щит мужества
+    .desc = За образцовое мужество и лидерские качества при столкновении с врагом.
+ent-ClothingNeckMedalNfsdShieldSilver = щит отваги
+    .desc = За проявления выдающейся отваги против врагов Фронтира.
+ent-ClothingNeckMedalNfsdShieldBronze = щит заслуги
+    .desc = За выдающееся и похвальное исполнение служебных обязанностей.
+ent-ClothingNeckMedalNfsdCivStarSilver = друг Фронтира
+    .desc = В знак признания исключительной и почётной службы.
+ent-ClothingNeckMedalNfsdCivShieldGold = медаль щитоносца
+    .desc = За выдающуюся помощь перед лицом опасности.
+ent-ClothingNeckMedalNfsdBloodDrop = знак жертвенности
+    .desc = За тяжёлые ранения, полученные при службе.
+ent-ClothingNeckMedalGloriousOrder = орден славы Фронтира, 1-й степени
+    .desc = За безусловное предпринимательство и мрачность перед лицом неисправимой правдоподобности.

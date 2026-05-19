@@ -1,0 +1,12 @@
+ent-ClothingShoesTacticalSwatTan = tan tactical swat boots
+    .desc = A pair of tactical swat boots for when you want to turn up the heat.
+ent-ClothingShoesTacticalSwatOlive = olive tactical swat boots
+    .desc = A pair of tactical swat boots for when you want to turn up the heat.
+ent-ClothingShoesTacticalSwatBlack = black tactical swat boots
+    .desc = A pair of tactical swat boots for when you want to turn up the heat.
+ent-ClothingShoesTacticalSwatRangerGreen = ranger green tactical swat boots
+    .desc = A pair of tactical swat boots for when you want to turn up the heat.
+ent-ClothingShoesTacticalSwatCoyoteBrown = coyote brown tactical swat boots
+    .desc = A pair of tactical swat boots for when you want to turn up the heat.
+ent-ClothingShoesTacticalSwatWhite = white tactical swat boots
+    .desc = A pair of tactical swat boots for when you want to turn up the heat.

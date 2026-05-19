@@ -1,0 +1,10 @@
+ent-ClothingShoesBootsMagDrakeIndustries = painted magboots
+    .desc = Yep, that's just repainted science boots.
+ent-ClothingShoesBootsMagVoid = voidboots
+    .desc = Magboots enhanced with bluespace tethering technology, allowing you to walk on the void of space.
+ent-ClothingShoesBootsMagAsakim = pre-fracture magboots
+    .desc = State-of-the-art magnetic boots made for combat with advanced harnesses.
+ent-ClothingShoesBootsMagAshen = tactical magboots
+    .desc = Tactical magnetic boots that have a heavy magnetic pull and integrated thrusters for boarding. It can hold 0.75 L of gas.
+ent-ClothingShoesBootsMagPDVAdvanced = advanced tactical magboots
+    .desc = Experimental high tech magboots, reverse engineered from the remnants of Pre-fracture technology. These sets are only found in hands of the Dynasty's most valued soldiers.

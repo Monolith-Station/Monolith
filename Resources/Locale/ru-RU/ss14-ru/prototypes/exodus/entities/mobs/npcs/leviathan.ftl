@@ -1,0 +1,9 @@
+ent-SpaceLeviathan = Левиафан
+    .desc = Когда в космосе становится слишком тихо... здесь нет надежды... здесь нет пути назад... но здесь есть он
+    .suffix = Не деспавнится
+ent-SpaceWhaleSegment = Левиафан
+    .desc = { ent-SpaceLeviathan.desc }
+    .suffix = НЕ СПАВНИТЬ, Сегмент
+ent-SpaceLeviathanDespawn = { ent-SpaceLeviathan }
+    .desc = { ent-SpaceLeviathan.desc }
+    .suffix = 5 минут

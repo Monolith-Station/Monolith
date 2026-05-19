@@ -1,0 +1,14 @@
+tech-disk-inserted = Вы вставляете диск, добавляя на сервер новый рецепт.
+tech-disk-examine-none = Этикетка пуста.
+tech-disk-examine = На этикетке имеется небольшое матричное изображение, представляющее { $result }.
+tech-disk-examine-more = Имеются и другие изображения, но они слишком малы, чтобы разглядеть их.
+tech-disk-ui-name = Терминал технологических дисков
+tech-disk-ui-total-label = На выбранном сервере имеется { $amount } очков
+tech-disk-ui-cost-label = Печать каждого диска стоит { $amount } очков
+tech-disk-ui-print-button = Напечать диск
+point-disk-ui-print-1k-button = Print Point Disk ({ $amount })
+point-disk-ui-name = research disk terminal
+point-disk-ui-print-5k-button = Print Point Disk ({ $amount })
+tech-disk-ui-print-rare-button = Print Rare Disk ({ $amount })
+point-disk-ui-print-10k-button = Print Point Disk ({ $amount })
+point-disk-ui-total-label = There are { $amount } points on the selected server

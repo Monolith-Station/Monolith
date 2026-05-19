@@ -1,0 +1,12 @@
+ent-WeaponPistolDebugFast = bang, zoom
+    .desc = zoom
+    .suffix = DEBUG
+ent-MagazinePistolDebugZoom = bang, zoom mag
+    .suffix = DEBUG
+    .desc = { ent-BaseMagazine9x19mm.desc }
+ent-BulletDebugZoom = bang, zoom bullet
+    .suffix = DEBUG
+    .desc = { ent-BaseBullet.desc }
+ent-CartridgeDebugZoom = bang, zoom cartridge
+    .suffix = DEBUG
+    .desc = { ent-BaseCartridge9x19mm.desc }

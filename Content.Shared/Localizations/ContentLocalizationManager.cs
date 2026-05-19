@@ -10,7 +10,8 @@ namespace Content.Shared.Localizations
         [Dependency] private readonly ILocalizationManager _loc = default!;
 
         // If you want to change your codebase's language, do it here.
-        private const string Culture = "en-US";
+        private const string Culture = "ru-RU"; // Corvax-Localization
+        private const string FallbackCulture = "en-US"; // Corvax-Localization
 
         /// <summary>
         /// Custom format strings used for parsing and displaying minutes:seconds timespans.
@@ -25,9 +26,33 @@ namespace Content.Shared.Localizations
 
         public void Initialize()
         {
+            // Corvax-Localization-Start
             var culture = new CultureInfo(Culture);
+            var fallbackCulture = new CultureInfo(FallbackCulture);
 
             _loc.LoadCulture(culture);
+            _loc.LoadCulture(fallbackCulture);
+
+            RegisterCommonFunctions(culture);
+            RegisterCommonFunctions(fallbackCulture);
+
+            _loc.AddFunction(culture, "MANY", FormatManyRussian);
+
+            /*
+             * The following language functions are specific to the english localization. When working on your own
+             * localization you should NOT modify these, instead add new functions specific to your language/culture.
+             * This ensures the english translations continue to work as expected when fallbacks are needed.
+             */
+
+            _loc.AddFunction(fallbackCulture, "MAKEPLURAL", FormatMakePlural);
+            _loc.AddFunction(fallbackCulture, "MANY", FormatMany);
+
+            _loc.SetCulture(culture);
+            _loc.SetFallbackCluture(fallbackCulture);
+        }
+
+        private void RegisterCommonFunctions(CultureInfo culture)
+        {
             _loc.AddFunction(culture, "PRESSURE", FormatPressure);
             _loc.AddFunction(culture, "POWERWATTS", FormatPowerWatts);
             _loc.AddFunction(culture, "POWERJOULES", FormatPowerJoules);
@@ -39,37 +64,66 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
             _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
             _loc.AddFunction(culture, "GASQUANTITY", FormatGasQuantity); // Frontier
+        }
+        // Corvax-Localization-End
 
+        // Corvax-Localization: Added for Russian pluralization.
+        // This function expects arguments in the format: MANY(count, "one", "few", "many").
+        // Example: You have { $bananas } { MANY($bananas, "банан", "банана", "бананов") }.
+        private ILocValue FormatManyRussian(LocArgs args)
+        {
+            if (args.Args.Count < 2 || args.Args[0] is not LocValueNumber number)
+                return new LocValueString("?"); // Invalid arguments
 
-            /*
-             * The following language functions are specific to the english localization. When working on your own
-             * localization you should NOT modify these, instead add new functions specific to your language/culture.
-             * This ensures the english translations continue to work as expected when fallbacks are needed.
-             */
-            var cultureEn = new CultureInfo("en-US");
+            var count = (long)Math.Abs(Math.Floor(number.Value));
 
-            _loc.AddFunction(cultureEn, "MAKEPLURAL", FormatMakePlural);
-            _loc.AddFunction(cultureEn, "MANY", FormatMany);
+            // Not enough forms for full Russian pluralization, do a simple fallback.
+            if (args.Args.Count < 4)
+            {
+                // e.g. MANY(count, "form") -> "form"
+                if (args.Args.Count == 2)
+                    return (LocValueString)args.Args[1];
+
+                // e.g. MANY(count, "one", "many") -> "one" or "many"
+                var form = (LocValueString)args.Args[1];
+                if (count != 1)
+                    form = (LocValueString)args.Args[2];
+                return form;
+            }
+
+            // Full Russian pluralization: MANY(count, "one", "few", "many")
+            var one = ((LocValueString)args.Args[1]).Value;
+            var few = ((LocValueString)args.Args[2]).Value;
+            var many = ((LocValueString)args.Args[3]).Value;
+
+            var c10 = count % 10;
+            var c100 = count % 100;
+
+            if (c10 == 1 && c100 != 11)
+                return new LocValueString(one);
+            if (c10 >= 2 && c10 <= 4 && (c100 < 12 || c100 > 14))
+                return new LocValueString(few);
+            return new LocValueString(many);
         }
 
         private ILocValue FormatMany(LocArgs args)
         {
-            var count = ((LocValueNumber) args.Args[1]).Value;
+            var count = ((LocValueNumber)args.Args[1]).Value;
 
             if (Math.Abs(count - 1) < 0.0001f)
             {
-                return (LocValueString) args.Args[0];
+                return (LocValueString)args.Args[0];
             }
             else
             {
-                return (LocValueString) FormatMakePlural(args);
+                return (LocValueString)FormatMakePlural(args);
             }
         }
 
         private ILocValue FormatNaturalPercent(LocArgs args)
         {
-            var number = ((LocValueNumber) args.Args[0]).Value * 100;
-            var maxDecimals = (int)Math.Floor(((LocValueNumber) args.Args[1]).Value);
+            var number = ((LocValueNumber)args.Args[0]).Value * 100;
+            var maxDecimals = (int)Math.Floor(((LocValueNumber)args.Args[1]).Value);
             var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(Culture)).Clone();
             formatter.NumberDecimalDigits = maxDecimals;
             return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd(char.Parse(formatter.NumberDecimalSeparator)) + "%");
@@ -77,8 +131,8 @@ namespace Content.Shared.Localizations
 
         private ILocValue FormatNaturalFixed(LocArgs args)
         {
-            var number = ((LocValueNumber) args.Args[0]).Value;
-            var maxDecimals = (int)Math.Floor(((LocValueNumber) args.Args[1]).Value);
+            var number = ((LocValueNumber)args.Args[0]).Value;
+            var maxDecimals = (int)Math.Floor(((LocValueNumber)args.Args[1]).Value);
             var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(Culture)).Clone();
             formatter.NumberDecimalDigits = maxDecimals;
             return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd(char.Parse(formatter.NumberDecimalSeparator)));
@@ -88,7 +142,7 @@ namespace Content.Shared.Localizations
 
         private ILocValue FormatMakePlural(LocArgs args)
         {
-            var text = ((LocValueString) args.Args[0]).Value;
+            var text = ((LocValueString)args.Args[0]).Value;
             var split = text.Split(" ", 1);
             var firstWord = split[0];
             if (PluralEsRule.IsMatch(firstWord))
@@ -157,7 +211,7 @@ namespace Content.Shared.Localizations
 
         private static ILocValue FormatLoc(LocArgs args)
         {
-            var id = ((LocValueString) args.Args[0]).Value;
+            var id = ((LocValueString)args.Args[0]).Value;
 
             return new LocValueString(Loc.GetString(id, args.Options.Select(x => (x.Key, x.Value.Value!)).ToArray()));
         }
@@ -165,7 +219,7 @@ namespace Content.Shared.Localizations
         private static ILocValue FormatToString(CultureInfo culture, LocArgs args)
         {
             var arg = args.Args[0];
-            var fmt = ((LocValueString) args.Args[1]).Value;
+            var fmt = ((LocValueString)args.Args[1]).Value;
 
             var obj = arg.Value;
             if (obj is IFormattable formattable)
@@ -180,7 +234,7 @@ namespace Content.Shared.Localizations
             Func<double, double>? transformValue = null)
         {
             const int maxPlaces = 5; // Matches amount in _lib.ftl
-            var pressure = ((LocValueNumber) args.Args[0]).Value;
+            var pressure = ((LocValueNumber)args.Args[0]).Value;
 
             if (transformValue != null)
                 pressure = transformValue(pressure);
@@ -226,16 +280,16 @@ namespace Content.Shared.Localizations
 
         private static ILocValue FormatUnits(LocArgs args)
         {
-            if (!Units.Types.TryGetValue(((LocValueString) args.Args[0]).Value, out var ut))
-                throw new ArgumentException($"Unknown unit type {((LocValueString) args.Args[0]).Value}");
+            if (!Units.Types.TryGetValue(((LocValueString)args.Args[0]).Value, out var ut))
+                throw new ArgumentException($"Unknown unit type {((LocValueString)args.Args[0]).Value}");
 
-            var fmtstr = ((LocValueString) args.Args[1]).Value;
+            var fmtstr = ((LocValueString)args.Args[1]).Value;
 
             double max = Double.NegativeInfinity;
             var iargs = new double[args.Args.Count - 1];
             for (var i = 2; i < args.Args.Count; i++)
             {
-                var n = ((LocValueNumber) args.Args[i]).Value;
+                var n = ((LocValueNumber)args.Args[i]).Value;
                 if (n > max)
                     max = n;
 

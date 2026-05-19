@@ -1,0 +1,12 @@
+ent-LightFighterOrdinanceGPOProjectile = GPO-L 50kg Unguided Bomb
+    .desc = Just passing by.
+ent-LightFighterOrdinanceGPOItem = GPO-L 50kg Unguided Bomb
+    .desc = A fairly durable and relatively high yield explosive payload. Rarely seen in conventional space combat and a remnant of ground-based warfare, bombs can deal devastating damage... if they manage to hit their target. It can fit in a light GPOL housing.
+ent-LightFighterOrdinanceZenithProjectile = ASM(LF) "Zenith" Anti-Ship Warhead
+    .desc = { ent-BaseBulletTrigger.desc }
+ent-LightFighterOrdinanceZenithItem = ASM(LF)5 "Zenith" Anti-Ship Warhead
+    .desc = A military-grade guided missile usually deployed by light spacecraft. Capable of significant damage and more easy to hit targets with than a bomb, the Zenith is accurate and fast, but not durable. It can fit in a light GPOL housing.
+ent-LightFighterOrdinanceQuasarProjectile = QUASAR hyperpenetrator
+    .desc = { ent-BaseBulletTrigger.desc }
+ent-LightFighterOrdinanceQuasarItem = AD-901 "QUASAR" disposable hyperpenetrator
+    .desc = A costly and experimental foray into the minification of hyperaccelerator technologies for use on smaller spaceframes, the QUASAR hyperpenetrator is a relatively weak, but fast-moving munition impervious to most anti-munition weapons. It can fit in a light GPOL housing.

@@ -1,0 +1,10 @@
+ent-UnknownShuttleZenithApoc = { ent-BaseRandomShuttleRule }
+    .desc = { ent-BaseRandomShuttleRule.desc }
+ent-UnknownShuttleZenithEApoc = { ent-BaseRandomShuttleRule }
+    .desc = { ent-BaseRandomShuttleRule.desc }
+ent-UnknownShuttleNebulaApoc = { ent-BaseRandomShuttleRule }
+    .desc = { ent-BaseRandomShuttleRule.desc }
+ent-UnknownShuttleRazorApoc = { ent-BaseRandomShuttleRule }
+    .desc = { ent-BaseRandomShuttleRule.desc }
+ent-UnknownShuttleWyvernApoc = { ent-BaseRandomShuttleRule }
+    .desc = { ent-BaseRandomShuttleRule.desc }

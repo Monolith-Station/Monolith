@@ -1,0 +1,10 @@
+ent-BlueprintLauncherRocket = RPG-7 Blueprint
+    .desc = A blueprint with a schematic of RPG-7 and the ammo for it. It can be inserted into an autolathe or a techfab.
+ent-BlueprintWeaponRifleNtsfLtr = NTSF-LTR-556 Blueprint
+    .desc = A blueprint for the recipe of the NTSF-LTR-556. It can be inserted into an autolathe or a techfab.
+ent-BlueprintWeaponSubMachineGunVectorNtsfHclm = NTSF-HCLM-45 Blueprint
+    .desc = A blueprint for the recipe of the NTSF-HCLM-45. It can be inserted into an autolathe or a techfab.
+ent-BlueprintAmmoPPLCCell = phased plasma laser canister blueprint
+    .desc = A blueprint for the production of cells for the NT-WS PPLC rifle
+ent-BlueprintAmmoMPSSMMissile = MPSSM missile cartridge blueprint
+    .desc = A blueprint for the production of missiles for the SM-27 MPSSM missile launcher

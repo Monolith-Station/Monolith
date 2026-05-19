@@ -1,0 +1,16 @@
+ent-CrateAmmoBoxCharon = 280mm CHARON 26.5kg slug cartridge box
+    .desc = Contains 3 slugs.
+ent-CrateAmmoBox20mm = L85 20mm solid drum box
+    .desc = Contains one box of 20mm solid ammunition. Provides an artillery piece with infinite solid rounds. Buy in case you lost the ammo it came with.
+ent-CrateAmmoBox30mm = Draupnir 30mm solid drum box
+    .desc = Contains one box of 30mm solid ammunition. Provides an artillery piece with infinite solid rounds. Buy in case you lost the ammo it came with.
+ent-CrateAmmoBox57mm = Dravon 57mm HE drum box
+    .desc = Contains one box of 57mm high-explosive ammunition. Provides an artillery piece with infinite high-explosive rounds. Buy in case you lost the ammo it came with.
+ent-CrateAmmoBox90mm = AK-570 90mm HE box
+    .desc = Contains one box of 90mm high-explosive ammunition. Provides an artillery piece with infinite high-explosive rounds. Buy in case you lost the ammo it came with.
+ent-CrateAmmoBoxVanyk = ASM-302 Vanyk HEAT missile box
+    .desc = Contains 24 missiles. 2 full loads.
+ent-CrateAmmoBoxVespera = ASM-417 Vespera HE missile box
+    .desc = Contains 2 bursts of 13 missiles. One full load.
+ent-CrateAmmoBoxTovek = ASM-557 Tovek EMPHE missile box
+    .desc = Contains 4 missiles, 2 loads worth.

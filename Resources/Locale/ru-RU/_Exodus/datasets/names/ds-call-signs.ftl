@@ -1,0 +1,16 @@
+names-ds-call-signs-dataset-1 = Альфа
+names-ds-call-signs-dataset-2 = Бета
+names-ds-call-signs-dataset-3 = Гамма
+names-ds-call-signs-dataset-4 = Дельта
+names-ds-call-signs-dataset-5 = Дзета
+names-ds-call-signs-dataset-6 = Эта
+names-ds-call-signs-dataset-7 = Тета
+names-ds-call-signs-dataset-8 = Йота
+names-ds-call-signs-dataset-9 = Каппа
+names-ds-call-signs-dataset-10 = Лямбда
+names-ds-call-signs-dataset-11 = Омикрон
+names-ds-call-signs-dataset-12 = Омега
+names-ds-call-signs-dataset-13 = Пси
+names-ds-call-signs-dataset-14 = Кси
+names-ds-call-signs-dataset-15 = Хи
+names-ds-call-signs-dataset-16 = Фи

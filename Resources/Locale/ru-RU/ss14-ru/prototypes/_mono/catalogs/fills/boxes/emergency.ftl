@@ -1,0 +1,9 @@
+ent-BoxBaseSurvivalMono = Emergency Survival Box
+    .desc = A dedicated, standard issue survival box for the Colossus sector. Holds utility tools to keep you alive in an emergency.
+    .suffix = Oxygen
+ent-BoxSurvivalMonoOxygenExtended = { ent-BoxBaseSurvivalMono }
+    .suffix = Oxygen
+    .desc = { ent-BoxBaseSurvivalMono.desc }
+ent-BoxSurvivalMonoNitrogenExtended = { ent-BoxBaseSurvivalMono }
+    .suffix = Nitrogen
+    .desc = { ent-BoxBaseSurvivalMono.desc }

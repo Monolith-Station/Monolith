@@ -1,0 +1,10 @@
+ent-ClothingArmorPlate = { "" }
+    .desc = { "" }
+ent-ClothingArmorPlateLight = { ent-ClothingArmorPlate }
+    .desc = { ent-ClothingArmorPlate.desc }
+ent-ClothingArmorPlateMedium = { ent-ClothingArmorPlate }
+    .desc = { ent-ClothingArmorPlate.desc }
+ent-ClothingArmorPlateTactical = { ent-ClothingArmorPlate }
+    .desc = { ent-ClothingArmorPlate.desc }
+ent-ClothingArmorPlatePlastitanium = { ent-ClothingArmorPlate }
+    .desc = { ent-ClothingArmorPlate.desc }

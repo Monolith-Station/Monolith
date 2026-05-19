@@ -1,0 +1,14 @@
+claws-lizard-declawed = Его когти вырваны.
+claws-lizard-tiny = Вы едва можете увидеть его когти.
+claws-lizard-small = У него небольшие когти.
+claws-lizard-medium = У него когти среднего размера.
+claws-lizard-big = У него длинные когти.
+claws-lizard-huge = Его когти ненормально длинные.
+clawed-shoot-fail = Ваши когти не помещаются в спусковой механизм!
+declaw-success = Ваши когти вырваны!
+declaw-item-drop = Вы чувствуете резкую боль в кончиках пальцев!
+has-no-claws-popup = У него нет когтей
+claws-too-short-popup = Его когти слишком короткие
+claws-clipping-doafter = Вы начинаете стричь когти
+claws-clipping-success = Вы чувствуете, как ваши когти стали короче
+claws-growth = Вы чувствуете, как ваши когти стали длиннее...

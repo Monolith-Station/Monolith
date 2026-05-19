@@ -1,0 +1,17 @@
+ent-AtmosFixBlockerMarker = атмос фикс вакуум маркер
+    .desc = Вакуум, 20°
+ent-AtmosFixOxygenMarker = атмос фикс кислород маркер
+    .desc = Кислород @ давление газодобытчика, 20°
+ent-AtmosFixNitrogenMarker = атмос фикс азот маркер
+    .desc = Азот @ давление газодобытчика, 20°
+ent-AtmosFixPlasmaMarker = атмос фикс плазма маркер
+    .desc = Плазма @ давление газодобытчика, 20°
+ent-AtmosFixInstantPlasmaFireMarker = атмос фикс мгновенное горение маркер
+    .desc = Для ТЭГА (пар как от горения плазмы)
+ent-AtmosFixFreezerMarker = атмос фикс холодильник маркер
+    .desc = Изменяет температуру воздуха на 235K, для морозильной камеры с большим запасом.
+ent-AtmosFixVoxMarker = { ent-AtmosFixNitrogenMarker }
+    .desc = Азот @ 101 кПа, 20°
+    .suffix = Вокс-бокс
+ent-AtmosFixAirMarker = атмос фикс кислород маркер
+    .desc = Кислород (21%) и азот (79%) @ давление газодобытчика, T20C

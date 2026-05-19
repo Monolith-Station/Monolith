@@ -1,0 +1,9 @@
+traitor-corporations-dataset-1 = CyberSun Industries
+traitor-corporations-dataset-2 = Мародёры Горлекса
+traitor-corporations-dataset-3 = MI13
+traitor-corporations-dataset-4 = Тигрового Племени
+traitor-corporations-dataset-5 = S.E.L.F.
+traitor-corporations-dataset-6 = Консорциума защиты прав животных
+traitor-corporations-dataset-7 = Donk Corporation
+traitor-corporations-dataset-8 = Waffle Corporation
+traitor-corporations-dataset-9 = Interdyne Pharmaceutics

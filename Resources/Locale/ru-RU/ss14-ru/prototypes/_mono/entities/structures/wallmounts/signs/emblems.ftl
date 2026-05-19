@@ -1,0 +1,12 @@
+ent-EmblemBase = { ent-BaseSign }
+    .desc = { ent-BaseSign.desc }
+ent-EmblemBroken = { ent-EmblemBase }
+    .desc = { ent-EmblemBase.desc }
+ent-EmblemDrakeIndustries = Drake Industries Emblem
+    .desc = The emblem of Drake Industries, shining in an ivory white. Looks really expensive, or at least that's the aim.
+ent-EmblemBrokenDrakeIndustries = Silvery metal bits
+    .desc = A few scraps of shattered metal inteweaved with welding marks, uncovering some cheap pale red alloys underneath a thin silver layer.
+ent-EmblemSteelHammer = Steel Hammer Manufacturing Emblem
+    .desc = The emblem of Steel Hammer Manufacturing, made in painted plasteel - just like their hulls.
+ent-EmblemBrokenSteelHammer = Silvery metal bits
+    .desc = A few scraps of chipped paint and shattered metal, the remnants of a plasteel symbol.

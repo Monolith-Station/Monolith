@@ -1,0 +1,10 @@
+ent-ClothingHelmetHardsuitUIEnforcer = U.I. ENFORCER MKI helmet
+    .desc = Flash-proof lining, in built night vision system, and looks good as hell. Other than information display port being snapped, what's more to ask for?
+ent-ClothingHelmetHardsuitUIEnforcerMKII = U.I. ENFORCER MKII Combat helmet
+    .desc = This top of the line helmet comes with flashproof lining, a mass scanner and an inbuilt medical diagnostic system.
+ent-ClothingHelmetHardsuitUIEngineer = U.I. engineering helmet
+    .desc = A cheap and effective hardsuit helmet, just with an extra black market touch.
+ent-ClothingHelmetHardsuitUIPilot = U.I. pilot helmet
+    .desc = A helmet for Ullman Industry pilots.
+ent-ClothingHelmetHardsuitUIDirector = U.I. VK-1 experimental helmet
+    .desc = A purpose built helmet designed by Felix Ullman, for Felix Ullman.

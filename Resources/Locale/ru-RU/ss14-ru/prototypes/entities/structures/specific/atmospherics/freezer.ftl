@@ -1,0 +1,15 @@
+ent-AirSensorFreezerBase = { ent-AirSensorBase }
+    .suffix = Атмосфера холодильника
+    .desc = { ent-AirSensorBase.desc }
+ent-AirSensorFreezer = { ent-AirSensor }
+    .desc = { ent-AirSensor.desc }
+    .suffix = Атмосфера холодильника, авто-режим отключён
+ent-GasVentPumpFreezer = { ent-GasVentPump }
+    .desc = { ent-GasVentPump.desc }
+    .suffix = Атмосфера холодильника, авто-режим отключён
+ent-GasVentScrubberFreezer = { ent-GasVentScrubber }
+    .desc = { ent-GasVentScrubber.desc }
+    .suffix = Атмосфера холодильника, авто-режим отключён
+ent-AirAlarmFreezer = { ent-AirAlarm }
+    .suffix = Атмосфера холодильника, авто-режим отключён
+    .desc = { ent-AirAlarm.desc }

@@ -1,0 +1,12 @@
+ent-BorgModuleAdvancedWeapon = advanced weapon cyborg module
+    .desc = { ent-BaseBorgModule.desc }
+ent-BorgModuleTSFStandardWeapon = TSFMC weapon cyborg module
+    .desc = { ent-BaseBorgModule.desc }
+ent-BorgModuleTSFAdvancedWeapon = TSFMC advanced weapon cyborg module
+    .desc = { ent-BaseBorgModule.desc }
+ent-BorgModulePDVStandardWeapon = PDV weapon cyborg module
+    .desc = { ent-BaseBorgModule.desc }
+ent-BorgModulePDVAdvancedWeapon = PDV advanced weapon cyborg module
+    .desc = { ent-BaseBorgModule.desc }
+ent-BorgModuleRedactedRCD = pre-fracture RCD module
+    .desc = { ent-BaseBorgModule.desc }

@@ -1,0 +1,8 @@
+ent-RoboticArmCircuitboard = robotic arm machine board
+    .desc = A machine printed circuit board for a robotic arm.
+ent-ConstructorCircuitboard = constructor machine board
+    .desc = A machine printed circuit board for a constructor.
+ent-StorageBinCircuitboard = storage bin machine board
+    .desc = A machine printed circuit board for a storage bin.
+ent-InteractorCircuitboard = interactor machine board
+    .desc = A machine printed circuit board for an interactor.

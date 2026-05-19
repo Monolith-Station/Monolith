@@ -1,0 +1,15 @@
+ent-RandomHumanoidSpawnerSpecicalOperationOfficer = Офицер специальных операций
+    .suffix = ЦентКомм
+    .desc = { "" }
+ent-RandomHumanoidSpawnerBlueshieldOfficer = Офицер Синего Щита
+    .suffix = Роль СЩ, Базовый
+    .desc = { "" }
+ent-RandomHumanoidSpawnerDeathSquadCommander = командир Эскадрона Смерти
+    .suffix = Роль ДСО, Базовый
+    .desc = { "" }
+ent-RandomHumanoidSpawnerDeathSquadOfficer = офицер Эскадрона Смерти
+    .suffix = Роль ДСО, Базовый
+    .desc = { "" }
+ent-RandomHumanoidSpawnerDeathSquadSpecialist = специалист Эскадрона Смерти
+    .suffix = Роль ДСО, Базовый
+    .desc = { "" }

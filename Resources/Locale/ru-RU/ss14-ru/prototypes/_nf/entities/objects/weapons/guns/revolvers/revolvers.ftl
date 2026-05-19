@@ -1,0 +1,10 @@
+ent-WeaponRevolverArgenti = Аргенти
+    .desc = Гражданский револьвер Аргенти, изготовлен  компанией "Сильвер Индастрис". Пусть конструкция с увеличенным барабаном не эргономична, опытный стрелок извлечет из этого пользу. Использует патроны калибра 5.56x45мм.
+ent-WeaponRevolverArgentiNonlethal = { ent-WeaponRevolverArgenti }
+    .suffix = Травматический
+    .desc = { ent-WeaponRevolverArgenti.desc }
+ent-WeaponRevolverDeckardNonlethal = { ent-WeaponRevolverDeckard }
+    .suffix = Травматический
+    .desc = { ent-WeaponRevolverDeckard.desc }
+ent-WeaponRevolverDeckardExpeditionGrifty = Customer Service Resolver
+    .desc = { ent-WeaponRevolverDeckardExpedition.desc }

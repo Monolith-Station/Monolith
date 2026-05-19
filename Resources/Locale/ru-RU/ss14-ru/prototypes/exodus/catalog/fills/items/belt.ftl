@@ -1,0 +1,9 @@
+ent-ClothingBeltHolsterFilledAlt = { ent-ClothingBeltHolster }
+    .suffix = Заполненный, Лодаут СБ
+    .desc = { ent-ClothingBeltHolster.desc }
+ent-ClothingBeltUtilityWebbingEngineering = { ent-ClothingBeltUtilityWebbing }
+    .suffix = Заполненный, Инженерный
+    .desc = { ent-ClothingBeltUtilityWebbing.desc }
+ent-ClothingBeltUtilityWebbingChiefEngineer = { ent-ClothingBeltUtilityWebbing }
+    .suffix = Заполненный, Старший инженер
+    .desc = { ent-ClothingBeltUtilityWebbing.desc }

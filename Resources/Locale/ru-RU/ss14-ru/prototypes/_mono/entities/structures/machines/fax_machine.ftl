@@ -1,0 +1,9 @@
+ent-FaxMachineUSSP = { ent-BaseStructureDisableToolUse }
+    .suffix = POI, USSP
+    .desc = { ent-BaseStructureDisableToolUse.desc }
+ent-FaxMachineUSSPCommisar = { ent-BaseStructureDisableToolUse }
+    .suffix = POI, USSP Commisar
+    .desc = { ent-BaseStructureDisableToolUse.desc }
+ent-FaxMachinePDVJupiter = { ent-BaseStructureDisableToolUse }
+    .suffix = POI, PDV Jupiter
+    .desc = { ent-BaseStructureDisableToolUse.desc }

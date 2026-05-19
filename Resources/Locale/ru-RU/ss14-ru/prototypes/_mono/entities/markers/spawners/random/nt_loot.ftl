@@ -1,0 +1,10 @@
+ent-NTLootT1Clothing = NT clothing T1 spawner
+    .desc = { ent-MarkerBase.desc }
+ent-NTLootT2Clothing = NT clothing T2 spawner
+    .desc = { ent-MarkerBase.desc }
+ent-NTLootT3Clothing = NT clothing T3 Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-NTLootBackpack = NT backpack spawner
+    .desc = { ent-MarkerBase.desc }
+ent-NTLootHardsuit = NT hardsuit spawner
+    .desc = { ent-MarkerBase.desc }

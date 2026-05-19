@@ -1,0 +1,10 @@
+ent-BoxMagazine635x40mmCaselessRubber = box of 635x40mm Caseless (rubber) magazines
+    .desc = A box full of
+ent-BoxMagazine762x39mmRubber = box of 762x39mm (rubber) magazines
+    .desc = A box full of 762x39mm (practice) magazines.
+ent-BoxMagazine9x19mmRubber = box of pistol 9x19mm (rubber) magazines
+    .desc = A box full of pistol 9x19mm (rubber) magazines.
+ent-BoxMagazine9x19mmSubMachineGunRubber = box of SMG 9x19mm (rubber) magazines
+    .desc = A box full of SMG 9x19mm (rubber) magazines.
+ent-BoxMagazine556x45mmRubber = box of 556x45mm (rubber) magazines
+    .desc = A box full of 556x45mm (rubber) magazines.

@@ -1,0 +1,15 @@
+ent-MagazineAsmgtUniversalEmpty = ASMGT-compatible ammo box
+    .desc = Universal ASMGT-compatible ammo box capable of accepting 5.56x45mm, 6.35x40mm, 7.62x39mm and 9x19mm cartridges.
+    .suffix = empty
+ent-MagazineAsmgtUniversal9x19mm = ASMGT-compatible ammo box (9x19mm)
+    .suffix = Loaded
+    .desc = { ent-MagazineAsmgtUniversalEmpty.desc }
+ent-MagazineAsmgtUniversal762x39mm = ASMGT-compatible ammo box (7.62x39mm)
+    .suffix = Loaded
+    .desc = { ent-MagazineAsmgtUniversalEmpty.desc }
+ent-MagazineAsmgtUniversal556x45mm = ASMGT-compatible ammo box (5.56x45mm)
+    .suffix = Loaded
+    .desc = { ent-MagazineAsmgtUniversalEmpty.desc }
+ent-MagazineAsmgtUniversal635x40mm = ASMGT-compatible ammo box (6.35x40mm)
+    .suffix = Loaded
+    .desc = { ent-MagazineAsmgtUniversalEmpty.desc }

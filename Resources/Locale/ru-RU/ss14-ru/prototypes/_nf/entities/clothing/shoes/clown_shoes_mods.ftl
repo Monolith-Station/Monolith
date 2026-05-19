@@ -1,0 +1,12 @@
+ent-ClothingShoesClownModWhoopie = клоунские туфли "с кремом"
+    .desc = Улучшенние стандартные клоунские туфли. Выглядят мягко.
+    .suffix = Крем
+ent-ClothingShoesClownModKetchup = клоунские туфли "с кетчупом"
+    .desc = Улучшенние стандартные клоунские туфли. Выглядят кисло.
+    .suffix = Кетчуп
+ent-ClothingShoesClownModMustarchup = клоунские туфли "с горчицей"
+    .desc = Улучшенние стандартные клоунские туфли. Выглядят остро.
+    .suffix = Горчица
+ent-ClothingShoesClownModUltimate = клоунские туфли "с всем"
+    .desc = Улучшенние стандартные клоунские туфли. Выглядят кисло и остро.
+    .suffix = Ультимативные

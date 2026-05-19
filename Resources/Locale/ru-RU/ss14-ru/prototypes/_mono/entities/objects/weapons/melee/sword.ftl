@@ -1,0 +1,12 @@
+ent-WeaponHFKatana = высокочастотный клинок
+    .desc = Мощный высокочастотный клинок.
+ent-WeaponVT7 = VT-7 high-frequency blade
+    .desc = A high-frequency blade tuned with ill-advised modifications designed to sunder armor.
+ent-WeaponMurasama = VT-7 HF blade "Murasama"
+    .desc = You're the boss.
+ent-WeaponPhaseBlade = нанолюминитный фазовый клинок
+    .desc = Тяжёлый клинок, часто встречавшийся у воинов эпохи до Раскола. Может быть активирован для выбора режима работы с целью подстройки под боевые нужды.
+ent-UllmanPlasmaBlade = U.I. unstable plasma blade
+    .desc = A unique weapon, using welding fuel as a catalyst to ignite. The unstable plasma bursts forth with a wild, powerful flame to temporarily boost damage output.
+ent-WeaponVizierShamshir = officer's shamshir
+    .desc = A uniquely curved sword, a sharp weapon styled after weapons of old, made of pale plastitanium. Primed to strike and sever.

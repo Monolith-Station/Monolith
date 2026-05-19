@@ -1,0 +1,16 @@
+ent-RubberStampSr = colonial liaison's rubber stamp
+    .desc = { ent-RubberStampHop.desc }
+ent-RubberStampStc = station traffic controller's rubber stamp
+    .desc = { ent-RubberStampBase.desc }
+ent-RubberStampSheriff = colonel's rubber stamp
+    .desc = { ent-RubberStampBase.desc }
+ent-RubberStampDoctor = doctor's rubber stamp
+    .desc = { ent-RubberStampBase.desc }
+ent-RubberStampEngineer = engineer's rubber stamp
+    .desc = { ent-RubberStampBase.desc }
+ent-RubberStampPal = public affairs liaison's rubber stamp
+    .desc = { ent-RubberStampBase.desc }
+ent-RubberStampDoc = director of care's rubber stamp
+    .desc = { ent-RubberStampBase.desc }
+ent-RubberStampBailiff = bailiff's rubber stamp
+    .desc = { ent-RubberStampBase.desc }

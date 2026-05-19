@@ -1,0 +1,10 @@
+ent-BaseDecorativeBone = ребро
+    .desc = Высушено ветром и временем. Кажется, оно должно быть внутри...
+ent-DecorativeOldBone = { ent-BaseDecorativeBone }
+    .desc = { ent-BaseDecorativeBone.desc }
+ent-DecorativeOldBoneAlt1 = { ent-BaseDecorativeBone }
+    .desc = { ent-BaseDecorativeBone.desc }
+ent-DecorativeOldBones = рёбра
+    .desc = Высушены ветром и временем. Кажется, они должны быть внутри...
+ent-DecorativeOldBonesAlt1 = { ent-DecorativeOldBones }
+    .desc = { ent-DecorativeOldBones.desc }

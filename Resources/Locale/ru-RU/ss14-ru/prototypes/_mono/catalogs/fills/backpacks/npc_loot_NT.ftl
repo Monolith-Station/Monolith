@@ -1,0 +1,9 @@
+ent-ClothingBackpackRogueNanotrasenT1 = NT Security equipement crate
+    .desc = A Nanotrasen security forces gear crate.
+    .suffix = NPC Loot, T1
+ent-ClothingBackpackRogueNanotrasenT2 = NT Navy equipement crate
+    .desc = A Nanotrasen corporate navy gear crate.
+    .suffix = NPC Loot, T2
+ent-ClothingBackpackRogueNanotrasenT3 = NT Spec Ops equipement crate
+    .desc = A Nanotrasen special operation gear crate.
+    .suffix = NPC Loot, T3

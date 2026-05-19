@@ -1,0 +1,47 @@
+# Appraisal cartridge
+appraisal-program-name = Оценщик Плюс
+appraisal-label-name = Предмет
+appraisal-label-price = Оценочная стоимость
+# Ledger cartridge
+ledger-program-name = ФинПоток Лайт
+ledger-header = Финансовая сводка сектора
+ledger-total-income = Общий доход
+ledger-no-income = Нет
+ledger-total-expenses = Общие траты
+ledger-no-expenses = Нет
+ledger-balance = Баланс:
+ledger-no-balance = N/A
+ledger-tab-Frontier = Колосс-Централ
+ledger-tab-Nfsd = КВП ТСФ
+ledger-tab-Medical = Госпиталь
+ledger-tab-BlackMarket = Династия Фаэтон
+# Fallback, if this displays, something's wrong.
+ledger-tab-Unknown = Неизвестно
+ledger-entry-type-TickingIncome = Субсидии
+ledger-entry-type-VendorTax = Налоги с торгоматов
+ledger-entry-type-CargoTax = Налоги с грузов
+ledger-entry-type-MailDelivered = Почтовые выплаты
+ledger-entry-type-AtmTax = Налоги с банкоматов
+ledger-entry-type-ShipyardTax = Налоги с верфей
+ledger-entry-type-BlackMarketSales = Процент с контрабанды
+ledger-entry-type-ColonialOutpostSales = Налоги с грузов
+ledger-entry-type-TSFMCSales = Налоги с оружия
+ledger-entry-type-MedicalSales = Налоги с препаратов
+ledger-entry-type-BlackMarketPenalties = Конфискация активов
+ledger-entry-type-ColonialOutpostPenalties = Штрафы за контрабанду
+ledger-entry-type-TSFMCPenalties = Штрафы за контрабанду
+ledger-entry-type-MedicalPenalties = Штрафы за наркотики
+ledger-entry-type-BluespaceReward = Премия за охрану объекта
+ledger-entry-type-MedicalBountyTax = Медицинские выплаты
+ledger-entry-type-AntiSmugglingBonus = Бонус за контрабанду
+ledger-entry-type-StationDepositFines = Внесённые штрафы
+ledger-entry-type-StationDepositDonation = Пожертвования
+ledger-entry-type-StationDepositAssetsSold = Проданные активы
+ledger-entry-type-StationDepositOther = Прочие поступления
+ledger-entry-type-MailPenalty = Почтовые штрафы
+ledger-entry-type-ShuttleRecordFees = Плата за учёт шаттлов
+ledger-entry-type-StationWithdrawalPayroll = Зарплаты
+ledger-entry-type-StationWithdrawalWorkOrder = Выплаты за заказы
+ledger-entry-type-StationWithdrawalSupplies = Расходы на снабжение
+ledger-entry-type-StationWithdrawalBounty = Награды
+ledger-entry-type-StationWithdrawalOther = Прочие расходы

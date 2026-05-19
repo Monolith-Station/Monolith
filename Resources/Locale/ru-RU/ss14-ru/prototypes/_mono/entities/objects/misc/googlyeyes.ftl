@@ -1,0 +1,11 @@
+ent-GooglyEyes = глазки-бусинки
+    .desc = Приклей их на что-нибудь, дабы оно выглядело забавней.
+ent-GooglyEyesAdmeme = { ent-GooglyEyes }
+    .desc = { ent-GooglyEyes.desc }
+    .suffix = Адмемы
+ent-GooglyEyesWatchful = { ent-GooglyEyes }
+    .desc = { ent-GooglyEyes.desc }
+    .suffix = Следящие
+ent-GooglyEyesWatchfulAdmeme = { ent-GooglyEyes }
+    .desc = { ent-GooglyEyes.desc }
+    .suffix = Адмемы, Следящие

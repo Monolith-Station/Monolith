@@ -1,0 +1,10 @@
+ent-HeadNewKidan = голова кидана
+ent-TorsoNewKidan = торс кидана
+ent-LeftArmNewKidan = левая рука кидана
+ent-LeftFootNewKidan = левая ступня кидана
+ent-LeftHandNewKidan = левая кисть кидана
+ent-LeftLegNewKidan = левая нога кидана
+ent-RightArmNewKidan = правая рука кидана
+ent-RightFootNewKidan = правая ступня кидана
+ent-RightHandNewKidan = правая кисть кидана
+ent-RightLegNewKidan = правая нога кидана

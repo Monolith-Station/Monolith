@@ -1,0 +1,14 @@
+ent-BoxSurvivalMechInjector = { ent-BoxSurvival }
+    .desc = { ent-BoxSurvival.desc }
+ent-BoxSurvivalEngineeringMechInjector = { ent-BoxSurvivalEngineering }
+    .desc = { ent-BoxSurvivalEngineering.desc }
+ent-BoxSurvivalSecurityMechInjector = { ent-BoxSurvivalSecurity }
+    .desc = { ent-BoxSurvivalSecurity.desc }
+ent-BoxSurvivalMedicalMechInjector = { ent-BoxSurvivalMedical }
+    .desc = { ent-BoxSurvivalMedical.desc }
+ent-BoxMimeMechInjector = { ent-BoxMime }
+    .desc = { ent-BoxMime.desc }
+ent-BoxSurvivalSyndicateMechInjector = { ent-BoxSurvivalSyndicate }
+    .desc = { ent-BoxSurvivalSyndicate.desc }
+ent-BoxHugMechInjector = { ent-BoxHug }
+    .desc = { ent-BoxHug.desc }

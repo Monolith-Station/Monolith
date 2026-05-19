@@ -1,0 +1,11 @@
+ent-ClothingBeltQuiverCrossbow = колчан для болтов
+    .desc = Вмещает до 25 болтов и удобно крепится на поясе.
+ent-ClothingBeltQuiverCrossbowFilledBolt = { ent-ClothingBeltQuiverCrossbow }
+    .suffix = Заполненный, Болты
+    .desc = { ent-ClothingBeltQuiverCrossbow.desc }
+ent-ClothingBeltQuiverCrossbowFilledUranium = { ent-ClothingBeltQuiverCrossbow }
+    .suffix = Заполненный, урановый наконечник
+    .desc = { ent-ClothingBeltQuiverCrossbow.desc }
+ent-ClothingBeltQuiverCrossbowFilledPlasma = { ent-ClothingBeltQuiverCrossbow }
+    .suffix = Заполненный, плазменный наконечник
+    .desc = { ent-ClothingBeltQuiverCrossbow.desc }

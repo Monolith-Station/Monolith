@@ -1,0 +1,16 @@
+ent-BaseMagazineBoxPistolLight = коробка патронов (.15 авто)
+    .desc = { ent-BaseItem.desc }
+ent-MagazineBoxPistolLight = коробка патронов (.15 авто)
+    .desc = { ent-BaseMagazineBoxPistol.desc }
+ent-MagazineBoxPistolPracticeLight = коробка патронов (.15 авто учебные)
+    .desc = { ent-BaseMagazineBoxPistol.desc }
+ent-MagazineBoxPistolIncendiaryLight = коробка патронов (.15 авто зажигательные)
+    .desc = { ent-BaseMagazineBoxPistol.desc }
+ent-MagazineBoxPistolUraniumLight = коробка патронов (.15 авто урановые)
+    .desc = { ent-BaseMagazineBoxPistol.desc }
+ent-BaseMagazineBoxPistolAlt = коробка патронов (.25 авто)
+    .desc = { ent-BaseItem.desc }
+ent-MagazineBoxPistolAlt = коробка патронов (.25 авто)
+    .desc = { ent-BaseMagazineBoxPistol.desc }
+ent-MagazineBoxPistolPracticeAlt = коробка патронов (.25 авто учебные)
+    .desc = { ent-BaseMagazineBoxPistol.desc }

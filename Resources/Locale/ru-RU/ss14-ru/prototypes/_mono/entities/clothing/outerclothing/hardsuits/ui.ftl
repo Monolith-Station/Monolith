@@ -1,0 +1,10 @@
+ent-ClothingOuterHardsuitUIEnforcer = U.I. ENFORCER combat tacsuit
+    .desc = Infamously one of the most reliable combat tacsuits that the Black Market has to offer, developed by Ullman Industries. "Heads up display sold seperately!"
+ent-ClothingOuterHardsuitUIEnforcerMKII = U.I. ENFORCER MKII combat tacsuit
+    .desc = Based off of the infamous MKI design with versatility in mind. This is Ullman Industries' top of the line combat suit. Whether it be slipping away from the feds, taking out the competition, or serving your corporate overlords, this marvel of engineering will make sure that you get it done.
+ent-ClothingOuterHardsuitUllmanEngineer = U.I. engineering hardsuit
+    .desc = A protective hardsuit worn by black market engineering specialists. Developed by Ullman Industries.
+ent-ClothingOuterHardsuitUIPilot = U.I. pilot voidsuit
+    .desc = A voidsuit made for black market pilots. Developed by Ullman Industries
+ent-ClothingOuterHardsuitUIDirector = U.I. VK-1 experimental hardsuit
+    .desc = Felix Ullman's top of the line personal hardsuit. A warning label engraved on the chestplate reads "Theft of this suit has a high chance of death! Seriously, I will find you. You will die."

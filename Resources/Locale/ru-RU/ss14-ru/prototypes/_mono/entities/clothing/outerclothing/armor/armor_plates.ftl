@@ -1,0 +1,12 @@
+ent-ArmorPlateLight = durathread plate
+    .desc = A lightweight protective plate made from advanced durathread fibers. Initially manufactured by Aether, but the process has long been reverse-engineered.
+    .suffix = Light
+ent-ArmorPlateMedium = ceramic plate
+    .desc = A medium-weight ceramic composite plate manufactured with a material process proprietary to Aether.
+    .suffix = Medium
+ent-ArmorPlateTactical = plasteel plate
+    .desc = A heavy-duty plasteel plate manufactured by a layered cold-stamping process proprietary to Aether.
+    .suffix = Tactical
+ent-ArmorPlatePlastitanium = plastitanium plate
+    .desc = An advanced plastitanium composite plate manufactured by Aether.
+    .suffix = Admeme

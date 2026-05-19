@@ -1,0 +1,13 @@
+ent-ClothingBeltDS = штурмовой пояс Эскадрона Смерти
+    .desc = Штурмовой пояс, в котором можно хранить боеприпасы или другие убийственные вещи для различных целей.
+ent-ClothingBeltDSOfficer = { ent-ClothingBeltDS }
+    .desc = { ent-ClothingBeltDS.desc }
+    .suffix = Заполненный, Офицер
+ent-ClothingBeltDSCommander = { ent-ClothingBeltDS }
+    .desc = { ent-ClothingBeltDS.desc }
+    .suffix = Заполненный, Командир
+ent-ClothingBeltDSSpecialist = { ent-ClothingBeltDS }
+    .desc = { ent-ClothingBeltDS.desc }
+    .suffix = Заполненный, Специалист
+ent-ClothingBeltUtilityWebbing = инженерная жилетка
+    .desc = Более удобный аналог пояса с инструментами!

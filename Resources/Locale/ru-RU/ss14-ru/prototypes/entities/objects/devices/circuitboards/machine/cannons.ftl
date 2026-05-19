@@ -1,0 +1,15 @@
+ent-ShuttleGunSvalinnMachineGunCircuitboard = печатная плата LSE-400c "Пулемёт Свалинн"
+    .desc = Печатная плата LSE-400c "Пулемёт Свалинн".
+    .suffix = НЕ МАППИТЬ, Печатная плата
+ent-ShuttleGunPerforatorCircuitboard = печатная плата LSE-1200c "Перфоратор"
+    .desc = Печатная плата LSE-1200c "Перфоратор".
+    .suffix = НЕ МАППИТЬ, Печатная плата
+ent-ShuttleGunFriendshipCircuitboard = печатная плата EXP-320g "Дружба"
+    .desc = Печатная плата EXP-320g "Дружба".
+    .suffix = НЕ МАППИТЬ, Печатная плата
+ent-ShuttleGunDusterCircuitboard = печатная плата EXP-2100g "Дастер"
+    .desc = Печатная плата EXP-2100g "Дастер".
+    .suffix = НЕ МАППИТЬ, Печатная плата
+ent-ShuttleGunKineticCircuitboard = печатная плата PTK-800 "Дематериализатор материи"
+    .desc = Печатная плата PTK-800 "Дематериализатор материи".
+    .suffix = НЕ МАППИТЬ, Печатная плата

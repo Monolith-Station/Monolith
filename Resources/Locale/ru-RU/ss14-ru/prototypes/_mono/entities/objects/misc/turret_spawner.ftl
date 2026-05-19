@@ -1,0 +1,15 @@
+ent-SpawnMobWeaponTurretLaserTSFMC = TSFMC laser turret spawner
+    .suffix = TSFMC, Frontier
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobWeaponTurretLaserSilicon = silicon laser turret spawner
+    .suffix = Silicon, Frontier
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobWeaponTurretTFSMC = TSFMC ballistic turret spawner
+    .suffix = TSFMC, Frontier
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobWeaponTurretUSSP = USSP ballistic turret spawner
+    .suffix = USSP
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobWeaponTurretPDV = PDV ballistic turret spawner
+    .suffix = PDV, Frontier
+    .desc = { ent-MarkerBase.desc }

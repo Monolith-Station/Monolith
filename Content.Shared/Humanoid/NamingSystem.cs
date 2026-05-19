@@ -58,20 +58,29 @@ namespace Content.Shared.Humanoid
             switch (gender)
             {
                 case Gender.Male:
-                    return _random.Pick(_prototypeManager.Index<DatasetPrototype>(speciesProto.MaleFirstNames).Values);
+                    return PickLocalizedDatasetValue(speciesProto.MaleFirstNames);
                 case Gender.Female:
-                    return _random.Pick(_prototypeManager.Index<DatasetPrototype>(speciesProto.FemaleFirstNames).Values);
+                    return PickLocalizedDatasetValue(speciesProto.FemaleFirstNames);
                 default:
                     if (_random.Prob(0.5f))
-                        return _random.Pick(_prototypeManager.Index<DatasetPrototype>(speciesProto.MaleFirstNames).Values);
+                        return PickLocalizedDatasetValue(speciesProto.MaleFirstNames);
                     else
-                        return _random.Pick(_prototypeManager.Index<DatasetPrototype>(speciesProto.FemaleFirstNames).Values);
+                        return PickLocalizedDatasetValue(speciesProto.FemaleFirstNames);
             }
         }
 
         public string GetLastName(SpeciesPrototype speciesProto)
         {
-            return _random.Pick(_prototypeManager.Index<DatasetPrototype>(speciesProto.LastNames).Values);
+            return PickLocalizedDatasetValue(speciesProto.LastNames);
+        }
+
+        private string PickLocalizedDatasetValue(string datasetId)
+        {
+            if (_prototypeManager.TryIndex<LocalizedDatasetPrototype>(datasetId, out var localizedDataset))
+                return Loc.GetString(_random.Pick(localizedDataset.Values));
+
+            var value = _random.Pick(_prototypeManager.Index<DatasetPrototype>(datasetId).Values);
+            return Loc.TryGetString(value, out var localizedValue) ? localizedValue : value;
         }
     }
 }

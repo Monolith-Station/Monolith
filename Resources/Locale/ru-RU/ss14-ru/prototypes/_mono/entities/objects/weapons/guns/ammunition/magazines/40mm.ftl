@@ -1,0 +1,14 @@
+ent-BaseMagazine40mm = 40mm grenade cartridge
+    .desc = { ent-BaseCartridge.desc }
+ent-Magazine40mmEmpty = 40mm grenade cartridge
+    .desc = { ent-BaseMagazine40mm.desc }
+ent-Magazine40mmFrag = frag 40mm grenade cartridge
+    .desc = { ent-BaseMagazine40mm.desc }
+ent-Magazine40mmEMP = EMP 40mm grenade cartridge
+    .desc = { ent-BaseMagazine40mm.desc }
+ent-Magazine40mmFlash = flash 40mm grenade cartridge
+    .desc = { ent-BaseMagazine40mm.desc }
+ent-Magazine40mmBlast = blast 40mm grenade cartridge
+    .desc = { ent-BaseMagazine40mm.desc }
+ent-Magazine40mmBaton = baton 40mm grenade cartridge
+    .desc = { ent-BaseMagazine40mm.desc }

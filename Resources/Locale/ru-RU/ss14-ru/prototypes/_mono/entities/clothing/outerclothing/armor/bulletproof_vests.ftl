@@ -1,0 +1,10 @@
+ent-ClothingOuterArmorBPVestLight = light bulletproof vest
+    .desc = A simple kevlar vest of unknown origin. This one is a simple bulletproof vest made to resist low caliber rounds.
+ent-ClothingOuterArmorBPVestMedium = medium bulletproof vest
+    .desc = A simple kevlar vest of unknown origin. This one is more heavily reinforced against bullet at the cost of it being cumbersome.
+ent-ClothingOuterArmorBPVestHeavy = heavy bulletproof vest
+    .desc = A simple kevlar vest of unknown origin. This juggernaut vest makes you practically a walking tank at, at the cose of heat protection and extreme bulk.
+ent-ClothingOuterArmorBPVestPolyvalent = polyvalent bulletproof vest
+    .desc = A simple kevlar vest of unknown origin. This one isn't made to protect against a specific type of threat.
+ent-ClothingOuterArmorBPVestStabproof = stabproof bulletproof vest
+    .desc = A simple kevlar vest of unknown origin. This one is reinforced against stabbings.

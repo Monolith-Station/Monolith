@@ -1,0 +1,14 @@
+borg-slot-cables-empty = Провода
+borg-slot-construction-empty = Материалы для конструирования
+borg-slot-circuitboards-empty = Платы
+borg-slot-flatpacks-empty = Упаковки
+borg-slot-tiles-empty = Плитки
+borg-slot-topicals-empty = Препараты наружнего применения
+borg-slot-small-containers-empty = Маленькие емкости
+borg-slot-chemical-containers-empty = Химические емкости
+borg-slot-documents-empty = Книги и бумаги
+borg-slot-soap-empty = Мыло
+borg-slot-instruments-empty = Музыкальные инструменты
+borg-slot-beakers-empty = Мензурки
+borg-slot-inflatable-door-empty = Надувные двери
+borg-slot-inflatable-wall-empty = Надувные стены

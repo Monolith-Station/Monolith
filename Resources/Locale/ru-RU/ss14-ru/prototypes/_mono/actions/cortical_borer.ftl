@@ -1,0 +1,14 @@
+ent-ActionCorticalBorerChemMenu = Chemicals
+    .desc = Open the chemicals menu.
+ent-ActionCorticalBorerInfest = Infest
+    .desc = Infest target Humanoid. Target host must have a bloodstream.
+ent-ActionCorticalBorerEject = Eject Host
+    .desc = Eject yourself from your host.
+ent-ActionCheckBlood = Check Blood
+    .desc = Inspect the blood of your host to see how they are doing.
+ent-ActionControlHost = Take Control
+    .desc = Take full control of your host, lasts for 40 seconds on awake hosts.
+ent-ActionEndControlHost = Relinquish Control
+    .desc = Give up hold of the host's body early.
+ent-ActionLayEggHost = Lay Egg
+    .desc = Force your host to vomit an egg. Costs 200 chemicals.

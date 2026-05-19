@@ -1,0 +1,1 @@
+collective-mind-chitine = Хитин

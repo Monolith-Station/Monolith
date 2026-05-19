@@ -1,0 +1,16 @@
+ent-TechDiskPrinter = tech disk printer
+    .desc = A machine that automatically prints tech disks every 7.5 minutes from automatically scavenged pre-Fracture data. Needs 120kW of HV power to function.
+ent-SpawnLootTechDiskPrinter = tech disk printer spawnable disks
+    .desc = { ent-MarkerBasePlaceFree.desc }
+ent-SpawnLootTechDisksPrinterT1 = tech disk printer disks
+    .suffix = Tech Disk Printer T1
+    .desc = { ent-MarkerBasePlaceFree.desc }
+ent-SpawnLootTechDisksPrinterT2 = tech disk printer disks
+    .suffix = Tech Disk Printer T2
+    .desc = { ent-MarkerBasePlaceFree.desc }
+ent-SpawnLootTechDisksPrinterT3 = tech disk printer disks
+    .suffix = Tech Disk Printer T3
+    .desc = { ent-MarkerBasePlaceFree.desc }
+ent-SpawnLootTechDisksPrinterT4 = tech disk printer disks
+    .suffix = Tech Disk Printer T4
+    .desc = { ent-MarkerBasePlaceFree.desc }

@@ -1,0 +1,11 @@
+pill-label-dexalin = Дексалин, 10 ед
+pill-label-dylovene = Диловен, 10 ед
+pill-label-hyronalin = Хироналин, 10 ед
+pill-label-potassium-iodide = Иодид калия, 10 ед
+pill-label-iron = Железо, 10 ед
+pill-label-copper = Медь, 10 ед
+pill-label-kelotane = Келотан, 10 ед
+pill-label-dermaline = Дермалин, 10 ед
+pill-label-tricordrazine = Трикордразин, 10 ед
+pill-label-bicaridine = Бикаридин, 10 ед
+pill-label-charcoal = Уголь, 10 ед

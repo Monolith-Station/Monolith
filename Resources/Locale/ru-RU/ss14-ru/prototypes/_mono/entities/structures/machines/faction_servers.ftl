@@ -1,0 +1,12 @@
+ent-BaseRdServerFaction = BaseRdServerFaction
+    .desc = Contains the collective knowledge of the faction.
+ent-ResearchAndDevelopmentServerTSFMC = сервер РНД ТСФ
+    .desc = Содержит коллективные знания о технологиях ТСФ в этом секторе.
+ent-ResearchAndDevelopmentServerRogues = сервер РНД Династии Фаэтон
+    .desc = Содержит коллективные знания о технологиях имперского Авангарда Династии Фаэтона в этом секторе.
+ent-ResearchAndDevelopmentServerUssp = сервер РНД СССП
+    .desc = Содержит коллективные знания Союза Советских Социалистических Планет в этом секторе.
+ent-ResearchAndDevelopmentServerDebug = дебаг сервер РНД
+    .desc = Содержит коллективные знания ВСЕХ о ВСЁМ.
+ent-ResearchAndDevelopmentServerMerc = сервер РНД наёмников
+    .desc = Содержит коллективные знания о технологиях экипажа.

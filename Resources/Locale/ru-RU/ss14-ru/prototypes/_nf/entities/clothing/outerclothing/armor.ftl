@@ -1,0 +1,9 @@
+ent-ClothingOuterArmorSrCarapace = colonial liaison's carapace
+    .desc = A premium armored chest-piece that provides above average protection for its size. It offers maximum mobility and flexibility thanks to the premium composite materials. Issued only to the colonial liaison.
+ent-ClothingOuterBioArmoredSyndicate = bio suit
+    .desc = Favorite protective gear of any syndicate chemical warfare enjoyers.
+    .suffix = Syndicate
+ent-ClothingOuterArmorNfsd = TSFMC armor
+    .desc = Get shot, maybe survive?
+ent-ClothingOuterVestWebMercenaryBlack = { ent-ClothingOuterVestWebMercenary }
+    .desc = { ent-ClothingOuterVestWebMercenary.desc }

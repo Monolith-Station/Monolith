@@ -1,0 +1,14 @@
+ent-BaseTorpedo = BaseTorpedo
+    .desc = If you can see this you're probably dead!
+ent-ShipMissileASM220HE = ASM-220 torpedo (HE)
+    .desc = { ent-BaseTorpedo.desc }
+ent-Asm220TorpedoHE = ASM-220 high-explosive torpedo
+    .desc = Contains a large explosive payload. High-Explosive is an understatement.
+ent-ShipMissileASM220LOSAT = ASM-220 LOSAT hyper-penetrator
+    .desc = { ent-BaseTorpedo.desc }
+ent-Asm220TorpedoLOSAT = ASM-220 LOSAT missile
+    .desc = Effectively a large synthalloy hyper-penetrator. Tears through hull with ease.
+ent-ShipMissileASM220ECM = ASM-220 torpedo (ECM)
+    .desc = { ent-BaseTorpedo.desc }
+ent-Asm220TorpedoECM = ASM-220 ECM torpedo
+    .desc = Compared to a standard HE torpedo, this one is much more destructive to electronics due to an EMP payload installed inside, though it's almost completely harmless to the hull.

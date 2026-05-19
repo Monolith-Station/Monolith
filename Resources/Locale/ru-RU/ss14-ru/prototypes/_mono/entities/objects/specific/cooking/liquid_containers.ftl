@@ -1,0 +1,10 @@
+ent-Kettle = kettle
+    .desc = Used to boil water for tea.
+ent-PaperCup = paper cup
+    .desc = A paper cup for drinks.
+ent-DrinkTeapotEmpty = teapot
+    .desc = An elegant teapot. It simply oozes class.
+    .suffix = Empty
+ent-DrinkTeaGlassEmpty = { ent-DrinkGlass }
+    .suffix = Empty
+    .desc = { ent-DrinkGlass.desc }

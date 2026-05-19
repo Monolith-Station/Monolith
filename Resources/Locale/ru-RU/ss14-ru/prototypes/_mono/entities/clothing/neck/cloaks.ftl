@@ -1,0 +1,12 @@
+ent-ClothingNeckCloakUssp = Commissar parade cloak
+    .desc = An exquisite white, red, blue and gold cloak fitting for those who can assert dominance over their troops.
+ent-ClothingNeckCloakBlack = black cloak
+    .desc = A black cloak, looks old.
+ent-ClothingNeckCloakRogueCommander = grand vizier's cloak
+    .desc = A Phaethon Dynasty grand vizier's cloak, only given to those who have proven their loyalty and worth to the cause. Some say the inhabitants of the colosuss never would've formed beyond a isolationist colonies if it wasn't for the Syndicate Remnants elevating them.
+ent-ClothingNeckCloakVizier = grand vizier's ceremonial cloak
+    .desc = A Phaethon Dynasty Grand Vizier's cloak, only given to those who have proven their loyalty and worth to the Sultan.
+ent-ClothingNeckMantleVizier = grand vizier's mantle
+    .desc = A Phaethon Dynasty Grand Vizier's mantle, a mix of elegance and practicality.
+ent-ClothingNeckCloakCOG = Old robe
+    .desc = An ancient crimson draping from a now-defunct cult.

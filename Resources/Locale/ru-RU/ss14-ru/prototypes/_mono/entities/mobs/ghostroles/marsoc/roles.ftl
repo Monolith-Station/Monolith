@@ -1,0 +1,15 @@
+ent-MobHumanMarsocFTL = MARSOC fire team leader
+    .desc = { ent-MobHumanMarsocBase.desc }
+ent-MobHumanMarsocOperative = MARSOC operative
+    .desc = { ent-MobHumanMarsocBase.desc }
+ent-MobHumanMarsocMarksman = MARSOC marksman
+    .desc = { ent-MobHumanMarsocBase.desc }
+ent-MobHumanMarsocCorpsman = MARSOC corpsman
+    .desc = { ent-MobHumanMarsocBase.desc }
+ent-MobHumanMarsocSGO = MARSOC smart gun operator
+    .desc = { ent-MobHumanMarsocBase.desc }
+ent-MobHumanMarsocAutorifleman = MARSOC autorifleman
+    .desc = { ent-MobHumanMarsocBase.desc }
+ent-MobHumanMarsocBase = operative base
+    .suffix = Human, Base
+    .desc = { ent-MobHuman.desc }

@@ -1,0 +1,16 @@
+ent-DesertStone = rock
+    .desc = Its a stone.
+ent-DesertSand = sand
+    .desc = Its just some sand.
+    .suffix = Full
+ent-DesertSand1 = { ent-DesertSand }
+    .suffix = 1
+    .desc = { ent-DesertSand.desc }
+ent-DesertSand50 = { ent-DesertSand }
+    .suffix = 50
+    .desc = { ent-DesertSand.desc }
+ent-FloraRockSolidPlanet = { ent-FloraRockSolid }
+    .suffix = planet
+    .desc = { ent-FloraRockSolid.desc }
+ent-hydroponicsSand = песчаная куча
+    .desc = { ent-hydroponicsSoil.desc }

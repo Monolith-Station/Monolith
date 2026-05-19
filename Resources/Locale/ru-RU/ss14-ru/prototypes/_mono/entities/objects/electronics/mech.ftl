@@ -1,0 +1,12 @@
+ent-BroadswordCentralElectronics = broadsword central control module
+    .desc = The electrical control center for the durand mech.
+ent-BroadswordPeripheralsElectronics = broadsword peripherals control module
+    .desc = The electrical peripherals control for the broadsword mech.
+ent-BroadswordTargetingElectronics = broadsword weapon control and targeting module
+    .desc = The electrical targeting control for the broadsword mech.
+ent-FlailCentralElectronics = flail central control module
+    .desc = The electrical control center for the durand mech.
+ent-FlailPeripheralsElectronics = flail peripherals control module
+    .desc = The electrical peripherals control for the flail mech.
+ent-FlailTargetingElectronics = flail weapon control and targeting module
+    .desc = The electrical targeting control for the flail mech.

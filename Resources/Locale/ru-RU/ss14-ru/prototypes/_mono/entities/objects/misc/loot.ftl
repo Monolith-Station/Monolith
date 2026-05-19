@@ -1,0 +1,9 @@
+ent-MonolithicCrystalSmall = small monolithic crystal
+    .desc = A mysterious crystalline solid. Seems highly energetic, but fragile. Local factions and researchers are very interested in this.
+    .suffix = 15 FMC/Data
+ent-MonolithicCrystalMedium = medium monolithic crystal
+    .desc = A mysterious crystalline solid. Seems highly energetic, but fragile. Notably large. Local factions and researchers are very interested in this.
+    .suffix = 25 FMC/Data
+ent-MonolithicCrystalLarge = large monolithic crystal
+    .desc = A mysterious crystalline solid. Seems highly energetic, but fragile. It is of rare size! Local factions and researchers are very interested in this.
+    .suffix = 50 FMC/Data

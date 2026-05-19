@@ -1,0 +1,15 @@
+ent-AirlockHatchUSSP = { ent-AirlockHatchSyndicate }
+    .suffix = USSP, Locked
+    .desc = { ent-AirlockHatchSyndicate.desc }
+ent-AirlockHatchUSSPSecure = { ent-AirlockHatchSyndicate }
+    .suffix = USSP Secure, Locked
+    .desc = { ent-AirlockHatchSyndicate.desc }
+ent-AirlockHatchUSSPCommand = { ent-AirlockHatchSyndicate }
+    .suffix = USSP Command, Locked
+    .desc = { ent-AirlockHatchSyndicate.desc }
+ent-AirlockHatchGrandVizierLocked = { ent-AirlockHatchSyndicate }
+    .suffix = Grand Vizier, Locked
+    .desc = { ent-AirlockHatchSyndicate.desc }
+ent-AirlockHatchPDVCommandLocked = { ent-AirlockHatchSyndicate }
+    .suffix = PDV Command, Locked
+    .desc = { ent-AirlockHatchSyndicate.desc }

@@ -1,0 +1,17 @@
+ent-GasPressurePumpOn = { ent-GasPressurePump }
+    .suffix = On
+    .desc = { ent-GasPressurePump.desc }
+ent-GasPressurePumpOnMax = { ent-GasPressurePumpOn }
+    .suffix = On, Max
+    .desc = { ent-GasPressurePumpOn.desc }
+ent-GasVolumePumpOn = { ent-GasVolumePump }
+    .suffix = On
+    .desc = { ent-GasVolumePump.desc }
+ent-BaseGaslock = газовый стыковочный шлюз
+    .desc = { ent-BaseStructure.desc }
+ent-BasePressurePumpGaslock = газовый стыковочный шлюз
+    .desc = Соединяет газовые трубы на разных кораблях или станциях, обеспечивая передачу газа. Обе стороны должны быть состыкованы и перекачивать газ в одном направлении для обеспечения потока.
+ent-Gaslock = { ent-BasePressurePumpGaslock }
+    .desc = { ent-BasePressurePumpGaslock.desc }
+ent-GaslockFrame = переносной газовый стыковочный шлюз
+    .desc = Перекачивает газ. Принимает стыковку, но сам стыковаться не может. Для потока газа обе стороны должны быть состыкованы и перекачивать газ в одном направлении.

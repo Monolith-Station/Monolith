@@ -1,0 +1,16 @@
+ent-ShieldGeneratorBase = генератор щита
+    .desc = { ent-BaseMachinePowered.desc }
+ent-ShieldGeneratorPOI = генератор щита аванпостов ФС-421 Крепость
+    .suffix = Только Точки Интереса
+    .desc = { ent-ShieldGeneratorBase.desc }
+ent-ShieldGeneratorTSFCapital = флагманский генератор щита ЛМ-212 Авангард
+    .suffix = Только Флагман ТСФ
+    .desc = { ent-ShieldGeneratorBase.desc }
+ent-ShieldGenerator = генератор щита МС-500 Титан
+    .suffix = Только АСЗ
+    .desc = { ent-ShieldGeneratorBase.desc }
+ent-ShieldGeneratorMedium = генератор щита МС-250 Эгида
+    .suffix = Только АСЗ/ТСФ, SCI VOUCHER SHIPS ONLY
+    .desc = { ent-ShieldGeneratorBase.desc }
+ent-ShieldGeneratorSmall = генератор щита МС-100 Сентинел
+    .desc = { ent-ShieldGeneratorBase.desc }

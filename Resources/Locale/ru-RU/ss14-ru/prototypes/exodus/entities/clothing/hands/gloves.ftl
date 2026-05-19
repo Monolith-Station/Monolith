@@ -1,0 +1,14 @@
+ent-ClothingHandsGlovesBlueshield = перчатки синего щита
+    .desc = Эти стильные перчатки огнеупорны и ударопрочны.
+ent-ClothingHandsGlovesDS = боевые перчатки Эскадрона Смерти
+    .desc = Силовые перчатки, многократно усиливающие механическую силу удара.
+ent-ClothingHandsCatPaws = кошачьи лапки
+    .desc = Супер мягкие кошачьи лапки, специально для самых брутальных работников станции.
+ent-ClothingHandsCatPawsWhite = белые кошачьи лапки
+    .desc = { ent-ClothingHandsCatPaws.desc }
+ent-ClothingHandsCatPawsBrown = коричневые кошачьи лапки
+    .desc = { ent-ClothingHandsCatPaws.desc }
+ent-ClothingHandsCatPawsBlack = чёрные кошачьи лапки
+    .desc = { ent-ClothingHandsCatPaws.desc }
+ent-ClothingHandsCatPawsBlackWhite = чёрно-белые кошачьи лапки
+    .desc = { ent-ClothingHandsCatPaws.desc }

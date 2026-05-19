@@ -1,0 +1,9 @@
+ent-ClothingBackpackDroneLootT1 = blackbox data recorder (T1)
+    .desc = Data recorder from a drone. Contains valuable components.
+    .suffix = Drone Loot
+ent-ClothingBackpackDroneLootT21 = blackbox data recorder (T2-1)
+    .desc = Data recorder from a drone. Contains valuable components.
+    .suffix = Drone Loot
+ent-ClothingBackpackDroneLootT22 = blackbox data recorder (T2-2)
+    .desc = Data recorder from a drone. Contains valuable components.
+    .suffix = Drone Loot

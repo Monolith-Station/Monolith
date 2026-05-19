@@ -1,0 +1,14 @@
+ent-BaseSpeedLoader556x45mm = speed loader (5.56x45mm FMJ)
+    .desc = { ent-BaseItem.desc }
+ent-SpeedLoader556x45mmFMJ = speed loader (5.56x45mm FMJ)
+    .desc = { ent-BaseSpeedLoader556x45mm.desc }
+ent-SpeedLoader556x45mmEmpty = speed loader (5.56x45mm any)
+    .desc = { ent-SpeedLoader556x45mmFMJ.desc }
+ent-SpeedLoader556x45mmIncendiary = speed loader (5.56x45mm incendiary)
+    .desc = { ent-BaseSpeedLoader556x45mm.desc }
+ent-SpeedLoader556x45mmPractice = speed loader (5.56x45mm practice)
+    .desc = { ent-BaseSpeedLoader556x45mm.desc }
+ent-SpeedLoader556x45mmUranium = speed loader (5.56x45mm uranium)
+    .desc = { ent-BaseSpeedLoader556x45mm.desc }
+ent-SpeedLoader556x45mmRubber = speed loader (5.56x45mm rubber)
+    .desc = { ent-BaseSpeedLoader556x45mm.desc }

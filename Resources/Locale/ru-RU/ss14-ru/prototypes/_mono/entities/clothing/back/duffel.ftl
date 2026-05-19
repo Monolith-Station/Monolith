@@ -1,0 +1,14 @@
+ent-ClothingBackpackDuffelDrakeIndustries = drake industries duffel
+    .desc = One heavy sack. Some effort was put in to make it lighter to no avail. It bears the colors of Drake Industries.
+ent-ClothingBackpackDuffelTacticalDuffelTan = tan tactical duffel
+    .desc = One heavy sack. Some effort was put in to make it lighter to no avail.
+ent-ClothingBackpackDuffelTacticalDuffelOlive = olive tactical duffel
+    .desc = One heavy sack. Some effort was put in to make it lighter to no avail.
+ent-ClothingBackpackDuffelTacticalDuffelBlack = black tactical duffel
+    .desc = One heavy sack. Some effort was put in to make it lighter to no avail.
+ent-ClothingBackpackDuffelTacticalDuffelRangerGreen = ranger green tactical duffel
+    .desc = One heavy sack. Some effort was put in to make it lighter to no avail.
+ent-ClothingBackpackDuffelTacticalDuffelCoyoteBrown = coyote brown tactical duffel
+    .desc = One heavy sack. Some effort was put in to make it lighter to no avail.
+ent-ClothingBackpackDuffelTacticalDuffelWhite = white tactical duffel
+    .desc = One heavy sack. Some effort was put in to make it lighter to no avail.

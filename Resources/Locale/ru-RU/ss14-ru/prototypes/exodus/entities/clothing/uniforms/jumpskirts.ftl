@@ -1,0 +1,10 @@
+ent-ClothingUniformJumpskirtGothic0 = { ent-ClothingUniformJumpsuitGothic0 }
+    .desc = { ent-ClothingUniformJumpsuitGothic0.desc }
+ent-ClothingUniformJumpskirtGothic1 = { ent-ClothingUniformJumpsuitGothic0 }
+    .desc = { ent-ClothingUniformJumpsuitGothic0.desc }
+ent-ClothingUniformJumpskirtGothic2 = { ent-ClothingUniformJumpsuitGothic0 }
+    .desc = { ent-ClothingUniformJumpsuitGothic0.desc }
+ent-ClothingUniformJumpskirtGothic3 = { ent-ClothingUniformJumpsuitGothic0 }
+    .desc = { ent-ClothingUniformJumpsuitGothic0.desc }
+ent-ClothingUniformJumpskirtGothic4 = { ent-ClothingUniformJumpsuitGothic0 }
+    .desc = { ent-ClothingUniformJumpsuitGothic0.desc }

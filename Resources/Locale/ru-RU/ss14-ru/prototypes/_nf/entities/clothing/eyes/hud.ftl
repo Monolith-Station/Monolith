@@ -1,0 +1,10 @@
+ent-ClothingEyesHudNfsd = визор КВП ТСФ
+    .desc = Окуляр с индикатором на стекле, который сканирует гуманоидов в поле зрения и предоставляет точные данные об их идентификационном статусе и записях в системе криминальных записей.
+ent-ClothingEyesHudMail = mail hud
+    .desc = A heads-up display that scans mail in view and provides accurate mail data.
+ent-ClothingEyesHudNfsdMed = медицинский визор КВП ТСФ
+    .desc = Окуляр с индикатором на стекле, имеющий в своем функционале сочетание служебного визора КВП ТСФ с медицинским.
+ent-ClothingEyesHudNfsdPatch = моновизор КВП ТСФ
+    .desc = Окуляр с индикатором на стекле, который сканирует гуманоидов в поле зрения и предоставляет точные данные об их идентификационном статусе и записях в системе криминальных записей.
+ent-ClothingEyesHudBountyHunter = bounty hunter hud
+    .desc = A heads-up display that scans the humanoids in view and provides accurate data about their ID status, criminal records and health status.

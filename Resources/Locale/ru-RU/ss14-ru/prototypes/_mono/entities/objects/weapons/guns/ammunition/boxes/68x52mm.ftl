@@ -1,0 +1,11 @@
+ent-BaseAmmoBox68x52mmCaseless = { ent-BaseItem }
+    .desc = { ent-BaseItem.desc }
+ent-AmmoBox68x52mmCaseless = ammunition box (6.8x52mm STANAG Caseless)
+    .desc = { ent-BaseAmmoBox68x52mmCaseless.desc }
+ent-AmmoBox68x52mmCaselessPractice = ammunition box (6.8x52mm STANAG Caseless practice)
+    .desc = { ent-BaseAmmoBox68x52mmCaseless.desc }
+ent-AmmoBox68x52mmCaselessRubber = ammunition box (6.8x52mm STANAG Caseless rubber)
+    .desc = { ent-BaseAmmoBox68x52mmCaseless.desc }
+ent-AmmoBox68x52mmCaselessBig = big ammunition box (6.8x52mm STANAG Caseless)
+    .suffix = Big
+    .desc = { ent-BaseAmmoBox68x52mmCaseless.desc }

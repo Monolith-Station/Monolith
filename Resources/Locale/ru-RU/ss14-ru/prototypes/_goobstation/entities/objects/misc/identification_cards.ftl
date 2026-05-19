@@ -1,0 +1,16 @@
+ent-ChronoIDCard = futuristic ID card
+    .desc = The card that originally accessed everything in this universe
+ent-ExecutiveIDCard = executive access card
+    .desc = Flash this, and any TSF employee is legally obligated to listen to you.
+ent-ExecutiveIDCardChameleon = executive access card
+    .desc = Flash this, and any TSF employee is legally obligated to listen to you. Capable of changing appearance if you want to go incognito.
+ent-CentcomIDCardNavyCaptain = Winter Solstice HiCom's ID card
+    .desc = { ent-IDCardStandard.desc }
+ent-CentcomIDCardNavyOfficer = Winter Solstice Officer's ID card
+    .desc = { ent-CentcomIDCardNavyCaptain.desc }
+ent-CentcomIDCardSpecialOperationsOfficer = Winter Solstice Special Operations Officer's ID card
+    .desc = { ent-CentcomIDCardNavyCaptain.desc }
+ent-CentcomIDCardDiplomat = TSF Diplomat's ID card
+    .desc = { ent-CentcomIDCardNavyCaptain.desc }
+ent-GmanIDCard = strange ID card
+    .desc = The card that originally accessed everything in this universe

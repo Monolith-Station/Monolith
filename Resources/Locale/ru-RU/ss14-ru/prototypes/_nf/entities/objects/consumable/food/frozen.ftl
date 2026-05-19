@@ -1,0 +1,16 @@
+ent-FoodFrozenMochi = mochi
+    .desc = A delicious blorb of chewey sticky rice encapsulating a core of ice cream. Tasty!
+ent-FoodFrozenMochiBungo = bungo mochi
+    .desc = A delicious blorb of chewey sticky rice encapsulating a core of ice cream. It's bungo flavored!
+ent-FoodFrozenMochiCherry = cherry mochi
+    .desc = A delicious blorb of chewey sticky rice encapsulating a core of ice cream. It's cherry flavored!
+ent-FoodFrozenMochiChocolate = chocolate mochi
+    .desc = A delicious blorb of chewey sticky rice encapsulating a core of ice cream. It's chocolate flavored!
+ent-FoodFrozenMochiFiber = fiber mochi
+    .desc = A delicious blorb of chewey sticky rice encapsulating a core of ice cream. It's woven with fiber!
+ent-FoodFrozenMochiMoth = rosy mochi
+    .desc = A delicious blorb of chewey sticky rice encapsulating a core of ice cream. It's almost too cute to eat! Almost.
+ent-FoodFrozenMochiTea = tea mochi
+    .desc = A delicious blorb of chewey sticky rice encapsulating a core of ice cream. It's infused with tea!
+ent-FoodFrozenMochiUbe = ube mochi
+    .desc = A delicious blorb of chewey sticky rice encapsulating a core of ice cream. You're not sure if it's really ube.

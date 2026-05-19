@@ -1,0 +1,17 @@
+ent-BaseWeaponPistol = BasePistol
+    .desc = Дерзай - налетай, целься и стреляй.
+ent-WeaponPistolViper = Гадюка
+    .desc = Небольшой, легко скрываемый, но маломощный пистолет. Оснащён полностью автоматическим ресивером. Использует патроны калибра 9x19мм.
+    .suffix = Пистолет
+ent-WeaponPistolEchis = Эфа
+    .desc = Гадюка для боргов. На ходу создаёт патроны калибра .35 из встроенного самозарядного фабрикатора боеприпасов.
+ent-WeaponPistolMercenaryEchis = LWC mercenary PT-45C echis
+    .desc = A viper for use by cyborgs, redesigned for mercenary use. Creates 9x19mm on the fly from an internal ammo fabricator, which slowly self-charges.
+ent-WeaponPistolCobra = Кобра
+    .desc = Пистолет суровых робастных агентов, с интегрированным глушителем. Использует патроны калибра 6.35х40мм безгильзовый.
+    .suffix = Пистолет
+ent-WeaponPistolMk58 = MA Мk 58
+    .desc = Самый распространённый пистолет во всей галактике, также известен как "Эхо корпоративной войны". Использует патроны калибра .45ACP.
+    .suffix = Пистолет
+ent-WeaponPistolN1984 = N1984
+    .desc = Запасное оружие любого уважающего себя офицера. Выпускается в калибре .45 магнум, самом богоугодном калибре.

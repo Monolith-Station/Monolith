@@ -1,0 +1,14 @@
+recipes-secret-door-name = потайная дверь
+recipes-secret-door-desc = Потайная дверь, замаскированная под стену. Прекрасное решение, чтобы спрятать ваши тёмные делишки.
+recipes-create-roof-name = создать крышу
+recipes-create-roof-desc = Создаёт крышу на тайле.
+recipes-remove-roof-name = убрать крышу
+recipes-remove-roof-desc = Убирает крышу на тайле.
+recipes-reinforced-secret-door-name = потайная укрепленная дверь
+recipes-reinforced-secret-door-desc = Потайная дверь, замаскированная под укрепленную стену. Прекрасное решение, чтобы спрятать ваши тёмные делишки.
+recipes-shuttle-secret-door-name = потайная шаттл дверь
+recipes-shuttle-secret-door-desc = Потайная дверь, замаскированная под стену шаттла. Прекрасное решение, чтобы спрятать ваши тёмные делишки.
+recipes-uranium-secret-door-name = урановая потайная дверь
+recipes-uranium-secret-door-desc = Потайная дверь, замаскированная под урановую стену. Прекрасное решение, чтобы спрятать ваши тёмные делишки.
+recipes-wood-secret-door-name = деревянная потайная дверь
+recipes-wood-secret-door-desc = Потайная дверь, замаскированная под деревянную стену. Прекрасное решение, чтобы спрятать ваши тёмные делишки.

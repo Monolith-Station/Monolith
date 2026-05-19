@@ -1,0 +1,12 @@
+ent-ClothingHeadHelmetHardsuitUsspL27 = USSP L-27 tacsuit helmet
+    .desc = The standard combat suit of USSP naval operations, outfitted with a medical hud too!
+ent-ClothingHeadHelmetHardsuitUsspL10 = USSP L-10 lightsuit helmet
+    .desc = An old USSP model of combat suit that is still in use in the frontlines.
+ent-ClothingHeadHelmetHardsuitUsspL10A = USSP L-10-A lightsuit helmet
+    .desc = An old USSP model of combat suit that is still in use in the frontlines.
+ent-ClothingHeadHelmetHardsuitUsspM10 = USSP M-10 scoutsuit helmet
+    .desc = A new prototype of combat suit using the old L-10 as a baseline. It has a integrated mass scanner in his helmet.
+ent-ClothingHeadHelmetHardsuitUsspL30 = USSP L-30 Commissar parade hardsuit tactical helmet
+    .desc = The commissar's parade hardsuit helmet, outfitted with a medical hud too to check on the troops!
+ent-ClothingHeadHelmetHardsuitOfficerCombat = USSP UF-16 "Voenkom" commissar tacsuit helmet
+    .desc = Cold, imposing, and unmistakably Union -- developed to instill discipline and fear. It's visor grants enhanced battlefield awareness with It's built-in command control map. Ideal for Commissars overseeing frontline operations.

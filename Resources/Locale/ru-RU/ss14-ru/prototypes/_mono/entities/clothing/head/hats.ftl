@@ -1,0 +1,12 @@
+ent-ClothingHeadHatWideBrimmedWhite = white wide-brimmed hat
+    .desc = Works great as frisbee substitute.
+ent-ClothingHeadHatWideBrimmedPurple = purple wide-brimmed hat
+    .desc = Works great as frisbee substitute.
+ent-ClothingHeadHatWideBrimmedRed = red wide-brimmed hat
+    .desc = Works great as frisbee substitute.
+ent-ClothingHeadHatWideBrimmedGreen = green wide-brimmed hat
+    .desc = Works great as frisbee substitute.
+ent-ClothingHeadHatWideBrimmedBlue = blue wide-brimmed hat
+    .desc = Works great as frisbee substitute.
+ent-ClothingHeadHatWideBrimmedYellow = yellow wide-brimmed hat
+    .desc = Works great as frisbee substitute.

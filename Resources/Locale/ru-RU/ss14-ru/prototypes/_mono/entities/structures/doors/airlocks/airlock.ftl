@@ -1,0 +1,12 @@
+ent-AirlockUSSP = { ent-AirlockSecurity }
+    .suffix = USSP, Locked
+    .desc = { ent-AirlockSecurity.desc }
+ent-AirlockUSSPSecure = { ent-AirlockSecurity }
+    .suffix = USSP Secure, Locked
+    .desc = { ent-AirlockSecurity.desc }
+ent-AirlockUSSPCommand = { ent-AirlockSecurity }
+    .suffix = USSP Command, Locked
+    .desc = { ent-AirlockSecurity.desc }
+ent-AirlockTsfEngineering = { ent-AirlockNfsd }
+    .suffix = TSF Engineering, Locked
+    .desc = { ent-AirlockNfsd.desc }

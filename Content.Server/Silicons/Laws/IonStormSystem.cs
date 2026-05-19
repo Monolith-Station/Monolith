@@ -22,41 +22,41 @@ public sealed class IonStormSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
     // funny
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string Threats = "IonStormThreats";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string Objects = "IonStormObjects";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string Crew = "IonStormCrew";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string Adjectives = "IonStormAdjectives";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string Verbs = "IonStormVerbs";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string NumberBase = "IonStormNumberBase";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string NumberMod = "IonStormNumberMod";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string Areas = "IonStormAreas";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string Feelings = "IonStormFeelings";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string FeelingsPlural = "IonStormFeelingsPlural";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string Musts = "IonStormMusts";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string Requires = "IonStormRequires";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string Actions = "IonStormActions";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string Allergies = "IonStormAllergies";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string AllergySeverities = "IonStormAllergySeverities";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string Concepts = "IonStormConcepts";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string Drinks = "IonStormDrinks";
-    [ValidatePrototypeId<DatasetPrototype>]
+    [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string Foods = "IonStormFoods";
 
     /// <summary>
@@ -275,7 +275,7 @@ public sealed class IonStormSystem : EntitySystem
     /// </summary>
     private string Pick(string name)
     {
-        var dataset = _proto.Index<DatasetPrototype>(name);
+        var dataset = _proto.Index<LocalizedDatasetPrototype>(name);
         return _robustRandom.Pick(dataset.Values);
     }
 }

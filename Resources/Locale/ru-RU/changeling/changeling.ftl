@@ -1,0 +1,14 @@
+roles-antag-changeling-name = Метаморф
+roles-antag-changeling-objective = Идеальный охотник, использующий личности своих жертв и меняющий их как перчатки.
+changeling-devour-attempt-failed-rotting = Это тело сгнило, в нём нет подходящей нам биомассы.
+changeling-devour-attempt-failed-protected = Невозможно поглотить биомассу, тело жертвы защищено броней!
+changeling-devour-begin-windup-self = Наша зловещая пасть разверзается с ненасытном голодом.
+changeling-devour-begin-windup-others = { CAPITALIZE(POSS-ADJ($user)) } зловещая пасть  разверзается с ненасытном голодом!
+changeling-devour-begin-consume-self = Наша зловещая пасть впивается в плоть жертвы.
+changeling-devour-begin-consume-others = { CAPITALIZE(POSS-ADJ($user)) } зловещая пасть впивается в плоть { POSS-ADJ($user) }.
+changeling-devour-consume-failed-not-dead = Это тело еще живое! Мы не можем поглащать его заживо!
+changeling-devour-consume-complete-self = Наша зловещая пасть смыкается. Голод утолён, плоть поглощена.
+changeling-devour-consume-complete-others = { CAPITALIZE(POSS-ADJ($user)) } зловещая пасть смыкается.
+changeling-transform-attempt-self = Наши кости хрустят, мускулы рвутся, одна плоть становится другой.
+changeling-transform-attempt-others = { CAPITALIZE(POSS-ADJ($user)) } кости  хрустят, мускулы рвутся, одна плоть становится другой.
+changeling-paused-map-name = Карта личностей метаморфа

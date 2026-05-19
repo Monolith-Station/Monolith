@@ -1,0 +1,17 @@
+ent-BaseLandMine = мина
+    .desc = { "" }
+ent-LandMineKickUnarmed = { ent-BaseLandMine }
+    .desc = { ent-BaseLandMine.desc }
+ent-LandMineKick = { ent-BaseLandMine }
+    .desc = { ent-BaseLandMine.desc }
+    .suffix = Взведена
+ent-LandMineModularUnarmed = { ent-BaseLandMine }
+    .desc = { ent-BaseLandMine.desc }
+ent-LandMineModular = { ent-BaseLandMine }
+    .desc = { ent-BaseLandMine.desc }
+    .suffix = Взведена
+ent-LandMineExplosiveUnarmed = { ent-BaseLandMine }
+    .desc = { ent-BaseLandMine.desc }
+ent-LandMineExplosive = { ent-BaseLandMine }
+    .desc = { ent-BaseLandMine.desc }
+    .suffix = Взведена

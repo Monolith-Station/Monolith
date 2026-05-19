@@ -1,0 +1,12 @@
+ent-CratePirateChestCannonBall = cannonball chest
+    .suffix = Filled
+    .desc = { ent-CratePirateGrey.desc }
+ent-CratePirateChestCannonBallEmp = shockshot chest
+    .suffix = Filled
+    .desc = { ent-CratePirateGrey.desc }
+ent-CratePirateChestGrapeShot = grapeshot chest
+    .suffix = Filled
+    .desc = { ent-CratePirateGrey.desc }
+ent-CratePirateChestGlassShot = glassshot chest
+    .suffix = Filled
+    .desc = { ent-CratePirateGrey.desc }

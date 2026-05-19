@@ -1,0 +1,17 @@
+guide-entry-exodus-rules = Правила Exodus
+guide-entry-exodus-rule-zero-dont-be-asshole = 0. Не будь мудаком
+guide-entry-exodus-rule-one-grief = 1. Гриф
+guide-entry-exodus-rule-two-conflicts = 2. Конфликты
+guide-entry-exodus-rule-three-in-game-atmosphere = 3. Внутриигровая атмосфера
+guide-entry-exodus-rule-four-fraction-interactions = 4. Взаимодействие с фракциями
+guide-entry-exodus-rule-five-ssd = 5. Злоупотребление OOC, LOOC, эмоциями
+guide-entry-exodus-rule-six-memory = 6. Память и возрождение
+guide-entry-exodus-rule-seven-erp = 7. ERP
+guide-entry-exodus-rule-eight-bug-abuse = 8. Нечестная игра
+guide-entry-exodus-rule-ghost-roles = Правила ролей призраков.
+guide-entry-exodus-rule-ghost-roles-borer = Борер
+guide-entry-exodus-rule-ghost-roles-asakim = Воин Азаким
+guide-entry-exodus-rule-ghost-roles-operator = Оператор Системы Защиты
+guide-entry-exodus-rule-ghost-roles-core = Ядро системы защиты
+guide-entry-exodus-rule-ghost-roles-chimera = Химера
+guide-entry-exodus-rule-ghost-roles-borg = Борг

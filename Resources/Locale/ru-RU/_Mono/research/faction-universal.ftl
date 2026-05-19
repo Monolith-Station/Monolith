@@ -1,0 +1,10 @@
+research-discipline-faction-universal = Универсальное фракционное исследование
+research-technology-universal-railgun-ammo = Линейное ускорение боеприпасов
+research-technology-universal-railgun-ammo-subnuclear = Ядерные взрывчатые вещества
+research-technology-universal-asm220-ammo = Производство торпед ASM-220
+research-technology-universal-asm220-advanced = Усовершенствованные торпеды ASM-220
+research-technology-universal-150mm-ammo = Производство снарядов 150мм
+research-technology-universal-light-fighter-ordinance = Производство легких ракетно-торпедных снарядов
+research-technology-universal-advanced-light-fighter-ordinance = Производство продвинутых ракетно-торпедных снарядов
+research-technology-universal-armorplates-1 = Реверс-инжиниринг баллистических композитов
+research-technology-universal-armorplates-2 = Реверс-инжиниринг пластин из пластали
