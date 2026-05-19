@@ -39,8 +39,8 @@ public sealed class SpaceBiomeTextOverlay : Overlay
     public SpaceBiomeTextOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _font = _cache.GetFont("/Fonts/Iceberg/Iceberg-Regular.ttf", 25);
-        _descriptionfont = _cache.GetFont("/Fonts/Iceberg/Iceberg-Regular.ttf", 15);
+        _font = _cache.GetFont("/Fonts/Doloto/Doloto-Regular.ttf", 75);
+        _descriptionfont = _cache.GetFont("/Fonts/Doloto/Doloto-Regular.ttf", 30);
     }
 
     public void Reset()
@@ -162,7 +162,7 @@ public sealed class SpaceBiomeTextOverlay : Overlay
             }
         }
 
-        Vector2 pos = new Vector2((viewport.X - strSize.X) / 2, strSize.Y + 110 + 70); //70 should be enough to give the title font space
+        Vector2 pos = new Vector2((viewport.X - strSize.X) / 2, strSize.Y + 110 + 140); //70 should be enough to give the title font space
         return pos;
     }
 }

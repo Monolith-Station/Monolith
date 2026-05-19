@@ -10,7 +10,7 @@
 - type: pointOfInterest
   id: Polaris
   parent: BasePOI
-  name: 'Polaris Bioresearch Center'
+  name: 'Биологический центр Полярис'
   minimumDistance: 10000
   maximumDistance: 15000
   spawnGroup: Optional
@@ -23,7 +23,7 @@
 
 - type: gameMap
   id: Polaris
-  mapName: 'Polaris Bioresearch Center'
+  mapName: 'Биологический центр Полярис'
   mapPath: /Maps/_Mono/POI/Dungeons/polaris.yml
   minPlayers: 0
   stations:
@@ -31,7 +31,7 @@
       stationProto: StandardFrontierOutpost
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Polaris Bioresearch Center'
+          mapNameTemplate: 'Биологический центр Полярис'
         - type: StationJobs
           availableJobs: {}
         - type: StationDeadDropHintExempt

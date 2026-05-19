@@ -10,7 +10,7 @@
 - type: pointOfInterest
   id: HammerOfTheUnion
   parent: [BaseMobilePOI, BaseRepairablePOI]
-  name: 'Hammer Of The Union'
+  name: 'Энигма'
   minimumDistance: 10000
   maximumDistance: 15000
   spawnGroup: Required
@@ -22,7 +22,7 @@
 
 - type: gameMap
   id: USSPHammer
-  mapName: 'Hammer Of The Union'
+  mapName: 'Энигма'
   mapPath: /Maps/_Mono/POI/Dungeons/hammeroftheunion.yml
   minPlayers: 0
   stations:
@@ -30,7 +30,7 @@
       stationProto: StandardFrontierOutpost
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Hammer Of The Union'
+          mapNameTemplate: 'Энигма'
         - type: StationJobs
           availableJobs: {}
         - type: StationDeadDropHintExempt

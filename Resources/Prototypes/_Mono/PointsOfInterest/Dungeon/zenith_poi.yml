@@ -10,7 +10,7 @@
 - type: pointOfInterest
   id: Zenith
   parent: BaseMobilePOI
-  name: 'ADS Zenith CK-395'
+  name: 'Зенит ЦК-395'
   minimumDistance: 10000
   maximumDistance: 15000
   spawnGroup: Optional
@@ -22,7 +22,7 @@
 
 - type: gameMap
   id: Zenith
-  mapName: 'ADS Zenith CK-395'
+  mapName: 'Зенит ЦК-395'
   mapPath: /Maps/_Mono/POI/Dungeons/zenith_poi.yml
   minPlayers: 0
   stations:
@@ -30,7 +30,7 @@
       stationProto: StandardFrontierOutpost
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'ADS Zenith CK-395'
+          mapNameTemplate: 'Зенит ЦК-395'
         - type: StationJobs
           availableJobs: {}
         - type: StationDeadDropHintExempt

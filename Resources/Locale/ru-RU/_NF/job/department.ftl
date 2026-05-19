@@ -1,6 +1,6 @@
 # Below: Department name - should match department.ID, may collide with upstream definitions
-department-Antag = Авангард Династии Фаэтона
+department-Antag = Фронт "Омерта"
 department-Command = Командование Сектора
 department-Frontier = Сотрудники Аванпоста
-department-Security = Корпус Военной Полиции ТСФ
+department-Security = Секторальный Корпус Контроля
 department-Combatant = Комбатанты

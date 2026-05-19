@@ -11,7 +11,7 @@
 - type: pointOfInterest
   id: Jupiter
   parent: [BaseMobilePOI, BaseRepairablePOI]
-  name: 'PDV Jupiter Class Carrier'
+  name: 'Тяжёлый Флагман Юпитер'
   minimumDistance: 17000
   maximumDistance: 19000
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoRogueUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
@@ -25,7 +25,7 @@
 
 - type: gameMap
   id: Jupiter
-  mapName: 'PDV Jupiter Class Carrier'
+  mapName: 'Тяжёлый Флагман Юпитер'
   mapPath: /Maps/_Mono/POI/jupiter.yml
   minPlayers: 0
   stations:
@@ -33,7 +33,7 @@
       stationProto: RecordsFrontierOutpostCargo
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'PDV Jupiter Class Carrier'
+          mapNameTemplate: 'Тяжёлый Флагман Юпитер'
         - type: ExtraStationInformation
           icon: /Textures/_NF/Interface/Pirate/piratelogo.png
           stationSubtext: 'frontier-lobby-jupiter-subtext'

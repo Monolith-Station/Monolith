@@ -11,7 +11,7 @@
 - type: pointOfInterest
   id: Bahama
   parent: [BasePOI, BaseRepairablePOI]
-  name: "Bahama Mama's"
+  name: "Багама Мама"
   minimumDistance: 3400
   maximumDistance: 5800
   spawnGroup: RestStop
@@ -24,7 +24,7 @@
 
 - type: gameMap
   id: Bahama
-  mapName: "Bahama Mama's"
+  mapName: "Багама Мама"
   mapPath: /Maps/_NF/POI/bahama.yml
   minPlayers: 0
   stations:
@@ -32,4 +32,4 @@
       stationProto: DeadDropFrontierOutpost
       components:
         - type: StationNameSetup
-          mapNameTemplate: "Bahama Mama's"
+          mapNameTemplate: "Багама Мама"

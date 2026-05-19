@@ -10,7 +10,7 @@
 - type: pointOfInterest
   id: AutomatedTanker
   parent: BaseMobilePOI
-  name: 'Automated Inter Sector Tanker'
+  name: 'Автоматизированный межсекторный танкер'
   minimumDistance: 10000
   maximumDistance: 15000
   spawnGroup: Optional
@@ -23,7 +23,7 @@
 
 - type: gameMap
   id: AutomatedTanker
-  mapName: 'Automated Inter Sector Tanker'
+  mapName: 'Автоматизированный межсекторный танкер'
   mapPath: /Maps/_Mono/POI/Dungeons/ruin_tanker.yml
   minPlayers: 0
   stations:
@@ -31,7 +31,7 @@
       stationProto: StandardFrontierOutpost
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Automated Inter Sector Tanker'
+          mapNameTemplate: 'Автоматизированный межсекторный танкер'
         - type: StationJobs
           availableJobs: {}
         - type: StationDeadDropHintExempt

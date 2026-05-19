@@ -11,7 +11,7 @@
 - type: pointOfInterest
   id: ThePit
   parent: [BasePOI, BaseRepairablePOI]
-  name: "The Pit"
+  name: "Бойцовская Яма"
   minimumDistance: 5200
   maximumDistance: 6200
   spawnGroup: Arena
@@ -23,7 +23,7 @@
 
 - type: gameMap
   id: ThePit
-  mapName: "The Pit"
+  mapName: "Бойцовская Яма"
   mapPath: /Maps/_NF/POI/arena.yml
   minPlayers: 0
   stations:
@@ -31,4 +31,4 @@
       stationProto: DeadDropFrontierOutpost
       components:
         - type: StationNameSetup
-          mapNameTemplate: "The Pit"
+          mapNameTemplate: "Бойцовская Яма"

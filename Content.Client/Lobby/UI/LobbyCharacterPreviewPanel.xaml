@@ -12,7 +12,7 @@
             <!-- Frontier -->
             <Label Name="BankBalance" HorizontalAlignment="Center" Margin="3 3"/>
             <!-- Company Display -->
-            <RichTextLabel Name="Company" HorizontalAlignment="Center" Margin="3 3"/>
+            <RichTextLabel Name="Company" HorizontalAlignment="Center" Margin="3 3" Visible="False"/>
             <!-- End Frontier -->
             <BoxContainer Name="ViewBox" Orientation="Horizontal" HorizontalAlignment="Center">
 
@@ -22,7 +22,7 @@
                     HorizontalAlignment="Center"
                     Margin="0 5 0 0"/>
             <!-- MonoCoins Display -->
-            <Label Name="MonoCoins" HorizontalAlignment="Center" Margin="3 3"/>
+            <Label Name="MonoCoins" HorizontalAlignment="Center" Margin="3 3" Visible="False"/>
         </BoxContainer>
         <Label Name="Unloaded" Text="{Loc 'lobby-character-preview-panel-unloaded-preferences-label'}"/>
     </BoxContainer>

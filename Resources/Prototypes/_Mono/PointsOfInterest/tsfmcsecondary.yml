@@ -11,7 +11,7 @@
 - type: pointOfInterest
   id: TSFMCOutpost
   parent: [BasePOI, BaseRepairablePOI]
-  name: 'TSFMC Secondary Outpost'
+  name: 'Блокпост СКК Эхо'
   minimumDistance: 11000
   maximumDistance: 14000
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
@@ -25,7 +25,7 @@
 
 - type: gameMap
   id: TSFMCOutpost
-  mapName: 'TSFMC Secondary Outpost'
+  mapName: 'Блокпост СКК Эхо'
   mapPath: /Maps/_Mono/POI/tsfmcoutpost.yml
   minPlayers: 0
   stations:
@@ -33,7 +33,7 @@
       stationProto: SecurityFrontierOutpost
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'TSFMC Secondary Outpost'
+          mapNameTemplate: 'Блокпост СКК Эхо'
         - type: ExtraStationInformation
           icon:
             sprite: _NF/Structures/Decoration/banner.rsi

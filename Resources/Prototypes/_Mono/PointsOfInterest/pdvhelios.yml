@@ -8,7 +8,7 @@
 - type: pointOfInterest
   id: HeliosFortress
   parent: [BasePOI, BaseRepairablePOI]
-  name: 'PDV Helios Fortress'
+  name: 'Цитадель Омерта'
   minimumDistance: 7500
   maximumDistance: 9500
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoRogueUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
@@ -21,7 +21,7 @@
 
 - type: gameMap
   id: HeliosFortress
-  mapName: 'PDV Helio Fortress'
+  mapName: 'Цитадель Омерта'
   mapPath: /Maps/_Mono/POI/pdvhelios.yml
   minPlayers: 0
   stations:
@@ -29,10 +29,10 @@
       stationProto: RecordsFrontierOutpostCargo
       gridComponents:
       - type: VesselInfo
-        description: "An oppressive imperial aura lurks here. Glory to the Sultan."
+        description: "Неприступная база альянса, свитая из обломков старых кораблей и верфей. Здесь действуют законы Дона, а воздух пропитан порохом и мазутом."
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'PDV Helio Fortress'
+          mapNameTemplate: 'Цитадель Омерта'
         - type: ExtraStationInformation
           icon: /Textures/_NF/Interface/Pirate/piratelogo.png
           stationSubtext: 'frontier-lobby-pirate-subtext'

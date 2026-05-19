@@ -11,10 +11,10 @@ job-supervisors-ussp-sergeant = the Serzhants
 job-name-md-medic = Парамедик СНМП
 JobMdMedic = Парамедик СНМП
 # MARK: TSF
-job-name-tsf-engineer = Инженер КВП ТСФ
-JobTsfEngineer = Инженер КВП ТСФ
-job-name-tsf-borg = Борг КВП ТСФ
-JobTsfBorg = Борг КВП ТСФ
+job-name-tsf-engineer = Инженер ССК
+JobTsfEngineer = Инженер ССК
+job-name-tsf-borg = Борг ССК
+JobTsfBorg = Борг ССК
 # MARK: PDV
-job-name-pdv-borg = Борг ДФ
-JobPdvBorg = Борг ДФ
+job-name-pdv-borg = Скрап-Борг
+JobPdvBorg = Скрап-Борг

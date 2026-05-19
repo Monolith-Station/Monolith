@@ -1,0 +1,23 @@
+- type: guideEntry
+  id: BasicLore
+  name: Лор
+  text: "/ServerInfo/_Orehum/Lore/Primer.xml"
+  children:
+  - Timeline
+  - SectorControl
+  - FrontOmerta
+
+- type: guideEntry
+  id: Timeline
+  name: Короткая история
+  text: "/ServerInfo/_Orehum/Lore/Timeline.xml"
+
+- type: guideEntry
+  id: SectorControl
+  name: СКК
+  text: "/ServerInfo/_Orehum/Lore/SectorControl.xml"
+
+- type: guideEntry
+  id: FrontOmerta
+  name: Фронт "Омерта"
+  text: "/ServerInfo/_Orehum/Lore/FrontOmerta.xml"

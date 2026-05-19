@@ -11,7 +11,7 @@
 - type: pointOfInterest
   id: TradeMall
   parent: [BasePOI, BaseRepairablePOI]
-  name: Trade Mall
+  name: "Торговый аванпост"
   minimumDistance: 3500
   maximumDistance: 6500
   spawnGroup: MarketStation
@@ -35,7 +35,7 @@
 
 - type: gameMap
   id: TradeMall
-  mapName: 'Trade Mall'
+  mapName: "Торговый аванпост"
   mapPath: /Maps/_NF/POI/trademall.yml
   minPlayers: 0
   stations:
@@ -45,7 +45,7 @@
         - type: StationCargoOrderDatabase
           capacity: 60
         - type: StationNameSetup
-          mapNameTemplate: 'Trade Mall'
+          mapNameTemplate: "Торговый аванпост"
         - type: StationDeadDrop
           maxDeadDrops: 2 # A few, its not as big as the original trade outpost
         - type: TradeCrateDestination

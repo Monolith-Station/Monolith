@@ -10,7 +10,7 @@
 - type: pointOfInterest
   id: Lancelot
   parent: BasePOI
-  name: 'Lancelot Mining Outpost'
+  name: 'Шахтёрский Аванпост Ланцелот'
   minimumDistance: 10000
   maximumDistance: 15000
   spawnGroup: Optional
@@ -26,7 +26,7 @@
 
 - type: gameMap
   id: Lancelot
-  mapName: 'Lancelot Mining Outpost'
+  mapName: 'Шахтёрский Аванпост Ланцелот'
   mapPath: /Maps/_Mono/POI/Dungeons/lancelot.yml
   minPlayers: 0
   stations:
@@ -34,5 +34,5 @@
       stationProto: RecordsFrontierOutpostCargo
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Lancelot Mining Outpost'
+          mapNameTemplate: 'Шахтёрский Аванпост Ланцелот'
         - type: StationDeadDropHintExempt
