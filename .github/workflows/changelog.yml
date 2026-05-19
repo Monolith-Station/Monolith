@@ -5,9 +5,11 @@ on:
     types: [closed]
 
 env:
-  GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
   CHANGELOG_DIR: Resources/Changelog/Monolith.yml # Mono
   PR_NUMBER: ${{ github.event.number }}
+  CHANGELOG_USER: "OrehumChangelog[bot]"
+  CHANGELOG_EMAIL: "OrehumChangelog[bot]@://github.com"
+  CHANGELOG_MESSAGE: "Automatic changelog update"
 
 jobs:
   changelog:
@@ -16,16 +18,23 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout Base Branch # Mono
-        uses: actions/checkout@v3
+      - name: Generate GitHub App Token
+        id: app-token
+        uses: actions/create-github-app-token@v1
         with:
-          token: ${{ secrets.BOT_TOKEN }}
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          
+      - name: Checkout Base Branch # Mono
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
           ref: "${{ github.event.pull_request.base.ref }}" # Mono
 
       - name: Setup Git
         run: |
-          git config --global user.name "${{ vars.CHANGELOG_USER }}"
-          git config --global user.email "${{ vars.CHANGELOG_EMAIL }}"
+          git config --global user.name "${{ env.CHANGELOG_USER }}"
+          git config --global user.email "${{ env.CHANGELOG_EMAIL }}"
         shell: bash
 
       - name: Setup Node
@@ -40,6 +49,11 @@ jobs:
         shell: bash
 
       - name: Generate Changelog
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          CHANGELOG_DIR: ${{ env.CHANGELOG_DIR }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ env.PR_NUMBER }}
         run: |
           cd "Tools/changelog"
           node changelog.js
