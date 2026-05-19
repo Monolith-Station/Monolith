@@ -9,10 +9,17 @@ jobs:
   size-label:
     runs-on: ubuntu-latest
     steps:
+      - name: Generate GitHub App Token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - name: size-label
         uses: "pascalgn/size-label-action@v0.5.5"
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ steps.app-token.outputs.token }}"
         with:
           # Custom size configuration
           sizes: >

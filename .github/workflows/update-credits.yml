@@ -10,9 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     # Hey there fork dev! If you like to include your own contributors in this then you can probably just change this to your own repo
     # Do this in dump_github_contributors.ps1 too into your own repo
-    if: github.repository == 'Monolith-Station/Monolith' # Mono: space-wizards/space-station-14 > Monolith-Station/Monolith
+    if: github.repository == 'Orehum-Project/Orehum-Sector' # Mono: space-wizards/space-station-14 > Monolith-Station/Monolith
 
     steps:
+      - name: Generate GitHub App Token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - uses: actions/checkout@v4.2.2
         with:
           ref: main
@@ -20,7 +27,7 @@ jobs:
       - name: Get this week's Contributors
         shell: pwsh
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         run: Tools/dump_github_contributors.ps1 > Resources/Credits/GitHub.txt
 
       # TODO

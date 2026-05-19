@@ -1,29 +1,30 @@
-# # SPDX-FileCopyrightText: 2023 Debug
-# # SPDX-FileCopyrightText: 2025 Redrover1760
-# #
-# # SPDX-License-Identifier: AGPL-3.0-or-later
+ name: Publish Changelog
 
-# name: Publish Changelog
+ on:
+   workflow_dispatch:
+   schedule:
+     - cron: '0 10 * * *'
 
-# on:
-#   workflow_dispatch:
-#   schedule:
-#     - cron: '0 10 * * *'
+ jobs:
+  publish_changelog:
+     runs-on: ubuntu-latest
+     steps:
+     - name: Generate GitHub App Token
+       id: app-token
+       uses: actions/create-github-app-token@v1
+       with:
+         app-id: ${{ secrets.APP_ID }}
+         private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
-# jobs:
-#  publish_changelog:
-#     runs-on: ubuntu-latest
-#     steps:
+     - name: checkout
+       uses: actions/checkout@v3
+       with:
+         token: ${{ steps.app-token.outputs.token }}
+         ref: main
 
-#     - name: checkout
-#       uses: actions/checkout@v3
-#       with:
-#         token: ${{secrets.GITHUB_TOKEN}}
-#         ref: main
-
-#     - name: Publish changelog
-#       run: Tools/actions_changelogs_since_last_run.py
-#       env:
-#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
-#     continue-on-error: true
+     - name: Publish changelog
+       run: Tools/actions_changelogs_since_last_run.py
+       env:
+         GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
+     continue-on-error: true
