@@ -12,6 +12,7 @@ research-technology-rogue-jaws = Advanced Jaws of Life
 research-technology-rogue-basic-guns = Basic Ballistics
 research-technology-rogue-thermals = Thermal Imaging
 research-technology-pdv-basic-module = PDV Basic Cyborg Module Developpment
+research-technology-rogue-tier-one-vouchers = PDV Grade 1 Shipyard Production
 
 # T2 rogue
 research-technology-rogue-advanced-guns = Advanced Ballistics
@@ -22,9 +23,10 @@ research-technology-rogue-subsonic = Subsonic Firearms
 research-technology-rogue-saintie-voucher = PDV Saintie Procurement LPC
 research-technology-rogue-motley-anne-voucher = PDV Motley Anne Procurement LPC
 research-technology-rogue-motley-anne-fighters = PDV Motley Anne's Drones
+research-technology-rogue-tier-two-vouchers = PDV Grade 2 Shipyard Production
 
 # T3 rogue
-research-technology-rogue-saturn-voucher = PDV Saturn Procurement LPC
+research-technology-rogue-tier-three-vouchers = PDV Grade 3 Shipyard Production
 research-technology-rogue-prowler-voucher = Stealthcraft Technologies
 research-technology-rogue-hf-sword = Weaponised Resonance Technology
 research-technology-rogue-syndicate-tacsuits = Blood-Red Imitation
