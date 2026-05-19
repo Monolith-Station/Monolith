@@ -381,7 +381,6 @@
 
 - type: entity
   # parent: BaseAction # Mono
-  parent: ActionGravityJump
   id: ActionVulpkaninGravityJump
   name: Leap
   description: Use your agile legs to leap a short distance. Be careful not to bump into anything!
@@ -395,3 +394,7 @@
   #  event: !type:GravityJumpEvent {}
   - type: InstantAction
     useDelay: 12
+    icon:
+      sprite: Interface/Actions/jump.rsi
+      state: icon
+    event: !type:GravityJumpEvent {}
