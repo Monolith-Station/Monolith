@@ -85,6 +85,8 @@ public sealed partial class BankSystem
             return;
         }
 
+        state.Balance = bank.Balance;
+
         ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-withdraw-successful"));
         PlayConfirmSound(uid, component);
         _adminLogger.Add(LogType.ATMUsage, LogImpact.Low, $"{ToPrettyString(player):actor} withdrew {args.Amount} from {ToPrettyString(component.Owner)}");
