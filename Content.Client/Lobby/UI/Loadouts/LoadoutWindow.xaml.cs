@@ -31,6 +31,7 @@ public sealed partial class LoadoutWindow : FancyWindow
     public LoadoutWindow(HumanoidCharacterProfile profile, RoleLoadout loadout, RoleLoadoutPrototype proto, ICommonSession session, IDependencyCollection collection)
     {
         RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this);
         Profile = profile;
         var protoManager = collection.Resolve<IPrototypeManager>();
         RoleNameEdit.IsValid = text => text.Length <= HumanoidCharacterProfile.MaxLoadoutNameLength;
