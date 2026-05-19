@@ -161,6 +161,8 @@ public sealed partial class BankSystem : SharedBankSystem
         if (tax)
         {
             GetTaxedDepositAmount(amount, bank.Balance, out var afterTax, out var taxedAway);
+            toSector = afterTax;
+            toLongTerm = taxedAway;
             _ = _coins.AddMonoCoinsAsync(session.UserId, taxedAway);
         }
 
