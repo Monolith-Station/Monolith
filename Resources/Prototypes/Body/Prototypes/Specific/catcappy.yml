@@ -1,0 +1,13 @@
+﻿- type: body
+  id: CatCappy
+  name: "cat"
+  root: torso
+  slots:
+    torso:
+      part: TorsoAnimal
+      organs:
+        lungs: OrganAnimalLungs
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        heart: OrganAnimalHeart
+        kidneys: OrganAnimalKidneys
