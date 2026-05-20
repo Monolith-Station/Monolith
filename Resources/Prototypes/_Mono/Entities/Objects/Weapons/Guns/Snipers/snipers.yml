@@ -2,15 +2,16 @@
   id: WeaponRifleAK410
   name: NCI AK-410 (7.62x54mmR)
   parent: BaseWeaponRifle
-  description: "Bullpup DMR feeding from 762x54mmR magazines, developed to modernize USSP long-range infantry weapons."
+  description: "Bullpup DMR feeding from 7.62x54mmR magazines, developed to modernize USSP long-range infantry weapons. It has an Erebus railmount attached to the reciever for optics."
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Snipers/ak410.rsi
     layers:
-    - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
     - state: base
       map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - map: ["opticAttachment"]
   - type: Item # Mono
     size: Huge
     sprite: _Mono/Objects/Weapons/Guns/Snipers/ak410_inhands_32x.rsi
@@ -54,24 +55,63 @@
         whitelist:
           tags:
           - Cartridge762x54mmRFMJ
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        startingItem: GunAttachmentOpticErebus8x
+        priority: 0
+        whitelist:
+          tags:
+          - MonoOpticErebusRailmount
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: CursorOffsetRequiresWield
-  - type: EyeCursorOffset
-    maxOffset: 2.5
-    pvsIncrease: 0.4
-  - type: SpeedModifiedOnWield # Mono
+  - type: SpeedModifiedOnWield
     walkModifier: 0.85
     sprintModifier: 0.85
-  - type: PirateBountyItem # Mono
+  - type: PirateBountyItem
     id: StandardFactionLongarm
+  # Attachment slop
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - MonoOpticErebusRailmount
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      opticAttachment:
+      - containerId: attachment_optic
+        state: optic2x
+        whitelist:
+          tags:
+          - MonoOptic2x
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - MonoOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - MonoOptic8x
 
 - type: entity
   id: WeaponRifleLeeEnfield
@@ -82,10 +122,10 @@
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Snipers/lee_enfield.rsi
     layers:
-    - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
     - state: base
       map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
   - type: Item # Mono
     size: Huge
     sprite: _Mono/Objects/Weapons/Guns/Snipers/lee_enfield_inhands_32x.rsi

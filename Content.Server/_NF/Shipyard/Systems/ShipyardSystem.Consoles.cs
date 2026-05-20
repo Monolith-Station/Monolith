@@ -990,9 +990,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         int resaleValue = baseAppraisal;
         if (!console.Comp.IgnoreBaseSaleRate)
             resaleValue = (int)(_baseSaleRate * resaleValue);
-
-        resaleValue -= CalculateTotalSalesTax(console.Comp, resaleValue);
-        return resaleValue;
+        var unBalanceTaxedResaleValue = resaleValue - CalculateTotalSalesTax(console.Comp, resaleValue);
+        return unBalanceTaxedResaleValue;
     }
 
     // Calculates total sales tax over all accounts.
