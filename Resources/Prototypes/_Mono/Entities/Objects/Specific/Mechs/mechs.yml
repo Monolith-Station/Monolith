@@ -443,7 +443,7 @@
     criticalPowerStateSpeedPenalty: 0.85
     maxEquipmentAmount: 3
     airtight: true
-    maxIntegrity: 4000
+    maxIntegrity: 3000
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -460,7 +460,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 4000
+        damage: 6000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -651,7 +651,7 @@
     criticalPowerStateSpeedPenalty: 0.95
     maxEquipmentAmount: 1
     airtight: true
-    maxIntegrity: 3000
+    maxIntegrity: 2000
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -660,7 +660,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 6000
+        damage: 4000
       behaviors:
       - !type:PlaySoundBehavior
         sound:

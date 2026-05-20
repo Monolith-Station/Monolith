@@ -206,4 +206,26 @@ public sealed partial class MonoCVars
         CVarDef.Create("mono.company_whitelist", true, CVar.ARCHIVE | CVar.REPLICATED);
 
     #endregion
+
+    #region Bank
+
+    /// <summary>
+    ///     Threshold before the IRS comes into effect.
+    /// </summary>
+    public static readonly CVarDef<float> DepositThreshold =
+        CVarDef.Create("mono.deposit.threshold", 2000000f, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    ///     How exponential taxes are. When I set this to 5, it broke the integer limit, so probably don't mess with it.
+    /// </summary>
+    public static readonly CVarDef<float> DepositHighExp =
+        CVarDef.Create("mono.deposit.high_exp", 2f, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    ///     Whether to enable depositing cash. Good for admin events or sandbox.
+    /// </summary>
+    public static readonly CVarDef<bool> DepositEnabled =
+        CVarDef.Create("mono.deposit.enabled", true, CVar.SERVER | CVar.REPLICATED);
+
+    #endregion
 }
