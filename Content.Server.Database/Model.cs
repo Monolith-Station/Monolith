@@ -401,7 +401,7 @@ namespace Content.Server.Database
         public Guid UserId { get; set; }
         public int SelectedCharacterSlot { get; set; }
         public string AdminOOCColor { get; set; } = null!;
-        public int MonoCoins { get; set; } = 0;
+        public long MonoCoins { get; set; } = 0;
         public List<Profile> Profiles { get; } = new();
     }
 

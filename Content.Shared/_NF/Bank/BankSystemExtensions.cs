@@ -25,7 +25,7 @@ public static class BankSystemExtensions
     /// <param name="symbolOverride">Optionally override the symbol</param>
     /// <param name="separatorOverride">Optionally override the separator</param>
     /// <returns></returns>
-    public static string ToCurrencyString(int amount, CultureInfo? culture = null, string? symbolOverride = null, string? separatorOverride = null, CurrencySymbolLocation symbolLocation = CurrencySymbolLocation.Default)
+    public static string ToCurrencyString(long amount, CultureInfo? culture = null, string? symbolOverride = null, string? separatorOverride = null, CurrencySymbolLocation symbolLocation = CurrencySymbolLocation.Default)
     {
         culture ??= CultureInfo.CurrentCulture;
         var numberFormat = (NumberFormatInfo) culture.NumberFormat.Clone();
@@ -57,24 +57,23 @@ public static class BankSystemExtensions
     }
 
     // Convenience methods for specific currencies.
-    public static string ToIndependentString(int amount, CultureInfo? culture = null)
+    public static string ToIndependentString(long amount, CultureInfo? culture = null)
     {
         return ToCurrencyString(amount, culture, symbolOverride: "", symbolLocation: CurrencySymbolLocation.Prefix); //Prefix results in no space, prefer that.
     }
 
-    public static string ToSpesoString(int amount, CultureInfo? culture = null)
+    public static string ToSpesoString(long amount, CultureInfo? culture = null)
     {
         return ToCurrencyString(amount, culture, symbolOverride: "$", symbolLocation: CurrencySymbolLocation.Prefix);
     }
 
-    public static string ToDoubloonString(int amount, CultureInfo? culture = null)
+    public static string ToDoubloonString(long amount, CultureInfo? culture = null)
     {
         return ToCurrencyString(amount, culture, symbolOverride: "DB", symbolLocation: CurrencySymbolLocation.Suffix);
     }
 
-    public static string ToFMCString(int amount, CultureInfo? culture = null)
+    public static string ToFMCString(long amount, CultureInfo? culture = null)
     {
         return ToCurrencyString(amount, culture, symbolOverride: "FMC", symbolLocation: CurrencySymbolLocation.Suffix);
     }
 }
-
