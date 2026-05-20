@@ -25,6 +25,9 @@
   stations:
     Eris:
       stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Built to be cheap and effective, this ship nonetheless manages to make several tons of steel feel like a rickety bridge.
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Eris PDV{1}'
