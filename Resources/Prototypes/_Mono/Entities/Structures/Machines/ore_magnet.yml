@@ -103,6 +103,12 @@
     off: item-toggle-examine-magnet-off
   - type: Machine
     board: OreMagnetMachineCircuitboard
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      machine_board: !type:Container
+      machine_parts: !type:Container
 
 - type: entity
   name: ore magnet flatpack
