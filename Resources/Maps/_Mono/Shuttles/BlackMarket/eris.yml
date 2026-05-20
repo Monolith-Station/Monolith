@@ -4,7 +4,7 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 05/20/2026 15:06:46
+  time: 05/20/2026 18:36:51
   entityCount: 832
 maps: []
 grids:
@@ -100,10 +100,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
         MetalFoam: []
-        Puddle: []
         Kudzu: []
+        Smoke: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1874,21 +1874,9 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerTabletopCrewMonitoring
+- proto: ComputerTabletopAdvancedRadar
   entities:
   - uid: 749
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,11.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-- proto: ComputerTabletopResearchAndDevelopment
-  entities:
-  - uid: 748
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -1904,6 +1892,18 @@ entities:
     components:
     - type: Transform
       pos: 5.5,14.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+- proto: ComputerTabletopStationRecords
+  entities:
+  - uid: 748
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,11.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
