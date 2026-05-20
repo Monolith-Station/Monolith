@@ -74,3 +74,6 @@ nf-ghost-role-information-derelict-cyborg-description = You are a cyborg that's 
 
 nf-ghost-role-information-buddy-name = Buddy
 nf-ghost-role-information-buddy-description = You were constructed from a Build-A-Buddy kit. Become someone's best friend today!
+
+ghost-role-information-moffy-name = Moffy
+ghost-role-information-moffy-description = Most loyal of the viziers mothroaches

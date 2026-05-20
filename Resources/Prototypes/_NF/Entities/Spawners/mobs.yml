@@ -50,3 +50,16 @@
   - type: ConditionalSpawner
     prototypes:
       - MobKoboldYipyip
+
+- type: entity
+  name: Moffy Spawner
+  id: SpawnMobMothroachMoffy
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobMothroachMoffy

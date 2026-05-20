@@ -123,6 +123,11 @@
     sprite: _NF/Clothing/Head/Hats/pirate_hat.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/pirate_hat.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - PetWearable
+  - type: CatWearable
 
 - type: entity
   parent: ClothingHeadBaseButcherable
@@ -134,6 +139,11 @@
     sprite: _NF/Clothing/Head/Hats/pirate_hat_luffy.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/pirate_hat_luffy.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - PetWearable
+  - type: CatWearable
 
 - type: entity
   parent: ClothingHeadBaseButcherable
@@ -145,6 +155,10 @@
     sprite: _NF/Clothing/Head/Hats/nfsd_beret_green.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/nfsd_beret_green.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - PetWearable
   - type: CatWearable
 
 - type: entity
@@ -157,6 +171,10 @@
     sprite: _NF/Clothing/Head/Hats/nfsd_beret_brown.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/nfsd_beret_brown.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - PetWearable
   - type: CatWearable
 
 - type: entity
@@ -169,6 +187,10 @@
     sprite: _NF/Clothing/Head/Hats/nfsd_beret_cream.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/nfsd_beret_cream.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - PetWearable
   - type: CatWearable
 
 - type: entity
@@ -223,6 +245,10 @@
     sprite: _NF/Clothing/Head/Hats/nfsd_campaign_small.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/nfsd_campaign_small.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - PetWearable
   - type: CatWearable
   - type: PirateBountyItem
     id: CampaignHat
@@ -237,7 +263,11 @@
     sprite: _NF/Clothing/Head/Hats/sr_cap.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/sr_cap.rsi
-  - type: HamsterWearable
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - PetWearable
+  - type: CatWearable
 
 - type: entity
   parent: ClothingHeadHatHopcap
@@ -249,6 +279,10 @@
     sprite: _NF/Clothing/Head/Hats/sr_beret.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/sr_beret.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - PetWearable
   - type: CatWearable
 
 - type: entity
@@ -261,13 +295,23 @@
     sprite: _NF/Clothing/Head/Hats/stc_cap.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/stc_cap.rsi
-  - type: HamsterWearable
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - PetWearable
+  - type: CatWearable
 
 - type: entity
   parent: ClothingHeadHatBeretHoS
   id: ClothingHeadHatBeretCommander
   name: commander's beret
   description: A black beret with a commander's rank emblem.
+  components:
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - PetWearable
+  - type: CatWearable
 
 - type: entity
   parent: ClothingHeadHatBeretHoS
@@ -279,6 +323,11 @@
     sprite: _Mono/Clothing/Head/Hats/tsf_blue_beret.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Head/Hats/tsf_blue_beret.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - PetWearable
+  - type: CatWearable
 
 - type: entity
   parent: ClothingHeadHatHopcap
@@ -293,4 +342,6 @@
   - type: Tag
     tags:
     - HamsterWearable
+    - PetWearable
     - WhitelistChameleon
+  - type: CatWearable

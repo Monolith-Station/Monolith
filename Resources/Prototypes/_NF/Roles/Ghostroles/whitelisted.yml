@@ -78,3 +78,10 @@
   description: nf-ghost-role-information-buddy-description
   rules: ghost-role-information-nonantagonist-rules
   entityPrototype: NFMobHumanBuddy
+
+- type: ghostRole
+  id: Moffy
+  name: ghost-role-information-moffy-name
+  description: ghost-role-information-moffy-description
+  rules: ghost-role-information-emotional-support-rules
+  entityPrototype: MobMothroachMoffy

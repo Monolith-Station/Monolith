@@ -111,12 +111,39 @@
     states:
       Alive:
         Base: nfsdcat
+  - type: Temperature
+    heatDamageThreshold: 423
+    coldDamageThreshold: 0
+  - type: PressureImmunity
+  - type: Insulated
   - type: GhostRole
     name: ghost-role-information-cappy-name
     description: ghost-role-information-cappy-description
     rules: ghost-role-information-nonantagonist-rules
-    prototype: CatCappy
     mindRoles: [ MindRoleGhostRoleNeutral ]
+  # Shitmed Change Start
+  - type: SurgeryTarget
+  - type: Targeting
+  - type: Body # Shitmed Change
+    prototype: CatCappy
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+  # Shitmed Change End
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: IntrinsicUI # Mono
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionObserverShowRadar
+  - type: RadarConsole # Mono
+    followEntity: true
+    noRotate: true
+    maxIffRange: 0
+    hideCoords: false
   - type: Loadout
     prototypes: [ MobCappyGear ]
   - type: ReplacementAccent
@@ -131,10 +158,14 @@
   - type: FlashImmunity
   - type: IntrinsicRadioTransmitter
     channels:
+    - Common
     - Nfsd
+    - Traffic
   - type: ActiveRadio
     channels:
+    - Common
     - Nfsd
+    - Traffic
   - type: MeleeWeapon
     damage:
       types:
@@ -146,6 +177,14 @@
       - Cat
       - NanoTrasen
       - TSFMC
+  - type: LanguageKnowledge
+    speaks:
+    - Cat
+    - SolCommon
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+    - SolCommon
   - type: Speech
     speechSounds: NfsdCat
     speechVerb: SmallMob
@@ -162,6 +201,8 @@
   - type: SouthernAccent
   - type: Company
     companyName: TSF
+  - type: Respirator #It just works?
+    minSaturation: 5.0
 
 - type: entity
   name: El Capo
@@ -411,3 +452,134 @@
       - horns:
           horns_curled: YipYipHornColors
   - type: CargoSellBlacklist
+
+- type: entity
+  name: Moffy
+  parent: [NFMobPet, MobMothroach, ShowSecurityIcons]
+  id: MobMothroachMoffy
+  description: First mothroach to prove themselves to the vizier.
+  components:
+  - type: GhostRole
+    name: ghost-role-information-moffy-name
+    description: ghost-role-information-moffy-description
+    rules: ghost-role-information-nonantagonist-rules
+    prototype: MobMothroach
+    mindRoles: [ MindRoleGhostRoleNeutral ]
+  - type: FaxableObject
+    insertingState: inserting_mothroach
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/mothroach.rsi
+  - type: Clothing
+    sprite: Mobs/Animals/mothroach/mothroach.rsi
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSlime
+      amount: 2    
+    - id: MaterialHideRosyMothroach
+      amount: 1
+      prob: 0.3
+  - type: Temperature
+    heatDamageThreshold: 423
+    coldDamageThreshold: 0
+  - type: PressureImmunity
+  - type: Insulated
+  # Shitmed Change Start
+  - type: SurgeryTarget
+  - type: Targeting
+  - type: Body # Shitmed Change
+    prototype: Mothroach
+  - type: Strippable
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+  # Shitmed Change End
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: IntrinsicUI # Mono
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionObserverShowRadar
+  - type: RadarConsole # Mono
+    followEntity: true
+    noRotate: true
+    maxIffRange: 0
+    hideCoords: false
+  - type: Loadout
+    prototypes: [ MobMoffyGear ]
+  - type: MothAccent
+  - type: RandomMetadata
+    nameSegments: [moffy]
+  - type: AutoImplant
+    implants:
+    - MindShieldImplant
+    - TrackingImplant
+    - LightImplant
+  - type: FlashImmunity
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Freelance
+    - Traffic
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Freelance
+    - Traffic
+  - type: Puller
+    needsHands: false
+  - type: NpcFactionMember
+    factions:
+      - Mouse
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Moffic
+    - Freespeak
+    - TauCetiBasic
+    understands:
+    - Moffic
+    - Freespeak
+    - TauCetiBasic
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Squeak
+  - type: PirateAccent
+    audioParams:
+      volume: -2
+      rolloffFactor: 4.5
+      pitch: 0.7
+    allowedEmotes: ['Chitter', 'Squeak']
+  - type: Respirator #It just works?
+    minSaturation: 5.0
+  - type: InventorySlots
+  - type: Inventory
+    speciesId: hamster
+    templateId: moffy
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: mask
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: suitstorage
+      eyes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: eyes
+      neck:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: neck
