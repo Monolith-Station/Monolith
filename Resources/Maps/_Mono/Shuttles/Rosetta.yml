@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 05/21/2026 18:40:38
-  entityCount: 1183
+  time: 05/21/2026 19:14:04
+  entityCount: 1197
 maps: []
 grids:
 - 1
@@ -97,9 +97,9 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
+        Kudzu: []
         Puddle: []
         Smoke: []
-        Kudzu: []
         MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -838,7 +838,7 @@ entities:
       pos: 0.5,-1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -19774.033
+      secondsUntilStateChange: -19850.074
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -851,7 +851,7 @@ entities:
       pos: -1.5,0.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -23186.428
+      secondsUntilStateChange: -23262.469
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1607,6 +1607,76 @@ entities:
     components:
     - type: Transform
       pos: -11.5,11.5
+      parent: 1
+  - uid: 1121
+    components:
+    - type: Transform
+      pos: -0.5,11.5
+      parent: 1
+  - uid: 1122
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 1
+  - uid: 1123
+    components:
+    - type: Transform
+      pos: 1.5,11.5
+      parent: 1
+  - uid: 1124
+    components:
+    - type: Transform
+      pos: 1.5,10.5
+      parent: 1
+  - uid: 1125
+    components:
+    - type: Transform
+      pos: 1.5,12.5
+      parent: 1
+  - uid: 1126
+    components:
+    - type: Transform
+      pos: 4.5,13.5
+      parent: 1
+  - uid: 1127
+    components:
+    - type: Transform
+      pos: 4.5,12.5
+      parent: 1
+  - uid: 1128
+    components:
+    - type: Transform
+      pos: 4.5,11.5
+      parent: 1
+  - uid: 1129
+    components:
+    - type: Transform
+      pos: 4.5,10.5
+      parent: 1
+  - uid: 1130
+    components:
+    - type: Transform
+      pos: 4.5,9.5
+      parent: 1
+  - uid: 1131
+    components:
+    - type: Transform
+      pos: 6.5,11.5
+      parent: 1
+  - uid: 1132
+    components:
+    - type: Transform
+      pos: 5.5,11.5
+      parent: 1
+  - uid: 1133
+    components:
+    - type: Transform
+      pos: 3.5,11.5
+      parent: 1
+  - uid: 1134
+    components:
+    - type: Transform
+      pos: 2.5,11.5
       parent: 1
 - proto: Autolathe
   entities:
