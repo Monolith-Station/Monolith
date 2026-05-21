@@ -51,10 +51,9 @@ namespace Content.Server.Database
         #endregion
 
         #region MonoCoins
-        Task<int> GetMonoCoinsAsync(NetUserId userId, CancellationToken cancel = default);
-        Task SetMonoCoinsAsync(NetUserId userId, int balance, CancellationToken cancel = default);
-        Task<int> AddMonoCoinsAsync(NetUserId userId, int amount, CancellationToken cancel = default);
-        Task<bool> TrySubtractMonoCoinsAsync(NetUserId userId, int amount, CancellationToken cancel = default);
+        Task<long> GetMonoCoinsAsync(NetUserId userId, CancellationToken cancel = default);
+        Task SetMonoCoinsAsync(NetUserId userId, long balance, CancellationToken cancel = default);
+        Task<long> AddMonoCoinsAsync(NetUserId userId, long amount, CancellationToken cancel = default);
         #endregion
 
         #region User Ids
@@ -519,28 +518,22 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetPlayerPreferencesAsync(userId, cancel));
         }
 
-        public Task<int> GetMonoCoinsAsync(NetUserId userId, CancellationToken cancel = default)
+        public Task<long> GetMonoCoinsAsync(NetUserId userId, CancellationToken cancel = default)
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetMonoCoinsAsync(userId, cancel));
         }
 
-        public Task SetMonoCoinsAsync(NetUserId userId, int balance, CancellationToken cancel = default)
+        public Task SetMonoCoinsAsync(NetUserId userId, long balance, CancellationToken cancel = default)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.SetMonoCoinsAsync(userId, balance, cancel));
         }
 
-        public Task<int> AddMonoCoinsAsync(NetUserId userId, int amount, CancellationToken cancel = default)
+        public Task<long> AddMonoCoinsAsync(NetUserId userId, long amount, CancellationToken cancel = default)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.AddMonoCoinsAsync(userId, amount, cancel));
-        }
-
-        public Task<bool> TrySubtractMonoCoinsAsync(NetUserId userId, int amount, CancellationToken cancel = default)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.TrySubtractMonoCoinsAsync(userId, amount, cancel));
         }
 
         public Task AssignUserIdAsync(string name, NetUserId userId)

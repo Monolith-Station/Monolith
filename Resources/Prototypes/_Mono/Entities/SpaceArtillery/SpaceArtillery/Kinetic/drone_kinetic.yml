@@ -3,9 +3,9 @@
   name: Light mass driver "Shard"
   parent:
   - BallisticArtillery
-  - BallisticArtilleryTier2HP
+  - BallisticArtilleryTier1HP
   description: Ultralight mass driver weapon of unknown origin, designated "Shard" during initial reverse engineering attempts. Light damage, but long range and little upkeep to mount on ships.
-  suffix: DRONE ONLY
+  suffix: Drone T1
   components:
   - type: StaticPrice
     price: 10000
@@ -60,9 +60,9 @@
   name: Pinhole-class railgun
   parent:
   - BallisticArtillery
-  - BallisticArtilleryTier4HP
+  - BallisticArtilleryTier2HP
   description: Mass driver weapon of unknown origin. Reverse engineering attempts have indicated extremely high projectile velocity and high-mass projectiles with unresolved ship-pushing payload.
-  suffix: DRONE ONLY
+  suffix: Drone T2
   components:
   - type: StaticPrice
     price: 30000

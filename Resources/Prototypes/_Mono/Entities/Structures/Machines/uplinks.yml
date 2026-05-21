@@ -1,0 +1,98 @@
+- type: entity
+  parent: [StorePresetSecurityUplink, VendingMachine]
+  id: VendingMachineTSFMCUplink
+  name: TSFMC equipment requisition station
+  description: A central TSFMC material access lift. Lets you access deep storage at the cost of FMC, which represent merit and accumulated resources.
+  components:
+  - type: VendingMachine
+    cashSlot: Null
+    offState: tsf
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Advertise
+    pack: FactionUplinkAds
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/VendingMachines/usspvend.rsi
+    layers:
+    - state: tsf
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: normal-unshaded
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.3
+    color: "#2b82ad"
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    categories:
+    - UplinkSecurityHardsuits
+    - UplinkSecurityWeapons
+    - UplinkSecurityAmmo
+    - UplinkSecurityUtility
+    - UplinkSecurityExplosives
+    - UplinkSecurityBundles
+    - UplinkSecurityVouchers # Mono
+    balance:
+      FederationMilitaryCredit: 25
+  - type: AccessReader
+    access: [["Security"]]
+  - type: CompanyAccessReader
+    requiredCompany: TSF
+  - type: Tag
+    tags:
+    - SecurityUplink
+    - FactionStaticUplinkTsf
+
+- type: entity
+  parent: [StorePresetPirateUplink, VendingMachine]
+  id: VendingMachinePDVUplink
+  name: PDV equipment requisition station
+  description: A central PDV material access lift. Lets you access deep storage at the cost of data chits, which represent merit and accumulated resources.
+  components:
+  - type: VendingMachine
+    cashSlot: Null
+    offState: pdv
+    brokenState: broken
+    normalState: pdv-unshaded
+  - type: Advertise
+    pack: FactionUplinkAds
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/VendingMachines/usspvend.rsi
+    layers:
+    - state: pdv
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: pdv-unshaded
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.3
+    color: "#2bad41"
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    balance:
+      Doubloon: 25
+  - type: AccessReader
+    access: [["Pirate"]]
+  - type: CompanyAccessReader
+    requiredCompany: PDV
+    popupMessage: company-pdv-access-denied
+  - type: Tag
+    tags:
+    - PirateUplink
+    - FactionStaticUplinkPdv

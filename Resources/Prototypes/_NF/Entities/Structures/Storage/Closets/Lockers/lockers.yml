@@ -193,7 +193,7 @@
 - type: entity
   id: LockerStationRepresentative
   parent: [BaseStructureIndestructible, BaseStructureLockImmuneToEmag, BaseStructureAccessReaderImmuneToEmag, NFLockerBaseSecure, LockerHeadOfPersonnel]
-  name: colonial liaison's locker
+  name: overseer's locker
   components:
   - type: EntityStorageVisuals
     stateBaseClosed: sr

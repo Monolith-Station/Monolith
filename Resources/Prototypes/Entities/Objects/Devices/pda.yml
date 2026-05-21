@@ -151,6 +151,7 @@
     mindRoles: [] # Frontier: no default value here
   - type: ShipyardSellCondition # Frontier: Teleport to shipyard console on sale
     preserveOnSale: true
+  - type: RetroMonitorView # Mono
 
 - type: entity
   parent: BasePDA

@@ -119,6 +119,7 @@
       state: default
   - type: ShowJobIcons
   - type: AdvancedPilot # can use both gunnery and shuttle console even on capitals
+  - type: RetroMonitorView
 
 - type: entity
   id: BaseBorgChassisRedacted
@@ -169,7 +170,7 @@
   id: BorgChassisRedacted
   parent: BaseBorgChassisRedacted
   name: remnant automated defense system tender
-  description: A tender to a automated drone ship, to keep internal mechanisms intact.
+  description: A tender to an automated drone ship, to keep its internal mechanisms intact.
   components:
   - type: Sprite
     layers:

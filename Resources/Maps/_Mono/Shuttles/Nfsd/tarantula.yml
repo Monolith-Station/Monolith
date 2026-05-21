@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/14/2026 15:43:49
-  entityCount: 1230
+  time: 05/06/2026 07:00:35
+  entityCount: 1227
 maps: []
 grids:
 - 1
@@ -103,10 +103,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Kudzu: []
         MetalFoam: []
+        Smoke: []
         Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -606,6 +606,7 @@ entities:
         0,1: 3903
         -1,-2: 13835058055282163712
         0,-2: 504403158265495552
+    - type: ThermalSignature
   - uid: 2
     components:
     - type: MetaData
@@ -3378,28 +3379,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerGunneryConsole
-  entities:
-  - uid: 488
-    components:
-    - type: Transform
-      pos: 1.5,6.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-- proto: ComputerIFF
-  entities:
-  - uid: 489
-    components:
-    - type: Transform
-      pos: -0.5,6.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
 - proto: ComputerPowerMonitoring
   entities:
   - uid: 490
@@ -3408,19 +3387,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,5.5
       parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-- proto: ComputerShuttle
-  entities:
-  - uid: 491
-    components:
-    - type: Transform
-      pos: 0.5,6.5
-      parent: 1
-    - type: ShuttleConsoleLock
-      locked: False
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery
