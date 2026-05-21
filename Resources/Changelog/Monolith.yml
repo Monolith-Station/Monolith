@@ -21138,3 +21138,122 @@ Entries:
   id: 2330
   time: '2026-05-16T21:54:59.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4010
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: >-
+        Added a support fighter designed to work with the ocelot, TSF Jaguar!
+        armed with a TARYNX and plenty of PD to shred anything that lacks
+        armour.
+    - type: Tweak
+      message: >-
+        Updated ocelot to the latest mapping standards/changed up its gun
+        layout.
+  id: 2331
+  time: '2026-05-18T07:33:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4009
+- author: IronmoonHeathen
+  changes:
+    - type: Add
+      message: >-
+        Added sidearm category for PDV and TSF. Roughly based on roundstart
+        obtainable uplink item or existing loadout weapon option
+    - type: Tweak
+      message: >-
+        Hawk pistol is moved from PDV primary to PDV command secondary. Making
+        it possible for them to also start with a longarm option now
+  id: 2332
+  time: '2026-05-18T10:20:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4013
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added the Mk.6 TPGL "Anubis" to TSFMC T3 weapon research.
+  id: 2333
+  time: '2026-05-19T00:10:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3896
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Basic attachments system with suppressors, optics, and grips. So far,
+        only supports Bandit, Ratel, AK-502, AK-410, MR-8C, Drozd, Lecter, Big
+        Johnny, M-90, WSPR, Annie, Vector(s), and MLA-73. Print roundstart at
+        military lathes for a small cost.
+  id: 2334
+  time: '2026-05-19T10:02:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3989
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Instead of being taxed, excess money now goes to your savings account,
+        which can be used for loadouts (and possibly more in the future)
+    - type: Remove
+      message: Taxes.
+    - type: Remove
+      message: Monocoins.
+    - type: Fix
+      message: No more "TSF Central Bank".
+  id: 2335
+  time: '2026-05-19T16:21:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4021
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed loadouts not opening.
+  id: 2336
+  time: '2026-05-19T16:43:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4023
+- author: SarahRaven
+  changes:
+    - type: Tweak
+      message: >-
+        Modified the way deathrattles work. They now track when someone is being
+        revived, stating they are revived and now in critical state. EMRs
+        rejoice!
+  id: 2337
+  time: '2026-05-21T02:45:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4034
+- author: projectkepler-ru
+  changes:
+    - type: Add
+      message: Medic and Engineer now also get the TSF utility cover and beret
+  id: 2338
+  time: '2026-05-21T02:48:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4025
+- author: LassiH
+  changes:
+    - type: Add
+      message: added lithium and copper to scrap processor
+  id: 2339
+  time: '2026-05-21T02:49:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4020
+- author: 10kee
+  changes:
+    - type: Add
+      message: Vox can now eat garbage/fibrous food.
+    - type: Add
+      message: >-
+        Vox now have cortical stacks, which can be inserted directly into a
+        borg.
+    - type: Tweak
+      message: Vox organs have unique sprites.
+  id: 2340
+  time: '2026-05-21T02:56:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4016
+- author: Mapleflavoureds
+  changes:
+    - type: Tweak
+      message: Contraband Crate sell price reduced
+    - type: Tweak
+      message: Contraband Crate FMC/DC value increased
+    - type: Remove
+      message: Drone Backboxes no longer give money
+    - type: Tweak
+      message: Drone core price increased
+    - type: Tweak
+      message: Drone cores now give off a thermal signature
+  id: 2341
+  time: '2026-05-21T02:58:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4017
