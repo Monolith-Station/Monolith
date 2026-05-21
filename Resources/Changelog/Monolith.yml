@@ -21205,3 +21205,60 @@ Entries:
   id: 2336
   time: '2026-05-19T16:43:41.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4023
+- author: SarahRaven
+  changes:
+    - type: Tweak
+      message: >-
+        Modified the way deathrattles work. They now track when someone is being
+        revived, stating they are revived and now in critical state. EMRs
+        rejoice!
+  id: 2337
+  time: '2026-05-21T02:45:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4034
+- author: projectkepler-ru
+  changes:
+    - type: Add
+      message: Medic and Engineer now also get the TSF utility cover and beret
+  id: 2338
+  time: '2026-05-21T02:48:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4025
+- author: LassiH
+  changes:
+    - type: Add
+      message: added lithium and copper to scrap processor
+  id: 2339
+  time: '2026-05-21T02:49:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4020
+- author: 10kee
+  changes:
+    - type: Add
+      message: Vox can now eat garbage/fibrous food.
+    - type: Add
+      message: >-
+        Vox now have cortical stacks, which can be inserted directly into a
+        borg.
+    - type: Tweak
+      message: Vox organs have unique sprites.
+  id: 2340
+  time: '2026-05-21T02:56:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4016
+- author: Mapleflavoureds
+  changes:
+    - type: Tweak
+      message: Contraband Crate sell price reduced
+    - type: Tweak
+      message: Contraband Crate FMC/DC value increased
+    - type: Remove
+      message: Drone Backboxes no longer give money
+    - type: Tweak
+      message: Drone core price increased
+    - type: Tweak
+      message: Drone cores now give off a thermal signature
+  id: 2341
+  time: '2026-05-21T02:58:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4017
+- author: ari771155
+  changes: []
+  id: 2342
+  time: '2026-05-21T17:44:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4004
