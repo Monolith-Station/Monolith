@@ -48,7 +48,7 @@ public sealed partial class RCDPrototype : IPrototype
     /// If the entity can be flipped, this prototype is available as an alternate (mode dependent)
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public string? MirrorPrototype { get; private set; }
+    public EntProtoId? MirrorPrototype { get; private set; }
 
     /// <summary>
     /// Number of charges consumed when the operation is completed

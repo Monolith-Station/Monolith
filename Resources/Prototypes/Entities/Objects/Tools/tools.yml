@@ -598,7 +598,7 @@
       changeSound:
         path: /Audio/Items/change_drill.ogg
 
-- type: entity #goob port to mono
+- type: entity # Goob to Mono
   id: RPD
   parent: RCD
   name: RPD
@@ -633,7 +633,7 @@
   - type: Sprite
     sprite: Objects/Tools/rpd.rsi
 
-- type: entity
+- type: entity # Goob
   id: RPDEmpty
   parent: RPD
   suffix: Empty
@@ -641,7 +641,7 @@
   - type: LimitedCharges
     charges: 0
 
-- type: entity
+- type: entity # Goob
   id: RPDRecharging
   parent: RPD
   name: experimental RPD
