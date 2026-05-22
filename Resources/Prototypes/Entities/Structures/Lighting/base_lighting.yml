@@ -36,6 +36,7 @@
     color: "#FFE4CE" # 5000K color temp
     energy: 0.8
     radius: 10
+    falloff: 18 # Glory change
     softness: 1
     offset: "0, -0.5"
   - type: Damageable
@@ -173,9 +174,9 @@
     hasLampOnSpawn: LedLightTube
   - type: PointLight
     radius: 15
-    energy: 1
+    energy: 0.4 # Glory change
     softness: 0.9
-    color: "#EEEEFF"
+    color: "#AFEEEEFF" # Glory change
   - type: DamageOnInteract
     damage:
       types:

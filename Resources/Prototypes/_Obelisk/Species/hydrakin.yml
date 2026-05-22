@@ -5,7 +5,7 @@
 - type: species
   id: Hydrakin
   name: species-name-hydrakin
-  roundStart: true
+  roundStart: false # Glory edit - Disabled till rework
   prototype: MobHydrakin
   sprites: MobHydrakinSprites
   defaultSkinTone: "#ffffff"

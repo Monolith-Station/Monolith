@@ -113,12 +113,21 @@
     ports:
     - Toggle
   - type: Gun
-    fireRate: 25
+    fireRate: 15
     recoil: 5 # 1/5x
     projectileSpeed: 216
     minAngle: 0
     maxAngle: 4
     shootThermalSignature: 100000 # ~4.5km if firing continuously
+    # Glory start
+    burstCooldown: 15
+    burstFireRate: 150
+    shotsPerBurst: 220
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    - FullAuto
+    # Glory End
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
     soundEmpty:

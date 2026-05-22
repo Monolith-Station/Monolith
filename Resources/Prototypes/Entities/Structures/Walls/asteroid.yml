@@ -67,6 +67,16 @@
       components: # Frontier
       - MiningGatheringHard # Frontier
       - MiningGatheringSoft # Frontier
+  - type: BiomeEntity
+    biomePrototypes:
+    - Sand
+    - Iron
+    - Rock
+    - Basalt
+    - Snow
+    - Chromite
+    - Andesite
+    processSpriteDirections: true
 
 # Ore veins
 - type: entity

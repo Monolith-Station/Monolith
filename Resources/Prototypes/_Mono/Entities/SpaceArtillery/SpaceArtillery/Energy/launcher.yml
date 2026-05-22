@@ -197,15 +197,15 @@
     - state: space_artillery
   - type: Appearance
   - type: AmmoCounter
-  - type: Battery
-    maxCharge: 2250 # 15 seconds of constant fire, 75 rock walls destroyed per full mag
-    startingCharge: 2250
+  - type: Battery # Glory
+    maxCharge: 500
+    startingCharge: 500
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
   - type: FireControlRotate
   - type: Gun
-    fireRate: 5
+    fireRate: 1.5 # Glory
     recoil: 2 # 2/25x
     projectileSpeed: 20
     minAngle: 0
@@ -217,10 +217,10 @@
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 350
+    autoRechargeRate: 125 # Glory
   - type: SpaceArtillery
-    powerChargeRate: 350
-    powerUsePassive: 500
+    powerChargeRate: 125 # Glory
+    powerUsePassive: 200 # Glory
     powerUseActive: 0
   - type: Actions
   - type: ProjectileBatteryAmmoProvider

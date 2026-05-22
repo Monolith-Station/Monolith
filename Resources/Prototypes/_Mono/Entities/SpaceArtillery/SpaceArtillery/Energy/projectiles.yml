@@ -200,6 +200,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
+    noDamageDelete: false # Glory
     damage:
       types:
         Structural: 15
@@ -221,6 +222,7 @@
   - type: PointLight
     color: "#C92BCC"
   - type: GatheringProjectile
+    amount: 5 # Glory
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
 
