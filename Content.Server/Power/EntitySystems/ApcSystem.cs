@@ -25,6 +25,7 @@ public sealed class ApcSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    private EntityQuery<AppearanceComponent> _appearanceQuery; // Mono
 
     public override void Initialize()
     {
@@ -42,6 +43,8 @@ public sealed class ApcSystem : EntitySystem
         SubscribeLocalEvent<ApcComponent, EmpPulseEvent>(OnEmpPulse);
         SubscribeLocalEvent<ApcComponent, EmpDisabledRemoved>(OnEmpDisabledRemoved); // Frontier: Upstream - #28984
         SubscribeLocalEvent<ApcComponent, ToolUseAttemptEvent>(OnToolUseAttempt); // Frontier
+
+        _appearanceQuery = GetEntityQuery<AppearanceComponent>();
     }
 
     public override void Update(float deltaTime)
@@ -153,7 +156,7 @@ public sealed class ApcSystem : EntitySystem
                 apc.LastChargeState = newState;
                 apc.LastChargeStateTime = _gameTiming.CurTime;
 
-                if (TryComp(uid, out AppearanceComponent? appearance))
+                if (_appearanceQuery.TryComp(uid, out var appearance)) // Mono: AppearanceQuery
                 {
                     _appearance.SetData(uid, ApcVisuals.ChargeState, newState, appearance);
                 }

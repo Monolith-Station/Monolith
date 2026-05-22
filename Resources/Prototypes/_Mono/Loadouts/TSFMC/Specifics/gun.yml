@@ -25,6 +25,18 @@
   - FactionVulcanLoadout
 
 - type: loadoutGroup
+  id: TsfmcSidearm
+  name: loadout-group-pistol
+  minLimit: 1
+  loadouts:
+  - SecurityGuardMk58Loadout
+  - FactionInspectorLoadout
+  - FactionLaserPistolLoadout
+  - ContractorDisablerLoadout
+  fallbacks:
+  - SecurityGuardMk58Loadout
+
+- type: loadoutGroup
   id: TsfmcMag
   name: loadout-group-magazine
   minLimit: 1
@@ -35,7 +47,6 @@
   - Faction762x51mmAmmoLoadout #Vulcan
   - FactionRechargerLoadout #Energy
   # - Faction8x65mmAmmoLoadout #Bandit
-  - FactionAcpPistolAmmoLoadout #MK58
   fallbacks:
   - TSFCaselessAmmoBoxLoadout #Lecter
 
@@ -45,3 +56,14 @@
   storage:
     back:
     - BoxMagazine68x52mmFMJ
+
+- type: loadoutGroup
+  id: TsfmcSidearmAmmo
+  name: loadout-group-pistol-magazine
+  minLimit: 1
+  loadouts:
+  - FactionRechargerLoadout #Energy
+  - FactionMagnum45Loadout # Inspector/Python/Mateba
+  - FactionAcpPistolAmmoLoadout #MK58
+  fallbacks:
+  - FactionAcpPistolAmmoLoadout #MK58

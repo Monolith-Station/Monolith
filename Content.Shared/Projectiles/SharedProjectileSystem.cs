@@ -33,6 +33,9 @@ using System.Collections.Concurrent;
 using Robust.Shared.Timing;
 using Content.Shared._Mono;
 using Content.Shared.Tag;
+using Robust.Shared.Configuration;
+using Content.Shared._Mono.CCVar;
+using Robust.Shared;
 
 namespace Content.Shared.Projectiles;
 
@@ -54,6 +57,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly IParallelManager _parallel = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Mono
 
     // Cache of projectiles waiting for collision checks
     private readonly ConcurrentQueue<(EntityUid Uid, ProjectileComponent Component, EntityUid Target)> _pendingCollisionChecks = new();
@@ -62,6 +66,11 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     private const int ProjectileBatchSize = 16;
     private TimeSpan _lastBatchProcess;
     private readonly TimeSpan _processingInterval = TimeSpan.FromMilliseconds(16); // ~60Hz
+
+    private float _minRaycastVelocity; // Mono
+    private bool _adaptiveRaycasting; // Mono
+    private const int BasePhysicsTickrate = 60; // Mono
+    private int _physicsTickrate; // Mono
 
     public override void Initialize()
     {
@@ -83,6 +92,11 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         // Mono
         SubscribeLocalEvent<ProjectileComponent, TileFrictionEvent>(OnTileFriction);
+
+        Subs.CVar(_cfg, MonoCVars.ProjectileRaycastSpeedThreshold, value => _minRaycastVelocity = value, true);
+        Subs.CVar(_cfg, MonoCVars.ProjectileAdaptiveRaycastThreshold, value => _adaptiveRaycasting = value, true);
+        Subs.CVar(_cfg, CVars.TargetMinimumTickrate, value => _physicsTickrate = value, true);
+        // Mono End
     }
 
     /// <summary>
@@ -106,11 +120,26 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         EnsureComp<MetaDataComponent>(uid);
     }
 
+    /// <summary>
+    /// Mono: Handles whether a projectile is raycasted based off projectile speed.
+    /// </summary>
+    /// <param name="speed"></param>
+    /// <returns></returns>
+    public bool ShouldRaycastProjectile(float speed)
+    {
+        if (_adaptiveRaycasting && speed > _minRaycastVelocity * (_physicsTickrate / BasePhysicsTickrate))
+            return true;
+        else if (speed > _minRaycastVelocity)
+            return true;
+
+        return false;
+    }
+
     private void OnStartCollide(EntityUid uid, ProjectileComponent component, ref StartCollideEvent args)
     {
         // This is so entities that shouldn't get a collision are ignored.
         if (args.OurFixtureId != ProjectileFixture || !args.OtherFixture.Hard
-            || component.DamagedEntity || component.ProjectileSpent || component is { Weapon: null, OnlyCollideWhenShot: true })
+            || component.ProjectileSpent || component is { Weapon: null, OnlyCollideWhenShot: true })
             return;
 
         ProjectileCollide((uid, component, args.OurBody), args.OtherEntity);
@@ -133,13 +162,13 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             SetShooter(uid, component, target);
             return null;
         }
-        
+
         var ev = new ProjectileHitEvent(component.Damage, target, component.Shooter);
         RaiseLocalEvent(uid, ref ev);
         if (ev.Handled)
             return null;
 
-        if (projectile.Comp1.DamagedEntity)
+        if (projectile.Comp1.ProjectileSpent)
         {
             if (_net.IsServer && component.DeleteOnCollide)
                 QueueDel(uid);
@@ -205,11 +234,10 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             _sharedCameraRecoil.KickCamera(target, float.IsNaN(direction.X) ? Vector2.Zero : direction);
         }
 
-        component.DamagedEntity = true;
         Dirty(uid, component);
-        if (!predicted && component.DeleteOnCollide && (_net.IsServer || IsClientSide(uid)))
+        if (!predicted && component.DeleteOnCollide && component.ProjectileSpent && (_net.IsServer || IsClientSide(uid)))
             QueueDel(uid);
-        else if (_net.IsServer && component.DeleteOnCollide)
+        else if (_net.IsServer && component.DeleteOnCollide && component.ProjectileSpent)
         {
             var predictedComp = EnsureComp<PredictedProjectileHitComponent>(uid);
             predictedComp.Origin = _transform.GetMoverCoordinates(coordinates);
@@ -601,6 +629,11 @@ public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, Projectile
 /// </summary>
 [ByRefEvent]
 public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null, bool Handled = false);
+
+/// <summary>
+/// Mono - raised when a projectile is spent
+/// </summary>
+public record struct ProjectileSpentEvent();
 
 /// <summary>
 /// Raised when a projectile is about to collide with an entity, allowing systems to prevent the collision

@@ -459,6 +459,9 @@
       autoRechargeRate: 5
     - type: RechargeableBlocking
       # WD EDIT END
+    - type: ClothingSpeedModifier # Mono
+      sprintModifier: 0.9
+    - type: HeldSpeedModifier
 
 - type: entity
   name: broken energy shield

@@ -14,16 +14,17 @@ research-technology-tsfmc-forensics = Forensics Analysis Devices
 research-technology-tsfmc-portable-recharger = Portable Recharger
 research-technology-tsfmc-motion-detector = Biosignature IFF Technology
 research-technology-tsfmc-basic-module = TSFMC Basic Cyborg Module Developpment
+research-technology-tsfmc-tier-one-vouchers = Grade 1 Shipyard Production
 
 # T2 TSFMC
 research-technology-tsfmc-advanced-weapons = Advanced Portable Weapons Technology
 research-technology-tsfmc-nanofoam = Nanomaterial Growth
 research-technology-tsfmc-eshield = Energy Shielding
 research-technology-tsfmc-advanced-meds = Reconstructive Technologies
-research-technology-tsfmc-altair-voucher = Altair Procurement LPC
+research-technology-tsfmc-tier-two-vouchers = Grade 2 Shipyard Production
 
 # T3 TSFMC
-research-technology-tsfmc-flyssa-voucher = Flyssa Procurement LPC
+research-technology-tsfmc-tier-three-vouchers = Grade 3 Shipyard Production
 research-technology-tsfmc-super-weapons = State-of-the-art Weapons Manufacturing
 research-technology-tsfmc-synthalloy = Experimental Material Science
 research-technology-tsfmc-advanced-module = TSFMC Advanced Cyborg Module Developpment

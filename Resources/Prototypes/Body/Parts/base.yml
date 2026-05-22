@@ -80,6 +80,7 @@
   abstract: true
   id: BaseHead
   name: "head"
+  description: "Doesn't make sense not to live for fun, your brain gets smart but your head gets dumb."
   components:
   - type: Sprite
     state: "head_m"
