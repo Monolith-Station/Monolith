@@ -16,14 +16,23 @@
   name: loadout-group-weapon
   minLimit: 1
   loadouts:
-  - FactionHawk4Pistol
   - FactionC20RLoadout
   - FactionWt550Loadout
   # - FactionLecterLoadout
   - FactionAkmLoadout
   - FactionEnergyGunLoadout
   fallbacks:
-  - FactionHawk4Pistol
+  - FactionC20RLoadout
+
+- type: loadoutGroup
+  id: RogueSidearm
+  name: loadout-group-pistol
+  minLimit: 1
+  loadouts:
+  - FactionPythonLoadout
+  - FactionViperLoadout
+  fallbacks:
+  - FactionViperLoadout
 
 - type: loadoutGroup
   id: RogueMag
@@ -38,3 +47,12 @@
   fallbacks:
   - Faction9x19SMGAmmoLoadout #C20r
 
+- type: loadoutGroup
+  id: RoguePistolMag
+  name: loadout-group-pistol-magazine
+  minLimit: 1
+  loadouts:
+  - Mercenary9x19mmPistolAmmoLoadout #Viper
+  - FactionMagnum45Loadout # Inspector/Python/Mateba
+  fallbacks:
+  - Mercenary9x19mmPistolAmmoLoadout #Viper
