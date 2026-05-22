@@ -24,7 +24,7 @@ public sealed class ESItemMapperSystem : ESSharedItemMapperSystem
         if (!Appearance.TryGetData(ent, ESItemMapperVisuals.Layers, out Dictionary<string, string?> layers, args.Component))
         {
             //throw new Exception($"Couldn't find the necessary {nameof(ESItemMapperVisuals.Layers)} layer on {ToPrettyString(ent)}.");
-            //Mono: Stopgap. Prevents crash in debug mode when looking at lathe menu. Someone more competent can come up with a more comprehensive fix.
+            //Mono: Stopgap, replaced throw with return. Prevents crash in debug mode when looking at lathe menu. Someone more competent can come up with a more comprehensive fix.
             return;
         }
 
