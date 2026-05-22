@@ -49,8 +49,6 @@
 
     </ui:RadialContainer>
     
-    <!--  not sure about hte tab count, edit out comment later -->
-
     <!-- Walls and flooring -->
     <ui:RadialContainer Name="WallsAndFlooring"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
 
