@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 05/13/2026 06:17:31
-  entityCount: 928
+  time: 05/22/2026 10:53:47
+  entityCount: 918
 maps: []
 grids:
 - 2
@@ -16,12 +16,16 @@ tilemap:
   0: Space
   35: FloorDark
   27: FloorDarkAlt
+  41: FloorDarkMonoAlt
   31: FloorDarkPlastic
   3: FloorHullReinforced
   28: FloorMaintGridDark
+  39: FloorMetalDiamond
   89: FloorSteel
   29: FloorTechMaint2
+  42: FloorTechMaint3
   30: FloorTechMaintDark
+  40: FloorWoodLarge
   8: Lattice
   14: LatticeCornerNE
   24: LatticeCornerNW
@@ -66,11 +70,11 @@ entities:
       chunks:
         -1,-1:
           ind: -1,-1
-          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAgAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAbAAAAAAAAGwAAAAAAABwAAAAAAAAdAAAAAAAAHgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAfAAAAAAAAHgAAAAAAAB8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAEAAAAAAAAAwAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAcAAAAAAAAHwAAAAAAAB4AAAAAAAAfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAMAAAAAAAADAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAfAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAIAAAAAAAACAAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAABsAAAAAAAAbAAAAAAAAIQAAAAAAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAoAAAAAAAAIAAAAAAAAAwAAAAAAAAQAAAAAAAAbAAAAAAAAGwAAAAAAAAQAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAAAAAQAAAAAAAAEAAAAAAAAGwAAAAAAABsAAAAAAAAdAAAAAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAAcAAAAAAAAHQAAAAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAwAAAAAAAAQAAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAAAAAAAwAAAAAAAAQAAAAAAAAEAAAAAAAAHQAAAAAAAAQAAAAAAAAEAAAAAAAAHwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAACAAAAAAAAAQAAAAAAAAEAAAAAAAAGwAAAAAAABsAAAAAAAAEAAAAAAAAHwAAAAAAAB8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAABsAAAAAAAAbAAAAAAAABAAAAAAAAAQAAAAAAAAfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIgAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAACMAAAAAAAAbAAAAAAAAGwAAAAAAACMAAAAAAAAeAAAAAAAAIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAGwAAAAAAABsAAAAAAAAEAAAAAAAAIwAAAAAAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAABQAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAACMAAAAAAAAjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAIwAAAAAAAA==
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAgAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAnAAAAAAAABAAAAAAAAAQAAAAAAAAnAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAnAAAAAAAAJwAAAAAAAAQAAAAAAAAnAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAEAAAAAAAAAwAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAACcAAAAAAAAnAAAAAAAABAAAAAAAAAQAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAMAAAAAAAADAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAnAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAIAAAAAAAACAAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAABsAAAAAAAAbAAAAAAAAIQAAAAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAoAAAAAAAAIAAAAAAAAAwAAAAAAAAQAAAAAAAAbAAAAAAAAKQAAAAAAAAQAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAAAAAQAAAAAAAAEAAAAAAAAGwAAAAAAABsAAAAAAAAbAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAEAAAAAAAABAAAAAAAABsAAAAAAAAbAAAAAAAAGwAAAAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAwAAAAAAAAQAAAAAAAAbAAAAAAAAKQAAAAAAABsAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAAAAAAAwAAAAAAAAQAAAAAAAAEAAAAAAAAHQAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAACAAAAAAAAAQAAAAAAAAEAAAAAAAAKgAAAAAAAAQAAAAAAAAEAAAAAAAAHwAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAACoAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIgAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAACMAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAKgAAAAAAACoAAAAAAAAEAAAAAAAAIwAAAAAAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAABQAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAACMAAAAAAAAjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAIwAAAAAAAA==
           version: 7
         0,-1:
           ind: 0,-1
-          tiles: HQAAAAAAAB0AAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAADAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0AAAAAAAAdAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdAAAAAAAAHQAAAAAAAAQAAAAAAAAEAAAAAAAAAwAAAAAAAAMAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAMAAAAAAAADAAAAAAAAJgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAIAAAAAAAACAAAAAAAABMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAFAAAAAAAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwAAAAAAAAEAAAAAAAABAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8AAAAAAAAEAAAAAAAABAAAAAAAAAMAAAAAAAAXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAACAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIwAAAAAAACMAAAAAAAAEAAAAAAAAAwAAAAAAAAMAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAAAAAAAeAAAAAAAABAAAAAAAAAMAAAAAAAADAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjAAAAAAAAIwAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIwAAAAAAACMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+          tiles: JwAAAAAAACcAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAADAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnAAAAAAAAJwAAAAAAAAQAAAAAAAAEAAAAAAAAAwAAAAAAAAMAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAMAAAAAAAADAAAAAAAAJgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAIAAAAAAAACAAAAAAAABMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAFAAAAAAAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8AAAAAAAAEAAAAAAAABAAAAAAAAAMAAAAAAAAXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAACAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIwAAAAAAACMAAAAAAAAEAAAAAAAAAwAAAAAAAAMAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAAAAAAAeAAAAAAAABAAAAAAAAAMAAAAAAAADAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjAAAAAAAAIwAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIwAAAAAAACMAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
           version: 7
         0,0:
           ind: 0,0
@@ -86,7 +90,7 @@ entities:
           version: 7
         -1,-2:
           ind: -1,-2
-          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAIAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAHAAAAAAAAB8AAAAAAAAfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAADAAAAAAAAAwAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAB4AAAAAAAAeAAAAAAAAHwAAAAAAAA==
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAIAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAJwAAAAAAACcAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAADAAAAAAAAAwAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAA==
           version: 7
     - type: Broadphase
     - type: Physics
@@ -130,15 +134,17 @@ entities:
           decals:
             120: -9.975372,-3.792271
         - node:
-            color: '#3AB3DAFF'
-            id: BoxGreyscale
+            color: '#DDC3A1FF'
+            id: BrickTileWhiteEndN
           decals:
-            20: 0,-10
+            167: -1,-11
+            168: 0,-11
         - node:
-            color: '#B02E26FF'
-            id: BoxGreyscale
+            color: '#DDC3A1FF'
+            id: BrickTileWhiteEndS
           decals:
-            21: 0,-11
+            169: -1,-12
+            170: 0,-12
         - node:
             angle: 1.5707963267948966 rad
             color: '#D2B48CFF'
@@ -157,16 +163,12 @@ entities:
             id: DirtHeavy
           decals:
             145: -5,-3
-            151: -1,-10
-            155: -3,-17
         - node:
             cleanable: True
             color: '#FFFFFFFF'
             id: DirtHeavyMonotile
           decals:
             144: -4,-3
-            152: -4,-14
-            156: -3,-16
         - node:
             color: '#FFFFFFFF'
             id: DirtLight
@@ -178,8 +180,17 @@ entities:
             id: DirtLight
           decals:
             150: 1,-2
-            153: 1,-15
             154: -2,-18
+        - node:
+            color: '#FFFFFFFF'
+            id: Rust
+          decals:
+            160: -6,-15
+            161: -2,-16
+            162: -4,-14
+            163: -3,-18
+            164: -2,-13
+            165: -5,-16
         - node:
             color: '#D2B48CFF'
             id: ShiptestOverlayTrimlineEast
@@ -206,14 +217,8 @@ entities:
             66: 0,0
         - node:
             color: '#D2B48CFF'
-            id: ShiptestOverlayTrimlineSouth
-          decals:
-            18: -4,-16
-        - node:
-            color: '#D2B48CFF'
             id: ShiptestOverlayTrimlineSouthEastCorner
           decals:
-            19: -5,-16
             39: -4,-12
             42: -4,-9
             74: 0,-6
@@ -221,7 +226,6 @@ entities:
             color: '#D2B48CFF'
             id: ShiptestOverlayTrimlineSouthWestCorner
           decals:
-            16: -3,-16
             40: -3,-12
             41: -3,-9
             43: -4,-9
@@ -229,8 +233,6 @@ entities:
             color: '#D2B48CFF'
             id: ShiptestOverlayTrimlineWest
           decals:
-            14: -3,-17
-            15: -3,-18
             64: -1,-1
         - node:
             color: '#D2B48CFF'
@@ -255,20 +257,9 @@ entities:
             71: -1,-8
         - node:
             color: '#D2B48CFF'
-            id: ShiptestSplineSouth
-          decals:
-            33: -1,-12
-        - node:
-            color: '#D2B48CFF'
-            id: ShiptestSplineSouthEast
-          decals:
-            32: 0,-12
-        - node:
-            color: '#D2B48CFF'
             id: ShiptestSplineSouthEastCorner
           decals:
             34: -2,-12
-            35: 0,-11
             136: 3,2
         - node:
             color: '#D2B48CFF'
@@ -303,13 +294,11 @@ entities:
             id: TechE
           decals:
             89: 1,-2
-            95: 1,-15
         - node:
             color: '#FFFFFFFF'
             id: TechFullCornerE
           decals:
             91: 1,-3
-            99: -1,-14
         - node:
             color: '#FFFFFFFF'
             id: TechFullCornerN
@@ -330,27 +319,11 @@ entities:
             id: TechN
           decals:
             93: 0,0
-            98: 0,-14
-        - node:
-            color: '#FFFFFFFF'
-            id: TechNE
-          decals:
-            94: 1,-14
         - node:
             color: '#FFFFFFFF'
             id: TechNW
           decals:
             92: -1,0
-        - node:
-            color: '#FFFFFFFF'
-            id: TechS
-          decals:
-            96: 0,-16
-        - node:
-            color: '#FFFFFFFF'
-            id: TechSE
-          decals:
-            97: 1,-16
         - node:
             color: '#FFFFFFFF'
             id: TechW
@@ -360,18 +333,12 @@ entities:
             color: '#D2B48CFF'
             id: TrimWarnEast
           decals:
-            17: -1,-18
             52: -4,-5
             53: -4,-6
             75: -1,-6
             125: -7,-1
             126: -5,0
             131: -3,1
-        - node:
-            color: '#D2B48CFF'
-            id: TrimWarnNorth
-          decals:
-            12: -3,-15
         - node:
             color: '#D2B48CFF'
             id: TrimWarnNorthEast
@@ -392,15 +359,12 @@ entities:
             color: '#D2B48CFF'
             id: TrimWarnWest
           decals:
-            11: -2,-14
             54: -4,-5
             55: -4,-6
         - node:
             color: '#D2B48CFF'
             id: TrimlineCcwEast
           decals:
-            2: -1,-16
-            5: -2,-14
             45: -3,-10
             49: -4,-7
             76: -1,-7
@@ -408,21 +372,14 @@ entities:
             color: '#D2B48CFF'
             id: TrimlineEast
           decals:
-            1: -1,-17
             48: -3,-9
             78: -1,-5
             110: -11,-15
             121: -10,-3
         - node:
             color: '#D2B48CFF'
-            id: TrimlineEastEnd
-          decals:
-            4: 0,-15
-        - node:
-            color: '#D2B48CFF'
             id: TrimlineNorth
           decals:
-            6: -1,-15
             112: -10,-16
         - node:
             color: '#D2B48CFF'
@@ -433,17 +390,11 @@ entities:
             color: '#D2B48CFF'
             id: TrimlineNorthEastCorner
           decals:
-            7: -2,-15
             44: -3,-11
             47: -4,-8
             77: -1,-8
             109: -11,-16
             122: -10,-4
-        - node:
-            color: '#D2B48CFF'
-            id: TrimlineNorthWestCorner
-          decals:
-            13: -2,-15
         - node:
             color: '#D2B48CFF'
             id: TrimlineSouth
@@ -453,9 +404,7 @@ entities:
             color: '#D2B48CFF'
             id: TrimlineSouthEastCorner
           decals:
-            3: -1,-15
             79: -1,-4
-            88: -2,-13
             115: -11,-14
             123: -10,-2
             128: -3,2
@@ -474,11 +423,6 @@ entities:
             80: 0,-4
         - node:
             color: '#D2B48CFF'
-            id: TrimlineWest
-          decals:
-            87: -2,-13
-        - node:
-            color: '#D2B48CFF'
             id: TrimlineWestEnd
           decals:
             50: -5,-4
@@ -494,13 +438,24 @@ entities:
           decals:
             114: -11,-15
         - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinEndN
+          decals:
+            171: -1,-11
+            172: 0,-11
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinEndS
+          decals:
+            173: -1,-12
+            174: 0,-12
+        - node:
             cleanable: True
             color: '#FFFFFFFF'
             id: burnt1
           decals:
             146: -5,-5
             149: -2,-2
-            157: -1,-12
             159: 3,-8
         - node:
             cleanable: True
@@ -515,17 +470,6 @@ entities:
           decals:
             148: -5,-6
         - node:
-            cleanable: True
-            color: '#FFFFFFFF'
-            id: burnt4
-          decals:
-            158: 0,-12
-        - node:
-            color: '#D2B48CFF'
-            id: tile_diagonal
-          decals:
-            81: 0,-9
-        - node:
             color: '#D2B48CFF'
             id: tile_diagonal_corner
           decals:
@@ -536,12 +480,6 @@ entities:
             id: tile_diagonal_corner_180
           decals:
             84: -1,-8
-        - node:
-            color: '#D2B48CFF'
-            id: tile_diagonal_corner_90
-          decals:
-            82: 0,-10
-            83: -1,-9
         - node:
             color: '#D2B48CFF'
             id: tile_diagonal_flipped
@@ -770,26 +708,6 @@ entities:
     - type: ContainedSolution
       containerName: lube
       container: 357
-  - uid: 488
-    components:
-    - type: MetaData
-      name: solution - lvcable
-    - type: Transform
-      parent: 487
-    - type: Solution
-      solution:
-        maxVol: 5
-        name: lvcable
-        reagents:
-        - data: []
-          ReagentId: Iron
-          Quantity: 3
-        - data: []
-          ReagentId: Copper
-          Quantity: 2
-    - type: ContainedSolution
-      containerName: lvcable
-      container: 487
   - uid: 493
     components:
     - type: MetaData
@@ -960,70 +878,6 @@ entities:
     - type: ContainedSolution
       containerName: food
       container: 435
-  - uid: 522
-    components:
-    - type: MetaData
-      name: solution - steel
-    - type: Transform
-      parent: 521
-    - type: Solution
-      solution:
-        maxVol: 10
-        name: steel
-        reagents:
-        - data: []
-          ReagentId: Iron
-          Quantity: 9
-        - data: []
-          ReagentId: Carbon
-          Quantity: 1
-    - type: ContainedSolution
-      containerName: steel
-      container: 521
-  - uid: 524
-    components:
-    - type: MetaData
-      name: solution - hvcable
-    - type: Transform
-      parent: 523
-    - type: Solution
-      solution:
-        maxVol: 6
-        name: hvcable
-        reagents:
-        - data: []
-          ReagentId: Iron
-          Quantity: 3
-        - data: []
-          ReagentId: Copper
-          Quantity: 2
-        - data: []
-          ReagentId: Carbon
-          Quantity: 1
-    - type: ContainedSolution
-      containerName: hvcable
-      container: 523
-  - uid: 526
-    components:
-    - type: MetaData
-      name: solution - food
-    - type: Transform
-      parent: 525
-    - type: Solution
-      solution:
-        canReact: False
-        maxVol: 10
-        name: food
-        reagents:
-        - data: []
-          ReagentId: Uranium
-          Quantity: 8
-        - data: []
-          ReagentId: Radium
-          Quantity: 2
-    - type: ContainedSolution
-      containerName: food
-      container: 525
   - uid: 536
     components:
     - type: MetaData
@@ -1061,40 +915,6 @@ entities:
     - type: ContainedSolution
       containerName: steel
       container: 537
-  - uid: 545
-    components:
-    - type: MetaData
-      name: solution - glass
-    - type: Transform
-      parent: 544
-    - type: Solution
-      solution:
-        maxVol: 10
-        name: glass
-        reagents:
-        - data: []
-          ReagentId: Silicon
-          Quantity: 10
-    - type: ContainedSolution
-      containerName: glass
-      container: 544
-  - uid: 557
-    components:
-    - type: MetaData
-      name: solution - glass
-    - type: Transform
-      parent: 556
-    - type: Solution
-      solution:
-        maxVol: 10
-        name: glass
-        reagents:
-        - data: []
-          ReagentId: Silicon
-          Quantity: 10
-    - type: ContainedSolution
-      containerName: glass
-      container: 556
   - uid: 563
     components:
     - type: MetaData
@@ -1207,64 +1027,6 @@ entities:
     - type: ContainedSolution
       containerName: wood
       container: 576
-  - uid: 581
-    components:
-    - type: MetaData
-      name: solution - glass
-    - type: Transform
-      parent: 580
-    - type: Solution
-      solution:
-        maxVol: 10
-        name: glass
-        reagents:
-        - data: []
-          ReagentId: Silicon
-          Quantity: 10
-    - type: ContainedSolution
-      containerName: glass
-      container: 580
-  - uid: 583
-    components:
-    - type: MetaData
-      name: solution - steel
-    - type: Transform
-      parent: 582
-    - type: Solution
-      solution:
-        maxVol: 10
-        name: steel
-        reagents:
-        - data: []
-          ReagentId: Iron
-          Quantity: 9
-        - data: []
-          ReagentId: Carbon
-          Quantity: 1
-    - type: ContainedSolution
-      containerName: steel
-      container: 582
-  - uid: 585
-    components:
-    - type: MetaData
-      name: solution - food
-    - type: Transform
-      parent: 584
-    - type: Solution
-      solution:
-        canReact: False
-        maxVol: 10
-        name: food
-        reagents:
-        - data: []
-          ReagentId: Uranium
-          Quantity: 8
-        - data: []
-          ReagentId: Radium
-          Quantity: 2
-    - type: ContainedSolution
-      containerName: food
-      container: 584
   - uid: 597
     components:
     - type: MetaData
@@ -2057,17 +1819,18 @@ entities:
           - 104
     - type: DeviceList
       devices:
-      - 395
-      - 399
-      - 413
-      - 394
-      - 467
-      - 414
       - 392
-      - 466
+      - 414
+      - 470
+      - 469
+      - 468
+      - 472
+      - 521
+      - 520
+      - 426
       - 393
-      - 391
-      - 425
+      - 490
+      - 489
 - proto: AirAlarmElectronics
   entities:
   - uid: 104
@@ -2076,186 +1839,58 @@ entities:
       parent: 465
     - type: Physics
       canCollide: False
+- proto: AirlockHatch
+  entities:
+  - uid: 258
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-8.5
+      parent: 2
 - proto: AirlockHatchRogueLocked
   entities:
-  - uid: 123
+  - uid: 126
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -3.5,-6.5
       parent: 2
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 145
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
-    - type: DeviceNetwork
-      address: 7491-EF77
-      receiveFrequency: 1280
-  - uid: 124
+  - uid: 184
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,-3.5
+      pos: -1.5,-15.5
       parent: 2
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 146
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
-    - type: DeviceNetwork
-      address: 7E0A-85DA
-      receiveFrequency: 1280
-  - uid: 125
+  - uid: 588
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,-4.5
+      pos: -2.5,-14.5
       parent: 2
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 164
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
-    - type: DeviceNetwork
-      address: 7613-AC6F
-      receiveFrequency: 1280
-  - uid: 211
+  - uid: 589
     components:
     - type: Transform
-      pos: -3.5,-15.5
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 203
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
-    - type: DeviceNetwork
-      address: 65DB-86D6
-      receiveFrequency: 1280
-  - uid: 332
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -1.5,-12.5
       parent: 2
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 477
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
-    - type: DeviceNetwork
-      address: 7655-9515
-      receiveFrequency: 1280
-  - uid: 337
+  - uid: 767
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,-7.5
+      pos: -0.5,-4.5
       parent: 2
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 478
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
-    - type: DeviceNetwork
-      address: 5D26-A2E6
-      receiveFrequency: 1280
+  - uid: 871
+    components:
+    - type: Transform
+      pos: -2.5,-3.5
+      parent: 2
 - proto: AirlockShuttleSyndicateRogueLocked
   entities:
-  - uid: 182
-    components:
-    - type: Transform
-      pos: -0.5,-17.5
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 479
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
-    - type: DeviceNetwork
-      address: 5D4E-AA09
-      receiveFrequency: 1280
-  - uid: 183
+  - uid: 219
     components:
     - type: Transform
       pos: -1.5,-17.5
       parent: 2
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 480
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
-    - type: DeviceNetwork
-      address: 1004-A250
-      receiveFrequency: 1280
-  - uid: 184
+  - uid: 345
     components:
     - type: Transform
       pos: -2.5,-17.5
       parent: 2
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 481
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
-    - type: DeviceNetwork
-      address: 2CF2-E252
-      receiveFrequency: 1280
 - proto: AirSensor
   entities:
   - uid: 466
@@ -2482,8 +2117,6 @@ entities:
           enabled: True
         ignore: False
     - type: DeviceNetwork
-      deviceLists:
-      - 465
       address: SNS-5E27-A8DD
       transmitFrequency: 1621
       receiveFrequency: 1621
@@ -2711,31 +2344,9 @@ entities:
           enabled: True
         ignore: False
     - type: DeviceNetwork
-      deviceLists:
-      - 465
       address: SNS-12CB-4210
       transmitFrequency: 1621
       receiveFrequency: 1621
-- proto: AmeJar
-  entities:
-  - uid: 586
-    components:
-    - type: Transform
-      parent: 301
-    - type: Physics
-      canCollide: False
-  - uid: 587
-    components:
-    - type: Transform
-      parent: 301
-    - type: Physics
-      canCollide: False
-  - uid: 588
-    components:
-    - type: Transform
-      parent: 301
-    - type: Physics
-      canCollide: False
 - proto: AmmoLoader
   entities:
   - uid: 7
@@ -2829,6 +2440,12 @@ entities:
       canCollide: False
 - proto: APCBasic
   entities:
+  - uid: 217
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,-15.5
+      parent: 2
   - uid: 247
     components:
     - type: Transform
@@ -2848,18 +2465,6 @@ entities:
       loadingNetworkDemand: 9405
       currentReceiving: 9405
       currentSupply: 9405
-- proto: APCHighCapacity
-  entities:
-  - uid: 248
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -3.5,-14.5
-      parent: 2
-    - type: PowerNetworkBattery
-      loadingNetworkDemand: 34975
-      currentReceiving: 34975
-      currentSupply: 34975
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 208
@@ -2871,11 +2476,6 @@ entities:
     components:
     - type: Transform
       pos: -1.5,-17.5
-      parent: 2
-  - uid: 210
-    components:
-    - type: Transform
-      pos: -0.5,-17.5
       parent: 2
 - proto: AtmosFixBlockerMarker
   entities:
@@ -3309,64 +2909,27 @@ entities:
     - type: Transform
       pos: -8.5,-12.5
       parent: 2
-- proto: BorgCharger
-  entities:
-  - uid: 464
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -2.5,-13.5
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 486
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 487
-          - 489
-          - 490
-    - type: ApcPowerReceiver
-      powerLoad: 0
-    - type: LanguageSpeaker
-      understoodLanguages:
-      - TauCetiBasic
-      spokenLanguages:
-      - TauCetiBasic
-      currentLanguage: TauCetiBasic
-- proto: BorgChargerCircuitboard
-  entities:
-  - uid: 486
-    components:
-    - type: Transform
-      parent: 464
-    - type: Physics
-      canCollide: False
 - proto: BunkBottom
   entities:
-  - uid: 347
+  - uid: 210
     components:
     - type: Transform
-      pos: -3.5,-11.5
+      pos: 0.5,-10.5
       parent: 2
 - proto: BunkTop
   entities:
-  - uid: 348
+  - uid: 480
     components:
     - type: Transform
-      pos: -3.5,-11.5
+      pos: 0.5,-10.5
       parent: 2
 - proto: CableApcExtension
   entities:
+  - uid: 216
+    components:
+    - type: Transform
+      pos: -3.5,-15.5
+      parent: 2
   - uid: 249
     components:
     - type: Transform
@@ -3411,11 +2974,6 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-14.5
-      parent: 2
-  - uid: 258
-    components:
-    - type: Transform
-      pos: -4.5,-14.5
       parent: 2
   - uid: 259
     components:
@@ -3649,22 +3207,6 @@ entities:
       parent: 2
 - proto: CableApcStack1
   entities:
-  - uid: 487
-    components:
-    - type: Transform
-      parent: 464
-    - type: Stack
-      count: 5
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - lvcable
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@lvcable: !type:ContainerSlot
-          ent: 488
   - uid: 564
     components:
     - type: Transform
@@ -3699,15 +3241,15 @@ entities:
           ent: 597
 - proto: CableHV
   entities:
-  - uid: 126
+  - uid: 125
     components:
     - type: Transform
-      pos: 0.5,-11.5
+      pos: -4.5,-13.5
       parent: 2
-  - uid: 219
+  - uid: 147
     components:
     - type: Transform
-      pos: 0.5,-12.5
+      pos: -3.5,-13.5
       parent: 2
   - uid: 220
     components:
@@ -3729,29 +3271,38 @@ entities:
     - type: Transform
       pos: 1.5,-15.5
       parent: 2
-  - uid: 429
+  - uid: 337
     components:
     - type: Transform
-      pos: -0.5,-11.5
+      pos: -1.5,-14.5
+      parent: 2
+  - uid: 347
+    components:
+    - type: Transform
+      pos: -0.5,-14.5
+      parent: 2
+  - uid: 396
+    components:
+    - type: Transform
+      pos: -2.5,-14.5
+      parent: 2
+  - uid: 397
+    components:
+    - type: Transform
+      pos: -3.5,-14.5
+      parent: 2
+  - uid: 417
+    components:
+    - type: Transform
+      pos: 0.5,-13.5
+      parent: 2
+  - uid: 418
+    components:
+    - type: Transform
+      pos: -0.5,-13.5
       parent: 2
 - proto: CableHVStack1
   entities:
-  - uid: 523
-    components:
-    - type: Transform
-      parent: 345
-    - type: Stack
-      count: 5
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - hvcable
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@hvcable: !type:ContainerSlot
-          ent: 524
   - uid: 631
     components:
     - type: Transform
@@ -3786,6 +3337,11 @@ entities:
           ent: 663
 - proto: CableMV
   entities:
+  - uid: 218
+    components:
+    - type: Transform
+      pos: -3.5,-15.5
+      parent: 2
   - uid: 225
     components:
     - type: Transform
@@ -3939,42 +3495,6 @@ entities:
       parent: 2
 - proto: CapacitorStockPart
   entities:
-  - uid: 489
-    components:
-    - type: Transform
-      parent: 464
-    - type: Physics
-      canCollide: False
-  - uid: 490
-    components:
-    - type: Transform
-      parent: 464
-    - type: Physics
-      canCollide: False
-  - uid: 527
-    components:
-    - type: Transform
-      parent: 345
-    - type: Physics
-      canCollide: False
-  - uid: 528
-    components:
-    - type: Transform
-      parent: 345
-    - type: Physics
-      canCollide: False
-  - uid: 529
-    components:
-    - type: Transform
-      parent: 345
-    - type: Physics
-      canCollide: False
-  - uid: 530
-    components:
-    - type: Transform
-      parent: 345
-    - type: Physics
-      canCollide: False
   - uid: 539
     components:
     - type: Transform
@@ -3985,18 +3505,6 @@ entities:
     components:
     - type: Transform
       parent: 338
-    - type: Physics
-      canCollide: False
-  - uid: 548
-    components:
-    - type: Transform
-      parent: 218
-    - type: Physics
-      canCollide: False
-  - uid: 560
-    components:
-    - type: Transform
-      parent: 360
     - type: Physics
       canCollide: False
   - uid: 566
@@ -4021,30 +3529,6 @@ entities:
     components:
     - type: Transform
       parent: 355
-    - type: Physics
-      canCollide: False
-  - uid: 589
-    components:
-    - type: Transform
-      parent: 301
-    - type: Physics
-      canCollide: False
-  - uid: 590
-    components:
-    - type: Transform
-      parent: 301
-    - type: Physics
-      canCollide: False
-  - uid: 591
-    components:
-    - type: Transform
-      parent: 301
-    - type: Physics
-      canCollide: False
-  - uid: 592
-    components:
-    - type: Transform
-      parent: 301
     - type: Physics
       canCollide: False
   - uid: 600
@@ -4251,23 +3735,21 @@ entities:
       canCollide: False
 - proto: Catwalk
   entities:
+  - uid: 145
+    components:
+    - type: Transform
+      pos: -0.5,-6.5
+      parent: 2
+  - uid: 146
+    components:
+    - type: Transform
+      pos: -0.5,-5.5
+      parent: 2
   - uid: 474
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,0.5
-      parent: 2
-  - uid: 475
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,-11.5
-      parent: 2
-  - uid: 476
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,-10.5
       parent: 2
   - uid: 553
     components:
@@ -4278,6 +3760,71 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-13.5
+      parent: 2
+  - uid: 580
+    components:
+    - type: Transform
+      pos: -1.5,-11.5
+      parent: 2
+  - uid: 581
+    components:
+    - type: Transform
+      pos: -1.5,-10.5
+      parent: 2
+  - uid: 582
+    components:
+    - type: Transform
+      pos: -1.5,-14.5
+      parent: 2
+  - uid: 583
+    components:
+    - type: Transform
+      pos: -0.5,-14.5
+      parent: 2
+  - uid: 584
+    components:
+    - type: Transform
+      pos: -1.5,-13.5
+      parent: 2
+  - uid: 585
+    components:
+    - type: Transform
+      pos: -3.5,-14.5
+      parent: 2
+  - uid: 586
+    components:
+    - type: Transform
+      pos: 1.5,-14.5
+      parent: 2
+  - uid: 587
+    components:
+    - type: Transform
+      pos: 0.5,-14.5
+      parent: 2
+  - uid: 590
+    components:
+    - type: Transform
+      pos: -3.5,-5.5
+      parent: 2
+  - uid: 591
+    components:
+    - type: Transform
+      pos: -3.5,-4.5
+      parent: 2
+  - uid: 592
+    components:
+    - type: Transform
+      pos: -3.5,-3.5
+      parent: 2
+  - uid: 593
+    components:
+    - type: Transform
+      pos: -4.5,-3.5
+      parent: 2
+  - uid: 594
+    components:
+    - type: Transform
+      pos: -1.5,-3.5
       parent: 2
   - uid: 606
     components:
@@ -4329,6 +3876,11 @@ entities:
     - type: Transform
       pos: 4.5,-3.5
       parent: 2
+  - uid: 766
+    components:
+    - type: Transform
+      pos: -0.5,-3.5
+      parent: 2
 - proto: ChairFolding
   entities:
   - uid: 354
@@ -4342,6 +3894,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -2.6883802,-10.271063
+      parent: 2
+- proto: ChairOfficeDark
+  entities:
+  - uid: 486
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.38257885,-11.456622
       parent: 2
 - proto: ChairPilotSeat
   entities:
@@ -4737,14 +4297,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,-12.5
       parent: 2
-- proto: CMSemioticRad_haz
-  entities:
-  - uid: 871
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -4.5,-14.5
-      parent: 2
 - proto: CMSemioticStorage
   entities:
   - uid: 869
@@ -4854,34 +4406,6 @@ entities:
       parent: 1
     - type: Physics
       canCollide: False
-- proto: ComputerPowerMonitoring
-  entities:
-  - uid: 450
-    components:
-    - type: Transform
-      pos: 0.5,-13.5
-      parent: 2
-    - type: Battery
-      startingCharge: 0
-    - type: PointLight
-      enabled: True
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 502
-    - type: LanguageSpeaker
-      understoodLanguages:
-      - TauCetiBasic
-      spokenLanguages:
-      - TauCetiBasic
-      currentLanguage: TauCetiBasic
-    - type: SpamEmitSound
-      nextSound: 57146.0849603
-    - type: ApcPowerReceiver
-      powerLoad: 5
 - proto: ComputerShuttle
   entities:
   - uid: 3
@@ -5038,6 +4562,14 @@ entities:
           showEnts: False
           occludes: True
           ent: null
+- proto: CurtainsBlackOpen
+  entities:
+  - uid: 487
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,-10.5
+      parent: 2
 - proto: DarkCatwalkMono
   entities:
   - uid: 101
@@ -5058,6 +4590,16 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5,-9.5
       parent: 2
+  - uid: 148
+    components:
+    - type: Transform
+      pos: -1.5,-16.5
+      parent: 2
+  - uid: 183
+    components:
+    - type: Transform
+      pos: -0.5,-8.5
+      parent: 2
   - uid: 325
     components:
     - type: Transform
@@ -5068,11 +4610,10 @@ entities:
     - type: Transform
       pos: 4.5,-16.5
       parent: 2
-  - uid: 473
+  - uid: 411
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,-8.5
+      pos: -2.5,-16.5
       parent: 2
   - uid: 612
     components:
@@ -5219,62 +4760,6 @@ entities:
       spokenLanguages:
       - TauCetiBasic
       currentLanguage: TauCetiBasic
-- proto: DoorElectronicsPirate
-  entities:
-  - uid: 145
-    components:
-    - type: Transform
-      parent: 123
-    - type: Physics
-      canCollide: False
-  - uid: 146
-    components:
-    - type: Transform
-      parent: 124
-    - type: Physics
-      canCollide: False
-  - uid: 164
-    components:
-    - type: Transform
-      parent: 125
-    - type: Physics
-      canCollide: False
-  - uid: 203
-    components:
-    - type: Transform
-      parent: 211
-    - type: Physics
-      canCollide: False
-  - uid: 477
-    components:
-    - type: Transform
-      parent: 332
-    - type: Physics
-      canCollide: False
-  - uid: 478
-    components:
-    - type: Transform
-      parent: 337
-    - type: Physics
-      canCollide: False
-  - uid: 479
-    components:
-    - type: Transform
-      parent: 182
-    - type: Physics
-      canCollide: False
-  - uid: 480
-    components:
-    - type: Transform
-      parent: 183
-    - type: Physics
-      canCollide: False
-  - uid: 481
-    components:
-    - type: Transform
-      parent: 184
-    - type: Physics
-      canCollide: False
 - proto: DrinkBottleAle
   entities:
   - uid: 441
@@ -5322,7 +4807,7 @@ entities:
     - type: Label
       currentLabel: tequila
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.14614305
+      sprayFizzinessThresholdRoll: 0.7170637
     - type: Physics
       canCollide: False
     - type: NameModifier
@@ -5458,7 +4943,7 @@ entities:
     - type: Label
       currentLabel: water
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.057979967
+      sprayFizzinessThresholdRoll: 0.48737654
     - type: Physics
       canCollide: False
     - type: NameModifier
@@ -5485,10 +4970,10 @@ entities:
       canCollide: False
 - proto: ExtinguisherCabinetFilled
   entities:
-  - uid: 346
+  - uid: 502
     components:
     - type: Transform
-      pos: 0.5,-16.5
+      pos: -0.5,-15.5
       parent: 2
 - proto: FaxMachineShipAntag
   entities:
@@ -5516,6 +5001,8 @@ entities:
           ents:
           - 514
     - type: DeviceNetwork
+      deviceLists:
+      - 465
       address: 3896-3577
       receiveFrequency: 1621
     - type: Firelock
@@ -5534,6 +5021,8 @@ entities:
           ents:
           - 515
     - type: DeviceNetwork
+      deviceLists:
+      - 465
       address: 3534-FC4B
       receiveFrequency: 1621
     - type: Firelock
@@ -5558,12 +5047,6 @@ entities:
       parent: 470
     - type: Physics
       canCollide: False
-  - uid: 517
-    components:
-    - type: Transform
-      parent: 471
-    - type: Physics
-      canCollide: False
   - uid: 518
     components:
     - type: Transform
@@ -5586,25 +5069,9 @@ entities:
           ents:
           - 516
     - type: DeviceNetwork
+      deviceLists:
+      - 465
       address: 4A30-AF69
-      receiveFrequency: 1621
-    - type: Firelock
-      powered: True
-  - uid: 471
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,-7.5
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 517
-    - type: DeviceNetwork
-      address: 73E1-DE06
       receiveFrequency: 1621
     - type: Firelock
       powered: True
@@ -5622,10 +5089,28 @@ entities:
           ents:
           - 518
     - type: DeviceNetwork
+      deviceLists:
+      - 465
       address: 61E6-B49A
       receiveFrequency: 1621
     - type: Firelock
       powered: True
+  - uid: 520
+    components:
+    - type: Transform
+      pos: -1.5,-15.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 465
+  - uid: 521
+    components:
+    - type: Transform
+      pos: -2.5,-14.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 465
 - proto: FoodMeatResomiFried
   entities:
   - uid: 440
@@ -5670,30 +5155,16 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 519
-- proto: FuelUranium
-  entities:
-  - uid: 578
-    components:
-    - type: Transform
-      parent: 353
-    - type: Stack
-      count: 50
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: GasMixerOn
   entities:
-  - uid: 372
+  - uid: 387
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,-10.5
+      rot: 1.5707963267948966 rad
+      pos: -4.5,-14.5
       parent: 2
-    - type: GasMixer
-      inletTwoConcentration: 0.22000003
-      inletOneConcentration: 0.78
     - type: AtmosPipeColor
-      color: '#00BEBEFF'
+      color: '#415EDAFF'
 - proto: GasPassiveGateAlt2
   entities:
   - uid: 408
@@ -5717,14 +5188,6 @@ entities:
       color: '#A91409FF'
 - proto: GasPipeBend
   entities:
-  - uid: 373
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,-9.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#00BEBEFF'
   - uid: 382
     components:
     - type: Transform
@@ -5732,33 +5195,71 @@ entities:
       pos: -0.5,-1.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
-  - uid: 396
+      color: '#415EDAFF'
+  - uid: 384
+    components:
+    - type: Transform
+      pos: -1.5,-8.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
+  - uid: 413
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-5.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
+  - uid: 478
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,-14.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
+  - uid: 558
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -3.5,-3.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
+- proto: GasPipeBendAlt2
+  entities:
+  - uid: 379
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,-14.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 390
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-6.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 391
+    components:
+    - type: Transform
+      pos: -1.5,-8.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 394
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -3.5,-8.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
-  - uid: 397
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,-8.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0A6AB6FF'
-- proto: GasPipeBendAlt2
-  entities:
-  - uid: 400
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,-14.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#A91409FF'
+      color: '#990000FF'
   - uid: 404
     components:
     - type: Transform
@@ -5767,32 +5268,63 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#A91409FF'
-  - uid: 417
+  - uid: 479
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,-7.5
+      pos: 1.5,-14.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#A91409FF'
-  - uid: 418
+      color: '#990000FF'
+  - uid: 548
+    components:
+    - type: Transform
+      pos: -0.5,-10.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 555
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -3.5,-7.5
+      pos: -0.5,-11.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#A91409FF'
-  - uid: 422
+      color: '#990000FF'
+  - uid: 557
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -0.5,-3.5
+      pos: -3.5,-3.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#A91409FF'
+      color: '#990000FF'
+- proto: GasPipeFourwayAlt2
+  entities:
+  - uid: 488
+    components:
+    - type: Transform
+      pos: -1.5,-10.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
 - proto: GasPipeStraight
   entities:
+  - uid: 164
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-14.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
+  - uid: 332
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -3.5,-14.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
   - uid: 375
     components:
     - type: Transform
@@ -5800,7 +5332,7 @@ entities:
       pos: -1.5,-11.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
+      color: '#415EDAFF'
   - uid: 376
     components:
     - type: Transform
@@ -5808,7 +5340,7 @@ entities:
       pos: -1.5,-12.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
+      color: '#415EDAFF'
   - uid: 377
     components:
     - type: Transform
@@ -5816,71 +5348,43 @@ entities:
       pos: -1.5,-13.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
-  - uid: 378
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,-14.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0A6AB6FF'
+      color: '#415EDAFF'
   - uid: 383
     components:
     - type: Transform
       pos: -0.5,-2.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
-  - uid: 384
-    components:
-    - type: Transform
-      pos: -0.5,-3.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0A6AB6FF'
+      color: '#415EDAFF'
   - uid: 385
     components:
     - type: Transform
       pos: -0.5,-4.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
+      color: '#415EDAFF'
   - uid: 386
     components:
     - type: Transform
-      pos: -0.5,-6.5
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-8.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
-  - uid: 387
-    components:
-    - type: Transform
-      pos: -0.5,-7.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0A6AB6FF'
+      color: '#415EDAFF'
   - uid: 388
     components:
     - type: Transform
       pos: -3.5,-7.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
+      color: '#415EDAFF'
   - uid: 389
     components:
     - type: Transform
       pos: -3.5,-6.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
-  - uid: 390
-    components:
-    - type: Transform
-      pos: -3.5,-5.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0A6AB6FF'
+      color: '#415EDAFF'
   - uid: 398
     components:
     - type: Transform
@@ -5888,9 +5392,110 @@ entities:
       pos: -1.5,-9.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
+      color: '#415EDAFF'
+  - uid: 415
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,-3.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
+  - uid: 419
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,-14.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
+  - uid: 476
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,-14.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
+  - uid: 547
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,-10.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
+  - uid: 556
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,-3.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
+  - uid: 559
+    components:
+    - type: Transform
+      pos: -3.5,-4.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
+  - uid: 578
+    components:
+    - type: Transform
+      pos: -3.5,-5.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
 - proto: GasPipeStraightAlt2
   entities:
+  - uid: 359
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-14.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 360
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-8.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 380
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,-3.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 381
+    components:
+    - type: Transform
+      pos: -3.5,-7.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 399
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,-3.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 400
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-10.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 401
     components:
     - type: Transform
@@ -5946,14 +5551,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#A91409FF'
-  - uid: 419
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -2.5,-7.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#A91409FF'
   - uid: 420
     components:
     - type: Transform
@@ -5983,8 +5580,54 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#A91409FF'
+  - uid: 475
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,-14.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 477
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,-14.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 560
+    components:
+    - type: Transform
+      pos: -3.5,-4.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 579
+    components:
+    - type: Transform
+      pos: -3.5,-5.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
 - proto: GasPipeTJunction
   entities:
+  - uid: 348
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -3.5,-8.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
+  - uid: 373
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,-3.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#415EDAFF'
   - uid: 374
     components:
     - type: Transform
@@ -5992,312 +5635,48 @@ entities:
       pos: -1.5,-10.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
-  - uid: 379
+      color: '#415EDAFF'
+  - uid: 378
     components:
     - type: Transform
-      pos: -1.5,-8.5
+      rot: 3.141592653589793 rad
+      pos: -1.5,-14.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
-  - uid: 380
-    components:
-    - type: Transform
-      pos: -2.5,-8.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0A6AB6FF'
-  - uid: 381
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,-5.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0A6AB6FF'
+      color: '#415EDAFF'
 - proto: GasPipeTJunctionAlt2
   entities:
-  - uid: 410
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.5,-10.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#A91409FF'
-  - uid: 411
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,-8.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#A91409FF'
-  - uid: 415
-    components:
-    - type: Transform
-      pos: -1.5,-7.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#A91409FF'
-  - uid: 416
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,-6.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#A91409FF'
-- proto: GasPort
-  entities:
-  - uid: 217
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,-10.5
-      parent: 2
   - uid: 371
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,-9.5
+      pos: -0.5,-3.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#00BEBEFF'
-- proto: GasVentPump
-  entities:
-  - uid: 391
+      color: '#990000FF'
+  - uid: 395
     components:
     - type: Transform
-      pos: -3.5,-4.5
+      rot: 3.141592653589793 rad
+      pos: -1.5,-14.5
       parent: 2
-    - type: GasVentPump
-      manualLockoutReenabledAt: 23743.6689336
-    - type: AtmosMonitor
-      registeredDevices:
-      - AIR-698A-C217
-      trippedThresholds:
-      - Temperature
-      lastAlarmState: Danger
-      gasThresholds:
-        Oxygen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0.8
-            enabled: True
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0.3
-            enabled: True
-          ignore: False
-        Nitrogen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: False
-        CarbonDioxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.006
-            enabled: True
-          ignore: False
-        Plasma:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.005
-            enabled: True
-          ignore: False
-        Tritium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.004
-            enabled: True
-          ignore: False
-        WaterVapor:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 1.5
-            enabled: True
-          ignore: False
-        Ammonia:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.05
-            enabled: True
-          ignore: False
-        NitrousOxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Frezon:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        BZ:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Healium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Nitrium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Pluoxium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: True
-      pressureThreshold:
-        lowerWarnAround:
-          threshold: 1.05
-          enabled: True
-        upperWarnAround:
-          threshold: 0.7
-          enabled: True
-        lowerBound:
-          threshold: 85
-          enabled: True
-        upperBound:
-          threshold: 550
-          enabled: True
-        ignore: False
-      temperatureThreshold:
-        lowerWarnAround:
-          threshold: 1.1
-          enabled: True
-        upperWarnAround:
-          threshold: 0.8
-          enabled: True
-        lowerBound:
-          threshold: 193.15
-          enabled: True
-        upperBound:
-          threshold: 393.15
-          enabled: True
-        ignore: False
-    - type: DeviceNetwork
-      deviceLists:
-      - 465
-      address: VNT-11A2-C53C
-      transmitFrequency: 1621
-      receiveFrequency: 1621
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
+      color: '#990000FF'
+- proto: GasPort
+  entities:
+  - uid: 331
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,-14.5
+      parent: 2
+  - uid: 349
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -4.5,-15.5
+      parent: 2
+- proto: GasVentPump
+  entities:
   - uid: 392
     components:
     - type: Transform
@@ -6530,7 +5909,7 @@ entities:
       transmitFrequency: 1621
       receiveFrequency: 1621
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
+      color: '#415EDAFF'
   - uid: 393
     components:
     - type: Transform
@@ -6763,941 +6142,35 @@ entities:
       transmitFrequency: 1621
       receiveFrequency: 1621
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
-  - uid: 394
+      color: '#415EDAFF'
+  - uid: 490
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -2.5,-9.5
+      pos: -3.5,-9.5
       parent: 2
-    - type: GasVentPump
-      manualLockoutReenabledAt: 23743.6689336
-    - type: AtmosMonitor
-      registeredDevices:
-      - AIR-698A-C217
-      trippedThresholds:
-      - Temperature
-      lastAlarmState: Danger
-      gasThresholds:
-        Oxygen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0.8
-            enabled: True
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0.3
-            enabled: True
-          ignore: False
-        Nitrogen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: False
-        CarbonDioxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.006
-            enabled: True
-          ignore: False
-        Plasma:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.005
-            enabled: True
-          ignore: False
-        Tritium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.004
-            enabled: True
-          ignore: False
-        WaterVapor:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 1.5
-            enabled: True
-          ignore: False
-        Ammonia:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.05
-            enabled: True
-          ignore: False
-        NitrousOxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Frezon:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        BZ:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Healium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Nitrium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Pluoxium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: True
-      pressureThreshold:
-        lowerWarnAround:
-          threshold: 1.05
-          enabled: True
-        upperWarnAround:
-          threshold: 0.7
-          enabled: True
-        lowerBound:
-          threshold: 85
-          enabled: True
-        upperBound:
-          threshold: 550
-          enabled: True
-        ignore: False
-      temperatureThreshold:
-        lowerWarnAround:
-          threshold: 1.1
-          enabled: True
-        upperWarnAround:
-          threshold: 0.8
-          enabled: True
-        lowerBound:
-          threshold: 193.15
-          enabled: True
-        upperBound:
-          threshold: 393.15
-          enabled: True
-        ignore: False
     - type: DeviceNetwork
       deviceLists:
       - 465
-      address: VNT-4B46-62BF
-      transmitFrequency: 1621
-      receiveFrequency: 1621
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
-  - uid: 395
+      color: '#415EDAFF'
+  - uid: 544
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,-15.5
+      pos: 1.5,-13.5
       parent: 2
-    - type: GasVentPump
-      manualLockoutReenabledAt: 23743.6689336
-    - type: AtmosMonitor
-      registeredDevices:
-      - AIR-698A-C217
-      trippedThresholds:
-      - Temperature
-      lastAlarmState: Danger
-      gasThresholds:
-        Oxygen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0.8
-            enabled: True
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0.3
-            enabled: True
-          ignore: False
-        Nitrogen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: False
-        CarbonDioxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.006
-            enabled: True
-          ignore: False
-        Plasma:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.005
-            enabled: True
-          ignore: False
-        Tritium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.004
-            enabled: True
-          ignore: False
-        WaterVapor:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 1.5
-            enabled: True
-          ignore: False
-        Ammonia:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.05
-            enabled: True
-          ignore: False
-        NitrousOxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Frezon:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        BZ:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Healium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Nitrium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Pluoxium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: True
-      pressureThreshold:
-        lowerWarnAround:
-          threshold: 1.05
-          enabled: True
-        upperWarnAround:
-          threshold: 0.7
-          enabled: True
-        lowerBound:
-          threshold: 85
-          enabled: True
-        upperBound:
-          threshold: 550
-          enabled: True
-        ignore: False
-      temperatureThreshold:
-        lowerWarnAround:
-          threshold: 1.1
-          enabled: True
-        upperWarnAround:
-          threshold: 0.8
-          enabled: True
-        lowerBound:
-          threshold: 193.15
-          enabled: True
-        upperBound:
-          threshold: 393.15
-          enabled: True
-        ignore: False
-    - type: DeviceNetwork
-      deviceLists:
-      - 465
-      address: VNT-608F-A4DD
-      transmitFrequency: 1621
-      receiveFrequency: 1621
     - type: AtmosPipeColor
-      color: '#0A6AB6FF'
-- proto: GasVentScrubber
-  entities:
-  - uid: 399
+      color: '#415EDAFF'
+  - uid: 546
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -0.5,-14.5
+      pos: 0.5,-10.5
       parent: 2
-    - type: AtmosMonitor
-      registeredDevices:
-      - AIR-698A-C217
-      trippedThresholds:
-      - Temperature
-      lastAlarmState: Danger
-      gasThresholds:
-        Oxygen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0.8
-            enabled: True
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0.3
-            enabled: True
-          ignore: False
-        Nitrogen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: False
-        CarbonDioxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.006
-            enabled: True
-          ignore: False
-        Plasma:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.005
-            enabled: True
-          ignore: False
-        Tritium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.004
-            enabled: True
-          ignore: False
-        WaterVapor:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 1.5
-            enabled: True
-          ignore: False
-        Ammonia:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.05
-            enabled: True
-          ignore: False
-        NitrousOxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Frezon:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        BZ:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Healium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Nitrium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Pluoxium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: True
-      pressureThreshold:
-        lowerWarnAround:
-          threshold: 1.05
-          enabled: True
-        upperWarnAround:
-          threshold: 0.7
-          enabled: True
-        lowerBound:
-          threshold: 85
-          enabled: True
-        upperBound:
-          threshold: 550
-          enabled: True
-        ignore: False
-      temperatureThreshold:
-        lowerWarnAround:
-          threshold: 1.1
-          enabled: True
-        upperWarnAround:
-          threshold: 0.8
-          enabled: True
-        lowerBound:
-          threshold: 193.15
-          enabled: True
-        upperBound:
-          threshold: 393.15
-          enabled: True
-        ignore: False
-    - type: DeviceNetwork
-      deviceLists:
-      - 465
-      address: SCR-2EAF-D272
-      transmitFrequency: 1621
-      receiveFrequency: 1621
-    - type: AtmosPipeLayers
-      pipeLayer: Tertiary
     - type: AtmosPipeColor
-      color: '#A91409FF'
-  - uid: 413
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -2.5,-10.5
-      parent: 2
-    - type: AtmosMonitor
-      registeredDevices:
-      - AIR-698A-C217
-      trippedThresholds:
-      - Temperature
-      lastAlarmState: Danger
-      gasThresholds:
-        Oxygen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0.8
-            enabled: True
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0.3
-            enabled: True
-          ignore: False
-        Nitrogen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: False
-        CarbonDioxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.006
-            enabled: True
-          ignore: False
-        Plasma:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.005
-            enabled: True
-          ignore: False
-        Tritium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.004
-            enabled: True
-          ignore: False
-        WaterVapor:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 1.5
-            enabled: True
-          ignore: False
-        Ammonia:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.05
-            enabled: True
-          ignore: False
-        NitrousOxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Frezon:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        BZ:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Healium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Nitrium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Pluoxium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: True
-      pressureThreshold:
-        lowerWarnAround:
-          threshold: 1.05
-          enabled: True
-        upperWarnAround:
-          threshold: 0.7
-          enabled: True
-        lowerBound:
-          threshold: 85
-          enabled: True
-        upperBound:
-          threshold: 550
-          enabled: True
-        ignore: False
-      temperatureThreshold:
-        lowerWarnAround:
-          threshold: 1.1
-          enabled: True
-        upperWarnAround:
-          threshold: 0.8
-          enabled: True
-        lowerBound:
-          threshold: 193.15
-          enabled: True
-        upperBound:
-          threshold: 393.15
-          enabled: True
-        ignore: False
-    - type: DeviceNetwork
-      deviceLists:
-      - 465
-      address: SCR-0F06-18E0
-      transmitFrequency: 1621
-      receiveFrequency: 1621
-    - type: AtmosPipeLayers
-      pipeLayer: Tertiary
-    - type: AtmosPipeColor
-      color: '#A91409FF'
+      color: '#415EDAFF'
+- proto: GasVentScrubber
+  entities:
   - uid: 414
     components:
     - type: Transform
@@ -7931,242 +6404,6 @@ entities:
       pipeLayer: Tertiary
     - type: AtmosPipeColor
       color: '#A91409FF'
-  - uid: 425
-    components:
-    - type: Transform
-      rot: 6.283185307179586 rad
-      pos: -3.5,-5.5
-      parent: 2
-    - type: AtmosMonitor
-      registeredDevices:
-      - AIR-698A-C217
-      trippedThresholds:
-      - Temperature
-      lastAlarmState: Danger
-      gasThresholds:
-        Oxygen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0.8
-            enabled: True
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0.3
-            enabled: True
-          ignore: False
-        Nitrogen:
-          lowerWarnAround:
-            threshold: 1.5
-            enabled: True
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0.1
-            enabled: True
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: False
-        CarbonDioxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.006
-            enabled: True
-          ignore: False
-        Plasma:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.005
-            enabled: True
-          ignore: False
-        Tritium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.004
-            enabled: True
-          ignore: False
-        WaterVapor:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 1.5
-            enabled: True
-          ignore: False
-        Ammonia:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.05
-            enabled: True
-          ignore: False
-        NitrousOxide:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Frezon:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        BZ:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Healium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0.5
-            enabled: True
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.01
-            enabled: True
-          ignore: False
-        Nitrium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0.0001
-            enabled: True
-          ignore: False
-        Pluoxium:
-          lowerWarnAround:
-            threshold: 0
-            enabled: False
-          upperWarnAround:
-            threshold: 0
-            enabled: False
-          lowerBound:
-            threshold: 0
-            enabled: False
-          upperBound:
-            threshold: 0
-            enabled: False
-          ignore: True
-      pressureThreshold:
-        lowerWarnAround:
-          threshold: 1.05
-          enabled: True
-        upperWarnAround:
-          threshold: 0.7
-          enabled: True
-        lowerBound:
-          threshold: 85
-          enabled: True
-        upperBound:
-          threshold: 550
-          enabled: True
-        ignore: False
-      temperatureThreshold:
-        lowerWarnAround:
-          threshold: 1.1
-          enabled: True
-        upperWarnAround:
-          threshold: 0.8
-          enabled: True
-        lowerBound:
-          threshold: 193.15
-          enabled: True
-        upperBound:
-          threshold: 393.15
-          enabled: True
-        ignore: False
-    - type: DeviceNetwork
-      deviceLists:
-      - 465
-      address: SCR-51E5-9120
-      transmitFrequency: 1621
-      receiveFrequency: 1621
-    - type: Construction
-      step: 1
-      edge: 0
-    - type: AtmosPipeLayers
-      pipeLayer: Tertiary
-    - type: AtmosPipeColor
-      color: '#A91409FF'
   - uid: 426
     components:
     - type: Transform
@@ -8174,6 +6411,8 @@ entities:
       pos: 1.5,-3.5
       parent: 2
     - type: DeviceNetwork
+      deviceLists:
+      - 465
       address: SCR-5E44-D668
       transmitFrequency: 1621
       receiveFrequency: 1621
@@ -8396,42 +6635,55 @@ entities:
       pipeLayer: Tertiary
     - type: AtmosPipeColor
       color: '#A91409FF'
-- proto: GravityGeneratorMini
-  entities:
-  - uid: 345
+  - uid: 489
     components:
     - type: Transform
-      pos: 0.5,-15.5
+      rot: 1.5707963267948966 rad
+      pos: -3.5,-10.5
       parent: 2
-    - type: PowerCharge
-      active: True
-    - type: LanguageSpeaker
-      understoodLanguages:
-      - TauCetiBasic
-      spokenLanguages:
-      - TauCetiBasic
-      currentLanguage: TauCetiBasic
-    - type: ContainerContainer
-      containers:
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 520
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 521
-          - 523
-          - 525
-          - 527
-          - 528
-          - 529
-          - 530
-          - 531
-          - 532
-          - 533
+    - type: DeviceNetwork
+      deviceLists:
+      - 465
+    - type: AtmosPipeLayers
+      pipeLayer: Tertiary
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 517
+    components:
+    - type: Transform
+      pos: -3.5,-13.5
+      parent: 2
+    - type: AtmosPipeLayers
+      pipeLayer: Tertiary
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 543
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-15.5
+      parent: 2
+    - type: AtmosPipeLayers
+      pipeLayer: Tertiary
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 545
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,-11.5
+      parent: 2
+    - type: AtmosPipeLayers
+      pipeLayer: Tertiary
+    - type: AtmosPipeColor
+      color: '#990000FF'
+- proto: GravityGeneratorMini
+  entities:
+  - uid: 353
+    components:
+    - type: Transform
+      pos: 1.5,-14.5
+      parent: 2
 - proto: Grille
   entities:
   - uid: 185
@@ -8591,66 +6843,16 @@ entities:
       powerLoad: 10
 - proto: Gyroscope
   entities:
-  - uid: 218
+  - uid: 346
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -3.5,-13.5
+      pos: 0.5,-13.5
       parent: 2
-    - type: PointLight
-      enabled: True
-    - type: ContainerContainer
-      containers:
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 543
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 544
-          - 546
-          - 547
-          - 548
-  - uid: 360
+  - uid: 450
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,-14.5
+      pos: 0.5,-15.5
       parent: 2
-    - type: PointLight
-      enabled: True
-    - type: ContainerContainer
-      containers:
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 555
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 556
-          - 558
-          - 559
-          - 560
-- proto: GyroscopeMachineCircuitboard
-  entities:
-  - uid: 543
-    components:
-    - type: Transform
-      parent: 218
-    - type: Physics
-      canCollide: False
-  - uid: 555
-    components:
-    - type: Transform
-      parent: 360
-    - type: Physics
-      canCollide: False
 - proto: Hairball
   entities:
   - uid: 444
@@ -8740,6 +6942,13 @@ entities:
     - type: ItemPlacer
       placedEntities:
       - 435
+- proto: KitchenElectricRange
+  entities:
+  - uid: 211
+    components:
+    - type: Transform
+      pos: -3.5,-11.5
+      parent: 2
 - proto: LargeThrusterMachineCircuitboard
   entities:
   - uid: 697
@@ -8953,69 +7162,19 @@ entities:
           ent: null
 - proto: LockerWallMaterialsFuelUraniumFilled2
   entities:
-  - uid: 353
+  - uid: 334
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,-12.5
+      rot: -1.5707963267948966 rad
+      pos: -2.5,-13.5
       parent: 2
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 578
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-- proto: MachineDriveCTLA25Circuitboard
-  entities:
-  - uid: 579
-    components:
-    - type: Transform
-      parent: 301
-    - type: Physics
-      canCollide: False
 - proto: MachineFTLDrive
   entities:
-  - uid: 301
+  - uid: 463
     components:
     - type: Transform
-      pos: -4.5,-15.5
+      pos: 0.5,-8.5
       parent: 2
-    - type: PointLight
-      enabled: True
-    - type: ContainerContainer
-      containers:
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 579
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 580
-          - 582
-          - 584
-          - 586
-          - 587
-          - 588
-          - 589
-          - 590
-          - 591
-          - 592
-          - 593
-          - 594
-    - type: LanguageSpeaker
-      understoodLanguages:
-      - TauCetiBasic
-      spokenLanguages:
-      - TauCetiBasic
-      currentLanguage: TauCetiBasic
 - proto: MachineGCSMediumCircuitboard
   entities:
   - uid: 534
@@ -9069,24 +7228,6 @@ entities:
       parent: 357
     - type: Physics
       canCollide: False
-  - uid: 531
-    components:
-    - type: Transform
-      parent: 345
-    - type: Physics
-      canCollide: False
-  - uid: 532
-    components:
-    - type: Transform
-      parent: 345
-    - type: Physics
-      canCollide: False
-  - uid: 533
-    components:
-    - type: Transform
-      parent: 345
-    - type: Physics
-      canCollide: False
 - proto: MetalFoamGrenade
   entities:
   - uid: 329
@@ -9114,50 +7255,6 @@ entities:
     components:
     - type: Transform
       parent: 338
-    - type: Physics
-      canCollide: False
-  - uid: 546
-    components:
-    - type: Transform
-      parent: 218
-    - type: Physics
-      canCollide: False
-  - uid: 547
-    components:
-    - type: Transform
-      parent: 218
-    - type: Physics
-      canCollide: False
-  - uid: 558
-    components:
-    - type: Transform
-      parent: 360
-    - type: Physics
-      canCollide: False
-  - uid: 559
-    components:
-    - type: Transform
-      parent: 360
-    - type: Physics
-      canCollide: False
-  - uid: 593
-    components:
-    - type: Transform
-      parent: 301
-    - type: Physics
-      canCollide: False
-  - uid: 594
-    components:
-    - type: Transform
-      parent: 301
-    - type: Physics
-      canCollide: False
-- proto: MiniGravityGeneratorCircuitboard
-  entities:
-  - uid: 520
-    components:
-    - type: Transform
-      parent: 345
     - type: Physics
       canCollide: False
 - proto: MonoMRE
@@ -9189,15 +7286,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: NFBedrollFolded
+- proto: NFBedrollStained
   entities:
-  - uid: 349
+  - uid: 416
     components:
     - type: Transform
-      pos: -2.6039798,-11.637834
+      pos: -2.5375116,-11.550372
       parent: 2
-    - type: Physics
-      canCollide: False
 - proto: NFHolopadShipAntag
   entities:
   - uid: 448
@@ -9230,34 +7325,12 @@ entities:
           - 603
 - proto: NitrogenCanister
   entities:
-  - uid: 331
+  - uid: 471
     components:
     - type: Transform
       anchored: True
-      pos: 0.5,-10.5
+      pos: -4.5,-15.5
       parent: 2
-    - type: GasCanister
-      gasMixture:
-        volume: 1500
-        immutable: False
-        temperature: 293.15
-        moles:
-        - 0
-        - 2099.635
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: Physics
       bodyType: Static
 - proto: NitrogenTankFilled
@@ -9285,34 +7358,12 @@ entities:
     - type: InsideEntityStorage
 - proto: OxygenCanister
   entities:
-  - uid: 122
+  - uid: 301
     components:
     - type: Transform
       anchored: True
-      pos: 0.5,-9.5
+      pos: -5.5,-14.5
       parent: 2
-    - type: GasCanister
-      gasMixture:
-        volume: 1500
-        immutable: False
-        temperature: 293.15
-        moles:
-        - 1899.7661
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: Physics
       bodyType: Static
 - proto: OxygenTankFilled
@@ -9415,15 +7466,15 @@ entities:
           ent: 605
 - proto: PortableGeneratorSuperPacmanShuttle
   entities:
-  - uid: 216
+  - uid: 203
     components:
     - type: Transform
-      pos: -0.5,-11.5
+      pos: -4.5,-13.5
       parent: 2
-  - uid: 428
+  - uid: 452
     components:
     - type: Transform
-      pos: 0.5,-11.5
+      pos: -3.5,-13.5
       parent: 2
 - proto: PowerCellSmall
   entities:
@@ -9553,21 +7604,8 @@ entities:
       containers:
         solution@battery: !type:ContainerSlot
           ent: 666
-- proto: PowerComputerCircuitboard
-  entities:
-  - uid: 502
-    components:
-    - type: Transform
-      parent: 450
-    - type: Physics
-      canCollide: False
 - proto: PoweredDimSmallLight
   entities:
-  - uid: 451
-    components:
-    - type: Transform
-      pos: -3.5,-13.5
-      parent: 2
   - uid: 462
     components:
     - type: Transform
@@ -9586,11 +7624,6 @@ entities:
       parent: 2
 - proto: PoweredlightSodium
   entities:
-  - uid: 452
-    components:
-    - type: Transform
-      pos: -5.5,-3.5
-      parent: 2
   - uid: 453
     components:
     - type: Transform
@@ -9598,11 +7631,10 @@ entities:
       parent: 2
 - proto: PoweredSmallLight
   entities:
-  - uid: 359
+  - uid: 425
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,-9.5
+      pos: -0.5,-10.5
       parent: 2
   - uid: 454
     components:
@@ -9649,6 +7681,24 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 3.5,0.5
+      parent: 2
+- proto: PoweredWarmSmallLight
+  entities:
+  - uid: 428
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,-4.5
+      parent: 2
+  - uid: 929
+    components:
+    - type: Transform
+      pos: -2.5,-16.5
+      parent: 2
+  - uid: 930
+    components:
+    - type: Transform
+      pos: -4.5,-13.5
       parent: 2
 - proto: RadarEdgeMarkerCenter
   entities:
@@ -9963,11 +8013,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,-2.5
       parent: 2
-  - uid: 463
+  - uid: 372
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -2.5,-13.5
+      pos: -0.5,-13.5
       parent: 2
 - proto: RailingCornerSmall
   entities:
@@ -10026,38 +8076,6 @@ entities:
       containers:
         solution@glass: !type:ContainerSlot
           ent: 536
-  - uid: 544
-    components:
-    - type: Transform
-      parent: 218
-    - type: Stack
-      count: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - glass
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@glass: !type:ContainerSlot
-          ent: 545
-  - uid: 556
-    components:
-    - type: Transform
-      parent: 360
-    - type: Stack
-      count: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - glass
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@glass: !type:ContainerSlot
-          ent: 557
   - uid: 562
     components:
     - type: Transform
@@ -10074,22 +8092,6 @@ entities:
       containers:
         solution@glass: !type:ContainerSlot
           ent: 563
-  - uid: 580
-    components:
-    - type: Transform
-      parent: 301
-    - type: Stack
-      count: 10
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - glass
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@glass: !type:ContainerSlot
-          ent: 581
   - uid: 598
     components:
     - type: Transform
@@ -10142,22 +8144,6 @@ entities:
     - type: InsideEntityStorage
 - proto: SheetSteel1
   entities:
-  - uid: 521
-    components:
-    - type: Transform
-      parent: 345
-    - type: Stack
-      count: 5
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - steel
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@steel: !type:ContainerSlot
-          ent: 522
   - uid: 537
     components:
     - type: Transform
@@ -10174,22 +8160,6 @@ entities:
       containers:
         solution@steel: !type:ContainerSlot
           ent: 538
-  - uid: 582
-    components:
-    - type: Transform
-      parent: 301
-    - type: Stack
-      count: 10
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - steel
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@steel: !type:ContainerSlot
-          ent: 583
   - uid: 698
     components:
     - type: Transform
@@ -10430,40 +8400,6 @@ entities:
       containers:
         solution@steel: !type:ContainerSlot
           ent: 764
-- proto: SheetUranium1
-  entities:
-  - uid: 525
-    components:
-    - type: Transform
-      parent: 345
-    - type: Stack
-      count: 5
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - food
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 526
-  - uid: 584
-    components:
-    - type: Transform
-      parent: 301
-    - type: Stack
-      count: 5
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - food
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 585
 - proto: ShelfWallFreezerDark
   entities:
   - uid: 356
@@ -10786,6 +8722,13 @@ entities:
     components:
     - type: Transform
       pos: -3.5,-9.5
+      parent: 2
+- proto: TableWoodReinforced
+  entities:
+  - uid: 481
+    components:
+    - type: Transform
+      pos: 0.5,-11.5
       parent: 2
 - proto: ThrusterLargeRogue
   entities:
@@ -12271,6 +10214,21 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,-4.5
       parent: 2
+  - uid: 122
+    components:
+    - type: Transform
+      pos: -0.5,-9.5
+      parent: 2
+  - uid: 123
+    components:
+    - type: Transform
+      pos: -0.5,-15.5
+      parent: 2
+  - uid: 124
+    components:
+    - type: Transform
+      pos: -2.5,-15.5
+      parent: 2
   - uid: 127
     components:
     - type: Transform
@@ -12367,18 +10325,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,-11.5
       parent: 2
-  - uid: 147
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -4.5,-13.5
-      parent: 2
-  - uid: 148
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -4.5,-14.5
-      parent: 2
   - uid: 149
     components:
     - type: Transform
@@ -12473,6 +10419,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,-17.5
       parent: 2
+  - uid: 182
+    components:
+    - type: Transform
+      pos: -0.5,-16.5
+      parent: 2
   - uid: 196
     components:
     - type: Transform
@@ -12500,8 +10451,7 @@ entities:
   - uid: 207
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -3.5,-14.5
+      pos: -0.5,-17.5
       parent: 2
   - uid: 212
     components:
@@ -12523,6 +10473,12 @@ entities:
     - type: Transform
       pos: -3.5,-12.5
       parent: 2
+  - uid: 248
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-7.5
+      parent: 2
   - uid: 335
     components:
     - type: Transform
@@ -12534,6 +10490,26 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 0.5,-7.5
+      parent: 2
+  - uid: 429
+    components:
+    - type: Transform
+      pos: -2.5,-13.5
+      parent: 2
+  - uid: 451
+    components:
+    - type: Transform
+      pos: -3.5,-15.5
+      parent: 2
+  - uid: 464
+    components:
+    - type: Transform
+      pos: 0.5,-9.5
+      parent: 2
+  - uid: 473
+    components:
+    - type: Transform
+      pos: -5.5,-13.5
       parent: 2
   - uid: 914
     components:
@@ -12676,12 +10652,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,-7.5
       parent: 2
-  - uid: 334
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 0.5,-8.5
-      parent: 2
 - proto: WallReinforced
   entities:
   - uid: 446
@@ -12695,16 +10665,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,2.5
-      parent: 2
-  - uid: 766
-    components:
-    - type: Transform
-      pos: -5.5,-13.5
-      parent: 2
-  - uid: 767
-    components:
-    - type: Transform
-      pos: -5.5,-14.5
       parent: 2
   - uid: 768
     components:
@@ -12941,6 +10901,22 @@ entities:
           ents:
           - 776
           - 777
+- proto: WindoorSecure
+  entities:
+  - uid: 422
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,-10.5
+      parent: 2
+- proto: WindowReinforcedDirectional
+  entities:
+  - uid: 410
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,-11.5
+      parent: 2
 - proto: Wirecutter
   entities:
   - uid: 303
