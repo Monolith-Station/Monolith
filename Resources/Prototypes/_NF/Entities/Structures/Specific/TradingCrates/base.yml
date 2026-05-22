@@ -118,8 +118,8 @@
         - MachineLayer
   - type: Contraband
     turnInValues:
-      FederationMilitaryCredit: 12 # Mono
-      Doubloon: 12 # Mono
+      FederationMilitaryCredit: 20 # Mono 12 -> 25 (50 of each currency is about 100k, so these are worth 50k to a faction person, PURELY based of money, so people have more a reason to talk to factions instead of depotslop)
+      Doubloon: 20 # Mono 12 -> 25
   - type: ShipyardSellCondition
     blockSale: true
     reason: shipyard-console-contraband-onboard

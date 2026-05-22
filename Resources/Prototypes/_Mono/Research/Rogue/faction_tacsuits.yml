@@ -11,7 +11,7 @@
   - ClothingOuterVestWebRogue
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 20, 1
+  position: 12, 1
 
 - type: technology
   id: RogueAdvancedEquipment
@@ -28,7 +28,7 @@
   technologyPrerequisites:
   - RogueBasicEquipment
   - UniversalMaterialResearchT2
-  position: 20, 6
+  position: 12, 7
 
 - type: technology
   id: RogueSyndicateTacsuits
@@ -43,7 +43,7 @@
   technologyPrerequisites:
   - RogueAdvancedEquipment
   - UniversalMaterialResearchT3
-  position: 20, 11
+  position: 12, 12
 
 - type: technology
   id: RogueSuperArmor
@@ -57,5 +57,5 @@
   - ClothingOuterHardsuitJuggernautRogue
   technologyPrerequisites:
   - RogueSyndicateTacsuits
-  position: 21, 12
+  position: 13, 12
 

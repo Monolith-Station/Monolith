@@ -256,3 +256,17 @@
   parent: BaseMaterialsYesDiscountRecipe
   materials:
     RawScrap: 16000 #Mono 300k >> 16k
+
+- type: latheRecipe
+  id: ScrapMaterialCopper1
+  result: SheetCopper1
+  parent: BaseMaterialsYesDiscountRecipe
+  materials:
+    RawScrap: 100
+
+- type: latheRecipe
+  id: ScrapMaterialLithium1
+  result: SheetLithium1
+  parent: BaseMaterialsYesDiscountRecipe
+  materials:
+    RawScrap: 100

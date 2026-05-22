@@ -165,7 +165,7 @@
   name: TCA M-5 Drozd (.45 ACP)
   parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunDrozd
-  description: An SMG that once found use among NT security forces, now has found itself as one of the most reliable boarding and anti-boarding weapons on the market. Uses .45 ACP ammo.
+  description: An SMG that once found use among NT security forces, now has found itself as one of the most reliable boarding and anti-boarding weapons on the market. Uses .45 ACP ammo. The barrel is threaded for suppressors, and an Erebus railmount is on the bottom for grips.
   components:
     - type: Item # Mono
       size: Large
@@ -177,6 +177,8 @@
           map: ["enum.GunVisualLayers.Base"]
         - state: mag-0
           map: ["enum.GunVisualLayers.Mag"]
+        - map: ["gripAttachment"] # Mono
+        - map: ["barrelAttachment"] # Mono
     - type: Clothing
       sprite: _Mono/Objects/Weapons/Guns/SMGs/drozd_inhands_32x.rsi # Mono
     - type: Wieldable
@@ -190,7 +192,7 @@
     - type: Gun
       minAngle: 21
       maxAngle: 32
-      fireRate: 6
+      fireRate: 7 # Mono
       burstFireRate: 12
       soundGunshot:
         path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/smg.ogg # Mono
@@ -219,6 +221,74 @@
           whitelist:
             tags:
               - Cartridge45_ACPFMJ
+        # Mono
+        attachment_grip:
+          insertSound: /Audio/Items/screwdriver2.ogg
+          ejectSound: /Audio/Items/screwdriver2.ogg
+          priority: 0
+          whitelist:
+            tags:
+              - MonoGripErebusRailmount
+        # Mono
+        attachment_barrel:
+          insertSound: /Audio/Items/screwdriver.ogg
+          ejectSound: /Audio/Items/screwdriver.ogg
+          priority: 0
+          whitelist:
+            tags:
+              - MonoSuppressorMulticalPistol
+    # Mono start
+    - type: ContainerContainer
+      containers:
+        gun_magazine: !type:ContainerSlot
+        gun_chamber: !type:ContainerSlot
+        attachment_grip: !type:ContainerSlot
+        attachment_barrel: !type:ContainerSlot
+    - type: ESAttachableGun
+      slots:
+      - name: es-gun-attachments-slot-name-barrel
+        containerId: attachment_barrel
+        whitelist:
+          tags:
+          - MonoSuppressorMulticalPistol
+      - name: es-gun-attachments-slot-name-grip
+        containerId: attachment_grip
+        whitelist:
+          tags:
+          - MonoGripErebusRailmount
+    - type: ActivatableUI
+      key: enum.ESAttachableGunUiKey.Key
+      verbOnly: true
+      verbText: es-gun-attachments-verb-text
+    - type: UserInterface
+      interfaces:
+        enum.ESAttachableGunUiKey.Key:
+          type: ESGunAttachmentBui
+    - type: ESItemMapper
+      mappings:
+        gripAttachment:
+        - containerId: attachment_grip
+          state: grip
+          whitelist:
+            tags:
+            - MonoGripVFG
+        - containerId: attachment_grip
+          state: lam
+          whitelist:
+            tags:
+            - MonoGripLAM
+        - containerId: attachment_grip
+          state: light
+          whitelist:
+            tags:
+            - MonoGripLight
+        barrelAttachment:
+        - containerId: attachment_barrel
+          state: suppressed
+          whitelist:
+            tags:
+            - MonoSuppressor
+    # Mono end
     - type: MagazineVisuals
       magState: mag
       steps: 6
@@ -228,7 +298,6 @@
       price: 525
     - type: PirateBountyItem # Mono
       id: StandardFactionLongarm
-
 
 - type: entity
   name: UI WT550 (4.6x30mm)

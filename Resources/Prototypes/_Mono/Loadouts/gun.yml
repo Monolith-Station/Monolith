@@ -749,3 +749,38 @@
   storage:
     back:
     - WeaponPistolHawk4
+
+- type: loadout #Python
+  id: FactionPythonLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRevolverPython
+
+- type: loadout # Inspector Exactly the same as the python why does this even exist
+  id: FactionInspectorLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRevolverInspector
+
+- type: loadout #.45 Magnum Ammo
+  id: FactionMagnum45Loadout
+  price: 0
+  storage:
+    back:
+    - AmmoBox45_magnumFMJ
+
+- type: loadout # Laser Pistol
+  id: FactionLaserPistolLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponLaserPistolNF
+
+- type: loadout #Viper
+  id: FactionViperLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponPistolViper
