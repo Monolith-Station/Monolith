@@ -32,9 +32,10 @@ namespace Content.Server.Engineering.EntitySystems
                 return;
             if (string.IsNullOrEmpty(component.Prototype))
                 return;
-            if (!TryComp<MapGridComponent>(_transform.GetGrid(args.ClickLocation), out var grid))
+            var gridUid = _transform.GetGrid(args.ClickLocation);
+            if (!TryComp<MapGridComponent>(gridUid, out var grid))
                 return;
-            if (!grid.TryGetTileRef(args.ClickLocation, out var tileRef))
+            if (!_turf.TryGetTileRef(gridUid, grid, args.ClickLocation, out var tileRef))
                 return;
 
             bool IsTileClear()

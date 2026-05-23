@@ -33,10 +33,10 @@ public sealed class SmokeOnTriggerSystem : SharedSmokeOnTriggerSystem
     {
         var xform = Transform(uid);
         var mapCoords = _transform.GetMapCoordinates(uid, xform);
-        if (!_turf.TryGetTileRef(xform.Coordinates, out var tileRef) || tileRef.Tile.IsEmpty)
+        if (!_turf.TryGetTileRef(xform.Coordinates, out var tileRef) || tileRef.Value.Tile.IsEmpty)
             return;
 
-        if (_spreader.RequiresFloorToSpread(comp.SmokePrototype.ToString()) && _turf.IsSpace(tileRef))
+        if (_spreader.RequiresFloorToSpread(comp.SmokePrototype.ToString()) && _turf.IsSpace(tileRef.Value))
             return;
 
         var coords = _map.MapToGrid(xform.GridUid!.Value, mapCoords);
