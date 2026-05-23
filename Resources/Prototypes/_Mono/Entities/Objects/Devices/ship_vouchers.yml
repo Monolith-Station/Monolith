@@ -173,6 +173,31 @@
 
 - type: entity
   parent: BaseShipLPC
+  id: ShipVoucherMercury
+  name: TSF Mercury LPC [T1]
+  description: A small card that contains the data for the procurement of a Mercury-class corvette from the flagship's reserves.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#05ffff"
+    - state: screen3
+      color: "#05ffff"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: Security
+    companyName: TSF
+    vessels:
+    - Mercury
+  - type: StaticPrice
+    vendPrice: 500000
+
+- type: entity
+  parent: BaseShipLPC
   id: ShipVoucherAldebaran
   name: TSF Aldebaran LPC [T1]
   description: A small card that contains the data for the procurement of an Aldebaran-class frigate from the flagship's reserves.
@@ -218,6 +243,7 @@
     - ShipVoucherDagger
     - ShipVoucherTarantula
     - ShipVoucherSentinel
+    - ShipVoucherMercury
     - ShipVoucherAldebaran
 
 # end T1
@@ -772,7 +798,7 @@
     - Ravager
   - type: StaticPrice
     vendPrice: 325000
-    
+
 
 # fighters
 

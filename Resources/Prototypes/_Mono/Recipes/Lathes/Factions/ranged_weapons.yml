@@ -172,6 +172,23 @@
     Plastitanium: 2500
     Silver: 250
 
+# TSF Anubis
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLauncherTSFAnubis
+  result: WeaponLauncherTSFAnubis
+  categories:
+  - AntiMaterial
+  - Antitank
+  - Explosive
+  - Weapons
+  materials:
+    Steel: 12000
+    Plasteel: 4000
+    Plastitanium: 2000
+    Silver: 500
+
 # TSF energy
 
 - type: latheRecipe

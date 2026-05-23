@@ -268,3 +268,29 @@
   id: ClothingHeadHatBeretCommander
   name: commander's beret
   description: A black beret with a commander's rank emblem.
+
+- type: entity
+  parent: ClothingHeadHatBeretHoS
+  id: ClothingHeadHatBeretCommon
+  name: TSFMC's blue beret
+  description: A navy blue beret worn by member of the TSFMC.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hats/tsf_blue_beret.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hats/tsf_blue_beret.rsi
+
+- type: entity
+  parent: ClothingHeadHatHopcap
+  id: ClothingHeadHatUtilityTsfmc
+  name: TSFMC's utility cap
+  description: A standard issue utlity cover of the trans-solarian federation marine corps.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hats/tsf_utility_cap.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hats/tsf_utility_cap.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon

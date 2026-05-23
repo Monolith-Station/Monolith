@@ -15,7 +15,7 @@ namespace Content.Server._Mono.MonoCoins;
 public sealed class CurrencyAddCommand : LocalizedCommands
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly MonoCoinsManager _coins = default!;
 
     public override string Command => "currency:add";
 
@@ -29,15 +29,9 @@ public sealed class CurrencyAddCommand : LocalizedCommands
 
         var playerName = args[0];
 
-        if (!int.TryParse(args[1], out var amount))
+        if (!long.TryParse(args[1], out var amount))
         {
             shell.WriteError("Amount must be a valid integer.");
-            return;
-        }
-
-        if (amount <= 0)
-        {
-            shell.WriteError("Amount must be positive.");
             return;
         }
 
@@ -62,7 +56,7 @@ public sealed class CurrencyAddCommand : LocalizedCommands
 
         try
         {
-            var newBalance = await _db.AddMonoCoinsAsync(userId, amount);
+            var newBalance = await _coins.AddMonoCoinsAsync(userId, amount);
             shell.WriteLine($"Added {amount} MonoCoins to {playerName}. New balance: {newBalance}");
         }
         catch (Exception ex)

@@ -147,6 +147,8 @@ public sealed class FollowerSystem : EntitySystem
 
     private void OnAfterHandleState(Entity<FollowerComponent> entity, ref AfterAutoHandleStateEvent args)
     {
+        if (TerminatingOrDeleted(entity) || TerminatingOrDeleted(entity.Comp.Following)) // Mono: Ensure the entities exist.
+            return;
         StartFollowingEntity(entity, entity.Comp.Following);
     }
 

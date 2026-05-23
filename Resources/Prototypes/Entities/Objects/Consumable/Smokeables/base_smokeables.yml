@@ -11,6 +11,9 @@
   - type: Tag
     tags:
     - Trash
+  - type: Food
+    solution: "smokable"
+    requiresSpecialDigestion: true
   - type: SpaceGarbage
     cleanupExempt: true # Mono
   - type: StaticPrice
