@@ -76,7 +76,7 @@ public sealed partial class BodySystem : SharedBodySystem // Shitmed change: mad
         var layer = partEnt.Comp.ToHumanoidLayers();
         if (layer != null)
         {
-            _humanoidSystem.SetLayerVisibility(bodyEnt, layer.Value, true, null);
+            _humanoidSystem.SetLayerVisibility(bodyEnt.Owner, layer.Value, true, null);
         }
     }
 
