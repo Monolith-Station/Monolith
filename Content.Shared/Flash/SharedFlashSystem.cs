@@ -109,7 +109,7 @@ public abstract class SharedFlashSystem : EntitySystem
             return false;
 
         if (TryComp<LimitedChargesComponent>(ent.Owner, out var charges)
-            && _sharedCharges.IsEmpty((ent.Owner, charges)))
+            && _sharedCharges.IsEmpty(ent.Owner, charges))
             return false;
 
         _sharedCharges.TryUseCharge((ent.Owner, charges));
@@ -120,7 +120,7 @@ public abstract class SharedFlashSystem : EntitySystem
         Dirty(ent.Owner, active);
         _appearance.SetData(ent.Owner, FlashVisuals.Flashing, true);
 
-        if (_sharedCharges.IsEmpty((ent.Owner, charges)))
+        if (_sharedCharges.IsEmpty(ent.Owner, charges))
         {
             _appearance.SetData(ent.Owner, FlashVisuals.Burnt, true);
             _tag.AddTag(ent.Owner, TrashTag);

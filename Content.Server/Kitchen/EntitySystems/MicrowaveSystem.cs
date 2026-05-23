@@ -1,5 +1,4 @@
 using Content.Server.Administration.Logs;
-using Content.Server.Atmos.Components; // Mono
 using Content.Server.Atmos.EntitySystems; // Mono
 using Content.Server.Body.Systems;
 using Content.Server.Construction;
@@ -11,6 +10,7 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
+using Content.Shared.Atmos.Components; // Mono
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Chemistry.Components.SolutionManager;

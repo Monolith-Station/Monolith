@@ -769,7 +769,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             // Check if we have a player entity that's either still around or alive and may come back
             if (_player.TryGetSessionByEntity(child, out var session)
                 || _mind.TryGetMind(child, out var mind, out var mindComp)
-                    && !_mind.IsCharacterDeadPhysically(child))
+                    && !_mind.IsCharacterDeadPhysically(mindComp))
             {
                 return Name(child);
             }
