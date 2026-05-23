@@ -19,7 +19,7 @@
     baseSprintSpeed : 4.65
     weightlessAcceleration: 1.5 # Slightly more manueverable in space.
   - type: ClothingSlowResistance
-    modifier: 1.0 # Completely unaffected by clothing slow
+    modifier: 0.2 # Slowed down by clothing less.
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -36,13 +36,6 @@
     scale: 1.2, 1.2
   - type: PlayerToolModifier
     pryTimeMultiplier: 0.7
-  - type: BonusMeleeDamage
-    damageModifierSet:
-      coefficients:
-        Blunt: 1.1
-        Slash: 1.1
-        Piercing: 1.1
-        Asphyxiation: 1
   - type: Thirst
   - type: Icon
     sprite: _Mono/Mobs/Species/Asakim/parts.rsi
@@ -100,10 +93,6 @@
       reagents:
       - ReagentId: GastroToxin
         Quantity: 20
-  - type: NightVision
-    isEquipment: false
-    activateSound: null
-    deactivateSound: null
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 1

@@ -26,6 +26,8 @@ public sealed class ThermalSignatureSystem : EntitySystem
 
     private const float HeatChangeThreshold = 1.02f;
 
+    private List<Entity<ThermalSignatureComponent>> _gridQueue = new();
+
     private EntityQuery<ThermalSignatureComponent> _sigQuery;
     private EntityQuery<GunComponent> _gunQuery;
     private EntityQuery<MapGridComponent> _mapGridQuery;
@@ -106,6 +108,7 @@ public sealed class ThermalSignatureSystem : EntitySystem
             gridSigComp.TotalHeat = 0f;
         }
 
+        _gridQueue.Clear();
         var query = EntityQueryEnumerator<ThermalSignatureComponent>();
         while (query.MoveNext(out var uid, out var sigComp))
         {
@@ -117,15 +120,8 @@ public sealed class ThermalSignatureSystem : EntitySystem
 
             if (_mapGridQuery.HasComp(uid))
             {
-                sigComp.TotalHeat += sigComp.StoredHeat;
-
-                // don't sync it if it didn't change heat much since last time, we don't need to sync 500 cold asteroids every system update
-                if (sigComp.TotalHeat <= sigComp.LastUpdateHeat * HeatChangeThreshold
-                    && sigComp.TotalHeat >= sigComp.LastUpdateHeat / HeatChangeThreshold)
-                    continue;
-
-                sigComp.LastUpdateHeat = sigComp.TotalHeat;
-                Dirty(uid, sigComp);
+                _gridQueue.Add((uid, sigComp));
+                continue;
             }
             else
             {
@@ -134,6 +130,18 @@ public sealed class ThermalSignatureSystem : EntitySystem
                 if (xform.GridUid != null && _sigQuery.TryGetComponent(xform.GridUid.Value, out var gridSig))
                     gridSig.TotalHeat += sigComp.StoredHeat;
             }
+        }
+
+        foreach (var ent in _gridQueue) {
+            ent.Comp.TotalHeat += ent.Comp.StoredHeat;
+
+            // don't sync it if it didn't change heat much since last time, we don't need to sync 500 cold asteroids every system update
+            if (ent.Comp.TotalHeat <= ent.Comp.LastUpdateHeat * HeatChangeThreshold
+                && ent.Comp.TotalHeat >= ent.Comp.LastUpdateHeat / HeatChangeThreshold)
+                continue;
+
+            ent.Comp.LastUpdateHeat = ent.Comp.TotalHeat;
+            Dirty(ent);
         }
     }
 }

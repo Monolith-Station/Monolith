@@ -10,3 +10,172 @@
     maxAmount: 5000
   - type: AccessReader
     access: [["TsfmcEngineering"]]
+
+- type: entity
+  id: LargeAPC
+  name: LAPC substation
+  parent: BaseStructure
+  description: A centralized, reinforced substation terminal for the vessel's electrical systems. Tranforms current from HV to LV in bulk. Useful for shield generators and the like.
+  components:
+  - type: StationAiWhitelist
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 2
+    sound:
+      path: /Audio/Ambience/Objects/hdd_buzz.ogg
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Sprite
+    #drawdepth: WallMountedItems
+    sprite: _Mono/Structures/Power/Distributors/largeapc.rsi
+    offset: 0,0.2
+    layers:
+    - state: base
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      visible: false
+    - state: display-charging
+      shader: unshaded
+      map: [ "enum.ApcVisualLayers.ChargeState" ]
+    - state: lock0-locked
+      shader: unshaded
+      map: [ "enum.ApcVisualLayers.InterfaceLock" ]
+      visible: false
+    - state: lock1-locked
+      shader: unshaded
+      map: [ "enum.ApcVisualLayers.PanelLock" ]
+      visible: false
+    - state: lock1-locked #when these are implemented get actual sprites.
+      shader: unshaded
+      map: [ "enum.ApcVisualLayers.Equipment" ]
+      visible: false
+    - state: lock1-locked
+      shader: unshaded
+      map: [ "enum.ApcVisualLayers.Lighting" ]
+      visible: false
+    - state: lock1-locked
+      shader: unshaded
+      map: [ "enum.ApcVisualLayers.Environment" ]
+      visible: false
+  - type: Appearance
+  - type: ApcVisuals
+  - type: Battery
+    maxCharge: 150000
+    startingCharge: 50000
+  - type: ExaminableBattery
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+      output:
+        !type:CableDeviceNode
+        nodeGroupID: Apc
+  - type: PowerMonitoringDevice
+    group: APC
+    sourceNode: input
+    loadNode: output
+    collectionName: apc
+    sprite: Structures/Power/apc.rsi
+    state: static
+  - type: BatteryCharger
+    voltage: High
+  - type: PowerProvider
+    voltage: Apc
+  - type: Apc
+    voltage: Apc
+  - type: ExtensionCableProvider
+  - type: UserInterface
+    interfaces:
+      enum.ApcUiKey.Key:
+        type: ApcBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: false
+    key: enum.ApcUiKey.Key
+  - type: Machine
+    board: APCElectronics
+  - type: PowerNetworkBattery
+    maxSupply: 60000
+    maxChargeRate: 20000
+    supplyRampTolerance: 15000
+    supplyRampRate: 2000
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1200 # Tanky
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+  - type: StationInfiniteBatteryTarget
+  - type: Electrified
+    onHandInteract: false
+    onInteractUsing: false
+    onBump: false
+    requirePower: true
+    highVoltageNode: input
+    lowVoltageNode: output
+  - type: LightningTarget
+    priority: 1
+  - type: StaticPrice
+    price: 2000
+  - type: GuideHelp
+    guides:
+    - VoltageNetworks
+    - Power
+  - type: BatteryDrinkerSource # EE IPCs
+    maxAmount: 10000
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.25,0.45,0.25"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 10.0
+    intensitySlope: 5
+    maxIntensity: 4
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+    - machine_board
+    - machine_parts
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container

@@ -76,6 +76,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     protected EntityQuery<PhysicsComponent> _physQuery; // Mono
     protected EntityQuery<ProjectileComponent> _projQuery; // Mono
+    private EntityQuery<AutoShootGunComponent> _autoShootGunQuery; // Mono
 
     private const float InteractNextFire = 0.3f;
     private const double SafetyNextFire = 0.5;
@@ -117,6 +118,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         _physQuery = GetEntityQuery<PhysicsComponent>(); // Mono
         _projQuery = GetEntityQuery<ProjectileComponent>(); // Mono
+        _autoShootGunQuery = GetEntityQuery<AutoShootGunComponent>();
     }
 
     private void OnMapInit(Entity<GunComponent> gun, ref MapInitEvent args)
@@ -349,7 +351,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     protected void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun)
     {
-        if (TryComp<AutoShootGunComponent>(gunUid, out var auto) && !auto.CanFire && auto.RemainingTime <= TimeSpan.FromSeconds(0)) // Frontier // Mono
+        if (_autoShootGunQuery.TryComp(gunUid, out var auto) && !auto.CanFire && auto.RemainingTime <= TimeSpan.Zero) // Frontier // Mono
             return; // Frontier
 
         if (gun.FireRateModified <= 0f ||
@@ -590,6 +592,26 @@ public abstract partial class SharedGunSystem : EntitySystem
             return ProtoManager.Index(cartComp.Prototype);
         }
         return cartridge;
+    }
+
+    // Mono
+    public DamageSpecifier GetNextDamage(Entity<GunComponent?> gun)
+    {
+        if (!TryNextShootPrototype(gun, out var shoot))
+            return new();
+
+        return GetBulletDamage(shoot);
+    }
+
+    // Mono
+    public DamageSpecifier GetBulletDamage(EntityPrototype bullet)
+    {
+        var shoot = GetBulletPrototype(bullet);
+        if (shoot.TryGetComponent<HitscanBasicDamageComponent>(out var hitscan, Factory))
+            return hitscan.Damage;
+        if (shoot.TryGetComponent<ProjectileComponent>(out var proj, Factory))
+            return proj.Damage;
+        return new();
     }
 
     // Mono - used for multiple-per-frame projectile offset

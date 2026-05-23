@@ -1,0 +1,51 @@
+- type: entity
+  id: ChemMasterFilled
+  parent: ChemMaster
+  name: ChemMaster 4000
+  suffix: PreFilled
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      buffer:
+        canReact: false
+        reagents:
+        - ReagentId: Aluminium
+          Quantity: 400
+        - ReagentId: Carbon
+          Quantity: 400
+        - ReagentId: Chlorine
+          Quantity: 400
+        - ReagentId: Copper
+          Quantity: 400
+        - ReagentId: Ethanol
+          Quantity: 400
+        - ReagentId: Fluorine
+          Quantity: 400
+        - ReagentId: Hydrogen
+          Quantity: 400
+        - ReagentId: Iodine
+          Quantity: 400
+        - ReagentId: Iron
+          Quantity: 400
+        - ReagentId: Lithium
+          Quantity: 400
+        - ReagentId: Mercury
+          Quantity: 400
+        - ReagentId: Nitrogen
+          Quantity: 400
+        - ReagentId: Oxygen
+          Quantity: 400
+        - ReagentId: Phosphorus
+          Quantity: 400
+        - ReagentId: Potassium
+          Quantity: 400
+        - ReagentId: Radium
+          Quantity: 400
+        - ReagentId: Silicon
+          Quantity: 400
+        - ReagentId: Sodium
+          Quantity: 400
+        - ReagentId: Sugar
+          Quantity: 400
+        - ReagentId: Sulfur
+          Quantity: 400

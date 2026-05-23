@@ -24,6 +24,7 @@
     shotsPerBurst: 4
     fireRate: 6.5
     projectileSpeed: 42.5 # Mono
+    damageModifier: 0.9
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/thock.ogg
   - type: ChamberMagazineAmmoProvider
@@ -59,12 +60,13 @@
   - type: Appearance
   - type: PirateBountyItem # Mono
     id: ExperimentalFactionWeapon
+  - type: GunRequiresWield
 
 - type: entity
   name: CS KMP-WSPR (7.62x39mm)
   parent: BaseWeaponRifle # Mono - C3
   id: WeaponRifleWSPR
-  description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses 7.62x39mm ammo.
+  description: A cutting-edge Dynasty burst rifle, versatile and reliable. Uses 7.62x39mm ammo.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr.rsi # Mono
@@ -85,9 +87,10 @@
     - Burst
     selectedMode: Burst
     burstFireRate: 20 # Mono
-    burstCooldown: 0.4 # Mono
+    burstCooldown: 0.6 # Mono
     projectileSpeed: 45 # Mono
     fireRate: 7.5 # Mono, does nothing because its burst only but it makes it clear it can fire at this rate.
+    damageModifier: 0.9
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/wspr_fire.ogg # Mono change - Changed audio path
   - type: ItemSlots
@@ -114,10 +117,11 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: GunRequiresWield
 
 - type: entity
   name: PA M-90 (7.62x51mm) # mono - 762x51mm
-  parent: BaseWeaponRifle # Mono - pirate contra
+  parent: BaseWeaponRifle
   id: WeaponRifleM90
   description: A compact bullpup design. Uses 7.62x51mm rifle ammo. # mono
   components:
@@ -137,6 +141,19 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: Gun
+    minAngle: 13
+    maxAngle: 20
+    angleIncrease: 5
+    angleDecay: 25
+    fireRate: 3
+    burstFireRate: 6
+    burstCooldown: 0.5
+    shotsPerBurst: 2
+    selectedMode: Burst
+    availableModes:
+    - FullAuto
+    - Burst
+    - SemiAuto
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_2.ogg # Mono
   - type: ItemSlots
@@ -167,6 +184,10 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: 10
+    maxAngle: 8
 
 - type: entity
   name: CS Burner (12.7x99mm)
@@ -216,3 +237,4 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: GunRequiresWield

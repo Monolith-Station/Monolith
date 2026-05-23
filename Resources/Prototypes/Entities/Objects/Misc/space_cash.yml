@@ -65,6 +65,29 @@
   - type: ShipyardSellCondition # Frontier: Teleport to shipyard console on sale
     preserveOnSale: true
 
+  # Moths can eat credits #
+  - type: Food
+    solution: food
+    delay: 0.5
+    forceFeedDelay: 0.5
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
+  - type: Tag
+    tags:
+    - ClothMade
+    - Paper
+  - type: MothFood
+
 - type: material
   id: Credit
   name: credit

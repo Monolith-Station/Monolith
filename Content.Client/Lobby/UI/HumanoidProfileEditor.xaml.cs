@@ -1452,7 +1452,7 @@ namespace Content.Client.Lobby.UI
 
             _loadoutWindow = new LoadoutWindow(Profile, roleLoadout, roleLoadoutProto, _playerManager.LocalSession, collection)
             {
-                Title = jobProto?.ID + "-loadout",
+                Title = jobProto?.LocalizedName + " loadout", // Mono - replace the "-" with a space in "-loadout", change to LocalizedName from ID
             };
 
             // Refresh the buttons etc.
@@ -2196,7 +2196,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             var companies = _prototypeManager.EnumeratePrototypes<CompanyPrototype>()
-                .Where(c => !c.Disabled && _companyManager.IsAllowed(c))
+                .Where(c => !c.Disabled && _companyManager.IsAllowed(c.ID))
                 .ToList();
             companies.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.Ordinal));
 

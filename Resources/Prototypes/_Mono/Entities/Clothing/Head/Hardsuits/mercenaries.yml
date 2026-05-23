@@ -27,6 +27,7 @@
     color: "#e24242"
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: DetectionRangeMultiplier
     infraredMultiplier: 0.5
     visualMultiplier: 0.75

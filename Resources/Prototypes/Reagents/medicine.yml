@@ -26,6 +26,7 @@
   color: "#3a1d8a"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -136,7 +137,7 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: -3
+            Radiation: -4 # Mono 3 >> 4
           groups:
             Brute: 1.5
 
@@ -150,10 +151,13 @@
   color: "#ffaa00"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono 1.5 >> 1
       effects:
       - !type:EvenHealthChange
         damage:
-          Brute: -2 #Mono 1.5 >> 2
+          Brute: -1
+      - !type:ModifyBleedAmount # Mono: buff to differentiate more from trico
+        amount: -0.25
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -196,6 +200,7 @@
   - !type:PlantCryoxadone {}
   metabolisms:
     Cryogenic: # Frontier: Medicine<Cryogenic
+      metabolismRate: 0.2 # Mono: 0.5 >> 0.2
       effects:
         - !type:EvenHealthChange
           conditions:
@@ -230,6 +235,7 @@
   worksOnTheDead: true # Frontier
   metabolisms:
     Cryogenic: # Frontier: Medicine<Cryogenic
+      metabolismRate: 0.2 # Mono
       effects:
         - !type:HealthChange
           conditions:
@@ -261,6 +267,7 @@
   color: "#215263"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -296,6 +303,7 @@
   color: "#0041a8"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -389,8 +397,8 @@
           min: 0
           max: 20
         damage:
-          Brute: -1 # Mono: 0.5 >> 1
-          Burn: -1 # Mono: 0.5 >> 1
+          Brute: -2 # Mono: 0.5 >> 2
+          Burn: -2 # Mono: 0.5 >> 2
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -446,6 +454,7 @@
   color: "#4cb580"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -456,7 +465,7 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
-        probability: 0.02
+        probability: 0.005 # Mono: Longer lasting, less likely to puke your guts...as much
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -525,6 +534,7 @@
   color: "#bf3d19"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono 0.5 >> 0.2
       effects:
       - !type:HealthChange
         damage:
@@ -606,6 +616,7 @@
   color: "#ff867d"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         conditions:
@@ -700,7 +711,7 @@
       effects:
       - !type:EvenHealthChange
         damage:
-          Brute: -2 #Mono -1.75 >> -2
+          Brute: -2.5 #Mono -1.75 >> -2.5
           Airloss: -1
       - !type:HealthChange
         conditions:
@@ -862,6 +873,7 @@
   color: "#ba7d7d"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 #Mono: Slower metabolism rate
       effects:
       # Medium-large quantities can hurt you instead,
       # but still technically stop your bleeding.
@@ -885,8 +897,9 @@
   color: "#00e5ff"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 #Mono: Slower metabolism rate
       effects:
-      - !type:EvenHealthChange
+      - !type:EvenHealthChange #Mono: Low damage healing
         conditions:
         - !type:TotalDamage
           max: 50
@@ -894,6 +907,21 @@
           Brute: -1
           Burn: -1
           Toxin: -0.5
+      - !type:EvenHealthChange #Mono: High damage healing
+        conditions:
+        - !type:TotalDamage
+          min: 50
+        damage:
+          Brute: -0.25
+          Burn: -0.25
+          Toxin: -0.12
+      - !type:AdjustReagent # Mono: Overdose, penalize metabolism
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        reagent: Tricordrazine
+        amount: -0.8
+        
 
 - type: reagent
   id: Lipozine
@@ -922,26 +950,19 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:EvenHealthChange # Mono - Overdose
+      - !type:EvenHealthChange
         conditions:
-        - !type:ReagentThreshold
-          min: 0
-          max: 100
         damage:
           Burn: -1.5
           Toxin: -1.5
           Airloss: -1.5
           Brute: -1.5   
-      - !type:HealthChange # Mono - Added overdose
+      - !type:AdjustReagent # Mono: Overdose, penalize metabolism
         conditions:
         - !type:ReagentThreshold
-          min: 100
-        damage:
-          groups:
-            Burn: 1
-            Toxin: 1
-            Airloss: 1
-            Brute: 1
+          min: 60
+        reagent: Omnizine
+        amount: -1.0
 
 - type: reagent
   id: Ultravasculine

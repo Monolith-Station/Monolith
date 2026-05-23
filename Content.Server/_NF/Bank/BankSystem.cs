@@ -8,6 +8,7 @@ using Content.Shared.Preferences;
 using Robust.Shared.Player;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
+using Content.Shared._Mono.CCVar; // Mono
 using Content.Shared._Mono.Traits.Physical;
 using Content.Shared._NF.Bank.Events;
 using Content.Shared.GameTicking;
@@ -116,6 +117,13 @@ public sealed partial class BankSystem : SharedBankSystem
     /// <returns>true if the transaction was successful, false if it was not</returns>
     public bool TryBankDeposit(EntityUid mobUid, int amount)
     {
+        // Mono start
+        if (!_cfg.GetCVar(MonoCVars.DepositEnabled))
+        {
+            _log.Info($"TryBankDeposit: DepositEnabled cvar is disabled.");
+            return false;
+        }
+        // Mono end
         if (amount <= 0)
         {
             _log.Info($"TryBankDeposit: {amount} is invalid from Uid {mobUid}");
@@ -373,6 +381,7 @@ public sealed partial class BankSystem : SharedBankSystem
             balance = 0;
             return true;
         }
+
         if (!_prefsManager.TryGetCachedPreferences(session.UserId, out var prefs))
         {
             _log.Info($"{session.UserId} has no cached prefs");

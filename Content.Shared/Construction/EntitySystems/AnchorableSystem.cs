@@ -30,9 +30,9 @@ public sealed partial class AnchorableSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly SharedToolSystem _tool = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private   readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-
+    [Dependency] private readonly SharedMapSystem _map = default!;
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
     public readonly ProtoId<TagPrototype> Unstackable = "Unstackable";
@@ -280,12 +280,10 @@ public sealed partial class AnchorableSystem : EntitySystem
     private bool TileFree(EntityCoordinates coordinates, PhysicsComponent anchorBody)
     {
         // Probably ignore CanCollide on the anchoring body?
-        var gridUid = coordinates.GetGridUid(EntityManager);
-
-        if (!TryComp<MapGridComponent>(gridUid, out var grid))
+        if (_transformSystem.GetGrid(coordinates) is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out var grid))
             return false;
 
-        var tileIndices = grid.TileIndicesFor(coordinates);
+        var tileIndices = _map.TileIndicesFor(gridUid, grid, coordinates);
         return TileFree(grid, tileIndices, anchorBody.CollisionLayer, anchorBody.CollisionMask);
     }
 
@@ -295,7 +293,7 @@ public sealed partial class AnchorableSystem : EntitySystem
     /// <param name="grid"></param>
     public bool TileFree(MapGridComponent grid, Vector2i gridIndices, int collisionLayer = 0, int collisionMask = 0)
     {
-        var enumerator = grid.GetAnchoredEntitiesEnumerator(gridIndices);
+        var enumerator = _map.GetAnchoredEntitiesEnumerator(grid.Owner, grid, gridIndices);
 
         while (enumerator.MoveNext(out var ent))
         {
@@ -329,7 +327,7 @@ public sealed partial class AnchorableSystem : EntitySystem
 
     public bool AnyUnstackablesAnchoredAt(EntityCoordinates location)
     {
-        var gridUid = location.GetGridUid(EntityManager);
+        var gridUid = _transformSystem.GetGrid(location);
 
         if (!TryComp<MapGridComponent>(gridUid, out var grid))
             return false;

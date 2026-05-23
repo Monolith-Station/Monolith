@@ -15,4 +15,20 @@ PlayerStationAiRogue: PlayerStationAiPDV
 
 ShipMissileASM557: ShipMissileASM250
 ShipMissileASM302: ShipMissileASM150
-ShipMissileASM417: ShipMissileASM50
+ShipMissileASM417: MissileProjectile50mmHE
+
+# shipgun caliber changes
+
+220mmCartridge: 220mmCartridgeAPHE
+VesperaMagazine: MissileMagazine50mmHE
+255mmCartridge: 255mmCartridgeAPHE
+Magazine57mm: Magazine57mmHE
+Magazine90mm: 90mmMagazineHE
+
+# bullets
+
+57mmBullet: 57mmBulletHE
+90mmBullet: 90mmBulletHE
+ShipCyrexaProjectile: 220mmBulletAPHE
+ShipBoforsProjectile: 255mmBulletAPHE
+

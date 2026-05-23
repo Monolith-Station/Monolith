@@ -11,7 +11,4 @@ public sealed partial class ShuttleBoostingPilotComponent : Component
 
     [DataField]
     public float AccelerationMultiplier = 1f;
-
-    [DataField]
-    public float MaxVelMultiplier = 1f;
 }

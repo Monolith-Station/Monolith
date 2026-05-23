@@ -26,13 +26,19 @@ public sealed partial class BankATMMenu : FancyWindow
         BalanceLabel.Text = BankSystemExtensions.ToSpesoString(amount);
     }
 
-    public void SetDeposit(int amount)
+    public void SetDeposit(int amount, int untaxedAmount)
     {
         DepositButton.Disabled = amount <= 0;
         if (amount >= 0) // Valid
+        {
             DepositLabel.Text = BankSystemExtensions.ToSpesoString(amount);
+            DepositLabelUT.Text = BankSystemExtensions.ToSpesoString(untaxedAmount);
+        }
         else
+        {
             DepositLabel.Text = Loc.GetString("bank-atm-menu-cash-error");
+            DepositLabelUT.Text = Loc.GetString("bank-atm-menu-cash-error");
+        }
     }
 
     public void SetEnabled(bool enabled)

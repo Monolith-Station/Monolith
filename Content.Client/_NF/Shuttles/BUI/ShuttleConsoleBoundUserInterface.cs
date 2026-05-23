@@ -24,15 +24,14 @@ namespace Content.Client.Shuttles.BUI
             });
         }
 
-        private void OnMaxShuttleSpeedChanged(NetEntity? entityUid, float maxSpeed)
+        private void OnMaxShuttleSpeedChanged(float? maxSpeed)
         {
             SendMessage(new SetMaxShuttleSpeedRequest
             {
-                ShuttleEntityUid = entityUid,
                 MaxSpeed = maxSpeed,
             });
         }
-        
+
         private void OnNetworkPortButtonPressed(string sourcePort, string targetPort)
         {
             SendMessage(new ShuttlePortButtonPressedMessage

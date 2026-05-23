@@ -117,13 +117,6 @@
         key: Target
         coordinatesKey: TargetCoordinates
 
-- type: utilityQuery
-  id: NearbyShuttleTargetsLongRange
-  parent: NearbyShuttleTargets
-  query:
-  - !type:NearbyNpcTargetsQuery
-    range: 4000
-
 - type: htnCompound
   id: AttackerShuttleSmartStaticCompound
   branches:
@@ -170,7 +163,7 @@
   - tasks:
     - !type:HTNPrimitiveTask
       operator: !type:UtilityOperator
-        proto: NearbyShuttleTargetsLongRange
+        proto: NearbyShuttleTargets
     - !type:HTNCompoundTask
       task: ShuttleAttackDroneCompoundAssembly
 
@@ -202,7 +195,7 @@
       services:
       - !type:UtilityService
         id: TargetsService
-        proto: NearbyShuttleTargetsLongRange
+        proto: NearbyShuttleTargets
         key: Target
         coordinatesKey: TargetCoordinates
 

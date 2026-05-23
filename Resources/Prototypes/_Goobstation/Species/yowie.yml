@@ -9,7 +9,7 @@
   skinColoration: TintedHues
   maleFirstNames: names_yowie_male
   femaleFirstNames: names_yowie_female
-  lastNames: names_yowie_last
+  naming: First
 
 # The lack of a layer means that
 # this person cannot have round-start anything
@@ -36,7 +36,7 @@
     RFoot: MobYowieRFoot
     Tail: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
-    
+
 - type: markingPoints
   id: MobYowieMarkingLimits
   points:

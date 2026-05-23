@@ -8,16 +8,35 @@
     anchored: true
   - type: Clickable
   - type: Animateable
+  - type: RequiresGrid
+  - type: InteractionOutline
   - type: Tag
     tags:
     - Structure
   - type: Repairable #Mono: Nanite applicator
     qualities:
     - Applicating
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 1
+    repairCost: 0
 
 - type: entity
-  name: Antenna
-  description: Like antennas to hell.
+  name: antenna
+  description: Like antennas to hell. Usually part of a ship or station's UHF communication systems.
   id: GreebleAntenna1
   parent: BaseGreeble
   placement:
@@ -35,8 +54,8 @@
     end: 0, 1.5
 
 - type: entity
-  name: Antenna
-  description: Like antennas to hell.
+  name: antenna
+  description: Like antennas to hell. Usually part of a ship or station's UHF communication systems.
   id: GreebleAntenna2
   parent: BaseGreeble
   placement:
@@ -54,8 +73,8 @@
     end: 0, 1.2
 
 - type: entity
-  name: ELINT
-  description: Like antennas to hell.
+  name: ELINT system
+  description: Used for reading noncommunication electromagnetic radiation and their properties, such as radar signals. Who gives a shit?
   id: GreebleElint1
   parent: BaseGreeble
   placement:
@@ -69,7 +88,7 @@
 
 - type: entity
   name: radar panel
-  description: Like antennas to hell.
+  description: Some kind of protective fiberglass panelling. Seen in various systems, such as weather and altitude mapping to military early-warning systems. If it's powerful enough, you might get cancer a bit faster!
   id: GreebleRadarpanel1
   parent: BaseGreeble
   placement:
@@ -83,7 +102,7 @@
 
 - type: entity
   name: radar panel
-  description: Like antennas to hell.
+  description: Some kind of protective fiberglass panelling. Seen in various systems, such as weather and altitude mapping to military early-warning systems. If it's powerful enough, you might get cancer a bit faster!
   id: GreebleRadarpanel2
   parent: BaseGreeble
   placement:

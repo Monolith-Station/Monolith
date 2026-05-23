@@ -12,7 +12,7 @@
       types:
         Piercing: 34
         Structural: 200
-    armorPenetration: -0.2
+    armorPenetration: 0.2
 
 - type: entity
   id: Pellet12_gaugeBeanbag
@@ -44,7 +44,6 @@
     damage:
       types:
         Piercing: 11
-    armorPenetration: -0.5
 
 - type: entity
   id: Pellet12_gaugeSpread
@@ -70,7 +69,6 @@
       types:
         Piercing: 5
         Heat: 4
-    armorPenetration: -0.2
   - type: IgnitionSource
     ignited: true
 
@@ -307,8 +305,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 19
-    armorPenetration: -0.2
+        Piercing: 25
+    armorPenetration: -0.5
 
 - type: entity
   id: Pellet12_gaugeOOBuckshotSpread
@@ -351,7 +349,7 @@
       types:
         Piercing: 28
         Structural: 250
-    armorPenetration: 0.4
+    armorPenetration: 0.6
   - type: Tracer
     color: "#6f7c82ff"
     length: 3
@@ -368,8 +366,9 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 8
-    armorPenetration: 0.3
+        Piercing: 7
+        Structural: 40
+    armorPenetration: 0.6
   - type: Tracer
     color: "#6f7c82ff"
     length: 3
