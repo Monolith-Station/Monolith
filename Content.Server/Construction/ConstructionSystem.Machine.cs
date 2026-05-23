@@ -82,15 +82,22 @@ public sealed partial class ConstructionSystem
         // Frontier: keep separate lists for upgradeable parts
         foreach (var (part, amount) in machineBoard.Requirements)
         {
-            var partProto = _prototypeManager.Index<MachinePartPrototype>(part);
+            // Mono - PartOverrides
+            var partProto = component.PartOverrides.ContainsKey(part)
+                ? component.PartOverrides[part]
+                : _prototypeManager.Index<MachinePartPrototype>(part).StockPartPrototype;
             for (var i = 0; i < amount; i++)
             {
-                var p = EntityManager.SpawnEntity(partProto.StockPartPrototype, xform.Coordinates);
+                var p = EntityManager.SpawnEntity(partProto, xform.Coordinates);
 
                 if (!_container.Insert(p, partContainer))
-                    throw new Exception($"Couldn't insert machine part of type {part} to machine with prototype {partProto.StockPartPrototype.ToString() ?? "N/A"}!");
+                    throw new Exception($"Couldn't insert machine part of type {part} to machine with prototype {partProto.ToString() ?? "N/A"}!");
             }
         }
         // End Frontier: keep separate lists for upgradeable parts
+
+        // Mono
+        if (component.PartOverrides.Count > 0)
+            RefreshParts(uid, component);
     }
 }
