@@ -19,6 +19,7 @@ using Content.Shared.Traits.Assorted;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
+using Robust.Shared.Player; // Mono
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
@@ -38,6 +39,7 @@ public sealed class CPRSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!; // Mono
     [Dependency] private readonly EuiManager _euiManager = default!; // Mono
+    [Dependency] private ISharedPlayerManager _player = default!; // Mono
 
     public override void Initialize()
     {
@@ -133,12 +135,12 @@ public sealed class CPRSystem : EntitySystem
 
             // Mono Edit: Informs the ghost they've been revived.
             if (_mind.TryGetMind(target, out _, out var mind) &&
-                mind.Session is { } playerSession)
+                _player.TryGetSessionById(mind.UserID, out var playerSession))
             {
                 // notify them they're being revived.
                 if (mind.CurrentEntity != target)
                 {
-                    _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind), playerSession);
+                    _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind, _player), playerSession);
                 }
             }
         }

@@ -121,15 +121,6 @@ public sealed class CrematoriumSystem : EntitySystem
         if (storage.Open || storage.Contents.ContainedEntities.Count < 1)
             return false;
 
-        // Frontier - refuse to accept alive mobs and dead-but-connected players
-        var entity = storage.Contents.ContainedEntities[0];
-        if (entity is not { Valid: true })
-            return false;
-        if (TryComp<MobStateComponent>(entity, out var comp) && !_mobState.IsDead(entity, comp))
-            return false;
-        if (_minds.TryGetMind(entity, out var _, out var mind) && mind.Session?.State?.Status == SessionStatus.InGame)
-            return false;
-
         return Cremate(uid, component, storage);
     }
 

@@ -12,6 +12,7 @@ using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Power;
 using Content.Shared.Light.EntitySystems;
+using Robust.Shared.Random; // Frontier
 
 namespace Content.Server.Light.EntitySystems;
 
@@ -20,6 +21,8 @@ namespace Content.Server.Light.EntitySystems;
 /// </summary>
 public sealed class PoweredLightSystem : SharedPoweredLightSystem
 {
+    [Dependency] private IRobustRandom _random = default!; // Frontier
+
     public override void Initialize()
     {
         base.Initialize();
@@ -63,7 +66,7 @@ public sealed class PoweredLightSystem : SharedPoweredLightSystem
 
     private void OnEmpPulse(EntityUid uid, PoweredLightComponent component, ref EmpPulseEvent args)
     {
-        if (RobustRandom.Prob(component.LightBreakChance)) // Frontier
+        if (_random.Prob(component.LightBreakChance)) // Frontier
         {
             if (TryDestroyBulb(uid, component))
                 args.Affected = true;
