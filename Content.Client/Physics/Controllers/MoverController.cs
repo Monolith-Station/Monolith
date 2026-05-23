@@ -93,10 +93,7 @@ public sealed class MoverController : SharedMoverController
             return;
 
         if (RelayQuery.TryGetComponent(player, out var relayMover))
-        {
             HandleClientsideMovement(relayMover.RelayEntity, frameTime);
-            HandleRelayMovement(relayMover.RelayEntity); // Upstream - #34016
-        }
 
         HandleClientsideMovement(player, frameTime);
     }

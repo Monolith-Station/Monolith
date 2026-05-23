@@ -119,34 +119,6 @@ public abstract partial class SharedMoverController : VirtualController
         UsedMobMovement.Clear();
     }
 
-    // Upstream - #34016
-    protected void HandleRelayMovement(Entity<MovementRelayTargetComponent?, InputMoverComponent?> entity)
-    {
-        if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2))
-            return;
-
-        var relayTarget = entity.Comp1;
-        var mover = entity.Comp2;
-
-        var canMove = true;
-
-        if (_mobState.IsIncapacitated(relayTarget.Source) ||
-            TryComp<SleepingComponent>(relayTarget.Source, out _) ||
-            !MoverQuery.TryGetComponent(relayTarget.Source, out var relayedMover))
-        {
-            canMove = false;
-        }
-        else
-        {
-            mover.RelativeEntity = relayedMover.RelativeEntity;
-            mover.RelativeRotation = relayedMover.RelativeRotation;
-            mover.TargetRelativeRotation = relayedMover.TargetRelativeRotation;
-        }
-
-        mover.CanMove = canMove;
-    }
-    // End Upstream - #34016
-
     /// <summary>
     ///     Movement while considering actionblockers, weightlessness, etc.
     /// </summary>
