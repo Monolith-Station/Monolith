@@ -47,6 +47,7 @@ using Content.Shared._Mono.Company;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Player;
+using Robust.Server.Player;
 using Content.Shared._Mono.Ships.Components;
 using Content.Shared._Mono.Shipyard;
 using Content.Shared.Tag;
@@ -61,6 +62,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly IServerPreferencesManager _prefManager = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -358,7 +360,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
             if (!recSuccess &&
                 _mind.TryGetMind(player, out var mindUid, out var mindComp)
-                && _prefManager.GetPreferences(_mind.GetSession(mindComp)!.UserId).SelectedCharacter is HumanoidCharacterProfile profile)
+                && _prefManager.GetPreferencesOrNull(mindComp.UserId)?.SelectedCharacter is HumanoidCharacterProfile profile)
             {
                 TryComp<FingerprintComponent>(player, out var fingerprintComponent);
                 TryComp<DnaComponent>(player, out var dnaComponent);
@@ -765,9 +767,9 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
                 continue;
 
             // Check if we have a player entity that's either still around or alive and may come back
-            if (_mind.TryGetMind(child, out var mind, out var mindComp)
-                && (mindComp.Session != null
-                || !_mind.IsCharacterDeadPhysically(mindComp)))
+            if (_player.TryGetSessionByEntity(child, out var session)
+                || _mind.TryGetMind(child, out var mind, out var mindComp)
+                    && !_mind.IsCharacterDeadPhysically(child))
             {
                 return Name(child);
             }

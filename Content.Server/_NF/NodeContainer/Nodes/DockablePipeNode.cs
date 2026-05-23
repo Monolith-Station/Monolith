@@ -20,7 +20,7 @@ public partial class DockablePipeNode : PipeNode
             yield return pipe;
         }
 
-        if (!xform.Anchored || grid == null)
+        if (!xform.Comp.Anchored || grid == null)
             yield break;
 
         if (entMan.TryGetComponent(Owner, out DockingComponent? docking)

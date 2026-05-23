@@ -17,6 +17,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.Fluids.Components;
+using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;

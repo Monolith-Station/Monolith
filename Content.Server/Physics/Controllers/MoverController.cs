@@ -25,6 +25,7 @@ public sealed class MoverController : SharedMoverController
         "physics_active_mover_count",
         "Amount of ActiveInputMovers being processed by MoverController");
 
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ThrusterSystem _thruster = default!;
 
     private Dictionary<EntityUid, (ShuttleComponent, List<(EntityUid, PilotComponent, InputMoverComponent, TransformComponent)>)> _shuttlePilots = new();
@@ -538,7 +539,7 @@ public sealed class MoverController : SharedMoverController
             shuttle.AngularMultiplier = angularMul;
             shuttle.AccelerationMultiplier = accelMul;
 
-            var shuttleNorthAngle = _xformSystem.GetWorldRotation(uid);
+            var shuttleNorthAngle = _transform.GetWorldRotation(uid);
 
             var xform = Transform(uid);
 

@@ -28,6 +28,7 @@ using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Verbs;
 using Robust.Server.Containers;
+using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
@@ -61,6 +62,7 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly RadioSystem _radioSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly JobSystem _jobs = default!;
     [Dependency] private readonly StationJobsSystem _stationJobs = default!;
@@ -234,21 +236,18 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
         }
 
         // If the inserted player has disconnected, it will be stored immediately.
-        if (_mind.TryGetMind(toInsert.Value, out var mind, out var mindComp))
+        if (_player.TryGetSessionByEntity(toInsert.Value, out var session)
+            && session.Status == SessionStatus.Disconnected)
         {
-            var session = mindComp.Session;
-            if (session is not null && session.Status == SessionStatus.Disconnected)
-            {
-                CryoStoreBody(toInsert.Value, cryopod);
-                return true;
-            }
+            CryoStoreBody(toInsert.Value, cryopod);
+            return true;
         }
 
         var success = _container.Insert(toInsert.Value, component.BodyContainer);
 
-        if (success && mindComp?.Session != null)
+        if (success && session != null)
         {
-            _euiManager.OpenEui(new CryoSleepEui(toInsert.Value,  cryopod, this), mindComp.Session);
+            _euiManager.OpenEui(new CryoSleepEui(toInsert.Value,  cryopod, this), session);
         }
 
         if (success)
@@ -528,7 +527,7 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
 
         // Get the entity owned by this mind
         var mindEntity = args.MindId;
-        if (!_mind.TryGetSession(mindEntity, out var session) ||
+        if (!_player.TryGetSessionById(args.Mind.UserId, out var session) ||
             session.AttachedEntity is not { Valid: true } playerEntity)
             return;
 
