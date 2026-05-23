@@ -170,7 +170,7 @@
   parent: TechDiskBase
   id: TechDiskCivMediumGunnery
   name: civilian medium gunnery tech disk
-  description: A disk capable of adding medium gunnery control server boards to a server's recipes.
+  description: A disk capable of adding medium-power gunnery control server board to a server's recipes.
   components:
   - type: Sprite
     layers:
@@ -188,7 +188,7 @@
   parent: TechDiskBase
   id: TechDiskHighGunnery
   name: pre-fracture high gunnery tech disk
-  description: A disk capable of adding medium gunnery control server boards to a server's recipes.
+  description: A disk capable of adding high-power gunnery control server board to a server's recipes.
   components:
   - type: Sprite
     layers:
