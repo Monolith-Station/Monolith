@@ -36,6 +36,26 @@ public sealed class LungSystem : EntitySystem
         _atmos.DisconnectInternals(ent);
     }
 
+    // Goobstation - Update component state on component toggle
+    private void OnBreathToolInit(Entity<BreathToolComponent> ent, ref ComponentInit args)
+    {
+        var comp = ent.Comp;
+
+        comp.IsFunctional = true;
+
+        if (!_inventory.TryGetContainingEntity(ent.Owner, out var parent) || !_inventory.TryGetContainingSlot(ent.Owner, out var slot))
+            return;
+
+        if ((slot.SlotFlags & comp.AllowedSlots) == 0)
+            return;
+
+        if (TryComp(parent, out InternalsComponent? internals))
+        {
+            ent.Comp.ConnectedInternalsEntity = parent;
+            _internals.ConnectBreathTool((parent.Value, internals), ent);
+        }
+    }
+
     private void OnGotEquipped(Entity<BreathToolComponent> ent, ref GotEquippedEvent args)
     {
         if ((args.SlotFlags & ent.Comp.AllowedSlots) == 0)

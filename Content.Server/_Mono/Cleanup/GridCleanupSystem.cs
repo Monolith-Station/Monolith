@@ -54,7 +54,7 @@ public sealed class GridCleanupSystem : BaseCleanupSystem<MapGridComponent>
 
         var state = EnsureComp<GridCleanupGridComponent>(uid);
 
-        var tiles = body.FixturesMass / ShuttleSystem.TileMassMultiplier;
+        var tiles = body.FixturesMass / ShuttleSystem.TileDensityMultiplier;
         var scale = MathF.Min(tiles / _aggressiveTiles, 1f);
 
         if (HasComp<MapComponent>(uid) // if we're a planetmap ignore
