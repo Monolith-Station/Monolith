@@ -50,6 +50,7 @@ using Content.Shared._NF.Bank.BUI; // Frontier
 using Content.Shared.SSDIndicator; // Frontier
 using Content.Server.Power.EntitySystems; // Frontier
 using Content.Server._NF.Mail.Components; // Frontier
+using Robust.Server.Player; // Mono
 
 namespace Content.Server._DV.Mail.EntitySystems
 {
@@ -58,6 +59,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         [Dependency] private readonly AccessReaderSystem _accessSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
+        [Dependency] private readonly IPlayerManager _player = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
@@ -626,8 +628,8 @@ namespace Content.Server._DV.Mail.EntitySystems
                 }
 
                 // Mail recipients requires a connected player
-                if (!_mindSystem.TryGetMind(receiverUid, out var mindId, out var mindComp)
-                    || mindComp?.Session?.State.Status != SessionStatus.InGame)
+                if (!_player.TryGetSessionByEntity(receiverUid, out var session)
+                    || session.State.Status != SessionStatus.InGame)
                     return false;
 
                 // Antagonists (pirates and the like) don't get mail.

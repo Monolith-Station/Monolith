@@ -24,6 +24,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
@@ -61,9 +62,7 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
 

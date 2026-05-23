@@ -418,7 +418,7 @@ namespace Content.Server.Ghost
 
         private IEnumerable<GhostWarp> GetAdminGhostWarps(EntityUid except)
         {
-            foreach (var player in _playerManager.Sessions)
+            foreach (var player in _player.Sessions)
             {
                 if (player.AttachedEntity is not {Valid: true} attached)
                     continue;
@@ -441,7 +441,7 @@ namespace Content.Server.Ghost
 
         private IEnumerable<GhostWarp> GetRegularGhostWarps(EntityUid except)
         {
-            foreach (var player in _playerManager.Sessions)
+            foreach (var player in _player.Sessions)
             {
                 if (player.AttachedEntity is not {Valid: true} attached)
                     continue;
@@ -599,7 +599,7 @@ namespace Content.Server.Ghost
         /// <param name="mindId">The mind ID of the player</param>
         public void ApplyAdminOOCColor(EntityUid ghostEntity, EntityUid mindId) // Mono
         {
-            if (!_mind.TryGetSession(mindId, out var session))
+            if (!_player.TryGetSessionByEntity(ghostEntity, out var session))
                 return;
 
             // Only apply admin OOC color if the player is actually an admin

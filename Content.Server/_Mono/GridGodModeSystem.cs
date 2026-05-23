@@ -111,8 +111,7 @@ public sealed class GridGodModeSystem : EntitySystem
             return false;
 
         // Check if we have a player entity that's either still around or alive and may come back
-        if (_mind.TryGetMind(entityUid, out var mind, out var mindComp) &&
-            (mindComp.Session != null || !_mind.IsCharacterDeadPhysically(mindComp)))
+        if (_mind.TryGetMind(entityUid, out var mind, out var mindComp) && !_mind.IsCharacterDeadPhysically(mindComp))
         {
             return true;
         }

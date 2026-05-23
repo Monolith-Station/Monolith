@@ -60,7 +60,7 @@ public sealed class SiliconDeathSystem : EntitySystem
         if (TryComp(uid, out HumanoidAppearanceComponent? humanoidAppearanceComponent))
         {
             var layers = HumanoidVisualLayersExtension.Sublayers(HumanoidVisualLayers.HeadSide);
-            _humanoidAppearanceSystem.SetLayersVisibility((uid, humanoidAppearanceComponent), layers, false, null);
+            _humanoidAppearanceSystem.SetLayersVisibility((uid, humanoidAppearanceComponent), layers, false);
         }
 
         siliconDeadComp.Dead = true;
