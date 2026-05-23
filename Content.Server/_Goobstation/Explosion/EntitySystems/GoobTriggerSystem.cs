@@ -12,9 +12,9 @@ namespace Content.Server._Goobstation.Explosion.EntitySystems;
 
 public sealed class GoobTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly TriggerSystem _trigger = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private TriggerSystem _trigger = default!;
+    [Dependency] private InventorySystem _inventory = default!;
     public override void Initialize()
     {
         base.Initialize();

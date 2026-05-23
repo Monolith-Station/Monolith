@@ -11,7 +11,7 @@ namespace Content.Server.Construction;
 
 public sealed partial class ConstructionSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // Frontier
+    [Dependency] private IPrototypeManager _prototypeManager = default!; // Frontier
     private void InitializeMachines()
     {
         SubscribeLocalEvent<MachineComponent, ComponentInit>(OnMachineInit);

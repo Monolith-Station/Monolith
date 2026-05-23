@@ -14,9 +14,9 @@ namespace Content.Server.Shuttles.Systems;
 
 public sealed class RadarConsoleSystem : SharedRadarConsoleSystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!; // Mono
-    [Dependency] private readonly ShuttleConsoleSystem _console = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SharedTransformSystem _transform = default!; // Mono
+    [Dependency] private ShuttleConsoleSystem _console = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
 
     public override void Initialize()
     {

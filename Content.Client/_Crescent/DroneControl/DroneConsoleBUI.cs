@@ -8,7 +8,7 @@ namespace Content.Client._Crescent.DroneControl;
 [UsedImplicitly]
 public sealed class DroneConsoleBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     private DroneConsoleWindow? _window;
 

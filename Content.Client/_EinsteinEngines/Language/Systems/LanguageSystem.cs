@@ -10,7 +10,7 @@ namespace Content.Client._EinsteinEngines.Language.Systems;
 
 public sealed class LanguageSystem : SharedLanguageSystem
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     /// <summary>
     ///     Invoked when the Languages of the local player entity change, for use in UI.

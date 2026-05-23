@@ -11,7 +11,7 @@ namespace Content.Server.StationEvents.Events;
 
 public sealed class BluespaceLockerRule : StationEventSystem<BluespaceLockerRuleComponent>
 {
-    [Dependency] private readonly BluespaceLockerSystem _bluespaceLocker = default!;
+    [Dependency] private BluespaceLockerSystem _bluespaceLocker = default!;
 
     protected override void Started(EntityUid uid, BluespaceLockerRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

@@ -9,8 +9,8 @@ namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
 public sealed class ReactorPartSystem : SharedReactorPartSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     /// <summary>
     /// Processes gas flowing through a reactor part.

@@ -9,9 +9,9 @@ namespace Content.Shared.Actions;
 /// </summary>
 public sealed class ConfirmableActionSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!; // Goobstation
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedActionsSystem _actions = default!; // Goobstation
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

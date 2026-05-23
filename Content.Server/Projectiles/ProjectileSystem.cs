@@ -13,10 +13,10 @@ namespace Content.Server.Projectiles;
 
 public sealed class ProjectileSystem : SharedProjectileSystem
 {
-    [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
+    [Dependency] private DestructibleSystem _destructibleSystem = default!;
 
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
 
     // <Mono>
     private EntityQuery<PhysicsComponent> _physQuery;

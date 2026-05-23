@@ -12,8 +12,8 @@ namespace Content.Client.Holopad;
 
 public sealed class HolopadSystem : SharedHolopadSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

@@ -8,8 +8,8 @@ namespace Content.Client._EstacaoPirata.Cards.Hand.UI;
 [UsedImplicitly]
 public sealed class CardHandMenuBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IClyde _displayManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private IClyde _displayManager = default!;
+    [Dependency] private IInputManager _inputManager = default!;
 
     private CardHandMenu? _menu;
 

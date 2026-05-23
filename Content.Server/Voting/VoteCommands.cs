@@ -18,7 +18,7 @@ namespace Content.Server.Voting
     [AnyCommand]
     public sealed class CreateVoteCommand : IConsoleCommand
     {
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
 
         public string Command => "createvote";
         public string Description => Loc.GetString("cmd-createvote-desc");
@@ -71,11 +71,11 @@ namespace Content.Server.Voting
     [AdminCommand(AdminFlags.Moderator)]
     public sealed class CreateCustomCommand : LocalizedEntityCommands
     {
-        [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly VoteWebhooks _voteWebhooks = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private IVoteManager _voteManager = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private IChatManager _chatManager = default!;
+        [Dependency] private VoteWebhooks _voteWebhooks = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
 
         private ISawmill _sawmill = default!;
 
@@ -233,7 +233,7 @@ namespace Content.Server.Voting
     [AdminCommand(AdminFlags.Moderator)]
     public sealed class CancelVoteCommand : IConsoleCommand
     {
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
 
         public string Command => "cancelvote";
         public string Description => Loc.GetString("cmd-cancelvote-desc");

@@ -14,9 +14,9 @@ namespace Content.Server.Mining;
 /// </summary>
 public sealed class MiningSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SpawnCountSystem _spawnCount = default!; // Mono edit - ore consolidation
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SpawnCountSystem _spawnCount = default!; // Mono edit - ore consolidation
 
     /// <inheritdoc/>
     public override void Initialize()

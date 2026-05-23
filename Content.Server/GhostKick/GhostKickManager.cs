@@ -14,7 +14,7 @@ namespace Content.Server.GhostKick;
 
 public sealed class GhostKickManager
 {
-    [Dependency] private readonly IServerNetManager _netManager = default!;
+    [Dependency] private IServerNetManager _netManager = default!;
 
     public void Initialize()
     {

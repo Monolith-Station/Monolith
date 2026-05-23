@@ -17,9 +17,9 @@ namespace Content.Server.Mapping
     [AdminCommand(AdminFlags.Server | AdminFlags.Mapping)]
     sealed class MappingCommand : IConsoleCommand
     {
-        [Dependency] private readonly IEntityManager _entities = default!;
-        [Dependency] private readonly IMapManager _map = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private IEntityManager _entities = default!;
+        [Dependency] private IMapManager _map = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
 
         public string Command => "mapping";
         public string Description => Loc.GetString("cmd-mapping-desc");

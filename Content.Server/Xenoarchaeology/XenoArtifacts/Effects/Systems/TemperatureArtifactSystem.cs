@@ -9,8 +9,8 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 
 public sealed class TemperatureArtifactSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private TransformSystem _transformSystem = default!;
 
     public override void Initialize()
     {

@@ -12,7 +12,7 @@ namespace Content.Server._DV.RoundEnd;
 
 public sealed class PacifiedRoundEnd : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
 
     private bool _enabled;
 

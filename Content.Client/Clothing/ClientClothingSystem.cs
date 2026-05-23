@@ -49,9 +49,9 @@ public sealed class ClientClothingSystem : ClothingSystem
         {"suitstorage", "SUITSTORAGE"},
     };
 
-    [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly DisplacementMapSystem _displacement = default!;
+    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private DisplacementMapSystem _displacement = default!;
 
     public override void Initialize()
     {

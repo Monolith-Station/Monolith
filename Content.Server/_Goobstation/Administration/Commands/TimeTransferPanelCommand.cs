@@ -8,7 +8,7 @@ namespace Content.Server._Goobstation.Administration.Commands;
 [AdminCommand(AdminFlags.Moderator)]
 public sealed class TimeTransferPanelCommand : LocalizedCommands
 {
-    [Dependency] private readonly EuiManager _euis = default!;
+    [Dependency] private EuiManager _euis = default!;
 
     public override string Command => "timetransferpanel";
 

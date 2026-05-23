@@ -12,7 +12,7 @@ namespace Content.Client.Administration.UI.Tabs.PlayerTab;
 [GenerateTypedNameReferences]
 public sealed partial class PlayerTabEntry : PanelContainer
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     public PlayerTabEntry(
         PlayerInfo player,

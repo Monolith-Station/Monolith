@@ -18,8 +18,8 @@ namespace Content.Goobstation.Client.Audio;
 /// </summary>
 public sealed class AudioEffectSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
 
     /// <summary>
     ///     Whether creating new auxiliaries is safe.

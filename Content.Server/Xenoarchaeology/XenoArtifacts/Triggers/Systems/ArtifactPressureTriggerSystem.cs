@@ -8,8 +8,8 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 /// </summary>
 public sealed class ArtifactPressureTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly ArtifactSystem _artifactSystem = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private ArtifactSystem _artifactSystem = default!;
 
     public override void Update(float frameTime)
     {

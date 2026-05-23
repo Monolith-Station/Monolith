@@ -12,7 +12,7 @@ namespace Content.Server.GameTicking;
 
 public sealed partial class GameTicker
 {
-    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
+    [Dependency] private MobThresholdSystem _mobThresholdSystem = default!;
 
     public const float PresetFailedCooldownIncrease = 30f;
 

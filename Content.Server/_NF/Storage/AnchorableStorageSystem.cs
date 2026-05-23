@@ -17,10 +17,10 @@ namespace Content.Server._NF.Storage;
 /// </summary>
 public sealed class AnchorableStorageSystem : EntitySystem
 {
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly TransformSystem _xform = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private MapSystem _map = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private TransformSystem _xform = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

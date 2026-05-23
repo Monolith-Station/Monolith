@@ -6,7 +6,7 @@ namespace Content.Client._ES.Storage.ItemMapper;
 
 public sealed class ESItemMapperSystem : ESSharedItemMapperSystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

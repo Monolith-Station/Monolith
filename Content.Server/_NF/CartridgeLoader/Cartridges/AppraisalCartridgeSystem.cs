@@ -11,12 +11,12 @@ namespace Content.Server.CartridgeLoader.Cartridges;
 
 public sealed class AppraisalCartridgeSystem : EntitySystem
 {
-    [Dependency] private readonly CargoSystem _bountySystem = default!;
-    [Dependency] private readonly CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly PricingSystem _pricingSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private CargoSystem _bountySystem = default!;
+    [Dependency] private CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private PricingSystem _pricingSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {

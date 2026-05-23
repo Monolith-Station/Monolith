@@ -45,28 +45,28 @@ namespace Content.Server._NF.CryoSleep;
 
 public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly ClimbSystem _climb = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly EuiManager _euiManager = null!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly InteractionSystem _interaction = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly MobStateSystem _mobSystem = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly ShipyardSystem _shipyard = default!; // For the FoundOrganics method
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly RadioSystem _radioSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly JobSystem _jobs = default!;
-    [Dependency] private readonly StationJobsSystem _stationJobs = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private ClimbSystem _climb = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private EuiManager _euiManager = null!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private InteractionSystem _interaction = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private MobStateSystem _mobSystem = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private ShipyardSystem _shipyard = default!; // For the FoundOrganics method
+    [Dependency] private GhostSystem _ghost = default!;
+    [Dependency] private RadioSystem _radioSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private JobSystem _jobs = default!;
+    [Dependency] private StationJobsSystem _stationJobs = default!;
+    [Dependency] private StationSystem _station = default!;
 
     private readonly Dictionary<NetUserId, StoredBody?> _storedBodies = new();
     private EntityUid? _storageMap;

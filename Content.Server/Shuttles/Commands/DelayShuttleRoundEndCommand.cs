@@ -11,7 +11,7 @@ namespace Content.Server.Shuttles.Commands;
 [AdminCommand(AdminFlags.Fun)]
 public sealed class DelayRoundEndCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntitySystemManager _sysManager = default!;
+    [Dependency] private IEntitySystemManager _sysManager = default!;
 
     public string Command => "delayroundend";
     public string Description => Loc.GetString("emergency-shuttle-command-round-desc");

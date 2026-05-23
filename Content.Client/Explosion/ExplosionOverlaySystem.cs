@@ -15,12 +15,12 @@ namespace Content.Client.Explosion;
 /// </summary>
 public sealed class ExplosionOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IResourceCache _resCache = default!;
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly SharedPointLightSystem _lights = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private IResourceCache _resCache = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private SharedPointLightSystem _lights = default!;
+    [Dependency] private IMapManager _mapMan = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {

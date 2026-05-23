@@ -8,7 +8,7 @@ namespace Content.Client.Movement.Systems;
 
 public sealed class FloorOcclusionSystem : SharedFloorOcclusionSystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private EntityQuery<SpriteComponent> _spriteQuery;
 

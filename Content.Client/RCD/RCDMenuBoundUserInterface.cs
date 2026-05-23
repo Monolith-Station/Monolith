@@ -11,8 +11,8 @@ namespace Content.Client.RCD;
 [UsedImplicitly]
 public sealed class RCDMenuBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IClyde _displayManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private IClyde _displayManager = default!;
+    [Dependency] private IInputManager _inputManager = default!;
 
     private RCDMenu? _menu;
 

@@ -15,14 +15,14 @@ namespace Content.Shared.VendingMachines;
 
 public abstract partial class SharedVendingMachineSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] protected readonly IRobustRandom Randomizer = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] protected readonly ItemSlotsSystem ItemSlots = default!; // Frontier
+    [Dependency] private INetManager _net = default!;
+    [Dependency] protected IPrototypeManager PrototypeManager = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] protected IRobustRandom Randomizer = default!;
+    [Dependency] private EmagSystem _emag = default!;
+    [Dependency] protected ItemSlotsSystem ItemSlots = default!; // Frontier
 
     public override void Initialize()
     {

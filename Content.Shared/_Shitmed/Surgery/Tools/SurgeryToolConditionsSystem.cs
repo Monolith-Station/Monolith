@@ -12,7 +12,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 /// </summary>
 public sealed class SurgeryToolConditionsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

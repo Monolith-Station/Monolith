@@ -14,9 +14,9 @@ namespace Content.Server._Mono;
 /// </summary>
 public sealed class LoadoutEncryptionKeySlottingSystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedStorageSystem _storage = default!;
 
     public override void Initialize()
     {

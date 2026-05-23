@@ -7,8 +7,8 @@ namespace Content.Client.Drowsiness;
 
 public sealed class DrowsinessSystem : SharedDrowsinessSystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
 
     private DrowsinessOverlay _overlay = default!;
 

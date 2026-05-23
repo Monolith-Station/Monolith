@@ -6,7 +6,7 @@ namespace Content.Shared.Weapons.Hitscan.Systems;
 
 public sealed class HitscanStunSystem : EntitySystem
 {
-    [Dependency] private readonly StaminaSystem _stamina = default!; // Mono - SharedStaminaSystem not ported yet
+    [Dependency] private StaminaSystem _stamina = default!; // Mono - SharedStaminaSystem not ported yet
 
     public override void Initialize()
     {

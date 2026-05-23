@@ -11,8 +11,8 @@ namespace Content.Client._Mono.Radio;
 /// </summary>
 public sealed class ClientRadioNoiseSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

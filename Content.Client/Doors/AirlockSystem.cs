@@ -9,7 +9,7 @@ namespace Content.Client.Doors;
 
 public sealed class AirlockSystem : SharedAirlockSystem
 {
-    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
+    [Dependency] private AppearanceSystem _appearanceSystem = default!;
 
     public override void Initialize()
     {

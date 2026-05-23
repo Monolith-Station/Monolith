@@ -25,15 +25,15 @@ public sealed class MoverController : SharedMoverController
         "physics_active_mover_count",
         "Amount of ActiveInputMovers being processed by MoverController");
 
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ThrusterSystem _thruster = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ThrusterSystem _thruster = default!;
 
     private Dictionary<EntityUid, (ShuttleComponent, List<(EntityUid, PilotComponent, InputMoverComponent, TransformComponent)>)> _shuttlePilots = new();
 
     private EntityQuery<ActiveInputMoverComponent> _activeQuery;
     private EntityQuery<DroneConsoleComponent> _droneQuery;
     private EntityQuery<ShuttleComponent> _shuttleQuery;
-    [Dependency] private readonly EntityQuery<GhostComponent> _ghostQuery = default!;
+    [Dependency] private EntityQuery<GhostComponent> _ghostQuery = default!;
 
     // Not needed for persistence; just used to save an alloc
     private readonly HashSet<EntityUid> _seenMovers = [];

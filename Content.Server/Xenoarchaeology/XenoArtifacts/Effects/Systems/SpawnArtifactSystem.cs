@@ -9,9 +9,9 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 
 public sealed class SpawnArtifactSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ArtifactSystem _artifact = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ArtifactSystem _artifact = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     public const string NodeDataSpawnAmount = "nodeDataSpawnAmount";
 

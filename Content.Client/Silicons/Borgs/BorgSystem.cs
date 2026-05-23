@@ -9,7 +9,7 @@ namespace Content.Client.Silicons.Borgs;
 /// <inheritdoc/>
 public sealed class BorgSystem : SharedBorgSystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {

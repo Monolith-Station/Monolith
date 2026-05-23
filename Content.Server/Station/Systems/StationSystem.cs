@@ -28,12 +28,12 @@ namespace Content.Server.Station.Systems;
 [PublicAPI]
 public sealed class StationSystem : EntitySystem
 {
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private MapSystem _map = default!;
 
     private ISawmill _sawmill = default!;
 

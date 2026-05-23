@@ -25,10 +25,10 @@ namespace Content.Client.Atmos;
 /// </remarks>
 public sealed class AlignAtmosPipeLayers : SnapgridCenter
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IEyeManager _eyeManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IEyeManager _eyeManager = default!;
 
     private readonly SharedMapSystem _mapSystem;
     private readonly SharedTransformSystem _transformSystem;

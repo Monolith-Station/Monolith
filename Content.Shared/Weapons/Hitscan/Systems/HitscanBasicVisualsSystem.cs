@@ -10,7 +10,7 @@ namespace Content.Shared.Weapons.Hitscan.Systems;
 
 public sealed class HitscanBasicVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

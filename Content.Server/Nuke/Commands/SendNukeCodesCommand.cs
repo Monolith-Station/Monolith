@@ -14,7 +14,7 @@ namespace Content.Server.Nuke.Commands
         public string Description => "Send nuke codes to a station's communication consoles";
         public string Help => "nukecodes [station EntityUid]";
 
-        [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {

@@ -7,8 +7,8 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 
 public sealed class RandomInstrumentArtifactSystem : EntitySystem
 {
-    [Dependency] private readonly InstrumentSystem _instrument = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private InstrumentSystem _instrument = default!;
+    [Dependency] private IRobustRandom _random = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

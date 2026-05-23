@@ -15,10 +15,10 @@ namespace Content.Server.Forensics
     /// </summary>
     public sealed class ForensicPadSystem : EntitySystem
     {
-        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly LabelSystem _label = default!;
+        [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+        [Dependency] private InventorySystem _inventory = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private LabelSystem _label = default!;
 
         public override void Initialize()
         {

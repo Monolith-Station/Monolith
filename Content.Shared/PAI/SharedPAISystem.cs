@@ -13,7 +13,7 @@ namespace Content.Shared.PAI
     /// </summary>
     public abstract class SharedPAISystem : EntitySystem
     {
-        [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+        [Dependency] private SharedActionsSystem _actionsSystem = default!;
 
         public override void Initialize()
         {

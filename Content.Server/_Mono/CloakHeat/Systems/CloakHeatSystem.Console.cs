@@ -11,7 +11,7 @@ namespace Content.Server._Mono.CloakHeat.Systems;
 /// </summary>
 public sealed class CloakHeatServerSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

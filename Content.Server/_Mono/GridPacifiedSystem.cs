@@ -22,9 +22,9 @@ namespace Content.Server._Mono;
 /// </summary>
 public sealed class GridPacifiedSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private PlayTimeTrackingManager _playTimeTracking = default!;
 
     private ISawmill _logger = default!;
     private static readonly TimeSpan RequiredPlaytime = TimeSpan.FromHours(1);

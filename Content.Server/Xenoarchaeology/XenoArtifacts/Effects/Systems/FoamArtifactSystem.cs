@@ -9,8 +9,8 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 
 public sealed class FoamArtifactSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SmokeSystem _smoke = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SmokeSystem _smoke = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

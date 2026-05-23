@@ -15,9 +15,9 @@ namespace Content.Server._Mono.Traits.Physical;
 /// </summary>
 public sealed class PrybarProstheticsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedBodySystem _bodySystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
 
     public override void Initialize()
     {

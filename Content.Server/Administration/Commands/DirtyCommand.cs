@@ -6,7 +6,7 @@ namespace Content.Server.Administration.Commands;
 [AdminCommand(AdminFlags.Debug)]
 public sealed class DirtyCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public string Command => "dirty";
     public string Description => "Marks all components on an entity as dirty, if not specified, dirties everything";

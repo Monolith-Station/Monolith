@@ -12,8 +12,8 @@ namespace Content.Server._Mono.SpawnCoordinates;
 /// </summary>
 public sealed class SpawnCoordinatesSystem : EntitySystem
 {
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

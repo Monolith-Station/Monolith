@@ -13,11 +13,11 @@ namespace Content.Server._DV.Abilities;
 
 public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movespeed = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private MovementSpeedModifierSystem _movespeed = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
     public override void Initialize()
     {

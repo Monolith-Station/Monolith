@@ -7,8 +7,8 @@ namespace Content.Shared._DV.Harpy;
 
 public sealed class HarpyVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidSystem = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private SharedHumanoidAppearanceSystem _humanoidSystem = default!;
 
     //    [ValidatePrototypeId<TagPrototype>] // Frontier
     //    private const string HarpyWingsTag = "HidesHarpyWings"; // Frontier

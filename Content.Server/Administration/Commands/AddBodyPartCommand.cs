@@ -8,7 +8,7 @@ namespace Content.Server.Administration.Commands
     [AdminCommand(AdminFlags.Admin)]
     public sealed class AddBodyPartCommand : IConsoleCommand
     {
-        [Dependency] private readonly IEntityManager _entManager = default!;
+        [Dependency] private IEntityManager _entManager = default!;
 
         public string Command => "addbodypart";
         public string Description => "Adds a given entity to a containing body.";

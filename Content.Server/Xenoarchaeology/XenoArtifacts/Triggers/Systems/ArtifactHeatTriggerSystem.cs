@@ -8,8 +8,8 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 
 public sealed class ArtifactHeatTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly ArtifactSystem _artifactSystem = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private ArtifactSystem _artifactSystem = default!;
 
     public override void Initialize()
     {

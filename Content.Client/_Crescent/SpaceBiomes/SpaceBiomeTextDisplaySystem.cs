@@ -9,9 +9,9 @@ namespace Content.Client._Crescent.SpaceBiomes;
 
 public sealed class SpaceTextDisplaySystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _protMan = default!;
-    [Dependency] private readonly IOverlayManager _overMan = default!;
-    [Dependency] private readonly ContentAudioSystem _audioSys = default!;
+    [Dependency] private IPrototypeManager _protMan = default!;
+    [Dependency] private IOverlayManager _overMan = default!;
+    [Dependency] private ContentAudioSystem _audioSys = default!;
 
     private SpaceBiomeTextOverlay _overlay = default!;
 

@@ -9,7 +9,7 @@ namespace Content.Server.Power
     [AdminCommand(AdminFlags.Debug)]
     public sealed class SetBatteryPercentCommand : IConsoleCommand
     {
-        [Dependency] private readonly IEntityManager _entManager = default!;
+        [Dependency] private IEntityManager _entManager = default!;
 
         public string Command => "setbatterypercent";
         public string Description => "Drains or recharges a battery by entity uid and percentage, i.e.: forall with Battery do setbatterypercent $ID 0";

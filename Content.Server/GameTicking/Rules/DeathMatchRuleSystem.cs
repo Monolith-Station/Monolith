@@ -21,13 +21,13 @@ namespace Content.Server.GameTicking.Rules;
 /// </summary>
 public sealed class DeathMatchRuleSystem : GameRuleSystem<DeathMatchRuleComponent>
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly PointSystem _point = default!;
-    [Dependency] private readonly RespawnRuleSystem _respawn = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private PointSystem _point = default!;
+    [Dependency] private RespawnRuleSystem _respawn = default!;
+    [Dependency] private RoundEndSystem _roundEnd = default!;
+    [Dependency] private StationSpawningSystem _stationSpawning = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     public override void Initialize()
     {

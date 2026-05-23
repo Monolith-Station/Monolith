@@ -35,12 +35,12 @@ namespace Content.Shared.Humanoid;
 /// </summary>
 public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ISerializationManager _serManager = default!;
-    [Dependency] private readonly MarkingManager _markingManager = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IConfigurationManager _cfgManager = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ISerializationManager _serManager = default!;
+    [Dependency] private MarkingManager _markingManager = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";

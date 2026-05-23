@@ -13,9 +13,9 @@ namespace Content.Server._Mono.Ships.Systems;
 /// </summary>
 public sealed class LimitedShuttleSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly ShuttleDeedSystem _shuttleDeed = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private ShuttleDeedSystem _shuttleDeed = default!;
 
     private TimeSpan _lastUpdate = TimeSpan.Zero;
     private readonly TimeSpan _interval = TimeSpan.FromMinutes(1);

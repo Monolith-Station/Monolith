@@ -13,8 +13,8 @@ public sealed class TemperatureStatusEffectsSystem : EntitySystem
     private float _updateCooldown = 1f;
     private TimeSpan _updateTimer = TimeSpan.Zero;
 
-    [Dependency] private readonly StatusEffectsSystem _effects = default!;
-    [Dependency] private readonly MobStateSystem _state = default!;
+    [Dependency] private StatusEffectsSystem _effects = default!;
+    [Dependency] private MobStateSystem _state = default!;
 
     public override void Update(float frameTime)
     {

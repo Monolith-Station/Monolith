@@ -13,7 +13,7 @@ namespace Content.Client._Mono.FireControl;
 /// </summary>
 public sealed class FireControlVisualizerSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
 
     private readonly Dictionary<EntityUid, VisualizationData> _activeVisualizations = new();
 

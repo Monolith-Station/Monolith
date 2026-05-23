@@ -14,9 +14,9 @@ namespace Content.Server._Mono.Traits.Physical;
 /// </summary>
 public sealed class SelfAwareSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
 
     public override void Initialize()
     {

@@ -15,11 +15,11 @@ namespace Content.Client.Silicons.Borgs;
 /// <seealso cref="BorgSwitchableTypeComponent"/>
 public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
 {
-    [Dependency] private readonly BorgSystem _borgSystem = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private BorgSystem _borgSystem = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IResourceCache _resourceCache = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

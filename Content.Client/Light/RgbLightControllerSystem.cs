@@ -16,9 +16,9 @@ namespace Content.Client.Light
 {
     public sealed class RgbLightControllerSystem : SharedRgbLightControllerSystem
     {
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly ItemSystem _itemSystem = default!;
-        [Dependency] private readonly SharedPointLightSystem _lights = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private ItemSystem _itemSystem = default!;
+        [Dependency] private SharedPointLightSystem _lights = default!;
 
         public override void Initialize()
         {

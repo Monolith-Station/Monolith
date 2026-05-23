@@ -15,9 +15,9 @@ namespace Content.Server._Shitmed.Body.Systems;
 /// </summary>
 public sealed class DebrainedSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly StandingStateSystem _standingSystem = default!;
+    [Dependency] private SharedBodySystem _bodySystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private StandingStateSystem _standingSystem = default!;
     public override void Initialize()
     {
         base.Initialize();

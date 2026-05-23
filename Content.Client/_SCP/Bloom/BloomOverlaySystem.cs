@@ -14,12 +14,12 @@ namespace Content.Client._Scp.Shaders.Bloom;
 /// </summary>
 public sealed class LightingOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private EntityQuery<EyeComponent> _eyeQuery;
     private EntityQuery<TransformComponent> _transformQuery;

@@ -7,8 +7,8 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 
 public sealed class EmpArtifactSystem : EntitySystem
 {
-    [Dependency] private readonly EmpSystem _emp = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private EmpSystem _emp = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

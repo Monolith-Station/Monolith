@@ -9,7 +9,7 @@ namespace Content.Server.Shuttles.Commands;
 [AdminCommand(AdminFlags.Mapping)]
 public sealed class DockCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public string Command => "dock";
     public string Description => Loc.GetString("cmd-dock-desc");

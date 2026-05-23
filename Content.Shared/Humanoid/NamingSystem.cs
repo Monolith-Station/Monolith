@@ -11,8 +11,8 @@ namespace Content.Shared.Humanoid
     /// </summary>
     public sealed class NamingSystem : EntitySystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
 
         public string GetName(string species, Gender? gender = null)
         {

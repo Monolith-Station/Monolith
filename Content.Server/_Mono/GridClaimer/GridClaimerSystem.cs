@@ -6,7 +6,7 @@ namespace Content.Server._Mono.GridClaimer;
 
 public sealed class GridClaimerSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     public override void Initialize()
     {

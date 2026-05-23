@@ -34,21 +34,21 @@ namespace Content.Server.Medical.SuitSensors;
 
 public sealed class SuitSensorSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
-    [Dependency] private readonly IdCardSystem _idCardSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    // [Dependency] private readonly StationSystem _stationSystem = default!; // Frontier
-    [Dependency] private readonly MetaDataSystem _metaData = default!; // Frontier
-    [Dependency] private readonly SingletonDeviceNetServerSystem _singletonServerSystem = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
+    [Dependency] private IdCardSystem _idCardSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    // [Dependency] private StationSystem _stationSystem = default!; // Frontier
+    [Dependency] private MetaDataSystem _metaData = default!; // Frontier
+    [Dependency] private SingletonDeviceNetServerSystem _singletonServerSystem = default!;
+    [Dependency] private MobThresholdSystem _mobThresholdSystem = default!;
+    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {

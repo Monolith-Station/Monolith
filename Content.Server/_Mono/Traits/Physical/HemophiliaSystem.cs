@@ -11,8 +11,8 @@ namespace Content.Server._Mono.Traits.Physical;
 /// </summary>
 public sealed class HemophiliaSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly Content.Server.Body.Systems.BloodstreamSystem _bloodstream = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private Content.Server.Body.Systems.BloodstreamSystem _bloodstream = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -26,14 +26,14 @@ namespace Content.Client.Hands.Systems
     [UsedImplicitly]
     public sealed class HandsSystem : SharedHandsSystem
     {
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IUserInterfaceManager _ui = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IUserInterfaceManager _ui = default!;
 
-        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-        [Dependency] private readonly StrippableSystem _stripSys = default!;
-        [Dependency] private readonly SpriteSystem _sprite = default!;
-        [Dependency] private readonly ExamineSystem _examine = default!;
-        [Dependency] private readonly DisplacementMapSystem _displacement = default!;
+        [Dependency] private SharedContainerSystem _containerSystem = default!;
+        [Dependency] private StrippableSystem _stripSys = default!;
+        [Dependency] private SpriteSystem _sprite = default!;
+        [Dependency] private ExamineSystem _examine = default!;
+        [Dependency] private DisplacementMapSystem _displacement = default!;
 
         public event Action<string, HandLocation>? OnPlayerAddHand;
         public event Action<string>? OnPlayerRemoveHand;

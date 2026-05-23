@@ -10,7 +10,7 @@ namespace Content.Client.Chasm;
 /// </summary>
 public sealed class ChasmFallingVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _anim = default!;
+    [Dependency] private AnimationPlayerSystem _anim = default!;
 
     private readonly string _chasmFallAnimationKey = "chasm_fall";
 

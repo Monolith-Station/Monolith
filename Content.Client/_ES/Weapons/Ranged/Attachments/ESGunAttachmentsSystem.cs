@@ -8,8 +8,8 @@ namespace Content.Client._ES.Weapons.Ranged.Attachments;
 
 public sealed class ESGunAttachmentsSystem : ESSharedGunAttachmentsSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private UserInterfaceSystem _userInterface = default!;
 
     protected override void OnEntInsertedIntoContainer(Entity<ESAttachableGunComponent> ent, ref EntInsertedIntoContainerMessage args)
     {

@@ -6,7 +6,7 @@ namespace Content.Server._Mono.Gatherable;
 
 public sealed class GatherableSystemHitscan : EntitySystem
 {
-    [Dependency] private readonly GatherableSystem _gather = default!;
+    [Dependency] private GatherableSystem _gather = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<HitscanGatheringComponent, HitscanDamageDealtEvent>(OnHitscanHit);

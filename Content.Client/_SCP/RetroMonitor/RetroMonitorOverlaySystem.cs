@@ -10,10 +10,10 @@ namespace Content.Client._Scp.RetroMonitor;
 
 public sealed class RetroMonitorOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly GrainOverlaySystem _grain = default!;
-    [Dependency] private readonly VignetteOverlaySystem _vignette = default!;
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // Mono
+    [Dependency] private GrainOverlaySystem _grain = default!;
+    [Dependency] private VignetteOverlaySystem _vignette = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!; // Mono
 
     private readonly RetroMonitorOverlay _overlay = new();
 

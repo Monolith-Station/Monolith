@@ -9,7 +9,7 @@ namespace Content.Server.Engineering.EntitySystems
     [UsedImplicitly]
     public sealed class DisassembleOnAltVerbSystem : EntitySystem
     {
-        [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+        [Dependency] private SharedHandsSystem _handsSystem = default!;
 
         public override void Initialize()
         {

@@ -7,7 +7,7 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 
 public sealed class ArtifactInteractionTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly ArtifactSystem _artifactSystem = default!;
+    [Dependency] private ArtifactSystem _artifactSystem = default!;
 
     public override void Initialize()
     {

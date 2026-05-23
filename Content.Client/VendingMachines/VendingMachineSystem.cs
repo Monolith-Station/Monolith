@@ -7,9 +7,9 @@ namespace Content.Client.VendingMachines;
 
 public sealed class VendingMachineSystem : SharedVendingMachineSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private AnimationPlayerSystem _animationPlayer = default!;
+    [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
 
     public override void Initialize()
     {

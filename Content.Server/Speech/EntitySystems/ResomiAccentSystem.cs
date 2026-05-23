@@ -7,7 +7,7 @@ namespace Content.Server.Speech.EntitySystems;
 public sealed class ResomiAccentSystem : EntitySystem
 {
 
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private static readonly Regex RegexLowerSilly = new Regex("silly");
     private static readonly Regex RegexFirstCapSilly = new Regex("Silly");

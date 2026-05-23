@@ -8,7 +8,7 @@ namespace Content.Client._White.Overlays;
 
 public sealed class BaseSwitchableOverlay<TComp> : Overlay where TComp : SwitchableVisionOverlayComponent
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace;

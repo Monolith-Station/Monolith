@@ -11,7 +11,7 @@ namespace Content.Server._Mono.Traits.Physical;
 /// </summary>
 public sealed class WillToLiveSystem : EntitySystem
 {
-    [Dependency] private readonly MobThresholdSystem _mobThresholds = default!;
+    [Dependency] private MobThresholdSystem _mobThresholds = default!;
 
     public override void Initialize()
     {

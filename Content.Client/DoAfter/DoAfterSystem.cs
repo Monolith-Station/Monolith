@@ -13,10 +13,10 @@ namespace Content.Client.DoAfter;
 /// </summary>
 public sealed class DoAfterSystem : SharedDoAfterSystem
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly MetaDataSystem _metadata = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private MetaDataSystem _metadata = default!;
 
     public override void Initialize()
     {

@@ -9,9 +9,9 @@ namespace Content.Server._Mono.Weapons.Melee;
 
 public sealed class MeleeChargeSystem : EntitySystem
 {
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

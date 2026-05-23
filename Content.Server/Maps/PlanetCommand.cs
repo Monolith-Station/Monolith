@@ -24,9 +24,9 @@ namespace Content.Server.Maps;
 [AdminCommand(AdminFlags.Mapping)]
 public sealed class PlanetCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
 
     public string Command => "planet";
     public string Description => Loc.GetString("cmd-planet-desc");

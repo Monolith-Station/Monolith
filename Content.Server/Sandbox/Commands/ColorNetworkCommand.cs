@@ -13,7 +13,7 @@ namespace Content.Server.Sandbox.Commands
     [AnyCommand]
     public sealed class ColorNetworkCommand : LocalizedCommands
     {
-        [Dependency] private readonly IEntityManager _entManager = default!;
+        [Dependency] private IEntityManager _entManager = default!;
 
         public override string Command => "colornetwork";
 

@@ -14,8 +14,8 @@ namespace Content.Server._Mono.MonoCoins;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class CurrencyAddCommand : LocalizedCommands
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly MonoCoinsManager _coins = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private MonoCoinsManager _coins = default!;
 
     public override string Command => "currency:add";
 

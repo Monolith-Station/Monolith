@@ -8,7 +8,7 @@ namespace Content.Server.Power.Commands
     [AdminCommand(AdminFlags.Debug)]
     public sealed class PowerStatCommand : IConsoleCommand
     {
-        [Dependency] private readonly IEntityManager _e = default!;
+        [Dependency] private IEntityManager _e = default!;
 
         public string Command => "powerstat";
         public string Description => "Shows statistics for pow3r";

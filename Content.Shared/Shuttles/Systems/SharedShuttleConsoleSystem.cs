@@ -10,8 +10,8 @@ namespace Content.Shared.Shuttles.Systems
 {
     public abstract class SharedShuttleConsoleSystem : EntitySystem
     {
-        [Dependency] protected readonly ActionBlockerSystem ActionBlockerSystem = default!;
-        [Dependency] private readonly SharedMoverController _mover = default!;
+        [Dependency] protected ActionBlockerSystem ActionBlockerSystem = default!;
+        [Dependency] private SharedMoverController _mover = default!;
 
         public override void Initialize()
         {

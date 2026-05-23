@@ -7,8 +7,8 @@ namespace Content.Server._Crescent.Dispenser;
 
 public sealed class DispenserSystem : SharedDispenserSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedVirtualItemSystem _virtualItemSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedVirtualItemSystem _virtualItemSystem = default!;
 
     public override void Initialize()
     {

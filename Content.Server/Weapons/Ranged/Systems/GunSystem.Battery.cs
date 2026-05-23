@@ -13,8 +13,8 @@ namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem
 {
-    [Dependency] private readonly BatterySystem _battery = default!; // Mono
-    [Dependency] private readonly PowerCellSystem _powerCell = default!; // Mono
+    [Dependency] private BatterySystem _battery = default!; // Mono
+    [Dependency] private PowerCellSystem _powerCell = default!; // Mono
     protected override void InitializeBattery()
     {
         base.InitializeBattery();

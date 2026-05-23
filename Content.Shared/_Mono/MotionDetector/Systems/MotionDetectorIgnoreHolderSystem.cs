@@ -12,7 +12,7 @@ namespace Content.Shared._Mono.MotionDetector.Systems;
 /// </summary>
 public sealed class MotionDetectorIgnoreHolderSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
 
     public override void Initialize()
     {

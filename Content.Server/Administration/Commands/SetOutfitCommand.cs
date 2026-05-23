@@ -24,7 +24,7 @@ namespace Content.Server.Administration.Commands
     [AdminCommand(AdminFlags.Admin)]
     public sealed class SetOutfitCommand : IConsoleCommand
     {
-        [Dependency] private readonly IEntityManager _entities = default!;
+        [Dependency] private IEntityManager _entities = default!;
 
         public string Command => "setoutfit";
 

@@ -6,7 +6,7 @@ namespace Content.Server._Mono.Access;
 
 public sealed class AccessGrantableSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {

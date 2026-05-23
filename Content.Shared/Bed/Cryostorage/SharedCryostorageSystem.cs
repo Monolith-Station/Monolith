@@ -18,14 +18,14 @@ namespace Content.Shared.Bed.Cryostorage;
 /// </summary>
 public abstract class SharedCryostorageSystem : EntitySystem
 {
-    [Dependency] private   readonly IConfigurationManager _configuration = default!;
-    [Dependency] private   readonly IMapManager _mapManager = default!;
-    [Dependency] private   readonly ISharedPlayerManager _player = default!;
-    [Dependency] private   readonly MobStateSystem _mobState = default!;
-    [Dependency] private   readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly ISharedAdminLogManager AdminLog = default!;
-    [Dependency] protected readonly SharedMindSystem Mind = default!;
+    [Dependency] private   IConfigurationManager _configuration = default!;
+    [Dependency] private   IMapManager _mapManager = default!;
+    [Dependency] private   ISharedPlayerManager _player = default!;
+    [Dependency] private   MobStateSystem _mobState = default!;
+    [Dependency] private   SharedAppearanceSystem _appearance = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected ISharedAdminLogManager AdminLog = default!;
+    [Dependency] protected SharedMindSystem Mind = default!;
 
     protected EntityUid? PausedMap { get; private set; }
 

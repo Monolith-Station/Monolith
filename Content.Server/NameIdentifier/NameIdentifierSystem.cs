@@ -11,9 +11,9 @@ namespace Content.Server.NameIdentifier;
 /// </summary>
 public sealed class NameIdentifierSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
 
     /// <summary>
     /// Free IDs available per <see cref="NameIdentifierGroupPrototype"/>.

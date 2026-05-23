@@ -21,13 +21,13 @@ namespace Content.Server.Chat;
 
 public sealed class SuicideSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly GhostSystem _ghostSystem = default!;
-    [Dependency] private readonly SharedSuicideSystem _suicide = default!;
+    [Dependency] private EntityLookupSystem _entityLookupSystem = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private GhostSystem _ghostSystem = default!;
+    [Dependency] private SharedSuicideSystem _suicide = default!;
 
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
 

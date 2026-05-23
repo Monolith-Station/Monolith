@@ -8,8 +8,8 @@ namespace Content.Client.Jittering
 {
     public sealed class JitteringSystem : SharedJitteringSystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private AnimationPlayerSystem _animationPlayer = default!;
 
         private readonly float[] _sign = { -1, 1 };
         private readonly string _jitterAnimationKey = "jittering";

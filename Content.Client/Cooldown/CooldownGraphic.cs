@@ -8,8 +8,8 @@ namespace Content.Client.Cooldown
 {
     public sealed class CooldownGraphic : Control
     {
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IPrototypeManager _protoMan = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private IPrototypeManager _protoMan = default!;
 
         private readonly ShaderInstance _shader;
 

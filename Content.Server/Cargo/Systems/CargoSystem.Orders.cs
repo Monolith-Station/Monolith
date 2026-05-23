@@ -24,8 +24,8 @@ namespace Content.Server.Cargo.Systems
 {
     public sealed partial class CargoSystem
     {
-        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-        [Dependency] private readonly EmagSystem _emag = default!;
+        [Dependency] private SharedTransformSystem _transformSystem = default!;
+        [Dependency] private EmagSystem _emag = default!;
 
         /// <summary>
         /// How much time to wait (in seconds) before increasing bank accounts balance.

@@ -6,7 +6,7 @@ namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 
 public sealed class SuppressArtifactContainerSystem : EntitySystem
 {
-    [Dependency] private readonly ArtifactSystem _artifact = default!;
+    [Dependency] private ArtifactSystem _artifact = default!;
 
     public override void Initialize()
     {

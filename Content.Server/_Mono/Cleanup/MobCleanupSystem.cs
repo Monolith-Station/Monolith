@@ -11,8 +11,8 @@ namespace Content.Server._Mono.Cleanup;
 /// </summary>
 public sealed class MobCleanupSystem : BaseCleanupSystem<HTNComponent>
 {
-    [Dependency] private readonly CleanupHelperSystem _cleanup = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private CleanupHelperSystem _cleanup = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private float _maxDistance;
     private float _maxGridDistance;

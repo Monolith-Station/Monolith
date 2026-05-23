@@ -24,7 +24,7 @@ public sealed partial class SalvageSystem
     private const float ShuttleFTLRange = 256f;
     private const float ShuttleFTLMassThreshold = 100f;
 
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
 
     private void OnSalvageClaimMessage(EntityUid uid, SalvageExpeditionConsoleComponent component, ClaimSalvageMessage args)
     {

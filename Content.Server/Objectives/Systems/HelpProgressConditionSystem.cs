@@ -14,10 +14,10 @@ namespace Content.Server.Objectives.Systems;
 /// </summary>
 public sealed class HelpProgressConditionSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
-    [Dependency] private readonly TargetObjectiveSystem _target = default!;
-    [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedObjectivesSystem _objectives = default!;
+    [Dependency] private TargetObjectiveSystem _target = default!;
+    [Dependency] private TraitorRuleSystem _traitorRule = default!;
 
     public override void Initialize()
     {

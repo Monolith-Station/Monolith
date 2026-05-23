@@ -7,8 +7,8 @@ namespace Content.Shared.Foldable;
 
 public sealed class DeployFoldableSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly FoldableSystem _foldable = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private FoldableSystem _foldable = default!;
 
     public override void Initialize()
     {

@@ -15,10 +15,10 @@ namespace Content.Server.Temperature.Systems;
 /// </summary>
 public sealed class EntityHeaterSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private TemperatureSystem _temperature = default!;
+    [Dependency] private AudioSystem _audio = default!;
 
     private readonly int SettingCount = Enum.GetValues(typeof(EntityHeaterSetting)).Length;
 

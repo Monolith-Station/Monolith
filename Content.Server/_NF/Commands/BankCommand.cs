@@ -18,11 +18,11 @@ namespace Content.Server._NF.Commands;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class BankCommand : IConsoleCommand
 {
-    [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IServerDbManager _dbManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IServerPreferencesManager _prefsManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IServerDbManager _dbManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     public string Command => "bank";
 

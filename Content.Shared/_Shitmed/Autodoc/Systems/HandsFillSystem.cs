@@ -6,7 +6,7 @@ namespace Content.Shared._Shitmed.Autodoc.Systems;
 
 public sealed class HandsFillSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {

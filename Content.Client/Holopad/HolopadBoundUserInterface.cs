@@ -9,8 +9,8 @@ namespace Content.Client.Holopad;
 
 public sealed class HolopadBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly IClyde _displayManager = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private IClyde _displayManager = default!;
 
     [ViewVariables]
     private HolopadWindow? _window;

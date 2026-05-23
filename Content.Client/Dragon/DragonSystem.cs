@@ -6,7 +6,7 @@ namespace Content.Client.Dragon;
 
 public sealed class DragonSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPointLightSystem _lights = default!;
+    [Dependency] private SharedPointLightSystem _lights = default!;
 
     public override void Initialize()
     {

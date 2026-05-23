@@ -15,8 +15,8 @@ namespace Content.Server._Mono;
 /// </summary>
 public sealed class GridRaiderSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {

@@ -13,7 +13,7 @@ namespace Content.Server.Whitelist;
 [AdminCommand(AdminFlags.Whitelist)] // DeltaV - Custom permission for whitelist
 public sealed class AddWhitelistCommand : LocalizedCommands
 {
-    [Dependency] private readonly JobWhitelistManager _jobWhitelist = default!; // Frontier
+    [Dependency] private JobWhitelistManager _jobWhitelist = default!; // Frontier
     public override string Command => "whitelistadd";
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
@@ -64,7 +64,7 @@ public sealed class AddWhitelistCommand : LocalizedCommands
 [AdminCommand(AdminFlags.Ban)]
 public sealed class RemoveWhitelistCommand : LocalizedCommands
 {
-    [Dependency] private readonly JobWhitelistManager _jobWhitelist = default!; // Frontier
+    [Dependency] private JobWhitelistManager _jobWhitelist = default!; // Frontier
     public override string Command => "whitelistremove";
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
@@ -115,7 +115,7 @@ public sealed class RemoveWhitelistCommand : LocalizedCommands
 [AdminCommand(AdminFlags.Ban)]
 public sealed class KickNonWhitelistedCommand : LocalizedCommands
 {
-    [Dependency] private readonly JobWhitelistManager _jobWhitelist = default!; // Frontier
+    [Dependency] private JobWhitelistManager _jobWhitelist = default!; // Frontier
     public override string Command => "kicknonwhitelisted";
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)

@@ -11,7 +11,7 @@ namespace Content.Server.Administration.Commands
     [AdminCommand(AdminFlags.Admin)]
     sealed class SetMindCommand : IConsoleCommand
     {
-        [Dependency] private readonly IEntityManager _entManager = default!;
+        [Dependency] private IEntityManager _entManager = default!;
 
         public string Command => "setmind";
 

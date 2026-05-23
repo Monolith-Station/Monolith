@@ -9,9 +9,9 @@ namespace Content.Client._NF.Trade;
 /// </summary>
 public sealed class TradeCrateVisualizerSystem : VisualizerSystem<TradeCrateComponent>
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private const string FallbackIconID = "CargoOther";
     private const string CargoPriorityActiveState = "cargo_priority_active";

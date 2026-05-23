@@ -11,9 +11,9 @@ namespace Content.Server._Mono.Spawning;
 /// </summary>
 public sealed class SpawnCountSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private StackSystem _stack = default!;
     public override void Initialize()
     {
         base.Initialize();

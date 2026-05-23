@@ -7,7 +7,7 @@ using Content.Shared.Body.Part;
 namespace Content.Server._Shitmed.Targeting;
 public sealed class TargetingSystem : SharedTargetingSystem
 {
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
+    [Dependency] private SharedBodySystem _bodySystem = default!;
 
     public override void Initialize()
     {

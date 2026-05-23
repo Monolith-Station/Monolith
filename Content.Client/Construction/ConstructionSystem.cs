@@ -24,11 +24,11 @@ namespace Content.Client.Construction
     [UsedImplicitly]
     public sealed class ConstructionSystem : SharedConstructionSystem
     {
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private ExamineSystemShared _examineSystem = default!;
+        [Dependency] private SharedTransformSystem _transformSystem = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
 
         private readonly Dictionary<int, EntityUid> _ghosts = new();
         private readonly Dictionary<string, ConstructionGuide> _guideCache = new();

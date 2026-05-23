@@ -13,10 +13,10 @@ namespace Content.Server._Mono.Company;
 [ToolshedCommand(Name = "company"), AnyCommand]
 public sealed class CompanyCommand : ToolshedCommand
 {
-    [Dependency] private readonly CompanyManager _company = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly IAdminManager _admin = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
+    [Dependency] private CompanyManager _company = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private IAdminManager _admin = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
 
     [CommandImplementation("addmember")]
     public async void Add(

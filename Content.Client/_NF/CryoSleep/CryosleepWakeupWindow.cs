@@ -8,7 +8,7 @@ namespace Content.Client._NF.CryoSleep;
 
 public sealed class CryosleepWakeupWindow : DefaultWindow, IEntityEventSubscriber
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
 
     public RichTextLabel Label;
     public Button DenyButton;

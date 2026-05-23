@@ -10,7 +10,7 @@ namespace Content.Server._Mono.Temperature.Systems;
 /// </summary>
 public sealed class ExchangeHeatOnInteractionSystem : EntitySystem
 {
-    [Dependency] private readonly TemperatureSystem _temp = default!;
+    [Dependency] private TemperatureSystem _temp = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<TemperatureComponent, InteractionSuccessEvent>(OnInteraction);

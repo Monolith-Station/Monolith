@@ -14,11 +14,11 @@ namespace Content.Server._Mono.Cleanup;
 /// </summary>
 public sealed class GridCleanupSystem : BaseCleanupSystem<MapGridComponent>
 {
-    [Dependency] private readonly CleanupHelperSystem _cleanup = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly PricingSystem _pricing = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private CleanupHelperSystem _cleanup = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private PricingSystem _pricing = default!;
+    [Dependency] private SharedMapSystem _map = default!;
 
     private float _maxDistance;
     private float _maxValue;

@@ -25,9 +25,9 @@ namespace Content.Client._DV.Mail;
 /// </remarks>
 public sealed class MailJobVisualizerSystem : VisualizerSystem<MailComponent>
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SpriteSystem _spriteSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private SpriteSystem _spriteSystem = default!;
 
     protected override void OnAppearanceChange(EntityUid uid, MailComponent component, ref AppearanceChangeEvent args)
     {

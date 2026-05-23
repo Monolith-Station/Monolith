@@ -25,10 +25,10 @@ namespace Content.Client.Shuttles.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ShuttleMapControl : BaseShuttleControl
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IInputManager _inputs = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!; // Frontier
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IInputManager _inputs = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IEntityManager _entManager = default!; // Frontier
     private readonly DetectionSystem _detection; // Mono
     private readonly ShuttleSystem _shuttles;
     private readonly SharedTransformSystem _xformSystem;

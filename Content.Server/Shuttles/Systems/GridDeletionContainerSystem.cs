@@ -13,9 +13,9 @@ namespace Content.Server.Shuttles.Systems;
 /// </summary>
 public sealed class GridDeletionContainerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     // Track grids currently being processed to prevent re-entrancy issues.
     private readonly HashSet<EntityUid> _gridsBeingDeleted = new();

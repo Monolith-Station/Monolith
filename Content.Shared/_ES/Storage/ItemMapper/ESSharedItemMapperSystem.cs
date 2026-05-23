@@ -6,9 +6,9 @@ namespace Content.Shared._ES.Storage.ItemMapper;
 
 public abstract class ESSharedItemMapperSystem : EntitySystem
 {
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private EntityWhitelistSystem _entityWhitelist = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

@@ -27,18 +27,18 @@ namespace Content.Server.Medical.CPR;
 
 public sealed class CPRSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly FoodSystem _foodSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly RottingSystem _rottingSystem = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!; // Mono
-    [Dependency] private readonly EuiManager _euiManager = default!; // Mono
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private FoodSystem _foodSystem = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private RottingSystem _rottingSystem = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private SharedMindSystem _mind = default!; // Mono
+    [Dependency] private EuiManager _euiManager = default!; // Mono
     [Dependency] private ISharedPlayerManager _player = default!; // Mono
 
     public override void Initialize()

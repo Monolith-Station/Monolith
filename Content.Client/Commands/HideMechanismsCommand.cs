@@ -7,7 +7,7 @@ namespace Content.Client.Commands;
 
 public sealed class HideMechanismsCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     public override string Command => "hidemechanisms";
 

@@ -7,7 +7,7 @@ namespace Content.Shared._DV.Lathe;
 /// </summary>
 public sealed class LatheUpgradeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedLatheSystem _lathe = default!;
+    [Dependency] private SharedLatheSystem _lathe = default!;
 
     public override void Initialize()
     {

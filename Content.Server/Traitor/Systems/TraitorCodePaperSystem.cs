@@ -13,10 +13,10 @@ namespace Content.Server.Traitor.Systems;
 
 public sealed class TraitorCodePaperSystem : EntitySystem
 {
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly TraitorRuleSystem _traitorRuleSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private TraitorRuleSystem _traitorRuleSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private PaperSystem _paper = default!;
 
     public override void Initialize()
     {

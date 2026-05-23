@@ -8,8 +8,8 @@ namespace Content.Server.OfHolding
 {
     public sealed class OfHoldingSystem : EntitySystem
     {
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private ISharedAdminLogManager _adminLogger = default!;
         public override void Initialize()
         {
             base.Initialize();

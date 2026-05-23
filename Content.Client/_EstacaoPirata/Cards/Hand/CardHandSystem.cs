@@ -12,7 +12,7 @@ namespace Content.Client._EstacaoPirata.Cards.Hand;
 public sealed class CardHandSystem : EntitySystem
 {
     private readonly Dictionary<Entity<CardHandComponent>, int> _notInit = [];
-    [Dependency] private readonly CardSpriteSystem _cardSpriteSystem = default!;
+    [Dependency] private CardSpriteSystem _cardSpriteSystem = default!;
 
 
     /// <inheritdoc/>

@@ -15,7 +15,7 @@ namespace Content.Server._Mono.Administration.Commands;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class AddGridModifier : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public string Command => "addgridmodifier";
     public string Description => "Applies grid modification to chosen grid.";

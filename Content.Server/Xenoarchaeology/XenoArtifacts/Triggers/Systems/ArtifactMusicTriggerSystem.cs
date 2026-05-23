@@ -10,7 +10,7 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 /// </summary>
 public sealed class ArtifactMusicTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly ArtifactSystem _artifact = default!;
+    [Dependency] private ArtifactSystem _artifact = default!;
 
     private readonly List<Entity<ArtifactMusicTriggerComponent, TransformComponent>> _artifacts = new();
 

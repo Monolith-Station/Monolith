@@ -9,8 +9,8 @@ namespace Content.Client.Anomaly;
 
 public sealed class AnomalySystem : SharedAnomalySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly FloatingVisualizerSystem _floating = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private FloatingVisualizerSystem _floating = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

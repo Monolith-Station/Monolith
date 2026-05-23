@@ -9,8 +9,8 @@ namespace Content.Client.Holiday;
 
 public sealed class HolidaySystem : EntitySystem
 {
-    [Dependency] private readonly IResourceCache _rescache = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IResourceCache _rescache = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

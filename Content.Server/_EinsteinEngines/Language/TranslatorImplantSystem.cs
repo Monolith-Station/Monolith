@@ -8,7 +8,7 @@ namespace Content.Server._EinsteinEngines.Language;
 
 public sealed class TranslatorImplantSystem : EntitySystem
 {
-    [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private LanguageSystem _language = default!;
 
     public override void Initialize()
     {

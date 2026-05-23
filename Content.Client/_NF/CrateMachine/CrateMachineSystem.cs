@@ -9,9 +9,9 @@ namespace Content.Client._NF.CrateMachine;
 
 public sealed class CrateMachineSystem : SharedCrateMachineSystem
 {
-    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly AnimationPlayerSystem _animationSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private AppearanceSystem _appearanceSystem = default!;
+    [Dependency] private AnimationPlayerSystem _animationSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
 
     private const string AnimationKey = "crate_machine_animation";
 

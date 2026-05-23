@@ -8,9 +8,9 @@ namespace Content.Server._Goobstation.ItemMiner;
 
 public sealed class PlanetMinerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private ITileDefinitionManager _tileDef = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
     private EntityQuery<MapComponent> _mapQuery;
     private EntityQuery<MapGridComponent> _gridQuery;

@@ -21,11 +21,11 @@ namespace Content.Server.CrewManifest;
 
 public sealed class CrewManifestSystem : EntitySystem
 {
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly StationRecordsSystem _recordsSystem = default!;
-    [Dependency] private readonly EuiManager _euiManager = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private StationRecordsSystem _recordsSystem = default!;
+    [Dependency] private EuiManager _euiManager = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     /// <summary>
     ///     Cached crew manifest entries. The alternative is to outright
@@ -257,7 +257,7 @@ public sealed class CrewManifestCommand : IConsoleCommand
     public string Description => "Opens the crew manifest for the given station.";
     public string Help => $"Usage: {Command} <entity uid>";
 
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     public CrewManifestCommand()
     {

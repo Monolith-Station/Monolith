@@ -13,9 +13,9 @@ namespace Content.Client.Explosion;
 [UsedImplicitly]
 public sealed class ExplosionOverlay : Overlay
 {
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     private readonly SharedTransformSystem _transformSystem;
     private SharedAppearanceSystem _appearance;
 

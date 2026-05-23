@@ -12,8 +12,8 @@ namespace Content.Server._Mono.Traits.Physical;
 /// </summary>
 public sealed class LiquorLifelineSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBodySystem _body = null!;
-    [Dependency] private readonly SharedContainerSystem _containers = null!;
+    [Dependency] private SharedBodySystem _body = null!;
+    [Dependency] private SharedContainerSystem _containers = null!;
 
     public override void Initialize()
     {

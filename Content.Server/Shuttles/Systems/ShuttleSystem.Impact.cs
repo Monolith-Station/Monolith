@@ -33,7 +33,7 @@ namespace Content.Server.Shuttles.Systems;
 // shuttle impact damage ported from Goobstation (AGPLv3) with agreement of all coders involved
 public sealed partial class ShuttleSystem
 {
-    [Dependency] private readonly SpaceCleanupSystem _sweep = default!;
+    [Dependency] private SpaceCleanupSystem _sweep = default!;
 
     private bool _enabled;
     private float _minimumImpactInertia;

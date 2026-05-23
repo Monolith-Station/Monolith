@@ -8,8 +8,8 @@ namespace Content.Server.Speech.EntitySystems;
 /// </summary>
 public sealed class ListeningSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedTransformSystem _xforms = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private SharedTransformSystem _xforms = default!;
 
     public override void Initialize()
     {

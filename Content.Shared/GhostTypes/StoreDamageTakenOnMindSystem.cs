@@ -12,7 +12,7 @@ namespace Content.Shared.GhostTypes;
 
 public sealed class StoreDamageTakenOnMindSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<StoreDamageTakenOnMindComponent, DestructionEventArgs>(SaveBodyOnGib);

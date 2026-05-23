@@ -8,7 +8,7 @@ namespace Content.Client._Mono.MonoCoins;
 /// </summary>
 public sealed class MonoCoinsManager
 {
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private INetManager _net = default!;
 
     /// <summary>
     /// The last known MonoCoins balance. -1 indicates balance hasn't been fetched yet.

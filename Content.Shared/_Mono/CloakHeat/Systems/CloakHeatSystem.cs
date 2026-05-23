@@ -11,8 +11,8 @@ namespace Content.Shared._Mono.CloakHeat.Systems;
 /// </summary>
 public sealed class CloakHeatSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedShuttleSystem _shuttle = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedShuttleSystem _shuttle = default!;
 
     private bool isMoving;
 

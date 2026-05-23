@@ -6,7 +6,7 @@ namespace Content.Client.Commands;
 
 public sealed class ShowMechanismsCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public const string CommandName = "showmechanisms";
 

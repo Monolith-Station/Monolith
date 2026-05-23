@@ -8,7 +8,7 @@ namespace Content.Shared.Mobs.Systems;
 /// </summary>
 public sealed class MobStateActionsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

@@ -22,10 +22,10 @@ namespace Content.Client.Actions
     {
         public delegate void OnActionReplaced(EntityUid actionId);
 
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IResourceManager _resources = default!;
-        [Dependency] private readonly ISerializationManager _serialization = default!;
-        [Dependency] private readonly MetaDataSystem _metaData = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IResourceManager _resources = default!;
+        [Dependency] private ISerializationManager _serialization = default!;
+        [Dependency] private MetaDataSystem _metaData = default!;
 
         public event Action<EntityUid>? OnActionAdded;
         public event Action<EntityUid>? OnActionRemoved;

@@ -6,7 +6,7 @@ namespace Content.Shared.Weapons.Hitscan.Systems;
 
 public sealed class HitscanBasicDamageSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private DamageableSystem _damage = default!;
 
     public override void Initialize()
     {

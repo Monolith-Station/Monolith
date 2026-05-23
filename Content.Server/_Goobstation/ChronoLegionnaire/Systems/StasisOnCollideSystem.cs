@@ -9,7 +9,7 @@ namespace Content.Server._Goobstation.ChronoLegionnaire;
 [UsedImplicitly]
 public sealed class StasisOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly StasisSystem _stasisSystem = default!;
+    [Dependency] private StasisSystem _stasisSystem = default!;
 
     public override void Initialize()
     {

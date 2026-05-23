@@ -19,10 +19,10 @@ namespace Content.Server._EinsteinEngines.Language;
 
 public sealed class TranslatorSystem : SharedTranslatorSystem
 {
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private LanguageSystem _language = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
 
     public override void Initialize()
     {

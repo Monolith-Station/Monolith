@@ -8,7 +8,7 @@ public sealed class TemporaryBlindnessSystem : EntitySystem
     [ValidatePrototypeId<StatusEffectPrototype>]
     public const string BlindingStatusEffect = "TemporaryBlindness";
 
-    [Dependency] private readonly BlindableSystem _blindableSystem = default!;
+    [Dependency] private BlindableSystem _blindableSystem = default!;
 
     public override void Initialize()
     {

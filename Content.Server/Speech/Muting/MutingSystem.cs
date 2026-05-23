@@ -13,8 +13,8 @@ namespace Content.Server.Speech.Muting
 {
     public sealed class MutingSystem : EntitySystem
     {
-        [Dependency] private readonly LanguageSystem _languages = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private LanguageSystem _languages = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
         public override void Initialize()
         {
             base.Initialize();

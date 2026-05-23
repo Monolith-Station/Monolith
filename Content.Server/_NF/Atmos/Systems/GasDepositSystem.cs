@@ -32,15 +32,15 @@ namespace Content.Server._NF.Atmos.Systems;
 /// </summary>
 public sealed class GasDepositSystem : SharedGasDepositSystem
 {
-    [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private AmbientSoundSystem _ambientSound = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private StackSystem _stack = default!;
 
     /// <summary>
     /// The fraction that a deposit's volume should be depleted to before it is considered "low volume".

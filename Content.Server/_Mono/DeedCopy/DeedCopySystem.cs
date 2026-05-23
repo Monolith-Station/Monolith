@@ -12,9 +12,9 @@ namespace Content.Server._Mono.DeedCopy;
 /// </summary>
 public sealed class DeedCopySystem : EntitySystem
 {
-    [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly ISerializationManager _serializationManager = default!;
+    [Dependency] private SharedIdCardSystem _idCardSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private ISerializationManager _serializationManager = default!;
 
     public override void Initialize()
     {

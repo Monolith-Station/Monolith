@@ -4,7 +4,7 @@ namespace Content.Shared._Shitmed.GoliathTentacle;
 
 internal sealed class GoliathTentacleSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<GoliathTentacleComponent, ComponentStartup>(OnStartup);

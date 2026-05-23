@@ -14,10 +14,10 @@ namespace Content.Server._Mono.Shipyard;
 /// </summary>
 public sealed class ShipyardDirectionSystem : EntitySystem
 {
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private TransformSystem _transformSystem = default!;
 
     /// <summary>
     /// Sends a message to the player indicating the compass direction of their newly purchased ship

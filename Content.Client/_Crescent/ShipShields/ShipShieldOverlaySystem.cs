@@ -6,9 +6,9 @@ namespace Content.Client._Crescent.ShipShields;
 
 public sealed class ShipShieldOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IResourceCache _resourceCache = default!;
 
     public override void Initialize()
     {

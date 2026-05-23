@@ -10,9 +10,9 @@ namespace Content.Client.Orbit;
 
 public sealed class OrbitVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly AnimationPlayerSystem _animations = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private AnimationPlayerSystem _animations = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly string _orbitStopKey = "orbiting_stop";
 

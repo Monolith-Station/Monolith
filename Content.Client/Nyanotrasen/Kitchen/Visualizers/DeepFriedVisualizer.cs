@@ -13,8 +13,8 @@ namespace Content.Client.Kitchen.Visualizers
 {
     public sealed class DeepFriedVisualizerSystem : VisualizerSystem<DeepFriedComponent>
     {
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly IPrototypeManager _prototype = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private IPrototypeManager _prototype = default!;
 
         private const string FriedShader = "Crispy";
         private const string SpectralShader = "Spectral";

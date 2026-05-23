@@ -8,10 +8,10 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Station.Systems;
 public sealed partial class StationBiomeSystem : EntitySystem
 {
-    [Dependency] private readonly BiomeSystem _biome = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private BiomeSystem _biome = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private StationSystem _station = default!;
 
     public override void Initialize()
     {

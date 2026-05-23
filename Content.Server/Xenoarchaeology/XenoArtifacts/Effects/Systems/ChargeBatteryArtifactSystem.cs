@@ -11,9 +11,9 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 /// </summary>
 public sealed class ChargeBatteryArtifactSystem : EntitySystem
 {
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

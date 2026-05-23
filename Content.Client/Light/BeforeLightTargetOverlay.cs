@@ -11,7 +11,7 @@ public sealed class BeforeLightTargetOverlay : Overlay
 {
     public override OverlaySpace Space => OverlaySpace.BeforeLighting;
 
-    [Dependency] private readonly IClyde _clyde = default!;
+    [Dependency] private IClyde _clyde = default!;
 
     private readonly OverlayResourceCache<CachedResources> _resources = new();
 

@@ -9,8 +9,8 @@ namespace Content.Shared.Weapons.Hitscan.Systems;
 
 public sealed class HitscanBasicEffectsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
 
     public override void Initialize()
     {

@@ -17,10 +17,10 @@ namespace Content.Server.NPC.Systems;
 
 public sealed partial class NPCCombatSystem
 {
-    [Dependency] private readonly SharedCombatModeSystem _combat = default!;
-    [Dependency] private readonly RotateToFaceSystem _rotate = default!;
-    [Dependency] private readonly SharedLaserPointerSystem _pointer = default!; // Goobstation
-    [Dependency] private readonly DestructibleSystem _destructible = default!;
+    [Dependency] private SharedCombatModeSystem _combat = default!;
+    [Dependency] private RotateToFaceSystem _rotate = default!;
+    [Dependency] private SharedLaserPointerSystem _pointer = default!; // Goobstation
+    [Dependency] private DestructibleSystem _destructible = default!;
 
     private EntityQuery<CombatModeComponent> _combatQuery;
     private EntityQuery<NPCSteeringComponent> _steeringQuery;

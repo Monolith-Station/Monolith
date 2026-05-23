@@ -11,9 +11,9 @@ namespace Content.Server.Administration.Commands;
 [AdminCommand(AdminFlags.Server)]
 public sealed class PersistenceSave : LocalizedEntityCommands
 {
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly IEntitySystemManager _system = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private IEntitySystemManager _system = default!;
+    [Dependency] private SharedMapSystem _map = default!;
 
     public override string Command => "persistencesave";
     public override string Description => "Saves server data to a persistence file to be loaded later.";

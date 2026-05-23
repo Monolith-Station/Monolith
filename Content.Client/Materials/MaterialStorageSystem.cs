@@ -5,8 +5,8 @@ namespace Content.Client.Materials;
 
 public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     public override void Initialize()
     {
