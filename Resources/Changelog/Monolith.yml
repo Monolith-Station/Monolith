@@ -21286,3 +21286,28 @@ Entries:
   id: 2344
   time: '2026-05-21T22:07:37.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4031
+- author: router
+  changes:
+    - type: Fix
+      message: >-
+        IPCs can now boop and buzz. This was supposed to be possible all the
+        time.
+  id: 2345
+  time: '2026-05-22T10:09:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3999
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Ship description visible in a simple text box outside of manual button
+        tooltip, just like name and pricetag. Much more readable if you ask me.
+  id: 2346
+  time: '2026-05-22T11:08:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4038
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added a new drone to Far Reaches IV.
+  id: 2347
+  time: '2026-05-23T09:19:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3974

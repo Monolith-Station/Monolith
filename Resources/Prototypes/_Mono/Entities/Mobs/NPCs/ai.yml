@@ -241,6 +241,18 @@
     rootTask:
       task: DroneCompoundLance
 
+- type: entity
+  id: NpcDroneAiQuake
+  name: attacker core
+  parent: [NpcStationAiAttackerSmart, BaseFactionGearOtherFactionT3]
+  description: Shoots at you.
+  suffix: AI, Drone-Quake
+  components:
+  - type: HTN
+    sleepPlayerCheckRangeOverride: 8000
+    rootTask:
+      task: DroneCompoundQuake
+
 #region Spawners
 
 - type: entity
@@ -401,3 +413,13 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcDroneAiLance
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiQuake
+  parent: SpawnMobAttackerCore
+  suffix: Drone-Quake
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiQuake
