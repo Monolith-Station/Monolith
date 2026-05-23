@@ -232,7 +232,7 @@ public sealed partial class BlockingSystem : SharedBlockingSystem // Mono
             }
 
             //Don't allow someone to block if someone else is on the same tile
-            var playerTileRef = xform.Coordinates.GetTileRef();
+            var playerTileRef = _turf.GetTileRef(xform.Coordinates);
             if (playerTileRef != null)
             {
                 var intersecting = _lookup.GetLocalEntitiesIntersecting(playerTileRef.Value, 0f);
