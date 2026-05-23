@@ -12,94 +12,69 @@
   - USSPGlasses
   - USSPBelt
   - USSPEars
+  - ContractorEncryptionKey
   - NfsdBoxSurvival
   - USSPRiflemanPDA
   - ContractorWallet
-  - ContractorEncryptionKey
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility
+  - ContractorTrinkets
+  - ContractorBureaucracy
   - NfsdSpeciesSpecific
   - UsspFirearm
   - UsspMag
 
-# - type: roleLoadout
-#   id: JobUSSPCorporal
-#   groups:
-#   - USSPHead
-#   - USSPJumpsuit
-#   - TsfmcGloves
-#   - USSPBackpack
-#   - USSPOuterClothing
-#   - TsfmcShoes
-#   - TsfmcFace
-#   - USSPBelt
-#   - USSPEars
-#   - NfsdBoxSurvival
-#   - USSPCorporalPDA
-#   - ContractorWallet
-#   - ContractorEncryptionKey
-#   - NfsdSpeciesSpecific
-#   - UsspFirearm
-#   - UsspMag
-
-
-# - type: roleLoadout
-#   id: JobUSSPMedic
-#   groups:
-#   - USSPHead
-#   - USSPJumpsuit
-#   - TsfmcBrigmedicGloves
-#   - USSPBackpack
-#   - USSPOuterClothing
-#   - TsfmcShoes
-#   - TsfmcFace
-#   - USSPEars
-#   - NfsdBoxSurvival
-#   - USSPMedicPDA
-#   - ContractorWallet
-#   - ContractorEncryptionKey
-#   - NfsdSpeciesSpecific
-#   - USSPMedhud
-#   - USSPBeltMedic
-#   - UsspFirearm
-#   - UsspMag
-
 - type: roleLoadout
   id: JobUSSPSergeant
   groups:
+  - USSPHeadOfficer
   - USSPJumpsuit
   - USSPGloves
   - USSPBackpackSergeant
+  - USSPOuterClothingOfficer
   - TsfmcShoes
   - TsfmcFace
   - USSPBalaclava
   - USSPGlasses
   - USSPBelt
   - USSPEarsCommand
+  - ContractorEncryptionKey
   - NfsdBoxSurvival
   - USSPSergeantPDA
   - ContractorWallet
-  - ContractorEncryptionKey
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility
+  - ContractorTrinkets
+  - ContractorBureaucracy
   - NfsdSpeciesSpecific
-  - USSPOuterClothingOfficer
-  - USSPHeadOfficer
   - UsspFirearm
   - UsspMag
 
 - type: roleLoadout
   id: JobUSSPCommissar
   groups:
+  - USSPHeadCommissar
   - USSPJumpsuit
-  - MonoMercenaryGloves
+  - USSPCommissarGloves
   - USSPBackpackSergeant
   - USSPOuterClothingOfficer
   - TsfmcShoes
   - TsfmcFace
+  - USSPBalaclava
+  - USSPGlasses
   - USSPBelt
   - USSPEarsCommand
+  - ContractorEncryptionKey
   - NfsdBoxSurvival
   - USSPCommissarPDA
   - ContractorWallet
-  - ContractorEncryptionKey
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility
+  - ContractorTrinkets
+  - ContractorBureaucracy
   - NfsdSpeciesSpecific
-  - USSPHeadCommissar
   - UsspFirearm
   - UsspMag

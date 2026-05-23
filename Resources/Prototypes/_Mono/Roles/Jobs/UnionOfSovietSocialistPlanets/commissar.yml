@@ -10,9 +10,6 @@
   - !type:RoleTimeRequirement
     role: JobUSSPSergeant
     time: 10800 # 3 hrs
-  # - !type:RoleTimeRequirement
-  #   role: JobUSSPMedic
-  #   time: 10800 # 3 hrs
   - !type:OverallPlaytimeRequirement
     time: 144000 # 40 hrs
   startingGear: USSPCommissarGear

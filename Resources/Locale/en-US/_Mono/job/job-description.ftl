@@ -1,9 +1,7 @@
 # MARK: USSP
-job-description-ussp-commissar = Enforce the USSPs will against the TSF and PD forces of the sector, keep your subordinates orderly.
-job-description-ussp-sergeant = Organize USSP Efreitors and riflemen on a tactical level.
-job-description-ussp-corporal = Pilot vessels or board ships for the USSP and your commanding officers.
-job-description-ussp-medic = Keep your fellow soldiers healthy and intact for the Union.
-job-description-ussp-rifleman = Serve the Union in space. Follow orders from your superiors and spread socialist ideals throughout the cosmos.
+job-description-ussp-commissar = Preserve discipline, hold the battalion to a common purpose, and ensure the Union’s will does not die in the Colossus Sector.
+job-description-ussp-sergeant = Lead the ranks in battle, enforce standards, and hold the battalion together under pressure.
+job-description-ussp-rifleman = Serve the Union far from home. Follow your superiors, stand by your comrades, and endure where others would break.
 
 # MARK: MD
 job-description-md-medic = Traverse the space to provide life-saving care aboard a medical vessel. Stabilize crew with medicine, synthesize medicine, and revive the fallen. ensure the unrecoverable deceased are respectfully secured in the morgue and cloned.

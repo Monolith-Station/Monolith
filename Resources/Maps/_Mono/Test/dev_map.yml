@@ -7986,20 +7986,6 @@ entities:
     - type: Transform
       pos: -3.5,2.5
       parent: 2
-# - proto: SpawnPointUSSPCorporal
-#   entities:
-#   - uid: 1154
-#     components:
-#     - type: Transform
-#       pos: -3.5,2.5
-#       parent: 2
-# - proto: SpawnPointUSSPMedic
-#   entities:
-#   - uid: 1155
-#     components:
-#     - type: Transform
-#       pos: -3.5,2.5
-#       parent: 2
 - proto: SpawnPointUSSPRifleman
   entities:
   - uid: 1156

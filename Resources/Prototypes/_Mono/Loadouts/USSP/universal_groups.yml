@@ -28,35 +28,13 @@
   loadouts:
   - USSPCombatWebbing
   - USSPCombatWebbingLarge
+  - USSPCombatWebbingMedical
   - MercenaryClothingBeltWebbingsNormalBlack
   - MercenaryClothingBeltWebbingsBigBlack
   - MercenaryClothingBeltWebbingsNormalRangerGreen
   - MercenaryClothingBeltWebbingsBigRangerGreen
   fallbacks:
   - USSPCombatWebbing
-
-# - type: loadoutGroup
-#   id: USSPBeltMedic
-#   name: loadout-group-contractor-belt
-#   minLimit: 1
-#   maxLimit: 1
-#   loadouts:
-#   - USSPCombatWebbing
-#   - USSPCombatWebbingLarge
-#   - USSPCombatWebbingMedical
-#   fallbacks:
-#   - USSPCombatWebbingMedical
-
-#- type: loadoutGroup
-#  id: USSPBackpackCorporal
-#  name: loadout-group-contractor-backpack
-#  minLimit: 1
-#  loadouts:
-#  - USSPModsuitUSSPVaryag
-#  fallbacks:
-#  - USSPBackpack
-#  subgroups:
-#  - USSPBackpack
 
 - type: loadoutGroup
   id: USSPOuterClothingOfficer
@@ -91,9 +69,9 @@
   name: loadout-group-contractor-glasses
   minLimit: 1
   loadouts:
+  - USSPMedHud
   - MercenaryClothingEyesBallisticGogglesGreen
   - MercenaryClothingEyesGlassesSunglasses
-  - USSPMedHud
 
 - type: loadoutGroup
   id: USSPHead
@@ -137,6 +115,8 @@
   loadouts:
   - USSPOfficerCap
   - ContractorClothingHeadHatUshanka
+  subgroups:
+  - USSPHead
 
 - type: loadoutGroup
   id: USSPGloves
@@ -146,8 +126,16 @@
   - MercenaryClothingHandsGlovesTacticalCombatRangerGreen
 
 - type: loadoutGroup
+  id: USSPCommissarGloves
+  name: loadout-group-contractor-gloves
+  loadouts:
+  - MercenaryClothingHandsGlovesTacticalCombatWhite
+
+- type: loadoutGroup
   id: USSPBalaclava
   name: loadout-group-contractor-balaclava
+  minLimit: 0
+  maxLimit: 1
   loadouts:
   - MercenaryClothingBalaclavaSkiMaskBlack
   - MercenaryClothingBalaclavaSkiMaskRangerGreen
