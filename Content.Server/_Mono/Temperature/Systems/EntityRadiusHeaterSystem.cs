@@ -1,9 +1,9 @@
 using Content.Server._Mono.Temperature.Components;
-using Content.Server.IgnitionSource;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
+using Content.Shared.IgnitionSource;
 using Content.Shared.Item.ItemToggle.Components;
 
 namespace Content.Server._Mono.Temperature.Systems;

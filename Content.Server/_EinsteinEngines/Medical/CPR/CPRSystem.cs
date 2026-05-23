@@ -135,7 +135,7 @@ public sealed class CPRSystem : EntitySystem
 
             // Mono Edit: Informs the ghost they've been revived.
             if (_mind.TryGetMind(target, out _, out var mind) &&
-                _player.TryGetSessionById(mind.UserID, out var playerSession))
+                _player.TryGetSessionById(mind.UserId, out var playerSession))
             {
                 // notify them they're being revived.
                 if (mind.CurrentEntity != target)
