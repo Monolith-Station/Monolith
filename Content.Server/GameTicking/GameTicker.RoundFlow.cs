@@ -872,7 +872,7 @@ namespace Content.Server.GameTicking
                         // Check if adding this line would exceed field value limit
                         if (currentProfitLength + line.Length + 1 > MaxFieldValueLength - 20 && currentProfitLines.Count > 0)
                         {
-                            var fieldName = profitFieldCount == 0 ? "TSF Central Bank" : "TSF Central Bank (continued)";
+                            var fieldName = profitFieldCount == 0 ? "Colossus Central Bank" : "Colossus Central Bank (continued)";
                             var fieldValue = string.Join("\n", currentProfitLines);
                             var fieldCharacterCount = fieldName.Length + fieldValue.Length;
 
@@ -902,7 +902,7 @@ namespace Content.Server.GameTicking
                     // Add remaining profit lines
                     if (currentProfitLines.Count > 0)
                     {
-                        var fieldName = profitFieldCount == 0 ? "TSF Central Bank" : "TSF Central Bank (continued)";
+                        var fieldName = profitFieldCount == 0 ? "Colossus Central Bank" : "Colossus Central Bank (continued)";
                         var fieldValue = string.Join("\n", currentProfitLines);
                         var fieldCharacterCount = fieldName.Length + fieldValue.Length;
 

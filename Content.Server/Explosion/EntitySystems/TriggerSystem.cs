@@ -267,6 +267,7 @@ namespace Content.Server.Explosion.EntitySystems
                 speciesText = $" ({species.Species})";
 
             var critMessage = Loc.GetString(component.CritMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", gridText), ("position", posText));
+            var reviveMessage = Loc.GetString(component.ReviveMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", gridText), ("position", posText)); // Mono
             var deathMessage = Loc.GetString(component.DeathMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", gridText), ("position", posText));
 
             if (!TryComp<MobStateComponent>(implanted.ImplantedEntity, out var mobstate))
@@ -280,7 +281,8 @@ namespace Content.Server.Explosion.EntitySystems
                 {
                     case MobState.Critical:
                     {
-                        _radioSystem.SendRadioMessage(uid, critMessage, radioChannel, uid, null, language);
+                        var message = mobstate.PreviousState == MobState.Dead ? reviveMessage : critMessage;
+                        _radioSystem.SendRadioMessage(uid, message, radioChannel, uid, null, language);
                         break;
                     }
                     case MobState.Dead:

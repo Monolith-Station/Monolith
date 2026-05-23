@@ -19,7 +19,7 @@ public sealed partial class SmartFridgeMenu : FancyWindow
     public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected;
     public event Action<SmartFridgeListData>? OnRemoveButtonPressed;
 
-    private readonly StyleBoxFlat _styleBox = new() { BackgroundColor = new Color(70, 73, 102) };
+    private readonly StyleBoxFlat _styleBox = new() { BackgroundColor = new Color(60, 60, 60) };
 
     public SmartFridgeMenu()
     {

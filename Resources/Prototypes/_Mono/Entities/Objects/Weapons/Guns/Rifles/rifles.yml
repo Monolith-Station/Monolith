@@ -2,7 +2,7 @@
   name: VFD MR-8C DMR (8x65mm SKR)
   parent: [BaseWeaponRifle, BaseGunWieldable, BaseFactionGearTSFT2]
   id: WeaponRifleMR8C
-  description: The DMR variant of the MR-8 series, firing with incredible accuracy. Chambered in 8x65mm SKR. A label on the side reads "FOR MILITARY USE ONLY".
+  description: The DMR variant of the MR-8 series, firing with incredible accuracy. Chambered in 8x65mm SKR. A label on the side reads "FOR MILITARY USE ONLY". An Erebus railmount is attached to the top of the reciever and the bottom of the handguard for optics and grips.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Rifles/mr8c.rsi
@@ -11,6 +11,8 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
+      - map: ["gripAttachment"]
+      - map: ["opticAttachment"]
   - type: GunWieldBonus
     minAngle: -21
     maxAngle: -47
@@ -47,10 +49,27 @@
         whitelist:
           tags:
             - Cartridge8x65mmSKR
+      attachment_grip:
+        priority: 0
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        whitelist:
+          tags:
+          - MonoGripErebusRailmount
+      attachment_optic:
+        startingItem: GunAttachmentOpticErebus4x
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoOpticErebusRailmount
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+      attachment_grip: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -65,16 +84,61 @@
   - type: SpeedModifiedOnWield
     walkModifier: 0.65
     sprintModifier: 0.5
-  - type: CursorOffsetRequiresWield
-  - type: EyeCursorOffset
-    maxOffset: 7
-    pvsIncrease: 1
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-grip
+      containerId: attachment_grip
+      whitelist:
+        tags:
+        - MonoGripErebusRailmount
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      gripAttachment:
+      - containerId: attachment_grip
+        state: grip
+        whitelist:
+          tags:
+          - MonoGripVFG
+      - containerId: attachment_grip
+        state: lam
+        whitelist:
+          tags:
+          - MonoGripLAM
+      - containerId: attachment_grip
+        state: light
+        whitelist:
+          tags:
+          - MonoGripLight
+      opticAttachment:
+      - containerId: attachment_optic
+        state: optic2x
+        whitelist:
+          tags:
+          - MonoOptic2x
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - MonoOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - MonoOptic8x
 
 - type: entity
   name: NCI AK-502 (7.62x39mm)
   parent: BaseWeaponRifle
   id: WeaponRifleAK502
-  description: A standard-issue USSP combat rifle. Uses 7.62x39mm ammo.
+  description: A standard-issue USSP combat rifle. Uses 7.62x39mm ammo. It has an Erebus railmount attached to the carryhandle for optics.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Rifles/ak502.rsi
@@ -83,6 +147,7 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
+    - map: ["opticAttachment"]
   - type: GunWieldBonus
     minAngle: -21
     maxAngle: -47
@@ -118,10 +183,18 @@
         whitelist:
           tags:
           - Cartridge762x39mmFMJ
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoOpticErebusRailmount
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -131,6 +204,40 @@
     price: 1200
   - type: PirateBountyItem
     id: StandardFactionLongarm
+  # Attachment slop
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - MonoOpticErebusRailmount
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      opticAttachment:
+      - containerId: attachment_optic
+        state: optic2x
+        whitelist:
+          tags:
+          - MonoOptic2x
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - MonoOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - MonoOptic8x
 
 - type: entity
   name: VFD XLR-556 ICWS (5.56x45mm)
