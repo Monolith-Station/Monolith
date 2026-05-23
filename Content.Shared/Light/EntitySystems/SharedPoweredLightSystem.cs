@@ -16,14 +16,12 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.Random; // Frontier
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Light.EntitySystems;
 
 public abstract class SharedPoweredLightSystem : EntitySystem
 {
-    [Dependency] protected readonly IRobustRandom RobustRandom = default!; // Frontier
     [Dependency] protected readonly IGameTiming GameTiming = default!;
     [Dependency] private readonly DamageOnInteractSystem _damageOnInteractSystem = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSystem = default!;
@@ -54,7 +52,6 @@ public abstract class SharedPoweredLightSystem : EntitySystem
         SubscribeLocalEvent<PoweredLightComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<PoweredLightComponent, PoweredLightDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<PoweredLightComponent, DamageChangedEvent>(HandleLightDamaged);
-        SubscribeLocalEvent<PoweredLightComponent, EmpPulseEvent>(OnEmpPulse);
 
         SubscribeLocalEvent<BlinkingPoweredLightComponent, MapInitEvent>(OnBlinkingMapInit);
         SubscribeLocalEvent<BlinkingPoweredLightComponent, ComponentShutdown>(OnBlinkingShutdown);
@@ -344,15 +341,6 @@ public abstract class SharedPoweredLightSystem : EntitySystem
             return;
 
         UpdateLight(uid, component);
-    }
-
-    private void OnEmpPulse(EntityUid uid, PoweredLightComponent component, ref EmpPulseEvent args)
-    {
-        if (RobustRandom.Prob(component.LightBreakChance)) // Frontier
-        {
-            if (TryDestroyBulb(uid, component))
-                args.Affected = true;
-        }
     }
 
     private void SetLight(EntityUid uid, bool value, Color? color = null, PoweredLightComponent? light = null, float? radius = null, float? energy = null, float? softness = null)

@@ -3,6 +3,7 @@ using Content.Server.Ghost;
 using Content.Shared.Light.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
+using Robust.Shared.Random; // Frontier
 using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Damage.Systems;
@@ -58,5 +59,14 @@ public sealed class PoweredLightSystem : SharedPoweredLightSystem
         }
         // need this to update visualizers
         UpdateLight(uid, light);
+    }
+
+    private void OnEmpPulse(EntityUid uid, PoweredLightComponent component, ref EmpPulseEvent args)
+    {
+        if (RobustRandom.Prob(component.LightBreakChance)) // Frontier
+        {
+            if (TryDestroyBulb(uid, component))
+                args.Affected = true;
+        }
     }
 }
