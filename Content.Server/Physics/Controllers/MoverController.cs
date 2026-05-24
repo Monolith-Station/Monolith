@@ -30,9 +30,9 @@ public sealed partial class MoverController : SharedMoverController
 
     private Dictionary<EntityUid, (ShuttleComponent, List<(EntityUid, PilotComponent, InputMoverComponent, TransformComponent)>)> _shuttlePilots = new();
 
-    private EntityQuery<ActiveInputMoverComponent> _activeQuery;
-    private EntityQuery<DroneConsoleComponent> _droneQuery;
-    private EntityQuery<ShuttleComponent> _shuttleQuery;
+    [Dependency] private EntityQuery<ActiveInputMoverComponent> _activeQuery = default!;
+    [Dependency] private EntityQuery<DroneConsoleComponent> _droneQuery = default!;
+    [Dependency] private EntityQuery<ShuttleComponent> _shuttleQuery = default!;
     [Dependency] private EntityQuery<GhostComponent> _ghostQuery = default!;
 
     // Not needed for persistence; just used to save an alloc
@@ -51,10 +51,9 @@ public sealed partial class MoverController : SharedMoverController
         SubscribeLocalEvent<RelayInputMoverComponent, PlayerDetachedEvent>(OnRelayPlayerDetached);
         SubscribeLocalEvent<InputMoverComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<InputMoverComponent, PlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeLocalEvent<PilotComponent, GetShuttleInputsEvent>(OnPilotGetInputs); // Mono
 
-        _activeQuery = GetEntityQuery<ActiveInputMoverComponent>();
-        _droneQuery = GetEntityQuery<DroneConsoleComponent>();
-        _shuttleQuery = GetEntityQuery<ShuttleComponent>();
+        SubscribeLocalEvent<PilotedShuttleComponent, StartCollideEvent>(PilotedShuttleRelayEvent<StartCollideEvent>); // Mono
     }
 
     private void OnEntityPaused(Entity<ActiveInputMoverComponent> ent, ref EntityPausedEvent args)
