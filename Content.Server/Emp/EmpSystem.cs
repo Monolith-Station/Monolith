@@ -17,29 +17,75 @@ using Robust.Shared; // Frontier: EMP Blast PVS
 using Content.Shared.Verbs; // Frontier: examine verb
 using Robust.Shared.Utility; // Frontier: examine verb
 using Content.Server.Examine; // Frontier: examine verb
-using Content.Server._Mono.Emp; // Mono: EMP Shielding
 
 namespace Content.Server.Emp;
 
 public sealed partial class EmpSystem : SharedEmpSystem
 {
+    [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private TransformSystem _transform = default!;
     [Dependency] private PvsOverrideSystem _pvs = default!; // Frontier: EMP Blast PVS
     [Dependency] private IConfigurationManager _cfg = default!; // Frontier: EMP Blast PVS
     [Dependency] private ExamineSystem _examine = default!; // Frontier: examine verb
 
+    public const string EmpPulseEffectPrototype = "EffectEmpBlast"; // Frontier: EffectEmpPulse
+
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<EmpDisabledComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<EmpOnTriggerComponent, TriggerEvent>(HandleEmpTrigger);
         SubscribeLocalEvent<EmpOnTriggerComponent, GetVerbsEvent<ExamineVerb>>(OnEmpTriggerExamine); // Frontier
         SubscribeLocalEvent<EmpDescriptionComponent, GetVerbsEvent<ExamineVerb>>(OnEmpDescriptorExamine); // Frontier
 
         SubscribeLocalEvent<EmpDisabledComponent, RadioSendAttemptEvent>(OnRadioSendAttempt);
         SubscribeLocalEvent<EmpDisabledComponent, RadioReceiveAttemptEvent>(OnRadioReceiveAttempt);
-        SubscribeLocalEvent<EmpDisabledComponent, ApcToggleMainBreakerAttemptEvent>(OnApcToggleMainBreaker);
-        SubscribeLocalEvent<EmpDisabledComponent, SurveillanceCameraSetActiveAttemptEvent>(OnCameraSetActive);
+    }
+
+    // Frontier: examine EMP trigger objects
+    private void OnEmpTriggerExamine(EntityUid uid, EmpOnTriggerComponent component, GetVerbsEvent<ExamineVerb> args)
+    {
+        if (!args.CanInteract || !args.CanAccess)
+            return;
+
+        var msg = GetEmpDescription(component.Range, component.EnergyConsumption, component.DisableDuration);
+
+        _examine.AddDetailedExamineVerb(args, component, msg,
+            Loc.GetString("emp-examinable-verb-text"), "/Textures/Interface/VerbIcons/smite.svg.192dpi.png",
+            Loc.GetString("emp-examinable-verb-message"));
+    }
+    private void OnEmpDescriptorExamine(EntityUid uid, EmpDescriptionComponent component, GetVerbsEvent<ExamineVerb> args)
+    {
+        if (!args.CanInteract || !args.CanAccess)
+            return;
+
+        var msg = GetEmpDescription(component.Range, component.EnergyConsumption, component.DisableDuration);
+
+        _examine.AddDetailedExamineVerb(args, component, msg,
+            Loc.GetString("emp-examinable-verb-text"), "/Textures/Interface/VerbIcons/smite.svg.192dpi.png",
+            Loc.GetString("emp-examinable-verb-message"));
+    }
+
+    private FormattedMessage GetEmpDescription(float range, float energy, float time)
+    {
+        var msg = new FormattedMessage();
+        msg.AddMarkupOrThrow(Loc.GetString("emp-examine"));
+        msg.PushNewline();
+        msg.AddMarkupOrThrow(Loc.GetString("emp-range-value",
+            ("value", range)));
+        msg.PushNewline();
+        msg.AddMarkupOrThrow(Loc.GetString("emp-energy-value",
+            ("value", energy)));
+        msg.PushNewline();
+        msg.AddMarkupOrThrow(Loc.GetString("emp-time-value",
+            ("value", time)));
+        return msg;
+    }
+    // End Frontier
+
+    private void HandleEmpTrigger(EntityUid uid, EmpOnTriggerComponent comp, TriggerEvent args)
+    {
+        EmpPulse(_transform.GetMapCoordinates(uid), comp.Range, comp.EnergyConsumption, TimeSpan.FromSeconds(comp.DisableDuration));
+        args.Handled = true;
     }
 
     private void OnRadioSendAttempt(EntityUid uid, EmpDisabledComponent component, ref RadioSendAttemptEvent args)
@@ -51,15 +97,4 @@ public sealed partial class EmpSystem : SharedEmpSystem
     {
         args.Cancelled = true;
     }
-
-    //private void OnApcToggleMainBreaker(EntityUid uid, EmpDisabledComponent component, ref ApcToggleMainBreakerAttemptEvent args) // Frontier: Upstream - #28984
-    //{
-    //    args.Cancelled = true;
-    //}
-
-    //private void OnCameraSetActive(EntityUid uid, EmpDisabledComponent component, ref SurveillanceCameraSetActiveAttemptEvent args) // Frontier: Upstream - #28984
-    //{
-    //    args.Cancelled = true;
-    //}
-
 }

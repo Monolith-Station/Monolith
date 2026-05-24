@@ -18,6 +18,6 @@ public sealed partial class EmpArtifactSystem : EntitySystem
 
     private void OnActivate(EntityUid uid, EmpArtifactComponent component, ArtifactActivatedEvent args)
     {
-        _emp.EmpPulse(_transform.GetMapCoordinates(uid), component.Range, component.EnergyConsumption, component.DisableDuration);
+        _emp.EmpPulse(_transform.GetMapCoordinates(uid), component.Range, component.EnergyConsumption, TimeSpan.FromSeconds(component.DisableDuration));
     }
 }

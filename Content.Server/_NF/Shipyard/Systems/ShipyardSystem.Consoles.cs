@@ -22,7 +22,7 @@ using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Server.Maps;
+using Content.Shared.Maps;
 using Content.Shared.StationRecords;
 using Content.Server.Chat.Systems;
 using Content.Server.Mind;

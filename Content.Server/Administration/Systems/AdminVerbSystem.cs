@@ -77,6 +77,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private AdminFrozenSystem _freeze = default!;
         [Dependency] private IPlayerManager _playerManager = default!;
         [Dependency] private SiliconLawSystem _siliconLawSystem = default!;
+        [Dependency] private SharedContainerSystem _container = default!; // Mono
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 
@@ -757,7 +758,7 @@ namespace Content.Server.Administration.Systems
                         continue;
                     var cloneItem = Spawn(prototypeId, Transform(target).Coordinates);
 
-                    if (_containerSystem.Insert(cloneItem, targetContainer))
+                    if (_container.Insert(cloneItem, targetContainer))
                     {
                         CopyContainedItems(contained, cloneItem);
                     }

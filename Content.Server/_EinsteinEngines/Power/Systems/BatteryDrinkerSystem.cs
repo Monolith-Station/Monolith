@@ -1,7 +1,7 @@
 using System.Linq;
-using Content.Server.Power.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
+using Content.Shared.Power.Components;
 using Content.Shared.PowerCell.Components;
 using Content.Shared._EinsteinEngines.Silicon;
 using Content.Shared.Verbs;

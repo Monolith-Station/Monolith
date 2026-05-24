@@ -28,6 +28,7 @@ public sealed partial class AtmosphereSystem : SharedAtmosphereSystem
     [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private IParallelManager _parallel = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private SharedContainerSystem _containers = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;

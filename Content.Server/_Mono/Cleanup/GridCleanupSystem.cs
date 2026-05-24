@@ -1,6 +1,7 @@
 using Content.Server.Cargo.Systems;
 using Content.Server.Power.Components;
 using Content.Shared._Mono.CCVar;
+using Content.Shared.Power.Components;
 using Content.Shared.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Robust.Shared.Configuration;

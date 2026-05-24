@@ -1,4 +1,3 @@
-using Content.Server.Power.Components;
 using Content.Shared._EinsteinEngines.Silicon.Systems;
 using Content.Shared.Bed.Sleep;
 using Content.Server._EinsteinEngines.Silicon.Charge;
@@ -8,6 +7,7 @@ using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems; //Monolith IPC rework
+using Content.Shared.Power.Components;
 
 namespace Content.Server._EinsteinEngines.Silicon.Death;
 

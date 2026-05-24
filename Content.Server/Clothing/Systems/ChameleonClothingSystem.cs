@@ -7,10 +7,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Clothing.Systems;
 
-public sealed partial class ChameleonClothingSystem : SharedChameleonClothingSystem
+public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
 {
-    [Dependency] private IPrototypeManager _proto = default!;
-    [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IdentitySystem _identity = default!;
 
     public override void Initialize()
     {
@@ -41,7 +41,7 @@ public sealed partial class ChameleonClothingSystem : SharedChameleonClothingSys
     /// <summary>
     ///     Change chameleon items name, description and sprite to mimic other entity prototype.
     /// </summary>
-    public override void SetSelectedPrototype(EntityUid uid, string? protoId, bool forceUpdate = false,
+    public void SetSelectedPrototype(EntityUid uid, string? protoId, bool forceUpdate = false,
         ChameleonClothingComponent? component = null)
     {
         if (!Resolve(uid, ref component, false))

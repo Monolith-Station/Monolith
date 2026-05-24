@@ -1,5 +1,5 @@
 using Content.Server.Construction;
-using Content.Server.Power.Components;
+using Content.Shared.Power.Components;
 using JetBrains.Annotations;
 using Content.Server._NF.Power.Components;
 using Content.Server.Power.EntitySystems;

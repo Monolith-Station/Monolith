@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Client.Items;
 using Content.Client.Storage.Systems;
 using Content.Shared.Stacks;
+using Content.Shared.Stacks.Components;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 
@@ -58,14 +59,14 @@ namespace Content.Client.Stack
                 return;
 
             // Skip processing if no actual
-            if (!_appearanceSystem.TryGetData<int>(uid, StackVisuals.Actual, out var Actual, args.Component))
+            if (!_appearanceSystem.TryGetData<int>(uid, StackVisuals.Actual, out var actual, args.Component))
                 return;
 
             if (!_appearanceSystem.TryGetData<int>(uid, StackVisuals.MaxCount, out var maxCount, args.Component))
-                data.MaxCount = comp.LayerStates.Count;
+                maxCount = comp.LayerStates.Count;
 
             if (!_appearanceSystem.TryGetData<bool>(uid, StackVisuals.Hide, out var hidden, args.Component))
-                data.Hidden = false;
+                hidden = false;
 
             if (comp.LayerFunction != StackLayerFunction.None) // Frontier: use stack layer function to modify appearance if provided.
                 ApplyLayerFunction((uid, comp), ref actual, ref maxCount); // Frontier: definition in _NF/Stack/StackSystem.Layers.cs

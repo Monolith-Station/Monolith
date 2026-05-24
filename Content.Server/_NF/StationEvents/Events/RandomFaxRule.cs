@@ -1,5 +1,6 @@
 using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
+using Content.Shared.Station.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Fax.Components;
 using Content.Server.Fax;
@@ -63,7 +64,7 @@ public sealed partial class RandomFaxRule : StationEventSystem<RandomFaxRuleComp
                 continue;
             }
 
-            var grid = StationSystem.GetLargestGrid(stationData);
+            var grid = StationSystem.GetLargestGrid((chosenStation.Value, stationData));
 
             if (grid is null)
             {

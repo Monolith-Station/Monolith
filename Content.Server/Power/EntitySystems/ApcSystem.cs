@@ -42,7 +42,7 @@ public sealed partial class ApcSystem : EntitySystem
         SubscribeLocalEvent<ApcComponent, GotUnEmaggedEvent>(OnUnemagged); // Frontier
 
         SubscribeLocalEvent<ApcComponent, EmpPulseEvent>(OnEmpPulse);
-        SubscribeLocalEvent<ApcComponent, EmpDisabledRemoved>(OnEmpDisabledRemoved); // Frontier: Upstream - #28984
+        SubscribeLocalEvent<ApcComponent, EmpDisabledRemovedEvent>(OnEmpDisabledRemoved); // Frontier: Upstream - #28984
         SubscribeLocalEvent<ApcComponent, ToolUseAttemptEvent>(OnToolUseAttempt); // Frontier
 
         _appearanceQuery = GetEntityQuery<AppearanceComponent>();
@@ -240,7 +240,7 @@ public sealed partial class ApcSystem : EntitySystem
         UpdateApcState(uid);
     }
 
-    private void OnEmpDisabledRemoved(EntityUid uid, ApcComponent component, ref EmpDisabledRemoved args) // Frontier: Upstream - #28984
+    private void OnEmpDisabledRemoved(EntityUid uid, ApcComponent component, ref EmpDisabledRemovedEvent args) // Frontier: Upstream - #28984
     {
         UpdateApcState(uid);
     }

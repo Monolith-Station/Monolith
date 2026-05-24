@@ -1,6 +1,5 @@
 using Robust.Shared.Random;
 using Content.Shared._EinsteinEngines.Silicon.Components;
-using Content.Server.Power.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Temperature.Components;
 using Content.Shared.Atmos.Components;
@@ -19,6 +18,7 @@ using Robust.Shared.Utility;
 using Content.Shared.CCVar;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Mind;
+using Content.Shared.Power.Components;
 using Content.Shared.Alert;
 using Content.Server._EinsteinEngines.Silicon.Death;
 using Content.Server._EinsteinEngines.Power.Components;

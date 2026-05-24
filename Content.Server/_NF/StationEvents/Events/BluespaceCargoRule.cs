@@ -1,6 +1,8 @@
 using Content.Server.Station.Components;
+using Content.Shared.Station.Components;
 using Content.Server.StationEvents.Components;
 using Content.Shared.Physics;
+using Content.Shared.Station.Components;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics;
@@ -34,7 +36,7 @@ public sealed partial class BluespaceCargoRule : StationEventSystem<BluespaceCar
         if (!TryComp<StationDataComponent>(chosenStation, out var stationData))
             return;
 
-        var grid = StationSystem.GetLargestGrid(stationData);
+        var grid = StationSystem.GetLargestGrid((chosenStation!.Value, stationData));
 
         if (grid is null)
             return;

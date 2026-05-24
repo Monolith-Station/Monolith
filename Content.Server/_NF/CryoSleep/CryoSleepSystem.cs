@@ -26,6 +26,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared._NF.CCVar;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
+using Content.Shared.Station.Components;
 using Content.Shared.Verbs;
 using Robust.Server.Containers;
 using Robust.Server.Player;

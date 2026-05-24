@@ -126,13 +126,20 @@ namespace Content.Server.Power.EntitySystems
         {
             args.Price += component.CurrentCharge * component.PricePerJoule;
         }
+
         private void OnChangeCharge(Entity<BatteryComponent> entity, ref ChangeChargeEvent args)
         {
-            if (!TryComp<ChargingComponent>(uid, out var charging))
+            if (!TryComp<ChargingComponent>(entity, out var charging))
                 return;
 
             var ev = new ChargerUpdateStatusEvent();
             RaiseLocalEvent(charging.ChargerUid, ref ev);
+        }
+
+        private void OnGetCharge(Entity<BatteryComponent> ent, ref GetChargeEvent args)
+        {
+            args.CurrentCharge += ent.Comp.CurrentCharge;
+            args.MaxCharge += ent.Comp.MaxCharge;
         }
 
         public override float UseCharge(EntityUid uid, float value, BatteryComponent? battery = null)
