@@ -74,11 +74,6 @@
   - type: DeviceLinkSource
     ports:
     - Produced
-  - type: ApcPowerReceiver
-    powerLoad: 150
-  - type: PowerState
-    idlePowerDraw: 150
-    workingPowerDraw: 1000
   - type: MachineThermalSignature
     signature: 2500 # 100m
   - type: ThermalSignature

@@ -63,11 +63,7 @@
       containers:
         board: !type:Container
     - type: ApcPowerReceiver
-      powerLoad: 50
-    - type: PowerState
-      idlePowerDraw: 50
-      workingPowerDraw: 200
-    - type: UIPowerState
+      powerLoad: 200
     - type: WallMount
       arc: 360
     - type: ExtensionCableReceiver

@@ -27,7 +27,6 @@ using Content.Server.Jittering;
 using Content.Shared.Jittering;
 using Content.Shared.Power;
 using Content.Shared.Storage; // Mono
-using Content.Shared.Power.EntitySystems;
 
 namespace Content.Server.Kitchen.EntitySystems
 {
@@ -46,7 +45,6 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private SharedDoAfterSystem _doAfterSystem = default!; // Mono
         [Dependency] private RandomHelperSystem _randomHelper = default!;
         [Dependency] private JitteringSystem _jitter = default!;
-        [Dependency] private SharedPowerStateSystem _powerState = default!;
 
         public override void Initialize()
         {
@@ -152,15 +150,11 @@ namespace Content.Server.Kitchen.EntitySystems
         private void OnActiveGrinderStart(Entity<ActiveReagentGrinderComponent> ent, ref ComponentStartup args)
         {
             _jitter.AddJitter(ent, -10, 100);
-
-            // Not all grinders need power.
-            _powerState.TrySetWorkingState(ent.Owner, true);
         }
 
         private void OnActiveGrinderRemove(Entity<ActiveReagentGrinderComponent> ent, ref ComponentRemove args)
         {
             RemComp<JitteringComponent>(ent);
-            _powerState.TrySetWorkingState(ent.Owner, false);
         }
 
         private void OnEntRemoveAttempt(Entity<ReagentGrinderComponent> entity, ref ContainerIsRemovingAttemptEvent args)

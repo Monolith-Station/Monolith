@@ -41,10 +41,7 @@
     - map: [ "grinder" ]
       state: "juicer0"
   - type: ApcPowerReceiver
-    powerLoad: 0
-  - type: PowerState
-    idlePowerDraw: 0
-    workingPowerDraw: 750 # medium power blender
+    powerLoad: 300
   - type: AutomationSlots # Goobstation
     slots:
     - !type:AutomatedItemSlot

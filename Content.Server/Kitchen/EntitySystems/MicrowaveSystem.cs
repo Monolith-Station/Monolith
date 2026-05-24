@@ -45,9 +45,6 @@ using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Robust.Shared.Utility;
 using Content.Shared._NF.Kitchen.Components; // Frontier
-using Content.Shared.Damage.Components;
-using Content.Shared.Power.EntitySystems;
-using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Kitchen.EntitySystems
 {
@@ -76,7 +73,6 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private IPrototypeManager _prototype = default!;
         [Dependency] private IAdminLogManager _adminLogger = default!;
         [Dependency] private SharedSuicideSystem _suicide = default!;
-        [Dependency] private SharedPowerStateSystem _powerState = default!;
 
         [ValidatePrototypeId<EntityPrototype>]
         private const string MalfunctionSpark = "Spark";
@@ -132,7 +128,6 @@ namespace Content.Server.Kitchen.EntitySystems
 
             microwaveComponent.PlayingStream =
                 _audio.PlayPvs(microwaveComponent.LoopingSound, ent, AudioParams.Default.WithLoop(true).WithMaxDistance(5))?.Entity;
-            _powerState.SetWorkingState(ent.Owner, true);
         }
 
         private void OnCookStop(Entity<ActiveMicrowaveComponent> ent, ref ComponentShutdown args)
@@ -142,7 +137,6 @@ namespace Content.Server.Kitchen.EntitySystems
 
             SetAppearance(ent.Owner, MicrowaveVisualState.Idle, microwaveComponent);
             microwaveComponent.PlayingStream = _audio.Stop(microwaveComponent.PlayingStream);
-            _powerState.SetWorkingState(ent.Owner, false);
         }
 
         private void OnActiveMicrowaveInsert(Entity<ActiveMicrowaveComponent> ent, ref EntInsertedIntoContainerMessage args)

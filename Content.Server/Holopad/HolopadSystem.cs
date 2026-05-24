@@ -23,7 +23,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Server._NF.Station.Systems; // Frontier
-using Content.Shared.Power.EntitySystems;
 
 namespace Content.Server.Holopad;
 
@@ -42,7 +41,6 @@ public sealed partial class HolopadSystem : SharedHolopadSystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private PvsOverrideSystem _pvs = default!;
     [Dependency] private StationRenameHolopadsSystem _renameHolopads = default!; // Frontier
-    [Dependency] private SharedPowerStateSystem _powerState = default!;
 
     private float _updateTimer = 1.0f;
     private const float UpdateTime = 1.0f;
@@ -537,14 +535,10 @@ public sealed partial class HolopadSystem : SharedHolopadSystem
         {
             _telephoneSystem.SetSpeakerForTelephone((entity, entityTelephone), (hologramUid, hologramSpeech));
         }
-
-        _powerState.SetWorkingState(entity.Owner, true);
     }
 
     private void DeleteHologram(Entity<HolopadHologramComponent> hologram, Entity<HolopadComponent> attachedHolopad)
     {
-        _powerState.SetWorkingState(attachedHolopad.Owner, false);
-
         attachedHolopad.Comp.Hologram = null;
 
         QueueDel(hologram);
