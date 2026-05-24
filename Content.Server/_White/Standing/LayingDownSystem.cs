@@ -5,7 +5,7 @@ using Robust.Shared.Configuration;
 
 namespace Content.Server.Standing;
 
-public sealed class LayingDownSystem : SharedLayingDownSystem
+public sealed partial class LayingDownSystem : SharedLayingDownSystem
 {
     [Dependency] private INetConfigurationManager _cfg = default!;
 

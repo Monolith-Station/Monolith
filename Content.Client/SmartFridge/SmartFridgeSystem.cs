@@ -2,7 +2,7 @@ using Content.Shared.SmartFridge;
 
 namespace Content.Client.SmartFridge;
 
-public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
+public sealed partial class SmartFridgeSystem : SharedSmartFridgeSystem
 {
     [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
 

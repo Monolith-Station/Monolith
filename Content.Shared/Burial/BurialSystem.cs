@@ -12,7 +12,7 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Burial.Systems;
 
-public sealed class BurialSystem : EntitySystem
+public sealed partial class BurialSystem : EntitySystem
 {
     [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private SharedEntityStorageSystem _storageSystem = default!;

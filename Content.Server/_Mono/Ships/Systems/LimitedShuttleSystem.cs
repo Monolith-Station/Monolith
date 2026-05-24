@@ -11,7 +11,7 @@ namespace Content.Server._Mono.Ships.Systems;
 /// <summary>
 /// This handles shuttles with a limit.
 /// </summary>
-public sealed class LimitedShuttleSystem : EntitySystem
+public sealed partial class LimitedShuttleSystem : EntitySystem
 {
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private IGameTiming _gameTiming = default!;

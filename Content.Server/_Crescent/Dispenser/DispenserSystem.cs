@@ -5,7 +5,7 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Crescent.Dispenser;
 
-public sealed class DispenserSystem : SharedDispenserSystem
+public sealed partial class DispenserSystem : SharedDispenserSystem
 {
     [Dependency] private SharedAudioSystem _audioSystem = default!;
     [Dependency] private SharedVirtualItemSystem _virtualItemSystem = default!;

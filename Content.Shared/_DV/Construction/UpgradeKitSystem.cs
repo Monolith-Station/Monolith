@@ -11,7 +11,7 @@ namespace Content.Shared._DV.Construction;
 /// <summary>
 /// Handles upgrading machines using upgrade kits.
 /// </summary>
-public sealed class UpgradeKitSystem : EntitySystem
+public sealed partial class UpgradeKitSystem : EntitySystem
 {
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private INetManager _net = default!;

@@ -25,7 +25,7 @@ using Content.Server._EinsteinEngines.Power.Components;
 
 namespace Content.Server._EinsteinEngines.Silicon.Charge;
 
-public sealed class SiliconChargeSystem : EntitySystem
+public sealed partial class SiliconChargeSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private MobStateSystem _mobState = default!;

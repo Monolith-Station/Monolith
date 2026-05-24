@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace Content.Shared.Implants;
 
-public abstract class SharedSubdermalImplantSystem : EntitySystem
+public abstract partial class SharedSubdermalImplantSystem : EntitySystem
 {
     [Dependency] private INetManager _net = default!;
     [Dependency] private SharedActionsSystem _actionsSystem = default!;

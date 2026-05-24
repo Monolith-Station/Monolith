@@ -18,7 +18,7 @@ using Robust.Shared.Utility;
 namespace Content.Server.Fluids.EntitySystems;
 
 /// <inheritdoc/>
-public sealed class AbsorbentSystem : SharedAbsorbentSystem
+public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
 {
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private AudioSystem _audio = default!;

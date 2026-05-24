@@ -4,7 +4,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.Cleanup;
 
-public abstract class BaseCleanupSystem<TComp> : EntitySystem
+public abstract partial class BaseCleanupSystem<TComp> : EntitySystem
     where TComp : IComponent
 {
     [Dependency] private IConfigurationManager _cfg = default!;

@@ -22,7 +22,7 @@ using Content.Shared.Radio.Components; // Goobstation
 namespace Content.Server.Administration.Commands
 {
     [AdminCommand(AdminFlags.Admin)]
-    public sealed class SetOutfitCommand : IConsoleCommand
+    public sealed partial class SetOutfitCommand : IConsoleCommand
     {
         [Dependency] private IEntityManager _entities = default!;
 

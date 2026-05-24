@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._NF.Emp.Overlays
 {
-    public sealed class EmpBlastOverlay : Overlay
+    public sealed partial class EmpBlastOverlay : Overlay
     {
         [Dependency] private IEntityManager _entityManager = default!;
         [Dependency] private IPrototypeManager _prototypeManager = default!;

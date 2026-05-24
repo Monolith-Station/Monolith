@@ -26,7 +26,7 @@ using System.Linq;
 namespace Content.Server.Destructible
 {
     [UsedImplicitly]
-    public sealed class DestructibleSystem : SharedDestructibleSystem
+    public sealed partial class DestructibleSystem : SharedDestructibleSystem
     {
         [Dependency] public IRobustRandom Random = default!;
         public new IEntityManager EntityManager => base.EntityManager;

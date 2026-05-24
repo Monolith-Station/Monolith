@@ -10,7 +10,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.GhostTypes;
 
-public sealed class StoreDamageTakenOnMindSystem : EntitySystem
+public sealed partial class StoreDamageTakenOnMindSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _proto = default!;
     public override void Initialize()

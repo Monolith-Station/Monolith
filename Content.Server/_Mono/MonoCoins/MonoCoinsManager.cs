@@ -11,7 +11,7 @@ namespace Content.Server._Mono.MonoCoins;
 /// <summary>
 /// System that handles MonoCoins balance for players.
 /// </summary>
-public sealed class MonoCoinsManager
+public sealed partial class MonoCoinsManager
 {
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private IServerDbManager _db = default!;

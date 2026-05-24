@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.UserInterface.Systems.DamageOverlays.Overlays;
 
-public sealed class DamageOverlay : Overlay
+public sealed partial class DamageOverlay : Overlay
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;

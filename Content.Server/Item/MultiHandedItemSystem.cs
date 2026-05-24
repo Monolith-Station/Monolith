@@ -5,7 +5,7 @@ using Content.Shared.Item;
 
 namespace Content.Server.Item;
 
-public sealed class MultiHandedItemSystem : SharedMultiHandedItemSystem
+public sealed partial class MultiHandedItemSystem : SharedMultiHandedItemSystem
 {
     [Dependency] private VirtualItemSystem _virtualItem = default!;
 

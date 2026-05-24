@@ -8,7 +8,7 @@ using Content.Shared.Damage.Components;
 
 namespace Content.Server._Goobstation.Temperature;
 
-public sealed class KillOnOverheatSystem : EntitySystem
+public sealed partial class KillOnOverheatSystem : EntitySystem
 {
     [Dependency] private MobStateSystem _mob = default!;
     [Dependency] private SharedPopupSystem _popup = default!;

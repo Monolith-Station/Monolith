@@ -11,7 +11,7 @@ using Content.Shared.Hands.EntitySystems; //Monolith IPC rework
 
 namespace Content.Server._EinsteinEngines.Silicon.Death;
 
-public sealed class SiliconDeathSystem : EntitySystem
+public sealed partial class SiliconDeathSystem : EntitySystem
 {
     [Dependency] private SleepingSystem _sleep = default!;
     [Dependency] private SiliconChargeSystem _silicon = default!;

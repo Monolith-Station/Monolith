@@ -7,7 +7,7 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.Power.EntitySystems;
 
-public abstract class SharedPowerReceiverSystem : EntitySystem
+public abstract partial class SharedPowerReceiverSystem : EntitySystem
 {
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private SharedAudioSystem _audio = default!;

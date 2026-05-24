@@ -12,7 +12,7 @@ namespace Content.Server._Mono.Shipyard;
 /// <summary>
 /// A system that tells players which direction their newly purchased ship is located
 /// </summary>
-public sealed class ShipyardDirectionSystem : EntitySystem
+public sealed partial class ShipyardDirectionSystem : EntitySystem
 {
     [Dependency] private IChatManager _chatManager = default!;
     [Dependency] private IPlayerManager _playerManager = default!;

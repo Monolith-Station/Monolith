@@ -13,7 +13,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server.PAI;
 
-public sealed class PAISystem : SharedPAISystem
+public sealed partial class PAISystem : SharedPAISystem
 {
     [Dependency] private InstrumentSystem _instrumentSystem = default!;
     [Dependency] private IRobustRandom _random = default!;

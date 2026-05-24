@@ -9,7 +9,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Speech.EntitySystems;
 
-public sealed class ParrotSpeechSystem : EntitySystem
+public sealed partial class ParrotSpeechSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IRobustRandom _random = default!;

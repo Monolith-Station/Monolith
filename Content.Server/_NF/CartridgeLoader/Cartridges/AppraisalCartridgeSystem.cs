@@ -9,7 +9,7 @@ using Content.Shared.Cargo.Components;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
-public sealed class AppraisalCartridgeSystem : EntitySystem
+public sealed partial class AppraisalCartridgeSystem : EntitySystem
 {
     [Dependency] private CargoSystem _bountySystem = default!;
     [Dependency] private CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;

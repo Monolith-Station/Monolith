@@ -10,7 +10,7 @@ namespace Content.Server._Mono.DeedCopy;
 /// <summary>
 /// System for copying deeds between ID cards through interaction.
 /// </summary>
-public sealed class DeedCopySystem : EntitySystem
+public sealed partial class DeedCopySystem : EntitySystem
 {
     [Dependency] private SharedIdCardSystem _idCardSystem = default!;
     [Dependency] private PopupSystem _popupSystem = default!;

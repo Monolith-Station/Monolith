@@ -7,7 +7,7 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared._Goobstation.Wizard.Projectiles;
 
-public sealed class HomingProjectileSystem : EntitySystem
+public sealed partial class HomingProjectileSystem : EntitySystem
 {
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private RotateToFaceSystem _rotate = default!;

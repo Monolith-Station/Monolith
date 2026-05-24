@@ -15,7 +15,7 @@ using Content.Shared._Mono.Radio;
 
 namespace Content.Server._Mono.CorticalBorer;
 
-public sealed class CorticalBorerInfestedSystem : EntitySystem
+public sealed partial class CorticalBorerInfestedSystem : EntitySystem
 {
     [Dependency] private ContainerSystem _container = default!;
     [Dependency] private IGameTiming _timing = default!;

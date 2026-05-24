@@ -16,7 +16,7 @@ using Robust.Shared.Utility;
 namespace Content.Server.Voting
 {
     [AnyCommand]
-    public sealed class CreateVoteCommand : IConsoleCommand
+    public sealed partial class CreateVoteCommand : IConsoleCommand
     {
         [Dependency] private IAdminLogManager _adminLogger = default!;
 
@@ -69,7 +69,7 @@ namespace Content.Server.Voting
     }
 
     [AdminCommand(AdminFlags.Moderator)]
-    public sealed class CreateCustomCommand : LocalizedEntityCommands
+    public sealed partial class CreateCustomCommand : LocalizedEntityCommands
     {
         [Dependency] private IVoteManager _voteManager = default!;
         [Dependency] private IAdminLogManager _adminLogger = default!;
@@ -231,7 +231,7 @@ namespace Content.Server.Voting
     }
 
     [AdminCommand(AdminFlags.Moderator)]
-    public sealed class CancelVoteCommand : IConsoleCommand
+    public sealed partial class CancelVoteCommand : IConsoleCommand
     {
         [Dependency] private IAdminLogManager _adminLogger = default!;
 

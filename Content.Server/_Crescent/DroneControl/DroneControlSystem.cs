@@ -15,7 +15,7 @@ using Robust.Shared.Map.Components;
 
 namespace Content.Server._Crescent.DroneControl;
 
-public sealed class DroneControlSystem : EntitySystem
+public sealed partial class DroneControlSystem : EntitySystem
 {
     [Dependency] private DeviceListSystem _deviceList = default!;
     [Dependency] private DeviceNetworkSystem _deviceNetwork = default!;

@@ -8,7 +8,7 @@ using Robust.Client.Player;
 
 namespace Content.Client._Shitmed.UserInterface.Systems.Targeting;
 
-public sealed class TargetingUIController : UIController, IOnStateEntered<GameplayState>, IOnSystemChanged<TargetingSystem>
+public sealed partial class TargetingUIController : UIController, IOnStateEntered<GameplayState>, IOnSystemChanged<TargetingSystem>
 {
     [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private IEntityNetworkManager _net = default!;

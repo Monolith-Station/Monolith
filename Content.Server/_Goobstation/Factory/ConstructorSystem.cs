@@ -6,7 +6,7 @@ using Robust.Shared.Maths;
 
 namespace Content.Server._Goobstation.Factory;
 
-public sealed class ConstructorSystem : SharedConstructorSystem
+public sealed partial class ConstructorSystem : SharedConstructorSystem
 {
     [Dependency] private ConstructionSystem _construction = default!;
     [Dependency] private StartableMachineSystem _machine = default!;

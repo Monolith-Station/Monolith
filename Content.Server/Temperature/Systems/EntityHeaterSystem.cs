@@ -13,7 +13,7 @@ namespace Content.Server.Temperature.Systems;
 /// <summary>
 /// Handles <see cref="EntityHeaterComponent"/> updating and events.
 /// </summary>
-public sealed class EntityHeaterSystem : EntitySystem
+public sealed partial class EntityHeaterSystem : EntitySystem
 {
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedPopupSystem _popup = default!;

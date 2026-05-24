@@ -31,7 +31,7 @@ namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 /// This system is used for managing the artifact analyzer as well as the analysis console.
 /// It also hanadles scanning and ui updates for both systems.
 /// </summary>
-public sealed class ArtifactAnalyzerSystem : EntitySystem
+public sealed partial class ArtifactAnalyzerSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPrototypeManager _prototype = default!;

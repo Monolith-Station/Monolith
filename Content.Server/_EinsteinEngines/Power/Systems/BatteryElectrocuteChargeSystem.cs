@@ -9,7 +9,7 @@ using Content.Server._EinsteinEngines.Power.Components;
 
 namespace Content.Server._EinsteinEngines.Power.Systems;
 
-public sealed class BatteryElectrocuteChargeSystem : EntitySystem
+public sealed partial class BatteryElectrocuteChargeSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private PopupSystem _popup = default!;

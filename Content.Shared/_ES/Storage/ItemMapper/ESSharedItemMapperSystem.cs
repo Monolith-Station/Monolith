@@ -4,7 +4,7 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared._ES.Storage.ItemMapper;
 
-public abstract class ESSharedItemMapperSystem : EntitySystem
+public abstract partial class ESSharedItemMapperSystem : EntitySystem
 {
     [Dependency] protected SharedAppearanceSystem Appearance = default!;
     [Dependency] private SharedContainerSystem _container = default!;

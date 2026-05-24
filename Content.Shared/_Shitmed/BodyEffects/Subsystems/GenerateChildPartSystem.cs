@@ -8,7 +8,7 @@ using System.Numerics;
 
 namespace Content.Shared._Shitmed.BodyEffects.Subsystems;
 
-public sealed class GenerateChildPartSystem : EntitySystem
+public sealed partial class GenerateChildPartSystem : EntitySystem
 {
     [Dependency] private SharedBodySystem _bodySystem = default!;
     [Dependency] private IGameTiming _timing = default!;

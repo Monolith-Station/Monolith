@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Content.Client.Commands;
 
-public sealed class ShowHealthBarsCommand : LocalizedCommands
+public sealed partial class ShowHealthBarsCommand : LocalizedCommands
 {
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IEntityManager _entityManager = default!;

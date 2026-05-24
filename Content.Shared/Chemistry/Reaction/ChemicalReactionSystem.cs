@@ -13,7 +13,7 @@ using System.Linq;
 
 namespace Content.Shared.Chemistry.Reaction
 {
-    public sealed class ChemicalReactionSystem : EntitySystem
+    public sealed partial class ChemicalReactionSystem : EntitySystem
     {
         /// <summary>
         ///     The maximum number of reactions that may occur when a solution is changed.

@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Goobstation.ChronoLegionnaire;
 
-public sealed class StasisOverlay : Overlay
+public sealed partial class StasisOverlay : Overlay
 {
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IEntityManager _entityManager = default!;

@@ -10,7 +10,7 @@ using Content.Server.Players.PlayTimeTracking;
 
 namespace Content.Server._NF.PacifiedZone
 {
-    public sealed class PacifiedZoneGeneratorSystem : EntitySystem
+    public sealed partial class PacifiedZoneGeneratorSystem : EntitySystem
     {
         [Dependency] private EntityLookupSystem _lookup = default!;
         [Dependency] private IGameTiming _gameTiming = default!;

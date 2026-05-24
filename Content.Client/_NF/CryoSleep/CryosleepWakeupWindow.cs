@@ -6,7 +6,7 @@ using static Content.Shared._NF.CryoSleep.SharedCryoSleepSystem;
 
 namespace Content.Client._NF.CryoSleep;
 
-public sealed class CryosleepWakeupWindow : DefaultWindow, IEntityEventSubscriber
+public sealed partial class CryosleepWakeupWindow : DefaultWindow, IEntityEventSubscriber
 {
     [Dependency] private EntityManager _entityManager = default!;
 

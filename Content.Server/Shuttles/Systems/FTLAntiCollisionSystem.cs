@@ -21,7 +21,7 @@ namespace Content.Server.Shuttles.Systems;
 /// This solves the problem of ships "merging" together when they FTL to the same destination
 /// coordinates, which can cause visual glitches, physics issues, and gameplay problems.
 /// </summary>
-public sealed class FTLAntiCollisionSystem : EntitySystem
+public sealed partial class FTLAntiCollisionSystem : EntitySystem
 {
     [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private IRobustRandom _random = default!;

@@ -6,7 +6,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server.Chemistry.AutoRegenReagent
 {
-    public sealed class AutoRegenReagentSystem : EntitySystem
+    public sealed partial class AutoRegenReagentSystem : EntitySystem
     {
         [Dependency] private SolutionContainerSystem _solutionSystem = default!;
         [Dependency] private PopupSystem _popups = default!;

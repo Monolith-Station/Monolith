@@ -6,7 +6,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 
-public sealed class RandomTeleportArtifactSystem : EntitySystem
+public sealed partial class RandomTeleportArtifactSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedPopupSystem _popup = default!;

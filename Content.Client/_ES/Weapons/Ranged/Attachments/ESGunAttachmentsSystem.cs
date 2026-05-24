@@ -6,7 +6,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._ES.Weapons.Ranged.Attachments;
 
-public sealed class ESGunAttachmentsSystem : ESSharedGunAttachmentsSystem
+public sealed partial class ESGunAttachmentsSystem : ESSharedGunAttachmentsSystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private UserInterfaceSystem _userInterface = default!;

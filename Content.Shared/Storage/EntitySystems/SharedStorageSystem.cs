@@ -43,7 +43,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Storage.EntitySystems;
 
-public abstract class SharedStorageSystem : EntitySystem
+public abstract partial class SharedStorageSystem : EntitySystem
 {
     [Dependency] private   IConfigurationManager _cfg = default!;
     [Dependency] protected IGameTiming Timing = default!;

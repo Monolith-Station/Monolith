@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.GhostTypes;
 
-public sealed class GhostSpriteStateSystem : EntitySystem
+public sealed partial class GhostSpriteStateSystem : EntitySystem
 {
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;

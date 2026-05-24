@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Goobstation.ItemMiner;
 
-public sealed class ItemMinerSystem : EntitySystem
+public sealed partial class ItemMinerSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IRobustRandom _gambling = default!;

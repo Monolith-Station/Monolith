@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Drowsiness;
 
-public sealed class DrowsinessOverlay : Overlay
+public sealed partial class DrowsinessOverlay : Overlay
 {
     [Dependency] private IEntityManager _entityManager = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;

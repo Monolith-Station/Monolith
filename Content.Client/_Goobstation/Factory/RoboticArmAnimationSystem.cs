@@ -8,7 +8,7 @@ namespace Content.Client._Goobstation.Factory;
 /// Animations robotic arm's arm layer swinging.
 /// Can't be done with engine AnimationPlayer as it can't animate individual layers.
 /// </summary>
-public sealed class RoboticArmAnimationSystem : EntitySystem
+public sealed partial class RoboticArmAnimationSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
 

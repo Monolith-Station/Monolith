@@ -9,7 +9,7 @@ using Robust.Shared.Map;
 namespace Content.Server.Atmos.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class AddMapAtmosCommand : LocalizedCommands
+public sealed partial class AddMapAtmosCommand : LocalizedCommands
 {
     [Dependency] private IEntityManager _entities = default!;
     [Dependency] private IMapManager _map = default!;

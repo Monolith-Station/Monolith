@@ -13,7 +13,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._Mono.Company;
 
-public sealed class CompanyManager
+public sealed partial class CompanyManager
 {
     [Dependency] private IConfigurationManager _config = default!;
     [Dependency] private IServerDbManager _db = default!;

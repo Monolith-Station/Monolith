@@ -21,7 +21,7 @@ using Robust.Server.GameObjects; // Frontier
 
 namespace Content.Server.Anomaly.Effects;
 
-public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
+public sealed partial class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 {
     [Dependency] private IAdminLogManager _adminLog = default!;
     [Dependency] private AnomalySystem _anomaly = default!;

@@ -7,7 +7,7 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
-public sealed class HitscanReflectSystem : EntitySystem
+public sealed partial class HitscanReflectSystem : EntitySystem
 {
     [Dependency] private DamageableSystem _damage = default!; // Mono
     public override void Initialize()

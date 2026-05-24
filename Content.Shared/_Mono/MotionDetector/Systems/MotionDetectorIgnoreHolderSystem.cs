@@ -10,7 +10,7 @@ namespace Content.Shared._Mono.MotionDetector.Systems;
 /// <summary>
 /// Prevents motion detectors from detecting the holder.
 /// </summary>
-public sealed class MotionDetectorIgnoreHolderSystem : EntitySystem
+public sealed partial class MotionDetectorIgnoreHolderSystem : EntitySystem
 {
     [Dependency] private SharedContainerSystem _containerSystem = default!;
 

@@ -16,7 +16,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.NetworkConfigurator.Systems;
 
-public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
+public sealed partial class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
 {
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IOverlayManager _overlay = default!;
@@ -137,7 +137,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     }
 }
 
-public sealed class ClearAllNetworkLinkOverlays : IConsoleCommand
+public sealed partial class ClearAllNetworkLinkOverlays : IConsoleCommand
 {
     [Dependency] private IEntityManager _e = default!;
 

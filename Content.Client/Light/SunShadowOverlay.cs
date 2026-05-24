@@ -10,7 +10,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Light;
 
-public sealed class SunShadowOverlay : Overlay
+public sealed partial class SunShadowOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> MixShader = "Mix";
 

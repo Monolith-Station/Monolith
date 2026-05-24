@@ -26,7 +26,7 @@ namespace Content.Server.Station.Systems;
 /// For jobs, look at StationJobSystem. For spawning, look at StationSpawningSystem.
 /// </summary>
 [PublicAPI]
-public sealed class StationSystem : EntitySystem
+public sealed partial class StationSystem : EntitySystem
 {
     [Dependency] private ILogManager _logManager = default!;
     [Dependency] private IPlayerManager _player = default!;

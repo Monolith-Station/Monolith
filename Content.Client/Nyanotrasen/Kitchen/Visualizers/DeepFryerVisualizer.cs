@@ -7,7 +7,7 @@ using Content.Shared.Nyanotrasen.Kitchen.Components;
 
 namespace Content.Client.Kitchen.Visualizers
 {
-    public sealed class DeepFryerVisualizerSystem : VisualizerSystem<DeepFryerComponent>
+    public sealed partial class DeepFryerVisualizerSystem : VisualizerSystem<DeepFryerComponent>
     {
         [Dependency] private SharedAppearanceSystem _appearance = default!;
         protected override void OnAppearanceChange(EntityUid uid, DeepFryerComponent component, ref AppearanceChangeEvent args)

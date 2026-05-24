@@ -3,7 +3,7 @@ using Robust.Shared.Configuration;
 
 namespace Content.Shared._RMC14.Weapons.Ranged.Prediction;
 
-public abstract class SharedGunPredictionSystem : EntitySystem
+public abstract partial class SharedGunPredictionSystem : EntitySystem
 {
     [Dependency] private IConfigurationManager _config = default!;
 

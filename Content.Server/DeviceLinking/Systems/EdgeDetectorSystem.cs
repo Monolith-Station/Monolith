@@ -6,7 +6,7 @@ using Content.Shared.DeviceNetwork;
 
 namespace Content.Server.DeviceLinking.Systems;
 
-public sealed class EdgeDetectorSystem : EntitySystem
+public sealed partial class EdgeDetectorSystem : EntitySystem
 {
     [Dependency] private DeviceLinkSystem _deviceLink = default!;
 

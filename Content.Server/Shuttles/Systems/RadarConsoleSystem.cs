@@ -12,7 +12,7 @@ using Content.Shared.Movement.Components;
 
 namespace Content.Server.Shuttles.Systems;
 
-public sealed class RadarConsoleSystem : SharedRadarConsoleSystem
+public sealed partial class RadarConsoleSystem : SharedRadarConsoleSystem
 {
     [Dependency] private SharedTransformSystem _transform = default!; // Mono
     [Dependency] private ShuttleConsoleSystem _console = default!;

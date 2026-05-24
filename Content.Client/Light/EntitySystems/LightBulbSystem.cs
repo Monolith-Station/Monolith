@@ -4,7 +4,7 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client.Light.EntitySystems;
 
-public sealed class LightBulbSystem : SharedLightBulbSystem
+public sealed partial class LightBulbSystem : SharedLightBulbSystem
 {
     [Dependency] private AppearanceSystem _appearance = default!;
     [Dependency] private SpriteSystem _sprite = default!;

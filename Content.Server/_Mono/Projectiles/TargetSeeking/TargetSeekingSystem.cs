@@ -12,7 +12,7 @@ namespace Content.Server._Mono.Projectiles.TargetSeeking;
 /// <summary>
 ///     Handles the logic for target-seeking projectiles.
 /// </summary>
-public sealed class TargetSeekingSystem : EntitySystem
+public sealed partial class TargetSeekingSystem : EntitySystem
 {
     [Dependency] private SharedTransformSystem _transform = null!;
     [Dependency] private RotateToFaceSystem _rotateToFace = null!;

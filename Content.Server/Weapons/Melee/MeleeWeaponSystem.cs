@@ -26,7 +26,7 @@ using System.Numerics;
 
 namespace Content.Server.Weapons.Melee;
 
-public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
+public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 {
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private IRobustRandom _random = default!;

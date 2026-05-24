@@ -9,7 +9,7 @@ using System.Numerics;
 
 namespace Content.Server._Mono.StationEvents;
 
-public sealed class AutoExtendRuleSystem : EntitySystem
+public sealed partial class AutoExtendRuleSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPlayerManager _player = default!;

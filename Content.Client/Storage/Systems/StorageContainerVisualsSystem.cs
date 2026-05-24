@@ -6,7 +6,7 @@ using Robust.Client.GameObjects;
 namespace Content.Client.Storage.Systems;
 
 /// <inheritdoc cref="StorageContainerVisualsComponent"/>
-public sealed class StorageContainerVisualsSystem : VisualizerSystem<StorageContainerVisualsComponent>
+public sealed partial class StorageContainerVisualsSystem : VisualizerSystem<StorageContainerVisualsComponent>
 {
     [Dependency] private SpriteSystem _sprite = default!;
 

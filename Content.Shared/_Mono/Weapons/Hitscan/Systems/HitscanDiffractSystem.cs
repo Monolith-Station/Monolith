@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
-public sealed class HitscanDiffractSystem : EntitySystem
+public sealed partial class HitscanDiffractSystem : EntitySystem
 {
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private SharedTransformSystem _transform = default!;

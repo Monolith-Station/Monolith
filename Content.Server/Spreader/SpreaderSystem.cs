@@ -19,7 +19,7 @@ namespace Content.Server.Spreader;
 /// <summary>
 /// Handles generic spreading logic, where one anchored entity spreads to neighboring tiles.
 /// </summary>
-public sealed class SpreaderSystem : EntitySystem
+public sealed partial class SpreaderSystem : EntitySystem
 {
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private IGameTiming _timing = default!;

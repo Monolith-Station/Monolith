@@ -4,7 +4,7 @@ using Content.Shared.Traits.Assorted;
 
 namespace Content.Shared.Drunk;
 
-public abstract class SharedDrunkSystem : EntitySystem
+public abstract partial class SharedDrunkSystem : EntitySystem
 {
     [ValidatePrototypeId<StatusEffectPrototype>]
     public const string DrunkKey = "Drunk";

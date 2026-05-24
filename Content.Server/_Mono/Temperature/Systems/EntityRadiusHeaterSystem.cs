@@ -11,7 +11,7 @@ namespace Content.Server._Mono.Temperature.Systems;
 /// <summary>
 /// Gives thermal energy to nearby entities.
 /// </summary>
-public sealed class EntityRadiusHeaterSystem : EntitySystem
+public sealed partial class EntityRadiusHeaterSystem : EntitySystem
 {
     [Dependency] private TemperatureSystem _temp = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;

@@ -12,7 +12,7 @@ using Content.Shared.Stunnable;
 
 namespace Content.Server.Stunnable.Systems
 {
-    public sealed class StunbatonSystem : SharedStunbatonSystem
+    public sealed partial class StunbatonSystem : SharedStunbatonSystem
     {
         [Dependency] private SharedItemSystem _item = default!;
         [Dependency] private RiggableSystem _riggableSystem = default!;

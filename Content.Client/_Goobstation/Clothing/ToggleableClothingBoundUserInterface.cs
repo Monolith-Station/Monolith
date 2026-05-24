@@ -5,7 +5,7 @@ using Robust.Client.UserInterface;
 
 namespace Content.Client._Goobstation.Clothing;
 
-public sealed class ToggleableClothingBoundUserInterface : BoundUserInterface
+public sealed partial class ToggleableClothingBoundUserInterface : BoundUserInterface
 {
     [Dependency] private IClyde _displayManager = default!;
     [Dependency] private IInputManager _inputManager = default!;

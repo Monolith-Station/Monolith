@@ -12,7 +12,7 @@ namespace Content.Shared.Clothing.EntitySystems;
 /// <summary>
 /// A system that handles toggleable unremoveable clothing.
 /// </summary>
-public sealed class UnremovableClothingSystem : EntitySystem
+public sealed partial class UnremovableClothingSystem : EntitySystem
 {
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private INetManager _net = default!;

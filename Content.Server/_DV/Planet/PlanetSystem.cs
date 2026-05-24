@@ -10,7 +10,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._DV.Planet;
 
-public sealed class PlanetSystem : EntitySystem
+public sealed partial class PlanetSystem : EntitySystem
 {
     [Dependency] private AtmosphereSystem _atmos = default!;
     [Dependency] private BiomeSystem _biome = default!;

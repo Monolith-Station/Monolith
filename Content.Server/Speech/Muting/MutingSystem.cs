@@ -11,7 +11,7 @@ using Content.Shared.Speech.Muting;
 
 namespace Content.Server.Speech.Muting
 {
-    public sealed class MutingSystem : EntitySystem
+    public sealed partial class MutingSystem : EntitySystem
     {
         [Dependency] private LanguageSystem _languages = default!;
         [Dependency] private PopupSystem _popupSystem = default!;

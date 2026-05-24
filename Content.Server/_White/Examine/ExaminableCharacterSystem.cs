@@ -10,7 +10,7 @@ using Content.Shared.CCVar;
 
 namespace Content.Server._White.Examine
 {
-    public sealed class ExaminableCharacterSystem : EntitySystem
+    public sealed partial class ExaminableCharacterSystem : EntitySystem
     {
         [Dependency] private InventorySystem _inventorySystem = default!;
         [Dependency] private IdentitySystem _identitySystem = default!;

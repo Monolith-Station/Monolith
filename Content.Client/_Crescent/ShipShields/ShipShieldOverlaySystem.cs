@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Crescent.ShipShields;
 
-public sealed class ShipShieldOverlaySystem : EntitySystem
+public sealed partial class ShipShieldOverlaySystem : EntitySystem
 {
     [Dependency] private IOverlayManager _overlayManager = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;

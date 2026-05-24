@@ -11,7 +11,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Standing;
 
-public abstract class SharedLayingDownSystem : EntitySystem
+public abstract partial class SharedLayingDownSystem : EntitySystem
 {
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private StandingStateSystem _standing = default!;

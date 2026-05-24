@@ -4,7 +4,7 @@ using Content.Shared.Weapons.Hitscan.Events;
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
-public sealed class HitscanStunSystem : EntitySystem
+public sealed partial class HitscanStunSystem : EntitySystem
 {
     [Dependency] private StaminaSystem _stamina = default!; // Mono - SharedStaminaSystem not ported yet
 

@@ -5,7 +5,7 @@ using Content.Shared.Speech.Components;
 
 namespace Content.Server.Speech.EntitySystems;
 
-public sealed class MumbleAccentSystem : EntitySystem
+public sealed partial class MumbleAccentSystem : EntitySystem
 {
     [Dependency] private ChatSystem _chat = default!;
     [Dependency] private ReplacementAccentSystem _replacement = default!;

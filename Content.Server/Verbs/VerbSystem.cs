@@ -10,7 +10,7 @@ using Content.Shared.Verbs;
 
 namespace Content.Server.Verbs
 {
-    public sealed class VerbSystem : SharedVerbSystem
+    public sealed partial class VerbSystem : SharedVerbSystem
     {
         [Dependency] private ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private PopupSystem _popupSystem = default!;

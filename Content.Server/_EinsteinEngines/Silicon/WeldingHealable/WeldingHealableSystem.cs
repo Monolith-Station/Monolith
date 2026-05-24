@@ -13,7 +13,7 @@ using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
 
 namespace Content.Server._EinsteinEngines.Silicon.WeldingHealable;
 
-public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
+public sealed partial class WeldingHealableSystem : SharedWeldingHealableSystem
 {
     [Dependency] private SharedToolSystem _toolSystem = default!;
     [Dependency] private DamageableSystem _damageableSystem = default!;

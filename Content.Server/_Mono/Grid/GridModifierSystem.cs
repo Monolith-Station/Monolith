@@ -8,7 +8,7 @@ namespace Content.Server._Mono.Grid;
 /// <summary>
 /// This handles grid modification on initialization.
 /// </summary>
-public sealed class GridModifierSystem : SharedGridModifierSystem
+public sealed partial class GridModifierSystem : SharedGridModifierSystem
 {
     [Dependency] private IPrototypeManager _protoMan = default!;
     [Dependency] private IComponentFactory _factory = default!;

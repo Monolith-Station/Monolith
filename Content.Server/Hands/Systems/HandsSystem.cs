@@ -33,7 +33,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Hands.Systems
 {
-    public sealed class HandsSystem : SharedHandsSystem
+    public sealed partial class HandsSystem : SharedHandsSystem
     {
         [Dependency] private IGameTiming _timing = default!;
         [Dependency] private IRobustRandom _random = default!;

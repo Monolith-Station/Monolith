@@ -12,7 +12,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._NF.Clothing.EntitySystems;
 
-public sealed class EmitsSoundOnMoveSystem : EntitySystem
+public sealed partial class EmitsSoundOnMoveSystem : EntitySystem
 {
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedMapSystem _grid = default!;

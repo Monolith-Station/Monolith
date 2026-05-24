@@ -4,7 +4,7 @@ using Content.Shared.Weapons.Hitscan.Events;
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
-public sealed class HitscanBasicDamageSystem : EntitySystem
+public sealed partial class HitscanBasicDamageSystem : EntitySystem
 {
     [Dependency] private DamageableSystem _damage = default!;
 

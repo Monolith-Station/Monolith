@@ -10,7 +10,7 @@ using Content.Shared.Movement.Systems;
 
 namespace Content.Client.Eye.Blinding
 {
-    public sealed class BlindOverlay : Overlay
+    public sealed partial class BlindOverlay : Overlay
     {
         [Dependency] private IPrototypeManager _prototypeManager = default!;
         [Dependency] private IPlayerManager _playerManager = default!;

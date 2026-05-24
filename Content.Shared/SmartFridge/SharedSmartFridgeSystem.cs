@@ -14,7 +14,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.SmartFridge;
 
-public abstract class SharedSmartFridgeSystem : EntitySystem
+public abstract partial class SharedSmartFridgeSystem : EntitySystem
 {
     [Dependency] private AccessReaderSystem _accessReader = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;

@@ -9,7 +9,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRuleComponent>
+public sealed partial class RandomSentienceRule : StationEventSystem<RandomSentienceRuleComponent>
 {
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private IRobustRandom _random = default!;

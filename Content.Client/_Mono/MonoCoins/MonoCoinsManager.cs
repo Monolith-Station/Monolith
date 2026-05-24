@@ -6,7 +6,7 @@ namespace Content.Client._Mono.MonoCoins;
 /// <summary>
 /// Client-side system for handling MonoCoins balance requests and responses.
 /// </summary>
-public sealed class MonoCoinsManager
+public sealed partial class MonoCoinsManager
 {
     [Dependency] private INetManager _net = default!;
 

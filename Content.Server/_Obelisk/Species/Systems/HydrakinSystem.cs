@@ -11,7 +11,7 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Obelisk.Species.Systems;
 
-public sealed class HydrakinSystem : EntitySystem
+public sealed partial class HydrakinSystem : EntitySystem
 {
     [Dependency] private SharedActionsSystem _actionsSystem = default!;
     [Dependency] private PopupSystem _popupSystem = default!;

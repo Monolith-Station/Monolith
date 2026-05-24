@@ -13,7 +13,7 @@ public enum ContrabandPalletConsoleUiKey : byte
     Contraband
 }
 
-public abstract class SharedContrabandTurnInSystem : EntitySystem
+public abstract partial class SharedContrabandTurnInSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _prot = default!;
 

@@ -14,7 +14,7 @@ namespace Content.Server._Mono.Body.Systems;
 /// <summary>
 /// System that handles restoring missing body parts and organs during rejuvenation.
 /// </summary>
-public sealed class BodyRejuvenateSystem : EntitySystem
+public sealed partial class BodyRejuvenateSystem : EntitySystem
 {
     [Dependency] private SharedBodySystem _bodySystem = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;

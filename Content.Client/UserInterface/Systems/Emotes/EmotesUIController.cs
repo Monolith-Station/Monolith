@@ -15,7 +15,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.UserInterface.Systems.Emotes;
 
 [UsedImplicitly]
-public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayState>
+public sealed partial class EmotesUIController : UIController, IOnStateChanged<GameplayState>
 {
     [Dependency] private IEntityManager _entityManager = default!;
     [Dependency] private IClyde _displayManager = default!;

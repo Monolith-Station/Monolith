@@ -4,7 +4,7 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared._Goobstation.Factory;
 
-public sealed class StorageBinSystem : EntitySystem
+public sealed partial class StorageBinSystem : EntitySystem
 {
     [Dependency] private AutomationFilterSystem _filter = default!;
     [Dependency] private SharedDeviceLinkSystem _device = default!;

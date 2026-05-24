@@ -14,7 +14,7 @@ namespace Content.Server._Mono;
 /// <summary>
 /// System that handles the GridGodModeComponent, which applies GodMode to all non-organic entities on a grid.
 /// </summary>
-public sealed class GridGodModeSystem : EntitySystem
+public sealed partial class GridGodModeSystem : EntitySystem
 {
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private GodmodeSystem _godmode = default!;

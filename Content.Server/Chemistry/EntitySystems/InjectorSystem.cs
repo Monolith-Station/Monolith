@@ -19,7 +19,7 @@ using System.Linq; // Frontier
 
 namespace Content.Server.Chemistry.EntitySystems;
 
-public sealed class InjectorSystem : SharedInjectorSystem
+public sealed partial class InjectorSystem : SharedInjectorSystem
 {
     [Dependency] private BloodstreamSystem _blood = default!;
     [Dependency] private ReactiveSystem _reactiveSystem = default!;

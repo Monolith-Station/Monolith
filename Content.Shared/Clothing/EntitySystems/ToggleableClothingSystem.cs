@@ -18,7 +18,7 @@ using System.Linq;
 namespace Content.Shared.Clothing.EntitySystems;
 
 // GOOBSTATION - MODSUITS - THIS SYSTEM FULLY CHANGED
-public sealed class ToggleableClothingSystem : EntitySystem
+public sealed partial class ToggleableClothingSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private INetManager _netMan = default!;

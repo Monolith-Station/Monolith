@@ -18,7 +18,7 @@ namespace Content.Shared._Mono.ArmorPlate;
 /// <summary>
 /// Handles all armor plate behavior
 /// </summary>
-public sealed class SharedArmorPlateSystem : EntitySystem
+public sealed partial class SharedArmorPlateSystem : EntitySystem
 {
     [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private InventorySystem _inventory = default!;

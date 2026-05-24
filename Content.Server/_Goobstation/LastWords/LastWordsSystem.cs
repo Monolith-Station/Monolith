@@ -6,7 +6,7 @@ using Content.Shared.Mobs.Components;
 
 namespace Content.Server._Goobstation.LastWords;
 
-public sealed class LastWordsSystem : EntitySystem
+public sealed partial class LastWordsSystem : EntitySystem
 {
     [Dependency] private SharedMindSystem _mindSystem = default!;
     public override void Initialize()

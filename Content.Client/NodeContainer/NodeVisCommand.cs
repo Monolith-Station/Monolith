@@ -6,7 +6,7 @@ using Robust.Shared.IoC;
 
 namespace Content.Client.NodeContainer
 {
-    public sealed class NodeVisCommand : IConsoleCommand
+    public sealed partial class NodeVisCommand : IConsoleCommand
     {
         [Dependency] private IEntityManager _e = default!;
 
@@ -28,7 +28,7 @@ namespace Content.Client.NodeContainer
         }
     }
 
-    public sealed class NodeVisFilterCommand : IConsoleCommand
+    public sealed partial class NodeVisFilterCommand : IConsoleCommand
     {
         [Dependency] private IEntityManager _e = default!;
 

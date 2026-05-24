@@ -6,7 +6,7 @@ using Robust.Client.Input;
 namespace Content.Client._EstacaoPirata.Cards.Hand.UI;
 
 [UsedImplicitly]
-public sealed class CardHandMenuBoundUserInterface : BoundUserInterface
+public sealed partial class CardHandMenuBoundUserInterface : BoundUserInterface
 {
     [Dependency] private IClyde _displayManager = default!;
     [Dependency] private IInputManager _inputManager = default!;

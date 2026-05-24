@@ -10,7 +10,7 @@ namespace Content.Server._Mono.SpawnCoordinates;
 /// <summary>
 /// System that displays spawn coordinates to players when they spawn.
 /// </summary>
-public sealed class SpawnCoordinatesSystem : EntitySystem
+public sealed partial class SpawnCoordinatesSystem : EntitySystem
 {
     [Dependency] private IChatManager _chatManager = default!;
     [Dependency] private SharedTransformSystem _transform = default!;

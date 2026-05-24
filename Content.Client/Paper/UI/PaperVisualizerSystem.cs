@@ -4,7 +4,7 @@ using static Content.Shared.Paper.PaperComponent;
 
 namespace Content.Client.Paper.UI;
 
-public sealed class PaperVisualizerSystem : VisualizerSystem<PaperVisualsComponent>
+public sealed partial class PaperVisualizerSystem : VisualizerSystem<PaperVisualsComponent>
 {
     [Dependency] private SpriteSystem _sprite = default!;
 

@@ -6,7 +6,7 @@ using Robust.Client.ResourceManagement;
 
 namespace Content.Client._FarHorizons.Power.Generation.FissionGenerator;
 
-public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
+public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
 {
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private IResourceCache _resourceCache = default!;

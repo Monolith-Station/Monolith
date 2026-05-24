@@ -47,7 +47,7 @@ using Content.Server._NF.Traits.Assorted; // Frontier
 
 namespace Content.Server.Cloning
 {
-    public sealed class CloningSystem : EntitySystem
+    public sealed partial class CloningSystem : EntitySystem
     {
         [Dependency] private DeviceLinkSystem _signalSystem = default!;
         [Dependency] private IPlayerManager _playerManager = null!;

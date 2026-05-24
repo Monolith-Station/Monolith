@@ -23,7 +23,7 @@ using Robust.Server.Player;
 namespace Content.Server.Cloning
 {
     [UsedImplicitly]
-    public sealed class CloningConsoleSystem : EntitySystem
+    public sealed partial class CloningConsoleSystem : EntitySystem
     {
         [Dependency] private DeviceLinkSystem _signalSystem = default!;
         [Dependency] private IAdminLogManager _adminLogger = default!;

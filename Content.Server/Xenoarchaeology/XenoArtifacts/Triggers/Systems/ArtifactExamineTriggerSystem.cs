@@ -4,7 +4,7 @@ using Content.Shared.Ghost;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 
-public sealed class ArtifactExamineTriggerSystem : EntitySystem
+public sealed partial class ArtifactExamineTriggerSystem : EntitySystem
 {
     [Dependency] private ArtifactSystem _artifact = default!;
 

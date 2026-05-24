@@ -9,7 +9,7 @@ using System.Numerics;
 
 namespace Content.Client.StatusIcon;
 
-public sealed class StatusIconOverlay : Overlay
+public sealed partial class StatusIconOverlay : Overlay
 {
     [Dependency] private IEntityManager _entity = default!;
     [Dependency] private IPrototypeManager _prototype = default!;

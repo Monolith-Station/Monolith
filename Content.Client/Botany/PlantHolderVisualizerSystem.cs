@@ -5,7 +5,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Botany;
 
-public sealed class PlantHolderVisualizerSystem : VisualizerSystem<PlantHolderVisualsComponent>
+public sealed partial class PlantHolderVisualizerSystem : VisualizerSystem<PlantHolderVisualsComponent>
 {
     [Dependency] private SpriteSystem _sprite = default!;
 

@@ -19,7 +19,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.CrewManifest;
 
-public sealed class CrewManifestSystem : EntitySystem
+public sealed partial class CrewManifestSystem : EntitySystem
 {
     [Dependency] private StationSystem _stationSystem = default!;
     [Dependency] private StationRecordsSystem _recordsSystem = default!;
@@ -251,7 +251,7 @@ public sealed class CrewManifestSystem : EntitySystem
 }
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class CrewManifestCommand : IConsoleCommand
+public sealed partial class CrewManifestCommand : IConsoleCommand
 {
     public string Command => "crewmanifest";
     public string Description => "Opens the crew manifest for the given station.";

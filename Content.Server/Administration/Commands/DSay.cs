@@ -6,7 +6,7 @@ using Robust.Shared.Console;
 namespace Content.Server.Administration.Commands
 {
     [AdminCommand(AdminFlags.Moderator)]
-    sealed class DSay : IConsoleCommand
+    sealed partial class DSay : IConsoleCommand
     {
         [Dependency] private IEntityManager _e = default!;
 

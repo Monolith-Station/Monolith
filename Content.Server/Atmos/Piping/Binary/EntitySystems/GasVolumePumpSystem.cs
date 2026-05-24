@@ -26,7 +26,7 @@ using Robust.Shared.Player;
 namespace Content.Server.Atmos.Piping.Binary.EntitySystems
 {
     [UsedImplicitly]
-    public sealed class GasVolumePumpSystem : EntitySystem
+    public sealed partial class GasVolumePumpSystem : EntitySystem
     {
         [Dependency] private IAdminLogManager _adminLogger = default!;
         [Dependency] private AtmosphereSystem _atmosphereSystem = default!;

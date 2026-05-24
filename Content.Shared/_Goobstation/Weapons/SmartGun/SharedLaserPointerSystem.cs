@@ -14,7 +14,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._Goobstation.Weapons.SmartGun;
 
-public abstract class SharedLaserPointerSystem : EntitySystem
+public abstract partial class SharedLaserPointerSystem : EntitySystem
 {
     [Dependency] protected IGameTiming Timing = default!;
     [Dependency] private INetManager _net = default!;

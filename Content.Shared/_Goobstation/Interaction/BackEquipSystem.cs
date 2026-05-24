@@ -14,7 +14,7 @@ using Robust.Shared.Player;
 
 namespace Content.Shared._Goobstation.Interaction;
 
-public sealed class BackEquipSystem : EntitySystem
+public sealed partial class BackEquipSystem : EntitySystem
 {
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private InventorySystem _inventory = default!;

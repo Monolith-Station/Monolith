@@ -8,7 +8,7 @@ using Content.Server.Disposal.Unit;
 
 namespace Content.Server._Goobstation.Disposals;
 
-public sealed class DisposalSignalSystem : EntitySystem
+public sealed partial class DisposalSignalSystem : EntitySystem
 {
     [Dependency] private DisposalUnitSystem _disposal = default!;
     [Dependency] private PowerReceiverSystem _power = default!;

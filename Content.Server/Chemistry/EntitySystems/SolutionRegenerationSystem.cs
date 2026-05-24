@@ -7,7 +7,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
-public sealed class SolutionRegenerationSystem : EntitySystem
+public sealed partial class SolutionRegenerationSystem : EntitySystem
 {
     [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private IGameTiming _timing = default!;

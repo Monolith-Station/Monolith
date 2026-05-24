@@ -5,7 +5,7 @@ using Content.Shared.Stacks;
 
 namespace Content.Server.Stack
 {
-    public sealed class StackHolderSystem : EntitySystem
+    public sealed partial class StackHolderSystem : EntitySystem
     {
         [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
 

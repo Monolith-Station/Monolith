@@ -7,7 +7,7 @@ using Content.Shared.Eye.Blinding.Systems;
 
 namespace Content.Server.Body.Systems
 {
-    public sealed class EyesSystem : EntitySystem
+    public sealed partial class EyesSystem : EntitySystem
     {
         [Dependency] private IEntityManager _entityManager = default!;
         [Dependency] private BlindableSystem _blindableSystem = default!;

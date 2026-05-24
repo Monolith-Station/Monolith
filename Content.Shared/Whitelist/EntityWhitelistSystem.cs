@@ -5,7 +5,7 @@ using Content.Shared.Tag;
 
 namespace Content.Shared.Whitelist;
 
-public sealed class EntityWhitelistSystem : EntitySystem
+public sealed partial class EntityWhitelistSystem : EntitySystem
 {
     [Dependency] private IComponentFactory _factory = default!;
     [Dependency] private SharedRoleSystem _roles = default!;

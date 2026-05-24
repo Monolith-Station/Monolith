@@ -14,7 +14,7 @@ using Content.Shared.Clothing; // Mono
 
 namespace Content.Shared.Movement.Systems;
 
-public abstract class SharedJetpackSystem : EntitySystem
+public abstract partial class SharedJetpackSystem : EntitySystem
 {
     [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] protected SharedAppearanceSystem Appearance = default!;

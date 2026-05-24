@@ -11,7 +11,7 @@ using Robust.Shared.Random;
 namespace Content.Client.Explosion;
 
 [UsedImplicitly]
-public sealed class ExplosionOverlay : Overlay
+public sealed partial class ExplosionOverlay : Overlay
 {
     [Dependency] private IRobustRandom _robustRandom = default!;
     [Dependency] private IEntityManager _entMan = default!;

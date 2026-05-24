@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._White.Overlays;
 
-public sealed class BaseSwitchableOverlay<TComp> : Overlay where TComp : SwitchableVisionOverlayComponent
+public sealed partial class BaseSwitchableOverlay<TComp> : Overlay where TComp : SwitchableVisionOverlayComponent
 {
     [Dependency] private IPrototypeManager _prototype = default!;
 

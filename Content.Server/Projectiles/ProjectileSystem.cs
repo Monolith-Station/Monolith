@@ -11,7 +11,7 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Server.Projectiles;
 
-public sealed class ProjectileSystem : SharedProjectileSystem
+public sealed partial class ProjectileSystem : SharedProjectileSystem
 {
     [Dependency] private DestructibleSystem _destructibleSystem = default!;
 

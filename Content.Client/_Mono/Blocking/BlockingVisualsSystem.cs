@@ -6,7 +6,7 @@ using Robust.Client.Graphics;
 
 namespace Content.Client._Mono.Blocking;
 
-public sealed class BlockingVisualsSystem : SharedBlockingSystem
+public sealed partial class BlockingVisualsSystem : SharedBlockingSystem
 {
     [Dependency] private IPrototypeManager _protoMan = default!;
 

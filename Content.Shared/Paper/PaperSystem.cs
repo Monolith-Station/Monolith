@@ -18,7 +18,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Paper;
 
-public sealed class PaperSystem : EntitySystem
+public sealed partial class PaperSystem : EntitySystem
 {
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;

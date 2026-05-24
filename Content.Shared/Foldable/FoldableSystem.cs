@@ -8,7 +8,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Foldable;
 
-public sealed class FoldableSystem : EntitySystem
+public sealed partial class FoldableSystem : EntitySystem
 {
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedBuckleSystem _buckle = default!;

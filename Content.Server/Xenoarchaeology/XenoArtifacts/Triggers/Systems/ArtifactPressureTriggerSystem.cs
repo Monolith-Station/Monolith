@@ -6,7 +6,7 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 /// <summary>
 /// This handles activation upon certain pressure thresholds.
 /// </summary>
-public sealed class ArtifactPressureTriggerSystem : EntitySystem
+public sealed partial class ArtifactPressureTriggerSystem : EntitySystem
 {
     [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private ArtifactSystem _artifactSystem = default!;

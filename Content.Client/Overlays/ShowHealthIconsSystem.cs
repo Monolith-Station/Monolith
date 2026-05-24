@@ -13,7 +13,7 @@ namespace Content.Client.Overlays;
 /// <summary>
 /// Shows a healthy icon on mobs.
 /// </summary>
-public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsComponent>
+public sealed partial class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsComponent>
 {
     [Dependency] private IPrototypeManager _prototypeMan = default!;
 

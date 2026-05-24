@@ -8,7 +8,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
-public sealed class HitscanBasicVisualsSystem : EntitySystem
+public sealed partial class HitscanBasicVisualsSystem : EntitySystem
 {
     [Dependency] private SharedTransformSystem _transform = default!;
 

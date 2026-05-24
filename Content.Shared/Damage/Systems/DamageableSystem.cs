@@ -22,7 +22,7 @@ using static Content.Shared.Damage.DamageableSystem;
 
 namespace Content.Shared.Damage
 {
-    public sealed class DamageableSystem : EntitySystem
+    public sealed partial class DamageableSystem : EntitySystem
     {
         [Dependency] private IPrototypeManager _prototypeManager = default!;
         [Dependency] private SharedAppearanceSystem _appearance = default!;

@@ -12,7 +12,7 @@ using Content.Shared._NF.CCVar;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class BluespaceCargoRule : StationEventSystem<BluespaceCargoRuleComponent>
+public sealed partial class BluespaceCargoRule : StationEventSystem<BluespaceCargoRuleComponent>
 {
     [Dependency] private IConfigurationManager _configuration = default!;
     [Dependency] private AtmosphereSystem _atmosphere = default!;

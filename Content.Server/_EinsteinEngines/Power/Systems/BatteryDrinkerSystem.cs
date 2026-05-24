@@ -18,7 +18,7 @@ using Content.Server._EinsteinEngines.Silicon;
 
 namespace Content.Server._EinsteinEngines.Power;
 
-public sealed class BatteryDrinkerSystem : EntitySystem
+public sealed partial class BatteryDrinkerSystem : EntitySystem
 {
     [Dependency] private ItemSlotsSystem _slots = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;

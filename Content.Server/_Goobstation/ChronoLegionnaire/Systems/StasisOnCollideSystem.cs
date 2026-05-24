@@ -7,7 +7,7 @@ using Robust.Shared.Physics.Events;
 namespace Content.Server._Goobstation.ChronoLegionnaire;
 
 [UsedImplicitly]
-public sealed class StasisOnCollideSystem : EntitySystem
+public sealed partial class StasisOnCollideSystem : EntitySystem
 {
     [Dependency] private StasisSystem _stasisSystem = default!;
 

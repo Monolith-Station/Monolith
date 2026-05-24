@@ -23,7 +23,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.Harpy
 {
-    public sealed class HarpySingerSystem : EntitySystem
+    public sealed partial class HarpySingerSystem : EntitySystem
     {
         [Dependency] private InstrumentSystem _instrument = default!;
         [Dependency] private SharedPopupSystem _popupSystem = default!;

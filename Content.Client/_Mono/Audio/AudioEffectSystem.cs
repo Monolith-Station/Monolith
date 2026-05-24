@@ -16,7 +16,7 @@ namespace Content.Goobstation.Client.Audio;
 /// <summary>
 ///     Handler for client-side audio effects.
 /// </summary>
-public sealed class AudioEffectSystem : EntitySystem
+public sealed partial class AudioEffectSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private SharedAudioSystem _audioSystem = default!;

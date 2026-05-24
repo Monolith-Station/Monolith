@@ -15,7 +15,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Goobstation.Weapons.LaserPointer;
 
-public sealed class LaserPointerSystem : SharedLaserPointerSystem
+public sealed partial class LaserPointerSystem : SharedLaserPointerSystem
 {
     [Dependency] private IOverlayManager _overlay = default!;
     [Dependency] private IPrototypeManager _prototype = default!;

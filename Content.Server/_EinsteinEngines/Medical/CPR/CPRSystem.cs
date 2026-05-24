@@ -25,7 +25,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Medical.CPR;
 
-public sealed class CPRSystem : EntitySystem
+public sealed partial class CPRSystem : EntitySystem
 {
     [Dependency] private PopupSystem _popupSystem = default!;
     [Dependency] private DoAfterSystem _doAfterSystem = default!;

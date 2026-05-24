@@ -9,7 +9,7 @@ using Robust.Client.Animations;
 
 namespace Content.Client._FarHorizons.Power.Generation.FissionGenerator;
 
-public sealed class TurbineSystem : SharedTurbineSystem
+public sealed partial class TurbineSystem : SharedTurbineSystem
 {
     [Dependency] private PopupSystem _popupSystem = default!;
     [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;

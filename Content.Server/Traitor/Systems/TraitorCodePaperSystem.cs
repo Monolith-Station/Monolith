@@ -11,7 +11,7 @@ using Content.Shared.Paper;
 
 namespace Content.Server.Traitor.Systems;
 
-public sealed class TraitorCodePaperSystem : EntitySystem
+public sealed partial class TraitorCodePaperSystem : EntitySystem
 {
     [Dependency] private GameTicker _gameTicker = default!;
     [Dependency] private TraitorRuleSystem _traitorRuleSystem = default!;

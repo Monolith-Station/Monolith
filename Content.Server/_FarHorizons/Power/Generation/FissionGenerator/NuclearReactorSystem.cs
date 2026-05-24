@@ -37,7 +37,7 @@ using Content.Shared.Throwing;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
-public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
+public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
 {
     // The great wall of dependencies
     [Dependency] private AlertLevelSystem _alertLevel = default!;

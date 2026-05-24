@@ -9,7 +9,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server.Arcade.BlockGame;
 
-public sealed class BlockGameArcadeSystem : EntitySystem
+public sealed partial class BlockGameArcadeSystem : EntitySystem
 {
     [Dependency] private UserInterfaceSystem _uiSystem = default!;
     [Dependency] private SpeakOnUIClosedSystem _speakOnUIClosed = default!;

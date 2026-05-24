@@ -9,7 +9,7 @@ namespace Content.Client._Mono.Radio;
 /// <summary>
 /// Client-side system that handles radio noise sounds.
 /// </summary>
-public sealed class ClientRadioNoiseSystem : EntitySystem
+public sealed partial class ClientRadioNoiseSystem : EntitySystem
 {
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private SharedAudioSystem _audio = default!;

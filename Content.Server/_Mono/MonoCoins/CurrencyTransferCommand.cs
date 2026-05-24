@@ -13,7 +13,7 @@ namespace Content.Server._Mono.MonoCoins;
 /// Player command for transferring MonoCoins to other players.
 /// </summary>
 [AnyCommand]
-public sealed class CurrencyTransferCommand : LocalizedCommands
+public sealed partial class CurrencyTransferCommand : LocalizedCommands
 {
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private MonoCoinsManager _coins = default!;

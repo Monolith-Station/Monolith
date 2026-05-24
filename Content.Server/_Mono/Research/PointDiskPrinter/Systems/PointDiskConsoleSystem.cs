@@ -11,7 +11,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.Research.PointDiskPrinter.Systems;
 
-public sealed class PointDiskConsoleSystem : EntitySystem
+public sealed partial class PointDiskConsoleSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private AudioSystem _audio = default!;

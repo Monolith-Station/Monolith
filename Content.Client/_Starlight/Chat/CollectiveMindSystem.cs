@@ -4,7 +4,7 @@ using Robust.Client.Player;
 
 namespace Content.Client.Chat
 {
-    public sealed class CollectiveMindSystem : EntitySystem
+    public sealed partial class CollectiveMindSystem : EntitySystem
     {
         [Dependency] private IChatManager _chatManager = default!;
         [Dependency] private IPlayerManager _playerManager = default!;

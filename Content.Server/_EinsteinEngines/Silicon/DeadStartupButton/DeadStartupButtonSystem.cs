@@ -15,7 +15,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server._EinsteinEngines.Silicon.DeadStartupButton;
 
-public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
+public sealed partial class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
 {
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private MobStateSystem _mobState = default!;

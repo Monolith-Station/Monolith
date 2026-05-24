@@ -10,7 +10,7 @@ using Robust.Shared.Configuration;
 
 namespace Content.Server._DV.RoundEnd;
 
-public sealed class PacifiedRoundEnd : EntitySystem
+public sealed partial class PacifiedRoundEnd : EntitySystem
 {
     [Dependency] private IConfigurationManager _configurationManager = default!;
 

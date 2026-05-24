@@ -12,7 +12,7 @@ namespace Content.Server.Objectives.Systems;
 /// <summary>
 /// Handles help progress condition logic and picking random help targets.
 /// </summary>
-public sealed class HelpProgressConditionSystem : EntitySystem
+public sealed partial class HelpProgressConditionSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedObjectivesSystem _objectives = default!;

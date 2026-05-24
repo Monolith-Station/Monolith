@@ -16,7 +16,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Teleportation;
 
-public sealed class TeleportSystem : EntitySystem
+public sealed partial class TeleportSystem : EntitySystem
 {
     [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private IRobustRandom _random = default!;

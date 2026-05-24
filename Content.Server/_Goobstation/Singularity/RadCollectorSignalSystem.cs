@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Singularity;
 
-public sealed class RadCollectorSignalSystem : EntitySystem
+public sealed partial class RadCollectorSignalSystem : EntitySystem
 {
     [Dependency] private AutomationSystem _automation = default!;
     [Dependency] private DeviceLinkSystem _device = default!;

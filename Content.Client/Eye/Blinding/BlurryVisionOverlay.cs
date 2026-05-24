@@ -8,7 +8,7 @@ using Robust.Shared.Configuration;
 
 namespace Content.Client.Eye.Blinding
 {
-    public sealed class BlurryVisionOverlay : Overlay
+    public sealed partial class BlurryVisionOverlay : Overlay
     {
         [Dependency] private IEntityManager _entityManager = default!;
         [Dependency] private IPlayerManager _playerManager = default!;

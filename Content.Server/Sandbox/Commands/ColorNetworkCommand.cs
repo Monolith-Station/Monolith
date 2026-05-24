@@ -11,7 +11,7 @@ using Robust.Shared.Console;
 namespace Content.Server.Sandbox.Commands
 {
     [AnyCommand]
-    public sealed class ColorNetworkCommand : LocalizedCommands
+    public sealed partial class ColorNetworkCommand : LocalizedCommands
     {
         [Dependency] private IEntityManager _entManager = default!;
 

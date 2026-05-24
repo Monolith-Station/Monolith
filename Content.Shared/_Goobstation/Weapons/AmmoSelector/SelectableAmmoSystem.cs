@@ -12,7 +12,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Weapons.AmmoSelector;
 
-public sealed class SelectableAmmoSystem : EntitySystem
+public sealed partial class SelectableAmmoSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;

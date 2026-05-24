@@ -41,7 +41,7 @@ using Robust.Shared.Containers; // Frontier
 
 namespace Content.Server.VendingMachines
 {
-    public sealed class VendingMachineSystem : SharedVendingMachineSystem
+    public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
     {
         [Dependency] private IRobustRandom _random = default!;
         [Dependency] private AccessReaderSystem _accessReader = default!;

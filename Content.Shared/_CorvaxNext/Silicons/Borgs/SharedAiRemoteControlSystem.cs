@@ -14,7 +14,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._CorvaxNext.Silicons.Borgs;
 
-public abstract class SharedAiRemoteControlSystem : EntitySystem
+public abstract partial class SharedAiRemoteControlSystem : EntitySystem
 {
     [Dependency] private SharedStationAiSystem _stationAiSystem = default!;
     [Dependency] private SharedTransformSystem _xformSystem = default!;

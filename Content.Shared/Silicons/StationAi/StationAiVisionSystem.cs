@@ -6,7 +6,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Silicons.StationAi;
 
-public sealed class StationAiVisionSystem : EntitySystem
+public sealed partial class StationAiVisionSystem : EntitySystem
 {
     /*
      * This class handles 2 things:

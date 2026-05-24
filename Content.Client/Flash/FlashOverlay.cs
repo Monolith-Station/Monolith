@@ -9,7 +9,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Flash
 {
-    public sealed class FlashOverlay : Overlay
+    public sealed partial class FlashOverlay : Overlay
     {
         [Dependency] private IPrototypeManager _prototypeManager = default!;
         [Dependency] private IEntityManager _entityManager = default!;

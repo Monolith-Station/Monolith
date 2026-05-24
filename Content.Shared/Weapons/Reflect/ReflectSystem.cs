@@ -27,7 +27,7 @@ namespace Content.Shared.Weapons.Reflect;
 /// <summary>
 /// This handles reflecting projectiles and hitscan shots.
 /// </summary>
-public sealed class ReflectSystem : EntitySystem
+public sealed partial class ReflectSystem : EntitySystem
 {
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private INetManager _netManager = default!;

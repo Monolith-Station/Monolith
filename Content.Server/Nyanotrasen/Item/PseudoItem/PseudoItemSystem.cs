@@ -15,7 +15,7 @@ using Content.Shared.Verbs;
 
 namespace Content.Server.Nyanotrasen.Item.PseudoItem;
 
-public sealed class PseudoItemSystem : SharedPseudoItemSystem
+public sealed partial class PseudoItemSystem : SharedPseudoItemSystem
 {
     [Dependency] private StorageSystem _storage = default!;
     [Dependency] private ItemSystem _item = default!;

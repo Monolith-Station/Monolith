@@ -6,7 +6,7 @@ using Robust.Shared.Console;
 namespace Content.Server.Administration.Commands
 {
     [AdminCommand(AdminFlags.Round)]
-    public sealed class CallShuttleCommand : IConsoleCommand
+    public sealed partial class CallShuttleCommand : IConsoleCommand
     {
         [Dependency] private IEntityManager _e = default!;
 
@@ -35,7 +35,7 @@ namespace Content.Server.Administration.Commands
     }
 
     [AdminCommand(AdminFlags.Round)]
-    public sealed class RecallShuttleCommand : IConsoleCommand
+    public sealed partial class RecallShuttleCommand : IConsoleCommand
     {
         [Dependency] private IEntityManager _e = default!;
 

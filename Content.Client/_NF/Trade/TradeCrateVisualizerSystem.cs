@@ -7,7 +7,7 @@ namespace Content.Client._NF.Trade;
 /// <summary>
 /// Visualizer for trade crates, largely based on Nyano's mail visualizer (thank you)
 /// </summary>
-public sealed class TradeCrateVisualizerSystem : VisualizerSystem<TradeCrateComponent>
+public sealed partial class TradeCrateVisualizerSystem : VisualizerSystem<TradeCrateComponent>
 {
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;

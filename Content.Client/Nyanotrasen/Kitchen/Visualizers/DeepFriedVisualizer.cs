@@ -11,7 +11,7 @@ using Content.Client.Nyanotrasen.Kitchen.Components;
 
 namespace Content.Client.Kitchen.Visualizers
 {
-    public sealed class DeepFriedVisualizerSystem : VisualizerSystem<DeepFriedComponent>
+    public sealed partial class DeepFriedVisualizerSystem : VisualizerSystem<DeepFriedComponent>
     {
         [Dependency] private SharedAppearanceSystem _appearance = default!;
         [Dependency] private IPrototypeManager _prototype = default!;

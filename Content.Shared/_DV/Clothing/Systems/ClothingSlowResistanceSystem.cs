@@ -4,7 +4,7 @@ using Content.Shared.Movement.Systems;
 
 namespace Content.Shared._DV.Clothing.Systems;
 
-public sealed class ClothingSlowResistanceSystem : EntitySystem
+public sealed partial class ClothingSlowResistanceSystem : EntitySystem
 {
     [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
 

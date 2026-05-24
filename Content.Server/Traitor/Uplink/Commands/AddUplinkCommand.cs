@@ -10,7 +10,7 @@ using Robust.Shared.Player;
 namespace Content.Server.Traitor.Uplink.Commands
 {
     [AdminCommand(AdminFlags.Admin)]
-    public sealed class AddUplinkCommand : IConsoleCommand
+    public sealed partial class AddUplinkCommand : IConsoleCommand
     {
         [Dependency] private IEntityManager _entManager = default!;
         [Dependency] private IPlayerManager _playerManager = default!;

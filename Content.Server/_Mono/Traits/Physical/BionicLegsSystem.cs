@@ -11,7 +11,7 @@ using Content.Shared.Standing;
 
 namespace Content.Server._Mono.Traits.Physical;
 
-public sealed class BionicLegsSystem : EntitySystem
+public sealed partial class BionicLegsSystem : EntitySystem
 {
     [Dependency] private SharedBodySystem _bodySystem = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;

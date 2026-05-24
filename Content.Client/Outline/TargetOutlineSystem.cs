@@ -13,7 +13,7 @@ namespace Content.Client.Outline;
 /// <summary>
 ///     System used to indicate whether an entity is a valid target based on some criteria.
 /// </summary>
-public sealed class TargetOutlineSystem : EntitySystem
+public sealed partial class TargetOutlineSystem : EntitySystem
 {
     [Dependency] private IEyeManager _eyeManager = default!;
     [Dependency] private IGameTiming _timing = default!;

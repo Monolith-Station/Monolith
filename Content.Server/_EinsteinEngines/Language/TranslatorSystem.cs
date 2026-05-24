@@ -17,7 +17,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._EinsteinEngines.Language;
 
-public sealed class TranslatorSystem : SharedTranslatorSystem
+public sealed partial class TranslatorSystem : SharedTranslatorSystem
 {
     [Dependency] private SharedContainerSystem _containers = default!;
     [Dependency] private PopupSystem _popup = default!;

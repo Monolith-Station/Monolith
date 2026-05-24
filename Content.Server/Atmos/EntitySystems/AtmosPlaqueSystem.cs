@@ -5,7 +5,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Atmos.EntitySystems;
 
-public sealed class AtmosPlaqueSystem : EntitySystem
+public sealed partial class AtmosPlaqueSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;

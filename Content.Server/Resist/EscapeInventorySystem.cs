@@ -23,7 +23,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Resist;
 
-public sealed class EscapeInventorySystem : EntitySystem
+public sealed partial class EscapeInventorySystem : EntitySystem
 {
     [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private PopupSystem _popupSystem = default!;

@@ -8,7 +8,7 @@ using Content.Server.GameTicking;
 
 namespace Content.Server.AutoVote;
 
-public sealed class AutoVoteSystem : EntitySystem
+public sealed partial class AutoVoteSystem : EntitySystem
 {
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] public IVoteManager _voteManager = default!;

@@ -11,7 +11,7 @@ using Robust.Shared.Network;
 namespace Content.Server.Whitelist;
 
 [AdminCommand(AdminFlags.Whitelist)] // DeltaV - Custom permission for whitelist
-public sealed class AddWhitelistCommand : LocalizedCommands
+public sealed partial class AddWhitelistCommand : LocalizedCommands
 {
     [Dependency] private JobWhitelistManager _jobWhitelist = default!; // Frontier
     public override string Command => "whitelistadd";
@@ -62,7 +62,7 @@ public sealed class AddWhitelistCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Ban)]
-public sealed class RemoveWhitelistCommand : LocalizedCommands
+public sealed partial class RemoveWhitelistCommand : LocalizedCommands
 {
     [Dependency] private JobWhitelistManager _jobWhitelist = default!; // Frontier
     public override string Command => "whitelistremove";
@@ -113,7 +113,7 @@ public sealed class RemoveWhitelistCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Ban)]
-public sealed class KickNonWhitelistedCommand : LocalizedCommands
+public sealed partial class KickNonWhitelistedCommand : LocalizedCommands
 {
     [Dependency] private JobWhitelistManager _jobWhitelist = default!; // Frontier
     public override string Command => "kicknonwhitelisted";

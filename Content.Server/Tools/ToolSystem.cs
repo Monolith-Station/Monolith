@@ -8,7 +8,7 @@ using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
 
 namespace Content.Server.Tools;
 
-public sealed class ToolSystem : SharedToolSystem
+public sealed partial class ToolSystem : SharedToolSystem
 {
     [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private TransformSystem _transformSystem = default!;

@@ -7,7 +7,7 @@ using Robust.Shared.Console;
 namespace Content.Server.Shuttles.Commands;
 
 [AdminCommand(AdminFlags.Mapping)]
-public sealed class DockCommand : IConsoleCommand
+public sealed partial class DockCommand : IConsoleCommand
 {
     [Dependency] private IEntityManager _entManager = default!;
 

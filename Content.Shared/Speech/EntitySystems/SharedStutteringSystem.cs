@@ -2,7 +2,7 @@ using Content.Shared.StatusEffect;
 
 namespace Content.Shared.Speech.EntitySystems;
 
-public abstract class SharedStutteringSystem : EntitySystem
+public abstract partial class SharedStutteringSystem : EntitySystem
 {
     [ValidatePrototypeId<StatusEffectPrototype>]
     public const string StutterKey = "Stutter";

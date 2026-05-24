@@ -8,7 +8,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._EinsteinEngines.Language.Systems;
 
-public sealed class LanguageSystem : SharedLanguageSystem
+public sealed partial class LanguageSystem : SharedLanguageSystem
 {
     [Dependency] private IPlayerManager _playerManager = default!;
 

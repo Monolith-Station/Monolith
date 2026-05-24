@@ -14,7 +14,7 @@ namespace Content.Server._EinsteinEngines.Silicon.EmitBuzzOnCrit;
 /// <summary>
 /// This handles the buzzing popup and sound of a silicon based race when it is pretty damaged.
 /// </summary>
-public sealed class EmitBuzzWhileDamagedSystem : EntitySystem
+public sealed partial class EmitBuzzWhileDamagedSystem : EntitySystem
 {
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private MobThresholdSystem _mobThreshold = default!;

@@ -14,7 +14,7 @@ using Robust.Shared.Player;
 namespace Content.Server.Atmos.Piping.Binary.EntitySystems
 {
     [UsedImplicitly]
-    public sealed class GasValveSystem : EntitySystem
+    public sealed partial class GasValveSystem : EntitySystem
     {
         [Dependency] private SharedAmbientSoundSystem _ambientSoundSystem = default!;
         [Dependency] private SharedAppearanceSystem _appearance = default!;

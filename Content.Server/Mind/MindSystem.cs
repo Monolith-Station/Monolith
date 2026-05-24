@@ -17,7 +17,7 @@ using Content.Shared.Mobs.Components; // Goob Station
 
 namespace Content.Server.Mind;
 
-public sealed class MindSystem : SharedMindSystem
+public sealed partial class MindSystem : SharedMindSystem
 {
     [Dependency] private GameTicker _gameTicker = default!;
     [Dependency] private IAdminLogManager _adminLogger = default!;

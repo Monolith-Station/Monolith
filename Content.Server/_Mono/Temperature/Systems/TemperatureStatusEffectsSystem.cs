@@ -8,7 +8,7 @@ using Content.Shared.StatusEffect;
 
 namespace Content.Server._Mono.Temperature.Systems;
 
-public sealed class TemperatureStatusEffectsSystem : EntitySystem
+public sealed partial class TemperatureStatusEffectsSystem : EntitySystem
 {
     private float _updateCooldown = 1f;
     private TimeSpan _updateTimer = TimeSpan.Zero;

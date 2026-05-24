@@ -7,7 +7,7 @@ using Content.Shared._FarHorizons.Materials.Systems;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
-public sealed class ReactorPartSystem : SharedReactorPartSystem
+public sealed partial class ReactorPartSystem : SharedReactorPartSystem
 {
     [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private IRobustRandom _random = default!;

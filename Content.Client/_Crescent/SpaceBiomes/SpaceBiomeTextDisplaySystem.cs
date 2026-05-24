@@ -7,7 +7,7 @@ using Content.Shared._Crescent.Vessel;
 
 namespace Content.Client._Crescent.SpaceBiomes;
 
-public sealed class SpaceTextDisplaySystem : EntitySystem
+public sealed partial class SpaceTextDisplaySystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _protMan = default!;
     [Dependency] private IOverlayManager _overMan = default!;

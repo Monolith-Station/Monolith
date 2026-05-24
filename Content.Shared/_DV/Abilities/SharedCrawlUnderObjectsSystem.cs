@@ -2,7 +2,7 @@
 using Content.Shared.Popups;
 
 namespace Content.Shared._DV.Abilities;
-public abstract class SharedCrawlUnderObjectsSystem : EntitySystem
+public abstract partial class SharedCrawlUnderObjectsSystem : EntitySystem
 {
     [Dependency] private SharedPopupSystem _popup = default!;
 

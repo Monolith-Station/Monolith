@@ -20,7 +20,7 @@ using Robust.Shared.Map.Components;
 
 namespace Content.Server._Funkystation.Atmos.Systems
 {
-    public sealed class CrystallizerSystem : EntitySystem
+    public sealed partial class CrystallizerSystem : EntitySystem
     {
         [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
         [Dependency] private PowerReceiverSystem _power = default!;

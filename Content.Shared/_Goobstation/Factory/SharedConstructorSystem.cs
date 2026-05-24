@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Factory;
 
-public abstract class SharedConstructorSystem : EntitySystem
+public abstract partial class SharedConstructorSystem : EntitySystem
 {
     [Dependency] protected ISharedAdminLogManager _adminLogger = default!;
     [Dependency] protected IPrototypeManager Proto = default!;

@@ -8,7 +8,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Decals.Overlays;
 
-public sealed class DecalPlacementOverlay : Overlay
+public sealed partial class DecalPlacementOverlay : Overlay
 {
     [Dependency] private IEyeManager _eyeManager = default!;
     [Dependency] private IInputManager _inputManager = default!;

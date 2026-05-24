@@ -13,7 +13,7 @@ namespace Content.Server.Explosion.EntitySystems;
 /// <summary>
 /// Handles creating smoke when <see cref="SmokeOnTriggerComponent"/> is triggered.
 /// </summary>
-public sealed class SmokeOnTriggerSystem : SharedSmokeOnTriggerSystem
+public sealed partial class SmokeOnTriggerSystem : SharedSmokeOnTriggerSystem
 {
     [Dependency] private IMapManager _mapMan = default!;
     [Dependency] private SmokeSystem _smoke = default!;

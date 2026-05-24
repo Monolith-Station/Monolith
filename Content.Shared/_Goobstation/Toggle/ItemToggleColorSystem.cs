@@ -3,7 +3,7 @@ using Content.Shared.Toggleable;
 
 namespace Content.Shared._Goobstation.Toggle;
 
-public sealed class ItemToggleColorSystem : EntitySystem
+public sealed partial class ItemToggleColorSystem : EntitySystem
 {
     [Dependency] private SharedAppearanceSystem _appearance = default!;
 

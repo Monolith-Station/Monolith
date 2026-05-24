@@ -4,7 +4,7 @@ using Robust.Shared.Console;
 
 namespace Content.Client.Commands;
 
-public sealed class ShowMechanismsCommand : LocalizedCommands
+public sealed partial class ShowMechanismsCommand : LocalizedCommands
 {
     [Dependency] private IEntityManager _entManager = default!;
 

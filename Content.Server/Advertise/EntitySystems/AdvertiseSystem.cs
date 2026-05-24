@@ -12,7 +12,7 @@ using Robust.Shared.Timing;
 namespace Content.Server.Advertise.EntitySystems;
 
 // Mono - update delay replaced with priority queue
-public sealed class AdvertiseSystem : EntitySystem
+public sealed partial class AdvertiseSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IRobustRandom _random = default!;

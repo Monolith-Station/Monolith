@@ -9,7 +9,7 @@ namespace Content.Server._Mono.Cleanup;
 /// <summary>
 ///     Deletes mobs too far from players.
 /// </summary>
-public sealed class MobCleanupSystem : BaseCleanupSystem<HTNComponent>
+public sealed partial class MobCleanupSystem : BaseCleanupSystem<HTNComponent>
 {
     [Dependency] private CleanupHelperSystem _cleanup = default!;
     [Dependency] private IConfigurationManager _cfg = default!;

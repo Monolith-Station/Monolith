@@ -14,7 +14,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.RatKing;
 
-public abstract class SharedRatKingSystem : EntitySystem
+public abstract partial class SharedRatKingSystem : EntitySystem
 {
     [Dependency] private IGameTiming _gameTiming = default!; // Used for rummage cooldown
     [Dependency] private INetManager _net = default!;

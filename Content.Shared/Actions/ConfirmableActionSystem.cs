@@ -7,7 +7,7 @@ namespace Content.Shared.Actions;
 /// <summary>
 /// Handles action priming, confirmation and automatic unpriming.
 /// </summary>
-public sealed class ConfirmableActionSystem : EntitySystem
+public sealed partial class ConfirmableActionSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedActionsSystem _actions = default!; // Goobstation

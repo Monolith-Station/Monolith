@@ -11,7 +11,7 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
-public abstract class SharedTurbineSystem : EntitySystem
+public abstract partial class SharedTurbineSystem : EntitySystem
 {
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;

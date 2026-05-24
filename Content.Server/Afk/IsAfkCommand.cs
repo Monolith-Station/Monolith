@@ -6,7 +6,7 @@ using Robust.Shared.Console;
 namespace Content.Server.Afk
 {
     [AdminCommand(AdminFlags.Admin)]
-    public sealed class IsAfkCommand : IConsoleCommand
+    public sealed partial class IsAfkCommand : IConsoleCommand
     {
         [Dependency] private IPlayerManager _players = default!;
 

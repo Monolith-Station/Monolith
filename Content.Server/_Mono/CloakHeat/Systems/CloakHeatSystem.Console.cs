@@ -9,7 +9,7 @@ namespace Content.Server._Mono.CloakHeat.Systems;
 /// <summary>
 /// Adds CloakHeat component to grids that have IFF consoles with Hide capability.
 /// </summary>
-public sealed class CloakHeatServerSystem : EntitySystem
+public sealed partial class CloakHeatServerSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
 

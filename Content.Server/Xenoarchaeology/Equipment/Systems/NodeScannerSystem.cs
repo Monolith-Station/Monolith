@@ -7,7 +7,7 @@ using Content.Shared.Verbs;
 
 namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 
-public sealed class NodeScannerSystem : EntitySystem
+public sealed partial class NodeScannerSystem : EntitySystem
 {
     [Dependency] private UseDelaySystem _useDelay = default!;
     [Dependency] private PopupSystem _popupSystem = default!;

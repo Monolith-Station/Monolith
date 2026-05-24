@@ -9,7 +9,7 @@ using Robust.Shared.Map.Components;
 namespace Content.Server.Interaction;
 
 [AdminCommand(AdminFlags.Debug)]
-public sealed class TilePryCommand : IConsoleCommand
+public sealed partial class TilePryCommand : IConsoleCommand
 {
     [Dependency] private IEntityManager _entities = default!;
 

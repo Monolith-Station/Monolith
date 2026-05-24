@@ -16,7 +16,7 @@ using Robust.Shared.Utility;
 namespace Content.Server._NF.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class BankCommand : IConsoleCommand
+public sealed partial class BankCommand : IConsoleCommand
 {
     [Dependency] private IServerPreferencesManager _prefsManager = default!;
     [Dependency] private IPlayerManager _playerManager = default!;

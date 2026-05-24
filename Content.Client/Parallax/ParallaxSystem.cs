@@ -8,7 +8,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Parallax;
 
-public sealed class ParallaxSystem : SharedParallaxSystem
+public sealed partial class ParallaxSystem : SharedParallaxSystem
 {
     [Dependency] private IMapManager _map = default!;
     [Dependency] private IOverlayManager _overlay = default!;

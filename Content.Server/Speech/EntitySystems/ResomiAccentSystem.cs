@@ -4,7 +4,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Speech.EntitySystems;
 
-public sealed class ResomiAccentSystem : EntitySystem
+public sealed partial class ResomiAccentSystem : EntitySystem
 {
 
     [Dependency] private IRobustRandom _random = default!;

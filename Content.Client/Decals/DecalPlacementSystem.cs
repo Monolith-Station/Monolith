@@ -14,7 +14,7 @@ namespace Content.Client.Decals;
 
 // This is shit and basically a half-rewrite of PlacementManager
 // TODO refactor placementmanager so this isnt shit anymore
-public sealed class DecalPlacementSystem : EntitySystem
+public sealed partial class DecalPlacementSystem : EntitySystem
 {
     [Dependency] private IInputManager _inputManager = default!;
     [Dependency] private IOverlayManager _overlay = default!;

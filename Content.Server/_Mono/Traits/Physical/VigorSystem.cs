@@ -7,7 +7,7 @@ namespace Content.Server._Mono.Traits.Physical;
 /// <summary>
 /// Handles the Vigor trait effects on stamina.
 /// </summary>
-public sealed class VigorSystem : EntitySystem
+public sealed partial class VigorSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
 

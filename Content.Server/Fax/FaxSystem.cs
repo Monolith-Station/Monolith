@@ -34,7 +34,7 @@ using Content.Shared.DeviceNetwork.Components;
 
 namespace Content.Server.Fax;
 
-public sealed class FaxSystem : EntitySystem
+public sealed partial class FaxSystem : EntitySystem
 {
     [Dependency] private IChatManager _chat = default!;
     [Dependency] private IAdminManager _adminManager = default!;

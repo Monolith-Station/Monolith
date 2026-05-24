@@ -12,7 +12,7 @@ namespace Content.Server._Mono;
 /// <summary>
 /// System that automatically slots encryption keys from loadouts into headsets and IPCs during spawn.
 /// </summary>
-public sealed class LoadoutEncryptionKeySlottingSystem : EntitySystem
+public sealed partial class LoadoutEncryptionKeySlottingSystem : EntitySystem
 {
     [Dependency] private InventorySystem _inventory = default!;
     [Dependency] private SharedContainerSystem _container = default!;

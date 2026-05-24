@@ -12,7 +12,7 @@ using Robust.Shared.Utility;
 namespace Content.Client._Shitmed.Medical.Surgery;
 
 [UsedImplicitly]
-public sealed class SurgeryBui : BoundUserInterface
+public sealed partial class SurgeryBui : BoundUserInterface
 {
     [Dependency] private IEntityManager _entities = default!;
     [Dependency] private IPlayerManager _player = default!;

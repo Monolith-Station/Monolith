@@ -6,7 +6,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 
-public sealed class BreakWindowArtifactSystem : EntitySystem
+public sealed partial class BreakWindowArtifactSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;

@@ -4,7 +4,7 @@ using Content.Shared.Verbs;
 
 namespace Content.Server._Mono.GridClaimer;
 
-public sealed class GridClaimerSystem : EntitySystem
+public sealed partial class GridClaimerSystem : EntitySystem
 {
     [Dependency] private PopupSystem _popup = default!;
 

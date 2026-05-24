@@ -10,7 +10,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Chat;
 
-public abstract class SharedChatSystem : EntitySystem
+public abstract partial class SharedChatSystem : EntitySystem
 {
     public const char RadioCommonPrefix = ';';
     public const char RadioChannelPrefix = ':';

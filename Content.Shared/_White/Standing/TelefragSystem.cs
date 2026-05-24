@@ -5,7 +5,7 @@ using Robust.Shared.Map;
 
 namespace Content.Shared._White.Standing;
 
-public sealed class TelefragSystem : EntitySystem
+public sealed partial class TelefragSystem : EntitySystem
 {
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private StandingStateSystem _standing = default!;

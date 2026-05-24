@@ -11,7 +11,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Weather;
 
-public abstract class SharedWeatherSystem : EntitySystem
+public abstract partial class SharedWeatherSystem : EntitySystem
 {
     [Dependency] protected IGameTiming Timing = default!;
     [Dependency] protected IMapManager MapManager = default!;

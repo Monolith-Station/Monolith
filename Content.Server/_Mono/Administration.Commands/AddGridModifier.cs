@@ -13,7 +13,7 @@ namespace Content.Server._Mono.Administration.Commands;
 /// Command that allows you to apply grid modifiers to existing grids
 /// </summary>
 [AdminCommand(AdminFlags.Admin)]
-public sealed class AddGridModifier : IConsoleCommand
+public sealed partial class AddGridModifier : IConsoleCommand
 {
     [Dependency] private IEntityManager _entManager = default!;
 

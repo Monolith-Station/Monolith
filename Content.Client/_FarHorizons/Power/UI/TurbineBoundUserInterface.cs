@@ -11,7 +11,7 @@ namespace Content.Client._FarHorizons.Power.UI;
 /// Initializes a <see cref="TurbineWindow"/> and updates it when new server messages are received.
 /// </summary>
 [UsedImplicitly]
-public sealed class TurbineBoundUserInterface : BoundUserInterface, IBuiPreTickUpdate
+public sealed partial class TurbineBoundUserInterface : BoundUserInterface, IBuiPreTickUpdate
 {
     [Dependency] private IClientGameTiming _gameTiming = null!;
     [Dependency] private IEntityManager _entityManager = null!;

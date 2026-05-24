@@ -15,7 +15,7 @@ namespace Content.Shared.Throwing
     /// <summary>
     ///     Handles throwing landing and collisions.
     /// </summary>
-    public sealed class ThrownItemSystem : EntitySystem
+    public sealed partial class ThrownItemSystem : EntitySystem
     {
         [Dependency] private ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private IGameTiming _gameTiming = default!;

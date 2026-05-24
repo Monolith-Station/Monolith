@@ -11,7 +11,7 @@ using Robust.Shared.Timing;
 namespace Content.Client.Maps;
 
 /// <inheritdoc />
-public sealed class GridDraggingSystem : SharedGridDraggingSystem
+public sealed partial class GridDraggingSystem : SharedGridDraggingSystem
 {
     [Dependency] private IEyeManager _eyeManager = default!;
     [Dependency] private IGameTiming _gameTiming = default!;

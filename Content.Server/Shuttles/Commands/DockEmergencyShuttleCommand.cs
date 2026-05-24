@@ -9,7 +9,7 @@ namespace Content.Server.Shuttles.Commands;
 /// Calls in the emergency shuttle.
 /// </summary>
 [AdminCommand(AdminFlags.Fun)]
-public sealed class DockEmergencyShuttleCommand : IConsoleCommand
+public sealed partial class DockEmergencyShuttleCommand : IConsoleCommand
 {
     [Dependency] private IEntitySystemManager _sysManager = default!;
 

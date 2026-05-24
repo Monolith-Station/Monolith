@@ -6,7 +6,7 @@ using Robust.Shared.Player;
 namespace Content.Client._Scp.Grain;
 
 // TODO: Коммон оверлей систем
-public sealed class GrainOverlaySystem : EntitySystem
+public sealed partial class GrainOverlaySystem : EntitySystem
 {
     [Dependency] private IOverlayManager _overlayManager = default!;
     [Dependency] private IConfigurationManager _cfg = default!; // Mono

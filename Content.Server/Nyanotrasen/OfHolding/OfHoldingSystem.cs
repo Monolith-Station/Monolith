@@ -6,7 +6,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server.OfHolding
 {
-    public sealed class OfHoldingSystem : EntitySystem
+    public sealed partial class OfHoldingSystem : EntitySystem
     {
         [Dependency] private PopupSystem _popupSystem = default!;
         [Dependency] private ISharedAdminLogManager _adminLogger = default!;

@@ -23,7 +23,7 @@ using System.Threading.Tasks.Dataflow;
 
 namespace Content.Server._CorvaxNext.Silicons.Borgs;
 
-public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
+public sealed partial class AiRemoteControlSystem : SharedAiRemoteControlSystem
 {
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SiliconLawSystem _lawSystem = default!;

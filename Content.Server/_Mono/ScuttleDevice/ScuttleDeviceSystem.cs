@@ -27,7 +27,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._Mono.ScuttleDevice;
 
-public sealed class ScuttleDeviceSystem : EntitySystem
+public sealed partial class ScuttleDeviceSystem : EntitySystem
 {
     [Dependency] private AppearanceSystem _appearance = default!;
     [Dependency] private ChatSystem _chatSystem = default!;

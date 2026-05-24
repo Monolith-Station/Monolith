@@ -15,7 +15,7 @@ using Content.Shared.Stacks;
 
 namespace Content.Server._EinsteinEngines.Silicon.BlindHealing;
 
-public sealed class BlindHealingSystem : SharedBlindHealingSystem
+public sealed partial class BlindHealingSystem : SharedBlindHealingSystem
 {
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private IAdminLogManager _adminLogger = default!;

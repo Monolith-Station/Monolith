@@ -11,7 +11,7 @@ namespace Content.Server._Mono.Projectiles.TargetGuided;
 /// <summary>
 /// Handles the logic for cursor-guided projectiles.
 /// </summary>
-public sealed class TargetGuidedSystem : EntitySystem
+public sealed partial class TargetGuidedSystem : EntitySystem
 {
     [Dependency] private SharedTransformSystem _transform = null!;
     [Dependency] private RotateToFaceSystem _rotateToFace = null!;

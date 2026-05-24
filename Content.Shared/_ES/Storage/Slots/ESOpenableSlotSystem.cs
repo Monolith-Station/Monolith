@@ -7,7 +7,7 @@ namespace Content.Shared._ES.Storage.Slots;
 /// <summary>
 /// <see cref="ESOpenableSlotsComponent"/>
 /// </summary>
-public sealed class ESOpenableSlotSystem : EntitySystem
+public sealed partial class ESOpenableSlotSystem : EntitySystem
 {
     [Dependency] private ItemSlotsSystem _itemSlots = default!;
     [Dependency] private OpenableSystem _openable = default!;

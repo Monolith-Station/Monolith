@@ -11,7 +11,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Audio;
 
-public sealed class ContentAudioSystem : SharedContentAudioSystem
+public sealed partial class ContentAudioSystem : SharedContentAudioSystem
 {
     [ValidatePrototypeId<SoundCollectionPrototype>]
     private const string LobbyMusicCollection = "MonoLobbyMusic"; // Mono

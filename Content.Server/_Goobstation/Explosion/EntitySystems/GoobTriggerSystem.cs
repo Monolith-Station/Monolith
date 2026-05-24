@@ -10,7 +10,7 @@ using Content.Shared.Inventory;
 
 namespace Content.Server._Goobstation.Explosion.EntitySystems;
 
-public sealed class GoobTriggerSystem : EntitySystem
+public sealed partial class GoobTriggerSystem : EntitySystem
 {
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private TriggerSystem _trigger = default!;

@@ -7,7 +7,7 @@ using Content.Shared.Tools.Systems;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 
-public sealed class ArtifactElectricityTriggerSystem : EntitySystem
+public sealed partial class ArtifactElectricityTriggerSystem : EntitySystem
 {
     [Dependency] private ArtifactSystem _artifactSystem = default!;
     [Dependency] private SharedToolSystem _toolSystem = default!;

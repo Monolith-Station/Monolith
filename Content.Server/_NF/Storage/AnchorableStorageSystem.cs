@@ -15,7 +15,7 @@ namespace Content.Server._NF.Storage;
 /// This is used for restricting anchor operations on storage (one bag max per tile)
 /// and ejecting living contents on anchor.
 /// </summary>
-public sealed class AnchorableStorageSystem : EntitySystem
+public sealed partial class AnchorableStorageSystem : EntitySystem
 {
     [Dependency] private MapSystem _map = default!;
     [Dependency] private PopupSystem _popup = default!;

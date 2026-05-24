@@ -35,7 +35,7 @@ using System.Numerics;
 namespace Content.Shared.RCD.Systems;
 
 [Virtual]
-public class RCDSystem : EntitySystem
+public partial class RCDSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private INetManager _net = default!;

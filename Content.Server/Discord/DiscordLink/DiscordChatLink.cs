@@ -10,7 +10,7 @@ using Robust.Shared.Network;
 
 namespace Content.Server.Discord.DiscordLink;
 
-public sealed class DiscordChatLink : IPostInjectInit
+public sealed partial class DiscordChatLink : IPostInjectInit
 {
     [Dependency] private DiscordLink _discordLink = default!;
     [Dependency] private IConfigurationManager _configurationManager = default!;

@@ -31,7 +31,7 @@ using Content.Shared.Storage; // Mono
 namespace Content.Server.Kitchen.EntitySystems
 {
     [UsedImplicitly]
-    internal sealed class ReagentGrinderSystem : EntitySystem
+    internal sealed partial class ReagentGrinderSystem : EntitySystem
     {
         [Dependency] private IGameTiming _timing = default!;
         [Dependency] private SharedSolutionContainerSystem _solutionContainersSystem = default!;

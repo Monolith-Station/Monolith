@@ -5,7 +5,7 @@ using Content.Shared._EinsteinEngines.Language.Components.Translators;
 
 namespace Content.Shared._EinsteinEngines.Language.Systems;
 
-public abstract class SharedTranslatorSystem : EntitySystem
+public abstract partial class SharedTranslatorSystem : EntitySystem
 {
     [Dependency] private SharedAppearanceSystem _appearance = default!;
 

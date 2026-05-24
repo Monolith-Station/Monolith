@@ -21,7 +21,7 @@ using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Shared.Standing;
 
-public sealed class StandingStateSystem : EntitySystem
+public sealed partial class StandingStateSystem : EntitySystem
 {
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedAudioSystem _audio = default!;

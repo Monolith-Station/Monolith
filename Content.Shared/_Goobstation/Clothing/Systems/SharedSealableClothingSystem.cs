@@ -21,7 +21,7 @@ namespace Content.Shared._Goobstation.Clothing.Systems;
 /// <summary>
 ///     System used for sealable clothing (like modsuits)
 /// </summary>
-public abstract class SharedSealableClothingSystem : EntitySystem
+public abstract partial class SharedSealableClothingSystem : EntitySystem
 {
     [Dependency] private INetManager _netManager = default!;
     [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;

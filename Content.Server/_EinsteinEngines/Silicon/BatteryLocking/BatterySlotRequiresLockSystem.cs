@@ -6,7 +6,7 @@ using Content.Shared.IdentityManagement;
 
 namespace Content.Server._EinsteinEngines.Silicons.BatteryLocking;
 
-public sealed class BatterySlotRequiresLockSystem : EntitySystem
+public sealed partial class BatterySlotRequiresLockSystem : EntitySystem
 
 {
     [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;

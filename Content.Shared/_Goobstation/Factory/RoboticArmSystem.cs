@@ -17,7 +17,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Goobstation.Factory;
 
-public sealed class RoboticArmSystem : EntitySystem
+public sealed partial class RoboticArmSystem : EntitySystem
 {
     [Dependency] private AutomationSystem _automation = default!;
     [Dependency] private AutomationFilterSystem _filter = default!;

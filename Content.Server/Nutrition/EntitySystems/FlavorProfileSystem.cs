@@ -11,7 +11,7 @@ namespace Content.Server.Nutrition.EntitySystems;
 /// <summary>
 ///     Deals with flavor profiles when you eat something.
 /// </summary>
-public sealed class FlavorProfileSystem : EntitySystem
+public sealed partial class FlavorProfileSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IConfigurationManager _configManager = default!;

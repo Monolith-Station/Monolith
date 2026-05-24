@@ -54,7 +54,7 @@ using Robust.Server.Player; // Mono
 
 namespace Content.Server._DV.Mail.EntitySystems
 {
-    public sealed class MailSystem : EntitySystem
+    public sealed partial class MailSystem : EntitySystem
     {
         [Dependency] private AccessReaderSystem _accessSystem = default!;
         [Dependency] private DamageableSystem _damageableSystem = default!;

@@ -12,7 +12,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.BackStab;
 
-public sealed class BackStabSystem : EntitySystem
+public sealed partial class BackStabSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private INetManager _net = default!;

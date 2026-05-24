@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Factory.Filters;
 
-public sealed class AutomationFilterSystem : EntitySystem
+public sealed partial class AutomationFilterSystem : EntitySystem
 {
     [Dependency] private ItemSlotsSystem _slots = default!;
     [Dependency] private SharedPopupSystem _popup = default!;

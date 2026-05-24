@@ -20,7 +20,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Mind;
 
-public abstract class SharedMindSystem : EntitySystem
+public abstract partial class SharedMindSystem : EntitySystem
 {
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private INetManager _net = default!;

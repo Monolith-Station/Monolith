@@ -16,7 +16,7 @@ using System.Linq;
 
 namespace Content.Server.Botany.Systems;
 
-public sealed class PlantAnalyzerSystem : EntitySystem
+public sealed partial class PlantAnalyzerSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private ItemToggleSystem _toggle = default!;

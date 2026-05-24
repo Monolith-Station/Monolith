@@ -3,7 +3,7 @@ using Robust.Shared.GameObjects;
 
 namespace Content.Client.Decals;
 
-public sealed class ToggleDecalCommand : IConsoleCommand
+public sealed partial class ToggleDecalCommand : IConsoleCommand
 {
     [Dependency] private IEntityManager _e = default!;
 

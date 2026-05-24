@@ -18,7 +18,7 @@ using Robust.Server.Audio;
 
 namespace Content.Server.PDA.Ringer
 {
-    public sealed class RingerSystem : SharedRingerSystem
+    public sealed partial class RingerSystem : SharedRingerSystem
     {
         [Dependency] private PdaSystem _pda = default!;
         [Dependency] private IGameTiming _gameTiming = default!;

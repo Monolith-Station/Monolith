@@ -9,7 +9,7 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 /// <summary>
 /// This handles...
 /// </summary>
-public sealed class LightFlickerArtifactSystem : EntitySystem
+public sealed partial class LightFlickerArtifactSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;

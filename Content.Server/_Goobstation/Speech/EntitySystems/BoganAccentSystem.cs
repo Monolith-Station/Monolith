@@ -4,7 +4,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Speech.EntitySystems;
 
-public sealed class BoganAccentSystem : EntitySystem
+public sealed partial class BoganAccentSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ReplacementAccentSystem _replacement = default!;

@@ -16,7 +16,7 @@ namespace Content.Server.Maps;
 /// <summary>
 ///     Performs basic map migration operations by listening for engine <see cref="MapLoaderSystem"/> events.
 /// </summary>
-public sealed class MapMigrationSystem : EntitySystem
+public sealed partial class MapMigrationSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _protoMan = default!;
     [Dependency] private IResourceManager _resMan = default!;

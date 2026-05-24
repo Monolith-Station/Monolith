@@ -10,7 +10,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._NF.Silicons.Borgs;
 
-public sealed class DroppableBorgModuleSystem : EntitySystem
+public sealed partial class DroppableBorgModuleSystem : EntitySystem
 {
     [Dependency] private HandPlaceholderSystem _placeholder = default!;
     [Dependency] private SharedContainerSystem _container = default!;

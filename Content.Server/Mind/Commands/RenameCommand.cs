@@ -8,7 +8,7 @@ using Robust.Shared.Console;
 namespace Content.Server.Mind.Commands;
 
 [AdminCommand(AdminFlags.VarEdit)]
-public sealed class RenameCommand : LocalizedEntityCommands
+public sealed partial class RenameCommand : LocalizedEntityCommands
 {
     [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private IPlayerManager _playerManager = default!;

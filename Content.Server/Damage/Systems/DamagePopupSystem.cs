@@ -6,7 +6,7 @@ using Content.Shared.Interaction;
 
 namespace Content.Server.Damage.Systems;
 
-public sealed class DamagePopupSystem : EntitySystem
+public sealed partial class DamagePopupSystem : EntitySystem
 {
     [Dependency] private PopupSystem _popupSystem = default!;
 

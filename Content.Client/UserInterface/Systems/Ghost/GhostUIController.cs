@@ -17,7 +17,7 @@ using Content.Client._Corvax.Respawn; // Frontier
 namespace Content.Client.UserInterface.Systems.Ghost;
 
 // TODO hud refactor BEFORE MERGE fix ghost gui being too far up
-public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSystem>, IOnSystemChanged<RespawnSystem>
+public sealed partial class GhostUIController : UIController, IOnSystemChanged<GhostSystem>, IOnSystemChanged<RespawnSystem>
 {
     [Dependency] private IEntityNetworkManager _net = default!;
     [Dependency] private IConsoleHost _consoleHost = default!;

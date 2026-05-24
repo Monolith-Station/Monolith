@@ -4,7 +4,7 @@ using Content.Server.Station.Systems; // Frontier
 
 namespace Content.Server.Warps;
 
-public sealed class WarpPointSystem : EntitySystem
+public sealed partial class WarpPointSystem : EntitySystem
 {
     [Dependency] private StationSystem _station = default!; // Frontier
     public override void Initialize()

@@ -19,7 +19,7 @@ namespace Content.Server._Mono.Cleanup;
 /// <summary>
 ///     Deletes entities eligible for deletion.
 /// </summary>
-public sealed class SpaceCleanupSystem : BaseCleanupSystem<PhysicsComponent>
+public sealed partial class SpaceCleanupSystem : BaseCleanupSystem<PhysicsComponent>
 {
     [Dependency] private CleanupHelperSystem _cleanup = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;

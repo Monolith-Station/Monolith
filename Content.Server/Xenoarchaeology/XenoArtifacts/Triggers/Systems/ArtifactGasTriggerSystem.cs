@@ -4,7 +4,7 @@ using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 
-public sealed class ArtifactGasTriggerSystem : EntitySystem
+public sealed partial class ArtifactGasTriggerSystem : EntitySystem
 {
     [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private ArtifactSystem _artifactSystem = default!;

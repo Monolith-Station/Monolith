@@ -8,7 +8,7 @@ using Content.Client.Salvage;
 
 namespace Content.Client._Crescent.SpaceBiomes;
 
-public sealed class SpaceBiomeSystem : EntitySystem
+public sealed partial class SpaceBiomeSystem : EntitySystem
 {
     [Dependency] private IPlayerManager _playerMan = default!;
     [Dependency] private IPrototypeManager _protMan = default!;

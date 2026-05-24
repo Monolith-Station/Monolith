@@ -12,7 +12,7 @@ namespace Content.Server._Mono.Ships.Systems;
 /// <summary>
 /// System that handles IFF suppression by ships with CloakHunter capability. Very performant, like everything I make.
 /// </summary>
-public sealed class CloakSuppressionSystem : EntitySystem
+public sealed partial class CloakSuppressionSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedTransformSystem _transform = default!;

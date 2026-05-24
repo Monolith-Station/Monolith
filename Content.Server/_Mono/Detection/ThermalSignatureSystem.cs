@@ -15,7 +15,7 @@ namespace Content.Server._Mono.Detection;
 /// <summary>
 ///     Handles the logic for thermal signatures.
 /// </summary>
-public sealed class ThermalSignatureSystem : EntitySystem
+public sealed partial class ThermalSignatureSystem : EntitySystem
 {
     [Dependency] private SharedPowerReceiverSystem _power = default!;
     [Dependency] private IGameTiming _timing = default!;

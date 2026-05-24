@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Implants.UI;
 
-public sealed class DeimplantBoundUserInterface : BoundUserInterface
+public sealed partial class DeimplantBoundUserInterface : BoundUserInterface
 {
     [Dependency] private IPrototypeManager _protomanager = default!;
 

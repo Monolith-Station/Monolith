@@ -12,7 +12,7 @@ namespace Content.Server._Mono.Traits.Physical;
 /// <summary>
 /// Handles the self-examine verb for SelfAwareComponent.
 /// </summary>
-public sealed class SelfAwareSystem : EntitySystem
+public sealed partial class SelfAwareSystem : EntitySystem
 {
     [Dependency] private ExamineSystemShared _examine = default!;
     [Dependency] private MobStateSystem _mobState = default!;

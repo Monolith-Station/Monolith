@@ -18,7 +18,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._Mono.AmmoLoader;
 
-public sealed class AmmoLoaderSystem : EntitySystem
+public sealed partial class AmmoLoaderSystem : EntitySystem
 {
     [Dependency] private SharedContainerSystem _containers = default!;
     [Dependency] private DeviceLinkSystem _deviceLink = default!;

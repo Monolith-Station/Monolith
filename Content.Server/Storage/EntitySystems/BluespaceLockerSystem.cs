@@ -20,7 +20,7 @@ using Content.Server.Shuttles.Components;
 
 namespace Content.Server.Storage.EntitySystems;
 
-public sealed class BluespaceLockerSystem : EntitySystem
+public sealed partial class BluespaceLockerSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _robustRandom = default!;
     [Dependency] private IGameTiming _timing = default!;

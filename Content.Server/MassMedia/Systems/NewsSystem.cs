@@ -23,7 +23,7 @@ using Content.Shared.GameTicking; // Frontier
 
 namespace Content.Server.MassMedia.Systems;
 
-public sealed class NewsSystem : SharedNewsSystem
+public sealed partial class NewsSystem : SharedNewsSystem
 {
     [Dependency] private AccessReaderSystem _accessReaderSystem = default!;
     [Dependency] private IGameTiming _timing = default!;

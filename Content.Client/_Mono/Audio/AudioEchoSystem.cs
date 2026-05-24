@@ -26,7 +26,7 @@ namespace Content.Goobstation.Client.Audio;
 ///     Handles making sounds 'echo' in large, open spaces. Uses simplified raytracing.
 /// </summary>
 // could use RaycastSystem but the api it has isn't very amazing
-public sealed class AreaEchoSystem : EntitySystem
+public sealed partial class AreaEchoSystem : EntitySystem
 {
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private IConfigurationManager _configurationManager = default!;

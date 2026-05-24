@@ -4,7 +4,7 @@ using Robust.Shared.Console;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Debug)]
-public sealed class DirtyCommand : IConsoleCommand
+public sealed partial class DirtyCommand : IConsoleCommand
 {
     [Dependency] private IEntityManager _entManager = default!;
 

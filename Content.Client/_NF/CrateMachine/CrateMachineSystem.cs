@@ -7,7 +7,7 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Client._NF.CrateMachine;
 
-public sealed class CrateMachineSystem : SharedCrateMachineSystem
+public sealed partial class CrateMachineSystem : SharedCrateMachineSystem
 {
     [Dependency] private AppearanceSystem _appearanceSystem = default!;
     [Dependency] private AnimationPlayerSystem _animationSystem = default!;

@@ -3,7 +3,7 @@ using Content.Shared.Item.ItemToggle.Components;
 
 namespace Content.Goobstation.Server.Weapons.BatterySlotRequiresItemToggle;
 
-public sealed class BatterySlotRequiresToggleSystem : EntitySystem
+public sealed partial class BatterySlotRequiresToggleSystem : EntitySystem
 {
     [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
 

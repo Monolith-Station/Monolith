@@ -13,7 +13,7 @@ namespace Content.Server._Mono;
 /// System that handles the GridRaiderComponent, which applies NoHack and NoDeconstruct to entities with Door and/or VendingMachine components on a grid.
 /// Protection is applied once during initialization and remains until the component is removed.
 /// </summary>
-public sealed class GridRaiderSystem : EntitySystem
+public sealed partial class GridRaiderSystem : EntitySystem
 {
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private SharedContainerSystem _container = default!;

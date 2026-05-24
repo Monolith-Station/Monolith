@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Scp.Grain;
 
-public sealed class GrainOverlay : Overlay
+public sealed partial class GrainOverlay : Overlay
 {
     [Dependency] private IPrototypeManager _prototype = default!;
 

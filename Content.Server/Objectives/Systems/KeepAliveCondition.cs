@@ -11,7 +11,7 @@ namespace Content.Server.Objectives.Systems;
 /// <summary>
 /// Handles keep alive condition logic and picking random traitors to keep alive.
 /// </summary>
-public sealed class KeepAliveConditionSystem : EntitySystem
+public sealed partial class KeepAliveConditionSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedMindSystem _mind = default!;

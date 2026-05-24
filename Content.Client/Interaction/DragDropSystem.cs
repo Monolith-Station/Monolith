@@ -27,7 +27,7 @@ namespace Content.Client.Interaction;
 /// <summary>
 /// Handles clientside drag and drop logic
 /// </summary>
-public sealed class DragDropSystem : SharedDragDropSystem
+public sealed partial class DragDropSystem : SharedDragDropSystem
 {
     [Dependency] private IStateManager _stateManager = default!;
     [Dependency] private IInputManager _inputManager = default!;

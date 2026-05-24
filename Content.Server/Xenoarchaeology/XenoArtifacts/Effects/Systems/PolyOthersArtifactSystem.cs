@@ -7,7 +7,7 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 
-public sealed class PolyOthersArtifactSystem : EntitySystem
+public sealed partial class PolyOthersArtifactSystem : EntitySystem
 {
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private MobStateSystem _mob = default!;

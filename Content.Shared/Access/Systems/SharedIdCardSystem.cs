@@ -14,7 +14,7 @@ using Content.Shared.StatusIcon;
 
 namespace Content.Shared.Access.Systems;
 
-public abstract class SharedIdCardSystem : EntitySystem
+public abstract partial class SharedIdCardSystem : EntitySystem
 {
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private InventorySystem _inventorySystem = default!;

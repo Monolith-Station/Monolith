@@ -9,7 +9,7 @@ namespace Content.Shared.Humanoid
     /// <summary>
     /// Figure out how to name a humanoid with these extensions.
     /// </summary>
-    public sealed class NamingSystem : EntitySystem
+    public sealed partial class NamingSystem : EntitySystem
     {
         [Dependency] private IRobustRandom _random = default!;
         [Dependency] private IPrototypeManager _prototypeManager = default!;

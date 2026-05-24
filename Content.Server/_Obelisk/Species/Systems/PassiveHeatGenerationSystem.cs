@@ -5,7 +5,7 @@ using Content.Shared.Mobs.Components;
 
 namespace Content.Server._Obelisk.Species.Systems;
 
-public sealed class PassiveHeatGenerationSystem : EntitySystem
+public sealed partial class PassiveHeatGenerationSystem : EntitySystem
 {
     [Dependency] private TemperatureSystem _temperature = default!;
 

@@ -7,7 +7,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 
-public sealed class FoamArtifactSystem : EntitySystem
+public sealed partial class FoamArtifactSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SmokeSystem _smoke = default!;

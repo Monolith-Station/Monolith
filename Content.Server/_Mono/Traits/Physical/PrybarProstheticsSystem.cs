@@ -13,7 +13,7 @@ namespace Content.Server._Mono.Traits.Physical;
 /// <summary>
 /// Handles replacing arms with JWL arms on spawn for entities with PrybarProstheticsComponent.
 /// </summary>
-public sealed class PrybarProstheticsSystem : EntitySystem
+public sealed partial class PrybarProstheticsSystem : EntitySystem
 {
     [Dependency] private SharedBodySystem _bodySystem = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;

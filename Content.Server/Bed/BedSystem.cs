@@ -19,7 +19,7 @@ using Content.Shared._EinsteinEngines.Silicon.Components;
 
 namespace Content.Server.Bed
 {
-    public sealed class BedSystem : EntitySystem
+    public sealed partial class BedSystem : EntitySystem
     {
         [Dependency] private DamageableSystem _damageableSystem = default!;
         [Dependency] private ActionsSystem _actionsSystem = default!;

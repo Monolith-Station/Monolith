@@ -9,7 +9,7 @@ namespace Content.Server._Mono.Traits.Physical;
 /// <summary>
 /// Applies the Will To Live trait effects by increasing the death health threshold.
 /// </summary>
-public sealed class WillToLiveSystem : EntitySystem
+public sealed partial class WillToLiveSystem : EntitySystem
 {
     [Dependency] private MobThresholdSystem _mobThresholds = default!;
 

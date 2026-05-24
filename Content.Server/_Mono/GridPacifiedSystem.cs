@@ -20,7 +20,7 @@ namespace Content.Server._Mono;
 /// <summary>
 /// System that handles the GridPacifiedComponent, which has the GridPacifierComponent apply pacification to certain entities within range.
 /// </summary>
-public sealed class GridPacifiedSystem : EntitySystem
+public sealed partial class GridPacifiedSystem : EntitySystem
 {
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private IGameTiming _gameTiming = default!;

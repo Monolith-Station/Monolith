@@ -11,7 +11,7 @@ using Robust.Shared.Physics.Events;
 
 namespace Content.Shared._Goobstation.Factory;
 
-public abstract class SharedInteractorSystem : EntitySystem
+public abstract partial class SharedInteractorSystem : EntitySystem
 {
     [Dependency] private AutomationSystem _automation = default!;
     [Dependency] private AutomationFilterSystem _filter = default!;

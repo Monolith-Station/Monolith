@@ -30,7 +30,7 @@ using System.Linq;
 
 namespace Content.Server.Medical;
 
-public sealed class HealingSystem : EntitySystem
+public sealed partial class HealingSystem : EntitySystem
 {
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private IAdminLogManager _adminLogger = default!;

@@ -10,7 +10,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Research.Systems;
 
-public sealed class BlueprintSystem : EntitySystem
+public sealed partial class BlueprintSystem : EntitySystem
 {
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private EntityWhitelistSystem _entityWhitelist = default!;

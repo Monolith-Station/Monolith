@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.IgnoreHumanoids
 {
-    public sealed class IgnoreHumanoidsOverlaySystem : EntitySystem
+    public sealed partial class IgnoreHumanoidsOverlaySystem : EntitySystem
     {
         [Dependency] private IPlayerManager _player = default!;
         [Dependency] private IPrototypeManager _protoMan = default!;

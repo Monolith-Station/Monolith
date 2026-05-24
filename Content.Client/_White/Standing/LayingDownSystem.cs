@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._White.Standing;
 
-public sealed class LayingDownSystem : SharedLayingDownSystem
+public sealed partial class LayingDownSystem : SharedLayingDownSystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IEyeManager _eyeManager = default!;

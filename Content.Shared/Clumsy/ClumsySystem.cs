@@ -15,7 +15,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Clumsy;
 
-public sealed class ClumsySystem : EntitySystem
+public sealed partial class ClumsySystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedStunSystem _stun = default!;

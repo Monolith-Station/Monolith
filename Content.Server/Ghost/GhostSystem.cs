@@ -44,7 +44,7 @@ using Content.Server.Preferences.Managers;
 
 namespace Content.Server.Ghost
 {
-    public sealed class GhostSystem : SharedGhostSystem
+    public sealed partial class GhostSystem : SharedGhostSystem
     {
         [Dependency] private SharedActionsSystem _actions = default!;
         [Dependency] private IAdminLogManager _adminLog = default!;

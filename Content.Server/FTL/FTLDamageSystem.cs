@@ -11,7 +11,7 @@ namespace Content.Server.FTL;
 /// This system applies crushing damage to entities that fall into FTL maps without being on a grid
 /// after a short delay
 /// </summary>
-public sealed class FTLDamageSystem : EntitySystem
+public sealed partial class FTLDamageSystem : EntitySystem
 {
     [Dependency] private DamageableSystem _damageableSystem = default!;
     [Dependency] private IGameTiming _timing = default!;

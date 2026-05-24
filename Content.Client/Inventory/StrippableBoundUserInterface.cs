@@ -29,7 +29,7 @@ using Content.Shared._EE.Strip.Components; // EE
 namespace Content.Client.Inventory
 {
     [UsedImplicitly]
-    public sealed class StrippableBoundUserInterface : BoundUserInterface
+    public sealed partial class StrippableBoundUserInterface : BoundUserInterface
     {
         [Dependency] private IPlayerManager _player = default!;
         [Dependency] private IUserInterfaceManager _ui = default!;

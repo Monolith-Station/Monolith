@@ -8,7 +8,7 @@ using Robust.Shared.Player;
 
 namespace Content.Client._Scp.RetroMonitor;
 
-public sealed class RetroMonitorOverlaySystem : EntitySystem
+public sealed partial class RetroMonitorOverlaySystem : EntitySystem
 {
     [Dependency] private GrainOverlaySystem _grain = default!;
     [Dependency] private VignetteOverlaySystem _vignette = default!;

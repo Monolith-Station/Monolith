@@ -11,7 +11,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 
-public sealed class TraversalDistorterSystem : EntitySystem
+public sealed partial class TraversalDistorterSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
 

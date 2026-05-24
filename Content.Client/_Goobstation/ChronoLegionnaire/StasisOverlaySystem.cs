@@ -5,7 +5,7 @@ using Robust.Shared.Player;
 
 namespace Content.Client._Goobstation.ChronoLegionnaire;
 
-public sealed class StasisOverlaySystem : EntitySystem
+public sealed partial class StasisOverlaySystem : EntitySystem
 {
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private IOverlayManager _overlayManager = default!;

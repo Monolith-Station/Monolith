@@ -10,7 +10,7 @@ namespace Content.Server._Mono.Cleanup;
 /// <summary>
 ///     System with helper methods for entity cleanup.
 /// </summary>
-public sealed class CleanupHelperSystem : EntitySystem
+public sealed partial class CleanupHelperSystem : EntitySystem
 {
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private IMapManager _mapMan = default!;

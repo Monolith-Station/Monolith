@@ -5,7 +5,7 @@ using Robust.Shared.GameObjects;
 
 namespace Content.Shared._Starlight.CollectiveMind;
 
-public sealed class CollectiveMindUpdateSystem : EntitySystem
+public sealed partial class CollectiveMindUpdateSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IComponentFactory _componentFactory = default!;

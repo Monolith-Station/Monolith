@@ -9,7 +9,7 @@ using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Random;
 
 namespace Content.Server.Mech.Equipment.EntitySystems;
-public sealed class MechGunSystem : EntitySystem
+public sealed partial class MechGunSystem : EntitySystem
 {
     [Dependency] private MechSystem _mech = default!;
     [Dependency] private BatterySystem _battery = default!;

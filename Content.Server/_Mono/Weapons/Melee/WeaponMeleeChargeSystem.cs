@@ -7,7 +7,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.Weapons.Melee;
 
-public sealed class MeleeChargeSystem : EntitySystem
+public sealed partial class MeleeChargeSystem : EntitySystem
 {
     [Dependency] private ItemToggleSystem _toggle = default!;
     [Dependency] private SharedPopupSystem _popup = default!;

@@ -9,7 +9,7 @@ using static Content.Client.Mapping.MappingState;
 
 namespace Content.Client.Mapping;
 
-public sealed class MappingOverlay : Overlay
+public sealed partial class MappingOverlay : Overlay
 {
     [Dependency] private IEntityManager _entities = default!;
     [Dependency] private IPlayerManager _player = default!;

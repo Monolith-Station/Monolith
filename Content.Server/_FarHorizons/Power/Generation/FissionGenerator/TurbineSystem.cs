@@ -22,7 +22,7 @@ using Content.Shared.DeviceNetwork;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
-public sealed class TurbineSystem : SharedTurbineSystem
+public sealed partial class TurbineSystem : SharedTurbineSystem
 {
     [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private ExplosionSystem _explosion = default!;

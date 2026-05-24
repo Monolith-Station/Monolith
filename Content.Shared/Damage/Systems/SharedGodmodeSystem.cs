@@ -6,7 +6,7 @@ using Content.Shared.Body.Systems; // Shitmed Change
 
 namespace Content.Shared.Damage.Systems;
 
-public abstract class SharedGodmodeSystem : EntitySystem
+public abstract partial class SharedGodmodeSystem : EntitySystem
 {
     [Dependency] private DamageableSystem _damageable = default!;
 

@@ -19,7 +19,7 @@ namespace Content.Server.Light.EntitySystems;
 /// <summary>
 ///     System for the PoweredLightComponents
 /// </summary>
-public sealed class PoweredLightSystem : SharedPoweredLightSystem
+public sealed partial class PoweredLightSystem : SharedPoweredLightSystem
 {
     [Dependency] private IRobustRandom _random = default!; // Frontier
 

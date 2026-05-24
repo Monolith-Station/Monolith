@@ -9,7 +9,7 @@ using Robust.Shared.Console;
 namespace Content.Server._Mono.FireControl.Commands;
 
 [AdminCommand(AdminFlags.Debug)]
-public sealed class VisualizeFireDirectionsCommand : IConsoleCommand
+public sealed partial class VisualizeFireDirectionsCommand : IConsoleCommand
 {
     [Dependency] private IEntityManager _entityManager = default!;
     [Dependency] private IEntitySystemManager _systemManager = default!;

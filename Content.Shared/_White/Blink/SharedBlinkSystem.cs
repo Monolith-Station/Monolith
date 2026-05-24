@@ -12,7 +12,7 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared._White.Blink;
 
-public abstract class SharedBlinkSystem : EntitySystem
+public abstract partial class SharedBlinkSystem : EntitySystem
 {
     [Dependency] private INetManager _net = default!;
     [Dependency] private SharedAudioSystem _audio = default!;

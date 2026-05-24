@@ -19,7 +19,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Actions;
 
-public abstract class SharedActionsSystem : EntitySystem
+public abstract partial class SharedActionsSystem : EntitySystem
 {
     [Dependency] protected IGameTiming GameTiming = default!;
     [Dependency] private INetManager _net = default!; // Goobstation

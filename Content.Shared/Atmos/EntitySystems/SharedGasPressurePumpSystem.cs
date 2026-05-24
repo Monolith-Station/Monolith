@@ -14,7 +14,7 @@ using Content.Shared._NF.Atmos.Piping.Binary.Messages; // Frontier
 
 namespace Content.Shared.Atmos.EntitySystems;
 
-public abstract class SharedGasPressurePumpSystem : EntitySystem
+public abstract partial class SharedGasPressurePumpSystem : EntitySystem
 {
     [Dependency] private   ISharedAdminLogManager _adminLogger = default!;
     [Dependency] protected SharedAppearanceSystem Appearance = default!;

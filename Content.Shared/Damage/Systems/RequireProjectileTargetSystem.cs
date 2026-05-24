@@ -10,7 +10,7 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared.Damage.Systems;
 
-public sealed class RequireProjectileTargetSystem : EntitySystem
+public sealed partial class RequireProjectileTargetSystem : EntitySystem
 {
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private MobStateSystem _mobState = default!;

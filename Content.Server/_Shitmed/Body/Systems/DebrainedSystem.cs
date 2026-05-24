@@ -13,7 +13,7 @@ namespace Content.Server._Shitmed.Body.Systems;
 ///     This system handles behavior on entities when they lose their head or their brains are removed.
 ///     MindComponent fuckery should still be mainly handled on BrainSystem as usual.
 /// </summary>
-public sealed class DebrainedSystem : EntitySystem
+public sealed partial class DebrainedSystem : EntitySystem
 {
     [Dependency] private SharedBodySystem _bodySystem = default!;
     [Dependency] private PopupSystem _popupSystem = default!;

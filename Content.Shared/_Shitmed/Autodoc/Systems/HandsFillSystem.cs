@@ -4,7 +4,7 @@ using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Shared._Shitmed.Autodoc.Systems;
 
-public sealed class HandsFillSystem : EntitySystem
+public sealed partial class HandsFillSystem : EntitySystem
 {
     [Dependency] private SharedHandsSystem _hands = default!;
 

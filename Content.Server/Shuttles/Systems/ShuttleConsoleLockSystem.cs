@@ -22,7 +22,7 @@ namespace Content.Server.Shuttles.Systems;
 /// <summary>
 /// Server-side implementation of the shuttle console lock system.
 /// </summary>
-public sealed class ShuttleConsoleLockSystem : SharedShuttleConsoleLockSystem
+public sealed partial class ShuttleConsoleLockSystem : SharedShuttleConsoleLockSystem
 {
     [Dependency] private ShuttleConsoleSystem _consoleSystem = default!;
     [Dependency] private SharedAudioSystem _audio = default!;

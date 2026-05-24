@@ -8,7 +8,7 @@ namespace Content.Shared.ProximityDetection.Systems;
 
 
 //This handles generic proximity detector logic
-public sealed class ProximityDetectionSystem : EntitySystem
+public sealed partial class ProximityDetectionSystem : EntitySystem
 {
     [Dependency] private EntityLookupSystem _entityLookup = default!;
     [Dependency] private ItemToggleSystem _toggle = default!;

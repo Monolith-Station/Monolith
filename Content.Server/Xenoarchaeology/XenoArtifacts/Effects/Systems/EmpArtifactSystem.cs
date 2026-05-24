@@ -5,7 +5,7 @@ using Robust.Server.GameObjects;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 
-public sealed class EmpArtifactSystem : EntitySystem
+public sealed partial class EmpArtifactSystem : EntitySystem
 {
     [Dependency] private EmpSystem _emp = default!;
     [Dependency] private TransformSystem _transform = default!;

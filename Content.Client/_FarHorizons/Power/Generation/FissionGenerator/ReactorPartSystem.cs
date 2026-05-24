@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._FarHorizons.Power.Generation.FissionGenerator;
 
-public sealed class ReactorPartSystem : SharedReactorPartSystem
+public sealed partial class ReactorPartSystem : SharedReactorPartSystem
 {
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private IPrototypeManager _proto = default!;

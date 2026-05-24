@@ -2,7 +2,7 @@ using Content.Shared.Actions;
 
 namespace Content.Shared._Shitmed.GoliathTentacle;
 
-internal sealed class GoliathTentacleSystem : EntitySystem
+internal sealed partial class GoliathTentacleSystem : EntitySystem
 {
     [Dependency] private SharedActionsSystem _actionsSystem = default!;
     public override void Initialize()

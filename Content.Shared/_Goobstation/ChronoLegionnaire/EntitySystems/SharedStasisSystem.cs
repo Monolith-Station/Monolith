@@ -22,7 +22,7 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared._Goobstation.ChronoLegionnaire;
 
-public abstract class SharedStasisSystem : EntitySystem
+public abstract partial class SharedStasisSystem : EntitySystem
 {
     [Dependency] private ActionBlockerSystem _blocker = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;

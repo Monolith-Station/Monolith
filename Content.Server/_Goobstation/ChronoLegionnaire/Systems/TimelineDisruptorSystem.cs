@@ -12,7 +12,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Goobstation.ChronoLegionnaire;
 
-public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
+public sealed partial class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
 {
     [Dependency] private AppearanceSystem _appearanceSystem = default!;
     [Dependency] private SharedAudioSystem _audioSystem = default!;

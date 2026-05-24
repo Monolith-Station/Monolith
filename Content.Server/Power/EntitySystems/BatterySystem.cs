@@ -15,7 +15,7 @@ using Content.Server._NF.Power.Components; // Frontier
 namespace Content.Server.Power.EntitySystems
 {
     [UsedImplicitly]
-    public sealed class BatterySystem : EntitySystem
+    public sealed partial class BatterySystem : EntitySystem
     {
         [Dependency] protected IGameTiming Timing = default!;
 

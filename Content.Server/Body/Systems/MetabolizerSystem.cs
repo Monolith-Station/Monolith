@@ -17,7 +17,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Body.Systems
 {
-    public sealed class MetabolizerSystem : EntitySystem
+    public sealed partial class MetabolizerSystem : EntitySystem
     {
         [Dependency] private IGameTiming _gameTiming = default!;
         [Dependency] private IPrototypeManager _prototypeManager = default!;

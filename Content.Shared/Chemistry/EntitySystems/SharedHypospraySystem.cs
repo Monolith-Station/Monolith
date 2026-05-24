@@ -7,7 +7,7 @@ using Content.Shared.Administration.Logs;
 
 namespace Content.Shared.Chemistry.EntitySystems;
 
-public abstract class SharedHypospraySystem : EntitySystem
+public abstract partial class SharedHypospraySystem : EntitySystem
 {
     [Dependency] protected UseDelaySystem _useDelay = default!;
     [Dependency] protected SharedPopupSystem _popup = default!;

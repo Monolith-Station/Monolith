@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 
 namespace Content.Shared.Eye.Blinding.Systems;
 
-public sealed class BlindableSystem : EntitySystem
+public sealed partial class BlindableSystem : EntitySystem
 {
     [Dependency] private BlurryVisionSystem _blurriness = default!;
     [Dependency] private EyeClosingSystem _eyelids = default!;

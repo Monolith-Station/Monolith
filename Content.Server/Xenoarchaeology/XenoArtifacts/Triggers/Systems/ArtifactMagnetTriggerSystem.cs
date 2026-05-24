@@ -9,7 +9,7 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 /// <summary>
 /// This handles artifacts that are activated by magnets, both salvage and magboots.
 /// </summary>
-public sealed class ArtifactMagnetTriggerSystem : EntitySystem
+public sealed partial class ArtifactMagnetTriggerSystem : EntitySystem
 {
     [Dependency] private ArtifactSystem _artifact = default!;
 

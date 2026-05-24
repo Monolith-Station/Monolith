@@ -4,7 +4,7 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client._ES.Storage.ItemMapper;
 
-public sealed class ESItemMapperSystem : ESSharedItemMapperSystem
+public sealed partial class ESItemMapperSystem : ESSharedItemMapperSystem
 {
     [Dependency] private SpriteSystem _sprite = default!;
 

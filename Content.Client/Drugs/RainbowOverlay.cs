@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Drugs;
 
-public sealed class RainbowOverlay : Overlay
+public sealed partial class RainbowOverlay : Overlay
 {
     [Dependency] private IConfigurationManager _config = default!;
     [Dependency] private IEntityManager _entityManager = default!;

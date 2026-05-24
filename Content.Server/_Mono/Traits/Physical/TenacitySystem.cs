@@ -9,7 +9,7 @@ namespace Content.Server._Mono.Traits.Physical;
 /// <summary>
 /// Applies the Tenacity trait effects by increasing the critical health threshold.
 /// </summary>
-public sealed class TenacitySystem : EntitySystem
+public sealed partial class TenacitySystem : EntitySystem
 {
     [Dependency] private MobThresholdSystem _mobThresholds = default!;
 

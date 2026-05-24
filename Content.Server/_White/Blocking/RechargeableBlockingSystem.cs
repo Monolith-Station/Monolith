@@ -11,7 +11,7 @@ using Content.Shared.PowerCell.Components;
 
 namespace Content.Server._White.Blocking;
 
-public sealed class RechargeableBlockingSystem : SharedBlockingSystem // Mono
+public sealed partial class RechargeableBlockingSystem : SharedBlockingSystem // Mono
 {
     [Dependency] private BatterySystem _battery = default!;
     [Dependency] private ItemToggleSystem _itemToggle = default!;

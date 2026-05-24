@@ -4,7 +4,7 @@ using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Shared._Goobstation.Weapons.UseDelay;
 
-public sealed class UseDelayBlockMeleeSystem : EntitySystem
+public sealed partial class UseDelayBlockMeleeSystem : EntitySystem
 {
     [Dependency] private UseDelaySystem _useDelay = default!;
 

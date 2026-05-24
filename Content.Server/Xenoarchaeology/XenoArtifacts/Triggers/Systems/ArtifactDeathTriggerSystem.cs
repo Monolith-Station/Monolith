@@ -3,7 +3,7 @@ using Content.Shared.Mobs;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 
-public sealed class ArtifactDeathTriggerSystem : EntitySystem
+public sealed partial class ArtifactDeathTriggerSystem : EntitySystem
 {
     [Dependency] private ArtifactSystem _artifact = default!;
 

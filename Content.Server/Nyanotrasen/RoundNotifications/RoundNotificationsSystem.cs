@@ -14,7 +14,7 @@ namespace Content.Server.Nyanotrasen.RoundNotifications;
 /// <summary>
 /// Listen game events and send notifications to Discord
 /// </summary>
-public sealed class RoundNotificationsSystem : EntitySystem
+public sealed partial class RoundNotificationsSystem : EntitySystem
 {
     [Dependency] private IConfigurationManager _config = default!;
     [Dependency] private IGameMapManager _gameMapManager = default!;

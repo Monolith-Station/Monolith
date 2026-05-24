@@ -8,7 +8,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 
-public sealed class PortalArtifactSystem : EntitySystem
+public sealed partial class PortalArtifactSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private LinkedEntitySystem _link = default!;

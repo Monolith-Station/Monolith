@@ -9,7 +9,7 @@ using Content.Shared.Coordinates;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class BluespaceLockerRule : StationEventSystem<BluespaceLockerRuleComponent>
+public sealed partial class BluespaceLockerRule : StationEventSystem<BluespaceLockerRuleComponent>
 {
     [Dependency] private BluespaceLockerSystem _bluespaceLocker = default!;
 

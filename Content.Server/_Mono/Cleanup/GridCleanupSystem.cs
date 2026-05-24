@@ -12,7 +12,7 @@ namespace Content.Server._Mono.Cleanup;
 /// <summary>
 /// This system cleans up small grid fragments that have less than a specified number of tiles after a delay.
 /// </summary>
-public sealed class GridCleanupSystem : BaseCleanupSystem<MapGridComponent>
+public sealed partial class GridCleanupSystem : BaseCleanupSystem<MapGridComponent>
 {
     [Dependency] private CleanupHelperSystem _cleanup = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;

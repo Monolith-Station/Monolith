@@ -8,7 +8,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.StatusEffect
 {
-    public sealed class StatusEffectsSystem : EntitySystem
+    public sealed partial class StatusEffectsSystem : EntitySystem
     {
         [Dependency] private IPrototypeManager _prototypeManager = default!;
         [Dependency] private IGameTiming _gameTiming = default!;

@@ -6,7 +6,7 @@ using Robust.Shared.Console;
 namespace Content.Server.Electrocution
 {
     [AdminCommand(AdminFlags.Fun)]
-    public sealed class ElectrocuteCommand : IConsoleCommand
+    public sealed partial class ElectrocuteCommand : IConsoleCommand
     {
         [Dependency] private IEntityManager _entManager = default!;
 

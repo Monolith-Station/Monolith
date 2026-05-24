@@ -22,7 +22,7 @@ namespace Content.Server.Maps;
 /// Converts the supplied map into a "planet" with defaults.
 /// </summary>
 [AdminCommand(AdminFlags.Mapping)]
-public sealed class PlanetCommand : IConsoleCommand
+public sealed partial class PlanetCommand : IConsoleCommand
 {
     [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private IMapManager _mapManager = default!;

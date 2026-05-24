@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Factory;
 
-public sealed class AutomationSystem : EntitySystem
+public sealed partial class AutomationSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;

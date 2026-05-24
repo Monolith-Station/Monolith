@@ -10,7 +10,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Roles
 {
     [AdminCommand(AdminFlags.Admin)]
-    public sealed class AddRoleCommand : IConsoleCommand
+    public sealed partial class AddRoleCommand : IConsoleCommand
     {
         [Dependency] private EntityManager _entityManager = default!;
 

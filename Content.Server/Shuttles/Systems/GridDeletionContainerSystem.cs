@@ -11,7 +11,7 @@ namespace Content.Server.Shuttles.Systems;
 /// including those inside containers) are also deleted.
 /// This fixes an issue where entities inside containers were left behind in space after grid deletion.
 /// </summary>
-public sealed class GridDeletionContainerSystem : EntitySystem
+public sealed partial class GridDeletionContainerSystem : EntitySystem
 {
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private SharedTransformSystem _transform = default!;

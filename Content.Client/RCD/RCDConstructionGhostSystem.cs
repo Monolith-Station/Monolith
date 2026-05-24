@@ -9,7 +9,7 @@ using Robust.Shared.Enums;
 
 namespace Content.Client.RCD;
 
-public sealed class RCDConstructionGhostSystem : EntitySystem
+public sealed partial class RCDConstructionGhostSystem : EntitySystem
 {
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private RCDSystem _rcdSystem = default!;

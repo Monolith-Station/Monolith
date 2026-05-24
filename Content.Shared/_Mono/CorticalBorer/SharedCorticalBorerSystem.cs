@@ -20,7 +20,7 @@ using System.Linq;
 
 namespace Content.Shared._Mono.CorticalBorer;
 
-public abstract class SharedCorticalBorerSystem : EntitySystem
+public abstract partial class SharedCorticalBorerSystem : EntitySystem
 {
     [Dependency] private SharedBodySystem _bodySystem = default!;
     [Dependency] private StatusEffectsSystem _statusEffects = default!;

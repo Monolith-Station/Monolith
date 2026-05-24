@@ -6,7 +6,7 @@ using Robust.Client.Graphics;
 
 namespace Content.Client._White.Overlays;
 
-public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionComponent>
+public sealed partial class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionComponent>
 {
     [Dependency] private IOverlayManager _overlayMan = default!;
 

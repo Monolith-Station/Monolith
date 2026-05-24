@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Content.Server.Botany;
 
-public sealed class MutationSystem : EntitySystem
+public sealed partial class MutationSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _robustRandom = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;

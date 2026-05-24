@@ -13,7 +13,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._White.Overlays;
 
-public sealed class ThermalVisionOverlay : Overlay
+public sealed partial class ThermalVisionOverlay : Overlay
 {
     [Dependency] private IEntityManager _entity = default!;
     [Dependency] private IPlayerManager _player = default!;

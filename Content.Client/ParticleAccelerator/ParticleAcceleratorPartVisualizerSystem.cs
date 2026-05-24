@@ -3,7 +3,7 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client.ParticleAccelerator;
 
-public sealed class ParticleAcceleratorPartVisualizerSystem : VisualizerSystem<ParticleAcceleratorPartVisualsComponent>
+public sealed partial class ParticleAcceleratorPartVisualizerSystem : VisualizerSystem<ParticleAcceleratorPartVisualsComponent>
 {
     [Dependency] private SpriteSystem _sprite = default!;
 

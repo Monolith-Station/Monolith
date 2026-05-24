@@ -13,7 +13,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Administration;
 
-public sealed class TimeTransferPanelEui : BaseEui
+public sealed partial class TimeTransferPanelEui : BaseEui
 {
     [Dependency] private IAdminManager _adminMan = default!;
     [Dependency] private ILogManager _log = default!;

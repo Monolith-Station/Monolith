@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace Content.Goobstation.Client.Factory.UI;
 
-public sealed class ConstructorBUI : BoundUserInterface
+public sealed partial class ConstructorBUI : BoundUserInterface
 {
     [Dependency] private IPrototypeManager _proto = default!;
     private readonly ConstructionSystem _construction;

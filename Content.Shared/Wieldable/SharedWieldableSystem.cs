@@ -28,7 +28,7 @@ using Content.Shared._Goobstation.Weapons.Ranged; // GoobStation - NoWieldNeeded
 
 namespace Content.Shared.Wieldable;
 
-public abstract class SharedWieldableSystem : EntitySystem
+public abstract partial class SharedWieldableSystem : EntitySystem
 {
     [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private IGameTiming _timing = default!;

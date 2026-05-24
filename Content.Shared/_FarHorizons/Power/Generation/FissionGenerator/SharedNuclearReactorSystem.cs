@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
-public abstract class SharedNuclearReactorSystem : EntitySystem
+public abstract partial class SharedNuclearReactorSystem : EntitySystem
 {
     [Dependency] private ItemSlotsSystem _slotsSystem = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;

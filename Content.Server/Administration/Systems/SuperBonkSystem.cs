@@ -7,7 +7,7 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Administration.Systems;
 
-public sealed class SuperBonkSystem : EntitySystem
+public sealed partial class SuperBonkSystem : EntitySystem
 {
     [Dependency] private SharedTransformSystem _transformSystem = default!;
     [Dependency] private ClumsySystem _clumsySystem = default!;

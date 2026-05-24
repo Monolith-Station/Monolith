@@ -13,7 +13,7 @@ using Content.Shared.Damage;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
-public abstract class SharedReactorPartSystem : EntitySystem
+public abstract partial class SharedReactorPartSystem : EntitySystem
 {
     [Dependency] private EntityManager _entityManager = default!;
     [Dependency] private IRobustRandom _random = default!;

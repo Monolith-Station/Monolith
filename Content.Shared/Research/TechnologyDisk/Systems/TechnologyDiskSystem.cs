@@ -13,7 +13,7 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.Research.TechnologyDisk.Systems;
 
-public sealed class TechnologyDiskSystem : EntitySystem
+public sealed partial class TechnologyDiskSystem : EntitySystem
 {
     [Dependency] private INetManager _net = default!;
     [Dependency] private IPrototypeManager _protoMan = default!;

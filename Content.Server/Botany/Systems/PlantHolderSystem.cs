@@ -27,7 +27,7 @@ using Content.Shared.Containers.ItemSlots;
 
 namespace Content.Server.Botany.Systems;
 
-public sealed class PlantHolderSystem : EntitySystem
+public sealed partial class PlantHolderSystem : EntitySystem
 {
     [Dependency] private AtmosphereSystem _atmosphere = default!;
     [Dependency] private BotanySystem _botany = default!;
