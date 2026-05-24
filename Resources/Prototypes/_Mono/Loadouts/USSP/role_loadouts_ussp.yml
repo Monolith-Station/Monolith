@@ -29,7 +29,7 @@
   id: JobUSSPSergeant
   groups:
   - USSPHeadOfficer
-  - USSPJumpsuit
+  - USSPJumpsuitOfficer
   - USSPGloves
   - USSPBackpackSergeant
   - USSPOuterClothingOfficer
@@ -37,7 +37,7 @@
   - TsfmcFace
   - USSPBalaclava
   - USSPGlasses
-  - USSPBelt
+  - USSPBeltOfficer
   - USSPEarsCommand
   - ContractorEncryptionKey
   - NfsdBoxSurvival
@@ -56,7 +56,7 @@
   id: JobUSSPCommissar
   groups:
   - USSPHeadCommissar
-  - USSPJumpsuit
+  - USSPJumpsuitOfficer
   - USSPCommissarGloves
   - USSPBackpackSergeant
   - USSPOuterClothingOfficer
@@ -64,7 +64,7 @@
   - TsfmcFace
   - USSPBalaclava
   - USSPGlasses
-  - USSPBelt
+  - USSPBeltOfficer
   - USSPEarsCommand
   - ContractorEncryptionKey
   - NfsdBoxSurvival

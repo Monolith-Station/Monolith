@@ -4,6 +4,13 @@
   description: A basic personal computer for access restriction and organization, manufactured in the USSP.
   abstract: true
   components:
+  - type: Pda
+    bookSlot:
+      startingItem: BookUSSPLaw
+      priority: -2
+      whitelist:
+        tags:
+        - BookUSSPLaw
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge

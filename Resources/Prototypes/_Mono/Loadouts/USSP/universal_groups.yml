@@ -37,6 +37,17 @@
   - USSPCombatWebbing
 
 - type: loadoutGroup
+  id: USSPBeltOfficer
+  name: loadout-group-contractor-belt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ContractorClothingBeltHolster
+  - MercenaryClothingBeltSecurityEmpty
+  subgroups:
+  - USSPBelt
+
+- type: loadoutGroup
   id: USSPOuterClothingOfficer
   name: loadout-group-contractor-outerclothing
   loadouts:
@@ -65,12 +76,23 @@
   - USSPClothingJumpsuit
 
 - type: loadoutGroup
+  id: USSPJumpsuitOfficer
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  loadouts:
+  - USSPClothingServiceDress
+  - USSPClothingJumpsuit
+  fallbacks:
+  - USSPClothingJumpsuit
+
+- type: loadoutGroup
   id: USSPGlasses
   name: loadout-group-contractor-glasses
   minLimit: 1
   loadouts:
   - USSPMedHud
   - MercenaryClothingEyesBallisticGogglesGreen
+  - MercenaryClothingEyesBallisticGogglesRed
   - MercenaryClothingEyesGlassesSunglasses
 
 - type: loadoutGroup

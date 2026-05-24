@@ -1,8 +1,8 @@
 - type: entity
   id: BookUSSPLaw
   parent: BaseGuidebook
-  name: USSP law
-  description: A set of Soviet mandates for keeping unity and patriotism at an all time high. Vodka not included.
+  name: USSP service Regulations
+  description: A field manual carried by all servicemen of the USSP Armed Forces. Every serzhant can quote it from memory, usually at an intensity unsuitable for cramped spaces.
   components:
   - type: Sprite
     layers:
@@ -16,3 +16,6 @@
   - type: GuideHelp
     guides:
     - USSP_Entry
+  - type: Tag
+    tags:
+    - BookUSSPLaw
