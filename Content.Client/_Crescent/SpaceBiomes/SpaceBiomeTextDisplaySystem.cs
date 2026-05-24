@@ -53,7 +53,10 @@ public sealed partial class SpaceTextDisplaySystem : EntitySystem
         _overlay.Reset();             //these should be reset as well to match OnSwap
         _overlay.ResetDescription();
 
-        if (_overlay.Text != null || _overlay.Text.Length == 0)
+        if (_overlay.Text != null)
+            return;
+
+        if (name.Length == 0)
             return;
 
         _overlay.Text = name;
