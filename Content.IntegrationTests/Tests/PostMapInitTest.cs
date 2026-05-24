@@ -200,7 +200,7 @@ namespace Content.IntegrationTests.Tests
             var protoManager = server.ResolveDependency<IPrototypeManager>();
             var loader = server.System<MapLoaderSystem>();
 
-            var rootedPath = map.ToRootedPath() / "Mono"; // Mono
+            var rootedPath = map.ToRootedPath();
 
             var isV7Map = false;
 
