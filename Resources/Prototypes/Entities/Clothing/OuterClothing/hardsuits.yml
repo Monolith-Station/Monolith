@@ -470,7 +470,7 @@
         Slash: 0.8
         Piercing: 0.85
         Heat: 0.35
-        Radiation: 0.0
+        Radiation: 0.05
         Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.8
@@ -769,7 +769,7 @@
         Slash: 0.6
         Piercing: 0.6
         Heat: 0.35
-        Radiation: 0.01
+        Radiation: 0.05
         Caustic: 0.5
   - type: Item
     size: Huge
