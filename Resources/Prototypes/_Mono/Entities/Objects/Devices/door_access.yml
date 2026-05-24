@@ -12,7 +12,7 @@
   suffix: USSP Secure, Locked
   components:
   - type: AccessReader
-    access: [["Mercenary"]] # Might want to change these door sets for freeport, Corrupt. -Mrrpip
+    access: [["Mercenary"]]
 
 - type: entity
   parent: DoorElectronics
