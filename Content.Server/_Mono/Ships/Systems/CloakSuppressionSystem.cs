@@ -12,12 +12,12 @@ namespace Content.Server._Mono.Ships.Systems;
 /// <summary>
 /// System that handles IFF suppression by ships with CloakHunter capability. Very performant, like everything I make.
 /// </summary>
-public sealed class CloakSuppressionSystem : EntitySystem
+public sealed partial class CloakSuppressionSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedShuttleSystem _shuttle = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedShuttleSystem _shuttle = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     /// <summary>
     /// Range in meters within which CloakHunter ships suppress IFF Hide flags.

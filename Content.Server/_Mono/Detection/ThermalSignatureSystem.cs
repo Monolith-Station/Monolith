@@ -15,10 +15,10 @@ namespace Content.Server._Mono.Detection;
 /// <summary>
 ///     Handles the logic for thermal signatures.
 /// </summary>
-public sealed class ThermalSignatureSystem : EntitySystem
+public sealed partial class ThermalSignatureSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedPowerReceiverSystem _power = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private const float UpdateIntervalSeconds = 1f;
     private static readonly TimeSpan UpdateInterval = TimeSpan.FromSeconds(UpdateIntervalSeconds);

@@ -15,13 +15,13 @@ using Content.Shared.Stacks;
 
 namespace Content.Server._EinsteinEngines.Silicon.BlindHealing;
 
-public sealed class BlindHealingSystem : SharedBlindHealingSystem
+public sealed partial class BlindHealingSystem : SharedBlindHealingSystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly BlindableSystem _blindableSystem = default!;
-    [Dependency] private readonly StackSystem _stackSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private BlindableSystem _blindableSystem = default!;
+    [Dependency] private StackSystem _stackSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
 
     public override void Initialize()
     {

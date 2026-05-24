@@ -14,8 +14,8 @@ namespace Content.Server.Atmos.EntitySystems
 {
     public sealed partial class AtmosphereSystem
     {
-        [Dependency] private readonly DecalSystem _decalSystem = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private DecalSystem _decalSystem = default!;
+        [Dependency] private IRobustRandom _random = default!;
 
         private const int HotspotSoundCooldownCycles = 200;
 

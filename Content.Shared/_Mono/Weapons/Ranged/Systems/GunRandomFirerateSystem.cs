@@ -6,7 +6,7 @@ namespace Content.Shared._Mono.Weapons.Ranged.Systems;
 
 public sealed partial class GunRandomFirerateSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {
