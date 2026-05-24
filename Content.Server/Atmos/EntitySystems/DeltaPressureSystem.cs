@@ -16,8 +16,8 @@ namespace Content.Server.Atmos.EntitySystems;
 /// </summary>
 public sealed class DeltaPressureSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private SharedMapSystem _map = default!;
 
     public override void Initialize()
     {

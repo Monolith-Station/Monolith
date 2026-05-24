@@ -1,5 +1,6 @@
-using Content.Server.Power.Components;
+using Content.Shared.Emp;
 using Content.Shared.Examine;
+using Content.Shared.Power.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 

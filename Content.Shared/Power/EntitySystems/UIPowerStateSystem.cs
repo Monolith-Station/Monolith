@@ -9,8 +9,8 @@ namespace Content.Shared.Power.EntitySystems;
 /// </summary>
 public sealed class UIPowerStateSystem : EntitySystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedPowerStateSystem _powerState = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedPowerStateSystem _powerState = default!;
 
     public override void Initialize()
     {

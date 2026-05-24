@@ -9,7 +9,7 @@ namespace Content.Shared.Power.EntitySystems;
 /// </summary>
 public abstract class SharedPowerStateSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPowerReceiverSystem _powerReceiverSystem = default!;
+    [Dependency] private SharedPowerReceiverSystem _powerReceiverSystem = default!;
 
     private EntityQuery<PowerStateComponent> _powerStateQuery;
 
