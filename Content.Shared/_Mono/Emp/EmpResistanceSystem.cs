@@ -3,15 +3,21 @@ using Content.Shared.Examine;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 
-namespace Content.Server._Mono.Emp;
-
+namespace Content.Shared._Mono.Emp;
 
 public sealed partial class EmpResistanceSystem : EntitySystem
 {
     [Dependency] private ExamineSystemShared _examine = default!;
+
     public override void Initialize()
     {
+        SubscribeLocalEvent<EmpResistanceComponent, EmpPulseEvent>(OnPulse);
         SubscribeLocalEvent<EmpResistanceComponent, GetVerbsEvent<ExamineVerb>>(OnExamine);
+    }
+
+    private void OnPulse(Entity<EmpResistanceComponent> ent, ref EmpPulseEvent args)
+    {
+        args.EnergyConsumption *= ent.Comp.Coefficient;
     }
 
     private void OnExamine(Entity<EmpResistanceComponent> ent, ref GetVerbsEvent<ExamineVerb> args)

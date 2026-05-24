@@ -361,20 +361,6 @@ public abstract partial class SharedPoweredLightSystem : EntitySystem
         }
     }
 
-    public void ToggleBlinkingLight(EntityUid uid, PoweredLightComponent light, bool isNowBlinking)
-    {
-        if (light.IsBlinking == isNowBlinking)
-            return;
-
-        light.IsBlinking = isNowBlinking;
-        Dirty(uid, light);
-
-        if (!TryComp<AppearanceComponent>(uid, out var appearance))
-            return;
-
-        _appearance.SetData(uid, PoweredLightVisuals.Blinking, isNowBlinking, appearance);
-    }
-
     private void SetLight(EntityUid uid, bool value, Color? color = null, PoweredLightComponent? light = null, float? radius = null, float? energy = null, float? softness = null)
     {
         if (!Resolve(uid, ref light))

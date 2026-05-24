@@ -105,11 +105,6 @@ public abstract partial class SharedEmpSystem : EntitySystem
     /// <returns>If the entity was affected by the EMP.</returns>
     public bool DoEmpEffects(EntityUid uid, float energyConsumption, TimeSpan duration, EntityUid? user = null)
     {
-        // Mono edit start
-        if (TryComp<EmpResistanceComponent>(uid, out var res))
-            energyConsumption *= res.Coefficient;
-        // Mono edit end
-
         var ev = new EmpPulseEvent(energyConsumption, false, false, duration, user);
         RaiseLocalEvent(uid, ref ev);
 
