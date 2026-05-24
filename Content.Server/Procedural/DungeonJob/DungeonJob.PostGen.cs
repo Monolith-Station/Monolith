@@ -10,7 +10,9 @@ namespace Content.Server.Procedural.DungeonJob;
 
 public sealed partial class DungeonJob
 {
-    // Various helper methods.
+    /*
+     * Run after the main dungeon generation
+     */
 
     private static readonly ProtoId<TagPrototype> WallTag = "Wall";
 

@@ -12,8 +12,14 @@ public sealed partial class DungeonJob
     /// <summary>
     /// <see cref="CorridorDunGen"/>
     /// </summary>
-    private async Task PostGen(CorridorDunGen gen, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
+    private async Task PostGen(CorridorDunGen gen, DungeonData data, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
     {
+        if (!data.Tiles.TryGetValue(DungeonDataKey.FallbackTile, out var tileProto))
+        {
+            LogDataError(typeof(CorridorDunGen));
+            return;
+        }
+
         var entrances = new List<Vector2i>(dungeon.Rooms.Count);
 
         // Grab entrances
@@ -92,7 +98,7 @@ public sealed partial class DungeonJob
         WidenCorridor(dungeon, gen.Width, corridorTiles);
 
         var setTiles = new List<(Vector2i, Tile)>();
-        var tileDef = (ContentTileDefinition) _tileDefManager[gen.Tile];
+        var tileDef = (ContentTileDefinition) _tileDefManager[tileProto];
 
         foreach (var tile in corridorTiles)
         {

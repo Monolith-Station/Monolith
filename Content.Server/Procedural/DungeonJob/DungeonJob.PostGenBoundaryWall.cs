@@ -12,13 +12,27 @@ public sealed partial class DungeonJob
     /// <summary>
     /// <see cref="BoundaryWallDunGen"/>
     /// </summary>
-    private async Task PostGen(BoundaryWallDunGen gen, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
+    private async Task PostGen(BoundaryWallDunGen gen, DungeonData data, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
     {
-        var tileDef = _tileDefManager[gen.Tile];
+        if (!data.Tiles.TryGetValue(DungeonDataKey.FallbackTile, out var protoTileDef) ||
+            !data.Entities.TryGetValue(DungeonDataKey.Walls, out var wall))
+        {
+            _sawmill.Error($"Error finding dungeon data for {nameof(gen)}");
+            return;
+        }
+
+        var tileDef = _tileDefManager[protoTileDef];
         var tiles = new List<(Vector2i Index, Tile Tile)>(dungeon.RoomExteriorTiles.Count);
 
-        var wall = gen.Wall;
-        var cornerWall = gen.CornerWall ?? gen.Wall;
+        if (!data.Entities.TryGetValue(DungeonDataKey.CornerWalls, out var cornerWall))
+        {
+            cornerWall = wall;
+        }
+
+        if (cornerWall == default)
+        {
+            cornerWall = wall;
+        }
 
         // Spawn wall outline
         // - Tiles first

@@ -12,10 +12,17 @@ public sealed partial class DungeonJob
     /// <summary>
     /// <see cref="JunctionDunGen"/>
     /// </summary>
-    private async Task PostGen(JunctionDunGen gen, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
+    private async Task PostGen(JunctionDunGen gen, DungeonData data, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
     {
-        var tileDef = _tileDefManager[gen.Tile];
-        var contents = _prototype.Index(gen.Contents);
+        if (!data.Tiles.TryGetValue(DungeonDataKey.FallbackTile, out var tileProto) ||
+            !data.SpawnGroups.TryGetValue(DungeonDataKey.Junction, out var junctionProto))
+        {
+            _sawmill.Error($"Dungeon data keys are missing for {nameof(gen)}");
+            return;
+        }
+
+        var tileDef = _tileDefManager[tileProto];
+        var entranceGroup = _prototype.Index(junctionProto);
 
         // N-wide junctions
         foreach (var tile in dungeon.CorridorTiles)
@@ -116,7 +123,7 @@ public sealed partial class DungeonJob
                         _maps.SetTile(_gridUid, _grid, weh, _tile.GetVariantTile((ContentTileDefinition) tileDef, random));
 
                         var coords = _maps.GridTileToLocal(_gridUid, _grid, weh);
-                        _entManager.SpawnEntitiesAttachedTo(coords, _entTable.GetSpawns(contents, random));
+                        _entManager.SpawnEntities(coords, EntitySpawnCollection.GetSpawns(entranceGroup.Entries, random));
                     }
 
                     break;
