@@ -13,9 +13,9 @@ public enum ContrabandPalletConsoleUiKey : byte
     Contraband
 }
 
-public abstract class SharedContrabandTurnInSystem : EntitySystem
+public abstract partial class SharedContrabandTurnInSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private IPrototypeManager _prot = default!;
 
     public void ClearContrabandValue(EntityUid item)
     {

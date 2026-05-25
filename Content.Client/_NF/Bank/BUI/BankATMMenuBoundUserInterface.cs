@@ -51,7 +51,7 @@ public sealed class BankATMMenuBoundUserInterface : BoundUserInterface
             return;
 
         _menu?.SetEnabled(bankState.Enabled);
-        _menu?.SetBalance(bankState.Balance);
-        _menu?.SetDeposit(bankState.Deposit, bankState.DepositUntaxed);
+        _menu?.SetBalance(bankState.Balance, bankState.Savings);
+        _menu?.SetDeposit(bankState.Deposit);
     }
 }

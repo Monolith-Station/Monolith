@@ -11,18 +11,19 @@ using static Content.Client.Mapping.MappingState;
 
 namespace Content.Client.Mapping;
 
-public sealed class MappingOverlay : Overlay
+public sealed partial class MappingOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
+    [Dependency] private IEntityManager _entities = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
 
-    [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    private readonly SpriteSystem _sprite;
+    private SpriteSystem _sprite;
 
-    private readonly Dictionary<EntityUid, Color> _oldColors = new();
+    private Dictionary<EntityUid, Color> _oldColors = new();
 
-    private readonly MappingState _state;
-    private readonly ShaderInstance _shader;
+    private MappingState _state;
+    private ShaderInstance _shader;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 

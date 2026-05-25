@@ -47,24 +47,24 @@ using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Client.Mapping;
 
-public sealed class MappingState : GameplayStateBase
+public sealed partial class MappingState : GameplayStateBase
 {
-    [Dependency] private readonly IClientAdminManager _admin = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-    [Dependency] private readonly IEntityNetworkManager _entityNetwork = default!;
-    [Dependency] private readonly IInputManager _input = default!;
-    [Dependency] private readonly ILogManager _log = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly MappingManager _mapping = default!;
-    [Dependency] private readonly IOverlayManager _overlays = default!;
-    [Dependency] private readonly IPlacementManager _placement = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IResourceCache _resources = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
-    [Dependency] private readonly ILocalizationManager _localization = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private IClientAdminManager _admin = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private IEntityNetworkManager _entityNetwork = default!;
+    [Dependency] private IInputManager _input = default!;
+    [Dependency] private ILogManager _log = default!;
+    [Dependency] private IMapManager _mapMan = default!;
+    [Dependency] private MappingManager _mapping = default!;
+    [Dependency] private IOverlayManager _overlays = default!;
+    [Dependency] private IPlacementManager _placement = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IResourceCache _resources = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IClientConsoleHost _consoleHost = default!;
+    [Dependency] private ILocalizationManager _localization = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
 
     private EntityMenuUIController _entityMenuController = default!;
 
@@ -83,12 +83,12 @@ public sealed class MappingState : GameplayStateBase
     private static readonly Color GridSelectColor = Color.Green.WithAlpha(0.2f);
     private static readonly Color GridRemoveColor = Color.Red.WithAlpha(0.2f);
 
-    private readonly ISawmill _sawmill;
-    private readonly GameplayStateLoadController _loadController;
+    private ISawmill _sawmill;
+    private GameplayStateLoadController _loadController;
     private bool _setup;
-    private readonly Dictionary<Type, List<MappingPrototype>> _allPrototypes = new();
-    private readonly Dictionary<IPrototype, MappingPrototype> _allPrototypesDict = new();
-    private readonly Dictionary<Type, Dictionary<string, MappingPrototype>> _idDict = new();
+    private Dictionary<Type, List<MappingPrototype>> _allPrototypes = new();
+    private Dictionary<IPrototype, MappingPrototype> _allPrototypesDict = new();
+    private Dictionary<Type, Dictionary<string, MappingPrototype>> _idDict = new();
     private (TimeSpan At, MappingSpawnButton Button)? _lastClicked;
     private (Control, MappingPrototypeList)? _scrollTo;
     private bool _tileErase;
@@ -1156,7 +1156,7 @@ public sealed class MappingState : GameplayStateBase
 
                 if (_mapMan.TryFindGridAt(mapPos, out var gridUid, out var grid) &&
                     _entityManager.System<SharedMapSystem>().TryGetTileRef(gridUid, grid, coords, out var tileRef) &&
-                    _allPrototypesDict.TryGetValue(tileRef.GetContentTileDefinition(), out button))
+                    _allPrototypesDict.TryGetValue(_entityManager.System<TurfSystem>().GetContentTileDefinition(tileRef), out button))
                 {
                     switch (button.Prototype)
                     {

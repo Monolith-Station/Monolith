@@ -17,13 +17,13 @@ namespace Content.Server._Mono.NPC.HTN;
 
 public sealed partial class ShipSteeringSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly MoverController _mover = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly TargetSeekingSystem _seeking = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IMapManager _mapMan = default!;
+    [Dependency] private MoverController _mover = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ShuttleSystem _shuttle = default!;
+    [Dependency] private TargetSeekingSystem _seeking = default!;
 
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<ProjectileGridPhaseComponent> _phaseQuery;

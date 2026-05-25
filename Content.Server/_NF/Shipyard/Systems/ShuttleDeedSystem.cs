@@ -11,7 +11,7 @@ namespace Content.Server._NF.Shipyard;
 public sealed partial class ShuttleDeedSystem : EntitySystem
 {
 
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
