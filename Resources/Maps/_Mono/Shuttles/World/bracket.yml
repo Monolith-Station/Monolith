@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 271.2.0
+  engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/25/2026 17:21:49
-  entityCount: 134
+  time: 05/25/2026 12:49:53
+  entityCount: 154
 maps: []
 grids:
 - 1
@@ -64,10 +64,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Smoke: []
         MetalFoam: []
         Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -84,6 +84,9 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: ThermalSignature
+    - type: ImplicitRoof
+    - type: ExplosionAirtightGrid
 - proto: APCBasic
   entities:
   - uid: 62
@@ -237,6 +240,93 @@ entities:
     - type: Transform
       pos: 2.5,0.5
       parent: 1
+- proto: Catwalk
+  entities:
+  - uid: 135
+    components:
+    - type: Transform
+      pos: -3.5,2.5
+      parent: 1
+  - uid: 136
+    components:
+    - type: Transform
+      pos: -3.5,1.5
+      parent: 1
+  - uid: 137
+    components:
+    - type: Transform
+      pos: -4.5,0.5
+      parent: 1
+  - uid: 138
+    components:
+    - type: Transform
+      pos: -4.5,1.5
+      parent: 1
+  - uid: 139
+    components:
+    - type: Transform
+      pos: -4.5,2.5
+      parent: 1
+  - uid: 140
+    components:
+    - type: Transform
+      pos: -5.5,1.5
+      parent: 1
+  - uid: 141
+    components:
+    - type: Transform
+      pos: -5.5,2.5
+      parent: 1
+  - uid: 142
+    components:
+    - type: Transform
+      pos: -2.5,0.5
+      parent: 1
+  - uid: 143
+    components:
+    - type: Transform
+      pos: -1.5,-0.5
+      parent: 1
+  - uid: 144
+    components:
+    - type: Transform
+      pos: 2.5,-0.5
+      parent: 1
+  - uid: 145
+    components:
+    - type: Transform
+      pos: 5.5,0.5
+      parent: 1
+  - uid: 146
+    components:
+    - type: Transform
+      pos: 4.5,1.5
+      parent: 1
+  - uid: 147
+    components:
+    - type: Transform
+      pos: 4.5,2.5
+      parent: 1
+  - uid: 148
+    components:
+    - type: Transform
+      pos: 5.5,1.5
+      parent: 1
+  - uid: 149
+    components:
+    - type: Transform
+      pos: 6.5,1.5
+      parent: 1
+  - uid: 150
+    components:
+    - type: Transform
+      pos: 5.5,2.5
+      parent: 1
+  - uid: 151
+    components:
+    - type: Transform
+      pos: 6.5,2.5
+      parent: 1
 - proto: ClothingBackpackDroneLootT22
   entities:
   - uid: 98
@@ -270,6 +360,27 @@ entities:
     components:
     - type: Transform
       pos: 2.5,0.5
+      parent: 1
+- proto: GreebleAntenna1
+  entities:
+  - uid: 153
+    components:
+    - type: Transform
+      pos: 3.5,3.5
+      parent: 1
+- proto: GreebleAntenna2
+  entities:
+  - uid: 154
+    components:
+    - type: Transform
+      pos: -2.5,3.5
+      parent: 1
+- proto: GreebleElint1
+  entities:
+  - uid: 152
+    components:
+    - type: Transform
+      pos: -4.5,4.5
       parent: 1
 - proto: Grille
   entities:
@@ -355,60 +466,80 @@ entities:
       rot: 3.141592653589793 rad
       pos: -4.5,0.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 88
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,1.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 89
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 4.5,1.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 90
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,2.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 92
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -4.5,1.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 93
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -4.5,2.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 94
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 5.5,0.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 95
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -3.5,1.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 96
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,0.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 97
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,0.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
 - proto: RadarEdgeMarkerCenter
   entities:
   - uid: 123
@@ -594,19 +725,7 @@ entities:
     - type: Transform
       pos: 0.5,-1.5
       parent: 1
-- proto: SmallThruster
-  entities:
-  - uid: 28
-    components:
-    - type: Transform
-      pos: 4.5,2.5
-      parent: 1
-  - uid: 54
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 1
-- proto: SpawnMobAttackerCoreStaticSmart
+- proto: SpawnMobDroneAiBracket
   entities:
   - uid: 10
     components:
@@ -629,6 +748,11 @@ entities:
       parent: 1
 - proto: Thruster
   entities:
+  - uid: 5
+    components:
+    - type: Transform
+      pos: -3.5,2.5
+      parent: 1
   - uid: 12
     components:
     - type: Transform
@@ -677,9 +801,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.5,-0.5
       parent: 1
+  - uid: 28
+    components:
+    - type: Transform
+      pos: 4.5,2.5
+      parent: 1
 - proto: ThrusterLarge
   entities:
-  - uid: 5
+  - uid: 54
     components:
     - type: Transform
       rot: -1.5707963267948966 rad

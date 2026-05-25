@@ -253,6 +253,17 @@
     rootTask:
       task: DroneCompoundQuake
 
+- type: entity
+  id: NpcDroneAiBracket
+  name: attacker core
+  parent: [NpcStationAiAttackerSmart, BaseFactionGearOtherFactionT3]
+  description: Shoots at you.
+  suffix: AI, Drone-Bracket
+  components:
+  - type: HTN
+    rootTask:
+      task: DroneCompoundBracket
+
 #region Spawners
 
 - type: entity
@@ -423,3 +434,13 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcDroneAiQuake
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiBracket
+  parent: SpawnMobAttackerCore
+  suffix: Drone-Bracket
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiBracket

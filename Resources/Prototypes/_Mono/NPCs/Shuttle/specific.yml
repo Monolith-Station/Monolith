@@ -281,3 +281,44 @@
         proto: NearbyShuttleTargetsLongRange
         key: Target
         coordinatesKey: TargetCoordinates
+
+- type: htnCompound
+  id: DroneCompoundBracket
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleAttackDroneCompoundBracket
+
+- type: htnCompound
+  id: ShuttleAttackDroneCompoundBracket
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: PlanFinished
+        removeKeyOnFinish: false
+        alwaysFaceTarget: true
+        inRangeMaxSpeed: 4
+        avoidProjectiles: true
+        range: 800
+        rangeTolerance: 150
+        mode: Orbit
+        targetKey: TargetCoordinates
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipFireGunsOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        leadingAccuracy: 0.3
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
