@@ -6,10 +6,10 @@ using Robust.Shared.Network;
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
-public sealed class HitscanSpawnEntitySystem : EntitySystem
+public sealed partial class HitscanSpawnEntitySystem : EntitySystem
 {
-    [Dependency] private readonly SharedExplosionSystem _explosion = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedExplosionSystem _explosion = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

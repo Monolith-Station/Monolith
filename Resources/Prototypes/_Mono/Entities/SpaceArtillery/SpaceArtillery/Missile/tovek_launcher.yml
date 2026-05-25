@@ -1,7 +1,7 @@
 - type: entity
   id: WeaponTurretTovek
   name: ADMX-250 TOVEK Missile Pod
-  parent: BallisticArtilleryCartridge
+  parent: BallisticArtilleryUnanchorableCartridge
   description: A 250mm missile pod created by Aetherion Dynamics. Fires 250mm warheads to devastate enemy ships at long range. Can be remotely activated or linked to a GCS.
   components:
   - type: StaticPrice

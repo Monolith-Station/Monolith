@@ -8,7 +8,7 @@ namespace Content.Client._ES.Weapons.Ranged.Attachments.Ui;
 [GenerateTypedNameReferences]
 public sealed partial class ESGunAttachmentWindow : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
     private readonly ESGunAttachmentsSystem _gunAttachments;
 
     public ESGunAttachmentWindow()

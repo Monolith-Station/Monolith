@@ -192,7 +192,7 @@
     - type: Gun
       minAngle: 21
       maxAngle: 32
-      fireRate: 6
+      fireRate: 7 # Mono
       burstFireRate: 12
       soundGunshot:
         path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/smg.ogg # Mono
@@ -277,13 +277,18 @@
           whitelist:
             tags:
             - MonoGripLAM
+        - containerId: attachment_grip
+          state: light
+          whitelist:
+            tags:
+            - MonoGripLight
         barrelAttachment:
         - containerId: attachment_barrel
           state: suppressed
           whitelist:
             tags:
             - MonoSuppressor
-        # Mono end
+    # Mono end
     - type: MagazineVisuals
       magState: mag
       steps: 6
@@ -293,7 +298,6 @@
       price: 525
     - type: PirateBountyItem # Mono
       id: StandardFactionLongarm
-
 
 - type: entity
   name: UI WT550 (4.6x30mm)

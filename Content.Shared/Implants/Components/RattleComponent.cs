@@ -15,6 +15,10 @@ public sealed partial class RattleComponent : Component
     // Mono - Language of message on rattle
     [DataField]
     public ProtoId<LanguagePrototype> Language = "TauCetiBasic";
+    
+    // The message that the implant will send when revived from death // Mono
+    [DataField]
+    public LocId ReviveMessage = "deathrattle-implant-revive-message";
 
     // The message that the implant will send when crit
     [DataField]

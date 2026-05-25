@@ -12,10 +12,10 @@ namespace Content.Server._Mono.MonoCoins;
 /// Admin command for checking any player's MonoCoins balance.
 /// </summary>
 [AdminCommand(AdminFlags.Admin)]
-public sealed class CurrencyBalanceCommand : LocalizedCommands
+public sealed partial class CurrencyBalanceCommand : LocalizedCommands
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly MonoCoinsManager _coins = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private MonoCoinsManager _coins = default!;
 
     public override string Command => "currency:balance";
 

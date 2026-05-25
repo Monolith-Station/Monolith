@@ -2,10 +2,10 @@ using System.Linq;
 using System.Numerics;
 using Content.Server._NF.Trade;
 using Content.Server.GameTicking;
-using Content.Server.Maps;
 using Content.Server.Station.Systems;
 using Content.Shared._NF.CCVar;
 using Content.Shared.GameTicking;
+using Content.Shared.Maps;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -19,16 +19,16 @@ namespace Content.Server._NF.GameRule;
 /// This handles the dungeon and trading post spawning, as well as round end capitalism summary
 /// </summary>
 //[Access(typeof(NfAdventureRuleSystem))]
-public sealed class PointOfInterestSystem : EntitySystem
+public sealed partial class PointOfInterestSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly MapLoaderSystem _map = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly StationRenameWarpsSystems _renameWarps = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private GameTicker _ticker = default!;
+    [Dependency] private MapLoaderSystem _map = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private StationRenameWarpsSystems _renameWarps = default!;
+    [Dependency] private StationSystem _station = default!;
 
     private List<Vector2> _stationCoords = new();
 

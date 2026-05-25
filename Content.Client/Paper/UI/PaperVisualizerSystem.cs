@@ -4,9 +4,9 @@ using static Content.Shared.Paper.PaperComponent;
 
 namespace Content.Client.Paper.UI;
 
-public sealed class PaperVisualizerSystem : VisualizerSystem<PaperVisualsComponent>
+public sealed partial class PaperVisualizerSystem : VisualizerSystem<PaperVisualsComponent>
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     protected override void OnAppearanceChange(EntityUid uid, PaperVisualsComponent component, ref AppearanceChangeEvent args)
     {

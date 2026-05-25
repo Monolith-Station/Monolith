@@ -21,15 +21,15 @@ namespace Content.Server.Shuttles.Systems;
 /// This solves the problem of ships "merging" together when they FTL to the same destination
 /// coordinates, which can cause visual glitches, physics issues, and gameplay problems.
 /// </summary>
-public sealed class FTLAntiCollisionSystem : EntitySystem
+public sealed partial class FTLAntiCollisionSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly DockingSystem _dockingSystem = default!;
-    [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ShuttleSystem _shuttle = default!;
+    [Dependency] private TileSystem _tile = default!;
+    [Dependency] private DockingSystem _dockingSystem = default!;
+    [Dependency] private EntityLookupSystem _lookupSystem = default!;
 
     // How far to check for other ships
     private const float CollisionCheckRange = 30f;

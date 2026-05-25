@@ -18,7 +18,7 @@ namespace Content.Client.Lobby.UI.Loadouts;
 [GenerateTypedNameReferences]
 public sealed partial class LoadoutWindow : FancyWindow
 {
-    [Dependency] private readonly MonoCoinsManager _coins = default!; // Mono
+    [Dependency] private MonoCoinsManager _coins = default!; // Mono
 
     public event Action<string>? OnNameChanged;
     public event Action<ProtoId<LoadoutGroupPrototype>, ProtoId<LoadoutPrototype>>? OnLoadoutPressed;

@@ -101,6 +101,11 @@
         whitelist:
           tags:
           - MonoGripLAM
+      - containerId: attachment_grip
+        state: light
+        whitelist:
+          tags:
+          - MonoGripLight
       opticAttachment:
       - containerId: attachment_optic
         state: optic2x
@@ -280,6 +285,11 @@
         whitelist:
           tags:
           - MonoGripLAM
+      - containerId: attachment_grip
+        state: light
+        whitelist:
+          tags:
+          - MonoGripLight
       opticAttachment:
       - containerId: attachment_optic
         state: optic2x
@@ -400,6 +410,11 @@
         whitelist:
           tags:
           - MonoGripLAM
+      - containerId: attachment_grip
+        state: light
+        whitelist:
+          tags:
+          - MonoGripLight
       opticAttachment:
       - containerId: attachment_optic
         state: optic2x

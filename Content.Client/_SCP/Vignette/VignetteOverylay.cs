@@ -4,9 +4,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Scp.Vignette;
 
-public sealed class VignetteOverlay : Overlay
+public sealed partial class VignetteOverlay : Overlay
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private readonly ShaderInstance _shader;
 

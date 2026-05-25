@@ -122,6 +122,11 @@
         whitelist:
           tags:
           - MonoGripLAM
+      - containerId: attachment_grip
+        state: light
+        whitelist:
+          tags:
+          - MonoGripLight
       barrelAttachment:
       - containerId: attachment_barrel
         state: suppressed
@@ -217,7 +222,6 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-      attachment_grip: !type:ContainerSlot # Mono
       attachment_optic: !type:ContainerSlot # Mono
   # Mono start
   - type: ESAttachableGun
@@ -385,6 +389,16 @@
         whitelist:
           tags:
           - MonoGripVFG
+      - containerId: attachment_grip
+        state: lam
+        whitelist:
+          tags:
+          - MonoGripLAM
+      - containerId: attachment_grip
+        state: light
+        whitelist:
+          tags:
+          - MonoGripLight
       barrelAttachment:
       - containerId: attachment_barrel
         state: suppressed
