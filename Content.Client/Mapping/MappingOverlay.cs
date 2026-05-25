@@ -15,7 +15,6 @@ public sealed partial class MappingOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
     [Dependency] private IEntityManager _entities = default!;
-    [Dependency] private IPlayerManager _player = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
 
     private SpriteSystem _sprite;
