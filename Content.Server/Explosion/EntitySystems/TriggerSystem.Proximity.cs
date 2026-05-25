@@ -10,10 +10,10 @@ namespace Content.Server.Explosion.EntitySystems;
 
 public sealed partial class TriggerSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // Frontier
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!; // Frontier
 
     private void InitializeProximity()
     {

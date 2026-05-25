@@ -11,10 +11,10 @@ using Robust.Client.Graphics;
 
 namespace Content.Client._Shitmed.UserInterface.Systems.PartStatus;
 
-public sealed class PartStatusUIController : UIController, IOnStateEntered<GameplayState>, IOnSystemChanged<TargetingSystem>
+public sealed partial class PartStatusUIController : UIController, IOnStateEntered<GameplayState>, IOnSystemChanged<TargetingSystem>
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IEntityNetworkManager _net = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IEntityNetworkManager _net = default!;
     private SpriteSystem _spriteSystem = default!;
     private TargetingComponent? _targetingComponent;
     private PartStatusControl? PartStatusControl => UIManager.GetActiveUIWidgetOrNull<PartStatusControl>();

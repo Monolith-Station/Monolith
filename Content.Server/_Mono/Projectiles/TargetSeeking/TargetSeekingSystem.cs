@@ -12,12 +12,12 @@ namespace Content.Server._Mono.Projectiles.TargetSeeking;
 /// <summary>
 ///     Handles the logic for target-seeking projectiles.
 /// </summary>
-public sealed class TargetSeekingSystem : EntitySystem
+public sealed partial class TargetSeekingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = null!;
-    [Dependency] private readonly RotateToFaceSystem _rotateToFace = null!;
-    [Dependency] private readonly PhysicsSystem _physics = null!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!; // Mono
+    [Dependency] private SharedTransformSystem _transform = null!;
+    [Dependency] private RotateToFaceSystem _rotateToFace = null!;
+    [Dependency] private PhysicsSystem _physics = null!;
+    [Dependency] private IGameTiming _gameTiming = default!; // Mono
 
     private EntityQuery<ProjectileComponent> _projectileQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;

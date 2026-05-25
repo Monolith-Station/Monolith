@@ -13,11 +13,11 @@ namespace Content.Server._Mono.NPC.HTN;
 
 public sealed partial class ShipTargetingSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly FireControlSystem _cannon = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private FireControlSystem _cannon = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private EntityQuery<GunComponent> _gunQuery;
     private EntityQuery<PhysicsComponent> _physQuery;

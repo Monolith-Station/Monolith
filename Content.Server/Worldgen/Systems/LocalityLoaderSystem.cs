@@ -16,10 +16,10 @@ namespace Content.Server.Worldgen.Systems;
 /// <summary>
 ///     This handles loading in objects based on distance from player, using some metadata on chunks.
 /// </summary>
-public sealed class LocalityLoaderSystem : BaseWorldSystem
+public sealed partial class LocalityLoaderSystem : BaseWorldSystem
 {
-    [Dependency] private readonly TransformSystem _xformSys = default!;
-    [Dependency] private readonly LinkedLifecycleGridSystem _linkedLifecycleGrid = default!;
+    [Dependency] private TransformSystem _xformSys = default!;
+    [Dependency] private LinkedLifecycleGridSystem _linkedLifecycleGrid = default!;
     private EntityQuery<LoadedChunkComponent> _loadedQuery;
     private EntityQuery<WorldControllerComponent> _controllerQuery;
     private EntityQuery<ChunkLoaderComponent> _chunkLoaderQuery;
