@@ -820,8 +820,8 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("admin_ooc_color");
 
-                    b.Property<int>("MonoCoins")
-                        .HasColumnType("integer")
+                    b.Property<long>("MonoCoins")
+                        .HasColumnType("bigint")
                         .HasColumnName("mono_coins");
 
                     b.Property<int>("SelectedCharacterSlot")

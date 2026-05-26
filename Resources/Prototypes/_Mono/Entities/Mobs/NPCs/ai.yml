@@ -50,11 +50,14 @@
     rootTask:
       task: RammerShuttleCompound
   - type: StaticPrice
-    price: 20000
+    price: 40000 # Mono buff, sells for 50k at depots, buffed due to removal of blackbox money
   - type: ApcPowerReceiver
     powerLoad: 1000 # suspiciously low power-using AI
   - type: ExtensionCableReceiver
   - type: TargetSeekingTarget
+  - type: PassiveThermalSignature # Mono
+    signature: 500000 # vibe number
+  - type: ThermalSignature # Mono
 
 - type: entity
   id: NpcStationAiApproacher
@@ -238,6 +241,18 @@
     rootTask:
       task: DroneCompoundLance
 
+- type: entity
+  id: NpcDroneAiQuake
+  name: attacker core
+  parent: [NpcStationAiAttackerSmart, BaseFactionGearOtherFactionT3]
+  description: Shoots at you.
+  suffix: AI, Drone-Quake
+  components:
+  - type: HTN
+    sleepPlayerCheckRangeOverride: 8000
+    rootTask:
+      task: DroneCompoundQuake
+
 #region Spawners
 
 - type: entity
@@ -398,3 +413,13 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcDroneAiLance
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiQuake
+  parent: SpawnMobAttackerCore
+  suffix: Drone-Quake
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiQuake

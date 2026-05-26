@@ -516,6 +516,26 @@
     maxTileBreak: 1
 
 - type: entity
+  id: ShipFragmentProjectile
+  parent: ShipShardProjectile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 200
+        Blunt: 60
+        Piercing: 10
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 6
+    intensitySlope: 2
+    maxIntensity: 2
+    maxTileBreak: 1
+  - type: ProjectileKnockback
+    knockback: 25
+
+- type: entity
   id: ShipPinholeProjectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]

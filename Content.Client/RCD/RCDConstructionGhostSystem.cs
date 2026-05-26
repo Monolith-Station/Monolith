@@ -9,11 +9,11 @@ using Robust.Shared.Enums;
 
 namespace Content.Client.RCD;
 
-public sealed class RCDConstructionGhostSystem : EntitySystem
+public sealed partial class RCDConstructionGhostSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly RCDSystem _rcdSystem = default!;
-    [Dependency] private readonly IPlacementManager _placementManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private RCDSystem _rcdSystem = default!;
+    [Dependency] private IPlacementManager _placementManager = default!;
 
     private string _placementMode = typeof(AlignRCDConstruction).Name;
     private Direction _placementDirection = default;

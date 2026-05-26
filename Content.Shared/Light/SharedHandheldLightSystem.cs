@@ -1,23 +1,23 @@
 using Content.Shared.Actions;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Item;
+using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Light;
 
-public abstract class SharedHandheldLightSystem : EntitySystem
+public abstract partial class SharedHandheldLightSystem : EntitySystem
 {
-    [Dependency] private readonly SharedItemSystem _itemSys = default!;
-    [Dependency] private readonly ClothingSystem _clothingSys = default!;
-    [Dependency] private readonly SharedActionsSystem _actionSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SharedItemSystem _itemSys = default!;
+    [Dependency] private ClothingSystem _clothingSys = default!;
+    [Dependency] private SharedActionsSystem _actionSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -63,6 +63,9 @@ public abstract class SharedHandheldLightSystem : EntitySystem
 
         Dirty(uid, component);
         UpdateVisuals(uid, component);
+
+        var ev = new LightToggleEvent(activated);
+        RaiseLocalEvent(uid, ev);
     }
 
     public void UpdateVisuals(EntityUid uid, HandheldLightComponent? component = null, AppearanceComponent? appearance = null)

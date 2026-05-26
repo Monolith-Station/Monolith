@@ -9,9 +9,9 @@ namespace Content.Shared._Mono.Detection;
 /// <summary>
 ///     Handles the logic for grid and entity detection.
 /// </summary>
-public sealed class DetectionSystem : EntitySystem
+public sealed partial class DetectionSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private float _thermalMul;
     private float _visualMul;

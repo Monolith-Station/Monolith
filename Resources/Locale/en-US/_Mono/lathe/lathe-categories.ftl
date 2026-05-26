@@ -43,3 +43,4 @@ lathe-category-guns-ballistic = Ballistic Weapons
 lathe-category-guns-energy = Energy Weapons
 lathe-category-guns-explosive = Explosives
 lathe-category-guns-antitank = Anti-Tank Weapons
+lathe-category-attachments = Weapon Attachments
