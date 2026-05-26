@@ -29,7 +29,7 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: AsakimShipsTable
-    minimumTimeUntilFirstEvent: 3600 # 1 hour
+    minimumTimeUntilFirstEvent: 72000 # 20 hours (disabled)
     minMaxEventTiming:
       min: 3600 # 60 minutes between events
       max: 7200 # 120 minutes between events
