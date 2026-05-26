@@ -42,6 +42,12 @@ public sealed partial class ItemMinerComponent : Component
     public TimeSpan Interval = TimeSpan.FromSeconds(10.0f);
 
     /// <summary>
+    /// Chance to actually spawn the result each interval.
+    /// </summary>
+    [DataField]
+    public float SpawnChance = 1f;
+
+    /// <summary>
     /// Whether to need to be anchored to run.
     /// </summary>
     [DataField]

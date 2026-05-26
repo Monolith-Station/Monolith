@@ -9,6 +9,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_kineticgun
   - type: Gun
+    projectileSpeed: 40 # Mono
     fireRate: 1
     selectedMode: SemiAuto
     availableModes:
@@ -16,8 +17,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletKineticShuttle
-    fireCost: 0.1
+    proto: BulletKineticExosuit # Mono
+    fireCost: 10 # Mono
   - type: Appearance
   - type: AmmoCounter
 # TODO: Plasma Cutter

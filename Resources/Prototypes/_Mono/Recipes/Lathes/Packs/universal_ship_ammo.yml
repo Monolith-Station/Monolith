@@ -7,15 +7,14 @@
   #- Magazine20mmAmmoRecipe
   #- Magazine30mmAmmoRecipe
   #- Magazine57mmAmmoRecipe
-  #- Magazine90mmAmmoRecipe
+  #- Magazine90mmAPHEAmmoRecipe
   # Individual load
-  #- 220mmCartridgeAmmoRecipe
-  #- 255mmCartridgeAmmoRecipe
+  #- 220mmCartridgeAPHEAmmoRecipe
+  #- 255mmCartridgeAPHEAmmoRecipe
   #- CharonetteSlugCartridgeAmmoRecipe
   # Missiles
-  - VanykCartridgeAmmoRecipe
-  - TovekCartridgeAmmoRecipe
-  - VesperaMagazineAmmoRecipe
+  - VanykMagazineAmmoRecipe
+  - MissileMagazine50mmHEAmmoRecipe
 
 - type: latheRecipePack
   id: UniversalMissileAmmo

@@ -22,6 +22,12 @@ public sealed partial class ShipTargetingComponent : Component
     public float LeadingAccuracy = 1f;
 
     /// <summary>
+    /// How good to lead offgrid targets.
+    /// </summary>
+    [DataField]
+    public float OffgridLeadingAccuracy = 1f; // be more accurate since an offgrid target is presumably maneurable and small
+
+    /// <summary>
     /// Velocity we're currently estimating for imperfect target leading.
     /// </summary>
     [DataField]

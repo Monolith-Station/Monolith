@@ -4,37 +4,37 @@
 
 # Shuttle Notes:
 #First timer so dont expect much
-- type: vessel
-  id: Ruby
-  parent: BaseVessel
-  name: AES Ruby
-  description: A large vessel for all things science related, anomaly generator included.
-  price: 125000
-  category: Large
-  group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/ruby.yml
-  guidebookPage: ShipyardRuby
-  class:
-  - Science
-  engine:
-  - Plasma
-
-- type: gameMap
-  id: Ruby
-  mapName: 'AES Ruby'
-  mapPath: /Maps/_Mono/Shuttles/ruby.yml
-  minPlayers: 0
-  stations:
-    Ruby:
-      stationProto: StandardFrontierVessel
-      components:
-        - type: StationNameSetup
-          mapNameTemplate: 'Ruby CIV{1}'
-          nameGenerator:
-            !type:NanotrasenNameGenerator
-            prefixCreator: '14'
-        - type: StationJobs
-          availableJobs:
-            Contractor: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
-            Mercenary: [ 0, 0 ]
+#- type: vessel
+#  id: Ruby
+#  parent: BaseVessel
+#  name: AES Ruby
+#  description: A large vessel for all things science related, anomaly generator included.
+#  price: 125000
+#  category: Large
+#  group: Shipyard
+#  shuttlePath: /Maps/_Mono/Shuttles/ruby.yml
+#  guidebookPage: ShipyardRuby
+#  class:
+#  - Science
+#  engine:
+#  - Plasma
+#
+#- type: gameMap
+#  id: Ruby
+#  mapName: 'AES Ruby'
+#  mapPath: /Maps/_Mono/Shuttles/ruby.yml
+#  minPlayers: 0
+#  stations:
+#    Ruby:
+#      stationProto: StandardFrontierVessel
+#      components:
+#        - type: StationNameSetup
+#          mapNameTemplate: 'Ruby CIV{1}'
+#          nameGenerator:
+#            !type:NanotrasenNameGenerator
+#            prefixCreator: '14'
+#        - type: StationJobs
+#          availableJobs:
+#            Contractor: [ 0, 0 ]
+#            Pilot: [ 0, 0 ]
+#            Mercenary: [ 0, 0 ]

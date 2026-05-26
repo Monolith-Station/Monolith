@@ -1,4 +1,22 @@
 - type: entity
+  parent: ClothingBeltMilitaryWebbingCMO
+  suffix: Filled, DO NOT MAP
+  id: ClothingBeltMilitaryWebbingCMOFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: DefibrillatorCompact
+      - id: EnergyScalpel
+      - id: AdvancedRetractor
+      - id: EnergyCautery
+      - id: BoneGel # Mono: AdvancedBoneGel->BoneGel
+      - id: HandheldCrewMonitor
+      - id: MedicatedSuture
+      - id: RegenerativeMesh
+      - id: Bloodpack
+      - id: EmergencyMedipen
+
+- type: entity
   id: ClothingBeltHolsterFilledCentComm
   parent: ClothingBeltHolster
   suffix: Filled, N1984

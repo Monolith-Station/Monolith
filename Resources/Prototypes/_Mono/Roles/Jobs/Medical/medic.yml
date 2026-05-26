@@ -12,6 +12,7 @@
   supervisors: job-supervisors-doc
   weight: 170
   displayWeight: 55 # Second from the top
+  assignedCompany: MD
   canBeAntag: false
   accessGroups:
   - GeneralAccess
@@ -37,5 +38,5 @@
     pocket2: MedicalAppraisalTool
   storage:
     back:
-    - RubberStampDoc
+    - RubberStampDoctor
     - BoxFolderMedicalDoctor

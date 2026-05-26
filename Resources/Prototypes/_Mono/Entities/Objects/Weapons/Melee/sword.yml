@@ -36,7 +36,7 @@
 
 - type: entity
   name: VT-7 high-frequency blade
-  parent: Katana # we dont want the construction node, so we dont copy off the other HF katana
+  parent: [ BaseFactionGearPDVT2, Katana ] # we dont want the construction node, so we dont copy off the other HF katana
   id: WeaponVT7
   description: A high-frequency blade tuned with ill-advised modifications designed to sunder armor.
   components:

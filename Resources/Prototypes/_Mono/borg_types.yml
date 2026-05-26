@@ -1,0 +1,165 @@
+- type: borgType
+  id: pdvassault
+  dummyPrototype: PDVBorgChassisAssault
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleSyndicate
+    - BorgModuleSyndicateAssault
+  defaultModules:
+  - BorgModulePDVStandardAssault
+  - BorgModulePDVStandardWeapon
+  - BorgModuleJetpack
+  - BorgModuleTool
+  - BorgModuleGPS
+  inventoryTemplateId: borgShort
+  spriteBodyState: assault
+  spriteHasMindState: assault_l
+  spriteNoMindState: assault_l
+  spriteToggleLightState: assault_l
+  petSuccessString: petting-success-engineer-cyborg
+  petFailureString: petting-failure-engineer-cyborg
+
+- type: borgType
+  id: pdvengineer
+  dummyPrototype: PDVBorgChassisEngineer
+  extraModuleCount: 2
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleSyndicate
+    - BorgModuleEngineering
+  defaultModules:
+  - BorgModulePDVStandardWeapon
+  - BorgModuleJetpack
+  - BorgModuleGPS
+  - BorgModuleTool
+  - BorgModuleConstruction
+  - BorgModuleRCD
+  - BorgModuleCable
+  addComponents:
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+  inventoryTemplateId: borgShort
+  spriteBodyState: engineer
+  spriteHasMindState: engineer_l
+  spriteNoMindState: engineer_l
+  spriteToggleLightState: engineer_l
+  petSuccessString: petting-success-engineer-cyborg
+  petFailureString: petting-failure-engineer-cyborg
+
+- type: borgType
+  id: pdvmedical
+  dummyPrototype: PDVBorgChassisMedical
+  extraModuleCount: 2
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleSyndicate
+    - BorgModuleMedical
+  defaultModules:
+  - BorgModulePDVStandardWeapon
+  - BorgModuleJetpack
+  - BorgModuleGPS
+  - BorgModuleTool
+  - BorgModuleTreatment
+  - BorgModuleSurgery
+  - BorgModuleDefibrillator
+  addComponents:
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  inventoryTemplateId: borgShort
+  spriteBodyState: medical
+  spriteHasMindState: medical_l
+  spriteNoMindState: medical_l
+  spriteToggleLightState: medical_l
+  petSuccessString: petting-success-engineer-cyborg
+  petFailureString: petting-failure-engineer-cyborg
+
+- type: borgType
+  id: tsfassault
+  dummyPrototype: TSFBorgChassisAssault
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleSyndicate
+    - BorgModuleSyndicateAssault
+  defaultModules:
+  - BorgModuleTSFStandardAssault
+  - BorgModuleTSFStandardWeapon
+  - BorgModuleJetpack
+  - BorgModuleTool
+  - BorgModuleGPS
+  inventoryTemplateId: borgShort
+  spriteBodyState: assault
+  spriteHasMindState: assault_l
+  spriteNoMindState: assault_l
+  spriteToggleLightState: assault_l
+  petSuccessString: petting-success-engineer-cyborg
+  petFailureString: petting-failure-engineer-cyborg
+
+- type: borgType
+  id: tsfengineer
+  dummyPrototype: TSFBorgChassisEngineer
+  extraModuleCount: 2
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleSyndicate
+    - BorgModuleEngineering
+  defaultModules:
+  - BorgModuleTSFStandardWeapon
+  - BorgModuleJetpack
+  - BorgModuleGPS
+  - BorgModuleTool
+  - BorgModuleConstruction
+  - BorgModuleRCD
+  - BorgModuleCable
+  addComponents:
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+  inventoryTemplateId: borgShort
+  spriteBodyState: engineer
+  spriteHasMindState: engineer_l
+  spriteNoMindState: engineer_l
+  spriteToggleLightState: engineer_l
+  petSuccessString: petting-success-engineer-cyborg
+  petFailureString: petting-failure-engineer-cyborg
+
+- type: borgType
+  id: tsfmedical
+  dummyPrototype: TSFBorgChassisMedical
+  extraModuleCount: 2
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleSyndicate
+    - BorgModuleMedical
+  defaultModules:
+  - BorgModuleTSFStandardWeapon
+  - BorgModuleJetpack
+  - BorgModuleGPS
+  - BorgModuleTool
+  - BorgModuleTreatment
+  - BorgModuleSurgery
+  - BorgModuleDefibrillator
+  addComponents:
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  radioChannels:
+  - Medical
+  inventoryTemplateId: borgShort
+  spriteBodyState: medical
+  spriteHasMindState: medical_l
+  spriteNoMindState: medical_l
+  spriteToggleLightState: medical_l
+  petSuccessString: petting-success-engineer-cyborg
+  petFailureString: petting-failure-engineer-cyborg

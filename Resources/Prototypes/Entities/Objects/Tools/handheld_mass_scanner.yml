@@ -16,6 +16,7 @@
         map: [ "enum.PowerDeviceVisualLayers.Powered" ]
   - type: RadarConsole
     followEntity: true
+    noRotate: true # Mono
   # Mono
   - type: DetectionRangeMultiplier
     infraredMultiplier: 0.5

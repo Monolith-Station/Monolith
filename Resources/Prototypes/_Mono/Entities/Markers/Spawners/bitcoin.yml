@@ -1,0 +1,22 @@
+- type: entity
+  name: random bitcoin
+  id: SpawnLootDatafarmBitcoin
+  parent: MarkerBasePlaceFree
+  suffix: "Datafarm Bitcoin Spawner"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+      scale: 0.7, 0.7
+    - sprite: _NF/Markers/general.rsi
+      state: questionmark
+      color: red
+  - type: RandomSpawner
+    prototypes:
+    - BitcoinContribcoin
+    - BitcoinIdeascoin
+    chance: 0.75
+    offset: 0.0
+    rarePrototypes:
+    - BitcoinGoidacoin
+    rareChance: 0.1

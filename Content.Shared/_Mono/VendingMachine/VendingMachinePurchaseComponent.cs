@@ -22,11 +22,4 @@ public sealed partial class VendingMachinePurchaseComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public double OriginalPurchasePrice;
-
-    /// <summary>
-    /// The entity ID of the vending machine this was purchased from.
-    /// Stored for reference and potential future features.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public EntityUid VendingMachine;
 }

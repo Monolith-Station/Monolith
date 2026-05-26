@@ -11,7 +11,6 @@ namespace Content.Shared._NF.Shuttles.Events
     [Serializable, NetSerializable]
     public sealed class SetMaxShuttleSpeedRequest : BoundUserInterfaceMessage
     {
-        public NetEntity? ShuttleEntityUid { get; set; }
-        public float MaxSpeed { get; set; }
+        public float? MaxSpeed;
     }
-} 
+}

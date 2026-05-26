@@ -131,6 +131,10 @@ namespace Content.Shared.Movement.Systems
 
         private void OnMoverGetState(Entity<InputMoverComponent> entity, ref ComponentGetState args)
         {
+            // Mono
+            if (TerminatingOrDeleted(entity.Comp.RelativeEntity))
+                entity.Comp.RelativeEntity = null;
+
             args.State = new InputMoverComponentState()
             {
                 CanMove = entity.Comp.CanMove,

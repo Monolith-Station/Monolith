@@ -100,6 +100,7 @@
      - id: AppraisalTool
      - id: FlashlightLantern
      - id: ClothingEyesGlassesMeson
+     - id: ClothingEyesGlassesThermal
      - id: ClothingHandsGlovesColorYellow
      - id: GeigerCounter
      - id: Lantern
@@ -236,6 +237,7 @@
     - id: ContainmentFieldGeneratorCircuitboard
     - id: SolarAssemblyFlatpack
     - id: CentrifugeLatheMiniCircuitboard # Mono: Economy
+    #- id: IndustrialLatheMachineCircuitboard # Mono: Economy
     #Atmos
     - !type:GroupSelector
       weight: 2
@@ -258,6 +260,7 @@
     - id: APECircuitboard
     - id: ArtifactAnalyzerMachineCircuitboard
     - id: ArtifactCrusherMachineCircuitboard
+    - id: OrganHarvesterMachineCircuitboard
     - id: ResearchAndDevelopmentServerMachineCircuitboard
     - id: ResearchComputerCircuitboard
     #- id: StationAiUploadCircuitboardUnlocked #Not til it's balanced.

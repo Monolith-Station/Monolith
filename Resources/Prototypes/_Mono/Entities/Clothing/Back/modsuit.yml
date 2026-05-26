@@ -1,78 +1,17 @@
 - type: entity
-  parent: [Clothing, ContentsExplosionResistanceBase]
+  parent: ClothingModsuitBase
   id: ClothingModsuitUSSPVaryag
   name: USSP Varyag Modsuit Core
   description: The power and life-support core of the Varyag modsuit.
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Back/Modsuits/ussp-varyag.rsi
-    layers:
-    - state: control
-    - state: control-sealed
-      visible: false
-      shader: unshaded
-      map: [ "sealed" ]
-  - type: Item
-    size: Huge
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-  - type: Storage
-    grid:
-    - 0,0,6,3
-    maxItemSize: Huge
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-      toggleable-clothing: !type:Container
-      cell_slot: !type:ContainerSlot
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.ToggleClothingUiKey.Key:
-        type: ToggleableClothingBoundUserInterface
-  - type: UseDelay
-    delay: 0.5
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
   - type: ToggleableClothing
-    requiredSlot: back
-    blockUnequipWhenAttached: true
-    replaceCurrentClothing: true
     clothingPrototypes:
       head: ClothingModsuitHelmetUSSPVaryag
       gloves: ClothingModsuitGauntletsUSSPVaryag
       outerClothing: ClothingModsuitChestplateUSSPVaryag
       shoes: ClothingModsuitBootsUSSPVaryag
-  - type: WiresPanel
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        whitelist:
-          components:
-            - PowerCell
-  - type: ItemSlotsRequirePanel
-    slots:
-      cell_slot: true
-  - type: PowerCellDraw
-    drawRate: 0.1 # Sealed draw rate
-    useRate: 0.5 # Draw rate for sealing
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-    fitsInCharger: false
-  - type: DoAfter
-  - type: SealableClothingControl
-  - type: SealableClothingRequiresPower
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      back:
-      - state: equipped-BACKPACK-sealed
   - type: PirateBountyItem # Mono
     id: ClothingOuterHardsuitTacsuit
 
@@ -91,83 +30,19 @@
             - PowerCell
 
 - type: entity
-  parent: [Clothing, ContentsExplosionResistanceBase]
+  parent: ClothingModsuitBase
   id: ClothingModsuitUSSPZastavnik
   name: USSP Zastavnik Modsuit Core
   description: The sealed backpack unit powering the Zastavnik suit’s life support and locking mechanisms.
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Back/Modsuits/ussp-zastavnik.rsi
-    layers:
-    - state: control
-    - state: control-sealed
-      visible: false
-      shader: unshaded
-      map: [ "sealed" ]
-  - type: Item
-    size: Huge
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-  - type: Storage
-    grid:
-    - 0,0,7,3
-    maxItemSize: Huge
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-      toggleable-clothing: !type:Container
-      cell_slot: !type:ContainerSlot
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.ToggleClothingUiKey.Key:
-        type: ToggleableClothingBoundUserInterface
-  - type: UseDelay
-    delay: 0.5
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
   - type: ToggleableClothing
-    requiredSlot: back
-    blockUnequipWhenAttached: true
-    replaceCurrentClothing: true
     clothingPrototypes:
       head: ClothingModsuitHelmetUSSPZastavnik
       gloves: ClothingModsuitGauntletsUSSPZastavnik
       outerClothing: ClothingModsuitChestplateUSSPZastavnik
       shoes: ClothingModsuitBootsUSSPZastavnik
-  - type: WiresPanel
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        whitelist:
-          components:
-            - PowerCell
-  - type: ItemSlotsRequirePanel
-    slots:
-      cell_slot: true
-  - type: PowerCellDraw
-    drawRate: 0.1 # Sealed draw rate
-    useRate: 0.5 # Draw rate for sealing
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-    fitsInCharger: false
-  - type: DoAfter
-  - type: SealableClothingControl
-  - type: SealableClothingRequiresPower
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      back:
-      - state: equipped-BACKPACK-sealed
-  - type: Construction
-    graph: Modsuit
-    node: headofsecurity
   - type: PirateBountyItem # Mono
     id: ClothingOuterHardsuitTacsuitHighValue
 
@@ -186,80 +61,26 @@
             - PowerCell
 
 - type: entity
-  parent: [Clothing, ContentsExplosionResistanceBase]
+  parent: ClothingModsuitBase
   id: ClothingModsuitRogue
   name: RX-01 hardsuit control unit
   description: Core control unit for the RX-01. Survives power spikes, hull breaches, and black market ingenuity. Somehow. Also has built in experimental voidboots.
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Back/Modsuits/rogue.rsi
-    layers:
-    - state: control
-    - state: control-sealed
-      visible: false
-      shader: unshaded
-      map: [ "sealed" ]
-  - type: Item
-    size: Huge
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-  - type: Storage
+  - type: Storage # Extra space - Mono
     grid:
-    - 0,0,6,3
+    - 0,0,7,3
     maxItemSize: Huge
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-      toggleable-clothing: !type:Container
-      cell_slot: !type:ContainerSlot
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.ToggleClothingUiKey.Key:
-        type: ToggleableClothingBoundUserInterface
-  - type: UseDelay
-    delay: 0.5
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
   - type: ToggleableClothing
-    requiredSlot: back
-    blockUnequipWhenAttached: true
-    replaceCurrentClothing: true
     clothingPrototypes:
       head: ClothingModsuitHelmetRogue
       gloves: ClothingModsuitGauntletsRogue
       outerClothing: ClothingModsuitChestplateRogue
       shoes: ClothingModsuitBootsRogue
-  - type: WiresPanel
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        whitelist:
-          components:
-            - PowerCell
-  - type: ItemSlotsRequirePanel
-    slots:
-      cell_slot: true
   - type: PowerCellDraw
     drawRate: 0.2 # Sealed draw rate
     useRate: 0.5 # Draw rate for sealing
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-    fitsInCharger: false
-  - type: DoAfter
-  - type: SealableClothingControl
-  - type: SealableClothingRequiresPower
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      back:
-      - state: equipped-BACKPACK-sealed
   - type: Construction
     graph: Modsuit
     node: rogue
@@ -280,75 +101,23 @@
 
 # Volta
 - type: entity
-  parent: [Clothing, ContentsExplosionResistanceBase]
+  parent: ClothingModsuitBase
   id: ClothingModsuitVolta
   name: TSF Volta Experimental Modsuit
   description: A modified sidegrade of the sapper modsuit model for TSFMC, featuring improved ballistic plates and explosion deflecting systems.
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Back/Modsuits/tsfmc-volta.rsi
-    layers:
-    - state: control
-    - state: control-sealed
-      visible: false
-      shader: unshaded
-      map: [ "sealed" ]
-  - type: Item
-    size: Huge
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-  - type: Storage
+  - type: Storage # Extra space - Mono
     grid:
-    - 0,0,6,3
+    - 0,0,7,3
     maxItemSize: Huge
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-      toggleable-clothing: !type:Container
-      cell_slot: !type:ContainerSlot
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.ToggleClothingUiKey.Key:
-        type: ToggleableClothingBoundUserInterface
-  - type: UseDelay
-    delay: 0.5
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
   - type: ToggleableClothing
-    requiredSlot: back
-    blockUnequipWhenAttached: true
-    replaceCurrentClothing: true
     clothingPrototypes:
       head: ClothingModsuitHelmetVolta
       gloves: ClothingModsuitGauntletsVolta
       outerClothing: ClothingModsuitChestplateVolta
       shoes: ClothingModsuitBootsVolta
-  - type: WiresPanel
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        whitelist:
-          components:
-            - PowerCell
-  - type: ItemSlotsRequirePanel
-    slots:
-      cell_slot: true
-  - type: PowerCellDraw
-    drawRate: 0.1 # Sealed draw rate
-    useRate: 0.5 # Draw rate for sealing
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-    fitsInCharger: false
-  - type: DoAfter
-  - type: SealableClothingControl
-  - type: SealableClothingRequiresPower
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -377,77 +146,23 @@
 # Gallóglach
 
 - type: entity
-  parent: [Clothing, ContentsExplosionResistanceBase]
+  parent: ClothingModsuitBase
   id: ClothingModsuitMercenary
   name: mercenary gallóglach hardsuit control unit
   description: A modular hardsuit control module unit equipped with enhanced actuators in the legs to allow for rapid assault or retreat actions.
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Mono/Clothing/Back/Modsuits/mercenary.rsi
-    layers:
-    - state: control
-    - state: control-sealed
-      visible: false
-      shader: unshaded
-      map: [ "sealed" ]
-  - type: Item
-    size: Huge
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-  - type: Storage
+  - type: Storage # Extra space - Mono
     grid:
-    - 0,0,1,3
-    - 3,0,6,3
-    - 8,0,9,3
+    - 0,0,7,3
     maxItemSize: Huge
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-      toggleable-clothing: !type:Container
-      cell_slot: !type:ContainerSlot
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.ToggleClothingUiKey.Key:
-        type: ToggleableClothingBoundUserInterface
-  - type: UseDelay
-    delay: 0.5
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
   - type: ToggleableClothing
-    requiredSlot: back
-    blockUnequipWhenAttached: true
-    replaceCurrentClothing: true
     clothingPrototypes:
       head: ClothingModsuitHelmetMercenary
       gloves: ClothingModsuitGauntletsMercenary
       outerClothing: ClothingModsuitChestplateMercenary
       shoes: ClothingModsuitBootsMercenary
-  - type: WiresPanel
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        whitelist:
-          components:
-            - PowerCell
-  - type: ItemSlotsRequirePanel
-    slots:
-      cell_slot: true
-  - type: PowerCellDraw
-    drawRate: 0.1 # Sealed draw rate
-    useRate: 0.5 # Draw rate for sealing
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-    fitsInCharger: false
-  - type: DoAfter
-  - type: SealableClothingControl
-  - type: SealableClothingRequiresPower
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:

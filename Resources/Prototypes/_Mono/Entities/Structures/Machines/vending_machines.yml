@@ -6,6 +6,7 @@
   components:
   - type: VendingMachine
     pack: WeaponryWorksVendPOIMercInventory
+    requiresCash: true
   - type: AccessReader
     access: [["Mercenary"], ["Security"]]
 
@@ -86,6 +87,7 @@
     # denyState: deny-unshaded
     ejectDelay: 1.9
     initialStockQuality: 1
+    requiresCash: true
   - type: MarketModifier
     mod: 10
   - type: Advertise
@@ -126,6 +128,7 @@
     # denyState: deny-unshaded
     ejectDelay: 1.9
     initialStockQuality: 0.35
+
 
 - type: entity
   parent: [VendingMachineAstroVend, BaseStructureDisableAnchoring]

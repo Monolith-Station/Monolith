@@ -12,9 +12,10 @@
     - Pickaxe
     - IndustrialMech
   - type: MeleeWeapon
-    canWideSwing: false
+    canWideSwing: true
     autoAttack: true
-    angle: 0
+    range: 1.5
+    angle: 120
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
@@ -40,9 +41,10 @@
     - Pickaxe
     - IndustrialMech
   - type: MeleeWeapon
-    canWideSwing: false
+    canWideSwing: true
     autoAttack: true
-    angle: 0
+    range: 1.5
+    angle: 120
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"

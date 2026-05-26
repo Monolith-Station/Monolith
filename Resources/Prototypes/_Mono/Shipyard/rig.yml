@@ -8,8 +8,8 @@
   id: Rig
   parent: BaseVessel
   name: DIS Rig
-  description: A heavy-class flying refinery straight from the DIS. Originally used as a marketing tool to encourage opportunistic newcomers to mine cheaply for the company, thanks to it's mining platform and industrial ore processor it took a hold on the public market.
-  price: 68000
+  description: A heavy-class flying refinery manufactured by Drake Industries Shipyards. Able to extract, collect and process materials then refine them into whatever the ever changing Colossean market demands.  Comes equipped with two flare launchers for missile defense and four mining pulsers, along with mining bumpers to push minerals directly onto the built in belt system. 
+  price: 104900 # +50% Markup from 69900 appraisegrid price. To amount for all of the QOL included in the vessel
   category: Medium
   group: Shipyard
   shuttlePath: /Maps/_Mono/Shuttles/rig.yml

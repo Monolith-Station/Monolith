@@ -1,11 +1,11 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Inhands taken from NSV-13, icon and outerclothing edited by Onezero0, original made by SS13 White Dream.",
-  "size": {
-    "x": 32,
-    "y": 32
-   },
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Inhands taken from NSV-13, icon and outerclothing edited by Onezero0, original made by SS13 White Dream, Vox modifications by 10KE",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
     "states": [
         {
             "name": "icon"
@@ -20,6 +20,10 @@
         },
         {
             "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-vox",
             "directions": 4
         }
     ]

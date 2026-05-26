@@ -41,6 +41,7 @@
         toggleAction: ActionObserverShowRadar
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: VehicleHorn
 
 - type: entity

@@ -18,5 +18,5 @@ public sealed partial class CompanyAccessReaderComponent : Component
     /// Message to show when access is denied due to incorrect company.
     /// </summary>
     [DataField("popupMessage")]
-    public string? PopupMessage = "company-access-denied";
+    public string? PopupMessage = "company-tsf-access-denied";
 }

@@ -436,6 +436,7 @@
   loadouts:
   - ContractorClothingShoesColorBlack
   - ContractorClothingShoesClothwrap
+  - ContractorClothingShoesClothwrapBlack # Mono
   - ContractorClothingShoesTourist
   - ContractorClothingShoesBootsSalvage
   - ContractorClothingShoesChef
@@ -978,3 +979,12 @@
   - ContractorRubberStampTrader
   - ContractorRubberStampClown
   - ContractorRubberStampMime
+
+- type: loadoutGroup
+  id: ContractorArmorPlates
+  name: loadout-group-contractor-armorplates
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ContractorArmorPlateBlunt_Slash
+  - ContractorArmorPlatePierce

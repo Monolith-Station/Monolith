@@ -1,0 +1,71 @@
+
+- type: entity
+  name: "'Basilisk' DEW-15-XXR radiation rifle"
+  parent: [BaseWeaponRifle, BaseGunWieldable, BaseC2ContrabandUnredeemable]
+  id: WeaponDEWBasilisk
+  description: A dubious rifle reverse engineered by the Dynasty for use against Federation personnel. Probably not the safest to use, but its beams are not on the visible light spectrum and it is immune to EMP due to using chemical-based cartridges.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/basilisk.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -5
+    maxAngle: -14
+  - type: Gun
+    minAngle: 0
+    maxAngle: 0
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/emitter.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine10Phz
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine10Phz
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge10Phz
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge10Phz
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/calico_inhands_32x.rsi
+  - type: Item
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/calico_inhands_32x.rsi
+  - type: StaticPrice
+    price: 2400
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8
+    sprintModifier: 0.7
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 12
+    pvsIncrease: 1.5

@@ -7,7 +7,7 @@
   - type: Sprite
   - type: Instrument
   - type: ActivatableUI
-    inHandsOnly: true
+    inHandsOnly: false #Mono: true >> false
     singleUser: true
     verbText: verb-instrument-openui
     key: enum.InstrumentUiKey.Key

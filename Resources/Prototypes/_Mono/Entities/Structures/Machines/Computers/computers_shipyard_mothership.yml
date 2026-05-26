@@ -60,6 +60,7 @@
     - QJ490
     - QJ270
     - Zephyr
+    - QJ340
 
 - type: entity
   id: LedokolAttatchmentComputer
@@ -92,7 +93,7 @@
     shuttles:
     - Hazel
     - Tethys
-    - Spyglass MKII
+    - SpyglassMKII
   - type: Sprite
     sprite: _NF/Structures/Machines/computers.rsi
     layers:
@@ -101,9 +102,9 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: shipyard_blackmarket
+      state: shipyard_pdv
     - map: ["computerLayerKeys"]
-      state: blackmarket_key
+      state: telesci_key
 
 
 - type: entity
@@ -135,6 +136,16 @@
   components:
   - type: ShipyardListing
     shuttles:
-    - Ant
-    - Worm
-    - Insect
+    - Rook
+    - Taser
+    - Hound
+
+- type: entity
+  id: BalorCarrierComputer
+  parent: BaseCarrierComputer
+  name: balor shipyard console
+  components:
+  - type: ShipyardListing
+    shuttles:
+    - Rac-Man
+    - Bow-Man

@@ -22,46 +22,24 @@
   - type: CargoSellBlacklist
   - type: NFShipyardVoucher # FIXME - whitelist component to prevent misprediction
 
-# NFSD vouchers
+# Service voucher
 - type: entity
   parent: BaseShipVoucher
-  id: ShipVoucherNfsdSergeant
-  name: TSFMC medium ship voucher
-  description: Allows for one free small to medium TSFMC ship purchase. Destroyed on sale.
+  id: ShipVoucherFrontierService
+  name: service ship voucher
+  description: Allows for one free, small service ship purchase from the Frontier Staff Shipyard. Destroyed on sale.
   components:
   - type: Sprite
     layers:
-    - state: nfsd
-    - state: vouchersergeant
-  - type: Item
-    heldPrefix: nfsd
+    - state: blue
+    - state: voucherservice
   - type: ShipyardVoucher
-    destroyOnEmpty: true
-    consoleType: Security
-    companyName: TSF
-    access:
-    - Sergeant # Frontier
-    accessGroups: # Frontier
-    - GeneralNfsdAccess # Frontier
-
-- type: entity
-  parent: ShipVoucherNfsdSergeant
-  id: ShipVoucherNfsdBailiff
-  name: TSFMC capital ship voucher
-  description: Allows for one free small to capital TSFMC ship purchase. Destroyed on sale.
-  components:
-  - type: Sprite
-    layers:
-    - state: nfsd
-    - state: voucherbailiff
-  - type: ShipyardVoucher
-    companyName: TSF
-    access:
-    - Armory
-    - Sergeant # Frontier
-    - Bailiff # Frontier
-    accessGroups: # Frontier
-    - GeneralNfsdAccess # Frontier
+    consoleType: Shipyard
+    vessels:
+    - Jitterbug
+    - McChicken
+    - McChilly
+    - Spessbite
 
 # Frontier vouchers
 - type: entity
@@ -81,20 +59,6 @@
     consoleType: Sr
     access:
     - Janitor
-
-- type: entity
-  parent: ShipVoucherFrontierJanitor
-  id: ShipVoucherFrontierValet
-  name: valet ship voucher
-  description: Allows for one free valet ship purchase from the Frontier Staff Shipyard. Destroyed on sale.
-  components:
-  - type: Sprite
-    layers:
-    - state: blue
-    - state: vouchervalet
-  - type: ShipyardVoucher
-    access:
-    - Service
 
 - type: entity
   parent: ShipVoucherFrontierJanitor

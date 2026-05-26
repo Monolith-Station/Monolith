@@ -9,9 +9,9 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 /// <summary>
 ///     Examining a surgical or ghetto tool shows everything it can be used for.
 /// </summary>
-public sealed class SurgeryToolExamineSystem : EntitySystem
+public sealed partial class SurgeryToolExamineSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
 
     public override void Initialize()
     {
@@ -42,7 +42,7 @@ public sealed class SurgeryToolExamineSystem : EntitySystem
         RaiseLocalEvent(ent, ref ev);
 
         _examine.AddDetailedExamineVerb(args, ent.Comp, ev.Message,
-            Loc.GetString("surgery-tool-examinable-verb-text"), "/Textures/Objects/Specific/Medical/Surgery/scalpel.rsi/scalpel.png",
+            Loc.GetString("surgery-tool-examinable-verb-text"), "/Textures/_Shitmed/Interface/Misc/scalpel.png",
             Loc.GetString("surgery-tool-examinable-verb-message"));
     }
 

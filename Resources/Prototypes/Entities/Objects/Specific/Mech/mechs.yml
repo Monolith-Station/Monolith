@@ -109,7 +109,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 5000 # Mono
+        damage: 500 # Mono
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -157,6 +157,7 @@
   # <Mono>
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: Magboots
   # </Mono>
 
@@ -180,7 +181,7 @@
     baseState: ripley
     openState: ripley-open
     brokenState: ripley-broken
-    mechToPilotDamageMultiplier: 0.75
+    mechToPilotDamageMultiplier: 0.4 # Mono
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -194,6 +195,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
     baseSprintSpeed: 3.6
+  - type: Damageable
+    damageModifierSet: MechArmorIndustrial # Mono
   - type: Tag
     tags:
     - DoorBumpOpener

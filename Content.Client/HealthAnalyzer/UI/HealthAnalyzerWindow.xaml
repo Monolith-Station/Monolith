@@ -1,33 +1,65 @@
 <controls:FancyWindow
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-    MaxHeight="525"
-    MinWidth="350"> <!-- Shitmed Change -->
-    <ScrollContainer
-        Margin="5 5 5 5"
-        ReturnMeasure="True"
-        VerticalExpand="True">
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    SetHeight="650"
+    SetWidth="350"
+    Resizable="False"> <!-- Shitmed Change -->
+    <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="4 4 4 4">
+        <PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BorderThickness="2" BorderColor="#525252" BackgroundColor="#3d474d"/>
+        </PanelContainer.PanelOverride>
+        <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="2 2 2 2">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BorderThickness="2" BorderColor="#333333" BackgroundColor="#181818"/>
+            </PanelContainer.PanelOverride>
         <BoxContainer
             Name="RootContainer"
             VerticalExpand="True"
-            Orientation="Vertical">
+            Orientation="Vertical"
+            Margin="2">
             <Label
                 Name="NoPatientDataText"
                 Text="{Loc health-analyzer-window-no-patient-data-text}"/>
             <!-- Shitmed Change Start -->
+                <PanelContainer VerticalExpand="False" HorizontalExpand="True" Margin="2 2 2 2" MinHeight="40">
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BorderThickness="4" BorderColor="#333333" BackgroundColor="#050505"/>
+                    </PanelContainer.PanelOverride>
             <Button Name="ReturnButton"
                     Text="{Loc 'health-analyzer-window-return-button-text'}"
-                    Margin="0 0 0 10"
-                    HorizontalExpand="False"/>
+                    Margin="1"
+                    HorizontalExpand="True"
+                    VerticalExpand="True"
+                    StyleClasses="ButtonSquare"/>
+                </PanelContainer>
             <!-- Shitmed Change End -->
             <BoxContainer
                 Name="PatientDataContainer"
-                Margin="0 0 0 5"
+                Margin="1 1"
                 Orientation="Vertical">
                 <!-- Shitmed Change Start -->
+                    <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="2 2 2 2">
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BorderThickness="2" BorderColor="#333333" BackgroundColor="#181818"/>
+                        </PanelContainer.PanelOverride>
                 <BoxContainer Orientation="Horizontal"
                               Margin="0 0 0 5">
+                    <PanelContainer VerticalExpand="False" HorizontalExpand="False" Margin="2 2">
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BorderThickness="4" BorderColor="#333333" BackgroundColor="#141414"/>
+                        </PanelContainer.PanelOverride>
+                        <PanelContainer VerticalExpand="False" HorizontalExpand="False" Margin="1 1">
+                            <PanelContainer.PanelOverride>
+                                <graphics:StyleBoxFlat BorderThickness="2" BorderColor="#151515" BackgroundColor="#050505"/>
+                            </PanelContainer.PanelOverride>
                     <PanelContainer>
+                        <TextureRect Name="NoDataTex"
+                                     Access="Public"
+                                     SetSize="96 96"
+                                     Visible="false"
+                                     Stretch="KeepAspectCentered"
+                                     TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png"/>
                         <SpriteView OverrideDirection="South"
                                     Scale="1.0 1.0"
                                     Name="SpriteView"
@@ -170,69 +202,111 @@
                             </PanelContainer>
                         </PanelContainer>
                     </PanelContainer>
-                    <TextureRect Name="NoDataTex"
-                                 Access="Public"
-                                 SetSize="64 64"
-                                 Visible="false"
-                                 Stretch="KeepAspectCentered"
-                                 TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png"/>
-                    <BoxContainer Margin="5 0 0 0"
-                                  Orientation="Vertical"
-                                  VerticalAlignment="Top">
+                    </PanelContainer>
+                </PanelContainer>
+                    <BoxContainer Orientation="Vertical"
+                                  HorizontalExpand="True">
                         <RichTextLabel Name="NameLabel"
-                                       SetWidth="150"/>
+                                       SetWidth="150" HorizontalAlignment="Left"/>
                         <Label Name="SpeciesLabel"
                                VerticalAlignment="Top"
-                               StyleClasses="LabelSubText"/>
+                               StyleClasses="LabelSubText"
+                               HorizontalAlignment="Left"/>
                         <Label Name="PartNameLabel"
                                VerticalAlignment="Bottom"
-                               StyleClasses="LabelSubText"/>
-                    </BoxContainer>
+                               StyleClasses="LabelSubText"
+                               HorizontalAlignment="Left"/>
                     <Label Margin="0 0 5 0"
                            HorizontalExpand="True"
                            HorizontalAlignment="Right"
                            VerticalExpand="True"
-                           VerticalAlignment="Top"
+                           VerticalAlignment="Bottom"
                            Name="ScanModeLabel"
                            Text="{Loc 'health-analyzer-window-entity-unknown-text'}"/>
+                    </BoxContainer>
                 </BoxContainer>
+                    </PanelContainer>
 
                 <PanelContainer StyleClasses="LowDivider"/>
 
-                <GridContainer Margin="0 5 0 0"
+                <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="4 4 4 4">
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BorderThickness="4" BorderColor="#333333" BackgroundColor="#141414"/>
+                    </PanelContainer.PanelOverride>
+                    <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="4 4">
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BorderThickness="2" BorderColor="#151515" BackgroundColor="#050505"/>
+                        </PanelContainer.PanelOverride>
+                <GridContainer Margin="2 2"
                                Columns="2">
                     <Label Text="{Loc 'health-analyzer-window-entity-status-text'}"/>
-                    <Label Name="StatusLabel"/>
+                    <Label Name="StatusLabel"
+                           FontColorOverride="#ff9100"/>
                     <Label Text="{Loc 'health-analyzer-window-entity-temperature-text'}"/>
-                    <Label Name="TemperatureLabel"/>
+                    <Label Name="TemperatureLabel"
+                           FontColorOverride="#ff9100"/>
                     <Label Text="{Loc 'health-analyzer-window-entity-blood-level-text'}"/>
-                    <Label Name="BloodLabel"/>
+                    <Label Name="BloodLabel"
+                           FontColorOverride="#ff9100"/>
                     <Label Text="{Loc 'health-analyzer-window-entity-damage-total-text'}"/>
-                    <Label Name="DamageLabel"/>
+                    <Label Name="DamageLabel"
+                           FontColorOverride="#ff9100"/>
                 </GridContainer>
+                    </PanelContainer>
+                </PanelContainer>
             </BoxContainer>
 
             <PanelContainer Name="AlertsDivider"
                             Visible="False"
                             StyleClasses="LowDivider"/>
 
+            <PanelContainer VerticalExpand="False" HorizontalExpand="True" Margin="4 4 4 4" SetHeight="62">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BorderThickness="4" BorderColor="#333333" BackgroundColor="#141414"/>
+                </PanelContainer.PanelOverride>
+                <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="4 4">
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BorderThickness="2" BorderColor="#151515" BackgroundColor="#050505"/>
+                    </PanelContainer.PanelOverride>
+                    <ScrollContainer
+                        Margin="5 5 5 5"
+                        ReturnMeasure="True"
+                        VerticalExpand="True">
             <BoxContainer Name="AlertsContainer"
                           Visible="False"
-                          Margin="0 5"
+                          Margin="0 0"
                           Orientation="Vertical"
                           HorizontalAlignment="Center">
 
             </BoxContainer>
+                    </ScrollContainer>
+                </PanelContainer>
+            </PanelContainer>
 
             <PanelContainer StyleClasses="LowDivider"/>
             <!-- Shitmed Change End -->
-
+            <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="4 4 4 4">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BorderThickness="4" BorderColor="#333333" BackgroundColor="#141414"/>
+                </PanelContainer.PanelOverride>
+                <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="4 4">
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BorderThickness="2" BorderColor="#151515" BackgroundColor="#050505"/>
+                    </PanelContainer.PanelOverride>
+            <ScrollContainer
+                Margin="5 5 5 5"
+                ReturnMeasure="True"
+                VerticalExpand="True">
             <BoxContainer
                 Name="GroupsContainer"
                 Margin="0 5 0 5"
                 Orientation="Vertical">
             </BoxContainer>
+            </ScrollContainer>
+                </PanelContainer>
+            </PanelContainer>
 
         </BoxContainer>
-    </ScrollContainer>
+        </PanelContainer>
+    </PanelContainer>
 </controls:FancyWindow>

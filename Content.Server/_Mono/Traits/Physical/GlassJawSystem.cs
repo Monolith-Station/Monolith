@@ -9,9 +9,9 @@ namespace Content.Server._Mono.Traits.Physical;
 /// <summary>
 /// Applies the Glass Jaw trait effects by adjusting the critical health threshold.
 /// </summary>
-public sealed class GlassJawSystem : EntitySystem
+public sealed partial class GlassJawSystem : EntitySystem
 {
-    [Dependency] private readonly MobThresholdSystem _mobThresholds = default!;
+    [Dependency] private MobThresholdSystem _mobThresholds = default!;
 
     public override void Initialize()
     {

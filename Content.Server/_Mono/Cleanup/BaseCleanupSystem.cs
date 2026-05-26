@@ -4,12 +4,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.Cleanup;
 
-public abstract class BaseCleanupSystem<TComp> : EntitySystem
+public abstract partial class BaseCleanupSystem<TComp> : EntitySystem
     where TComp : IComponent
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     protected TimeSpan _cleanupInterval = TimeSpan.FromSeconds(300);
     protected TimeSpan _debugCleanupInterval = TimeSpan.FromSeconds(15);
@@ -53,13 +53,7 @@ public abstract class BaseCleanupSystem<TComp> : EntitySystem
                 if (!ShouldEntityCleanup(uid))
                     continue;
 
-                var coord = Transform(uid).Coordinates;
-                var world = _transform.ToMapCoordinates(coord);
-                if (_doLog)
-                    Log.Info($"Cleanup deleting entity {ToPrettyString(uid)} at {coord} (world {world})");
-
-                _delCount += 1;
-                QueueDel(uid);
+                CleanupEnt(uid);
             }
             return;
         }
@@ -88,6 +82,17 @@ public abstract class BaseCleanupSystem<TComp> : EntitySystem
             _cleanupDeferDuration = interval * 0.9 / _checkQueue.Count;
 
         Log.Debug($"Ran cleanup queue, found: {_checkQueue.Count}, deleting over {_cleanupDeferDuration}");
+    }
+
+    protected void CleanupEnt(EntityUid uid)
+    {
+        var coord = Transform(uid).Coordinates;
+        var world = _transform.ToMapCoordinates(coord);
+        if (_doLog)
+            Log.Info($"Cleanup deleting entity {ToPrettyString(uid)} at {coord} (world {world})");
+
+        _delCount += 1;
+        QueueDel(uid);
     }
 
     protected abstract bool ShouldEntityCleanup(EntityUid uid);

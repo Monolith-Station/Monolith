@@ -1,0 +1,25 @@
+- type: entity
+  name: manila envelope
+  parent: Envelope
+  id: EnvelopeManila
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: manila_open
+      map: ["enum.EnvelopeVisualLayers.Open"]
+    - state: manila_closed
+      map: ["enum.EnvelopeVisualLayers.Sealed"]
+      visible: false
+    - state: manila_torn
+      map: ["enum.EnvelopeVisualLayers.Torn"]
+      visible: false
+#    - state: manila_MOOLAH
+#      map: ["unused"]
+#      visible: false
+  - type: PaperVisuals
+    headerImagePath: "/Textures/Interface/Paper/paper_heading_postage_stamp.svg.96dpi.png"
+    headerMargin: 216.0, 0.0, 0.0, 0.0
+    contentMargin: 0.0, 0.0, 0.0, 0.0
+    maxWritableArea: 368.0, 512.0
+    backgroundModulate: "#a47449"

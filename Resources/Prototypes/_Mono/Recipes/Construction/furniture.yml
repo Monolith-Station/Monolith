@@ -33,6 +33,23 @@
   - !type:TileNotBlocked
 
 - type: construction
+  id: BannerDrakeIndustries
+  name: DI banner
+  description: A banner harboring Drake Industries' emblem. The mega corp's emblem is woven into a high quality textile that you've doubt you've every seen anywhere else in the sector. Must be why the banner is not attached to, but rather fused on it's pole.
+  graph: MonoBannersGraph
+  startNode: start
+  targetNode: BannerDINode
+  category: construction-category-furniture
+  icon:
+    sprite: _Mono/Structures/Decoration/banner.rsi
+    state: di-banner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
   id: TargetHuman
   name: human target
   description: A shooting target. This one is a human.

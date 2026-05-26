@@ -5,9 +5,10 @@ using Content.Shared._Mono.Ships;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Events;
-using Content.Shared.Shuttles.Systems;
 using Content.Shared.Shuttles.UI.MapObjects;
 using Content.Shared.Station.Components;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
@@ -16,8 +17,8 @@ namespace Content.Server.Shuttles.Systems;
 
 public sealed partial class ShuttleConsoleSystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly SharedShuttleSystem _sharedShuttle = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     private const float ShuttleFTLRange = 512f;
     private const float ShuttleFTLMassThreshold = 100f; // Mono: now a soft limit, ships under the limit just stop you from shorter distance
@@ -176,41 +177,7 @@ public sealed partial class ShuttleConsoleSystem
         var dockedGrids = new HashSet<EntityUid>();
 
         // Find all docked grids by looking for DockingComponents on the shuttle
-        var dockQuery = EntityQueryEnumerator<DockingComponent, TransformComponent>();
-        while (dockQuery.MoveNext(out var dockUid, out var dock, out var dockXform))
-        {
-            // Only consider docks on our shuttle
-            if (dockXform.GridUid != shuttleUid.Value || !dock.Docked || dock.DockedWith == null)
-                continue;
-
-            // If we have a docked entity, get its grid
-            if (TryComp<TransformComponent>(dock.DockedWith.Value, out var dockedXform) && dockedXform.GridUid != null)
-            {
-                dockedGrids.Add(dockedXform.GridUid.Value);
-
-                // Check if we're docked to another grid
-                var parentGridUid = dockedXform.GridUid.Value;
-
-                // Find all other grids docked to this parent grid
-                // These should also be excluded from the proximity check so we can
-                // still FTL even when other ships are docked to the same station/grid
-                var parentDockQuery = EntityQueryEnumerator<DockingComponent, TransformComponent>();
-                while (parentDockQuery.MoveNext(out var parentDockUid, out var parentDock, out var parentDockXform))
-                {
-                    // Only consider docks on the parent grid
-                    if (parentDockXform.GridUid != parentGridUid || !parentDock.Docked || parentDock.DockedWith == null)
-                        continue;
-
-                    // If we have a docked entity and it's not our ship, add its grid to the exclusion list
-                    if (TryComp<TransformComponent>(parentDock.DockedWith.Value, out var siblingDockedXform) &&
-                        siblingDockedXform.GridUid != null &&
-                        siblingDockedXform.GridUid != shuttleUid.Value)
-                    {
-                        dockedGrids.Add(siblingDockedXform.GridUid.Value);
-                    }
-                }
-            }
-        }
+        _shuttle.GetAllDockedShuttlesIgnoringFTLLock(shuttleUid.Value, dockedGrids);
 
         // Mono
         foreach (var (console, consoleComp) in _lookup.GetEntitiesInRange<ShuttleConsoleComponent>(_transform.GetMapCoordinates(xform), ShuttleFTLRange))
@@ -229,6 +196,7 @@ public sealed partial class ShuttleConsoleSystem
             }
 
             _popup.PopupEntity(Loc.GetString("shuttle-ftl-proximity"), ent.Owner, PopupType.Medium);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/custom_deny.ogg"), ent.Owner);
             UpdateConsoles(shuttleUid.Value);
             return;
         }
@@ -241,7 +209,7 @@ public sealed partial class ShuttleConsoleSystem
 
         var ev = new ShuttleConsoleFTLTravelStartEvent(ent.Owner);
         RaiseLocalEvent(ref ev);
-        if (_sharedShuttle.TryGetFTLDrive(shuttleUid.Value, out _, out var drive)) // Mono Begin
+        if (_shuttle.TryGetFTLDrive(shuttleUid.Value, out _, out var drive)) // Mono Begin
         {
             MassAdjustFTLStart(shuttlePhysics,
                 drive,

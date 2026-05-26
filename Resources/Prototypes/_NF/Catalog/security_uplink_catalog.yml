@@ -530,6 +530,27 @@
         tags:
           - SecurityUplink
 
+- type: listing
+  id: UplinkSecurityMechPulseRifle
+  name:  uplink-security-mechpulserifle-name
+  description: uplink-security-mechpulserifle-desc
+  productEntity: WeaponMechCombatPulseRifleTSF
+  icon: { sprite: Objects/Specific/Mech/mecha_equipment.rsi, state: mecha_pulse }
+  cost:
+    FederationMilitaryCredit: 100
+  categories:
+    - UplinkSecurityWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - Bailiff
+        - SeniorOfficer
+        - Sheriff
+
 #Mono end
 
 - type: listing

@@ -6,6 +6,9 @@ using Robust.Client.UserInterface;
 using Robust.Shared.Log;
 using Robust.Shared.Map;
 
+// Mono
+using Content.Shared._Mono.Shuttles;
+
 namespace Content.Client.Shuttles.BUI;
 
 [UsedImplicitly]
@@ -25,6 +28,7 @@ public sealed partial class ShuttleConsoleBoundUserInterface : BoundUserInterfac
 
         _window.RequestFTL += OnFTLRequest;
         _window.RequestBeaconFTL += OnFTLBeaconRequest;
+        _window.RequestAutopilot += OnAutopilotRequest; // Mono
         _window.DockRequest += OnDockRequest;
         _window.UndockRequest += OnUndockRequest;
         _window.UndockAllRequest += OnUndockAllRequest;
@@ -72,6 +76,16 @@ public sealed partial class ShuttleConsoleBoundUserInterface : BoundUserInterfac
     private void OnFTLRequest(MapCoordinates obj, Angle angle)
     {
         SendMessage(new ShuttleConsoleFTLPositionMessage()
+        {
+            Coordinates = obj,
+            Angle = angle,
+        });
+    }
+
+    // Mono
+    private void OnAutopilotRequest(MapCoordinates obj, Angle angle)
+    {
+        SendMessage(new ShuttleConsoleAutopilotPositionMessage()
         {
             Coordinates = obj,
             Angle = angle,

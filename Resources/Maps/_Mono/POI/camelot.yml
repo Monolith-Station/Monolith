@@ -35724,13 +35724,15 @@ entities:
     - type: Transform
       pos: -38.359024,21.641636
       parent: 1
-- proto: FactionLathe
+- proto: FactionLatheImmmovable
   entities:
   - uid: 5671
     components:
     - type: Transform
       pos: -41.5,41.5
       parent: 1
+    missingComponents:
+    - Anchorable
 - proto: FaxMachineUSSP
   entities:
   - uid: 5672
@@ -35738,6 +35740,8 @@ entities:
     - type: Transform
       pos: -37.5,30.5
       parent: 1
+    missingComponents:
+    - Anchorable
 - proto: FenceMetalCorner
   entities:
   - uid: 5674
@@ -52379,6 +52383,8 @@ entities:
     - type: Transform
       pos: 2.5,25.5
       parent: 1
+    missingComponents:
+    - Anchorable
 - proto: MachineOutpostCore
   entities:
   - uid: 269
@@ -52386,6 +52392,8 @@ entities:
     - type: Transform
       pos: 5.5,11.5
       parent: 1
+    missingComponents:
+    - Anchorable
 - proto: MaintenancePlantSpawner
   entities:
   - uid: 11248
@@ -55594,6 +55602,8 @@ entities:
     - type: Transform
       pos: 13.5,15.5
       parent: 1
+    missingComponents:
+    - Anchorable
 - proto: ShuttersNormal
   entities:
   - uid: 8343
@@ -58439,7 +58449,7 @@ entities:
     - type: Transform
       pos: -8.5,14.5
       parent: 1
-- proto: StationAnchorIndestructible
+- proto: StationAnchor
   entities:
   - uid: 8646
     components:

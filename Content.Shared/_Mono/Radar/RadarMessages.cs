@@ -23,6 +23,11 @@ public enum RadarBlipShape
 public sealed class GiveBlipsEvent : EntityEventArgs
 {
     /// <summary>
+    /// Palette of blip configs, basically an int->config map.
+    /// </summary>
+    public readonly List<BlipConfig> ConfigPalette;
+
+    /// <summary>
     /// Blips are now (position, velocity, scale, color, shape).
     /// </summary>
     public readonly List<BlipNetData> Blips;
@@ -30,18 +35,14 @@ public sealed class GiveBlipsEvent : EntityEventArgs
     /// <summary>
     /// Hitscan lines to display on the radar as (start position, end position, thickness, color).
     /// </summary>
-    public readonly List<(Vector2 Start, Vector2 End, float Thickness, Color Color)> HitscanLines;
-
-    public GiveBlipsEvent(List<BlipNetData> blips)
-    {
-        Blips = blips;
-        HitscanLines = new List<(Vector2 Start, Vector2 End, float Thickness, Color Color)>();
-    }
+    public readonly List<HitscanNetData> HitscanLines;
 
     public GiveBlipsEvent(
+        List<BlipConfig> configPalette,
         List<BlipNetData> blips,
-        List<(Vector2 Start, Vector2 End, float Thickness, Color Color)> hitscans)
+        List<HitscanNetData> hitscans)
     {
+        ConfigPalette = configPalette;
         Blips = blips;
         HitscanLines = hitscans;
     }
@@ -75,9 +76,12 @@ public record struct BlipNetData
     NetCoordinates Position,
     Vector2 Vel,
     Angle Rotation,
-    BlipConfig Config,
-    BlipConfig? OnGridConfig
+    ushort ConfigIndex,
+    ushort? OnGridConfigIndex
 );
+
+[Serializable, NetSerializable]
+public record struct HitscanNetData(Vector2 Start, Vector2 End, float Thickness, Color Color);
 
 [Serializable, NetSerializable, DataDefinition]
 public partial record struct BlipConfig

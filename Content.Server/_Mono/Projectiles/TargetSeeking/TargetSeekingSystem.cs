@@ -12,12 +12,12 @@ namespace Content.Server._Mono.Projectiles.TargetSeeking;
 /// <summary>
 ///     Handles the logic for target-seeking projectiles.
 /// </summary>
-public sealed class TargetSeekingSystem : EntitySystem
+public sealed partial class TargetSeekingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = null!;
-    [Dependency] private readonly RotateToFaceSystem _rotateToFace = null!;
-    [Dependency] private readonly PhysicsSystem _physics = null!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!; // Mono
+    [Dependency] private SharedTransformSystem _transform = null!;
+    [Dependency] private RotateToFaceSystem _rotateToFace = null!;
+    [Dependency] private PhysicsSystem _physics = null!;
+    [Dependency] private IGameTiming _gameTiming = default!; // Mono
 
     private EntityQuery<ProjectileComponent> _projectileQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -70,7 +70,7 @@ public sealed class TargetSeekingSystem : EntitySystem
 
     /// <summary>
     /// Sets a target-seeking projectile's <see cref="TargetSeekingComponent.CurrentTarget"/>, and raises
-    /// the appropriate events. 
+    /// the appropriate events.
     /// </summary>
     // NOTE: In the future, someone could want to change this to separate whether `CurrentTarget` is null with whether the seeker is actually targeting something.
     //       If so, change this to take in whether the seeker should be targeting something, rather than whether the target exists.
@@ -212,7 +212,7 @@ public sealed class TargetSeekingSystem : EntitySystem
         EntityUid? bestTarget = null;
 
         // Look for shuttles to target
-        var shuttleQuery = EntityQueryEnumerator<ShuttleConsoleComponent>();
+        var shuttleQuery = EntityQueryEnumerator<TargetSeekingTargetComponent>();
 
         while (shuttleQuery.MoveNext(out var targetUid, out _))
         {
@@ -310,8 +310,6 @@ public sealed class TargetSeekingSystem : EntitySystem
     // see: https://github.com/Ilya246/orbitfight/blob/master/src/entities.cpp for original
     public Angle ApplyAdvancedTracking(Entity<TargetSeekingComponent, PhysicsComponent, TransformComponent> ent, Entity<PhysicsComponent, TransformComponent> target, float frameTime)
     {
-        const int guidanceIterations = 3;
-
         var accel = ent.Comp1.Acceleration;
 
         var ownVel = _physics.GetMapLinearVelocity(ent, ent.Comp2, ent.Comp3);
@@ -321,21 +319,22 @@ public sealed class TargetSeekingSystem : EntitySystem
         var relVel = targetVel - ownVel;
         var relPos = targetPos - ownPos;
 
-        var dVx = relVel.X;
-        var dVy = relVel.Y;
-        var dX = relPos.X;
-        var dY = relPos.Y;
-        var refRot = MathF.Atan2(dVy, dVx);
-        var vel = dVx / MathF.Cos(refRot);
-        var projX = dX * MathF.Cos(refRot) + dY * MathF.Sin(refRot);
-        var projY = dY * MathF.Cos(refRot) - dX * MathF.Sin(refRot);
+        return CalculateAdvancedTracking(relPos, relVel, accel);
+    }
+
+    public float CalculateAdvancedTrackingTime(Vector2 relPos, Vector2 relVel, float accel)
+    {
+        const int guidanceIterations = 3;
+
+        var vel = relVel.Length();
+        var refVec = vel == 0f ? new Vector2(1f, 0f) : relVel / vel;
+        var projX = Vector2.Dot(relPos, refVec);
+        var projY = relPos.Y * refVec.X - relPos.X * refVec.Y;
         var itime = GuessInterceptTime(0f, -projX, -vel, projY, accel);
         for (var i = 0; i < guidanceIterations; i++)
             itime = GuessInterceptTime(itime, -projX, -vel, projY, accel);
 
-        var targetRot = (relPos + relVel * itime).ToWorldAngle();
-
-        return targetRot;
+        return itime;
 
         // the explanation for how this works would take more space than the enclosing method so it's not included here
         float GuessInterceptTime(float prev, float x0, float vel, float y0, float accel)
@@ -345,6 +344,14 @@ public sealed class TargetSeekingSystem : EntitySystem
             var dd = vel * x / d;
             return (dd + MathF.Sqrt(dd * dd + 2f * accel * (d - dd * prev))) / (accel);
         }
+    }
+
+    public Angle CalculateAdvancedTracking(Vector2 relPos, Vector2 relVel, float accel)
+    {
+        var itime = CalculateAdvancedTrackingTime(relPos, relVel, accel);
+        var targetRot = (relPos + relVel * itime).ToWorldAngle();
+
+        return targetRot;
     }
 
     /// <summary>

@@ -51,6 +51,11 @@ public sealed partial class NPCRangedCombatComponent : Component
     public float ShootAccumulator;
 
     /// <summary>
+    /// Mono - accept having to fire for up to this many seconds to destroy an obstacle.
+    /// </summary>
+    public float ShotsThreshold = 2;
+
+    /// <summary>
     /// Sound to play if the target enters line of sight.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]

@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Damage.Systems;
+using Content.Server.NPC.HTN;
 using Content.Server.Spreader;
 using Content.Shared._Mono;
 using Content.Shared.Damage.Components;
@@ -13,11 +14,11 @@ namespace Content.Server._Mono;
 /// <summary>
 /// System that handles the GridGodModeComponent, which applies GodMode to all non-organic entities on a grid.
 /// </summary>
-public sealed class GridGodModeSystem : EntitySystem
+public sealed partial class GridGodModeSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly GodmodeSystem _godmode = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private GodmodeSystem _godmode = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {
@@ -68,7 +69,7 @@ public sealed class GridGodModeSystem : EntitySystem
     /// </summary>
     private void ProcessEntityOnGrid(EntityUid gridUid, EntityUid entityUid, GridGodModeComponent component)
     {
-        // Don't apply GodMode to organic entities, ghosts, or kudzu
+        // Don't apply GodMode to organic entities, ghosts, npcs, or kudzu
         if (IsOrganic(entityUid) || HasComp<GhostComponent>(entityUid) || HasComp<KudzuComponent>(entityUid))
             return;
 
@@ -110,14 +111,19 @@ public sealed class GridGodModeSystem : EntitySystem
             return false;
 
         // Check if we have a player entity that's either still around or alive and may come back
-        if (_mind.TryGetMind(entityUid, out var mind, out var mindComp) &&
-            (mindComp.Session != null || !_mind.IsCharacterDeadPhysically(mindComp)))
+        if (_mind.TryGetMind(entityUid, out var mind, out var mindComp) && !_mind.IsCharacterDeadPhysically(mindComp))
         {
             return true;
         }
 
         // Also consider anything with a MobStateComponent as organic
         if (HasComp<MobStateComponent>(entityUid))
+        {
+            return true;
+        }
+
+        // Also check for anything with HTN such as NPCs, such as turrets.
+        if (HasComp<HTNComponent>(entityUid))
         {
             return true;
         }

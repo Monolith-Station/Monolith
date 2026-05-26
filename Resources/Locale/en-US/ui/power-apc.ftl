@@ -1,4 +1,4 @@
-apc-menu-title = APC
+apc-menu-title = Area Power Controller
 apc-menu-breaker-label = BREAKER
 apc-menu-breaker-button = TOGGLE
 apc-menu-power-label = LOAD (W)

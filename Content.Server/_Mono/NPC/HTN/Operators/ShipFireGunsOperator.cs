@@ -15,7 +15,7 @@ namespace Content.Server._Mono.NPC.HTN.Operators;
 /// </summary>
 public sealed partial class ShipFireGunsOperator : HTNOperator, IHtnConditionalShutdown
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private PowerReceiverSystem _power = default!;
     private ShipTargetingSystem _targeting = default!;
 
@@ -56,12 +56,6 @@ public sealed partial class ShipFireGunsOperator : HTNOperator, IHtnConditionalS
     /// </summary>
     [DataField]
     public bool RequirePowered = true;
-
-    /// <summary>
-    /// Stop targeting if beyond this range.
-    /// </summary>
-    [DataField]
-    public float MaxTargetingRange = 2000f;
 
     private const string TargetingCancelToken = "ShipTargetingCancelToken";
 
@@ -122,7 +116,7 @@ public sealed partial class ShipFireGunsOperator : HTNOperator, IHtnConditionalS
         if (comp == null)
             return HTNOperatorStatus.Finished;
 
-        if (target.EntityId == EntityUid.Invalid || !xform.Coordinates.TryDistance(_entManager, target, out var distance) || distance > MaxTargetingRange)
+        if (target.EntityId == EntityUid.Invalid)
             return HTNOperatorStatus.Finished;
 
         if (ShutdownState == HTNPlanState.PlanFinished)
