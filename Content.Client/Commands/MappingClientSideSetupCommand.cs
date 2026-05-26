@@ -27,7 +27,6 @@ internal sealed partial class MappingClientSideSetupCommand : LocalizedCommands
             //shell.ExecuteCommand("showsubfloorforever");
             //_entitySystemManager.GetEntitySystem<ActionsSystem>().LoadActionAssignments("/mapping_actions.yml", false);
             shell.ExecuteCommand("showsubfloor");
-            shell.ExecuteCommand("zoom 1,5"); //Reserve - Wizden mapping editor
             shell.ExecuteCommand("scene MappingState"); //Reserve - Wizden mapping editor
         }
     }

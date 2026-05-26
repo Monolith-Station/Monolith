@@ -13,7 +13,7 @@ namespace Content.Client.Mapping;
 
 public sealed partial class MappingOverlay : Overlay
 {
-    private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
+    private static ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
     [Dependency] private IEntityManager _entities = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
 

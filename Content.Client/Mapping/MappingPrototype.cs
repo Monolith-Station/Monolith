@@ -14,12 +14,12 @@ public sealed class MappingPrototype
     ///     Can be one of <see cref="EntityPrototype"/>, <see cref="ContentTileDefinition"/> or <see cref="DecalPrototype"/>
     ///     If null, this is a top-level button (such as Entities, Tiles or Decals)
     /// </summary>
-    public readonly IPrototype? Prototype;
+    public IPrototype? Prototype;
 
     /// <summary>
     ///     The text to display on the UI for this button.
     /// </summary>
-    public readonly string Name;
+    public string Name;
 
     //Reserve - Wizden mapping editor
     /// <summary>

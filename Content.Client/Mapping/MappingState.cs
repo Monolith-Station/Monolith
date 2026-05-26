@@ -77,11 +77,11 @@ public sealed partial class MappingState : GameplayStateBase
     private SharedDecalSystem _sharedDecal = default!;
 
     // 1 off in case something else uses these colors since we use them to compare
-    private static readonly Color PickColor = new(1, 255, 0);
-    private static readonly Color DeleteColor = new(255, 1, 0);
-    private static readonly Color EraseDecalColor = Color.Red.WithAlpha(0.2f);
-    private static readonly Color GridSelectColor = Color.Green.WithAlpha(0.2f);
-    private static readonly Color GridRemoveColor = Color.Red.WithAlpha(0.2f);
+    private static Color PickColor = new(1, 255, 0);
+    private static Color DeleteColor = new(255, 1, 0);
+    private static Color EraseDecalColor = Color.Red.WithAlpha(0.2f);
+    private static Color GridSelectColor = Color.Green.WithAlpha(0.2f);
+    private static Color GridRemoveColor = Color.Red.WithAlpha(0.2f);
 
     private ISawmill _sawmill;
     private GameplayStateLoadController _loadController;
@@ -99,7 +99,7 @@ public sealed partial class MappingState : GameplayStateBase
 
     public CursorMeta Meta { get; }
 
-    private readonly SharedUserInterfaceSystem _ui;
+    private SharedUserInterfaceSystem _ui;
     public MappingState()
     {
         IoCManager.InjectDependencies(this);

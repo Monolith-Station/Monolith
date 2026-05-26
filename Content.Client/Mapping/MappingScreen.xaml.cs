@@ -26,7 +26,7 @@ public sealed partial class MappingScreen : InGameScreen
     private PaletteColorPicker? _picker;
 
     private ProtoId<DecalPrototype>? _id;
-    private readonly FloatSpinBox _rotationSpinBox;
+    private FloatSpinBox _rotationSpinBox;
     public Color DecalColor { get; private set; } = Color.White;
     private bool _decalEnableColor;
     private float _decalRotation;

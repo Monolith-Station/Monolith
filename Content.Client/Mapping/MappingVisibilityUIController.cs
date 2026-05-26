@@ -18,12 +18,12 @@ using Robust.Client.UserInterface;
 
 namespace Content.Client.Mapping;
 
-public sealed class MappingVisibilityUIController : UIController
+public sealed partial class MappingVisibilityUIController : UIController
 {
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IEyeManager _eyeManager = default!;
-    [Dependency] private readonly ILightManager _lightManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IEyeManager _eyeManager = default!;
+    [Dependency] private ILightManager _lightManager = default!;
 
     private MappingVisibilityWindow? _window;
     private MappingScreen? _mappingScreen; // WD EDIT

@@ -19,9 +19,9 @@ namespace Content.Client.Mapping;
 public sealed partial class MappingPrototypeList : Control
 {
     private (int start, int end) _lastIndices;
-    private readonly List<MappingPrototype> _allPrototypes = new(); //Reserve - Wizden mapping editor
-    private readonly List<Texture> _insertTextures = new();
-    private readonly List<MappingPrototype> _search = new();
+    private List<MappingPrototype> _allPrototypes = new(); //Reserve - Wizden mapping editor
+    private List<Texture> _insertTextures = new();
+    private List<MappingPrototype> _search = new();
     public bool HierarchicalSearch { get; set; } = false;
 
     public MappingSpawnButton? Selected;
