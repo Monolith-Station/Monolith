@@ -16,6 +16,8 @@
   - type: SolutionTransfer
     canSend: false
     canReceive: true
+  - type: SolutionContainerVisuals
+    maxFillLevels: 0
 
 - type: entity
   parent: BaseItem
