@@ -112,7 +112,7 @@
       types:
         Structural: 25000
         Blunt: 5000
-    deleteOnCollide: false
+    penetrationThreshold: 30000
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
     layers:

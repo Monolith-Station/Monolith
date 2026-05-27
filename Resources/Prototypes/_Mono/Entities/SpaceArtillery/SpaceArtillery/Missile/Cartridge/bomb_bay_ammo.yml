@@ -193,6 +193,7 @@
       types:
         Structural: 15000
         Piercing: 1500
+    penetrationThreshold: 20000
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/quasar.rsi
     layers:
@@ -205,7 +206,7 @@
     scale: 2
     shape: triangle
   - type: TimedDespawn
-    lifetime: 0.8
+    lifetime: 1.2
   - type: PointLight
     radius: 5
     color: green
