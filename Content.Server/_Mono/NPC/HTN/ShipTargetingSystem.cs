@@ -1,4 +1,5 @@
 using Content.Server._Mono.FireControl;
+using Content.Server._Mono.Projectiles.TargetSeeking;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -18,16 +19,14 @@ public sealed partial class ShipTargetingSystem : EntitySystem
     [Dependency] private SharedGunSystem _gun = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private TargetSeekingSystem _seeking = default!;
 
-    private EntityQuery<GunComponent> _gunQuery;
-    private EntityQuery<PhysicsComponent> _physQuery;
+    [Dependency] private EntityQuery<GunComponent> _gunQuery;
+    [Dependency] private EntityQuery<PhysicsComponent> _physQuery;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        _gunQuery = GetEntityQuery<GunComponent>();
-        _physQuery = GetEntityQuery<PhysicsComponent>();
     }
 
     // have to use this because RT's is broken and unusable for navigation
@@ -138,23 +137,30 @@ public sealed partial class ShipTargetingSystem : EntitySystem
 
                     var gunToDestDir = NormalizedOrZero(gunToDestVec);
 
+                    var bulletProto = _gun.GetBulletPrototype(proto);
                     var projVel = gun.ProjectileSpeedModified;
-                    var normVel = gunToDestDir * Vector2.Dot(leadBy, gunToDestDir);
-                    var tgVel = leadBy - normVel;
-                    // going too fast to the side, we can't possibly hit it
-                    if (tgVel.Length() > projVel)
-                        continue;
+                    if (bulletProto.TryGetComponent<TargetSeekingComponent>(out var seeking, Factory))
+                    {
+                        hitTime = _seeking.CalculateAdvancedTrackingTime(gunToDestVec, leadBy, seeking.Acceleration);
+                    }
+                    else
+                    {
+                        var normVel = gunToDestDir * Vector2.Dot(leadBy, gunToDestDir);
+                        var tgVel = leadBy - normVel;
+                        // going too fast to the side, we can't possibly hit it
+                        if (tgVel.Length() > projVel)
+                            continue;
 
-                    var normTarget = gunToDestDir * MathF.Sqrt(projVel * projVel - tgVel.LengthSquared());
-                    // going too fast away, we can't hit it
-                    if (Vector2.Dot(normTarget, normVel) > 0f && normVel.Length() > normTarget.Length())
-                        continue;
+                        var normTarget = gunToDestDir * MathF.Sqrt(projVel * projVel - tgVel.LengthSquared());
+                        // going too fast away, we can't hit it
+                        if (Vector2.Dot(normTarget, normVel) > 0f && normVel.Length() > normTarget.Length())
+                            continue;
 
-                    var approachVel = (normTarget - normVel).Length();
-                    hitTime = gunToDestVec.Length() / approachVel;
+                        var approachVel = (normTarget - normVel).Length();
+                        hitTime = gunToDestVec.Length() / approachVel;
+                    }
 
                     // might take too long to hit
-                    var bulletProto = _gun.GetBulletPrototype(proto);
                     if (bulletProto.TryGetComponent<TimedDespawnComponent>(out var despawn, Factory) && hitTime > despawn.Lifetime)
                         continue;
                 }

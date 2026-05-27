@@ -17,6 +17,7 @@
   id: HyperlinkBookSpaceLaw
   name: space law
   description: A big book of laws for space courts.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Misc/books.rsi
@@ -34,6 +35,7 @@
   id: HyperlinkBookNfsdSop
   name: TSFMC SOP manual
   description: A book defining TSFMC standard operating procedures.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Misc/books.rsi

@@ -123,13 +123,6 @@
   components:
   - type: Pda
     id: ShriffIDCard
-    bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
-      priority: -2
-      whitelist:
-        tags:
-        - BookSpaceLaw
-        - BookNfsdSop
     penSlot:
       startingItem: PenCentcom
       priority: -1
@@ -163,13 +156,6 @@
   components:
   - type: Pda
     id: CadetIDCard
-    bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
-      priority: -2
-      whitelist:
-        tags:
-        - BookSpaceLaw
-        - BookNfsdSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -188,13 +174,6 @@
   components:
   - type: Pda
     id: DeputyIDCard
-    bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
-      priority: -2
-      whitelist:
-        tags:
-        - BookSpaceLaw
-        - BookNfsdSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -213,13 +192,6 @@
   components:
   - type: Pda
     id: BrigmedicNFIDCard
-    bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
-      priority: -2
-      whitelist:
-        tags:
-        - BookSpaceLaw
-        - BookNfsdSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -238,13 +210,6 @@
   components:
   - type: Pda
     id: SergeantIDCard
-    bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
-      priority: -2
-      whitelist:
-        tags:
-        - BookSpaceLaw
-        - BookNfsdSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -263,13 +228,6 @@
   components:
   - type: Pda
     id: BailiffIDCard
-    bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
-      priority: -2
-      whitelist:
-        tags:
-        - BookSpaceLaw
-        - BookNfsdSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -288,13 +246,6 @@
   components:
   - type: Pda
     id: NFDetectiveIDCard
-    bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
-      priority: -2
-      whitelist:
-        tags:
-        - BookSpaceLaw
-        - BookNfsdSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -319,13 +270,6 @@
       whitelist:
         tags:
         - Write
-    bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
-      priority: -2
-      whitelist:
-        tags:
-        - BookSpaceLaw
-        - BookNfsdSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:

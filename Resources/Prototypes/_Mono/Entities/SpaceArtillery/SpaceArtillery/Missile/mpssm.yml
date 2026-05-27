@@ -38,11 +38,11 @@
     intensitySlope: 8
     maxIntensity: 3
   - type: TargetSeeking
-    acceleration: 170
+    acceleration: 30
     detectionRange: 1200
     scanArc: 35
     launchSpeed: 10
-    maxSpeed: 180
+    maxSpeed: 300
     trackDelay: 0.1
   - type: EmpOnTrigger
     range: 2
@@ -81,11 +81,11 @@
     color: orange
     energy: 0.5
   - type: TargetSeeking # This is just for the acceleration and rocket shit, to make it, you know, be an actual rocket.
-    acceleration: 170
+    acceleration: 30
     detectionRange: 0
     scanArc: 0
     launchSpeed: 10
-    maxSpeed: 180
+    maxSpeed: 300
     trackDelay: 0
     exposesTracking: false
   - type: ExplodeOnTrigger

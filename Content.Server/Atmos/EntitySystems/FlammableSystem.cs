@@ -348,6 +348,15 @@ namespace Content.Server.Atmos.EntitySystems
             if (!Resolve(uid, ref flammable))
                 return;
 
+            // _Mono: Used to intercept and remove the event on things like Cortical Borers inside hosts.
+            var igniteCheck = new TryIgniteEvent();
+            RaiseLocalEvent(uid, ref igniteCheck);
+            if (igniteCheck.Cancelled)
+            {
+                Extinguish(uid, flammable);
+                return;
+            }
+
             if (flammable.AlwaysCombustible)
             {
                 flammable.FireStacks = Math.Max(flammable.FirestacksOnIgnite, flammable.FireStacks);
@@ -489,4 +498,8 @@ namespace Content.Server.Atmos.EntitySystems
             }
         }
     }
+
+    // Mono: Event to see whether the target is immune to heat stacks
+    [ByRefEvent]
+    public record struct TryIgniteEvent(bool Cancelled = false);
 }
