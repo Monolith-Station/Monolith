@@ -563,6 +563,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         var chosenI = closestSector ?? bestSector;
         var chosen = _sectors[chosenI];
+        ctx.LastAvoidanceVec = chosen.Input * chosen.Scale;
 
         return new(NormalizedOrZero(chosen.Input) * chosen.Scale, closestSector == null);
     }
