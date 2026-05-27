@@ -233,7 +233,7 @@ public sealed partial class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRu
 
             // Store player info with the bank balance - we have it directly, and BankSystem won't have a cache yet.
             if (!_players.ContainsKey(mobUid))
-                _players[mobUid] = new PlayerRoundBankInformation(ev.Profile.BankBalance, GetEntSavings(mobUid) MetaData(mobUid).EntityName, ev.Player.UserId);
+                _players[mobUid] = new PlayerRoundBankInformation(ev.Profile.BankBalance, GetEntSavings(mobUid), MetaData(mobUid).EntityName, ev.Player.UserId);
         }
     }
 
