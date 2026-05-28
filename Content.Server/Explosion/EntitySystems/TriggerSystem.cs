@@ -2,7 +2,7 @@ using Content.Server._Mono.Planets;
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Explosion.Components;
-using Content.Server.Flash;
+using Content.Shared.Flash;
 using Content.Server.Electrocution;
 using Content.Server.Pinpointer;
 using Content.Shared.Chemistry.EntitySystems;
@@ -68,24 +68,24 @@ namespace Content.Server.Explosion.EntitySystems
     [UsedImplicitly]
     public sealed partial class TriggerSystem : EntitySystem
     {
-        [Dependency] private readonly ExplosionSystem _explosions = default!;
-        [Dependency] private readonly FixtureSystem _fixtures = default!;
-        [Dependency] private readonly FlashSystem _flashSystem = default!;
-        [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedContainerSystem _container = default!;
-        [Dependency] private readonly BodySystem _body = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-        [Dependency] private readonly NavMapSystem _navMap = default!;
-        [Dependency] private readonly RadioSystem _radioSystem = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!;
-        [Dependency] private readonly ElectrocutionSystem _electrocution = default!;
-        [Dependency] private readonly StationSystem _station = default!; // Frontier: medical insurance
-        [Dependency] private readonly SharedMapSystem _map = default!; // Frontier: medical insurance
+        [Dependency] private ExplosionSystem _explosions = default!;
+        [Dependency] private FixtureSystem _fixtures = default!;
+        [Dependency] private SharedFlashSystem _flashSystem = default!;
+        [Dependency] private SharedBroadphaseSystem _broadphase = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private SharedContainerSystem _container = default!;
+        [Dependency] private BodySystem _body = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private SharedTransformSystem _transformSystem = default!;
+        [Dependency] private NavMapSystem _navMap = default!;
+        [Dependency] private RadioSystem _radioSystem = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+        [Dependency] private InventorySystem _inventory = default!;
+        [Dependency] private ElectrocutionSystem _electrocution = default!;
+        [Dependency] private StationSystem _station = default!; // Frontier: medical insurance
+        [Dependency] private SharedMapSystem _map = default!; // Frontier: medical insurance
 
         public override void Initialize()
         {
@@ -185,8 +185,7 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void HandleFlashTrigger(EntityUid uid, FlashOnTriggerComponent component, TriggerEvent args)
         {
-            // TODO Make flash durations sane ffs.
-            _flashSystem.FlashArea(uid, args.User, component.Range, component.Duration * 1000f, probability: component.Probability);
+            _flashSystem.FlashArea(uid, args.User, component.Range, component.Duration, probability: component.Probability);
             args.Handled = true;
         }
 
@@ -267,6 +266,7 @@ namespace Content.Server.Explosion.EntitySystems
                 speciesText = $" ({species.Species})";
 
             var critMessage = Loc.GetString(component.CritMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", gridText), ("position", posText));
+            var reviveMessage = Loc.GetString(component.ReviveMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", gridText), ("position", posText)); // Mono
             var deathMessage = Loc.GetString(component.DeathMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", gridText), ("position", posText));
 
             if (!TryComp<MobStateComponent>(implanted.ImplantedEntity, out var mobstate))
@@ -280,7 +280,8 @@ namespace Content.Server.Explosion.EntitySystems
                 {
                     case MobState.Critical:
                     {
-                        _radioSystem.SendRadioMessage(uid, critMessage, radioChannel, uid, null, language);
+                        var message = mobstate.PreviousState == MobState.Dead ? reviveMessage : critMessage;
+                        _radioSystem.SendRadioMessage(uid, message, radioChannel, uid, null, language);
                         break;
                     }
                     case MobState.Dead:

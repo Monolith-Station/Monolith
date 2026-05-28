@@ -4,10 +4,10 @@ using Content.Shared.Power.EntitySystems;
 
 namespace Content.Shared._Goobstation.Factory;
 
-public sealed class StartableMachineSystem : EntitySystem
+public sealed partial class StartableMachineSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDeviceLinkSystem _device = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private SharedDeviceLinkSystem _device = default!;
+    [Dependency] private SharedPowerReceiverSystem _power = default!;
 
     private EntityQuery<StartableMachineComponent> _query;
 

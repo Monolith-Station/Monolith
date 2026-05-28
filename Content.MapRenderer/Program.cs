@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.IntegrationTests;
 using Content.MapRenderer.Painters;
-using Content.Server.Maps;
+using Content.Shared.Maps;
 using Newtonsoft.Json;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;

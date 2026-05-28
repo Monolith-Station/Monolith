@@ -46,6 +46,51 @@
 - type: Tag # Prevents a crash and makes future cherry-picks hurt less but not actually implemented
   id: TurretCompatibleWeapon # Used in the construction of sentry turrets
 
+# Weapon attachments
+
+- type: Tag
+  id: MonoSuppressor
+
+- type: Tag
+  id: MonoSuppressorMulticalPistol
+
+- type: Tag
+  id: MonoSuppressorMulticalRifle
+
+- type: Tag
+  id: MonoGrip
+
+- type: Tag
+  id: MonoGripErebusRailmount
+
+- type: Tag
+  id: MonoGripPistolMount
+
+- type: Tag
+  id: MonoGripLAM
+
+- type: Tag
+  id: MonoGripLight
+
+- type: Tag
+  id: MonoGripVFG
+
+- type: Tag
+  id: MonoOptic
+
+- type: Tag
+  id: MonoOpticErebusRailmount
+
+# These are for the different sprite states. Please don't add more zooms, or I'll kill you.
+- type: Tag
+  id: MonoOptic2x
+
+- type: Tag
+  id: MonoOptic4x
+
+- type: Tag
+  id: MonoOptic8x
+
 # Crafting for desert planet
 
 - type: Tag
@@ -336,6 +381,14 @@
 
 - type: Tag
   id: MagazineBox10Phz
+
+#35mm GL tags
+
+- type: Tag
+  id: Cartridge35mmGrenade
+
+- type: Tag
+  id: Magazine35mmGrenade
 
 # military power cell tags
 

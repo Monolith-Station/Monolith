@@ -8,7 +8,7 @@ using Robust.Shared.Map.Components;
 namespace Content.Server._Mono.ShipRepair;
 public sealed partial class ShipRepairSystem
 {
-    [Dependency] private readonly IConsoleHost _conHost = default!;
+    [Dependency] private IConsoleHost _conHost = default!;
 
     public void InitCommands()
     {

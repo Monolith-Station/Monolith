@@ -188,3 +188,93 @@
     baseDelay: 2
     modifiedDelay: 2
     preventFiring: true
+
+# TPGL (its just a QLU-11...)
+
+- type: entity
+  name: TCA MK.6 "Anubis" TPGL (35x53mm grenade) # CS2 reference
+  parent: [ BaseWeaponLauncher, BaseWeaponRifle ] # Magfed so we use rifle
+  id: WeaponLauncherTSFAnubis
+  description: A precision magfed grenade rifle with an inbuilt fire-control system, originally intended for use against fortifications & counterinsurgency. Fires 35mm grenades with high-velocity and precision.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/mk6-tpgl.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/mk6-tpgl_inhands_32x.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/mk6-tpgl_inhands_32x.rsi
+    slots:
+    - Back
+    - suitStorage
+  # Its the exact same accuracy as the AK-410. For fun.
+  - type: GunWieldBonus
+    minAngle: -27
+    maxAngle: -36
+  - type: Gun
+    minAngle: 27
+    maxAngle: 39
+    projectileSpeed: 70
+    fireRate: 0.2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Harmony/Weapons/Guns/Gunshots/hristov_fire_alt.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
+    autoCycle: false
+  - type: Appearance
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: WieldDelay
+    baseDelay: 1.1
+    modifiedDelay: 1.1
+    preventFiring: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine35mmGrenade
+        insertSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagIn/amr_magin.ogg
+        ejectSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagOut/cm82_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine35mmGrenade
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge35mmGrenadeSAPHE
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge35mmGrenade
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 1.5
+    pvsIncrease: 0.2
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.5
+    sprintModifier: 0.5
+  - type: PirateBountyItem
+    id: ExperimentalFactionWeapon
+  - type: LaserPointer
+    targetedColor: "#ff0037"
+    defaultColor: "#03c2fc"

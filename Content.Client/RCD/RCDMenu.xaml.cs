@@ -16,9 +16,9 @@ namespace Content.Client.RCD;
 [GenerateTypedNameReferences]
 public sealed partial class RCDMenu : RadialMenu
 {
-    [Dependency] private readonly EntityManager _entManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private EntityManager _entManager = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     private SharedPopupSystem _popup;
     private SpriteSystem _sprites;
