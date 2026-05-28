@@ -122,6 +122,8 @@
           Quantity: 5
         - ReagentId: Saline
           Quantity: 15
+  - type: Tag
+    tags: [Medipen]
 
 - type: entity
   name: stimulant auto-injector
@@ -147,6 +149,8 @@
           Quantity: 10
         - ReagentId: Dylovene
           Quantity: 10
+  - type: Tag
+    tags: [Medipen]
 
 - type: entity
   name: crisis auto-injector
@@ -172,6 +176,8 @@
           Quantity: 10
         - ReagentId: DexalinPlus
           Quantity: 10
+  - type: Tag
+    tags: [Medipen]
 
 - type: entity
   name: lacerinol auto-injector
@@ -195,7 +201,9 @@
           Quantity: 10
         - ReagentId: TranexamicAcid
           Quantity: 5
-
+  - type: Tag
+    tags: [Medipen]
+    
 - type: entity
   name: bruizine auto-injector
   parent: NFChemicalMedipen
@@ -218,7 +226,9 @@
           Quantity: 10
         - ReagentId: TranexamicAcid
           Quantity: 5
-
+  - type: Tag
+    tags: [Medipen]
+    
 - type: entity
   name: polypyrylium oligomers auto-injector
   parent: NFChemicalMedipen
@@ -239,7 +249,9 @@
         reagents:
         - ReagentId: PolypyryliumOligomers
           Quantity: 15
-
+  - type: Tag
+    tags: [Medipen]
+    
 - type: entity
   name: barkeeper's friend auto-injector
   parent: NFChemicalMedipen
@@ -264,3 +276,6 @@
           Quantity: 15
         - ReagentId: Dylovene
           Quantity: 5
+  - type: Tag
+    tags: [Medipen]
+    

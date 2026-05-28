@@ -2,7 +2,7 @@
   parent: BaseStructureDynamic
   id: SmartFridge
   name: SmartFridge
-  description: A refrigerated storage unit for keeping items cold and fresh.
+  description: A refrigerated storage unit for keeping Topicals, Medipens, chemicals, cold and fresh.
   components:
   # Mono Start
   - type: Machine
@@ -53,6 +53,9 @@
       - Bottle
       - Syringe
       - ChemDispensable
+      - Medipen
+      - Ointment
+      - Brutepack
   - type: ActivatableUI
     key: enum.SmartFridgeUiKey.Key
   - type: ActivatableUIRequiresPower
