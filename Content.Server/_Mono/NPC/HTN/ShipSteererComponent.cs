@@ -67,6 +67,12 @@ public sealed partial class ShipSteererComponent : Component
     public float BrakeThreshold = 0.3f;
 
     /// <summary>
+    /// How much damage we consider an EMP projectile to do, with 1s disable and 1m radius.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float EmpThreat = 50f;
+
+    /// <summary>
     /// How much larger to consider the ship for collision evasion purposes.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
@@ -103,6 +109,12 @@ public sealed partial class ShipSteererComponent : Component
     public float GridSearchDistanceBuffer = 96f;
 
     /// <summary>
+    /// How much damage we consider an impacting grid to do, per tile, at 1 m/s.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float GridThreat = 5f;
+
+    /// <summary>
     /// Up to how fast can we be going before being considered in range, if not null.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
@@ -113,6 +125,12 @@ public sealed partial class ShipSteererComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public Angle? InRangeRotation = null;
+
+    /// <summary>
+    /// Last-chosen avoidance vector, used to prevent oscillating movements.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public Vector2? LastAvoidanceVector = null;
 
     /// <summary>
     /// Whether to try to match velocity with target.

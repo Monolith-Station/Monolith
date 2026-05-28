@@ -21347,3 +21347,44 @@ Entries:
   id: 2351
   time: '2026-05-24T17:53:42.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4049
+- author: Mapleflavoureds
+  changes:
+    - type: Remove
+      message: Volta, RD suit and CE suit are no longer rad immune
+  id: 2352
+  time: '2026-05-25T02:49:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4051
+- author: 10kee
+  changes:
+    - type: Add
+      message: >-
+        Threatening to report a player has been added to the rulebook. Consult
+        CR7.
+  id: 2353
+  time: '2026-05-26T14:26:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4056
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Significantly upgraded ship AI. It can now operate missile weapons and
+        is better at avoiding obstacles (especially bullets).
+  id: 2354
+  time: '2026-05-26T20:00:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4064
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: All missiles can now be shot down.
+    - type: Tweak
+      message: You are no longer able to shoot down your own ship's missiles.
+    - type: Tweak
+      message: Most missiles given slower acceleration but higher top speeds.
+  id: 2355
+  time: '2026-05-27T13:59:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4063
+- author: SaintIWNL
+  changes: []
+  id: 2356
+  time: '2026-05-27T21:36:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4069
