@@ -123,7 +123,7 @@
         - ReagentId: Saline
           Quantity: 15
   - type: Tag
-    tags: [Medipen]
+    tags: [Medipen] # Mono
 
 - type: entity
   name: stimulant auto-injector
@@ -150,7 +150,7 @@
         - ReagentId: Dylovene
           Quantity: 10
   - type: Tag
-    tags: [Medipen]
+    tags: [Medipen] # Mono
 
 - type: entity
   name: crisis auto-injector
@@ -177,7 +177,7 @@
         - ReagentId: DexalinPlus
           Quantity: 10
   - type: Tag
-    tags: [Medipen]
+    tags: [Medipen] # Mono
 
 - type: entity
   name: lacerinol auto-injector
@@ -202,7 +202,7 @@
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Tag
-    tags: [Medipen]
+    tags: [Medipen] # Mono
     
 - type: entity
   name: bruizine auto-injector
@@ -227,7 +227,7 @@
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Tag
-    tags: [Medipen]
+    tags: [Medipen] # Mono
     
 - type: entity
   name: polypyrylium oligomers auto-injector
@@ -250,7 +250,7 @@
         - ReagentId: PolypyryliumOligomers
           Quantity: 15
   - type: Tag
-    tags: [Medipen]
+    tags: [Medipen] # Mono
     
 - type: entity
   name: barkeeper's friend auto-injector
@@ -277,5 +277,5 @@
         - ReagentId: Dylovene
           Quantity: 5
   - type: Tag
-    tags: [Medipen]
+    tags: [Medipen] # Mono
     
