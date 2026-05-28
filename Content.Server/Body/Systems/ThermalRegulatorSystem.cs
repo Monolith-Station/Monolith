@@ -54,6 +54,10 @@ public sealed partial class ThermalRegulatorSystem : EntitySystem
             return;
 
         // mono begin
+        // Check to see if we're disabling thermal temporarily
+        if (ent.Comp1.DisableProcessing)
+            return;
+
         if (ent.Comp1.ProcessWhileDead == false && TryComp<MobStateComponent>(ent, out var mobComp1) && mobComp1.CurrentState == MobState.Dead)
             return;
 

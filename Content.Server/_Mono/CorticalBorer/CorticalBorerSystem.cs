@@ -8,6 +8,8 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Medical;
 using Content.Server.Medical.Components;
 using Content.Server.Nutrition.Components;
+using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
 using Content.Shared._Mono.CorticalBorer;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Administration.Logs;
@@ -24,6 +26,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Species.Components;
+using Content.Shared.Temperature;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -63,6 +66,8 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         SubscribeLocalEvent<CorticalBorerComponent, CheckTargetedSpeechEvent>(OnSpeakEvent);
 
         SubscribeLocalEvent<CorticalBorerComponent, MindRemovedMessage>(OnMindRemoved);
+        SubscribeLocalEvent<CorticalBorerComponent, ModifyChangedTemperatureEvent>(OnTemperatureChange);
+        SubscribeLocalEvent<CorticalBorerComponent, TryIgniteEvent>(OnIgniteAttempt);
     }
 
     private void OnStartup(Entity<CorticalBorerComponent> ent, ref ComponentStartup args)
@@ -416,5 +421,21 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
     {
         if (!ent.Comp.ControlingHost)
             TryEjectBorer(ent); // No storing them in hosts if you don't have a soul
+    }
+
+    private void OnTemperatureChange(Entity<CorticalBorerComponent> ent, ref ModifyChangedTemperatureEvent args)
+    {
+        // Affected by heat outside of host. In future, could check to synchronize with heat stacks and temp of [hardsuit] host.
+        if (!ent.Comp.Host.HasValue)
+            return;
+
+        // Misnamed variable, TemperatureDelta is actually the Heat of the component (thus TempChange = TemperatureDelta/HeatCapacity).
+        args.TemperatureDelta = 0;
+    }
+
+    private void OnIgniteAttempt(Entity<CorticalBorerComponent> ent, ref TryIgniteEvent args)
+    {
+        // Abort ignites while inside a host. Makes no sense to burn inside their contained brain.
+        args.Cancelled = ent.Comp.Host.HasValue;
     }
 }
