@@ -12,11 +12,11 @@ namespace Content.Shared.Charges.Systems;
 
 public abstract partial class SharedChargesSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStackSystem _stack = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     private void InitializeAmmo()
     {

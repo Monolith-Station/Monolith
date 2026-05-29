@@ -1,7 +1,6 @@
 using System.Threading;
 using Content.Server.Administration.Commands;
 using Content.Server.Administration.Components;
-using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -20,6 +19,7 @@ using Content.Server.Tabletop;
 using Content.Server.Tabletop.Components;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Components;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Clumsy;
@@ -39,6 +39,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Slippery;
+using Content.Shared.Storage.Components;
 using Content.Shared.Tabletop.Components;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
@@ -61,33 +62,33 @@ namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
-    [Dependency] private readonly CreamPieSystem _creamPieSystem = default!;
-    [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
-    [Dependency] private readonly EntityStorageSystem _entityStorageSystem = default!;
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly FixtureSystem _fixtures = default!;
-    [Dependency] private readonly FlammableSystem _flammableSystem = default!;
-    [Dependency] private readonly GhostKickManager _ghostKickManager = default!;
-    [Dependency] private readonly SharedGodmodeSystem _sharedGodmodeSystem = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
-    [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly TabletopSystem _tabletopSystem = default!;
-    [Dependency] private readonly VomitSystem _vomitSystem = default!;
-    [Dependency] private readonly WeldableSystem _weldableSystem = default!;
-    [Dependency] private readonly SharedContentEyeSystem _eyeSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SuperBonkSystem _superBonkSystem = default!;
-    [Dependency] private readonly SlipperySystem _slipperySystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!; // Frontier
-    [Dependency] private readonly DamageableSystem _damageable = default!; // Frontier
-    [Dependency] private readonly SleepingSystem _sleep = default!; // Frontier
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private BodySystem _bodySystem = default!;
+    [Dependency] private CreamPieSystem _creamPieSystem = default!;
+    [Dependency] private ElectrocutionSystem _electrocutionSystem = default!;
+    [Dependency] private EntityStorageSystem _entityStorageSystem = default!;
+    [Dependency] private ExplosionSystem _explosionSystem = default!;
+    [Dependency] private FixtureSystem _fixtures = default!;
+    [Dependency] private FlammableSystem _flammableSystem = default!;
+    [Dependency] private GhostKickManager _ghostKickManager = default!;
+    [Dependency] private SharedGodmodeSystem _sharedGodmodeSystem = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private PolymorphSystem _polymorphSystem = default!;
+    [Dependency] private MobThresholdSystem _mobThresholdSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private TabletopSystem _tabletopSystem = default!;
+    [Dependency] private VomitSystem _vomitSystem = default!;
+    [Dependency] private WeldableSystem _weldableSystem = default!;
+    [Dependency] private SharedContentEyeSystem _eyeSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SuperBonkSystem _superBonkSystem = default!;
+    [Dependency] private SlipperySystem _slipperySystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!; // Frontier
+    [Dependency] private DamageableSystem _damageable = default!; // Frontier
+    [Dependency] private SleepingSystem _sleep = default!; // Frontier
 
     // All smite verbs have names so invokeverb works.
     private void AddSmiteVerbs(GetVerbsEvent<Verb> args)
@@ -165,7 +166,7 @@ public sealed partial class AdminVerbSystem
                     Filter.PvsExcept(args.Target), true, PopupType.MediumCaution);
                 var board = Spawn("ChessBoard", xform.Coordinates);
                 var session = _tabletopSystem.EnsureSession(Comp<TabletopGameComponent>(board));
-                xform.Coordinates = _transformSystem.ToCoordinates(session.Position);
+                _transformSystem.SetMapCoordinates(args.Target, session.Position);
                 _transformSystem.SetWorldRotationNoLerp((args.Target, xform), Angle.Zero);
             },
             Impact = LogImpact.Extreme,
@@ -450,7 +451,7 @@ public sealed partial class AdminVerbSystem
                 {
                     var xform = Transform(args.Target);
                     var fixtures = Comp<FixturesComponent>(args.Target);
-                    xform.Anchored = false; // Just in case.
+                    _transformSystem.Unanchor(args.Target, xform); // Just in case.
                     _physics.SetBodyType(args.Target, BodyType.Dynamic, manager: fixtures, body: physics);
                     _physics.SetBodyStatus(args.Target, physics, BodyStatus.InAir);
                     _physics.WakeBody(args.Target, manager: fixtures, body: physics);
@@ -485,7 +486,7 @@ public sealed partial class AdminVerbSystem
                 {
                     var xform = Transform(args.Target);
                     var fixtures = Comp<FixturesComponent>(args.Target);
-                    xform.Anchored = false; // Just in case.
+                    _transformSystem.Unanchor(args.Target); // Just in case.
 
                     _physics.SetBodyType(args.Target, BodyType.Dynamic, body: physics);
                     _physics.SetBodyStatus(args.Target, physics, BodyStatus.InAir);

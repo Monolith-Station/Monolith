@@ -56,6 +56,52 @@
     shipClass: Light
 
 - type: entity
+  id: WeaponTurretFragment
+  name: "\"Fragment\" modified mass driver"
+  parent: WeaponTurretShard
+  description: Appears to be a heavily modified "Shard" mass driver. Unstable and rarely found in the wild.
+  suffix: Drone T2
+  components:
+  - type: StaticPrice
+    price: 20000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/fragment.rsi
+  - type: Gun
+    fireRate: 1
+    recoil: 20 # gooo
+    minAngle: 0
+    maxAngle: 2
+    projectileSpeed: 250 # lower a bit
+  - type: GunRandomFirerate
+    asTime: false
+    # 1/s average
+    minMul: 0.05
+    maxMul: 5
+  - type: SpaceArtillery
+    powerChargeRate: 4500
+    powerUsePassive: 4500
+    powerUseActive: 0
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 6000
+  - type: Battery
+    maxCharge: 20000
+    startingCharge: 20000
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipFragmentProjectile
+    fireCost: 1000
+  - type: RadarBlip
+    scale: 2.5
+    gridConfig:
+      color: "#4080FF"
+      shape: Diamond
+      respectZoom: true
+      rotate: true
+      bounds: "-1,-1.5,1,1.5"
+  - type: ShipGunClass
+    shipClass: Medium
+
+- type: entity
   id: WeaponTurretPinhole
   name: Pinhole-class railgun
   parent:

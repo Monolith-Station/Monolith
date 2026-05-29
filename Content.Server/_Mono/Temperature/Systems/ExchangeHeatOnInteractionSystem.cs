@@ -8,9 +8,9 @@ namespace Content.Server._Mono.Temperature.Systems;
 /// <summary>
 /// This handles heat exchange between two entities on hug/pet interaction if user happens to have ExchangeHeatOnInteractionComponent
 /// </summary>
-public sealed class ExchangeHeatOnInteractionSystem : EntitySystem
+public sealed partial class ExchangeHeatOnInteractionSystem : EntitySystem
 {
-    [Dependency] private readonly TemperatureSystem _temp = default!;
+    [Dependency] private TemperatureSystem _temp = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<TemperatureComponent, InteractionSuccessEvent>(OnInteraction);

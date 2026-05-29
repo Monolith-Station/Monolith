@@ -12,14 +12,14 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Weapons.AmmoSelector;
 
-public sealed class SelectableAmmoSystem : EntitySystem
+public sealed partial class SelectableAmmoSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    // [Dependency] private readonly ActivatableUiUserWhitelistSystem _activatableUiWhitelist = default!;  mono
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
+    // [Dependency] private ActivatableUiUserWhitelistSystem _activatableUiWhitelist = default!;  mono
 
     public override void Initialize()
     {

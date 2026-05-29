@@ -4,9 +4,9 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client._ES.Storage.ItemMapper;
 
-public sealed class ESItemMapperSystem : ESSharedItemMapperSystem
+public sealed partial class ESItemMapperSystem : ESSharedItemMapperSystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -23,7 +23,10 @@ public sealed class ESItemMapperSystem : ESSharedItemMapperSystem
 
         if (!Appearance.TryGetData(ent, ESItemMapperVisuals.Layers, out Dictionary<string, string?> layers, args.Component))
         {
-            throw new Exception($"Couldn't find the necessary {nameof(ESItemMapperVisuals.Layers)} layer on {ToPrettyString(ent)}.");
+            //Stopgap, throw replaced with Log.Warning and return. Prevents crash in debug mode when looking at lathe menu.
+            //Someone more competent can come up with a more comprehensive fix.
+            Log.Warning($"Couldn't find the necessary {nameof(ESItemMapperVisuals.Layers)} layer on {ToPrettyString(ent)}.");
+            return;
         }
 
         foreach (var (key, state) in layers)

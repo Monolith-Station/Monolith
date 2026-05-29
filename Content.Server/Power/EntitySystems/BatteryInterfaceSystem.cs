@@ -1,5 +1,6 @@
 ﻿using Content.Server.Power.Components;
 using Content.Shared.Power;
+using Content.Shared.Power.Components;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.Power.EntitySystems;
@@ -17,9 +18,9 @@ namespace Content.Server.Power.EntitySystems;
 /// it merely reconfigures parameters on <see cref="PowerNetworkBatteryComponent"/> from the UI.
 /// </para>
 /// </remarks>
-public sealed class BatteryInterfaceSystem : EntitySystem
+public sealed partial class BatteryInterfaceSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
+    [Dependency] private UserInterfaceSystem _uiSystem = null!;
 
     public override void Initialize()
     {

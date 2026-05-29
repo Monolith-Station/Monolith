@@ -12,10 +12,10 @@ using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
 namespace Content.Client.Salvage;
 
-public sealed class FultonSystem : SharedFultonSystem
+public sealed partial class FultonSystem : SharedFultonSystem
 {
-    [Dependency] private readonly ISerializationManager _serManager = default!;
-    [Dependency] private readonly AnimationPlayerSystem _player = default!;
+    [Dependency] private ISerializationManager _serManager = default!;
+    [Dependency] private AnimationPlayerSystem _player = default!;
 
     private static readonly TimeSpan AnimationDuration = TimeSpan.FromSeconds(0.4);
 

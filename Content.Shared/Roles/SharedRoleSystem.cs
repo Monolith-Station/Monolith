@@ -6,25 +6,26 @@ using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Roles.Jobs;
-using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Roles;
 
-public abstract class SharedRoleSystem : EntitySystem
+public abstract partial class SharedRoleSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly SharedMindSystem _minds = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private   IConfigurationManager _cfg = default!;
+    [Dependency] private   IEntityManager _entityManager = default!;
+    [Dependency] private   IPrototypeManager _prototypes = default!;
+    [Dependency] private   ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] protected ISharedPlayerManager Player = default!;
+    [Dependency] private   SharedAudioSystem _audio = default!;
+    [Dependency] private   SharedMindSystem _minds = default!;
 
     private JobRequirementOverridePrototype? _requirementOverride;
 
@@ -202,51 +203,62 @@ public abstract class SharedRoleSystem : EntitySystem
             return false;
 
         //get the most important/latest mind role
-        var roleType = GetRoleTypeByTime(ent.Comp);
+        var (roleType, subtype) = GetRoleTypeByTime(ent.Comp);
 
-        if (ent.Comp.RoleType == roleType)
+        if (ent.Comp.RoleType == roleType &&  ent.Comp.Subtype == subtype)
             return false;
 
-        SetRoleType(ent.Owner, roleType);
+        SetRoleType(ent.Owner, roleType, subtype);
         return true;
     }
 
-    private ProtoId<RoleTypePrototype> GetRoleTypeByTime(MindComponent mind)
+    /// <summary>
+    ///     Return the most recently specified role type and subtype, or Neutral
+    /// </summary>
+    private (ProtoId<RoleTypePrototype>, LocId?) GetRoleTypeByTime(MindComponent mind)
     {
-        // If any Mind Roles specify a Role Type, return the most recent. Otherwise return Neutral
+        var role = GetRoleCompByTime(mind);
+        return (role?.Comp?.RoleType ?? "Neutral", role?.Comp?.Subtype);
+    }
 
-        var roles = new List<ProtoId<RoleTypePrototype>>();
+    /// <summary>
+    ///     Return the most recently specified role type's mind role entity, or null
+    /// </summary>
+    public Entity<MindRoleComponent>? GetRoleCompByTime(MindComponent mind)
+    {
+        var roles = new List<Entity<MindRoleComponent>>();
 
         foreach (var role in mind.MindRoles)
         {
             var comp = Comp<MindRoleComponent>(role);
             if (comp.RoleType is not null)
-                roles.Add(comp.RoleType.Value);
+                roles.Add((role, comp));
         }
 
-        ProtoId<RoleTypePrototype> result = (roles.Count > 0) ? roles.LastOrDefault() : "Neutral";
+        Entity<MindRoleComponent>? result = roles.Count > 0 ? roles.LastOrDefault() : null;
         return (result);
     }
 
-    private void SetRoleType(EntityUid mind, ProtoId<RoleTypePrototype> roleTypeId)
+    private void SetRoleType(EntityUid mind, ProtoId<RoleTypePrototype> roleTypeId, LocId? subtype)
     {
         if (!TryComp<MindComponent>(mind, out var comp))
         {
-            Log.Error($"Failed to update Role Type of mind entity {ToPrettyString(mind)} to {roleTypeId}. MindComponent not found.");
+            Log.Error($"Failed to update Role Type of mind entity {ToPrettyString(mind)} to {roleTypeId}, {subtype}. MindComponent not found.");
             return;
         }
 
         if (!_prototypes.HasIndex(roleTypeId))
         {
-            Log.Error($"Failed to change Role Type of {_minds.MindOwnerLoggingString(comp)} to {roleTypeId}. Invalid role");
+            Log.Error($"Failed to change Role Type of {_minds.MindOwnerLoggingString(comp)} to {roleTypeId}, {subtype}. Invalid role");
             return;
         }
 
         comp.RoleType = roleTypeId;
+        comp.Subtype = subtype;
         Dirty(mind, comp);
 
         // Update player character window
-        if (_minds.TryGetSession(mind, out var session))
+        if (Player.TryGetSessionById(comp.UserId, out var session))
             RaiseNetworkEvent(new MindRoleTypeChangedEvent(), session.Channel);
         else
         {
@@ -258,14 +270,14 @@ public abstract class SharedRoleSystem : EntitySystem
         {
             Log.Error($"{ToPrettyString(mind)} does not have an OwnedEntity!");
             _adminLogger.Add(LogType.Mind,
-                LogImpact.High,
-                $"Role Type of {ToPrettyString(mind)} changed to {roleTypeId}");
+                LogImpact.Medium,
+                $"Role Type of {ToPrettyString(mind)} changed to {roleTypeId}, {subtype}");
             return;
         }
 
         _adminLogger.Add(LogType.Mind,
             LogImpact.High,
-            $"Role Type of {ToPrettyString(comp.OwnedEntity)} changed to {roleTypeId}");
+            $"Role Type of {ToPrettyString(comp.OwnedEntity)} changed to {roleTypeId}, {subtype}");
     }
 
     /// <summary>
@@ -579,8 +591,11 @@ public abstract class SharedRoleSystem : EntitySystem
     /// </summary>
     public void MindPlaySound(EntityUid mindId, SoundSpecifier? sound, MindComponent? mind = null)
     {
-        if (Resolve(mindId, ref mind) && mind.Session != null)
-            _audio.PlayGlobal(sound, mind.Session);
+        if (!Resolve(mindId, ref mind))
+            return;
+
+        if (Player.TryGetSessionById(mind.UserId, out var session))
+            _audio.PlayGlobal(sound, session);
     }
 
     // TODO ROLES Change to readonly.
@@ -621,17 +636,13 @@ public abstract class SharedRoleSystem : EntitySystem
         return antag.Requirements;
     }
 
-    // Frontier: alternate requirement sets
-    public Dictionary<string, HashSet<JobRequirement>>? GetAlternateJobRequirements(JobPrototype job)
+    /// <summary>
+    /// Returns the localized name of a role type's subtype. If the provided subtype parameter turns out to be empty, it returns the localized name of the role type instead.
+    /// </summary>
+    public string GetRoleSubtypeLabel(LocId roleType, LocId? subtype)
     {
-        return job.AlternateRequirementSets;
+        return string.IsNullOrEmpty(subtype) ? Loc.GetString(roleType) : Loc.GetString(subtype);
     }
-
-    public Dictionary<string, HashSet<JobRequirement>>? GetAlternateJobRequirements(ProtoId<JobPrototype> job)
-    {
-        return _prototypes.Index(job).AlternateRequirementSets;
-    }
-    // End Frontier: alternate requirement sets
 }
 
 /// <summary>

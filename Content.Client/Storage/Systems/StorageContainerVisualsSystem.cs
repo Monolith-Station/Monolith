@@ -6,9 +6,9 @@ using Robust.Client.GameObjects;
 namespace Content.Client.Storage.Systems;
 
 /// <inheritdoc cref="StorageContainerVisualsComponent"/>
-public sealed class StorageContainerVisualsSystem : VisualizerSystem<StorageContainerVisualsComponent>
+public sealed partial class StorageContainerVisualsSystem : VisualizerSystem<StorageContainerVisualsComponent>
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     protected override void OnAppearanceChange(EntityUid uid, StorageContainerVisualsComponent component, ref AppearanceChangeEvent args)
     {
