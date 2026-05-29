@@ -13,6 +13,7 @@ using Prometheus;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Physics.Components; // Mono
 using Robust.Shared.Player;
 
 namespace Content.Server.NPC.Systems
@@ -187,6 +188,12 @@ namespace Content.Server.NPC.Systems
                     continue;
 
                 var minDistance = htn.SleepPlayerCheckRangeOverride ?? _playerPauseDistance; // Mono
+                // Mono
+                if (htn.SleepMaxGridSpeed is { } ms
+                    && TryComp<PhysicsComponent>(npcTransform.GridUid, out var gridBody)
+                    && gridBody.LinearVelocity.Length() > ms
+                    )
+                    continue;
 
                 var npcCoords = npcTransform.Coordinates;
                 var hasNearbyPlayer = false;
