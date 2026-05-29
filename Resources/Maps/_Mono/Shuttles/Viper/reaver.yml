@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 271.2.0
+  engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/09/2026 20:17:53
+  time: 05/29/2026 13:58:34
   entityCount: 336
 maps: []
 grids:
@@ -87,9 +87,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         MetalFoam: []
-        Kudzu: []
         Smoke: []
         Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -380,66 +380,22 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.824879
-          - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         - volume: 2500
           temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          moles: {}
         - volume: 2500
           immutable: True
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          moles: {}
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ShipGridLock
       locked: False
     - type: ThermalSignature
+    - type: ImplicitRoof
+    - type: ExplosionAirtightGrid
 - proto: AirAlarm
   entities:
   - uid: 198
@@ -1968,6 +1924,8 @@ entities:
     - type: Transform
       pos: 2.5,-3.5
       parent: 1
+- proto: SpawnPointVGInfanteer
+  entities:
   - uid: 325
     components:
     - type: Transform

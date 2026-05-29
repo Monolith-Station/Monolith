@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 271.2.0
+  engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/24/2026 14:18:32
-  entityCount: 696
+  time: 05/29/2026 13:57:53
+  entityCount: 701
 maps: []
 grids:
 - 1
@@ -109,9 +109,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         MetalFoam: []
+        Smoke: []
         Puddle: []
         Kudzu: []
-        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -508,60 +508,14 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.824879
-          - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         - volume: 2500
           immutable: True
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          moles: {}
         - volume: 2500
           temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          moles: {}
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -572,6 +526,7 @@ entities:
     - type: Roof
       data: {}
     - type: ThermalSignature
+    - type: ExplosionAirtightGrid
 - proto: AirAlarm
   entities:
   - uid: 664
@@ -3678,21 +3633,29 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,9.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 229
     components:
     - type: Transform
       pos: 1.5,7.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 231
     components:
     - type: Transform
       pos: 1.5,10.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 427
     components:
     - type: Transform
       pos: 1.5,5.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
 - proto: ShelfChemistry
   entities:
   - uid: 233
@@ -3754,6 +3717,34 @@ entities:
     components:
     - type: Transform
       pos: -1.5,8.5
+      parent: 1
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 631
+    components:
+    - type: Transform
+      pos: 0.5,18.5
+      parent: 1
+- proto: SpawnPointVGCommander
+  entities:
+  - uid: 632
+    components:
+    - type: Transform
+      pos: 0.5,17.5
+      parent: 1
+- proto: SpawnPointVGInfanteer
+  entities:
+  - uid: 633
+    components:
+    - type: Transform
+      pos: 0.5,17.5
+      parent: 1
+- proto: SpawnPointVGLieutenant
+  entities:
+  - uid: 634
+    components:
+    - type: Transform
+      pos: 0.5,17.5
       parent: 1
 - proto: StairStageDark
   entities:
@@ -4834,6 +4825,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 11.5,8.5
       parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 630
+    components:
+    - type: Transform
+      pos: 0.5,13.5
+      parent: 1
 - proto: WeaponTurretAK570
   entities:
   - uid: 707
@@ -4893,10 +4891,14 @@ entities:
     - type: Transform
       pos: 3.5,8.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 438
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,8.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
 ...
