@@ -22,6 +22,7 @@
         inRangeMaxSpeed: null
         range: 250
         rangeTolerance: 50
+        brakeThreshold: 1 # braking is for wusses
         targetKey: TargetCoordinates
         mode: Orbit
     - !type:HTNPrimitiveTask

@@ -639,10 +639,13 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var brakeInput = 0f;
         var linVel = ctx.ShipBody.LinearVelocity;
         var angleVel = ctx.ShipBody.AngularVelocity;
+        var needRotate = !aggressive
+            && MathF.Abs(rot.RotationInput) >= 1f
+            && -rot.RotationInput * angleVel >= 0f;
 
         // brake if we're moving opposite to desired direction
         var dotThreshold = aggressive ? 0f : config.BrakeThreshold;
-        if (Vector2.Dot(NormalizedOrZero(wishInputVec), NormalizedOrZero(-linVel)) > dotThreshold)
+        if (!needRotate && Vector2.Dot(NormalizedOrZero(wishInputVec), NormalizedOrZero(-linVel)) > dotThreshold)
             brakeInput = 1f;
 
         return brakeInput;
