@@ -88,3 +88,12 @@
   - type: ShipRepairable
     repairTime: 15
     repairCost: 15
+
+- type: entity
+  parent: ThrusterLarge
+  id: ThrusterLargePartsT2
+  suffix: T2 Parts
+  components:
+  - type: Machine
+    partOverrides:
+      Capacitor: AdvancedCapacitorStockPart

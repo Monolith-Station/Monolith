@@ -41,9 +41,9 @@
       pvsIncrease: 0.5
   - type: ESGunRecoilAttachment
     recoilRecoveryModifier: 1.05
-    recoilIncreaseModifier: 1.0
+    recoilIncreaseModifier: 2.0
     minSpreadModifier: 0.95
-    maxSpreadModifier: 0.95
+    maxSpreadModifier: 1.0
   - type: Tag
     tags:
     - MonoOptic

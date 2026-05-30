@@ -10,7 +10,7 @@ namespace Content.Client._NF.Bank.UI;
 [GenerateTypedNameReferences]
 public sealed partial class BankATMMenu : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private IEntityManager _ent = default!;
     private readonly BankSystem _bank;
 
     public Action? WithdrawRequest;

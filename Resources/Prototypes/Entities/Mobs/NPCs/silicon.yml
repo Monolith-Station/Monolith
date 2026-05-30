@@ -73,7 +73,6 @@
       120: Dead
     stateAlertDict:
       Alive: BorgHealth
-      Critical: BorgCrit
       Dead: BorgDead
     showOverlays: false
   - type: Stamina
@@ -256,7 +255,7 @@
     description: ghost-role-information-honkbot-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentHarmless
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -290,7 +289,7 @@
     description: ghost-role-information-jonkbot-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentHarmless
     raffle:
       settings: default
   - type: InteractionPopup
@@ -427,7 +426,7 @@
     description: ghost-role-information-mimebot-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentHarmless
     raffle:
       settings: default
   - type: GhostTakeoverAvailable

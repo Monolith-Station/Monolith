@@ -18,10 +18,10 @@ namespace Content.Client.UserInterface.Controls;
 [Virtual]
 public partial class MapGridControl : LayoutContainer
 {
-    [Dependency] protected readonly IEntityManager EntManager = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!; // Mono
-    [Dependency] protected readonly IClyde DisplayManager = default!; // Mono
+    [Dependency] protected IEntityManager EntManager = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected IPrototypeManager PrototypeManager = default!; // Mono
+    [Dependency] protected IClyde DisplayManager = default!; // Mono
 
     protected static readonly Color BackingColor = new Color(0.08f, 0.08f, 0.08f);
 

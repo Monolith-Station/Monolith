@@ -22,6 +22,22 @@
         whitelist:
           tags:
             - Cartridge45_ACPFMJ
+      # Mono
+      attachment_grip:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoGripPistolMount
+      # Mono
+      attachment_barrel:
+        insertSound: /Audio/Items/screwdriver.ogg
+        ejectSound: /Audio/Items/screwdriver.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoSuppressorMulticalRifle
 
 - type: entity
   name: N1984 (.45 magnum)

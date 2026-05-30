@@ -21262,3 +21262,143 @@ Entries:
   id: 2342
   time: '2026-05-21T17:44:17.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4004
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added a SmartArmory. Circuitboard printable roundstart.
+  id: 2343
+  time: '2026-05-21T21:52:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4035
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added attachments support for Mk.58 & Viper, and a dedicated pistol LAM
+        attachment.
+    - type: Add
+      message: Added attachable weapon lights for grip slot.
+    - type: Tweak
+      message: Buffed Lecter & Drozd firerate by 1 RPS.
+    - type: Tweak
+      message: Nerfed 4x optic maximum spread & recoil increase multipliers.
+    - type: Fix
+      message: Fixed VFGs increasing recoil recovery rate instead of decreasing.
+  id: 2344
+  time: '2026-05-21T22:07:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4031
+- author: router
+  changes:
+    - type: Fix
+      message: >-
+        IPCs can now boop and buzz. This was supposed to be possible all the
+        time.
+  id: 2345
+  time: '2026-05-22T10:09:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3999
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Ship description visible in a simple text box outside of manual button
+        tooltip, just like name and pricetag. Much more readable if you ask me.
+  id: 2346
+  time: '2026-05-22T11:08:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4038
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added a new drone to Far Reaches IV.
+  id: 2347
+  time: '2026-05-23T09:19:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3974
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed shipyard purchasing being broken.
+  id: 2348
+  time: '2026-05-23T10:38:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4047
+- author: Svarshik
+  changes:
+    - type: Add
+      message: Added T1 PDV ship - "WEN Garm", with GPOL bombing armament.
+    - type: Remove
+      message: Hourglass-type hull no longer being produced.
+  id: 2349
+  time: '2026-05-23T13:31:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3985
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: RUBICONs and Toveks are no longer anchorable.
+  id: 2350
+  time: '2026-05-24T05:20:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4041
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Updated engine to latest and cherrypicked a lot of wizden PRs. May have
+        stability improvements, but report unusual behavior.
+    - type: Tweak
+      message: Reverted frontier crematorium not working on living people.
+    - type: Tweak
+      message: Reverted frontier gorilla gauntlet only working on anomalies.
+  id: 2351
+  time: '2026-05-24T17:53:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4049
+- author: Mapleflavoureds
+  changes:
+    - type: Remove
+      message: Volta, RD suit and CE suit are no longer rad immune
+  id: 2352
+  time: '2026-05-25T02:49:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4051
+- author: 10kee
+  changes:
+    - type: Add
+      message: >-
+        Threatening to report a player has been added to the rulebook. Consult
+        CR7.
+  id: 2353
+  time: '2026-05-26T14:26:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4056
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Significantly upgraded ship AI. It can now operate missile weapons and
+        is better at avoiding obstacles (especially bullets).
+  id: 2354
+  time: '2026-05-26T20:00:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4064
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: All missiles can now be shot down.
+    - type: Tweak
+      message: You are no longer able to shoot down your own ship's missiles.
+    - type: Tweak
+      message: Most missiles given slower acceleration but higher top speeds.
+  id: 2355
+  time: '2026-05-27T13:59:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4063
+- author: SaintIWNL
+  changes: []
+  id: 2356
+  time: '2026-05-27T21:36:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4069
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: .45 ACP AP has been severely nerfed.
+  id: 2357
+  time: '2026-05-29T21:15:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4076
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Subframe is no longer a rulebreak.
+  id: 2358
+  time: '2026-05-30T06:00:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4077

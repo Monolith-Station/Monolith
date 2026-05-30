@@ -33,6 +33,8 @@
   - type: ShipRepairable
     repairTime: 1
     repairCost: 0
+  - type: Sprite
+    drawDepth: Overdoors
 
 - type: entity
   name: antenna

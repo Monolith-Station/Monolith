@@ -13,13 +13,13 @@ using Content.Shared.Damage;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
-public abstract class SharedReactorPartSystem : EntitySystem
+public abstract partial class SharedReactorPartSystem : EntitySystem
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPointLightSystem _lightSystem = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     /// <summary>
     /// Changes the overall rate of events

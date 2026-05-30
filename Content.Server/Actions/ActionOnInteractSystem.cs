@@ -9,12 +9,12 @@ namespace Content.Server.Actions;
 /// <summary>
 ///     This System handled interactions for the <see cref="ActionOnInteractComponent"/>.
 /// </summary>
-public sealed class ActionOnInteractSystem : EntitySystem
+public sealed partial class ActionOnInteractSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
 
     public override void Initialize()
     {

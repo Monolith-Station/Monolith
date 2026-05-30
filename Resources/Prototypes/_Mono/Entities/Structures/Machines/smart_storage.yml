@@ -1,0 +1,180 @@
+- type: entity
+  parent: BaseStructureDynamic
+  id: BaseSmartStorage
+  name: BaseSmartStorage
+  description: Stores things in an awesome fucking list its lit bro
+  abstract: true
+  components:
+  - type: Machine
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
+  - type: StationAiWhitelist
+  - type: Appearance
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/smartarmory.rsi
+    snapCardinals: true
+    layers:
+    - state: armory
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: armory_door
+      map: ["enum.StorageVisualLayers.Door"]
+      shader: unshaded
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#9dc5c9"
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      smart_fridge_inventory: !type:Container
+  - type: LitOnPowered
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: ExtensionCableReceiver
+  - type: SmartFridge
+    whitelist:
+      components:
+      - FitsInDispenser
+      tags:
+      - PillCanister
+  - type: ActivatableUI
+    key: enum.SmartFridgeUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.SmartFridgeUiKey.Key:
+        type: SmartFridgeBoundUserInterface
+  - type: AccessReader
+  - type: UseDelay
+    delay: 1
+  - type: ResistLocker
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+    anchored: True
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        density: 200
+  - type: Anchorable
+    delay: 2
+  - type: InteractionOutline
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  parent: BaseSmartStorage
+  id: SmartArmoryStorage
+  name: SmartArmory
+  description: Stores a lot of combat-related items & tools.
+  components:
+  - type: Machine
+    board: SmartArmoryCircuitboard
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/smartarmory.rsi
+    layers:
+    - state: armory
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: armory_door
+      map: ["enum.StorageVisualLayers.Door"]
+      shader: unshaded
+  - type: PointLight
+    color: "#9dc5c9"
+  - type: SmartFridge
+    flavorText: smart-fridge-request-armory
+    whitelist:
+      components:
+      - Gun
+      - ESGunAttachment
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      - HitscanAmmo
+      - SpeedLoader
+      - MeleeWeapon
+      - ThermalVision
+      - NightVision
+      - FlashImmunity
+      - Armor
+      - WeaponCaseInsertable
+      - TechnologyDisk
+      tags:
+      - Cartridge
+      - GrenadeLaunchable
+      - ShipRepairTool
+      - RapidConstructionTool
+      - TurretCompatibleWeapon
+      - LargeMilitaryPowerCell
+      - LightMechMount
+      - MediumMechMount
+      - HeavyMechMount
+      - EWARMechMount
+      - IFFMechMount
+      - TechDiskMono
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: ExplosionResistance
+    damageCoefficient: 0.1

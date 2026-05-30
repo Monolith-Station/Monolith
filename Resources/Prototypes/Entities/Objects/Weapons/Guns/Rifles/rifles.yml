@@ -151,6 +151,7 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: Gun
+    fireRate: 6 # Mono
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg # Mono
   - type: ItemSlots
@@ -244,6 +245,11 @@
         whitelist:
           tags:
           - MonoGripLAM
+      - containerId: attachment_grip
+        state: light
+        whitelist:
+          tags:
+          - MonoGripLight
       barrelAttachment:
       - containerId: attachment_barrel
         state: suppressed

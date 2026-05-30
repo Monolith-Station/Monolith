@@ -37,6 +37,7 @@ shipyard-console-menu-class-label = Class:{" "}
 shipyard-console-menu-engine-label = Engine:{" "}
 
 shipyard-console-purchase-available = Purchase
+shipyard-console-armament-default = Unspecified
 shipyard-console-guidebook = Manual
 shipyard-console-unassign-deed = Unassign
 shipyard-console-deed-unassigned = Deed unassigned from ID card successfully.

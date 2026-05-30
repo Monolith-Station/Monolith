@@ -162,7 +162,7 @@
     scale: 4
     shape: triangle
   - type: TimedDespawn
-    lifetime: 5
+    lifetime: 3
   - type: PointLight
     radius: 5
     color: orange
@@ -177,11 +177,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 20
+    acceleration: 60
     detectionRange: 100
     scanArc: 5
     launchSpeed: 10
-    maxSpeed: 64
+    maxSpeed: 120
 
 - type: entity
   id: BlanketFlare

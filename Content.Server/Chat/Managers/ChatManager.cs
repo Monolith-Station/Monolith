@@ -36,17 +36,17 @@ internal sealed partial class ChatManager : IChatManager
         { "revolutionary", "" }
     };
 
-    [Dependency] private readonly IReplayRecordingManager _replay = default!;
-    [Dependency] private readonly IServerNetManager _netManager = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly DiscordChatLink _discordLink = default!;
+    [Dependency] private IReplayRecordingManager _replay = default!;
+    [Dependency] private IServerNetManager _netManager = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IServerPreferencesManager _preferencesManager = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private INetConfigurationManager _netConfigManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private PlayerRateLimitManager _rateLimitManager = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private DiscordChatLink _discordLink = default!;
 
     /// <summary>
     /// The maximum length a player-sent message can be sent
@@ -182,7 +182,12 @@ internal sealed partial class ChatManager : IChatManager
         var adminSystem = _entityManager.System<AdminSystem>();
         var antag = mind.UserId != null && (adminSystem.GetCachedPlayerInfo(mind.UserId.Value)?.Antag ?? false);
 
-        SendAdminAlert($"{mind.Session?.Name}{(antag ? " (ANTAG)" : "")} {message}");
+        // We shouldn't be repeating this but I don't want to touch any more chat code than necessary
+        var playerName = mind.UserId is { } userId && _player.TryGetSessionById(userId, out var session)
+            ? session.Name
+            : "Unknown";
+
+        SendAdminAlert($"{playerName}{(antag ? " (ANTAG)" : "")} {message}");
     }
 
     public void SendHookOOC(string sender, string message)

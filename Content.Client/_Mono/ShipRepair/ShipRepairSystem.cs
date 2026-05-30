@@ -15,19 +15,19 @@ namespace Content.Client._Mono.ShipRepair;
 
 public sealed partial class ShipRepairSystem : SharedShipRepairSystem
 {
-    [Dependency] private readonly ForceParentSystem _parent = default!;
-    [Dependency] private readonly IconSmoothSystem _smooth = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefs = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private ForceParentSystem _parent = default!;
+    [Dependency] private IconSmoothSystem _smooth = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IMapManager _mapMan = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
+    [Dependency] private ITileDefinitionManager _tileDefs = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     // so Update() is less evil
     private EntityQuery<MapGridComponent> _gridQuery;

@@ -9,9 +9,9 @@ using System.Linq;
 
 namespace Content.Client._Goobstation.Clothing.EntitySystems;
 
-public sealed class SealableClothingVisualizerSystem : VisualizerSystem<SealableClothingVisualsComponent>
+public sealed partial class SealableClothingVisualizerSystem : VisualizerSystem<SealableClothingVisualsComponent>
 {
-    [Dependency] private readonly SharedItemSystem _itemSystem = default!;
+    [Dependency] private SharedItemSystem _itemSystem = default!;
 
     public override void Initialize()
     {
