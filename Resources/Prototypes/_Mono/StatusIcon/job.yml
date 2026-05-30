@@ -5,3 +5,30 @@
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: TSFEngineer
   jobName: job-name-tsf-engineer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconUSSPRifleman
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: USSPRifleman
+  jobName: job-name-ussp-rifleman
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconUSSPSergeant
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: USSPSergeant
+  jobName: job-name-ussp-sergeant
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconUSSPCommissar
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: USSPCommissar
+  jobName: job-name-ussp-commissar
+  allowSelection: false
