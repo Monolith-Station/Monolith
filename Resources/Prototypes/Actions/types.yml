@@ -358,12 +358,42 @@
     event: !type:ToggleActionEvent
 
 - type: entity
+  parent: ActionToggleWagging
+  id: ActionToggleWaggingVulpkanin
+  components:
+  - type: InstantAction # Mono
+    icon: { sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi, state: tail-wag-icon }
+    iconOn: { sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi, state: tail-wag-icon }
+    itemIconStyle: NoItem
+    useDelay: 1 # Prevents Emote Spam
+
+- type: entity
   id: ActionGravityJump
   name: Jump
   description: Activating the advanced propulsion system, you propel yourself a short distance in the direction of your gaze.
   components:
   - type: InstantAction
     useDelay: 8
+    icon:
+      sprite: Interface/Actions/jump.rsi
+      state: icon
+    event: !type:GravityJumpEvent {}
+
+- type: entity
+  # parent: BaseAction # Mono
+  id: ActionVulpkaninGravityJump
+  name: Leap
+  description: Use your agile legs to leap a short distance. Be careful not to bump into anything!
+  components:
+  #- type: Action # Mono edit
+  #  useDelay: 12
+  #  icon:
+  #    sprite: Interface/Actions/jump.rsi
+  #    state: icon
+  #- type: InstantAction
+  #  event: !type:GravityJumpEvent {}
+  - type: InstantAction
+    useDelay: 12
     icon:
       sprite: Interface/Actions/jump.rsi
       state: icon

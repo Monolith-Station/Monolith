@@ -300,6 +300,7 @@
       collection: VoxHiss
   params:
     variation: 0.125
+    # TODO: We need vox sounds for the other emotes
 
 - type: emoteSounds
   id: UnisexDiona
@@ -545,6 +546,103 @@
       path: /Audio/_EinsteinEngines/Voice/IPC/pai_whistle.ogg
       params:
         variation: 0.125
+
+# Vulp Sounds
+- type: emoteSounds
+  id: MaleVulpkanin
+  params:
+    variation: 0.125
+  sounds:
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Whistle:
+      collection: Whistles
+    Sigh:
+      collection: MaleSigh
+    Yawn:
+      collection: VulpkaninYawns
+    Scream:
+      collection: VulpkaninScreams
+    Growl:
+      collection: VulpkaninMaleGrowl #Monolith
+    Snarl:
+      collection: VulpkaninSnarls
+    Bark:
+      collection: VulpkaninBarks
+    Whine:
+      collection: SLVulpkaninWhines #Mono
+    Whimper:
+      collection: VulpkaninWhimpers # Starlight / Monolith: Rename to whimper
+    Crying:
+      collection: VulpkaninWhines
+    Howl:
+      collection: VulpkaninMaleHowl #Monolith
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Honk:
+      collection: BikeHorn
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
+    Belch: # Frontier
+      collection: Belch # Frontier
+    Yip: # Starlight / Monolith - yip & whine
+      collection: VulpkaninYips
+
+- type: emoteSounds
+  id: FemaleVulpkanin
+  params:
+    variation: 0.125
+  sounds:
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Whistle:
+      collection: Whistles
+    Sigh:
+      collection: FemaleSigh
+    Yawn:
+      collection: VulpkaninYawns
+    Scream:
+      collection: VulpkaninScreams
+    Growl:
+      collection: VulpkaninFemaleGrowl #Monolith
+    Snarl:
+      collection: VulpkaninSnarls
+    Bark:
+      collection: VulpkaninBarks
+    Whimper:
+      collection: VulpkaninWhimpers # Starlight / Monolith: Rename to whimper
+    Whine:
+      collection: SLVulpkaninWhines #Mono
+    Crying:
+      collection: VulpkaninWhines
+    Howl:
+      collection: VulpkaninFemaleHowl #Monolith
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Honk:
+      collection: BikeHorn
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp
+    Belch: # Frontier
+      collection: Belch # Frontier
+    Yip: # Starlight / Monolith - yip & whine
+      collection: VulpkaninYips
 
 # body emotes
 - type: emoteSounds

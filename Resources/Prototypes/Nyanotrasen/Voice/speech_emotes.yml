@@ -85,25 +85,6 @@
     - mewed
 
 - type: emote
-  id: Growl
-  category: Vocal
-  name: Growl
-  icon: Interface/Actions/scream.png
-  available: false
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: [growls.]
-  chatTriggers:
-    - growl
-    - growls
-    - growling
-    - growled
-
-- type: emote
   id: Purr
   category: Vocal
   name: Purr

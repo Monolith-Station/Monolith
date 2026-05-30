@@ -63,7 +63,7 @@
     Yip: # Starlight / Monolith - yip & whine [
       collection: VulpkaninYips
     Whine:
-      collection: VulpkaninWhines  # Starlight / Monolith - yip & whine ]
+      collection: SLVulpkaninWhines  # Starlight / Monolith - yip & whine ]
     Howl:
       collection: VulpkaninHowls
     Awoo:
@@ -86,110 +86,6 @@
       collection: HarpySquishes # Frontier
 
 - type: emoteSounds
-  id: MaleVulpkanin
-  params:
-    variation: 0.125
-  sounds:
-    Scream:
-      collection: MaleScreams
-    Laugh:
-      collection: MaleLaugh
-    Sneeze:
-      collection: MaleSneezes
-    Cough:
-      collection: MaleCoughs
-    Yawn:
-      collection: MaleYawn
-    Snore:
-      collection: Snores
-    Honk:
-      collection: BikeHorn
-    Sigh:
-      collection: MaleSigh
-    Crying:
-      collection: MaleCry
-    Whistle:
-      collection: Whistles
-    Weh:
-      collection: Weh
-    Hew:
-      collection: Hew
-    Growl:
-      collection: VulpkaninMaleGrowl #Monolith
-    Snarl:
-      collection: VulpkaninSnarls
-    Bark:
-      collection: VulpkaninBarks
-    Whimper:
-      collection: VulpkaninWhimpers # Starlight / Monolith: Rename to whimper
-    Howl:
-      collection: VulpkaninMaleHowl #Monolith
-    Awoo:
-      collection: VulpkaninMaleHowl #Monolith
-    Gasp:
-      collection: MaleGasp
-    DefaultDeathgasp:
-      collection: MaleDeathGasp
-    Belch: # Frontier
-      collection: Belch # Frontier
-    Yip: # Starlight / Monolith - yip & whine [
-      collection: VulpkaninYips
-    Whine:
-      collection: VulpkaninWhines  # Starlight / Monolith - yip & whine ]
-
-- type: emoteSounds
-  id: FemaleVulpkanin
-  params:
-    variation: 0.125
-  sounds:
-    Scream:
-      collection: FemaleScreams
-    Laugh:
-      collection: FemaleLaugh
-    Sneeze:
-      collection: FemaleSneezes
-    Cough:
-      collection: FemaleCoughs
-    Yawn:
-      collection: FemaleYawn
-    Snore:
-      collection: Snores
-    Honk:
-      collection: CluwneHorn
-    Sigh:
-      collection: FemaleSigh
-    Crying:
-      collection: FemaleCry
-    Whistle:
-      collection: Whistles
-    Weh:
-      collection: Weh
-    Hew:
-      collection: Hew
-    Growl:
-      collection: VulpkaninFemaleGrowl #Monolith
-    Snarl:
-      collection: VulpkaninSnarls
-    Bark:
-      collection: VulpkaninBarks
-    Whimper:
-      collection: VulpkaninWhimpers # Starlight / Monolith: Rename to whimper
-    Howl:
-      collection: VulpkaninFemaleHowl #Monolith
-    Awoo:
-      collection: VulpkaninFemaleHowl #Monolith
-    Gasp:
-      collection: FemaleGasp
-    DefaultDeathgasp:
-      collection: FemaleDeathGasp
-    Belch: # Frontier
-      collection: Belch # Frontier
-    Yip: # Starlight / Monolith - yip & whine [
-      collection: VulpkaninYips
-    Whine:
-      collection: VulpkaninWhines  # Starlight / Monolith - yip & whine ]
-
-- type: emoteSounds
   id: MobDog
   params:
     variation: 0.125
@@ -203,7 +99,7 @@
     Yip: # Starlight / Monolith - yip & whine [
       collection: VulpkaninYips
     Whine:
-      collection: VulpkaninWhines  # Starlight / Monolith - yip & whine ]
+      collection: SLVulpkaninWhines  # Starlight / Monolith - yip & whine ]
     Howl:
       collection: VulpkaninHowls
     Awoo:
