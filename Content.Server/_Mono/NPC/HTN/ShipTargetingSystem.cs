@@ -24,6 +24,8 @@ public sealed partial class ShipTargetingSystem : EntitySystem
     [Dependency] private EntityQuery<GunComponent> _gunQuery;
     [Dependency] private EntityQuery<PhysicsComponent> _physQuery;
 
+    private HashSet<Entity<FireControllableComponent>> _cannons = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -78,12 +80,10 @@ public sealed partial class ShipTargetingSystem : EntitySystem
             if (comp.WeaponCheckAccum < 0f)
             {
                 comp.Cannons.Clear();
-                var cannons = new HashSet<Entity<FireControllableComponent>>();
-                _lookup.GetLocalEntitiesIntersecting(shipUid.Value, shipGrid.LocalAABB, cannons);
-                foreach (var cannon in cannons)
-                {
+                _lookup.GetLocalEntitiesIntersecting(shipUid.Value, shipGrid.LocalAABB, _cannons);
+                foreach (var cannon in _cannons)
                     comp.Cannons.Add(cannon);
-                }
+                _cannons.Clear();
                 comp.WeaponCheckAccum += comp.WeaponCheckSpacing;
             }
 

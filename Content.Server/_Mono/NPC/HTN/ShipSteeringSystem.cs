@@ -151,7 +151,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             TargetGridUid = targetGrid,
 
             RotationCompensation = ref ent.Comp.RotationCompensation,
-            LastAvoidanceVec = ref ent.Comp.LastAvoidanceVector,
 
             FrameTime = args.FrameTime
         };
@@ -420,14 +419,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var wishI = _sectors.Count;
         _sectors.Add(new(wishDir, wishDirThrust, -1f));
 
-        // same but -2
-        var avoidI = _sectors.Count;
-        if (ctx.LastAvoidanceVec != null)
-        {
-            var lastDirThrust = _mover.GetWorldDirectionAccel(ctx.LastAvoidanceVec.Value, ctx.Shuttle, ctx.ShipBody, ctx.ShipXform);
-            _sectors.Add(new(ctx.LastAvoidanceVec.Value, lastDirThrust, -2f));
-        }
-
         foreach (var obstacle in _avoidEnts)
         {
             var obsRadius = obstacle.Radius;
@@ -459,11 +450,11 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 float t_f;
                 var desc_f = l * l + 4f * k * obsDistanceFront;
                 if (desc_f < 0f)
-                    t_f = l != 0f ? obsDistanceFront / l : -1f;
+                    t_f = -1f;
+                else if (l > 0f)
+                    t_f = (2f * obsDistanceFront) / (l + MathF.Sqrt(desc_f));
                 else
-                {
-                    t_f = desc_f < 0f || k == 0f ? -1f : ((-l + MathF.Sqrt(desc_f)) * 0.5f / k);
-                }
+                    t_f = k > 0f ? (-l + MathF.Sqrt(desc_f)) / (2f * k) : -1f;
 
                 if (t_f < 0f || t_f > simTime)
                     continue;
@@ -479,7 +470,12 @@ public sealed partial class ShipSteeringSystem : EntitySystem
                 }
                 else
                 {
-                    var t_c = ((-l + MathF.Sqrt(desc_c)) * 0.5f / k);
+                    float t_c = l > 0f ?
+                        (2f * obsDistanceCenter) / (l + MathF.Sqrt(desc_c))
+                        : k > 0f ?
+                            (-l + MathF.Sqrt(desc_c)) / (2f * k)
+                            : -1f;
+
                     if (t_c < 0f) t_c = t_f; // Failsafe bounds
                     p_end = relVel * t_c + 0.5f * accel * t_c * t_c;
                 }
@@ -521,16 +517,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // choose wish if clear
         var wishSector = _sectors[wishI];
         if (wishSector.ImpactTime == null)
-        {
-            ctx.LastAvoidanceVec = null;
             return new(null, false);
-        }
-
-        // if wish isn't clear, choose last chosen if clear
-        if (ctx.LastAvoidanceVec != null && _sectors[avoidI].ImpactTime == null)
-            return new(_sectors[avoidI].Input * _sectors[avoidI].Scale, false);
-        else
-            ctx.LastAvoidanceVec = null;
 
         // neither is clear, search for something that is
         var closestSector = (int?)null;
@@ -652,10 +639,13 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         var brakeInput = 0f;
         var linVel = ctx.ShipBody.LinearVelocity;
         var angleVel = ctx.ShipBody.AngularVelocity;
+        var needRotate = !aggressive
+            && MathF.Abs(rot.RotationInput) >= 1f
+            && -rot.RotationInput * angleVel >= 0f;
 
         // brake if we're moving opposite to desired direction
         var dotThreshold = aggressive ? 0f : config.BrakeThreshold;
-        if (Vector2.Dot(NormalizedOrZero(wishInputVec), NormalizedOrZero(-linVel)) > dotThreshold)
+        if (!needRotate && Vector2.Dot(NormalizedOrZero(wishInputVec), NormalizedOrZero(-linVel)) > dotThreshold)
             brakeInput = 1f;
 
         return brakeInput;
@@ -758,7 +748,6 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         public MapCoordinates TargetEntPos;
         // navigation
         public ref float RotationCompensation;
-        public ref Vector2? LastAvoidanceVec;
         // misc
         public float FrameTime;
     }

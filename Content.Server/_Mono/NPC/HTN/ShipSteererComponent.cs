@@ -127,12 +127,6 @@ public sealed partial class ShipSteererComponent : Component
     public Angle? InRangeRotation = null;
 
     /// <summary>
-    /// Last-chosen avoidance vector, used to prevent oscillating movements.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public Vector2? LastAvoidanceVector = null;
-
-    /// <summary>
     /// Whether to try to match velocity with target.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
