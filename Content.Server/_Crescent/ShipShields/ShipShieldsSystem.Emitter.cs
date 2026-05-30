@@ -16,10 +16,10 @@ namespace Content.Server._Crescent.ShipShields;
 public partial class ShipShieldsSystem
 {
     private const float MAX_EMP_DAMAGE = 10000f;
-    [Dependency] private readonly TriggerSystem _trigger = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private TriggerSystem _trigger = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     public void InitializeEmitters()
     {
         SubscribeLocalEvent<ShipShieldEmitterComponent, ShieldDeflectedEvent>(OnShieldDeflected);

@@ -1,9 +1,55 @@
+- type: entity
+  id: ShipMissileBase
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: ShipWeaponProjectile
+  - type: Fixtures
+    fixtures:
+      hit:
+        shape: !type:PhysShapeCircle
+          radius: 2
+        layer:
+        - BulletImpassable # Mono - ProjectileGridPhase will take care of collisions with same ship shots
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.45,0.15,0.15"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
 # VESPERA
 
 - type: entity
   id: MissileProjectile50mmHE
   name: ASM-50 50mm Mini Missile
-  parent: BaseBulletTrigger
+  parent: ShipMissileBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -18,13 +64,12 @@
     - state: mini-rocket
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectSmall
-  - type: ShipWeaponProjectile
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 1
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 3.5
+    lifetime: 2.5
   - type: PointLight
     radius: 3.5
     color: orange
@@ -39,19 +84,31 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 300
+    acceleration: 50
     detectionRange: 500
     scanArc: 35
     launchSpeed: 150
-    maxSpeed: 180
+    maxSpeed: 300
     trackDelay: 0.1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 # VANYK
 
 - type: entity
   id: ShipMissileASM150
   name: ASM-150 150mm missile
-  parent: BaseBulletTrigger
+  parent: ShipMissileBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -66,13 +123,12 @@
     - state: frag
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectSmall
-  - type: ShipWeaponProjectile
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 1.5
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 4.5
+    lifetime: 6
   - type: PointLight
     radius: 3.5
     color: orange
@@ -87,11 +143,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 200
+    acceleration: 50
     detectionRange: 600
     scanArc: 40
     launchSpeed: 90
-    maxSpeed: 210
+    maxSpeed: 300
     trackDelay: 0.2
 
 # TOVEK
@@ -99,7 +155,7 @@
 - type: entity
   id: ShipMissileASM250
   name: ASM-250 Hybrid EMP Missile
-  parent: BaseBulletTrigger
+  parent: ShipMissileBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -113,13 +169,12 @@
     - state: hybrid-missile
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectSmall
-  - type: ShipWeaponProjectile
   - type: RadarBlip
     radarColor: "#FB00FF"
     scale: 1
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 6.5
+    lifetime: 8
   - type: PointLight
     radius: 3.5
     color: orange
@@ -139,11 +194,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 200
+    acceleration: 25
     detectionRange: 600
     scanArc: 45
-    launchSpeed: 50
-    maxSpeed: 125
+    launchSpeed: 30
+    maxSpeed: 300
     trackDelay: 0.6
 
 # Serpent Torpedo
@@ -151,7 +206,7 @@
 - type: entity
   id: ShipMissileSerpent
   name: serpent torpedo
-  parent: BaseTorpedo
+  parent: ShipMissileBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -166,13 +221,12 @@
     - state: frag
   - type: Ammo
     muzzleFlash: null
-  - type: ShipWeaponProjectile
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 4
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 15
+    lifetime: 18
   - type: PointLight
     radius: 5
     color: orange
@@ -187,12 +241,24 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 50
+    acceleration: 10 # low
     detectionRange: 600
     scanArc: 30
     launchSpeed: 25
-    maxSpeed: 30
+    maxSpeed: 300
     trackDelay: 2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 # Pre-Fracture
 # Entropy electron Torpedo
@@ -200,7 +266,7 @@
 - type: entity
   id: ShipMissileEntropy
   name: electron torpedo
-  parent: BaseTorpedo
+  parent: ShipMissileBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -215,7 +281,6 @@
     - state: electron-torpedo
   - type: Ammo
     muzzleFlash: null
-  - type: ShipWeaponProjectile
   - type: RadarBlip
     radarColor: "#f5ee1b"
     scale: 4
@@ -245,24 +310,3 @@
     range: 7
     energyConsumption: 2900000
     disableDuration: 7
-  # destructible components below
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: Meteor
-    damageTypes:
-      types:
-        Blunt: 0.5
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 2500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:ExplodeBehavior
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-

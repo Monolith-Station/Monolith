@@ -3,9 +3,9 @@ using Content.Server._DV.Station.Components;
 
 namespace Content.Server._DV.Station.Systems;
 
-public sealed class StationPlanetSpawnerSystem : EntitySystem
+public sealed partial class StationPlanetSpawnerSystem : EntitySystem
 {
-    [Dependency] private readonly PlanetSystem _planet = default!;
+    [Dependency] private PlanetSystem _planet = default!;
 
     public override void Initialize()
     {

@@ -16,8 +16,8 @@ public enum BankATMMenuUiKey : byte
 
 public abstract partial class SharedBankSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
 
     public override void Initialize()
     {

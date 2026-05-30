@@ -21,14 +21,14 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts;
 
 public sealed partial class ArtifactSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly StationSystem _station = default!; // Frontier
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private StationSystem _station = default!; // Frontier
 
 
     public override void Initialize()

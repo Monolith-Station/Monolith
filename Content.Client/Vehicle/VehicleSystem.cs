@@ -5,7 +5,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Client.Vehicle;
 
-public sealed class VehicleSystem : SharedVehicleSystem
+public sealed partial class VehicleSystem : SharedVehicleSystem
 {
     [Dependency] private EyeSystem _eye = default!;
 

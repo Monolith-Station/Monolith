@@ -5,10 +5,10 @@ using Robust.Server.GameObjects;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 
-public sealed class EmpArtifactSystem : EntitySystem
+public sealed partial class EmpArtifactSystem : EntitySystem
 {
-    [Dependency] private readonly EmpSystem _emp = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private EmpSystem _emp = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -18,6 +18,6 @@ public sealed class EmpArtifactSystem : EntitySystem
 
     private void OnActivate(EntityUid uid, EmpArtifactComponent component, ArtifactActivatedEvent args)
     {
-        _emp.EmpPulse(_transform.GetMapCoordinates(uid), component.Range, component.EnergyConsumption, component.DisableDuration);
+        _emp.EmpPulse(_transform.GetMapCoordinates(uid), component.Range, component.EnergyConsumption, TimeSpan.FromSeconds(component.DisableDuration));
     }
 }

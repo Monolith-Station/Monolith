@@ -23,12 +23,12 @@ namespace Content.Server.Body.Systems;
 
 public sealed partial class BodySystem : SharedBodySystem // Shitmed change: made partial
 {
-    [Dependency] private readonly GhostSystem _ghostSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!; // Shitmed Change
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private GhostSystem _ghostSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private HumanoidAppearanceSystem _humanoidSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!; // Shitmed Change
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
 
     public override void Initialize()
     {
@@ -73,15 +73,10 @@ public sealed partial class BodySystem : SharedBodySystem // Shitmed change: mad
         // TODO: Predict this probably.
         base.AddPart(bodyEnt, partEnt, slotId);
 
-        if (TryComp<HumanoidAppearanceComponent>(bodyEnt, out var humanoid))
+        var layer = partEnt.Comp.ToHumanoidLayers();
+        if (layer != null)
         {
-            var layer = partEnt.Comp.ToHumanoidLayers();
-            if (layer != null)
-            {
-                var layers = HumanoidVisualLayersExtension.Sublayers(layer.Value);
-                _humanoidSystem.SetLayersVisibility(
-                    bodyEnt, new[] { layer.Value }, visible: true, permanent: true, humanoid); // Shitmed Change
-            }
+            _humanoidSystem.SetLayerVisibility(bodyEnt.Owner, layer.Value, true, null);
         }
     }
 
@@ -101,8 +96,7 @@ public sealed partial class BodySystem : SharedBodySystem // Shitmed change: mad
             return;
 
         var layers = HumanoidVisualLayersExtension.Sublayers(layer.Value);
-        _humanoidSystem.SetLayersVisibility(
-            bodyEnt, layers, visible: false, permanent: true, humanoid);
+        _humanoidSystem.SetLayersVisibility((bodyEnt, humanoid), layers, visible: false);
         _appearance.SetData(bodyEnt, layer, true); // Shitmed Change
     }
 

@@ -8,10 +8,10 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Station.Systems;
 public sealed partial class StationBiomeSystem : EntitySystem
 {
-    [Dependency] private readonly BiomeSystem _biome = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private BiomeSystem _biome = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private StationSystem _station = default!;
 
     public override void Initialize()
     {
@@ -21,11 +21,9 @@ public sealed partial class StationBiomeSystem : EntitySystem
 
     private void OnStationPostInit(Entity<StationBiomeComponent> map, ref StationPostInitEvent args)
     {
-        if (!TryComp(map, out StationDataComponent? dataComp))
+        var station = _station.GetLargestGrid(map.Owner);
+        if (station == null)
             return;
-
-        var station = _station.GetLargestGrid(dataComp);
-        if (station == null) return;
 
         var mapId = Transform(station.Value).MapID;
         var mapUid = _mapManager.GetMapEntityId(mapId);
