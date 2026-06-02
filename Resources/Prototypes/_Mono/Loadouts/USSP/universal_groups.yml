@@ -33,6 +33,8 @@
   - MercenaryClothingBeltWebbingsBigBlack
   - MercenaryClothingBeltWebbingsNormalRangerGreen
   - MercenaryClothingBeltWebbingsBigRangerGreen
+  - MercenaryClothingBeltWebbingsNormalTan
+  - MercenaryClothingBeltWebbingsBigTan
   fallbacks:
   - USSPCombatWebbing
 
@@ -146,13 +148,16 @@
   loadouts:
   - MercenaryClothingHandsGlovesTacticalCombatBlack
   - MercenaryClothingHandsGlovesTacticalCombatRangerGreen
+  - MercenaryClothingHandsGlovesTacticalCombatTan
 
 - type: loadoutGroup
   id: USSPCommissarGloves
   name: loadout-group-contractor-gloves
+  hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - MercenaryClothingHandsGlovesTacticalCombatWhite
-
+  fallbacks:
+  - MercenaryClothingHandsGlovesTacticalCombatWhite
 - type: loadoutGroup
   id: USSPBalaclava
   name: loadout-group-contractor-balaclava
@@ -161,3 +166,18 @@
   loadouts:
   - MercenaryClothingBalaclavaSkiMaskBlack
   - MercenaryClothingBalaclavaSkiMaskRangerGreen
+  - MercenaryClothingBalaclavaSkiMaskTan
+
+- type: loadoutGroup
+  id: USSPNeck
+  name: loadout-group-contractor-neck
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ContractorCDDogtags
+  - ContractorClothingNeckStethoscope
+  - ContractorClothingNeckIFFRed
+  - ContractorClothingNeckPonchoBlack
+  - ContractorClothingNeckPonchoSmallBlack
+  - ContractorClothingNeckPonchoSmallWhite
+
