@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/02/2026 09:29:33
-  entityCount: 1199
+  time: 06/03/2026 12:01:43
+  entityCount: 1200
 maps: []
 grids:
 - 1
@@ -97,9 +97,9 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        MetalFoam: []
         Kudzu: []
+        MetalFoam: []
+        Smoke: []
         Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -759,10 +759,8 @@ entities:
       parent: 1
     - type: DeviceList
       devices:
-      - 599
-      - 693
-      - 610
       - 694
+      - 610
 - proto: AirlockCargo
   entities:
   - uid: 256
@@ -792,7 +790,7 @@ entities:
       pos: 0.5,-1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -20847.795
+      secondsUntilStateChange: -21247.363
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -805,7 +803,7 @@ entities:
       pos: -1.5,0.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -24260.19
+      secondsUntilStateChange: -24659.758
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3484,6 +3482,7 @@ entities:
     - type: GasMixer
       inletTwoConcentration: 0.20999998
       inletOneConcentration: 0.79
+      enabled: True
     - type: AtmosPipeColor
       color: '#0055CCFF'
 - proto: GasOutletInjector
@@ -4354,13 +4353,13 @@ entities:
   - uid: 493
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
+      rot: 1.5707963267948966 rad
       pos: -4.5,6.5
       parent: 1
   - uid: 497
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
+      rot: -1.5707963267948966 rad
       pos: -4.5,8.5
       parent: 1
   - uid: 502
@@ -4408,7 +4407,6 @@ entities:
       parent: 1
     - type: DeviceNetwork
       deviceLists:
-      - 870
       - 650
     - type: AtmosPipeColor
       color: '#0055CCFF'
@@ -4529,7 +4527,6 @@ entities:
       parent: 1
     - type: DeviceNetwork
       deviceLists:
-      - 870
       - 650
     - type: AtmosPipeColor
       color: '#990000FF'
@@ -6819,6 +6816,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -1.5,-0.5
+      parent: 1
+- proto: SinkWide
+  entities:
+  - uid: 1137
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-0.5
       parent: 1
 - proto: SMESBasic
   entities:
