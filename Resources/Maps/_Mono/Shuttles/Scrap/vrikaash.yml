@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/30/2026 17:32:52
-  entityCount: 1431
+  time: 06/04/2026 18:32:06
+  entityCount: 1430
 maps: []
 grids:
 - 1
@@ -119,10 +119,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Puddle: []
-        Smoke: []
         MetalFoam: []
+        Puddle: []
+        Kudzu: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -2639,11 +2639,6 @@ entities:
       pos: -1.5,10.5
       parent: 1
   - uid: 345
-    components:
-    - type: Transform
-      pos: -2.5,9.5
-      parent: 1
-  - uid: 1431
     components:
     - type: Transform
       pos: -3.5,10.5
