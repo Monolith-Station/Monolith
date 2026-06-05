@@ -5,9 +5,9 @@ using Content.Shared._Shitmed.Targeting.Events;
 using Content.Shared.Body.Part;
 
 namespace Content.Server._Shitmed.Targeting;
-public sealed class TargetingSystem : SharedTargetingSystem
+public sealed partial class TargetingSystem : SharedTargetingSystem
 {
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
+    [Dependency] private SharedBodySystem _bodySystem = default!;
 
     public override void Initialize()
     {

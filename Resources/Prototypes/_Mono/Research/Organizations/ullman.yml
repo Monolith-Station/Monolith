@@ -8,9 +8,8 @@
   recipeUnlocks:
   - UllmanWeaponPulsePistol
   technologyPrerequisites:
-  - AdvancedParts
-  - WeaponizedLaserManipulation
-  position: -5, -5
+  - UniversalMaterialResearchT1
+  position: 16, 2
 
 - type: technology
   id: UllmanWeaponHiEnd
@@ -27,9 +26,9 @@
   - MagazineSmartMagnum
   - MagazineSmartMagnumExt
   technologyPrerequisites:
-  - SuperParts
+  - UniversalMaterialResearchT2
   - UllmanPulseAdv
-  position: -6, -5
+  position: 16, 8
 
 - type: technology
   id: UllmanHardsuitBasic
@@ -42,9 +41,9 @@
   - UllmanHardsuitPilot
   - UllmanHardsuitEngineer
   technologyPrerequisites:
-  - AdvancedParts
-  - HardsuitsSpecialized
-  position: -5, -4
+  - UniversalMaterialResearchT1
+  position: 16, 1
+
 
 - type: technology
   id: UllmanHardsuitHiEnd
@@ -57,9 +56,8 @@
   - UllmanHardsuitEnforcer
   - UllmanHardsuitEnforcerMKII
   technologyPrerequisites:
-  - SuperParts
-  - HardsuitsArmoredAdvanced
-  position: -6, -4
+  - UniversalMaterialResearchT2
+  position: 16, 7
 
 
 

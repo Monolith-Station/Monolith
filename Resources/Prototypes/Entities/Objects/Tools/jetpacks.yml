@@ -35,6 +35,10 @@
       interfaces:
         enum.SharedGasTankUiKey.Key:
           type: GasTankBoundUserInterface
+    - type: UseDelay
+      delays:
+        gasTank:
+          length: 1.0
     - type: Clothing
       sprite: _DV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
       quickEquip: false
@@ -99,8 +103,8 @@
       volume: 5
       temperature: 293.15
       moles:
-        - 1.025689525 # oxygen
-        - 1.025689525 # nitrogen
+        Oxygen: 1.025689525 # oxygen
+        Nitrogen: 1.025689525 # nitrogen
 
 #Empty black
 - type: entity
@@ -134,8 +138,8 @@
       volume: 5
       temperature: 293.15
       moles:
-        - 1.025689525 # oxygen
-        - 1.025689525 # nitrogen
+        Oxygen: 1.025689525 # oxygen
+        Nitrogen: 1.025689525 # nitrogen
 
 #Empty captain
 - type: entity
@@ -175,8 +179,8 @@
       volume: 5
       temperature: 293.15
       moles:
-        - 1.025689525 # oxygen
-        - 1.025689525 # nitrogen
+        Oxygen: 1.025689525 # oxygen
+        Nitrogen: 1.025689525 # nitrogen
 
 #Empty mini
 - type: entity
@@ -218,8 +222,8 @@
       volume: 1.5
       temperature: 293.15
       moles:
-        - 0.307706858 # oxygen
-        - 0.307706858 # nitrogen
+        Oxygen: 0.307706858 # oxygen
+        Nitrogen: 0.307706858 # nitrogen
 
 #Empty security
 - type: entity
@@ -253,8 +257,8 @@
       volume: 5
       temperature: 293.15
       moles:
-        - 1.025689525 # oxygen
-        - 1.025689525 # nitrogen
+        Oxygen: 1.025689525 # oxygen
+        Nitrogen: 1.025689525 # nitrogen
 
 #Empty void
 - type: entity
@@ -288,5 +292,5 @@
       volume: 5
       temperature: 293.15
       moles:
-        - 1.025689525 # oxygen
-        - 1.025689525 # nitrogen
+        Oxygen: 1.025689525 # oxygen
+        Nitrogen: 1.025689525 # nitrogen

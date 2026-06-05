@@ -21,21 +21,21 @@ namespace Content.Server.Gateway.Systems;
 /// <summary>
 /// Generates gateway destinations regularly and indefinitely that can be chosen from.
 /// </summary>
-public sealed class GatewayGeneratorSystem : EntitySystem
+public sealed partial class GatewayGeneratorSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
-    [Dependency] private readonly BiomeSystem _biome = default!;
-    [Dependency] private readonly DungeonSystem _dungeon = default!;
-    [Dependency] private readonly GatewaySystem _gateway = default!;
-    [Dependency] private readonly MetaDataSystem _metadata = default!;
-    [Dependency] private readonly SharedMapSystem _maps = default!;
-    [Dependency] private readonly SharedSalvageSystem _salvage = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private IConfigurationManager _cfgManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private BiomeSystem _biome = default!;
+    [Dependency] private DungeonSystem _dungeon = default!;
+    [Dependency] private GatewaySystem _gateway = default!;
+    [Dependency] private MetaDataSystem _metadata = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
+    [Dependency] private SharedSalvageSystem _salvage = default!;
+    [Dependency] private TileSystem _tile = default!;
 
     [ValidatePrototypeId<LocalizedDatasetPrototype>]
     private const string PlanetNames = "NamesBorer";

@@ -19,16 +19,16 @@ using Content.Shared.Store.Components;
 
 namespace Content.Server.Implants;
 
-public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
+public sealed partial class SubdermalImplantSystem : SharedSubdermalImplantSystem
 {
-    [Dependency] private readonly CuffableSystem _cuffable = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
-    [Dependency] private readonly TeleportSystem _teleportSys = default!;
+    [Dependency] private CuffableSystem _cuffable = default!;
+    [Dependency] private HumanoidAppearanceSystem _humanoidAppearance = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private StoreSystem _store = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ForensicsSystem _forensicsSystem = default!;
+    [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private TeleportSystem _teleportSys = default!;
 
     public override void Initialize()
     {

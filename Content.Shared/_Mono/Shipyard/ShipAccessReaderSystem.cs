@@ -19,14 +19,14 @@ namespace Content.Shared._Mono.Shipyard;
 /// <summary>
 /// System that handles ship deed-based access control.
 /// </summary>
-public sealed class ShipAccessReaderSystem : EntitySystem
+public sealed partial class ShipAccessReaderSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedIdCardSystem _idCardSystem = default!;
 
     public override void Initialize()
     {

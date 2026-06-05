@@ -6,6 +6,7 @@
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier2HP
+  suffix: Medium, T2
   description: Launches magnetically contained balls of plasma at targets. Can be remotely activated, or linked up to a GCS.
   components:
   - type: StaticPrice
@@ -27,7 +28,7 @@
     recoil: 5 # 1/5x
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 150
+    projectileSpeed: 180
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -65,6 +66,7 @@
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier3HP
+  suffix: Medium, T2
   description: Borrowing from the design of the Marauder, the Cerberus fires very similar shots, but in a tight spread of 3 blasts
   components:
   - type: StaticPrice
@@ -86,7 +88,7 @@
     recoil: 8
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 150
+    projectileSpeed: 180
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -123,8 +125,8 @@
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier2HP
-  suffix: TSF ONLY, ADS ONLY
-  description: A rapidly firing energy weapon, dealing a large amount of damage to its targets. Takes a long time to recharge.
+  suffix: Medium, T2
+  description: A rapidly firing energy weapon, well known for its devastating burst followed by a constant stream of plasma.
   components:
   - type: StaticPrice
     price: 4000
@@ -135,8 +137,8 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 15500
-    startingCharge: 15500
+    maxCharge: 18000
+    startingCharge: 18000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
@@ -145,7 +147,7 @@
     recoil: 5 # 1/5x
     minAngle: 0
     maxAngle: 5
-    projectileSpeed: 185
+    projectileSpeed: 220
     shootThermalSignature: 500000 # ~5.6km with continuous fire
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/autopulse_laser_fire_01.ogg
@@ -153,7 +155,7 @@
       path: /Audio/Weapons/click.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 220
+    autoRechargeRate: 2250
   - type: SpaceArtillery
     powerChargeRate: 700
     powerUsePassive: 100
@@ -183,7 +185,7 @@
   name: M25 mining pulser
   parent:
   - BallisticArtillery
-  - BallisticArtilleryTier0HP
+  - BallisticArtilleryTier1HP
   - ConstructibleMachine #Could possibly create a ConstructibleTurret proto if more are added; comps currently do nothing upgrade wise
   description: Uses mechanisms to launch... something. Destroys rock easily. Limited range.
   components:
@@ -196,8 +198,8 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 40000
-    startingCharge: 40000
+    maxCharge: 2250 # 15 seconds of constant fire, 75 rock walls destroyed per full mag
+    startingCharge: 2250
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
@@ -254,8 +256,9 @@
   id: WeaponTurretM220
   name: M220 RUBICON EMP launcher
   parent:
-  - BallisticArtillery
+  - BallisticArtilleryUnanchorable
   - BallisticArtilleryTier2HP
+  suffix: Medium, T2
   description: Launches EMP projectiles at ships, disabling systems with powerful electromagnetic pulses. Ideal for non-lethal engagements and can be remotely activated or linked to a GCS.
   components:
   - type: StaticPrice
@@ -275,7 +278,7 @@
     range: 500
   - type: Gun
     fireRate: 0.2
-    projectileSpeed: 140
+    projectileSpeed: 170
     shootThermalSignature: 2000000 # ~1414m after firing - relatively low
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -312,7 +315,7 @@
   parent:
   - BallisticArtilleryUnanchorable
   - BallisticArtilleryTier3HP
-  suffix: TSF ONLY
+  suffix: Large, T3
   description: A more specialized energy weapon, the Scylla fires a massive burst of plasma projectiles down range, in a huge spew to erase large and small targets alike.
   components:
   - type: StaticPrice
@@ -332,12 +335,12 @@
   - type: Gun
     projectileSpeed: 240
     minAngle: 0
-    maxAngle: 8
+    maxAngle: 6
     fireRate: 1
     recoil: 10 # 2/5x
-    burstCooldown: 16
-    burstFireRate: 50
-    shotsPerBurst: 50
+    burstCooldown: 5.5
+    burstFireRate: 100
+    shotsPerBurst: 100
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 500000 # ~5.6km with continuous fire
@@ -347,7 +350,7 @@
       path: /Audio/Weapons/click.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 300
+    autoRechargeRate: 30000
   - type: SpaceArtillery
     powerChargeRate: 700
     powerUsePassive: 100
@@ -382,7 +385,7 @@
   parent:
   - BallisticArtilleryUnanchorable
   - BallisticArtilleryTier5HP
-  suffix: TSF ONLY, Supercapital/Outpost Only
+  suffix: Station, T5
   description: Aetherion Dynamics' most iconic supercapital battery. Fires enormous ionized gas projectiles that melt through the toughest ship armor. Can be remotely activated or linked to a GCS.
   components:
   - type: StaticPrice
@@ -462,6 +465,7 @@
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier1HP
+  suffix: Small, T1
   description: A light laser emplacement designed by the Pantheon Collective, used to shred threats of all types.
   components:
   - type: StaticPrice
@@ -482,7 +486,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 20
+    fireRate: 15
     recoil: 0
     minAngle: 0
     maxAngle: 0
@@ -516,6 +520,7 @@
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier2HP
+  suffix: Medium, T2
   description: A heavier laser cannon mount, after the relative failure of the Apollo and its subsequent conversion into a mining laser, the Prometheus comes to the field as the new heavy laser cannon, perfect for melting through hostile hulls.
   components:
   - type: StaticPrice
@@ -536,7 +541,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 0.15
+    fireRate: 0.3
     recoil: 5
     minAngle: 0
     maxAngle: 0
@@ -546,7 +551,7 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: SpaceArtillery
-    powerChargeRate: 200
+    powerChargeRate: 20000
     powerUsePassive: 300
     powerUseActive: 0
   - type: FireControlRotate
@@ -580,6 +585,7 @@
   parent:
   - BallisticArtilleryUnanchorable
   - BallisticArtilleryTier4HP # This shit is massive lol
+  suffix: Large, T3
   name: L-20 Apollo Mining Laser Cannon
   description: One of the Pantheon Collective's top weapons, the Apollo is aptly named for its beams heating surfaces to beyond the temperature of nearby stars.
   components:
@@ -592,13 +598,13 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 50000
-    startingCharge: 50000
+    maxCharge: 56250 # 20 seconds of constant fire, 375 rock walls destroyed per full mag. 5 mining pulsers needed to equal its output.
+    startingCharge: 56250
   - type: BatterySelfRecharger
     autoRechargePause: true
     autoRechargePauseTime: 30
     autoRecharge: true
-    autoRechargeRate: 50000
+    autoRechargeRate: 56250
   - type: FireControlRotate
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
@@ -649,7 +655,7 @@
   name: Curio-8640 plasma lance "Malice"
   parent:
   - BallisticArtilleryUnanchorable
-  - BallisticArtilleryTier6HP
+  - BallisticArtilleryTier5HP
   suffix: ADS ONLY
   description: A devastating weapon, known for glassing whole fleets when used en masse
   components:
@@ -1056,7 +1062,7 @@
     range: 500
   - type: Gun
     recoil: 10 # 2/5x
-    projectileSpeed: 150
+    projectileSpeed: 180
     minAngle: 0
     maxAngle: 4
     burstCooldown: 2

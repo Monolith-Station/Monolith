@@ -14,13 +14,13 @@ namespace Content.Server.Mindshield;
 /// <summary>
 /// System used for checking if the implanted is a Rev or Head Rev.
 /// </summary>
-public sealed class MindShieldSystem : EntitySystem
+public sealed partial class MindShieldSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
-    [Dependency] private readonly RoleSystem _roleSystem = default!;
-    [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private IAdminLogManager _adminLogManager = default!;
+    [Dependency] private RoleSystem _roleSystem = default!;
+    [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
 
     [ValidatePrototypeId<TagPrototype>]
     public const string MindShieldTag = "MindShield";

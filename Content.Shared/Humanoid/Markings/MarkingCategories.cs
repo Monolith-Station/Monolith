@@ -17,6 +17,7 @@ namespace Content.Shared.Humanoid.Markings
         Legs,
         Wings, // For IPC wings porting from SimpleStation
         Tail,
+        TailExtras, // Starlight - Resomi Extra Tail Customisation
         Overlay
     }
 
@@ -43,6 +44,7 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.LFoot => MarkingCategories.Legs,
                 HumanoidVisualLayers.RFoot => MarkingCategories.Legs,
                 HumanoidVisualLayers.Wings => MarkingCategories.Wings, //For IPC wings porting from SimpleStation
+                HumanoidVisualLayers.TailExtras => MarkingCategories.TailExtras, // Starlight - Resomi Extra Tail Customisation
                 HumanoidVisualLayers.Tail => MarkingCategories.Tail,
                 HumanoidVisualLayers.RArmExtension => MarkingCategories.Arms, // Frontier: species-specific layer
                 HumanoidVisualLayers.LArmExtension => MarkingCategories.Arms, // Frontier: species-specific layer

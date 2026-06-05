@@ -46,15 +46,19 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: Anchorable
   - type: HTN
-    sleepPlayerCheckRangeOverride: 2000
+    sleepPlayerCheckRangeOverride: 4000
+    sleepMaxGridSpeed: 10 # don't sleep so we can still dodge grids or such if drifting far from players
     rootTask:
       task: RammerShuttleCompound
   - type: StaticPrice
-    price: 20000
+    price: 40000 # Mono buff, sells for 50k at depots, buffed due to removal of blackbox money
   - type: ApcPowerReceiver
     powerLoad: 1000 # suspiciously low power-using AI
   - type: ExtensionCableReceiver
   - type: TargetSeekingTarget
+  - type: PassiveThermalSignature # Mono
+    signature: 500000 # vibe number
+  - type: ThermalSignature # Mono
 
 - type: entity
   id: NpcStationAiApproacher
@@ -212,7 +216,6 @@
   suffix: AI, Drone-Assembly
   components:
   - type: HTN
-    sleepPlayerCheckRangeOverride: 4000
     rootTask:
       task: DroneCompoundAssembly
 
@@ -237,6 +240,18 @@
   - type: HTN
     rootTask:
       task: DroneCompoundLance
+
+- type: entity
+  id: NpcDroneAiQuake
+  name: attacker core
+  parent: [NpcStationAiAttackerSmart, BaseFactionGearOtherFactionT3]
+  description: Shoots at you.
+  suffix: AI, Drone-Quake
+  components:
+  - type: HTN
+    sleepPlayerCheckRangeOverride: 8000
+    rootTask:
+      task: DroneCompoundQuake
 
 #region Spawners
 
@@ -398,3 +413,13 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcDroneAiLance
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiQuake
+  parent: SpawnMobAttackerCore
+  suffix: Drone-Quake
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiQuake

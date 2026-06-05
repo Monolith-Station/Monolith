@@ -37,6 +37,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
+    key: plasmawindows # Mono
     base: pwindow
   - type: Construction
     graph: Window
@@ -48,6 +49,11 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
+  - type: DeltaPressure
+    minPressure: 75000
+    minPressureDelta: 50000
+    scalingType: Linear
+    scalingPower: 0.0005
   - type: StaticPrice
     price: 50 # Frontier: 100<50
   - type: RadiationBlocker
@@ -108,6 +114,10 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: DeltaPressure
+    minPressure: 18750
+    minPressureDelta: 12500
+    scalingType: Threshold
   - type: StaticPrice
     price: 25 # Frontier:50<25
   - type: RadiationBlocker
@@ -135,7 +145,7 @@
     - Diagonal
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Frontier: windows<walls
+    key: plasmawindows # Mono
     base: state
   - type: Icon
     sprite: Structures/Windows/plasma_diagonal.rsi

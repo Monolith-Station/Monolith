@@ -1,0 +1,15 @@
+- type: entity
+  save: false
+  name: Urist McChicken
+  parent: BaseMobResomi
+  id: MobResomi
+  # Monolith - Start - Mono/EE Languages
+  components:
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Elyran # Screw it. Why not. I dont care anymore.
+    understands:
+    - TauCetiBasic
+    - Elyran # Screw it. Why not. I dont care anymore.
+  # Monolith - End

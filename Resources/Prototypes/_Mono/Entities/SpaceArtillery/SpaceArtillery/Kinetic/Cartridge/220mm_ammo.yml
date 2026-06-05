@@ -1,7 +1,7 @@
 - type: entity
-  id: 220mmCartridge
-  name: 220mm auto shell
-  description: A chemically-propelled shell for CYREXA 220mm cannons.
+  id: 220mmCartridgeAPHE
+  name: 220mm APHE shell
+  description: A chemically-propelled armor-piercing high-explosive shell for 220mm cannons.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -10,12 +10,12 @@
   - type: Item
     size: Huge
   - type: CartridgeAmmo
-    proto: ShipCyrexaProjectile
+    proto: 220mmBulletAPHE
     deleteOnSpawn: true
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
     layers:
-    - state: 220mm
+    - state: 220mmAPHE
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals

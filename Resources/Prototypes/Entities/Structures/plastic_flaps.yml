@@ -5,6 +5,10 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   - type: Sprite
     sprite: Structures/plastic_flaps.rsi
     state: plasticflaps
@@ -36,7 +40,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: IconSmooth
-    key: walls
+    key: plasticflaps # Mono
     mode: NoSprite
   - type: StaticPrice
     price: 100

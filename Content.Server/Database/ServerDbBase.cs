@@ -393,17 +393,17 @@ namespace Content.Server.Database
 
         #region MonoCoins
 
-        public async Task<int> GetMonoCoinsAsync(NetUserId userId, CancellationToken cancel = default)
+        public async Task<long> GetMonoCoinsAsync(NetUserId userId, CancellationToken cancel = default)
         {
             await using var db = await GetDb(cancel);
 
             var prefs = await db.DbContext.Preference
                 .SingleOrDefaultAsync(p => p.UserId == userId.UserId, cancel);
 
-            return prefs?.MonoCoins ?? 0;
+            return prefs?.MonoCoins ?? 0l;
         }
 
-        public async Task SetMonoCoinsAsync(NetUserId userId, int balance, CancellationToken cancel = default)
+        public async Task SetMonoCoinsAsync(NetUserId userId, long balance, CancellationToken cancel = default)
         {
             await using var db = await GetDb(cancel);
 
@@ -412,12 +412,12 @@ namespace Content.Server.Database
 
             if (prefs != null)
             {
-                prefs.MonoCoins = Math.Max(0, balance); // Ensure balance is never negative
+                prefs.MonoCoins = Math.Max(0l, balance); // Ensure balance is never negative
                 await db.DbContext.SaveChangesAsync(cancel);
             }
         }
 
-        public async Task<int> AddMonoCoinsAsync(NetUserId userId, int amount, CancellationToken cancel = default)
+        public async Task<long> AddMonoCoinsAsync(NetUserId userId, long amount, CancellationToken cancel = default)
         {
             await using var db = await GetDb(cancel);
 
@@ -427,29 +427,12 @@ namespace Content.Server.Database
             if (prefs != null)
             {
                 prefs.MonoCoins += amount;
-                prefs.MonoCoins = Math.Max(0, prefs.MonoCoins); // Ensure balance is never negative
+                prefs.MonoCoins = Math.Max(0l, prefs.MonoCoins); // Ensure balance is never negative
                 await db.DbContext.SaveChangesAsync(cancel);
                 return prefs.MonoCoins;
             }
 
             return 0;
-        }
-
-        public async Task<bool> TrySubtractMonoCoinsAsync(NetUserId userId, int amount, CancellationToken cancel = default)
-        {
-            await using var db = await GetDb(cancel);
-
-            var prefs = await db.DbContext.Preference
-                .SingleOrDefaultAsync(p => p.UserId == userId.UserId, cancel);
-
-            if (prefs != null && prefs.MonoCoins >= amount)
-            {
-                prefs.MonoCoins -= amount;
-                await db.DbContext.SaveChangesAsync(cancel);
-                return true;
-            }
-
-            return false;
         }
 
         #endregion

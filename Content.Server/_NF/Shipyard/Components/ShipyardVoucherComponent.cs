@@ -60,4 +60,10 @@ public sealed partial class ShipyardVoucherComponent : Component
     /// </summary>
     [DataField, AutoPausedField]
     public TimeSpan NextBuyAt = TimeSpan.FromSeconds(0);
+
+    /// <summary>
+    ///     Mono: Whether this voucher is allowed to have its deed unassigned.
+    /// </summary>
+    [DataField]
+    public bool CanBeUnassigned = true;
 }

@@ -10,8 +10,8 @@ namespace Content.Shared._Mono.Projectile;
 
 public sealed partial class ProjectileKnockbackSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private EntityQuery<PhysicsComponent> _physQuery;
     private EntityQuery<MapGridComponent> _gridQuery;

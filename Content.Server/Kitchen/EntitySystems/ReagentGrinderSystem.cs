@@ -31,20 +31,20 @@ using Content.Shared.Storage; // Mono
 namespace Content.Server.Kitchen.EntitySystems
 {
     [UsedImplicitly]
-    internal sealed class ReagentGrinderSystem : EntitySystem
+    internal sealed partial class ReagentGrinderSystem : EntitySystem
     {
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainersSystem = default!;
-        [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-        [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-        [Dependency] private readonly StackSystem _stackSystem = default!;
-        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!; // Mono
-        [Dependency] private readonly RandomHelperSystem _randomHelper = default!;
-        [Dependency] private readonly JitteringSystem _jitter = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private SharedSolutionContainerSystem _solutionContainersSystem = default!;
+        [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
+        [Dependency] private SharedPopupSystem _popupSystem = default!;
+        [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
+        [Dependency] private StackSystem _stackSystem = default!;
+        [Dependency] private SharedAudioSystem _audioSystem = default!;
+        [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
+        [Dependency] private SharedContainerSystem _containerSystem = default!;
+        [Dependency] private SharedDoAfterSystem _doAfterSystem = default!; // Mono
+        [Dependency] private RandomHelperSystem _randomHelper = default!;
+        [Dependency] private JitteringSystem _jitter = default!;
 
         public override void Initialize()
         {
@@ -313,7 +313,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 UpdateUiState(entity);
             }
         }
-		
+
 		// Mono start: Plant bag dump, credit to imatsoup
         /// <summary>
         /// DoAfter function for interacting with the grinder with an item with a storage component.
@@ -331,7 +331,7 @@ namespace Content.Server.Kitchen.EntitySystems
             // If the storage is empty, we leave
             if (storage.StoredItems.Count == 0)
                 return;
-			
+
 			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Items/handling/backpack_equip.ogg"), comp.Owner, AudioParams.Default.WithVolume(-6f)); //Mono: Edited, not from port
 
             var inputContainer = _containerSystem.EnsureContainer<Container>(comp.Owner, SharedReagentGrinder.InputContainerId);
@@ -356,7 +356,7 @@ namespace Content.Server.Kitchen.EntitySystems
             }
 
             args.Handled = true;
-			
+
         }
 		// Mono end
 
