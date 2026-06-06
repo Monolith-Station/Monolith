@@ -158,6 +158,7 @@
   - MercenaryClothingHandsGlovesTacticalCombatWhite
   fallbacks:
   - MercenaryClothingHandsGlovesTacticalCombatWhite
+
 - type: loadoutGroup
   id: USSPBalaclava
   name: loadout-group-contractor-balaclava
@@ -181,3 +182,14 @@
   - ContractorClothingNeckPonchoSmallBlack
   - ContractorClothingNeckPonchoSmallWhite
 
+- type: loadoutGroup
+  id: USSPBureaucracy
+  name: loadout-group-contractor-bureaucracy
+  minLimit: 1
+  maxLimit: 3
+  loadouts:
+  - USSPCommonCause
+  - ContractorHandLabeler
+  - USSPFolder
+  fallbacks:
+  - USSPCommonCause

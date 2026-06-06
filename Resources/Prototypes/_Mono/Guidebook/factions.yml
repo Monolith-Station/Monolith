@@ -31,10 +31,11 @@
 - type: guideEntry
   id: USSP_Entry
   name: USSP
-  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP.xml"
+  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP_Remnants.xml"
   priority: 6
   children:
   - USSP_SoP
+  - USSP_Overview
 
 - type: guideEntry
   id: USSP_SoP
@@ -42,3 +43,8 @@
   text: "/ServerInfo/_Mono/Guidebook/Factions/USSP_SOP.xml"
   priority: 7
 
+- type: guideEntry
+  id: USSP_Overview
+  name: Union of Soviet Socialist Planets
+  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP.xml"
+  priority: 8

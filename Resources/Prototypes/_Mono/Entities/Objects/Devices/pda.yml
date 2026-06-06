@@ -5,12 +5,6 @@
   abstract: true
   components:
   - type: Pda
-    bookSlot:
-      startingItem: BookUSSPLaw
-      priority: -2
-      whitelist:
-        tags:
-        - BookUSSPLaw
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge

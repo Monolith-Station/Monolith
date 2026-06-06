@@ -30,8 +30,8 @@
 - type: entity
   parent: ClothingHeadHelmetBase
   id: ClothingHeadHelmetCombatUSSP
-  name: USSP combat helmet
-  description: A mass-produced helmet used across the Armed Forces of the USSP.
+  name: USSP field helmet
+  description: A standard USSP field helmet fitted with a compact antenna array, a feature of newer designs shaped by DST requirements.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Helmets/ussp_combat_helmet.rsi
