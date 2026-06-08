@@ -74,7 +74,7 @@
   - type: Anchorable
     flags: None # 1984
   - type: ItemMiner
-    interval: 20
+    interval: 10 # previously 20
 
 - type: entity
   name: random ores
