@@ -24,10 +24,10 @@ public sealed partial class ShipShieldsSystem : EntitySystem
     //private const float DeflectionSpread = 25f;
     private const float EmitterUpdateRate = 1.5f;
 
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly FixtureSystem _fixtureSystem = default!;
-    [Dependency] private readonly PhysicsSystem _physicsSystem = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvsSys = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private FixtureSystem _fixtureSystem = default!;
+    [Dependency] private PhysicsSystem _physicsSystem = default!;
+    [Dependency] private PvsOverrideSystem _pvsSys = default!;
 
     private EntityQuery<ProjectileComponent> _projectileQuery;
     private EntityQuery<ShipWeaponProjectileComponent> _shipWeaponProjectileQuery;

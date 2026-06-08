@@ -28,17 +28,17 @@ using Robust.Shared.Toolshed;
 namespace Content.Server.Silicons.Laws;
 
 /// <inheritdoc/>
-public sealed class SiliconLawSystem : SharedSiliconLawSystem
+public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
 {
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!; // Corvax-Next-AiRemoteControl
-    [Dependency] private readonly IMapManager _map = default!; // Mono - Law update is grid-only now.
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private SharedRoleSystem _roles = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private UserInterfaceSystem _userInterface = default!;
+    [Dependency] private EmagSystem _emag = default!;
+    [Dependency] private TagSystem _tagSystem = default!; // Corvax-Next-AiRemoteControl
+    [Dependency] private IMapManager _map = default!; // Mono - Law update is grid-only now.
 
     /// <inheritdoc/>
     public override void Initialize()

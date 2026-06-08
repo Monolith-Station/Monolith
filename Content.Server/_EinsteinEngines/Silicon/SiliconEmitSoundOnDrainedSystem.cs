@@ -6,9 +6,9 @@ using Content.Shared._EinsteinEngines.Silicon.Systems;
 
 namespace Content.Server._EinsteinEngines.Silicon;
 
-public sealed class EmitSoundOnCritSystem : EntitySystem
+public sealed partial class EmitSoundOnCritSystem : EntitySystem
 {
-    [Dependency] private readonly EmitSoundSystem _emitSound = default!;
+    [Dependency] private EmitSoundSystem _emitSound = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<SiliconEmitSoundOnDrainedComponent, SiliconChargeDeathEvent>(OnDeath);

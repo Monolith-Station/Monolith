@@ -1,0 +1,29 @@
+- type: entity
+  id: Base35mmGrenade
+  name: base 35x53mm grenade
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge35mmGrenade
+  - type: Item
+    size: Small
+  - type: Sprite
+
+- type: entity
+  id: Cartridge35mmGrenadeSAPHE
+  name: 35x53mm SAPHE grenade
+  parent: Base35mmGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet35mmGrenadeSAPHE
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/35mm_grenade.rsi
+    layers:
+    - state: frag
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: frag
+    suffix: false

@@ -4,7 +4,6 @@ using Content.Server.Salvage.Expeditions;
 using Content.Server.Salvage.Expeditions.Structure;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
-using Content.Server.Station.Components;
 using Content.Shared.Chat;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
@@ -13,6 +12,7 @@ using Content.Shared.Salvage.Expeditions;
 using Robust.Shared.Map;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Localizations;
+using Content.Shared.Station.Components;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -26,8 +26,8 @@ public sealed partial class SalvageSystem
      * Handles actively running a salvage expedition.
      */
 
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
     private void InitializeRunner()
     {
         SubscribeLocalEvent<FTLRequestEvent>(OnFTLRequest);

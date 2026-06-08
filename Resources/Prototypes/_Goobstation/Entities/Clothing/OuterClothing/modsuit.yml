@@ -254,7 +254,7 @@
         Heat: 0.7
         Shock: 0.4 # Mono
         Caustic: 0.4 # Mono
-        Radiation: 0 # Mono
+        Radiation: 0.01 # Mono
   - type: StaminaDamageResistance
     coefficient: 0.7 # Mono
 

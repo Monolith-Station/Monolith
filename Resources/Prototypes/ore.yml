@@ -88,7 +88,7 @@
 
 - type: ore # Mono
   id: OreAnomalySpawner
-  oreEntity: RandomAnomalySpawner
+  oreEntity: RandomAnomalySpawnerTrapless #Changed to trapless from normal, no trap anoms that gib people (someone malded)
 
 - type: weightedRandomOre
   id: RandomOreDistributionStandard

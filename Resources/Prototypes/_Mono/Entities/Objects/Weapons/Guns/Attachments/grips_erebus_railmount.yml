@@ -1,0 +1,118 @@
+- type: entity
+  parent: BaseGunAttachmentGrip
+  id: GunAttachmentGripErebusVFG
+  name: vertical foregrip (Erebus-HI railmount)
+  description: Makes it easier to control recoil, but harder to recover from it. Also helps with first-shot spread control.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Attachments/Grips/erebus_railmount.rsi
+    state: vfg
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 0.65
+    recoilIncreaseModifier: 0.35
+    minSpreadModifier: 0.8
+    maxSpreadModifier: 0.95
+  - type: Tag
+    tags:
+    - MonoGrip
+    - MonoGripErebusRailmount
+    - MonoGripVFG
+
+- type: entity
+  parent: BaseGunAttachmentGrip
+  id: GunAttachmentGripErebusLAM
+  name: Zenit PRL laser-aiming module (Erebus-HI railmount)
+  description: A visual-spectrum red laser for aiming. Looks awesome, and helps a lot with first shot accuracy!
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Attachments/Grips/erebus_railmount.rsi
+    layers:
+    - state: lam
+    - state: lam_unshaded
+      shader: unshaded
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 1.2
+    recoilIncreaseModifier: 1.0
+    minSpreadModifier: 0.05
+    maxSpreadModifier: 1.0
+  - type: ESGunComponentAttachment
+    component:
+    - type: LaserPointer
+      targetedColor: "#FF0040"
+      defaultColor: "#FF0040"
+  - type: Tag
+    tags:
+    - MonoGrip
+    - MonoGripErebusRailmount
+    - MonoGripLAM
+
+- type: entity
+  parent: BaseGunAttachmentGrip
+  id: GunAttachmentGripPistolLAM
+  name: Soyuz PGL laser-aiming module (handgun mount)
+  description: A visual-spectrum green laser for aiming. Looks awesome, and helps a lot with first shot accuracy!
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Attachments/Grips/pistol_mount.rsi
+    layers:
+    - state: lam
+    - state: lam_unshaded
+      shader: unshaded
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 1.2
+    recoilIncreaseModifier: 1.0
+    minSpreadModifier: 0.05
+    maxSpreadModifier: 1.0
+  - type: ESGunComponentAttachment
+    component:
+    - type: LaserPointer
+      targetedColor: "#00FF22"
+      defaultColor: "#00FF22"
+  - type: Tag
+    tags:
+    - MonoGrip
+    - MonoGripPistolMount
+    - MonoGripLAM
+
+- type: entity
+  parent: BaseGunAttachmentGrip
+  id: GunAttachmentGripErebusLight
+  name: LM-300 weapon light (Erebus-HI railmount)
+  description: It's a flashlight for your gun.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Attachments/Grips/erebus_railmount.rsi
+    layers:
+    - state: light
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 1.0
+    recoilIncreaseModifier: 1.0
+    minSpreadModifier: 1.0
+    maxSpreadModifier: 1.0
+  - type: ESGunComponentAttachment
+    component:
+    - type: ItemTogglePointLight
+    - type: PointLight
+      enabled: false
+      mask: /Textures/Effects/LightMasks/cone.png
+      autoRot: true
+      radius: 6
+      netsync: true
+    - type: ItemToggle # No sfx because its annoying (it triggers it when u wield)
+      predictable: true
+      onUse: false
+      onAltUse: false
+  - type: Tag
+    tags:
+    - MonoGrip
+    - MonoGripErebusRailmount
+    - MonoGripLight

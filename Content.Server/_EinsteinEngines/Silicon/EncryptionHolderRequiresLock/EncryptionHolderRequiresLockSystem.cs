@@ -4,10 +4,10 @@ using Content.Shared.Radio.EntitySystems;
 
 namespace Content.Server._EinsteinEngines.Silicon.EncryptionHolderRequiresLock;
 
-public sealed class EncryptionHolderRequiresLockSystem : EntitySystem
+public sealed partial class EncryptionHolderRequiresLockSystem : EntitySystem
 
 {
-    [Dependency] private readonly EncryptionKeySystem _encryptionKeySystem = default!;
+    [Dependency] private EncryptionKeySystem _encryptionKeySystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

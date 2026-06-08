@@ -10,8 +10,8 @@ namespace Content.Server._Mono.Radar;
 
 public sealed partial class RadarBlipSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
 
     // Pooled collections to avoid per-request heap churn
     private readonly List<BlipNetData> _tempBlipsCache = new();

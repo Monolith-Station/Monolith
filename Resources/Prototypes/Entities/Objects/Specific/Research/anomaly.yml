@@ -141,10 +141,7 @@
       path: "/Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg"
   - type: CorePoweredThrower
   - type: MeleeThrowOnHit
-    unanchorOnHit: true
-    whitelist: # Frontier
-      components: # Frontier
-        - Anomaly # Frontier
+    unanchorOnHit: Unanchorable
   - type: ItemSlots
     slots:
       core_slot:

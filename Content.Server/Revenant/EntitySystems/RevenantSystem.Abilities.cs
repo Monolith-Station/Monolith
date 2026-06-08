@@ -20,6 +20,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
+using Content.Shared.Light.Components;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -29,20 +30,23 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.Map.Components;
 using Content.Shared.Whitelist;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Revenant.EntitySystems;
 
 public sealed partial class RevenantSystem
 {
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private EntityStorageSystem _entityStorage = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private MobThresholdSystem _mobThresholdSystem = default!;
+    [Dependency] private GhostSystem _ghost = default!;
+    [Dependency] private TileSystem _tile = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+
+    private static readonly ProtoId<TagPrototype> WindowTag = "Window";
 
     private void InitializeAbilities()
     {
@@ -253,7 +257,7 @@ public sealed partial class RevenantSystem
         foreach (var ent in lookup)
         {
             //break windows
-            if (tags.HasComponent(ent) && _tag.HasTag(ent, "Window"))
+            if (tags.HasComponent(ent) && _tag.HasTag(ent, WindowTag))
             {
                 //hardcoded damage specifiers til i die.
                 var dspec = new DamageSpecifier();
