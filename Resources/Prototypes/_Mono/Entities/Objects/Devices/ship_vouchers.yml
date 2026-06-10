@@ -173,6 +173,31 @@
 
 - type: entity
   parent: BaseShipLPC
+  id: ShipVoucherMercury
+  name: TSF Mercury LPC [T1]
+  description: A small card that contains the data for the procurement of a Mercury-class corvette from the flagship's reserves.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#05ffff"
+    - state: screen3
+      color: "#05ffff"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: Security
+    companyName: TSF
+    vessels:
+    - Mercury
+  - type: StaticPrice
+    vendPrice: 500000
+
+- type: entity
+  parent: BaseShipLPC
   id: ShipVoucherAldebaran
   name: TSF Aldebaran LPC [T1]
   description: A small card that contains the data for the procurement of an Aldebaran-class frigate from the flagship's reserves.
@@ -218,6 +243,7 @@
     - ShipVoucherDagger
     - ShipVoucherTarantula
     - ShipVoucherSentinel
+    - ShipVoucherMercury
     - ShipVoucherAldebaran
 
 # end T1
@@ -364,9 +390,9 @@
 
 - type: entity
   parent: BaseShipLPC
-  id: ShipVoucherHourglass
-  name: PDV Hourglass LPC [T1]
-  description: A small card that contains the data for the procurement of an Hourglass-class escort from the flagship's reserves.
+  id: ShipVoucherGarm
+  name: PDV Garm LPC [T1]
+  description: A small card that contains the data for the procurement of an Garm-class bomber from the flagship's reserves.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -383,7 +409,7 @@
     consoleType: BlackMarket
     companyName: PDV
     vessels:
-    - Hourglass
+    - Garm
   - type: StaticPrice
     vendPrice: 20000
 
@@ -509,7 +535,7 @@
     - ShipVoucherBastion
     - ShipVoucherScorpion
     - ShipVoucherFenrir
-    - ShipVoucherHourglass
+    - ShipVoucherGarm
 
 # end T1
 
@@ -773,6 +799,7 @@
   - type: StaticPrice
     vendPrice: 325000
 
+
 # fighters
 
 - type: entity
@@ -798,6 +825,7 @@
     - Rook
   - type: StaticPrice
     vendPrice: 20000
+# Mercenary
 
 - type: entity
   parent: BaseShipLPC
@@ -822,6 +850,30 @@
     - Taser
   - type: StaticPrice
     vendPrice: 15000
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherBalor
+  name: balor drone LPC
+  description: A small card that contains the data for the procurement of a small commercially available anti-drone defense drone.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_fighter
+    - state: screen
+      color: "#2E6F40"
+    - state: screen8
+      color: "#32CD32"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Custom
+    vessels:
+    - Rac-Man
+    - Bow-Man
+  - type: StaticPrice
+    vendPrice: 30000
 
 - type: entity
   parent: BaseShipLPC
