@@ -10,10 +10,10 @@ namespace Content.Server._Mono.Traits.Physical;
 /// <summary>
 /// Replaces the user's liver with a Dwarf liver on spawn.
 /// </summary>
-public sealed class LiquorLifelineSystem : EntitySystem
+public sealed partial class LiquorLifelineSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBodySystem _body = null!;
-    [Dependency] private readonly SharedContainerSystem _containers = null!;
+    [Dependency] private SharedBodySystem _body = null!;
+    [Dependency] private SharedContainerSystem _containers = null!;
 
     public override void Initialize()
     {

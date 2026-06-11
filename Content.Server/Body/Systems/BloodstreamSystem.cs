@@ -26,21 +26,21 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Body.Systems;
 
-public sealed class BloodstreamSystem : EntitySystem
+public sealed partial class BloodstreamSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly PuddleSystem _puddleSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedDrunkSystem _drunkSystem = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private PuddleSystem _puddleSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private SharedDrunkSystem _drunkSystem = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private SharedStutteringSystem _stutteringSystem = default!;
+    [Dependency] private AlertsSystem _alertsSystem = default!;
+    [Dependency] private ForensicsSystem _forensicsSystem = default!;
 
     public override void Initialize()
     {

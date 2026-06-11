@@ -7,9 +7,9 @@ namespace Content.Shared._Mono.Company;
 /// This system handles checking if a user belongs to the required company
 /// before granting access to an entity.
 /// </summary>
-public sealed class CompanyAccessReaderSystem : EntitySystem
+public sealed partial class CompanyAccessReaderSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

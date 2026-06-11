@@ -1,4 +1,3 @@
-using Content.Server.Emp;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.Pow3r;
@@ -6,7 +5,9 @@ using Content.Shared.Access.Systems;
 using Content.Shared.APC;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Emp; // Frontier: Upstream - #28984
+using Content.Shared.Emp;
 using Content.Shared.Popups;
+using Content.Shared.Power;
 using Content.Shared.Rounding;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -16,15 +17,15 @@ using Content.Shared.Tools.Components;
 
 namespace Content.Server.Power.EntitySystems;
 
-public sealed class ApcSystem : EntitySystem
+public sealed partial class ApcSystem : EntitySystem
 {
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private EmagSystem _emag = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
     private EntityQuery<AppearanceComponent> _appearanceQuery; // Mono
 
     public override void Initialize()
@@ -41,7 +42,7 @@ public sealed class ApcSystem : EntitySystem
         SubscribeLocalEvent<ApcComponent, GotUnEmaggedEvent>(OnUnemagged); // Frontier
 
         SubscribeLocalEvent<ApcComponent, EmpPulseEvent>(OnEmpPulse);
-        SubscribeLocalEvent<ApcComponent, EmpDisabledRemoved>(OnEmpDisabledRemoved); // Frontier: Upstream - #28984
+        SubscribeLocalEvent<ApcComponent, EmpDisabledRemovedEvent>(OnEmpDisabledRemoved); // Frontier: Upstream - #28984
         SubscribeLocalEvent<ApcComponent, ToolUseAttemptEvent>(OnToolUseAttempt); // Frontier
 
         _appearanceQuery = GetEntityQuery<AppearanceComponent>();
@@ -223,7 +224,11 @@ public sealed class ApcSystem : EntitySystem
 
         return ApcExternalPowerState.Good;
     }
-    private void OnEmpPulse(EntityUid uid, ApcComponent component, ref EmpPulseEvent args) // Frontier: Upstream - #28984
+
+    // TODO: This subscription should be in shared.
+    // But I am not moving ApcComponent to shared, this PR already got soaped enough and that component uses several layers of OOP.
+    // At least the EMP visuals won't mispredict, since all APCs also have the BatteryComponent, which also has a EMP effect and is in shared.
+    private void OnEmpPulse(EntityUid uid, ApcComponent component, ref EmpPulseEvent args)
     {
         //if (component.MainBreakerEnabled)
         //{
@@ -235,7 +240,7 @@ public sealed class ApcSystem : EntitySystem
         UpdateApcState(uid);
     }
 
-    private void OnEmpDisabledRemoved(EntityUid uid, ApcComponent component, ref EmpDisabledRemoved args) // Frontier: Upstream - #28984
+    private void OnEmpDisabledRemoved(EntityUid uid, ApcComponent component, ref EmpDisabledRemovedEvent args) // Frontier: Upstream - #28984
     {
         UpdateApcState(uid);
     }

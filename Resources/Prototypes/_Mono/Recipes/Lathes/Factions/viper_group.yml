@@ -21,6 +21,15 @@
 
 - type: latheRecipe
   parent: MonoHardsuitT2Recipe
+  id: ClothingOuterHardsuitViperGroupInitiate
+  result: ClothingOuterHardsuitViperGroupInitiate
+  materials:
+    Steel: 2000
+    Plasteel: 2500
+    Cloth: 1500
+
+- type: latheRecipe
+  parent: MonoHardsuitT2Recipe
   id: ClothingOuterHardsuitViperGroupStandard
   result: ClothingOuterHardsuitViperGroupStandard
   materials:

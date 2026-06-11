@@ -44,11 +44,11 @@
 
 - type: startingGear
   id: SeniorOfficerGear
-  equipment:
-    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+#  equipment:
+#    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:
     back:
-    - Magazine45_ACPPistolFMJ
+#    - Magazine45_ACPPistolFMJ Mono
     - BaseSecurityUplinkRadioOfficer
 #    - ShipVoucherNfsdSergeant # Mono
     - RadioHandheldNF # Mono

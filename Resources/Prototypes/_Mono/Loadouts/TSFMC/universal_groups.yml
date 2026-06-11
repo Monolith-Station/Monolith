@@ -92,6 +92,7 @@
   loadouts:
   - TsfmcCombatWebbing
   - TsfmcCombatWebbingLarge
+  - ContractorClothingBeltSheathFilled
   fallbacks:
   - TsfmcCombatWebbing
 
@@ -191,6 +192,8 @@
   loadouts:
   - TsfmcHelmet
   - TsfmcBeret
+  - TsfmcUtilityCap
+  - TsfmcBeretCommon
 
 - type: loadoutGroup
   id: TsfmcHeadMedic
@@ -200,6 +203,8 @@
   - TsfmcHelmet
   - TsfmcBeret
   - TsfmcBeretMedic
+  - TsfmcUtilityCap
+  - TsfmcBeretCommon
 
 - type: loadoutGroup
   id: TsfmcHeadEngi
@@ -207,6 +212,8 @@
   minLimit: 0
   loadouts:
   - TsfmcBeretEngineer
+  - TsfmcUtilityCap
+  - TsfmcBeretCommon
 
 # Grunt headsets
 - type: loadoutGroup

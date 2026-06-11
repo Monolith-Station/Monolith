@@ -8,13 +8,13 @@ namespace Content.Shared.ProximityDetection.Systems;
 
 
 //This handles generic proximity detector logic
-public sealed class ProximityDetectionSystem : EntitySystem
+public sealed partial class ProximityDetectionSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private EntityLookupSystem _entityLookup = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private INetManager _net = default!;
 
     //update is only run on the server
 

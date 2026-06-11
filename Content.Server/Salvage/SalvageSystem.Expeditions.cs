@@ -14,8 +14,8 @@ using Robust.Shared.Audio;
 using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared.Station.Components;
 using Content.Shared.Coordinates;
 using Content.Shared.Procedural;
 using Content.Shared.Salvage;
@@ -36,7 +36,7 @@ public sealed partial class SalvageSystem
      */
 
     private const int MissionLimit = 5;
-    [Dependency] private readonly IConfigurationManager _cfgManager = default!; // Frontier
+    [Dependency] private IConfigurationManager _cfgManager = default!; // Frontier
 
     private readonly JobQueue _salvageQueue = new();
     private readonly List<(SpawnSalvageMissionJob Job, CancellationTokenSource CancelToken)> _salvageJobs = new();
@@ -172,7 +172,7 @@ public sealed partial class SalvageSystem
             if (comp.NextOffer > currentTime || comp.Claimed)
                 continue;
 
-            if (!HasComp<FTLComponent>(_station.GetLargestGrid(Comp<StationDataComponent>(uid)))) // Frontier
+            if (!HasComp<FTLComponent>(_station.GetLargestGrid((uid, Comp<StationDataComponent>(uid))))) // Frontier
                 comp.Cooldown = false;
             //comp.NextOffer += TimeSpan.FromSeconds(_cooldown); // Frontier
             comp.NextOffer = currentTime + TimeSpan.FromSeconds(_cooldown); // Frontier
