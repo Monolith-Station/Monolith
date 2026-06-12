@@ -21,9 +21,9 @@ namespace Content.Server._NF.Bank;
 
 public sealed partial class BankSystem
 {
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly CargoSystem _cargo = default!;
-    [Dependency] private readonly AccessReaderSystem _access = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private CargoSystem _cargo = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
 
     private void InitializeStationATM()
     {

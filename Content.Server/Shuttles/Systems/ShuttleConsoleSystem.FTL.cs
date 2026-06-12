@@ -17,8 +17,8 @@ namespace Content.Server.Shuttles.Systems;
 
 public sealed partial class ShuttleConsoleSystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     private const float ShuttleFTLRange = 512f;
     private const float ShuttleFTLMassThreshold = 100f; // Mono: now a soft limit, ships under the limit just stop you from shorter distance

@@ -11,11 +11,11 @@ namespace Content.Server._Mono.MonoCoins;
 /// <summary>
 /// System that handles MonoCoins balance for players.
 /// </summary>
-public sealed class MonoCoinsManager
+public sealed partial class MonoCoinsManager
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IServerDbManager _db = default!;
+    [Dependency] private INetManager _net = default!;
 
     private readonly ConcurrentDictionary<NetUserId, long> _cachedBalance = new();
 

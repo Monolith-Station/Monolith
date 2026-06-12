@@ -2,7 +2,6 @@
   id: MobVandalizer
   abstract: true
   components:
-  - type: Timer
   - type: TimedSpawner
     prototypes:
     - SpawnerHoloGraffitiRandom
