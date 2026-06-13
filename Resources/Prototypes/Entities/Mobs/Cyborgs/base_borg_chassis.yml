@@ -6,6 +6,9 @@
   save: false
   abstract: true
   components:
+  - type: SurgerySpeedModifier # Mono
+    SpeedModifier: 1.75
+  - type: Stripping # Mono
   - type: SurgeryTarget # Mono
   - type: Sanitized # Mono
   - type: Reactive
