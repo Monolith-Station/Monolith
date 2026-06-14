@@ -21423,3 +21423,97 @@ Entries:
   id: 2361
   time: '2026-06-02T18:53:19.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4081
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: You can now pilot asteroids and salvage wrecks again
+  id: 2362
+  time: '2026-06-07T15:23:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4092
+- author: Mapleflavoureds
+  changes:
+    - type: Fix
+      message: Actually removed rad immune suits
+  id: 2363
+  time: '2026-06-07T15:23:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4079
+- author: The-Aisen
+  changes:
+    - type: Fix
+      message: Atmosphere aboard the NOV-Rosetta should now work properly
+  id: 2364
+  time: '2026-06-08T09:33:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4080
+- author: MisterMecky
+  changes:
+    - type: Tweak
+      message: Engi-Vends now sell construction bags.
+  id: 2365
+  time: '2026-06-08T09:33:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4078
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added Iroh as a cool Merc/CC rifle. Basically a space G36. Make at a
+        lathe after researching, find in exped ranged weapon spawns, or equip in
+        loadout for $100k (as merc; free for CC).
+    - type: Tweak
+      message: >-
+        Replaced AKM, Lecter, Vulcan, and Drozd for Judges with Iroh (w/
+        roundstart 2x optic & VFG).
+    - type: Tweak
+      message: Weapon cases can now store attachments.
+  id: 2366
+  time: '2026-06-08T09:42:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4050
+- author: Tuerk
+  changes:
+    - type: Tweak
+      message: Artifact analyzers will now have their bias set to Down by default.
+    - type: Tweak
+      message: >-
+        Artifacts are worth more research points and credits now. The deeper the
+        node, the more science and credits.
+    - type: Fix
+      message: Crash when artifact analyzers had a lot of biasChance affecting bonuses.
+  id: 2367
+  time: '2026-06-08T10:47:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3839
+- author: lordsej
+  changes:
+    - type: Add
+      message: Vim flight and fight capabilities
+  id: 2368
+  time: '2026-06-08T12:05:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4053
+- author: waphun
+  changes:
+    - type: Add
+      message: Added the Jaguar to the TSFMC T0 voucher
+  id: 2369
+  time: '2026-06-11T09:34:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4097
+- author: waphun
+  changes:
+    - type: Add
+      message: >-
+        Ported Advanced Engineering Goggles from Delta-V. Get it alongside your
+        advanced tools!
+  id: 2370
+  time: '2026-06-12T16:05:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4098
+- author: KaylaSolace
+  changes:
+    - type: Fix
+      message: Fixed typos relating to VOX-Vrikaash ship, Hydrakin guidebook entry.
+  id: 2371
+  time: '2026-06-12T16:06:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4095
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed an issue with the Iroh's audio.
+  id: 2372
+  time: '2026-06-14T02:01:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4099
