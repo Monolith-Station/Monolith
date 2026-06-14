@@ -163,6 +163,23 @@
   - type: Clothing
     sprite: _Battlefield14/Clothing/Head/Helmets/emrhelmetriot.rsi
 
+- type: entity
+  parent: ClothingHeadHatHelmetUS
+  id: ClothingHeadHatHelmetRUSSh68
+  name: SSh-68 helmet
+  description: A very old SSh-68 helmet, commonly nicknamed "penis helmet" due to its shape.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Head/Helmets/ruhelmetssh68.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Head/Helmets/ruhelmetssh68.rsi
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+
 # MISC
 
 - type: entity

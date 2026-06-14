@@ -4,7 +4,7 @@
     head: ClothingHeadHatCabbie
   effects:
   - !type:GroupLoadoutEffect
-    proto: BF_RU_CIV_Gopnik3
+    proto: BF_RU_CIV_3
 
 - type: loadout
   id: LoadoutHeadHatTrackUshanka
@@ -12,7 +12,15 @@
     head: ClothingHeadHatTrackUshanka
   effects:
   - !type:GroupLoadoutEffect
-    proto: BF_RU_CIV_Gopnik3
+    proto: BF_RU_CIV_3
+
+- type: loadout
+  id: LoadoutHeadHatHelmetRUSSh68
+  equipment:
+    head: ClothingHeadHatHelmetRUSSh68
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_RU_CIV_2
 
 - type: loadout
   id: LoadoutHeadHatUshanka

@@ -4,7 +4,7 @@
     jumpsuit: ClothingUniformJumpsuitTracksuitRed
   effects:
   - !type:GroupLoadoutEffect
-    proto: BF_RU_CIV_Gopnik1
+    proto: BF_RU_CIV_1
 
 - type: loadout
   id: LoadoutUniformJumpsuitTracksuitBlue
@@ -12,7 +12,23 @@
     jumpsuit: ClothingUniformJumpsuitTracksuitBlue
   effects:
   - !type:GroupLoadoutEffect
-    proto: BF_RU_CIV_Gopnik2
+    proto: BF_RU_CIV_2
+
+- type: loadout
+  id: LoadoutUniformJumpsuitAfganVet1
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAfganVet1
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_RU_CIV_2
+
+- type: loadout
+  id: LoadoutUniformJumpsuitAfganVet2
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAfganVet2
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_RU_CIV_2
 
 - type: loadout
   id: LoadoutUniformJumpsuitTracksuitBlack
@@ -20,7 +36,7 @@
     jumpsuit: ClothingUniformJumpsuitTracksuitBlack
   effects:
   - !type:GroupLoadoutEffect
-    proto: BF_RU_CIV_Gopnik3
+    proto: BF_RU_CIV_3
 
 - type: loadout
   id: LoadoutUniformJumpsuitClerk

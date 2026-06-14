@@ -35,7 +35,7 @@
       time: 25200 # 7 hrs
 
 - type: loadoutEffectGroup
-  id: BF_RU_CIV_Gopnik1
+  id: BF_RU_CIV_1
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
@@ -44,7 +44,7 @@
       time: 5400 # 1.5 hrs
 
 - type: loadoutEffectGroup
-  id: BF_RU_CIV_Gopnik2
+  id: BF_RU_CIV_2
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
@@ -53,7 +53,7 @@
       time: 10800 # 3 hrs
 
 - type: loadoutEffectGroup
-  id: BF_RU_CIV_Gopnik3
+  id: BF_RU_CIV_3
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:

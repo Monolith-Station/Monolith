@@ -11,6 +11,28 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAfganVet1
+  name: M88 Afganka uniform
+  description: Afganka shirt and pants with a Telnyashka shirt underneath. Used to be common issue during the Soviet-Afghan War.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/ruvet1.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/ruvet1.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAfganVet2
+  name: M88 Afganka uniform
+  description: Afganka pants with a Telnyashka shirt. Used to be common issue during the Soviet-Afghan War.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/ruvet2.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/ruvet2.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitTracksuitRed
   name: red tracksuit
   description: A black tracksuit. This is what a peasant gopnik wears.
