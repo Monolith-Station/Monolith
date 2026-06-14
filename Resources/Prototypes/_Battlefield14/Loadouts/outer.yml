@@ -12,3 +12,11 @@
   id: LoadoutOuterWorkerHighViz
   equipment:
     outerClothing: ClothingOuterWorkerHighViz
+
+- type: loadout
+  id: LoadoutOuterArmorRU6B2Vest
+  equipment:
+    outerClothing: ClothingOuterArmorRU6B2Vest
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_RU_CIV_2
