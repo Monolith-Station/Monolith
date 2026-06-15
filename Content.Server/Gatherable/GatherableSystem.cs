@@ -7,6 +7,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -51,7 +52,7 @@ public sealed partial class GatherableSystem : EntitySystem
         args.Handled = true;
     }
 
-    public void Gather(EntityUid gatheredUid, EntityUid? gatherer = null, GatherableComponent? component = null)
+    public void Gather(EntityUid gatheredUid, EntityUid? gatherer = null, GatherableComponent? component = null) // mono
     {
         if (!Resolve(gatheredUid, ref component))
             return;
