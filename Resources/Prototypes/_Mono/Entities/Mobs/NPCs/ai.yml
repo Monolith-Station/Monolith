@@ -46,7 +46,8 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: Anchorable
   - type: HTN
-    sleepPlayerCheckRangeOverride: 2000
+    sleepPlayerCheckRangeOverride: 4000
+    sleepMaxGridSpeed: 10 # don't sleep so we can still dodge grids or such if drifting far from players
     rootTask:
       task: RammerShuttleCompound
   - type: StaticPrice
@@ -215,7 +216,6 @@
   suffix: AI, Drone-Assembly
   components:
   - type: HTN
-    sleepPlayerCheckRangeOverride: 4000
     rootTask:
       task: DroneCompoundAssembly
 

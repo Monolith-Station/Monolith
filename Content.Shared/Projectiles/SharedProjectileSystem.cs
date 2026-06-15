@@ -85,10 +85,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove);
 
         SubscribeLocalEvent<EmbeddedContainerComponent, EntityTerminatingEvent>(OnEmbeddableTermination);
-        // Subscribe to initialize the origin grid on ProjectileGridPhaseComponent
-        SubscribeLocalEvent<ProjectileGridPhaseComponent, ComponentStartup>(OnProjectileGridPhaseStartup);
-        // Subscribe to ensure MetaDataComponent on projectile entities for networking
-        SubscribeLocalEvent<ProjectileComponent, ComponentStartup>(OnProjectileMetaStartup);
 
         // Mono
         SubscribeLocalEvent<ProjectileComponent, TileFrictionEvent>(OnTileFriction);
@@ -97,27 +93,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         Subs.CVar(_cfg, MonoCVars.ProjectileAdaptiveRaycastThreshold, value => _adaptiveRaycasting = value, true);
         Subs.CVar(_cfg, CVars.TargetMinimumTickrate, value => _physicsTickrate = value, true);
         // Mono End
-    }
-
-    /// <summary>
-    /// Initialize the origin grid for phasing projectiles.
-    /// </summary>
-    private void OnProjectileGridPhaseStartup(EntityUid uid, ProjectileGridPhaseComponent component, ComponentStartup args)
-    {
-        var xform = Transform(uid);
-        component.SourceGrid = xform.GridUid;
-    }
-
-    /// <summary>
-    /// Ensures that a MetaDataComponent exists on projectiles for network serialization.
-    /// </summary>
-    private void OnProjectileMetaStartup(EntityUid uid, ProjectileComponent component, ComponentStartup args)
-    {
-        // Check if the entity still exists before trying to add a component
-        if (!EntityManager.EntityExists(uid))
-            return;
-
-        EnsureComp<MetaDataComponent>(uid);
     }
 
     /// <summary>
@@ -527,18 +502,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         // Get transforms once for subsequent checks to avoid repeated calls
         var projectileXform = Transform(uid);
         var targetXform = Transform(args.OtherEntity);
-
-        // Check for ProjectileGridPhaseComponent and origin-grid phasing
-        if (TryComp<ProjectileGridPhaseComponent>(uid, out var phaseComp))
-        {
-            if (phaseComp.SourceGrid.HasValue &&
-                targetXform.GridUid.HasValue &&
-                phaseComp.SourceGrid == targetXform.GridUid)
-            {
-                args.Cancelled = true;
-                return; // Projectile phases through entities on its origin grid.
-            }
-        }
 
         // Add collision check to queue for batch processing if we have enough
         if (_pendingCollisionChecks.Count >= MinProjectilesForParallel / 2)
