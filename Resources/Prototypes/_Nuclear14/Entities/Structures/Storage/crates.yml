@@ -257,14 +257,6 @@
       - !type:EmptyAllContainersBehaviour
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/Crates/woodencrates.rsi
-  - type: Storage
-    grid:
-    - 0,0,6,3
-    maxItemSize: Huge
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
     # TODO: Add crate deconstruction
 
 - type: entity

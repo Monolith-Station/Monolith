@@ -1,4 +1,57 @@
 - type: loadout
+  id: LoadoutUniformJumpsuitTracksuitRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTracksuitRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_RU_CIV_1
+
+- type: loadout
+  id: LoadoutUniformJumpsuitGorka
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGorka
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_RU_CIV_1
+
+- type: loadout
+  id: LoadoutUniformJumpsuitTracksuitBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTracksuitBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_RU_CIV_2
+
+- type: loadout
+  id: LoadoutUniformJumpsuitAfganVet1
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAfganVet1
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_RU_CIV_2
+
+- type: loadout
+  id: LoadoutUniformJumpsuitAfganVet2
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAfganVet2
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_RU_CIV_2
+
+- type: loadout
+  id: LoadoutUniformJumpsuitTracksuitBlack
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTracksuitBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_RU_CIV_3
+
+- type: loadout
+  id: LoadoutUniformJumpsuitClerk
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClerk
+
+- type: loadout
   id: LoadoutUniformJumpsuitEngineer
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineer
@@ -17,7 +70,6 @@
   id: LoadoutUniformJumpsuitHunter
   equipment:
     jumpsuit: ClothingUniformJumpsuitHunter
-
 
 - type: loadout
   id: LoadoutUniformJumpsuitDealer

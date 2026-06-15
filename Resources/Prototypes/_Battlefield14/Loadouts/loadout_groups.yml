@@ -7,6 +7,10 @@
   maxLimit: 1
   loadouts:
   - LoadoutHeadHatPompon
+  - LoadoutHeadHatUshanka
+  - LoadoutHeadHatUshankaTrack
+  - LoadoutHeadHatCabbie
+  - LoadoutHeadHatHelmetRUSSh68
 
 - type: loadoutGroup
   id: BF_VDVHead
@@ -126,6 +130,13 @@
   - LoadoutUniformJumpsuitWorker
   - LoadoutUniformJumpsuitMechanic
   - LoadoutUniformJumpsuitEngineer
+  - LoadoutUniformJumpsuitClerk
+  - LoadoutUniformJumpsuitGorka
+  - LoadoutUniformJumpsuitAfganVet1
+  - LoadoutUniformJumpsuitAfganVet2
+  - LoadoutUniformJumpsuitTracksuitRed
+  - LoadoutUniformJumpsuitTracksuitBlue
+  - LoadoutUniformJumpsuitTracksuitBlack
 
 - type: loadoutGroup
   id: BF_JumpsuitsCivilianUS
@@ -224,6 +235,7 @@
   - LoadoutOuterBlackTrenchcoat
   - LoadoutOuterWorkerHighViz
   - LoadoutOuterWorkJacket
+  - LoadoutOuterArmorRU6B2Vest
 
 - type: loadoutGroup
   id: BF_MiscItemsNATO

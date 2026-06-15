@@ -1,5 +1,47 @@
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatCabbie
+  name: Cabbie
+  description: A black cabbie, worn by true gopniks.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Head/Hats/cabbie.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Head/Hats/cabbie.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatUshankaTrack
+  name: Ushanka
+  description: A black ushanka with white stripes, worn by gopniks during winter.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Head/Hats/trackushanka.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Head/Hats/trackushanka.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatUshankaBF
+  name: Ushanka
+  description: A brown ushanka, worn by russians during winter.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Head/Hats/ushanka.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Head/Hats/ushanka.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatPompon
   name: Pompon beanie
   description: A bright red and blue beanie with a pompon.

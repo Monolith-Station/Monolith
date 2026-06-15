@@ -93,3 +93,22 @@
     scale: 0.9, 0.9
   - type: Clothing
     sprite: _Battlefield14/Clothing/Mask/russiamask.rsi
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingBaseTrollfaceMask
+  name: troll mask
+  description: What the fuck is this?
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Mask/trollmask.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Mask/trollmask.rsi
+  - type: Item
+    size: Small
+  - type: IdentityBlocker
+  - type: HideLayerClothing
+    slots:
+    - Snout
+    - Hair
+    hideOnToggle: true

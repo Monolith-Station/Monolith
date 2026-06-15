@@ -11,6 +11,83 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGorka
+  name: Gorka-4 Uniform
+  description: A Gorka-4, used by Russian Spetsnaz, mountain infantry and hunters.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/gorka.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/gorka.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAfganVet1
+  name: M88 Afganka uniform
+  description: Afganka shirt and pants with a Telnyashka shirt underneath. Used to be common issue during the Soviet-Afghan War.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/ruvet1.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/ruvet1.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAfganVet2
+  name: M88 Afganka uniform
+  description: Afganka pants with a Telnyashka shirt. Used to be common issue during the Soviet-Afghan War.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/ruvet2.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/ruvet2.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTracksuitRed
+  name: red tracksuit
+  description: A red tracksuit. This is what a peasant gopnik wears.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/redtrack.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/redtrack.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTracksuitBlue
+  name: blue tracksuit
+  description: A blue tracksuit. This is what a lesser gopnik wears.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/bluetrack.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/bluetrack.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTracksuitBlack
+  name: black tracksuit
+  description: A black tracksuit. This is what a true gopnik wears.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/blacktrack.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/blacktrack.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitClerk
+  name: clerk attire
+  description: Blue jeans, white shirt, and a brown leather vest. Something the local koisk clerk would wear.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/clerk.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/clerk.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitDealer
   name: dealer attire
   description: Black pants, black hoodie just like what a drug dealer would wear.
@@ -57,7 +134,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitEngineer
   name: engineer jumpsuit
-  description: A simple onsie jumpsuit, this one is blue meaning its worn by engineer.
+  description: A simple onsie jumpsuit, this one is red meaning its worn by engineer.
   components:
   - type: Sprite
     sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/engineer.rsi

@@ -1,0 +1,22 @@
+- type: gameMap
+  id: BF14Stronghold
+  mapName: 'Customs stronghold'
+  mapPath: /Maps/_Battlefield14/Deathmatch/stronghold.yml
+  minPlayers: 0
+  maxPlayers: 400
+  randomRotation: false
+  maxRandomOffset: 0
+  stations:
+    BF14Stronghold:
+      stationProto: StandardFrontierStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Customs stronghold"
+        - type: ExtraStationInformation
+          iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
+          stationSubtext: 'frontier-lobby-frontier-subtext' # TODO
+          stationDescription: 'frontier-lobby-frontier-subtext' # TODO
+          lobbySortOrder: 1
+        - type: StationJobs
+          availableJobs:
+            Contractor: [-1, -1]

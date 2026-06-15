@@ -685,3 +685,52 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+
+- type: entity
+  name: PTRD-41
+  parent: [WeaponFlareGun, BaseGunWieldable]
+  id: WeaponRifleRUPTRD41
+  description: A ancient single-shot anti-materiel rifle that was used all the way back in world war 2. Now used in museums as a show piece.
+  components:
+  - type: Item
+    size: Huge
+    sprite: _Battlefield14/Objects/Weapons/Guns/Snipers/PTRD41.rsi
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Snipers/PTRD41.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Snipers/PTRD41.rsi
+  - type: GunWieldBonus
+    minAngle: -29
+    maxAngle: -27
+  - type: Gun
+    minAngle: 31
+    maxAngle: 40
+    angleIncrease: 1
+    angleDecay: 16
+    availableModes:
+    - SemiAuto
+    selectedMode: SemiAuto
+    fireRate: 5
+    projectileSpeed: 67 # same as the M107
+    soundGunshot:
+      path: /Audio/_Battlefield14/Weapons/Guns/PTRD41/fire.ogg
+      params:
+        volume: -5
+        variation: 0.125
+  - type: ItemSlots
+    slots:
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle145x114
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle145x114
+  - type: Appearance
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier

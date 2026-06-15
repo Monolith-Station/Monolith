@@ -163,3 +163,21 @@
     damage: 35 # ~3 hits to stun
   - type: ArmorPiercing
     piercingThickness: 4
+
+- type: entity
+  id: BulletRifleBF145x114
+  name: bullet (1.45x114mm)
+  parent: BaseBulletRifle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 90
+        Piercing: 120
+    armorPenetration: 0.6
+    deleteOnCollide: true
+  - type: StaminaDamageOnCollide
+    damage: 45 # ~3 hits to stun
+  - type: ArmorPiercing
+    piercingThickness: 5

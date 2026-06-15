@@ -356,6 +356,98 @@
 # RU
 
 - type: entity
+  name: RP-46
+  parent: BaseWeaponLightMachineGun
+  id: WeaponMachineGunRURP46
+  description: A very old and very rare soviet machinegun, this one was probably found in a museum by from the fact that it isnt rusted down. Uses 7.62x54mmR belts.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/MachineGuns/RP46.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/MachineGuns/RP46.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -14
+    maxAngle: -35
+  - type: Gun
+    minAngle: 19 # Wielded = 5
+    maxAngle: 60 # wielded = 25
+    angleIncrease: 1.65
+    angleDecay: 10
+    availableModes:
+    - FullAuto
+    - Burst
+    selectedMode: FullAuto
+    fireRate: 6
+    projectileSpeed: 50 # full length barrel
+    shotsPerBurst: 8 # Fictional, to help with conserving ammo
+    burstCooldown: 0.5
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/l6_fire.ogg # TODO unique sounds
+      params:
+        volume: -3
+        variation: 0.125
+  - type: ChamberMagazineAmmoProvider
+    boltClosed: null
+    soundRack:
+      path: /Audio/_Battlefield14/Weapons/Guns/M249/uc_m249_rack.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineBeltRP46
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/M249/uc_m249_boxinsert.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/M249/uc_m249_boxremove.ogg
+        swap: false
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineBeltRP46
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle762x54r
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle762x54r
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 10
+    zeroVisible: true
+  - type: Appearance
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: GunRequiresWield
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/lmg_mouse.rsi
+      state: all
+  - type: WieldDelay
+    baseDelay: 1
+    modifiedDelay: 1
+    preventFiring: true
+
+- type: entity
   name: PKM
   parent: BaseWeaponLightMachineGun
   id: WeaponMachineGunRUPKM

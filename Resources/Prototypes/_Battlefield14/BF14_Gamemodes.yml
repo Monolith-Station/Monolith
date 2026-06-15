@@ -2,7 +2,7 @@
   id: USMC_vs_VDV
   alias:
   - USMCvsVDV
-  name: USMC vs. VDV
+  name: USMC vs VDV
   showInVote: true
   description: Larp and frag.
   minPlayers: 10
@@ -17,5 +17,16 @@
   showInVote: true # objectives not working yet, could poison the view of the map into a mindless TDM
   supportedMaps: BF14MapPoolEarthUSA
   description: Larp and frag.
+  rules:
+  - NFAdventure
+
+- type: gamePreset
+  id: GroundwarRussia
+  alias:
+  - Russia
+  name: Ground war, Russia
+  showInVote: true # objectives not working yet, could poison the view of the map into a mindless TDM
+  supportedMaps: BF14MapPoolEarthRussia
+  description: Larp and frag. Russian edition.
   rules:
   - NFAdventure

@@ -149,6 +149,24 @@
     sprintModifier: 0.97
 
 - type: entity
+  parent: ClothingArmbandVambrace
+  id: ClothingArmbandVambraceTrack
+  name: Ballsitic vambrace
+  description: A pair of level IIA kevlar vambrace to protect your forearms from shrapnel and the ocassional .22lr. This pair has ben painted with white stripes.
+  components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Accessories/trackvambrace.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Accessories/trackvambrace.rsi
+    clothingVisuals:
+      leftarmband:
+      - state: equipped-ARMBANDLEFT
+      rightarmband:
+      - state: equipped-ARMBANDRIGHT
+
+- type: entity
   parent: ClothingArmbandBase
   id: ClothingArmbandGraeves
   name: Ballsitic greaves

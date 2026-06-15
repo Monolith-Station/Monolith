@@ -186,3 +186,34 @@
     steps: 3
     zeroVisible: false
   - type: Appearance
+
+- type: entity
+  parent: BaseItem
+  id: MagazineBeltRP46
+  name: "RP-46 belt (7.62x54mmR)"
+  description: A long, 50 round belt for the RP-46 machinegun, you better not lose it because you wont find a new one.
+  components:
+  - type: Tag
+    tags:
+      - MagazineBeltRP46
+  - type: Item
+    size: Normal
+  - type: BallisticAmmoProvider
+    proto: BF_CartridgeRifle762x54r
+    mayTransfer: true
+    whitelist:
+      tags:
+        - BF_CartridgeRifle762x54r
+    capacity: 50
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/BeltBoxes/RP46.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 14
+    zeroVisible: false
+  - type: Appearance
