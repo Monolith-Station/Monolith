@@ -5,8 +5,8 @@
   name: steel barricade
   description: A tough barricade built to keep the bad out.
   icon:
-    sprite: /Textures/_Goobstation/Structures/Walls/Barricades/steel.rsi
-    state: base
+    sprite: /Textures/_RMC14/Structures/Walls/Barricades/barricade.rsi
+    state: metal
   graph: BarricadeSteel
   startNode: start
   targetNode: base
@@ -22,8 +22,8 @@
   name: folding steel barricade
   description: A tough barricade built to keep the bad out. This one can be opened with a latch.
   icon:
-    sprite: /Textures/_Goobstation/Structures/Walls/Barricades/steel.rsi
-    state: folding
+    sprite: /Textures/_RMC14/Structures/Walls/Barricades/barricade.rsi
+    state: folding_metal
   startNode: start
   targetNode: folding
   category: construction-category-structures
@@ -38,8 +38,8 @@
   name: plasteel barricade
   description: A hardened barricade built to keep the extra bad out.
   icon:
-    sprite: /Textures/_Goobstation/Structures/Walls/Barricades/plasteel.rsi
-    state: base
+    sprite: /Textures/_RMC14/Structures/Walls/Barricades/barricade.rsi
+    state: plasteel
   startNode: start
   targetNode: base
   category: construction-category-structures
@@ -54,8 +54,8 @@
   name: folding plasteel barricade
   description: A hardened barricade built to keep the extra bad out. This one can be opened with a latch.
   icon:
-    sprite: /Textures/_Goobstation/Structures/Walls/Barricades/plasteel.rsi
-    state: folding
+    sprite: /Textures/_RMC14/Structures/Walls/Barricades/barricade.rsi
+    state: folding_plasteel
   startNode: start
   targetNode: folding
   category: construction-category-structures
