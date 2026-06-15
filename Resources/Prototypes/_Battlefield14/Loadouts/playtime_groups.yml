@@ -41,7 +41,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobRUScav
-      time: 5400 # 1.5 hrs
+      time: 1800 # 30 min
 
 - type: loadoutEffectGroup
   id: BF_RU_CIV_2
@@ -50,7 +50,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobRUScav
-      time: 10800 # 3 hrs
+      time: 3600 # 1 hr
 
 - type: loadoutEffectGroup
   id: BF_RU_CIV_3
@@ -59,4 +59,4 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobRUScav
-      time: 21600 # 6 hrs
+      time: 5400 # 1.5 hr

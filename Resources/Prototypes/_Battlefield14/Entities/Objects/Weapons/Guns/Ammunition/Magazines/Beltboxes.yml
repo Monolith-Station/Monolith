@@ -198,8 +198,6 @@
       - MagazineBeltRP46
   - type: Item
     size: Normal
-    shape:
-      - 0,0,1,1 # 2 wide
   - type: BallisticAmmoProvider
     proto: BF_CartridgeRifle762x54r
     mayTransfer: true
