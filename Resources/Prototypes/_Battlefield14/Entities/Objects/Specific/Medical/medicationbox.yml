@@ -38,6 +38,8 @@
           False: { state: closed }
   - type: Appearance
 
+#region Pills
+
 - type: entity
   id: MedicationBoxPillsTricordrazine
   parent: MedicationBoxBase
@@ -152,7 +154,102 @@
     - id: BlisterPackIron
       amount: 2
 
-# Syrettes
+- type: entity
+  id: MedicationBoxPillsMeralyne
+  parent: MedicationBoxBase
+  name: pill box
+  suffix: Meralyne
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/medicationbox.rsi
+    layers:
+    - state: base
+    - state: overlay_stripe_maroon
+    - state: overlay_pills_maroon
+  - type: Label
+    currentLabel: meralyne
+  - type: StorageFill
+    contents:
+    - id: BlisterPackMeralyne
+      amount: 2
+
+- type: entity
+  id: MedicationBoxPillsDermaline
+  parent: MedicationBoxBase
+  name: pill box
+  suffix: Dermaline
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/medicationbox.rsi
+    layers:
+    - state: base
+    - state: overlay_stripe_dirtyyellow
+    - state: overlay_pills_dirtyyellow
+  - type: Label
+    currentLabel: dermaline
+  - type: StorageFill
+    contents:
+    - id: BlisterPackDermaline
+      amount: 2
+
+#region Syrettes
+
+- type: entity
+  id: MedicationBoxSyrettesBicaridine
+  parent: MedicationBoxBase
+  name: syrette box
+  suffix: Bicaridine
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/medicationbox.rsi
+    layers:
+    - state: base
+    - state: overlay_stripe_red
+    - state: overlay_ampuole
+  - type: Label
+    currentLabel: bicaridine
+  - type: StorageFill
+    contents:
+    - id: BlisterPackSyretteBicaridine
+      amount: 2
+
+- type: entity
+  id: MedicationBoxSyrettesKelotane
+  parent: MedicationBoxBase
+  name: syrette box
+  suffix: Kelotane
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/medicationbox.rsi
+    layers:
+    - state: base
+    - state: overlay_stripe_yellow
+    - state: overlay_ampuole
+  - type: Label
+    currentLabel: kelotane
+  - type: StorageFill
+    contents:
+    - id: BlisterPackSyretteKelotane
+      amount: 2
+
+- type: entity
+  id: MedicationBoxSyrettesTricordrazine
+  parent: MedicationBoxBase
+  name: syrette box
+  suffix: Tricordrazine
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/medicationbox.rsi
+    layers:
+    - state: base
+    - state: overlay_stripe_lightblue
+    - state: overlay_ampuole
+  - type: Label
+    currentLabel: tricordrazine
+  - type: StorageFill
+    contents:
+    - id: BlisterPackSyretteTricordrazine
+      amount: 2
 
 - type: entity
   id: MedicationBoxSyrettesMeralyne

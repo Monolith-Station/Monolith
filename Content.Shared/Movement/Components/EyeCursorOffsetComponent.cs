@@ -28,5 +28,5 @@ public abstract partial class SharedEyeCursorOffsetComponent : Component
     /// Should be 1/10 of MaxOffset most of the time.
     /// </summary>
     [DataField]
-    public float PvsIncrease = 0.5f;
+    public float PvsIncrease = 1f;
 }

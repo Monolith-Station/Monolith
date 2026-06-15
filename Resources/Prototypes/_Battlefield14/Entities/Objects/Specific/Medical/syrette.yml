@@ -1,3 +1,4 @@
+#region Base
 - type: entity
   name: syrette
   parent: BaseItem
@@ -127,6 +128,47 @@
     sprite: _Battlefield14/Objects/Specific/Medical/syrette.rsi
     layers:
     - state: cap_yellow
+
+#region Syrettes start
+
+- type: entity
+  parent: BF14SyretteBase
+  id: BF14SyretteBicaridine
+  suffix: Bicaridine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+        reagents:
+        - ReagentId: Bicaridine
+          Quantity: 5
+
+- type: entity
+  parent: BF14SyretteBase
+  id: BF14SyretteKelotane
+  suffix: Kelotane
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+        reagents:
+        - ReagentId: Kelotane
+          Quantity: 5
+
+- type: entity
+  parent: BF14SyretteBase
+  id: BF14SyretteTricordrazine
+  suffix: Tricordrazine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+        reagents:
+        - ReagentId: Tricordrazine
+          Quantity: 5
 
 - type: entity
   parent: BF14SyretteCappedBase

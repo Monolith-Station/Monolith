@@ -17,6 +17,8 @@
 #    - state: panel
 #      map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: CMAutomatedVendor
+    access:
+    - "PACTCommon"
     sections:
     - name: Armour
       choices: { BF14Armour: 1 }
@@ -24,8 +26,26 @@
       - id: EVAKitCombatRU
         name: voidsuit
         recommended: true
-#      - id: ClothingOuterArmorPlateCarrierBlack
-#        name: plate carrier
+      - id: ClothingOuterArmorPlateCarrierBlack
+        name: plate carrier
+    - name: 'Personal Medicine'
+      choices: { BF14PersonalMedicine: 1 }
+      entries:
+      - id: MedicationBoxPillsBicaridine
+        name: bicaridine pills
+        recommended: true
+      - id: MedicationBoxSyrettesBicaridine
+        name: bicaridine syrettes
+      - id: MedicationBoxPillsKelotane
+        name: kelotane pills
+      - id: MedicationBoxSyrettesKelotane
+        name: kelotane syrettes
+      - id: MedicationBoxSyrettesTricordrazine
+        name: tricordrazine syrettes
+      - id: BlisterPackSyretteMeralyne
+        name: meralyne syrettes
+      - id: BlisterPackSyretteDermaline
+        name: dermaline syrettes
     - name: Backpack/belt
       choices: { BF14Storage: 2 }
       entries:
@@ -103,6 +123,8 @@
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
   - type: CMAutomatedVendor
+    access:
+    - "PACTCommon"
     sections:
     - name: Identification
       entries:
@@ -183,6 +205,8 @@
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
   - type: CMAutomatedVendor
+    access:
+    - "PACTCommon"
     sections:
     - name: Magazine boxes
       entries:
@@ -237,6 +261,8 @@
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
   - type: CMAutomatedVendor
+    access:
+    - "PACTCommon"
     sections:
     - name: Transports
       entries:

@@ -1,0 +1,75 @@
+- type: entity
+  parent: ColMarTechBase
+  id: CMVendSharedWarVendorMedical
+  name: medical war vendor
+  description: Please sir, may I have a little more?
+  suffix: ColMarTech
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Structures/armoury.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "normal-unshaded"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+#      shader: unshaded
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: CMAutomatedVendor
+    access:
+    - "NATOMedical"
+    - "PACTMedical"
+    sections:
+    - name: pills
+      choices: { BF14MedicationBox: 4 }
+      entries:
+      - id: MedicationBoxPillsMeralyne
+        name: meralyne pills
+        recommended: true
+      - id: MedicationBoxPillsDermaline
+        name: dermaline pills
+        recommended: true
+      - id: MedicationBoxPillsBicaridine
+        name: bicaridine pills
+      - id: MedicationBoxPillsKelotane
+        name: kelotane pills
+      - id: MedicationBoxPillsTricordrazine
+        name: tricordrazine pills
+      - id: MedicationBoxPillsDexalin
+        name: dexalin pills
+      - id: MedicationBoxPillsDylovene
+        name: dylovene pills
+      - id: MedicationBoxPillsIron
+        name: iron pills
+    - name: syrettes
+      choices: { BF14MedicationBox: 4 }
+      entries:
+      - id: MedicationBoxSyrettesMeralyne
+        name: meralyne syrettes
+        recommended: true
+      - id: MedicationBoxSyrettesDermaline
+        name: dermaline syrettes
+        recommended: true
+      - id: MedicationBoxSyrettesBicaridine
+        name: bicaridine syrettes
+      - id: MedicationBoxSyrettesKelotane
+        name: kelotane syrettes
+      - id: MedicationBoxSyrettesTricordrazine
+        name: tricordrazine syrettes
+      - id: MedicationBoxSyrettesEpinephrine
+        name: epinephrine syrettes
+      - id: MedicationBoxSyrettesHypervene
+        name: hypervene syrettes
+      - id: MedicationBoxSyrettesFentanyl
+        name: fentanyl syrettes
+    - name: Sustainment
+      entries:
+      - id: BoxMRE
+        amount: 50
+      - id: FoodSnackNutribrick
+        amount: 50
+      - id: DrinkMREFlask
+        amount: 50
+      - id: OxygenTankFilled
+        amount: 50
