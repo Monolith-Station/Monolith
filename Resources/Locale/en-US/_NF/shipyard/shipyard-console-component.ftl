@@ -1,6 +1,7 @@
 ## UI
 shipyard-console-invalid-vessel = Cannot purchase vessel:
 shipyard-console-menu-title = Shipyard Menu
+ShipyardConsole-cashSlot = Cash Slot
 shipyard-console-menu-listing-free = Free
 shipyard-console-menu-listing-voucher = Voucher
 shipyard-console-docking = {$owner} shuttle {$vessel} en route.

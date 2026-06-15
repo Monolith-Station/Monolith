@@ -54,11 +54,13 @@ public abstract partial class SharedShipyardSystem : EntitySystem
     private void OnComponentInit(EntityUid uid, ShipyardConsoleComponent component, ComponentInit args)
     {
         _itemSlotsSystem.AddItemSlot(uid, ShipyardConsoleComponent.TargetIdCardSlotId, component.TargetIdSlot);
+        _itemSlotsSystem.AddItemSlot(uid, ShipyardConsoleComponent.CashSlotId, component.CashSlot);
     }
 
     private void OnComponentRemove(EntityUid uid, ShipyardConsoleComponent component, ComponentRemove args)
     {
         _itemSlotsSystem.RemoveItemSlot(uid, component.TargetIdSlot);
+        _itemSlotsSystem.RemoveItemSlot(uid, component.CashSlot);
     }
 
     [Serializable, NetSerializable]

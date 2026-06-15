@@ -6,6 +6,7 @@ namespace Content.Shared._NF.Shipyard.BUI;
 public sealed class ShipyardConsoleInterfaceState : BoundUserInterfaceState
 {
     public int Balance;
+    public int CashSlotBalance;
     public readonly bool AccessGranted;
     public readonly string? ShipDeedTitle;
     public int ShipSellValue;
@@ -19,6 +20,7 @@ public sealed class ShipyardConsoleInterfaceState : BoundUserInterfaceState
 
     public ShipyardConsoleInterfaceState(
         int balance,
+        int cashSlotBalance,
         bool accessGranted,
         string? shipDeedTitle,
         int shipSellValue,
@@ -30,6 +32,7 @@ public sealed class ShipyardConsoleInterfaceState : BoundUserInterfaceState
         float sellRate)
     {
         Balance = balance;
+        CashSlotBalance = cashSlotBalance;
         AccessGranted = accessGranted;
         ShipDeedTitle = shipDeedTitle;
         ShipSellValue = shipSellValue;

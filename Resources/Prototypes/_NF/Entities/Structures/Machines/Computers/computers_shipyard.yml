@@ -27,6 +27,15 @@
         components:
         - IdCard
         - ShipyardVoucher
+    cashSlot:
+      name: ShipyardConsole-cashSlot
+      insertSound: /Audio/Machines/scanning.ogg
+      ejectSound: /Audio/Machines/tray_eject.ogg
+      ejectOnBreak: true
+      swap: false
+      whitelist:
+        components:
+        - Cash
     newAccessLevels: [Captain]
   - type: ActivatableUI
     singleUser: true
@@ -40,6 +49,7 @@
     containers:
       board: !type:Container
       ShipyardConsole-targetId: !type:ContainerSlot
+      ShipyardConsole-cashSlot: !type:ContainerSlot
   - type: Computer
     board: Null
 

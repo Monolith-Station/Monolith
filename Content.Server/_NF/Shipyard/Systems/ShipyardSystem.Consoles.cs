@@ -1,4 +1,5 @@
 using Content.Server.Access.Systems;
+using Content.Server.Stack;
 using Content.Server.Popups;
 using Content.Server.Radio.EntitySystems;
 using Content.Server._NF.Bank;
@@ -50,7 +51,10 @@ using Robust.Shared.Player;
 using Robust.Server.Player;
 using Content.Shared._Mono.Ships.Components;
 using Content.Shared._Mono.Shipyard;
+using Content.Shared._Mono.Traits.Physical;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Tag;
+using Content.Shared.Stacks;
 using Robust.Shared.Timing;
 
 namespace Content.Server._NF.Shipyard.Systems;
@@ -78,6 +82,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private ShuttleConsoleLockSystem _shuttleConsoleLock = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
 
     private static readonly ProtoId<TagPrototype> CrewedShuttleTag = "CrewedShuttle";
     private static readonly Regex DeedRegex = new(@"\s*\([^()]*\)");
@@ -224,21 +230,25 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         }
         else
         {
-            if (bank.Balance <= vessel.Price)
+            var cashInSlot = GetCashInSlot(component);
+            if (vessel.Price > bank.Balance + cashInSlot)
             {
                 Del(shuttleUid);
-                ConsolePopup(player, Loc.GetString("cargo-console-insufficient-funds", ("cost", vessel.Price)));
+                ConsolePopup(player, Loc.GetString("bank-insufficient-funds"));
                 PlayDenySound(player, shipyardConsoleUid, component);
                 return;
             }
 
-            if (!_bank.TryBankWithdraw(player, vessel.Price))
+            var bankCharge = Math.Max(vessel.Price - cashInSlot, 0);
+            if (bankCharge > 0 && !_bank.TryBankWithdraw(player, bankCharge))
             {
                 Del(shuttleUid);
-                ConsolePopup(player, Loc.GetString("cargo-console-insufficient-funds", ("cost", vessel.Price)));
+                ConsolePopup(player, Loc.GetString("bank-insufficient-funds"));
                 PlayDenySound(player, shipyardConsoleUid, component);
                 return;
             }
+
+            TakeCashFromSlot(component, vessel.Price);
         }
 
         // Add company information to the shuttle from the ID card or voucher
@@ -554,7 +564,11 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             }
             bill = int.Max(0, bill);
 
-            _bank.TryBankDeposit(player, bill);
+            if (HasComp<IronmanComponent>(player))
+                AddCashToSlot(uid, component, bill);
+            else
+                _bank.TryBankDeposit(player, bill);
+
             PlayConfirmSound(player, uid, component);
         }
 
@@ -698,7 +712,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         if (!component.Initialized)
             return;
 
-        if (args.Container.ID != component.TargetIdSlot.ID)
+        if (args.Container.ID != component.TargetIdSlot.ID
+            && args.Container.ID != component.CashSlot.ID)
             return;
 
         // kind of cursed. We need to update the UI when an Id is entered, but the UI needs to know the player characters bank account.
@@ -919,8 +934,13 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
     private void RefreshState(EntityUid uid, int balance, bool access, string? shipDeed, int shipSellValue, EntityUid? targetId, ShipyardConsoleUiKey uiKey, bool freeListings)
     {
+        var cashInSlot = 0;
+        if (TryComp<ShipyardConsoleComponent>(uid, out var shipyard))
+            cashInSlot = GetCashInSlot(shipyard);
+
         var newState = new ShipyardConsoleInterfaceState(
             balance,
+            cashInSlot,
             access,
             shipDeed,
             shipSellValue,
@@ -932,6 +952,57 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             CalculateSellRate(uid));
 
         _ui.SetUiState(uid, uiKey, newState);
+    }
+
+    private int GetCashInSlot(ShipyardConsoleComponent component)
+    {
+        var cashEntity = component.CashSlot.ContainerSlot?.ContainedEntity;
+        if (cashEntity == null)
+            return 0;
+
+        if (!TryComp<StackComponent>(cashEntity, out var cashStack) ||
+            cashStack.StackTypeId != component.CashType)
+            return 0;
+
+        return cashStack.Count;
+    }
+
+    private void TakeCashFromSlot(ShipyardConsoleComponent component, int amount)
+    {
+        if (amount <= 0)
+            return;
+
+        var cashEntity = component.CashSlot.ContainerSlot?.ContainedEntity;
+        if (cashEntity == null ||
+            !TryComp<StackComponent>(cashEntity, out var cashStack) ||
+            cashStack.StackTypeId != component.CashType)
+            return;
+
+        var spent = Math.Min(amount, cashStack.Count);
+        _stack.SetCount(cashEntity.Value, cashStack.Count - spent, cashStack);
+    }
+
+    private void AddCashToSlot(EntityUid uid, ShipyardConsoleComponent component, int amount)
+    {
+        if (amount <= 0)
+            return;
+
+        var cashEntity = component.CashSlot.ContainerSlot?.ContainedEntity;
+        if (cashEntity != null &&
+            TryComp<StackComponent>(cashEntity, out var cashStack) &&
+            cashStack.StackTypeId == component.CashType)
+        {
+            _stack.SetCount(cashEntity.Value, cashStack.Count + amount, cashStack);
+            return;
+        }
+
+        var coordinates = Transform(uid).Coordinates;
+        var stackPrototype = _prototypeManager.Index<StackPrototype>(component.CashType);
+        var payout = _stack.Spawn(amount, stackPrototype, coordinates);
+        if (_itemSlots.TryInsert(uid, component.CashSlot, payout, user: null, excludeUserAudio: true))
+            return;
+
+        _transform.SetCoordinates(payout, coordinates);
     }
 
     #region Deed Assignment

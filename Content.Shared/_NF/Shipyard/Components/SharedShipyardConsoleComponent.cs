@@ -1,10 +1,12 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Stacks;
 using Robust.Shared.Prototypes;
 using Content.Shared.Radio;
 using Content.Shared.Access;
 using Content.Shared._NF.Bank.Components;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._NF.Shipyard.Components;
 
@@ -12,9 +14,16 @@ namespace Content.Shared._NF.Shipyard.Components;
 public sealed partial class ShipyardConsoleComponent : Component
 {
     public static string TargetIdCardSlotId = "ShipyardConsole-targetId";
+    public static string CashSlotId = "ShipyardConsole-cashSlot";
 
     [DataField("targetIdSlot")]
     public ItemSlot TargetIdSlot = new();
+
+    [ViewVariables(VVAccess.ReadWrite), DataField("cashType", customTypeSerializer: typeof(PrototypeIdSerializer<StackPrototype>))]
+    public string CashType = "Credit";
+
+    [DataField("cashSlot")]
+    public ItemSlot CashSlot = new();
 
     [DataField("soundError")]
     public SoundSpecifier ErrorSound =
