@@ -110,7 +110,7 @@
     - fill-ampuole-5
   - type: Appearance
 
-# Pills
+#region Pills
 
 - type: entity
   parent: BlisterPack
@@ -212,7 +212,7 @@
     - id: PillDermaline
       amount: 6
 
-# Syrettes
+#region Syrettes
 
 - type: entity
   parent: BlisterPackSyrette
@@ -222,6 +222,26 @@
   - type: StorageFill
     contents:
     - id: BF14SyretteBicaridine
+      amount: 5
+
+- type: entity
+  parent: BlisterPackSyrette
+  id: BlisterPackSyretteKelotane
+  suffix: Kelotane 5u, 5
+  components:
+  - type: StorageFill
+    contents:
+    - id: BF14SyretteKelotane
+      amount: 5
+
+- type: entity
+  parent: BlisterPackSyrette
+  id: BlisterPackSyretteTricordrazine
+  suffix: Tricordrazine 5u, 5
+  components:
+  - type: StorageFill
+    contents:
+    - id: BF14SyretteTricordrazine
       amount: 5
 
 - type: entity
