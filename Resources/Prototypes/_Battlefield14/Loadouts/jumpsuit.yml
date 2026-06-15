@@ -7,6 +7,14 @@
     proto: BF_RU_CIV_1
 
 - type: loadout
+  id: LoadoutUniformJumpsuitGorka
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGorka
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_RU_CIV_1
+
+- type: loadout
   id: LoadoutUniformJumpsuitTracksuitBlue
   equipment:
     jumpsuit: ClothingUniformJumpsuitTracksuitBlue

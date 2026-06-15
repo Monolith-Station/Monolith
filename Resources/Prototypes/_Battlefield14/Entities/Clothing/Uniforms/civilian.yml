@@ -11,6 +11,17 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGorka
+  name: Gorka-4 Uniform
+  description: A Gorka-4, used by Russian Spetsnaz, mountain infantry and hunters.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/gorka.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/gorka.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitAfganVet1
   name: M88 Afganka uniform
   description: Afganka shirt and pants with a Telnyashka shirt underneath. Used to be common issue during the Soviet-Afghan War.
