@@ -5,7 +5,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: USMC
-      time: 25200 # 7 hrs
+      time: 7200 # 2 hr
 
 - type: loadoutEffectGroup
   id: BF_USMC_SL_VET
@@ -14,7 +14,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobUSMCSquadLeader
-      time: 25200 # 7 hrs
+      time: 7200 # 2 hr
 
 - type: loadoutEffectGroup
   id: BF_VDV_VET
@@ -23,7 +23,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: VDV
-      time: 25200 # 7 hrs
+      time: 7200 # 2 hr
 
 - type: loadoutEffectGroup
   id: BF_VDV_SL_VET
@@ -32,7 +32,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobVDVSquadLeader
-      time: 25200 # 7 hrs
+      time: 7200 # 2 hr
 
 - type: loadoutEffectGroup
   id: BF_RU_CIV_1

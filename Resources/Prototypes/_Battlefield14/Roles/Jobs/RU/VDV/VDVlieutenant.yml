@@ -1,0 +1,69 @@
+- type: job
+  id: VDVLieutenant
+  name: job-name-vdv-lieutenant
+  description: job-description-vdv-lieutenant
+  playTimeTracker: JobVDVLieutenant
+  weight: 78
+  startingGear: VDVLieutenantGear
+  alwaysUseSpawner: true
+  icon: "JobIconPACTCaptain"
+  requireAdminNotify: true
+  supervisors: job-supervisors-rugov
+  canBeAntag: false
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - Russian
+    - Esperanto
+    languagesUnderstood:
+    - Russian
+#    - Ukrainian
+    - Esperanto
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - VDV
+  - !type:AddImplantSpecial
+    implants: [ TrackingImplantPACTRU ]
+  # - !type:AddComponentSpecial
+  #   components:
+  #     # COMMENTED OUT: ChatRank and HullrotFaction not supported
+  #     # - type: ChatRank
+  #     #   rank: BF-rank-lieutenant
+  access:
+  - Maintenance
+  - Service
+  - External
+  - Mercenary # Frontier
+  - Captain # Frontier
+  - PACTCommon
+  - PACTCommand
+  - PACTMaintenance
+  - PACTSoldier
+  - PACTArmory
+
+- type: startingGear
+  id: VDVLieutenantGear
+  equipment:
+    id: VDVLieutenantPDA
+    ears: ClothingHeadsetAltRU
+    belt: ClothingBeltMilitaryWebbingRUFilledAK12TracerGreen
+    jumpsuit: ClothingUniformJumpsuitCamoRUEMR
+    head: ClothingHeadHatHelmetRUEMR
+    outerClothing: ClothingOuterArmorPlateCarrierBlack
+    shoes: ClothingShoesBootsJackFilled
+    neck: ClothingNeckIFFtapeWhite
+    suitstorage: WeaponRifleRUAK12Magnified
+    pocket1: PouchFirstAidFilled
+    pocket2: PouchGrenadesFilledVDVRifleman
+    rightarmband: ClothingArmbandThighHolsterFilledRU
+  storage:
+    back:
+    - ArmorPlateMedium
+    - MagazinePistolMP443
+    - MagazinePistolMP443
+    - FlashlightMilitaryAlt
+    - ClothingMaskGasRussia
+    - Tourniquet
+    - Zipties

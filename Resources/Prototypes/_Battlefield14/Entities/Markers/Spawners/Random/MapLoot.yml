@@ -1,4 +1,4 @@
-#### NATO LOOT
+#region NATO LOOT
 
 - type: entity
   parent: MarkerBase
@@ -138,7 +138,7 @@
       - OffensiveGrenadeUSMK21
     chance: 1
 
-#### AMERICAN LOOT
+#region AMERICAN LOOT
 
 - type: entity
   parent: MarkerBase
@@ -154,7 +154,7 @@
     prototypes:
       - WeaponPistolUSM1911
       - WeaponPistolM9
-      - WeaponPistolUSMK27
+      - WeaponPistolATGlock17
       - WeaponShotgunUSM590
     chance: 1
 
@@ -278,7 +278,7 @@
       - SmokeGrenadeUSM18
       - OffensiveGrenadeUSMK21
     chance: 1
-#### RUSSIAN LOOT
+#region RUSSIAN LOOT
 ## Weapons
 
 - type: entity
@@ -366,6 +366,7 @@
       - MagazineBox762x54r
       - ShellBoxBF12GaugeBuckshot
       - SmokeGrenadeRURDG
+      - DefensiveGrenadeINDFanta
     chance: 1
 
 - type: entity
@@ -393,6 +394,7 @@
       - SmokeGrenadeRURDG
       - DefensiveGrenadeRUF1
       - FlashbangGrenadeRUZarya
+      - DefensiveGrenadeINDFanta
     chance: 1
 
 - type: entity
@@ -421,10 +423,10 @@
       - FlashbangGrenadeRUZarya
       - SmokeGrenadeRURDG
       - OffensiveGrenadeRURGD5
-      - ImpactGrenadeRURGO
+      - DefensiveGrenadeRUF1
     chance: 1
 
-#### UNIVERSAL LOOT
+#region UNIVERSAL LOOT
 ## GEAR
 
 - type: entity

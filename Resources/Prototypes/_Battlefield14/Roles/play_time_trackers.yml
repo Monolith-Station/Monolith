@@ -2,6 +2,9 @@
 
 # USMC
 - type: playTimeTracker
+  id: JobUSMCLieutenant
+
+- type: playTimeTracker
   id: JobUSMCSquadLeader
 
 - type: playTimeTracker
@@ -89,6 +92,9 @@
 ## RU
 
 # VDV
+
+- type: playTimeTracker
+  id: JobVDVLieutenant
 
 - type: playTimeTracker
   id: JobVDVSquadLeader

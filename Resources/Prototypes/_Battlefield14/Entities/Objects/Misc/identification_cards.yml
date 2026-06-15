@@ -4,6 +4,20 @@
 
 - type: entity
   parent: IDCardStandard
+  id: USMCLieutenantIDCard
+  name: Marine Corps ID card
+  suffix: lieutenant
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: USMCLieutenant
+
+- type: entity
+  parent: IDCardStandard
   id: USMCSquadLeaderIDCard
   name: Marine Corps ID card
   suffix: squad leader
@@ -365,6 +379,20 @@
 ## RU
 
 # VDV
+
+- type: entity
+  parent: IDCardStandard
+  id: VDVLieutenantIDCard
+  name: VDV ID card
+  suffix: lieutenant
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: VDVLieutenant
 
 - type: entity
   parent: IDCardStandard
