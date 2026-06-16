@@ -27,11 +27,9 @@
 - type: loadoutGroup
   id: RogueSidearm
   name: loadout-group-pistol
-  minLimit: 1
+  minLimit: 0
   loadouts:
   - FactionPythonLoadout
-  - FactionViperLoadout
-  fallbacks:
   - FactionViperLoadout
 
 - type: loadoutGroup
@@ -50,9 +48,8 @@
 - type: loadoutGroup
   id: RoguePistolMag
   name: loadout-group-pistol-magazine
-  minLimit: 1
+  minLimit: 0
   loadouts:
   - Mercenary9x19mmPistolAmmoLoadout #Viper
   - FactionMagnum45Loadout # Inspector/Python/Mateba
-  fallbacks:
-  - Mercenary9x19mmPistolAmmoLoadout #Viper
+

@@ -19,10 +19,8 @@
   - FactionLecterLoadout
   - FactionDrozdLoadout
   - FactionVulcanLoadout
-  - FactionEnergyGunLoadout
+  - SecurityGuardEnforcerLoadout # Shotgun, since mikus asked about it and technically we can pick it anyway
   # - FactionBanditLoadout
-  fallbacks:
-  - FactionVulcanLoadout
 
 - type: loadoutGroup
   id: TsfmcSidearm
@@ -33,8 +31,6 @@
   - FactionInspectorLoadout
   - FactionLaserPistolLoadout
   - ContractorDisablerLoadout
-  fallbacks:
-  - SecurityGuardMk58Loadout
 
 - type: loadoutGroup
   id: TsfmcMag
@@ -46,9 +42,9 @@
   - FactionAcpSmgEmpAmmoLoadout #Drozd EMP
   - Faction762x51mmAmmoLoadout #Vulcan
   - FactionRechargerLoadout #Energy
+  - SecurityGuardBeanbagAmmoLoadout # Buckshot, don't mind the weird naming.
   # - Faction8x65mmAmmoLoadout #Bandit
-  fallbacks:
-  - TSFCaselessAmmoBoxLoadout #Lecter
+
 
 - type: loadout # Lecter ammo - putting it here because other factions shouldnt be using this
   id: TSFCaselessAmmoBoxLoadout
@@ -64,6 +60,4 @@
   loadouts:
   - FactionRechargerLoadout #Energy
   - FactionMagnum45Loadout # Inspector/Python/Mateba
-  - FactionAcpPistolAmmoLoadout #MK58
-  fallbacks:
   - FactionAcpPistolAmmoLoadout #MK58
