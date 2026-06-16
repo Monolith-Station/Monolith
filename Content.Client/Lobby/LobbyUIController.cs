@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client._Mono.Company; // Mono
 using Content.Client._Mono.MonoCoins;
 using Content.Client.Guidebook;
 using Content.Client.Humanoid;
@@ -29,23 +30,24 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Lobby;
 
-public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState>, IOnStateExited<LobbyState>
+public sealed partial class LobbyUIController : UIController, IOnStateEntered<LobbyState>, IOnStateExited<LobbyState>
 {
-    [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly IFileDialogManager _dialogManager = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
-    [Dependency] private readonly IStateManager _stateManager = default!;
-    [Dependency] private readonly JobRequirementsManager _requirements = default!;
-    [Dependency] private readonly MarkingManager _markings = default!;
+    [Dependency] private IClientPreferencesManager _preferencesManager = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private IFileDialogManager _dialogManager = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IResourceCache _resourceCache = default!;
+    [Dependency] private IStateManager _stateManager = default!;
+    [Dependency] private JobRequirementsManager _requirements = default!;
+    [Dependency] private MarkingManager _markings = default!;
+    [Dependency] private CompanyManager _companyManager = default!; // Mono
+    [Dependency] private MonoCoinsManager _monoCoins = default!; // Mono
     [UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [UISystemDependency] private readonly ClientInventorySystem _inventory = default!;
     [UISystemDependency] private readonly StationSpawningSystem _spawn = default!;
     [UISystemDependency] private readonly GuidebookSystem _guide = default!;
-    [UISystemDependency] private readonly MonoCoinsSystem _monoCoins = default!;
 
     private CharacterSetupGui? _characterSetup;
     private HumanoidProfileEditor? _profileEditor;
@@ -97,7 +99,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     /// <summary>
     /// Called when MonoCoins balance is updated from the server.
     /// </summary>
-    private void OnMonoCoinsBalanceUpdated(int balance)
+    private void OnMonoCoinsBalanceUpdated(long balance)
     {
         UpdateMonoCoinsDisplay();
     }
@@ -111,7 +113,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
             return;
 
         var balance = _monoCoins?.GetLastKnownBalance() ?? -1;
-        PreviewPanel.SetMonoCoinsText($"MonoCoins: {balance}");
+        PreviewPanel.SetMonoCoinsText(Loc.GetString("server-currency-text", ("balance", balance)));
     }
 
     private LobbyCharacterPreviewPanel? GetLobbyPreview()
@@ -227,7 +229,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
             PreviewPanel.SetSummaryText(string.Empty);
             PreviewPanel.SetBankBalanceText(string.Empty); // Frontier
             PreviewPanel.SetCompanyText(string.Empty); // Company Display
-            PreviewPanel.SetMonoCoinsText("MonoCoins: -1"); // MonoCoins Display
+            PreviewPanel.SetMonoCoinsText("server-currency-loading"); // MonoCoins Display
             return;
         }
 
@@ -350,7 +352,8 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
             _prototypeManager,
             _resourceCache,
             _requirements,
-            _markings);
+            _markings,
+            _companyManager); // Mono
 
         _profileEditor.OnOpenGuidebook += _guide.OpenHelp;
 

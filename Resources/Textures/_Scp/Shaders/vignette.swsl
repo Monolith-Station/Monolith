@@ -1,0 +1,16 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform lowp vec4 vignette_color;
+
+const highp float inner_radius = 0.01;
+const highp float outer_radius = 1.0;
+const highp float vignette_strength = 1.0;
+const highp float dither_strength = 0.025;
+
+void fragment() {
+    highp float dist = distance(UV, vec2(0.5));
+
+    highp float vignette = smoothstep(inner_radius, outer_radius, dist) * vignette_strength;
+    highp float dither = fract(sin(dot(UV, vec2(12.9898, 78.233))) * 43758.5453123) * dither_strength;
+
+    COLOR = vec4(vignette_color.rgb, vignette + dither);
+}

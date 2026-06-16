@@ -1,8 +1,8 @@
 - type: entity
   id: CrateServiceJanitorialSupplies
-  parent: CratePlasticBiodegradable # Frontier: CratePlastic<CratePlasticBiodegradable
+  parent: CratePlastic
   name: janitorial supplies crate
-  description: Fight back against dirt and grime with Nanotrasen's Janitorial Essentials Plus™! Contains a bucket and two caution signs, a mop, broom, two spray bottles of cleaner, soap, a plunger, and a light replacer. # Frontier: match crate contents
+  description: Fight back against dirt and grime with Nanotrasen's Janitorial Essentials Plus™! Contains a bucket and two caution signs, a mop, broom, grenades and spray bottles with cleaner, soap, a plunger, and a light replacer. # Frontier: match crate contents
   components:
   - type: StorageFill
     contents:
@@ -18,9 +18,8 @@
       - id: TrashBag
         amount: 2
       - id: Plunger # Frontier 2<1
-        amount: 1
+      - id: BoxCleanerGrenades
       - id: LightReplacer # Frontier
-        amount: 1
 
 - type: entity
   id: CrateServiceReplacementLights
@@ -130,8 +129,8 @@
   components:
   - type: StorageFill
     contents:
-    - id: Paper
-      amount: 15
+#    - id: Paper #Mono out: BoxPaper
+#      amount: 15
     - id: Pen
       amount: 2
     - id: BoxFolderClipboard
@@ -140,9 +139,22 @@
     - id: BoxFolderBlue
     - id: BoxFolderRed
     - id: BoxFolderYellow
+    # Begin DeltaV: sticky notes
+    - id: PaperStickyNoteStackFilled
+    - id: PaperStickyNoteStackFilledPink
+    - id: PaperStickyNoteStackFilledGreen
+    - id: PaperStickyNoteStackFilledBlue
+    # End DeltaV: sticky notes
     - id: NewtonCradle
     - id: BoxEnvelope
+    - id: BoxEnvelopeManila
     - id: BrbSign
+    - id: BoxFolderBlack
+    - id: BoxFolderGrey
+    - id: BoxFolderGreen
+    - id: BoxReamClassic
+    - id: BoxReamBright
+    - id: BoxPaper #Mono in
     - id: RubberStampCaptain # Frontier
 
 - type: entity
@@ -251,7 +263,7 @@
 
 - type: entity
   id: CrateServiceBox
-  parent: CratePlasticBiodegradable # Frontier: CratePlastic<CratePlasticBiodegradable
+  parent: CratePlastic
   name: boxes crate
   description: Contains 6 empty multipurpose boxes.
   components:
@@ -262,7 +274,7 @@
 
 - type: entity
   id: CrateJanitorBiosuit
-  parent: CratePlasticBiodegradable # Frontier: CratePlastic<CratePlasticBiodegradable
+  parent: CratePlastic
   name: janitor bio suit crate
   description: Contains 2 biohazard suits to ensure that no disease will distract you from cleaning.
   components:
@@ -325,10 +337,10 @@
         - id: CigaretteSpent
           prob: 0.15
           # Bacteria
-#        - id: FoodBreadMoldySlice # Frontier
-#          prob: 0.15 # Frontier
-#        - id: FoodPizzaMoldySlice # Frontier
-#          prob: 0.15 # Frontier
+        - id: FoodBreadMoldySlice
+          prob: 0.15
+        - id: FoodPizzaMoldySlice
+          prob: 0.15
           # Botanical Waste
         - id: TrashBananaPeel
           prob: 0.15

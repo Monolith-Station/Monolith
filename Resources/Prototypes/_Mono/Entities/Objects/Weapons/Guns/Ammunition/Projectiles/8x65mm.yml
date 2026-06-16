@@ -30,5 +30,6 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Heat: 32
+        Piercing: 15
+        Heat: 10
+    armorPenetration: 0.65

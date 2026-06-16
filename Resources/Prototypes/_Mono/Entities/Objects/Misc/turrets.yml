@@ -35,6 +35,15 @@
 
 - type: entity
   parent: BaseWeaponBallisticTurret
+  id: WeaponTurretCC
+  suffix: CC, Colossus
+  components:
+  - type: NpcFactionMember
+    factions:
+    - CC
+
+- type: entity
+  parent: BaseWeaponBallisticTurret
   id: WeaponTurretTSFMC
   suffix: TSFMC
   components:

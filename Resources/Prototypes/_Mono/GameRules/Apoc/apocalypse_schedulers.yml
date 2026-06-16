@@ -5,7 +5,7 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: ChimeraShipsTable
-    minimumTimeUntilFirstEvent: 3600 # 60 minutes
+    minimumTimeUntilFirstEvent: 1800 # 30 minutes
     minMaxEventTiming:
       min: 1800 # 30 minutes between events
       max: 1800 # 30 minutes between events
@@ -17,7 +17,7 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: DamagedAIShipsTableApocalypse
-    minimumTimeUntilFirstEvent: 3600 # 60 minutes
+    minimumTimeUntilFirstEvent: 1800 # 30 minutes
     minMaxEventTiming:
       min: 1800 # 30 minutes between events
       max: 1800 # 30 minutes between events

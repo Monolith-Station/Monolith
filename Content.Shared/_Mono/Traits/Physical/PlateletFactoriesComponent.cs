@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Mono.Traits.Physical;
@@ -15,10 +16,10 @@ public sealed partial class PlateletFactoriesComponent : Component
     public float IntervalSeconds = 1f;
 
     /// <summary>
-    /// Amount healed per second for each damage type present on the entity.
+    /// Damage to apply per IntervalSeconds.
     /// </summary>
     [DataField]
-    public float HealPerSecond = 2f;
+    public DamageSpecifier DamagePerInterval = new();
 
     /// <summary>
     /// Multiplier applied to healing while the entity is in critical state.
@@ -33,5 +34,3 @@ public sealed partial class PlateletFactoriesComponent : Component
     [AutoPausedField]
     public TimeSpan NextUpdate = TimeSpan.Zero;
 }
-
-

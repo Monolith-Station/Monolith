@@ -1,5 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Armor;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
@@ -23,18 +25,19 @@ namespace Content.Shared.Inventory;
 
 public abstract partial class InventorySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly SharedItemSystem _item = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly SharedStrippableSystem _strippable = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private SharedItemSystem _item = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private SharedStrippableSystem _strippable = default!;
+    [Dependency] private SharedBodySystem _body = default!; // Mono
 
     [ValidatePrototypeId<ItemSizePrototype>]
     private const string PocketableItemSize = "Small";
@@ -281,6 +284,14 @@ public abstract partial class InventorySystem
             return false;
         }
 
+        // Mono: Clothing whitelists
+        if (clothing != null && IsFailWhitelistClothing(itemUid, target, clothing))
+        {
+            reason = "inventory-component-can-equip-does-not-fit";
+            return false;
+        }
+        // Mono End
+
         var attemptEvent = new IsEquippingAttemptEvent(actor, target, itemUid, slotDefinition);
         RaiseLocalEvent(target, attemptEvent, true);
         if (attemptEvent.Cancelled)
@@ -309,6 +320,26 @@ public abstract partial class InventorySystem
             return false;
         }
         return true;
+    }
+
+    // Mono: Clothing whitelists
+    public bool IsFailWhitelistClothing(EntityUid itemUid, EntityUid target, ClothingComponent clothing)
+    {
+        if (clothing.WhitelistCheckOrgans && TryComp<BodyComponent>(target, out var body))
+        {
+            var organs = _body.GetBodyOrgans(target, body);
+
+            foreach ((var id, var _) in organs)
+            {
+                if (_whitelistSystem.IsWhitelistPassOrNull(clothing.Whitelist, id))
+                    return false;
+            }
+        }
+
+        if (_whitelistSystem.IsWhitelistFail(clothing.Whitelist, target))
+            return true;
+
+        return false;
     }
 
     public bool TryUnequip(

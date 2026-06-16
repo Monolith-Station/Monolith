@@ -1,0 +1,26 @@
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: Magazine700Thz
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: Magazine700Thz
+  materials:
+    Steel: 1000
+    Plastic: 500
+    Plasma: 250
+
+# boxes
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoBox700Thz
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: AmmoBox700Thz
+  materials:
+    Steel: 1500
+    Plastic: 1000
+    Plasma: 500

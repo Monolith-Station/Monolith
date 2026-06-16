@@ -1,17 +1,4 @@
 - type: technology
-  id: UsspBasicGuns
-  name: research-technology-ussp-guns-basic
-  entityIcon: WeaponSubMachineGunAK220
-  discipline: UsspWeapons
-  tier: 1
-  cost: 20000
-  recipeUnlocks:
-  - WeaponRifleSVSUSSP
-  - WeaponSniperMosinUSSP
-  - WeaponSubMachineGunAK220USSP
-  position: 16, 2
-
-- type: technology
   id: UsspMediumGuns
   name: research-technology-ussp-guns-medium
   entityIcon: WeaponRifleAK502
@@ -22,9 +9,8 @@
   - WeaponRifleAK502USSP
   - WeaponRevolverMatebaUSSP
   technologyPrerequisites:
-  - UsspBasicGuns
-  - UniversalMaterialResearchT2
-  position: 16, 7
+  - UniversalMaterialResearchT1
+  position: 12, 2
 
 - type: technology
   id: UsspAk410
@@ -35,9 +21,11 @@
   cost: 25000
   recipeUnlocks:
   - WeaponRifleAK410USSP
+  - AmmoBox762x39mmSubsonic
   technologyPrerequisites:
   - UsspMediumGuns
-  position: 16, 8
+  - UniversalMaterialResearchT2
+  position: 12, 8
 
 - type: technology
   id: UsspAdvancedGuns
@@ -53,18 +41,4 @@
   technologyPrerequisites:
   - UsspMediumGuns
   - UniversalMaterialResearchT3
-  position: 16, 12
-
-- type: technology
-  id: UsspAdvancedAmmo
-  name: research-technology-ussp-ammo-advanced
-  entityIcon: AmmoBox45_magnumAP
-  discipline: UsspWeapons
-  tier: 3
-  cost: 30000
-  recipeUnlocks:
-  - AmmoBox762x39mmSubsonic
-  - AmmoBox23x75mmFlashbang
-  technologyPrerequisites:
-  - UsspAdvancedGuns
-  position: 16, 13
+  position: 12, 13

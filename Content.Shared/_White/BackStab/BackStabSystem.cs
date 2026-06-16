@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Mobs.Components;
@@ -11,14 +12,14 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.BackStab;
 
-public sealed class BackStabSystem : EntitySystem
+public sealed partial class BackStabSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
 
     public static readonly SoundSpecifier BackstabSound =
         new SoundPathSpecifier("/Audio/_Goobstation/Weapons/Effects/guillotine.ogg");
@@ -65,9 +66,15 @@ public sealed class BackStabSystem : EntitySystem
 
         var xform = Transform(target);
         var userXform = Transform(user);
-        var v1 = -_transform.GetWorldRotation(xform).ToWorldVec();
-        var v2 = _transform.GetWorldPosition(userXform) - _transform.GetWorldPosition(xform);
-        var angle = Vector3.CalculateAngle(new Vector3(v1), new Vector3(v2));
+        var v1 = new Vector3(-_transform.GetWorldRotation(xform).ToWorldVec(), 0);
+        var v2 = new Vector3(_transform.GetWorldPosition(userXform) - _transform.GetWorldPosition(xform), 0);
+
+        var denom = v1.Length() * v2.Length();
+        if (denom <= float.Epsilon)
+            return false;
+        var cosine = Math.Clamp(Vector3.Dot(v1, v2) / denom, -1f, 1f);
+
+        var angle = MathF.Acos(cosine);
 
         if (angle > tolerance.Theta)
             return false;

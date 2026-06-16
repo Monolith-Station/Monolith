@@ -31,3 +31,47 @@
     damage:
       types:
         Blunt: 3
+
+# Mono AP syst
+# + 0.05 base AP
+#anti-flesh:
+- type: entity
+  id: Bullet68x52mmCaselessHP
+  parent: BaseBullet
+  name: bullet (6.8x52mm Caseless HP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 4
+        Piercing: 29
+    armorPenetration: -0.525
+
+- type: entity
+  id: Bullet68x52mmCaselessRIP
+  parent: BaseBullet
+  name: bullet (6.8x52mm Caseless RIP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 6
+        Piercing: 35
+    armorPenetration: -0.8
+
+#armor-piercing:
+
+- type: entity
+  id: Bullet68x52mmCaselessPlasteelAP
+  parent: BaseBullet
+  name: bullet (6.8x52mm Caseless AP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 11
+        Structural: 35
+    armorPenetration: 0.65

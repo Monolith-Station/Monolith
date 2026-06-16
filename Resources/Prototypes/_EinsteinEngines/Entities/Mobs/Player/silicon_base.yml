@@ -1,6 +1,7 @@
 - type: entity
   save: false
   id: PlayerSiliconHumanoidBase
+  # Mono TODO: reparent this to BaseMobSpecies
   parent: [BaseMob, MobDamageable, MobCombat, MobAtmosExposed, MobFlammable]
   abstract: true
   components:
@@ -63,6 +64,7 @@
       1: 0.45
       0: 0.00
   - type: Temperature
+    interactionExchangeCoefficient: 0.002 # Mono
     heatDamageThreshold: 1800 # GoobStation: Roughly the melting point of mild steels
     coldDamageThreshold: 260
     currentTemperature: 310.15
@@ -327,3 +329,6 @@
     shape:
       - 0, 0, 4, 4
       - 0, 3, 6, 5
+  # Mono
+  - type: ShipNpcTarget
+    needGrid: NoGrid

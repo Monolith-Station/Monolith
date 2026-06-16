@@ -14,6 +14,8 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Paper;
+using Content.Shared.Station.Components;
+using JetBrains.Annotations;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -24,8 +26,8 @@ namespace Content.Server.Cargo.Systems
 {
     public sealed partial class CargoSystem
     {
-        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-        [Dependency] private readonly EmagSystem _emag = default!;
+        [Dependency] private SharedTransformSystem _transformSystem = default!;
+        [Dependency] private EmagSystem _emag = default!;
 
         /// <summary>
         /// How much time to wait (in seconds) before increasing bank accounts balance.
@@ -36,8 +38,6 @@ namespace Content.Server.Cargo.Systems
         /// Keeps track of how much time has elapsed since last balance increase.
         /// </summary>
         private float _timer;
-
-        [Dependency] private readonly BankSystem _bankSystem = default!;
 
         private void InitializeConsole()
         {
@@ -272,9 +272,9 @@ namespace Content.Server.Cargo.Systems
                 if (!float.IsFinite(taxCoeff) || taxCoeff <= 0.0f)
                     continue;
                 var tax = (int)Math.Floor(cost * taxCoeff);
-                _bankSystem.TrySectorDeposit(account, tax, LedgerEntryType.CargoTax);
+                _bank.TrySectorDeposit(account, tax, LedgerEntryType.CargoTax);
             }
-            _bankSystem.TryBankWithdraw(player, cost);
+            _bank.TryBankWithdraw(player, cost);
             // End Frontier
 
             UpdateOrders(station.Value);

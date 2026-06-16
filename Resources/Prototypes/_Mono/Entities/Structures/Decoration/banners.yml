@@ -23,3 +23,16 @@
   - type: Construction
     graph: MonoBannersGraph
     node: BannerSHMNode
+
+- type: entity
+  id: BannerDrakeIndustries
+  parent: BannerBase
+  name: DI banner
+  description: A banner harboring Drake Industries' emblem. The mega corp's emblem is woven into a high quality textile that you've doubt you've every seen anywhere else in the sector. Must be why the banner is not attached to, but rather fused on it's pole.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Decoration/banner.rsi
+    state: di-banner
+  - type: Construction
+    graph: MonoBannersGraph
+    node: BannerDINode

@@ -4,7 +4,6 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Server.Body.Components;
 
 [RegisterComponent]
-[Access(typeof(ThermalRegulatorSystem))]
 public sealed partial class ThermalRegulatorComponent : Component
 {
     /// <summary>
@@ -61,4 +60,22 @@ public sealed partial class ThermalRegulatorComponent : Component
     /// </summary>
     [DataField]
     public float ThermalRegulationTemperatureThreshold;
+
+    /// <summary>
+    /// Process regulation while they're dead if there is a MobStateComponent? - Mono Hydrakin
+    /// </summary>
+    [DataField]
+    public bool ProcessWhileDead = false;
+
+    /// <summary>
+    /// Process regulation in critical condition if there is a MobStateComponent? - Mono Hydrakin
+    /// </summary>
+    [DataField]
+    public bool ProcessWhileCrit = true;
+
+    /// <summary>
+    /// Disable regulation temporarily - Mono Cortical Borer
+    /// </summary>
+    [DataField]
+    public bool DisableProcessing = false;
 }

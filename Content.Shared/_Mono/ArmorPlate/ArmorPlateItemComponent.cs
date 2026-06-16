@@ -31,7 +31,7 @@ public sealed partial class ArmorPlateItemComponent : Component
     public float SprintSpeedModifier = 1.0f;
 
     /// <summary>
-    /// Multiplier applied when converting absorbed piercing damage to stamina damage.
+    /// Multiplier applied when converting absorbed damage to stamina damage.
     /// </summary>
     [DataField]
     public float StaminaDamageMultiplier = 1.0f;

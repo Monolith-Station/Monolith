@@ -1,14 +1,10 @@
 - type: entity
   abstract: true
   parent: BaseStructure
-  id: BaseMachine
+  id: BaseMachineIndestructible # Mono: Changed to BaseMachineIndestructible and removed destructible/damageable components
   components:
   - type: Animateable
   - type: InteractionOutline
-  - type: Anchorable
-    delay: 2
-  - type: Physics
-    bodyType: Static
   - type: Transform
     noRot: true
   - type: Fixtures
@@ -22,26 +18,6 @@
         - MachineMask
         layer:
         - MachineLayer
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: LanguageSpeaker # Einstein Engines - Language - Yes, on BASE MACHINE. This is all I need to make sure that in 99% of cases, machines use the language system.
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
@@ -52,6 +28,34 @@
   - type: FootstepModifier # mono
     footstepSoundCollection:
       collection: FootstepHull
+
+- type: entity
+  abstract: true
+  parent: BaseMachineIndestructible
+  id: BaseMachine # Mono: Changed to parent off of previous BaseMachine but without destructible/damageable components
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Anchorable
+    delay: 2
 
 - type: entity
   abstract: true

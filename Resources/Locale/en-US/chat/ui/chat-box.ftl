@@ -33,3 +33,7 @@ hud-chatbox-channel-CollectiveMind = Collective Mind
 hud-chatbox-channel-Visual = Actions
 hud-chatbox-channel-Damage = Damage
 hud-chatbox-channel-Unspecified = Unspecified
+hud-chatbox-autofill-highlights = Auto-fill
+hud-chatbox-highlights = Custom keywords
+hud-chatbox-highlights-placeholder = Insert your keywords here. One per line.
+hud-chatbox-highlights-button = Save keywords

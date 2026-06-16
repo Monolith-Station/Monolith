@@ -17,7 +17,7 @@
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
-    allowedEmotes: ['Chirp', 'Bagawk']
+    allowedEmotes: ['Chirp','Bagawk','Click','Chitter','Hiss']
   - type: TypingIndicator
     proto: vox
   - type: Vocal
@@ -108,6 +108,14 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_vox" # Not default
       visible: false
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+      - TauCetiBasic
+      - NewKinPidgin        # Vox language from Floofstation
+    understands:
+      - TauCetiBasic
+      - NewKinPidgin        # Vox language from Floofstation
+  - type: Wagging # goob
   - type: Inventory
     speciesId: vox
     displacements:
@@ -131,6 +139,11 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: head
+      neck:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: neck
       back:
         sizeMaps:
           32:
@@ -146,7 +159,11 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
-
+      outerClothing: # Goob 
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: outerClothing
 - type: entity
   parent: BaseSpeciesDummy
   id: MobVoxDummy
@@ -179,6 +196,11 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: head
+      neck:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: neck
       back:
         sizeMaps:
           32:
@@ -194,3 +216,8 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
+      outerClothing: # Goob 
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: outerClothing

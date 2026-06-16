@@ -1,0 +1,15 @@
+- type: AirlockGroup
+  id: HeavyStandard
+  iconPriority: 100
+  stylePaths:
+    basic:       _Mono/Structures/Doors/HeavyAirlocks/Standard/standard.rsi
+    command:     _Mono/Structures/Doors/HeavyAirlocks/Standard/command.rsi
+    engineering: _Mono/Structures/Doors/HeavyAirlocks/Standard/engineering.rsi
+    glass:       _Mono/Structures/Doors/HeavyAirlocks/Glass/standard.rsi
+    security:    _Mono/Structures/Doors/HeavyAirlocks/Standard/security.rsi
+
+- type: AirlockGroup
+  id: HeavyGlass
+  iconPriority: 90
+  stylePaths:
+    basic:       _Mono/Structures/Doors/HeavyAirlocks/Glass/standard.rsi

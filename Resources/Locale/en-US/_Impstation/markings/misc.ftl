@@ -219,7 +219,8 @@ marking-VoxLArmScales = Default Arm [DO NOT USE]
 marking-VoxLHandScales = Default Left Hand [DO NOT USE]
 marking-VoxRArmScales = Default Right Arm [DO NOT USE]
 marking-VoxRHandScales = Default Right Hand [DO NOT USE]
-marking-VoxTail = Default Tail [DO NOT USE]
+#voxslop - i might kill the impstation devs
+marking-VoxTail = Vox Tail (Medium) 
 marking-VoxLFootScales = Default Left Foot [DO NOT USE]
 marking-VoxLLegScales = Default Left Leg [DO NOT USE]
 marking-VoxRFootScales = Default Right Foot [DO NOT USE]

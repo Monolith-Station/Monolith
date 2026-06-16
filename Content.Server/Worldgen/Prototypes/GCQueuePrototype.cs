@@ -6,36 +6,36 @@ namespace Content.Server.Worldgen.Prototypes;
 ///     This is a prototype for a GC queue.
 /// </summary>
 [Prototype("gcQueue")]
-public sealed class GCQueuePrototype : IPrototype
+public sealed partial class GCQueuePrototype : IPrototype
 {
     /// <inheritdoc />
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     /// <summary>
     ///     How deep the GC queue is at most. If this value is ever exceeded entities get processed automatically regardless of
     ///     tick-time cap.
     /// </summary>
     [DataField("depth", required: true)]
-    public int Depth { get; }
+    public int Depth { get; private set; }
 
     /// <summary>
     ///     How many miliseconds to spend deleting objects per object in the queue above the MinDepth? Mono Dynamic Queueing
     /// </summary>
     [DataField]
-    public double TimeDeletePerObject { get; } = 0.1; // Mono - at 100 objects past the MinDepth will spend up to 10 milliseconds trying to do deletions
+    public double TimeDeletePerObject { get; private set; } = 0.1; // Mono - at 100 objects past the MinDepth will spend up to 10 milliseconds trying to do deletions
 
     /// <summary>
     ///     The minimum depth before entities in the queue actually get processed for deletion.
     /// </summary>
     [DataField("minDepthToProcess", required: true)]
-    public int MinDepthToProcess { get; }
+    public int MinDepthToProcess { get; private set; }
 
     /// <summary>
     ///     Whether or not the GC should fire an event on the entity to see if it's eligible to skip the queue.
     ///     Useful for making it so only objects a player has actually interacted with get put in the collection queue.
     /// </summary>
     [DataField("trySkipQueue")]
-    public bool TrySkipQueue { get; }
+    public bool TrySkipQueue { get; private set; }
 }
 

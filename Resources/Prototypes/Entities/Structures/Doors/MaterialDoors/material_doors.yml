@@ -5,6 +5,10 @@
   abstract: true
   description: A door, where will it lead?
   components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   - type: InteractionOutline
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/metal_door.rsi
@@ -56,7 +60,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: IconSmooth
-    key: walls
+    key: airlocks
     mode: NoSprite
   - type: Occluder
   - type: BlockWeather

@@ -21,10 +21,11 @@
   cost: 35000
   recipeUnlocks:
   - ClothingOuterHardsuitM86Tsf
+  - MechIFFTSF
   technologyPrerequisites:
   - TsfmcBasicEquipment
   - UniversalMaterialResearchT2
-  position: 12, 6
+  position: 12, 7
 
 - type: technology
   id: TsfmcExperimentalEquipment
@@ -34,8 +35,8 @@
   tier: 3
   cost: 85000
   recipeUnlocks:
-  - ClothingOuterHardsuitM92XTsf # MAYBE THIS WILL GET YOU TO DO RESEARCH BRO
+  - ClothingOuterHardsuitM92XTsf
   technologyPrerequisites:
   - TsfmcAdvancedEquipment
   - UniversalMaterialResearchT3
-  position: 12, 11
+  position: 12, 12

@@ -47,9 +47,12 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnFocusExit += OnFocusExit;
         ChatInput.ChannelSelector.OnChannelSelect += OnChannelSelect;
         ChatInput.FilterButton.Popup.OnChannelFilter += OnChannelFilter;
+        ChatInput.FilterButton.Popup.OnNewHighlights += OnNewHighlights;
 
         _controller = UserInterfaceManager.GetUIController<ChatUIController>();
         _controller.MessageAdded += OnMessageAdded;
+        _controller.HighlightsUpdated += OnHighlightsUpdated;
+        _controller.AutoFillUpdated += OnAutoFillUpdated;
         _controller.RegisterChat(this);
 
         // WD EDIT START
@@ -133,6 +136,21 @@ public partial class ChatBox : UIWidget
         }
     }
 
+    private void OnNewHighlights(string highlighs)
+    {
+        _controller.UpdateHighlights(highlighs);
+    }
+
+    private void OnHighlightsUpdated(string highlights)
+    {
+        ChatInput.FilterButton.Popup.UpdateHighlights(highlights);
+    }
+
+    private void OnAutoFillUpdated(string autoFillKeywords)
+    {
+        ChatInput.FilterButton.Popup.UpdateAutoFill(autoFillKeywords);
+    }
+
     public void AddLine(string message, Color color, int repeat = 0) // WD EDIT
     {
         var formatted = new FormattedMessage(4); // WD EDIT // specifying size beforehand smells like a useless microoptimisation, but i'll give them the benefit of doubt
@@ -148,7 +166,7 @@ public partial class ChatBox : UIWidget
                 ("size", 8+sizeIncrease)
             ));
         } // WD EDIT END
-        Contents.AddMessage(formatted);
+        Contents.AddMessage(formatted, tagsAllowed: null);
     }
 
     public void Focus(ChatSelectChannel? channel = null)

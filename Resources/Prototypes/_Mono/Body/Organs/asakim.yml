@@ -1,0 +1,53 @@
+- type: entity
+  id: OrganAsakimBrain
+  parent: [ OrganHumanBrain ]
+  name: asakim brain
+  description: A mess of flesh and silicon, veins interlaced with unknown implants and cybernetics.
+  components:
+  - type: Tag
+    tags:
+    - AsakimBrain
+
+- type: entity
+  id: OrganAsakimEyes
+  parent: [ OrganHumanEyes ]
+  name: asakim eyes
+  description: They reflect off the darkness.
+  components:
+  - type: Organ
+    onAdd:
+    - type: NightVision
+      isEquipment: false
+      activateSound: null
+      deactivateSound: null
+
+- type: entity
+  id: OrganAsakimHeart
+  parent: [ OrganAnimalHeart ]
+  name: asakim heart
+  description: A large heart, capable of metabolizing more chemicals at once.
+  components:
+  - type: Metabolizer
+    maxReagents: 5
+    metabolizerTypes: [ Animal ]
+    groups:
+    - id: Medicine
+    - id: Cryogenic # Frontier
+    - id: Poison
+    - id: Narcotic
+
+- type: entity
+  id: OrganAsakimLungs
+  parent: [ OrganHumanLungs ]
+  name: asakim lungs
+  description: Heavy, huge lungs, genetically engineered to assist in energizing the body's raw strength in melee.
+  components:
+  - type: Organ
+    onAdd:
+    - type: BonusMeleeDamage
+      damageModifierSet:
+        coefficients:
+          Blunt: 1.1
+          Slash: 1.1
+          Piercing: 1.1
+          Asphyxiation: 1

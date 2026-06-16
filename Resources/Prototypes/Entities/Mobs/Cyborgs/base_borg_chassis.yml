@@ -47,8 +47,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Critical # Monolith
-      250: Dead # Monolith
+      200: Critical # Monolith
+      300: Dead # Monolith
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
@@ -191,7 +191,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 100 # Monolith
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -200,7 +200,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-         damage: 350 # Monolith
+         damage: 400 # Monolith
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -233,7 +233,7 @@
   #    minValue: 0.1
   #    maxValue: 2.0
   #    isLooped: true
-  #- type: ToggleableLightVisuals
+  #- type: ToggleableVisuals
   #- type: PointLight
   #  enabled: false
   #  mask: /Textures/Effects/LightMasks/cone.png
@@ -281,9 +281,13 @@
         toggleAction: ActionObserverShowRadar
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: DetectionRangeMultiplier # same as mass scanner
     infraredMultiplier: 0.5
     visualMultiplier: 0.75
+  - type: ShipNpcTarget
+    needGrid: NoGrid
+  - type: RetroMonitorView
   # </Mono>
 
 - type: entity
@@ -328,9 +332,12 @@
     factions:
     - NanoTrasen
   - type: Access
+    tags:
+     - External # Mono
+     - Mercenary # Mono
     enabled: false
-    groups:
-    - AllAccess
+#   groups:
+#    - AllAccess # Mono
 #  - type: AccessReader
 #    access: [["Command"], ["Research"]]
   - type: ShowJobIcons
@@ -385,6 +392,8 @@
       Unsexed: UnisexSiliconSyndicate
   #- type: PointLight Mono - Light removal PR: Borg Adjustments
   #  color: "#dd200b"
+  - type: ExplosionResistance # Mono - Borg buffs
+    damageCoefficient: 0.50
 
 - type: entity
   id: BaseBorgChassisDerelict
@@ -395,9 +404,12 @@
     factions:
     - NanoTrasen #The seemingly best fit. It was a regular NT cyborg once, after all.
   - type: Access
+    tags:
+     - External # Mono
+     - Mercenary # Mono
     enabled: false
-    groups:
-    - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
+  # groups:
+  #   - AllAccess # Mono
   # - type: AccessReader # Frontier
   #   access: [["Command"], ["Research"]] # Frontier
   - type: StartIonStormed

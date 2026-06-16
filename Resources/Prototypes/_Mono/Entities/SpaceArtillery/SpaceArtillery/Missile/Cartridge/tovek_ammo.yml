@@ -1,7 +1,7 @@
 - type: entity
   id: TovekCartridge
   name: 250mm EMPHE missile
-  description: An individual ASM-557 EMPHE missile for a Tovek launcher.
+  description: An individual ASM-250 EMPHE missile for a Tovek launcher.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -10,7 +10,7 @@
   - type: Item
     size: Huge
   - type: CartridgeAmmo
-    proto: ShipMissileASM557
+    proto: ShipMissileASM250
     deleteOnSpawn: true
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/hybrid_missile.rsi

@@ -70,6 +70,12 @@ public sealed partial class StationEventComponent : Component
     public ProtoId<RadioChannelPrototype> EndRadioAnnouncementChannel = "Supply"; // Frontier
 
     /// <summary>
+    ///     Mono - sender of start/warn/end announcements.
+    /// </summary>
+    [DataField]
+    public LocId? AnnounceSender = null;
+
+    /// <summary>
     ///     In minutes, when is the first round time this event can start
     /// </summary>
     [DataField]

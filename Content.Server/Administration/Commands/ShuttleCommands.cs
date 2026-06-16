@@ -6,9 +6,9 @@ using Robust.Shared.Console;
 namespace Content.Server.Administration.Commands
 {
     [AdminCommand(AdminFlags.Round)]
-    public sealed class CallShuttleCommand : IConsoleCommand
+    public sealed partial class CallShuttleCommand : IConsoleCommand
     {
-        [Dependency] private readonly IEntityManager _e = default!;
+        [Dependency] private IEntityManager _e = default!;
 
         public string Command => "callshuttle";
         public string Description => Loc.GetString("call-shuttle-command-description");
@@ -35,9 +35,9 @@ namespace Content.Server.Administration.Commands
     }
 
     [AdminCommand(AdminFlags.Round)]
-    public sealed class RecallShuttleCommand : IConsoleCommand
+    public sealed partial class RecallShuttleCommand : IConsoleCommand
     {
-        [Dependency] private readonly IEntityManager _e = default!;
+        [Dependency] private IEntityManager _e = default!;
 
         public string Command => "recallshuttle";
         public string Description => Loc.GetString("recall-shuttle-command-description");

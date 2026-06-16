@@ -1,44 +1,71 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Made by VMSolidus for EE, Remade for Monolith by BluHNT",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "chestplate"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by VMSolidus for EE, Remade for Monolith by BluHNT, Vox modifications by 10KE",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "chestplate-sealed"
-    },
-    {
-      "name": "equipped-OUTERCLOTHING",
-      "directions": 4
-    },
-		{
-		  "name": "equipped-OUTERCLOTHING-sealed",
-      "directions": 4,
-		  "delays": [
-        [
-          8,
-          1.5
-        ],
-		    [
-				  8.8,
-				  0.3,
-				  0.2,
-				  0.2
-				],
-        [
-          7.5,
-          2
-        ],
-        [
-          9.5
-        ]
-		  ]
-		}
-  ]
+    "states": [
+        {
+            "name": "chestplate"
+        },
+        {
+            "name": "chestplate-sealed"
+        },
+        {
+            "name": "equipped-OUTERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-sealed",
+            "directions": 4,
+            "delays": [
+                [
+                    8,
+                    1.5
+                ],
+                [
+                    8.8,
+                    0.3,
+                    0.2,
+                    0.2
+                ],
+                [
+                    7.5,
+                    2
+                ],
+                [
+                    9.5
+                ]
+            ]
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-vox",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-sealed-vox",
+            "directions": 4,
+            "delays": [
+                [
+                    8,
+                    1.5
+                ],
+                [
+                    8.8,
+                    0.3,
+                    0.2,
+                    0.2
+                ],
+                [
+                    7.5,
+                    2
+                ],
+                [
+                    9.5
+                ]
+            ]
+        }
+    ]
 }

@@ -1,20 +1,20 @@
 ﻿using Content.Server.Administration;
-using Content.Server.Station.Components;
 using Content.Shared.Administration;
 using JetBrains.Annotations;
+using Content.Shared.Station.Components;
 using Robust.Shared.Console;
 
 namespace Content.Server.Nuke.Commands
 {
     [UsedImplicitly]
     [AdminCommand(AdminFlags.Fun)]
-    public sealed class SendNukeCodesCommand : IConsoleCommand
+    public sealed partial class SendNukeCodesCommand : IConsoleCommand
     {
         public string Command => "nukecodes";
         public string Description => "Send nuke codes to a station's communication consoles";
         public string Help => "nukecodes [station EntityUid]";
 
-        [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {

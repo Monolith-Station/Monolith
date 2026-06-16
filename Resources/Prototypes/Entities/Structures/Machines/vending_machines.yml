@@ -918,7 +918,7 @@
     color: "#9dc5c9"
   - type: GuideHelp
     guides:
-    - Medical Doctor
+    - MedicalDoctor
 
 - type: entity
   parent: VendingMachine
@@ -989,10 +989,6 @@
     radius: 1
     energy: 1.2
     color: "#78645c"
-  - type: GuideHelp
-    guides:
-    - Security
-    # - Antagonists # Frontier: removed guidebook entry
 
 - type: entity
   parent: VendingMachine
@@ -1354,7 +1350,7 @@
   parent: VendingMachine
   id: VendingMachineGames
   name: Good Clean Fun
-  description: Vends things that Fuscian colonial liaisons are probably not going to appreciate you fiddling with instead of your job...
+  description: Vends things that Fuscian overseers are probably not going to appreciate you fiddling with instead of your job... # zero fucking clue what this means im just replacing the word "colonial liaison here"
   components:
   - type: VendingMachine
     pack: GoodCleanFunInventory
@@ -2224,7 +2220,7 @@
     brokenState: broken
     normalState: normal
     denyState: deny
-    ejectDelay: 2
+    ejectDelay: 0.6 #Mono
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/chemvend.rsi
     layers:
@@ -2251,7 +2247,7 @@
     brokenState: broken
     normalState: normal
     denyState: deny
-    ejectDelay: 2
+    ejectDelay: 0.6 #Mono
   - type: AccessReader
     access: [["SyndicateAgent"]]
 

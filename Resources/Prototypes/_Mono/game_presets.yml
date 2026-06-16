@@ -9,14 +9,15 @@
   description: mono-standard-description
   showInVote: false # For admin usage really. Not that boring, but I'd rather just let players choose their main threat instead of choosing no threat.
   rules:
-    - NFAdventure
-    - BasicStationEventScheduler
-    - BluespaceEventScheduler
-    - BluespaceDungeonEventScheduler
-    - BluespaceSalvageEventScheduler
-    - SmugglingEventScheduler
-    - FrontierRoundstartVariation
-    - MonoMonolithicEventsScheduler
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleHour4
 
 - type: gamePreset
   id: MonoRogueTSF
@@ -32,6 +33,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleHour4
 
 - type: gamePreset
   id: MonoRogueUSSP
@@ -47,6 +49,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleHour4
 
 - type: gamePreset
   id: MonoTSFUSSP
@@ -62,6 +65,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleHour4
 
 - type: gamePreset
   id: MonoADS
@@ -80,6 +84,7 @@
   - MonoAISTCShuttleSpawnerSchedulerTier2
   - MonoAsakimSTCShuttleSpawnerScheduler
   - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleHour4
 
 - type: gamePreset
   id: MonoChimera
@@ -96,6 +101,7 @@
   - FrontierRoundstartVariation
   - MonoChimeraSTCShuttleSpawnerScheduler
   - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleHour4
 
 - type: gamePreset
   id: MonoMixed
@@ -115,12 +121,14 @@
   - MonoAISTCShuttleSpawnerSchedulerTier2Slow
   - MonoAsakimSTCShuttleSpawnerSchedulerSlow
   - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleHour4
 
 - type: gamePreset
   id: MonoAllAtOnce
   name: mono-allatonce-title
   description: mono-allatonce-description
-  showInVote: false # Bad idea sir! Don't let this happen again.
+  showInVote: true # we ball
+  weight: 0.25 # requires 80% votes
   rules:
   - NFAdventure
   - BasicStationEventScheduler
@@ -133,4 +141,5 @@
   - MonoAISTCShuttleSpawnerSchedulerApocalypse
   - MonoAsakimSTCShuttleSpawnerSchedulerApocalypse
   - MonoMonolithicEventsScheduler
-
+  - RoundEndRuleHour3
+  - PortstrikeAnnounceRuleHour1

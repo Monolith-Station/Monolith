@@ -17,9 +17,9 @@
   icon: "JobIconPublicAffairsLiaison"
   supervisors: job-supervisors-cadet
   canBeAntag: false
-  guides: [ BasicLore, TransSolarFederation ] # Mono
   weight: 105
   displayWeight: 16
+  assignedCompany: TSF
   setPreference: false # mono
   accessGroups:
   - CadetNfsdAccess

@@ -10,7 +10,7 @@ namespace Content.Server.Polymorph.Systems;
 
 public partial class PolymorphSystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
     /// <summary>
     /// Need to do this so we don't get a collection enumeration error in physics by polymorphing

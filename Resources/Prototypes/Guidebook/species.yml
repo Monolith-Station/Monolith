@@ -8,7 +8,7 @@
   - Dwarf # Note: Frontier changes inside
   - Human
   - Moth
-  - Reptilian
+  - Reptilian # Monolith changes inside
   - SlimePerson
   - Vox
   - Goblin # Frontier
@@ -52,7 +52,7 @@
 - type: guideEntry
   id: Reptilian
   name: species-name-reptilian
-  text: "/ServerInfo/Guidebook/Mobs/Reptilian.xml"
+  text: "/ServerInfo/Guidebook/Mobs/_Mono/MonoReptilian.xml" # Mono
 
 - type: guideEntry
   id: SlimePerson

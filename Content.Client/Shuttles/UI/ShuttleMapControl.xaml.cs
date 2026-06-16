@@ -25,10 +25,10 @@ namespace Content.Client.Shuttles.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ShuttleMapControl : BaseShuttleControl
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IInputManager _inputs = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!; // Frontier
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IInputManager _inputs = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IEntityManager _entManager = default!; // Frontier
     private readonly DetectionSystem _detection; // Mono
     private readonly ShuttleSystem _shuttles;
     private readonly SharedTransformSystem _xformSystem;
@@ -56,6 +56,16 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
     /// Shows only the FTL range circle without cursor targeting elements.
     /// </summary>
     public bool ShowFTLRangeOnly;
+
+    /// <summary>
+    /// Mono - Whether to show FTL range at all.
+    /// </summary>
+    public bool ShowFTLRange = true;
+
+    /// <summary>
+    /// Mono - Whether to ignore FTL obstructions and range for preview display.
+    /// </summary>
+    public bool NoFTLRange = false;
 
     private Angle _ftlAngle;
 
@@ -275,7 +285,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
 
         // Draw our FTL range + no FTL zones
         // Do it up here because we want this layered below most things.
-        if (FtlMode || ShowFTLRangeOnly)
+        if ((FtlMode || ShowFTLRangeOnly) && ShowFTLRange) // Mono
         {
             if (EntManager.TryGetComponent<TransformComponent>(_shuttleEntity, out var shuttleXform))
             {
@@ -413,7 +423,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
             var iffText = hideLabel ?
                 detectionLevel == DetectionLevel.PartialDetected ?
                     Loc.GetString($"shuttle-console-signature-infrared")
-                    : Loc.GetString($"shuttle-console-signature-unknown")
+                    : _detection.HandleUnknownMassLabel(grid.Owner)
                 : _shuttles.GetIFFLabel(grid, self: true, component: iffComp);
 
             if (string.IsNullOrEmpty(iffText))
@@ -515,7 +525,8 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
                     var mouseMapPos = InverseMapPosition(mouseLocalPos);
 
                     var ftlFree = (!beaconsOnly || foundBeacon != default) &&
-                                  _shuttles.FTLFree(_shuttleEntity.Value, new EntityCoordinates(viewedMapUid, mouseMapPos), _ftlAngle, _viewportExclusions);
+                                  _shuttles.FTLFree(_shuttleEntity.Value, new EntityCoordinates(viewedMapUid, mouseMapPos), _ftlAngle, _viewportExclusions)
+                                  || NoFTLRange; // Mono
 
                     var color = ftlFree ? Color.LimeGreen : Color.Magenta;
 

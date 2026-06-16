@@ -116,7 +116,7 @@
     table: !type:NestedSelector
       tableId: SpawnLootTechDisksT2MechTrunk
       prob: 1.0
-    
+
 - type: entityTable
   id: SpawnLootTechDisksT2MechTrunk
   table: !type:GroupSelector
@@ -199,7 +199,6 @@
   id: SpawnLootTechDisksT3FractureTrunk
   table: !type:GroupSelector
     children:
-    - id: TechDiskSynthalloy
     - id: TechDiskSpeedBoots
     - id: TechDiskBluespaceBags
     - id: TechDiskShields

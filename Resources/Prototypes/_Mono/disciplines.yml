@@ -179,3 +179,16 @@
     2: 0.75
     3: 0.75
   uiName: USSP-WP
+
+- type: techDiscipline
+  id: ViperGroup
+  name: research-discipline-viper-group
+  color: "#bf3434"
+  icon:
+    sprite: _Mono/Interface/Misc/research_disciplines_viper_group.rsi
+    state: tech_tree
+  tierPrerequisites:
+    1: 0
+    2: 0.5
+    3: 0.5
+  uiName: VG

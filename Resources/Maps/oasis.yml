@@ -147377,6 +147377,91 @@ entities:
       parent: 29655
     - type: Physics
       canCollide: False
+  - uid: 30741
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -46.558327,-35.39462
+      parent: 2
+    - type: Paper
+      content: >-
+        To:    Mom
+
+        From:  Elian Voss,
+                     Power Systems Maintenance Tech – Oasis Station
+        Subject: Before I Go Under
+
+        __
+
+
+        Hi Mom,
+
+
+        I’m writing this from the cryo-prep bay. They just gave us the pre-freeze sedative and I’ve got maybe fifteen minutes before the haze kicks in. Don’t worry, they say the process is stable now. Safer than sleep, even.
+
+
+        I didn’t want to leave without saying something.
+
+
+        Something happened, Mom. A week ago. I didn’t tell anyone, and now I’m not sure if I should’ve.
+
+        There was an incident... in South Solars. A breach warning in one of the pressurized tunnels. I was the only tech on call. Protocol says isolate and vent...
+
+        There was someone inside.
+
+
+        I don’t know if it was a stowaway or just bad scheduling. I vented it.
+
+        He didn’t make it.
+
+
+        I didn’t mean to. I just... reacted. I watched the pressure equalize and I thought: that’s it. Just another day. But it wasn’t. I’ve seen his face every time I close my eyes. He looked so surprised. Like even he didn’t think it would end like that.
+
+
+        I keep telling myself: “Elian, you’re just a technician. You do what you’re told. You follow the flowchart.”
+
+        But I put that airlock in vacuum. I made that choice.
+
+
+        I didn’t sign up for judgment. But I think it’s coming anyway.
+
+
+        I’ve been staring out at the stars from the viewport by North Dock 3. They’re so still, Mom. Everything here is silent. It makes you feel like nothing matters... and also like everything does.
+
+
+        Some of the crew say they hear voices through the hull when it gets quiet enough. Whispering, like echoes through the vacuum. I never believed it. Until yesterday. I heard him. The one from the tunnel.
+
+        He said, “Why me?”
+
+
+        I didn’t have an answer.
+
+
+        They’ll probably wake me up in a few months. Or maybe they won’t. Maybe something will go wrong, or the station will shut down, or the sun will spit and we’ll drift for a thousand years.
+
+        Any way the void flows.
+
+
+        Just, if they tell you I went missing, or that I never came out of cryo, don’t be too sad. I think I’ve always been more at home in the dark.
+
+
+        Tell Dad I tried to do the right thing. And if Miri ever asks, tell her her big brother went to sleep watching the stars.
+
+
+        Nothing really matters here.
+
+        Not to me.
+
+
+        Love,
+
+        Elian
+  - uid: 30742
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -47.23541,-35.352955
+      parent: 2
 - proto: PaperBin10
   entities:
   - uid: 23867
@@ -150276,13 +150361,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: 22.5,4.5
       parent: 2
-    - type: Timer
   - uid: 2585
     components:
     - type: Transform
       pos: 22.5,9.5
       parent: 2
-    - type: Timer
   - uid: 2586
     components:
     - type: Transform
@@ -150336,7 +150419,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 30.5,-5.5
       parent: 2
-    - type: Timer
   - uid: 3524
     components:
     - type: Transform
@@ -150799,7 +150881,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -29.5,39.5
       parent: 2
-    - type: Timer
   - uid: 9180
     components:
     - type: Transform

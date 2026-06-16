@@ -9,6 +9,9 @@ namespace Content.Shared._Mono.Detection;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ThermalSignatureComponent : Component
 {
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float LastUpdateHeat = 0f;
+
     [DataField]
     public float StoredHeat = 0f;
 

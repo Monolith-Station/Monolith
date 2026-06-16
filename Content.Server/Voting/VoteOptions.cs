@@ -39,6 +39,9 @@ namespace Content.Server.Voting
         /// </summary>
         public List<(string text, object data)> Options { get; set; } = new();
 
+        // Mono - this is evil but allows seamless integration with the code
+        public Dictionary<object, float> Weights = new();
+
         /// <summary>
         ///     Which sessions may send a vote. Used when only a subset of players should be able to vote. Defaults to all.
         /// </summary>
@@ -50,7 +53,7 @@ namespace Content.Server.Voting
         public bool DisplayVotes = true;
 
         /// <summary>
-        ///     Whether the vote should have an entity attached to it, to be used for things like letting ghosts follow it. 
+        ///     Whether the vote should have an entity attached to it, to be used for things like letting ghosts follow it.
         /// </summary>
         public NetEntity? TargetEntity = null;
 

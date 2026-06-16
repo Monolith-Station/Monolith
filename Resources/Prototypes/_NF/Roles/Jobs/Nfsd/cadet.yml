@@ -15,8 +15,8 @@
   supervisors: job-supervisors-cadet
   weight: 70
   displayWeight: 10
+  assignedCompany: TSF
   canBeAntag: false
-  guides: [ BasicLore, TransSolarFederation ] # Mono
   setPreference: false # mono
   accessGroups:
   - CadetNfsdAccess

@@ -1,0 +1,145 @@
+#PDV Cyborgs
+
+- type: entity
+  id: BorgChassisSelectablePDV
+  parent: BaseBorgChassisPDV
+  name: PDV cyborg
+  description: A purpose built cyborg used by the PDV.
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Silicon/PDV/pdvchassis.rsi
+    layers:
+    - state: empty
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: empty_l
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: empty_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: empty_l
+    noMindState: empty_l
+  - type: InteractionPopup
+    interactSuccessString: petting-success-derelict-cyborg
+    interactFailureString: petting-failure-derelict-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: BorgSwitchableType
+    typeWhitelist: 
+    - pdvassault
+    - pdvengineer
+    - pdvmedical
+    inherentRadioChannels:
+    - Common
+    - Traffic
+    - Freelance
+
+- type: entity
+  id: PDVBorgChassisAssault
+  parent: BorgChassisSelectable
+  name: PDV assault cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: pdvassault
+  - type: BorgSwitchableSubtype
+    borgSubtype: pdvassault_default
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: FactionBorgChassisAssault
+
+- type: entity
+  id: PDVBorgChassisEngineer
+  parent: BorgChassisSelectable
+  name: PDV engineer cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: pdvengineer
+  - type: BorgSwitchableSubtype
+    borgSubtype: pdvengineer_default
+
+- type: entity
+  id: PDVBorgChassisMedical
+  parent: BorgChassisSelectable
+  name: PDV medical cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: pdvmedical
+  - type: BorgSwitchableSubtype
+    borgSubtype: pdvmedical_default
+
+#TSF Cyborgs
+
+- type: entity
+  id: BorgChassisSelectableTSF
+  parent: BaseBorgChassisTSF
+  name: TSF cyborg
+  description: A purpose built cyborg used by the TSF.
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Silicon/TSFMC/tsfchassis.rsi
+    layers:
+    - state: empty
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: empty_l
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: empty_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: empty_l
+    noMindState: empty_l
+  - type: InteractionPopup
+    interactSuccessString: petting-success-derelict-cyborg
+    interactFailureString: petting-failure-derelict-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: BorgSwitchableType
+    typeWhitelist: 
+    - tsfassault
+    - tsfengineer
+    - tsfmedical
+    inherentRadioChannels:
+    - Common
+    - Traffic
+    - Nfsd
+
+- type: entity
+  id: TSFBorgChassisAssault
+  parent: BorgChassisSelectable
+  name: TSF assault cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: tsfassault
+  - type: BorgSwitchableSubtype
+    borgSubtype: tsfassault_default
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: FactionBorgChassis
+
+- type: entity
+  id: TSFBorgChassisEngineer
+  parent: BorgChassisSelectable
+  name: TSF engineer cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: tsfengineer
+  - type: BorgSwitchableSubtype
+    borgSubtype: tsfengineer_default
+
+- type: entity
+  id: TSFBorgChassisMedical
+  parent: BorgChassisSelectable
+  name: TSF medical cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: tsfmedical
+  - type: BorgSwitchableSubtype
+    borgSubtype: tsfmedical_default

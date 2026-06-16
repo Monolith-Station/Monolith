@@ -68,6 +68,7 @@
       storagebase: !type:Container
         ents: [ ]
   - type: Dumpable
+    multiplier: 0.15
   - type: MagnetPickup
     range: 1.5  # plant bag has a range of 1.0
   - type: Fixtures
