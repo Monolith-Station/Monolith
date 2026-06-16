@@ -25,7 +25,7 @@ public sealed partial class MiningSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<OreVeinComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<OreVeinComponent, DestructionEventArgs>(OnDestruction);
-        SubscribeLocalEvent<OreVeinComponent, GatheredEvent>(OnGather);
+        SubscribeLocalEvent<OreVeinComponent, GatheredEvent>(OnGather); // Mono edit
     }
 
     private void OnDestruction(EntityUid uid, OreVeinComponent component, DestructionEventArgs args)
