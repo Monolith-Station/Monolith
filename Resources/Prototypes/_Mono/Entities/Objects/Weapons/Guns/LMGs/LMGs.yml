@@ -231,7 +231,7 @@
     maxAngle: 12
     angleIncrease: 1
     angleDecay: 12
-    fireRate: 8
+    fireRate: 8 # same as L6, but more accurate and heavier
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -305,7 +305,6 @@
     baseDelay: 1.2
     modifiedDelay: 1.2
     preventFiring: true
-    sprintModifier: 0.35
 
 - type: entity
   name: VFD PSW "Ratel" (7.62x51mm)
