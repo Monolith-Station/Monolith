@@ -24,13 +24,10 @@
     - type: NpcFactionMember
       factions:
       - VDV
+    - type: ChatRank
+      rank: BF-rank-lieutenant
   - !type:AddImplantSpecial
     implants: [ TrackingImplantPACTRU ]
-  # - !type:AddComponentSpecial
-  #   components:
-  #     # COMMENTED OUT: ChatRank and HullrotFaction not supported
-  #     # - type: ChatRank
-  #     #   rank: BF-rank-lieutenant
   access:
   - Maintenance
   - Service

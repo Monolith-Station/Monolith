@@ -23,12 +23,10 @@
     - type: NpcFactionMember
       factions:
       - USMC
+    - type: ChatRank
+      rank: BF-rank-lieutenant
   - !type:AddImplantSpecial
     implants: [ TrackingImplantNATOUS ]
-  #   components:
-  #     # COMMENTED OUT: ChatRank and HullrotFaction not supported
-  #     # - type: ChatRank
-  #     #   rank: BF-rank-lieutenant
   access:
   - Maintenance
   - Service

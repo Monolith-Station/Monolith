@@ -23,6 +23,8 @@
     - type: NpcFactionMember
       factions:
       - USMC
+    - type: ChatRank
+      rank: BF-rank-sergeant
   - !type:AddImplantSpecial
     implants: [ TrackingImplantNATOUS ]
   access:
