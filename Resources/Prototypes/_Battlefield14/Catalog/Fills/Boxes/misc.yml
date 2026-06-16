@@ -1,4 +1,4 @@
-# NATO
+#region NATO
 
 - type: entity
   parent: BoxMagazine
@@ -99,7 +99,7 @@
     layers:
       - state: box_security
 
-# PACT
+#region PACT
 
 - type: entity
   parent: BoxMagazine

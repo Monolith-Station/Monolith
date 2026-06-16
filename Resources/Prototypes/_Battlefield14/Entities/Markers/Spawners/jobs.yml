@@ -2,7 +2,21 @@
 
 ##US
 
-# USMC
+#region USMC
+
+- type: entity
+  id: SpawnPointUSMCLieutenant
+  parent: SpawnPointJobBase
+  name: USMC Lieutenant
+  components:
+  - type: SpawnPoint
+    job_id: USMCLieutenant
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
+    layers:
+    - state: natocaptain
+      scale: 1.5,1.5
+
 - type: entity
   id: SpawnPointUSMCSquadLeader
   parent: SpawnPointJobBase
@@ -68,7 +82,7 @@
     - state: natorecon
       scale: 1.5,1.5
 
-# USSF
+#region USSF
 
 - type: entity
   id: SpawnPointUSSFCaptain
@@ -109,7 +123,7 @@
     - state: natofighterpilot
       scale: 1.5,1.5
 
-# ARNG
+#region ARNG
 
 - type: entity
   id: SpawnPointNGLieutenant
@@ -189,6 +203,8 @@
     - state: natoallyrecon
       scale: 1.5,1.5
 
+#region USPD
+
 - type: entity
   id: SpawnPointUSPDOfficer
   parent: SpawnPointJobBase
@@ -232,7 +248,20 @@
 
 ## RU
 
-# VDV
+#region VDV
+
+- type: entity
+  id: SpawnPointVDVLieutenant
+  parent: SpawnPointJobBase
+  name: VDV Lieutenant
+  components:
+  - type: SpawnPoint
+    job_id: VDVLieutenant
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
+    layers:
+    - state: pactcaptain
+      scale: 1.5,1.5
 
 - type: entity
   id: SpawnPointVDVSquadLeader
@@ -299,7 +328,7 @@
     - state: pactrecon
       scale: 1.5,1.5
 
-# FSB
+#region FSB
 
 - type: entity
   id: SpawnPointFSBSquadLeaderEVA
@@ -366,7 +395,7 @@
     - state: pactrecon
       scale: 1.5,1.5
 
-# VKS
+#region VKS
 
 - type: entity
   id: SpawnPointVKSCaptain
@@ -407,7 +436,7 @@
     - state: pactfighterpilot
       scale: 1.5,1.5
 
-# OMON
+#region OMON
 
 - type: entity
   id: SpawnPointOMONLieutenant
@@ -450,7 +479,7 @@
 
 ### IND
 
-# Scav
+#region Scav
 
 - type: entity
   id: SpawnPointScav
@@ -491,7 +520,7 @@
     - state: indcaptain
       scale: 1.5,1.5
 
-# Western Private Security
+#region Western Private Security
 
 - type: entity
   id: SpawnPointWPSSecurityOfficer
@@ -532,7 +561,7 @@
     - state: indsquadleader
       scale: 1.5,1.5
 
-# Civilian
+#region Civilian
 
 - type: entity
   id: SpawnPointCivilianUS

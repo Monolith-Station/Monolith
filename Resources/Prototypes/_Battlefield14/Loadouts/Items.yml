@@ -88,3 +88,41 @@
   storage:
     back:
     - Camonet15
+
+#region IFF boxes
+
+- type: loadout
+  id: LoadoutItemsIFFBoxNATOBlue
+  storage:
+    back:
+    - BoxIFFNATOBlue
+
+- type: loadout
+  id: LoadoutItemsIFFBoxNATOYellow
+  storage:
+    back:
+    - BoxIFFNATOYellow
+
+- type: loadout
+  id: LoadoutItemsIFFBoxNATOGreen
+  storage:
+    back:
+    - BoxIFFNATOGreen
+
+- type: loadout
+  id: LoadoutItemsIFFBoxPACTWhite
+  storage:
+    back:
+    - BoxIFFPACTWhite
+
+- type: loadout
+  id: LoadoutItemsIFFBoxPACTRed
+  storage:
+    back:
+    - BoxIFFPACTRed
+
+- type: loadout
+  id: LoadoutItemsIFFBoxPACTStGeorge
+  storage:
+    back:
+    - BoxIFFPACTStGeorge
