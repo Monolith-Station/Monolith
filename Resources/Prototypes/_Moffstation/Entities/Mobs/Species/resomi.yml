@@ -104,11 +104,16 @@
       - 0, 2, 5, 4
   # Goobstation - End
   - type: Hands
-    handDisplacement:
+    leftHandDisplacement:
       sizeMaps:
         32:
           sprite: _Moffstation/Mobs/Species/Resomi/displacement.rsi
-          state: inHand
+          state: inHandLeft
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Moffstation/Mobs/Species/Resomi/displacement.rsi
+          state: inHandRight
   - type: Inventory
     speciesId: resomi
     displacements:
