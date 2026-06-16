@@ -16,6 +16,10 @@
     - English
     languagesUnderstood:
     - English
+  - !type:AddComponentSpecial
+    components:
+    - type: ChatRank
+      rank: BF-rank-policeofficer
   access:
   - Maintenance
   - Service

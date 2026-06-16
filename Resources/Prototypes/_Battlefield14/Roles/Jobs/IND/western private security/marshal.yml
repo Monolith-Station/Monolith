@@ -18,11 +18,10 @@
     languagesUnderstood:
     - English
     - Esperanto
-#  - !type:AddComponentSpecial
-#    components:
-#    - type: NpcFactionMember
-#      factions:
-#      - USMC
+  - !type:AddComponentSpecial
+    components:
+    - type: ChatRank
+      rank: BF-rank-wps-marshal
   access:
   - Maintenance
   - Service

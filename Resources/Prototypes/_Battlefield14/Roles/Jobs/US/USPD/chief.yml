@@ -16,16 +16,10 @@
     - English
     languagesUnderstood:
     - English
-#  - !type:AddComponentSpecial
-#    components:
-#    - type: NpcFactionMember
-#      factions:
-#      - USMC
-  # - !type:AddComponentSpecial
-  #   components:
-  #     # COMMENTED OUT: ChatRank and HullrotFaction not supported
-  #     # - type: ChatRank
-  #     #   rank: BF-rank-private
+  - !type:AddComponentSpecial
+    components:
+    - type: ChatRank
+      rank: BF-rank-policechief
   access:
   - Maintenance
   - Service
