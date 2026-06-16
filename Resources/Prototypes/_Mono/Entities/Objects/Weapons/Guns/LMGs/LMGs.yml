@@ -19,7 +19,7 @@
     maxAngle: 40
     angleIncrease: 2
     angleDecay: 22
-    fireRate: 12.5
+    fireRate: 8
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -61,7 +61,7 @@
     vendPrice: 50000
   - type: SpeedModifiedOnWield
     walkModifier: 0.8
-    sprintModifier: 0.2
+    sprintModifier: 0.65
   - type: GunRequiresWield
 
 - type: entity
@@ -227,7 +227,7 @@
     maxAngle: 12
     angleIncrease: 1
     angleDecay: 12
-    fireRate: 11.5
+    fireRate: 8
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -295,6 +295,11 @@
     walkModifier: 0.95
   - type: SpeedModifiedOnWield
     walkModifier: 0.5
+    sprintModifier: 0.4
+  - type: WieldDelay
+    baseDelay: 1.2
+    modifiedDelay: 1.2
+    preventFiring: true
     sprintModifier: 0.35
 
 - type: entity
