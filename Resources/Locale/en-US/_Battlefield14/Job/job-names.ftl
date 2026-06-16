@@ -1,6 +1,6 @@
 #United States#
 
-job-name-usmc-lieutenant = Marine Section Commander
+job-name-usmc-lieutenant = Marine Platoon Commander
 job-name-usmc-squadleader = Marine Squad Leader
 job-name-usmc-rifleman = Marine Rifleman
 job-name-usmc-automatic-rifleman = Marine Automatic Rifleman
