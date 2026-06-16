@@ -23,6 +23,8 @@
     - type: NpcFactionMember
       factions:
       - PACT
+    - type: ChatRank
+      rank: BF-rank-corporal
   access:
   - Maintenance
   - Service

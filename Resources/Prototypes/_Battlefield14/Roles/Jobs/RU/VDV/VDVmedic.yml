@@ -21,13 +21,12 @@
     - type: NpcFactionMember
       factions:
       - VDV
+    - type: ChatRank
+      rank: BF-rank-corporal
     - type: SurgerySpeedModifier
       SpeedModifier: 1.65
   - !type:AddImplantSpecial
     implants: [ TrackingImplantPACTRU ]
-  #     # COMMENTED OUT: ChatRank and HullrotFaction not supported
-  #     # - type: ChatRank
-  #     #   rank: BF-rank-corporal
   access:
   - Maintenance
   - Service

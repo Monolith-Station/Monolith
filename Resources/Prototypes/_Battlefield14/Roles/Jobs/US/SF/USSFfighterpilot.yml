@@ -23,6 +23,8 @@
     - type: NpcFactionMember
       factions:
       - NATO
+    - type: ChatRank
+      rank: BF-rank-specialist
   access:
   - Maintenance
   - Service

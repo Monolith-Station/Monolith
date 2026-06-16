@@ -21,6 +21,8 @@
     - type: NpcFactionMember
       factions:
       - USMC
+    - type: ChatRank
+      rank: BF-rank-privatefirstclass
   - !type:AddImplantSpecial
     implants: [ TrackingImplantNATOUS ]
   access:

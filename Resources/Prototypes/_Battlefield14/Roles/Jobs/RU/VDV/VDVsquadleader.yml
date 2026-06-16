@@ -23,13 +23,10 @@
     - type: NpcFactionMember
       factions:
       - VDV
+    - type: ChatRank
+      rank: BF-rank-ru-juniorsergeant
   - !type:AddImplantSpecial
     implants: [ TrackingImplantPACTRU ]
-  # - !type:AddComponentSpecial
-  #   components:
-  #     # COMMENTED OUT: ChatRank and HullrotFaction not supported
-  #     # - type: ChatRank
-  #     #   rank: BF-rank-private
   access:
   - Maintenance
   - Service

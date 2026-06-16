@@ -132,7 +132,8 @@ public sealed class RadioSystem : EntitySystem
         if (!_messages.Add(message))
             return;
 
-        var evt = new TransformSpeakerNameEvent(messageSource, MetaData(messageSource).EntityName);
+        var evt = new TransformSpeakerNameEvent(messageSource, Name(messageSource));
+        evt.fromRadio = true; // BF14 chatrank
         RaiseLocalEvent(messageSource, evt);
 
         // Frontier: add name transform event
