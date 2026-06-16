@@ -16,6 +16,9 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: _Battlefield14/Objects/Weapons/Guns/SMGs/MP5.rsi
+    clothingVisuals:
+      suitstorage2:
+      - state: equipped-BACKPACK
   - type: Gun
     minAngle: 0
     maxAngle: 10
@@ -274,7 +277,6 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: null
     quickEquip: false
     slots:
     - Back
@@ -282,7 +284,7 @@
     - SUITSTORAGE2
     clothingVisuals:
       suitstorage2:
-      - state: null
+      - state: equipped-BACKPACK
   - type: Gun
     minAngle: 3
     maxAngle: 30
