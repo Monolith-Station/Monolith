@@ -14,7 +14,7 @@
 - type: loadoutGroup
   id: TsfmcFirearm
   name: loadout-group-weapon
-  minLimit: 1
+  minLimit: 0
   loadouts:
   - FactionLecterLoadout
   - FactionDrozdLoadout
@@ -27,7 +27,7 @@
 - type: loadoutGroup
   id: TsfmcSidearm
   name: loadout-group-pistol
-  minLimit: 1
+  minLimit: 0
   loadouts:
   - SecurityGuardMk58Loadout
   - FactionInspectorLoadout
@@ -39,7 +39,7 @@
 - type: loadoutGroup
   id: TsfmcMag
   name: loadout-group-magazine
-  minLimit: 1
+  minLimit: 0
   loadouts:
   - TSFCaselessAmmoBoxLoadout # Lecter
   - FactionAcpSmgAmmoLoadout #Drozd
@@ -60,7 +60,7 @@
 - type: loadoutGroup
   id: TsfmcSidearmAmmo
   name: loadout-group-pistol-magazine
-  minLimit: 1
+  minLimit: 0
   loadouts:
   - FactionRechargerLoadout #Energy
   - FactionMagnum45Loadout # Inspector/Python/Mateba
