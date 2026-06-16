@@ -18,6 +18,10 @@
     languagesUnderstood:
     - English
     - Esperanto
+  - !type:AddComponentSpecial
+    components:
+    - type: ChatRank
+      rank: BF-rank-wps-officer
   access:
   - Maintenance
   - Service
