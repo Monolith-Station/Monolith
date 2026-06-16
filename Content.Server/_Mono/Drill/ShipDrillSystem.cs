@@ -17,6 +17,7 @@ public partial class ShipDrillSystem : EntitySystem
     [Dependency] private ITileDefinitionManager _tileDef = default!;
     [Dependency] private SharedDecalSystem _decal = default!;
     [Dependency] private GatherableSystem _gather = default!;
+
     public override void Initialize()
     {
         InitializeGatherDrill();
@@ -25,15 +26,16 @@ public partial class ShipDrillSystem : EntitySystem
     private HashSet<EntityUid> _ents = new();
 
     private float _updateCooldown = 0.25f;
-    private TimeSpan _updateTimer = TimeSpan.Zero;
+    private float _updateTimer = 0f;
 
     public override void Update(float frameTime)
     {
-        if (_updateTimer < TimeSpan.FromSeconds(_updateCooldown))
+        if (_updateTimer <_updateCooldown)
         {
-            _updateTimer += TimeSpan.FromSeconds(frameTime);
+            _updateTimer += frameTime;
             return;
         }
+        _updateTimer -= _updateCooldown;
 
         var eQe = EntityQueryEnumerator<ShipDrillComponent>();
 
@@ -48,31 +50,22 @@ public partial class ShipDrillSystem : EntitySystem
             if (!dGrid.HasValue)
                 continue;
 
-            var iX = comp.DrillWidth / 2 ;
-            var iY = comp.DrillLength / 2 ;
-            for (var x = -iX; x <= iX; x++)
+            var dVec = comp.DrillSize / 2;
+
+            for (var x = -dVec.X; x <= dVec.X; x++)
             {
-                for (var y = -iY; y <= iY; y++)
+                for (var y = -dVec.Y; y <= dVec.Y; y++)
                 {
                     ProcessTile(uid, dGrid.Value, comp, x, y, coords);
                 }
             }
         }
-        _updateTimer -= TimeSpan.FromSeconds(_updateCooldown);
     }
 
     private void ProcessTile(EntityUid uid, EntityUid drillGrid, ShipDrillComponent comp, float x, float y, MapCoordinates coords)
     {
-
-        var oX = x + comp.DrillOffsetX;
-        var oY = y + comp.DrillOffsetY;
-
-        var angle = _xform.GetWorldRotation(uid).Theta;
-
-        var nX = oX * Math.Cos(angle) - oY * Math.Sin(angle);
-        var nY = oX * Math.Sin(angle) + oY * Math.Cos(angle);
-
-        var nCoords = coords.Offset((float) nX, (float) nY);
+        var rVec = _xform.GetWorldRotation(uid).RotateVec(new Vector2(x, y) + comp.DrillOffsets);
+        var nCoords = coords.Offset(rVec);
 
         if (!_mapManager.TryFindGridAt(nCoords, out var grid, out var gridComp))
             return;
@@ -83,9 +76,12 @@ public partial class ShipDrillSystem : EntitySystem
         _ents.Clear();
         _look.GetEntitiesInRange(nCoords.MapId, nCoords.Position, EntityLookupSystem.LookupEpsilon, _ents, LookupFlags.Static);
 
-        foreach (var ent in _ents)
+        if (comp.DrillType != null)
         {
-            comp.DrillType?.Drill(ent, this, EntityManager);
+            foreach (var ent in _ents)
+            {
+                comp.DrillType.Drill(ent, uid, this, EntityManager);
+            }
         }
 
         if (_ents.Count <= 0)
@@ -93,14 +89,8 @@ public partial class ShipDrillSystem : EntitySystem
             var tileRef = _map.GetTileRef(grid, gridComp, nCoords);
             var tileDef = _tileDef[tileRef.Tile.TypeId];
 
-            if (!comp.TileWhitelist.Contains(tileDef.ID))
+            if (!comp.TileWhitelist.Contains(tileDef.ID) && comp.TileWhitelist != null)
                 return;
-
-            var decals = _decal.GetDecalsInRange(grid, coords.Position, 0.5f);
-            foreach (var (id, _) in decals)
-            {
-                _decal.RemoveDecal(tileRef.GridUid, id);
-            }
 
             _map.SetTile(grid, gridComp, tileRef.GridIndices, Tile.Empty);
         }
