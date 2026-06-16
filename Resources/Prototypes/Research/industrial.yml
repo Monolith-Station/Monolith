@@ -214,7 +214,7 @@
   - ShipRepairDevice
   - ShipRepairDeviceAmmo
   - NFBlueprintRCDAmmo
-  # Mono edit end 
+  # Mono edit end
   technologyPrerequisites:
   - SuperParts
   position: -1, 18
@@ -229,6 +229,7 @@
   recipeUnlocks:
   - OreBagOfHolding
   - MiningDrillDiamond
+  - ShipDrillMachineCircuitboard
   - AdvancedMineralScannerEmpty
   - NFBlueprintOreBagOfHolding # Frontier
   - NFBlueprintMiningDrillDiamond # Frontier

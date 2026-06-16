@@ -90,6 +90,11 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
+  id: ShipDrillMachineCircuitboard
+  result: ShipDrillMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
   id: LargeThrusterMachineCircuitboard
   result: LargeThrusterMachineCircuitboard
 

@@ -1,14 +1,13 @@
 using System.Numerics;
+using System.Transactions;
 using Content.Server.Gatherable;
-using Content.Server.Gatherable.Components;
-using Content.Shared._Mono.Drill;
+using Content.Server.Power.EntitySystems;
 using Content.Shared.Decals;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 
 namespace Content.Server._Mono.Drill;
 
-public sealed partial class ShipDrillSystem : SharedShipDrillSystem
+public partial class ShipDrillSystem : EntitySystem
 {
 
     [Dependency] private EntityLookupSystem _look = default!;
@@ -17,68 +16,93 @@ public sealed partial class ShipDrillSystem : SharedShipDrillSystem
     [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private ITileDefinitionManager _tileDef = default!;
     [Dependency] private SharedDecalSystem _decal = default!;
-    [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private GatherableSystem _gather = default!;
     public override void Initialize()
     {
-        _gatherQuery = GetEntityQuery<GatherableComponent>();
+        InitializeGatherDrill();
     }
 
     private HashSet<EntityUid> _ents = new();
-    private EntityQuery<GatherableComponent> _gatherQuery;
+
+    private float _updateCooldown = 0.25f;
+    private TimeSpan _updateTimer = TimeSpan.Zero;
 
     public override void Update(float frameTime)
     {
+        if (_updateTimer < TimeSpan.FromSeconds(_updateCooldown))
+        {
+            _updateTimer += TimeSpan.FromSeconds(frameTime);
+            return;
+        }
+
         var eQe = EntityQueryEnumerator<ShipDrillComponent>();
 
         while (eQe.MoveNext(out var uid, out var comp))
         {
+            if (!this.IsPowered(uid, EntityManager))
+                continue;
+
             var coords = _xform.GetMapCoordinates(uid);
             var dGrid = Transform(uid).GridUid;
 
-            var iX = comp.DrillWidth%2==0 ? (int) MathF.Ceiling(comp.DrillWidth / 2f) - 1 :  comp.DrillWidth / 2 - 1;
-            var iY = comp.DrillLength%2==0 ? (int) MathF.Ceiling(comp.DrillLength / 2f) - 1 :  comp.DrillLength / 2 - 1;
+            if (!dGrid.HasValue)
+                continue;
 
-            var eX = comp.DrillWidth%2==0 ? (int) MathF.Ceiling(comp.DrillWidth / 2f) - 1 :  comp.DrillWidth / 2;
-            var eY = comp.DrillLength % 2 == 0 ? (int) MathF.Ceiling(comp.DrillLength / 2f) - 1 : comp.DrillLength / 2;
-
-            for (var x = -iX; x <= eX; x++)
+            var iX = comp.DrillWidth / 2 ;
+            var iY = comp.DrillLength / 2 ;
+            for (var x = -iX; x <= iX; x++)
             {
-                for (var y = -iY; y <= eY; y++)
+                for (var y = -iY; y <= iY; y++)
                 {
-                    var oX = (x + comp.DrillOffsetX);
-                    var oY = (y + comp.DrillOffsetY);
-
-                    var sin = (float) Math.Sin(_xform.GetWorldRotation(uid).Theta);
-                    var cos = (float)Math.Cos(_xform.GetWorldRotation(uid).Theta);
-
-                    var nX = oX * cos - oY * sin;
-                    var nY = oX * sin + oY * cos;
-
-                    var nCoords = coords.Offset(nX, nY);
-
-                    if (!_mapManager.TryFindGridAt(nCoords, out var grid, out var gridComp))
-                        continue;
-
-                    if (grid == dGrid)
-                        continue;
-
-                    _ents.Clear();
-                    _look.GetEntitiesInRange(nCoords.MapId, nCoords.Position, EntityLookupSystem.LookupEpsilon, _ents, LookupFlags.Static);
-
-                    foreach (var ent in _ents)
-                    {
-                        if (_gatherQuery.TryComp(ent, out var gather))
-                            _gather.Gather(ent, uid, gather);
-                    }
-
-                    if (_ents.Count <= 0)
-                    {
-                        var tileRef = _map.GetTileRef(grid, gridComp, nCoords);
-                        _map.SetTile(grid, gridComp, tileRef.GridIndices, Tile.Empty);
-                    }
+                    ProcessTile(uid, dGrid.Value, comp, x, y, coords);
                 }
             }
+        }
+        _updateTimer -= TimeSpan.FromSeconds(_updateCooldown);
+    }
+
+    private void ProcessTile(EntityUid uid, EntityUid drillGrid, ShipDrillComponent comp, float x, float y, MapCoordinates coords)
+    {
+
+        var oX = x + comp.DrillOffsetX;
+        var oY = y + comp.DrillOffsetY;
+
+        var angle = _xform.GetWorldRotation(uid).Theta;
+
+        var nX = oX * Math.Cos(angle) - oY * Math.Sin(angle);
+        var nY = oX * Math.Sin(angle) + oY * Math.Cos(angle);
+
+        var nCoords = coords.Offset((float) nX, (float) nY);
+
+        if (!_mapManager.TryFindGridAt(nCoords, out var grid, out var gridComp))
+            return;
+
+        if (grid == drillGrid)
+            return;
+
+        _ents.Clear();
+        _look.GetEntitiesInRange(nCoords.MapId, nCoords.Position, EntityLookupSystem.LookupEpsilon, _ents, LookupFlags.Static);
+
+        foreach (var ent in _ents)
+        {
+            comp.DrillType?.Drill(ent, this, EntityManager);
+        }
+
+        if (_ents.Count <= 0)
+        {
+            var tileRef = _map.GetTileRef(grid, gridComp, nCoords);
+            var tileDef = _tileDef[tileRef.Tile.TypeId];
+
+            if (!comp.TileWhitelist.Contains(tileDef.ID))
+                return;
+
+            var decals = _decal.GetDecalsInRange(grid, coords.Position, 0.5f);
+            foreach (var (id, _) in decals)
+            {
+                _decal.RemoveDecal(tileRef.GridUid, id);
+            }
+
+            _map.SetTile(grid, gridComp, tileRef.GridIndices, Tile.Empty);
         }
     }
 }
