@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/11/2026 15:07:00
-  entityCount: 17808
+  time: 06/16/2026 04:10:21
+  entityCount: 17818
 maps:
 - 3
 grids:
@@ -840,9 +840,9 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Puddle: []
         MetalFoam: []
+        Puddle: []
+        Kudzu: []
         Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -33620,6 +33620,48 @@ entities:
     - type: Transform
       pos: 169.5,-47.5
       parent: 1
+- proto: CMVendNATOARNGWarVendor
+  entities:
+  - uid: 249
+    components:
+    - type: Transform
+      pos: -73.5,-52.5
+      parent: 1
+- proto: CMVendNATOARNGWarVendorAmmo
+  entities:
+  - uid: 250
+    components:
+    - type: Transform
+      pos: -69.5,-55.5
+      parent: 1
+- proto: CMVendNATOARNGWarVendorGear
+  entities:
+  - uid: 251
+    components:
+    - type: Transform
+      pos: -72.5,-52.5
+      parent: 1
+- proto: CMVendPACTVDVWarVendor
+  entities:
+  - uid: 256
+    components:
+    - type: Transform
+      pos: 191.5,18.5
+      parent: 1
+- proto: CMVendPACTVDVWarVendorAmmo
+  entities:
+  - uid: 258
+    components:
+    - type: Transform
+      pos: 193.5,18.5
+      parent: 1
+- proto: CMVendPACTVDVWarVendorGear
+  entities:
+  - uid: 257
+    components:
+    - type: Transform
+      pos: 192.5,18.5
+      parent: 1
 - proto: ComfyChair
   entities:
   - uid: 68837
@@ -55080,6 +55122,27 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
+  - uid: 253
+    components:
+    - type: Transform
+      pos: 191.5,18.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 254
+    components:
+    - type: Transform
+      pos: 192.5,18.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 255
+    components:
+    - type: Transform
+      pos: 193.5,18.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 71521
     components:
     - type: Transform
@@ -75023,6 +75086,13 @@ entities:
     - type: Transform
       pos: 197.5,17.5
       parent: 1
+- proto: SpawnPointVDVLieutenant
+  entities:
+  - uid: 248
+    components:
+    - type: Transform
+      pos: 194.5,12.5
+      parent: 1
 - proto: SpawnPointVDVMedic
   entities:
   - uid: 71451
@@ -75096,10 +75166,10 @@ entities:
       parent: 1
 - proto: SpawnPointVDVSquadLeader
   entities:
-  - uid: 71543
+  - uid: 252
     components:
     - type: Transform
-      pos: 194.5,11.5
+      pos: 196.5,11.5
       parent: 1
   - uid: 71576
     components:
