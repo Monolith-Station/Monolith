@@ -212,6 +212,16 @@
     - id: PillDermaline
       amount: 6
 
+- type: entity
+  parent: BlisterPack
+  id: BlisterPackHyronalin
+  suffix: Hyronalin 10u, 6
+  components:
+  - type: StorageFill
+    contents:
+    - id: PillHyronalin
+      amount: 6
+
 #region Syrettes
 
 - type: entity

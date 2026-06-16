@@ -2,7 +2,22 @@
 
 ## US
 
-# USMC
+#region USMC
+
+- type: roleLoadout
+  id: JobUSMCLieutenant
+  groups:
+  - BF_SoldierGlassesTan
+  - BF_CombatMasks
+  - BF_SoldierGloves
+  - BF_NATOIFF
+  - BF_NATOIFFBox
+  - BF_HelmetAttachmentNATO
+  - BF_BackpacksTan
+  - BF_MiscItemsNATO
+  - BF_PistolsUSMCSL
+  - BF_Map
+  - ContractorWallet
 
 - type: roleLoadout
   id: JobUSMCSquadLeader
@@ -69,7 +84,7 @@
   - BF_Map
   - ContractorWallet
 
-# USSF
+#region USSF
 
 - type: roleLoadout
   id: JobUSSFCaptain
@@ -101,14 +116,17 @@
   - BF_MiscItemsNATO
   - ContractorWallet
 
-# NG
+#region NG
 
 - type: roleLoadout
   id: JobNGLieutenant
   groups:
   - BF_SoldierGlassesTan
+  - BF_CombatMasks
   - BF_SoldierGloves
   - BF_NATOIFF
+  - BF_NATOIFFBox
+  - BF_HelmetAttachmentNATO
   - BF_BackpacksTan
   - BF_MiscItemsNATO
   - BF_PistolsUSMCSL
@@ -215,7 +233,23 @@
 
 ## RU
 
-# VDV
+#region VDV
+
+- type: roleLoadout
+  id: JobVDVLieutenant
+  groups:
+  - BF_SoldierGlassesGreen
+  - BF_CombatMasks
+  - BF_SoldierGloves
+  - BF_PACTIFF
+  - BF_PACTIFFBox
+  - BF_HelmetAttachmentPACT
+  - BF_VDVHead
+  - BF_BackpacksBlack
+  - BF_MiscItemsPACT
+  - BF_PistolsVDVSL
+  - BF_Map
+  - ContractorWallet
 
 - type: roleLoadout
   id: JobVDVSquadLeader
@@ -287,7 +321,7 @@
   - BF_Map
   - ContractorWallet
 
-# VKS
+#region VKS
 
 - type: roleLoadout
   id: JobVKSCaptain
@@ -320,7 +354,7 @@
   - BF_MiscItemsPACT
   - ContractorWallet
 
-# FSB
+#region FSB
 
 - type: roleLoadout
   id: JobFSBSquadLeader
@@ -347,7 +381,7 @@
   groups:
   - ContractorWallet
 
-# OMON
+#region OMON
 
 - type: roleLoadout
   id: JobOMONLieutenant
@@ -356,6 +390,7 @@
   - BF_CombatMasks
   - BF_SoldierGloves
   - BF_PACTIFF
+  - BF_PACTIFFBox
   - BF_HelmetAttachmentPACT
   - BF_BackpacksBlack
   - BF_MiscItemsPACT
@@ -392,7 +427,7 @@
 
 ### IND
 
-# Scav
+#region Scav
 
 - type: roleLoadout
   id: JobRUScav
@@ -422,7 +457,7 @@
   - BF_MiscItemsIND
   - ContractorWallet
 
-# WPS
+#region Western Private Security
 
 - type: roleLoadout
   id: JobWPSSecurityOfficer
@@ -454,7 +489,7 @@
   - BF_MiscItemsIND
   - ContractorWallet
 
-# Civilian
+#region Civilian
 
 - type: roleLoadout
   id: JobCivilianUS

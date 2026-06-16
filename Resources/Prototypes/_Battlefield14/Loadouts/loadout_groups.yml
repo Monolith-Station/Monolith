@@ -1,4 +1,4 @@
-# HEAD
+#region HEAD
 
 - type: loadoutGroup
   id: BF_HeadCivilianRU
@@ -47,7 +47,7 @@
   - LoadoutHelmetAttachmentHelmetCameraPACT
 
 
-# EYES
+#region EYES
 
 - type: loadoutGroup
   id: BF_SoldierGlassesTan
@@ -78,7 +78,7 @@
   - LoadoutEyesGlassesBallisticTriMaxBronzeNohud
   - LoadoutEyesGlassesBallisticTriMaxYellowNohud
 
-# FACE
+#region FACE
 
 - type: loadoutGroup
   id: BF_CombatMasks
@@ -87,6 +87,11 @@
   loadouts:
   - LoadoutMaskBF14NeckGaiter
   - LoadoutMaskBF14MilitaryBalaclava
+
+
+#region EARS
+
+#region NECK
 
 - type: loadoutGroup
   id: BF_NATOIFF
@@ -100,10 +105,6 @@
   - LoadoutNeckIFFGreen
   - LoadoutNeckIFFGreenTape
 
-# EARS
-
-# NECK
-
 - type: loadoutGroup
   id: BF_PACTIFF
   name: loadout-group-BF14-pactiff
@@ -116,7 +117,7 @@
   - LoadoutNeckIFFOrange
   - LoadoutNeckIFFOrangeTape
 
-# BODY (uniform/armour)
+#region BODY (uniform/armour)
 
 - type: loadoutGroup
   id: BF_JumpsuitsCivilianRU
@@ -151,7 +152,7 @@
   - LoadoutJumpsuitCivilianPatrioticUSA2
   - LoadoutJumpsuitCivilianPatrioticUSA3
 
-# BACK
+#region BACK
 
 - type: loadoutGroup
   id: BF_BackpacksTan
@@ -169,9 +170,9 @@
   - LoadoutBackRucksackBlack
   - MonoSecurityGuardBackpack
 
-# ARMS 
+#region ARMS 
 
-# HANDS
+#region HANDS
 
 - type: loadoutGroup
   id: BF_SoldierGloves
@@ -194,7 +195,7 @@
   - LoadoutHandsGlovesSoldierFingerless
   - LoadoutHandsGlovesSoldierWristwatch
 
-# FEET
+#region FEET
 
 - type: loadoutGroup
   id: BF_ShoesCivilian
@@ -206,7 +207,7 @@
   - LoadoutShoesColourBrown
   - LoadoutShoesWorkboots
 
-# SIDEARMS
+#region SIDEARMS
 
 - type: loadoutGroup
   id: BF_PistolsUSMCSL
@@ -215,6 +216,7 @@
   maxLimit: 1
   loadouts:
   - LoadoutGunFiveSevenUSMCSLVET
+  - LoadoutGunUSM1911USMCVET
 
 - type: loadoutGroup
   id: BF_PistolsVDVSL
@@ -223,8 +225,9 @@
   maxLimit: 1
   loadouts:
   - LoadoutGunSR1MPVDVSLVET
+  - LoadoutGunRUTT33VDVVET
 
-# MISC
+#region MISC
 
 - type: loadoutGroup
   id: BF_OuterCivilianRU
@@ -295,3 +298,23 @@
   - LoadoutMapTaurus
   - LoadoutMapSpringfield
   - LoadoutMiscItemsHandheldStationMapUnpowered
+
+- type: loadoutGroup
+  id: BF_NATOIFFBox
+  name: loadout-group-BF14-natoiff-box
+  minLimit: 0
+  maxLimit: 3
+  loadouts:
+  - LoadoutItemsIFFBoxNATOBlue
+  - LoadoutItemsIFFBoxNATOYellow
+  - LoadoutItemsIFFBoxNATOGreen
+
+- type: loadoutGroup
+  id: BF_PACTIFFBox
+  name: loadout-group-BF14-pactiff-box
+  minLimit: 0
+  maxLimit: 3
+  loadouts:
+  - LoadoutItemsIFFBoxPACTWhite
+  - LoadoutItemsIFFBoxPACTRed
+  - LoadoutItemsIFFBoxPACTStGeorge

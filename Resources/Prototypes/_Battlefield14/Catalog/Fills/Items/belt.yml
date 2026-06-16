@@ -1,4 +1,4 @@
-# US
+#region US
 - type: entity
   id: ClothingBeltMilitaryWebbingUSFilledSTANAG
   parent: ClothingBeltMilitaryWebbingUS
@@ -120,7 +120,7 @@
       - id: MagazineRifleM14
         amount: 8
 
-# MARSOC
+#region MARSOC
 
 - type: entity
   id: ClothingBeltWebbingsNormalTanFilled68x52
@@ -190,7 +190,7 @@
       - id: MagazineRifleSCARH
         amount: 7
 
-# RU
+#region RU
 
 - type: entity
   id: ClothingBeltMilitaryWebbingRUFilledAK74
@@ -298,7 +298,7 @@
       - id: SpeedLoader357magnum
         amount: 3
 
-# MISC
+#region MISC
 
 - type: entity
   id: ClothingBeltStationSecurityFilled
@@ -373,6 +373,8 @@
       - id: Multitool
       - id: ShipRepairDevice
 
+#region MEDICAL
+
 - type: entity
   id: ClothingBeltMedicalEMTFilledBF14Basic
   parent: ClothingBeltMedicalEMT
@@ -384,13 +386,14 @@
       - id: AU14HemostaticGauzePacket
       - id: Brutepack
       - id: Ointment
+      - id: MedicationBoxPillsBicaridine
+      - id: MedicationBoxPillsKelotane
+      - id: MedicationBoxPillsTricordrazine
       - id: SyringeSaline
       - id: SyringeInaprovaline
-      - id: PillCanisterTricordrazine
-      - id: PillCanisterDexalin
+      - id: FoodCondimentPacketKaolin
       - id: Tourniquet
         amount: 2
-      - id: FoodCondimentPacketKaolin
 
 - type: entity
   id: ClothingBeltMedicalEMTFilledBF14
@@ -409,7 +412,6 @@
       - id: PillCanisterBicaridine
       - id: PillCanisterKelotane
       - id: PillCanisterTricordrazine
-#      - id: PillCanisterTramadol
       - id: PillCanisterDylovene
       - id: PillCanisterDexalin
       - id: FoodCondimentPacketKaolin
@@ -427,7 +429,6 @@
       - id: PillCanisterBicaridine
       - id: PillCanisterKelotane
       - id: PillCanisterTricordrazine
-#      - id: PillCanisterTramadol
       - id: PillCanisterDylovene
       - id: PillCanisterDexalin
       - id: FoodCondimentPacketKaolin
@@ -444,7 +445,6 @@
       - id: HandheldHealthAnalyzerUnpowered
       - id: BF14HyposprayFilledBigBicaridine
       - id: BF14HyposprayFilledBigKelotane
-#      - id: BF14HyposprayFilledBigTramadol
       - id: BF14HyposprayFilledBigTricordrazine
       - id: BF14HyposprayFilledBigDylovene
       - id: BF14HyposprayFilledBigDexalin

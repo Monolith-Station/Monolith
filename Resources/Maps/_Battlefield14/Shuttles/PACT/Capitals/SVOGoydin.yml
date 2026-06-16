@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Grid
+  category: Map
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/21/2026 09:23:24
-  entityCount: 3330
-maps: []
+  time: 06/16/2026 03:55:03
+  entityCount: 3331
+maps:
+- 971
 grids:
 - 1
-orphans:
-- 1
+orphans: []
 nullspace: []
 tilemap:
   0: Space
@@ -49,8 +49,8 @@ entities:
     - type: MetaData
       name: SVO Goydin
     - type: Transform
-      pos: 1,1
-      parent: invalid
+#      pos: 1,1
+      parent: 971
     - type: MapGrid
       chunks:
         0,0:
@@ -484,8 +484,8 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         MetalFoam: []
-        Kudzu: []
         Puddle: []
+        Kudzu: []
         Smoke: []
     - type: GravityShake
       shakeTimes: 10
@@ -952,6 +952,16 @@ entities:
         chunkSize: 4
     - type: ShipGridLock
       locked: False
+  - uid: 971
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: GridTree
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AirCanister
   entities:
   - uid: 1534
@@ -11254,18 +11264,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-#- proto: ComputerTabletopStationRecords
-#  entities:
-#  - uid: 971
-#    components:
-#    - type: Transform
-#      rot: 3.141592653589793 rad
-#      pos: 20.5,29.5
-#      parent: 1
-#    - type: ApcPowerReceiver
-#      powerLoad: 5
-#    - type: Battery
-#      startingCharge: 0
 - proto: ComputerTabletopSurveillanceCameraMonitor
   entities:
   - uid: 3320
@@ -15021,6 +15019,13 @@ entities:
     - type: Transform
       pos: 11.5,29.5
       parent: 1
+- proto: SpawnPointVDVLieutenant
+  entities:
+  - uid: 2101
+    components:
+    - type: Transform
+      pos: 22.5,26.5
+      parent: 1
 - proto: SpawnPointVDVMedic
   entities:
   - uid: 1581
@@ -15056,10 +15061,10 @@ entities:
       parent: 1
 - proto: SpawnPointVKSCaptain
   entities:
-  - uid: 2101
+  - uid: 3331
     components:
     - type: Transform
-      pos: 22.5,26.5
+      pos: 22.5,32.5
       parent: 1
 - proto: SpawnPointVKSCrewman
   entities:

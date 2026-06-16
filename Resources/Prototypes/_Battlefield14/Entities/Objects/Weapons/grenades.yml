@@ -1,4 +1,4 @@
-# US
+#region US
 
 - type: entity
   name: M67 Grenade
@@ -363,7 +363,7 @@
         color: "#4f94ad"
         requireDetailRange: true
 
-# RU
+#region RU
 
 - type: entity
   name: RGD-5 Grenade
@@ -703,3 +703,76 @@
       - description: Smoke lasts 30 seconds.
         color: "#4f94ad"
         requireDetailRange: true
+
+#region IND
+
+- type: entity
+  name: improvised soft drink grenade
+  description: A russian fuse stuffed into a plastic soft drink bottle full of ball bearings.
+  parent: GrenadeBase
+  id: DefensiveGrenadeINDFanta
+  components:
+  - type: OnUseTimerTrigger
+    delay: 3.5
+  - type: RandomTimerTrigger
+    min: 3
+    max: 5
+  - type: Tag
+    tags:
+      - Grenade
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Grenades/fanta.rsi
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ProjectileGrenade
+    fillPrototype: BulletGrenadeBallBearing
+    capacity: 40
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HandGrenade
+    totalIntensity: 10
+    intensitySlope: 4
+    maxIntensity: 4
+    maxTileBreak: 0
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: "/Audio/_Battlefield14/Weapons/Grenades/trigger1.ogg"
+  - type: EmitSoundOnPickup
+    sound: /Audio/_Battlefield14/Weapons/Grenades/grab1.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/_Battlefield14/Weapons/Grenades/drop1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      collection: FragGrenadeSFX
+  - type: ExtendDescription
+    descriptionList:
+      - description: Has a random timer between 3-5 seconds, produces shrapnel.
+        fontSize: 12
+        color: "#4f94ad"
+        requireDetailRange: true
+
+- type: entity
+  id: BulletGrenadeBallBearing
+  name: ball bearing
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 5
+        Piercing: 5
+  - type: StaminaDamageOnCollide
+    damage: 4 # ~25 hits to stun
+    deleteOnCollide: true
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/ballistic.rsi
+    layers:
+    - state: small
+  - type: TimedDespawn
+    lifetime: 1
+  - type: PointLight
+    radius: 1
+    color: orange
+    energy: 0.2

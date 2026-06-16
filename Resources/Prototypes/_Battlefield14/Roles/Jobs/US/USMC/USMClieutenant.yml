@@ -1,12 +1,12 @@
 - type: job
-  id: NGLieutenant
-  name: job-name-ng-lieutenant
-  description: job-description-ng-lieutenant
-  playTimeTracker: JobNGLieutenant
+  id: USMCLieutenant
+  name: job-name-usmc-lieutenant
+  description: job-description-usmc-lieutenant
+  playTimeTracker: JobUSMCLieutenant
   weight: 79
-  startingGear: NGLieutenantGear
+  startingGear: USMCLieutenantGear
   alwaysUseSpawner: true
-  icon: "JobIconNATOAllyCaptain"
+  icon: "JobIconNATOCaptain"
   requireAdminNotify: true
   supervisors: job-supervisors-usgov
   canBeAntag: false
@@ -25,6 +25,10 @@
       - USMC
   - !type:AddImplantSpecial
     implants: [ TrackingImplantNATOUS ]
+  #   components:
+  #     # COMMENTED OUT: ChatRank and HullrotFaction not supported
+  #     # - type: ChatRank
+  #     #   rank: BF-rank-lieutenant
   access:
   - Maintenance
   - Service
@@ -36,32 +40,27 @@
   - NATOMaintenance
   - NATOSoldier
   - NATOArmory
-  - NATOFunds
-  - NATOCrew
-  - NATOCaptain
 
 - type: startingGear
-  id: NGLieutenantGear
+  id: USMCLieutenantGear
   equipment:
-    id: NGLieutenantPDA
+    id: USMCLieutenantPDA
     ears: ClothingHeadsetAltUS
     belt: ClothingBeltMilitaryWebbingUSFilledSTANAGTracerRed
-    jumpsuit: ClothingUniformJumpsuitCamoUSM81Urban
-    head: ClothingHeadHatHelmetUSUrban
+    jumpsuit: ClothingUniformJumpsuitCamoUS
+    head: ClothingHeadHatHelmetUS
     outerClothing: ClothingOuterArmorPlateCarrierTan
     shoes: ClothingShoesBootsJackFilled
-    suitstorage: WeaponRifleUSCAR15
+    suitstorage: WeaponRifleUSM4A1
     pocket1: PouchFirstAidFilled
-    pocket2: PouchGrenadesFilledUSARifleman
+    pocket2: PouchGrenadesFilledUSMCRifleman
     rightarmband: ClothingArmbandThighHolsterFilledUS
   storage:
     back:
     - ArmorPlateMedium
-    - BoxPinpointerUniversalNATO
     - ClothingMaskGasM40
     - FlashlightMilitaryUS
     - MagazinePistolM9
     - MagazinePistolM9
-    - Whistle
     - Tourniquet
     - Zipties

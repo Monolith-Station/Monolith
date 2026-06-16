@@ -69,10 +69,10 @@
       - id: EmergencyOxygenTankFilled
 #BF14      - id: EmergencyMedipen
 #BF14      - id: SyringeInaprovaline
-      - id: BF14SyretteInaprovalineCapped # BF14
-        amount: 2
       - id: MedicationBoxPillsDexalin
       - id: SyringeSaline # BF14
+      - id: BF14SyretteInaprovalineCapped # BF14
+        amount: 2
 
 - type: entity
   id: MedkitRadiationFilled
@@ -82,6 +82,7 @@
   - type: StorageFill
     contents:
       - id: HandheldHealthAnalyzerUnpowered # BF14
+      - id: MedicationBoxPillsHyronalin # BF14
       - id: MedicationBoxSyrettesPhalanximine # BF14
       - id: MedicationBoxSyrettesArithrazine # BF14
 #BF14      - id: RadAutoInjector
@@ -111,12 +112,13 @@
     contents:
       - id: MedicatedSuture
       - id: RegenerativeMesh
+      - id: HandheldHealthAnalyzerUnpowered #BF14
+      - id: BlisterPackSyretteMeralyne # BF14
+      - id: BlisterPackSyretteDermaline # BF14
+      - id: BlisterPackTricordrazine # BF14
       - id: SyringeEphedrine
       - id: SyringeSaline
-      - id: BlisterPackSyretteMeralyne
-      - id: BlisterPackSyretteDermaline
-      - id: PillCanisterTricordrazine # BF14
-      - id: HandheldHealthAnalyzerUnpowered #BF14
+      - id: BF14SyretteInaprovalineCapped # BF14
 
 - type: entity
   id: StimkitFilled

@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/14/2026 21:13:05
-  entityCount: 10379
+  time: 06/16/2026 04:01:11
+  entityCount: 10370
 maps:
 - 2
 grids:
@@ -726,10 +726,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Kudzu: []
-        Puddle: []
         MetalFoam: []
+        Puddle: []
+        Kudzu: []
+        Smoke: []
       updateAccumulator: 0.57951164
     - type: Shuttle
       dampingModifier: 0.25
@@ -5477,10 +5477,10 @@ entities:
           version: 7
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Kudzu: []
-        Puddle: []
         MetalFoam: []
+        Puddle: []
+        Kudzu: []
+        Smoke: []
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -7913,91 +7913,6 @@ entities:
     - type: Transform
       pos: 229.5,51.5
       parent: 1
-  - uid: 5294
-    components:
-    - type: Transform
-      pos: 245.5,23.5
-      parent: 1
-  - uid: 5295
-    components:
-    - type: Transform
-      pos: 246.5,23.5
-      parent: 1
-  - uid: 5296
-    components:
-    - type: Transform
-      pos: 247.5,23.5
-      parent: 1
-  - uid: 5297
-    components:
-    - type: Transform
-      pos: 248.5,23.5
-      parent: 1
-  - uid: 5298
-    components:
-    - type: Transform
-      pos: 249.5,23.5
-      parent: 1
-  - uid: 5299
-    components:
-    - type: Transform
-      pos: 249.5,22.5
-      parent: 1
-  - uid: 5300
-    components:
-    - type: Transform
-      pos: 250.5,22.5
-      parent: 1
-  - uid: 5301
-    components:
-    - type: Transform
-      pos: 250.5,21.5
-      parent: 1
-  - uid: 5302
-    components:
-    - type: Transform
-      pos: 251.5,21.5
-      parent: 1
-  - uid: 5303
-    components:
-    - type: Transform
-      pos: 251.5,20.5
-      parent: 1
-  - uid: 5304
-    components:
-    - type: Transform
-      pos: 252.5,20.5
-      parent: 1
-  - uid: 5305
-    components:
-    - type: Transform
-      pos: 252.5,19.5
-      parent: 1
-  - uid: 5306
-    components:
-    - type: Transform
-      pos: 253.5,19.5
-      parent: 1
-  - uid: 5307
-    components:
-    - type: Transform
-      pos: 253.5,18.5
-      parent: 1
-  - uid: 5308
-    components:
-    - type: Transform
-      pos: 254.5,18.5
-      parent: 1
-  - uid: 5309
-    components:
-    - type: Transform
-      pos: 254.5,17.5
-      parent: 1
-  - uid: 5310
-    components:
-    - type: Transform
-      pos: 255.5,17.5
-      parent: 1
   - uid: 10046
     components:
     - type: Transform
@@ -9226,6 +9141,48 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 184.5,31.5
+      parent: 1
+- proto: CMVendNATOUSMCWarVendor
+  entities:
+  - uid: 2685
+    components:
+    - type: Transform
+      pos: 266.5,22.5
+      parent: 1
+- proto: CMVendNATOUSMCWarVendorAmmo
+  entities:
+  - uid: 2664
+    components:
+    - type: Transform
+      pos: 268.5,22.5
+      parent: 1
+- proto: CMVendNATOUSMCWarVendorGear
+  entities:
+  - uid: 2582
+    components:
+    - type: Transform
+      pos: 267.5,22.5
+      parent: 1
+- proto: CMVendPACTVDVWarVendor
+  entities:
+  - uid: 4086
+    components:
+    - type: Transform
+      pos: -39.5,-17.5
+      parent: 1
+- proto: CMVendPACTVDVWarVendorAmmo
+  entities:
+  - uid: 4148
+    components:
+    - type: Transform
+      pos: -37.5,-24.5
+      parent: 1
+- proto: CMVendPACTVDVWarVendorGear
+  entities:
+  - uid: 4087
+    components:
+    - type: Transform
+      pos: -40.5,-17.5
       parent: 1
 - proto: CrateFoodMRE
   entities:
@@ -59675,6 +59632,13 @@ entities:
     - type: Transform
       pos: 266.5,29.5
       parent: 1
+- proto: SpawnPointUSMCLieutenant
+  entities:
+  - uid: 2581
+    components:
+    - type: Transform
+      pos: 264.5,28.5
+      parent: 1
 - proto: SpawnPointUSMCMedic
   entities:
   - uid: 5287
@@ -59745,6 +59709,13 @@ entities:
     - type: Transform
       pos: -42.5,-23.5
       parent: 1
+- proto: SpawnPointVDVLieutenant
+  entities:
+  - uid: 2710
+    components:
+    - type: Transform
+      pos: -30.5,-11.5
+      parent: 1
 - proto: SpawnPointVDVMedic
   entities:
   - uid: 5601
@@ -59798,15 +59769,15 @@ entities:
       parent: 1
 - proto: SpawnPointVDVSquadLeader
   entities:
+  - uid: 4085
+    components:
+    - type: Transform
+      pos: -31.5,-9.5
+      parent: 1
   - uid: 5524
     components:
     - type: Transform
       pos: -30.5,-14.5
-      parent: 1
-  - uid: 5526
-    components:
-    - type: Transform
-      pos: -30.5,-11.5
       parent: 1
   - uid: 5528
     components:

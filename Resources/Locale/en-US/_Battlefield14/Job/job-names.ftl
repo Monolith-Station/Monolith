@@ -1,5 +1,6 @@
 #United States#
 
+job-name-usmc-lieutenant = Marine Platoon Commander
 job-name-usmc-squadleader = Marine Squad Leader
 job-name-usmc-rifleman = Marine Rifleman
 job-name-usmc-automatic-rifleman = Marine Automatic Rifleman
@@ -23,6 +24,7 @@ job-name-uspd-officer = USPD Police Officer
 
 #Russian Federation#
 
+job-name-vdv-lieutenant = VDV Platoon Commander
 job-name-vdv-squadleader = VDV Senior Rifleman
 job-name-vdv-rifleman = VDV Rifleman
 job-name-vdv-automatic-rifleman = VDV Automatic Rifleman
@@ -46,3 +48,4 @@ job-name-wps-officer = Chevron Security Officer
 #Civilian#
 
 job-name-ind-civilian = Civilian
+job-name-ind-civilian-paramedic = Paramedic

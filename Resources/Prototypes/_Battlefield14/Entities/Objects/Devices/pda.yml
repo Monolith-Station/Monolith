@@ -4,6 +4,22 @@
 
 - type: entity
   parent: BasePDA
+  id: USMCLieutenantPDA
+  name: USMC PDA
+  description: Filled with my little dark age edits.
+  suffix: lieutenant
+  components:
+  - type: Icon
+    sprite: _Battlefield14/Objects/Devices/pda.rsi
+    state: pda-us
+  - type: Pda
+    id: USMCLieutenantIDCard
+    state: pda-us
+  - type: PdaBorderColor
+    borderColor: "#203564"
+
+- type: entity
+  parent: BasePDA
   id: USMCSquadLeaderPDA
   name: USMC PDA
   description: Filled with my little dark age edits.
@@ -397,6 +413,22 @@
 ## RU
 
 # VDV
+
+- type: entity
+  parent: BasePDA
+  id: VDVLieutenantPDA
+  name: VDV PDA
+  description: Filled with drone footage.
+  suffix: lieutenant
+  components:
+  - type: Icon
+    sprite: _Battlefield14/Objects/Devices/pda.rsi
+    state: pda-ru
+  - type: Pda
+    id: VDVLieutenantIDCard
+    state: pda-ru
+  - type: PdaBorderColor
+    borderColor: "#a02829"
 
 - type: entity
   parent: BasePDA

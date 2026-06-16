@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Grid
+  category: Map
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/21/2026 09:26:09
-  entityCount: 3752
-maps: []
+  time: 06/16/2026 03:53:14
+  entityCount: 3754
+maps:
+- 272
 grids:
 - 1
-orphans:
-- 1
+orphans: []
 nullspace: []
 tilemap:
   0: Space
@@ -47,8 +47,8 @@ entities:
     - type: MetaData
       name: USS Barack Obama
     - type: Transform
-      pos: 26.421057,9.901085
-      parent: invalid
+#      pos: 26.421057,9.901085
+      parent: 272
     - type: MapGrid
       chunks:
         0,0:
@@ -120,8 +120,8 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         MetalFoam: []
-        Kudzu: []
         Puddle: []
+        Kudzu: []
         Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -1341,6 +1341,16 @@ entities:
       locked: False
     - type: BecomesStation
       id: USSBarackObama
+  - uid: 272
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: GridTree
+    - type: Broadphase
+    - type: OccluderTree
 - proto: ActionToggleLight
   entities:
   - uid: 831
@@ -1424,7 +1434,7 @@ entities:
       pos: 20.5,-21.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -17946.648
+      secondsUntilStateChange: -17979.174
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12473,7 +12483,7 @@ entities:
       pos: 10.5,-42.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -15785.053
+      secondsUntilStateChange: -15817.577
       state: Closing
   - uid: 2294
     components:
@@ -19102,6 +19112,13 @@ entities:
     - type: Transform
       pos: 17.5,-24.5
       parent: 1
+- proto: SpawnPointUSMCLieutenant
+  entities:
+  - uid: 3753
+    components:
+    - type: Transform
+      pos: 11.5,-5.5
+      parent: 1
 - proto: SpawnPointUSMCMedic
   entities:
   - uid: 216
@@ -19152,10 +19169,10 @@ entities:
       parent: 1
 - proto: SpawnPointUSSFCaptain
   entities:
-  - uid: 272
+  - uid: 3754
     components:
     - type: Transform
-      pos: 11.5,-5.5
+      pos: 15.5,-32.5
       parent: 1
 - proto: SpawnPointUSSFCrewman
   entities:

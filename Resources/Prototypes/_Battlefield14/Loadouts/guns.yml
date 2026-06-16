@@ -8,6 +8,15 @@
   - WeaponCaseShortFiveSeven
 
 - type: loadout
+  id: LoadoutGunUSM1911USMCVET
+  name: M1911 gun case
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_USMC_VET
+  inhand:
+  - WeaponCaseShortUSM1911
+
+- type: loadout
   id: LoadoutGunSR1MPVDVSLVET
   name: SR1MP gun case
   effects:
@@ -15,3 +24,12 @@
     proto: BF_VDV_SL_VET
   inhand:
   - WeaponCaseShortSR1MP
+
+- type: loadout
+  id: LoadoutGunRUTT33VDVVET
+  name: TT-33 tokarev gun case
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_VDV_VET
+  inhand:
+  - WeaponCaseShortRUTT33
