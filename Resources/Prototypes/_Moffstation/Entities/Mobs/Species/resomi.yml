@@ -16,7 +16,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.35
+          radius: 0.31 # Monolith
         density: 120 # Monolith
         restitution: 0.0
         mask:
