@@ -1,4 +1,4 @@
-# Handguns
+#region Handguns
 - type: entity
   parent: WeaponCaseShort
   id: WeaponCaseShortSR1MP
@@ -13,6 +13,19 @@
 
 - type: entity
   parent: WeaponCaseShort
+  id: WeaponCaseShortRUTT33
+  suffix: M1911
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolRUTT33
+    - id: MagazinePistolTT33
+      amount: 2
+    - id: MagazineBox762x25
+
+
+- type: entity
+  parent: WeaponCaseShort
   id: WeaponCaseShortFiveSeven
   suffix: Five-seveN
   components:
@@ -22,3 +35,15 @@
     - id: MagazinePistolFiveSeven
       amount: 2
     - id: MagazineBox57x28
+
+- type: entity
+  parent: WeaponCaseShort
+  id: WeaponCaseShortUSM1911
+  suffix: M1911
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolUSM1911
+    - id: MagazinePistolM1911
+      amount: 2
+    - id: MagazineBox45ACP
