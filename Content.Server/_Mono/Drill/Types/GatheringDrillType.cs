@@ -6,8 +6,8 @@ namespace Content.Server._Mono.Drill.Types;
 [UsedImplicitly]
 public sealed partial class GatheringDrillType : DrillType
 {
-    public override void Drill(EntityUid uid, ShipDrillSystem shipDrill, EntityManager manager)
+    public override void Drill(EntityUid drilled, EntityUid drill, ShipDrillSystem shipDrill, EntityManager manager)
     {
-        shipDrill.DrillGatherable(uid);
+        shipDrill.DrillGatherable(drilled, drill);
     }
 }

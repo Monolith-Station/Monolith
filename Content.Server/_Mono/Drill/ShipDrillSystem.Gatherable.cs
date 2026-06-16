@@ -11,11 +11,11 @@ public sealed partial class ShipDrillSystem
         _gatherQuery = GetEntityQuery<GatherableComponent>();
     }
 
-    public void DrillGatherable(EntityUid uid)
+    public void DrillGatherable(EntityUid drilled, EntityUid drill)
     {
-        if (_gatherQuery.TryComp(uid, out var gather))
+        if (_gatherQuery.TryComp(drilled, out var gather))
         {
-            _gather.Gather(uid, null, gather);
+            _gather.Gather(drilled, drill, gather, true);
         }
     }
 }

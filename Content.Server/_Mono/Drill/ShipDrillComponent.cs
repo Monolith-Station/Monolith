@@ -1,3 +1,7 @@
+using System.Numerics;
+using Content.Shared.Maps;
+using Robust.Shared.Prototypes;
+
 namespace Content.Server._Mono.Drill;
 
 /// <summary>
@@ -7,19 +11,13 @@ namespace Content.Server._Mono.Drill;
 public sealed partial class ShipDrillComponent : Component
 {
     [DataField]
-    public float DrillOffsetX = 0;
+    public Vector2 DrillOffsets = new(0, 1f);
 
     [DataField]
-    public float DrillOffsetY = 1;
+    public Vector2 DrillSize = new(1.5f, 2f);
 
     [DataField]
-    public float DrillLength = 3;
-
-    [DataField]
-    public float DrillWidth = 3;
-
-    [DataField]
-    public string[] TileWhitelist =
+    public ProtoId<ContentTileDefinition>[]? TileWhitelist =
     [
         "FloorCaveDrought", "FloorAsteroidSand", "FloorIce",
         "FloorBasalt", "FloorChromite", "FloorLowDesert",
