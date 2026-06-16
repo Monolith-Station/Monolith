@@ -1,10 +1,10 @@
-# Rifles - US
+#region Rifles - US
 
 - type: entity
   name: M16A1
   parent: BaseWeaponRifle
   id: WeaponRifleUSM16A1
-  description: The classic American slugthrower.
+  description: The original rifle that started the M16 and M4 family of rifles, nowadways most western made guns copy it.
   components:
   - type: Item # Controls inhand sprites
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M16A2.rsi
@@ -505,7 +505,7 @@
   name: AR-15
   parent: WeaponRifleUSM4
   id: WeaponRifleUSAR15
-  description: The original rifle that started the M16 and M4 family of rifles, nowadways most western made guns copy it.
+  description: A civilian pattern of AR15 marred with barrel length and select fire laws, this is as good as an American man can get off the shelf without paying an arm and a leg.
   components:
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
@@ -618,7 +618,7 @@
     zeroVisible: true
   - type: Appearance
 
-# Belgium
+#region Belgium
 
 - type: entity
   name: SCAR-L
@@ -758,7 +758,7 @@
       sprite: _Battlefield14/Interface/MousePointer/optics.rsi
       state: eotech
 
-# Germany
+#region Germany
 
 - type: entity
   name: G3A3
@@ -992,7 +992,7 @@
       sprite: _Battlefield14/Interface/MousePointer/optics.rsi
       state: M68
 
-# Rifles - RU
+#region Rifles - RU
 
 - type: entity
   name: SKS Simonov
