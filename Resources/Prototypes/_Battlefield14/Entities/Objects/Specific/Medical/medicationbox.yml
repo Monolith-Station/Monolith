@@ -192,6 +192,25 @@
     - id: BlisterPackDermaline
       amount: 2
 
+- type: entity
+  id: MedicationBoxPillsHyronalin
+  parent: MedicationBoxBase
+  name: pill box
+  suffix: Hyronalin
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/medicationbox.rsi
+    layers:
+    - state: base
+    - state: overlay_stripe_green
+    - state: overlay_pills_green
+  - type: Label
+    currentLabel: hyronalin
+  - type: StorageFill
+    contents:
+    - id: BlisterPackHyronalin
+      amount: 2
+
 #region Syrettes
 
 - type: entity
