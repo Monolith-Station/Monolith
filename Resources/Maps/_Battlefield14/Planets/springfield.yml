@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/16/2026 04:08:26
-  entityCount: 26701
+  time: 06/16/2026 04:55:20
+  entityCount: 26700
 maps:
 - 20961
 grids:
@@ -1622,10 +1622,10 @@ entities:
       id: BF14Springfield
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
-        Puddle: []
         Kudzu: []
+        Puddle: []
         Smoke: []
+        MetalFoam: []
     - type: GravityShake
       shakeTimes: 10
     - type: GasTileOverlay
@@ -82932,11 +82932,6 @@ entities:
       parent: 1
 - proto: BoxBreachingCharges
   entities:
-  - uid: 3870
-    components:
-    - type: Transform
-      pos: 94.5,46.5
-      parent: 1
   - uid: 33681
     components:
     - type: Transform
@@ -101650,6 +101645,13 @@ entities:
     - type: Transform
       pos: 97.5,46.5
       parent: 1
+- proto: CrateSecgearNATOFilledSurplusM16
+  entities:
+  - uid: 3870
+    components:
+    - type: Transform
+      pos: 98.5,46.5
+      parent: 1
 - proto: CrateSecgearPACTFilledAK203
   entities:
   - uid: 33610
@@ -106589,13 +106591,6 @@ entities:
     - type: Transform
       pos: 142.5,162.5
       parent: 1
-- proto: FUBAR
-  entities:
-  - uid: 3871
-    components:
-    - type: Transform
-      pos: 94.5,46.5
-      parent: 1
 - proto: GeneratorBasic
   entities:
   - uid: 4140
@@ -109757,6 +109752,12 @@ entities:
     - type: Transform
       pos: 248.5,186.5
       parent: 1
+  - uid: 3867
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 92.5,37.5
+      parent: 1
   - uid: 24150
     components:
     - type: Transform
@@ -110974,11 +110975,6 @@ entities:
       parent: 1
 - proto: Rack
   entities:
-  - uid: 3867
-    components:
-    - type: Transform
-      pos: 94.5,46.5
-      parent: 1
   - uid: 3868
     components:
     - type: Transform
