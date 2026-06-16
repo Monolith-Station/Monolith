@@ -48,3 +48,4 @@ job-name-wps-officer = Chevron Security Officer
 #Civilian#
 
 job-name-ind-civilian = Civilian
+job-name-ind-civilian-paramedic = Paramedic

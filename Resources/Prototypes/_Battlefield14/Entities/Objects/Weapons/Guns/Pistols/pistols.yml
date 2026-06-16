@@ -1,5 +1,5 @@
 ## NATO
-# US
+#region US
 
 - type: entity
   name: desert eagle
@@ -29,15 +29,15 @@
         volume: -3
   - type: ChamberMagazineAmmoProvider
     soundRack:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/rack.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/rack.ogg
       params:
         volume: -1
     soundBoltOpened:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/slidepull.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/lock.ogg
       params:
         volume: -1
     soundBoltClosed:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/sliderel.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/chamber.ogg
       params:
         volume: -1
   - type: ItemSlots
@@ -45,8 +45,8 @@
       gun_magazine:
         name: Magazine
         startingItem: MagazinePistolDeagle
-        insertSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magin.ogg
-        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magout.ogg
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magout.ogg
         priority: 2
         whitelist:
           tags:
@@ -194,15 +194,15 @@
         volume: -3
   - type: ChamberMagazineAmmoProvider
     soundRack:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/rack.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/rack.ogg
       params:
         volume: -1
     soundBoltOpened:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/slidepull.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/lock.ogg
       params:
         volume: -1
     soundBoltClosed:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/sliderel.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/chamber.ogg
       params:
         volume: -1
   - type: ItemSlots
@@ -210,8 +210,8 @@
       gun_magazine:
         name: Magazine
         startingItem: MagazinePistolM1911
-        insertSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magin.ogg
-        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magout.ogg
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magout.ogg
         priority: 2
         whitelist:
           tags:
@@ -320,15 +320,15 @@
         volume: -3
   - type: ChamberMagazineAmmoProvider
     soundRack:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/rack.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/rack.ogg
       params:
         volume: -1
     soundBoltOpened:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/slidepull.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/lock.ogg
       params:
         volume: -1
     soundBoltClosed:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/sliderel.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/chamber.ogg
       params:
         volume: -1
   - type: ItemSlots
@@ -336,8 +336,8 @@
       gun_magazine:
         name: Magazine
         startingItem: MagazinePistolFiveSeven
-        insertSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magin.ogg
-        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magout.ogg
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magout.ogg
         priority: 2
         whitelist:
           tags:
@@ -356,7 +356,7 @@
   - type: Appearance
 
 ## PACT
-# RU
+#region RU
 
 - type: entity
   name: TT-33 Tokarev
@@ -386,15 +386,15 @@
         volume: -3
   - type: ChamberMagazineAmmoProvider
     soundRack:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/rack.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/rack.ogg
       params:
         volume: -1
     soundBoltOpened:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/slidepull.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/lock.ogg
       params:
         volume: -1
     soundBoltClosed:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/sliderel.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/chamber.ogg
       params:
         volume: -1
   - type: ItemSlots
@@ -402,8 +402,8 @@
       gun_magazine:
         name: Magazine
         startingItem: MagazinePistolTT33
-        insertSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magin.ogg
-        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magout.ogg
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magout.ogg
         priority: 2
         whitelist:
           tags:
@@ -450,15 +450,15 @@
         volume: -3
   - type: ChamberMagazineAmmoProvider
     soundRack:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/rack.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/rack.ogg
       params:
         volume: -1
     soundBoltOpened:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/slidepull.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/lock.ogg
       params:
         volume: -1
     soundBoltClosed:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/sliderel.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/chamber.ogg
       params:
         volume: -1
   - type: ItemSlots
@@ -466,8 +466,8 @@
       gun_magazine:
         name: Magazine
         startingItem: MagazinePistolAPS
-        insertSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magin.ogg
-        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magout.ogg
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magout.ogg
         priority: 2
         whitelist:
           tags:
@@ -513,15 +513,15 @@
         volume: -3
   - type: ChamberMagazineAmmoProvider
     soundRack:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/rack.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/rack.ogg
       params:
         volume: -1
     soundBoltOpened:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/slidepull.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/lock.ogg
       params:
         volume: -1
     soundBoltClosed:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/sliderel.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/chamber.ogg
       params:
         volume: -1
   - type: ItemSlots
@@ -529,8 +529,8 @@
       gun_magazine:
         name: Magazine
         startingItem: MagazinePistolPM
-        insertSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magin.ogg
-        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magout.ogg
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magout.ogg
         priority: 2
         whitelist:
           tags:
@@ -576,15 +576,15 @@
         volume: -3
   - type: ChamberMagazineAmmoProvider
     soundRack:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/rack.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/rack.ogg
       params:
         volume: -1
     soundBoltOpened:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/slidepull.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/lock.ogg
       params:
         volume: -1
     soundBoltClosed:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/sliderel.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/chamber.ogg
       params:
         volume: -1
   - type: ItemSlots
@@ -592,8 +592,8 @@
       gun_magazine:
         name: Magazine
         startingItem: MagazinePistolMP443
-        insertSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magin.ogg
-        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magout.ogg
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magout.ogg
         priority: 2
         whitelist:
           tags:
@@ -639,15 +639,15 @@
         volume: -3
   - type: ChamberMagazineAmmoProvider
     soundRack:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/rack.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/rack.ogg
       params:
         volume: -1
     soundBoltOpened:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/slidepull.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/lock.ogg
       params:
         volume: -1
     soundBoltClosed:
-      path: /Audio/_Battlefield14/Weapons/Guns/Beretta/sliderel.ogg
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/chamber.ogg
       params:
         volume: -1
   - type: ItemSlots
@@ -655,8 +655,8 @@
       gun_magazine:
         name: Magazine
         startingItem: MagazinePistolSR1MP
-        insertSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magin.ogg
-        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magout.ogg
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magout.ogg
         priority: 2
         whitelist:
           tags:
