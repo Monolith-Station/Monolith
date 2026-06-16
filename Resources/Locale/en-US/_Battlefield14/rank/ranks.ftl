@@ -16,3 +16,4 @@ BF-rank-us-seniormastersergeant = SMSgt.
 ## RU specific
 
 BF-rank-ru-juniorsergeant = JSgt.
+BF-rank-ru-generalmajor = General Major
