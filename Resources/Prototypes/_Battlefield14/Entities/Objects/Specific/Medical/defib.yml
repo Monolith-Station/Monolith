@@ -43,9 +43,46 @@
       types:
         Blunt: 12
         Shock: 15
- # - type: ExtendDescription
-#    descriptionList:
-#    - description: "Battery drains idly when on."
-#      fontSize: 12
-#      color: "#1c89b1"
-#      requireDetailRange: true
+  - type: ExtendDescription
+    descriptionList:
+    - description: "Battery drains idly when on."
+      fontSize: 12
+      color: "#1c89b1"
+      requireDetailRange: true
+
+- type: entity
+  id: DefibrillatorDisposable
+  parent: DefibrillatorCompact
+  name: disposable defibrillator
+  description: A small defibrillator, with an integrated cell, only allowing two uses.
+  suffix: BF14
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/defibsyndi.rsi
+    layers:
+      - state: icon
+      - state: screen
+        map: [ "enum.ToggleVisuals.Layer" ]
+        visible: false
+        shader: unshaded
+      - state: ready
+        map: ["enum.PowerDeviceVisualLayers.Powered"]
+        shader: unshaded
+  - type: Item
+    size: Normal
+  - type: Defibrillator
+    zapHeal:
+      types:
+        Asphyxiation: -40
+        Blunt: -5
+        Slash: -5
+        Piercing: -5
+        Heat: -5
+    doAfterDuration: 6
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellSmall
+        disableeject: true
+        locked: true

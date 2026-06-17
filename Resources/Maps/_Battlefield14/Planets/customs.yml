@@ -6678,14 +6678,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 110.5,60.5
       parent: 1
-- proto: BaseGracePeriodAnnouncerSpawner
+- proto: GracePeriodAnnouncerSpawner5
   entities:
   - uid: 5025
     components:
     - type: Transform
       pos: 232.5,63.5
       parent: 1
-- proto: BF14FogWall10
+- proto: BF14FogWall5
   entities:
   - uid: 1053
     components:
