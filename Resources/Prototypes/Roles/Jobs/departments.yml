@@ -8,32 +8,17 @@
   editorHidden: true # Frontier
 
 - type: department
-  id: Civilian
-  name: department-Civilian
+  id: Service
+  name: department-Service
   description: department-NFCivilian-description # Frontier
-  color: "#9FED58"
+  color: "#c1ff72"
   weight: 130 # Mono
   roles:
-  # - Bartender # Frontier
-  # - Botanist # Frontier
-  # - Boxer # Frontier
-  # - Chaplain # Frontier
-  # - Chef # Frontier
-  # - Clown # Frontier
-  # - HeadOfPersonnel # Frontier
-  # - Lawyer # Frontier
-  # - Librarian # Frontier
-  # - Mime # Frontier
-  # - Musician # Frontier
-  # - Passenger # Frontier
-  # - Reporter # Frontier
-  # - Visitor # Frontier
-  # - Zookeeper # Frontier
-  # - ServiceWorker # Frontier
-  - Contractor # Frontier
-  - Mercenary # Frontier
-  - Pilot # Frontier
-  - Borg # Frontier
+  - Bartender
+  - Hydroponics Biologist
+  - Mess Chef
+  - Custodian
+  - Off-Duty Crew
 
 - type: department
   id: CentralCommand

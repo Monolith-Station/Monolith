@@ -1,5 +1,5 @@
 department-Cargo = Cargo
-department-Civilian = Civilian
+department-Service = Service
 # department-Command = Command # Frontier: redefined in _NF
 department-CentralCommand = Central Command
 department-Engineering = Engineering
