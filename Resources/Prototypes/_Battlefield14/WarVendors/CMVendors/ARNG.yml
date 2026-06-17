@@ -43,6 +43,8 @@
         name: meralyne syrettes
       - id: BlisterPackSyretteDermaline
         name: dermaline syrettes
+      - id: DefibrillatorDisposable
+        name: disposable defibrillator
     - name: Backpack/belt
       choices: { BF14Storage: 2 }
       entries:
@@ -143,6 +145,8 @@
     - name: Storage
       entries:
       - id: PouchMags
+        amount: 5
+      - id: PouchFlaresFilledGlowsticksBlue
         amount: 5
       - id: ClothingArmbandDumpPouchBlack
         amount: 2

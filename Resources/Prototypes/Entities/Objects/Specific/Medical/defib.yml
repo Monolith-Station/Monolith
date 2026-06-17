@@ -48,6 +48,13 @@
       - TauCetiBasic
     - type: PirateBountyItem # Frontier
       id: Defibrillator # Frontier
+    - type: ExtendDescription # BF14
+      descriptionList:
+      - description: "Battery drains idly while on."
+        fontSize: 12
+        color: "#1c89b1"
+        requireDetailRange: true
+
 
 - type: entity
   id: Defibrillator

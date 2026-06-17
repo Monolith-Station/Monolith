@@ -86,7 +86,7 @@
 - type: entity
   id: BlastDoorGracePeriod
   parent: BaseStructure
-  name: shutter
+  name: blast door
   description: One shudders to think about what might be behind this shutter.
   suffix: grace period, 600s/10m
   placement:
@@ -128,5 +128,17 @@
       path: /Audio/Effects/glass_knock.ogg
   - type: ActiveTimerTrigger
     timeRemaining: 600
+  - type: DeleteOnTrigger
+  - type: Occluder
+
+- type: entity
+  id: BlastDoorGracePeriod5
+  parent: BlastDoorGracePeriod
+  suffix: grace period, 300s/5m
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ActiveTimerTrigger
+    timeRemaining: 300
   - type: DeleteOnTrigger
   - type: Occluder

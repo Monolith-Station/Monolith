@@ -6396,7 +6396,7 @@ entities:
     - type: Transform
       pos: 84.5,-81.5
       parent: 1
-- proto: BaseGracePeriodAnnouncerSpawner
+- proto: GracePeriodAnnouncerSpawner5
   entities:
   - uid: 71767
     components:
@@ -10029,7 +10029,7 @@ entities:
     - type: Transform
       pos: 27.5,-79.5
       parent: 1
-- proto: BF14FogWall10
+- proto: BF14FogWall5
   entities:
   - uid: 9
     components:
@@ -16228,7 +16228,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -13.5,-85.5
       parent: 1
-- proto: BlastDoorGracePeriod
+- proto: BlastDoorGracePeriod5
   entities:
   - uid: 61072
     components:
