@@ -8,3 +8,16 @@
     Silver: 250
     Plasma: 500
     Bluespace: 200
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: TrayGoggles
+  result: ClothingEyesGlassesMesonTray
+  completetime: 4
+  materials:
+    Steel: 500
+    Copper: 200 # mono
+    Plastic: 200
+    Glass: 200
+    Gold: 100 # mono
+    Plasma: 50
