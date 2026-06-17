@@ -470,7 +470,7 @@
         Slash: 0.8
         Piercing: 0.85
         Heat: 0.35
-        Radiation: 0.0
+        Radiation: 0.01 # Mono 0.0 -> 0.01
         Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.8
@@ -545,7 +545,7 @@
         Slash: 0.65 # Mono 0.65 < 0.8
         Piercing: 0.65 # Mono 0.65 < 0.9
         Heat: 0.3
-        Radiation: 0 # Mono 0 < 0.1
+        Radiation: 0.01 # Mono 0.1 -> 0.0 -> 0.01
         Caustic: 0.2
   - type: ExplosionResistance
     damageCoefficient: 0.1

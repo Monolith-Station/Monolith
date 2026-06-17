@@ -4,9 +4,9 @@ using Robust.Shared.Player;
 namespace Content.Client._Scp.Vignette;
 
 // TODO: Коммон оверлей систем
-public sealed class VignetteOverlaySystem : EntitySystem
+public sealed partial class VignetteOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
 
     private VignetteOverlay _overlay = default!;
 

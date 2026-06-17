@@ -8,13 +8,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._White.Standing;
 
-public sealed class LayingDownSystem : SharedLayingDownSystem
+public sealed partial class LayingDownSystem : SharedLayingDownSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IEyeManager _eyeManager = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IEyeManager _eyeManager = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private AnimationPlayerSystem _animation = default!;
+    [Dependency] private SharedBuckleSystem _buckle = default!;
 
     public override void Initialize()
     {

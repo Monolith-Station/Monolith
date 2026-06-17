@@ -24,8 +24,8 @@ namespace Content.Client.Shuttles.UI;
 [Virtual]
 public partial class BaseShuttleControl : MapGridControl
 {
-    [Dependency] private readonly IParallelManager _parallel = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDef = default!; // Mono
+    [Dependency] private IParallelManager _parallel = default!;
+    [Dependency] private ITileDefinitionManager _tileDef = default!; // Mono
     protected readonly EntityLookupSystem _lookup; // Mono
     protected readonly SharedMapSystem Maps;
 

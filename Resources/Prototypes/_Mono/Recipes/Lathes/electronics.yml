@@ -85,6 +85,11 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
+  id: SmartArmoryCircuitboard
+  result: SmartArmoryCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
   id: LargeThrusterMachineCircuitboard
   result: LargeThrusterMachineCircuitboard
 

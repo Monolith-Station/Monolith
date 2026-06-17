@@ -1,4 +1,5 @@
 using Content.Server.Shuttles.Components;
+using Content.Shared.NodeContainer;
 using Robust.Shared.Map.Components;
 
 namespace Content.Server.NodeContainer.Nodes;
@@ -7,11 +8,11 @@ namespace Content.Server.NodeContainer.Nodes;
 [DataDefinition, Virtual]
 public partial class DockablePipeNode : PipeNode
 {
-
-    public override IEnumerable<Node> GetReachableNodes(TransformComponent xform,
+    public override IEnumerable<Node> GetReachableNodes(
+        Entity<TransformComponent> xform,
         EntityQuery<NodeContainerComponent> nodeQuery,
         EntityQuery<TransformComponent> xformQuery,
-        MapGridComponent? grid,
+        Entity<MapGridComponent>? grid,
         IEntityManager entMan)
     {
         foreach (var pipe in base.GetReachableNodes(xform, nodeQuery, xformQuery, grid, entMan))
@@ -19,7 +20,7 @@ public partial class DockablePipeNode : PipeNode
             yield return pipe;
         }
 
-        if (!xform.Anchored || grid == null)
+        if (!xform.Comp.Anchored || grid == null)
             yield break;
 
         if (entMan.TryGetComponent(Owner, out DockingComponent? docking)

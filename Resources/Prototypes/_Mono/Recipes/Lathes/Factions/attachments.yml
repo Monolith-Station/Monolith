@@ -59,6 +59,31 @@
     Lithium: 150
 
 - type: latheRecipe
+  id: GunAttachmentGripErebusLight
+  result: GunAttachmentGripErebusLight
+  categories:
+  - Attachments
+  completetime: 2
+  materials:
+    Plastic: 100
+    Steel: 300
+    Glass: 150
+    Copper: 150
+
+- type: latheRecipe
+  id: GunAttachmentGripPistolLAM
+  result: GunAttachmentGripPistolLAM
+  categories:
+  - Attachments
+  completetime: 2
+  materials:
+    Plastic: 50
+    Steel: 100
+    Glass: 50
+    Copper: 50
+    Lithium: 60
+
+- type: latheRecipe
   id: GunAttachmentSuppressorMulticalPistol
   result: GunAttachmentSuppressorMulticalPistol
   categories:
