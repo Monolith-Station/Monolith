@@ -7,40 +7,10 @@
   - type: PresetIdCard
     job: USSPRifleman
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:
-    - state: default
-    - state: idintern-cadet
-  - type: Clothing
-    sprite: Objects/Misc/id_cards.rsi
-  - type: Item
-    heldPrefix: default
-
-- type: entity
-  parent: CadetIDCard
-  id: USSPCorporalIDCard
-  name: USSP efreitor ID card
-  components:
-  - type: PresetIdCard
-    job: USSPCorporal
-  - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
-    layers:
-    - state: default
-    - state: idsecurityofficer
-
-- type: entity
-  parent: IDCardStandard
-  id: USSPMedicIDCard
-  name: USSP combat medic ID card
-  components:
-  - type: PresetIdCard
-    job: USSPMedic
-  - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
-    layers:
-    - state: default
-    - state: idbrigmedic
+    - state: usspbase
+    - state: id_rifleman
 
 - type: entity
   parent: IDCardStandard
@@ -50,10 +20,10 @@
   - type: PresetIdCard
     job: USSPSergeant
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:
-    - state: default
-    - state: idseniorofficer
+    - state: usspbase
+    - state: id_sergeant
 
 - type: entity
   parent: IDCardStandard
@@ -63,12 +33,10 @@
   - type: PresetIdCard
     job: USSPCommissar
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:
-    - state: silver
-    - state: idheadofsecurity
-  - type: Item
-    heldPrefix: silver
+    - state: usspbase
+    - state: id_commissar
 
 # MARK: Medical
 

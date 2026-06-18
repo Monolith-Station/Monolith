@@ -51,28 +51,6 @@
     state: banner-red
 
 - type: entity
-  id: SpawnPointUSSPMedic
-  parent: SpawnPointJobBase
-  name: USSP Combat Medic
-  components:
-  - type: SpawnPoint
-    job_id: USSPMedic
-  - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-red
-
-- type: entity
-  id: SpawnPointUSSPCorporal
-  parent: SpawnPointJobBase
-  name: USSP Efreitor
-  components:
-  - type: SpawnPoint
-    job_id: USSPCorporal
-  - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-red
-
-- type: entity
   id: SpawnPointUSSPSergeant
   parent: SpawnPointJobBase
   name: USSP Serzhant

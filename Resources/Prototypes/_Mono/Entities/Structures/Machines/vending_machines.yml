@@ -60,7 +60,7 @@
     - state: panel
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
   - type: AccessReader
-    access: [["Mercenary"], ["Security"]]
+    access: [["USSP"], ["USSPHigh"]]
 
 - type: entity
   parent: [BaseStructureDisableToolUse, VendingMachineSyndieContraband]

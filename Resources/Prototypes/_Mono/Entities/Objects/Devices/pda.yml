@@ -4,6 +4,7 @@
   description: A basic personal computer for access restriction and organization, manufactured in the USSP.
   abstract: true
   components:
+  - type: Pda
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
@@ -12,7 +13,7 @@
     - BountyContractsCartridge
     - AstroNavCartridge
   - type: Sprite
-    sprite: Objects/Devices/pda.rsi
+    sprite: _Mono/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda"
@@ -25,38 +26,7 @@
       shader: "unshaded"
       visible: false
   - type: Icon
-    sprite: Objects/Devices/pda.rsi
-    state: pda
-
-- type: entity
-  parent: BasePDA
-  id: BaseUSSPMedicPDA
-  description: A basic personal computer for access restriction and organization, manufactured in the USSP.
-  abstract: true
-  components:
-  - type: CartridgeLoader
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NewsReaderCartridge
-    - BountyContractsCartridge
-    - AstroNavCartridge
-    - MedTekCartridge
-  - type: Sprite
-    sprite: Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-      state: "pda"
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
-  - type: Icon
-    sprite: Objects/Devices/pda.rsi
+    sprite: _Mono/Objects/Devices/pda.rsi
     state: pda
 
 - type: entity
@@ -68,50 +38,15 @@
     id: USSPRiflemanIDCard
   - type: Appearance
     appearanceDataInit:
-     enum.PdaVisuals.PdaType:
-       !type:String
-       pda-interncadet
-  - type: PdaBorderColor
-    borderColor: "#717059"
-    accentVColor: "#A32D26"
-  - type: Icon
-    state: pda-interncadet
-
-- type: entity
-  parent: BaseUSSPMedicPDA
-  id: USSPMedicPDA
-  name: USSP combat medic PDA
-  components:
-  - type: Pda
-    id: USSPMedicIDCard
-  - type: Appearance
-    appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-brigmedic
-  - type: PdaBorderColor
-    borderColor: "#A32D26"
-    accentHColor: "#d7d7d0"
-    accentVColor: "#d7d7d0"
-  - type: Icon
-    state: pda-brigmedic
+        pda-ussprifleman
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
 
-- type: entity
-  parent: BaseUSSPPDA
-  id: USSPCorporalPDA
-  name: USSP efreitor PDA
-  components:
-  - type: Pda
-    id: USSPCorporalIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-security
-  - type: PdaBorderColor
-    borderColor: "#A32D26"
-  - type: Icon
-    state: pda-security
 
 - type: entity
   parent: BaseUSSPPDA
@@ -124,12 +59,12 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-seniorofficer
-  - type: PdaBorderColor
-    borderColor: "#A32D26"
-    accentVColor: "#DFDFDF"
-  - type: Icon
-    state: pda-seniorofficer
+        pda-usspsergeant
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
 
 - type: entity
   parent: BaseUSSPPDA
@@ -142,12 +77,12 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-hos
-  - type: PdaBorderColor
-    borderColor: "#A32D26"
-    accentHColor: "#447987"
-  - type: Icon
-    state: pda-hos
+        pda-usspcommissar
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
 
 #TSF
 

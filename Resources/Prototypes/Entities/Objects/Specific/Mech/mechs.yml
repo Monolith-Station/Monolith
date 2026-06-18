@@ -370,9 +370,12 @@
       types:
         Blunt: 10 #thwack
         Structural: 2
+  - type: CanMoveInAir
+  - type: MovementAlwaysTouching
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
     baseSprintSpeed: 3.6
+    baseWeightlessModifier: 7.5
   - type: Access
     groups: # Frontier: contractor access
     - GeneralAccess # Frontier
@@ -380,6 +383,11 @@
     # - Maintenance # Frontier
   # TOOD: buzz / chime actions
   # TODO: builtin flashlight
+  - type: RadarBlip # Mono
+    radarColor: "#f432c7"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
   - type: Prying # Mono
     pryPowered: true
     speedModifier: 2

@@ -9,8 +9,9 @@
   startingGear: USSPRiflemanGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
-  icon: "JobIconSecurityCadet" # TODO - new USSP icons
+  icon: "JobIconUSSPRifleman"
   supervisors: job-supervisors-ussp-sergeant
+  assignedCompany: USSP
   canBeAntag: false
   weight: 10
   displayWeight: 10
@@ -42,3 +43,4 @@
   storage:
     back:
     - RadioHandheldNF
+    - BookUSSPLaw
