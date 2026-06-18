@@ -24,7 +24,7 @@
         - ReagentId: Stasizium
           Quantity: 10
   - type: Tag
-    tags: []
+    tags: [Medipen] # Mono
 
 - type: entity
   name: centcomm advanced stimulant
@@ -57,7 +57,7 @@
   - type: StaticPrice
     price: 500
   - type: Tag
-    tags: []
+    tags: [Medipen] # Mono
 
 - type: entity
   name: centcomm hypospray
