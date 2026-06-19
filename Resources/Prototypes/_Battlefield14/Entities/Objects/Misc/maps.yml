@@ -2,7 +2,7 @@
   parent: BaseBattlemap
   id: MapCustoms
   name: 'hand drawn map (Norvinsk customs)'
-  description: It's a map of Norvinsk customs, theres no way they want you to use this to navigate around.
+  description: It's a map of Norvinsk customs. Gotta give credits wherets it due, atleast this one isnt crumpled to hell like the last batch of maps.
   components:
     - type: Item
       size: Tiny
@@ -10,7 +10,7 @@
       sprite: _Battlefield14/Objects/Misc/maps.rsi
       state: customs
     - type: TabletopGame
-      size: 1200, 700
+      size: 1438, 691
       setup:
         !type:TabletopEmptySetup
         boardPrototype: PhotoMapCustoms
