@@ -60,3 +60,21 @@
       !type:RoleTimeRequirement
       role: JobRUScav
       time: 5400 # 1.5 hr
+
+- type: loadoutEffectGroup
+  id: BF_RU_BOSS_1
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobRUScavBoss
+      time: 1800 # 30 min
+
+- type: loadoutEffectGroup
+  id: BF_RU_BOSS_2
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobRUScavBoss
+      time: 3600 # 1 hr

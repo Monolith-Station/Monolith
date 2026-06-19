@@ -20,3 +20,13 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: BF_RU_CIV_2
+
+- type: loadout
+  id: LoadoutOuterArmorPlateCarrierHeavy
+  equipment:
+    outerClothing: ClothingOuterArmorPlateCarrierHeavy
+
+- type: loadout
+  id: LoadoutOuterArmorPlateCarrierHeavyTrack
+  equipment:
+    outerClothing: ClothingOuterArmorPlateCarrierHeavyTrack

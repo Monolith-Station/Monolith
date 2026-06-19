@@ -47,6 +47,27 @@
     proto: BF_RU_CIV_3
 
 - type: loadout
+  id: LoadoutUniformJumpsuitCombatScavBoss
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCombatScavBoss
+
+- type: loadout
+  id: LoadoutUniformJumpsuitTracksuitBlackBoss
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTracksuitBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_RU_BOSS_1
+
+- type: loadout
+  id: LoadoutUniformJumpsuitTracksuitYellow
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTracksuitYellow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_RU_BOSS_2
+
+- type: loadout
   id: LoadoutUniformJumpsuitClerk
   equipment:
     jumpsuit: ClothingUniformJumpsuitClerk
