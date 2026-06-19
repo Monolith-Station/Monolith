@@ -1,0 +1,12 @@
+- type: loadout
+  id: LoadoutArmbandVambrace
+  equipment:
+    leftarmband: ClothingArmbandVambrace
+
+- type: loadout
+  id: LoadoutArmbandVambraceTrack
+  equipment:
+    leftarmband: ClothingArmbandVambraceTrack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_RU_BOSS_1

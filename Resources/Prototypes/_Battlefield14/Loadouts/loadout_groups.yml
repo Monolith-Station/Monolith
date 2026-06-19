@@ -11,6 +11,7 @@
   - LoadoutHeadHatUshankaTrack
   - LoadoutHeadHatCabbie
   - LoadoutHeadHatHelmetRUSSh68
+  - LoadoutHeadHatHelmetRUSSh68Track
 
 - type: loadoutGroup
   id: BF_VDVHead
@@ -138,6 +139,54 @@
   - LoadoutUniformJumpsuitTracksuitRed
   - LoadoutUniformJumpsuitTracksuitBlue
   - LoadoutUniformJumpsuitTracksuitBlack
+  fallbacks:
+  - LoadoutUniformJumpsuitPlain
+
+- type: loadoutGroup
+  id: BF_VestBossRU
+  name: Vest
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LoadoutOuterArmorPlateCarrierHeavy
+  - LoadoutOuterArmorPlateCarrierHeavyTrack
+  fallbacks:
+  - LoadoutOuterArmorPlateCarrierHeavy
+
+- type: loadoutGroup
+  id: BF_HelmetBossRU
+  name: Helmet / Hat
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LoadoutHeadHatUshankaTrackBoss
+  - LoadoutHeadHatHelmetRUAltyn
+  - LoadoutHeadHatHelmetRUAltynTrack
+  fallbacks:
+  - LoadoutHeadHatHelmetRUAltyn
+
+- type: loadoutGroup
+  id: BF_VambraceBossRU
+  name: Vambrace
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LoadoutArmbandVambrace
+  - LoadoutArmbandVambraceTrack
+  fallbacks:
+  - LoadoutArmbandVambrace
+
+- type: loadoutGroup
+  id: BF_JumpsuitsBossRU
+  name: loadout-group-BF14-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LoadoutUniformJumpsuitCombatScavBoss
+  - LoadoutUniformJumpsuitTracksuitBlackBoss
+  - LoadoutUniformJumpsuitTracksuitYellow
+  fallbacks:
+  - LoadoutUniformJumpsuitCombatScavBoss
 
 - type: loadoutGroup
   id: BF_JumpsuitsCivilianUS
