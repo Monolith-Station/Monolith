@@ -21,7 +21,7 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Kupol MIL Ram{1}'
+          mapNameTemplate: 'Kupol USSP Ram{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
