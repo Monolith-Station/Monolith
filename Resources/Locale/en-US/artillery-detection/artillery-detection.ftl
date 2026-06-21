@@ -1,0 +1,10 @@
+artillery-detection-console-window-title = Artillery Detection Log
+artillery-detection-console-no-events = No events detected.
+artillery-detection-console-events-title = Detected Fire Events
+artillery-detection-console-refresh = Refresh
+artillery-detection-console-clear-all = Clear All
+artillery-detection-console-delete = Delete Selected
+artillery-detection-console-time = Time
+artillery-detection-console-weapon = Weapon Type
+artillery-detection-console-coordinates = Coordinates
+artillery-detection-console-ready = Ready

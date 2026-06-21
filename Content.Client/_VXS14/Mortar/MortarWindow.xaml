@@ -5,13 +5,13 @@
         <Label Text="Mortar Control" />
         <BoxContainer Orientation="Horizontal">
             <Label Text="Offset X:" />
-            <SpinBox Name="OffsetX" Value="5" />
+            <LineEdit Name="OffsetX" Text="5" MinWidth="80" />
         </BoxContainer>
         <BoxContainer Orientation="Horizontal">
             <Label Text="Offset Y:" />
-            <SpinBox Name="OffsetY" Value="0" />
+            <LineEdit Name="OffsetY" Text="0" MinWidth="80" />
         </BoxContainer>
         <Button Name="Recentre" Text="Recentre" />
-        <Button Name="Spawn" Text="Fire" />
+        <Button Name="Spawn" Text="Set Target" />
     </BoxContainer>
 </controls:MortarWindow>

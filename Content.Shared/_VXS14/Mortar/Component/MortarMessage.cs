@@ -6,6 +6,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Map;
 using Content.Shared.Explosion;
 using Content.Shared.Explosion.Components;
+using Content.Shared.DoAfter;
 
 namespace Content.Shared._VXS14.Mortar;
 
@@ -42,3 +43,9 @@ namespace Content.Shared._VXS14.Mortar;
             public float MinSafeDistance;
         }
     }
+
+/// <summary>
+/// Raised on the mortar after DoAfter completes to fire a loaded shell.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed partial class MortarShellLoadDoAfterEvent : SimpleDoAfterEvent { }

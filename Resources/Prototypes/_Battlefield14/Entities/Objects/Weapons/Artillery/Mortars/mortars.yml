@@ -24,7 +24,7 @@
       mortar_chamber:
         name: Chamber
         priority: 1
-        insertSound: /Audio/_VXS14/Weapons/Guns/Artillery/mortarload.ogg
+        insertSound: null
         whitelist:
           tags:
             - ShellMortar81M252
@@ -88,7 +88,7 @@
       mortar_chamber:
         name: Chamber
         priority: 1
-        insertSound: /Audio/_VXS14/Weapons/Guns/Artillery/mortarload.ogg
+        insertSound: null
         whitelist:
           tags:
             - ShellMortar822B14
