@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/21/2026 11:26:06
-  entityCount: 11765
+  time: 06/21/2026 11:49:31
+  entityCount: 11769
 maps: []
 grids:
 - 1
@@ -7672,7 +7672,7 @@ entities:
       pos: 1.5,2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -7606.721
+      secondsUntilStateChange: -7631.311
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7710,7 +7710,7 @@ entities:
       pos: -30.5,38.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -50800.4
+      secondsUntilStateChange: -50824.99
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15109,6 +15109,26 @@ entities:
     components:
     - type: Transform
       pos: 9.5,57.5
+      parent: 1
+  - uid: 11766
+    components:
+    - type: Transform
+      pos: -11.5,18.5
+      parent: 1
+  - uid: 11767
+    components:
+    - type: Transform
+      pos: -12.5,18.5
+      parent: 1
+  - uid: 11768
+    components:
+    - type: Transform
+      pos: -13.5,18.5
+      parent: 1
+  - uid: 11769
+    components:
+    - type: Transform
+      pos: -14.5,18.5
       parent: 1
 - proto: CableHV
   entities:
@@ -25842,7 +25862,7 @@ entities:
       pos: 22.5,53.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -45994.168
+      secondsUntilStateChange: -46018.758
       state: Closing
   - uid: 4605
     components:
@@ -25855,7 +25875,7 @@ entities:
       pos: 22.5,55.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -45996.168
+      secondsUntilStateChange: -46020.758
       state: Closing
   - uid: 9858
     components:
@@ -51596,8 +51616,6 @@ entities:
     - type: Transform
       pos: -3.5,4.5
       parent: 1
-    - type: ApcPowerReceiver
-      powerDisabled: True
     - type: GasThermoMachine
       targetTemperature: 73.15
     - type: AtmosPipeColor
