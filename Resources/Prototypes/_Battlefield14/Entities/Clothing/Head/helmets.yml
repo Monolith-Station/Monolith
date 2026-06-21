@@ -162,6 +162,17 @@
         Slash: 1
         Piercing: 1
 
+- type: entity
+  parent: ClothingHeadHatHelmetRUSSh68
+  id: ClothingHeadHatHelmetRUSSh68Track
+  name: SSh-68 helmet
+  description: A very old SSh-68 helmet, commonly nicknamed "penis helmet" due to its shape. This one has ben pained black with 2 white stripes.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Head/Helmets/ruhelmetssh68track.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Head/Helmets/ruhelmetssh68track.rsi
+
 # MISC
 
 - type: entity

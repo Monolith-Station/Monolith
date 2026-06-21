@@ -77,6 +77,17 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTracksuitYellow
+  name: boss tracksuit
+  description: A black tracksuit with a yellow tracksuit hoodie. This is what the king of gopniks wears.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/yellowtrack.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/yellowtrack.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitClerk
   name: clerk attire
   description: Blue jeans, white shirt, and a brown leather vest. Something the local koisk clerk would wear.
