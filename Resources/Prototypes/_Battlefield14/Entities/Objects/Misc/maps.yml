@@ -23,9 +23,13 @@
   components:
     - type: Item
       size: Tiny
+      storedSprite:
+        sprite: _Battlefield14/Objects/Misc/maps.rsi
+        state: taurus-storage
     - type: Sprite
-      sprite: Objects/Misc/bureaucracy.rsi
-      state: paper_dotmatrix
+      sprite: _Battlefield14/Objects/Misc/maps.rsi
+      state: taurus
+      scale: 0.7, 0.7
     - type: TabletopGame
       size: 190, 200
       setup:
@@ -40,9 +44,13 @@
   components:
     - type: Item
       size: Tiny
+      storedSprite:
+        sprite: _Battlefield14/Objects/Misc/maps.rsi
+        state: springfield-storage
     - type: Sprite
-      sprite: Objects/Misc/bureaucracy.rsi
-      state: paper_dotmatrix
+      sprite: _Battlefield14/Objects/Misc/maps.rsi
+      state: springfield
+      scale: 0.7, 0.7
     - type: TabletopGame
       size: 370, 335
       setup:
