@@ -14,6 +14,12 @@
       setup:
         !type:TabletopEmptySetup
         boardPrototype: PhotoMapCustoms
+    - type: ExtendDescription
+      descriptionList:
+        - description: To use, place on the floor, hover over the item, and tap E on the keyboard.
+          color: "#4f94ad"
+          requireDetailRange: true
+
 
 - type: entity
   parent: BaseBattlemap
@@ -23,14 +29,23 @@
   components:
     - type: Item
       size: Tiny
+      storedSprite:
+        sprite: _Battlefield14/Objects/Misc/maps.rsi
+        state: taurus-storage
     - type: Sprite
-      sprite: Objects/Misc/bureaucracy.rsi
-      state: paper_dotmatrix
+      sprite: _Battlefield14/Objects/Misc/maps.rsi
+      state: taurus
+      scale: 0.7, 0.7
     - type: TabletopGame
       size: 190, 200
       setup:
         !type:TabletopEmptySetup
         boardPrototype: PhotoMapTaurus
+    - type: ExtendDescription
+      descriptionList:
+        - description: To use, place on the floor, hover over the item, and tap E on the keyboard.
+          color: "#4f94ad"
+          requireDetailRange: true
 
 - type: entity
   parent: BaseBattlemap
@@ -40,14 +55,23 @@
   components:
     - type: Item
       size: Tiny
+      storedSprite:
+        sprite: _Battlefield14/Objects/Misc/maps.rsi
+        state: springfield-storage
     - type: Sprite
-      sprite: Objects/Misc/bureaucracy.rsi
-      state: paper_dotmatrix
+      sprite: _Battlefield14/Objects/Misc/maps.rsi
+      state: springfield
+      scale: 0.7, 0.7
     - type: TabletopGame
       size: 370, 335
       setup:
         !type:TabletopEmptySetup
         boardPrototype: PhotoMapSpringfield
+    - type: ExtendDescription
+      descriptionList:
+        - description: To use, place on the floor, hover over the item, and tap E on the keyboard.
+          color: "#4f94ad"
+          requireDetailRange: true
 
 # Image protos
 
