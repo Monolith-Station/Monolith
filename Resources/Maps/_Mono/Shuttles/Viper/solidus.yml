@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/21/2026 13:22:18
-  entityCount: 641
+  time: 06/21/2026 13:50:39
+  entityCount: 643
 maps: []
 grids:
 - 1
@@ -110,10 +110,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
         Puddle: []
-        MetalFoam: []
         Kudzu: []
+        MetalFoam: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1244,6 +1244,14 @@ entities:
     - type: Transform
       pos: 0.5,19.5
       parent: 1
+- proto: ButtonFrameExit
+  entities:
+  - uid: 524
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,1.5
+      parent: 1
 - proto: CableApcExtension
   entities:
   - uid: 27
@@ -2046,6 +2054,105 @@ entities:
     - type: Transform
       pos: 1.5,15.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        65:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        501:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        628:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        695:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        697:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        448:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        694:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        693:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        79:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        698:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        699:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        16:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        15:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        43:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        23:
+        - - device-button-7
+          - On
+        - - device-button-8
+          - Off
+        182:
+        - - device-button-5
+          - On
+        - - device-button-6
+          - Off
+        183:
+        - - device-button-5
+          - On
+        - - device-button-6
+          - Off
+        244:
+        - - device-button-1
+          - DoorBolt
+        21:
+        - - device-button-2
+          - DoorBolt
+        8:
+        - - device-button-3
+          - DoorBolt
+        243:
+        - - device-button-4
+          - DoorBolt
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery
@@ -2083,7 +2190,7 @@ entities:
       pos: 0.5,19.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -8339.334
+      secondsUntilStateChange: -8631.662
       state: Opening
 - proto: DefibrillatorCabinetFilled
   entities:
@@ -2960,6 +3067,19 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,18.5
       parent: 1
+- proto: LockableButtonViper
+  entities:
+  - uid: 523
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,1.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        579:
+        - - Pressed
+          - DoorBolt
 - proto: LockerWallChemistryFilled
   entities:
   - uid: 268
