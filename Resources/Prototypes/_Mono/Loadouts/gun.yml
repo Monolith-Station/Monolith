@@ -84,6 +84,13 @@
     back:
     - WeaponRifleLecterPMC
 
+- type: loadout #Iroh
+  id: MercenaryIrohLoadout
+  price: 100000 # Sorry sir, this is premium.
+  storage:
+    back:
+    - WeaponRifleIroh
+
 - type: loadout # Prometheus
   id: MercenaryPrometheusLoadout
   price: 15000
@@ -392,47 +399,19 @@
 
 # Rifles
 
-- type: loadout #Lecter
-  id: SecurityGuardLecterLoadout
+- type: loadout #Iroh
+  id: SecurityGuardIrohLoadout
+  name: iroh gun case
   price: 0
-  storage:
-    back:
-    - WeaponRifleLecter
+  inhand:
+  - WeaponCaseLongIrohSecurity
 
-- type: loadout #Ak
-  id: SecurityGuardAkLoadout
-  price: 0
-  storage:
-    back:
-    - WeaponRifleAk
-
-- type: loadout #Vulcan
-  id: SecurityGuardVulcanLoadout
-  price: 0
-  storage:
-    back:
-    - WeaponRifleVulcan
-
-- type: loadout #Lecter / Prometheus Ammo
+- type: loadout #Iroh Ammo
   id: SecurityGuard556x45mmAmmoLoadout
   price: 0
   storage:
     back:
     - BoxMagazine556x45mmFMJ
-
-- type: loadout #AK Ammo
-  id: SecurityGuard762x39AmmoLoadout
-  price: 0
-  storage:
-    back:
-    - BoxMagazine762x39mmFMJ
-
-- type: loadout #Vulcan Ammo
-  id: SecurityGuard762x51AmmoLoadout
-  price: 0
-  storage:
-    back:
-    - BoxMagazine762x51mmFMJ
 
 # Shotguns
 
@@ -458,13 +437,6 @@
     - AmmoBox12_gaugeBuckshot
 
 # SMGs
-
-- type: loadout #Drozd
-  id: SecurityGuardDrozdLoadout
-  price: 0
-  storage:
-    back:
-    - WeaponSubMachineGunDrozd
 
 - type: loadout #Vector
   id: SecurityGuardVectorLoadout

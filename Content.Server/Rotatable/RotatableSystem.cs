@@ -16,11 +16,11 @@ namespace Content.Server.Rotatable
     /// <summary>
     ///     Handles verbs for the <see cref="RotatableComponent"/> and <see cref="FlippableComponent"/> components.
     /// </summary>
-    public sealed class RotatableSystem : EntitySystem
+    public sealed partial class RotatableSystem : EntitySystem
     {
-        [Dependency] private readonly PopupSystem _popup = default!;
-        [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-        [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+        [Dependency] private PopupSystem _popup = default!;
+        [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+        [Dependency] private SharedInteractionSystem _interaction = default!;
 
         public override void Initialize()
         {

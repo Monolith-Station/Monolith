@@ -366,6 +366,18 @@
 
 - type: entity
   parent: WeaponCaseLong
+  id: WeaponCaseLongIrohExpedition
+  suffix: Dungeon, Iroh
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleIroh
+      amount: 1
+    - id: Magazine556x45mmFMJ
+      amount: 2
+
+- type: entity
+  parent: WeaponCaseLong
   id: WeaponCaseLongAk
   suffix: Dungeon, AKM
   components:

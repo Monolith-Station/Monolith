@@ -8,9 +8,9 @@ using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
 namespace Content.Client.Projectiles;
 
-public sealed class ProjectileSystem : SharedProjectileSystem
+public sealed partial class ProjectileSystem : SharedProjectileSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _player = default!;
+    [Dependency] private AnimationPlayerSystem _player = default!;
 
     public override void Initialize()
     {

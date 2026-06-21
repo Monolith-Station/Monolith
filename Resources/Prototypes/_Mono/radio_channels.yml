@@ -34,3 +34,11 @@
   keycode: 'j'
   color: "#21b0a4"
   longRange: true
+
+- type: radioChannel
+  id: Viper
+  name: chat-radio-viper
+  keycode: 'i'
+  frequency: 1753
+  color: "#ff4242" #Brighter color used for visual clarity.
+  longRange: true
