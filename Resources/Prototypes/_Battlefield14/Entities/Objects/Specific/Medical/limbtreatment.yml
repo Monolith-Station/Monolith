@@ -1,0 +1,31 @@
+- type: entity
+  name: limb treatment kit
+  parent: BaseItem
+  id: LimbTreatmentKit
+  description: Sever yer parts a week from now.
+  components:
+  - type: Tag
+    tags:
+      - LimbTreatmentKit
+  - type: Sprite
+    sprite: _Civ14/Objects/surgery.rsi
+    state: burn_kit
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: -0.5
+        Slash: -0.5
+        Piercing: -0.5
+        Heat: -0.5
+    clickPartDamageMultiplier: 5
+    soundHit:
+        path: /Audio/Items/Medical/brutepack_end.ogg
+    canWideSwing: false
+    autoAttack: true
+  - type: Item
+    size: Normal
+  - type: ExtendDescription
+    descriptionList:
+      - description: To use, target a damaged limb to heal, and hit the patient with melee to heal the targeted limb. Hold left mouse button to automatically heal.
+        color: green
+        requireDetailRange: true

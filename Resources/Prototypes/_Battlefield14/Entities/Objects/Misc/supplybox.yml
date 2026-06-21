@@ -19,6 +19,11 @@
     delay: 15.0
   - type: ItemSlots # yandere dev moment. if theres a more effecient way please tell me.
     slots:
+      treatmentkit:
+        name: treatment kit
+        whitelist:
+          tags:
+          - LimbTreatmentKit
       medkit:
         name: medkit
         whitelist:
