@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/21/2026 13:50:39
-  entityCount: 643
+  time: 06/21/2026 16:24:08
+  entityCount: 644
 maps: []
 grids:
 - 1
@@ -110,10 +110,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        Kudzu: []
         MetalFoam: []
+        Kudzu: []
         Smoke: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -2157,6 +2157,20 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
+- proto: ComputerTabletopIFF
+  entities:
+  - uid: 525
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,13.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 42.5
+    - type: ApcPowerReceiverBattery
+      enabled: True
 - proto: ComputerTabletopSurveillanceWirelessCameraMonitor
   entities:
   - uid: 197
@@ -2190,7 +2204,7 @@ entities:
       pos: 0.5,19.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -8631.662
+      secondsUntilStateChange: -8667.037
       state: Opening
 - proto: DefibrillatorCabinetFilled
   entities:
