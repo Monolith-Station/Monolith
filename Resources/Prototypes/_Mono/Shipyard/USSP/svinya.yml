@@ -11,9 +11,10 @@
   name: UW Svinya
   description: A compact attack craft, bristling with small caliber armament.
   price: 39000 # appraised at ~33200
+  purchasable: false # voucher only
   category: Small
   group: Ussp
-  access: Mercenary
+  access: USSP
   shuttlePath: /Maps/_Mono/Shuttles/USSP/svinya.yml
   guidebookPage: Null
   class:

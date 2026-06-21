@@ -6,9 +6,10 @@
   name: PPU Sekunda
   description: A USSP corpsman and fire support ship, comes with an FTL drive, tiny medical and chemical bay, light armament and a cramped interior. Produced by People's Production Union.
   price: 60000
+  purchasable: false # voucher only
   category: Medium
   group: Ussp
-  access: Mercenary
+  access: USSP
   shuttlePath: /Maps/_Mono/Shuttles/USSP/sekunda.yml
   guidebookPage: Null
   class:

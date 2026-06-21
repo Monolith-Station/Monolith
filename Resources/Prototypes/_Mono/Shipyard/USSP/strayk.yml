@@ -6,9 +6,10 @@
   name: NCS Strayk
   description: A poorly equipped and cramped strike craft. Outfitted with 2 torpedo launchers and 1 30mm chaingun, and capable of detecting invisible targets.
   price: 45820
+  purchasable: false # voucher only
   category: Small
   group: Ussp
-  access: Mercenary
+  access: USSP
   shuttlePath: /Maps/_Mono/Shuttles/USSP/strayk.yml
   guidebookPage: Null
   class:
