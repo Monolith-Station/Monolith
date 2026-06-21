@@ -14,6 +14,12 @@
       setup:
         !type:TabletopEmptySetup
         boardPrototype: PhotoMapCustoms
+    - type: ExtendDescription
+      descriptionList:
+        - description: To use, place on the floor, hover over the item, and tap E on the keyboard.
+          color: "#4f94ad"
+          requireDetailRange: true
+
 
 - type: entity
   parent: BaseBattlemap
@@ -35,6 +41,11 @@
       setup:
         !type:TabletopEmptySetup
         boardPrototype: PhotoMapTaurus
+    - type: ExtendDescription
+      descriptionList:
+        - description: To use, place on the floor, hover over the item, and tap E on the keyboard.
+          color: "#4f94ad"
+          requireDetailRange: true
 
 - type: entity
   parent: BaseBattlemap
@@ -56,6 +67,11 @@
       setup:
         !type:TabletopEmptySetup
         boardPrototype: PhotoMapSpringfield
+    - type: ExtendDescription
+      descriptionList:
+        - description: To use, place on the floor, hover over the item, and tap E on the keyboard.
+          color: "#4f94ad"
+          requireDetailRange: true
 
 # Image protos
 
