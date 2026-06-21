@@ -11,6 +11,7 @@ using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Power.EntitySystems; // Mono
 using Content.Server.Shuttles.Components; // Mono
 using Content.Server.Storage.Components;
+using Content.Server.Temperature.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -37,6 +38,7 @@ using Robust.Server.Containers;
 using Robust.Shared.Physics.Components; // Mono
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Atmos.Components;
 using System.Linq;
 using Content.Shared.StatusEffect; // Frontier
 
@@ -45,28 +47,28 @@ namespace Content.Server.NPC.Systems;
 /// <summary>
 /// Handles utility queries for NPCs.
 /// </summary>
-public sealed class NPCUtilitySystem : EntitySystem
+public sealed partial class NPCUtilitySystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly DrinkSystem _drink = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly FoodSystem _food = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly OpenableSystem _openable = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
-    [Dependency] private readonly WeldableSystem _weldable = default!;
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!; // Frontier
-    [Dependency] private readonly DestructibleSystem _destructible = default!; // Mono
-    [Dependency] private readonly GunSystem _gun = default!; // Mono
-    [Dependency] private readonly NPCCombatSystem _npcCombat = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private DrinkSystem _drink = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private FoodSystem _food = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private OpenableSystem _openable = default!;
+    [Dependency] private PuddleSystem _puddle = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutions = default!;
+    [Dependency] private WeldableSystem _weldable = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private MobThresholdSystem _thresholdSystem = default!;
+    [Dependency] private StatusEffectsSystem _statusEffectsSystem = default!; // Frontier
+    [Dependency] private DestructibleSystem _destructible = default!; // Mono
+    [Dependency] private GunSystem _gun = default!; // Mono
+    [Dependency] private NPCCombatSystem _npcCombat = default!;
 
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;

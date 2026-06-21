@@ -32,7 +32,7 @@
   technologyPrerequisites:
   - TsfBasicGuns
   - UniversalMaterialResearchT2
-  position: 12, 7
+  position: 12, 8
 
 - type: technology
   id: TsfSuperWeapons
@@ -44,11 +44,13 @@
   recipeUnlocks:
   - WeaponRifleXlr556Tsf
   - WeaponRifleMR8CTSF
+  - WeaponLauncherTSFAnubis
   - WeaponDEWSmilodon
   - WeaponLauncherTSFOsiris
+  - Magazine35mmGrenade
   - LargePowerCell400Thz # For smilodon
   - LargePowerCell700Thz # For smilodon
   technologyPrerequisites:
   - TsfAdvancedWeapons
   - UniversalMaterialResearchT3
-  position: 12, 12
+  position: 12, 13

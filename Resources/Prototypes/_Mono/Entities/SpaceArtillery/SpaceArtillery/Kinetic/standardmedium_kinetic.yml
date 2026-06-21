@@ -25,7 +25,7 @@
   - type: Gun
     fireRate: 3
     recoil: 10 # 2/5x
-    projectileSpeed: 170
+    projectileSpeed: 204
     minAngle: 0
     maxAngle: 3
     burstCooldown: 0.4
@@ -97,7 +97,7 @@
   - type: Gun
     fireRate: 1.5
     recoil: 10 # 2/5x
-    projectileSpeed: 250
+    projectileSpeed: 300
     minAngle: 0
     maxAngle: 2
     shootThermalSignature: 2000000 # ~3.5km signature if firing continuously

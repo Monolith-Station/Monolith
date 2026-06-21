@@ -21,7 +21,7 @@ void fragment()
     highp vec4 color = texture(SCREEN_TEXTURE, UV);
 
     // Создаем временной фактор для анимации зерна.
-    highp float timeFactor = TIME * 10.0;
+    highp float timeFactor = mod(TIME, 100.0) * 10.0; // Mono
 
     // Генерируем псевдослучайное число на основе UV координат и времени.
     // Это создает уникальное значение для каждого пикселя, которое меняется со временем.

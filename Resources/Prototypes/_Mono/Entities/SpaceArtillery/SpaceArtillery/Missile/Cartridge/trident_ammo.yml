@@ -1,43 +1,9 @@
-- type: entity
-  id: BaseTorpedo
-  name: BaseTorpedo
-  description: If you can see this you're probably dead!
-  abstract: true
-  components:
-  - type: Clickable
-  - type: Physics
-    bodyType: Dynamic
-    linearDamping: 0
-    angularDamping: 0
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.3
-        density: 1500
-        layer:
-        - WallLayer
-        mask:
-        - MachineMask
-  - type: Projectile
-    impactEffect: BulletImpactEffect
-    damage:
-      types:
-        Piercing: 14
-    soundHit:
-      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
-  - type: TimedDespawn
-    lifetime: 10
-  - type: TriggerOnCollide
-    fixtureID: projectile
-
 # base end
 
 - type: entity
   id: ShipMissileASM220HE
   name: ASM-220 torpedo (HE)
-  parent: BaseTorpedo
+  parent: ShipMissileBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -53,7 +19,6 @@
     scale: 1, 2
   - type: Ammo
     muzzleFlash: null
-  - type: ShipWeaponProjectile
   - type: RadarBlip
     radarColor: "#ffff00"
     scale: 4
@@ -80,13 +45,6 @@
     maxSpeed: 150
     trackDelay: 3
   # destructible components below
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: Meteor
-    damageTypes:
-      types:
-        Blunt: 1
   - type: Destructible
     thresholds:
     - trigger:
@@ -146,7 +104,7 @@
 - type: entity
   id: ShipMissileASM220LOSAT
   name: ASM-220 LOSAT hyper-penetrator
-  parent: BaseTorpedo
+  parent: ShipMissileBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -154,7 +112,7 @@
       types:
         Structural: 25000
         Blunt: 5000
-    deleteOnCollide: false
+    penetrationThreshold: 30000
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
     layers:
@@ -162,7 +120,6 @@
     scale: 1, 2
   - type: Ammo
     muzzleFlash: null
-  - type: ShipWeaponProjectile
   - type: RadarBlip
     radarColor: "#00ffff"
     scale: 4
@@ -187,32 +144,11 @@
     maxIntensity: 30
     intensitySlope: 100
     totalIntensity: 100
-  # destructible components below
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.3
-        density: 1500
-        hard: true
-        layer:
-        - LargeMobLayer
-        mask:
-        - Impassable
-        - BulletImpassable
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: Meteor
-    damageTypes:
-      types:
-        Blunt: 5
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 28800
+        damage: 1000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -267,7 +203,7 @@
 - type: entity
   id: ShipMissileASM220ECM
   name: ASM-220 torpedo (ECM)
-  parent: BaseTorpedo
+  parent: ShipMissileBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -283,7 +219,6 @@
     scale: 1, 2
   - type: Ammo
     muzzleFlash: null
-  - type: ShipWeaponProjectile
   - type: RadarBlip
     radarColor: "#00b8ff"
     scale: 4
@@ -313,19 +248,11 @@
     range: 7
     energyConsumption: 2900000
     disableDuration: 10
-  # destructible components below
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: Meteor
-    damageTypes:
-      types:
-        Blunt: 0.5
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2500
+        damage: 400
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

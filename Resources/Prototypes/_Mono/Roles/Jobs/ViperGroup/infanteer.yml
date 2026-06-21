@@ -1,0 +1,35 @@
+- type: job
+  id: VGInfanteer
+  name: job-name-vg-infanteer
+  description: job-description-vg-infanteer
+  playTimeTracker: JobVGInfanteer
+  whitelisted: true # Everyone who has the company whitelist, I'd assume.
+  startingGear: ViperRadioGear
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  icon: "JobIconVGInfanteer"
+  supervisors: job-supervisors-vg-infanteer
+  canBeAntag: false
+  weight: 10 #Going off the info I was given, low weight as it's a company-whitelist role.
+  displayWeight: 50
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, ViperTrackingImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: MailDisabled
+    - type: SpecialSectorStationRecord
+      recordGeneration: FalseRecord
+    - type: NpcFactionMember
+      factions:
+      - VG
+  accessGroups:
+  - GeneralAccess
+  - ViperLow
+
+- type: startingGear
+  id: ViperRadioGear
+  storage:
+    back:
+    - RadioHandheldNF
+

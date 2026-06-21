@@ -70,3 +70,25 @@
   friendly:
   - AberrantFleshExpeditionNF
   defaultHostile: true
+
+- type: npcFaction
+  id: VG
+  neutral:
+  - CC
+  - NanoTrasen
+  - SimpleNeutral
+  - Mouse
+  - USSP
+  defaultHostile: true
+
+- type: npcFaction
+  id: VGTurret # Doesn't like intruders.
+  friendly:
+  - VG
+  neutral:
+  - Cat
+  - PetsNT
+  - SimpleNeutral
+  - Mouse
+  - USSP
+  defaultHostile: true

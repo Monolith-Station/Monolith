@@ -22,6 +22,7 @@
         inRangeMaxSpeed: null
         range: 250
         rangeTolerance: 50
+        brakeThreshold: 1 # braking is for wusses
         targetKey: TargetCoordinates
         mode: Orbit
     - !type:HTNPrimitiveTask
@@ -232,5 +233,52 @@
       - !type:UtilityService
         id: TargetsService
         proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
+
+- type: utilityQuery
+  id: NearbyShuttleTargetsLongRange
+  parent: NearbyShuttleTargets
+  query:
+  - !type:NearbyNpcTargetsQuery
+    range: 8000
+
+- type: htnCompound
+  id: DroneCompoundQuake
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargetsLongRange
+    - !type:HTNCompoundTask
+      task: ShuttleAttackDroneCompoundQuake
+
+- type: htnCompound
+  id: ShuttleAttackDroneCompoundQuake
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: PlanFinished
+        removeKeyOnFinish: false
+        alwaysFaceTarget: true
+        inRangeMaxSpeed: 4
+        avoidProjectiles: true
+        range: 400
+        rangeTolerance: 50
+        targetKey: TargetCoordinates
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipFireGunsOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        leadingAccuracy: 0.6
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargetsLongRange
         key: Target
         coordinatesKey: TargetCoordinates

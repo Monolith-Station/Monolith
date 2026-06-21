@@ -34,6 +34,7 @@ const mediump float BLEEDING = 0.05;          // Растекание цвето
 uniform sampler2D SCREEN_TEXTURE;
 
 const highp float PI = 3.14159265359;
+const highp float TWO_PI = 6.28318530718;
 
 // Функция генерации шума
 highp float rand(highp vec2 co) {
@@ -41,17 +42,20 @@ highp float rand(highp vec2 co) {
 }
 
 highp vec2 warp(highp vec2 uv) {
+    highp float t2  = mod(TIME, TWO_PI);          // * 2.0 wave and 10.0 crease anim
+    highp float t05 = mod(TIME, TWO_PI * 2.0);    // * 0.5 crease trigger (period 4π)
+
     highp vec2 delta = uv - 0.5;
     highp float delta2 = dot(delta, delta);
     highp float delta4 = delta2 * delta2;
     highp float delta_offset = delta4 * WARP_AMOUNT;
 
     // Добавляем волнистость ленты
-    highp float wave = sin(uv.y * 20.0 + TIME * 2.0) * TAPE_WAVE_AMOUNT * 0.01;
+    highp float wave = sin(uv.y * 20.0 + t2 * 2.0) * TAPE_WAVE_AMOUNT * 0.01;
 
     // Добавляем замятости ленты (случайно появляющиеся)
-    highp float crease = sin(TIME * 0.5) > 0.96 ?
-        sin(uv.y * 120.0 + TIME * 10.0) * TAPE_CREASE_AMOUNT * 0.04 : 0.0;
+    highp float crease = sin(t05 * 0.5) > 0.96 ?
+        sin(uv.y * 120.0 + t2 * 10.0) * TAPE_CREASE_AMOUNT * 0.04 : 0.0;
 
     return uv + delta * delta_offset + vec2(wave + crease, 0.0);
 }
@@ -77,14 +81,20 @@ highp float grille(highp vec2 uv) {
 }
 
 void fragment() {
+    highp float t_jitter = mod(TIME * JITTER_SPEED, TWO_PI);       // frozen (JITTER_SPEED=0)
+    highp float t_vjump  = mod(TIME * VERTICAL_JUMP_PERIOD, TWO_PI); // frozen (VJP=0)
+    highp float t_head   = mod(TIME, TWO_PI);                       // * 20.0 head noise (inactive)
+    highp float t_color  = mod(TIME, TWO_PI * 5.0);                 // * 0.2 color shift (period 10π)
+    highp float t_noise  = mod(TIME, 100.0);                        // noise scroll
+
     // Применяем горизонтальное дрожание
-    highp float jitter = HORIZONTAL_JITTER * (rand(vec2(TIME * JITTER_SPEED, TIME * JITTER_SPEED)) - 0.5);
+    highp float jitter = HORIZONTAL_JITTER * (rand(vec2(t_jitter, t_jitter)) - 0.5);
 
     // Применяем вертикальные скачки (тайминг VHS)
-    highp float vjump = VERTICAL_JUMP * step(0.99, sin(TIME * VERTICAL_JUMP_PERIOD));
+    highp float vjump = VERTICAL_JUMP * step(0.99, sin(t_vjump));
 
     // Применяем искажение от переключения головок внизу кадра
-    highp float head_noise = HEAD_SWITCHING_NOISE * step(0.95, UV.y) * sin(TIME * 20.0 + UV.x * 50.0);
+    highp float head_noise = HEAD_SWITCHING_NOISE * step(0.95, UV.y) * sin(t_head * 20.0 + UV.x * 50.0);
 
     // Искаженные координаты UV
     highp vec2 uv = warp(UV + vec2(jitter, vjump + head_noise));
@@ -94,10 +104,10 @@ void fragment() {
 
     // Применяем эффект rolling и хроматическую аберрацию
     if (ROLL) {
+        highp float t_roll = mod(TIME, TWO_PI);   // used with ROLL_SPEED inline
         highp vec2 roll_uv = vec2(0.0);
-        highp float time = TIME;
-        highp float roll_line = smoothstep(0.3, 0.9, sin(uv.y * ROLL_SIZE - (time * ROLL_SPEED)));
-        roll_line *= roll_line * smoothstep(0.3, 0.9, sin(uv.y * ROLL_SIZE * ROLL_VARIATION - (time * ROLL_SPEED * ROLL_VARIATION)));
+        highp float roll_line = smoothstep(0.3, 0.9, sin(uv.y * ROLL_SIZE - (t_roll * ROLL_SPEED)));
+        roll_line *= roll_line * smoothstep(0.3, 0.9, sin(uv.y * ROLL_SIZE * ROLL_VARIATION - (t_roll * ROLL_SPEED * ROLL_VARIATION)));
         roll_uv = vec2((roll_line * DISTORT_INTENSITY * (1. - UV.x)), 0.0);
 
         // Увеличиваем разброс цветовых каналов для VHS эффекта
@@ -120,14 +130,14 @@ void fragment() {
 
     // Деградация цветов VHS
     if (DISCOLOR) {
-        highp float colorShift = COLOR_DEGRADATION * sin(TIME * 0.2);
+        highp float colorShift = COLOR_DEGRADATION * sin(t_color * 0.2);
         text.r *= 1.0 + colorShift * 0.125;
         text.g *= 1.0 - colorShift * 0.08;
         text.b *= 1.0 + colorShift * 0.05;
     }
 
     // Добавляем статический шум
-    highp float static_noise = rand(uv + vec2(TIME * NOISE_SPEED, 0.0)) * STATIC_NOISE_INTENSITY;
+    highp float static_noise = rand(uv + vec2(t_noise * NOISE_SPEED, 0.0)) * STATIC_NOISE_INTENSITY;
     text.rgb += vec3(static_noise) * NOISE_OPACITY;
 
     // Применяем scanlines и grille для CRT эффекта

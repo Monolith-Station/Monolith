@@ -126,14 +126,6 @@
   - type: Implanter
     implant: MarishTranslatorImplant
 
-- type: entity # Mono
-  id: NovaCygniTranslatorImplanter
-  parent: [ BaseTranslatorImplanter ]
-  name: Nova Cygni translator implant
-  components:
-  - type: Implanter
-    implant: NovaCygniTranslatorImplant
-
 - type: entity
   id: NewKinPidginTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]

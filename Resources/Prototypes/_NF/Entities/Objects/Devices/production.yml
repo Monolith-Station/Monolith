@@ -236,20 +236,6 @@
     price: 17.5
 
 - type: entity
-  parent: BaseMachineCircuitboard
-  id: M_EmpMachineCircuitboard
-  name: M_EMP Generator machine board
-  description: A machine printed circuit board for a mobile EMP generator.
-  components:
-  - type: MachineBoard
-    prototype: M_Emp
-    requirements:
-      Capacitor: 4
-    stackRequirements:
-      Steel: 5
-      Cable: 2
-
-- type: entity
   id: PortableGeneratorDKMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: D-K-type portable generator machine board

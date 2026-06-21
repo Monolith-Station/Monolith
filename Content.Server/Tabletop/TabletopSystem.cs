@@ -21,11 +21,11 @@ namespace Content.Server.Tabletop
     [UsedImplicitly]
     public sealed partial class TabletopSystem : SharedTabletopSystem
     {
-        [Dependency] private readonly IMapManager _mapManager = default!;
-        [Dependency] private readonly EyeSystem _eye = default!;
-        [Dependency] private readonly ViewSubscriberSystem _viewSubscriberSystem = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private IMapManager _mapManager = default!;
+        [Dependency] private EyeSystem _eye = default!;
+        [Dependency] private ViewSubscriberSystem _viewSubscriberSystem = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
 
         public override void Initialize()
         {

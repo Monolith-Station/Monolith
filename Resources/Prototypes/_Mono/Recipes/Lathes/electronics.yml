@@ -85,6 +85,11 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
+  id: SmartArmoryCircuitboard
+  result: SmartArmoryCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
   id: LargeThrusterMachineCircuitboard
   result: LargeThrusterMachineCircuitboard
 
@@ -101,3 +106,8 @@
   parent: BaseGoldCircuitboardRecipe
   id: CentrifugeLatheMiniCircuitboard
   result: CentrifugeLatheMiniCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: OreMagnetMachineCircuitboard
+  result: OreMagnetMachineCircuitboard
