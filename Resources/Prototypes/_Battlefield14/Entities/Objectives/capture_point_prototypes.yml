@@ -3,6 +3,7 @@
   id: BaseCapturePoint
   name: capture point
   description: A strategic location that can be captured and controlled by factions.
+  abstract: true
   placement:
     mode: SnapgridCenter
   components:
@@ -64,17 +65,20 @@
     isBeingCaptured: false
     capturingFaction: null
     currentCaptureProgress: 0
+  - type: WarpPoint
+    location: "capture point"
 
 - type: entity
   parent: BaseCapturePoint
   id: BaseCapturePointGracePeriod600
+  abstract: true
   placement:
     mode: SnapgridCenter
   components:
   - type: POICapture
     gracePeriod: 600 # 10 minutes until open
 
-# Specific Control points for map locations
+# Specific Control points for map locations | these ones listed are all for stations
 - type: entity
   id: CapturePointEngineering
   parent: BaseCapturePointGracePeriod600
@@ -87,6 +91,8 @@
   - type: NavMapBeacon
     defaultText: objective-beacon-engineering
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Engineering Sector capture point"
 
 - type: entity
   id: CapturePointMedical
@@ -100,6 +106,8 @@
   - type: NavMapBeacon
     defaultText: objective-beacon-medical
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Medical Bay capture point"
 
 - type: entity
   id: CapturePointBridge
@@ -113,6 +121,8 @@
   - type: NavMapBeacon
     defaultText: objective-beacon-bridge
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Bridge capture point"
 
 - type: entity
   id: CapturePointBridge20Minutes
@@ -134,6 +144,9 @@
   - type: NavMapBeacon
     defaultText: objective-beacon-security
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Security capture point"
+
 
 - type: entity
   id: CapturePointCargo
@@ -147,6 +160,8 @@
   - type: NavMapBeacon
     defaultText: objective-beacon-cargo
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Cargo Department capture point"
 
 - type: entity
   id: CapturePointAtmospherics
@@ -160,6 +175,8 @@
   - type: NavMapBeacon
     defaultText: objective-beacon-atmospherics
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Atmospherics capture point"
 
 - type: entity
   id: CapturePointResearch
@@ -173,3 +190,5 @@
   - type: NavMapBeacon
     defaultText: objective-beacon-science
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Research and development capture point"

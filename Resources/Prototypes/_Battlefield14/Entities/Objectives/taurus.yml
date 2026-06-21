@@ -22,6 +22,8 @@
   - type: NavMapBeacon
     defaultText: "Hospital"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Hospital capture point"
 
 - type: entity
   id: CapturePointTaurusCityHall
@@ -35,6 +37,8 @@
   - type: NavMapBeacon
     defaultText: "City Hall"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "City Hall capture point"
 
 - type: entity
   id: CapturePointTaurusPoliceDepartment
@@ -48,6 +52,8 @@
   - type: NavMapBeacon
     defaultText: "Police Department"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Police Department capture point"
 
 - type: entity
   id: CapturePointTaurusLibrary
@@ -61,6 +67,8 @@
   - type: NavMapBeacon
     defaultText: "Library"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Library capture point"
 
 - type: entity
   id: CapturePointTaurusBotanicalGardens
@@ -74,6 +82,8 @@
   - type: NavMapBeacon
     defaultText: "Botanical Gardens"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Botanical Gardens capture point"
 
 - type: entity
   id: CapturePointTaurusYachtClub
@@ -87,6 +97,8 @@
   - type: NavMapBeacon
     defaultText: "Yacht Club"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Yacht Club capture point"
 
 - type: entity
   id: CapturePointTaurusDiner
@@ -100,6 +112,8 @@
   - type: NavMapBeacon
     defaultText: "Diner"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Diner capture point"
 
 - type: entity
   id: CapturePointTaurusHotel
@@ -113,6 +127,8 @@
   - type: NavMapBeacon
     defaultText: "Hotel"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Hotel capture point"
 
 - type: entity
   id: CapturePointTaurusLogistics
@@ -126,3 +142,5 @@
   - type: NavMapBeacon
     defaultText: "Logistics"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Logistics capture point"

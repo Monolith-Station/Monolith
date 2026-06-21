@@ -11,7 +11,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 15
+        Piercing: 10
+        Slash: 5
         Structural: 2
     armorPenetration: -0.3
   - type: StaminaDamageOnCollide
@@ -73,7 +74,7 @@
     damage:
       types:
         Piercing: 15
-        Heat: 15
+        Heat: 5
         Structural: 15
     armorPenetration: -0.15
   - type: StaminaDamageOnCollide
@@ -101,7 +102,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 27
+        Piercing: 20
+        Slash: 7
         Structural: 3
     armorPenetration: -0.3
   - type: StaminaDamageOnCollide
