@@ -82,3 +82,31 @@
       shipyardChannel: SHM
       secretShipyardChannel: Nfsd
       canTransferDeed: false
+
+- type: entity
+  id: ComputerShipyardViper
+  parent: ComputerShipyardBase
+  name: Viper Group shipyard console
+  description: Used to import ships from various manufacturers.
+  components:
+  - type: ActivatableUI
+    key: enum.ShipyardConsoleUiKey.Viper
+  - type: UserInterface
+    interfaces:
+      enum.ShipyardConsoleUiKey.Viper:
+        type: ShipyardConsoleBoundUserInterface
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/computers.rsi
+    layers: #Reusing as the DI computer sprites aren't in use to my knowledge.
+    - map: ["computerLayerBody"]
+      state: computer_not_rot
+    - map: ["computerLayerKeyboard"]
+      state: gunnery_keyboard
+    - map: ["computerLayerScreen"]
+      state: shipyard_DrakeIndustries
+    - map: ["computerLayerKeys"]
+      state: gunnery_keys
+  - type: ShipyardConsole
+    shipyardChannel: Traffic
+    ignoreBaseSaleRate: false
+    canTransferDeed: false

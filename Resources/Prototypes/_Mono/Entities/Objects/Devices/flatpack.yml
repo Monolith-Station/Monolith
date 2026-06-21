@@ -215,7 +215,7 @@
   description: A flatpack used for constructing an ore box.
   components:
   - type: Flatpack
-    entity: OreBox
+    entity: NFMagnetBoxOre
   - type: StaticPrice
     price: 500
   - type: PhysicalComposition
@@ -230,7 +230,7 @@
   description: A flatpack used for constructing a construction box.
   components:
   - type: Flatpack
-    entity: ConstructionBox
+    entity: NFMagnetBoxConstruction
   - type: StaticPrice
     price: 500
   - type: PhysicalComposition
@@ -238,6 +238,20 @@
       Steel: 100
       Glass: 30
 
+- type: entity
+  parent: BaseNFFlatpack
+  id: ScrapBoxFlatpack
+  name: scrap box flatpack
+  description: A flatpack used for constructing a scrap box.
+  components:
+  - type: Flatpack
+    entity: NFMagnetBoxRubbish
+  - type: StaticPrice
+    price: 500
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Glass: 30
 
 - type: entity
   parent: BaseNFFlatpack

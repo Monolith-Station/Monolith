@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/28/2026 18:51:07
-  entityCount: 1706
+  time: 05/13/2026 10:42:36
+  entityCount: 1709
 maps:
 - 1
 grids:
@@ -398,9 +398,9 @@ entities:
     - type: StationTransit
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Puddle: []
         MetalFoam: []
+        Puddle: []
+        Smoke: []
         Kudzu: []
     - type: GridPathfinding
     - type: NavMap
@@ -408,6 +408,7 @@ entities:
       locked: False
     - type: CloakHeat
       lastUpdateTime: 0
+    - type: ThermalSignature
   - uid: 3
     components:
     - type: MetaData
@@ -7482,8 +7483,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.7517176,-10.459884
       parent: 2
-- proto: ShipVoucherTsfT0
-  entities:
   - uid: 1087
     components:
     - type: Transform
@@ -7979,20 +7978,6 @@ entities:
     - type: Transform
       pos: -3.5,2.5
       parent: 2
-- proto: SpawnPointUSSPCorporal
-  entities:
-  - uid: 1154
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 2
-- proto: SpawnPointUSSPMedic
-  entities:
-  - uid: 1155
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 2
 - proto: SpawnPointUSSPRifleman
   entities:
   - uid: 1156
@@ -8006,6 +7991,27 @@ entities:
     components:
     - type: Transform
       pos: -3.5,2.5
+      parent: 2
+- proto: SpawnPointVGCommander
+  entities:
+  - uid: 1707
+    components:
+    - type: Transform
+      pos: -4.5,1.5
+      parent: 2
+- proto: SpawnPointVGInfanteer
+  entities:
+  - uid: 1708
+    components:
+    - type: Transform
+      pos: -4.5,1.5
+      parent: 2
+- proto: SpawnPointVGLieutenant
+  entities:
+  - uid: 1709
+    components:
+    - type: Transform
+      pos: -4.5,1.5
       parent: 2
 - proto: SpawnVehicleATV
   entities:

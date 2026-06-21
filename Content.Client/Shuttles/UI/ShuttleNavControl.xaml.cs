@@ -900,7 +900,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         var rawBlips = _blips.GetCurrentBlips();
 
         // Prepare view bounds for culling
-        var monoViewBounds = new Box2(-3f, -3f, Size.X + 3f, Size.Y + 3f);
+        var monoViewBounds = new Box2(-3f, -3f, PixelSize.X + 3f, PixelSize.Y + 3f);
 
         // Draw blips using the same grid-relative transformation approach as docks
         foreach (var blip in rawBlips)
