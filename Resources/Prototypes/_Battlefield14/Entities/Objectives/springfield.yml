@@ -10,6 +10,8 @@
   - type: NavMapBeacon
     defaultText: "Hospital"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Hospital capture point"
 
 - type: entity
   id: CapturePointSpringfieldPoliceDepartment
@@ -23,6 +25,8 @@
   - type: NavMapBeacon
     defaultText: "Police Department"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Police Department capture point"
 
 - type: entity
   id: CapturePointSpringfieldCinema
@@ -36,6 +40,8 @@
   - type: NavMapBeacon
     defaultText: "Cinema"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Cinema capture point"
 
 - type: entity
   id: CapturePointSpringfieldSuburbs
@@ -49,6 +55,8 @@
   - type: NavMapBeacon
     defaultText: "Suburbs"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Suburbs capture point"
 
 - type: entity
   id: CapturePointSpringfieldHotel
@@ -62,3 +70,5 @@
   - type: NavMapBeacon
     defaultText: "Hotel"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Hotel capture point"

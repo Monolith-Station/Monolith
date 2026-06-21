@@ -12,6 +12,9 @@
   - type: NavMapBeacon
     defaultText: "Dormatories"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Dormatories capture point"
+
 
 - type: entity
   id: CapturePointCustomsStronghold
@@ -25,6 +28,9 @@
   - type: NavMapBeacon
     defaultText: "Stronghold"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Stronghold capture point"
+
 
 - type: entity
   id: CapturePointCustomsOldGas
@@ -38,6 +44,9 @@
   - type: NavMapBeacon
     defaultText: "Old gastation"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Old gastation capture point"
+
 
 - type: entity
   id: CapturePointCustomsNewGas
@@ -51,6 +60,9 @@
   - type: NavMapBeacon
     defaultText: "New gastation"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "New gastation capture point"
+
 
 - type: entity
   id: CapturePointCustomsWarehouse
@@ -64,6 +76,9 @@
   - type: NavMapBeacon
     defaultText: "Warehouses"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Warehouses capture point"
+
 
 - type: entity
   id: CapturePointCustomsCrackhouse
@@ -77,3 +92,5 @@
   - type: NavMapBeacon
     defaultText: "Crackhouse"
     color: "#FFFF00"
+  - type: WarpPoint
+    location: "Crackhouse capture point"

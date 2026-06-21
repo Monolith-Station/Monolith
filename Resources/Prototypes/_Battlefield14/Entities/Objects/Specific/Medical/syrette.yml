@@ -174,7 +174,6 @@
   parent: BF14SyretteCappedBase
   id: BF14SyretteInaprovalineCapped
   suffix: Inaprovaline, capped
-  description: A miniature single use syringe. Filled with a mixture of inaprovaline and iron.
   components:
   - type: Sprite
     sprite: _Battlefield14/Objects/Specific/Medical/syrette.rsi
@@ -185,12 +184,13 @@
     items:
     - id: BF14SyretteCapBlue
     - id: BF14SyretteInaprovaline
+  - type: Label
+    currentLabel: inaprovaline
 
 - type: entity
   parent: BF14SyretteBase
   id: BF14SyretteInaprovaline
   suffix: Inaprovaline
-  description: A miniature single use syringe. Filled with a mixture of inaprovaline and iron.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -211,6 +211,8 @@
     items:
     - id: BF14SyretteCapRed
     - id: BF14SyretteMeralyne
+  - type: Label
+    currentLabel: meralyne
 
 - type: entity
   parent: BF14SyretteBase
@@ -239,6 +241,8 @@
     items:
     - id: BF14SyretteCapYellow
     - id: BF14SyretteDermaline
+  - type: Label
+    currentLabel: dermaline
 
 - type: entity
   parent: BF14SyretteBase
@@ -267,6 +271,8 @@
     items:
     - id: BF14SyretteCapYellow
     - id: BF14SyretteEpinephrine
+  - type: Label
+    currentLabel: epinephrine
 
 - type: entity
   parent: BF14SyretteBase
