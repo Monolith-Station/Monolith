@@ -11,7 +11,7 @@
       types:
         Structural: 80
         Blunt: 40
-    deleteOnCollide: false
+    deleteOnCollide: true
   - type: SmokeOnTrigger
     duration: 40
     spreadAmount: 20

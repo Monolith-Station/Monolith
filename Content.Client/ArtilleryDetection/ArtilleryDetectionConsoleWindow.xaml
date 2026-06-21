@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="Artillery Detection Log"
+                      MinSize="700 600">
+    <BoxContainer Orientation="Vertical" Margin="10">
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 10">
+            <Button Name="RefreshButton" Text="Refresh" ToggleMode="False" />
+            <Button Name="ClearAllButton" Text="Clear All" ToggleMode="False" Margin="5 0 0 0" />
+            <Control HorizontalExpand="True" />
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+                <Label Text="Detected Events"/>
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True" Margin="0 5 0 0">
+                    <ItemList Name="EventList" HorizontalExpand="True" />
+                </ScrollContainer>
+            </BoxContainer>
+
+            <BoxContainer Orientation="Vertical" MinSize="230 0" HorizontalExpand="False" VerticalExpand="True" Margin="8 0 0 0">
+                <Label Text="Connected Systems"/>
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True" Margin="0 5 0 0">
+                    <ItemList Name="ConnectedSystemsList" HorizontalExpand="True" />
+                </ScrollContainer>
+            </BoxContainer>
+        </BoxContainer>
+
+        <Label Text="Event Details" Margin="0 8 0 0"/>
+        <PanelContainer MinSize="0 110" Margin="0 5 0 0">
+            <Label Name="EventDetailsLabel" Margin="6" Text="Select an event to view details."/>
+        </PanelContainer>
+
+        <BoxContainer Orientation="Horizontal" Margin="0 10 0 0">
+            <Button Name="DeleteButton" Text="Delete Selected" ToggleMode="False" />
+            <Control HorizontalExpand="True" />
+            <Label Name="StatusLabel" Text="Ready" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

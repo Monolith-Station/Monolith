@@ -56,13 +56,6 @@ public sealed partial class MortarWindow : DefaultWindow
 
         Recentre.OnPressed += (_) => ResetOffsets();
         Spawn.OnPressed += SubmitButtonOnOnPressed;
-
-        // Initialize default buttons for easy value adjustment
-        OffsetX.InitDefaultButtons();
-        OffsetY.InitDefaultButtons();
-
-        OffsetX.ValueChanged += (args) => ValidateAndPreview();
-        OffsetY.ValueChanged += (args) => ValidateAndPreview();
     }
 
     public void SetMortarConfig(float minOffsetX, float maxOffsetX, float minOffsetY, float maxOffsetY)
@@ -71,10 +64,6 @@ public sealed partial class MortarWindow : DefaultWindow
         _maxOffsetX = maxOffsetX;
         _minOffsetY = minOffsetY;
         _maxOffsetY = maxOffsetY;
-
-        // Apply the ranges to the SpinBox controls
-        OffsetX.IsValid = (value) => value >= _minOffsetX && value <= _maxOffsetX;
-        OffsetY.IsValid = (value) => value >= _minOffsetY && value <= _maxOffsetY;
     }
 
     protected override void EnteredTree()
@@ -88,27 +77,37 @@ public sealed partial class MortarWindow : DefaultWindow
     private void ResetOffsets()
     {
         _pausePreview = true;
-        OffsetX.Value = 5; // Safe default offset
-        OffsetY.Value = 0;
+        OffsetX.Text = "5";
+        OffsetY.Text = "0";
         _pausePreview = false;
-        UpdatePreview();
     }
 
-    private void UpdatePreview()
+    private bool TryGetOffsets(out float offsetX, out float offsetY)
     {
-        if (_pausePreview)
+        offsetX = 0f;
+        offsetY = 0f;
+
+        if (!float.TryParse(OffsetX.Text, System.Globalization.NumberStyles.Float,
+                System.Globalization.CultureInfo.InvariantCulture, out offsetX))
+            return false;
+
+        if (!float.TryParse(OffsetY.Text, System.Globalization.NumberStyles.Float,
+                System.Globalization.CultureInfo.InvariantCulture, out offsetY))
+            return false;
+
+        return true;
+    }
+
+    private void SubmitButtonOnOnPressed(ButtonEventArgs args)
+    {
+        if (!TryGetOffsets(out var offsetX, out var offsetY))
             return;
-    }
 
-    private void ValidateAndPreview()
-    {
-        // Let the server handle all validation - just update the preview
-        UpdatePreview();
-    }
+        // Clamp to allowed range
+        offsetX = Math.Clamp(offsetX, _minOffsetX, _maxOffsetX);
+        offsetY = Math.Clamp(offsetY, _minOffsetY, _maxOffsetY);
 
-     private void SubmitButtonOnOnPressed(ButtonEventArgs args)
-     {
-        // Send the offset values to the server
-        _eui?.SendCords(new Vector2(OffsetX.Value, OffsetY.Value));
-     }
+        _eui?.SendCords(new Vector2(offsetX, offsetY));
+    }
 }
+
