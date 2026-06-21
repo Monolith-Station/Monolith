@@ -19,18 +19,18 @@ namespace Content.Server._Mono.Cleanup;
 /// <summary>
 ///     Deletes entities eligible for deletion.
 /// </summary>
-public sealed class SpaceCleanupSystem : BaseCleanupSystem<PhysicsComponent>
+public sealed partial class SpaceCleanupSystem : BaseCleanupSystem<PhysicsComponent>
 {
-    [Dependency] private readonly CleanupHelperSystem _cleanup = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private CleanupHelperSystem _cleanup = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _timing = default!;
     private object _manifold = default!;
     private MethodInfo _testOverlap = default!;
-    [Dependency] private readonly PricingSystem _pricing = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private PricingSystem _pricing = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private float _maxDistance;
     private float _maxGridDistance;

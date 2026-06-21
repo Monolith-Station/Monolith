@@ -28,31 +28,26 @@
   loadouts:
   - USSPCombatWebbing
   - USSPCombatWebbingLarge
+  - USSPCombatWebbingMedical
+  - MercenaryClothingBeltWebbingsNormalBlack
+  - MercenaryClothingBeltWebbingsBigBlack
+  - MercenaryClothingBeltWebbingsNormalRangerGreen
+  - MercenaryClothingBeltWebbingsBigRangerGreen
+  - MercenaryClothingBeltWebbingsNormalTan
+  - MercenaryClothingBeltWebbingsBigTan
   fallbacks:
   - USSPCombatWebbing
 
 - type: loadoutGroup
-  id: USSPBeltMedic
+  id: USSPBeltOfficer
   name: loadout-group-contractor-belt
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - USSPCombatWebbing
-  - USSPCombatWebbingLarge
-  - USSPCombatWebbingMedical
-  fallbacks:
-  - USSPCombatWebbingMedical
-
-#- type: loadoutGroup
-#  id: USSPBackpackCorporal
-#  name: loadout-group-contractor-backpack
-#  minLimit: 1
-#  loadouts:
-#  - USSPModsuitUSSPVaryag
-#  fallbacks:
-#  - USSPBackpack
-#  subgroups:
-#  - USSPBackpack
+  - ContractorClothingBeltHolster
+  - MercenaryClothingBeltSecurityEmpty
+  subgroups:
+  - USSPBelt
 
 - type: loadoutGroup
   id: USSPOuterClothingOfficer
@@ -62,6 +57,7 @@
   - USSPClothingL10A
   subgroups:
   - TsfmcOuterClothing
+  - USSPOuterClothing
 
 - type: loadoutGroup
   id: USSPOuterClothing
@@ -82,20 +78,31 @@
   - USSPClothingJumpsuit
 
 - type: loadoutGroup
-  id: USSPMedhud
+  id: USSPJumpsuitOfficer
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  loadouts:
+  - USSPClothingServiceDress
+  - USSPClothingJumpsuit
+  fallbacks:
+  - USSPClothingJumpsuit
+
+- type: loadoutGroup
+  id: USSPGlasses
   name: loadout-group-contractor-glasses
-  hidden: true # No point in showing this, it gets auto-selected.
   minLimit: 1
   loadouts:
   - USSPMedHud
-  fallbacks:
-  - USSPMedHud
+  - MercenaryClothingEyesBallisticGogglesGreen
+  - MercenaryClothingEyesBallisticGogglesRed
+  - MercenaryClothingEyesGlassesSunglasses
 
 - type: loadoutGroup
   id: USSPHead
   name: loadout-group-contractor-head
   loadouts:
   - USSPHelmet
+  - USSPHeavyHelmet
   - USSPBeret
   - ContractorClothingHeadHatUshanka
 
@@ -132,3 +139,57 @@
   loadouts:
   - USSPOfficerCap
   - ContractorClothingHeadHatUshanka
+  subgroups:
+  - USSPHead
+
+- type: loadoutGroup
+  id: USSPGloves
+  name: loadout-group-contractor-gloves
+  loadouts:
+  - MercenaryClothingHandsGlovesTacticalCombatBlack
+  - MercenaryClothingHandsGlovesTacticalCombatRangerGreen
+  - MercenaryClothingHandsGlovesTacticalCombatTan
+
+- type: loadoutGroup
+  id: USSPCommissarGloves
+  name: loadout-group-contractor-gloves
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - MercenaryClothingHandsGlovesTacticalCombatWhite
+  fallbacks:
+  - MercenaryClothingHandsGlovesTacticalCombatWhite
+
+- type: loadoutGroup
+  id: USSPBalaclava
+  name: loadout-group-contractor-balaclava
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - MercenaryClothingBalaclavaSkiMaskBlack
+  - MercenaryClothingBalaclavaSkiMaskRangerGreen
+  - MercenaryClothingBalaclavaSkiMaskTan
+
+- type: loadoutGroup
+  id: USSPNeck
+  name: loadout-group-contractor-neck
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ContractorCDDogtags
+  - ContractorClothingNeckStethoscope
+  - ContractorClothingNeckIFFRed
+  - ContractorClothingNeckPonchoBlack
+  - ContractorClothingNeckPonchoSmallBlack
+  - ContractorClothingNeckPonchoSmallWhite
+
+- type: loadoutGroup
+  id: USSPBureaucracy
+  name: loadout-group-contractor-bureaucracy
+  minLimit: 1
+  maxLimit: 3
+  loadouts:
+  - USSPCommonCause
+  - ContractorHandLabeler
+  - USSPFolder
+  fallbacks:
+  - USSPCommonCause

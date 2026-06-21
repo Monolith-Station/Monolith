@@ -7,8 +7,8 @@ namespace Content.Client.Silicons.StationAi;
 
 public sealed partial class StationAiSystem : SharedStationAiSystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMgr = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlayMgr = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private StationAiOverlay? _overlay;
 

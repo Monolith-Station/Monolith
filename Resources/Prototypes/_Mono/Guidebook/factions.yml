@@ -5,6 +5,7 @@
   priority: 1
   children:
   - TSFMC_Entry
+  - USSP_Entry
 
 - type: guideEntry
   id: TSFMC_Entry
@@ -26,3 +27,24 @@
   name: Defusal
   text: "/ServerInfo/Guidebook/Security/Defusal.xml"
   priority: 5
+
+- type: guideEntry
+  id: USSP_Entry
+  name: USSP
+  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP_Remnants.xml"
+  priority: 6
+  children:
+  - USSP_SoP
+  - USSP_Overview
+
+- type: guideEntry
+  id: USSP_SoP
+  name: S.O.P
+  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP_SOP.xml"
+  priority: 7
+
+- type: guideEntry
+  id: USSP_Overview
+  name: Union of Soviet Socialist Planets
+  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP.xml"
+  priority: 8

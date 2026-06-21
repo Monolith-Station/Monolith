@@ -13,8 +13,8 @@ namespace Content.Client.Silicons.StationAi;
 [GenerateTypedNameReferences]
 public sealed partial class StationAiMenu : RadialMenu
 {
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public event Action<BaseStationAiAction>? OnAiRadial;
 

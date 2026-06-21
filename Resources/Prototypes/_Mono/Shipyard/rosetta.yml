@@ -1,0 +1,40 @@
+# Author Info
+# GitHub: The-Aisen
+# Discord: ich_bin_aisenberg
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Rosetta
+  parent: BaseVessel
+  name: NOV-Rosetta
+  description: A science vessel built by the enigmatic "System" the Rosetta model is a heavy duty, yet luxurious xenoarcheological ship. A hulking laboratory with enough firepower to persuade the undesired (and stationary) "customer" to leave.
+  price: 99000
+  category: Medium
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/Rosetta.yml
+  guidebookPage: Null
+  class:
+  - Science
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Rosetta
+  mapName: 'NOV-Rosetta'
+  mapPath: /Maps/_Mono/Shuttles/Rosetta.yml
+  minPlayers: 0
+  stations:
+    Rosetta:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Rosetta CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
