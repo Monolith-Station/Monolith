@@ -1,28 +1,14 @@
 - type: entity
-  parent: ColMarTechBase
-  id: CMVendSharedWarVendorMedical
-  name: medical war vendor
-  description: Please sir, may I have a little more?
-  suffix: ColMarTech
+  id: CMVendSharedWarVendorMedicalInventory
+  abstract: true
   components:
-  - type: Sprite
-    sprite: _Battlefield14/Structures/armoury.rsi
-    layers:
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.Base"]
-    - state: "normal-unshaded"
-      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
-      shader: unshaded
-#      shader: unshaded
-#    - state: panel
-#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: CMAutomatedVendor
     access:
     - "NATOMedical"
     - "PACTMedical"
     sections:
     - name: pills
-      choices: { BF14MedicationBox: 4 }
+      choices: { BF14PersonalMedicine: 4 }
       entries:
       - id: MedicationBoxPillsMeralyne
         name: meralyne pills
@@ -43,7 +29,7 @@
       - id: MedicationBoxPillsIron
         name: iron pills
     - name: syrettes
-      choices: { BF14MedicationBox: 4 }
+      choices: { BF14PersonalMedicine: 4 }
       entries:
       - id: MedicationBoxSyrettesMeralyne
         name: meralyne syrettes
@@ -61,6 +47,10 @@
         name: epinephrine syrettes
       - id: MedicationBoxSyrettesHypervene
         name: hypervene syrettes
+        recommended: true
+      - id: MedicationBoxSyrettesNanoblood
+        name: nanoblood syrettes
+        recommended: true
       - id: MedicationBoxSyrettesFentanyl
         name: fentanyl syrettes
     - name: Sustainment
@@ -73,3 +63,47 @@
         amount: 50
       - id: OxygenTankFilled
         amount: 50
+
+- type: entity
+  parent: [ ColMarTechBase , CMVendSharedWarVendorMedicalInventory ]
+  id: CMVendSharedWarVendorMedical
+  name: medical war vendor
+  description: Please sir, may I have a little more?
+  suffix: ColMarTech
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Structures/armoury.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "normal-unshaded"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+#      shader: unshaded
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["NATOMedical"],["PACTMedical"]]
+
+- type: entity
+  parent: [ BaseItem , CMVendSharedWarVendorMedicalInventory ]
+  id: CMVendSharedWarVendorMedicalTablet
+  name: medical war vendor tablet
+  description: Please sir, may I have a little more?
+  suffix: ColMarTech, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/tablets.rsi
+    layers:
+      - state: tablet
+      - state: generic
+        shader: unshaded
+  - type: UserInterface
+    interfaces:
+      enum.CMAutomatedVendorUI.Key:
+        type: CMAutomatedVendorBui
+  - type: ActivatableUI
+    key: enum.CMAutomatedVendorUI.Key
+  - type: ActivatableUIRequiresAccess
+  - type: AccessReader
+    access: [["NATOMedical"],["PACTMedical"]]

@@ -1,3 +1,4 @@
+#region Base
 - type: entity
   parent: BaseItem
   id: BaseWeaponLauncherDisposableFolded
@@ -30,7 +31,7 @@
         variation: 0.125
   - type: ExtendDescription
     descriptionList:
-      - description: Use to unfold.
+      - description: Use to unfold. This weapon can be stored on your auxillary suit storage slot.
         color: "#4f94ad"
         requireDetailRange: true
 
@@ -153,7 +154,7 @@
         color: "#4f94ad"
         requireDetailRange: true
 
-# US
+#region US
 - type: entity
   name: Mk 153 SMAW
   parent: [ BaseWeaponLauncher , BaseGunWieldable, WeaponHandlingLauncher ]
@@ -324,7 +325,7 @@
     proto: BulletRocketStingerMANPADSMissile
     capacity: 1
 
-# RU
+#region RU
 
 - type: entity
   name: RPG-7V2
@@ -407,7 +408,7 @@
   name: RShG-2
   parent: WeaponLauncherRURPG26
   id: WeaponLauncherRURPG26Thermobaric
-  description: Unlike tanks and APCs, infantry can't get armour that allows them to shrug off 40 year old anti-personnel solutions.
+  description: Unlike tanks and APCs, infantry can't get armour that allows them to shrug off 40 year old anti-personnel solutions.. Or 400 year old anti-personnel solutions.
   components:
   - type: BasicEntityAmmoProvider
     proto: BulletRocketRPG26ThermobaricArmingDistance

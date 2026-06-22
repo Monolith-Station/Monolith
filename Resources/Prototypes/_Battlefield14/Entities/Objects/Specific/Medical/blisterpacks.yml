@@ -323,3 +323,13 @@
     contents:
     - id: BF14SyretteFentanyl
       amount: 5
+
+- type: entity
+  parent: BlisterPackSyrette
+  id: BlisterPackSyretteNanoblood
+  suffix: Nanoblood 5u, 5
+  components:
+  - type: StorageFill
+    contents:
+    - id: BF14SyretteNanoblood
+      amount: 5

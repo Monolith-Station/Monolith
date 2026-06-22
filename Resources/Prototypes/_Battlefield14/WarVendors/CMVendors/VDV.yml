@@ -16,6 +16,8 @@
 #      shader: unshaded
 #    - state: panel
 #      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["PACTCommon"]]
   - type: CMAutomatedVendor
     access:
     - "PACTCommon"
@@ -72,6 +74,8 @@
       entries:
       - id: WeaponRifleRUAK12
         amount: 50
+      - id: WeaponRifleRUAK203
+        amount: 5
       - id: WeaponRifleRUAKS74U
         amount: 5
       - id: WeaponSubmachinegunRUVityaz
@@ -124,6 +128,8 @@
     - state: "normal-unshaded"
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
+  - type: AccessReader
+    access: [["PACTCommon"]]
   - type: CMAutomatedVendor
     access:
     - "PACTCommon"
@@ -208,6 +214,8 @@
     - state: "normal-unshaded"
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
+  - type: AccessReader
+    access: [["PACTCommon"]]
   - type: CMAutomatedVendor
     access:
     - "PACTCommon"
@@ -224,8 +232,10 @@
         amount: 5
       - id: BoxMagazineASVALShort
         amount: 5
-      - id: BoxMagazineAKM
+      - id: BoxMagazineAK203
         amount: 2
+      - id: BoxMagazineAKM
+        amount: 3
       - id: BoxFlare
         amount: 4
     - name: Loose rounds
@@ -264,6 +274,8 @@
     - state: "normal-unshaded"
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
+  - type: AccessReader
+    access: [["PACTCommon"]]
   - type: CMAutomatedVendor
     access:
     - "PACTCommon"

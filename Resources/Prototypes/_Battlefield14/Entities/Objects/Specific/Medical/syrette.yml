@@ -311,7 +311,7 @@
         maxVol: 5
         reagents:
         - ReagentId: Hypervene
-          Quantity: 5
+          Quantity: 3 # 15u purge
 
 - type: entity
   parent: BF14SyretteBase
@@ -350,4 +350,17 @@
         maxVol: 5
         reagents:
         - ReagentId: Fentanyl
+          Quantity: 5
+
+- type: entity
+  parent: BF14SyretteBase
+  id: BF14SyretteNanoblood
+  suffix: Nanoblood
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nanoblood
           Quantity: 5

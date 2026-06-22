@@ -397,8 +397,27 @@
     - state: overlay_stripe_maroon
     - state: overlay_ampuole_red
   - type: Label
-    currentLabel: fentanyl
+    currentLabel: fentanyl | DO NOT APPLY MORE THAN ONE DOSE
   - type: StorageFill
     contents:
     - id: BlisterPackSyretteFentanyl
+      amount: 2
+
+- type: entity
+  id: MedicationBoxSyrettesNanoblood
+  parent: MedicationBoxBase
+  name: syrette box
+  suffix: Nanoblood
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/medicationbox.rsi
+    layers:
+    - state: base
+    - state: overlay_stripe_maroon
+    - state: overlay_ampuole
+  - type: Label
+    currentLabel: nanoblood | DO NOT APPLY MORE THAN ONE DOSE
+  - type: StorageFill
+    contents:
+    - id: BlisterPackSyretteNanoblood
       amount: 2

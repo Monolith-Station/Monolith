@@ -138,6 +138,44 @@
     capacity: 30
 
 - type: entity
+  parent: MagazineRifleG36
+  id: MagazineRifleG36DoubleDrum
+  name: "G36 double drum magazine (5.56x45)"
+  description: Oh heavens no, the G36 has balls.
+  components:
+  - type: Item
+    size: Normal
+    shape:
+      - 0,0,2,1 # 3 wide, basically 3 magazines wide
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Rifle/G36doubledrum.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: BallisticAmmoProvider
+    proto: BF_CartridgeRifle556x45
+    mayTransfer: true
+    whitelist:
+      tags:
+        - BF_CartridgeRifle556x45
+    capacity: 100
+
+- type: entity
+  parent: MagazineRifleG36DoubleDrum
+  id: MagazineRifleG36DoubleDrumTracerRed
+  name: "G36 double drum magazine (5.56x45 red tracer)"
+  components:
+  - type: BallisticAmmoProvider
+    proto: BF_CartridgeRifle556x45TracerRed
+    mayTransfer: true
+    whitelist:
+      tags:
+        - BF_CartridgeRifle556x45
+    capacity: 100
+
+- type: entity
   parent: BaseMagazineRifle
   id: MagazineRifleASH12
   name: "ASH-12 magazine (12.7x55)"

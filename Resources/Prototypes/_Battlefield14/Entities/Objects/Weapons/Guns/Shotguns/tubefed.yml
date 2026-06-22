@@ -46,6 +46,8 @@
   components:
   - type: Item
     size: Normal
+    shape:
+    - 0,0,2,1
     sprite: _Battlefield14/Objects/Weapons/Guns/Shotguns/M590.rsi
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Shotguns/M590.rsi
@@ -87,6 +89,11 @@
     wideAnimationRotation: -90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
     soundHit:
       collection: MetalThud
+  - type: ExtendDescription
+    descriptionList:
+      - description: This weapon can be stored on your auxillary suit storage slot.
+        color: "#4f94ad"
+        requireDetailRange: true
 
 - type: entity
   name: RMB-93

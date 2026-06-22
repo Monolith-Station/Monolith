@@ -45,3 +45,9 @@
   - type: ClothingSpeedModifier # BF14
     walkModifier: 0.9
     sprintModifier: 0.9
+  - type: ExtendDescription # BF14
+    descriptionList:
+      - description: This weapon can be stored on your auxillary suit storage slot.
+        color: "#4f94ad"
+        requireDetailRange: true
+

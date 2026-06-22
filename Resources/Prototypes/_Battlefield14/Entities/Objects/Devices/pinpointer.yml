@@ -19,6 +19,11 @@
       map: ["enum.PinpointerLayers.Screen"]
       shader: unshaded
       visible: false
+  - type: ExtendDescription # BF14
+    descriptionList:
+      - description: This item can be stored on an armband slot.
+        color: "#4f94ad"
+        requireDetailRange: true
 
 - type: entity
   parent: PinpointerUniversalNATO
