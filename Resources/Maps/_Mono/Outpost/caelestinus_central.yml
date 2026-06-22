@@ -41037,7 +41037,7 @@ entities:
     - type: Transform
       parent: 2367
     - type: Paper
-      stampState: paper_stamp-ok
+      State: paper_stamp-ok
       stampedBy:
       - reapply: True
         stampType: RubberStamp
@@ -48579,13 +48579,6 @@ entities:
     components:
     - type: Transform
       pos: -14.50129,7.7926683
-      parent: 2
-- proto: RubberStampSr
-  entities:
-  - uid: 504
-    components:
-    - type: Transform
-      pos: -14.315386,7.5637703
       parent: 2
 - proto: SalvageCanisterSpawner
   entities:
