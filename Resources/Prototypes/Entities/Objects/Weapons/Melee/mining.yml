@@ -12,6 +12,7 @@
     state: pickaxe
   - type: MeleeWeapon
     autoAttack: true #Mono
+    heavyStaminaCost: 0 # Mono
     attackRate: 0.75
     wideAnimationRotation: -135
     soundHit:
@@ -119,17 +120,20 @@
   - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay
-    delay: 0.9
+    delay: 0.4 # Mono
   - type: LeechOnMarker
     leech:
       groups:
         Brute: -10
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
-    fireRate: 1
+    fireRate: 1.4 # Mono
+    availableModes:
+      - FullAuto # Mono
+    selectedMode: FullAuto # Mono
     useKey: false
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.5
+    rechargeCooldown: 0.2 # Mono
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
@@ -205,7 +209,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/crusher_glaive.rsi
   - type: UseDelay
-    delay: 1.9
+    delay: 1.4 # Mono
   - type: LeechOnMarker
     leech:
       groups:

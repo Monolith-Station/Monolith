@@ -157,3 +157,52 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
+
+# Armor add-ons
+- type: construction
+  name: solid armor add-on
+  id: WallArmorAddonSolid
+  graph: WallArmorAddonSolidGraph
+  startNode: start
+  targetNode: finished
+  category: construction-category-structures
+  description: An additional chunk of armor, attached to the side of a vessel. Provides additional protection, but makes the hull more vulnerable to explosives.
+  icon:
+    sprite: /Textures/_Mono/Structures/Wallmounts/Addons/armor.rsi
+    state: armor-solid
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true
+
+- type: construction
+  name: solid armor add-on (left corner)
+  id: WallArmorAddonSolidCornerL
+  graph: WallArmorAddonSolidCornerLGraph
+  startNode: start
+  targetNode: finished
+  category: construction-category-structures
+  description: An additional chunk of armor, attached to the side of a vessel. Provides additional protection, but makes the hull more vulnerable to explosives.
+  icon:
+    sprite: /Textures/_Mono/Structures/Wallmounts/Addons/armor.rsi
+    state: armor-solid-cornerL
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true
+
+- type: construction
+  name: solid armor add-on (right corner)
+  id: WallArmorAddonSolidCornerR
+  graph: WallArmorAddonSolidCornerRGraph
+  startNode: start
+  targetNode: finished
+  category: construction-category-structures
+  description: An additional chunk of armor, attached to the side of a vessel. Provides additional protection, but makes the hull more vulnerable to explosives.
+  icon:
+    sprite: /Textures/_Mono/Structures/Wallmounts/Addons/armor.rsi
+    state: armor-solid-cornerR
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true

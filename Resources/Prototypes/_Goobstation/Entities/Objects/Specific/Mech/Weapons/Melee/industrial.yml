@@ -12,7 +12,8 @@
     - Pickaxe
     - IndustrialMech
   - type: MeleeWeapon
-    canWideSwing: true
+    canWideSwing: true # Mono
+    heavyStaminaCost: 0 # Mono
     autoAttack: true
     range: 1.5
     angle: 120
@@ -24,8 +25,9 @@
       groups:
         Brute: 9
       types:
-        Structural: 60 # ~10 seconds for solid wall / ~21 secods for reinforced wall - 40->60 - Mono
+        Structural: 150 # ~7 secods for reinforced wall - 40->150 - Mono
   - type: MiningGatheringSoft
+  - type: MiningGatheringHard # Mono
 
 - type: entity
   id: WeaponMechMeleeDrillDiamond
@@ -41,18 +43,19 @@
     - Pickaxe
     - IndustrialMech
   - type: MeleeWeapon
-    canWideSwing: true
+    canWideSwing: true # Mono
+    heavyStaminaCost: 0 # Mono
     autoAttack: true
     range: 1.5
     angle: 120
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
-    attackRate: 4
+    attackRate: 4.5 # Mono - salvage buffs
     damage:
       groups:
         Brute: 18
       types:
-        Structural: 90 # ~3 seconds for solid wall / 9 seconds for reinforced wall - 60->90 - Mono
+        Structural: 290 # ~3 seconds for reinforced wall - 60->290 - Mono
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
