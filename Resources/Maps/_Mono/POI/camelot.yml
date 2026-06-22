@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/22/2026 14:37:01
+  time: 06/22/2026 15:06:17
   entityCount: 11859
 maps: []
 grids:
@@ -264,9 +264,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Kudzu: []
-        MetalFoam: []
-        Puddle: []
         Smoke: []
+        Puddle: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -7681,7 +7681,7 @@ entities:
       pos: 1.5,2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -14661.9795
+      secondsUntilStateChange: -14703.365
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7719,7 +7719,7 @@ entities:
       pos: -30.5,38.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -57855.66
+      secondsUntilStateChange: -57897.047
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26098,7 +26098,7 @@ entities:
       pos: 22.5,53.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -53049.43
+      secondsUntilStateChange: -53090.816
       state: Closing
   - uid: 4605
     components:
@@ -26111,7 +26111,7 @@ entities:
       pos: 22.5,55.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -53051.43
+      secondsUntilStateChange: -53092.816
       state: Closing
   - uid: 9858
     components:
@@ -34613,8 +34613,6 @@ entities:
     - type: Automated
     - type: DeviceNetwork
       deviceNetId: Wireless
-      configurators:
-      - invalid
       deviceLists: []
       receiveFrequencyId: BasicDevice
   - uid: 767
