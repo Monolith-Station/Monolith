@@ -1,0 +1,43 @@
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitCsecMpeva
+  name: CSEC MP-EVA tacsuit
+  description: A general purpose jack-of-all-trades hardsuit for CC security forces. Designed to be usable for riot control & gunfights alike, and outfitted with reagent-absorbing gel layers for biohazards.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/csec-mp-eva.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/csec-mp-eva.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.45
+        Slash: 0.6
+        Piercing: 0.55
+        Heat: 0.65
+        Radiation: 0.8
+        Caustic: 0.9
+        Poison: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHelmetHardsuitCsecMpeva
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: PirateBountyItem
+    id: ClothingOuterHardsuitTacsuit
+  - type: StaminaDamageResistance
+    coefficient: 0.2
+  - type: FireProtection
+    reduction: 0.5

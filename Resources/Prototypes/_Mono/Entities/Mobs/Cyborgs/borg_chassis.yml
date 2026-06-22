@@ -29,7 +29,7 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: BorgSwitchableType
-    typeWhitelist: 
+    typeWhitelist:
     - pdvassault
     - pdvengineer
     - pdvmedical
@@ -102,7 +102,7 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: BorgSwitchableType
-    typeWhitelist: 
+    typeWhitelist:
     - tsfassault
     - tsfengineer
     - tsfmedical

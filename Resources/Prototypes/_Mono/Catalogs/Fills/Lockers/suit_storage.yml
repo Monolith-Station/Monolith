@@ -15,7 +15,7 @@
         - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
     access: [["Mercenary"]]
-    
+
 - type: entity
   id: SuitStorageUsspL10
   parent: SuitStorageBase
@@ -144,3 +144,39 @@
         - id: ClothingShoesBootsMagSyndie
         - id: ClothingMaskGasSyndicate
         - id: JetpackBlackFilled # Frontier
+
+# Viper Group
+
+- type: entity
+  id: SuitStorageViperWL
+  parent: SuitStorageBase
+  suffix: Viper Group - Warlord
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitViperGroupInitiate
+    - id: ClothingMaskGasSecurity
+    - id: JetpackMiniFilled
+    - id: ClothingShoesBootsMagSecurity
+    - id: ClothingNeckViperGroupMantle
+  - type: AccessReader
+    access: [ [ "Viper" ] ]
+
+- type: entity
+  id: SuitStorageViperJackal
+  parent: SuitStorageBase
+  suffix: Viper Group - Jackal
+  components:
+  - type: StorageFill
+    contents:
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: ClothingOuterHardsuitViperGroupStandard
+      - id: ClothingMaskGasSecurity
+      - id: JetpackMiniFilled
+      - id: ClothingShoesBootsMagSecurity
+      - id: ClothingNeckViperGroupMantle
+  - type: AccessReader
+    access: [ [ "Viper" ] ]
