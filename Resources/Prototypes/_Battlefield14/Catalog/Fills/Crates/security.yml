@@ -230,7 +230,7 @@
         - id: WeaponGrenadeLauncherUSM320
           amount: 2
         - id: BoxMagazine40x46HE
-          amount: 1
+          amount: 2
         - id: BoxMagazine40x46Frag
           amount: 2
         - id: BoxMagazine40x46ChemicalSmoke
@@ -496,6 +496,8 @@
           amount: 4
         - id: ShellBoxBF4GaugeBarricade
           amount: 2
+        - id: ShellBoxBF4GaugeShrap25
+          amount: 1
   - type: AccessReader
     access: [["PACTSoldier"]]
 

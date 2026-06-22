@@ -16,6 +16,8 @@
 #      shader: unshaded
 #    - state: panel
 #      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["NATOCommon"]]
   - type: CMAutomatedVendor
     access:
     - "NATOCommon"
@@ -75,6 +77,8 @@
       entries:
       - id: WeaponRifleUSM16A4
         amount: 50
+      - id: WeaponRifleUSM27IAR
+        amount: 3
       - id: WeaponRifleUSM4
         amount: 5
       - id: WeaponSniperUSM40A1
@@ -125,6 +129,8 @@
     - state: "normal-unshaded"
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
+  - type: AccessReader
+    access: [["NATOCommon"]]
   - type: CMAutomatedVendor
     access:
     - "NATOCommon"
@@ -207,6 +213,8 @@
     - state: "normal-unshaded"
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
+  - type: AccessReader
+    access: [["NATOCommon"]]
   - type: CMAutomatedVendor
     access:
     - "NATOCommon"
@@ -257,6 +265,8 @@
     - state: "normal-unshaded"
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
+  - type: AccessReader
+    access: [["NATOCommon"]]
   - type: CMAutomatedVendor
     access:
     - "NATOCommon"

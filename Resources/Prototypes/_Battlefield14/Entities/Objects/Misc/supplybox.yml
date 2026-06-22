@@ -24,16 +24,19 @@
         whitelist:
           tags:
           - LimbTreatmentKit
+        priority: 3
       medkit:
         name: medkit
         whitelist:
           tags:
           - Medkit
+        priority: 2
       medkit2:
         name: medkit 2
         whitelist:
           tags:
           - Medkit
+        priority: 1
       gauze:
         name: gauze
         whitelist:

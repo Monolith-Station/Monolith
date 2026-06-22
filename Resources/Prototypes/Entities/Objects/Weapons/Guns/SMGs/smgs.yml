@@ -90,6 +90,11 @@
     wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
     soundHit:
       collection: MetalThud
+  - type: ExtendDescription # BF14
+    descriptionList:
+      - description: This weapon can be stored on your auxillary suit storage slot.
+        color: "#4f94ad"
+        requireDetailRange: true
 
 - type: entity
   name: MA PDW-58 Atreides (5.7x28mm)
