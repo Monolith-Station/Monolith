@@ -15,8 +15,6 @@
     layers:
     - state: crypt_rusted
     - state: sec_label
-  - type: PirateBountyItem
-    id: EncryptionKeyFaction
 
 - type: entity
   parent: EncryptionKey
@@ -35,8 +33,6 @@
     layers:
     - state: crypt_blue
     - state: sec_label
-  - type: PirateBountyItem
-    id: EncryptionKeyFaction
 
 - type: entity
   parent: EncryptionKey
@@ -103,5 +99,4 @@
     layers:
     - state: crypt_red
     - state: viper_label
-  #- type: PirateBountyItem
-  #  id: EncryptionKeyFaction > Unsure if these should stay as the USSP minor faction/company has it.
+
