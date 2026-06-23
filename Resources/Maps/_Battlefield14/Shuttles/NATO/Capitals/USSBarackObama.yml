@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/23/2026 10:43:20
-  entityCount: 3755
-maps:
-- 272
+  time: 06/23/2026 23:33:51
+  entityCount: 3754
+maps: []
 grids:
 - 1
-orphans: []
+orphans:
+- 1
 nullspace: []
 tilemap:
   0: Space
@@ -47,7 +47,7 @@ entities:
     - type: MetaData
       name: USS Barack Obama
     - type: Transform
-      parent: 272
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -118,8 +118,8 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
         Kudzu: []
         Smoke: []
     - type: Shuttle
@@ -1340,16 +1340,6 @@ entities:
       locked: False
     - type: BecomesStation
       id: USSBarackObama
-  - uid: 272
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
 - proto: ActionToggleLight
   entities:
   - uid: 831
@@ -1458,7 +1448,7 @@ entities:
       pos: 20.5,-21.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -18064.996
+      secondsUntilStateChange: -18080.871
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12480,7 +12470,7 @@ entities:
       pos: 10.5,-42.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -15903.4
+      secondsUntilStateChange: -15919.275
       state: Closing
   - uid: 2294
     components:

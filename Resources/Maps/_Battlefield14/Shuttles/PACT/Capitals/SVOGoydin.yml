@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/23/2026 10:44:56
-  entityCount: 3325
-maps:
-- 971
+  time: 06/23/2026 23:34:13
+  entityCount: 3324
+maps: []
 grids:
 - 1
-orphans: []
+orphans:
+- 1
 nullspace: []
 tilemap:
   0: Space
@@ -49,7 +49,7 @@ entities:
     - type: MetaData
       name: SVO Goydin
     - type: Transform
-      parent: 971
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -482,8 +482,8 @@ entities:
     - type: GridPathfinding
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
         Kudzu: []
         Smoke: []
     - type: GravityShake
@@ -951,16 +951,6 @@ entities:
         chunkSize: 4
     - type: ShipGridLock
       locked: False
-  - uid: 971
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
 - proto: AirCanister
   entities:
   - uid: 1534
