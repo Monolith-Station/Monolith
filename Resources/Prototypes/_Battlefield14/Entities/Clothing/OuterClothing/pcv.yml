@@ -1,3 +1,4 @@
+#region base
 - type: entity
   abstract: true
   id: EnergyShieldClothingPCV
@@ -77,6 +78,8 @@
         startingItem: PowerCellPCV
   - type: RechargeableBlocking # I think this makes it check to see if there's any power left, see above comment
 
+#region PCV
+
 - type: entity
   parent: [ ClothingOuterArmorBase , EnergyShieldClothingPCV , GeigerCounterClothing , ShowSecurityIcons , BaseIntegratedOxygenSupply ]
   id: ClothingOuterArmorPCV
@@ -100,3 +103,66 @@
         Radiation: 0.00
   - type: ExplosionResistance
     damageCoefficient: 0.65
+
+#region recharging PCV for deathmatch
+
+- type: entity
+  parent: [ ClothingOuterArmorBase , EnergyShieldClothing , GeigerCounterClothing , ShowSecurityIcons , BaseIntegratedOxygenSupply ]
+  id: ClothingOuterArmorPCVRecharging
+  name: powered combat vest
+  suffix: Deathmatch only
+  description: A state-of-the-art combat vest including a powered armour system recharged with a recharging cell, a geiger counter, and internal oxygen supply. # ,and an automatic intravenous morphine injector | WHEN THIS WORKS
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.60
+        Piercing: 0.60
+        Heat: 0.65
+        Shock: 0.20
+        Caustic: 0.20
+        Radiation: 0.00
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/_Battlefield14/Effects/pcv_vest.ogg
+    soundDeactivate:
+      path: /Audio/Misc/cryo_warning.ogg
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+    onUse: false
+    onAltUse: true
+    onActivate: false
+  - type: UseDelay
+    delay: 0.5
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 1.2
+        Slash: 1.2
+        Piercing: 0.3
+        Heat: 1.5
+    activeBlockModifier: # Doesnt matter, isnt used
+      coefficients:
+        Blunt: 1.2
+        Slash: 0.3
+        Piercing: 0.2
+        Heat: 0.1
+      flatReductions:
+        Piercing: 15
+    passiveBlockFraction: 1.0
+    activeBlockFraction: 1.0
+    isClothing: true
+  - type: Damageable
+    damageContainer: Shield
+  - type: Battery
+    maxCharge: 20
+    startingCharge: 20

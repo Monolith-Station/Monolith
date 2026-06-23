@@ -6,18 +6,13 @@
   components:
   - type: Sprite
     sprite: Objects/Devices/communication.rsi
-    layers:
-    - state: old-radio
-    state: icon
+    state: old-radio
   - type: Jukebox
     onState: on
     offState: off
     selectState: select
   - type: Item
     size: Normal
-    sprite: Objects/Devices/communication.rsi
-    layers:
-    - state: old-radio
   - type: Clothing
     quickEquip: false
     slots:
