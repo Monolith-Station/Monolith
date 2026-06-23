@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: deltarune2103
+# Discord: deltarune2103
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Naja
+  parent: BaseVessel
+  name: VG Naja
+  description: A small heavy interceptor requested by the Viper Group. Relatively bulky, equipped with 2 90mm Dravons and 2 57mm AK570s.
+  price: 60000
+  category: Small
+  group: Viper
+  access: Viper
+  shuttlePath: /Maps/_Mono/Shuttles/Viper/naja.yml
+  guidebookPage: Null
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Naja
+  mapName: 'VG Naja'
+  mapPath: /Maps/_Mono/Shuttles/Viper/naja.yml
+  minPlayers: 0
+  stations:
+    Naja:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Naja MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            VGInfanteer: [ 0, 0 ]
+            VGLieutenant: [ 0, 0 ]
+            VGCommander: [ 0, 0 ]
