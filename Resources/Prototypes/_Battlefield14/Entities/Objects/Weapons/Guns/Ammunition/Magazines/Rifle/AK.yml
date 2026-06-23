@@ -70,7 +70,7 @@
 - type: entity
   parent: MagazineRifleAK74
   id: MagazineRifleAK74blackdrum
-  name: "AK-74 pattern 75 round drum magazine (5.45x39)"
+  name: "AK-74 pattern 75 round drum magazine (5.45x39mm)"
   description: 75 rounds for your 74.
   components:
   - type: Tag
@@ -96,7 +96,7 @@
 - type: entity
   parent: MagazineRifleAK74blackdrum
   id: MagazineRifleAK74blackdrumTracerGreen
-  name: "AK-74 pattern 75 round drum magazine (5.45x39 green tracer)"
+  name: "AK-74 pattern 75 round drum magazine (5.45x39mm green tracer)"
   components:
   - type: BallisticAmmoProvider
     proto: BF_CartridgeRifle545x39TracerGreen
@@ -144,7 +144,7 @@
 - type: entity
   parent: MagazineRifleAKM
   id: MagazineRifleAK203
-  name: "AK-203 magazine (7.62x39)"
+  name: "AK-203 magazine (7.62x39mm)"
   description: Classic banana mag.
   components:
   - type: Tag
@@ -162,7 +162,7 @@
 - type: entity
   parent: BaseMagazineRifle
   id: MagazineRifleASVAL
-  name: "AS-VAL magazine (9x39)"
+  name: "AS-VAL magazine (9x39mm)"
   description: 9mm slugs, a little slow but still hit hard.
   components:
   - type: Tag
@@ -197,7 +197,7 @@
 - type: entity
   parent: MagazineRifleASVAL
   id: MagazineRifleASVALShort
-  name: "AS-VAL magazine short (9x39)"
+  name: "AS-VAL magazine short (9x39mm)"
   components:
   - type: BallisticAmmoProvider
     proto: BF_CartridgeRifle9x39

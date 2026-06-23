@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: MagazineBeltBoxM249
-  name: "M249 belt box (5.56x45)"
+  name: "M249 belt box (5.56x45mm)"
   description: A big box that has a belt in it, for 5.56x45 millimeter ammo.
   components:
   - type: Tag
@@ -34,7 +34,7 @@
 - type: entity
   parent: MagazineBeltBoxMK48
   id: MagazineBeltBoxM240
-  name: "M240 belt box (7.62x51)"
+  name: "M240 belt box (7.62x51mm)"
   description: A big box that has a belt in it, for 7.62x51 millimeter ammo.
   components:
   - type: Tag
@@ -56,7 +56,7 @@
 - type: entity
   parent: BaseItem
   id: MagazineBeltBoxMK48
-  name: "MK 48 belt box (7.62x51)"
+  name: "MK 48 belt box (7.62x51mm)"
   description: A big box that has a belt in it, for 7.62x51 millimeter ammo.
   components:
   - type: Tag
@@ -94,7 +94,7 @@
 - type: entity
   parent: BaseItem
   id: MagazineBeltBoxMG3Short
-  name: "MG-3 drum (7.62x51)"
+  name: "MG-3 drum (7.62x51mm)"
   description: A big circular drum that has a belt in it, for 7.62x51 millimeter ammo.
   components:
   - type: Tag
@@ -127,7 +127,7 @@
 - type: entity
   parent: MagazineBeltBoxMG3Short
   id: MagazineBeltBoxMG3
-  name: "MG-3 belt box (7.62x51)"
+  name: "MG-3 belt box (7.62x51mm)"
   description: A big box that has a belt in it, for 7.62x51 millimeter ammo.
   components:
   - type: Item
