@@ -325,7 +325,7 @@ public sealed partial class GunComponent : Component
     /// How long executing another person takes
     /// </summary>
     [DataField]
-    public float ExecutionTime = 6.0f;
+    public float ExecutionTime = 3.0f; // BF14 6 > 3
 
     /// <summary>
     /// Mono
