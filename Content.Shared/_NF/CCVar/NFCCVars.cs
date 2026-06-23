@@ -24,7 +24,7 @@ public sealed class NFCCVars
     /// Respawn time, how long the player has to wait in seconds after death, or on subsequent cryo attempts.
     /// </summary>
     public static readonly CVarDef<float> RespawnTime =
-        CVarDef.Create("nf14.respawn.time", 300.0f, CVar.SERVER | CVar.REPLICATED); // BF14 1200 > 420 > 300
+        CVarDef.Create("nf14.respawn.time", 180.0f, CVar.SERVER | CVar.REPLICATED); // BF14 1200 > 420 > 300 > 180
 
     /// <summary>
     /// Whether or not returning from cryosleep is enabled.
