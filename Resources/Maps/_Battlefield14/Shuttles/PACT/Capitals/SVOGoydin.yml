@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/16/2026 03:55:03
-  entityCount: 3331
+  time: 06/23/2026 10:44:56
+  entityCount: 3325
 maps:
 - 971
 grids:
@@ -49,7 +49,6 @@ entities:
     - type: MetaData
       name: SVO Goydin
     - type: Transform
-#      pos: 1,1
       parent: 971
     - type: MapGrid
       chunks:
@@ -969,6 +968,38 @@ entities:
     - type: Transform
       pos: 9.5,16.5
       parent: 1
+- proto: AirlockDoubleGlassLockedPACTCommon
+  entities:
+  - uid: 926
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.5,48.5
+      parent: 1
+  - uid: 927
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 33.5,47.5
+      parent: 1
+  - uid: 928
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 27.5,22.5
+      parent: 1
+  - uid: 929
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,23.5
+      parent: 1
+  - uid: 1138
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 36.5,42.5
+      parent: 1
 - proto: AirlockGlassShuttleNfsdCapital
   entities:
   - uid: 856
@@ -990,28 +1021,6 @@ entities:
     components:
     - type: Transform
       pos: 33.5,12.5
-      parent: 1
-- proto: AirlockMaintGlassLockedPACTMaintenance
-  entities:
-  - uid: 1157
-    components:
-    - type: Transform
-      pos: 11.5,48.5
-      parent: 1
-  - uid: 1158
-    components:
-    - type: Transform
-      pos: 11.5,47.5
-      parent: 1
-  - uid: 1159
-    components:
-    - type: Transform
-      pos: 33.5,48.5
-      parent: 1
-  - uid: 1160
-    components:
-    - type: Transform
-      pos: 33.5,47.5
       parent: 1
 - proto: AirlockMedicalGlassLockedPACTMedical
   entities:
@@ -1075,38 +1084,6 @@ entities:
     components:
     - type: Transform
       pos: 23.5,10.5
-      parent: 1
-- proto: AirlockSyndicateGlassLockedPACT
-  entities:
-  - uid: 926
-    components:
-    - type: Transform
-      pos: 27.5,23.5
-      parent: 1
-  - uid: 927
-    components:
-    - type: Transform
-      pos: 27.5,22.5
-      parent: 1
-  - uid: 928
-    components:
-    - type: Transform
-      pos: 17.5,22.5
-      parent: 1
-  - uid: 929
-    components:
-    - type: Transform
-      pos: 17.5,23.5
-      parent: 1
-  - uid: 1868
-    components:
-    - type: Transform
-      pos: 36.5,43.5
-      parent: 1
-  - uid: 1869
-    components:
-    - type: Transform
-      pos: 36.5,42.5
       parent: 1
 - proto: AirlockSyndicateGlassLockedPACTArmory
   entities:

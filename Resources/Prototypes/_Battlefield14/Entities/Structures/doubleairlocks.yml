@@ -1,0 +1,219 @@
+#region base: glass
+- type: entity
+  id: AirlockDoubleGlass
+  parent: BaseStructure
+  name: double airlock
+  description: It opens, doubly, it closes, and maybe crushes you.. Doubly.
+  components:
+  - type: StationAiWhitelist
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/smash.ogg"
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Battlefield14/Structures/Doors/Airlocks/DoubleGlass/basic.rsi
+    snapCardinals: false
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+      offset: 0.5, 0
+    - state: closed_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+      offset: 0.5, 0
+      visible: false
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+      offset: 0.5, 0
+    - state: bolted_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+      offset: 0.5, 0
+    - state: emergency_unlit
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+      offset: 0.5, 0
+      shader: unshaded
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      offset: 0.5, 0
+    - state: electrified_ai
+      sprite: Interface/Misc/ai_hud.rsi
+      shader: unshaded
+      visible: false
+      map: ["enum.ElectrifiedLayers.HUD"]
+      offset: 0.5, 0
+    - state: electrified
+      sprite: Effects/electricity.rsi
+      shader: unshaded
+      visible: false
+      map: ["enum.ElectrifiedLayers.Sparks"]
+      offset: 0.5, 0
+  - type: AnimationPlayer
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,1.49,0.49" # don't want this colliding with walls or they won't close
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - AirlockLayer
+  - type: LayerChangeOnWeld
+    unWeldedLayer: AirlockLayer
+    weldedLayer: WallLayer
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics ]
+  - type: AccessReader
+    containerAccessProvider: board
+  - type: Door
+    crushDamage:
+      types:
+        Blunt: 15
+    openSound:
+      path: /Audio/Machines/airlock_open.ogg
+    closeSound:
+      path: /Audio/Machines/airlock_close.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+  - type: Weldable
+    fuel: 5
+    time: 3
+  - type: Airlock
+  - type: NavMapDoor
+  - type: DoorBolt
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ElectrifiedVisuals.ShowSparks:
+        enum.ElectrifiedLayers.Sparks:
+          True: { visible: True }
+          False: { visible: False }
+  - type: WiresVisuals
+  - type: ElectrocutionHUDVisuals
+  - type: ApcPowerReceiver
+    powerLoad: 20
+  - type: ExtensionCableReceiver
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: WiresPanel
+  - type: WiresPanelSecurity
+  - type: Wires
+    boardName: wires-board-name-airlock
+    layoutId: Airlock
+  - type: DoorSignalControl
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: NoSignalOnLink # Mono
+  - type: DeviceLinkSink
+    ports:
+      - Open
+      - Close
+      - Toggle
+      - AutoClose
+      - DoorBolt
+  - type: DeviceLinkSource
+    ports:
+      - DoorStatus
+    lastSignals:
+      DoorStatus: false
+  - type: SoundOnOverload
+  - type: SpawnOnOverload
+  - type: ArmorThickness # BF14
+    thickness: 5
+  - type: UserInterface
+    interfaces:
+      enum.AiUi.Key:
+        type: StationAiBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+  - type: RadiationBlocker
+    resistance: 3
+#  - type: Occluder
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongMetallic
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: Construction
+    graph: Airlock
+    node: airlock
+    containers:
+    - board
+  - type: PlacementReplacement
+    key: walls
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+  - type: PaintableAirlock
+    group: Standard
+    department: Civilian
+  - type: StaticPrice
+    price: 150
+  - type: LightningTarget
+    priority: 1
+  - type: Tag
+    tags:
+      - Airlock
+      # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
+  - type: PryUnpowered
+  - type: BlockWeather
+  - type: GuideHelp
+    guides:
+    - Airlocks
+    - WirePanels
+    - Networking
+  # Mono
+  - type: ShipRepairable
+    repairTime: 6
+    repairCost: 6
+  placement:
+    mode: SnapgridCenter
+
+- type: entity
+  parent: AirlockDoubleGlass
+  id: AirlockDoubleGlassLockedNATOCommon
+  suffix: NATO Common, Double, Locked
+  name: NATO Common double airlock
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNATOCommon ]
+
+- type: entity
+  parent: AirlockDoubleGlass
+  id: AirlockDoubleGlassLockedPACTCommon
+  suffix: PACT Common, Double, Locked
+  name: PACT Common double airlock
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPACTCommon ]

@@ -1,4 +1,4 @@
-#NATO
+#region NATO
 
 - type: entity
   parent: AirlockNfsd
@@ -80,7 +80,7 @@
     containers:
       board: [ DoorElectronicsNATOCrew ]
 
-# NATO glass
+#region NATO glass
 
 - type: entity
   parent: AirlockNfsdGlass
@@ -162,7 +162,7 @@
     containers:
       board: [ DoorElectronicsNATOCrew ]
 
-# NATO windoors
+#region NATO windoors
 
 - type: entity
   parent: WindoorSecure
@@ -234,7 +234,7 @@
     containers:
       board: [ DoorElectronicsNATOCrew ]
 
-#PACT
+#region PACT
 
 - type: entity
   parent: AirlockSyndicate
@@ -316,7 +316,7 @@
     containers:
       board: [ DoorElectronicsPACTCrew ]
 
-# PACT glass
+#region PACT glass
 
 - type: entity
   parent: AirlockSyndicateGlass
@@ -398,7 +398,7 @@
     containers:
       board: [ DoorElectronicsPACTCrew ]
 
-# PACT windoors
+#region PACT windoors
 
 - type: entity
   parent: WindoorSecure
