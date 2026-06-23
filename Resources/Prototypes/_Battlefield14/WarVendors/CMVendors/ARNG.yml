@@ -96,8 +96,12 @@
         amount: 50
       - id: DrinkMREFlask
         amount: 50
-      - id: OxygenTankFilled
-        amount: 50
+    - name: Misc
+      entries:
+      - id: WeaponShotgunUSM590
+        amount: 1
+      - id: ShellBoxBF12GaugeBreaching
+        amount: 1
 
 - type: entity
   parent: ColMarTechBase

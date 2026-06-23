@@ -92,7 +92,7 @@
 - type: entity
   parent: BaseMagazineRifle
   id: MagazineRifleG36
-  name: "G36 magazine (5.56x45)"
+  name: "G36 magazine (5.56x45mm)"
   description: Standard magazine for the G36 family of rifles.
   components:
   - type: Tag
@@ -127,7 +127,7 @@
 - type: entity
   parent: MagazineRifleG36
   id: MagazineRifleG36TracerRed
-  name: "G36 magazine (5.56x45 red tracer)"
+  name: "G36 magazine (5.56x45mm red tracer)"
   components:
   - type: BallisticAmmoProvider
     proto: BF_CartridgeRifle556x45TracerRed
@@ -140,7 +140,7 @@
 - type: entity
   parent: MagazineRifleG36
   id: MagazineRifleG36DoubleDrum
-  name: "G36 double drum magazine (5.56x45)"
+  name: "G36 double drum magazine (5.56x45mm)"
   description: Oh heavens no, the G36 has balls.
   components:
   - type: Item
@@ -165,7 +165,7 @@
 - type: entity
   parent: MagazineRifleG36DoubleDrum
   id: MagazineRifleG36DoubleDrumTracerRed
-  name: "G36 double drum magazine (5.56x45 red tracer)"
+  name: "G36 double drum magazine (5.56x45mm red tracer)"
   components:
   - type: BallisticAmmoProvider
     proto: BF_CartridgeRifle556x45TracerRed
@@ -178,7 +178,7 @@
 - type: entity
   parent: BaseMagazineRifle
   id: MagazineRifleASH12
-  name: "ASH-12 magazine (12.7x55)"
+  name: "ASH-12 magazine (12.7x55mm)"
   description: Big and chunky mag, holding 20 12.7x55 bullets for eradicating "cag operators" in CQB with Russian brutality.
   components:
   - type: Tag
@@ -208,7 +208,7 @@
 - type: entity
   parent: MagazineRifleASH12
   id: MagazineRifleASH12Duplex
-  name: "ASH-12 magazine (12.7x55 duplex)"
+  name: "ASH-12 magazine (12.7x55mm duplex)"
   description: Apparantly one .50 caliber projectile wasn't enough, and ivan decided to put two in the same bullet. Each projectile does less damage on its own but they do more together.
   components:
   - type: BallisticAmmoProvider

@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseMagazineRifle
   id: MagazineRifleSTANAG
-  name: "STANAG magazine (5.56x45)"
+  name: "STANAG magazine (5.56x45mm)"
   description: STANdardised AGreement magazine, standard for most NATO weaponry, can fit in platforms like the M16, L85, and the M249 believe it or not.
   components:
   - type: Tag
@@ -31,7 +31,7 @@
 - type: entity
   parent: MagazineRifleSTANAG
   id: MagazineRifleSTANAGTracerRed
-  name: "STANAG magazine (5.56x45 red tracer)"
+  name: "STANAG magazine (5.56x45mm red tracer)"
   components:
   - type: BallisticAmmoProvider
     proto: BF_CartridgeRifle556x45TracerRed
@@ -44,7 +44,7 @@
 - type: entity
   parent: MagazineRifleSTANAG
   id: MagazineRifleSTANAGShort
-  name: "STANAG 20 round magazine (5.56x45)"
+  name: "STANAG 20 round magazine (5.56x45mm)"
   components:
   - type: BallisticAmmoProvider
     proto: BF_CartridgeRifle556x45
@@ -64,7 +64,7 @@
 - type: entity
   parent: MagazineRifleSTANAGShort
   id: MagazineRifleSTANAGShortTracerRed
-  name: "STANAG magazine (5.56x45 red tracer)"
+  name: "STANAG magazine (5.56x45mm red tracer)"
   description: STANdardised AGreement magazine, standard for most NATO weaponry, can fit in platforms like the M16, L85, and the M249 believe it or not.
   components:
   - type: BallisticAmmoProvider
