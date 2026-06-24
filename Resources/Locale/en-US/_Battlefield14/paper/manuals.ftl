@@ -47,3 +47,47 @@ book-text-manual-artillery-mortar = Instructional guide on the proper usage of m
       1
       |
       0 ___ 1 ___ 2 ___ 3 ___ X
+
+book-text-manual-combatmedic = Instructional guide on the proper usage combat medicine
+
+      First, basic medicines and their use
+
+      -Bicaridine: Heals brute damage at a rate of 1 per second, for 5 damage per unit, 15u lasts for 75 seconds, overdoses at 30.5u
+
+      -Kelotane: Heals burn damage at a rate of 1 per second, for 5 damage per unit, 15u lasts for 75 seconds, overdoses at 30.5u
+
+      -Tricordrazine: Heals brute and burn damage at a rate of 0.6 per second, for 3 damage per unit, 15u lasts for 75 seconds, overdoses at 30.5u
+
+      -Inaprovaline: Heals asphyxiation damage while crit, and can heal out of crit at low enough damage. Overdoes at 30.5u
+
+      -Dexalin: Heals airloss (asphyx and bloodloss) damage at a rate of 1.5 per second, for 7.5 damage per unit, 15u lasts for 75 seconds, overdoses at 30u
+
+      -Dylovene: Heals poison damage at a rate of 1 per second, for 5 damage per unit, 15u lasts for 75 seconds, overdoses at 30.5u
+
+      -Iron & Saline: Restores blood slowly, saline is better than iron
+
+      Slightly more advanced medicines
+
+      -Meralyne: Heals brute damage at a rate of 2 per second, for 10 damage per unit, 15u lasts for 75 seconds, overdoses at 15.5u
+
+      -Dermaline: Heals burn damage at a rate of 2 per second, for 10 damage per unit, 15u lasts for 75 seconds, overdoses at 15.5u. Will cool you down if you are overheated.
+
+      -Nanoblood: Rapidly restores approx 33% of blood per injection, with the side effect of drowsiness and poison damage. Do not administer more than once before fully processed.
+
+      -Hypervene: Purges the bloodstream of other chemicals, useful for overdoses or CS gas exposure
+
+      Now, your other tools
+
+      Your belt has a slot for a medkit or defibrillator, it will just clip on like the knife in your boots
+
+      Inside your rucksack is a 'medical supply bag', which is filled with a limb treatment kit, a box of bodybags, some sutures/mesh, gauze, brute packs, ointment, two saline syringes, and two inaprovaline syrettes
+
+      The limb treatment kit is for use on severely damaged limbs, target a limb and hit your patient to heal the limb slightly
+
+      Tourniquets will stop all bleeding and heal some slight brute damage after a very short do-after
+
+      As for inside your belt
+
+      Inside will be sutures, mesh, a health analyzer, hyposprays for bicaridine, kelotane, saline, and inaprovaline. Aswell as pill canisters for bicaridine, kelotane, tricordrazine, dexalin, and dylovene. And finally a packet of kaolin powder.
+
+      Use the pill canisters to refill your hyposprays by removing a pill and placing it into the hypospray 
