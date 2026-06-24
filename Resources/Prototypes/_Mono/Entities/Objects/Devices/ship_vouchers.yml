@@ -902,6 +902,8 @@
 
 # Viper Group
 
+# Start T2
+
 - type: entity
   parent: BaseShipLPC
   id: ShipVoucherVGWolf
@@ -919,10 +921,12 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 5100 # hour and 25 minutes
+    cooldown: 7200 # Two Hours.
     consoleType: Viper
     companyName: TheViperGroup
     vessels:
     - Wolfsnake
   - type: StaticPrice
     vendPrice: 325000
+
+# End T2
