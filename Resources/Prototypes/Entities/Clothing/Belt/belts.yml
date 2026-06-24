@@ -299,10 +299,12 @@
   - type: ItemSlots
     slots:
       item:
-        name: Medkit
+        name: Medkit/Defib
         whitelist:
           tags:
           - Medkit
+          components:
+          - Defibrillator
   - type: ItemMapper
     mapLayers:
       bottle:

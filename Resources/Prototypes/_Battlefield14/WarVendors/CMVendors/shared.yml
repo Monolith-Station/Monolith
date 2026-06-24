@@ -1,3 +1,4 @@
+#region inventory
 - type: entity
   id: CMVendSharedWarVendorMedicalInventory
   abstract: true
@@ -7,6 +8,12 @@
     - "NATOMedical"
     - "PACTMedical"
     sections:
+    - name: syringe case
+      choices: { BF14SyringeCase: 1 }
+      entries:
+      - id: SyringeCaseFilledBF14
+        name: syringe case (filled)
+        recommended: true
     - name: pills
       choices: { BF14PersonalMedicine: 4 }
       entries:
@@ -53,6 +60,18 @@
         recommended: true
       - id: MedicationBoxSyrettesFentanyl
         name: fentanyl syrettes
+    - name: Topicals
+      choices: { BF14Topicals: 2 }
+      entries:
+      - id: MedicatedSuture
+      - id: AU14HemostaticGauzePacket
+      - id: RegenerativeMesh
+    - name: Misc
+      entries:
+      - id: Syringe
+      - id: Tourniquet
+      - id: Medkit
+        name: empty medkit
     - name: Sustainment
       entries:
       - id: BoxMRE
@@ -63,6 +82,74 @@
         amount: 50
       - id: OxygenTankFilled
         amount: 50
+
+#region inventory
+- type: entity
+  id: CMVendSharedWarVendorMedicalInventoryCivilian
+  abstract: true
+  components:
+  - type: CMAutomatedVendor
+    access:
+    - "Medical"
+    sections:
+    - name: pills
+      choices: { BF14PersonalMedicine: 4 }
+      entries:
+      - id: MedicationBoxPillsBicaridine
+        name: bicaridine pills
+      - id: MedicationBoxPillsKelotane
+        name: kelotane pills
+      - id: MedicationBoxPillsTricordrazine
+        name: tricordrazine pills
+      - id: MedicationBoxPillsDexalin
+        name: dexalin pills
+      - id: MedicationBoxPillsDylovene
+        name: dylovene pills
+      - id: MedicationBoxPillsIron
+        name: iron pills
+    - name: syrettes
+      choices: { BF14PersonalMedicine: 4 }
+      entries:
+      - id: MedicationBoxSyrettesBicaridine
+        name: bicaridine syrettes
+      - id: MedicationBoxSyrettesKelotane
+        name: kelotane syrettes
+      - id: MedicationBoxSyrettesTricordrazine
+        name: tricordrazine syrettes
+      - id: MedicationBoxSyrettesEpinephrine
+        name: epinephrine syrettes
+      - id: MedicationBoxSyrettesHypervene
+        name: hypervene syrettes
+        recommended: true
+      - id: MedicationBoxSyrettesNanoblood
+        name: nanoblood syrettes
+        recommended: true
+      - id: MedicationBoxSyrettesFentanyl
+        name: fentanyl syrettes
+    - name: Topicals
+      choices: { BF14Topicals: 2 }
+      entries:
+      - id: MedicatedSuture
+      - id: AU14HemostaticGauzePacket
+      - id: RegenerativeMesh
+    - name: Misc
+      entries:
+      - id: Syringe
+      - id: Tourniquet
+      - id: Medkit
+        name: empty medkit
+    - name: Sustainment
+      entries:
+      - id: BoxMRE
+        amount: 50
+      - id: FoodSnackNutribrick
+        amount: 50
+      - id: DrinkMREFlask
+        amount: 50
+      - id: OxygenTankFilled
+        amount: 50
+
+#region machines
 
 - type: entity
   parent: [ ColMarTechBase , CMVendSharedWarVendorMedicalInventory ]
