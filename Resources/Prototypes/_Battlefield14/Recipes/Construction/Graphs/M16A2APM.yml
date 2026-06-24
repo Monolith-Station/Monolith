@@ -1,15 +1,15 @@
 - type: constructionGraph
-  id: TM62Disarm
+  id: M16A2APMDisarm
   start: start
   graph:
     - node: start
       edges:
-        - to: TM62Disarm
+        - to: M16A2APMDisarm
           completed:
             - !type:AdminLog
-              message: "A TM-62 was diasrmed"
+              message: "An M16A2 APM was diasrmed"
             - !type:SpawnPrototype
-              prototype: TM62Item
+              prototype: M16A2APMItem
               amount: 1
             - !type:DeleteEntity
           steps:
