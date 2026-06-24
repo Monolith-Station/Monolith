@@ -75307,43 +75307,6 @@ entities:
     - type: Transform
       pos: 193.5,15.5
       parent: 1
-- proto: SpawnVehicleATV
-  entities:
-  - uid: 57216
-    components:
-    - type: Transform
-      pos: 137.5,-142.5
-      parent: 1
-  - uid: 57435
-    components:
-    - type: Transform
-      pos: 163.5,-139.5
-      parent: 1
-  - uid: 59597
-    components:
-    - type: Transform
-      pos: 148.5,-104.5
-      parent: 1
-  - uid: 61602
-    components:
-    - type: Transform
-      pos: 55.5,-79.5
-      parent: 1
-  - uid: 62311
-    components:
-    - type: Transform
-      pos: 7.5,-74.5
-      parent: 1
-  - uid: 67926
-    components:
-    - type: Transform
-      pos: 43.5,-29.5
-      parent: 1
-  - uid: 68941
-    components:
-    - type: Transform
-      pos: 61.5,-21.5
-      parent: 1
 - proto: SpawnVehicleWheelchair
   entities:
   - uid: 62626
@@ -79037,43 +79000,6 @@ entities:
     components:
     - type: Transform
       pos: 69.5,-68.5
-      parent: 1
-- proto: VehicleKeyATV
-  entities:
-  - uid: 57264
-    components:
-    - type: Transform
-      pos: 129.5,-141.5
-      parent: 1
-  - uid: 57646
-    components:
-    - type: Transform
-      pos: 151.5,-136.5
-      parent: 1
-  - uid: 58952
-    components:
-    - type: Transform
-      pos: 136.5,-113.5
-      parent: 1
-  - uid: 62346
-    components:
-    - type: Transform
-      pos: 55.5,-74.5
-      parent: 1
-  - uid: 64354
-    components:
-    - type: Transform
-      pos: 14.5,-61.5
-      parent: 1
-  - uid: 67430
-    components:
-    - type: Transform
-      pos: 51.5,-32.5
-      parent: 1
-  - uid: 68509
-    components:
-    - type: Transform
-      pos: 58.5,-25.5
       parent: 1
 - proto: VendingMachineBooze
   entities:

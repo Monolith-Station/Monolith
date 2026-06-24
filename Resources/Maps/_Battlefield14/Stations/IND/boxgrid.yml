@@ -94187,13 +94187,6 @@ entities:
     - type: Transform
       pos: 85.5,127.5
       parent: 1
-- proto: SpawnVehicleATV
-  entities:
-  - uid: 13343
-    components:
-    - type: Transform
-      pos: 48.5,78.5
-      parent: 1
 - proto: SprayBottleSpaceCleaner
   entities:
   - uid: 16349
@@ -99394,13 +99387,6 @@ entities:
     components:
     - type: Transform
       pos: 158.45422,56.49923
-      parent: 1
-- proto: VehicleKeyATV
-  entities:
-  - uid: 13344
-    components:
-    - type: Transform
-      pos: 51.48624,74.62833
       parent: 1
 - proto: VendingMachineBooze
   entities:
