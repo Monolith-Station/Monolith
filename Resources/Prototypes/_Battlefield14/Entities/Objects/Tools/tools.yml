@@ -65,6 +65,8 @@
       types:
         Blunt: 10
         Slash: 5
+  - type: UseDelay
+    delay: 1
   - type: BalloonPopper
   - type: Utensil
     types:

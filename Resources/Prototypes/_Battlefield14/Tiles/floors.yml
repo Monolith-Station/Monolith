@@ -1,0 +1,41 @@
+- type: tile
+  id: FloorDirtBF14
+  name: just dirt  #tiles-dirt-floor
+  sprite: /Textures/Tiles/dirt.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: FloorDirtBF14
+  #canCrowbar: false # Come back
+  # canShovel: true # Delta V # Frontier
+  deconstructTools: [ Digging ] # Frontier
+  footstepSounds:
+    collection: FootstepAsteroid
+  itemDrop: JustFuckingDirt
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorDirtNewBF14
+  name: just dirt #tiles-dirt-floor
+  sprite: /Textures/_Nuclear14/Tiles/Dirt/dirt.png
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_Nuclear14/Tiles/Dirt/single_edge_SE.png
+    NorthEast: /Textures/_Nuclear14/Tiles/Dirt/single_edge_NE.png
+    NorthWest: /Textures/_Nuclear14/Tiles/Dirt/single_edge_NW.png
+    SouthWest: /Textures/_Nuclear14/Tiles/Dirt/single_edge_SW.png
+    South: /Textures/_Nuclear14/Tiles/Dirt/double_edge_S.png
+    East: /Textures/_Nuclear14/Tiles/Dirt/double_edge_E.png
+    North: /Textures/_Nuclear14/Tiles/Dirt/double_edge_N.png
+    West: /Textures/_Nuclear14/Tiles/Dirt/double_edge_W.png
+  baseTurf: FloorDirtBF14
+  deconstructTools: [ Digging ] # Frontier
+  footstepSounds:
+    collection: FootstepAsteroid
+  itemDrop: JustFuckingDirt
+  heatCapacity: 10000
+  weather: true
