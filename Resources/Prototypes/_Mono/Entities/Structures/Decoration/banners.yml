@@ -36,3 +36,16 @@
   - type: Construction
     graph: MonoBannersGraph
     node: BannerDINode
+
+- type: entity
+  id: BannerUSSP
+  parent: BannerBase
+  name: USSP banner
+  description: A banner carrying the hammer and sickle of the USSP, a symbol of national pride for the citizens of the Union. While many would consider the USSP in the sector defeated, the presence of this flag is evidence to the contrary.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Decoration/banner.rsi
+    state: ussp-banner
+  - type: Construction
+    graph: MonoBannersGraph
+    node: BannerUSSPNode

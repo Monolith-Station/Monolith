@@ -50,6 +50,23 @@
   - !type:TileNotBlocked
 
 - type: construction
+  id: BannerUSSP
+  name: USSP banner
+  description: A banner proudly displaying the hammer and sickle of the USSP.
+  graph: MonoBannersGraph
+  startNode: start
+  targetNode: BannerUSSPNode
+  category: construction-category-furniture
+  icon:
+    sprite: _Mono/Structures/Decoration/banner.rsi
+    state: ussp-banner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   id: TargetHuman
   name: human target
   description: A shooting target. This one is a human.

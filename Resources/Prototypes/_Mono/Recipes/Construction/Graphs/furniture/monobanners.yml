@@ -36,6 +36,16 @@
             - material: Cloth
               amount: 2
               doAfter: 1
+        - to: BannerUSSPNode
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+            - material: Cloth
+              amount: 2
+              doAfter: 1
 
     - node: BannerTSFNode
       entity: BannerNGC
@@ -81,3 +91,18 @@
         steps:
         - tool: Welding
           doAfter: 3
+
+    - node: BannerUSSPNode
+      entity: BannerUSSP
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        - !type:SpawnPrototype
+          prototype: MaterialCloth1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
