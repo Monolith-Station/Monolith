@@ -906,7 +906,7 @@
 
 - type: entity
   parent: BaseShipVoucher
-  id: ShipVoucherUSSPTO
+  id: ShipVoucherUSSPT0
   name: USSP T0 ship voucher
   description: Allows for one free small to medium USSP ship purchase. Destroyed on sale.
   components:
@@ -916,8 +916,8 @@
     - state: icon_fighter
     - state: screen
       color: "#b40505"
-    - state: screen2
-      color: "#ffd900"
+    - state: screen1
+      color: "#b40505"
       shader: unshaded
   - type: Item
     heldPrefix: ussp
@@ -946,8 +946,8 @@
     - state: icon
     - state: screen
       color: "#b40505"
-    - state: screen2
-      color: "#ffd900"
+    - state: screen3
+      color: "#b40505"
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
@@ -970,9 +970,9 @@
     layers:
     - state: icon
     - state: screen
-      color: "#05ffff"
+      color: "#b40505"
     - state: screen5
-      color: "#05ffff"
+      color: "#b40505"
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
@@ -999,9 +999,9 @@
     layers:
     - state: icon
     - state: screen
-      color: "#05ffff"
-    - state: screen1
-      color: "#05ffff"
+      color: "#b40505"
+    - state: screen4
+      color: "#b40505"
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
@@ -1024,9 +1024,9 @@
     layers:
     - state: icon
     - state: screen
-      color: "#05ffff"
+      color: "#b40505"
     - state: screen1
-      color: "#05ffff"
+      color: "#b40505"
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
@@ -1045,17 +1045,17 @@
 - type: entity
   parent: BaseShipLPC
   id: ShipVoucherBuran
-  name: TSF Buran LPC [T3]
+  name: USSP Buran LPC [T3]
   description: A small card that contains the data for the procurement of an Buran-class frigate.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
     layers:
     - state: icon_capital
+    - state: screen
+      color: "#b40505"
     - state: screen7
-      color: "#05ffff"
-    - state: screen7
-      color: "#05ffff"
+      color: "#b40505"
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
@@ -1077,10 +1077,10 @@
     sprite: _Mono/Objects/Misc/lpcnew.rsi
     layers:
     - state: icon_capital
-    - state: screen3
-      color: "#05ffff"
-    - state: screen7
-      color: "#05ffff"
+    - state: screen
+      color: "#b40505"
+    - state: screen6
+      color: "#b40505"
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
@@ -1106,10 +1106,10 @@
     sprite: _Mono/Objects/Misc/lpcnew.rsi
     layers:
     - state: icon_capital
+    - state: screen
+      color: "#b40505"
     - state: screen8
-      color: "#05ffff"
-    - state: screen8
-      color: "#05ffff"
+      color: "#b40505"
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
@@ -1123,23 +1123,23 @@
 
 - type: entity
   parent: BaseShipLPC
-  id: ShipVoucherUSSPLedokolAttatchment
-  name: USSP Ledokol attatchment LPC [T4]
-  description: A small card that contains the data for the procurement of attatchment modules for the Ledokol.
+  id: ShipVoucherLedokolAttachment
+  name: USSP Ledokol attachment LPC [T4]
+  description: A small card that contains the data for the procurement of attachment modules for the Ledokol.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
     layers:
     - state: icon_fighter
-    - state: screen5
-      color: "#05ffff"
+    - state: screen
+      color: "#b40505"
     - state: screen8
-      color: "#05ffff"
+      color: "#b40505"
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: true
     cooldown: 1800 # thirty minutes
-    consoleType: USSP
+    consoleType: Custom
     companyName: USSP
     vessels:
     - Kopye
