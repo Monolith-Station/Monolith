@@ -11,3 +11,7 @@
     - state: sandbag
   - type: Damageable
     damageModifierSet: BarricadeSandbag
+  - type: Construction
+    graph: BarricadeSandbag
+    node: barricadesandbag
+    deconstructionTarget: start

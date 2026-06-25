@@ -19,9 +19,13 @@
     layers:
     - state: sandbag_stack
     size: Normal
-  - type: Stack
-    stackType: SandbagEmpty
-    count: 1
+#  - type: Stack
+#    stackType: SandbagEmpty
+#    count: 1
+  - type: Construction
+    graph: FillSandbag
+    node: start
+    deconstructionTarget: start
 
 - type: entity
   parent: SandbagEmpty
@@ -48,11 +52,11 @@
 
 #region stack definition
 
-- type: stack
-  id: SandbagEmpty
-  name: empty sandbags
-  spawn: SandbagEmpty
-  maxCount: 50
+#- type: stack
+#  id: SandbagEmpty
+#  name: empty sandbags
+#  spawn: SandbagEmpty
+#  maxCount: 50
 
 - type: stack
   id: SandbagFull
@@ -62,23 +66,25 @@
 
 #region empty stacks
 
-- type: entity
-  parent: SandbagEmpty
-  id: SandbagEmpty50
-  suffix: "50"
-  components:
-  - type: Stack
-    stackType: SandbagEmpty
-    count: 50
+# I tried to make empty sandbags stack but when I put dirt into them the entire stack got deleted by !type:DeleteEntity
 
-- type: entity
-  parent: SandbagEmpty
-  id: SandbagEmpty25
-  suffix: "25"
-  components:
-  - type: Stack
-    stackType: SandbagEmpty
-    count: 25
+#- type: entity
+#  parent: SandbagEmpty
+#  id: SandbagEmpty50
+#  suffix: "50"
+#  components:
+#  - type: Stack
+#    stackType: SandbagEmpty
+#    count: 50
+#
+#- type: entity
+#  parent: SandbagEmpty
+#  id: SandbagEmpty25
+#  suffix: "25"
+#  components:
+#  - type: Stack
+#    stackType: SandbagEmpty
+#    count: 25
 
 #region full stacks
 

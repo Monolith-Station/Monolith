@@ -1,0 +1,17 @@
+- type: constructionGraph
+  id: BarricadeSandbag
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: barricadesandbag
+          completed:
+            - !type:SnapToGrid
+#              southRotation: false
+          steps:
+            - material: SandbagFull
+              amount: 1
+              doAfter: 2
+
+    - node: barricadesandbag
+      entity: BarricadeSandbags
