@@ -18,6 +18,7 @@ chat-radio-supply = Supply
 chat-radio-syndicate = Syndicate
 chat-radio-freelance = Vanguard
 chat-radio-vanguard-command = Vanguard Command
+chat-radio-freeport = Freeport
 
 # not headset but whatever
 chat-radio-handheld = Handheld

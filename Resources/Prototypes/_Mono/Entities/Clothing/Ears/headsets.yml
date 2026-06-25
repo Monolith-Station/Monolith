@@ -95,12 +95,13 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyUssp
+      - EncryptionKeyFreeport
 
 - type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetUSSP
   name: USSP headset
-  description: The standard-issue headset of the USSP Defensive Navy for decades. This headset will accept standard encryption keys and comes prefitted with a key for USSP Tactical Communications.
+  description: The standard-issue headset of the USSP Armed Forces for decades. This headset will accept standard encryption keys and comes prefitted with a key for USSP Tactical Communications.
   components:
   - type: Sprite
     sprite: Clothing/Ears/Headsets/security.rsi
@@ -111,6 +112,7 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyUssp
+      - EncryptionKeyFreeport
 
 #PDV
 - type: entity
@@ -161,6 +163,7 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyViper
+      - EncryptionKeyFreeport
 
 - type: entity
   parent: ClothingHeadsetViper
