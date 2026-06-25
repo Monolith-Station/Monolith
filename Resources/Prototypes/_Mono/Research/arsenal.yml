@@ -53,14 +53,42 @@
   position: 4, 2
 
 - type: technology
-  id: DroneResearch
+  id: BalorT1DroneResearch
   name: research-technology-drones-1
   entityIcon: ShipVoucherTsfT0
   discipline: Arsenal
-  tier: 3
+  tier: 1
   cost: 15000
   recipeUnlocks:
-  - BalorDroneVoucherMerc
+  - BalorStraferDroneVoucherMerc
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: 9, -2
+
+- type: technology
+  id: BalorT2DroneResearch
+  name: research-technology-drones-2
+  entityIcon: ShipVoucherTsfT0
+  discipline: Arsenal
+  tier: 2
+  cost: 25000
+  recipeUnlocks:
+  - BalorDoorknobDroneVoucherMerc
+  technologyPrerequisites:
+  - BalorT1DroneResearch
+  - UniversalMaterialResearchT1
+  position: 9, -3
+
+- type: technology
+  id: BalorT3DroneResearch
+  name: research-technology-drones-3
+  entityIcon: ShipVoucherTsfT0
+  discipline: Arsenal
+  tier: 3
+  cost: 20000
+  recipeUnlocks:
+  - BalorBulldogDroneVoucherMerc
+  technologyPrerequisites:
+  - BalorT2DroneResearch
+  - UniversalMaterialResearchT2
+  position: 9, -4

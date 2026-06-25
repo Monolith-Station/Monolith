@@ -1,14 +1,14 @@
 - type: vessel
-  id: Bow-Man
+  id: Strafer
   parent: BaseVessel
-  name: Z-22 Bow-Man
-  description: An assault drone with a mounted 90mm autocannon for long range fire.
-  price: 23000
+  name: Z-22 Strafer
+  description: A cheap assault drone armed with 4 L85 autocannons. Will die immidiately.
+  price: 5000
   category: Micro
   group: Custom
   access: Mercenary
   mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes
-  shuttlePath: /Maps/_Mono/Shuttles/Carrier/bowman.yml
+  shuttlePath: /Maps/_Mono/Shuttles/Carrier/strafer.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -16,16 +16,16 @@
   - APU
 
 - type: gameMap
-  id: Bow-Man
-  mapName: 'Bow-Man'
-  mapPath: /Maps/_Mono/Shuttles/Carrier/bowman.yml
+  id: Strafer
+  mapName: 'Strafer'
+  mapPath: /Maps/_Mono/Shuttles/Carrier/strafer.yml
   minPlayers: 0
   stations:
-    Bow-Man:
+    Strafer:
       stationProto: StandardFrontierVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Bow-Man MIL{1}'
+        mapNameTemplate: 'Strafer MIL{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'

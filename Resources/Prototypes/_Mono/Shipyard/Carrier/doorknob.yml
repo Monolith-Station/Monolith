@@ -1,14 +1,14 @@
 - type: vessel
-  id: Rac-Man
+  id: Doorknob
   parent: BaseVessel
-  name: Z-22 Rac-Man
-  description: An assault drone with two forward mounted 30mm rotary autocannons.
-  price: 22000
+  name: Z-22 Doorknob
+  description: A tanky assault drone armed with a single MARAUDER plasma cannon.
+  price: 15000
   category: Micro
   group: Custom
   access: Mercenary
   mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes
-  shuttlePath: /Maps/_Mono/Shuttles/Carrier/racman.yml
+  shuttlePath: /Maps/_Mono/Shuttles/Carrier/doorknob.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -16,16 +16,16 @@
   - APU
 
 - type: gameMap
-  id: Rac-Man
-  mapName: 'Rac-Man'
-  mapPath: /Maps/_Mono/Shuttles/Carrier/racman.yml
+  id: Doorknob
+  mapName: 'Doorknob'
+  mapPath: /Maps/_Mono/Shuttles/Carrier/doorknob.yml
   minPlayers: 0
   stations:
-    Rac-Man:
+    Doorknob:
       stationProto: StandardFrontierVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Rac-Man MIL{1}'
+        mapNameTemplate: 'Doorknob MIL{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'

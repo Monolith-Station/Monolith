@@ -803,6 +803,8 @@
 
 # fighters
 
+# Security
+
 - type: entity
   parent: BaseShipLPC
   id: ShipVoucherRook
@@ -826,7 +828,6 @@
     - Rook
   - type: StaticPrice
     vendPrice: 20000
-# Mercenary
 
 - type: entity
   parent: BaseShipLPC
@@ -854,30 +855,6 @@
 
 - type: entity
   parent: BaseShipLPC
-  id: ShipVoucherBalor
-  name: balor drone LPC
-  description: A small card that contains the data for the procurement of a small commercially available anti-drone defense drone.
-  components:
-  - type: Sprite
-    sprite: _Mono/Objects/Misc/lpcnew.rsi
-    layers:
-    - state: icon_fighter
-    - state: screen
-      color: "#2E6F40"
-    - state: screen8
-      color: "#32CD32"
-      shader: unshaded
-  - type: ShipyardVoucher
-    destroyOnEmpty: true
-    consoleType: Custom
-    vessels:
-    - Rac-Man
-    - Bow-Man
-  - type: StaticPrice
-    vendPrice: 30000
-
-- type: entity
-  parent: BaseShipLPC
   id: ShipVoucherHound
   name: hound LPC
   description: A small card that contains the data for the procurement of a Hound class drone
@@ -899,3 +876,74 @@
     - Hound
   - type: StaticPrice
     vendPrice: 20000
+
+# Mercenary
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherBalorStrafer
+  name: balor strafer drone LPC
+  description: A small card that contains the data for the procurement of a tiny commercially available assault drone.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_fighter
+    - state: screen
+      color: "#2E6F40"
+    - state: screen8
+      color: "#32CD32"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Custom
+    vessels:
+    - Strafer
+  - type: StaticPrice
+    vendPrice: 5000
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherBalorDoorknob
+  name: balor doorknob drone LPC
+  description: A small card that contains the data for the procurement of a small commercially available tanky assault drone.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_fighter
+    - state: screen
+      color: "#2E6F40"
+    - state: screen8
+      color: "#32CD32"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Custom
+    vessels:
+    - Doorknob
+  - type: StaticPrice
+    vendPrice: 12500
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherBalorBulldog
+  name: balor bulldog drone LPC
+  description: A small card that contains the data for the procurement of the heaviest small commercially available assault drone.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_fighter
+    - state: screen
+      color: "#2E6F40"
+    - state: screen8
+      color: "#32CD32"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Custom
+    vessels:
+    - Bulldog
+  - type: StaticPrice
+    vendPrice: 22500

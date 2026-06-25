@@ -18,4 +18,6 @@ research-technology-mechs-combat = Combat Mech Production
 research-technology-basic-economy = Portable Processing Equipment
 research-technology-uranium-processing-advanced = Advanced Uranium Processing
 
-research-technology-drones-1 = Drone Research 1
+research-technology-drones-1 = Z-22 Balor Strafer Drone Research
+research-technology-drones-2 = Z-22 Balor Doorknob Drone Research
+research-technology-drones-3 = Z-22 Balor Bulldog Drone Research
