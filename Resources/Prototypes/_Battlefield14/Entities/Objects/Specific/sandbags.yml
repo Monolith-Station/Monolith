@@ -1,0 +1,101 @@
+#region base
+- type: entity
+  parent: BaseItem
+  id: SandbagEmpty
+  name: sandbags
+  description: It's a burlap bag to hold sand or dirt.
+  suffix: Empty
+  components:
+  - type: Item
+    sprite: _RMC14/Objects/Misc/sandbags.rsi
+    inhandVisuals:
+      left:
+      - state: stack-inhand-left
+      right:
+      - state: stack-inhand-right
+    size: Small
+  - type: Sprite
+    sprite: _RMC14/Objects/Misc/sandbags.rsi
+    layers:
+    - state: sandbag_stack
+    size: Normal
+  - type: Stack
+    stackType: SandbagEmpty
+    count: 1
+
+- type: entity
+  parent: SandbagEmpty
+  id: SandbagFull
+  name: sandbags
+  description: Full sandbags, can be used to create highly bullet-resistant barricades.
+  suffix: Full
+  components:
+  - type: Item
+    sprite: _RMC14/Objects/Misc/sandbags.rsi
+    inhandVisuals:
+      left:
+      - state: pile-inhand-left
+      right:
+      - state: pile-inhand-right
+    size: Large
+  - type: Sprite
+    sprite: _RMC14/Objects/Misc/sandbags.rsi
+    layers:
+    - state: sandbag_pile
+  - type: Stack
+    stackType: SandbagFull
+    count: 1
+
+#region stack definition
+
+- type: stack
+  id: SandbagEmpty
+  name: empty sandbags
+  spawn: SandbagEmpty
+  maxCount: 50
+
+- type: stack
+  id: SandbagFull
+  name: full sandbags
+  spawn: SandbagFull
+  maxCount: 10
+
+#region empty stacks
+
+- type: entity
+  parent: SandbagEmpty
+  id: SandbagEmpty50
+  suffix: "50"
+  components:
+  - type: Stack
+    stackType: SandbagEmpty
+    count: 50
+
+- type: entity
+  parent: SandbagEmpty
+  id: SandbagEmpty25
+  suffix: "25"
+  components:
+  - type: Stack
+    stackType: SandbagEmpty
+    count: 25
+
+#region full stacks
+
+- type: entity
+  parent: SandbagFull
+  id: SandbagFull10
+  suffix: "10"
+  components:
+  - type: Stack
+    stackType: SandbagFull
+    count: 10
+
+- type: entity
+  parent: SandbagFull
+  id: SandbagFull5
+  suffix: "5"
+  components:
+  - type: Stack
+    stackType: SandbagFull
+    count: 5
