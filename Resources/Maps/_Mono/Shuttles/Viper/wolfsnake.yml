@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/25/2026 20:04:33
-  entityCount: 1103
+  time: 06/25/2026 21:49:37
+  entityCount: 1115
 maps: []
 grids:
 - 1
@@ -229,9 +229,9 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Smoke: []
         MetalFoam: []
+        Smoke: []
+        Kudzu: []
         Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -273,6 +273,16 @@ entities:
             86: -4,-10
             87: -4,-13
         - node:
+            zIndex: 3
+            color: '#FFFFFFFF'
+            id: DirtHeavy
+          decals:
+            472: 2,-10
+            473: -3,-7
+            478: 4,7
+            483: 0,-15
+            484: 1,6
+        - node:
             zIndex: 1
             color: '#FFFFFFFF'
             id: DirtLight
@@ -285,11 +295,37 @@ entities:
             100: 0,3
             104: -4,15
         - node:
+            zIndex: 3
+            color: '#FFFFFFFF'
+            id: DirtLight
+          decals:
+            470: -1,-10
+            471: 0,-13
+            475: 5,-2
+            476: -4,0
+            477: 4,1
+            479: -4,7
+            480: 3,-2
+            481: -1,-6
+            482: 4,-13
+            485: 0,8
+            486: -3,16
+            487: 1,-5
+            488: -1,-8
+            489: 0,-3
+            490: -2,-2
+        - node:
             zIndex: 1
             color: '#FFFFFFFF'
             id: DirtMedium
           decals:
             89: 4,-13
+        - node:
+            zIndex: 3
+            color: '#FFFFFFFF'
+            id: DirtMedium
+          decals:
+            474: 0,-2
         - node:
             zIndex: 1
             color: '#FFFFFFFF'
@@ -5436,6 +5472,74 @@ entities:
     components:
     - type: Transform
       pos: 3.5,20.5
+      parent: 1
+  - uid: 1104
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -3.5,-18.5
+      parent: 1
+  - uid: 1106
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-18.5
+      parent: 1
+  - uid: 1107
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,-18.5
+      parent: 1
+  - uid: 1108
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,-18.5
+      parent: 1
+  - uid: 1111
+    components:
+    - type: Transform
+      pos: 7.5,-0.5
+      parent: 1
+  - uid: 1113
+    components:
+    - type: Transform
+      pos: -5.5,5.5
+      parent: 1
+  - uid: 1114
+    components:
+    - type: Transform
+      pos: -6.5,-0.5
+      parent: 1
+  - uid: 1115
+    components:
+    - type: Transform
+      pos: 6.5,5.5
+      parent: 1
+- proto: GrilleDiagonal
+  entities:
+  - uid: 1105
+    components:
+    - type: Transform
+      pos: -6.5,0.5
+      parent: 1
+  - uid: 1109
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,6.5
+      parent: 1
+  - uid: 1110
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,0.5
+      parent: 1
+  - uid: 1112
+    components:
+    - type: Transform
+      pos: -5.5,6.5
       parent: 1
 - proto: GunneryServerMedium
   entities:
