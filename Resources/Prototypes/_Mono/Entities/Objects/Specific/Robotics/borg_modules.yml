@@ -238,6 +238,17 @@
     - EnergySword
     - WeaponLaserGunXenoborg
     - JetpackADMFilled
+        # Frontier -> GoobStation -> Monolith: droppable borg items
+  - type: DroppableBorgModule
+    moduleId: Surgery
+    items:
+    - id: MMI
+      whitelist:
+        components:
+        - MMI
+        - Brain
+        - BodyPart
+    # End Frontier -> GoobStation -> Monolith: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-sword-module }
 
@@ -274,6 +285,15 @@
     - EnergySword
     - WeaponLaserCannonXenoborg
     - JetpackADMFilled
+  - type: DroppableBorgModule
+    moduleId: Surgery
+    items:
+    - id: MMI
+      whitelist:
+        components:
+        - MMI
+        - Brain
+        - BodyPart
   - type: BorgModuleIcon
     icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-laser2-module }
 
