@@ -84,4 +84,10 @@
   id: Monolithic
   defaultHostile: true
 
+- type: npcFaction
+  id: Mothership
+  friendly:
+  - Xenoborg
+  defaultHostile: true
+
 # Mono edit end.

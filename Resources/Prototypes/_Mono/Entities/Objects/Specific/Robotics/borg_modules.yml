@@ -168,3 +168,242 @@
     - WeaponRifleAsakimAutopulserADM
   - type: BorgModuleIcon
     icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: mercenary-weapon-module }
+
+# Xenoborg Modules
+
+- type: entity
+  id: XenoborgModuleBasic
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
+  name: basic xenoborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: xenoborg_generic
+    - state: icon-xenoborg-basic
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - MiningDrill
+    - PinpointerMothership
+    - HandheldGPSBasic
+    - ShipRepairDeviceRecharging # Mono
+  # Frontier: droppable borg items
+  - type: DroppableBorgModule
+    moduleId: Mining
+    items:
+    - id: ConstructionBag
+      whitelist:
+        components:
+        - NFOreBag
+        - ConstructionBag
+  # Frontier: droppable borg items
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-basic-module }
+
+- type: entity
+  id: XenoborgModuleTool
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
+  name: tool xenoborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: xenoborg_generic
+    - state: icon-xenoborg-tools
+  - type: ItemBorgModule
+    moduleId: Tools
+    items:
+    - Crowbar
+    - Wrench
+    - Screwdriver
+    - Wirecutter
+    - Multitool
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-tool-module }
+
+- type: entity
+  id: XenoborgModuleDefense
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
+  name: defense xenoborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: xenoborg_generic
+    - state: icon-xenoborg-sword
+  - type: ItemBorgModule
+    moduleId: Tools
+    items:
+    - EnergySword
+    - WeaponLaserGunXenoborg
+    - JetpackADMFilled
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-sword-module }
+
+- type: entity
+  id: XenoborgModuleJammer
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
+  name: jammer xenoborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: xenoborg_heavy
+    - state: icon-xenoborg-jammer
+  - type: ItemBorgModule
+    moduleId: Tools
+    items:
+    - XenoborgRadioJammer
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-jammer-module }
+
+- type: entity
+  id: XenoborgModuleHeavyLaser
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
+  name: laser cannon xenoborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: xenoborg_heavy
+    - state: icon-xenoborg-laser2
+  - type: ItemBorgModule
+    moduleId: Tools
+    items:
+    - EnergySword
+    - WeaponLaserCannonXenoborg
+    - JetpackADMFilled
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-laser2-module }
+
+- type: entity
+  id: XenoborgModuleAccessBreaker
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
+  name: access breaker xenoborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-access-breaker
+  - type: ItemBorgModule
+    moduleId: Tools
+    items:
+    - AccessBreaker
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-access-breaker-module }
+
+- type: entity
+  id: XenoborgModuleDoorControl
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
+  name: door control xenoborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-access-breaker
+  - type: ItemBorgModule
+    moduleId: Tools
+    items:
+    - DoorRemoteXenoborg
+    - AccessBreaker
+    - AccessConfiguratorXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-door-remote-module }
+
+- type: entity
+  id: XenoborgAdvancedModuleTool
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
+  name: advance tool xenoborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: xenoborg_generic
+    - state: icon-xenoborg-tools
+  - type: ItemBorgModule
+    moduleId: Tools
+    items:
+    - JawsOfLife
+    - PowerDrill
+    - Multitool
+    - WelderExperimental
+    - RemoteSignaller
+    - GasAnalyzer
+    - GeigerCounter
+    - MaintenanceJack # Frontier
+    - RPED
+    - NaniteApplicatorExperimental # Monolith
+    - RCDRecharging
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-tool-module }
+
+- type: entity
+  id: XenoborgModuleHypo
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
+  name: nocturine hypo xenoborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: xenoborg_stealth
+    - state: icon-xenoborg-hypo
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - NocturineHypo
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-hypo-module }
+
+- type: entity
+  id: XenoborgModuleChameleonProjector
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
+  name: chameleon projector xenoborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: xenoborg_stealth
+    - state: icon-xenoborg-projector
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - ChameleonProjector
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-projector-module }
+
+- type: entity
+  id: XenoborgModuleCloakDevice
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
+  name: cloaking device xenoborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: xenoborg_stealth
+    - state: icon-xenoborg-cloak
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - CloakingDevice
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-eye-module }
+
+- type: entity
+  id: XenoborgModuleSuperCloakDevice
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
+  name: invisibility device xenoborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: xenoborg_stealth
+    - state: icon-xenoborg-cloak2
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - SuperCloakingDevice
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-eye2-module }
