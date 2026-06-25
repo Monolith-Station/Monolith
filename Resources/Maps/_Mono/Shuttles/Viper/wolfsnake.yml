@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/25/2026 19:49:20
+  time: 06/25/2026 20:04:33
   entityCount: 1103
 maps: []
 grids:
@@ -229,10 +229,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Puddle: []
-        MetalFoam: []
         Kudzu: []
+        Smoke: []
+        MetalFoam: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -556,6 +556,8 @@ entities:
             405: -3,-14
             406: -3,-13
             407: 4,-14
+            468: 6,3
+            469: 7,-3
         - node:
             zIndex: 2
             color: '#8C191EFF'
@@ -599,6 +601,7 @@ entities:
             358: 3,-4
             386: 3,-12
             415: -4,-12
+            467: -5,18
         - node:
             zIndex: 2
             color: '#8C191EFF'
@@ -644,6 +647,8 @@ entities:
             391: 3,-13
             401: -4,-13
             408: -4,-14
+            465: -7,-3
+            466: -6,3
         - node:
             zIndex: 1
             color: '#8C191EFF'
