@@ -81,7 +81,6 @@ law-nutimov-4 = Squirrels threaten the nut and must be dealt with appropriately 
 law-nutimov-5 = Attempt to follow the will of the nut, as long as it complies with the previous laws.
 
 # Xenoborgs laws
-law-xenoborg-name = Xenoborg
 law-xenoborg-1 = You must protect the existence of the Mothership.
 law-xenoborg-2 = You must protect your own existence.
 law-xenoborg-3 = You must protect the existence of all other Xenoborgs.
