@@ -48,6 +48,8 @@
         name: meralyne syrettes
       - id: BlisterPackSyretteDermaline
         name: dermaline syrettes
+      - id: FoodCondimentPacketKaolin
+        name: kaolin powder packet
       - id: DefibrillatorDisposable
         name: disposable defibrillator
     - name: Backpack/belt
@@ -165,6 +167,8 @@
         amount: 20
       - id: SmokeGrenadeUSM18
         amount: 20
+      - id: LandMineM16A2APMItem
+        amount: 10
     - name: Storage
       entries:
       - id: PouchMags
@@ -177,6 +181,10 @@
       entries:
       - id: BarbedWire10
         amount: 1
+      - id: BoxSandbagEmpty
+        amount: 5
+      - id: EntrenchingTool
+        amount: 2
       - id: Multitool
         amount: 3
       - id: HandheldStationMapUnpowered

@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseFoodCondiment
   id: FoodCondimentPacketKaolin
-  name: Hemostatic powder packet
+  name: hemostatic kaolin powder packet
   suffix: VXMED
   description: Hemostatic powder. Do not eat, sprinkle on wound.
   components:
@@ -21,10 +21,13 @@
           Quantity: 30 # BF14 20 > 30
   - type: SolutionTransfer
     maxTransferAmount: 20
+  - type: ExaminableSolution
+    solution: food
   - type: Sprite
     sprite: _VXS14/Objects/Medical/medical.rsi
     state: caoline
   - type: Icon
+    sprite: _VXS14/Objects/Medical/medical.rsi
     state: caoline
   - type: PhysicalComposition
     materialComposition:
@@ -39,3 +42,8 @@
     damage:
       types:
         Blunt: 0
+  - type: ExtendDescription # BF14
+    descriptionList:
+      - description: To use, activate in hand to open, and melee attack to reduce bleeding. Approx 3 uses to stop max bleeding.
+        color: "#4f94ad"
+        requireDetailRange: true

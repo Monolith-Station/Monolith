@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/16/2026 04:55:20
-  entityCount: 26700
+  time: 06/24/2026 02:02:47
+  entityCount: 26705
 maps:
 - 20961
 grids:
@@ -22,10 +22,10 @@ tilemap:
   136: FloorConcreteSmooth
   138: FloorDark
   137: FloorDarkMono
-  95: FloorDirt
+  95: FloorDirtNewBF14
   140: FloorFreezer
   91: FloorGrass
-  93: FloorGrassDark
+  93: FloorGrassDarkBF14
   62: FloorGrayConcreteMono
   131: FloorGrayConcreteSmooth
   133: FloorKitchen
@@ -1622,9 +1622,9 @@ entities:
       id: BF14Springfield
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Puddle: []
         Smoke: []
+        Kudzu: []
         MetalFoam: []
     - type: GravityShake
       shakeTimes: 10
@@ -3774,13 +3774,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 121.5,12.5
-      parent: 1
-- proto: GracePeriodAnnouncerSpawner5
-  entities:
-  - uid: 26635
-    components:
-    - type: Transform
-      pos: 239.5,211.5
       parent: 1
 - proto: Bed
   entities:
@@ -101159,6 +101152,18 @@ entities:
     - type: Transform
       pos: 255.5,267.5
       parent: 1
+- proto: CMVendSharedWarVendorMedical
+  entities:
+  - uid: 4214
+    components:
+    - type: Transform
+      pos: 94.5,46.5
+      parent: 1
+  - uid: 4217
+    components:
+    - type: Transform
+      pos: 264.5,275.5
+      parent: 1
 - proto: ComfyChair
   entities:
   - uid: 24375
@@ -106697,6 +106702,13 @@ entities:
     - type: Transform
       pos: 252.5,267.5
       parent: 1
+- proto: GracePeriodAnnouncerSpawner5
+  entities:
+  - uid: 26635
+    components:
+    - type: Transform
+      pos: 239.5,211.5
+      parent: 1
 - proto: Grille
   entities:
   - uid: 23499
@@ -108259,6 +108271,18 @@ entities:
     - type: Transform
       pos: 154.5,127.5
       parent: 1
+- proto: MapSpringfield
+  entities:
+  - uid: 4215
+    components:
+    - type: Transform
+      pos: 82.52522,43.563587
+      parent: 1
+  - uid: 4216
+    components:
+    - type: Transform
+      pos: 144.51646,165.52325
+      parent: 1
 - proto: MedicalBed
   entities:
   - uid: 27841
@@ -108764,6 +108788,13 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
+  - uid: 4218
+    components:
+    - type: Transform
+      pos: 264.5,275.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 33586
     components:
     - type: Transform
@@ -108831,13 +108862,6 @@ entities:
     components:
     - type: Transform
       pos: 262.5,275.5
-      parent: 1
-    - type: Fixtures
-      fixtures: {}
-  - uid: 33609
-    components:
-    - type: Transform
-      pos: 263.5,275.5
       parent: 1
     - type: Fixtures
       fixtures: {}
@@ -121955,6 +121979,11 @@ entities:
       parent: 1
 - proto: TableFolding
   entities:
+  - uid: 3871
+    components:
+    - type: Transform
+      pos: 263.50726,275.26028
+      parent: 1
   - uid: 25782
     components:
     - type: Transform

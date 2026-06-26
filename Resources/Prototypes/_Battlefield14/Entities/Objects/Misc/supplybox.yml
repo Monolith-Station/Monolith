@@ -12,71 +12,53 @@
     size: Large
     shape:
     - 0,0,2,2
-  - type: EmitSoundOnUse
-    sound:
-      collection: BF_Marines_Health_Here
+  - type: Storage
+    grid:
+    - 0,0,7,3
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    whitelist: # BF14
+      tags:
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - SurgeryTool
+        - Dropper
+        - GlassBeaker
+        - Tourniquet
+        - Packet
+        - GasTank
+        - Syrette
+        - MedicationBox
+        - BlisterPack
+        - BoxCardboard
+        - LimbTreatmentKit
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+        - HandLabeler
+        - SurgeryTool
+        - BreathMask
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
   - type: UseDelay
-    delay: 15.0
-  - type: ItemSlots # yandere dev moment. if theres a more effecient way please tell me.
-    slots:
-      treatmentkit:
-        name: treatment kit
-        whitelist:
-          tags:
-          - LimbTreatmentKit
-        priority: 3
-      medkit:
-        name: medkit
-        whitelist:
-          tags:
-          - Medkit
-        priority: 2
-      medkit2:
-        name: medkit 2
-        whitelist:
-          tags:
-          - Medkit
-        priority: 1
-      gauze:
-        name: gauze
-        whitelist:
-          tags:
-          - Gauze
-      gauze2:
-        name: gauze 2
-        whitelist:
-          tags:
-          - Gauze
-      brutepack:
-        name: brutepack
-        whitelist:
-          tags:
-          - Brutepack
-      brutepack2:
-        name: brutepack 2
-        whitelist:
-          tags:
-          - Brutepack
-      ointment:
-        name: ointment
-        whitelist:
-          tags:
-          - Ointment
-      ointment2:
-        name: ointment 2
-        whitelist:
-          tags:
-          - Ointment
-      cardboardbox:
-        name: cardboard box
-        whitelist:
-          tags:
-          - BoxCardboard
-      cardboardbox2:
-        name: cardboard box 2
-        whitelist:
-          tags:
-          - BoxCardboard
+    delay: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0
 
 - type: entity
   id: SupplyBoxAmmoUS
@@ -92,33 +74,28 @@
     size: Large
     shape:
     - 0,0,2,2
-  - type: EmitSoundOnUse
-    sound:
-      collection: BF_Marines_Ammo_Here
+  - type: Storage
+    grid:
+    - 0,0,5,3
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    whitelist: # BF14
+      tags:
+        - BoxCardboard
+      components:
+        - BallisticAmmoProvider
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
   - type: UseDelay
-    delay: 15.0
-  - type: ItemSlots
-    slots:
-      magazinebox:
-        name: magazine box
-        whitelist:
-          tags:
-          - BoxCardboard
-      magazinebox2:
-        name: magazine box 2
-        whitelist:
-          tags:
-          - BoxCardboard
-      ammobox:
-        name: ammo box
-        whitelist:
-          tags:
-          - AmmunitionBox
-      ammobox2:
-        name: ammo box 2
-        whitelist:
-          tags:
-          - AmmunitionBox
+    delay: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0
 
 - type: entity
   id: SupplyBoxAmmoRU

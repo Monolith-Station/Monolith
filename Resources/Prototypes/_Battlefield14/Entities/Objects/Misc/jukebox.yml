@@ -8,9 +8,9 @@
     sprite: Objects/Devices/communication.rsi
     state: old-radio
   - type: Jukebox
-    onState: on
-    offState: off
-    selectState: select
+    onState: old-radio
+    offState: old-radio
+    selectState: old-radio
   - type: Item
     size: Normal
   - type: Clothing

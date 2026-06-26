@@ -50,6 +50,8 @@
         name: dermaline syrettes
       - id: BlisterPackSyretteFentanyl
         name: fentanyl syrettes
+      - id: FoodCondimentPacketKaolin
+        name: kaolin powder packet
       - id: DefibrillatorDisposable
         name: disposable defibrillator
     - name: Backpack/belt
@@ -178,6 +180,10 @@
       entries:
       - id: BarbedWire10
         amount: 1
+      - id: BoxSandbagEmpty
+        amount: 5
+      - id: EntrenchingTool
+        amount: 2
       - id: Multitool
         amount: 3
       - id: HandheldStationMapUnpowered
