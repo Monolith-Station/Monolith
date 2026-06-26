@@ -416,9 +416,9 @@
 
 - type: entity
   parent: BaseShipLPC
-  id: ShipVoucherFenrir
-  name: PDV Fenrir LPC [T1]
-  description: A small card that contains the data for the procurement of a Fenrir-class railgun destroyer from the flagship's reserves.
+  id: ShipVoucherKalisto
+  name: PDV Kalisto LPC [T1]
+  description: A small card that contains the data for the procurement of a Kalisto-class railgun destroyer from the flagship's reserves.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -435,7 +435,7 @@
     consoleType: BlackMarket
     companyName: PDV
     vessels:
-    - Fenrir
+    - Kalisto
   - type: StaticPrice
     vendPrice: 20000
 
@@ -535,7 +535,7 @@
     - ShipVoucherNeptune
     - ShipVoucherBastion
     - ShipVoucherScorpion
-    - ShipVoucherFenrir
+    - ShipVoucherKalisto
     - ShipVoucherGarm
 
 # end T1
