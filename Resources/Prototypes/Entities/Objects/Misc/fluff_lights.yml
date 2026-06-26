@@ -218,6 +218,8 @@
     enabled: false
     radius: 8
     energy: 5
+  - type: HandheldLight
+    wattage: 0.3 # Mono
   - type: ItemSlots
     slots:
       cell_slot:

@@ -143,3 +143,30 @@
       - EncryptionKeyCentCom
       - EncryptionKeyStationMasterSR
       - EncryptionKeyDiplomacy
+
+#Viper Group
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetViper
+  name: Viper Group headset
+  description: The standard-issue headset of Viper Group mercenaries, This headset will accept standard encryption keys and comes prefitted with a key for Tactical Communications.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Ears/Headsets/viper.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Ears/Headsets/viper.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyViper
+
+- type: entity
+  parent: ClothingHeadsetViper
+  id: ClothingHeadsetViperAlt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Ears/Headsets/viperalt.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Ears/Headsets/viperalt.rsi

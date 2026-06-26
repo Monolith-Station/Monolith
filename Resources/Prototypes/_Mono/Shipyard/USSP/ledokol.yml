@@ -34,11 +34,11 @@
         description: "Why did I come to this sector?"
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Ledokol MIL{1}'
+          mapNameTemplate: 'Ledokol USSP{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            Mercenary: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
+           USSPSergeant: [ 0, 0 ]
+           USSPRifleman: [ 0, 0 ]
