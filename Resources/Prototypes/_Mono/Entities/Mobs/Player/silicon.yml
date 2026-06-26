@@ -773,6 +773,9 @@
     - Xenoborg
     - Mothership
   - type: MothershipCore
+  - type: Xenoborg
+    mindRole: MindRoleMothershipCore
+    briefingText: mothership-welcome
   - type: AccessReader
     access: [["Xenoborg"], ["Mothership"]]
   - type: ContainerComp
@@ -940,6 +943,10 @@
     name: ghost-role-information-xenoborg-name
     description: ghost-role-information-Xenoborg-description
     rules: ghost-role-information-Xenoborg-rules
+    mindRoles:
+    - MindRoleXenoborg
+    raffle:
+      settings: default
   - type: ContainerFill
     containers:
       borg_brain:
@@ -962,6 +969,8 @@
     name: ghost-role-information-xenoborg-name
     description: ghost-role-information-Xenoborg-description
     rules: ghost-role-information-Xenoborg-rules
+    mindRoles:
+    - MindRoleXenoborg
     raffle:
       settings: default
     prototype: BorgChassisSelectableXenoborg
@@ -976,6 +985,8 @@
     name: ghost-role-information-xenoborg-name
     description: ghost-role-information-Xenoborg-description
     rules: ghost-role-information-Xenoborg-rules
+    mindRoles:
+    - MindRoleXenoborg
     raffle:
       settings: default
     requirements:

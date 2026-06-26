@@ -185,9 +185,9 @@
     - Biological
     - Inorganic
     - Silicon
-    - type: FootstepModifier
-      footstepSoundCollection:
-      path: /Audio/_Mono/Effects/Footsteps/borgwalk3.ogg
+  - type: FootstepModifier
+    footstepSoundCollection:
+    path: /Audio/_Mono/Effects/Footsteps/borgwalk3.ogg
   inventoryTemplateId: borgShort
   spriteBodyState: xenoborg_engi
   spriteHasMindState: xenoborg_engi_l
@@ -293,9 +293,9 @@
     - Biological
     - Inorganic
     - Silicon
-    - type: FootstepModifier
-      footstepSoundCollection:
-      path: /Audio/_Mono/Effects/Footsteps/borgwalk4.ogg
+  - type: FootstepModifier
+    footstepSoundCollection:
+    path: /Audio/_Mono/Effects/Footsteps/borgwalk4.ogg
   radioChannels:
   - Medical
   inventoryTemplateId: borgShort
