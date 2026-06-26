@@ -1,5 +1,5 @@
 - type: Tag
-  id: BF_CartridgeRifle145x114
+  id: BF_CartridgeRifle145x114 # willy you're a dickhead for just sticking all of this at the top of the file
 
 - type: Tag
   id: MagazineBeltRP46
@@ -270,6 +270,9 @@
 
 - type: Tag
   id: PCVCell
+
+- type: Tag
+  id: SandbagFillable
 
 - type: Tag
   id: Magazine # generic tag for all magazine types

@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/23/2026 23:33:51
-  entityCount: 3754
+  time: 06/24/2026 01:20:06
+  entityCount: 3752
 maps: []
 grids:
 - 1
@@ -118,10 +118,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        MetalFoam: []
         Kudzu: []
         Smoke: []
+        MetalFoam: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1381,6 +1381,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 23.5,-32.5
       parent: 1
+  - uid: 30
+    components:
+    - type: Transform
+      pos: 26.5,-35.5
+      parent: 1
   - uid: 2359
     components:
     - type: Transform
@@ -1448,7 +1453,7 @@ entities:
       pos: 20.5,-21.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -18080.871
+      secondsUntilStateChange: -18184.158
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1540,16 +1545,6 @@ entities:
     components:
     - type: Transform
       pos: 24.5,-35.5
-      parent: 1
-  - uid: 30
-    components:
-    - type: Transform
-      pos: 27.5,-35.5
-      parent: 1
-  - uid: 31
-    components:
-    - type: Transform
-      pos: 26.5,-35.5
       parent: 1
 - proto: AirlockNfsdGlassLockedNATOCrew
   entities:
@@ -10827,6 +10822,13 @@ entities:
     - type: Transform
       pos: 17.5,-12.5
       parent: 1
+- proto: CMVendSharedWarVendorMedical
+  entities:
+  - uid: 528
+    components:
+    - type: Transform
+      pos: 26.5,-29.5
+      parent: 1
 - proto: ComputerAlert
   entities:
   - uid: 1100
@@ -12470,7 +12472,7 @@ entities:
       pos: 10.5,-42.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -15919.275
+      secondsUntilStateChange: -16022.563
       state: Closing
   - uid: 2294
     components:
@@ -16221,17 +16223,6 @@ entities:
     - type: Transform
       pos: 25.5,-38.5
       parent: 1
-  - uid: 529
-    components:
-    - type: Transform
-      pos: 25.5,-35.5
-      parent: 1
-  - uid: 532
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 26.5,-29.5
-      parent: 1
   - uid: 533
     components:
     - type: Transform
@@ -17220,11 +17211,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 23.5,-34.5
       parent: 1
-  - uid: 528
-    components:
-    - type: Transform
-      pos: 25.5,-35.5
-      parent: 1
   - uid: 531
     components:
     - type: Transform
@@ -17235,12 +17221,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 26.5,-28.5
-      parent: 1
-  - uid: 540
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 26.5,-29.5
       parent: 1
   - uid: 545
     components:
@@ -20230,6 +20210,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 7.5,0.5
       parent: 1
+  - uid: 31
+    components:
+    - type: Transform
+      pos: 25.5,-35.5
+      parent: 1
   - uid: 32
     components:
     - type: Transform
@@ -20970,6 +20955,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 3.5,-28.5
+      parent: 1
+  - uid: 272
+    components:
+    - type: Transform
+      pos: 26.5,-29.5
       parent: 1
   - uid: 285
     components:

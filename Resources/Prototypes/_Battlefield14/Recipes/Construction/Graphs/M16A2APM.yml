@@ -1,0 +1,17 @@
+- type: constructionGraph
+  id: M16A2APMDisarm
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: M16A2APMDisarm
+          completed:
+            - !type:AdminLog
+              message: "An M16A2 APM was diasrmed"
+            - !type:SpawnPrototype
+              prototype: M16A2APMItem
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Pulsing
+              doAfter: 2

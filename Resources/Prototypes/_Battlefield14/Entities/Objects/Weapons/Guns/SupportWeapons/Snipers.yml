@@ -676,15 +676,16 @@
         whitelist:
           tags:
             - BF_CartridgeRifle762x54r
-#  - type: ContainerContainer
-#    containers:
-#      gun_magazine: !type:ContainerSlot
-#      gun_chamber: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: ExtendDescription # BF14
+    descriptionList:
+      - description: This weapon can be stored on your auxillary suit storage slot.
+        color: "#4f94ad"
+        requireDetailRange: true
 
 - type: entity
   name: PTRD-41

@@ -1,7 +1,7 @@
 # US
 - type: entity
   name: M320
-  parent: [WeaponFlareGun, BaseGunWieldable]
+  parent: WeaponFlareGun
   id: WeaponGrenadeLauncherUSM320
   description: The United States replacement to the classic M203 that allows for loading of longer cartridges, which despite contract requirements is heavier than the M203.
   components:
@@ -25,7 +25,6 @@
     clothingVisuals:
       suitstorage2:
       - state: equipped-BELT
-  - type: GunRequiresWield # BF14
   - type: ItemSlots
     slots:
       gun_chamber:

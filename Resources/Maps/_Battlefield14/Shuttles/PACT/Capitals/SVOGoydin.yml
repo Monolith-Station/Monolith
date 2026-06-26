@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/23/2026 23:34:13
-  entityCount: 3324
+  time: 06/24/2026 01:21:22
+  entityCount: 3320
 maps: []
 grids:
 - 1
@@ -482,10 +482,10 @@ entities:
     - type: GridPathfinding
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        MetalFoam: []
         Kudzu: []
         Smoke: []
+        MetalFoam: []
+        Puddle: []
     - type: GravityShake
       shakeTimes: 10
     - type: GasTileOverlay
@@ -11114,6 +11114,13 @@ entities:
     - type: Transform
       pos: 23.5,20.5
       parent: 1
+- proto: CMVendSharedWarVendorMedical
+  entities:
+  - uid: 971
+    components:
+    - type: Transform
+      pos: 32.5,30.5
+      parent: 1
 - proto: computerBodyScanner
   entities:
   - uid: 1011
@@ -13027,45 +13034,8 @@ entities:
   - uid: 1031
     components:
     - type: Transform
-      pos: 32.5,30.5
+      pos: 32.5,29.5
       parent: 1
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14923
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1032
-          - 1033
-          - 1034
-          - 1035
-          - 1036
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: LockerSyndicate
   entities:
   - uid: 1608
@@ -13273,13 +13243,6 @@ entities:
       parent: 1
 - proto: MedicatedSuture
   entities:
-  - uid: 1036
-    components:
-    - type: Transform
-      parent: 1031
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1050
     components:
     - type: Transform
@@ -15870,36 +15833,6 @@ entities:
           showEnts: False
           occludes: True
           ents: []
-- proto: Tourniquet
-  entities:
-  - uid: 1032
-    components:
-    - type: Transform
-      parent: 1031
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1033
-    components:
-    - type: Transform
-      parent: 1031
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1034
-    components:
-    - type: Transform
-      parent: 1031
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1035
-    components:
-    - type: Transform
-      parent: 1031
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: TrollwaffenFlagFolded
   entities:
   - uid: 3324

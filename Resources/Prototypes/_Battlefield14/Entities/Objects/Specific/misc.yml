@@ -8,3 +8,18 @@
     sprite: _NF/Objects/Fun/petrock.rsi
     layers:
     - state: rock
+
+- type: entity
+  parent: BaseItem
+  id: JustFuckingDirt
+  name: dirt
+  description: i guess you could toss it at someone?
+  components:
+  - type: Sprite
+    sprite: Objects/Materials/materials.rsi
+    layers:
+    - state: ash
+      color: "#635231"
+  - type: Tag
+    tags:
+    - SandbagFillable

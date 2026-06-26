@@ -3,91 +3,69 @@
   parent: SupplyBoxMedical
   suffix: Standard, Filled
   components:
-  - type: ContainerFill
-    containers:
-      treatmentkit:
-      - LimbTreatmentKit
-      medkit:
-      - MedkitCombatFilled
-      medkit2:
-      - MedkitOxygenFilled
-      gauze:
-      - Gauze
-      gauze2:
-      - Gauze
-      brutepack:
-      - Brutepack
-      brutepack2:
-      - Brutepack
-      ointment:
-      - Ointment
-      ointment2:
-      - Ointment
-      cardboardbox:
-      - BoxBeaker
-      cardboardbox2:
-      - BoxBodyBag
+  - type: StorageFill
+    contents:
+      - id: LimbTreatmentKit
+      - id: MedkitCombatFilled
+      - id: MedkitOxygenFilled
+      - id: BoxBodyBag
+      - id: MedicatedSuture
+      - id: RegenerativeMesh
+      - id: AU14HemostaticGauzePacket
+        amount: 2
+      - id: Brutepack
+        amount: 2
+      - id: Ointment
+        amount: 2
+      - id: SyringeSaline
+        amount: 2
+      - id: BF14SyretteInaprovalineCapped
+        amount: 2
 
 - type: entity
   id: SupplyBoxAmmoUSFilled
   parent: SupplyBoxAmmoUS
   suffix: American, Filled
   components:
-  - type: ContainerFill
-    containers:
-      magazinebox:
-      - BoxMagazineSTANAG
-      magazinebox2:
-      - BoxMagazineSTANAGTracerRed
-      ammobox:
-      - MagazineBox556x45Big
-      ammobox2:
-      - MagazineBox9x19mmBig
+  - type: StorageFill
+    contents:
+      - id: MagazineBox556x45Big
+      - id: BoxMagazineSTANAG
+      - id: BoxMagazineSTANAGTracerRed
+      - id: MagazineBox9x19mmBig
 
 - type: entity
   id: SupplyBoxAmmoUSFilledMarsoc
   parent: SupplyBoxAmmoUS
   suffix: MARSOC, Filled
   components:
-  - type: ContainerFill
-    containers:
-      magazinebox:
-      - BoxMagazine68x52mmFMJ
-      magazinebox2:
-      - BoxMagazineMP7
-      ammobox:
-      - AmmoBox68x52mmCaselessBig
-      ammobox2:
-      - MagazineBox762x51Big
+  - type: StorageFill
+    contents:
+      - id: AmmoBox68x52mmCaselessBig
+      - id: BoxMagazine68x52mmFMJ
+      - id: BoxMagazineMP7
+      - id: MagazineBox762x51Big
 
 - type: entity
   id: SupplyBoxAmmoRUFilled
   parent: SupplyBoxAmmoRU
   suffix: Russian, Filled
   components:
-  - type: ContainerFill
-    containers:
-      magazinebox:
-      - BoxMagazineAK74
-      magazinebox2:
-      - BoxMagazineASVALShort
-      ammobox:
-      - MagazineBox545x39Big
-      ammobox2:
-      - MagazineBox9x19mmBig
+  - type: StorageFill
+    contents:
+      - id: MagazineBox545x39Big
+      - id: BoxMagazineAK74
+      - id: BoxMagazineASVALShort
+      - id: MagazineBox9x19mmBig
 
 - type: entity
   id: SupplyBoxAmmoRUFilledFSB
   parent: SupplyBoxAmmoRU
   suffix: FSB, Filled
   components:
-  - type: ContainerFill
-    containers:
-      magazinebox:
-      - BoxMagazineAK74
-      magazinebox2:
-      - BoxMagazineAK74
-      ammobox:
-      - MagazineBox545x39Big
-      ammobox2:
-      - MagazineBox9x21Big
+  - type: StorageFill
+    contents:
+      - id: MagazineBox545x39Big
+      - id: BoxMagazineAK74
+      - id: BoxMagazineAK74
+      - id: MagazineBox9x21Big

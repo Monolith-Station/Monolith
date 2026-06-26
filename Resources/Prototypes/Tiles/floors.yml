@@ -1457,7 +1457,7 @@
   id: FloorGrass
   name: tiles-planet-grass-floor
   sprite: /Textures/Tiles/grass.png
-  baseTurf: FloorDirt
+  baseTurf: FloorDirtBF14 # BF14
   #canCrowbar: false # Come back
   # canShovel: true # Delta V # nuh uh frontier now
   deconstructTools: [ Digging ] # Frontier

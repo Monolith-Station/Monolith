@@ -1,6 +1,6 @@
 #region base: glass
 - type: entity
-  id: AirlockDoubleGlass
+  id: AirlockDouble
   parent: BaseStructure
   name: double airlock
   description: It opens, doubly, it closes, and maybe crushes you.. Doubly.
@@ -13,7 +13,7 @@
           "/Audio/Weapons/smash.ogg"
   - type: InteractionOutline
   - type: Sprite
-    sprite: _Battlefield14/Structures/Doors/Airlocks/DoubleGlass/basic.rsi
+    sprite: _Battlefield14/Structures/Doors/Airlocks/Double/basic.rsi
     snapCardinals: false
     layers:
     - state: closed
@@ -143,7 +143,8 @@
     noAirWhenFullyAirBlocked: false
   - type: RadiationBlocker
     resistance: 3
-#  - type: Occluder
+  - type: Occluder
+    boundingBox: "-0.5,-0.5,1.5,0.5"
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
@@ -170,12 +171,9 @@
     - board
   - type: PlacementReplacement
     key: walls
-  - type: IconSmooth
-    key: walls
-    mode: NoSprite
-  - type: PaintableAirlock
-    group: Standard
-    department: Civilian
+#  - type: PaintableAirlock
+#    group: Standard
+#    department: Civilian
   - type: StaticPrice
     price: 150
   - type: LightningTarget
@@ -199,6 +197,70 @@
     mode: SnapgridCenter
 
 - type: entity
+  id: AirlockDoubleGlass
+  parent: AirlockDouble
+  name: double glass airlock
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmack
+  - type: Door
+    occludes: false
+  - type: Occluder
+    enabled: false
+  - type: Sprite
+    sprite: _Battlefield14/Structures/Doors/Airlocks/DoubleGlass/basic.rsi
+  - type: AnimationPlayer
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,1.49,0.49" # don't want this colliding with walls or they won't close
+        density: 100
+        mask:
+        - FullTileMask
+        layer:     #removed opaque from the layer, allowing lasers to pass through glass airlocks
+        - GlassAirlockLayer
+  - type: LayerChangeOnWeld
+    unWeldedLayer: GlassAirlockLayer
+    weldedLayer: GlassLayer
+  - type: Construction
+    graph: Airlock
+    node: glassAirlock
+#  - type: PaintableAirlock
+#    group: Glass
+  - type: RadiationBlocker
+    resistance: 2
+  - type: Tag
+    tags:
+      - GlassAirlock
+      # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
+
+#region NATO
+
+- type: entity
+  parent: AirlockDouble
+  id: AirlockDoubleLockedNATOCommon
+  suffix: NATO Common, Double, Locked
+  name: NATO Common double airlock
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNATOCommon ]
+
+- type: entity
+  parent: AirlockDouble
+  id: AirlockDoubleLockedNATOCommand
+  suffix: NATO Command, Double, Locked
+  name: NATO Command double airlock
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNATOCommand ]
+
+- type: entity
   parent: AirlockDoubleGlass
   id: AirlockDoubleGlassLockedNATOCommon
   suffix: NATO Common, Double, Locked
@@ -210,6 +272,39 @@
 
 - type: entity
   parent: AirlockDoubleGlass
+  id: AirlockDoubleGlassLockedNATOCommand
+  suffix: NATO Command, Double, Locked
+  name: NATO Command double airlock
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNATOCommand ]
+
+
+#region PACT
+
+- type: entity
+  parent: AirlockDouble
+  id: AirlockDoubleLockedPACTCommon
+  suffix: PACT Common, Double, Locked
+  name: PACT Common double airlock
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPACTCommon ]
+
+- type: entity
+  parent: AirlockDouble
+  id: AirlockDoubleLockedPACTCommand
+  suffix: PACT Command, Double, Locked
+  name: PACT Command double airlock
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPACTCommand ]
+
+- type: entity
+  parent: AirlockDoubleGlass
   id: AirlockDoubleGlassLockedPACTCommon
   suffix: PACT Common, Double, Locked
   name: PACT Common double airlock
@@ -217,3 +312,13 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsPACTCommon ]
+
+- type: entity
+  parent: AirlockDoubleGlass
+  id: AirlockDoubleGlassLockedPACTCommand
+  suffix: PACT Command, Double, Locked
+  name: PACT Command double airlock
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPACTCommand ]
