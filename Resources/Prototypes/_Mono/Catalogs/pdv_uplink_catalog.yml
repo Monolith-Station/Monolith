@@ -1331,6 +1331,21 @@
       - FactionStaticUplinkPdv
 
 - type: listing
+  id: UplinkSecurityT1VoucherKalisto
+  name:  uplink-pdv-t1-kalisto-voucher-name
+  description: uplink-pdv-t1-kalisto-voucher-desc
+  productEntity: ShipVoucherKalisto
+  cost:
+    Doubloon: 70
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
   id: UplinkSecurityT1VoucherFenrir
   name:  uplink-pdv-t1-fenrir-voucher-name
   description: uplink-pdv-t1-fenrir-voucher-desc
