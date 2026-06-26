@@ -7,10 +7,10 @@
         - to: tanktrap
           completed:
             - !type:SnapToGrid
-              southRotation: false
+              southRotation: true
           steps:
             - material: MetalRod
-              amount: 6
+              amount: 4
               doAfter: 4
 
     - node: tanktrap

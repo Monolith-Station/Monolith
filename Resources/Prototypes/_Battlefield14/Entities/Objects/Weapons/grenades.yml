@@ -1,7 +1,7 @@
 #region US
 
 - type: entity
-  name: M67 Grenade
+  name: M67 grenade
   description: The classic GI hand grenade post vietnam.
   parent: GrenadeBase
   id: DefensiveGrenadeUSM67
@@ -72,7 +72,7 @@
     energy: 0.2
 
 - type: entity
-  name: MK21 Offensive Grenade
+  name: MK21 stackable offensive grenade
   description: USMC standard issue blast grenade.
   parent: GrenadeBase
   id: OffensiveGrenadeUSMK21
@@ -107,7 +107,7 @@
       collection: FragGrenadeSFX
   - type: ExtendDescription
     descriptionList:
-      - description: Has a random timer between 3-5 seconds.
+      - description: Has a random timer between 3-5 seconds. You can stack another grenade onto this one.
         color: "#4f94ad"
         requireDetailRange: true
   - type: Material
@@ -157,7 +157,7 @@
     deconstructionTarget: MK21Unstack
 
 - type: entity
-  name: MK21 Offensive Grenade Sword
+  name: MK21 offensive grenade Sword
   description: You crazy son of a bitch.
   parent: OffensiveGrenadeUSMK21
   id: OffensiveGrenadeUSMK21Sword
@@ -210,7 +210,7 @@
       collection: FragGrenadeSFX
 
 - type: entity
-  name: M18 Smoke grenade
+  name: M18 smoke grenade
   description: A simple grey smoke grenade, canned smoke for your convenience. At least, you think it’s canned smoke, you’re not entirely sure how these things actually work.
   parent: GrenadeBase
   id: SmokeGrenadeUSM18
@@ -324,7 +324,7 @@
         requireDetailRange: true
 
 - type: entity
-  name: M34 White Phosphorus smoke grenade
+  name: M34 white phosphorus smoke grenade
   description: Willy Pete, a war criminal to rival Cuban Pete.
   parent: GrenadeBase
   id: SmokeWhitePhosphorusGrenadeUSM34
@@ -366,7 +366,7 @@
 #region RU
 
 - type: entity
-  name: RGD-5 Grenade
+  name: RGD-5 grenade
   description: An undying classic from the soviet union.
   parent: GrenadeBase
   id: OffensiveGrenadeRURGD5
@@ -405,7 +405,7 @@
         requireDetailRange: true
 
 - type: entity
-  name: F-1 Grenade
+  name: F-1 grenade
   description: An undying classic from the soviet union.
   parent: GrenadeBase
   id: DefensiveGrenadeRUF1
@@ -475,7 +475,7 @@
     energy: 0.2
 
 - type: entity
-  name: RGO Offensive Impact grenade
+  name: RGO offensive impact grenade
   description: What does this even stand for? Russian Grenade something? oh well, pull the pin, chuck it, and it blows up.
   parent: BaseItem
   id: ImpactGrenadeRURGO
@@ -551,7 +551,7 @@
         requireDetailRange: true
 
 - type: entity
-  name: RDG-2 Smoke grenade
+  name: RDG-2 smoke grenade
   description: A simple grey smoke grenade, canned smoke for your convenience. At least, you think it’s canned smoke, you’re not entirely sure how these things actually work.
   parent: GrenadeBase
   id: SmokeGrenadeRURDG

@@ -1,0 +1,17 @@
+- type: constructionGraph
+  id: FillSandbag
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: FillSandbag
+          completed:
+#            - !type:AdminLog idek if i should log this
+#              message: "A sandbag was filled"
+            - !type:SpawnPrototype
+              prototype: SandbagFull
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tag: SandbagFillable
+              doAfter: 1

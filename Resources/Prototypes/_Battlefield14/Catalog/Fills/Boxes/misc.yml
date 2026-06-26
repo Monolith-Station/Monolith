@@ -179,3 +179,22 @@
   - type: Sprite
     layers:
       - state: box_security
+
+#region Misc
+
+- type: entity
+  parent: BoxMagazine
+  id: BoxSandbagEmpty
+  name: box of empty sandbags
+  description: A box full of empty sandbags.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,3
+  - type: StorageFill
+    contents:
+      - id: SandbagEmpty
+        amount: 8
+  - type: Sprite
+    layers:
+      - state: box_security

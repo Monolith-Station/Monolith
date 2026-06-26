@@ -79,3 +79,22 @@
   placementMode: SnapgridCenter
   canRotate: false
   canBuildInImpassable: false
+
+- type: construction
+  name: sandbag barricade
+  id: BarricadeSandbag
+  graph: BarricadeSandbag
+  startNode: start
+  targetNode: barricadesandbag
+  category: construction-category-structures
+  description: A pokey ouchie roll of barbed wire for slowing down advances.
+#  conditions:
+#    - !type:TileNotBlocked
+#      failIfSpace: true
+  icon:
+    sprite: /Textures/_RMC14/Structures/Walls/Barricades/barricade.rsi
+    state: sandbag
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  canRotate: true
