@@ -31,7 +31,6 @@
   - type: ActivatableUI
     singleUser: true
     key: enum.ShipyardConsoleUiKey.Shipyard
-  - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
       enum.ShipyardConsoleUiKey.Shipyard:
