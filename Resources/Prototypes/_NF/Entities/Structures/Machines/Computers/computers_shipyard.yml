@@ -31,6 +31,7 @@
   - type: ActivatableUI
     singleUser: true
     key: enum.ShipyardConsoleUiKey.Shipyard
+  - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
       enum.ShipyardConsoleUiKey.Shipyard:
@@ -50,6 +51,11 @@
   components:
   - type: ShipyardConsole
     newJobTitle: Captain
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TSF
+    - PDV
+    inverted: true
 
 - type: entity
   id: ComputerShipyardSecurity
@@ -190,6 +196,11 @@
       state: shipyard_expedition # Mono
     - map: ["computerLayerKeys"]
       state: telesci_key # Mono
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TSF
+    - PDV
+    inverted: true
 
 - type: entity
   id: ComputerShipyardScrap
@@ -214,6 +225,11 @@
       state: shipyard_scrapyard # Mono
     - map: ["computerLayerKeys"]
       state: telesci_key # Mono
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TSF
+    - PDV
+    inverted: true
 
 - type: entity
   id: ComputerShipyardMedical
@@ -238,6 +254,11 @@
       state: shipyard_medical
     - map: ["computerLayerKeys"]
       state: telesci_key
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TSF
+    - PDV
+    inverted: true
 
 - type: entity
   id: ComputerShipyardSr
