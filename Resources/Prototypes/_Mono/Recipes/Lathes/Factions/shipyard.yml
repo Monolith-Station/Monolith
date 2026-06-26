@@ -152,3 +152,17 @@
     UraniumDepleted: 5000
     Silver: 10000
     Gold: 10000
+
+
+# Viper Group
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherVGT0
+  result: ShipVoucherVGT0
+  materials:
+    Steel: 5000
+    Copper: 5000
+    Plasteel: 5000
+    Glass: 5000
+    Plasma: 2500

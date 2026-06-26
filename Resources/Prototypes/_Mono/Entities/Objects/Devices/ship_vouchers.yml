@@ -899,3 +899,34 @@
     - Hound
   - type: StaticPrice
     vendPrice: 20000
+
+# Viper Group
+
+# Start T0
+
+- type: entity
+  parent: BaseShipVoucher
+  id: ShipVoucherVGT0
+  name: VG T0 ship voucher
+  description: Allows for one free small to medium Viper Group ship purchase. Destroyed on sale.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_fighter
+    - state: screen
+      color: "#8C191EFF"
+    - state: screen5
+      color: "#B42328FF"
+      shader: unshaded
+  - type: Item
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Viper
+    companyName: VG
+    vessels:
+    - Hognose
+    - Reaver
+    - Talonuran
+
+# End T0

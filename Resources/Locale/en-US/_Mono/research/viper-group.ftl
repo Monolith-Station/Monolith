@@ -2,6 +2,7 @@ research-discipline-viper-group = Viper Group
 
 # T1 VG
 research-technology-viper-group-apparel = Viper Group Apparel
+research-technology-viper-group-shipyard-basic = Viper Group basic LPC procurement
 
 # T2 VG
 research-technology-viper-group-basic = Viper Group Basic Hardsuits

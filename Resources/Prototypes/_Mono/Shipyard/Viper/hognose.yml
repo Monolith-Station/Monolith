@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: gelliii
+# Discord: .gelliii.
+
+# Shuttle Notes: Ticksn't
+#
+- type: vessel
+  id: Hognose
+  parent: BaseVessel
+  name: VG Hognose
+  description: A hyperlight fighter that cost a red paint can to "commission". Fitted with Vesperas and 90mms. Good luck.
+  price: 19200 #16K~ + 20% tax due to well.... It being a death trap. - Skye
+  category: Small
+  group: Viper
+  access: Viper
+  shuttlePath: /Maps/_Mono/Shuttles/Viper/hognose.yml
+  guidebookPage: Null
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - APU
+
+- type: gameMap
+  id: Hognose
+  mapName: 'VG Hognose'
+  mapPath: /Maps/_Mono/Shuttles/Viper/hognose.yml
+  minPlayers: 0
+  stations:
+    Hognose:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Hognose MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            VGInfanteer: [ 0, 0 ]
+            VGLieutenant: [ 0, 0 ]
+            VGCommander: [ 0, 0 ]
