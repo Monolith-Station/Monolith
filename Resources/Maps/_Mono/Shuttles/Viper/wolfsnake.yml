@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/27/2026 18:44:49
-  entityCount: 1115
+  time: 06/27/2026 19:42:40
+  entityCount: 1117
 maps: []
 grids:
 - 1
@@ -229,10 +229,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Smoke: []
         Puddle: []
         MetalFoam: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -3477,13 +3477,13 @@ entities:
       parent: 1
 - proto: DrinkWaterBottleFull
   entities:
-  - uid: 1082
+  - uid: 218
     components:
     - type: Transform
       parent: 37
     - type: Physics
       canCollide: False
-  - uid: 1083
+  - uid: 1116
     components:
     - type: Transform
       parent: 37
@@ -3690,12 +3690,6 @@ entities:
       parent: 1
 - proto: FoodTinBeans
   entities:
-  - uid: 218
-    components:
-    - type: Transform
-      parent: 37
-    - type: Physics
-      canCollide: False
   - uid: 219
     components:
     - type: Transform
@@ -3733,6 +3727,24 @@ entities:
     - type: Physics
       canCollide: False
   - uid: 612
+    components:
+    - type: Transform
+      parent: 37
+    - type: Physics
+      canCollide: False
+  - uid: 1082
+    components:
+    - type: Transform
+      parent: 37
+    - type: Physics
+      canCollide: False
+  - uid: 1083
+    components:
+    - type: Transform
+      parent: 37
+    - type: Physics
+      canCollide: False
+  - uid: 1117
     components:
     - type: Transform
       parent: 37
@@ -6420,39 +6432,45 @@ entities:
   - uid: 37
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
+      rot: 1.5707963267948966 rad
       pos: 2.5,-14.5
       parent: 1
     - type: Storage
       storedItems:
         218:
-          position: 0,6
-          _rotation: South
-        219:
-          position: 0,0
-          _rotation: South
-        226:
-          position: 0,4
-          _rotation: South
-        252:
-          position: 4,6
-          _rotation: South
-        303:
-          position: 4,3
-          _rotation: South
-        388:
-          position: 4,0
-          _rotation: South
-        443:
-          position: 2,3
-          _rotation: South
-        612:
-          position: 2,1
-          _rotation: South
-        1082:
           position: 1,0
           _rotation: South
+        219:
+          position: 2,0
+          _rotation: South
+        226:
+          position: 5,0
+          _rotation: South
+        252:
+          position: 3,1
+          _rotation: South
+        303:
+          position: 5,6
+          _rotation: South
+        388:
+          position: 3,6
+          _rotation: South
+        443:
+          position: 1,6
+          _rotation: South
+        612:
+          position: 2,3
+          _rotation: South
+        1082:
+          position: 0,3
+          _rotation: South
         1083:
+          position: 4,4
+          _rotation: South
+        1116:
+          position: 3,3
+          _rotation: South
+        1117:
           position: 5,3
           _rotation: South
     - type: ContainerContainer
@@ -6461,15 +6479,17 @@ entities:
           showEnts: False
           occludes: True
           ents:
+          - 218
           - 219
-          - 443
+          - 226
+          - 252
           - 303
           - 388
-          - 226
-          - 218
-          - 252
+          - 443
           - 612
           - 1083
+          - 1116
+          - 1117
           - 1082
 - proto: ShieldGeneratorSmall
   entities:
