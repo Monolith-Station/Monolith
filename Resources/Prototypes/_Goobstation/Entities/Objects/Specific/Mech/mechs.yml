@@ -169,6 +169,27 @@
     speedModifier: 2
     useSound:
       path: /Audio/Items/jaws_pry.ogg
+  # Mono begin - internal ore storage
+  - type: MagnetPickup
+    magnetEnabled: false
+    range: 2
+  - type: Storage
+    maxItemSize: Normal
+    clickInsert: false
+    openOnActivate: false
+    grid:
+    - 0,0,15,7 # Bigger than standart ore bag but smaller than box
+    whitelist:
+      tags:
+        - ArtifactFragment
+        - Ore
+        - Ingot
+        - Sheet
+      components:
+        - ConstructionMaterials
+  - type: Dumpable
+    multiplier: 2
+  # Mono end
 
 - type: entity
   id: MechClarkeBattery

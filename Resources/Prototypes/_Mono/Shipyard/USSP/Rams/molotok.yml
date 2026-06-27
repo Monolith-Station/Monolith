@@ -21,7 +21,7 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Molotok MIL Ram{1}'
+          mapNameTemplate: 'Molotok USSP Ram{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

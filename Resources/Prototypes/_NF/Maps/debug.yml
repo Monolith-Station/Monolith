@@ -57,11 +57,12 @@
             TsfBorg: [ -1, -1 ]
             PdvBorg: [ -1, -1 ]
             # Prisoner: [ -1, -1] # Mono
-            # USSPCommissar: [ -1, -1]
-            # USSPSergeant: [ -1, -1]
-            # USSPCorporal: [ -1, -1]
-            # USSPMedic: [ -1, -1]
-            # USSPRifleman: [ -1, -1]
+            USSPCommissar: [ -1, -1]
+            USSPSergeant: [ -1, -1]
+            USSPRifleman: [ -1, -1]
             TsfEngineer: [ -1, -1 ]
+            VGInfanteer: [ -1, -1 ]
+            VGLieutenant: [ -1, -1 ]
+            VGCommander: [ -1, -1 ]
         - type: StationDeadDrop
           maxDeadDrops: 20 # Testing

@@ -32,8 +32,7 @@ public sealed partial class CompanyAccessReaderSystem : EntitySystem
             return;
         }
 
-        // Check if user's company matches the required company
-        if (userCompany.CompanyName != entity.Comp.RequiredCompany)
+        if (!entity.Comp.RequiredCompanies.Contains(userCompany.CompanyName) == !entity.Comp.Inverted)
         {
             args.Cancel();
             if (entity.Comp.PopupMessage != null)

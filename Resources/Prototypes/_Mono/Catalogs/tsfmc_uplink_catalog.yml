@@ -360,6 +360,21 @@
       tags:
       - FactionStaticUplinkTsf
 
+- type: listing
+  id: UplinkSecurityT2VoucherSpekter
+  name:  uplink-security-t2-spekter-voucher-name
+  description: uplink-security-t2-spekter-voucher-desc
+  productEntity: ShipVoucherSpekter
+  cost:
+    FederationMilitaryCredit: 220
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
 # end T2
 
 # start T3

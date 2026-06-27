@@ -33,3 +33,21 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsTsfEngineer ]
+
+- type: entity
+  parent: AirlockSyndicateGlass
+  id: AirlockViperGlass
+  suffix: Viper Group, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViper ]
+
+- type: entity
+  parent: AirlockSyndicateGlass
+  id: AirlockViperCommandGlass
+  suffix: Viper Group Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViperCommand ]

@@ -5,7 +5,7 @@
   - node: start
     entity: CyborgEndoskeleton
     edges:
-    - to: cyborg
+    - to: finish 
       steps:
       - assemblyId: generic
         guideString: borg-construction-guide-string
@@ -29,14 +29,44 @@
           sprite: Objects/Weapons/Melee/flash.rsi
           state: flash
 
+  - node: finish # _Mono: Split into two phases to allow for PDV/TSF faction crafting
+    edges:
+    - to: cyborg
+      steps:
+      - tool: Screwing
+        doAfter: 0.5
+    - to: pdvcyborg
+      steps:
+      - tag: BorgIFFPDV
+        name: PDV Cyborg Intrinsics
+        icon:
+          sprite: Objects/Specific/Mech/mecha_equipment.rsi
+          state: tesla
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 0.5
+    - to: tsfcyborg
+      steps:
+      - tag: BorgIFFTSF
+        name: TSF Cyborg Intrinsics
+        icon:
+          sprite: Objects/Specific/Mech/mecha_equipment.rsi
+          state: tesla
+        doAfter: 1
       - tool: Screwing
         doAfter: 0.5
 
   - node: cyborg
     entity: BorgChassisSelectable
-
+  
   - node: derelictcyborg
     entity: BorgChassisDerelict
+  
+  - node: pdvcyborg # _Mono
+    entity: BorgChassisSelectablePDV
+  
+  - node: tsfcyborg # _Mono
+    entity: BorgChassisSelectableTSF
     
 - type: constructionGraph
   id: AiVessel

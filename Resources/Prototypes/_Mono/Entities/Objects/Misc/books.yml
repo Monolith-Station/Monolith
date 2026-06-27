@@ -1,0 +1,64 @@
+- type: entity
+  id: BookUSSPLaw
+  parent: BaseGuidebook
+  name: USSP Service Regulations
+  description: A field manual carried by all servicemen of the USSP Armed Forces. Every serzhant can quote it from memory, usually at an intensity unsuitable for cramped spaces.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#665d43"
+    - state: decor_mono_middle_segmented_top
+      color: "#b40505"
+    - state: decor_mono_middle_segmented_bottom
+      color: "#ffd900"
+  - type: GuideHelp
+    guides:
+    - USSP_Entry
+  - type: Tag
+    tags:
+    - Book
+
+- type: entity
+  id: BookTheCommonCause
+  parent: BookBase
+  name: The Common Cause
+  description: A mass-printed civic text issued to all citizens, of the Union. Its short passages emphasize duty, labour, discipline, and the moral value of collective life.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#7a1010"
+    - state: decor_mono_middle_segmented_bottom
+      color: "#4f0808"
+    - state: icon_text
+      color: "#ffd900"
+  - type: Paper
+    content: book-text-ussp-common-cause
+  - type: Tag
+    tags:
+    - Book
+
+- type: entity
+  id: BookTheCommonCauseFirstEdition
+  parent: BookBase
+  name: The Common Cause
+  suffix: First Edition
+  description: An early edition of The Common Cause, attributed to the Autarch. The binding is severe, the paper aged, and the words far less restrained than later civic prints.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+    - state: cover_old
+      color: "#4f0808"
+    - state: decor_wingette
+      color: "#2a0303"
+    - state: icon_text
+      color: "#c8a03a"
+  - type: Paper
+    content: book-text-ussp-common-cause-first-edition
+  - type: Tag
+    tags:
+    - Book
