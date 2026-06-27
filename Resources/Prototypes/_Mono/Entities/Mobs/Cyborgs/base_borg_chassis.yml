@@ -228,6 +228,7 @@
     - Xenoborg
   - type: AccessReader
     access: [["Xenoborg"]]
+  - type: ShowElectrocutionHUD
   - type: IntrinsicRadioTransmitter
     channels:
     - Traffic
