@@ -1,5 +1,4 @@
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Xenoborgs.Components;
 
@@ -12,11 +11,6 @@ namespace Content.Shared.Xenoborgs.Components;
 [RegisterComponent]
 public sealed partial class XenoborgComponent : Component
 {
-    /// <summary>
-    /// The mindrole associated with the xenoborg.
-    /// </summary>
-    [DataField]
-    public EntProtoId MindRole = "Xenoborg";
 
     /// <summary>
     /// The text that is sent when you become a xenoborg.

@@ -328,7 +328,7 @@
   id: BaseXenoborgTransponder
   components:
   - type: DeviceNetwork
-    receiveFrequencyId: Xenoborg
+    receiveFrequencyId: Xenoborgs
     transmitFrequencyId: Mothership
   - type: SurveillanceCamera # they act like cameras for the mothership
     networkSet: true

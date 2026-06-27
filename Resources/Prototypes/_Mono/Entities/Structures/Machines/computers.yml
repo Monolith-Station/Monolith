@@ -51,12 +51,12 @@
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: Mothership
-    transmitFrequencyId: Xenoborg
+    transmitFrequencyId: Xenoborgs
   - type: Computer
     board: ComputerXenoborgsControlCircuitboard
 
 - type: entity
-  parent: ComputerSurveillanceWirelessCameraMonitor
+  parent: [ ComputerSurveillanceWirelessCameraMonitor, BaseComputerAiAccess ]
   id: ComputerSurveillanceWirelessXenoborgCameraMonitor
   name: xenoborg camera monitor
   description: A wireless xenoborg camera monitor. You're watching them. Maybe.

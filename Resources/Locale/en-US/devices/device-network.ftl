@@ -26,6 +26,8 @@ device-frequency-prototype-name-surveillance-camera-entertainment = Entertainmen
 device-frequency-prototype-name-surveillance-camera-tsf = TSFMC Cameras
 device-frequency-prototype-name-surveillance-camera-Rogue = PDV Cameras
 device-frequency-prototype-name-surveillance-camera-USSP = USSP Cameras
+device-frequency-prototype-name-surveillance-camera-xenoborgs = Xenoborg camera
+
 
 # prefixes for randomly generated device addresses
 device-address-prefix-vent = VNT-
