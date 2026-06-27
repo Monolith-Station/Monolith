@@ -23,6 +23,26 @@
   - Destroyer
   - Steel thief
   - Will literally kill you and turn you into a borg
+  - CYBER-MEAN
+  - Shadow the borg
+  - DELAK
+  - Roboevil
+  - Ironfist molecule
+  - P.A.I.N
+  - KILLbot
+  - The Finishnator
+  - Bloodmaker
+  - C2-WKY 6000
+  - Assassin 5
+  - Bonebreaker
+  - Deathmax
+  - K-900
+  - Auto-killer
+  - RAID-78
+  - John Borg
+  - Cold killing machine
+  - Brain remover
+  - PLXCOR Origin
 
 - type: dataset
   id: VesselCoreNameset
@@ -761,7 +781,7 @@
 
 - type: entity
   id: MothershipCore
-  parent: [ PlayerStationXenoborgAiEmpty, BaseLatheLube ] 
+  parent: PlayerStationXenoborgAiEmpty 
   suffix: Ghost Role, Xenoborg
   components:
   - type: NpcFactionMember
@@ -850,6 +870,21 @@
     staticPacks:
     - EmptyXenoborgs
     - XenoborgUpgradeModules
+  - type: ReagentSpeed
+    solution: lube
+    modifiers:
+      SpaceLube: 0.25
+      SpaceGlue: 5
+  - type: SolutionContainerManager
+    solutions:
+      lube:
+        maxVol: 250
+  - type: Spillable
+    solution: lube
+  - type: RefillableSolution
+    solution: lube
+  - type: ExaminableSolution
+    solution: lube
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
