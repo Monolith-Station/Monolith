@@ -180,14 +180,14 @@
   - XenoborgModuleDoorControl
   addComponents:
   - type: ShowHealthBars
-  - type: ShowElectrocutionHUD
     damageContainers:
     - Biological
     - Inorganic
     - Silicon
+  - type: ShowElectrocutionHUD
   - type: FootstepModifier
     footstepSoundCollection:
-    path: /Audio/_Mono/Effects/Footsteps/borgwalk3.ogg
+      path: /Audio/_Mono/Effects/Footsteps/borgwalk3.ogg
   inventoryTemplateId: borgShort
   spriteBodyState: xenoborg_engi
   spriteHasMindState: xenoborg_engi_l
@@ -216,14 +216,14 @@
       350: Critical
       750: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
   - type: ShowHealthBars
-  - type: ShowElectrocutionHUD
     damageContainers:
     - Biological
     - Inorganic
     - Silicon
+  - type: ShowElectrocutionHUD
   - type: FootstepModifier
     footstepSoundCollection:
-    path: /Audio/_Mono/Effects/Footsteps/borgwalk3.ogg
+      path: /Audio/_Mono/Effects/Footsteps/borgwalk3.ogg
   - type: MovementSpeedModifier # slower
     baseWalkSpeed : 1.2
     baseSprintSpeed : 2.2
@@ -250,14 +250,14 @@
   - XenoborgModuleDefense
   addComponents:
   - type: ShowHealthBars
-  - type: ShowElectrocutionHUD
     damageContainers:
     - Biological
     - Inorganic
     - Silicon
+  - type: ShowElectrocutionHUD
   - type: FootstepModifier
     footstepSoundCollection:
-    path: /Audio/_Mono/Effects/Footsteps/borgwalk4.ogg
+      path: /Audio/_Mono/Effects/Footsteps/borgwalk4.ogg
   - type: MovementSpeedModifier # faster
     baseWalkSpeed : 3
     baseSprintSpeed : 6
@@ -288,14 +288,14 @@
   - XenoborgModuleHypo
   addComponents:
   - type: ShowHealthBars
-  - type: ShowElectrocutionHUD
     damageContainers:
     - Biological
     - Inorganic
     - Silicon
+    - type: ShowElectrocutionHUD
   - type: FootstepModifier
     footstepSoundCollection:
-    path: /Audio/_Mono/Effects/Footsteps/borgwalk4.ogg
+      path: /Audio/_Mono/Effects/Footsteps/borgwalk4.ogg
   radioChannels:
   - Medical
   inventoryTemplateId: borgShort
