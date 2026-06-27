@@ -104,7 +104,7 @@
   unit: materials-unit-plank
   icon: { sprite: Objects/Materials/materials.rsi, state: wood }
   color: "#966F33"
-  price: 0.10 # $20 for 1 unit
+  price: 0.10 # $10 for 1 unit
   properties: # FH edit
     electrical: 4
     hard: 3
@@ -134,7 +134,7 @@
   unit: materials-unit-bunch
   icon: { sprite: Objects/Materials/materials.rsi, state: bananium }
   color: "#32a852"
-  price: 0.2 # $200 for 1 unit # Frontier: 1.0<0.2 TODO - materials rebalance
+  price: 0.2 # $100 for 1 unit # Frontier: 1.0<0.2 TODO - materials rebalance
   # Interpolated properties, 50/50 biomass/uranium
   properties: # FH edit
     electrical: 4
