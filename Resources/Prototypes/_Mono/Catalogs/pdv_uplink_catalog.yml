@@ -1410,6 +1410,21 @@
       - FactionStaticUplinkPdv
 
 - type: listing
+  id: UplinkSecurityT2VoucherGanymede
+  name:  uplink-pdv-t2-ganymede-voucher-name
+  description: uplink-pdv-t2-ganymede-voucher-desc
+  productEntity: ShipVoucherGanymede
+  cost:
+    Doubloon: 175
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
   id: UplinkSecurityT2VoucherVulture
   name:  uplink-pdv-t2-vulture-voucher-name
   description: uplink-pdv-t2-vulture-voucher-desc
