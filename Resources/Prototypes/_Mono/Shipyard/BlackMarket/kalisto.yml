@@ -25,6 +25,9 @@
   minPlayers: 0
   stations:
     Kalisto:
+      gridComponents:
+      - type: VesselInfo
+        description: "Cramped, and dirty. This can only end well..."
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
