@@ -190,7 +190,8 @@
     capacity: 8 # 7->8 Mono
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
-    fireRate: 3.2 # Mono
+    fireRate: 2.2 # Mono
+    damageModifier: 1.3
 #  - type: PirateBountyItem # Frontier - Mono
 #    id: Enforcer # Frontier - Mono
   - type: PirateBountyItem # Mono
