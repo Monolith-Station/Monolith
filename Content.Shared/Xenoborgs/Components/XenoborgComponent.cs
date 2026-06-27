@@ -16,7 +16,7 @@ public sealed partial class XenoborgComponent : Component
     /// The mindrole associated with the xenoborg.
     /// </summary>
     [DataField]
-    public EntProtoId MindRole = "MindRoleXenoborg";
+    public EntProtoId MindRole = "Xenoborg";
 
     /// <summary>
     /// The text that is sent when you become a xenoborg.
