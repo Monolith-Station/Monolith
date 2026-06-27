@@ -9,6 +9,21 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
+  id: SpekterVoucherTSF
+  result: ShipVoucherSpekter
+  completetime: 3
+  materials:
+    Steel: 30000
+    Plasteel: 15000
+    Plastic: 20000
+    Glass: 5000
+    Plasma: 4000
+    UraniumFissile: 200 # Reactor tax :troll:
+    Silver: 5000
+    Gold: 2500
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
   id: TaserVoucherCC
   result: ShipVoucherTaser
   materials:
