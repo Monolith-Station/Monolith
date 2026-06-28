@@ -796,9 +796,6 @@
   - type: Xenoborg
   - type: AccessReader
     access: [["Xenoborg"], ["Mothership"]]
-  - type: ContainerComp
-    proto: AiHeldXenoborg
-    container: station_ai_mind_slot
   - type: ContainerFill
     containers:
       station_ai_mind_slot:
