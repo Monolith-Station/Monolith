@@ -5,16 +5,17 @@
   description: A gunnery unit made to make up for the lacking fire-power of the Ledokol.
   limit: 1
   price: 90000
+  purchasable: false # voucher only
   category: Small
   group: Custom
   access: USSP
-  shuttlePath: /Maps/_Mono/Shuttles/USSP/Ledokol/Attatchments/kupol.yml
+  shuttlePath: /Maps/_Mono/Shuttles/USSP/Ledokol/Attachments/kupol.yml
   guidebookPage: Null
 
 - type: gameMap
   id: Kupol
   mapName: 'Kupol'
-  mapPath: /Maps/_Mono/Shuttles/USSP/Ledokol/Attatchments/kupol.yml
+  mapPath: /Maps/_Mono/Shuttles/USSP/Ledokol/Attachments/kupol.yml
   minPlayers: 0
   stations:
     Kupol:
