@@ -8,7 +8,7 @@
   cost: 40000
   recipeUnlocks:
   - ShipVoucherPdvT0Recipe
-  - ShipVoucherPdvT1RandomRecipe
+  - ShipVoucherPdvT1Recipe
   - InertiaVoucherRogue
   - MockVoucherRogue
   - SnakeletVoucherRogue
@@ -19,12 +19,12 @@
 - type: technology
   id: PdvTierTwoVouchers
   name: research-technology-rogue-tier-two-vouchers
-  entityIcon: ShipVoucherPdvT2Random
+  entityIcon: ShipVoucherPdvT2
   discipline: RogueShipyard
   tier: 1
   cost: 60000
   recipeUnlocks:
-  - ShipVoucherPdvT2RandomRecipe
+  - ShipVoucherPdvT2Recipe
   technologyPrerequisites:
   - PdvTierOneVouchers
   - UniversalMaterialResearchT2
@@ -108,6 +108,7 @@
   cost: 10000
   recipeUnlocks:
   - BasicBorgCombatModulePDV
+  - BorgIFFPDV
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: 12, -4

@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: gelliii
+# Discord: .gelliii.
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Reaver
+  parent: BaseVessel
+  name: VG Reaver
+  description: A small assualt and escort craft outsourced by the Viper Group. It was designed recently, opting for more modern forms of weaponry off the black market.
+  price: 61440
+  category: Small
+  group: Viper
+  access: Viper
+  shuttlePath: /Maps/_Mono/Shuttles/Viper/reaver.yml
+  guidebookPage: Null
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Reaver
+  mapName: 'VG Reaver'
+  mapPath: /Maps/_Mono/Shuttles/Viper/reaver.yml
+  minPlayers: 0
+  stations:
+    Reaver:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Reaver MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            VGInfanteer: [ 0, 0 ]
+            VGLieutenant: [ 0, 0 ]
+            VGCommander: [ 0, 0 ]
