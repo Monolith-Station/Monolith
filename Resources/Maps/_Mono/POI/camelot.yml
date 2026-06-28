@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/28/2026 14:42:40
-  entityCount: 11862
+  time: 06/28/2026 18:34:19
+  entityCount: 11863
 maps: []
 grids:
 - 1
@@ -263,10 +263,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Puddle: []
         MetalFoam: []
         Kudzu: []
+        Smoke: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -7681,7 +7681,7 @@ entities:
       pos: 1.5,2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -14916.766
+      secondsUntilStateChange: -15074.171
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7719,7 +7719,7 @@ entities:
       pos: -30.5,38.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -58110.445
+      secondsUntilStateChange: -58267.85
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26068,7 +26068,7 @@ entities:
       pos: 22.5,53.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -53304.215
+      secondsUntilStateChange: -53461.62
       state: Closing
   - uid: 4605
     components:
@@ -26081,7 +26081,7 @@ entities:
       pos: 22.5,55.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -53306.215
+      secondsUntilStateChange: -53463.62
       state: Closing
   - uid: 9858
     components:
@@ -33819,7 +33819,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 17.5,7.5
       parent: 1
-  - uid: 11862
+  - uid: 11863
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -57378,17 +57378,24 @@ entities:
       parent: 1
 - proto: HolopadCommissarBaikal
   entities:
-  - uid: 11861
+  - uid: 11862
     components:
     - type: Transform
       pos: 12.5,-2.5
       parent: 1
 - proto: HolopadUSSPBaikal
   entities:
-  - uid: 11860
+  - uid: 11861
     components:
     - type: Transform
       pos: 6.5,-5.5
+      parent: 1
+- proto: HolopadVG
+  entities:
+  - uid: 11860
+    components:
+    - type: Transform
+      pos: 21.5,11.5
       parent: 1
 - proto: HospitalCurtainsOpen
   entities:
@@ -58398,16 +58405,6 @@ entities:
     components:
     - type: Transform
       pos: -32.5,2.5
-      parent: 1
-  - uid: 1162
-    components:
-    - type: Transform
-      pos: 17.5,13.5
-      parent: 1
-  - uid: 3290
-    components:
-    - type: Transform
-      pos: 12.5,-7.5
       parent: 1
 - proto: MonoMaintenanceFluffSpawner
   entities:
@@ -68132,6 +68129,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: USSPLatheImmmovable
+  entities:
+  - uid: 3290
+    components:
+    - type: Transform
+      pos: 12.5,-7.5
+      parent: 1
 - proto: VendingMachineAmmoPOIMercenary
   entities:
   - uid: 2799
@@ -68424,6 +68428,13 @@ entities:
     components:
     - type: Transform
       pos: -3.5,29.5
+      parent: 1
+- proto: ViperLatheImmmovable
+  entities:
+  - uid: 1162
+    components:
+    - type: Transform
+      pos: 17.5,13.5
       parent: 1
 - proto: WallPlastitaniumCapital
   entities:
