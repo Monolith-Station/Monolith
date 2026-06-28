@@ -639,7 +639,8 @@
   - type: StationBankATM
     account: Frontier
   - type: CompanyAccessReader
-    requiredCompany: Colonial
+    requiredCompanies:
+    - Colonial
   - type: AccessReader
     access: [["HeadOfPersonnel"]]
 
@@ -652,7 +653,8 @@
   - type: StationBankATM
     account: Nfsd
   - type: CompanyAccessReader
-    requiredCompany: TSF
+    requiredCompanies:
+    - TSF
   - type: AccessReader
     access: [["HeadOfSecurity"]]
 
@@ -665,7 +667,8 @@
   - type: StationBankATM
     account: Medical
   - type: CompanyAccessReader
-    requiredCompany: MD
+    requiredCompanies:
+    - MD
   - type: AccessReader
     access: [["ChiefMedicalOfficer"]]
 
