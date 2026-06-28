@@ -1,0 +1,96 @@
+- type: entity
+  name: gas mask creature
+  parent: [ BaseMob, MobDamageable ]
+  id: GasMaskCreature
+  description: Incomprehensible.
+  components:
+  - type: LanguageKnowledge # Einstein Engines - Languages (all mobs should speak TauCeti unless otherwise specified, to prevent universal.)
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+    - Russian
+    - English
+    - Sign
+    - German
+    - Mexican
+    - Esperanto
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: gasmaskcreature
+      sprite: _Battlefield14/Mobs/gasmaskcreature.rsi
+      offset: 0, 0.25
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 10
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: ContainerContainer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: gasmaskcreature
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      50: 0.85
+      65: 0.7
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 30
+    damage:
+      types:
+        Heat: -1
+      groups:
+        Brute: -1
+  - type: Butcherable
+    spawned:
+    - id: BookNophono
+      amount: 1
+  - type: Bloodstream
+    bloodMaxVolume: 300
+    maxBleedAmount: 0
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1
+  - type: Puller
+    needsHands: false
+  - type: ComplexInteraction
+  - type: ZombieImmune
+  - type: NightVision
+    activateSound: null
+    deactivateSound: null
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: "gas mask creature"
+    description: "whimsical wildlife"
+    rules: "Do whatever the fuck you want."
+    raffle:
+      settings: short
+  - type: Insulated

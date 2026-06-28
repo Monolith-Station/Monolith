@@ -1,5 +1,5 @@
 ## NATO
-# US
+#region US
 
 - type: entity
   id: ShellMortar81M252HEFrag
@@ -99,7 +99,7 @@
     explosionEntity: ArtilleryMarkerM252Flare
 
 ## PACT
-# RU
+#region RU
 
 - type: entity
   id: ShellMortar822B14HEFrag
@@ -211,3 +211,17 @@
   - type: MortarShell
     delayPerTile: 0.14
     explosionEntity: ArtilleryMarker2B14Flare
+
+- type: entity
+  id: ShellMortar822B14Minelaying
+  parent: ShellMortar822B14HEFrag
+  suffix: Minelaying, 82mm, 2B14, PACT, RU
+  name: PFM-434 82mm minelaying shell
+  description: A mortar shell designed to scatter 8 PFM-1 landmines after landing.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/BattlefieldArtillery/GroundArtillery/Mortar/shells.rsi
+    state: frag
+  - type: MortarShell
+    delayPerTile: 0.15
+    explosionEntity: ArtilleryMarker2B14Minelaying

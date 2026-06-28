@@ -127,3 +127,70 @@
       - description: It is disarmed, left click on a tile to place and arm it.
         color: green
         requireDetailRange: true
+
+
+- type: entity
+  name: PFM-1
+  description: An anti-personnel mine, based off the german bouncing betty. Shares a designation with the rifle you're holding in your hands.
+  parent: BaseLandMine
+  id: LandMinePFM1
+  suffix: Armed, Placed
+  components:
+  - type: Sprite
+    drawdepth: Items
+    sprite: _Battlefield14/Objects/Weapons/Landmines/PFM1.rsi
+    state: base
+  - type: Physics
+    bodyType: Dynamic
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HandGrenade
+    maxIntensity: 5
+    intensitySlope: 3
+    totalIntensity: 25
+    canCreateVacuum: false
+  - type: StepTrigger
+    requiredTriggeredSpeed: 2.5 # lets you crawl but not walk over it
+    stepOn: false
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+      - Trigger
+  - type: ActiveTimerTrigger
+    timeRemaining: 144000
+  - type: ExtendDescription
+    descriptionList:
+      - description: It is ARMED. Use a multitool to link it to a device. Self destructs after 40 hours.
+        color: red
+        requireDetailRange: true
+
+- type: entity
+  parent: BaseItem
+  id: LandMinePFM1Item
+  name: PFM-1
+  description: An anti-personnel mine, based off the german bouncing betty. Shares a designation with the rifle you're holding in your hands.
+  suffix: Disarmed, Placeable
+  components:
+  - type: Sprite
+    drawdepth: Items
+    sprite: _Battlefield14/Objects/Weapons/Landmines/PFM1.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: SpawnAfterInteract
+    prototype: LandMinePFM1
+    doAfter: 3
+    removeOnInteract: true
+  - type: ExtendDescription
+    descriptionList:
+      - description: It is disarmed.
+        color: green
+        requireDetailRange: true
+  - type: ActiveTimerTrigger
+    timeRemaining: 1.5
+  - type: RandomTimerTrigger
+    min: 1
+    max: 2
+  - type: SpawnOnTrigger
+    proto: LandMinePFM1
+  - type: DeleteOnTrigger

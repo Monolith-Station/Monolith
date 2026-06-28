@@ -1,0 +1,40 @@
+- type: entity
+  parent: BaseItem
+  id: CMVendUSMCWarVendorLietenantTablet
+  name: USMC lieutenant war vendor tablet
+  description: Top notch shit here.
+  suffix: ColMarTech, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/tablets.rsi
+    layers:
+      - state: tablet
+      - state: generic
+        shader: unshaded
+  - type: UserInterface
+    interfaces:
+      enum.CMAutomatedVendorUI.Key:
+        type: CMAutomatedVendorBui
+  - type: ActivatableUI
+    key: enum.CMAutomatedVendorUI.Key
+  - type: ActivatableUIRequiresAccess
+  - type: AccessReader
+    access: [["NATOCaptain"]]
+  - type: CMAutomatedVendor
+    access:
+    - "NATOCaptain"
+    sections:
+    - name: anti-armour solution
+      choices: { BF14LTAntiArmour: 1 }
+      entries:
+      - id: CrateSecgearNATOFilledSMAW
+        name: Mk 153 SMAW
+      - id: CrateSecgearNATOFilledAT4
+        name: AT4
+      - id: CratePowerWeaponFilledM107
+        name: M107 anti materiel rifle
+    - name: anti-personnel solution
+      choices: { BF14LTAntiPersonnel: 1 }
+      entries:
+      - id: CrateSecgearNATOFilledSMAWDisposable
+        name: SMAW-D

@@ -1,3 +1,4 @@
+#region utilities
 - type: entity
   parent: BoxMagazine
   id: BoxArtilleryutility
@@ -36,8 +37,7 @@
 
 ### Shells
 ## NATO
-# US
-# Mortar
+#region US, Mortar
 
 - type: entity
   parent: BoxMagazine
@@ -137,7 +137,7 @@
     layers:
       - state: box_security
 
-# Howitzer
+#region US, Howitzer
 
 - type: entity
   parent: BoxMagazine
@@ -236,14 +236,14 @@
       - state: box_security
 
 ## PACT
-# RU
+#region, RU, Mortar
 
 - type: entity
   parent: BoxMagazine
   id: BoxArtilleryShellsMortar2B14LethalMixed
   name: box of 82mm mixed lethal shells
   description: Contains three HE-Frag and three thermobaric 82mm mortar shells compatible with the 2B14 mortar.
-  suffix: HE-Frag
+  suffix: HE-Frag, Thermobaric
   components:
   - type: Item
     size: Huge
@@ -269,7 +269,7 @@
   id: BoxArtilleryShellsMortar2B14Smoke
   name: box of 82mm smoke shells
   description: Contains six 82mm mortar smoke shells compatible with the 2B14 mortar.
-  suffix: HE-Frag
+  suffix: Smoke
   components:
   - type: Item
     size: Huge
@@ -293,7 +293,7 @@
   id: BoxArtilleryShellsMortar2B14SmokeMixed
   name: box of 82mm mixed smoke shells
   description: Contains three smoke and three cs-gas 82mm mortar shells compatible with the 2B14 mortar.
-  suffix: HE-Frag
+  suffix: Smoke + CS gas
   components:
   - type: Item
     size: Huge
@@ -319,7 +319,7 @@
   id: BoxArtilleryShellsMortar2B14Flare
   name: box of 82mm illumination flare shells
   description: Contains six 82mm mortar illumination shells compatible with the 2B14 mortar.
-  suffix: HE-Frag
+  suffix: Flare
   components:
   - type: Item
     size: Huge
@@ -333,6 +333,30 @@
   - type: StorageFill
     contents:
       - id: ShellMortar822B14Flare
+        amount: 6
+  - type: Sprite
+    layers:
+      - state: box_security
+
+- type: entity
+  parent: BoxMagazine
+  id: BoxArtilleryShellsMortar2B14Minelaying
+  name: box of 82mm minelaying shells
+  description: Contains six 82mm mortar minelaying shells compatible with the 2B14 mortar.
+  suffix: Minelaying
+  components:
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,3
+    whitelist:
+      tags:
+        - MortarShell
+  - type: StorageFill
+    contents:
+      - id: ShellMortar822B14Minelaying
         amount: 6
   - type: Sprite
     layers:
