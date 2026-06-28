@@ -29,7 +29,6 @@
 - type: latheRecipePack
   id: MonoUSSPVouchersDynamic
   recipes:
-  - ShipVoucherUsspT0Recipe
   - ShipVoucherUsspRemontnik
   - ShipVoucherUsspAkula
   - ShipVoucherUsspDrakon
@@ -38,6 +37,9 @@
   - ShipVoucherUsspSulak
   - ShipVoucherUsspLedokol
   - ShipVoucherUsspLedokolAttachment
+
+  type: latheRecipePack
   id: MonoUSSPStatic
   recipes:
   - USSPTechfabMachineCircuitboard
+  - ShipVoucherUsspT0Recipe

@@ -162,12 +162,10 @@
   completetime: 10
   materials:
     Steel: 5000
+    Copper: 5000
     Plasteel: 5000
     Glass: 5000
-    Plasma: 5000
-    Uranium: 5000
-    Silver: 5000
-    Gold: 5000
+    Plasma: 2500
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -189,12 +187,11 @@
   result: ShipVoucherAkula
   completetime: 10
   materials:
-    Steel: 15000
-    Plasteel: 15000
-    Plastic: 1000
-    Glass: 10000
-    Plasma: 10000
-    Uranium: 10000
+    Steel: 5000
+    Plasteel: 5000
+    Glass: 5000
+    Plasma: 5000
+    Uranium: 5000
     Silver: 5000
     Gold: 5000
 
@@ -204,14 +201,15 @@
   result: ShipVoucherDrakon
   completetime: 10
   materials:
-    Steel: 15000
-    Plasteel: 15000
-    Plastic: 1000
-    Glass: 10000
-    Plasma: 10000
-    Uranium: 10000
-    Silver: 5000
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 5000
+    Glass: 5000
+    Plasma: 5000
     Gold: 5000
+    Silver: 5000
+    UraniumDepleted: 1000
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -219,14 +217,15 @@
   result: ShipVoucherTayfun
   completetime: 10
   materials:
-    Steel: 15000
-    Plasteel: 15000
-    Plastic: 1000
-    Glass: 10000
-    Plasma: 10000
-    Uranium: 10000
-    Silver: 5000
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 5000
+    Glass: 5000
+    Plasma: 5000
     Gold: 5000
+    Silver: 5000
+    UraniumDepleted: 1000
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -234,14 +233,16 @@
   result: ShipVoucherBuran
   completetime: 25
   materials:
-    Steel: 60000
-    Plasteel: 20000
-    Plastic: 1000
-    Glass: 15000
-    Plasma: 15000
-    Uranium: 20000
-    Silver: 7000
-    Gold: 7000
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 10000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    UraniumDepleted: 1000
+    UraniumFissile: 250
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -249,14 +250,16 @@
   result: ShipVoucherSulak
   completetime: 25
   materials:
-    Steel: 60000
-    Plasteel: 20000
-    Plastic: 1000
-    Glass: 15000
-    Plasma: 15000
-    Uranium: 20000
-    Silver: 7000
-    Gold: 7000
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 10000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    UraniumDepleted: 1000
+    UraniumFissile: 250
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -264,14 +267,16 @@
   result: ShipVoucherLedokol
   completetime: 50
   materials:
-    Steel: 60000
-    Plasteel: 20000
+    Steel: 40000
+    Plasteel: 55000
     Plastic: 50000
-    Glass: 15000
-    Plasma: 7500
-    Uranium: 20000
-    Silver: 10000
-    Gold: 7000
+    Glass: 9000
+    Plasma: 500
+    UraniumFissile: 1000
+    UraniumDepleted: 5000
+    Silver: 5000
+    Gold: 5000
+
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -279,8 +284,12 @@
   result: ShipVoucherLedokolAttachment
   completetime: 10
   materials:
-    Steel: 30000
-    Plasteel: 10000
-    Uranium: 5000
-    Silver: 10000
-    Gold: 7000
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 5000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    UraniumDepleted: 1000
