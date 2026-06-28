@@ -500,9 +500,6 @@
   #  blacklist:
   #    tags:
   #    - GhostOnlyWarp
-  - type: ContainerComp
-    proto: AiHeldXenoborg
-    container: station_ai_mind_slot
   - type: Destructible
     thresholds:
     - trigger:
