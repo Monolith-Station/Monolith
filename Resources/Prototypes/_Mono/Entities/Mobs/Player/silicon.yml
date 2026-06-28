@@ -784,6 +784,13 @@
   parent: PlayerStationXenoborgAiEmpty 
   suffix: Ghost Role, Xenoborg
   components:
+  - type: ContainerComp
+    proto: AiHeldXenoborg
+    container: station_ai_mind_slot
+  - type: ContainerFill
+    containers:
+      station_ai_mind_slot:
+      - StationAiBrainXenoborg
   - type: NpcFactionMember
     factions:
     - Xenoborg
@@ -796,10 +803,6 @@
   - type: Xenoborg
   - type: AccessReader
     access: [["Xenoborg"], ["Mothership"]]
-  - type: ContainerFill
-    containers:
-      station_ai_mind_slot:
-      - StationAiBrainXenoborg
   - type: Appearance
   - type: WiresVisuals
   - type: WiresPanel
