@@ -934,6 +934,25 @@
   - type: StaticPrice
     vendPrice: 20000
 
+# Viper Group
+
+# Start T2
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherVGWolf
+  name: VG Wolfsnake LPC [T2]
+  description: A small card that contains the data for the procurement of a Wolfsnake-class cruiser from the station's reserves.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#8C191EFF"
+
+# End T2
+
 # USSP
 
 # T0 voucher
