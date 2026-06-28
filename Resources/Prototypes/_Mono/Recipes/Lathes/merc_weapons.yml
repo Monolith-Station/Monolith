@@ -225,3 +225,16 @@
     Plasma: 1500
     Gold: 1000
     Diamond: 150
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponShotgunJack
+  result: WeaponShotgunJack
+  categories:
+  - Shotguns
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3000
+    Plasteel: 2500
+    Plastic: 700
