@@ -45,7 +45,8 @@
   - type: AccessReader
     access: [["Security"]]
   - type: CompanyAccessReader
-    requiredCompany: TSF
+    requiredCompanies:
+    - TSF
   - type: Tag
     tags:
     - SecurityUplink
@@ -90,7 +91,8 @@
   - type: AccessReader
     access: [["Pirate"]]
   - type: CompanyAccessReader
-    requiredCompany: PDV
+    requiredCompanies:
+    - PDV
     popupMessage: company-pdv-access-denied
   - type: Tag
     tags:
