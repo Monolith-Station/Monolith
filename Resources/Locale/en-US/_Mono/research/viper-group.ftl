@@ -6,6 +6,7 @@ research-technology-viper-group-shipyard-basic = Viper Group basic LPC procureme
 
 # T2 VG
 research-technology-viper-group-basic = Viper Group Basic Hardsuits
+research-technology-viper-group-shipyard-adv = Viper Group LPC procurement
 
 # T3 VG
 research-technology-viper-group-juggernaut = Viper Group Juggernaut Hardsuit

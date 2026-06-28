@@ -224,8 +224,8 @@
 
 - type: entity
   parent: ShipVoucherTsfT0
-  id: ShipVoucherTsfT1Random
-  name: random TSF T1 LPC
+  id: ShipVoucherTsfT1
+  name: TSF T1 ship voucher
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -236,16 +236,18 @@
     - state: screen5
       color: "#05ffff"
       shader: unshaded
-  - type: RandomSpawner
-    offset: 0
-    deleteSpawnerAfterSpawn: true
-    prototypes:
-    - ShipVoucherSpica
-    - ShipVoucherDagger
-    - ShipVoucherTarantula
-    - ShipVoucherSentinel
-    - ShipVoucherMercury
-    - ShipVoucherAldebaran
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: Security
+    companyName: TSF
+    vessels:
+    - Aldebaran
+    - Tarantula
+    - Spica
+    - Mercury
+    - Sentinel
+    - Dagger
 
 # end T1
 
@@ -277,9 +279,34 @@
     vendPrice: 600000
 
 - type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherSpekter
+  name: TSF spekter LPC
+  description: A small card that contains the data for the procurement of an Spekter-class missile corvette from the flagship's reserves.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#05ffff"
+    - state: screen1
+      color: "#05ffff"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: Security
+    companyName: TSF
+    vessels:
+    - Spekter
+  - type: StaticPrice
+    vendPrice: 300000
+
+- type: entity
   parent: ShipVoucherTsfT0
-  id: ShipVoucherTsfT2Random
-  name: random TSF T2 LPC
+  id: ShipVoucherTsfT2
+  name: TSF T2 ship voucher
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -290,11 +317,14 @@
     - state: screen2
       color: "#05ffff"
       shader: unshaded
-  - type: RandomSpawner
-    offset: 0
-    deleteSpawnerAfterSpawn: true
-    prototypes:
-    - ShipVoucherAndromeda
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: Security
+    companyName: TSF
+    vessels:
+    - Andromeda
+    - Spekter
 
 # end T2
 
@@ -516,8 +546,8 @@
 
 - type: entity
   parent: ShipVoucherPdvT0
-  id: ShipVoucherPdvT1Random
-  name: random PDV T1 LPC
+  id: ShipVoucherPdvT1
+  name: PDV T1 ship voucher
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -528,15 +558,17 @@
     - state: screen7
       color: "#1eff00"
       shader: unshaded
-  - type: RandomSpawner
-    offset: 0
-    deleteSpawnerAfterSpawn: true
-    prototypes:
-    - ShipVoucherNeptune
-    - ShipVoucherBastion
-    - ShipVoucherScorpion
-    - ShipVoucherFenrir
-    - ShipVoucherGarm
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: BlackMarket
+    companyName: PDV
+    vessels:
+    - Scorpion
+    - Bastion
+    - Neptune
+    - Fenrir
+    - Garm
 
 # end T1
 
@@ -619,8 +651,8 @@
 
 - type: entity
   parent: ShipVoucherPdvT0
-  id: ShipVoucherPdvT2Random
-  name: random PDV T2 LPC
+  id: ShipVoucherPdvT2
+  name: PDV T2 ship voucher
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -631,13 +663,15 @@
     - state: screen7
       color: "#1eff00"
       shader: unshaded
-  - type: RandomSpawner
-    offset: 0
-    deleteSpawnerAfterSpawn: true
-    prototypes:
-    - ShipVoucherVulture
-    - ShipVoucherEuropa
-    - ShipVoucherMotleyAnne
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: BlackMarket
+    companyName: PDV
+    vessels:
+    - MotleyAnne
+    - Europa
+    - Vulture
 
 # end T2
 
@@ -930,3 +964,270 @@
     - Talonuran
 
 # End T0
+
+# Start T2
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherVGWolf
+  name: VG Wolfsnake LPC [T2]
+  description: A small card that contains the data for the procurement of a Wolfsnake-class cruiser from the station's reserves.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#8C191EFF"
+
+# End T2
+
+# USSP
+
+# T0 voucher
+
+- type: entity
+  parent: BaseShipVoucher
+  id: ShipVoucherUSSPT0
+  name: USSP T0 ship voucher
+  description: Allows for one free small to medium USSP ship purchase. Destroyed on sale.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_fighter
+    - state: screen
+      color: "#b40505"
+    - state: screen1
+      color: "#b40505"
+      shader: unshaded
+  - type: Item
+    heldPrefix: ussp
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: USSP
+    companyName: USSP
+    vessels:
+    - Svinya
+    - Gruznyk
+    - Natisk
+    - Strayk
+    - Sekunda
+
+# start T1
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherRemontnik
+  name: USSP Remontnik LPC [T1]
+  description: A small card that contains the data for the procurement of a Remontnik-class salvage and support vessel.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#b40505"
+    - state: screen3
+      color: "#b40505"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: USSP
+    companyName: USSP
+    vessels:
+    - Remontnik
+  - type: StaticPrice
+    vendPrice: 20000
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherAkula
+  name: USSP Akula LPC [T1]
+  description: A small card that contains the data for the procurement of a Akula-class patrol vessel.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#b40505"
+    - state: screen5
+      color: "#b40505"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: USSP
+    companyName: USSP
+    vessels:
+    - Akula
+  - type: StaticPrice
+    vendPrice: 20000
+
+# end T1
+
+# start T2
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherDrakon
+  name: USSP Drakon LPC [T2]
+  description: A small card that contains the data for the procurement of an Drakon-class cruiser.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#b40505"
+    - state: screen4
+      color: "#b40505"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: USSP
+    companyName: USSP
+    vessels:
+    - Drakon
+  - type: StaticPrice
+    vendPrice: 600000
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherTayfun
+  name: USSP Tayfun LPC [T2]
+  description: A small card that contains the data for the procurement of an Tayfun-class cruiser.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#b40505"
+    - state: screen1
+      color: "#b40505"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: USSP
+    companyName: USSP
+    vessels:
+    - Tayfun
+  - type: StaticPrice
+    vendPrice: 600000
+
+# end T2
+
+# start T3
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherBuran
+  name: USSP Buran LPC [T3]
+  description: A small card that contains the data for the procurement of an Buran-class frigate.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#b40505"
+    - state: screen7
+      color: "#b40505"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 10800 # hour and 25 minutes
+    consoleType: USSP
+    companyName: USSP
+    vessels:
+    - Buran
+  - type: StaticPrice
+    vendPrice: 800000
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherSulak
+  name: USSP Sulak LPC [T3]
+  description: A small card that contains the data for the procurement of an Sulak-class destroyer.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#b40505"
+    - state: screen6
+      color: "#b40505"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 10800 # hour and 25 minutes
+    consoleType: USSP
+    companyName: USSP
+    vessels:
+    - Sulak
+  - type: StaticPrice
+    vendPrice: 800000
+
+# end T3
+
+# start T4
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherLedokol
+  name: USSP Ledokol LPC [T4]
+  description: A small card that contains the data for the procurement of a Ledokol-class assault transport.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#b40505"
+    - state: screen8
+      color: "#b40505"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 14400 # 2 hours
+    consoleType: USSP
+    companyName: USSP
+    vessels:
+    - Ledokol
+  - type: StaticPrice
+    vendPrice: 1000000
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherLedokolAttachment
+  name: USSP Ledokol attachment LPC [T4]
+  description: A small card that contains the data for the procurement of attachment modules for the Ledokol.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_fighter
+    - state: screen
+      color: "#b40505"
+    - state: screen8
+      color: "#b40505"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    cooldown: 1800 # thirty minutes
+    consoleType: Custom
+    companyName: USSP
+    vessels:
+    - Kopye
+    - Molotok
+    - Kupol
+  - type: StaticPrice
+    vendPrice: 50000
+
+# end T4

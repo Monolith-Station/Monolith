@@ -25,3 +25,21 @@
   - ClothingOuterHardsuitUsspM10USSP
   - ClothingModsuitUSSPVaryagUSSP
   - ClothingModsuitUSSPZastavnikUSSP
+
+- type: latheRecipePack
+  id: MonoUSSPVouchersDynamic
+  recipes:
+  - ShipVoucherUsspRemontnik
+  - ShipVoucherUsspAkula
+  - ShipVoucherUsspDrakon
+  - ShipVoucherUsspTayfun
+  - ShipVoucherUsspBuran
+  - ShipVoucherUsspSulak
+  - ShipVoucherUsspLedokol
+  - ShipVoucherUsspLedokolAttachment
+
+- type: latheRecipePack
+  id: MonoUSSPStatic
+  recipes:
+  - USSPTechfabMachineCircuitboard
+  - ShipVoucherUsspT0Recipe
