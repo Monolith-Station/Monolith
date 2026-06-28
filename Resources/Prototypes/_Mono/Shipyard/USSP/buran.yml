@@ -5,10 +5,12 @@
   parent: BaseVesselAntag
   name: VEF Buran
   description: USSP capital-sized frigate with tremendous broadside firepower and thick armor. Glory to commissariat.
+  limit: 2
   price: 320000
+  purchasable: false # voucher only
   category: Large
   group: Ussp
-  access: Mercenary
+  access: USSP
   shuttlePath: /Maps/_Mono/Shuttles/USSP/buran.yml
   guidebookPage: ShipyardNFROperation
   class:
