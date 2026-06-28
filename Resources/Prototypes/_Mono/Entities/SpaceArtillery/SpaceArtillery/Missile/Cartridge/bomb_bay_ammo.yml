@@ -216,7 +216,7 @@
     deleteAfterExplosion: false
     explosionType: Default
     maxIntensity: 25
-    intensitySlope: 25
+    intensitySlope: 1000
     totalIntensity: 25
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
