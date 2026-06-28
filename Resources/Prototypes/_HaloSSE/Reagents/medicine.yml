@@ -11,6 +11,9 @@
     Medicine:
       metabolismRate: 1
       effects:
+      - !type:AdjustReagent
+        reagent: BiofoamRemnants
+        amount: 0.75
       - !type:EvenHealthChange
         conditions:
         - !type:ReagentThreshold
@@ -60,3 +63,29 @@
         messages: ["reagent-effect-overdose1", "reagent-effect-overdose2", "reagent-effect-overdose3"]
         type: Local
         probability: 0.3
+
+- type: reagent
+  id: BiofoamRemnants
+  name: biofoam remnants
+  group: Medicine
+  desc: The remnants of biofoam use, can interfere with a fresh injection, causing an overdose.
+  physicalDesc: reagent-physical-desc-thick
+  flavor: powdery
+  color: "#edd9c0"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 4
+        damage:
+          types:
+            Blunt: 2
+            Asphyxiation: 2
+            Poison: 2
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.8
+        sprintSpeedModifier: 0.8

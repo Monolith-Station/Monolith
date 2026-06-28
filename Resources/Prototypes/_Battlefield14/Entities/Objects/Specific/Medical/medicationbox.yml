@@ -271,6 +271,44 @@
       amount: 2
 
 - type: entity
+  id: MedicationBoxSyrettesInaprovaline
+  parent: MedicationBoxBase
+  name: syrette box
+  suffix: Inaprovaline
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/medicationbox.rsi
+    layers:
+    - state: base
+    - state: overlay_stripe_purple
+    - state: overlay_ampuole
+  - type: Label
+    currentLabel: inaprovaline
+  - type: StorageFill
+    contents:
+    - id: BlisterPackSyretteInaprovaline
+      amount: 2
+
+- type: entity
+  id: MedicationBoxSyrettesDexalin
+  parent: MedicationBoxBase
+  name: syrette box
+  suffix: Dexalin
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/medicationbox.rsi
+    layers:
+    - state: base
+    - state: overlay_stripe_blue
+    - state: overlay_ampuole
+  - type: Label
+    currentLabel: dexalin
+  - type: StorageFill
+    contents:
+    - id: BlisterPackSyretteDexalin
+      amount: 2
+
+- type: entity
   id: MedicationBoxSyrettesMeralyne
   parent: MedicationBoxBase
   name: syrette box
@@ -325,6 +363,25 @@
   - type: StorageFill
     contents:
     - id: BlisterPackSyretteEpinephrine
+      amount: 2
+
+- type: entity
+  id: MedicationBoxSyrettesSaline
+  parent: MedicationBoxBase
+  name: syrette box
+  suffix: Saline
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/medicationbox.rsi
+    layers:
+    - state: base
+    - state: overlay_stripe_blue
+    - state: overlay_ampuole
+  - type: Label
+    currentLabel: saline
+  - type: StorageFill
+    contents:
+    - id: BlisterPackSyretteSaline
       amount: 2
 
 - type: entity
