@@ -106,6 +106,9 @@ uplink-security-t1-aldebaran-voucher-desc = A small card that contains the data 
 uplink-security-t2-andromeda-voucher-name = TSFMC Andromeda LPC [T2]
 uplink-security-t2-andromeda-voucher-desc = A small card that contains the data for the procurement of an Andromeda-class cruiser from the flagship's reserves.
 
+uplink-security-t2-spekter-voucher-name = TSFMC Spekter LPC [T2]
+uplink-security-t2-spekter-voucher-desc = A small card that contains the data for the procurement of an Spekter-class corvette from the flagship's reserves.
+
 uplink-security-t3-altair-voucher-name = TSFMC Altair LPC [T3]
 uplink-security-t3-altair-voucher-desc = A small card that contains the data for the procurement of an Altair-class frigate from the flagship's reserves.
 

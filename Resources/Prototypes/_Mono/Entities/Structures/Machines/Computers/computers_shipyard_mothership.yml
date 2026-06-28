@@ -63,9 +63,9 @@
     - QJ340
 
 - type: entity
-  id: LedokolAttatchmentComputer
+  id: LedokolAttachmentComputer
   parent: BaseCarrierComputer
-  name: ledokol attatchment console
+  name: ledokol attachment console
   components:
   - type: ShipyardListing
     shuttles:
@@ -93,7 +93,7 @@
     shuttles:
     - Hazel
     - Tethys
-    - SpyglassMKII
+    - Eris
   - type: Sprite
     sprite: _NF/Structures/Machines/computers.rsi
     layers:

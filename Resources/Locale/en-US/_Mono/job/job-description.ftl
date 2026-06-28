@@ -14,6 +14,6 @@ job-description-tsf-borg = Half-human, Half-machine. Follow your laws, serve the
 job-description-pdv-borg = Half-human, Half-machine. Follow your laws, serve the PDV, and beg dynasty troops for upgrades.
 
 # MARK: Viper Group
-job-description-vg-infanteer = Serve the Union in space. Follow orders from your superiors and spread socialist ideals throughout the cosmos.
-job-description-vg-lieutenant = Serve the Union in space. Follow orders from your superiors and spread socialist ideals throughout the cosmos.
-job-description-vg-commander = Serve the Union in space. Follow orders from your superiors and spread socialist ideals throughout the cosmos.
+job-description-vg-infanteer = Follow the orders from above. Complete contracts. Get paid.
+job-description-vg-lieutenant = Direct the infanteer detachments. Ensure standards are maintained. Attain prosperity and wealth.
+job-description-vg-commander = Lead the Vipers to glory and wealth. Forge new business relations. Show the sector that your fangs have not dulled.

@@ -10,17 +10,6 @@
   - USSPBackpack
 
 - type: loadoutGroup
-  id: USSPBackpackSergeant
-  name: loadout-group-contractor-backpack
-  minLimit: 1
-  loadouts:
-  - USSPModsuitUSSPVaryag
-  fallbacks:
-  - USSPBackpack
-  subgroups:
-  - USSPBackpack
-
-- type: loadoutGroup
   id: USSPBelt
   name: loadout-group-contractor-belt
   minLimit: 1
@@ -138,7 +127,6 @@
   name: loadout-group-contractor-head
   loadouts:
   - USSPOfficerCap
-  - ContractorClothingHeadHatUshanka
   subgroups:
   - USSPHead
 
