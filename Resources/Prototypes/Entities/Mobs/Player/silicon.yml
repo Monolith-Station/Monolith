@@ -489,9 +489,18 @@
   description: The latest in Artificial Intelligences.
   parent:
   - BaseStructure
-  - AiHolder
   suffix: Empty
   components:
+  - type: ItemSlots
+  - type: StationAiHolder
+    slot:
+      name: station-ai-mind-slot
+      locked: false
+      disableEject: true
+      whitelist:
+        tags:
+        - StationAi
+        - CanPilot # Mono
   - type: Anchorable
     flags:
     - Anchorable
@@ -500,6 +509,20 @@
   #  blacklist:
   #    tags:
   #    - GhostOnlyWarp
+  - type: ContainerContainer
+    containers:
+      station_ai_mind_slot: !type:ContainerSlot
+        showEnts: true
+        occludes: true
+      machine_board: !type:Container
+        showEnts: false
+        occludes: true
+      machine_parts: !type:Container
+        showEnts: false
+        occludes: true
+  - type: ContainerComp
+    proto: AiHeldXenoborg
+    container: station_ai_mind_slot
   - type: Destructible
     thresholds:
     - trigger:
