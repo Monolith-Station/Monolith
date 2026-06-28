@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/27/2026 19:42:40
-  entityCount: 1117
+  time: 06/28/2026 11:08:29
+  entityCount: 1118
 maps: []
 grids:
 - 1
@@ -229,9 +229,9 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
         Puddle: []
         MetalFoam: []
+        Smoke: []
         Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -6897,6 +6897,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 6.5,1.5
+      parent: 1
+  - uid: 1118
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,-4.5
       parent: 1
 - proto: WallArmorAddonSolidBrokenCornerL
   entities:
