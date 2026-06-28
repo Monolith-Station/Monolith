@@ -10,7 +10,7 @@ namespace Content.Client._Goobstation.Clothing;
 
 public sealed partial class ToggleableClothingRadialMenu : RadialMenu
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
 
     public event Action<EntityUid>? SendToggleClothingMessageAction;
 

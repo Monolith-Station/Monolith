@@ -64,7 +64,13 @@
   id: MonoGripErebusRailmount
 
 - type: Tag
+  id: MonoGripPistolMount
+
+- type: Tag
   id: MonoGripLAM
+
+- type: Tag
+  id: MonoGripLight
 
 - type: Tag
   id: MonoGripVFG
@@ -329,7 +335,16 @@
   id: WeaponShotgunBigBuddy
 
 - type: Tag
+  id: WeaponShotgunJack
+
+- type: Tag
+  id: JackShotgunBackpack
+
+- type: Tag
   id: ShellShotgun23x75mmBuckshot
+
+- type: Tag
+  id: Magazine4Gauge
 
 # 145x114mm tags
 
@@ -497,6 +512,12 @@
 - type: Tag
   id: MechIFFPDV
 
+- type: Tag
+  id: BorgIFFTSF
+
+- type: Tag
+  id: BorgIFFPDV
+
 # USSP Bounty
 
 - type: Tag
@@ -578,6 +599,12 @@
 
 - type: Tag
   id: USSPStamp
+
+# books
+
+- type: Tag
+  id: BookUSSPLaw
+
 # Multi-tile lathe board tags
 
 - type: Tag
@@ -642,3 +669,8 @@
 
 - type: Tag
   id: FactionStaticUplinkPdv
+
+# Viper Group stuff
+
+- type: Tag
+  id: WhitelistChameleonIdViperSpec

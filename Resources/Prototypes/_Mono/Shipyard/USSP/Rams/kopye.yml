@@ -21,7 +21,7 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Kopye MIL Ram{1}'
+          mapNameTemplate: 'Kopye USSP Ram{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

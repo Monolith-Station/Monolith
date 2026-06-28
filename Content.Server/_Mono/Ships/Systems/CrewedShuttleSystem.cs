@@ -9,9 +9,9 @@ namespace Content.Server._Mono.Ships.Systems;
 /// <summary>
 /// This handles ensuring a crewed shuttle is only piloted and gunned by two separate people.
 /// </summary>
-public sealed class CrewedShuttleSystem : EntitySystem
+public sealed partial class CrewedShuttleSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
     public bool AnyConsoleActiveByPlayer<T>(Entity<CrewedShuttleComponent?> shuttle, Enum key, EntityUid actor)  where T : IComponent
     {
         if (!Resolve(shuttle.Owner, ref shuttle.Comp, false))

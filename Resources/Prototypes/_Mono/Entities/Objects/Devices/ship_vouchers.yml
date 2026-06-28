@@ -67,6 +67,7 @@
     - Shiv
     - Syringe
     - Ocelot
+    - Jaguar
     - Tumour
 
 # start T1
@@ -223,8 +224,8 @@
 
 - type: entity
   parent: ShipVoucherTsfT0
-  id: ShipVoucherTsfT1Random
-  name: random TSF T1 LPC
+  id: ShipVoucherTsfT1
+  name: TSF T1 ship voucher
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -235,16 +236,18 @@
     - state: screen5
       color: "#05ffff"
       shader: unshaded
-  - type: RandomSpawner
-    offset: 0
-    deleteSpawnerAfterSpawn: true
-    prototypes:
-    - ShipVoucherSpica
-    - ShipVoucherDagger
-    - ShipVoucherTarantula
-    - ShipVoucherSentinel
-    - ShipVoucherMercury
-    - ShipVoucherAldebaran
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: Security
+    companyName: TSF
+    vessels:
+    - Aldebaran
+    - Tarantula
+    - Spica
+    - Mercury
+    - Sentinel
+    - Dagger
 
 # end T1
 
@@ -274,11 +277,36 @@
     - Andromeda
   - type: StaticPrice
     vendPrice: 600000
+    
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherSpekter
+  name: TSF spekter LPC
+  description: A small card that contains the data for the procurement of an Spekter-class missile corvette from the flagship's reserves.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#05ffff"
+    - state: screen1
+      color: "#05ffff"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: Security
+    companyName: TSF
+    vessels:
+    - Spekter
+  - type: StaticPrice
+    vendPrice: 300000
 
 - type: entity
   parent: ShipVoucherTsfT0
-  id: ShipVoucherTsfT2Random
-  name: random TSF T2 LPC
+  id: ShipVoucherTsfT2
+  name: TSF T2 ship voucher
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -289,11 +317,14 @@
     - state: screen2
       color: "#05ffff"
       shader: unshaded
-  - type: RandomSpawner
-    offset: 0
-    deleteSpawnerAfterSpawn: true
-    prototypes:
-    - ShipVoucherAndromeda
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: Security
+    companyName: TSF
+    vessels:
+    - Andromeda
+    - Spekter
 
 # end T2
 
@@ -382,7 +413,7 @@
     companyName: PDV
     vessels:
     - Hazel
-    - SpyglassMKII
+    - Eris
     - Tethys
     - Carrion
 
@@ -390,9 +421,9 @@
 
 - type: entity
   parent: BaseShipLPC
-  id: ShipVoucherHourglass
-  name: PDV Hourglass LPC [T1]
-  description: A small card that contains the data for the procurement of an Hourglass-class escort from the flagship's reserves.
+  id: ShipVoucherGarm
+  name: PDV Garm LPC [T1]
+  description: A small card that contains the data for the procurement of an Garm-class bomber from the flagship's reserves.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -409,7 +440,7 @@
     consoleType: BlackMarket
     companyName: PDV
     vessels:
-    - Hourglass
+    - Garm
   - type: StaticPrice
     vendPrice: 20000
 
@@ -515,8 +546,8 @@
 
 - type: entity
   parent: ShipVoucherPdvT0
-  id: ShipVoucherPdvT1Random
-  name: random PDV T1 LPC
+  id: ShipVoucherPdvT1
+  name: PDV T1 ship voucher
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -527,15 +558,17 @@
     - state: screen7
       color: "#1eff00"
       shader: unshaded
-  - type: RandomSpawner
-    offset: 0
-    deleteSpawnerAfterSpawn: true
-    prototypes:
-    - ShipVoucherNeptune
-    - ShipVoucherBastion
-    - ShipVoucherScorpion
-    - ShipVoucherFenrir
-    - ShipVoucherHourglass
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: BlackMarket
+    companyName: PDV
+    vessels:
+    - Scorpion
+    - Bastion
+    - Neptune
+    - Fenrir
+    - Garm
 
 # end T1
 
@@ -618,8 +651,8 @@
 
 - type: entity
   parent: ShipVoucherPdvT0
-  id: ShipVoucherPdvT2Random
-  name: random PDV T2 LPC
+  id: ShipVoucherPdvT2
+  name: PDV T2 ship voucher
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -630,13 +663,15 @@
     - state: screen7
       color: "#1eff00"
       shader: unshaded
-  - type: RandomSpawner
-    offset: 0
-    deleteSpawnerAfterSpawn: true
-    prototypes:
-    - ShipVoucherVulture
-    - ShipVoucherEuropa
-    - ShipVoucherMotleyAnne
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: BlackMarket
+    companyName: PDV
+    vessels:
+    - MotleyAnne
+    - Europa
+    - Vulture
 
 # end T2
 
@@ -898,3 +933,34 @@
     - Hound
   - type: StaticPrice
     vendPrice: 20000
+
+# Viper Group
+
+# Start T2
+
+- type: entity
+  parent: BaseShipLPC
+  id: ShipVoucherVGWolf
+  name: VG Wolfsnake LPC [T2]
+  description: A small card that contains the data for the procurement of a Wolfsnake-class cruiser from the station's reserves.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#8C191EFF"
+    - state: screen1
+      color: "#B42328FF"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # Two Hours.
+    consoleType: Viper
+    companyName: TheViperGroup
+    vessels:
+    - Wolfsnake
+  - type: StaticPrice
+    vendPrice: 325000
+
+# End T2

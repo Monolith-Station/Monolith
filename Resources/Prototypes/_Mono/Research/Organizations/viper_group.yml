@@ -1,3 +1,5 @@
+# T1
+
 - type: technology
   id: ViperGroupApparel
   name: research-technology-viper-group-apparel
@@ -13,6 +15,8 @@
   - UniversalMaterialResearchT1
   position: 14, 1
 
+# T2
+
 - type: technology
   id: ViperGroupHardsuitBasic
   name: research-technology-viper-group-basic
@@ -21,6 +25,7 @@
   tier: 2
   cost: 40000
   recipeUnlocks:
+  - ClothingOuterHardsuitViperGroupInitiate
   - ClothingOuterHardsuitViperGroupStandard
   - ClothingOuterHardsuitViperGroupMedic
   technologyPrerequisites:
@@ -39,4 +44,17 @@
   - ClothingOuterHardsuitViperGroupJuggernaut
   technologyPrerequisites:
   - ViperGroupHardsuitBasic
+  position: 15, 7
+
+- type: technology
+  id: ViperGroupShipyardAdvanced
+  name: research-technology-viper-group-shipyard-adv
+  entityIcon: ShipVoucherVGWolf
+  discipline: ViperGroup
+  tier: 2
+  cost: 60000
+  recipeUnlocks:
+  - ShipVoucherVGWolf
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
   position: 14, 8

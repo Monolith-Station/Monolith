@@ -3,6 +3,7 @@ using Content.Server.Administration;
 using Content.Server.Maps;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
+using Content.Shared.Maps;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
@@ -10,9 +11,9 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.GameTicking.Commands
 {
     [AdminCommand(AdminFlags.Round)]
-    sealed class ForceMapCommand : IConsoleCommand
+    sealed partial class ForceMapCommand : IConsoleCommand
     {
-        [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+        [Dependency] private IConfigurationManager _configurationManager = default!;
 
         public string Command => "forcemap";
         public string Description => Loc.GetString("forcemap-command-description");

@@ -1,0 +1,33 @@
+- type: job
+  id: VGCommander
+  name: job-name-vg-commander
+  description: job-description-vg-commander
+  playTimeTracker: JobVGCommander
+  whitelisted: true # I'm not certain who gets this.
+  startingGear: ViperRadioGear
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  icon: "JobIconVGCommander" # TODO - new USSP icons
+  supervisors: job-supervisors-vg-commander
+  canBeAntag: false
+  weight: 10 #Going off the info I was given, low weight as it's a company-whitelist role.
+  displayWeight: 52
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, ViperTrackingImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: MailDisabled
+    - type: SpecialSectorStationRecord
+      recordGeneration: FalseRecord
+    - type: NpcFactionMember
+      factions:
+      - VG
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - NovaCygniBasic
+    languagesUnderstood:
+    - NovaCygniBasic
+  accessGroups:
+  - GeneralAccess
+  - ViperHigh

@@ -15,8 +15,6 @@
     layers:
     - state: crypt_rusted
     - state: sec_label
-  - type: PirateBountyItem
-    id: EncryptionKeyFaction
 
 - type: entity
   parent: EncryptionKey
@@ -35,8 +33,6 @@
     layers:
     - state: crypt_blue
     - state: sec_label
-  - type: PirateBountyItem
-    id: EncryptionKeyFaction
 
 - type: entity
   parent: EncryptionKey
@@ -85,3 +81,39 @@
     #- Nfsd #Deliberately excluded: You don't command them
     #- Freelance
     defaultChannel: Command
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyViper
+  name: ViperGroup encryption key
+  description: An encryption key for the Viper Group tactical-level communications channel.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Viper
+    defaultChannel: Viper
+  - type: Item
+    sprite: _Mono/Objects/Devices/encryption_keys.rsi
+  - type: Sprite
+    sprite: _Mono/Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_red
+    - state: viper_label
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyFreeport
+  name: Freeport encryption key
+  description: A worn encryption key for Freeport communications, allowing the varied groups of Freeport to engage in diplomacy or yell insults, likely the latter.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Freeport
+    defaultChannel: Freeport
+  - type: Item
+    sprite: Objects/Devices/encryption_keys.rsi
+  - type: Sprite
+    sprite: Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_rusted
+    - state: cargo_label

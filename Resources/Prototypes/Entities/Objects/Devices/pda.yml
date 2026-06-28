@@ -38,15 +38,6 @@
       whitelist:
         tags:
         - Write
-    # Frontier: space law slot
-    bookSlot:
-      startingItem: HyperlinkBookSpaceLaw
-      priority: -2
-      whitelist:
-        tags:
-        - BookSpaceLaw
-        - BookNfsdSop
-    # End Frontier: space law slot
     idSlot:
       name: access-id-card-component-default
       ejectSound: /Audio/Machines/id_swipe.ogg
@@ -62,7 +53,6 @@
       PDA-id: !type:ContainerSlot {}
       PDA-pen: !type:ContainerSlot {}
       PDA-pai: !type:ContainerSlot {}
-      PDA-book: !type:ContainerSlot {} # Frontier
       Cartridge-Slot: !type:ContainerSlot {}
       program-container: !type:Container
   - type: ItemSlots

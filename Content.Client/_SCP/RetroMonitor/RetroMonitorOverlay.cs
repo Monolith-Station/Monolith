@@ -6,10 +6,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Scp.RetroMonitor;
 
-public sealed class RetroMonitorOverlay : Overlay
+public sealed partial class RetroMonitorOverlay : Overlay
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!; // Mono
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!; // Mono
     [Dependency] IEntityManager _entityManager = default!; // Mono
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;

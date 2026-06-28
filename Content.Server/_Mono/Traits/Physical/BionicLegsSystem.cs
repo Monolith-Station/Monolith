@@ -11,12 +11,12 @@ using Content.Shared.Standing;
 
 namespace Content.Server._Mono.Traits.Physical;
 
-public sealed class BionicLegsSystem : EntitySystem
+public sealed partial class BionicLegsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private SharedBodySystem _bodySystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
 
     public override void Initialize()
     {
