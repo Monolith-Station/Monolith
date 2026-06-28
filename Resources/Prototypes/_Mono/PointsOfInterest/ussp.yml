@@ -1,6 +1,6 @@
 # Author Info
-# GitHub: starch70
-# Discord: _starch_
+# GitHub: Corrupt142
+# Discord: Corrupt
 
 # Maintainer Info
 # GitHub: starch70 # By the way, why did that previous guy set the maint info to his own name?
@@ -11,7 +11,7 @@
 - type: pointOfInterest
   id: USSPCamelot
   parent: [BasePOI, BaseRepairablePOI]
-  name: 'Camelot Station'
+  name: 'Freeport Camelot'
   minimumDistance: 10650
   maximumDistance: 12400
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueUSSP, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
@@ -23,7 +23,7 @@
 
 - type: gameMap
   id: USSPCamelot
-  mapName: 'Camelot Station'
+  mapName: 'Freeport Camelot'
   mapPath: /Maps/_Mono/POI/camelot.yml
   minPlayers: 0
   stations:
@@ -33,10 +33,10 @@
         - type: VesselMusic
           ambientMusicPrototype: CamelotMusic
         - type: VesselInfo
-          description: "A rickety old station once the FOB of the USSP Naval Infantry in the Sector. Cold and dark, with a lingering smell of vodka."
+          description: "A rickety old station that has been cobbled together over many many cycles..."
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Camelot Station'
+          mapNameTemplate: 'Freeport Camelot'
         - type: ExtraStationInformation
           icon:
             sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
@@ -49,6 +49,9 @@
             USSPCommissar: [1, 1]
             USSPSergeant: [4, 4]
             USSPRifleman: [-1, -1]
+            VGCommander: [1, 1]
+            VGLieutenant: [2, 2]
+            VGInfanteer: [-1, -1]
             Contractor: [-1, -1]
             Pilot: [0, -1]
             Mercenary: [0, -1]
