@@ -5,6 +5,7 @@
   suffix: 81mm
   description: An 81mm battalion mortar. It offers a fairly moderate rate of fire, tolerable accuracy, and fires a wide variety of relatively inexpensive ammunition. Dont shoot straight up.
   components:
+  - type: InteractionOutline
   - type: Sprite
     sprite: _VXS14/Structures/mortar.rsi
     state: mortar
@@ -32,6 +33,9 @@
     graph: MortarNATOUS81mmM252
     node: MortarM252Deployed
     deconstructionTarget: start
+  - type: DisassembleOnAltVerb
+    prototype: MortarNATOUS81mmM252Assembly
+    doAfter: 3
   - type: ExtendDescription
     descriptionList:
       - description: Maximum range 80 meters.
@@ -61,6 +65,15 @@
     graph: MortarNATOUS81mmM252
     node: MortarM252Assembly
     deconstructionTarget: start
+  - type: SpawnAfterInteract
+    prototype: MortarNATOUS81mmM252
+    doAfter: 3
+    removeOnInteract: true
+  - type: ExtendDescription
+    descriptionList:
+      - description: Click a tile to place in the world.
+        color: "#4f94ad"
+        requireDetailRange: true
 
 - type: entity
   id: MortarPACTRU82mm2B14
@@ -69,6 +82,7 @@
   suffix: 82mm
   description: Another cold war classic that still sees use in the modern day, although the laws of physics have stayed the same since at least the 80's.
   components:
+  - type: InteractionOutline
   - type: Sprite
     sprite: _VXS14/Structures/mortar.rsi
     state: mortar
@@ -96,6 +110,9 @@
     graph: MortarPACTRU82mm2B14
     node: Mortar2B14Deployed
     deconstructionTarget: start
+  - type: DisassembleOnAltVerb
+    prototype: MortarPACTRU82mm2B14Assembly
+    doAfter: 3
   - type: ExtendDescription
     descriptionList:
       - description: Maximum range 80 meters.
@@ -125,3 +142,12 @@
     graph: MortarPACTRU82mm2B14
     node: Mortar2B14Assembly
     deconstructionTarget: start
+  - type: SpawnAfterInteract
+    prototype: MortarPACTRU82mm2B14
+    doAfter: 3
+    removeOnInteract: true
+  - type: ExtendDescription
+    descriptionList:
+      - description: Click a tile to place in the world.
+        color: "#4f94ad"
+        requireDetailRange: true

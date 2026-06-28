@@ -276,3 +276,20 @@
 #        maxDuration: 15.0
 #        startValue: 10.0
 #        endValue: 1.0
+
+- type: entity
+  id: ArtilleryMarker2B14Minelaying
+  name: artillery strike PFM-434 82mm minelaying
+  parent: ScatteringGrenadeBase
+  components:
+  - type: Sprite
+    sprite: /Textures/Objects/Fun/goldbikehorn.rsi
+    visible: false
+    state: icon
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
+  - type: ScatteringGrenade
+    fillPrototype: LandMinePFM1Item
+    capacity: 8
+    distance: 3
+    velocity: 3

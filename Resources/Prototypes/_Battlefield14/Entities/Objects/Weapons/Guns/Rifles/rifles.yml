@@ -83,6 +83,45 @@
         requireDetailRange: true
 
 - type: entity
+  parent: WeaponRifleUSM16A1
+  id: WeaponRifleUSM16A130
+  suffix: 30 round STANAG
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: carryhandle
+      - state: stock-full
+      - state: rifle-length-barrel-M16
+      - state: mag-30-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleSTANAG
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifleSTANAG
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle556x45
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle556x45
+  - type: MagazineVisuals
+    magState: mag-30
+    steps: 1
+    zeroVisible: true
+
+- type: entity
   name: M16A2
   parent: WeaponRifleUSM16A1
   id: WeaponRifleUSM16A2
