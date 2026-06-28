@@ -251,7 +251,7 @@
 - type: entity
   parent: BF14AutoInjectorCappedBase
   id: BF14AutoInjectorStormZCapped
-  suffix: Storm Z mix, capped
+  suffix: Storm-Z mix, capped
   components:
   - type: Sprite
     sprite: _Battlefield14/Objects/Specific/Medical/injector.rsi
@@ -263,12 +263,12 @@
     - id: BF14AutoinjectorCapRed
     - id: BF14AutoInjectorStormZ
   - type: Label
-    currentLabel: storm Z mix
+    currentLabel: storm-Z mix
 
 - type: entity
   parent: BF14AutoInjectorBase
   id: BF14AutoInjectorStormZ
-  suffix: StormZ mix
+  suffix: Storm-Z mix
   components:
   - type: SolutionContainerManager
     solutions:
@@ -279,5 +279,5 @@
           Quantity: 5
         - ReagentId: Meralyne
           Quantity: 5
-        - ReagentId: Biofoam
+        - ReagentId: Ephedrine
           Quantity: 5

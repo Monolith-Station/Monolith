@@ -203,6 +203,19 @@
           Quantity: 4
 
 - type: entity
+  parent: BF14SyretteBase
+  id: BF14SyretteDexalin
+  suffix: Dexalin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+        reagents:
+        - ReagentId: Dexalin
+          Quantity: 5
+
+- type: entity
   parent: BF14SyretteCappedBase
   id: BF14SyretteMeralyneCapped
   suffix: Meralyne, capped
@@ -258,6 +271,19 @@
           Quantity: 5
 
 - type: entity
+  parent: BF14SyretteBase
+  id: BF14SyretteSaline
+  suffix: Saline
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+        reagents:
+        - ReagentId: Saline
+          Quantity: 5
+
+- type: entity
   parent: BF14SyretteCappedBase
   id: BF14SyretteEpinephrineCapped
   suffix: Epinephrine, capped
@@ -289,26 +315,13 @@
 
 - type: entity
   parent: BF14SyretteBase
-  id: BF14SyretteSaline
-  suffix: Saline
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 5
-        reagents:
-        - ReagentId: Saline
-          Quantity: 5
-
-- type: entity
-  parent: BF14SyretteBase
   id: BF14SyretteHypervene
   suffix: Hypervene
   components:
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 5
+        maxVol: 3
         reagents:
         - ReagentId: Hypervene
           Quantity: 3 # 15u purge

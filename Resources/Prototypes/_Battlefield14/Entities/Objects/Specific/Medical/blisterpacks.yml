@@ -256,6 +256,26 @@
 
 - type: entity
   parent: BlisterPackSyrette
+  id: BlisterPackSyretteInaprovaline
+  suffix: Inaprovaline 5u, 5
+  components:
+  - type: StorageFill
+    contents:
+    - id: BF14SyretteInaprovaline
+      amount: 5
+
+- type: entity
+  parent: BlisterPackSyrette
+  id: BlisterPackSyretteDexalin
+  suffix: Dexalin 5u, 5
+  components:
+  - type: StorageFill
+    contents:
+    - id: BF14SyretteDexalin
+      amount: 5
+
+- type: entity
+  parent: BlisterPackSyrette
   id: BlisterPackSyretteMeralyne
   suffix: Meralyne 5u, 5
   components:
@@ -272,6 +292,16 @@
   - type: StorageFill
     contents:
     - id: BF14SyretteDermaline
+      amount: 5
+
+- type: entity
+  parent: BlisterPackSyrette
+  id: BlisterPackSyretteSaline
+  suffix: Saline 5u, 5
+  components:
+  - type: StorageFill
+    contents:
+    - id: BF14SyretteSaline
       amount: 5
 
 - type: entity
