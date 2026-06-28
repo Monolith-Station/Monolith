@@ -1,0 +1,40 @@
+#Author: Starch
+#Github: kasature90
+#Discord: _starch_
+
+- type: vessel
+  id: Spekter
+  parent: BaseVesselAntag
+  name: TSF-SKR Spekter # I would've liked to make this weakly armored & stealthy to fit the name, but there isn't really anything for that.
+  description: An averagely armored corvette with an armament focused on it's 3 torpedo mounts on both sides.
+  price: 195000 # appraises at 159k
+  purchasable: false # voucher only
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/spekter.yml
+  guidebookPage: ShipyardNFROperation
+  class:
+  - Pursuit
+  - Corvette
+  engine:
+  - NFR
+
+- type: gameMap
+  id: Spekter
+  mapName: 'Spekter'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/spekter.yml
+  minPlayers: 0
+  stations:
+    Spekter:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Spekter TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
