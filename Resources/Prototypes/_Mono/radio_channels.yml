@@ -42,3 +42,11 @@
   frequency: 1753
   color: "#ff4242" #Brighter color used for visual clarity.
   longRange: true
+
+- type: radioChannel
+  id: Freeport
+  name: chat-radio-freeport
+  keycode: 'o'
+  frequency: 1761
+  color: "#b87333"
+  longRange: true

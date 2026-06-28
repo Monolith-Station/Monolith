@@ -35,6 +35,7 @@
   priority: 6
   children:
   - USSP_Entry
+  - Viper_Group
 
 - type: guideEntry
   id: USSP_Entry
@@ -56,3 +57,9 @@
   name: Union of Soviet Socialist Planets
   text: "/ServerInfo/_Mono/Guidebook/Factions/USSP.xml"
   priority: 9
+
+- type: guideEntry
+  id: Viper_Group
+  name: The Viper Group
+  text: "/ServerInfo/_Mono/Guidebook/Factions/viper_group.xml"
+  priority: 11
