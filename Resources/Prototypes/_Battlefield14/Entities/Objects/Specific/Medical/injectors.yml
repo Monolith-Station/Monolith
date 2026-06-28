@@ -1,0 +1,283 @@
+#region Base
+- type: entity
+  parent: BaseItem
+  name: autoinjector
+  description: A mechanical, single use syringe.
+  id: BF14AutoInjectorBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/injector.rsi
+    layers:
+    - state: injector
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: Item
+    size: Tiny
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+  - type: ExaminableSolution
+    solution: pen
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 15
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: injector_e
+  - type: UseDelay
+    delay: 0.2
+  - type: Appearance
+  - type: TrashOnSolutionEmpty
+    solution: pen
+
+- type: entity
+  parent: BF14SyretteCappedBase
+  id: BF14AutoInjectorCappedBase
+  name: autoinjector
+  description: A mechanical, single use syringe. This one has a cap on it.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/injector.rsi
+    layers:
+    - state: injector
+    - state: cap_red
+  - type: SpawnItemsOnUse
+    items:
+    - id: BF14SyretteCapRed
+    - id: BF14SyretteInaprovaline
+    sound:
+      path: /Audio/Items/Handcuffs/rope_breakout.ogg
+      params:
+        variation: 0.125
+  - type: Item
+    size: Tiny
+  - type: ExtendDescription
+    descriptionList:
+      - description: Use in hand to remove cap.
+        color: "#4f94ad"
+        requireDetailRange: true
+
+- type: entity
+  parent: BF14SyretteCapBase
+  id: BF14AutoInjectorCapBase
+  name: autoinjector cap
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/injector.rsi
+    layers:
+    - state: cap_red
+
+- type: entity
+  parent: BF14AutoInjectorCapBase
+  id: BF14AutoinjectorCapRed
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/injector.rsi
+    layers:
+    - state: cap_red
+
+- type: entity
+  parent: BF14AutoInjectorCapBase
+  id: BF14AutoinjectorCapBlue
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/injector.rsi
+    layers:
+    - state: cap_blue
+
+- type: entity
+  parent: BF14AutoInjectorCapBase
+  id: BF14AutoinjectorCapGreen
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/injector.rsi
+    layers:
+    - state: cap_green
+
+- type: entity
+  parent: BF14AutoInjectorCapBase
+  id: BF14AutoinjectorCapYellow
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/injector.rsi
+    layers:
+    - state: cap_yellow
+
+#region Injectors start
+
+- type: entity
+  parent: BF14AutoInjectorCappedBase
+  id: BF14AutoInjectorBruteCapped
+  suffix: Brute mix, capped
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/injector.rsi
+    layers:
+    - state: injector
+    - state: cap_red
+  - type: SpawnItemsOnUse
+    items:
+    - id: BF14AutoinjectorCapRed
+    - id: BF14AutoInjectorBrute
+  - type: Label
+    currentLabel: brute mix
+
+- type: entity
+  parent: BF14AutoInjectorBase
+  id: BF14AutoInjectorBrute
+  suffix: Brute mix
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Bicaridine
+          Quantity: 7.5
+        - ReagentId: Meralyne
+          Quantity: 7.5
+
+- type: entity
+  parent: BF14AutoInjectorCappedBase
+  id: BF14AutoInjectorBurnCapped
+  suffix: Burn mix, capped
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/injector.rsi
+    layers:
+    - state: injector
+    - state: cap_yellow
+  - type: SpawnItemsOnUse
+    items:
+    - id: BF14AutoinjectorCapYellow
+    - id: BF14AutoInjectorBurn
+  - type: Label
+    currentLabel: burn mix
+
+- type: entity
+  parent: BF14AutoInjectorBase
+  id: BF14AutoInjectorBurn
+  suffix: Burn mix
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Kelotane
+          Quantity: 7.5
+        - ReagentId: Dermaline
+          Quantity: 7.5
+
+- type: entity
+  parent: BF14AutoInjectorCappedBase
+  id: BF14AutoInjectorMultispectrumCapped
+  suffix: Multi-spectrum, capped
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/injector.rsi
+    layers:
+    - state: injector
+    - state: cap_blue
+  - type: SpawnItemsOnUse
+    items:
+    - id: BF14AutoinjectorCapBlue
+    - id: BF14AutoInjectorMultispectrum
+  - type: Label
+    currentLabel: multi-spectrum
+
+- type: entity
+  parent: BF14AutoInjectorBase
+  id: BF14AutoInjectorMultispectrum
+  suffix: Multi-spectrum
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Tricordrazine
+          Quantity: 5
+        - ReagentId: Bicaridine
+          Quantity: 5
+        - ReagentId: Kelotane
+          Quantity: 5
+
+- type: entity
+  parent: BF14AutoInjectorCappedBase
+  id: BF14AutoInjectorEmergencyCapped
+  suffix: Emergency mix, capped
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/injector.rsi
+    layers:
+    - state: injector
+    - state: cap_blue
+  - type: SpawnItemsOnUse
+    items:
+    - id: BF14AutoinjectorCapBlue
+    - id: BF14AutoInjectorEmergency
+  - type: Label
+    currentLabel: emergency mix
+
+- type: entity
+  parent: BF14AutoInjectorBase
+  id: BF14AutoInjectorEmergency
+  suffix: Emergency mix
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Dexalin
+          Quantity: 5
+        - ReagentId: Inaprovaline
+          Quantity: 5
+        - ReagentId: Saline
+          Quantity: 5
+
+- type: entity
+  parent: BF14AutoInjectorCappedBase
+  id: BF14AutoInjectorStormZCapped
+  suffix: Storm Z mix, capped
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/injector.rsi
+    layers:
+    - state: injector
+    - state: cap_red
+  - type: SpawnItemsOnUse
+    items:
+    - id: BF14AutoinjectorCapRed
+    - id: BF14AutoInjectorStormZ
+  - type: Label
+    currentLabel: storm Z mix
+
+- type: entity
+  parent: BF14AutoInjectorBase
+  id: BF14AutoInjectorStormZ
+  suffix: StormZ mix
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Bicaridine
+          Quantity: 5
+        - ReagentId: Meralyne
+          Quantity: 5
+        - ReagentId: Biofoam
+          Quantity: 5

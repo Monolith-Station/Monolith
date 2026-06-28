@@ -38,7 +38,7 @@
         visualType: Medium
         messages: ["biofoam-effect-organrepair", "biofoam-effect-bodyrepair"]
         type: Local
-        probability: 0.05
+        probability: 0.2
       - !type:Jitter
       - !type:AdjustReagent
         conditions:
@@ -59,4 +59,4 @@
         visualType: MediumCaution
         messages: ["reagent-effect-overdose1", "reagent-effect-overdose2", "reagent-effect-overdose3"]
         type: Local
-        probability: 0.2
+        probability: 0.3
