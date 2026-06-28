@@ -42,11 +42,11 @@
     - MonoTSFMiscDynamic
     - MonoTSFGearDynamic
     # USSP start
-    - MonoUSSPArmorDynamic
-    - MonoUSSPMiscDynamic
-    - MonoUSSPWeaponsDynamicRanged
+    # - MonoUSSPArmorDynamic
+    # - MonoUSSPMiscDynamic
+    # - MonoUSSPWeaponsDynamicRanged
     # Viper Group start
-    - MonoViperGroupDynamic
+    # - MonoViperGroupDynamic
     # Universal shit (stuff like shipgun ammo)
     - UniversalRailgunAmmo
     - UniversalMissileAmmo
@@ -230,3 +230,123 @@
         enum.MicrowaveVisualizerLayers.BaseUnlit:
           True: { visible: true }
           False: { visible: false }
+
+#USSP
+
+- type: entity
+  id: USSPLathe
+  parent: BaseLatheLube
+  name: USSP field assembler
+  description: Capable of manufacturing equipment to USSP design specifications. Often issued throughout the Armed Forces to support the inherent industrial tendencies of its service members.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/techfab.rsi
+    layers:
+    - state: techfab-ussp
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: inserting
+      map: [ "enum.MaterialStorageVisualLayers.Inserting" ]
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: Machine
+    board: USSPTechfabMachineCircuitboard
+  - type: Lathe
+    producingSound: /Audio/Machines/circuitprinter.ogg
+    idleState: techfab-ussp
+    runningState: techfab-ussp
+    staticPacks:
+    - StaticAmmoRecipePack
+    - NFMercenaryTechfabDeprecatedStatic
+    - RoundstartShipgunAmmo
+    - MonoAttachmentsStatic
+    - MonoUSSPStatic
+    dynamicPacks:
+    # USSP start
+    - MonoUSSPArmorDynamic
+    - MonoUSSPMiscDynamic
+    - MonoUSSPWeaponsDynamicRanged
+    # Universal shit (stuff like shipgun ammo)
+    - UniversalRailgunAmmo
+    - UniversalMissileAmmo
+    - UniversalShellAmmo
+    - UniversalOrdinance
+    - DynamicAmmoRecipePack
+    - NFMercenaryTechfabDeprecated
+    # Civ military tech
+    - ResearchedExplosives
+    - SecurityEquipment
+    - SmartGun
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: RequireProjectileTarget
+
+- type: entity
+  id: USSPLatheImmmovable
+  parent: [USSPLathe, BaseStructureDisableToolUse]
+  suffix: IMMOVABLE
+
+# Viper Group
+
+- type: entity
+  id: ViperLathe
+  parent: BaseLatheLube
+  name: Viper Group precision lathe
+  description: Capable of producing equipment to Viper Group standards. The parts making up the lathe are stamped with the logos of long-forgotten brands from the corporate era.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/techfab.rsi
+    layers:
+    - state: techfab-viper
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: VGTechfabMachineCircuitboard
+  - type: Lathe
+    producingSound: /Audio/Machines/circuitprinter.ogg
+    idleState: techfab-viper
+    runningState: techfab-viper
+    staticPacks:
+    - StaticAmmoRecipePack
+    - NFMercenaryTechfabDeprecatedStatic
+    - RoundstartShipgunAmmo
+    - MonoAttachmentsStatic
+    - MonoViperGroupStatic
+    dynamicPacks:
+    # Viper Group start
+    - MonoViperGroupDynamic
+    # Universal shit (stuff like shipgun ammo)
+    - UniversalRailgunAmmo
+    - UniversalMissileAmmo
+    - UniversalShellAmmo
+    - UniversalOrdinance
+    - DynamicAmmoRecipePack
+    - NFMercenaryTechfabDeprecated
+    # Civ military tech
+    - ResearchedExplosives
+    - SecurityEquipment
+    - SmartGun
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: RequireProjectileTarget
+
+- type: entity
+  id: ViperLatheImmmovable
+  parent: [ViperLathe, BaseStructureDisableToolUse]
+  suffix: IMMOVABLE

@@ -12,8 +12,8 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
-  id: ShipVoucherTsfT1RandomRecipe
-  result: ShipVoucherTsfT1Random
+  id: ShipVoucherTsfT1Recipe
+  result: ShipVoucherTsfT1
   completetime: 50
   materials:
     Steel: 10000
@@ -28,8 +28,8 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
-  id: ShipVoucherTsfT2RandomRecipe
-  result: ShipVoucherTsfT2Random
+  id: ShipVoucherTsfT2Recipe
+  result: ShipVoucherTsfT2
   completetime: 100
   materials:
     Steel: 10000
@@ -91,8 +91,8 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
-  id: ShipVoucherPdvT1RandomRecipe
-  result: ShipVoucherPdvT1Random
+  id: ShipVoucherPdvT1Recipe
+  result: ShipVoucherPdvT1
   completetime: 50
   materials:
     Steel: 10000
@@ -107,8 +107,8 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
-  id: ShipVoucherPdvT2RandomRecipe
-  result: ShipVoucherPdvT2Random
+  id: ShipVoucherPdvT2Recipe
+  result: ShipVoucherPdvT2
   completetime: 100
   materials:
     Steel: 10000
