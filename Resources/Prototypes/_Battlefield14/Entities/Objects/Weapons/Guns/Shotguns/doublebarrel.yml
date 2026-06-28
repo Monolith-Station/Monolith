@@ -67,3 +67,24 @@
   - type: Tag
     tags:
     - WeaponShotgunKammerer
+
+- type: entity
+  name: MP-43-C1
+  parent: [BaseWeaponDoubleBarrel, BaseGunWieldable]
+  id: WeaponShotgunRUMP43C1
+  description: A classic double barrel shotgun, its simple, elegant and cheap. Made by Baikal formerly IZHMEKH.
+  components:
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Gun
+    fireRate: 4 # the real one can be fired quickly also like its got 2 shells.. and shotguns fucking suck....
+  - type: GunSpreadModifier
+    spread: 0.6
+  - type: Tag
+    tags:
+    - WeaponShotgunKammerer
+  - type: Item
+    sprite: _Battlefield14/Objects/Weapons/Guns/Shotguns/MP43C1.rsi
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Shotguns/MP43C1.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Shotguns/MP43C1.rsi
