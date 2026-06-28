@@ -55,6 +55,56 @@
       amount: 3
 
 - type: entity
+  parent: PouchMagsLarge
+  id: PouchMagsLargeFilledSTANAG
+  suffix: Filled, STANAG
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineRifleSTANAG
+      amount: 4
+
+- type: entity
+  parent: PouchMags
+  id: PouchMagsFilledSTANAGShort
+  suffix: Filled, STANAG Short
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineRifleSTANAGShort
+      amount: 3
+
+- type: entity
+  parent: PouchMagsLarge
+  id: PouchMagsLargeFilledSTANAGShort
+  suffix: Filled, STANAG Short
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineRifleSTANAGShort
+      amount: 4
+
+- type: entity
+  parent: PouchMags
+  id: PouchMagsFilledAK74
+  suffix: Filled, AK74
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineRifleAK74
+      amount: 3
+
+- type: entity
+  parent: PouchMagsLarge
+  id: PouchMagsLargeFilledAK74
+  suffix: Filled, AK74
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineRifleAK74
+      amount: 4
+
+- type: entity
   parent: PouchMagsPistolLarge
   id: PouchMagsPistolLargeFilledMP5
   suffix: Filled, MP5

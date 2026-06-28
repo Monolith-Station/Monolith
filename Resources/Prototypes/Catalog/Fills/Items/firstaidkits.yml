@@ -113,12 +113,12 @@
       - id: MedicatedSuture
       - id: RegenerativeMesh
       - id: HandheldHealthAnalyzerUnpowered #BF14
-      - id: BlisterPackSyretteMeralyne # BF14
-      - id: BlisterPackSyretteDermaline # BF14
-      - id: BlisterPackTricordrazine # BF14
       - id: SyringeEphedrine
       - id: SyringeSaline
+      - id: BF14AutoInjectorBruteCapped # BF14
+      - id: BF14AutoInjectorBurnCapped # BF14
       - id: BF14SyretteInaprovalineCapped # BF14
+      - id: BlisterPackTricordrazine # BF14
 
 - type: entity
   id: StimkitFilled
