@@ -188,6 +188,34 @@
 
 - type: entity
   parent: BaseNFFlatpack
+  id: USSPLatheFlatpack
+  name: ussp field assembler flatpack
+  description: A flatpack used for constructing a techfab for manufacturing USSP-specific recipes.
+  components:
+  - type: Flatpack
+    entity: USSPLathe
+  - type: StaticPrice
+    vendPrice: 26250 #1.75x the price of a Mercenary fab.
+  - type: Sprite
+    layers:
+    - state: science_server
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: ViperLatheFlatpack
+  name: Viper precision flatpack
+  description: A flatpack used for constructing a techfab for manufacturing faction-specific recipes.
+  components:
+  - type: Flatpack
+    entity: FactionLathe
+  - type: StaticPrice
+    vendPrice: 26250 #1.75x the price of a Mercenary fab.
+  - type: Sprite
+    layers:
+    - state: science_server
+
+- type: entity
+  parent: BaseNFFlatpack
   id: MedicalAssemblerFlatpack
   name: medical assembler flatpack
   description: A flatpack used for constructing a medical assembler.
@@ -320,7 +348,7 @@
   - type: StaticPrice
     price: 4000
     vendPrice: 10000
-    
+
 - type: entity
   parent: MedicalTechFabFlatpack
   id: ChemMasterFilledFlatpack
