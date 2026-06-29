@@ -1,0 +1,76 @@
+- type: entity
+  id: WeaponTurretPaladin
+  name: MLRS-382 "Paladin" Missile Pod
+  parent:
+  - BallisticArtilleryUnanchorableMagazine
+  - BallisticArtilleryTier4HP
+  description: Heavy missile pod firing 250mm guided rockets in bursts of 4.
+  suffix: Large, T4
+  components:
+  - type: StaticPrice
+    price: 24500
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/paladin.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: GunSignalControl
+  - type: Gun
+    selectedMode: Burst
+    availableModes: Burst
+    burstCooldown: 5
+    burstFireRate: 3
+    shotsPerBurst: 4
+    fireRate: 0.8
+    recoil: 12
+    minAngle: 0
+    maxAngle: 0
+    shootThermalSignature: 16000000
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: Actions
+  - type: SpaceArtillery
+    powerChargeRate: 350
+    powerUsePassive: 600
+    powerUseActive: 0
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: PaladinMagazine
+        insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - PaladinMagazine
+        whitelistFailPopup: gun-magazine-whitelist-fail
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 3
+    visibleFromOtherGrids: true
+  - type: ShipGunType
+    shipType: Missile
+  - type: ShipGunClass
+    shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 100
+    repairCost: 230
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.75,-0.75,0.75,0.75"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer

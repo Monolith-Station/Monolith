@@ -43,3 +43,18 @@
   parent: BaseMissileShipgunAmmoRecipe
   id: VanykMagazineAmmoRecipe
   result: VanykMagazine
+
+- type: latheRecipe
+  parent: BaseHeavyMissileShipgunAmmoRecipe
+  id: PaladinMagazineAmmoRecipe
+  result: PaladinMagazine
+
+- type: latheRecipe
+  parent: BaseHeavyMissileShipgunAmmoRecipe
+  id: PaladinMagazineEMPHEAmmoRecipe
+  result: PaladinMagazineEMPHE
+
+- type: latheRecipe
+  parent: BaseHeavyMissileShipgunAmmoRecipe
+  id: VanquisherMagazineAmmoRecipe
+  result: VanquisherMagazine
