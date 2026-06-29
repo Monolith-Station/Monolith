@@ -4,7 +4,7 @@
   id: Kalisto
   parent: BaseVesselAntag
   name: BT-Y Kalisto
-  description: A quick and mass produced corvette, armed with a leviatan 520mm cannon in its maw and 3 vanyks on its left side, along with some PD.
+  description: A quick and mass produced corvette, armed with a leviatan 520mm cannon in its maw and 3x DRAVON 90mm autocannons on its left side, along with some PD.
   price: 150750
   purchasable: false # voucher only
   category: Medium
@@ -16,7 +16,7 @@
   - Pirate
   - Corvette
   engine:
-  - bananium
+  - Bananium
 
 - type: gameMap
   id: Kalisto
@@ -27,7 +27,7 @@
     Kalisto:
       gridComponents:
       - type: VesselInfo
-        description: "Cramped, and dirty. This can only end well..."
+        description: "Cramped and dirty. This can only end well..."
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
