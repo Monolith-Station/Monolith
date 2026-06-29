@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/01/2026 14:07:39
-  entityCount: 3263
+  time: 03/01/2026 01:38:58
+  entityCount: 3273
 maps: []
 grids:
 - 1
@@ -140,8 +140,13 @@ entities:
       fixtures: {}
     - type: OccluderTree
     - type: SpreaderGrid
+      spreadQueues:
+        Smoke: []
+        MetalFoam: []
+        Kudzu: []
+        Puddle: []
     - type: Shuttle
-      dampingModifier: 0.25
+      dampingModifier: 0.30
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -3710,6 +3715,42 @@ entities:
     components:
     - type: Transform
       pos: 0.6381216,34.762974
+      parent: 1
+- proto: BroadswordCentralElectronics
+  entities:
+  - uid: 2740
+    components:
+    - type: Transform
+      pos: -5.535013,4.594722
+      parent: 1
+  - uid: 2913
+    components:
+    - type: Transform
+      pos: 4.3805323,4.6941795
+      parent: 1
+- proto: BroadswordPeripheralsElectronics
+  entities:
+  - uid: 2972
+    components:
+    - type: Transform
+      pos: -5.3778667,4.450056
+      parent: 1
+  - uid: 3269
+    components:
+    - type: Transform
+      pos: 4.4890594,4.540472
+      parent: 1
+- proto: BroadswordTargetingElectronics
+  entities:
+  - uid: 3270
+    components:
+    - type: Transform
+      pos: -5.3778667,4.6941795
+      parent: 1
+  - uid: 3271
+    components:
+    - type: Transform
+      pos: 4.5433235,4.8388453
       parent: 1
 - proto: ButtonFrameCaution
   entities:
@@ -8937,18 +8978,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerCriminalRecords
-  entities:
-  - uid: 1064
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,15.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
 - proto: ComputerEliteRadar
   entities:
   - uid: 1065
@@ -8992,6 +9021,18 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
+- proto: ComputerIFF
+  entities:
+  - uid: 1069
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,21.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
 - proto: ComputerShuttle
   entities:
   - uid: 1068
@@ -9005,11 +9046,11 @@ entities:
       startingCharge: 0
 - proto: ComputerStationRecords
   entities:
-  - uid: 1069
+  - uid: 1064
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 0.5,21.5
+      rot: -1.5707963267948966 rad
+      pos: 2.5,15.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -13734,6 +13775,20 @@ entities:
     - type: Transform
       pos: -10.5,13.5
       parent: 1
+- proto: HalberdChassis
+  entities:
+  - uid: 2472
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5367937,3.5911055
+      parent: 1
+  - uid: 2733
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.46783,3.6001468
+      parent: 1
 - proto: HarmonicaInstrument
   entities:
   - uid: 1261
@@ -14036,6 +14091,18 @@ entities:
     components:
     - type: Transform
       pos: -4.809992,34.712753
+      parent: 1
+- proto: MechIFFTSF
+  entities:
+  - uid: 3272
+    components:
+    - type: Transform
+      pos: -4.7948103,4.6670547
+      parent: 1
+  - uid: 3273
+    components:
+    - type: Transform
+      pos: 3.9506679,4.7484293
       parent: 1
 - proto: MedicalBed
   entities:
@@ -20792,7 +20859,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -13.5,17.5
       parent: 1
-- proto: WeaponTurretHades
+- proto: WeaponTurretDymere
   entities:
   - uid: 2332
     components:
@@ -20800,6 +20867,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: -8.5,30.5
       parent: 1
+  - uid: 2335
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,30.5
+      parent: 1
+- proto: WeaponTurretHades
+  entities:
   - uid: 2333
     components:
     - type: Transform
@@ -20812,12 +20887,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -4.5,49.5
       parent: 1
-  - uid: 2335
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 7.5,30.5
-      parent: 1
 - proto: WeaponTurretHeavyTSFMC
   entities:
   - uid: 2846
@@ -20828,6 +20897,12 @@ entities:
       parent: 1
 - proto: WeaponTurretL85Autocannon
   entities:
+  - uid: 1167
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,25.5
+      parent: 1
   - uid: 2336
     components:
     - type: Transform
@@ -20838,17 +20913,25 @@ entities:
     - type: Transform
       pos: -3.5,-4.5
       parent: 1
-  - uid: 2913
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -10.5,25.5
-      parent: 1
-  - uid: 2972
+  - uid: 2350
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 9.5,25.5
+      parent: 1
+- proto: WeaponTurretScylla
+  entities:
+  - uid: 2351
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,59.5
+      parent: 1
+  - uid: 2440
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,59.5
       parent: 1
 - proto: WeaponTurretType54
   entities:
@@ -20913,20 +20996,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -22.5,9.5
-      parent: 1
-- proto: WeaponTurretVespera
-  entities:
-  - uid: 2350
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,59.5
-      parent: 1
-  - uid: 2351
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.5,59.5
       parent: 1
 - proto: WindoorSecure
   entities:

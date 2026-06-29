@@ -165,6 +165,73 @@
     vendPrice: 42300
 
 - type: entity
+  name: GS-004-A Jack (4 gauge)
+  parent: [BaseItem, BaseGunWieldable]
+  id: WeaponShotgunJack
+  description: An incredibly heavy burst fire 23x75mm shotgun that loads from a belt and a specialized backpack.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/jack.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/jack_inhands_32x.rsi
+    shape:
+    - 0,0,4,3
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: WieldDelay
+    baseDelay: 2
+    modifiedDelay: 2
+    preventFiring: true
+  - type: Gun
+    damageModifier: 0.65
+    minAngle: 35 # Might need increasing for slugs.
+    maxAngle: 60
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 0.2
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    burstCooldown: 4
+    burstFireRate: 4.5
+    shotsPerBurst: 3
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
+  - type: GunSpreadModifier
+    spread: 1.5
+  - type: LaserPointer
+    targetedColor: "#FF0000"
+    defaultColor: "#FF0000"
+  - type: AmmoCounter
+  - type: StaticPrice
+    price: 5000
+    vendPrice: 42300
+  - type: ItemTax
+    taxAccounts:
+      nfsd: 0.2
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/jack_inhands_32x.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: ClothingSlotAmmoProvider
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+      - JackShotgunBackpack
+  - type: Tag
+    tags:
+    - WeaponShotgunJack
+
+
+- type: entity
   name: UW12-B Helepolis (12 gauge)
   parent: BaseWeaponShotgun
   id: WeaponShotgunHelepolis

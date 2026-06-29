@@ -63,9 +63,9 @@
     - QJ340
 
 - type: entity
-  id: LedokolAttatchmentComputer
+  id: LedokolAttachmentComputer
   parent: BaseCarrierComputer
-  name: ledokol attatchment console
+  name: ledokol attachment console
   components:
   - type: ShipyardListing
     shuttles:

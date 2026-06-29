@@ -1,1 +1,56 @@
+- type: technology
+  id: UsspBasicShips
+  name: research-technology-ussp-ships-basic
+  entityIcon: ShipVoucherUSSPT0
+  discipline: Ussp
+  tier: 1
+  cost: 45000
+  recipeUnlocks:
+  - ShipVoucherUsspRemontnik
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, 4
 
+- type: technology
+  id: UsspMediumShips
+  name: research-technology-ussp-ships-medium
+  entityIcon: ShipVoucherDrakon
+  discipline: Ussp
+  tier: 2
+  cost: 65000
+  recipeUnlocks:
+  - ShipVoucherUsspAkula
+  - ShipVoucherUsspDrakon
+  - ShipVoucherUsspTayfun
+  technologyPrerequisites:
+  - UsspBasicShips
+  position: 12, 9
+
+- type: technology
+  id: UsspAdvancedShips
+  name: research-technology-ussp-ships-advanced
+  entityIcon: ShipVoucherBuran
+  discipline: Ussp
+  tier: 3
+  cost: 95000
+  recipeUnlocks:
+  - ShipVoucherUsspBuran
+  - ShipVoucherUsspSulak
+  technologyPrerequisites:
+  - UsspMediumShips
+  - UniversalMaterialResearchT3
+  position: 12, 14
+
+- type: technology
+  id: UsspLedokol
+  name: research-technology-ussp-ships-ledokol
+  entityIcon: ShipVoucherLedokol
+  discipline: Ussp
+  tier: 3
+  cost: 100000
+  recipeUnlocks:
+  - ShipVoucherUsspLedokol
+  - ShipVoucherUsspLedokolAttachment
+  technologyPrerequisites:
+  - UsspAdvancedShips
+  position: 12, 15
