@@ -950,6 +950,18 @@
     - state: icon_capital
     - state: screen
       color: "#8C191EFF"
+    - state: screen1
+      color: "#B42328FF"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # Two Hours.
+    consoleType: Viper
+    companyName: TheViperGroup
+    vessels:
+    - Wolfsnake
+  - type: StaticPrice
+    vendPrice: 325000
 
 # End T2
 

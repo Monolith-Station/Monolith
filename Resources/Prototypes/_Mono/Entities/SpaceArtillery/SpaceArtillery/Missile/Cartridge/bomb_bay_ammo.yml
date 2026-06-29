@@ -193,7 +193,7 @@
       types:
         Structural: 15000
         Piercing: 1500
-    penetrationThreshold: 20000
+    penetrationThreshold: 5000
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/quasar.rsi
     layers:
@@ -213,6 +213,7 @@
     energy: 2
   - type: ExplodeOnTrigger
   - type: Explosive
+    deleteAfterExplosion: false
     explosionType: Default
     maxIntensity: 25
     intensitySlope: 1000
