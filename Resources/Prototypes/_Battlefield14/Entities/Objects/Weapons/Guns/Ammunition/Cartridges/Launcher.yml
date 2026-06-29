@@ -1,4 +1,4 @@
-## US
+##region US
 # SMAW
 
 - type: entity
@@ -67,6 +67,53 @@
   - type: Appearance
   - type: SpentAmmoVisuals
 
+##region DE
+# PZF-3
+
+- type: entity
+  id: CartridgePZF3HEAT
+  name: "Panzerfaust-3 launch tube (HEAT)"
+  parent: BaseCartridge
+  description: Pierces and does damage on the inside, I.E. through walls or armour.
+  components:
+  - type: Item
+    size: Large
+  - type: Tag
+    tags:
+    - CartridgeLauncher
+    - CartridgePZF3
+  - type: CartridgeAmmo
+    proto: BulletRocket84mmHEATArmingDistance
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Launcher/Panzerfaust3.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: CartridgePZF3HE
+  name: "Panzerfaust-3 launch tube 'bunkerfaust' (HE)"
+  parent: BaseCartridge
+  description: Detonates on contact and sends fragments everywhere with a wide explosion for killing infantry.
+  components:
+  - type: Item
+    size: Large
+  - type: Tag
+    tags:
+    - CartridgeLauncher
+    - CartridgePZF3
+  - type: CartridgeAmmo
+    proto: BulletRocket83mmNEArmingDistance
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Launcher/Panzerfaust3.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
 ## RU
 # RPG-7
 
@@ -74,7 +121,7 @@
   id: CartridgeRPG7HEAT
   name: "RPG-7 rocket (PG-7VL)"
   parent: BaseCartridge
-  description: High explosive anti armour, pierces and does damage on the inside, like HEAT.
+  description: Pierces and does damage on the inside, I.E. through walls or armour.
   components:
   - type: Item
     size: Large

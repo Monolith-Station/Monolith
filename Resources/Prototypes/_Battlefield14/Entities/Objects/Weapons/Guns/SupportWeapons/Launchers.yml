@@ -103,7 +103,7 @@
   abstract: true
   components:
   - type: UseDelay
-    delay: 2.5
+    delay: 1.75
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -112,8 +112,8 @@
     walkModifier: 0.70
     sprintModifier: 0.70
   - type: WieldDelay
-    baseDelay: 2.5
-    modifiedDelay: 2.5
+    baseDelay: 1.75
+    modifiedDelay: 1.75
     preventFiring: true
   - type: WieldedCrosshair
     rsi:
@@ -324,6 +324,53 @@
   - type: BasicEntityAmmoProvider
     proto: BulletRocketStingerMANPADSMissile
     capacity: 1
+
+#region DE
+
+- type: entity
+  name: Panzerfaust 3
+  parent: [ BaseWeaponLauncher , BaseGunWieldable, WeaponHandlingLauncher ]
+  id: WeaponLauncherDEPZF3
+  description: A cold-war era rocket-launcher, replacing the carl-gustav for the west german bundeswehr, to destroy WARPACT armoured vehicles. May it finally strike its target today.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Launchers/Panzerfaust3.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-2
+        visible: false
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Launchers/Panzerfaust3.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    projectileSpeed: 40
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+  - type: BallisticAmmoProvider
+    autoCycle: true # This won't work like it would in real-life because of BULLSHIT!!!
+    whitelist:
+      tags:
+        - CartridgePZF3
+    proto: CartridgePZF3HEAT
+    capacity: 1
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: GunRequiresWield
+  - type: AmmoCounter
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+  - type: EyeCursorOffset
+  - type: CursorOffsetRequiresWield
+    maxOffset: 5
+    pvsIncrease: 0.35
 
 #region RU
 
