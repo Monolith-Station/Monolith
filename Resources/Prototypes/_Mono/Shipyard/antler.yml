@@ -1,0 +1,43 @@
+# Author Info
+# GitHub: mrrpip
+# Discord: Skye1803
+
+# Shuttle Notes:
+# Essentially a stand-in for the recently USSP locked Strayk.
+
+- type: vessel
+  id: Antler
+  parent: BaseVessel
+  name: GS-501 "Antler"
+  description: Generic Systems' latest vessel, the 501 is a Trident baring vessel attempting to supplant the Strayk as the mercenary's choice in torpedo. Comes with custom wiring.
+  price: 56250 # markup 25% from 45000.
+  category: Small
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/antler.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Fighter
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Antler
+  mapName: 'GS-501 Antler'
+  mapPath: /Maps/_Mono/Shuttles/antler.yml
+  minPlayers: 0
+  stations:
+    Antler:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'GS-501 MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]
