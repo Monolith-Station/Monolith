@@ -1,0 +1,44 @@
+# Author Info
+# GitHub: Mrrpip
+# Discord: Skye#1803.
+
+# Shuttle Notes: Based off Ratgore's wolf by Fleshangel (discord)
+#
+- type: vessel
+  id: Wolfsnake
+  parent: BaseVessel
+  name: VG Wolfsnake
+  description: A heavy duty artillery platform outsourced to GS. Comes with a massive cannon from the corporate wars.
+#  limit: 3 --- Not sure. Will await review.
+  price: 161093
+  purchasable: false # Voucher only
+  category: Large
+  group: Viper
+  access: Viper
+  shuttlePath: /Maps/_Mono/Shuttles/Viper/wolfsnake.yml
+  guidebookPage: Null
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Wolfsnake
+  mapName: 'VG Wolfsnake'
+  mapPath: /Maps/_Mono/Shuttles/Viper/wolfsnake.yml
+  minPlayers: 0
+  stations:
+    Wolfsnake:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Wolfsnake MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            VGInfanteer: [ 0, 0 ]
+            VGLieutenant: [ 0, 0 ]
+            VGCommander: [ 0, 0 ]
