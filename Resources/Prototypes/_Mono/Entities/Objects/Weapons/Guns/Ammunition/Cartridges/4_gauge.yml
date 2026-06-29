@@ -20,11 +20,11 @@
       params:
         variation: 0.06
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/4_gauge_shell.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
     layers:
       - state: base
         map: [ "enum.AmmoVisualLayers.Base" ]
-    scale: 0.65, 0.65
+    scale: 1.2, 1.2
   - type: Appearance
   - type: SpentAmmoVisuals
   - type: StaticPrice
@@ -55,12 +55,12 @@
   components:
   - type: Sprite
     layers:
-      - state: dozd
+      - state: flare
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: Pellet23x75mmDozdSpread
   - type: SpentAmmoVisuals
-    state: "dozd"
+    state: "flare"
 
 - type: entity
   id: ShellShotgun23x75mmSlug
@@ -159,12 +159,12 @@
     - ShellShotgun23x75mmBuckshot
   - type: Sprite
     layers:
-      - state: flashbang
+      - state: flare
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: Pellet23x75mmFlashbang
   - type: SpentAmmoVisuals
-    state: "flashbang"
+    state: "flare"
 
 # Mono AP syst
 #anti-flesh:
@@ -188,12 +188,12 @@
   components:
   - type: Sprite
     layers:
-      - state: RIP
+      - state: base
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: Pellet23x75mmSlugRIP
   - type: SpentAmmoVisuals
-    state: "RIP"
+    state: "base"
 
 #armor-piercing:
 - type: entity
@@ -203,12 +203,12 @@
   components:
   - type: Sprite
     layers:
-      - state: slug-AP
+      - state: blank
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: Pellet23x75mmSlugAP
   - type: SpentAmmoVisuals
-    state: "slug-AP"
+    state: "blank"
 
 - type: entity
   id: ShellShotgun23x75mmFlechette
@@ -217,9 +217,9 @@
   components:
   - type: Sprite
     layers:
-      - state: flechette
+      - state: slug
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: Pellet23x75mmFlechetteSpread
   - type: SpentAmmoVisuals
-    state: "flechette"
+    state: "slug"

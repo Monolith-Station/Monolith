@@ -18,15 +18,14 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._Mono.AmmoLoader;
 
-public sealed class AmmoLoaderSystem : EntitySystem
+public sealed partial class AmmoLoaderSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private GunSystem _gun = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -388,8 +387,8 @@ public sealed class AmmoLoaderSystem : EntitySystem
         if (HasComp<CartridgeAmmoComponent>(ammoEntity))
         {
             _containers.Remove(ammoEntity, loader.Comp.Container);
-            _gun.AddBallisticAmmo(gunUid, artilleryAmmo, 1);
-            Del(ammoEntity);
+            _containers.Insert(ammoEntity, artilleryAmmo.Container);
+            _gun.AddBallisticAmmo((gunUid, artilleryAmmo), ammoEntity);
             return true;
         }
 

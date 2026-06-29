@@ -42,6 +42,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
+    key: reinforcedplasmawindows
     base: rpwindow
   - type: Construction
     graph: Window
@@ -53,6 +54,11 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
+  - type: DeltaPressure
+    minPressure: 150000
+    minPressureDelta: 100000
+    scalingType: Linear
+    scalingPower: 0.0001
   - type: StaticPrice
     price: 65
   - type: Fixtures
@@ -124,6 +130,10 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: DeltaPressure
+    minPressure: 37500
+    minPressureDelta: 25000
+    scalingType: Threshold
   - type: StaticPrice
     price: 30
   - type: HitscanDiffractTarget # Mono - Causes diffraction
@@ -149,7 +159,7 @@
     - Diagonal
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Frontier: windows<walls
+    key: reinforcedplasmawindows # Mono
     base: state
   - type: Icon
     sprite: Structures/Windows/plasma_diagonal.rsi

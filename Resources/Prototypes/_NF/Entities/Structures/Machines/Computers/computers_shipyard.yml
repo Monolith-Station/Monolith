@@ -50,6 +50,11 @@
   components:
   - type: ShipyardConsole
     newJobTitle: Captain
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TSF
+    - PDV
+    inverted: true
 
 - type: entity
   id: ComputerShipyardSecurity
@@ -139,8 +144,8 @@
 - type: entity
   id: ComputerShipyardBlackMarket
   parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerShipyardBase]
-  name: black market shipyard console
-  description: Used to buy ships not available through other means.
+  name: PDV shipyard console # Mono
+  description: Used to buy PDV vessels. # Mono
   components:
   - type: ActivatableUI
     key: enum.ShipyardConsoleUiKey.BlackMarket
@@ -156,9 +161,9 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: shipyard_blackmarket
+      state: shipyard_pdv # Mono
     - map: ["computerLayerKeys"]
-      state: blackmarket_key
+      state: telesci_key # Mono
   - type: ShipyardConsole
     shipyardChannel: Freelance
     secretShipyardChannel: Nfsd
@@ -187,9 +192,14 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: shipyard_blackmarket
+      state: shipyard_expedition # Mono
     - map: ["computerLayerKeys"]
-      state: blackmarket_key
+      state: telesci_key # Mono
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TSF
+    - PDV
+    inverted: true
 
 - type: entity
   id: ComputerShipyardScrap
@@ -211,9 +221,14 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: shipyard_blackmarket
+      state: shipyard_scrapyard # Mono
     - map: ["computerLayerKeys"]
-      state: blackmarket_key
+      state: telesci_key # Mono
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TSF
+    - PDV
+    inverted: true
 
 - type: entity
   id: ComputerShipyardMedical
@@ -238,6 +253,11 @@
       state: shipyard_medical
     - map: ["computerLayerKeys"]
       state: telesci_key
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TSF
+    - PDV
+    inverted: true
 
 - type: entity
   id: ComputerShipyardSr

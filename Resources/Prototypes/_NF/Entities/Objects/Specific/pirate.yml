@@ -103,6 +103,10 @@
   - type: Store
     balance:
       Doubloon: 125
+  - type: Tag
+    tags:
+    - PirateUplink
+    - FactionStaticUplinkPdv
 
 - type: entity
   parent: BasePirateUplink

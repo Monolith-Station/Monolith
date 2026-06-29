@@ -1,20 +1,19 @@
 using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Singularity.Events;
-using Content.Server.Station.Components;
 using Content.Shared.Database;
-using Content.Shared.Ghost;
 using Content.Shared.Mind.Components;
 using Content.Shared.Singularity.Components;
 using Content.Shared.Singularity.EntitySystems;
+using Content.Shared.Station.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Singularity.EntitySystems;
@@ -23,19 +22,21 @@ namespace Content.Server.Singularity.EntitySystems;
 /// The entity system primarily responsible for managing <see cref="EventHorizonComponent"/>s.
 /// Handles their consumption of entities.
 /// </summary>
-public sealed class EventHorizonSystem : SharedEventHorizonSystem
+public sealed partial class EventHorizonSystem : SharedEventHorizonSystem
 {
     #region Dependencies
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IMapManager _mapMan = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _xformSystem = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
     #endregion Dependencies
+
+    private static readonly ProtoId<TagPrototype> HighRiskItemTag = "HighRiskItem";
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -128,7 +129,7 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
             return;
 
         if (HasComp<MindContainerComponent>(morsel)
-            || _tagSystem.HasTag(morsel, "HighRiskItem")
+            || _tagSystem.HasTag(morsel, HighRiskItemTag)
             || HasComp<ContainmentFieldGeneratorComponent>(morsel))
         {
             _adminLogger.Add(LogType.EntityDelete, LogImpact.Extreme, $"{ToPrettyString(morsel)} entered the event horizon of {ToPrettyString(hungry)} and was deleted");
@@ -267,7 +268,7 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
         var toConsume = new List<(Vector2i, Tile)>();
         foreach (var tile in tiles)
         {
-            if (CanConsumeTile(hungry, tile, grid, eventHorizon))
+            if (CanConsumeTile((hungry, eventHorizon), tile, (gridId, grid)))
                 toConsume.Add((tile.GridIndices, Tile.Empty));
         }
 
@@ -281,14 +282,21 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
     /// Checks whether an event horizon can consume a given tile.
     /// This is only possible if it can also consume all entities anchored to the tile.
     /// </summary>
-    public bool CanConsumeTile(EntityUid hungry, TileRef tile, MapGridComponent grid, EventHorizonComponent eventHorizon)
+    public bool CanConsumeTile(Entity<EventHorizonComponent> hungry, TileRef tile, Entity<MapGridComponent> grid)
     {
-        foreach (var blockingEntity in grid.GetAnchoredEntities(tile.GridIndices))
+        foreach (var blockingEntity in _mapSystem.GetAnchoredEntities(grid, tile.GridIndices))
         {
-            if (!CanConsumeEntity(hungry, blockingEntity, eventHorizon))
+            if (!CanConsumeEntity(hungry, blockingEntity, hungry.Comp))
                 return false;
         }
         return true;
+    }
+
+    /// <inheritdoc cref="CanConsumeTile(EntityUid, TileRef, Entity{MapGridComponent}, EventHorizonComponent)"/>
+    [Obsolete("Use the Entity<T> overload")]
+    public bool CanConsumeTile(EntityUid hungry, TileRef tile, MapGridComponent grid, EventHorizonComponent eventHorizon)
+    {
+        return CanConsumeTile((hungry, eventHorizon), tile, (grid.Owner, grid));
     }
 
     /// <summary>

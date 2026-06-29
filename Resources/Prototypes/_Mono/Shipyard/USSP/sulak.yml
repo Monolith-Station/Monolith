@@ -5,10 +5,12 @@
   parent: BaseVesselAntag
   name: NCS Sulak
   description: A medium sized destroyer armed with a Charon Massdriver for taking down large targets.
+  limit: 2
   price: 142500
+  purchasable: false # voucher only
   category: Medium
   group: Ussp
-  access: Mercenary
+  access: USSP
   shuttlePath: /Maps/_Mono/Shuttles/USSP/sulak.yml
   guidebookPage: Null
   class:
@@ -27,11 +29,11 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Sulak MIL{1}'
+          mapNameTemplate: 'Sulak USSP{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            Mercenary: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
+           USSPSergeant: [ 0, 0 ]
+           USSPRifleman: [ 0, 0 ]

@@ -1,0 +1,108 @@
+- type: latheRecipe
+  id: GunAttachmentOpticErebus2x
+  result: GunAttachmentOpticErebus2x
+  categories:
+  - Attachments
+  completetime: 2
+  materials:
+    Plastic: 500
+    Steel: 200
+    Glass: 100
+    Copper: 50
+    Lithium: 50 # These things have electronics and batteries inside, you know!
+
+- type: latheRecipe
+  id: GunAttachmentOpticErebus4x
+  result: GunAttachmentOpticErebus4x
+  categories:
+  - Attachments
+  completetime: 2
+  materials:
+    Plastic: 200
+    Steel: 400
+    Glass: 100
+    Lithium: 100 # These things also have batteries I think, but its just for reticle illumination.
+
+- type: latheRecipe
+  id: GunAttachmentOpticErebus8x
+  result: GunAttachmentOpticErebus8x
+  categories:
+  - Attachments
+  completetime: 2
+  materials:
+    Plastic: 200
+    Steel: 500
+    Glass: 300
+    Lithium: 100 # These things also have batteries I think, but its just for reticle illumination.
+
+- type: latheRecipe
+  id: GunAttachmentGripErebusVFG
+  result: GunAttachmentGripErebusVFG
+  categories:
+  - Attachments
+  completetime: 2
+  materials:
+    Plastic: 500
+    Steel: 100
+
+- type: latheRecipe
+  id: GunAttachmentGripErebusLAM
+  result: GunAttachmentGripErebusLAM
+  categories:
+  - Attachments
+  completetime: 2
+  materials:
+    Plastic: 100
+    Steel: 300
+    Glass: 100
+    Copper: 150
+    Lithium: 150
+
+- type: latheRecipe
+  id: GunAttachmentGripErebusLight
+  result: GunAttachmentGripErebusLight
+  categories:
+  - Attachments
+  completetime: 2
+  materials:
+    Plastic: 100
+    Steel: 300
+    Glass: 150
+    Copper: 150
+
+- type: latheRecipe
+  id: GunAttachmentGripPistolLAM
+  result: GunAttachmentGripPistolLAM
+  categories:
+  - Attachments
+  completetime: 2
+  materials:
+    Plastic: 50
+    Steel: 100
+    Glass: 50
+    Copper: 50
+    Lithium: 60
+
+- type: latheRecipe
+  id: GunAttachmentSuppressorMulticalPistol
+  result: GunAttachmentSuppressorMulticalPistol
+  categories:
+  - Attachments
+  completetime: 2
+  materials:
+    Plastic: 200
+    Steel: 500
+    Lithium: 50
+    Plasteel: 100
+
+- type: latheRecipe
+  id: GunAttachmentSuppressorMulticalRifle
+  result: GunAttachmentSuppressorMulticalRifle
+  categories:
+  - Attachments
+  completetime: 2
+  materials:
+    Plastic: 200
+    Steel: 700
+    Lithium: 50
+    Plasteel: 150

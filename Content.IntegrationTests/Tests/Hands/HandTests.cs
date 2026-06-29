@@ -44,12 +44,21 @@ public sealed class HandTests
         var data = await pair.CreateTestMap();
         await pair.RunTicksSync(5);
 
-        EntityUid item = default;
         EntityUid player = default;
+
+        // Mono: wait until entity is setup.
+        await server.WaitAssertion(() =>
+        {
+            player = playerMan.Sessions.First().AttachedEntity!.Value;
+            Assert.That(entMan.HasComponent<HandsComponent>(player),
+                "Player entity exists but HandsComponent not yet initialized");
+        });
+        // Mono end
+
+        EntityUid item = default;
         HandsComponent hands = default!;
         await server.WaitPost(() =>
         {
-            player = playerMan.Sessions.First().AttachedEntity!.Value;
             var xform = entMan.GetComponent<TransformComponent>(player);
             item = entMan.SpawnEntity("Crowbar", tSys.GetMapCoordinates(player, xform: xform));
             hands = entMan.GetComponent<HandsComponent>(player);
@@ -99,10 +108,19 @@ public sealed class HandTests
         // spawn the elusive box and crowbar at the coordinates
         await server.WaitPost(() => box = server.EntMan.SpawnEntity("TestPickUpThenDropInContainerTestBox", map.GridCoords));
         await server.WaitPost(() => item = server.EntMan.SpawnEntity("Crowbar", map.GridCoords));
+
+        // Mono: wait until entity is setup.
+        await server.WaitAssertion(() =>
+        {
+            player = playerMan.Sessions.First().AttachedEntity!.Value;
+            Assert.That(entMan.HasComponent<HandsComponent>(player),
+                "Player entity exists but HandsComponent not yet initialized");
+        });
+        // Mono end
+
         // place the player at the exact same coordinates and have them grab the crowbar
         await server.WaitPost(() =>
         {
-            player = playerMan.Sessions.First().AttachedEntity!.Value;
             tSys.PlaceNextTo(player, item);
             hands = entMan.GetComponent<HandsComponent>(player);
             sys.TryPickup(player, item, hands.ActiveHand!);

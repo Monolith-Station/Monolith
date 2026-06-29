@@ -14,11 +14,11 @@ namespace Content.Server._Mono;
 /// <summary>
 /// System that handles the GridGodModeComponent, which applies GodMode to all non-organic entities on a grid.
 /// </summary>
-public sealed class GridGodModeSystem : EntitySystem
+public sealed partial class GridGodModeSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly GodmodeSystem _godmode = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private GodmodeSystem _godmode = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {
@@ -111,8 +111,7 @@ public sealed class GridGodModeSystem : EntitySystem
             return false;
 
         // Check if we have a player entity that's either still around or alive and may come back
-        if (_mind.TryGetMind(entityUid, out var mind, out var mindComp) &&
-            (mindComp.Session != null || !_mind.IsCharacterDeadPhysically(mindComp)))
+        if (_mind.TryGetMind(entityUid, out var mind, out var mindComp) && !_mind.IsCharacterDeadPhysically(mindComp))
         {
             return true;
         }

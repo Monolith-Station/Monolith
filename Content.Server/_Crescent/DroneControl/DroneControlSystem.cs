@@ -15,16 +15,16 @@ using Robust.Shared.Map.Components;
 
 namespace Content.Server._Crescent.DroneControl;
 
-public sealed class DroneControlSystem : EntitySystem
+public sealed partial class DroneControlSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceListSystem _deviceList = default!;
-    [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HTNSystem _htn = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly ShuttleConsoleSystem _shuttleConsole = default!;
+    [Dependency] private DeviceListSystem _deviceList = default!;
+    [Dependency] private DeviceNetworkSystem _deviceNetwork = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private HTNSystem _htn = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private ShuttleConsoleSystem _shuttleConsole = default!;
 
     private EntityQuery<DroneControlComponent> _controlQuery;
 

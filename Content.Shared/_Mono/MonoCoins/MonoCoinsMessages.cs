@@ -1,20 +1,38 @@
+using Robust.Shared.Network;
 using Robust.Shared.Serialization;
+using Lidgren.Network;
 
 namespace Content.Shared._Mono.MonoCoins;
 
 /// <summary>
-/// Message sent by client to request their MonoCoins balance.
+/// Sent from the server to client to message updated MonoCoins balance.
 /// </summary>
-[Serializable, NetSerializable]
-public sealed class RequestMonoCoinsBalanceMessage : EntityEventArgs
+public sealed class MsgMonoCoins : NetMessage
 {
+    public override MsgGroups MsgGroup => MsgGroups.EntityEvent;
+
+    public long Coins;
+
+    public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
+    {
+        Coins = buffer.ReadVariableInt64();
+    }
+
+    public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
+    {
+        buffer.WriteVariableInt64(Coins);
+    }
 }
 
-/// <summary>
-/// Message sent by server in response to MonoCoins balance request.
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class MonoCoinsBalanceResponseMessage : EntityEventArgs
+public sealed class MsgMonoCoinsRequest : NetMessage
 {
-    public int Balance { get; set; }
+    public override MsgGroups MsgGroup => MsgGroups.EntityEvent;
+
+    public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
+    {
+    }
+
+    public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
+    {
+    }
 }

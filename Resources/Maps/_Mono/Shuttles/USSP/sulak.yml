@@ -4116,20 +4116,6 @@ entities:
     - type: Transform
       pos: -5.5,5.5
       parent: 1
-- proto: SpawnPointUSSPCorporal
-  entities:
-  - uid: 548
-    components:
-    - type: Transform
-      pos: -5.5,5.5
-      parent: 1
-- proto: SpawnPointUSSPMedic
-  entities:
-  - uid: 549
-    components:
-    - type: Transform
-      pos: -5.5,5.5
-      parent: 1
 - proto: SpawnPointUSSPRifleman
   entities:
   - uid: 550

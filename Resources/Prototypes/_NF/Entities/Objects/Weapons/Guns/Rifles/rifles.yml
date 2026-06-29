@@ -23,6 +23,30 @@
         whitelist:
           tags:
             - Cartridge68x52mmCaseless
+      # Mono
+      attachment_barrel:
+        insertSound: /Audio/Items/screwdriver.ogg
+        ejectSound: /Audio/Items/screwdriver.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoSuppressorMulticalRifle
+      # Mono
+      attachment_grip:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoGripErebusRailmount
+      # Mono
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoOpticErebusRailmount
 
 #Delta-V
 - type: entity

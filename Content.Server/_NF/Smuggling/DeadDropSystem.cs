@@ -8,7 +8,6 @@ using Content.Server.Radio.EntitySystems;
 using Content.Server._NF.Shipyard.Systems;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Events;
 using Content.Shared._NF.CCVar;
@@ -19,6 +18,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Paper;
 using Content.Shared.Shuttles.Components;
+using Content.Shared.Station.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
@@ -30,26 +30,26 @@ using Robust.Shared.EntitySerialization.Systems;
 
 namespace Content.Server._NF.Smuggling;
 
-public sealed class DeadDropSystem : EntitySystem
+public sealed partial class DeadDropSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly MapLoaderSystem _map = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ShipyardSystem _shipyard = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedMapSystem _mapManager = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly SectorServiceSystem _sectorService = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly SharedGameTicker _ticker = default!;
-    [Dependency] private readonly LinkedLifecycleGridSystem _linkedLifecycleGrid = default!;
-    [Dependency] private readonly StationRenameWarpsSystems _stationRenameWarps = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private MapLoaderSystem _map = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private PaperSystem _paper = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ShipyardSystem _shipyard = default!;
+    [Dependency] private ShuttleSystem _shuttle = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedMapSystem _mapManager = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private SectorServiceSystem _sectorService = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private SharedGameTicker _ticker = default!;
+    [Dependency] private LinkedLifecycleGridSystem _linkedLifecycleGrid = default!;
+    [Dependency] private StationRenameWarpsSystems _stationRenameWarps = default!;
     private ISawmill _sawmill = default!;
 
     private readonly Queue<EntityUid> _drops = [];
@@ -544,7 +544,7 @@ public sealed class DeadDropSystem : EntitySystem
             if (!TryComp<StationDataComponent>(reportStation, out var stationData))
                 continue; // Not a station?
 
-            var stationGrid = _station.GetLargestGrid(stationData);
+            var stationGrid = _station.GetLargestGrid((reportStation, stationData));
             if (stationGrid == null)
                 continue; // Nobody to send our message.
 

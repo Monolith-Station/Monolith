@@ -5,3 +5,54 @@
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: TSFEngineer
   jobName: job-name-tsf-engineer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconUSSPRifleman
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: USSPRifleman
+  jobName: job-name-ussp-rifleman
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconUSSPSergeant
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: USSPSergeant
+  jobName: job-name-ussp-sergeant
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconUSSPCommissar
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: USSPCommissar
+  jobName: job-name-ussp-commissar
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconVGInfanteer
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: VGInfanteer
+  jobName: job-name-vg-infanteer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconVGLieutenant
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: VGLieutenant
+  jobName: job-name-vg-lieutenant
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconVGCommander
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: VGCommander
+  jobName: job-name-vg-commander

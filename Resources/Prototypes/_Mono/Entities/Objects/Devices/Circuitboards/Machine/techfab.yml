@@ -15,3 +15,39 @@
       GlassBeaker:
         amount: 2
         defaultPrototype: Beaker
+
+- type: entity
+  id: USSPTechfabMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: USSP field assembler machine board
+  description: A machine printed circuit board for a USSP assembler.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: USSPLathe
+    requirements: # Frontier
+      MatterBin: 2 # Frontier stackRequirements<requirements
+      Manipulator: 2 # Frontier stackRequirements<requirements
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker
+
+- type: entity
+  id: VGTechfabMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: Viper Group precision lathe machine board
+  description: A machine printed circuit board for a VG precision lathe.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: ViperLathe
+    requirements: # Frontier
+      MatterBin: 2 # Frontier stackRequirements<requirements
+      Manipulator: 2 # Frontier stackRequirements<requirements
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker

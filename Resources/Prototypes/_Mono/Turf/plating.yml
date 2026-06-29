@@ -35,28 +35,28 @@
 
 - type: tile
   id: PlatingCornerNE
-  parent: Plating
+  parent: PlatingSpace
   name: NE plating
   sprite: /Textures/_Mono/Tiles/plating/ne.png
   vertices: ["1, 0", "1, 1", "0, 1"]
 
 - type: tile
   id: PlatingCornerNW
-  parent: Plating
+  parent: PlatingSpace
   name: NW plating
   sprite: /Textures/_Mono/Tiles/plating/nw.png
   vertices: ["0, 0", "1, 1", "0, 1"]
 
 - type: tile
   id: PlatingCornerSE
-  parent: Plating
+  parent: PlatingSpace
   name: SE plating
   sprite: /Textures/_Mono/Tiles/plating/se.png
   vertices: ["0, 0", "1, 0", "1, 1"]
 
 - type: tile
   id: PlatingCornerSW
-  parent: Plating
+  parent: PlatingSpace
   name: SW plating
   sprite: /Textures/_Mono/Tiles/plating/sw.png
   vertices: ["0, 0", "1, 0", "0, 1"]

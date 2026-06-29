@@ -1,0 +1,120 @@
+# Base
+- type: entity
+  parent: Airlock
+  id: AirlockHeavy
+  name: heavy-duty airlock
+  description: It opens, it closes, and maybe crushes you. An uparmored & more advanced model, for use in heavy industrial & military applications. Faster & smoother opening, more strength, and more deadly when crushing you.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/standard.rsi
+  - type: Door
+    closeTimeOne: 0.1
+    closeTimeTwo: 0.2
+    openTimeOne: 0.1
+    openTimeTwo: 0.2
+    crushDamage:
+      types:
+        Blunt: 30 # Troll
+  - type: ApcPowerReceiver
+    powerLoad: 50 # 2.5x normal doors
+  - type: RadiationBlocker
+    resistance: 5
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 20
+    fx: EffectRCDDeconstruct8
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000 # Inbetween highsec and normal
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: PaintableAirlock
+    group: HeavyStandard
+    department: Civilian
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags:
+    - AirlockHeavy
+  - type: Construction
+    graph: HeavyAirlock
+    node: airlock
+  - type: Wires
+    layoutId: HighSec
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockHeavyGlass
+  name: heavy-duty glass airlock
+  description: It opens, it closes, and maybe crushes you. An uparmored & more advanced model, for use in heavy industrial & military applications. Faster & smoother opening, more strength, and more deadly when crushing you.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Glass/standard.rsi
+  - type: Door
+    closeTimeOne: 0.1
+    closeTimeTwo: 0.2
+    openTimeOne: 0.1
+    openTimeTwo: 0.2
+    crushDamage:
+      types:
+        Blunt: 30 # Troll
+  - type: ApcPowerReceiver
+    powerLoad: 50 # 2.5x normal doors
+  - type: RadiationBlocker
+    resistance: 5
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 20
+    fx: EffectRCDDeconstruct8
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000 # Equal to T2 wall
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: PaintableAirlock
+    group: HeavyGlass
+    department: Civilian
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags:
+    - GlassAirlockHeavy
+  - type: Construction
+    graph: HeavyAirlock
+    node: glassAirlock
+  - type: Wires
+    layoutId: HighSec
+
+# Paints (No access diff)
+
+- type: entity
+  parent: AirlockHeavy
+  id: AirlockHeavyEngineering
+  suffix: Engineering
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/engineering.rsi
+  - type: PaintableAirlock
+    department: Engineering
+
+- type: entity
+  parent: AirlockHeavy
+  id: AirlockHeavyGrey
+  suffix: Grey
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/grey.rsi

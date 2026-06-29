@@ -9,10 +9,10 @@ namespace Content.Shared._Goobstation.Clothing.Systems;
 /// <summary>
 /// Used for sealable clothing that requires power to work
 /// </summary>
-public abstract class SharedPoweredSealableClothingSystem : EntitySystem
+public abstract partial class SharedPoweredSealableClothingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedPowerCellSystem _powerCellSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedPowerCellSystem _powerCellSystem = default!;
 
     public override void Initialize()
     {

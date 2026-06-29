@@ -82,6 +82,8 @@ entities:
     - type: GridTree
     - type: Broadphase
     - type: OccluderTree
+    - type: Parallax
+      parallax: FrontierStation
   - uid: 2
     components:
     - type: MetaData

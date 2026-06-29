@@ -1,5 +1,6 @@
 using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
+using Content.Shared.Station.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Fax.Components;
 using Content.Server.Fax;
@@ -8,12 +9,12 @@ using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class RandomFaxRule : StationEventSystem<RandomFaxRuleComponent>
+public sealed partial class RandomFaxRule : StationEventSystem<RandomFaxRuleComponent>
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly FaxSystem _faxSystem = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private FaxSystem _faxSystem = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private const int MaxRetries = 10;
     protected override void Added(EntityUid uid, RandomFaxRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
@@ -63,7 +64,7 @@ public sealed class RandomFaxRule : StationEventSystem<RandomFaxRuleComponent>
                 continue;
             }
 
-            var grid = StationSystem.GetLargestGrid(stationData);
+            var grid = StationSystem.GetLargestGrid((chosenStation.Value, stationData));
 
             if (grid is null)
             {

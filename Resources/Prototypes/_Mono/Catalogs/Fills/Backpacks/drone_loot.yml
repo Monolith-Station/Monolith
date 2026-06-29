@@ -12,9 +12,7 @@
     shape: square
   - type: SpawnItemsOnUse
     items:
-    # Money - 30k
-    - id: SpaceCash10000
-      amount: 3
+    # Money - 30k # removed
     # Scrap chunks
     - id: ScrapOre100
       amount: 1
@@ -71,10 +69,7 @@
   components:
   - type: SpawnItemsOnUse
     items:
-    # Money - 80k
-    - id: SpaceCash25000
-      amount: 3
-    - id: SpaceCash5000
+    # Money - 80k # removed
     # Scrap chunks
     - id: ScrapOre100
       amount: 3
@@ -123,9 +118,7 @@
   components:
   - type: SpawnItemsOnUse
     items:
-    # Money - 200k
-    - id: SpaceCash100000
-      amount: 2
+    # Money - 200k # removed
     # Scrap chunks
     - id: ScrapOre100
       amount: 6
