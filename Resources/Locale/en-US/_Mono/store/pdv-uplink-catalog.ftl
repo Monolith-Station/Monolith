@@ -284,7 +284,7 @@ uplink-pdv-t2-europa-voucher-name = PDV Europa LPC [T2]
 uplink-pdv-t2-europa-voucher-desc = A small card that contains the data for the procurement of a Europa-class cruiser from the flagship's reserves.
 
 uplink-pdv-t2-ganymede-voucher-name = PDV Ganymede LPC [T2]
-uplink-pdv-t2-ganymede-voucher-desc = A small card that contains the data for the procurement of a Ganymede-class "cruiser" from the flagship's reserves.
+uplink-pdv-t2-ganymede-voucher-desc = A small card that contains the data for the procurement of a Ganymede-class "frigate" from the flagship's reserves.
 
 uplink-pdv-t2-vulture-voucher-name = PDV Vulture LPC [T2]
 uplink-pdv-t2-vulture-voucher-desc = A small card that contains the data for the procurement of a Vulture-class mining rig from the flagship's reserves.
