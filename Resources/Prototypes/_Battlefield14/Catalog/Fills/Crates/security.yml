@@ -1,5 +1,5 @@
 ## NATO
-#ragion US
+#region US
 - type: entity
   id: CrateSecgearNATOFilledM249Para
   suffix: Filled, M249 Para
@@ -297,6 +297,40 @@
           amount: 5
         - id: BoxMagazineSCARH
           amount: 2
+  - type: AccessReader
+    access: [["NATOSoldier"]]
+
+#region DE
+
+- type: entity
+  id: CrateSecgearNATOFilledMg3
+  suffix: Filled, MG3
+  parent: CrateSecgear
+  name: MG3 crate
+  components:
+  - type: StorageFill
+    contents:
+        - id: WeaponMachineGunDEMG3
+          amount: 2
+        - id: MagazineBeltBoxMG3Short
+          amount: 8
+  - type: AccessReader
+    access: [["NATOSoldier"]]
+
+- type: entity
+  id: CrateSecgearNATOFilledPZF3
+  suffix: Filled, panzerfaust-3
+  parent: CrateSecgear
+  name: panzerfaust-3 crate
+  components:
+  - type: StorageFill
+    contents:
+        - id: WeaponLauncherDEPZF3
+          amount: 2
+        - id: CartridgePZF3HEAT
+          amount: 4
+        - id: CartridgePZF3HE
+          amount: 4
   - type: AccessReader
     access: [["NATOSoldier"]]
 
