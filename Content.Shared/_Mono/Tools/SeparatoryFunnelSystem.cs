@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Tools.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
@@ -8,14 +9,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Serialization;
 using System.Linq;
 
-namespace Content.Shared.Tools;
-
-[RegisterComponent]
-public sealed partial class SeparatoryFunnelComponent : Component
-{
-    [DataField("delay")]
-    public float Delay = 2.5f;
-}
+namespace Content.Shared._Mono.Tools;
 
 [Serializable, NetSerializable]
 public sealed partial class SeparatoryFunnelDoAfterEvent : SimpleDoAfterEvent
@@ -24,10 +18,10 @@ public sealed partial class SeparatoryFunnelDoAfterEvent : SimpleDoAfterEvent
 
 public sealed partial class SeparatoryFunnelSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = null!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
-    [Dependency] private readonly SharedPopupSystem _popup = null!;
-    [Dependency] private readonly TagSystem _tag = null!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = null!;
+    [Dependency] private SharedDoAfterSystem _doAfter = null!;
+    [Dependency] private SharedPopupSystem _popup = null!;
+    [Dependency] private TagSystem _tag = null!;
 
     public override void Initialize()
     {
