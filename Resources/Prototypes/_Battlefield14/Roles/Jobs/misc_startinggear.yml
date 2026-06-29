@@ -1,13 +1,15 @@
 - type: startingGear
   id: BF14DeathmatchGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorWhite
+    head: ClothingHeadHatRichard # miami
+    jumpsuit: ClothingUniformJumpsuitTshirtJeans # miami ClothingUniformJumpsuitColorWhite
     ears: ClothingHeadsetGrey
     gloves: ClothingHandsGlovesFingerless
-    outerClothing: ClothingOuterArmorWebVestSecEmpty
-    shoes: ClothingShoesBootsJackFilled
-    back: ClothingBackpackRucksackBlack
+    outerClothing: ClothingOuterCoatBomber # miami ClothingOuterArmorWebVestSecEmpty
+    shoes: ClothingShoesBootsJack
+#miami    back: ClothingBackpackRucksackBlack
     neck: FlashlightMilitaryUS
-    suitstorage: WeaponRifleUSM4
-    pocket1: WeaponPistolILDeagleSilver
-    pocket2: PouchFirstAidFilled
+#miami    suitstorage: WeaponRifleUSM4
+#miami    pocket1: WeaponPistolILDeagleSilver
+#miami    pocket2: PouchFirstAidFilled
+    pocket1: CrowbarMiami

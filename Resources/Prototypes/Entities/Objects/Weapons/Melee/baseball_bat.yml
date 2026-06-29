@@ -20,8 +20,13 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 10
+        Blunt: 190
         Structural: 10
+  - type: StaminaDamageOnCollide
+    damage: 100
+    overtime: 10
+    sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor
   - type: Item
     size: Normal
   - type: Tool

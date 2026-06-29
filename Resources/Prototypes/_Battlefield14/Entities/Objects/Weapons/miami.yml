@@ -1,0 +1,16 @@
+- type: entity
+  parent: Crowbar
+  id: CrowbarMiami
+  description: A multipurpose tool to pry open doors and fight interdimensional invaders.
+  suffix: MIAMI, DO NOT MAP
+  components:
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 300
+  - type: StaminaDamageOnCollide
+    damage: 100
+    overtime: 10
+    sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor
