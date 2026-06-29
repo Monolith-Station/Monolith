@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/29/2026 10:54:54
-  entityCount: 510
+  time: 06/29/2026 11:02:13
+  entityCount: 506
 maps: []
 grids:
 - 1
@@ -549,13 +549,6 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-2.5
-      parent: 1
-- proto: AmmoLoader
-  entities:
-  - uid: 243
-    components:
-    - type: Transform
-      pos: 3.5,9.5
       parent: 1
 - proto: APCBasic
   entities:
@@ -1352,6 +1345,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.5,8.5
       parent: 1
+- proto: ChairFolding
+  entities:
+  - uid: 5
+    components:
+    - type: Transform
+      pos: 0.5233476,-0.3909114
+      parent: 1
 - proto: ChairOfficeDark
   entities:
   - uid: 250
@@ -1438,13 +1438,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: CrateAmmoBoxVanyk
-  entities:
-  - uid: 269
-    components:
-    - type: Transform
-      pos: 0.5,-0.5
-      parent: 1
 - proto: DarkCatwalkMono
   entities:
   - uid: 125
@@ -2270,6 +2263,13 @@ entities:
     - type: Transform
       pos: -1.5,9.5
       parent: 1
+- proto: MachineFrameDestroyed
+  entities:
+  - uid: 2
+    components:
+    - type: Transform
+      pos: 3.5,9.5
+      parent: 1
 - proto: MachineFTLDrive
   entities:
   - uid: 229
@@ -2885,30 +2885,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,15.5
-      parent: 1
-- proto: VanykMagazine
-  entities:
-  - uid: 451
-    components:
-    - type: Transform
-      pos: 3.3803039,8.692447
-      parent: 1
-  - uid: 452
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 2.8872485,8.324391
-      parent: 1
-  - uid: 453
-    components:
-    - type: Transform
-      pos: 0.35884637,-0.25855464
-      parent: 1
-  - uid: 454
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 2.8860314,8.565317
       parent: 1
 - proto: WallPlastitanium
   entities:
@@ -3697,19 +3673,19 @@ entities:
       parent: 1
 - proto: WeaponTurretDravon
   entities:
-  - uid: 2
+  - uid: 12
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -3.5,17.5
       parent: 1
-  - uid: 5
+  - uid: 243
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -3.5,21.5
       parent: 1
-  - uid: 12
+  - uid: 269
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
