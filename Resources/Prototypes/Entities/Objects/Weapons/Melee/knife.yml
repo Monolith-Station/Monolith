@@ -121,7 +121,7 @@
     attackRate: 1.3
     damage:
       types:
-        Slash: 28 # BF14
+        Slash: 280 # BF14
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
     offset: -0.15,0.0
@@ -129,7 +129,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 30
+        Slash: 300
   - type: Item
     sprite: Objects/Weapons/Melee/combat_knife.rsi
     storedSprite:

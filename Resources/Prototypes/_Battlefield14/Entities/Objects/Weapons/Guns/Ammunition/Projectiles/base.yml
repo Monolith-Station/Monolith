@@ -12,7 +12,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 20
+        Piercing: 200
   - type: StaminaDamageOnCollide
     damage: 5 # 20 hits to stun lol
   - type: Ammo
@@ -32,7 +32,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 20
+        Piercing: 200
   - type: StaminaDamageOnCollide
     damage: 4 # 25 hits to stun lol
   - type: ArmorPiercing
@@ -54,7 +54,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 25
+        Piercing: 250
     armorPenetration: 0.1
   - type: StaminaDamageOnCollide
     damage: 7 # ~15 hits to stun
@@ -75,7 +75,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 30
+        Piercing: 300
   - type: StaminaDamageOnCollide
     damage: 8 # ~13 hits to stun
   - type: ArmorPiercing

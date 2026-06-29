@@ -44,15 +44,11 @@
   - type: DeathMatchRule
     rewardSpawns:
     - id: HealingToolbox
-    - id: MagazineRifleSTANAG # BF14
-      orGroup: loot
     - id: WeaponRifleUSM16A130 # BF14
       orGroup: loot
     - id: Machete
       orGroup: loot
     - id: Bola
-      orGroup: loot
-    - id: MedicationBoxSyrettesMeralyne # BF14
       orGroup: loot
     - id: Machete # BF14
       orGroup: loot
@@ -60,29 +56,21 @@
       orGroup: loot
     - id: Stimpack
       orGroup: loot
-    - id: WeaponRifleUNSCMA5B # BF14
-      orGroup: loot
-    - id: WeaponSubmachinegunUSMP5 # BF14
-      orGroup: loot
     - id: WeaponSubmachinegunUSMAC10 # BF14
       orGroup: loot
     - id: WeaponShotgunRUKSK # BF14
       orGroup: loot
-    - id: WeaponShotgunUSSPAS12 # BF14
+    - id: WeaponShotgunRUMP43C1 # BF14
       orGroup: loot
-    - id: WeaponRifleDEG3A3 # BF14
+    - id: WeaponPistolILDeagleSilver # BF14
       orGroup: loot
-    - id: WeaponRifleRUASH12 # BF14
-      orGroup: loot
-    - id: BiofoamCanister # BF14
-      orGroup: loot
-    - id: WeaponRifleRUSR3M # BF14
+    - id: WeaponPistolM9 # BF14
       orGroup: loot
   - type: KillCalloutRule
   - type: PointManager
   - type: RespawnDeadRule
   - type: RespawnTracker
-    respawnDelay: 5
+    respawnDelay: 2
 
 - type: entity
   id: InactivityTimeRestart
