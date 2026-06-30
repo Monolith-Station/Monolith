@@ -2,7 +2,7 @@
 - type: entity
   abstract: true
   parent: BaseShipVoucher
-  id: BaseShipLPC
+  id: BaseShipLPCOneUse
   name: ship LPC
   description: Contains the necessary data for a shipyard console to produce a certain design.
   components:
@@ -10,12 +10,26 @@
     sprite: _Mono/Objects/Misc/newlpc.rsi
     state: icon
   - type: ShipyardVoucher
-    destroyOnEmpty: false
+    destroyOnEmpty: true
     cooldown: 1800 # thirty minutes
+
+- type: entity
+  abstract: true
+  parent: BaseShipLPCOneUse
+  id: BaseShipLPCRenewable
+  name: ship LPC
+  description: Contains the necessary data for a shipyard console to produce a certain design.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/newlpc.rsi
+    state: icon
+  - type: ShipyardVoucher
+    redemptionsLeft: 12 # Lowest cooldown is half an hour. It's unlikely it'll be met, but hey.
+    destroyOnEmpty: false
 
 #Ironman Voucher
 - type: entity
-  parent: BaseShipVoucher
+  parent: BaseShipLPCOneUse
   id: ShipVoucherFrontierIronMan
   name: Ironman LPC
   description: Allows purchase of one free Baeg or Framework from the Shipyard. Destroyed on sale.
@@ -41,7 +55,7 @@
 # T0 voucher
 
 - type: entity
-  parent: BaseShipVoucher
+  parent: BaseShipLPCOneUse
   id: ShipVoucherTsfT0
   name: TSFMC T0 ship voucher
   description: Allows for one free small to medium TSFMC ship purchase. Destroyed on sale.
@@ -73,7 +87,7 @@
 # start T1
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherSpica
   name: TSF Spica LPC [T1]
   description: A small card that contains the data for the procurement of a Spica-class escort from the flagship's reserves.
@@ -89,7 +103,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: Security
     companyName: TSF
     vessels:
@@ -98,7 +112,7 @@
     vendPrice: 20000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherDagger
   name: TSF Dagger LPC [T1]
   description: A small card that contains the data for the procurement of a Dagger-class railgun destroyer from the flagship's reserves.
@@ -114,7 +128,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: Security
     companyName: TSF
     vessels:
@@ -123,7 +137,7 @@
     vendPrice: 20000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherTarantula
   name: TSF Tarantula LPC [T1]
   description: A small card that contains the data for the procurement of a Tarantula-class escort from the flagship's reserves.
@@ -139,7 +153,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: Security
     companyName: TSF
     vessels:
@@ -148,7 +162,7 @@
     vendPrice: 20000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherSentinel
   name: TSF Sentinel LPC [T1]
   description: A small card that contains the data for the procurement of a Sentinel-class escort from the flagship's reserves.
@@ -164,7 +178,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: Security
     companyName: TSF
     vessels:
@@ -173,7 +187,7 @@
     vendPrice: 500000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherMercury
   name: TSF Mercury LPC [T1]
   description: A small card that contains the data for the procurement of a Mercury-class corvette from the flagship's reserves.
@@ -189,7 +203,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: Security
     companyName: TSF
     vessels:
@@ -198,7 +212,7 @@
     vendPrice: 500000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherAldebaran
   name: TSF Aldebaran LPC [T1]
   description: A small card that contains the data for the procurement of an Aldebaran-class frigate from the flagship's reserves.
@@ -214,7 +228,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: Security
     companyName: TSF
     vessels:
@@ -254,7 +268,7 @@
 # start T2
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherAndromeda
   name: TSF Andromeda LPC [T2]
   description: A small card that contains the data for the procurement of an Andromeda-class cruiser from the flagship's reserves.
@@ -270,16 +284,16 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: Security
     companyName: TSF
     vessels:
     - Andromeda
   - type: StaticPrice
     vendPrice: 600000
-    
+
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherSpekter
   name: TSF spekter LPC
   description: A small card that contains the data for the procurement of an Spekter-class missile corvette from the flagship's reserves.
@@ -331,7 +345,7 @@
 # start T3
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherAltair
   name: TSF Altair LPC [T3]
   description: A small card that contains the data for the procurement of an Altair-class frigate from the flagship's reserves.
@@ -347,11 +361,36 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 10800 # hour and 25 minutes
+    cooldown: 5100 # hour and 25 minutes
     consoleType: Security
     companyName: TSF
     vessels:
     - Altair
+  - type: StaticPrice
+    vendPrice: 800000
+
+- type: entity
+  parent: BaseShipLPCRenewable
+  id: ShipVoucherPolaris
+  name: TSF Polaris LPC [T3]
+  description: A small card that contains the data for the procurement of an Type-56D Polaris-class frigate from the flagship's reserves.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#05ffff"
+    - state: screen3
+      color: "#05ffff"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 5100 # hour and 25 minutes
+    consoleType: Security
+    companyName: TSF
+    vessels:
+    - TSFNPolaris
   - type: StaticPrice
     vendPrice: 800000
 
@@ -360,7 +399,7 @@
 # start T4
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherFlyssa
   name: TSF Flyssa LPC [T4]
   description: A small card that contains the data for the procurement of a Flyssa-class destroyer from the flagship's reserves.
@@ -376,7 +415,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 14400 # 2 hours
+    cooldown: 7200 # 2 hours
     consoleType: Security
     companyName: TSF
     vessels:
@@ -391,7 +430,7 @@
 # T0 voucher
 
 - type: entity
-  parent: BaseShipVoucher
+  parent: BaseShipLPCOneUse
   id: ShipVoucherPdvT0
   name: PDV T0 ship voucher
   description: Allows for one free small to medium PDV ship purchase. Destroyed on sale.
@@ -420,7 +459,7 @@
 # start T1
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherGarm
   name: PDV Garm LPC [T1]
   description: A small card that contains the data for the procurement of an Garm-class bomber from the flagship's reserves.
@@ -436,7 +475,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: BlackMarket
     companyName: PDV
     vessels:
@@ -445,7 +484,7 @@
     vendPrice: 20000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherFenrir
   name: PDV Fenrir LPC [T1]
   description: A small card that contains the data for the procurement of a Fenrir-class railgun destroyer from the flagship's reserves.
@@ -461,7 +500,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: BlackMarket
     companyName: PDV
     vessels:
@@ -470,7 +509,7 @@
     vendPrice: 20000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherKalisto
   name: PDV Kalisto LPC [T1]
   description: A small card that contains the data for the procurement of a Kalisto-class railgun destroyer from the flagship's reserves.
@@ -495,7 +534,7 @@
     vendPrice: 20000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherScorpion
   name: PDV Scorpion LPC [T1]
   description: A small card that contains the data for the procurement of a Scorpion-class escort from the flagship's reserves.
@@ -511,7 +550,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: BlackMarket
     companyName: PDV
     vessels:
@@ -520,7 +559,7 @@
     vendPrice: 20000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherBastion
   name: PDV Bastion LPC [T1]
   description: A small card that contains the data for the procurement of a Bastion-class brawler from the flagship's reserves.
@@ -536,7 +575,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: BlackMarket
     companyName: PDV
     vessels:
@@ -545,7 +584,7 @@
     vendPrice: 20000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherNeptune
   name: PDV Neptune LPC [T1]
   description: A small card that contains the data for the procurement of a Neptune-class frigate from the flagship's reserves.
@@ -561,7 +600,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: BlackMarket
     companyName: PDV
     vessels:
@@ -594,13 +633,13 @@
     - Neptune
     - Fenrir
     - Garm
-
+    - Kalisto
 # end T1
 
 # start T2
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherEuropa
   name: PDV Europa LPC [T2]
   description: A small card that contains the data for the procurement of a Europa-class cruiser from the flagship's reserves.
@@ -616,7 +655,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: BlackMarket
     companyName: PDV
     vessels:
@@ -625,7 +664,7 @@
     vendPrice: 20000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherGanymede
   name: PDV Ganymede LPC [T2]
   description: A small card that contains the data for the procurement of a Ganymede-class cruiser from the flagship's reserves.
@@ -650,7 +689,7 @@
     vendPrice: 20000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherVulture
   name: PDV Vulture LPC [T2]
   description: A small card that contains the data for the procurement of a Vulture-class mining rig from the flagship's reserves.
@@ -666,7 +705,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: BlackMarket
     companyName: PDV
     vessels:
@@ -675,7 +714,7 @@
     vendPrice: 20000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherMotleyAnne
   name: PDV Motley Anne LPC [T2]
   description: A small card that contains the data for the procurement of a Motley Anne-class carrier from the flagship's reserves.
@@ -691,7 +730,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: BlackMarket
     companyName: PDV
     vessels:
@@ -722,13 +761,13 @@
     - MotleyAnne
     - Europa
     - Vulture
-
+    - Ganymede
 # end T2
 
 # start T3
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherSaintie
   name: PDV Saintie LPC [T3]
   description: A small card that contains the data for the procurement of a Saintie-class cruiser from the flagship's reserves.
@@ -744,7 +783,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 10800 # hour and 25 minutes
+    cooldown: 5100 # hour and 25 minutes
     consoleType: BlackMarket
     companyName: PDV
     vessels:
@@ -757,7 +796,7 @@
 # start T4
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherSaturn
   name: PDV Saturn LPC [T4]
   description: A small card that authorizes the procurement of the Saturn.
@@ -773,7 +812,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 14400 # 2 hours
+    cooldown: 7200 # 2 hours
     consoleType: BlackMarket
     companyName: PDV
     vessels:
@@ -786,7 +825,7 @@
 # Motley Anne fighters
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherMock
   name: PDV mock LPC
   description: A small card that authorizes the procurement of a Mock aboard the Motley Anne.
@@ -810,7 +849,7 @@
     vendPrice: 30000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherInertia
   name: PDV inertia LPC
   description: A small card that authorizes the procurement of an Inertia aboard the Motley Anne.
@@ -834,7 +873,7 @@
     vendPrice: 30000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherSnakelet
   name: PDV snakelet LPC
   description: A small card that authorizes the procurement of a Snakelet aboard the Motley Anne.
@@ -860,7 +899,7 @@
 # CC
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherRavager
   name: ravager LPC
   description: A small card that contains the data for the procurement of a Ravager-class mothership from the flagship's reserves.
@@ -876,7 +915,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: Sr
     companyName: Colonial
     vessels:
@@ -888,7 +927,7 @@
 # fighters
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherRook
   name: rook LPC
   description: A small card that contains the data for the procurement of a Rook class drone.
@@ -913,7 +952,7 @@
 # Mercenary
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherTaser
   name: taser LPC
   description: A small card that contains the data for the procurement of a taser class drone.
@@ -937,7 +976,7 @@
     vendPrice: 15000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherBalor
   name: balor drone LPC
   description: A small card that contains the data for the procurement of a small commercially available anti-drone defense drone.
@@ -961,7 +1000,7 @@
     vendPrice: 30000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherHound
   name: hound LPC
   description: A small card that contains the data for the procurement of a Hound class drone
@@ -989,7 +1028,7 @@
 # Start T2
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherVGWolf
   name: VG Wolfsnake LPC [T2]
   description: A small card that contains the data for the procurement of a Wolfsnake-class cruiser from the station's reserves.
@@ -1020,7 +1059,7 @@
 # T0 voucher
 
 - type: entity
-  parent: BaseShipVoucher
+  parent: BaseShipLPCOneUse
   id: ShipVoucherUSSPT0
   name: USSP T0 ship voucher
   description: Allows for one free small to medium USSP ship purchase. Destroyed on sale.
@@ -1050,7 +1089,7 @@
 # start T1
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherRemontnik
   name: USSP Remontnik LPC [T1]
   description: A small card that contains the data for the procurement of a Remontnik-class salvage and support vessel.
@@ -1066,7 +1105,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: USSP
     companyName: USSP
     vessels:
@@ -1075,7 +1114,7 @@
     vendPrice: 20000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherAkula
   name: USSP Akula LPC [T1]
   description: A small card that contains the data for the procurement of a Akula-class patrol vessel.
@@ -1091,7 +1130,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: USSP
     companyName: USSP
     vessels:
@@ -1104,7 +1143,7 @@
 # start T2
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherDrakon
   name: USSP Drakon LPC [T2]
   description: A small card that contains the data for the procurement of an Drakon-class cruiser.
@@ -1120,7 +1159,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: USSP
     companyName: USSP
     vessels:
@@ -1129,7 +1168,7 @@
     vendPrice: 600000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherTayfun
   name: USSP Tayfun LPC [T2]
   description: A small card that contains the data for the procurement of an Tayfun-class cruiser.
@@ -1145,7 +1184,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: USSP
     companyName: USSP
     vessels:
@@ -1158,7 +1197,7 @@
 # start T3
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherBuran
   name: USSP Buran LPC [T3]
   description: A small card that contains the data for the procurement of an Buran-class frigate.
@@ -1174,7 +1213,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 10800 # hour and 25 minutes
+    cooldown: 5100 # hour and 25 minutes
     consoleType: USSP
     companyName: USSP
     vessels:
@@ -1183,7 +1222,7 @@
     vendPrice: 800000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherSulak
   name: USSP Sulak LPC [T3]
   description: A small card that contains the data for the procurement of an Sulak-class destroyer.
@@ -1199,7 +1238,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 10800 # hour and 25 minutes
+    cooldown: 5100 # hour and 25 minutes
     consoleType: USSP
     companyName: USSP
     vessels:
@@ -1212,7 +1251,7 @@
 # start T4
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherLedokol
   name: USSP Ledokol LPC [T4]
   description: A small card that contains the data for the procurement of a Ledokol-class assault transport.
@@ -1228,7 +1267,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 14400 # 2 hours
+    cooldown: 7200 # 2 hours
     consoleType: USSP
     companyName: USSP
     vessels:
@@ -1237,7 +1276,7 @@
     vendPrice: 1000000
 
 - type: entity
-  parent: BaseShipLPC
+  parent: BaseShipLPCRenewable
   id: ShipVoucherLedokolAttachment
   name: USSP Ledokol attachment LPC [T4]
   description: A small card that contains the data for the procurement of attachment modules for the Ledokol.
