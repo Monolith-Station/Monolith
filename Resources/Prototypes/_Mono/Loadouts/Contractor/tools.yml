@@ -15,7 +15,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 600
+  price: 0 # Mono - 0<600. Consistency with other loadout items.
   storage:
     back:
-    - TapeRecorder
+    - TapeRecorderFilled # Mono - Other loadout items aren't useless by default.
