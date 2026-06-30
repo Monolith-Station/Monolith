@@ -7,7 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 320
+        Piercing: 32
         Structural: 3
     armorPenetration: 0.15
   - type: StaminaDamageOnCollide
@@ -44,7 +44,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 270
+        Piercing: 27
         Structural: 3
     armorPenetration: 0.2
   - type: StaminaDamageOnCollide
@@ -59,7 +59,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 300
+        Piercing: 30
         Structural: 10
     armorPenetration: 0.3
 
@@ -77,7 +77,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 300
+        Piercing: 30
         Structural: 5
   - type: StaminaDamageOnCollide
     damage: 7 # ~15 hits to stun
@@ -91,7 +91,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 400
+        Piercing: 40
         Structural: 10
     armorPenetration: 0.3
   - type: StaminaDamageOnCollide

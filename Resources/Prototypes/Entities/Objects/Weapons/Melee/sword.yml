@@ -129,17 +129,9 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 400 # BF14
+        Slash: 40 # BF14
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
-  - type: EmbeddableProjectile
-    sound: /Audio/Weapons/star_hit.ogg
-    offset: -0.15,0.0
-  - type: LandAtCursor
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Slash: 300
   - type: Item
     sprite: Objects/Weapons/Melee/machete.rsi
   - type: DisarmMalus
