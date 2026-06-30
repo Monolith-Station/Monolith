@@ -57,7 +57,7 @@
     range: 200
   - type: DeviceLinkSink
     ports:
-    - Pause
+    - TapePause # Mono - Renamed to TapePause due to conflicting IDs with lathes.
     - Record
     - Playback
     - Rewind

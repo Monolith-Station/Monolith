@@ -4,7 +4,7 @@
   description: signal-port-description-power-toggle
 
 - type: sinkPort
-  id: Pause
+  id: TapePause # Mono - Renamed to TapePause due to conflicting IDs with lathes.
   name: tape-recorder-menu-stopped-button
   description: signal-port-description-pause
 
