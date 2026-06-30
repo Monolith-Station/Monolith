@@ -1,0 +1,41 @@
+#Author: Corrupt142 on github.
+
+- type: vessel
+  id: Kalisto
+  parent: BaseVesselAntag
+  name: BT-Y Kalisto
+  description: A quick and mass produced corvette, armed with a Leviatan 520mm cannon in its maw and 3x DRAVON 90mm autocannons on its left side, along with some PD.
+  price: 150750
+  purchasable: false # voucher only
+  category: Medium
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/kalisto.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  - Corvette
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Kalisto
+  mapName: 'PDV Kalisto'
+  mapPath: /Maps/_Mono/Shuttles/BlackMarket/kalisto.yml
+  minPlayers: 0
+  stations:
+    Kalisto:
+      gridComponents:
+      - type: VesselInfo
+        description: "Cramped and dirty. This can only end well..."
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Kalisto PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

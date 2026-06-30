@@ -20,6 +20,11 @@
   - type: CollideOnAnchor
   - type: Anchorable
   - type: Rotatable
+  - type: RCDDeconstructable
+    cost: 1
+    delay: 2
+    fx: EffectRCDDeconstruct2
+    rpd: true # Goob
   - type: Destructible
     thresholds:
     - trigger: # for nukes
