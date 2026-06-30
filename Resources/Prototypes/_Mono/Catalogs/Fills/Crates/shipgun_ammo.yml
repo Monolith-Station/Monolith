@@ -11,6 +11,17 @@
     - id: CharonSlugAmmo
       amount: 3
 
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBoxR300
+  name: 430mm R-300 HE shell box
+  description: Contains 3 HE shells.
+  components:
+  - type: StorageFill
+    contents:
+    - id: R300ShellHE
+      amount: 3
+
 # Magazines
 
 - type: entity
