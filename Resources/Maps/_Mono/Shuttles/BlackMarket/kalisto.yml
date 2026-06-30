@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/30/2026 10:46:20
-  entityCount: 533
+  time: 06/30/2026 11:47:47
+  entityCount: 531
 maps: []
 grids:
 - 1
@@ -92,9 +92,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Puddle: []
+        MetalFoam: []
         Kudzu: []
         Smoke: []
-        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -1577,12 +1577,10 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 12
           - 15
-          - 69
           - 86
-          - 87
-          - 88
+          - 69
+          - 12
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -2486,20 +2484,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 87
-    components:
-    - type: Transform
-      parent: 5
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 88
-    components:
-    - type: Transform
-      parent: 5
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 451
     components:
     - type: Transform
@@ -2518,7 +2502,7 @@ entities:
     paused: true
     components:
     - type: Transform
-      pos: -1.5137136,5.5957303
+      pos: -1.484375,5.6256156
       parent: 1
     - type: EmitSoundOnCollide
       nextSound: -1949.831642
@@ -2569,7 +2553,7 @@ entities:
 
         Battery lifetime: +-22 minutes
 
-        Detectable range: 612M (recommended distance is 1.4KM)
+        Detectable range: +-804M (recommended distance is 1.4KM)
 
         Time until stealth mode takes full effect: 55 seconds
 
@@ -2584,6 +2568,8 @@ entities:
         Toggles the main drive for 20 seconds, use this to quickly get away from a location WHILE in stealth mode.
 
         (Press eather the signal button or button 1 on the shuttle console)
+
+        Increases ships signature to +-1.2KM
 
 
         DO NOT TOGGLE WHILE STEALTH MODE IS OFF!!
