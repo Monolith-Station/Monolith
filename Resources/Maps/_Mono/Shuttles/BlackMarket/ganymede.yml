@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/30/2026 10:38:39
-  entityCount: 1553
+  time: 06/30/2026 11:24:00
+  entityCount: 1554
 maps: []
 grids:
 - 1
@@ -123,10 +123,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
+        MetalFoam: []
         Puddle: []
         Kudzu: []
         Smoke: []
-        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -4337,6 +4337,20 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
+- proto: ComputerWallmountStationRecords
+  entities:
+  - uid: 1554
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.5,6.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 30
+    - type: ApcPowerReceiverBattery
+      enabled: True
 - proto: CurtainsBlackOpen
   entities:
   - uid: 547
