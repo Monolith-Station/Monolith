@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/28/2026 18:34:19
+  time: 07/01/2026 23:20:46
   entityCount: 11863
 maps: []
 grids:
@@ -263,10 +263,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
-        Kudzu: []
-        Smoke: []
         Puddle: []
+        Smoke: []
+        Kudzu: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -7681,7 +7681,7 @@ entities:
       pos: 1.5,2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -15074.171
+      secondsUntilStateChange: -15200.638
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7719,7 +7719,7 @@ entities:
       pos: -30.5,38.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -58267.85
+      secondsUntilStateChange: -58394.32
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26068,7 +26068,7 @@ entities:
       pos: 22.5,53.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -53461.62
+      secondsUntilStateChange: -53588.09
       state: Closing
   - uid: 4605
     components:
@@ -26081,7 +26081,7 @@ entities:
       pos: 22.5,55.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -53463.62
+      secondsUntilStateChange: -53590.09
       state: Closing
   - uid: 9858
     components:
@@ -65851,6 +65851,8 @@ entities:
     - type: Transform
       pos: 10.5,1.5
       parent: 1
+- proto: SpawnPointUSSPSergeant
+  entities:
   - uid: 3281
     components:
     - type: Transform
