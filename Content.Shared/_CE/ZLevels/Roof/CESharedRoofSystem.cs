@@ -37,9 +37,6 @@ public abstract class CESharedRoofSystem : EntitySystem
         SubscribeLocalEvent<CEZLevelMapRoofComponent, TileChangedEvent>(OnTileChanged);
     }
 
-    /// <summary>
-    /// When changing tiles, we iteratively go down to the end of the ZLevels network, repeatedly calculating whether the tiles at the bottom now have a roof or not.
-    /// </summary>
     private void OnTileChanged(Entity<CEZLevelMapRoofComponent> ent, ref TileChangedEvent args)
     {
         if (!GridQuery.TryComp(ent, out var currentMapGrid))
@@ -52,22 +49,20 @@ public abstract class CESharedRoofSystem : EntitySystem
         if (args.Changes.Length == 0)
             return;
 
+        var mapsBelow = ZLevel.GetAllMapsBelow((ent, zLevelMapComp));
+
+        if (mapsBelow.Count == 0)
+            return;
+
         Dictionary<Vector2i, bool> roofMap = new();
         foreach (var change in args.Changes)
         {
             var tileDef = (ContentTileDefinition)TilDefMan[change.NewTile.TypeId];
 
             var roovedAbove = Roof.IsRooved((ent, currentMapGrid, currentRoof), change.GridIndices);
-            // An empty (erased) tile is a hole you can see through, so it must not cast a shadow below.
-            // This matches the full recalculation in CERoofSystem, which skips empty tiles entirely.
             var roovedTile = !change.NewTile.IsEmpty && !tileDef.Transparent;
             roofMap.Add(change.GridIndices, roovedAbove || roovedTile);
         }
-
-        var mapsBelow = ZLevel.GetAllMapsBelow((ent, zLevelMapComp));
-
-        if (mapsBelow.Count == 0)
-            return;
 
         foreach (var mapBelow in mapsBelow)
         {

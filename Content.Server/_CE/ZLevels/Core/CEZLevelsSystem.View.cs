@@ -28,6 +28,8 @@ public sealed partial class CEZLevelsSystem
     private readonly TimeSpan _zLevelViewerUpdateRate = TimeSpan.FromSeconds(1f);
     private TimeSpan _nextZLevelViewerUpdate = TimeSpan.Zero;
 
+    private readonly HashSet<EntityUid> _queuedViewerUpdates = new();
+
     private void InitView()
     {
         SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
@@ -42,6 +44,20 @@ public sealed partial class CEZLevelsSystem
 
     private void UpdateView(float frameTime)
     {
+        if (_queuedViewerUpdates.Count > 0)
+        {
+            foreach (var uid in _queuedViewerUpdates)
+            {
+                if (TerminatingOrDeleted(uid))
+                    continue;
+
+                if (TryComp<CEZLevelViewerComponent>(uid, out var viewer))
+                    UpdateViewer((uid, viewer));
+            }
+
+            _queuedViewerUpdates.Clear();
+        }
+
         if (_timing.CurTime < _nextZLevelViewerUpdate)
             return;
         _nextZLevelViewerUpdate = _timing.CurTime + _zLevelViewerUpdateRate;
@@ -86,7 +102,11 @@ public sealed partial class CEZLevelsSystem
 
     private void OnViewerMapUidChanged(Entity<CEZLevelViewerComponent> ent, ref MapUidChangedEvent args)
     {
-        UpdateViewer(ent);
+        // MapUidChangedEvent is raised while the transform system is still recursively
+        // walking the child tree of whatever moved (e.g. a grid changing z-levels with
+        // this viewer aboard). Rebuilding eyes spawns entities, and a spawn can attach
+        // itself to that same mid-move tree and corrupt the enumeration, so defer it.
+        _queuedViewerUpdates.Add(ent);
     }
 
     private void UpdateViewer(Entity<CEZLevelViewerComponent> ent)
@@ -114,7 +134,9 @@ public sealed partial class CEZLevelsSystem
             if (!TryMapOffset(map.Value, -i, out var mapUidBelow))
                 break;
 
-            var newEye = SpawnAtPosition(_zEyeProto, new EntityCoordinates(mapUidBelow.Value, globalPos));
+            // SpawnAttachedTo: eyes must parent to the map itself, never to a grid that
+            // happens to occupy the position (SpawnAtPosition does a grid lookup).
+            var newEye = SpawnAttachedTo(_zEyeProto, new EntityCoordinates(mapUidBelow.Value, globalPos));
 
             Transform(newEye).GridTraversal = false;
             _viewSubscriber.AddViewSubscriber(newEye, actor.PlayerSession);
@@ -124,7 +146,7 @@ public sealed partial class CEZLevelsSystem
         // We constantly load the upper z-level for the client so that you can quickly look up and climb stairs without PVS lag.
         if (TryMapUp(map.Value, out var aboveMapUid))
         {
-            var newEye = SpawnAtPosition(_zEyeProto, new EntityCoordinates(aboveMapUid.Value, globalPos));
+            var newEye = SpawnAttachedTo(_zEyeProto, new EntityCoordinates(aboveMapUid.Value, globalPos));
 
             Transform(newEye).GridTraversal = false;
             _viewSubscriber.AddViewSubscriber(newEye, actor.PlayerSession);

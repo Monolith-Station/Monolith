@@ -15,9 +15,28 @@ public abstract partial class CESharedZLevelsSystem
     private void InitializeActivation()
     {
         SubscribeLocalEvent<CEZPhysicsComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<CEZPhysicsComponent, ComponentStartup>(OnZPhysicsStartup);
         SubscribeLocalEvent<CEZPhysicsComponent, AnchorStateChangedEvent>(OnAnchorStateChange);
         SubscribeLocalEvent<CEZPhysicsComponent, PhysicsBodyTypeChangedEvent>(OnPhysicsBodyTypeChange);
         SubscribeLocalEvent<CEZPhysicsComponent, EntParentChangedMessage>(OnParentChanged);
+    }
+
+    /// <summary>
+    /// Handles the component being added to an already map-initialized entity
+    /// (e.g. giving a live ship z-physics), which MapInitEvent never covers.
+    /// </summary>
+    private void OnZPhysicsStartup(Entity<CEZPhysicsComponent> ent, ref ComponentStartup args)
+    {
+        if (LifeStage(ent) < EntityLifeStage.MapInitialized)
+            return;
+
+        CheckActivation(ent);
+
+        if (!TryComp<CEZLevelMapComponent>(Transform(ent).MapUid, out var zLevelMap))
+            return;
+
+        ent.Comp.CurrentZLevel = zLevelMap.Depth;
+        DirtyField(ent, ent.Comp, nameof(CEZPhysicsComponent.CurrentZLevel));
     }
 
     private void OnAnchorStateChange(Entity<CEZPhysicsComponent> ent, ref AnchorStateChangedEvent args)
