@@ -1,5 +1,5 @@
 <Document>
-  # TAKEAWAY-CLASS SERVICE SHUTTLE
+  # TRANSBORDADOR DE SERVICIO CLASE TAKEAWAY
   <Box>
   <GuideEntityEmbed Entity="ServiceTechFab"/>
   <GuideEntityEmbed Entity="KitchenElectricRange"/>
@@ -9,44 +9,44 @@
   <GuideEntityEmbed Entity="PaintingNightHawks"/>
   <GuideEntityEmbed Entity="ShelfBar"/>
   </Box>
-    [color=#a4885c]Ship Size:[/color] Medium
+    [color=#a4885c]Tamaño de nave:[/color] Mediano
 
-	[color=#a4885c]Recommended Crew:[/color] 1-3
+	[color=#a4885c]Tripulación recomendada:[/color] 1-3
 
-	[color=#a4885c]Power Gen Type:[/color] Uranium, Solar
+	[color=#a4885c]Tipo de generación de energía:[/color] Uranio, Solar
 
-	[color=#a4885c]Expeditions:[/color] None
+	[color=#a4885c]Expediciones:[/color] Ninguna
 
-	[color=#a4885c]IFF Console:[/color] None
+	[color=#a4885c]Consola IFF:[/color] Ninguna
 
-  "An aptly named medium botanical-kitchen vessel with a customer-facing gantry for ordering to-go. Also comes with dine-in."
+  "Una nave botánico-culinaria de tamaño mediano con un nombre muy acertado, que cuenta con un andén orientado al cliente para pedidos para llevar. También dispone de servicio en mesa."
 
-  # PREFLIGHT CHECKLIST
+  # LISTA DE VERIFICACIÓN PREVIA AL VUELO
 
-  ## 1. Power supply
+  ## 1. Suministro de energía
 
-  ## 1.1. Battery units
+  ## 1.1. Unidades de batería
   <Box>
   <GuideEntityEmbed Entity="SMESBasic"/>
   <GuideEntityEmbed Entity="SubstationBasic"/>
   <GuideEntityEmbed Entity="APCBasic"/>
   </Box>
 
-  - Check that the S.U.P.E.R.P.A.C.M.A.N. generator unit is connected to the cable terminal.
-  - Check that the SMES unit is anchored to the floor.
-  - Check that the substation unit is anchored to the floor.
-  - Check that all APC unit's Main Breakers are toggled on.
-  
-  ## 1.2. Solar control
+  - Verifica que la unidad generadora S.U.P.E.R.P.A.C.M.A.N. esté conectada al terminal de cable.
+  - Verifica que la unidad SMES esté anclada al suelo.
+  - Verifica que la unidad de subestación esté anclada al suelo.
+  - Verifica que los disyuntores principales de todas las unidades APC estén activados.
+
+  ## 1.2. Control solar
   <Box>
   <GuideEntityEmbed Entity="SolarPanel"/>
   <GuideEntityEmbed Entity="ComputerSolarControl"/>
   </Box>
-  
-  -Adjust the solar control computer's tracking angle to match the sun angle.
-  -Check and adjust panel angular velocity until tracking is stable.
 
-  ## 1.3. S.U.P.E.R.P.A.C.M.A.N. generator unit.
+  -Ajusta el ángulo de seguimiento del ordenador de control solar para que coincida con el ángulo del sol.
+  -Comprueba y ajusta la velocidad angular de los paneles hasta que el seguimiento sea estable.
+
+  ## 1.3. Unidad generadora S.U.P.E.R.P.A.C.M.A.N.
   <Box>
   <GuideEntityEmbed Entity="PortableGeneratorSuperPacmanShuttle"/>
   </Box>
@@ -55,14 +55,14 @@
   <GuideEntityEmbed Entity="ComputerPowerMonitoring"/>
   </Box>
 
-  - Check power sourced by solar panels at power monitoring computer* (W).
-  - Check the power monitoring computer's current network Load* (W).
-  - Check the fuel remaining in the generator unit.
-  - Set the generator unit output power to cover solar power shortfall.
+  - Comprueba la energía generada por los paneles solares en el ordenador de monitorización de energía* (W).
+  - Comprueba la carga* (W) actual de la red en el ordenador de monitorización de energía.
+  - Comprueba el combustible restante en la unidad generadora.
+  - Establece la potencia de salida de la unidad generadora para cubrir el déficit de energía solar.
 
-  ## 2. Atmospherics
+  ## 2. Atmosférica
 
-  ## 2.1. Distribution Loop
+  ## 2.1. Bucle de distribución
   <Box>
   <GuideEntityEmbed Entity="OxygenCanister"/>
   <GuideEntityEmbed Entity="NitrogenCanister"/>
@@ -70,33 +70,33 @@
   <GuideEntityEmbed Entity="GasPressurePump"/>
   </Box>
 
-  - Ensure O2 and N2 canisters are anchored to mixer connector ports.
-  - Check that the mixer settings are suitable (~22% oxygen, ~78% nitrogen, 101.325 kpa).
-  - Enable the gas mixer.
+  - Asegúrate de que los contenedores de O2 y N2 estén anclados a los puertos conectores del mezclador.
+  - Verifica que la configuración del mezclador sea adecuada (~22% oxígeno, ~78% nitrógeno, 101,325 kPa).
+  - Activa el mezclador de gas.
 
-  ## 2.2. Waste Loop
+  ## 2.2. Bucle de residuos
   <Box>
   <GuideEntityEmbed Entity="AirAlarm"/>
   <GuideEntityEmbed Entity="GasValve"/>
   </Box>
 
-  - Ensure manual waste valve is in the open position.
+  - Asegúrate de que la válvula de residuos manual esté en posición abierta.
 
-  ## 3. Other checks
+  ## 3. Otras verificaciones
   <Box>
   <GuideEntityEmbed Entity="Gyroscope"/>
   <GuideEntityEmbed Entity="GravityGeneratorMini"/>
   <GuideEntityEmbed Entity="ButtonFrameCaution"/>
   </Box>
 
-  - Check that the gyroscope is anchored, powered, and enabled.
-  - Check that the mini gravity generator is anchored, powered, and enabled.
-  - Check that the thrusters are powered, and enabled.**
+  - Verifica que el giroscopio esté anclado, alimentado y habilitado.
+  - Verifica que el generador de gravedad mini esté anclado, alimentado y habilitado.
+  - Verifica que los propulsores estén alimentados y habilitados.**
 
-  ## Sidenotes
+  ## Notas adicionales
 
-  * - Takeaway-class service shuttles are equipped with a power monitoring computer that can be used to appraise the ship's total power production and consumption. An unmodified Takeaway-class shuttle requires ~26.25 kW of power to remain operational.
-  
-  ** - The bridge houses a thruster power switch that enables conservation of power. The thrusters will be disabled when the indicator strobe is on. In the incident of external tampering, this switch can also be used to cycle and correct the thrusters. Take care to observe power draw at the power monitoring computer upon making changes. 
+  * - Los transbordadores de servicio clase Takeaway están equipados con un ordenador de monitorización de energía que puede utilizarse para calcular la producción y el consumo total de energía de la nave. Un transbordador clase Takeaway sin modificar requiere ~26,25 kW de energía para mantenerse operativo.
+
+  ** - El puente dispone de un interruptor de alimentación de propulsores que permite ahorrar energía. Los propulsores se desactivarán cuando el estroboscopio indicador esté encendido. En caso de manipulación externa, este interruptor también puede usarse para reiniciar y corregir los propulsores. Ten cuidado de observar el consumo de energía en el ordenador de monitorización al realizar cambios.
 
 </Document>

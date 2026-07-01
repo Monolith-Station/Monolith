@@ -1,47 +1,47 @@
 <Document>
-  # Colossus Shipyards
+  # Astilleros Colossus
 
-To assist in developing the Colossus Sector, shuttles from SHM or various corporations can be rented for use.
-All rentals last for one shift. Rented shuttles return to the corporate parent company at the end of shift.
-The value of shuttles is returned to the purchaser when ended through a ship console.
-To avoid losses, [bold]make sure you end your rental before ending your shift[/bold].
+Para ayudar al desarrollo del Sector Colossus, se pueden alquilar transbordadores de SHM o de diversas corporaciones.
+Todos los alquileres duran un turno. Los transbordadores alquilados regresan a la empresa corporativa matriz al final del turno.
+El valor de los transbordadores se devuelve al comprador cuando se finaliza a través de una consola de nave.
+Para evitar pérdidas, [bold]asegúrate de finalizar tu alquiler antes de terminar tu turno[/bold].
 
-## Shipyard Console
+## Consola de Astillero
   <Box>
     <GuideEntityEmbed Entity="PassengerIDCard"/>
     <GuideEntityEmbed Entity="SpaceCash1000"/>
     <GuideEntityEmbed Entity="ComputerShipyard"/>
   </Box>
-  To rent a ship:
-- Eject the ID card from your PDA.
-- Insert the ID card into an unused [color=#cccc00]shipyard console[/color].
-- Use the shipyard console to bring up its interface.
-- Select the ship you would like to rent.
-- Press the Purchase button on the console.
-- Press the Eject button to remove your ID from the console.
-- Reinsert your ID card into your PDA.
+  Para alquilar una nave:
+- Extrae la tarjeta de identificación de tu PDA.
+- Inserta la tarjeta de identificación en una [color=#cccc00]consola de astillero[/color] sin usar.
+- Usa la consola de astillero para abrir su interfaz.
+- Selecciona la nave que deseas alquilar.
+- Pulsa el botón Comprar en la consola.
+- Pulsa el botón Expulsar para retirar tu tarjeta de identificación de la consola.
+- Vuelve a insertar tu tarjeta de identificación en tu PDA.
 
-Congratulations, you're now the Captain of your own ship!
+¡Enhorabuena, ahora eres el Capitán de tu propia nave!
 
-To end your rental:
-- Make sure your rented ship is docked with Colonial Outpost.
-- Make sure nobody is aboard the ship.
-- Eject the ID card [bold]used to purchase the ship[/bold] from your PDA.
-- Insert the ID card into an unused [color=#cccc00]shipyard console[/color].
-- Use the shipyard console to bring up its interface.
-- Press the Sell button on the console. The value will be deposited into your bank account.
-- Press the Eject button to remove your ID from the console.
-- Reinsert your ID card into your PDA.
+Para finalizar tu alquiler:
+- Asegúrate de que tu nave alquilada esté atracada en Colonial Outpost.
+- Asegúrate de que no haya nadie a bordo de la nave.
+- Extrae del PDA la tarjeta de identificación [bold]utilizada para comprar la nave[/bold].
+- Inserta la tarjeta de identificación en una [color=#cccc00]consola de astillero[/color] sin usar.
+- Usa la consola de astillero para abrir su interfaz.
+- Pulsa el botón Vender en la consola. El valor se depositará en tu cuenta bancaria.
+- Pulsa el botón Expulsar para retirar tu tarjeta de identificación de la consola.
+- Vuelve a insertar tu tarjeta de identificación en tu PDA.
 
-## Provisions
+## Provisiones
   <Box>
     <GuideEntityEmbed Entity="LockerCaptain"/>
     <GuideEntityEmbed Entity="SuitStorageBase"/>
     <GuideEntityEmbed Entity="LockerParamedic"/>
   </Box>
-  Ships come equipped with the tools and supplies needed to perform one or more tasks in the Colossus Sector (e.g. mining, research, medical, food services).
+  Las naves vienen equipadas con las herramientas y suministros necesarios para realizar una o más tareas en el Sector Colossus (p. ej., minería, investigación, médica, servicios de alimentación).
 
-Ships, especially larger ones, work best with a crew. Refer to the [bold]Hiring[/bold] section for more info.
-Space is a lonely, dangerous place, and you'll have a much better time when you work with a crew.
+Las naves, especialmente las más grandes, funcionan mejor con una tripulación. Consulta la sección [bold]Contratación[/bold] para más información.
+El espacio es un lugar solitario y peligroso, y lo pasarás mucho mejor cuando trabajes en equipo.
 
 </Document>

@@ -1,12 +1,12 @@
 <Document>
-# Cryogenics
-Cryogenics can be a bit daunting to understand, but hopefully, quick run through of this diagram, you'll learn how to work it! So, let's go over what each part does:
+# Criogénesis
+La criogénesis puede resultar un poco intimidante de entender, pero con este rápido repaso del diagrama, ¡aprenderás cómo funciona! Repasemos qué hace cada parte:
 
-- Air in: Air comes in here through the distro or an air tank, giving those inside something to breathe, and the freezer something to chill.
-- Gas pump: Limits the network pressure, so those in the tube aren't crushed.
-- Freezer: Chills the air, and by extension, patients in the tube, so Cryoxadone can activate.
-- Gas filters: Removes waste gas (Carbon Dioxide and Nitrous Oxide) from the loop.
-- Air out: Waste gasses go here, either into a storage tank, or into the waste network.
+- Entrada de aire: El aire entra aquí a través de la distro o un tanque de aire, proporcionando a los que están dentro algo para respirar y al congelador algo que enfriar.
+- Bomba de gas: Limita la presión de la red para que los que están en el tubo no sean aplastados.
+- Congelador: Enfría el aire y, por extensión, a los pacientes en el tubo, para que el Cryoxadone pueda activarse.
+- Filtros de gas: Elimina los gases residuales (Dióxido de Carbono y Óxido Nitroso) del circuito.
+- Salida de aire: Los gases residuales van aquí, ya sea a un tanque de almacenamiento o a la red de residuos.
 <Box>
 <GuideEntityEmbed Entity="GasPipeBend" Rotation="90"/>
 <GuideEntityEmbed Entity="GasPipeStraight" Rotation="90"/>
@@ -32,19 +32,19 @@ Cryogenics can be a bit daunting to understand, but hopefully, quick run through
 <GuideEntityEmbed Entity="GasPipeBend" Rotation="270"/>
 </Box>
 
-Not every network will look like this, but hopefully, it's enough to give you the basic gist of how it's functioning.
+No todas las redes tendrán este aspecto, pero esperamos que sea suficiente para darte una idea básica de cómo funciona.
 
-An important thing to note, winter clothing (and hardsuits) will make cryogenic treatment less, or completely ineffective. Be sure to remove cold preventative clothing before placing people in the pod.
+Un aspecto importante a tener en cuenta es que la ropa de invierno (y los trajes rígidos) harán que el tratamiento criogénico sea menos efectivo o completamente ineficaz. Asegúrate de retirar la ropa de protección contra el frío antes de colocar a las personas en el pod.
 
-## Using the Pod
+## Uso del Pod
 
-Once things have been set up, you're going to require cryogenic medications (all listed below). They each provide healing when a patient is chilled, and should be loaded into the pod directly with a beaker. Do note, patients won't begin to heal until they've chilled to the appropriate temperature, it may be worthwhile to wait a bit before placing a beaker inside.
+Una vez que todo esté configurado, necesitarás medicamentos criogénicos (todos listados a continuación). Cada uno proporciona curación cuando el paciente está frío, y deben cargarse directamente en el pod con un vaso de precipitados. Ten en cuenta que los pacientes no comenzarán a curarse hasta que se hayan enfriado a la temperatura adecuada; puede valer la pena esperar un poco antes de colocar el vaso dentro.
 
-## Additional Information:
+## Información Adicional:
 
-The standard pressure for a gas pump is 100.325 kpa. Cryogenics medicines work at under 213K (150K for Opporozidone), but it is standard practice to set the freezer to 100K for faster freezing.
+La presión estándar de una bomba de gas es de 100,325 kPa. Los medicamentos de criogénesis funcionan a menos de 213 K (150 K para el Opporozidone), pero la práctica estándar es ajustar el congelador a 100 K para una congelación más rápida.
 
-Cryo pods filter out each cryogenic medicine from the beaker in the pod, injecting a small, steady amount of each into the patient. This allows for medicine to be administered twice as efficiently than with injection or oral administration.
+Los pods de crió filtran cada medicamento criogénico del vaso dentro del pod, inyectando una pequeña cantidad constante de cada uno en el paciente. Esto permite que el medicamento se administre de manera dos veces más eficiente que con inyección o administración oral.
 
 <GuideReagentEmbed Reagent="Aloxadone"/>
 <GuideReagentEmbed Reagent="Cryoxadone"/>

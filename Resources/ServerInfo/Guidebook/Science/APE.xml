@@ -1,21 +1,21 @@
 <Document>
 # A.P.E.
 
-The Anomalous Particle Emitter is a machine used to interface with anomalies. It is the primary way of manipulating the stats of an anomaly.
+El Emisor de Partículas Anómalas es una máquina utilizada para interactuar con las anomalías. Es la forma principal de manipular las estadísticas de una anomalía.
 
 <Box>
 <GuideEntityEmbed Entity="MachineAPE"/>
 </Box>
 
-The A.P.E. can shoot four different kinds of anomalous particles: Delta, Epsilon, Sigma and Zeta. Each particle type has certain effects:
+El A.P.E. puede disparar cuatro tipos distintos de partículas anómalas: Delta, Epsilon, Sigma y Zeta. Cada tipo de partícula tiene ciertos efectos:
 
-- [color=crimson]Danger:[/color] Increases the severity of an anomaly.
-- [color=plum]Unstable:[/color] Increases the instability of an anomaly.
-- [color=goldenrod]Containment:[/color] Increases anomaly stability at the cost of its health - if an anomaly is struck by too many containment particles, it will collapse, leaving behind an anomaly core.
-- [color=#6b75fa]Transformation:[/color] Increases anomaly severity with a chance of changing its behavior.
+- [color=crimson]Peligro:[/color] Aumenta la severidad de una anomalía.
+- [color=plum]Inestable:[/color] Aumenta la inestabilidad de una anomalía.
+- [color=goldenrod]Contención:[/color] Aumenta la estabilidad de la anomalía a costa de su salud; si una anomalía recibe demasiadas partículas de contención, colapsará y dejará atrás un núcleo de anomalía.
+- [color=#6b75fa]Transformación:[/color] Aumenta la severidad de la anomalía con una probabilidad de cambiar su comportamiento.
 
-Which particle type corresponds to each effect is unique and can be learned by scanning the anomaly.
+El tipo de partícula que corresponde a cada efecto es único y puede conocerse escaneando la anomalía.
 
-The A.P.E. can also be locked by anyone with science access, which prevents it from being deconstructed, turned on or off, or having the particle type switched.
+El A.P.E. también puede bloquearse por cualquier persona con acceso a Ciencia, lo que impide que sea deconstruido, encendido o apagado, o que se cambie el tipo de partícula.
 
 </Document>

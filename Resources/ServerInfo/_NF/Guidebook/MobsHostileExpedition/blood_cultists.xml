@@ -1,200 +1,200 @@
 <Document>
-  # Blood Cult
-  
-  There are some things that we may never fully understand. There are entities in the depths of space, ancient and powerful, desiring to bring destruction to the universe and mold it in their own image. They extend their influence from the void, manipulating the minds of humans in the hope of returning to this plane of existence.
+  # Culto de Sangre
 
-  Despite efforts to eliminate such practices, a cult has arisen, centered around blood rituals and the worship of a being named "Nar'Sie". United in their purpose to bring Nar'Sie into this realm, the Blood Cultists gather the blood necessary for their twisted rites with zealous fervor.
-  
+  Hay cosas que quizás nunca comprendamos del todo. Existen entidades en las profundidades del espacio, antiguas y poderosas, que desean llevar la destrucción al universo y moldearlo a su imagen. Extienden su influencia desde el vacío, manipulando las mentes de los humanos con la esperanza de regresar a este plano de existencia.
+
+  A pesar de los esfuerzos por erradicar tales prácticas, ha surgido un culto centrado en rituales de sangre y la adoración de un ser llamado "Nar'Sie". Unidos en su propósito de traer a Nar'Sie a este reino, los Cultistas de Sangre reúnen la sangre necesaria para sus retorcidos ritos con fervor fanático.
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # Known Variants
-  # "Blood Cult Priest"
-  
-  Enlightened by the whispers of The Void That Is, these individuals are initiated into secret rituals. They lead the blood harvest and perform rites, bringing the day when Nar'Sie rises ever closer.
-  
+
+  # Variantes Conocidas
+  # "Sacerdote del Culto de Sangre"
+
+  Iluminados por los susurros de El Vacío Que Es, estos individuos son iniciados en rituales secretos. Dirigen la cosecha de sangre y realizan los ritos, acercando cada vez más el día en que Nar'Sie se alce.
+
   <Box>
   <GuideEntityEmbed Entity="MobBloodCultistPriest"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 140 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)[bold][color=#a4885c]*[/color][/bold]
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 10 [color=red]Slash[/color] (blood lightning)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color], [color=red]Slash[/color] and [color=orange]Heat[/color] 50%; [color=yellow]Piercing[/color] 40% (acolyte armor)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Caster (blood lightning)
-  
-  [bold][color=#a4885c]*[/color][/bold] - [italic]an average human can run at 4.5 m/s and walk at 2.5 m/s.[/italic]
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crítico), 140 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)[bold][color=#a4885c]*[/color][/bold]
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 10 [color=red]Corte[/color] (rayo de sangre)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color], [color=red]Corte[/color] y [color=orange]Calor[/color] 50%; [color=yellow]Perforante[/color] 40% (armadura de acólito)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Lanzador (rayo de sangre)
+
+  [bold][color=#a4885c]*[/color][/bold] - [italic]un humano promedio puede correr a 4.5 m/s y caminar a 2.5 m/s.[/italic]
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # "Blood Cult Janitor"
-  
-  The fate of blood cults on space stations hinges on the actions of a single individual - the station janitor. This humble worker serves as the primary line of defense against the presence of blood cults, but even the most resolute individuals can be swayed by corruption.
-  
+
+  # "Conserje del Culto de Sangre"
+
+  El destino de los cultos de sangre en las estaciones espaciales depende de las acciones de un único individuo: el conserje de la estación. Este humilde trabajador sirve como primera línea de defensa contra la presencia de los cultos de sangre, pero incluso los individuos más resueltos pueden ser corrompidos.
+
   <Box>
   <GuideEntityEmbed Entity="MobBloodCultistJanitor"/>
   <GuideEntityEmbed Entity="ClothingBeltCultForceField"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 140 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 0-35 [color=red]Slash[/color] (1 [color=red]Slash[/color] per soaplet)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color], [color=red]Slash[/color] and [color=orange]Heat[/color] 10%; [color=yellow]Piercing[/color] 60%; [color=yellow]Explosion[/color] 20% (cult janitor robes)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Caster (cluster razor soap), Reflection (10%, all projectiles)
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crítico), 140 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 0-35 [color=red]Corte[/color] (1 [color=red]Corte[/color] por pastilla de jabón)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color], [color=red]Corte[/color] y [color=orange]Calor[/color] 10%; [color=yellow]Perforante[/color] 60%; [color=yellow]Explosión[/color] 20% (túnica de conserje cultista)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Lanzador (jabón maquinilla en racimo), Reflexión (10%, todos los proyectiles)
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # "Blood Cult Acolyte"
-  
-  The acolyte - The most trusted cult follower and bodyguard of a priest, clad in the finest armor the cult has to offer and armed with the most vile weapons: eldrich blades and unholy halberds.
-  
+
+  # "Acólito del Culto de Sangre"
+
+  El acólito - el seguidor cultista de mayor confianza y guardaespaldas de un sacerdote, cubierto con la mejor armadura que el culto puede ofrecer y armado con las armas más viles: hojas arcanas y alabardas profanas.
+
   <Box>
   <GuideEntityEmbed Entity="MobBloodCultistAcolyte"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 140 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 16 [color=red]Slash[/color] (eldrich sword)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color], [color=red]Slash[/color] and [color=orange]Heat[/color] 50%; [color=yellow]Piercing[/color] 40% (acolyte armor)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crítico), 140 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 16 [color=red]Corte[/color] (espada arcana)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color], [color=red]Corte[/color] y [color=orange]Calor[/color] 50%; [color=yellow]Perforante[/color] 40% (armadura de acólito)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] ninguna
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # "Blood Cult Zealots"
-  
-  Adorned in matching red robes symbolizing devotion to their dark deity, each member is eager to prove their loyalty in the most gruesome ways.
-  
+
+  # "Fanáticos del Culto de Sangre"
+
+  Ataviados con túnicas rojas a juego que simbolizan su devoción a su oscura deidad, cada miembro está ansioso por demostrar su lealtad de las formas más horrendas.
+
   <Box>
   <GuideEntityEmbed Entity="MobBloodCultistZealotMelee"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 140 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 12 [color=red]Slash[/color] (ritual dagger)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color], [color=red]Slash[/color] and [color=yellow]Piercing[/color] 30%; [color=orange]Heat[/color] 20%; [color=orange]Heat[/color] and [color=yellow]Explosion[/color] 10% (Cult robes)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crítico), 140 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 12 [color=red]Corte[/color] (daga ritual)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color], [color=red]Corte[/color] y [color=yellow]Perforante[/color] 30%; [color=orange]Calor[/color] 20%; [color=orange]Calor[/color] y [color=yellow]Explosión[/color] 10% (túnica cultista)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] ninguna
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
+
   <Box>
   <GuideEntityEmbed Entity="MobBloodCultistZealotRanged"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 140 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 20 [color=red]Slash[/color], 5 [color=#9A54BF]Bloodloss[/color] (blooddrinker crossbow bolt)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color], [color=red]Slash[/color] and [color=yellow]Piercing[/color] 30%; [color=orange]Heat[/color] 20%; [color=orange]Heat[/color] and [color=yellow]Explosion[/color] 10% (Cult robes)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Shooter (blooddrinker crossbow bolt)
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crítico), 140 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 20 [color=red]Corte[/color], 5 [color=#9A54BF]Pérdida de Sangre[/color] (virote de ballesta bebedor de sangre)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color], [color=red]Corte[/color] y [color=yellow]Perforante[/color] 30%; [color=orange]Calor[/color] 20%; [color=orange]Calor[/color] y [color=yellow]Explosión[/color] 10% (túnica cultista)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Tirador (virote de ballesta bebedor de sangre)
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
+
   <Box>
   <GuideEntityEmbed Entity="MobBloodCultistCaster"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 140 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 5 [color=red]Slash[/color], 2 [color=#9A54BF]Bloodloss[/color] (Blood Bolt Spell)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color], [color=red]Slash[/color] and [color=yellow]Piercing[/color] 30%; [color=orange]Heat[/color] 20%; [color=orange]Heat[/color] and [color=yellow]Explosion[/color] 10% (Cult robes)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Caster (Blood Bolt Spell)
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crítico), 140 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 5 [color=red]Corte[/color], 2 [color=#9A54BF]Pérdida de Sangre[/color] (Hechizo de Virote de Sangre)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color], [color=red]Corte[/color] y [color=yellow]Perforante[/color] 30%; [color=orange]Calor[/color] 20%; [color=orange]Calor[/color] y [color=yellow]Explosión[/color] 10% (túnica cultista)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Lanzador (Hechizo de Virote de Sangre)
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # "Blood Leech"
-  
-  This cultist, once human, is now a twisted and corrupted abomination, its body warped and distorted by the dark energies of Nar'Sie's influence.
-  
-  [color=#a4885c]Regeneration (weak)[/color]: can slowly regenerate lost health while alive or in critical condition, but cannot regenerate upon death.
-  
+
+  # "Sanguijuela de Sangre"
+
+  Este cultista, otrora humano, es ahora una abominación retorcida y corrompida, su cuerpo deformado y distorsionado por las oscuras energías de la influencia de Nar'Sie.
+
+  [color=#a4885c]Regeneración (débil)[/color]: puede regenerar lentamente la salud perdida mientras está vivo o en estado crítico, pero no puede regenerarse tras la muerte.
+
   <Box>
   <GuideEntityEmbed Entity="MobBloodCultLeech"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 80 (crit), 130 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 6 m/s (4 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 10 [color=red]Slash[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Regeneration (weak)
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 80 (crítico), 130 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 6 m/s (4 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 10 [color=red]Corte[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Regeneración (débil)
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # "Blood Pylon"
-  
-  Through blood rites, the entrapped souls of sacrificed cultists have been gathered in this pylon to defend their living members. Behaves like a sentry turret.
-  
+
+  # "Pilón de Sangre"
+
+  Mediante ritos de sangre, las almas atrapadas de cultistas sacrificados han sido reunidas en este pilón para defender a sus miembros vivos. Se comporta como una torreta centinela.
+
   <Box>
   <GuideEntityEmbed Entity="BloodCultTurret"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 300
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 0 m/s (0 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 5 [color=red]Slash[/color], 2 [color=#9A54BF]Bloodloss[/color] (Blood Bolt Spell)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Turret, Caster (Blood Bolt Spell)
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 300
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 0 m/s (0 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 5 [color=red]Corte[/color], 2 [color=#9A54BF]Pérdida de Sangre[/color] (Hechizo de Virote de Sangre)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Torreta, Lanzador (Hechizo de Virote de Sangre)
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # "Ascended Cultist"
-  
-  Elevated above their mortal forms by Nar'Sie herself as a reward for their devotion.
-  
-  [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
-  
-  [color=#a4885c]Summoner[/color]: every 55 seconds summons two [color=#a4885c]drained ones[/color] that will exist for 110 seconds.
-  
-  [color=#a4885c]Reflection (30%, energy)[/color]: has a 30% chance to reflect energy based attacks aimed against the creature.
-  
+
+  # "Cultista Ascendido"
+
+  Elevado por encima de su forma mortal por la propia Nar'Sie como recompensa por su devoción.
+
+  [color=#a4885c]Volador[/color]: la criatura levita sobre el suelo y puede sortear obstáculos bajos como mesas, estructuras de máquinas o barandillas sin ser bloqueada ni ralentizada.
+
+  [color=#a4885c]Invocador[/color]: cada 55 segundos invoca dos [color=#a4885c]vaciados[/color] que existirán durante 110 segundos.
+
+  [color=#a4885c]Reflexión (30%, energía)[/color]: tiene un 30% de probabilidad de reflejar los ataques basados en energía dirigidos contra la criatura.
+
   <Box>
   <GuideEntityEmbed Entity="MobBloodCultistAscended"/>
   <GuideEntityEmbed Entity="ClothingNeckAmuletBloodCult"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 300 (crit), 400 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 20 [color=red]Slash[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Flier, Summoner (Drained One), Reflection (30%, energy)
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 300 (crítico), 400 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 20 [color=red]Corte[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Volador, Invocador (Vaciado), Reflexión (30%, energía)
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # "Drained One"
-  
-  A tortured soul, stripped of free will and left as a mere shadow of a human, enslaved and bound to obey its captors.
-  
-  [color=#a4885c]Regeneration (weak)[/color]: can slowly regenerate lost health while alive or in critical condition, but cannot regenerate upon death.
-  
-  [color=#a4885c]Incorporeal[/color]: can only be damaged by melee attacks or energy weapons. 
-  
+
+  # "Vaciado"
+
+  Un alma atormentada, despojada de libre albedrío y reducida a una mera sombra de ser humano, esclavizada y obligada a obedecer a sus captores.
+
+  [color=#a4885c]Regeneración (débil)[/color]: puede regenerar lentamente la salud perdida mientras está vivo o en estado crítico, pero no puede regenerarse tras la muerte.
+
+  [color=#a4885c]Incorpóreo[/color]: solo puede recibir daño de ataques cuerpo a cuerpo o armas de energía.
+
   <Box>
   <GuideEntityEmbed Entity="MobBloodCultDrainedOneGuidebook"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 130 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 4 [color=#9A54BF]Asphyxiation[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Regeneration (weak), Incorporeal
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crítico), 130 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 4 [color=#9A54BF]Asfixia[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Regeneración (débil), Incorpóreo
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # "Shade"
-  
-  A cultist's shade, brought back to reality through foul means to gather more blood.
-  
-  [color=#a4885c]Regeneration (weak)[/color]: can slowly regenerate lost health while alive or in critical condition, but cannot regenerate upon death.
-  
-  [color=#a4885c]Incorporeal[/color]: can only be damaged by melee attacks or energy weapons. 
-  
+
+  # "Sombra"
+
+  La sombra de un cultista, traída de vuelta a la realidad por medios viles para recopilar más sangre.
+
+  [color=#a4885c]Regeneración (débil)[/color]: puede regenerar lentamente la salud perdida mientras está vivo o en estado crítico, pero no puede regenerarse tras la muerte.
+
+  [color=#a4885c]Incorpóreo[/color]: solo puede recibir daño de ataques cuerpo a cuerpo o armas de energía.
+
   <Box>
   <GuideEntityEmbed Entity="MobBloodCultShadeGuidebook"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 130 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 2 [color=red]Slash[/color], 2 [color=#9A54BF]Bloodloss[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Regeneration (weak), Incorporeal
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crítico), 130 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 2 [color=red]Corte[/color], 2 [color=#9A54BF]Pérdida de Sangre[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Regeneración (débil), Incorpóreo
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # Mission Objectives
-  ## Elimination
+
+  # Objetivos de Misión
+  ## Eliminación
   <Box>
   <GuideEntityEmbed Entity="MobBloodCultistAscended"/>
   </Box>
-  Eliminate a large and dangerous creature - an [color=#a4885c]ascended cultist[/color] within given time constraints to earn a monetary reward.
-  
-  ## Destruction
+  Elimina una criatura grande y peligrosa: un [color=#a4885c]cultista ascendido[/color] dentro de los límites de tiempo establecidos para obtener una recompensa monetaria.
+
+  ## Destrucción
   <Box>
   <GuideEntityEmbed Entity="BloodCollector"/>
   </Box>
-  Destroy a certain number of [color=#a4885c]blood collectors[/color] within given time constraints to earn a monetary reward.
+  Destruye un número determinado de [color=#a4885c]colectores de sangre[/color] dentro de los límites de tiempo establecidos para obtener una recompensa monetaria.
 </Document>

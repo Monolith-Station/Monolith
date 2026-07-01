@@ -1,61 +1,61 @@
 <Document>
-  # Reptilians
+  # Reptilianos
 
   <Box>
     <GuideEntityEmbed Entity="MobReptilian" Caption=""/>
   </Box>
 
 
-  ## Food
-  Reptilians are capable of eating raw meat, but will get ill from consuming chocolate or any other food containing theobromine.
+  ## Alimentación
+  Los Reptilianos pueden comer carne cruda, pero se pondrán enfermos si consumen chocolate o cualquier otro alimento que contenga teobromina.
 
 
-  ## Physical properties
-  They can drag objects with their tail, keeping both their hands free.
+  ## Propiedades físicas
+  Pueden arrastrar objetos con su cola, manteniendo ambas manos libres.
 
-  They receive [color=#FFA500]15%[/color] less damage from slash and [color=#FF0000]5%[/color] less damage from heat, but [color=#FFA500]25%[/color] more damage from blunt.
+  Reciben un [color=#FFA500]15%[/color] menos de daño por corte y un [color=#FF0000]5%[/color] menos de daño por calor, pero un [color=#FFA500]25%[/color] más de daño por golpe.
 
-  Their raw melee is way more powerful than human - 8 slash with 1.5 attack rate
+  Su combate cuerpo a cuerpo sin armas es mucho más poderoso que el humano: 8 de daño por corte con una velocidad de ataque de 1,5.
 
 
-  ## Claws
-  Reptilians are equipped with dangerous claws that have different stages.
+  ## Garras
+  Los Reptilianos están equipados con peligrosas garras que tienen diferentes etapas.
 
-  - Stage 0 - [color=#FFA500]8 slash damage.[/color]
-  - Stage 1 - [color=#FFA500]11 slash damage.[/color] [color=#FFDEAD]Gun spread is increased by 10%, Handheld weapon damage is decreased by 5%[/color]
-  - Stage 2 - [color=#FFA500]13 slash damage, 2 piercing damage.[/color] [color=#FFDEAD]Gun spread is increased by 25%, Handheld weapon damage is decreased by 13%.[/color] Starting from this stage, you are capable of wideswinging with your claws
-  - Stage 3 - [color=#FFA500]15 slash damage, 5 piercing damage.[/color] [color=#FFDEAD]Gun spread is increased by 45%, Handheld weapon damage is decreased by 25%[/color]
-  - Stage 4 - [color=#FFA500]18 slash damage, 12 piercing damage.[/color] [color=#FFDEAD]You are not capable of using all guns but bows anymore, Handheld weapon damage is decreased by 50%.[/color]
+  - Etapa 0 - [color=#FFA500]8 de daño por corte.[/color]
+  - Etapa 1 - [color=#FFA500]11 de daño por corte.[/color] [color=#FFDEAD]La dispersión de armas de fuego aumenta un 10%, el daño de armas en mano disminuye un 5%[/color]
+  - Etapa 2 - [color=#FFA500]13 de daño por corte, 2 de daño por perforación.[/color] [color=#FFDEAD]La dispersión de armas de fuego aumenta un 25%, el daño de armas en mano disminuye un 13%.[/color] A partir de esta etapa, puedes realizar ataques en arco con tus garras.
+  - Etapa 3 - [color=#FFA500]15 de daño por corte, 5 de daño por perforación.[/color] [color=#FFDEAD]La dispersión de armas de fuego aumenta un 45%, el daño de armas en mano disminuye un 25%[/color]
+  - Etapa 4 - [color=#FFA500]18 de daño por corte, 12 de daño por perforación.[/color] [color=#FFDEAD]No puedes usar armas de fuego excepto arcos, el daño de armas en mano disminuye un 50%.[/color]
 
-  ### Cutting Claws
+  ### Cortar las garras
 
-  Using [color=#FFA500]wirecutters[/color], you can cut Reptilian's claws, reducing their stage by 1 and resetting the current growth progress.
+  Usando [color=#FFA500]cortacables[/color], puedes cortar las garras del Reptiliano, reduciendo su etapa en 1 y reiniciando el progreso de crecimiento actual.
 
   <Box>
     <GuideEntityEmbed Entity="Wirecutter" Caption=""/>
   </Box>
 
-  ### Chemicals
+  ### Químicos
 
-  Certain chemicals allow greater control over Reptilian claw growth. Phenoxzine boosts claw growth by 20x, while Meroxzine pauses all claw growth entirely. Both metabolize slowly, allowing long term usage to be effective.
+  Ciertos químicos permiten un mayor control sobre el crecimiento de las garras del Reptiliano. La Phenoxzine acelera el crecimiento de las garras 20 veces, mientras que la Meroxzine detiene por completo el crecimiento de las garras. Ambas se metabolizan lentamente, lo que permite un uso prolongado efectivo.
 
   <GuideReagentEmbed Reagent="Phenoxzine"/>
   <GuideReagentEmbed Reagent="Meroxzine"/>
 
-  ## Temperature
+  ## Temperatura
 
-  Due to being cold-blooded, they are not capable of generating enough heat to sustain themselfs in the [color=#4169E1]20C[/color] environment.
-  Temperatures lower than [color=#4169E1]22C[/color] are extremely dangerous for them! They will start getting [color=#FF0000]drowsy and start periodically falling unconscious[/color].
-  However, they receive small regeneration and speed boost if they manage to sustain body temperature higher than [color=#FFA500]47C[/color].
+  Al ser de sangre fría, no son capaces de generar suficiente calor para sobrevivir en un entorno de [color=#4169E1]20C[/color].
+  ¡Las temperaturas inferiores a [color=#4169E1]22C[/color] son extremadamente peligrosas para ellos! Comenzarán a sentir [color=#FF0000]somnolencia y perderán el conocimiento periódicamente[/color].
+  Sin embargo, reciben una pequeña regeneración y un aumento de velocidad si logran mantener una temperatura corporal superior a [color=#FFA500]47C[/color].
 
-  ### Heating up
+  ### Calentarse
 
-  - Welders, emergency flares and campfires are now capable of heating up humanoids, including Reptilians.
+  - Los soldadores, las bengalas de emergencia y las hogueras son ahora capaces de calentar a los humanoides, incluidos los Reptilianos.
   <Box>
     <GuideEntityEmbed Entity="Welder" Caption=""/>
     <GuideEntityEmbed Entity="Flare" Caption=""/>
     <GuideEntityEmbed Entity="Bonfire" Caption=""/>
   </Box>
-  - Wearing winter clothes or hardsuits will let you to generate enough heat to stay somewhat comfortable.
-  - Reptilians are capable of exchanging heat with other creatures by hugging them. Hugging colder creature, however, will make situation worse.
+  - Llevar ropa de invierno o trajes especiales te permitirá generar suficiente calor para estar algo cómodo.
+  - Los Reptilianos son capaces de intercambiar calor con otras criaturas abrazándolas. Abrazar a una criatura más fría, sin embargo, empeorará la situación.
 </Document>

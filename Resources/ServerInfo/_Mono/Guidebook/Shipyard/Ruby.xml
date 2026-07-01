@@ -1,5 +1,5 @@
 <Document>
-  # RUBY-CLASS ANOMALOUS RESEARCH
+  # INVESTIGACIÓN ANÓMALA CLASE RUBY
   <Box>
   <GuideEntityEmbed Entity="MachineArtifactAnalyzer"/>
   <GuideEntityEmbed Entity="WeaponTurretL85Autocannon"/>
@@ -8,38 +8,38 @@
   <Box>
   <GuideEntityEmbed Entity="MachineAnomalyGenerator"/>
   </Box>
-    [color=#a4885c]Ship Size:[/color] Large
+    [color=#a4885c]Tamaño de nave:[/color] Grande
 
-	[color=#a4885c]Recommended Crew:[/color] 1-4
+	[color=#a4885c]Tripulación recomendada:[/color] 1-4
 
-	[color=#a4885c]Power Gen Type:[/color] Plasma
+	[color=#a4885c]Tipo de generación de energía:[/color] Plasma
 
-	[color=#a4885c]Expeditions:[/color] None
+	[color=#a4885c]Expediciones:[/color] Ninguna
 
-	[color=#a4885c]IFF Console:[/color] None
+	[color=#a4885c]Consola IFF:[/color] Ninguna
 
-  "Ruby-class made for intermediate to advanced researchers, single artifact chamber."
+  "Clase Ruby diseñada para investigadores de nivel intermedio a avanzado, con una sola cámara de artefactos."
 
-  # PREFLIGHT CHECKLIST
+  # LISTA DE VERIFICACIÓN PREVIA AL VUELO
 
-  ## 1. Power supply
+  ## 1. Suministro de energía
 
-  ## 1.1. Battery units
+  ## 1.1. Unidades de batería
   <Box>
   <GuideEntityEmbed Entity="SMESAdvanced"/>
   <GuideEntityEmbed Entity="SubstationBasic"/>
   <GuideEntityEmbed Entity="APCBasic"/>
   </Box>
 
-  - Check that the generator unit is anchored to the floor.
-  - Check that the Advanced SMES unit is anchored to the floor.
-  - Check that the substation unit is anchored to the floor.
-  - Check that the Engineering APC unit Breaker is toggled on.
-  - Check the APC units current Load* (W).
-  - Check that the remaining APC's Breakers are toggled on.
-  - Check the APC units current Load* (W).
+  - Verifica que la unidad generadora esté anclada al suelo.
+  - Verifica que la unidad SMES avanzado esté anclada al suelo.
+  - Verifica que la unidad de subestación esté anclada al suelo.
+  - Verifica que el disyuntor del APC de Ingeniería esté activado.
+  - Comprueba la carga* (W) actual de las unidades APC.
+  - Verifica que los disyuntores de los demás APC estén activados.
+  - Comprueba la carga* (W) actual de las unidades APC.
 
-  ## 1.2. SKR CR-class Z-pinch nuclear fusion reactor.
+  ## 1.2. Reactor de fusión nuclear Z-pinch SKR clase CR.
   <Box>
   <GuideEntityEmbed Entity="FuelPlasma"/>
   <GuideEntityEmbed Entity="RadiationCollectorFullTank"/>
@@ -48,16 +48,16 @@
   <GuideEntityEmbed Entity="GeneratorCRPinch"/>
   </Box>
 
-  - [color=#e9d502][bold]Wear protective equipment due to radiation leakeage.[/bold][/color]
-  - Check that the generator unit is connected to the cable terminal of your SMES via HV.
-  - Check the fuel remaining of the generator unit.
-  - Set the generator unit output power to 60 kW.
-  - Toggle the radiation collectors ON.
-  - Enable Injection.
+  - [color=#e9d502][bold]Usa equipo de protección debido a la fuga de radiación.[/bold][/color]
+  - Verifica que la unidad generadora esté conectada al terminal de cable de tu SMES mediante HV.
+  - Comprueba el combustible restante de la unidad generadora.
+  - Establece la potencia de salida de la unidad generadora en 60 kW.
+  - Activa los colectores de radiación.
+  - Habilita la inyección.
 
-  ## 2. Atmospherics
+  ## 2. Atmosférica
 
-  ## 2.1. Distribution Loop
+  ## 2.1. Bucle de distribución
   <Box>
   <GuideEntityEmbed Entity="OxygenCanister"/>
   <GuideEntityEmbed Entity="NitrogenCanister"/>
@@ -65,31 +65,31 @@
   <GuideEntityEmbed Entity="GasPressurePump"/>
   </Box>
 
-  - Check that the O2 canister is anchored to the BLUE connector port.
-  - Check that the N2 canister is anchored to the RED connector port.
-  - Check that the gas mixer is set to the correct mixing ratio (~22% Oxygen, ~78% Nitrogen).
-  - Check that the gas mixer is set to 101.325kPa.
-  - Enable gas mixer.
+  - Verifica que el contenedor de O2 esté anclado al puerto conector AZUL.
+  - Verifica que el contenedor de N2 esté anclado al puerto conector ROJO.
+  - Verifica que el mezclador de gas esté configurado con la proporción correcta (~22% Oxígeno, ~78% Nitrógeno).
+  - Verifica que el mezclador de gas esté configurado a 101,325 kPa.
+  - Activa el mezclador de gas.
 
-  ## 2.2. Waste Loop
+  ## 2.2. Bucle de residuos
   <Box>
   <GuideEntityEmbed Entity="GasPressurePump"/>
   <GuideEntityEmbed Entity="AirAlarm"/>
   </Box>
 
-  - Enable waste loop pump.
+  - Activa la bomba del bucle de residuos.
 
-  ## 3. Other checks
+  ## 3. Otras verificaciones
   <Box>
   <GuideEntityEmbed Entity="Gyroscope"/>
   <GuideEntityEmbed Entity="GravityGeneratorMini"/>
   </Box>
 
-  - Check that the gyroscope is anchored, powered, and enabled.
-  - Check that the mini gravity generator is anchored, powered, and enabled.
+  - Verifica que el giroscopio esté anclado, alimentado y habilitado.
+  - Verifica que el generador de gravedad mini esté anclado, alimentado y habilitado.
 
-  ## Sidenotes
+  ## Notas adicionales
 
-  * - Recommended to have basic anomaly knowledge to utilize the ship to it's fullest capabilities, additional tesla coils and rods have been provided to satisfy any power needs in case the vessel is upgraded, base model utilizes around 75kw up to 90kw with normal usage.
+  * - Se recomienda tener conocimientos básicos sobre anomalías para aprovechar al máximo las capacidades de la nave. Se han proporcionado bobinas Tesla y varillas adicionales para satisfacer cualquier necesidad de energía en caso de que el buque sea mejorado; el modelo base utiliza alrededor de 75 kW y hasta 90 kW con uso normal.
 
 </Document>

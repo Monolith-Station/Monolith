@@ -1,31 +1,31 @@
 <Document>
-  # Ship Warfare
+  # Combate Naval
 
-Warfare on the frontier is usually done via the means of [color=orange]ship gunnery[/color].
+La guerra en la frontera se lleva a cabo principalmente mediante [color=orange]artillería naval[/color].
 
   <Box>
     <GuideEntityEmbed Entity="WeaponTurretL85Autocannon"/>
     <GuideEntityEmbed Entity="GunneryServerMedium"/>
   </Box>
 
-There are 3 types of ship weaponry available:
- - [color=gold]Ballistics[/color], which are weapons like autocannons, railguns, and all other unguided chemical-propellant weapons.
- - [color=MediumVioletRed]Energy[/color], which are weapons like plasma weaponry, lasers, and other similar non-chemical based weapons. These have infinite ammo usually.
- - [color=GreenYellow]Missiles[/color], which are all guided munitions. It explains itself.
+Hay 3 tipos de armamento naval disponibles:
+ - [color=gold]Balística[/color], que son armas como los cañones automáticos, los rifles de riel y todas las demás armas sin guía propulsadas por explosivos químicos.
+ - [color=MediumVioletRed]Energía[/color], que son armas como el armamento de plasma, los láseres y otras armas similares no basadas en productos químicos. Estas suelen tener munición infinita.
+ - [color=GreenYellow]Misiles[/color], que son toda clase de munición guiada. Se explica por sí mismo.
 
-Ship weapons all need a [color=orange]gunnery control console[/color] and a [color=slateblue]gunnery control server[/color] to function. They will be abbreviated to [color=orange]GCC[/color] and [color=slateblue]GCS[/color] in most instances.
- - [color=gold]Ballistics[/color] and [color=GreenYellow]Missiles[/color] also require ammunition.
- - Ammunition can be [color=red]very volatile[/color] if damaged.
+Las armas navales necesitan una [color=orange]consola de control de artillería[/color] y un [color=slateblue]servidor de control de artillería[/color] para funcionar. En la mayoría de los casos se abreviarán como [color=orange]CCA[/color] y [color=slateblue]SCA[/color].
+ - [color=gold]La balística[/color] y [color=GreenYellow]los misiles[/color] también requieren munición.
+ - La munición puede ser [color=red]muy volátil[/color] si resulta dañada.
 
-Ship weapons only fire if they are selected and if your cursor on the [color=orange]GCC[/color] is in the FOV of the turret.
+Las armas navales solo disparan si están seleccionadas y si el cursor en la [color=orange]CCA[/color] está en el campo de visión de la torreta.
 
   <Box>
     <GuideEntityEmbed Entity="ShipMissileASM150"/>
     <GuideEntityEmbed Entity="WeaponTurretVanyk"/>
   </Box>
 
-Missiles will only track grids with a shuttle console, and are immediately pointed towards their tracked target upon detecting a target. Take into account the detection angle of your missiles, you can fire a lot farther than what the FOV of your turrets will allow if you do.
+Los misiles solo rastrean cuadrículas con una consola de transbordador y apuntan de inmediato hacia su objetivo rastreado al detectarlo. Ten en cuenta el ángulo de detección de tus misiles; puedes disparar mucho más lejos de lo que el campo de visión de tus torretas te permite si así lo haces.
 
-Most missiles have a tracking delay before attempting to seek out targets, and will not lock onto targets around 200 meters or less away from the origin ship, depending on the missile size.
+La mayoría de los misiles tienen un retraso de seguimiento antes de intentar localizar objetivos y no se bloquearán en objetivos a 200 metros o menos de distancia del barco de origen, dependiendo del tamaño del misil.
 
 </Document>

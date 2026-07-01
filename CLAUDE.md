@@ -18,8 +18,12 @@ This fork's purpose: a fully Spanish translation kept mergeable with upstream.
 ## Iron rules (keep merges conflict-free)
 - NEVER edit upstream files (C#, YAML, or `Resources/Locale/en-US/**`). All Spanish is ADDITIVE
   in `Resources/Locale/es-ES/`. Fork tooling/docs live in `_Capibara/`.
-- The ONE intentional divergence is `ContentLocalizationManager.cs` (culture switch + fallback),
+- The ONE intentional code divergence is `ContentLocalizationManager.cs` (culture switch + fallback),
   bracketed with `// Capibara ESP` comments. **On a merge conflict there, keep the Capibara block.**
+- EXCEPTION (approved): `Resources/ServerInfo/**` (guidebook, rules, intro texts) is translated
+  IN PLACE — the engine has no per-locale mechanism for these docs. **On a merge conflict there:
+  take UPSTREAM's version (`git checkout --theirs`), then retranslate that file** — see
+  `_Capibara/sync-guidebook` notes below. Never try to hand-merge Spanish vs English hunks.
 
 ## Fluent-preservation rules (any translation, human or agent)
 Translate only human-readable text. Never modify/translate/add/remove: message IDs, attribute
@@ -30,8 +34,16 @@ calls/args (`{ CAPITALIZE($x) }`), or escapes (`\n`, `{ "" }`). Keep placeables 
 - `glossary.md` — canonical es-ES terms; inject into every translation agent.
 - `validate-locale.ps1` — structural gate (dropped/renamed vars, hallucinated IDs, braces). Must exit 0.
 - `sync-locale.ps1` — en-US↔es-ES diff + hash manifest. `-UpdateManifest` after translating.
+- `generate-entity-ftl.ps1` — regenerates `es-ES/_Capibara/entities/*.ftl` from the entity dump +
+  translation maps (entity names/descs live in YAML prototypes, localized via `ent-<id>` overrides;
+  dump via `CapibaraEntityDumpTest`).
+- `validate-guidebook.ps1` — ServerInfo translation gate: every `<...>` tag must be byte-identical
+  to the English baseline (`-BaselineRef`, default HEAD). Run BEFORE committing a guidebook pass.
+- `guidebook-manifest.json` — SHA1 of each English ServerInfo doc at translation time. After an
+  upstream merge, hash upstream's docs against it to find which files changed → retranslate those.
 - `translate-workflow.md` — how to run/resume the bulk translation workflow.
 - `progress.md` — translation status.
+- Guidebook parse gate: `dotnet test Content.IntegrationTests --filter "FullyQualifiedName~Guidebook"`.
 
 ## Verify
 - `dotnet test Content.IntegrationTests --filter CapibaraCultureTest` — culture es-ES + fallback.

@@ -1,47 +1,47 @@
 <Document>
-# Xenoarchaeology
-Xenoarchaeology is a field of science focused on researching and experimenting on alien artifacts.
+# Xenoarqueología
+La xenoarqueología es un campo científico centrado en investigar y experimentar con artefactos alienígenas.
 
-Artifacts can be found by mining asteroids found around the sector, or you can buy some from miners or salvagers.
+Los artefactos se pueden encontrar minando asteroides del sector, o puedes comprarlos a mineros o saqueadores.
 
-By researching the unique things each artifact can do, you gain Research Points, increase the artifact's sale value, and potentially discover a useful ability or two!
+¡Al investigar las capacidades únicas de cada artefacto, obtienes Puntos de Investigación, aumentas el valor de venta del artefacto y potencialmente descubres una o dos habilidades útiles!
 
-## Artifact Nodes
+## Nodos de Artefactos
 <Box>
 <GuideEntityEmbed Entity="ComplexXenoArtifact" Caption=""/>
 <GuideEntityEmbed Entity="SimpleXenoArtifactItem" Caption=""/>
 </Box>
-Artifacts consist of a randomly-generated tree of nodes. These nodes have a "[color=#a4885c]depth[/color]", representing how dangerous the node is, and the number of other nodes connected to it, called "[color=#a4885c]edges[/color]",
+Los artefactos están formados por un árbol de nodos generado aleatoriamente. Estos nodos tienen una "[color=#a4885c]profundidad[/color]", que representa lo peligroso que es el nodo, y el número de otros nodos conectados a él, llamados "[color=#a4885c]aristas[/color]".
 
-Artifacts always start at depth zero, the root of the tree. Travelling the tree to find as many nodes as possible is the main goal of the scientists working on them. Knowledge is extracted from nodes to gain Research Points and increase the artifact's sale value.
+Los artefactos siempre comienzan en profundidad cero, la raíz del árbol. Recorrer el árbol para encontrar el mayor número de nodos posible es el objetivo principal de los científicos que trabajan en ellos. El conocimiento se extrae de los nodos para obtener Puntos de Investigación y aumentar el valor de venta del artefacto.
 
-Each node has two components: its [color=#a4885c]stimulus[/color] and a [color=#a4885c]reaction[/color].
+Cada nodo tiene dos componentes: su [color=#a4885c]estímulo[/color] y una [color=#a4885c]reacción[/color].
 
-A stimulus is the external behavior that triggers the reaction. There's a variety of these, and higher depth nodes have more difficult to accomplish stimuli. Some stimuli will need improvisation to trigger, and you may need special materials or resources to get everything you need.
+Un estímulo es el comportamiento externo que desencadena la reacción. Existe una gran variedad de ellos, y los nodos de mayor profundidad tienen estímulos más difíciles de conseguir. Algunos estímulos requerirán improvisación para activarse, y puede que necesites materiales o recursos especiales para conseguir todo lo necesario.
 
-Some reactions are instantaneous effects while others are permanent changes. Once an artifact is triggered, the reaction causes the artifact to randomly move to another node it is linked to.
+Algunas reacciones son efectos instantáneos, mientras que otras son cambios permanentes. Una vez que se activa un artefacto, la reacción hace que el artefacto se mueva aleatoriamente a otro nodo con el que está vinculado.
 
-With some experimental science, you can begin to grasp how the different nodes of an artifact are connected, and how to move between them by repeatedly activating nodes.
+Con algo de ciencia experimental, puedes empezar a comprender cómo están conectados los diferentes nodos de un artefacto y cómo moverte entre ellos activándolos repetidamente.
 
-All non-zero-depth nodes will have exactly one edge that leads up to its parent node. All other edges a node has lead down to the next depth.
+Todos los nodos de profundidad no nula tendrán exactamente una arista que lleva hasta su nodo padre. El resto de aristas de un nodo llevan hacia la siguiente profundidad.
 
-## Artifact Analyzer and Analysis Console
+## Analizador de Artefactos y Consola de Análisis
 <Box>
 <GuideEntityEmbed Entity="MachineArtifactAnalyzer"/>
 <GuideEntityEmbed Entity="ComputerAnalysisConsole"/>
 </Box>
-The main equipment that you'll be using for Xenoarchaeology is the [color=#a4885c]artifact analyzer[/color] and the [color=#a4885c]analysis console[/color]. You can use these to create reports that contain valuable information about an artifact.
+El equipo principal que usarás en xenoarqueología es el [color=#a4885c]analizador de artefactos[/color] y la [color=#a4885c]consola de análisis[/color]. Puedes usarlos para crear informes con información valiosa sobre un artefacto.
 
-To set them up, simply link them with a network configurator and set an artifact on top of the analyzer. Every science vessel has at least one of these machines already set up.
+Para configurarlos, simplemente vincúlalos con un configurador de red y coloca un artefacto encima del analizador. Cada nave científica ya tiene al menos una de estas máquinas configurada.
 
-Use the console's [color=#a4885c]scan[/color] button to discover what stimulus the artifact needs and what its reaction will do. Scanning takes thirty seconds.
+Usa el botón [color=#a4885c]escanear[/color] de la consola para descubrir qué estímulo necesita el artefacto y qué hará su reacción. El escaneo tarda treinta segundos.
 
-Use the [color=#a4885c]print[/color] button to save the scan result, so you can refer to it later.
+Usa el botón [color=#a4885c]imprimir[/color] para guardar el resultado del escaneo y poder consultarlo más adelante.
 
-Once you've discovered a new node, you can extract points from the artifact using the [color=#a4885c]Extract[/color] button.
+Una vez que hayas descubierto un nuevo nodo, puedes extraer puntos del artefacto usando el botón [color=#a4885c]Extraer[/color].
 
-## Assembling Artifacts
+## Ensamblaje de Artefactos
 <GuideEntityEmbed Entity="ArtifactFragment" Caption="Artifact Fragment"/>
 
-It is possible to gather multiple artifact fragments and assemble them into a working artifact. You can ask for these from mining ships, who usually find these while mining asteroids or on Expeditions.
+Es posible reunir múltiples fragmentos de artefactos y ensamblarlos para formar un artefacto funcional. Puedes pedírselos a las naves mineras, que suelen encontrarlos al minar asteroides o durante Expediciones.
 </Document>

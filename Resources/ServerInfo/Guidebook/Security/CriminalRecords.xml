@@ -1,40 +1,40 @@
-﻿<Document>
-  # Criminal Records
-  The criminal records console is accessible in every station's security department, it serves the purpose of tracking and managing the criminal history and status of anybody part of the crew manifest.
+<Document>
+  # Registros Criminales
+  La consola de registros criminales está disponible en el departamento de Seguridad de cada estación y sirve para rastrear y gestionar el historial criminal y el estado de cualquier miembro del manifiesto de tripulación.
 
   <Box>
   <GuideEntityEmbed Entity="ComputerCriminalRecords"/>
   </Box>
 
-  Anyone can open the console's UI, but only those with Security access can modify anything.
+  Cualquiera puede abrir la interfaz de la consola, pero solo quienes tengan acceso de Seguridad pueden modificar algo.
 
-  The UI is composed by the following elements:
-  - A search bar that has a filter next to it that lets you filter the crewmembers by their names, fingerprints or DNA.
+  La interfaz está compuesta por los siguientes elementos:
+  - Una barra de búsqueda con un filtro al lado que permite filtrar a los miembros de la tripulación por nombre, huellas dactilares o ADN.
 
-  - A list of all the crewmembers in the manifest, selecting one of the entries will make the criminal records of a crewmember appear. The list is filtered by the search bar so make sure it's empty if you want an overall overview!
+  - Una lista de todos los miembros de la tripulación en el manifiesto; al seleccionar una entrada, aparecerán los registros criminales del tripulante. La lista se filtra mediante la barra de búsqueda, ¡así que asegúrate de que esté vacía si quieres una visión general completa!
 
-  - The criminal records themselves
+  - Los propios registros criminales.
 
-  - The filter button below the crew list can be used to show only wanted, detained, or paroled crew.
-  In the record section you can:
-    - See security-related information about a crewmember like their name, fingerprints and DNA.
+  - El botón de filtro debajo de la lista de tripulación se puede usar para mostrar solo a la tripulación buscada, detenida o en libertad condicional.
+  En la sección de registros puedes:
+    - Ver información de seguridad sobre un tripulante, como su nombre, huellas dactilares y ADN.
 
-    - Change the security status between [color=gray]None[/color], [color=yellow]Wanted[/color] and [color=red]Detained[/color]. When setting it to Wanted you will be asked to write a reason.
+    - Cambiar el estado de seguridad entre [color=gray]Ninguno[/color], [color=yellow]Buscado[/color] y [color=red]Detenido[/color]. Al establecerlo en Buscado, se te pedirá que escribas un motivo.
 
-    - If they are wanted, you can see the reason given below the status dropdown.
+    - Si están buscados, puedes ver el motivo indicado debajo del menú desplegable de estado.
 
-    - Once someone has been arrested, update their status on the console so everyone knows they no longer need to be captured.
+    - Una vez que alguien haya sido arrestado, actualiza su estado en la consola para que todos sepan que ya no es necesario capturarle.
 
-    - After they've done their time, release them and update their status to None so nobody thinks they are an escaped convict.
+    - Cuando haya cumplido su condena, ponle en libertad y actualiza su estado a Ninguno para que nadie piense que es un convicto fugado.
 
-    - Open the Crime History window to check or modify it.
+    - Abre la ventana de Historial de Delitos para consultarlo o modificarlo.
 
-  The Crime History window lists someone's crimes and can be modified in multiple ways:
-    - Automatically, just by setting someone's status to arrested. The reason will be added to "ARRESTED:" so it's easy to see the automated entries.
+  La ventana de Historial de Delitos enumera los delitos de alguien y puede modificarse de varias formas:
+    - Automáticamente, simplemente estableciendo el estado de alguien como arrestado. El motivo se añadirá a "ARRESTADO:" para que sea fácil identificar las entradas automáticas.
 
-    - Adding a new line by clicking "Add" and writing something in the input box. When adding a record, remember to mention their crime and sentence, the console will automatically insert the shift's time so you don't need to!
+    - Añadiendo una nueva línea haciendo clic en "Añadir" y escribiendo algo en el campo de texto. Al añadir un registro, recuerda mencionar el delito y la condena; la consola insertará automáticamente la hora del turno, ¡así no tendrás que hacerlo tú!
 
-    - Select a line of unwanted history and click "Delete" to remove it. Excellent for keeping records clean from the clown's stolen ID antics.
+    - Selecciona una línea del historial no deseado y haz clic en "Eliminar" para quitarla. Ideal para mantener los registros limpios de las travesuras del Payaso con la tarjeta de identificación robada.
 
-  Now you can be the desk jockey you've always wanted to be.
+  Ahora puedes ser el burócrata de escritorio que siempre quisiste ser.
 </Document>

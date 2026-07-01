@@ -13,8 +13,20 @@
   - Verified: `CapibaraCultureTest` boots with all entity keys loaded (parse-clean).
   - To refresh after upstream changes: re-run the dumper test, rebuild `strbatches.json` from unique
     strings, re-run the entity workflow, re-run `generate-entity-ftl.ps1`.
+- [x] **Entity coverage completed to 100%** — 2026-07-01. The 14 key-mismatched strings (curly
+  quotes/™/dashes) translated via `tmp/tr-fix.json`; `hud-chatbox-highlights-tooltip` (missing in
+  ALL upstream locales) added to the fork seed file.
+- [x] **Guidebook + server rules + ServerInfo texts** — 2026-07-01
+  - 307 XML docs (~832k chars, incl. `_Mono/MonolithRuleset.xml` = the join-screen rules) + 4
+    player-facing `.txt` translated IN PLACE (approved exception — engine has no per-locale docs).
+  - 95-agent workflow + 10-agent `textlink=` label fix pass (434 link labels in 75 files).
+  - Verified: `validate-guidebook.ps1` — all `<...>` tags byte-identical to English baseline;
+    upstream `GuideEntryPrototypeTests` + `DocumentParsingTest` pass (every doc parses).
+  - Merge rule: on ServerInfo conflict take upstream's English, retranslate that file
+    (`guidebook-manifest.json` identifies changed docs).
 - [ ] Human editorial review pass (machine output; proofread high-visibility strings first).
-- [ ] Remaining ~20 entity strings + any name-less entities (currently English fallback).
+- [ ] NOT translated (deliberate): map names (proper nouns), random-flavor datasets
+  (ion-storm laws, ship names — raw upstream YAML, no loc support), changelog, hardcoded C# strings.
 
 ## Maintenance after each upstream merge
 1. `git fetch upstream && git merge upstream/main`

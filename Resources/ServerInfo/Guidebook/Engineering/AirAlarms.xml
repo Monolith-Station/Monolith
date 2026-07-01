@@ -1,65 +1,65 @@
-﻿<Document>
-  # Air Alarms
-  The Air Alarm is a device that enables central monitoring and control over all relevant Atmos devices linked to it.
+<Document>
+  # Alarmas de Aire
+  La Alarma de Aire es un dispositivo que permite la monitorización y el control centralizado de todos los dispositivos Atmos relevantes vinculados a ella.
 
   <Box>
     <GuideEntityEmbed Entity="AirAlarm"/>
   </Box>
 
-  Using the Air Alarm, Atmos can quickly and efficiently manage the atmosphere in a given area.
+  Usando la Alarma de Aire, Atmos puede gestionar de forma rápida y eficiente la atmósfera en un área determinada.
 
-  A room will often have an Air Alarm mounted on the wall, for quick control over multiple devices in that room.
+  Una sala tendrá frecuentemente una Alarma de Aire montada en la pared, para el control rápido de múltiples dispositivos en esa sala.
 
-  You can see how to link devices in the [textlink="Link" link="Networking"] guide.
+  Puedes ver cómo vincular dispositivos en la guía [textlink="Vinculación" link="Networking"].
 
-  ## User Interface
-  Interacting with an Air Alarm will bring up a menu with 3 sections:
-  - Top: The current status of the air alarm. This includes the current pressure and temperature of the area the air alarm is monitoring.
-  - Middle: Lists of linked [textlink="Air Vents" link="AirVent"] and [textlink="Air Scrubbers" link="AirScrubber"], as well as all sensors reporting back to the air alarm.
-  - Bottom: Buttons to control air alarm operating modes, as well as the ability to toggle the automatic changing of modes.
+  ## Interfaz de Usuario
+  Interactuar con una Alarma de Aire mostrará un menú con 3 secciones:
+  - Superior: El estado actual de la alarma de aire. Incluye la presión y temperatura actuales del área que monitoriza.
+  - Medio: Listas de [textlink="Ventiladores de Aire" link="AirVent"] y [textlink="Depuradores de Aire" link="AirScrubber"] vinculados, así como todos los sensores que reportan a la alarma de aire.
+  - Inferior: Botones para controlar los modos de operación de la alarma de aire, así como la posibilidad de activar o desactivar el cambio automático de modos.
 
-  ## Alarm Status
-  Air alarms quickly communicate the status of the area they are monitoring through the color of the light on the device:
-  - [color=green]Normal[/color]: The area is safe to breathe in.
-  - [color=yellow]Warning[/color]: The area is starting to deviate from the desired atmosphere, and is becoming unsafe.
-  - [color=red]Danger[/color]: The area is no longer safe, internals and/or hardsuits are required.
+  ## Estado de la Alarma
+  Las alarmas de aire comunican rápidamente el estado del área que monitorizan a través del color de la luz del dispositivo:
+  - [color=green]Normal[/color]: El área es segura para respirar.
+  - [color=yellow]Advertencia[/color]: El área está empezando a desviarse de la atmósfera deseada y se está volviendo insegura.
+  - [color=red]Peligro[/color]: El área ya no es segura; se requieren equipos internos y/o trajes rígidos.
 
-  Air alarms will automatically drop (close) linked [textlink="firelocks" link="FireAndGasControl"] when the [color=Red]Danger[/color] status is reached.
-  These [textlink="firelocks" link="FireAndGasControl"] will automatically raise (open) when the status returns to [color=green]Normal[/color].
+  Las alarmas de aire bajarán (cerrarán) automáticamente los [textlink="compuertas cortafuegos" link="FireAndGasControl"] vinculados cuando se alcance el estado [color=Red]Peligro[/color].
+  Estos [textlink="compuertas cortafuegos" link="FireAndGasControl"] subirán (se abrirán) automáticamente cuando el estado vuelva a [color=green]Normal[/color].
 
-  Air alarms have [textlink="signal" link="Networking"] outputs for each of the three statuses, which can be used to trigger other [textlink="signal" link="Networking"] devices when the status changes.
+  Las alarmas de aire tienen salidas de [textlink="señal" link="Networking"] para cada uno de los tres estados, que pueden usarse para activar otros dispositivos de [textlink="señal" link="Networking"] cuando cambie el estado.
 
-  ## Sensors
-  All [textlink="Air Vents" link="AirVent"] and [textlink="Air Scrubbers" link="AirScrubber"] have a built-in sensor, which reports back to the air alarm.
-  These sensors can be adjusted in the [bold]Sensors[/bold] tab of the air alarm menu.
+  ## Sensores
+  Todos los [textlink="Ventiladores de Aire" link="AirVent"] y [textlink="Depuradores de Aire" link="AirScrubber"] tienen un sensor incorporado que reporta a la alarma de aire.
+  Estos sensores pueden ajustarse en la pestaña [bold]Sensores[/bold] del menú de la alarma de aire.
 
-  An air alarm's status is directly determined by the thresholds on each sensor.
-  If a sensor reports a pressure, temperature, or gas composition outside the set thresholds, the air alarm will change its status accordingly.
+  El estado de una alarma de aire está determinado directamente por los umbrales de cada sensor.
+  Si un sensor reporta una presión, temperatura o composición de gas fuera de los umbrales establecidos, la alarma de aire cambiará su estado en consecuencia.
 
-  These thresholds can be adjusted and disabled as needed.
-  For example, if you are monitoring a room that naturally has a low temperature (such as a freezer) or a high temperature (such as a burn chamber), you can adjust the temperature thresholds to match the expected values.
+  Estos umbrales pueden ajustarse y desactivarse según sea necesario.
+  Por ejemplo, si monitorizas una sala que naturalmente tiene una temperatura baja (como un congelador) o una temperatura alta (como una cámara de combustión), puedes ajustar los umbrales de temperatura para que coincidan con los valores esperados.
 
-  An air sensor can also be constructed and [textlink="linked" link="Networking"] to an air alarm.
+  También se puede construir un sensor de aire y [textlink="vinculado" link="Networking"] a una alarma de aire.
 
   <Box>
     <GuideEntityEmbed Entity="AirSensor"/>
   </Box>
 
-  This is useful for monitoring areas that you don't have an air vent or scrubber in already.
+  Esto es útil para monitorizar áreas donde no tienes aún un ventilador ni un depurador de aire.
 
-  ## Operating Modes
-  To control connected devices quickly, air alarms feature operating modes, which quickly changes the behavior of all linked devices to achieve a desired effect.
-  - None: Disables all devices linked to the air alarm.
-  - Filtering: [textlink="Air Vents" link="AirVent"] will be enabled with their external bound set to standard atmospheric pressure. [textlink="Air Scrubbers" link="AirScrubber"] will be enabled and scrub all waste gasses normally.
-  - Filtering (Wide): Same as Filtering, but all linked [textlink="Air Scrubbers" link="AirScrubber"] will enable their WideNet mode.
-  - Fill: [textlink="Air Vents" link="AirVent"] will be enabled with their external bound set to max pressure, [color=orange][protodata="GasVentPump" comp="GasVentPump" member="MaxPressure"/] kPa[/color]. [textlink="Air Scrubbers" link="AirScrubber"] will be disabled.
-  - Panic: [textlink="Air Vents" link="AirVent"] will be disabled, and [textlink="Air Scrubbers" link="AirScrubber"] will be set to siphon mode.
+  ## Modos de Operación
+  Para controlar rápidamente los dispositivos conectados, las alarmas de aire disponen de modos de operación, que cambian el comportamiento de todos los dispositivos vinculados para lograr el efecto deseado.
+  - None: Desactiva todos los dispositivos vinculados a la alarma de aire.
+  - Filtering: Los [textlink="Ventiladores de Aire" link="AirVent"] se activarán con su límite externo establecido en la presión atmosférica estándar. Los [textlink="Depuradores de Aire" link="AirScrubber"] se activarán y depurarán todos los gases residuales normalmente.
+  - Filtering (Wide): Igual que Filtering, pero todos los [textlink="Depuradores de Aire" link="AirScrubber"] vinculados activarán su modo WideNet.
+  - Fill: Los [textlink="Ventiladores de Aire" link="AirVent"] se activarán con su límite externo establecido en la presión máxima, [color=orange][protodata="GasVentPump" comp="GasVentPump" member="MaxPressure"/] kPa[/color]. Los [textlink="Depuradores de Aire" link="AirScrubber"] estarán desactivados.
+  - Panic: Los [textlink="Ventiladores de Aire" link="AirVent"] se desactivarán y los [textlink="Depuradores de Aire" link="AirScrubber"] se configurarán en modo de succión.
 
-  Air alarms will automatically switch between the Filtering and Filtering (Wide) modes based on the current status of the area they are monitoring.
-  - If the area reaches [color=red]Danger[/color] status or above, the air alarm will switch to Filtering (Wide) mode.
-  - If the area reaches [color=green]Normal[/color] or [color=yellow]Warning[/color] status, the air alarm will switch to Filtering mode.
+  Las alarmas de aire cambiarán automáticamente entre los modos Filtering y Filtering (Wide) en función del estado actual del área que monitorizan.
+  - Si el área alcanza el estado [color=red]Peligro[/color] o superior, la alarma de aire cambiará al modo Filtering (Wide).
+  - Si el área alcanza el estado [color=green]Normal[/color] o [color=yellow]Advertencia[/color], la alarma de aire cambiará al modo Filtering.
 
-  This behavior can be disabled by toggling the "Auto" box in the bottom section of the air alarm menu.
+  Este comportamiento puede desactivarse marcando o desmarcando la casilla "Auto" en la sección inferior del menú de la alarma de aire.
 
-  Relevant tips on how to fix [textlink="spacing" link="Spacing"] and [textlink="fires" link="Fires"] can be found in the relevant guides.
+  Puedes encontrar consejos sobre cómo solucionar problemas de [textlink="despresurización" link="Spacing"] e [textlink="incendios" link="Fires"] en las guías correspondientes.
 </Document>

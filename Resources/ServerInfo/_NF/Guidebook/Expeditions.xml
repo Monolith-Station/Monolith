@@ -1,35 +1,35 @@
 <Document>
-  # Salvage Expeditions
+  # Expediciones de Salvamento
   <Box>
   <GuideEntityEmbed Entity="ComputerSalvageExpedition"/>
   <GuideEntityEmbed Entity="TelecomServerFilledShuttle"/>
   </Box>
 
-  When going on expedition, your ship will jump to a planet and you need to complete an objective in a limited time.
-  When that time runs out, the ship jumps back, [bold]whether you're on it or not[/bold].
+  Cuando vas de expedición, tu nave saltará a un planeta y debes completar un objetivo en un tiempo limitado.
+  Cuando se acabe el tiempo, la nave regresa, [bold]estés a bordo o no[/bold].
 
-  Ships purchased at Colonial Outpost [bold]cannot[/bold] go on expedition, but [italic]any purchased at [bold]Expeditionary Lodge[/bold] can[/italic].
-  You will need to use the [color=#a4885c]salvage console[/color] onboard.
+  Las naves compradas en Colonial Outpost [bold]no pueden[/bold] ir de expedición, pero [italic]cualquiera comprada en [bold]Expeditionary Lodge[/bold] sí puede[/italic].
+  Necesitarás usar la [color=#a4885c]consola de salvamento[/color] a bordo.
 
-  To go on an expedition:
-  - Pilot your ship so there is 200 m of empty space in each direction.
-  - Use the [color=#a4885c]salvage console[/color].
-  - Pick one of the five missions offered to you.
-  - Note the enemy, conditions, total time, and objectives for the mission.
-  - Buckle into a seat to avoid falling down.
+  Para ir de expedición:
+  - Pilota tu nave hasta que haya 200 m de espacio libre en cada dirección.
+  - Usa la [color=#a4885c]consola de salvamento[/color].
+  - Elige una de las cinco misiones que se te ofrecen.
+  - Anota el enemigo, las condiciones, el tiempo total y los objetivos de la misión.
+  - Abróchate a un asiento para no caer al suelo.
 
-  Tips for expeditions:
-  - Start with easier missions and progress to harder ones as you get better equipped.
-  - Different enemy types have different strengths and weaknesses. Vary your loadout to best deal with each.
-  - If you don't think you can win a fight, don't take it.
+  Consejos para las expediciones:
+  - Empieza con misiones más fáciles y progresa hacia las más difíciles a medida que te equipes mejor.
+  - Los distintos tipos de enemigos tienen diferentes fortalezas y debilidades. Varía tu equipamiento para hacer frente a cada uno.
+  - Si no crees que puedas ganar un combate, no lo inicies.
 
-  When you arrive on-site, you'll be told which direction the objective is in.
-  There'll be a building in that direction; break in and complete your objective.
-  Note: North is towards the top of the screen in default rotation (default keybinding: [color=#028ed9][keybind="CameraReset"/][/color]).
+  Cuando llegues al lugar, se te indicará en qué dirección está el objetivo.
+  Habrá un edificio en esa dirección; entra a la fuerza y completa tu objetivo.
+  Nota: El norte está hacia la parte superior de la pantalla en la rotación predeterminada (tecla predeterminada: [color=#028ed9][keybind="CameraReset"/][/color]).
 
-  While planetside you will be unable to communicate via radio with the wider Colossus Sector, and unless you have a [color=#a4885c]handicomms radio[/color] on hand, you won't be able to effectively communicate with your team.
+  Mientras estés en el planeta, no podrás comunicarte por radio con el Sector Colossus en general, y a menos que tengas una [color=#a4885c]radio portátil[/color] a mano, no podrás comunicarte eficazmente con tu equipo.
 
-  # Being Prepared
+  # Prepararse
   <Box>
   <GuideEntityEmbed Entity="MobBloodCultistZealotMelee"/>
   <GuideEntityEmbed Entity="MobFleshGolemExpeditions"/>
@@ -37,43 +37,43 @@
   <GuideEntityEmbed Entity="MobCarpHolo"/>
   <GuideEntityEmbed Entity="MobRogueSiliconHunter"/>
   </Box>
-  During missions planetside, you will encounter dangers ranging from inhospitable environments to hostile wildlife and even bloodthirsty cultists or relentless automatons. If you want to survive a mission with your loot in hand, you've got to be prepared for the challenges ahead. You will need the right gear and the knowledge of how and when that gear should be used. And most importantly, you will need the help of your crewmates.
+  Durante las misiones en el planeta, te encontrarás con peligros que van desde entornos inhóspitos hasta fauna hostil, e incluso cultistas sedientos de sangre o autómatas implacables. Si quieres sobrevivir a una misión con tu botín en mano, tienes que estar preparado para los desafíos que se avecinan. Necesitarás el equipo adecuado y el conocimiento de cómo y cuándo usarlo. Y lo más importante, necesitarás la ayuda de tus compañeros de tripulación.
 
-  # Gear
-  ## Environmental Hazards
-  The first hazard you will encounter on the planet is [italic]the planet itself[/italic]. Planetary environments are diverse: the atmosphere and temperature can vary - both can be dangerous. The [color=#a4885c]salvage console[/color] will give you a rough idea of what conditions on the planet are in the [color=#a4885c]Modifiers[/color] section of the mission description. This information will help you to decide what environmental protection gear you need, if any.
+  # Equipo
+  ## Riesgos Ambientales
+  El primer peligro que encontrarás en el planeta es [italic]el planeta en sí[/italic]. Los entornos planetarios son diversos: la atmósfera y la temperatura pueden variar, y ambas pueden ser peligrosas. La [color=#a4885c]consola de salvamento[/color] te dará una idea aproximada de las condiciones del planeta en la sección [color=#a4885c]Modificadores[/color] de la descripción de la misión. Esta información te ayudará a decidir qué equipo de protección ambiental necesitas, si acaso.
 
   <Box>
   <GuideEntityEmbed Entity="FloorLiquidPlasmaEntity"/>
   <GuideEntityEmbed Entity="FloorLavaEntity"/>
   </Box>
-  [bold][color=#a4885c]Biomes:[/color][/bold]
-  - [bold]Grassland/Caves/Shadow:[/bold] no hazards have been observed so far.
-  - [bold]Snow:[/bold] liquid plasma pools can be encountered in this biome. Touching one will set you on fire.
-  - [bold]Lava:[/bold] lava pools can be encountered in this biome. Touching one will set you on fire.
+  [bold][color=#a4885c]Biomas:[/color][/bold]
+  - [bold]Pradera/Cuevas/Sombra:[/bold] no se han observado peligros hasta ahora.
+  - [bold]Nieve:[/bold] en este bioma pueden encontrarse charcos de plasma líquido. Tocar uno te prenderá fuego.
+  - [bold]Lava:[/bold] en este bioma pueden encontrarse charcos de lava. Tocar uno te prenderá fuego.
 
-If you [italic]do[/italic] get set on fire, remember to [bold]click the [color=#ee0000]fire icon[/color][/bold] to stop, drop and roll. It may take [bold]multiple tries[/bold] to put yourself out.
+Si [italic]llegas[/italic] a prenderte fuego, recuerda [bold]hacer clic en el [color=#ee0000]icono de fuego[/color][/bold] para detenerte, tirarte al suelo y rodar. Puede que necesites [bold]varios intentos[/bold] para apagarte.
 
   <Box>
   <GuideEntityEmbed Entity="ClothingMaskGas"/>
   <GuideEntityEmbed Entity="AirTankFilled"/>
   </Box>
-  [bold][color=#a4885c]Air quality modifiers:[/color][/bold]
-  - [bold]None:[/bold] the air is safe to breathe without internals on.
-  - [bold]Dangerous atmosphere:[/bold] ranges from a toxic atmosphere to none at all. Internals must be on, and an EVA suit or hardsuit in extreme cases.
-  - [bold]Volatile atmosphere:[/bold] the atmosphere has gaseous plasma in it. Internals must be on. Depending on the other gases present, the atmosphere may combust and engulf the entire planet.
+  [bold][color=#a4885c]Modificadores de calidad del aire:[/color][/bold]
+  - [bold]Ninguno:[/bold] el aire es seguro para respirar sin equipos internos activados.
+  - [bold]Atmósfera peligrosa:[/bold] va desde una atmósfera tóxica hasta la ausencia total de aire. Los equipos internos deben estar activados, y en casos extremos, un traje EVA o traje duro.
+  - [bold]Atmósfera volátil:[/bold] la atmósfera contiene plasma gaseoso. Los equipos internos deben estar activados. Dependiendo de los otros gases presentes, la atmósfera puede combustionar y envolver todo el planeta.
 
   <Box>
   <GuideEntityEmbed Entity="ClothingOuterWinterMiner"/>
   <GuideEntityEmbed Entity="ClothingOuterHardsuitEVA"/>
   <GuideEntityEmbed Entity="ClothingOuterHardsuitBasic"/>
   </Box>
-  [bold][color=#a4885c]Temperature modifiers:[/color][/bold]
-  - [bold]None:[/bold] the temperature on the planet is warm, no special equipment is needed.
-  - [bold]Low temperature:[/bold] cold, but bearable. Reptilians are advised to wear a winter coat or hardsuit.
-  - [bold]Extreme cold:[/bold] temperatures are close to absolute zero, a hardsuit is required.
-  - [bold]High temperature:[/bold] unpleasantly hot, roughly 150 centigrade. Heat-resistant gear or a hardsuit are needed.
-  - [bold]Extreme heat:[/bold] temperatures are very high, a hardsuit is mandatory.
+  [bold][color=#a4885c]Modificadores de temperatura:[/color][/bold]
+  - [bold]Ninguno:[/bold] la temperatura del planeta es agradable, no se necesita equipo especial.
+  - [bold]Temperatura baja:[/bold] frío, pero soportable. Se recomienda a los reptilianos usar un abrigo de invierno o traje duro.
+  - [bold]Frío extremo:[/bold] las temperaturas están cerca del cero absoluto, se requiere un traje duro.
+  - [bold]Temperatura alta:[/bold] calor desagradable, aproximadamente 150 grados centígrados. Se necesita equipo resistente al calor o un traje duro.
+  - [bold]Calor extremo:[/bold] las temperaturas son muy altas, un traje duro es obligatorio.
 
   <Box>
   <GuideEntityEmbed Entity="Flare"/>
@@ -81,14 +81,14 @@ If you [italic]do[/italic] get set on fire, remember to [bold]click the [color=#
   <GuideEntityEmbed Entity="FlashlightLantern"/>
   <GuideEntityEmbed Entity="Floodlight"/>
   </Box>
-  [bold][color=#a4885c]Time of day:[/color][/bold]
-  - [bold]Morning/Day/Evening times:[/bold] the ambient light on the planet is sufficient, no need for light sources.
-  - [bold]Night time:[/bold] complete darkness, light sources are required for navigating the planet.
+  [bold][color=#a4885c]Hora del día:[/color][/bold]
+  - [bold]Mañana/Día/Tarde:[/bold] la luz ambiental del planeta es suficiente, no se necesitan fuentes de luz.
+  - [bold]Noche:[/bold] oscuridad total, se requieren fuentes de luz para navegar por el planeta.
 
-  [bold][color=#a4885c]Time constraints:[/color][/bold]
-  - [bold]Rush:[/bold] you will have less time to complete the expedition. Set your priorities in advance, and avoid being slowed down too mcuh with heavy gear.
+  [bold][color=#a4885c]Limitaciones de tiempo:[/color][/bold]
+  - [bold]Prisa:[/bold] tendrás menos tiempo para completar la expedición. Establece tus prioridades de antemano y evita que el equipo pesado te ralentice demasiado.
 
-  ## Tools
+  ## Herramientas
   <Box>
   <GuideEntityEmbed Entity="Pickaxe"/>
   <GuideEntityEmbed Entity="Crowbar"/>
@@ -102,11 +102,11 @@ If you [italic]do[/italic] get set on fire, remember to [bold]click the [color=#
   <GuideEntityEmbed Entity="Multitool"/>
   <GuideEntityEmbed Entity="RadioHandheld"/>
   </Box>
-  Salvaging often requires digging through layers of rocks to reach an abandoned facility, as well as deconstructing walls and windows, to gain entrance to the ruins. You may need to pry open unpowered airlocks or dismantle valuable machinery to take back. Tools can make hard tasks easier, like using a crowbar to pry open airlocks (much faster than using your hands), or make impossible tasks possible, like mining through rocks with a drill. Also, tools like a handheld radio can provide a way for crewmates to talk without a telecommunication server.
+  El salvamento a menudo requiere excavar a través de capas de rocas para llegar a una instalación abandonada, así como deconstruir paredes y ventanas para entrar en las ruinas. Puede que necesites abrir a palanca esclusas sin energía o desmantelar maquinaria valiosa para llevarte. Las herramientas pueden hacer que las tareas difíciles sean más fáciles, como usar una palanca para abrir esclusas (mucho más rápido que con las manos), o hacer posibles tareas imposibles, como minar rocas con un taladro. Además, herramientas como una radio portátil pueden proporcionar una forma de que los compañeros de tripulación hablen sin un servidor de telecomunicaciones.
 
-  For more details see the Guidebook entries on [textlink="Engineering" link="Engineering"] and [textlink="Construction" link="Construction"].
+  Para más detalles, consulta las entradas del libro de guía sobre [textlink="Ingeniería" link="Engineering"] y [textlink="Construcción" link="Construction"].
 
-  ## Medicine
+  ## Medicina
   <Box>
   <GuideEntityEmbed Entity="EmergencyMedipen"/>
   <GuideEntityEmbed Entity="Brutepack"/>
@@ -118,33 +118,33 @@ If you [italic]do[/italic] get set on fire, remember to [bold]click the [color=#
   <GuideEntityEmbed Entity="RegenerativeMesh"/>
   <GuideEntityEmbed Entity="Tourniquet"/>
   </Box>
-  You will get hurt. Period. Knowing the basics of medical care and having supplies at hand can make the difference between life and death for you or your crewmates.
+  Te van a hacer daño. Así de simple. Conocer los conceptos básicos de atención médica y tener suministros a mano puede marcar la diferencia entre la vida y la muerte para ti o tus compañeros de tripulación.
 
-  Before going on expedition, consider buying medical supplies for the types of damage you're likely to receive ([color=red]brute[/color] and [color=#ffa500]burn[/color]), and supplies to stop [color=red]bleeding[/color], like [color=#a4885c]gauze[/color] or [color=#a4885c]epinephrine[/color]. Basic medications can be bought from vending machines. More efficient, advanced ones are harder to obtain, but most of the time they can be bought from other players providing medical services.
+  Antes de ir de expedición, considera comprar suministros médicos para los tipos de daño que es probable que recibas ([color=red]contundente[/color] y [color=#ffa500]quemadura[/color]), y suministros para detener el [color=red]sangrado[/color], como [color=#a4885c]gasa[/color] o [color=#a4885c]epinefrina[/color]. Los medicamentos básicos pueden comprarse en máquinas expendedoras. Los más eficientes y avanzados son más difíciles de obtener, pero la mayoría de las veces pueden comprarse a otros jugadores que ofrecen servicios médicos.
 
-  Remember, having medical supplies at hand is only half the job! Remember to [textlink="learn the basics of medical care" link="Medical Doctor"].
+  Recuerda, ¡tener suministros médicos a mano es solo la mitad del trabajo! Recuerda [textlink="aprende los conceptos básicos de atención médica" link="Medical Doctor"].
 
-  ## Armor
+  ## Armadura
   <Box>
   <GuideEntityEmbed Entity="ClothingHeadHelmetBasic"/>
   <GuideEntityEmbed Entity="ClothingOuterArmorBulletproof"/>
   <GuideEntityEmbed Entity="ClothingOuterArmorReflective"/>
   <GuideEntityEmbed Entity="RiotShield"/>
   </Box>
-  Most of the time, you can't avoid getting hit. Wearing armor reduces damage taken, keeping you in action for longer, and giving you a chance to go and heal. Since different types of enemies do different types of damage, choosing your armor wisely will significantly increase your chances of survival.
+  La mayoría de las veces, no puedes evitar que te golpeen. Usar armadura reduce el daño recibido, manteniéndote en acción durante más tiempo y dándote la oportunidad de ir a curarte. Como los diferentes tipos de enemigos hacen diferentes tipos de daño, elegir tu armadura con prudencia aumentará significativamente tus posibilidades de supervivencia.
 
-  Here are some examples for your consideration:
-  - [textlink="Syndicate naval forces" link="MobsExpeditionGuideSyndicate"] use firearms that deal [color=yellow]piercing[/color] damage. Wearing armor with high pierce resistance (like a bulletproof vest) is a good choice.
-  - [textlink="Rogue silicons" link="MobsExpeditionGuideSilicons"] mostly deal [color=#ffa500]heat[/color] damage: wearing a reflective vest is a good choice.
+  Aquí hay algunos ejemplos para tu consideración:
+  - [textlink="Fuerzas navales del Syndicate" link="MobsExpeditionGuideSyndicate"] usan armas de fuego que infligen daño [color=yellow]perforante[/color]. Usar armadura con alta resistencia a la perforación (como un chaleco antibalas) es una buena opción.
+  - [textlink="Siliconas rebeldes" link="MobsExpeditionGuideSilicons"] infligen principalmente daño de [color=#ffa500]calor[/color]: usar un chaleco reflectante es una buena opción.
 
-  ## Teamwork
+  ## Trabajo en Equipo
   <Box>
   <GuideEntityEmbed Entity="GuidebookMemeNpcGood" Caption="the good,"/>
   <GuideEntityEmbed Entity="GuidebookMemeNpcBad" Caption="the bad,"/>
   <GuideEntityEmbed Entity="GuidebookMemeNpcUgly" Caption="the ugly"/>
   <GuideEntityEmbed Entity="GuidebookMemeNpcThatGuy" Caption="and that guy"/>
   </Box>
-  By far, your best bet at surviving expeditions is your crewmates. You might [italic]know[/italic] how to heal yourself, but you [italic]can't[/italic] if you're unconscious.
+  Con diferencia, tu mejor apuesta para sobrevivir a las expediciones son tus compañeros de tripulación. Puede que [italic]sepas[/italic] cómo curarte, pero [italic]no podrás[/italic] si estás inconsciente.
 
   <Box>
   <GuideEntityEmbed Entity="TelecomServerFilledShuttle"/>
@@ -156,15 +156,15 @@ If you [italic]do[/italic] get set on fire, remember to [bold]click the [color=#
   <GuideEntityEmbed Entity="MedicalTrackingImplanter"/>
   </Box>
 
-  Communication is crucial. Make sure to keep in contact with your teammates to know what they're doing and when they need help. You'll need either a headset and a [color=#a4885c]telecommunication server[/color] with [color=#a4885c]encryption keys[/color] installed, or [color=#a4885c]handheld radios[/color] on each crewmate (make sure they're on!).
+  La comunicación es crucial. Asegúrate de mantener el contacto con tus compañeros de equipo para saber qué están haciendo y cuándo necesitan ayuda. Necesitarás un auricular y un [color=#a4885c]servidor de telecomunicaciones[/color] con [color=#a4885c]claves de cifrado[/color] instaladas, o [color=#a4885c]radios portátiles[/color] en cada miembro de la tripulación (¡asegúrate de que estén encendidas!).
 
-  Having a [color=#a4885c]medical encryption key[/color] installed in your headset will tell you when anyone with a [color=#a4885c]medical tracking implanter[/color] installed goes down in combat. Leave no friend behind!
+  Tener una [color=#a4885c]clave de cifrado médica[/color] instalada en tu auricular te avisará cuando alguien con un [color=#a4885c]implantador de seguimiento médico[/color] instalado caiga en combate. ¡No dejes a ningún amigo atrás!
 
-  ## Know Your Enemy
+  ## Conoce a tu Enemigo
   <Box>
   <GuideEntityEmbed Entity="ClothingEyesHudMedical"/>
   <GuideEntityEmbed Entity="ClothingEyesHudDiagnostic"/>
   </Box>
-  Adaptability is key: strategies and tactics that work against [textlink="xenos" link="MobsExpeditionGuideXenos"] might not work well against [textlink="mercenaries" link="MobsExpeditionGuideMercenaries"], and vice versa. The Guidebook entries on hostile entities may provide some insight into what to expect planetside, but they [italic]cannot[/italic] replace firsthand experience. Instead, descend to the planet, salvage what you can, and face danger head-on. The riches won't wait around forever!
+  La adaptabilidad es clave: las estrategias y tácticas que funcionan contra [textlink="xenos" link="MobsExpeditionGuideXenos"] pueden no funcionar bien contra [textlink="mercenarios" link="MobsExpeditionGuideMercenaries"], y viceversa. Las entradas del libro de guía sobre entidades hostiles pueden darte una idea de qué esperar en el planeta, pero [italic]no pueden[/italic] reemplazar la experiencia de primera mano. En cambio, desciende al planeta, recupera lo que puedas y enfrenta el peligro de frente. ¡Las riquezas no esperarán para siempre!
 
 </Document>

@@ -1,123 +1,123 @@
 <Document>
-  # Syndicate Naval Forces
+  # Fuerzas Navales del Syndicate
 
-  In the far-off Rogue Space, a coalition of corporate entities allied against TSF intrusions into Rogue Space
-  In the expansive Rogue Space, a covert force known as the Spinward Syndicate came into existence a few decades ago, guided by Cybersun Industries. It is a diverse coalition of groups united in their determination to challenge the dominance of the TSF in the region. The Syndicate's United Naval (SUN) branch primarily consists of Gorlex Marauders and is responsible for undermining the TSF's expansion in the Rogue Frontier.
+  En el lejano Rogue Space, una coalición de entidades corporativas aliadas contra las intrusiones de la TSF en Rogue Space
+  En el extenso Rogue Space, una fuerza encubierta conocida como el Spinward Syndicate surgió hace unas pocas décadas, guiada por Cybersun Industries. Es una coalición diversa de grupos unidos en su determinación de desafiar el dominio de la TSF en la región. La rama Naval Unida del Syndicate (SUN) está compuesta principalmente por Gorlex Marauders y es responsable de socavar la expansión de la TSF en la Rogue Frontier.
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # Known Variants
-  # "Syndicate deckhand"
+  # Variantes Conocidas
+  # "Marinero del Syndicate"
 
-  Lowest ranking member of the Syndicate Naval Forces. Your regular "Johnny-on-the-spot" when it comes to menial tasks.
+  El miembro de menor rango de las Fuerzas Navales del Syndicate. El típico "hombre para todo" cuando se trata de tareas rutinarias.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalDeckhandA"/>
   <GuideEntityEmbed Entity="MobSyndicateNavalDeckhandVoid"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 130 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)[bold][color=#a4885c]*[/color][/bold]
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 16 [color=yellow]Piercing[/color] (.35 round)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color], [color=red]Slash[/color] and [color=yellow]Piercing[/color] 30%; [color=orange]Heat[/color] 20%; [color=orange]Caustic[/color] 10%; [color=yellow]Explosion[/color] 10% (armor vest)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Shooter (Viper)
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crit), 130 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)[bold][color=#a4885c]*[/color][/bold]
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 16 [color=yellow]Perforante[/color] (bala .35)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color], [color=red]Cortante[/color] y [color=yellow]Perforante[/color] 30%; [color=orange]Calor[/color] 20%; [color=orange]Cáustico[/color] 10%; [color=yellow]Explosión[/color] 10% (chaleco de armadura)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Tirador (Viper)
 
-  [bold][color=#a4885c]*[/color][/bold] - [italic]an average human can run at 4.5 m/s and walk at 2.5 m/s.[/italic]
+  [bold][color=#a4885c]*[/color][/bold] - [italic]un humano promedio puede correr a 4.5 m/s y caminar a 2.5 m/s.[/italic]
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate engineer"
+  # "Ingeniero del Syndicate"
 
-  On a shuttle, the engineer has the annoying job of making sure absolutely everything is running correctly. Syndicate shuttles are no different.
+  En un transbordador, el ingeniero tiene el molesto trabajo de asegurarse de que absolutamente todo funcione correctamente. Los transbordadores del Syndicate no son diferentes.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalEngineerA"/>
   <GuideEntityEmbed Entity="MobSyndicateNavalEngineerVoid"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 130 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 10 [color=yellow]Piercing[/color] (shotgun cartridge)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color], [color=red]Slash[/color] and [color=yellow]Piercing[/color] 30%; [color=orange]Heat[/color] 20%; [color=orange]Caustic[/color] 10%; [color=yellow]Explosion[/color] 10% (armor vest)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Shooter (Shotgun)
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crit), 130 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 10 [color=yellow]Perforante[/color] (cartucho de escopeta)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color], [color=red]Cortante[/color] y [color=yellow]Perforante[/color] 30%; [color=orange]Calor[/color] 20%; [color=orange]Cáustico[/color] 10%; [color=yellow]Explosión[/color] 10% (chaleco de armadura)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Tirador (Escopeta)
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate saboteur"
+  # "Saboteador del Syndicate"
 
-  Specialist trained in the art of sabotaging NT shuttles and facilities. Equipped with EMP rounds, take caution.
+  Especialista entrenado en el arte de sabotear transbordadores e instalaciones de NT. Equipado con proyectiles EMP, ten precaución.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalSaboteurA"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 130 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 0; EMP rounds (discharges batteries)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color], [color=red]Slash[/color] and [color=yellow]Piercing[/color] 30%; [color=orange]Heat[/color] 20%; [color=orange]Caustic[/color] 10%; [color=yellow]Explosion[/color] 10% (armor vest)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Shooter (Viper)
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crit), 130 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 0; proyectiles EMP (descarga baterías)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color], [color=red]Cortante[/color] y [color=yellow]Perforante[/color] 30%; [color=orange]Calor[/color] 20%; [color=orange]Cáustico[/color] 10%; [color=yellow]Explosión[/color] 10% (chaleco de armadura)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Tirador (Viper)
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate medic"
+  # "Médico del Syndicate"
 
-  Medical specialist. Knows how to treat patients humanely and how to treat prisoners inhumanely. Uses darts laced with harmful chemicals - impedrezene or chloral hydrate.
+  Especialista médico. Sabe cómo tratar a los pacientes con humanidad y cómo tratar a los prisioneros sin ella. Usa dardos envenenados con químicos dañinos: impedrezene o hidrato de cloral.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalMedicA"/>
   <GuideEntityEmbed Entity="MobSyndicateNavalMedicVoid"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 130 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 6 [color=yellow]Piercing[/color], 6 [color=lime]Poison[/color] (syndicate dart)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color] 20%; [color=red]Slash[/color] 15%; [color=yellow]Piercing[/color] 35%; [color=orange]Heat[/color] 15%; [color=orange]Caustic[/color] 25% (armored medical gown)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Shooter (syndicate dart)
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crit), 130 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 6 [color=yellow]Perforante[/color], 6 [color=lime]Veneno[/color] (dardo del Syndicate)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color] 20%; [color=red]Cortante[/color] 15%; [color=yellow]Perforante[/color] 35%; [color=orange]Calor[/color] 15%; [color=orange]Cáustico[/color] 25% (bata médica blindada)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Tirador (dardo del Syndicate)
 
   <GuideReagentEmbed Reagent="Impedrezene"/>
   <GuideReagentEmbed Reagent="ChloralHydrate"/>
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate operative"
+  # "Operativo del Syndicate"
 
-  "Everything is a nail if you have a hammer." In this case, everything is a target because he has an SMG and an itchy trigger finger.
+  "Todo es un clavo si tienes un martillo." En este caso, todo es un objetivo porque tiene una SMG y un dedo inquieto en el gatillo.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalOperatorA"/>
   <GuideEntityEmbed Entity="MobSyndicateNavalOperatorVoid"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 130 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 16 [color=yellow]Piercing[/color] (.35 round)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color] and [color=red]Slash[/color] 10%; [color=yellow]Piercing[/color] 60%; [color=orange]Heat[/color] 10%; [color=yellow]Explosion[/color] 20% (bulletproof vest)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Shooter (SMG)
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crit), 130 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 16 [color=yellow]Perforante[/color] (bala .35)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color] y [color=red]Cortante[/color] 10%; [color=yellow]Perforante[/color] 60%; [color=orange]Calor[/color] 10%; [color=yellow]Explosión[/color] 20% (chaleco antibalas)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Tirador (SMG)
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate grenadier"
+  # "Granadero del Syndicate"
 
-  "Huh? Say it louder! I can't hear you!" Equipped with the infamous China Lake, grenadiers have immense destructive capability, and should be priority targets.
+  "¿Qué? ¡Dilo más fuerte! ¡No puedo escucharte!" Equipados con el infame China Lake, los granaderos tienen una capacidad destructiva inmensa y deben ser objetivos prioritarios.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalGrenadierA"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 130 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] Varied [color=yellow]Explosion[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color], [color=red]Slash[/color] and [color=yellow]Piercing[/color] 10%; [color=orange]Heat[/color] 25%; [color=yellow]Explosion[/color] 85% (syndicate bomb suit)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Shooter (China Lake)
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crit), 130 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] Variable [color=yellow]Explosión[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color], [color=red]Cortante[/color] y [color=yellow]Perforante[/color] 10%; [color=orange]Calor[/color] 25%; [color=yellow]Explosión[/color] 85% (traje antibomba del Syndicate)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Tirador (China Lake)
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate chemwarrior"
+  # "Guerrero Químico del Syndicate"
 
-  Carrying tanks filled with dangerous chemicals, chemwarriors attack their enemies with a noxious spray.
+  Portando tanques llenos de químicos peligrosos, los guerreros químicos atacan a sus enemigos con un spray tóxico.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalChemwarriorA"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 130 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] varied
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Shooter (spray nozzle)
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crit), 130 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] variable
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Tirador (boquilla de spray)
 
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
@@ -125,72 +125,72 @@
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalChemwarriorB"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 130 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] varied
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=yellow]Piercing[/color] 60%; [color=orange]Heat[/color] 40%; [color=yellow]Caustic[/color] 60% (syndicate bio suit)
-  - [bold][color=#a4885c]Damage weaknesses:[/color][/bold] [color=red]Slash[/color] 20%; [color=yellow]Explosion[/color] 40%
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Shooter (spray nozzle)
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crit), 130 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] variable
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=yellow]Perforante[/color] 60%; [color=orange]Calor[/color] 40%; [color=yellow]Cáustico[/color] 60% (traje biológico del Syndicate)
+  - [bold][color=#a4885c]Debilidades al daño:[/color][/bold] [color=red]Cortante[/color] 20%; [color=yellow]Explosión[/color] 40%
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Tirador (boquilla de spray)
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate second officer"
+  # "Segundo Oficial del Syndicate"
 
-  The captain's right hand is entrusted with relaying the captain's orders to the crew and ensuring they are carried out promptly. Carries a laser pistol for self-defense.
+  La mano derecha del capitán, encargada de transmitir las órdenes del capitán a la tripulación y asegurarse de que se cumplan con prontitud. Lleva una pistola láser para defensa propia.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalSecondOfficerA"/>
   <GuideEntityEmbed Entity="MobSyndicateNavalSecondOfficerVoid"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 130 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 17 [color=orange]Heat[/color] (advanced laser pistol)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color], [color=red]Slash[/color] and [color=yellow]Piercing[/color] 30%; [color=orange]Heat[/color] 20%; [color=orange]Caustic[/color] 10%; [color=yellow]Explosion[/color] 10% (armor vest)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Shooter (advanced laser pistol)
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crit), 130 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 17 [color=orange]Calor[/color] (pistola láser avanzada)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color], [color=red]Cortante[/color] y [color=yellow]Perforante[/color] 30%; [color=orange]Calor[/color] 20%; [color=orange]Cáustico[/color] 10%; [color=yellow]Explosión[/color] 10% (chaleco de armadura)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Tirador (pistola láser avanzada)
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate captain"
+  # "Capitán del Syndicate"
 
-  The executive officer in lieu of the commander, syndicate captains ensure operations onboard go smoothly. Equipped with a 45_magnum revolver.
+  El oficial ejecutivo en ausencia del comandante, los capitanes del Syndicate se aseguran de que las operaciones a bordo transcurran sin problemas. Equipado con un revólver 45_magnum.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalCaptainA"/>
   <GuideEntityEmbed Entity="MobSyndicateNavalCaptainVoid"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 130 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 35 [color=yellow]Piercing[/color] (.45 round)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color], [color=red]Slash[/color], [color=yellow]Piercing[/color] and [color=orange]Heat[/color] 30%;  [color=orange]Caustic[/color] 25%; [color=yellow]Explosion[/color] 10% (syndicate's armored coat)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Shooter (python revolver)
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crit), 130 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 35 [color=yellow]Perforante[/color] (bala .45)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color], [color=red]Cortante[/color], [color=yellow]Perforante[/color] y [color=orange]Calor[/color] 30%;  [color=orange]Cáustico[/color] 25%; [color=yellow]Explosión[/color] 10% (abrigo blindado del Syndicate)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Tirador (revólver python)
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate commander"
+  # "Comandante del Syndicate"
 
-  A regional commander of Syndicate operations, this officer holds ultimate local command and responsibility. Armed with an assault rifle and heavily armored.
+  Comandante regional de las operaciones del Syndicate, este oficial ostenta el mando local supremo y la responsabilidad total. Armado con un rifle de asalto y fuertemente blindado.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalCommanderA"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 130 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (2.5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 35 [color=yellow]Piercing[/color] (.30 round)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color], [color=red]Slash[/color], [color=yellow]Piercing[/color] 40%; [color=orange]Heat[/color] 80%; [color=orange]Caustic[/color] 50%; [color=lime]Radiation[/color] 99%; [color=yellow]Explosion[/color] 80% (syndicate's elite hardsuit)
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Shooter (akm)
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crit), 130 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera (marcha):[/color][/bold] 4.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 35 [color=yellow]Perforante[/color] (bala .30)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] [color=red]Contundente[/color], [color=red]Cortante[/color], [color=yellow]Perforante[/color] 40%; [color=orange]Calor[/color] 80%; [color=orange]Cáustico[/color] 50%; [color=lime]Radiación[/color] 99%; [color=yellow]Explosión[/color] 80% (traje duro de élite del Syndicate)
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Tirador (akm)
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # Mission Objectives
-  ## Elimination
+  # Objetivos de Misión
+  ## Eliminación
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalCommanderA"/>
   </Box>
-  Eliminate a large and dangerous creature - a [color=#a4885c]syndicate commander[/color] within given time constraints to earn a monetary reward.
+  Elimina a una criatura grande y peligrosa - un [color=#a4885c]comandante del Syndicate[/color] dentro de los límites de tiempo dados para obtener una recompensa monetaria.
 
-  ## Destruction
+  ## Destrucción
   <Box>
   <GuideEntityEmbed Entity="CybersunDataMiner"/>
   </Box>
-  Destroy a certain number of [color=#a4885c]cybersun data miners[/color] within given time constraints to earn a monetary reward.
+  Destruye un número determinado de [color=#a4885c]mineros de datos de Cybersun[/color] dentro de los límites de tiempo dados para obtener una recompensa monetaria.
 </Document>

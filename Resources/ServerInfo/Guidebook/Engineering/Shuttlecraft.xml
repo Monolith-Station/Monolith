@@ -1,12 +1,12 @@
 <Document>
-  # Shuttle-craft
+  # Construcción de transbordadores
 
-  Shuttle construction is straightforward, albeit rather expensive and hard to pull off within an hour.
+  La construcción de transbordadores es sencilla, aunque bastante costosa y difícil de completar en una hora.
 
-  It's a good activity if you have a significant amount of spare time on your hands and want a bit of a challenge.
+  Es una buena actividad si tienes mucho tiempo libre y quieres un poco de desafío.
 
-  ## Getting started
-  <Box>Required parts:</Box>
+  ## Para empezar
+  <Box>Piezas necesarias:</Box>
   <Box>
   <GuideEntityEmbed Entity="Thruster"/>
   <GuideEntityEmbed Entity="Gyroscope"/>
@@ -21,7 +21,7 @@
   <GuideEntityEmbed Entity="APCBasic"/>
   </Box>
 
-  <Box>Optional parts:</Box>
+  <Box>Piezas opcionales:</Box>
   <Box>
   <GuideEntityEmbed Entity="AirCanister"/>
   <GuideEntityEmbed Entity="LightTube" Caption="lighting"/>
@@ -33,8 +33,8 @@
   <GuideEntityEmbed Entity="NuclearBomb"/>
   </Box>
 
-  ## Foundation
-  For this step you'll need steel sheets, metal rods, and floor tiles (optional).
+  ## Cimientos
+  Para este paso necesitarás láminas de acero, varillas metálicas y baldosas de suelo (opcionales).
 
   <Box>
     <GuideEntityEmbed Entity="SheetSteel" Caption=""/>
@@ -46,32 +46,32 @@
     <GuideEntityEmbed Entity="FloorTileItemWhite" Caption=""/>
   </Box>
 
-  Head out into space with steel sheets and metal rods in hand and click on the edge of the station to place lattice.
+  Sal al espacio con láminas de acero y varillas metálicas en mano y haz clic en el borde de la estación para colocar celosía.
 
-  Place a line of lattice about 3-4 tiles away from the station, then start building a platform with lattice.
+  Coloca una línea de celosía a unas 3-4 casillas de la estación y luego empieza a construir una plataforma con celosía.
 
-  Keep doing this until you have a platform that is at least 3x3 in size, which is connected to the station via a single lattice line.
+  Sigue haciéndolo hasta que tengas una plataforma de al menos 3x3, conectada a la estación mediante una sola línea de celosía.
 
-  Once you're finished constructing the base of your shuttle, you can use wirecutters to snip the connecting lattice that joins your new ship and the station.
+  Una vez que hayas terminado de construir la base de tu transbordador, puedes usar alicates de corte para cortar la celosía que une tu nueva nave con la estación.
 
-  This platform is considered a different grid from the station and thus will not have any gravity or be held in place by a station anchor — it can move around freely.
+  Esta plataforma se considera una cuadrícula distinta a la de la estación y, por tanto, no tendrá gravedad ni estará anclada por un anclaje de estación: puede moverse libremente.
 
-  You can expand your lattice platform further by clicking just off the edge with some rods in hand.
+  Puedes ampliar tu plataforma de celosía haciendo clic justo fuera del borde con algunas varillas en mano.
 
-  ## Docking Ports
-  Shuttle airlocks serve as docking ports, where ships can dock to stations safely.
+  ## Puertos de atraque
+  Las esclusas de los transbordadores sirven como puertos de atraque, donde las naves pueden atracar a las estaciones de forma segura.
 
-  The orientation of docking ports is important, as it determines on which face the shuttle will dock.
+  La orientación de los puertos de atraque es importante, ya que determina en qué cara atracará el transbordador.
 
-  The little numb on the bottom of the docking port determines the direction of the docking port.
+  El pequeño saliente en la parte inferior del puerto de atraque determina la dirección del puerto de atraque.
 
   <Box>
     <GuideEntityEmbed Entity="AirlockShuttle"/>
     <GuideEntityEmbed Entity="AirlockGlassShuttle"/>
   </Box>
 
-  ## Directional Control
-  From there, once you have the shape you want, bring out and install thrusters at the edges.
+  ## Control direccional
+  Desde allí, una vez que tengas la forma que deseas, saca e instala propulsores en los bordes.
 
   <Box>
     <GuideEntityEmbed Entity="Thruster" Caption="" Rotation="0"/>
@@ -80,28 +80,28 @@
     <GuideEntityEmbed Entity="Thruster" Caption="" Rotation="270"/>
   </Box>
 
-  It's a good idea to install four thrusters, one on each side of the platform, to ensure you can move in any direction.
+  Es buena idea instalar cuatro propulsores, uno en cada lado de la plataforma, para poder moverte en cualquier dirección.
 
-  They must be pointing outward into space to function and will not fire if there's a tile in the way of the nozzle.
-  You can rotate thrusters—even anchored ones—using either [color=yellow][bold][keybind="RotateObjectClockwise"][/bold][/color] or [color=yellow][bold][keybind="RotateObjectCounterclockwise"][/bold][/color] to rotate clockwise or counterclockwise.
+  Deben apuntar hacia el espacio exterior para funcionar y no se activarán si hay una baldosa bloqueando la boquilla.
+  Puedes rotar los propulsores —incluso los anclados— usando [color=yellow][bold][keybind="RotateObjectClockwise"][/bold][/color] o [color=yellow][bold][keybind="RotateObjectCounterclockwise"][/bold][/color] para girar en el sentido de las agujas del reloj o en sentido contrario.
 
-  Thrusters can be disabled or enabled using [color=yellow][bold][keybind="Use"][/bold][/color] with an empty hand or [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color].
+  Los propulsores se pueden desactivar o activar usando [color=yellow][bold][keybind="Use"][/bold][/color] con la mano vacía o [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color].
 
-  ## Rotational Control
-  Now that you have directional control, you'll need to install a gyroscope to control your rotation.
+  ## Control rotacional
+  Ahora que tienes control direccional, necesitarás instalar un giroscopio para controlar tu rotación.
 
   <Box>
     <GuideEntityEmbed Entity="Gyroscope"/>
   </Box>
-  The placement of the gyroscope is not as important as the thrusters, but it should be somewhere convenient for you to access and power.
+  La colocación del giroscopio no es tan importante como la de los propulsores, pero debería estar en un lugar accesible y fácil de alimentar.
 
-  Note for large mass objects, you may need more than one gyroscope to rotate effectively.
+  Ten en cuenta que para objetos de gran masa, puede que necesites más de un giroscopio para girar de manera efectiva.
 
-  ## Power
-  Now that you have all the systems in place, you'll need to power them.
+  ## Energía
+  Ahora que tienes todos los sistemas instalados, necesitarás alimentarlos de energía.
 
-  For small shuttles, a J.R.P.A.C.M.A.N.-type portable generator is a good choice. It provides straight LV power, so you don't have to worry about transformers.
-  Fuel for the generator is also commonly found in maintenance tunnels.
+  Para transbordadores pequeños, un generador portátil tipo J.R.P.A.C.M.A.N. es una buena opción. Proporciona energía LV directamente, por lo que no tienes que preocuparte por los transformadores.
+  El combustible para el generador también se encuentra habitualmente en los túneles de mantenimiento.
 
   <Box HorizontalAlignment="Stretch">
     <Box>
@@ -112,9 +112,9 @@
     </Box>
   </Box>
 
-  Some stations, however, provide much better generators and compact solutions like the Shuttle APU or the static generator.
-  These output HV and will have to be stepped down to MV and LV.
-  Luckily, these stations also usually provide wallmount substation boards for this purpose.
+  Algunas estaciones, sin embargo, proporcionan generadores mucho mejores y soluciones compactas como el APU del transbordador o el generador estático.
+  Estos generan HV y habrá que reducirlo a MV y LV.
+  Por suerte, estas estaciones también suelen proporcionar tableros de subestación de montaje en pared para este fin.
 
   <Box HorizontalAlignment="Stretch">
     <Box>
@@ -128,9 +128,9 @@
     </Box>
   </Box>
 
-  ## Piloting
-  Finally, install the shuttle computer wherever it is convenient and ensure all your thrusters and gyroscopes are receiving power (remember to wire the MV and LV networks!).
-  If they are, congratulations! You should have a functional shuttle!
+  ## Pilotaje
+  Finalmente, instala el ordenador del transbordador donde sea conveniente y asegúrate de que todos tus propulsores y giroscopios estén recibiendo energía (¡recuerda conectar las redes MV y LV!).
+  Si es así, ¡felicidades! ¡Deberías tener un transbordador funcional!
 
-  Making it livable and good-looking is left as an exercise to the reader.
+  Hacer que sea habitable y tenga buen aspecto se deja como ejercicio al lector.
 </Document>

@@ -1,11 +1,11 @@
 <Document>
-# Bartender
-The bartender has a pretty simple job: serve drinks. People will come up to you and request drinks, and your job is just to hand it to them.
+# Camarero
+El camarero tiene un trabajo bastante sencillo: servir bebidas. La gente se acercará a ti y pedirá bebidas, y tu trabajo es simplemente dárselas.
 
-[textlink="Click here to see a complete list of drinks." link="Drinks"]
+[textlink="Haz clic aquí para ver una lista completa de bebidas." link="Drinks"]
 
 <Box>
-The materials for these drinks can be found in various places:
+Los materiales para estas bebidas se pueden encontrar en varios lugares:
 </Box>
 <Box>
 <GuideEntityEmbed Entity="BoozeDispenser"/>
@@ -14,7 +14,7 @@ The materials for these drinks can be found in various places:
 </Box>
 
 <Box>
-Don't forget containers to serve them in!
+¡No olvides los contenedores para servirlas!
 </Box>
 <Box>
 <GuideEntityEmbed Entity="DrinkGlass" Caption="Glass"/>
@@ -23,5 +23,5 @@ Don't forget containers to serve them in!
 <GuideEntityEmbed Entity="DrinkJigger"/>
 </Box>
 
-You can find a list of every drink that can be requested under the Reference Tables entry.
+Puedes encontrar una lista de todas las bebidas que se pueden pedir en la entrada de Tablas de Referencia.
 </Document>

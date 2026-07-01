@@ -1,62 +1,62 @@
 <Document>
-  # DOCKYARD 'MOTLEY ANNE'
+  # ASTILLERO 'MOTLEY ANNE'
   <Box>
   <GuideEntityEmbed Entity="ConveyorBelt"/>
   <GuideEntityEmbed Entity="AFInterceptor"/>
   <GuideEntityEmbed Entity="AirlockShuttleSyndicateRogueLocked"/>
   </Box>
-    [color=#a4885c]Ship Size:[/color] Medium
+    [color=#a4885c]Tamaño de la nave:[/color] Mediano
 
-	[color=#a4885c]Recommended Crew:[/color] 1-3
+	[color=#a4885c]Tripulación recomendada:[/color] 1-3
 
-	[color=#a4885c]Power Gen Type:[/color] AME
+	[color=#a4885c]Tipo de generación de energía:[/color] AME
 
-	[color=#a4885c]Expeditions:[/color] None
+	[color=#a4885c]Expediciones:[/color] Ninguna
 
-	[color=#a4885c]IFF Console:[/color] Included
+	[color=#a4885c]Consola IFF:[/color] Incluida
 
-    [color=#a4885c]Voucher:[/color] Required
+    [color=#a4885c]Vale:[/color] Requerido
 
 
-  "The Motley Anne is a mobile dockyard manufactured on demand by the House Ikarus's Economic Divisions military production line for Vanguard use. It provides a closer back line for engagements in order to safely and quickly resupply.
+  "El Motley Anne es un astillero móvil fabricado a pedido por la línea de producción militar de las Divisiones Económicas de la Casa Ikarus para uso de la Vanguardia. Proporciona una línea trasera más cercana para los enfrentamientos con el fin de reabastecerse de forma segura y rápida.
 
-IED's expert logistics sector has determined that in order to produce the Motley efficiently, rather than expending military salaries, resource quotas must be met to make up for the dip in labor and supply costs."
+IED ha determinado que, para producir el Motley de manera eficiente, en lugar de emplear salarios militares, deben cumplirse cuotas de recursos para compensar la reducción en los costes de mano de obra y suministros."
 
-  # PREFLIGHT CHECKLIST
+  # LISTA DE VERIFICACIÓN PREVIA AL VUELO
 
-  ## 1. Power supply
+  ## 1. Suministro de energía
 
-  ## 1.1. Battery units
+  ## 1.1. Unidades de batería
   <Box>
   <GuideEntityEmbed Entity="SMESBasic"/>
   <GuideEntityEmbed Entity="SubstationBasic"/>
   <GuideEntityEmbed Entity="APCBasic"/>
   </Box>
 
-  - Check that the dual AME setup is in place.
-  - Check that the SMES unit is anchored to the floor.
-  - Check that the substation unit is anchored to the floor.
-  - Check that the rear APC unit's Main Breaker is toggled on.
-  - Check the APC units current Load* (W).
-  - Check that the front APC unit's Main Breaker is toggled on.
-  - Check the APC units' current Load* (W).
+  - Verifica que la configuración dual de AME esté instalada.
+  - Verifica que la unidad SMES esté anclada al suelo.
+  - Verifica que la subestación esté anclada al suelo.
+  - Verifica que el disyuntor principal de la unidad APC trasera esté activado.
+  - Verifica la carga* actual (W) de las unidades APC.
+  - Verifica que el disyuntor principal de la unidad APC delantera esté activado.
+  - Verifica la carga* actual (W) de las unidades APC.
 
-  ## 1.2. AME unit.
+  ## 1.2. Unidad AME.
   <Box>
   <GuideEntityEmbed Entity="AmeController"/>
   <GuideEntityEmbed Entity="AmeJar"/>
   </Box>
 
-  - Check that the AME unit has at least one core.
-  - Make sure the injector is adjacent to the shielding.
-  - Check that the AME unit is connected to the cable terminal of your SMES via HV.
-  - Check the fuel remaining of the AME unit.
-  - Set the AME unit output power to 2 injections.
-  - Enable Injection.
+  - Verifica que la unidad AME tenga al menos un núcleo.
+  - Asegúrate de que el inyector esté adyacente al blindaje.
+  - Verifica que la unidad AME esté conectada al terminal de cable de tu SMES mediante HV.
+  - Verifica el combustible restante de la unidad AME.
+  - Ajusta la potencia de salida de la unidad AME a 2 inyecciones.
+  - Activa la inyección.
 
-  ## 2. Atmospherics
+  ## 2. Atmosféricos
 
-  ## 2.1. Distribution Loop
+  ## 2.1. Bucle de distribución
   <Box>
   <GuideEntityEmbed Entity="OxygenCanister"/>
   <GuideEntityEmbed Entity="NitrogenCanister"/>
@@ -64,38 +64,38 @@ IED's expert logistics sector has determined that in order to produce the Motley
   <GuideEntityEmbed Entity="GasPressurePump"/>
   </Box>
 
-  - Check that the O2 canister is anchored to the BLUE connector port.
-  - Check that the N2 canister is anchored to the RED connector port.
-  - Check that the gas mixer is set to the correct mixing ratio (~22% Oxygen, ~78% Nitrogen).
-  - Check that the gas mixer is set to 101.325kPa.
-  - Enable gas mixer.
+  - Verifica que la bombona de O2 esté anclada al puerto de conexión AZUL.
+  - Verifica que la bombona de N2 esté anclada al puerto de conexión ROJO.
+  - Verifica que el mezclador de gas esté configurado con la proporción de mezcla correcta (~22% Oxígeno, ~78% Nitrógeno).
+  - Verifica que el mezclador de gas esté configurado a 101.325 kPa.
+  - Activa el mezclador de gas.
 
-  ## 3. Other checks
+  ## 3. Otras verificaciones
   <Box>
   <GuideEntityEmbed Entity="Gyroscope"/>
   <GuideEntityEmbed Entity="GravityGeneratorMini"/>
   <GuideEntityEmbed Entity="MiniStationAnchor"/>
   </Box>
 
-  - Check that the gyroscope is anchored, powered, and enabled.
-  - Check that the mini gravity generator is anchored, powered, and enabled.
-  - Check that the station anchor is not active until needed.
+  - Verifica que el giroscopio esté anclado, alimentado y habilitado.
+  - Verifica que el minigenerador de gravedad esté anclado, alimentado y habilitado.
+  - Verifica que el ancla de estación no esté activa hasta que sea necesario.
 
-  ## Fighters
+  ## Cazas
 
   <Box>
   <GuideEntityEmbed Entity="PDVMotleyAnneCarrierComputer"/>
   </Box>
 
 
-  - The fighters produced by Motley Anne are controlled using an advanced integrated and semi-automated flight system. The onboard AI servers allow the ships to perform basic commands using the console within Motley Anne's bridge.
-  - Some fighters require manual loading of ammunition to function properly. Read descriptions often!
+  - Los cazas producidos por el Motley Anne se controlan mediante un sistema de vuelo integrado avanzado y semiautomatizado. Los servidores de IA a bordo permiten que las naves ejecuten comandos básicos utilizando la consola del puente del Motley Anne.
+  - Algunos cazas requieren carga manual de munición para funcionar correctamente. ¡Lee las descripciones con frecuencia!
 
-  ## Sidenotes
+  ## Notas adicionales
 
-   - The Motley Anne comes with gas miners for resupply at any time.
-   - The SMES array located in the engineering section has room for additional batteries to be charged and used elsewhere.
-   - The small compartment in the dockyard can be used for a silo to provide universal materials to the mech stations.
-   - The dockyard is intended to hold artillery for fighters to resupply quickly and redeploy from their respective ports.
-   - The server inside the dockyard compartment comes with universal ammo for producing fighter bomber artillery.
+   - El Motley Anne viene con mineros de gas para reabastecerse en cualquier momento.
+   - El conjunto de SMES ubicado en la sección de ingeniería tiene espacio para baterías adicionales que pueden cargarse y usarse en otro lugar.
+   - El pequeño compartimento en el astillero puede usarse como silo para proporcionar materiales universales a las estaciones de mechas.
+   - El astillero está diseñado para almacenar artillería para que los cazas puedan reabastecerse rápidamente y redesplegar desde sus puertos respectivos.
+   - El servidor dentro del compartimento del astillero viene con munición universal para producir artillería de bombarderos cazas.
 </Document>

@@ -1,16 +1,16 @@
 <Document>
-  # Chimeras and Letoferol
+  # Quimeras y Letoferol
 
-Chimeras are the result of a bioweapon chemical known as [bold][color=#a84387]Letoferol[/color][/bold].
+Las Quimeras son el resultado de un arma bioquímica conocida como [bold][color=#a84387]Letoferol[/color][/bold].
 
   <Box>
     <GuideEntityEmbed Entity="SyringeLetoferol"/>
     <GuideEntityEmbed Entity="MobLetoferolHorror"/>
   </Box>
 
-There are 2 types of Letoferol:
- - There is [italic][color=#ebba34]natural Letoferol[/color][/italic], which is the pure form made in Chimeras. It is their bloodstream, and it is injected with their spike and melee attacks.
- - However, to get your infection in the first place, there is of course the base lab-grown [italic][color=#a84387]Letoferol[/color][/italic], which is a weaker kind, but still dangerous.
+Existen 2 tipos de Letoferol:
+ - El [italic][color=#ebba34]Letoferol natural[/color][/italic] es la forma pura producida en las Quimeras. Circula por su torrente sanguíneo y se inyecta mediante sus ataques de púa y cuerpo a cuerpo.
+ - Sin embargo, para contraer la infección en primer lugar, existe el [italic][color=#a84387]Letoferol[/color][/italic] base de laboratorio, una variante más débil pero igualmente peligrosa.
 
   <GuideReagentEmbed Reagent="Letoferol"/>
   <GuideReagentEmbed Reagent="NaturalLetoferol"/>
@@ -19,38 +19,38 @@ There are 2 types of Letoferol:
     <GuideEntityEmbed Entity="ChimeraFleshKudzu"/>
   </Box>
 
-Natural Letoferol will spread biomass on tiles it's exposed to. This can make killing a Chimera a difficult task, as this biomass will spread and slowdown non-Chimeras on it.
- - To avoid the spread of biomass, options that don't involve bleeding are suggested (such as chemicals, acid or fire).
+El Letoferol natural extiende biomasa por las losetas que toca. Esto puede dificultar enormemente matar a una Quimera, ya que la biomasa se propagará y ralentizará a los no-Quimera que pasen por ella.
+ - Para evitar la propagación de biomasa, se recomiendan opciones que no impliquen hemorragia (como productos químicos, ácido o fuego).
 
-Both types of Letoferol will not turn people into Chimera outside of critical condition. 
-  
-## Mesotaxinide and Mesophenerol
+Ninguno de los dos tipos de Letoferol transformará a las personas en Quimera fuera del estado crítico.
 
-  There are 2 cures for a Chimera infection, the advanced [color=#437ca8][bold]Mesotaxinide[/bold][/color], and the much simpler, but less effective [color=#4ca832][bold]Mesophenerol[/bold][/color].
-   - Mesotaxinide will do extreme damage on contact with Chimeras, so a spray or nozzle with the substance is the absolute best option for killing Chimeras.
-   - To create Mesotaxinide, you can use [color=#a85832]protoletoferol[/color] from putting [color=#ebba34]natural Letoferol[/color] or normal [color=#a84387]Letoferol[/color] in a electrolysis machine.
-   - Protoletoferol is mostly harmless, and its only use is for Mesotaxinide.
+## Mesotaxinide y Mesophenerol
+
+  Hay 2 curas para la infección por Quimera: el avanzado [color=#437ca8][bold]Mesotaxinide[/bold][/color] y el mucho más sencillo, aunque menos eficaz, [color=#4ca832][bold]Mesophenerol[/bold][/color].
+   - El Mesotaxinide causa daño extremo al contacto con Quimeras, por lo que un pulverizador o boquilla con dicha sustancia es la mejor opción absoluta para eliminarlas.
+   - Para crear Mesotaxinide, puedes usar [color=#a85832]protoletoferol[/color] obtenido al introducir [color=#ebba34]Letoferol natural[/color] o [color=#a84387]Letoferol[/color] normal en una máquina de electrólisis.
+   - El protoletoferol es prácticamente inofensivo y su único uso es la síntesis de Mesotaxinide.
 
   <GuideReagentEmbed Reagent="Mesotaxinide"/>
   <GuideReagentEmbed Reagent="Mesophenerol"/>
   <GuideReagentEmbed Reagent="ProtoLetoferol"/>
 
-## Ruling, Goals, and Abilities
+## Normas, Objetivos y Habilidades
 
-  As a Chimera, your goal is simply to infect as many as possible, at any cost.
+  Como Quimera, tu objetivo es simplemente infectar al mayor número posible de personas, a cualquier coste.
 
-  - To help you with this task, you can access a hivemind with the [bold]"+"[/bold] prefix before your chat messages.
-  - Chimeras are also capable of complex interactions, including [bold][color=#40648f]surgery[/color][/bold], [bold][color=cyan]flying ships[/color][/bold], and even using [bold][color=orange]gunnery consoles[/color][/bold].
-  - However, you will have severely reduced accuracy with ranged weapons even if you can hold and use them.
-  - Your [color=yellow]bone spike[/color] ability will fire a spread of 7 letoferol-tipped bone spikes. It may not be enough to infect, but it'll still do decent damage to your opponents from the effects of Natural Letoferol in a bloodstream.
-  - Chimeras also have a few slots for storage, and have access to an internal 5x5 storage.
-  - Unarmed slashing will inject 2.5u of Natural Letoferal to someone. You can do a lot of difficult to heal, lasting damage if you can stack enough Letoferal inside someone, and turn them if they fall into critical condition with enough still inside. However, both of the above cures also purge Letoferal from inside the bloodstream.
+  - Para ayudarte en esta tarea, puedes acceder a la mente colmena usando el prefijo [bold]"+"[/bold] antes de tus mensajes de chat.
+  - Las Quimeras también son capaces de interacciones complejas, entre ellas [bold][color=#40648f]cirugías[/color][/bold], [bold][color=cyan]pilotar naves[/color][/bold] e incluso usar [bold][color=orange]consolas de artillería[/color][/bold].
+  - Sin embargo, tendrás una precisión muy reducida con armas a distancia aunque puedas sostenerlas y usarlas.
+  - Tu habilidad [color=yellow]púa ósea[/color] disparará una dispersión de 7 púas óseas impregnadas de letoferol. Puede que no sea suficiente para infectar, pero aun así causará un daño considerable a tus oponentes por los efectos del Letoferol natural en el torrente sanguíneo.
+  - Las Quimeras también disponen de algunos espacios de almacenamiento y tienen acceso a un inventario interno de 5x5.
+  - Los ataques sin armas inyectarán 2,5u de Letoferal natural a alguien. Puedes acumular un daño duradero y difícil de curar si logras apilar suficiente Letoferal dentro de alguien, e incluso convertirlo si cae en estado crítico con suficiente Letoferal aún en su interior. Sin embargo, ambas curas mencionadas también purgan el Letoferal del torrente sanguíneo.
 
-  [bold][color=red]Chimeras are still affected by [textlink="faction base rules" link="MonolithRuleConflictFourPortStriking"] and [textlink="safezone rules" link="MonolithRuleRoleplaySevenSafeZones"][/color][/bold]
+  [bold][color=red]Las Quimeras siguen estando afectadas por las [textlink="reglas base de facción" link="MonolithRuleConflictFourPortStriking"] y las [textlink="reglas de zonas seguras" link="MonolithRuleRoleplaySevenSafeZones"][/color][/bold]
 
-## Organs
+## Órganos
 
-  Most of a Chimera's abilities are in its [color=yellow]organs[/color].
+  La mayoría de las habilidades de una Quimera residen en sus [color=yellow]órganos[/color].
 
   <Box>
     <GuideEntityEmbed Entity="OrganChimeraHeart"/>
@@ -59,11 +59,11 @@ Both types of Letoferol will not turn people into Chimera outside of critical co
     <GuideEntityEmbed Entity="OrganChimeraLiver"/>
   </Box>
 
-  - The [color=cyan]heart[/color] will give you pressure immunity.
-  - The [color=cyan]pheropod[/color] will give you space immunity, and access to the Chimera Hivemind.
-  - The [color=cyan]stomach[/color] works as an advanced metabolizer, capable of metabolizing any chem, and metabolizing 5 at a time.
-  - The [color=cyan]spike gland[/color] (obviously) lets you fire the same letoferol-tipped spikes as a Chimera.
+  - El [color=cyan]corazón[/color] te otorgará inmunidad a la presión.
+  - El [color=cyan]feropodo[/color] te otorgará inmunidad al espacio y acceso a la Mente Colmena de las Quimeras.
+  - El [color=cyan]estómago[/color] funciona como un metabolizador avanzado, capaz de metabolizar cualquier producto químico procesando 5 a la vez.
+  - La [color=cyan]glándula de púas[/color] (obviamente) te permite disparar las mismas púas impregnadas de letoferol que una Quimera.
 
-  [italic]Chimeras also need these organs for their abilities! Take away a chimera's pheropod and spike gland, and it'll be just another boring monster![/italic]
+  [italic]¡Las Quimeras también necesitan estos órganos para sus habilidades! ¡Quítale el feropodo y la glándula de púas a una Quimera y no será más que otro monstruo aburrido![/italic]
 
 </Document>

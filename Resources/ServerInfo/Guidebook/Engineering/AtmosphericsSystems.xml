@@ -1,9 +1,9 @@
-﻿<Document>
-  # Atmospherics Systems
-  Atmos has a wide variety of devices catered to moving, managing, and otherwise manipulating gas.
-  These devices often work together to maintain a safe, breathable atmosphere for the crew, or to achieve a common task.
+<Document>
+  # Sistemas Atmosféricos
+  Atmosférica dispone de una gran variedad de dispositivos diseñados para mover, gestionar y manipular gases.
+  Estos dispositivos suelen trabajar juntos para mantener una atmósfera segura y respirable para la tripulación, o para llevar a cabo una tarea concreta.
 
-  This section delves into the various systems that Atmos has at their disposal, how they interconnect, and how they are ideally used.
+  Esta sección profundiza en los distintos sistemas que Atmosférica tiene a su disposición, cómo se interconectan y cómo se utilizan de manera óptima.
 
 
   <Box>
@@ -16,10 +16,10 @@
     <GuideEntityEmbed Entity="GasVolumePump" Caption=""/>
   </Box>
   <Box>
-    ## Pipe Networks
+    ## Redes de Tuberías
   </Box>
   <Box>
-    [color=#999999][italic]Interconnected pipes with a common task — commonly called Pipenets[italic][/color]
+    [color=#999999][italic]Tuberías interconectadas con una tarea común — comúnmente llamadas Pipenets[italic][/color]
   </Box>
 
   <Box>
@@ -27,10 +27,10 @@
     <GuideEntityEmbed Entity="AirAlarm" Caption=""/>
   </Box>
   <Box>
-    ## Device Monitoring and Control
+    ## Monitorización y Control de Dispositivos
   </Box>
   <Box>
-    [color=#999999][italic]Monitoring and control over devices that manage a local atmosphere[italic][/color]
+    [color=#999999][italic]Monitorización y control sobre los dispositivos que gestionan la atmósfera local[italic][/color]
   </Box>
 
   <Box>
@@ -38,10 +38,10 @@
     <GuideEntityEmbed Entity="FireAlarm" Caption=""/>
   </Box>
   <Box>
-    ## Fire and Gas Control
+    ## Control de Fuego y Gas
   </Box>
   <Box>
-    [color=#999999][italic]Devices to control and prevent gas leaks and fires[italic][/color]
+    [color=#999999][italic]Dispositivos para controlar y prevenir fugas de gas e incendios[italic][/color]
   </Box>
 
   <Box>
@@ -49,10 +49,10 @@
     <GuideEntityEmbed Entity="AirCanister" Caption=""/>
   </Box>
   <Box>
-    ## Gas Mining and Storage
+    ## Extracción y Almacenamiento de Gas
   </Box>
   <Box>
-    [color=#999999][italic] Devices to mine new gas for the station to use, and store it for later[italic][/color]
+    [color=#999999][italic] Dispositivos para extraer nuevos gases para la estación y almacenarlos para uso posterior[italic][/color]
   </Box>
 
 </Document>

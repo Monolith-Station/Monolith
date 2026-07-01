@@ -1,146 +1,146 @@
 <Document>
 <GuideEntityEmbed Entity="RoboticArm" Caption="The factory must grow."/>
 
-Using the Goobstation's Factorio system many machines and processes can be automated.
+Usando el sistema Factorio de Goobstation, muchas máquinas y procesos pueden automatizarse.
 
-The first step is Epistemics department unlocking the [bold]Industrial Engineering[/bold] technology, which unlocks everything you need.
+El primer paso es que el departamento de Epistemics desbloquee la tecnología de [bold]Ingeniería Industrial[/bold], que desbloquea todo lo que necesitas.
 
-If you have played with Factorio or the Create mod you will be familiar with how it works.
+Si has jugado con Factorio o el mod Create, ya conocerás su funcionamiento.
 
-## Robotic Arm
+## Brazo Robótico
 
 <GuideEntityEmbed Entity="RoboticArm"/>
 
-This is the main workhorse for automation, it moves items from an input tile (or storage) to an output tile (or storage).
+Este es el componente principal de la automatización: mueve objetos desde un tile de entrada (o almacenamiento) hasta un tile de salida (o almacenamiento).
 
-Without any configuration, it will work with items on the floor infront of it and behind it, moving them from one tile to the other.
+Sin ninguna configuración, funcionará con objetos en el suelo delante y detrás de él, moviéndolos de un tile al otro.
 
-[bold]Use a multitool[/bold] to link its input and output machine to [bold]automated machines[/bold].
-Any signal port that starts with "Item:" is compatible and indicates a linkage of item transfering.
+[bold]Usa una multiherramienta[/bold] para vincular su máquina de entrada y salida con [bold]máquinas automatizadas[/bold].
+Cualquier puerto de señal que comience con "Item:" es compatible e indica un enlace de transferencia de objetos.
 
-It also has a [italic]Moved Item[/italic] signal port which is activated after an item is moved to the output. This can be quite useful for activating interactors.
+También tiene un puerto de señal [italic]Objeto Movido[/italic] que se activa después de mover un objeto a la salida. Esto puede ser muy útil para activar interactores.
 
-## Automated Machines
+## Máquinas Automatizadas
 
-A variety of machines can be automated by installing an [bold]Automation Upgrade[/bold] on them.
+Diversas máquinas pueden automatizarse instalando una [bold]Mejora de Automatización[/bold] en ellas.
 
-This can unlock:
-- signal ports to control the machine by linking it to buttons, logic gates, etc.
-- signal ports that get invoked when the machine does something.
-- item automation storage ports for the [bold]robotic arm[/bold] to use.
-- item filter slots
-- and others
+Esto puede desbloquear:
+- puertos de señal para controlar la máquina vinculándola a botones, puertas lógicas, etc.
+- puertos de señal que se invocan cuando la máquina hace algo.
+- puertos de almacenamiento de automatización de objetos para que los use el [bold]brazo robótico[/bold].
+- ranuras de filtro de objetos
+- y otros
 
-Here is every machine that accepts automation upgrades:
+Aquí están todas las máquinas que aceptan mejoras de automatización:
 
 <GuideAutomationSlotsEmbed/>
 
-Note that currently, only some machines can be activated with a signal - for example the Flatpacker can be activated to automatically flatpack materials. However the techfabs and lathes still require manual input.
+Ten en cuenta que actualmente, solo algunas máquinas pueden activarse con una señal; por ejemplo, la Flatpacker puede activarse para empaquetar materiales automáticamente. Sin embargo, las tecfabs y los tornos aún requieren entrada manual.
 
-## Storage Bin
+## Contenedor de Almacenamiento
 
 <GuideEntityEmbed Entity="StorageBin"/>
 
-The Storage Bin is a large storage space that can be accessed by robotic arms by default, without the need for an automation upgrade (unlike a disposals bin, for example).
+El Contenedor de Almacenamiento es un gran espacio de almacenamiento al que los brazos robóticos pueden acceder por defecto, sin necesidad de una mejora de automatización (a diferencia de una papelera de eliminación, por ejemplo).
 
-It has a filter slot to control what items can be inserted, similar to a robotic arm.
+Tiene una ranura de filtro para controlar qué objetos pueden insertarse, similar a un brazo robótico.
 
-A good use of a storage bin is stacking up items within it and then extracting them in chunks using a stack filter robotic arm.
+Un buen uso del contenedor de almacenamiento es acumular objetos en él y luego extraerlos en bloques usando un brazo robótico con filtro de pilas.
 
 ## Interactor
 
 <GuideEntityEmbed Entity="Interactor"/>
 
-This device simulates left click interactions with its held item on an entity infront of it.
-If no item is held it's like pressing E, such as opening a door/crate, picking up an item, etc.
+Este dispositivo simula interacciones de clic izquierdo con el objeto que sostiene sobre una entidad que tiene delante.
+Si no sostiene ningún objeto, es como pulsar E: abrir una puerta/caja, recoger un objeto, etc.
 
-It stores its tool in an actual hand so you can swap it out with the strip menu by pressing E on it.
+Guarda su herramienta en una mano real, por lo que puedes intercambiarla desde el menú de equipamiento pulsando E sobre él.
 
-Its filter slot is used to change what entities it will interact with. Using a proper filter is essential as it will only try to interact with 1 item at a time.
-It will search for [bold]any entity[/bold] without a filter, even things like conveyors or puddles! Use filters.
+Su ranura de filtro se usa para cambiar con qué entidades interactuará. Usar un filtro adecuado es esencial, ya que solo intentará interactuar con 1 objeto a la vez.
+Buscará [bold]cualquier entidad[/bold] sin un filtro, ¡incluso cosas como cintas transportadoras o charcos! Usa filtros.
 
-It has 5 signal ports:
-Input:
-- Start, used to try interacting with something
-- Auto Start, which when enabled will automatically try to interact after a successful interaction. If no interaction happens, it will automatically deactivate.
-Output:
-- Started, invoked if the interaction starts an interaction
-- Completed, invoked on interaction succeeds OR when the interaction ends
-- Failed, invoked if it could not interact with anything
+Tiene 5 puertos de señal:
+Entrada:
+- Iniciar, usado para intentar interactuar con algo
+- Inicio Automático, que cuando está activado intentará interactuar automáticamente tras una interacción exitosa. Si no ocurre ninguna interacción, se desactivará automáticamente.
+Salida:
+- Iniciado, invocado si la interacción inicia un ciclo de interacción
+- Completado, invocado cuando la interacción tiene éxito O cuando la interacción termina
+- Fallido, invocado si no pudo interactuar con nada
 
 ## Constructor
 
 <GuideEntityEmbed Entity="Constructor"/>
 
-This machine will construct or craft new objects like you would in the construction menu. Click it to open an UI to select which thing to craft.
-The machine will only complete the first step, [bold]use interactors to finish multi-step constructions[/bold].
-Construction ghosts and created items both get placed infront of it. The machine can be rotated, which will change where crafted items and built structures are placed.
+Esta máquina construirá o fabricará nuevos objetos como lo harías en el menú de construcción. Haz clic en ella para abrir una interfaz y seleccionar qué fabricar.
+La máquina solo completará el primer paso; [bold]usa interactores para terminar construcciones de varios pasos[/bold].
+Los fantasmas de construcción y los objetos creados se colocan delante de ella. La máquina puede rotarse, lo que cambiará dónde se colocan los objetos fabricados y las estructuras construidas.
 
-Input items are taken from the floor nearby as well as its internal storage, which doubles as a storage bin.
+Los objetos de entrada se toman del suelo cercano así como de su almacenamiento interno, que también funciona como contenedor de almacenamiento.
 
-It has the same ports as an Interactor.
+Tiene los mismos puertos que un Interactor.
 
-## Filters
+## Filtros
 
-Filters can be inserted into robotic arms and storage bins to restrict what items they can move and store respectively.
+Los filtros pueden insertarse en brazos robóticos y contenedores de almacenamiento para restringir qué objetos pueden mover y almacenar respectivamente.
 
-You can craft them by hand using the [bold]construction menu[/bold]. Left click them into machines to insert them.
+Puedes fabricarlos a mano usando el [bold]menú de construcción[/bold]. Haz clic izquierdo en ellos sobre las máquinas para insertarlos.
 
 <Box>
 <GuideEntityEmbed Entity="AutomationFilterName"/>
-The name filter searches an item's name in some way.
-For example, if you set it to check that an item [italic]contains[/italic] "sheet", it will match steel sheets, glass sheets, etc.
+El filtro de nombre busca el nombre de un objeto de cierta manera.
+Por ejemplo, si lo configuras para comprobar que un objeto [italic]contiene[/italic] "lámina", coincidirá con láminas de acero, láminas de cristal, etc.
 </Box>
 
 <Box>
 <GuideEntityEmbed Entity="AutomationFilterLabel"/>
-The label filter requires items to have an exact matching label.
-Use a hand labeler on items to have them picked up.
+El filtro de etiqueta requiere que los objetos tengan una etiqueta exactamente igual.
+Usa una etiquetadora manual en los objetos para que sean recogidos.
 </Box>
 
 <Box>
 <GuideEntityEmbed Entity="AutomationFilterStack"/>
-The stack filter controls how it interacts with stacks.
-The minimum stack size is a simple minimum, if an item doesn't have that much in a stack it won't be used.
-Out chunk size limits how many of a stack can be taken. Only a whole multiple of this size will be taken out.
-[italic]For example, a chunk size of 5 on stacks of 6, 10, 14 and 15 will take 5, 10, 10 and 15 respectively.[/italic]
+El filtro de pila controla cómo interactúa con las pilas.
+El tamaño mínimo de pila es un mínimo simple; si un objeto no tiene esa cantidad en una pila, no se usará.
+El tamaño de bloque de salida limita cuántos elementos de una pila pueden tomarse. Solo se tomará un múltiplo entero de este tamaño.
+[italic]Por ejemplo, un tamaño de bloque de 5 en pilas de 6, 10, 14 y 15 tomará 5, 10, 10 y 15 respectivamente.[/italic]
 </Box>
 
 <Box>
 <GuideEntityEmbed Entity="AutomationFilterCombined"/>
-The combined filter stores 2 filters inside it and uses a logic gate to control how they function.
-By default it will allow any item that passes either filter (an OR gate).
-It supports all the same operations that logic gate items do.
-These can be nested for arbitrarily complex filters!
+El filtro combinado almacena 2 filtros en su interior y usa una puerta lógica para controlar su funcionamiento.
+Por defecto permitirá cualquier objeto que pase cualquiera de los dos filtros (una puerta OR).
+Admite todas las mismas operaciones que los elementos de puerta lógica.
+¡Pueden anidarse para crear filtros de complejidad arbitraria!
 </Box>
 
-## Transport
+## Transporte
 
-Conveyor belts are an obvious way to transport items around as they allow machines to pick up from them.
+Las cintas transportadoras son una forma obvia de transportar objetos, ya que permiten a las máquinas recoger de ellas.
 
-In the future, you wil also be able to use automated disposal units to flush items around.
+En el futuro, también podrás usar unidades de eliminación automatizadas para enviar objetos.
 
-You can also use a chain or robotic arms for transportation, but this is power inefficient.
+También puedes usar una cadena de brazos robóticos para el transporte, aunque esto resulta ineficiente en términos de energía.
 
-## Radiation Collector and gas canister ports
+## Colector de Radiación y puertos de canisteres de gas
 
-Both the radiator collector and gas canisters can be also upgraded with an automation upgrade kit. This will allow to automate insertion and extraction of gas tanks and add a series of signal ports.
+Tanto el colector de radiación como los canisteres de gas también pueden actualizarse con un kit de mejora de automatización. Esto permitirá automatizar la inserción y extracción de depósitos de gas y añadir una serie de puertos de señal.
 
-Upon applying the automation upgrade gas canisters will gain a series of signal ports:
+Al aplicar la mejora de automatización, los canisteres de gas obtendrán una serie de puertos de señal:
 
-Input:
-- Open - opens the gas release valve
-- Close - closes the release valve
-- Toggle - toggles the state of the release valve
+Entrada:
+- Abrir - abre la válvula de liberación de gas
+- Cerrar - cierra la válvula de liberación
+- Alternar - alterna el estado de la válvula de liberación
 
 
-With an upgrade, the radiation collector will gain the following signal ports:
+Con una mejora, el colector de radiación obtendrá los siguientes puertos de señal:
 
-Output:
-- RadEmpty - sets signal to HIGH if the gas tank is either missing or below 33% pressure. Otherwise, outputs a LOW signal.
-- RadLow - sets signal to HIGH if the gas tank is below 66% pressure. Otherwise, outputs a LOW signal.
-- RadHigh- sets signal to HIGH if the gas tank is above 66% pressure. Otherwise, outputs a LOW signal.
+Salida:
+- RadEmpty - establece la señal en ALTO si el depósito de gas falta o está por debajo del 33% de presión. De lo contrario, emite una señal BAJA.
+- RadLow - establece la señal en ALTO si el depósito de gas está por debajo del 66% de presión. De lo contrario, emite una señal BAJA.
+- RadHigh - establece la señal en ALTO si el depósito de gas está por encima del 66% de presión. De lo contrario, emite una señal BAJA.
 
-You can use an Edge Detector (crafted in the construction menu) to differentiate between a HIGH and LOW signals.
+Puedes usar un Detector de Flancos (fabricado en el menú de construcción) para diferenciar entre señales ALTO y BAJO.
 
 </Document>

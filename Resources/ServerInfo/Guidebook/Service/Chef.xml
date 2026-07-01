@@ -1,11 +1,11 @@
 <Document>
-# Chef
-A fella has gotta eat, and it's the chef's job to make sure folks have something other than junk to munch on.
+# Cocinero
+Un tipo tiene que comer, y es el trabajo del cocinero asegurarse de que la gente tenga algo más que comida basura para picar.
 
 
-[textlink="Click here to see a list of food recipes." link="FoodRecipes"]
+[textlink="Haz clic aquí para ver una lista de recetas de comida." link="FoodRecipes"]
 
-First and foremost, you'll need to familiarize yourself with the kitchen, and the tools available to you.
+Antes que nada, tendrás que familiarizarte con la cocina y las herramientas disponibles.
 
 <Box>
 <GuideEntityEmbed Entity="KitchenKnife"/>
@@ -21,51 +21,51 @@ First and foremost, you'll need to familiarize yourself with the kitchen, and th
 <GuideEntityEmbed Entity="VendingMachineDinnerware" Caption="Dinnerware Vend"/>
 </Box>
 
-## Kitchen Prep:
+## Preparación de la Cocina:
 
-It's hard to put into words how to play chef without feeling like you're being given orders, but here are some basics.
+Es difícil explicar con palabras cómo jugar de cocinero sin que parezca que te estén dando órdenes, pero aquí tienes algunos conceptos básicos.
 
-- Check what you have on hand when it comes to ingredients, most kitchens have some Flour, Rice, Eggs, Monkey Cubes, and a few other things to get started with.
-- Try your hand at mixing up some dough by putting water and flour together in a beaker. (Use the sinks!)
-- Check the Wiki (or Food Recipes) guidebook for things you can make, and put all the listed ingredients into a microwave to cook it into a meal.
-- Set up mouse traps. Yes, really. It's easy to see all your hard work disappear if you don't take precautions for mice infestations.
+- Comprueba lo que tienes a mano en cuanto a ingredientes; la mayoría de las cocinas tienen algo de Harina, Arroz, Huevos, Cubos de Mono y algunas otras cosas para empezar.
+- Prueba a mezclar un poco de masa poniendo agua y harina juntas en un vaso de precipitados. (¡Usa los fregaderos!)
+- Consulta la guía del Wiki (o Recetas de Comida) para ver qué puedes preparar, y mete todos los ingredientes indicados en un microondas para cocinar una comida.
+- Coloca ratoneras. Sí, en serio. Es fácil ver todo tu esfuerzo desaparecer si no tomas precauciones contra las infestaciones de ratones.
 
-Once you're a bit more experienced and familiar with what you can make, it might be best to put together a few menus, or a "cheat sheet" so you can give a list of ingredients to botany.
+Una vez que tengas algo más de experiencia y estés familiarizado con lo que puedes hacer, puede ser buena idea preparar algunos menús o una "hoja de referencia" para poder darle a Botánica una lista de ingredientes.
 
-## Mixing Dough:
-Add Flour and Water together in a beaker. (Use the sink for water!)
+## Preparar Masa:
+Añade Harina y Agua en un vaso de precipitados. (¡Usa el fregadero para el agua!)
 <Box>
 <GuideEntityEmbed Entity="LargeBeaker"/>
 <GuideEntityEmbed Entity="ReagentContainerFlour"/>
 <GuideEntityEmbed Entity="DrinkWaterBottleFull" Caption="water"/>
 <GuideEntityEmbed Entity="FoodDough"/>
 </Box>
-## Making Flour:
-Place wheat in a grinder (with a beaker placed inside) and grind it up!
+## Hacer Harina:
+Pon trigo en una trituradora (con un vaso de precipitados dentro) y muélelo.
 <Box>
 <GuideEntityEmbed Entity="KitchenReagentGrinder"/>
 <GuideEntityEmbed Entity="LargeBeaker"/>
 <GuideEntityEmbed Entity="WheatBushel"/>
 <GuideEntityEmbed Entity="ReagentContainerFlour"/>
 </Box>
-## Getting Plants:
-Ask Botany for what you need, without a botanist, you may need to grow more plants yourself.
+## Conseguir Plantas:
+Pídele a Botánica lo que necesites; sin un botánico, puede que tengas que cultivar más plantas tú mismo.
 <Box>
 <GuideEntityEmbed Entity="SignHydro1" Caption=" "/>
 <GuideEntityEmbed Entity="hydroponicsTray"/>
 <GuideEntityEmbed Entity="WheatBushel"/>
 </Box>
-## Gathering Milk:
-Alt-Click on a Cow with a container in your hand. (Beakers, Buckets, Milk Jugs, ect.)
+## Obtener Leche:
+Alt+Clic en una Vaca con un recipiente en la mano. (Vasos de precipitados, Cubos, Jarras de Leche, etc.)
 <Box>
 <GuideEntityEmbed Entity="Bucket"/>
 <GuideEntityEmbed Entity="MobCow"/>
 <GuideEntityEmbed Entity="DrinkMilkCarton"/>
 </Box>
-## How to Butcher:
-In most cases, you should be able to use a knife directly on a creature that's dead. It's best to do this in the freezer, as the results are... messy.
+## Cómo Despiezar:
+En la mayoría de los casos, podrás usar un cuchillo directamente sobre una criatura muerta. Es mejor hacerlo en el congelador, ya que el resultado es... bastante sucio.
 
-Monkeys, however, (and other humanoids), need to be dragged onto a meatspike to be butchered.
+Sin embargo, los monos (y otros humanoides) deben ser arrastrados hasta un gancho de carne para ser despiezados.
 <Box>
 <GuideEntityEmbed Entity="KitchenSpike"/>
 <GuideEntityEmbed Entity="KitchenKnife"/>
