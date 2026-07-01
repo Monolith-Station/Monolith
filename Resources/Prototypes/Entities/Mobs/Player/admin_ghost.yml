@@ -28,7 +28,6 @@
  #   maxVisibility: -1.5
   - type: Physics
     ignorePaused: true
-    bodyType: Kinematic
   - type: Body
     prototype: Aghost
     thermalVisibility: false # WD EDIT

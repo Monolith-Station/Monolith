@@ -1,3 +1,4 @@
+using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Slippery;
@@ -13,6 +14,8 @@ public sealed partial class SpeedModifierContactsSystem : EntitySystem
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private MovementSpeedModifierSystem _speedModifierSystem = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+
+    [Dependency] private readonly SharedGravitySystem _gravity = default!;
 
     // TODO full-game-save
     // Either these need to be processed before a map is saved, or slowed/slowing entities need to update on init.
@@ -81,6 +84,9 @@ public sealed partial class SpeedModifierContactsSystem : EntitySystem
 
         var walkSpeed = 0.0f;
         var sprintSpeed = 0.0f;
+
+        // Cache the result of the airborne check, as it's expensive and independent of contacting entities, hence need only be done once.
+        var isAirborne = physicsComponent.BodyStatus == BodyStatus.InAir || _gravity.IsWeightless(uid);
 
         bool remove = true;
         var entries = 0;

@@ -150,6 +150,12 @@ namespace Content.Shared.Maps
         /// </summary>
         [DataField("indestructible")] public bool Indestructible = false;
 
+        /// <summary>
+        /// CrystallEdge: used for lightning calculation through zlevels
+        /// </summary>
+        [DataField]
+        public bool Transparent = false;
+
         public void AssignTileId(ushort id)
         {
             TileId = id;

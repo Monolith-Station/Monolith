@@ -154,13 +154,15 @@ namespace Content.Client.Viewport
 
             DebugTools.AssertNotNull(_viewport);
 
-            _viewport!.Render();
+            RenderZLevels(_viewport!); // CrystallEdge Process multi-Z rendering
+
+            // _viewport!.Render();
 
             if (_queuedScreenshots.Count != 0)
             {
                 var callbacks = _queuedScreenshots.ToArray();
 
-                _viewport.RenderTarget.CopyPixelsToMemory<Rgba32>(image =>
+                _viewport!.RenderTarget.CopyPixelsToMemory<Rgba32>(image =>
                 {
                     foreach (var callback in callbacks)
                     {
@@ -173,13 +175,13 @@ namespace Content.Client.Viewport
 
             var drawBox = GetDrawBox();
             var drawBoxGlobal = drawBox.Translated(GlobalPixelPosition);
-            _viewport.RenderScreenOverlaysBelow(handle, this, drawBoxGlobal);
+            _viewport!.RenderScreenOverlaysBelow(handle, this, drawBoxGlobal);
             // Fire edit start
             handle.DrawingHandleScreen.UseShader(Shader);
             handle.DrawingHandleScreen.DrawTextureRect(_viewport.RenderTarget.Texture, drawBox);
             handle.DrawingHandleScreen.UseShader(null);
             // Fire edit end
-            _viewport.RenderScreenOverlaysAbove(handle, this, drawBoxGlobal);
+            _viewport!.RenderScreenOverlaysAbove(handle, this, drawBoxGlobal);
         }
 
         public void Screenshot(CopyPixelsDelegate<Rgba32> callback)
