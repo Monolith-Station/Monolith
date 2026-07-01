@@ -8,12 +8,18 @@ $ErrorActionPreference = 'Stop'
 $errors = [System.Collections.Generic.List[string]]::new()
 
 function Get-Messages([string]$path) {
-    $map = @{}; $current = $null
-    foreach ($line in Get-Content -LiteralPath $path) {
-        if ($line -match '^([A-Za-z][A-Za-z0-9_-]*)\s*=(.*)$') { $current = $Matches[1]; $map[$current] = $Matches[2] }
-        elseif ($line -match '^\s+\.([A-Za-z][A-Za-z0-9_-]*)\s*=(.*)$' -and $current) { $map[$current] += " " + $Matches[2] }
-        elseif ($line -match '^\s+\S' -and $current) { $map[$current] += " " + $line }
-        else { $current = $null }
+    $map = @{}; $current = $null; $depth = 0
+    foreach ($line in Get-Content -LiteralPath $path -Encoding utf8) {
+        $o = ([regex]::Matches($line, '\{')).Count
+        $c = ([regex]::Matches($line, '\}')).Count
+        if ($line -match '^([A-Za-z][A-Za-z0-9_-]*)\s*=(.*)$') {
+            $current = $Matches[1]; $map[$current] = $Matches[2]
+            $depth = $o - $c
+        } elseif ($null -ne $current -and ($line -match '^\s' -or $depth -gt 0) -and $line -notmatch '^\s*$') {
+            $map[$current] += ' ' + $line; $depth += $o - $c
+        } elseif ($line -match '^\s*$') {
+            $current = $null; $depth = 0
+        }
     }
     return $map
 }
@@ -22,10 +28,11 @@ function Get-Vars([string]$text) {
 }
 
 $esRootResolved = (Resolve-Path $EsRoot).Path
+$enRootResolved = (Resolve-Path $EnRoot).Path
 foreach ($esFile in Get-ChildItem -Recurse -Filter *.ftl -LiteralPath $EsRoot -ErrorAction SilentlyContinue) {
     $rel = $esFile.FullName.Substring($esRootResolved.Length).TrimStart('\','/')
-    $enPath = Join-Path $EnRoot $rel
-    if (-not (Test-Path $enPath)) {
+    $enPath = Join-Path $enRootResolved $rel
+    if (-not (Test-Path -LiteralPath $enPath)) {
         if ($rel -notmatch '^_Capibara[\\/]') { $errors.Add("$rel : no matching en-US file (orphan translation)") }
         continue
     }
