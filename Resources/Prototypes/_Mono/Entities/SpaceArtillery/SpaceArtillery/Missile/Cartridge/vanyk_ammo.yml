@@ -32,6 +32,39 @@
   - type: Appearance
 
 - type: entity
+  id: VanquisherMagazine
+  name: "Vanquisher 150mm HE missile autoloader"
+  parent: [BaseItem, RecyclableItemSteelTiny]
+  components:
+  - type: Tag
+    tags:
+    - VanquisherMagazine
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    proto: VanykCartridgeUnguided
+    capacity: 288
+    mayTransfer: true
+    whitelist:
+      tags:
+      - VanykCartridgeUnguided
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_shipgun_box.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
   id: VanykCartridge
   name: 150mm HEAT missile
   description: An individual ASM-150 HEAT missile used in the Vanyk.
@@ -46,6 +79,7 @@
   - type: CartridgeAmmo
     proto: ShipMissileASM150
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
     layers:
@@ -71,3 +105,19 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
+
+- type: entity
+  id: VanykCartridgeUnguided
+  name: 150mm HEAT unguided missile
+  parent: VanykCartridge
+  components:
+  - type: Tag
+    tags:
+    - VanykCartridge
+    - VanykCartridgeUnguided
+    - 150mmShell
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipMissileASM150Unguided
+    deleteOnSpawn: true

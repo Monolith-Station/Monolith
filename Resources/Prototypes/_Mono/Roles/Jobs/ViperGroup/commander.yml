@@ -12,6 +12,7 @@
   canBeAntag: false
   weight: 10 #Going off the info I was given, low weight as it's a company-whitelist role.
   displayWeight: 52
+  assignedCompany: TheViperGroup
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, ViperTrackingImplant ]

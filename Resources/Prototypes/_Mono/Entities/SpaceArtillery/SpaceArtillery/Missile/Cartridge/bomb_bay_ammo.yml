@@ -59,6 +59,7 @@
   - type: CartridgeAmmo
     proto: LightFighterOrdinanceGPOProjectile
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/GPO.rsi
     layers:
@@ -156,6 +157,7 @@
   - type: CartridgeAmmo
     proto: LightFighterOrdinanceZenithProjectile
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/zenith.rsi
     layers:
@@ -193,7 +195,7 @@
       types:
         Structural: 15000
         Piercing: 1500
-    penetrationThreshold: 20000
+    penetrationThreshold: 5000
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/quasar.rsi
     layers:
@@ -213,6 +215,7 @@
     energy: 2
   - type: ExplodeOnTrigger
   - type: Explosive
+    deleteAfterExplosion: false
     explosionType: Default
     maxIntensity: 25
     intensitySlope: 1000
@@ -241,6 +244,7 @@
   - type: CartridgeAmmo
     proto: LightFighterOrdinanceQuasarProjectile
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/quasar.rsi
     layers:
