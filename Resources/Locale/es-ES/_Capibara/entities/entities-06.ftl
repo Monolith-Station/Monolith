@@ -4219,7 +4219,7 @@ ent-WeaponRifleNtsfLtr = NTSF-LTR-556 (5.56x45mm,6.8x52mm Caseless)
     .desc = Un rifle de la era de las guerras corporativas. El Rifle Táctico Ligero de las Nano Trasen Security Forces y Special Forces, calibrado en 5,56x45mm, también acepta 6,8x52mm por ser un calibre completamente nuevo en su época y tratarse de un prototipo. Este rifle es de alta calidad, con componentes internos de plastitanio y guarniciones de plastacero.
 
 ent-WeaponRiflePrometheus = HWM FCL "Prometheus" (5.56x45mm)
-    .desc = The Herstal Weapon Manufacture "Prometheus" Light combat rifle (Fusil de Combat Léger) in 556x45mm. Made to be mass producable for fight against xenos. Its firerate is decent with burst being superior and accuracy poor.
+    .desc = El fusil de combate ligero "Prometheus" de Herstal Weapon Manufacture (Fusil de Combat Léger) en 556x45mm. Hecho para producirse en masa para la lucha contra los xenos. Su cadencia de fuego es decente, con la ráfaga siendo superior y la precisión pobre.
 
 ent-WeaponRifleSVS = NCI SVS-42 (7.62x54mmR)
     .desc = Diseñado originalmente por Samonov, este viejo rifle de excedente aparenta haber sobrevivido a varias guerras. Usa cargadores de baja capacidad de 10 cartuchos 762x54mmR. Equipado con bayoneta.
@@ -4546,7 +4546,7 @@ ent-WeaponTurretFlare = Sistema de bengalas GS-002 Sunny
     .desc = Un punto de anclaje lanzador de bengalas relativamente pequeño, usado para engañar a los misiles de búsqueda de calor. También útil para búsqueda y rescate.
 
 ent-WeaponTurretFragment = Lanzamasas modificado "Fragment"
-    .desc = Appears to be a heavily modified "Shard" mass driver. Unstable and rarely found in the wild.
+    .desc = Parece ser un cañón de masa "Shard" fuertemente modificado. Inestable y difícil de encontrar en circulación.
 
 ent-WeaponTurretHades = Cañón HADES de 255mm
     .desc = Una de las armas cinéticas de base química más grandes del sector. Su poder solo es igualado por lanzamasas como el M381. Recarga automáticamente proyectiles de 255mm a plena potencia.
@@ -5214,7 +5214,7 @@ ent-WoodenBarrel = barril de madera
     .desc = Un viejo barril de madera con olor a humedad.
 
 ent-WoodenBench = banco de madera
-    .desc = Did you get a splinter? Well, at least it’s eco friendly.
+    .desc = ¿Te has clavado una astilla? Bueno, al menos es ecológica.
 
 ent-WoodenBuckler = broquel de madera
     .desc = Un pequeño escudo redondo improvisado de madera.

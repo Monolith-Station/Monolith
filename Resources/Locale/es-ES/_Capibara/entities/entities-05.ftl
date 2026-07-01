@@ -316,27 +316,27 @@ ent-PublicAffairsPen = bolígrafo de asuntos públicos
     .desc = Una pesada pluma estilográfica para los burócratas de escritorio de las TSF. Escribe con un fino trazo azul.
 
 ent-Puddle = charco
-    .desc = A puddle of liquid.
+    .desc = Un charco de líquido.
 
 ent-PuddleEgg = charco
-    .desc = A puddle of liquid.
+    .desc = Un charco de líquido.
 
 ent-PuddleFlour = charco
-    .desc = A puddle of liquid.
+    .desc = Un charco de líquido.
 
 ent-PuddleSmear = charco
-    .desc = A puddle of liquid.
+    .desc = Un charco de líquido.
 
 ent-PuddleSparkle = destello
 
 ent-PuddleTomato = charco
-    .desc = A puddle of liquid.
+    .desc = Un charco de líquido.
 
 ent-PuddleVomit = charco
-    .desc = A puddle of liquid.
+    .desc = Un charco de líquido.
 
 ent-PuddleWatermelon = charco
-    .desc = A puddle of liquid.
+    .desc = Un charco de líquido.
 
 ent-PulsedPlasmaLaserCanister = contenedor de almacenamiento magnético NT PPL
     .desc = Una pequeña y avanzada unidad de contención magnética para el almacenamiento de plasma de alta energía. Alimentada por un microreactor interno con electroimanes de iridita, puede contener plasma indefinidamente. Se recarga utilizando electricidad para sintetizar plasma del aire circundante.
@@ -1402,7 +1402,7 @@ ent-RipleyMKIIHarness = arnés Ripley MK-II
     .desc = El núcleo del Ripley MK-II.
 
 ent-RipleyPeripheralsElectronics = módulo de control de periféricos Ripley
-    .desc = The electrical peripherals control for the ripley mech.
+    .desc = El control de periféricos eléctricos para el mech Ripley.
 
 ent-RipleyRArm = brazo derecho Ripley
     .desc = El brazo derecho del Ripley APLU. Pertenece al chasis del mech.

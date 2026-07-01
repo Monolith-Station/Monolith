@@ -679,7 +679,7 @@ ent-ComputerWithdrawBankATMFlatpack = paquete plano de cajero de solo retirada
     .desc = Un paquete plano para construir un cajero. Mejor no darle muchas vueltas.
 
 ent-CondenserMachineCircuitBoard = placa de máquina condensadora
-    .desc = A machine printed circuit board for a condenser.
+    .desc = Una placa de circuito impreso de máquina para un condensador.
 
 ent-CondimentCup = vasito de condimento
     .desc = Un vasito endeble que puede rellenarse con condimentos. La garantía queda anulada si se rellena con otra cosa.

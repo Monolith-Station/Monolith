@@ -351,7 +351,7 @@ ent-MobCatClarpy = Clarpy
     .desc = El primer gato en obtener una recompensa.
 
 ent-MobCatClippy = Clippy
-    .desc = It looks like you’re writing a letter, would you like help?
+    .desc = Parece que estás escribiendo una carta, ¿quieres ayuda?
 
 ent-MobCatClugg = Clugg
     .desc = Hilarante.
@@ -511,7 +511,7 @@ ent-MobDinosaurDiloExpeditions = dilophosaurus
     .desc = Con un nombre que significa "lagarto de dos crestas", estos miden unos 7 m de longitud y pesan unos 400 kg. Esbeltos y de constitución ligera, son muy ágiles.
 
 ent-MobDinosaurKentroExpeditions = kentrosaurus
-    .desc = On the smaller side of dinosaurs, Kentrosaurus generally measure around 4–4.5 m, and weigh about 700–1,600 kg. Its elongated head and beak are used to bite off plant material or tear off limbs.
+    .desc = En el lado pequeño de los dinosaurios, los Kentrosaurus suelen medir alrededor de 4–4,5 m y pesar entre 700 y 1.600 kg. Su cabeza alargada y su pico le sirven para arrancar material vegetal o desgarrar extremidades.
 
 ent-MobDinosaurParaExpeditions = parasaurolophus
     .desc = Un gran carnívoro que puede superar los 9 metros de longitud y pesar más de 5 toneladas métricas (5,5 toneladas cortas), capaz de moverse sobre dos o cuatro patas. Razonablemente rápido para su tamaño, pero comparativamente frágil y débil.
@@ -6416,7 +6416,7 @@ ent-PortableScrubber = depurador portátil
     .desc = ¡Depura, de forma portátil!
 
 ent-PortableScrubberMachineCircuitBoard = placa de máquina de depurador portátil
-    .desc = A machine printed circuit board for a portable scrubber.
+    .desc = Una placa de circuito impreso de máquina para un depurador portátil.
 
 ent-PortalAdmin = portal místico
     .desc = Un portal místico hacia reinos desconocidos. ¡La aventura te espera!
@@ -6824,13 +6824,13 @@ ent-PosterLegitSMMeth = Safety Moth - Metanfetamina
     .desc = Safety Moth™ indica al espectador que busque la aprobación del Médico Jefe antes de cocinar metanfetamina. "¡Mantente cerca de la temperatura objetivo y nunca la superes!"
 
 ent-PosterLegitSMPills = Safety Moth - Frascos de pastillas
-    .desc = Safety Moth™ informs the viewer that leaving pills unsupervised on tables could lead to unforeseen consequences. "Hungry critters love to eat everything! Keep your pills safe in crates and pill bottles!"
+    .desc = Safety Moth™ informa al espectador de que dejar pastillas sin vigilancia sobre las mesas podría acarrear consecuencias imprevistas. "¡A las criaturas hambrientas les encanta comérselo todo! ¡Guarda tus pastillas a salvo en cajas y botes de pastillas!"
 
 ent-PosterLegitSMPiping = Safety Moth - Tuberías
-    .desc = Safety Moth™ tells atmospheric technicians the correct types of piping to be used. "Pipes, not Pumps! Proper pipe placement prevents poor performance!"
+    .desc = Safety Moth™ indica a los técnicos atmosféricos los tipos de tubería correctos que deben usarse. "¡Tuberías, no bombas! ¡La colocación correcta de las tuberías previene un rendimiento pobre!"
 
 ent-PosterLegitSMPoisoning = Safety Moth - Envenenamiento
-    .desc = Safety Moth™ tells the viewer not to poison the station donuts.
+    .desc = Safety Moth™ pide al espectador que no envenene los dónuts de la estación.
 
 ent-PosterLegitSoftCapPopArt = Arte Pop de Gorra Blanda
     .desc = Una reimpresión de arte pop barato.
@@ -6895,7 +6895,7 @@ ent-PosterMapPillar = Mapa de Pillar
 ent-PosterMapSaltern = Mapa de Saltern
     .desc = Un mapa de la Estación Saltern.
 
-ent-PosterMapShoukou = Shōkō Map
+ent-PosterMapShoukou = Mapa de Shōkō
     .desc = Shōkō no mappu desu.
 
 ent-PosterMapSplit = Mapa de la Estación Split
