@@ -19,10 +19,10 @@ enabled = true
 [game]
 # NOTE: hostname is overridden at runtime by $SS14_HOSTNAME (entrypoint.sh). Set
 # SS14_HOSTNAME in Dokploy to this value, or the env wins over this baked default.
-hostname = "[ES] Capibara ESP [Español] [Traducido]"
+hostname = "[ES] Capibara Monolith [Español] [Traducido]"
 lobbyenabled = true
 soft_max_players = 50
-desc = """¡Bienvenido a Capibara ESP! Servidor en español: traducción al castellano de \
+desc = """¡Bienvenido a Capibara Monolith! Servidor en español: traducción al castellano de \
 Monolith Station. Las cadenas sin traducir se muestran en inglés."""
 
 [console]
