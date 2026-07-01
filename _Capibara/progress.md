@@ -5,7 +5,16 @@
   - `paper/book-authorbooks.ftl` (31 long in-game books) re-translated separately — it exceeded
     one agent's 32k output limit in the main run, so it was written in chunks.
   - Verified: `validate-locale.ps1` exit 0 · sync `NEW=0 CHANGED=0` · `CapibaraCultureTest` boot passes.
+- [x] **Entity (item/mob/structure) names + descriptions** — 2026-07-01
+  - SS14 stores these in YAML prototypes (not `.ftl`); localized via additive `ent-<id>` Fluent overrides.
+  - Extracted via engine dumper (`CapibaraEntityDumpTest`) → 16,843 entities / ~18k unique strings;
+    translated by a 206-agent workflow; emitted by `generate-entity-ftl.ps1` to
+    `Resources/Locale/es-ES/_Capibara/entities/*.ftl` (16,824 keys). 20 strings fell back to English.
+  - Verified: `CapibaraCultureTest` boots with all entity keys loaded (parse-clean).
+  - To refresh after upstream changes: re-run the dumper test, rebuild `strbatches.json` from unique
+    strings, re-run the entity workflow, re-run `generate-entity-ftl.ps1`.
 - [ ] Human editorial review pass (machine output; proofread high-visibility strings first).
+- [ ] Remaining ~20 entity strings + any name-less entities (currently English fallback).
 
 ## Maintenance after each upstream merge
 1. `git fetch upstream && git merge upstream/main`

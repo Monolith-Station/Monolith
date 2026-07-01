@@ -3,3 +3,9 @@ sync-report.txt
 # Scratch files from tooling test runs.
 tmp-*
 tests/**/tmp-*
+
+# Entity-translation intermediates (generated; only the final es-ES .ftl is committed).
+entities/entity-source.json
+entities/strbatches.json
+entities/translations.json
+entities/tmp/
