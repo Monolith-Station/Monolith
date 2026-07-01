@@ -1028,7 +1028,7 @@
 # Start T0
 
 - type: entity
-  parent: BaseShipVoucher
+  parent: BaseShipLPCOneUse
   id: ShipVoucherVGT0
   name: VG T0 ship voucher
   description: Allows for one free small to medium Viper Group ship purchase. Destroyed on sale.
