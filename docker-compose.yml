@@ -1,0 +1,24 @@
+name: monolith-capibara-esp
+
+services:
+  game-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "1212:1212/udp"   # gameplay - Traefik cannot proxy UDP, must be a direct host port
+      - "1212:1212/tcp"   # status/launcher - can also be fronted by Dokploy/Traefik with HTTPS
+    volumes:
+      - ss14-data:/data
+    environment:
+      # Empty default -> entrypoint skips the --cvar and the baked value in
+      # server_config.prod.toml wins. Set these in Dokploy only to override.
+      SS14_HOSTNAME: "${SS14_HOSTNAME:-}"
+      SS14_DOMAIN: "${SS14_DOMAIN:-}"
+      SS14_HUB_ADVERTISE: "${SS14_HUB_ADVERTISE:-true}"
+      SS14_AUTH_MODE: "${SS14_AUTH_MODE:-1}"
+      SS14_HOST_USER: "${SS14_HOST_USER:-}"
+
+volumes:
+  ss14-data:

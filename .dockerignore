@@ -1,0 +1,14 @@
+# Build artifacts (regenerated inside the image)
+bin/
+obj/
+**/bin/
+**/obj/
+release/
+*.user
+
+# Editor/local
+.vs/
+.vscode/
+.idea/
+
+# Do NOT ignore: .git, .gitmodules, RobustToolbox/  (build needs them)

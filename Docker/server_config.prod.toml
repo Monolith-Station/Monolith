@@ -1,0 +1,55 @@
+# Monolith-Capibara-ESP - production server config (baked into the Docker image).
+# Per-deploy / secret values are injected at runtime via --cvar (see entrypoint.sh).
+
+[log]
+path = "logs"
+level = 1
+enabled = true
+
+[net]
+tickrate = 30
+port = 1212
+bindto = "::,0.0.0.0"
+max_connections = 256
+
+[status]
+enabled = true
+# status.connectaddress is set at runtime from $SS14_DOMAIN (udp://<domain>:1212)
+
+[game]
+# NOTE: hostname is overridden at runtime by $SS14_HOSTNAME (entrypoint.sh). Set
+# SS14_HOSTNAME in Dokploy to this value, or the env wins over this baked default.
+hostname = "[ES] Capibara ESP [Español] [Traducido]"
+lobbyenabled = true
+soft_max_players = 50
+desc = """¡Bienvenido a Capibara ESP! Servidor en español: traducción al castellano de \
+Monolith Station. Las cadenas sin traducir se muestran en inglés."""
+
+[console]
+# SECURITY: behind a reverse proxy, loopback == the proxy. Never grant loopback admin.
+loginlocal = false
+# Auto-grant full host (all admin flags) to this account on join. Safe ONLY with auth.mode=1
+# (names tied to real SS14 accounts). Override per-deploy via $SS14_HOST_USER. Empty = disabled.
+login_host_user = "TheLacrox"
+
+[hub]
+advertise = true
+hub_urls = "https://hub.spacestation14.com/"
+tags = "lang:es,region:es"
+# hub.server_url is set at runtime from $SS14_DOMAIN (ss14s://<domain>)
+
+[auth]
+mode = 1   # 0=optional 1=required 2=disabled. Public server -> required.
+
+[server]
+# Auto-restart after 8h uptime to clear long-uptime perf drift. Non-disruptive:
+# only fires at round end or when nobody is connected. Process exits -> Docker
+# (restart: unless-stopped) brings it back up.
+uptime_restart_minutes = 480
+
+[database]
+engine = "sqlite"
+sqlite_dbpath = "preferences.db"   # relative to --data-dir (/data) -> /data/preferences.db
+
+[build]
+fork_id = "monolith-capibara-esp"   # launcher manages client ZIPs per fork

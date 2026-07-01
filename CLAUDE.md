@@ -36,3 +36,13 @@ calls/args (`{ CAPITALIZE($x) }`), or escapes (`\n`, `{ "" }`). Keep placeables 
 ## Verify
 - `dotnet test Content.IntegrationTests --filter CapibaraCultureTest` — culture es-ES + fallback.
 - `pwsh _Capibara/validate-locale.ps1` — es-ES tree structurally sound.
+
+## Deployment (Docker / Dokploy)
+- Capibara-owned, additive (not upstream) — on a merge conflict, keep ours:
+  `Dockerfile`, `.dockerignore`, `entrypoint.sh`, `docker-compose.yml`, `Docker/server_config.prod.toml`.
+- Multi-stage build on .NET 10 (`sdk:10.0` → `runtime:10.0`): inits submodules, packages a
+  `linux-x64 --hybrid-acz` server, runs as non-root, exposes `1212/udp` + `1212/tcp`.
+- Baked config in `Docker/server_config.prod.toml`; per-deploy overrides via env in `entrypoint.sh`
+  (`SS14_HOSTNAME`, `SS14_DOMAIN`, `SS14_HUB_ADVERTISE`, `SS14_AUTH_MODE`, `SS14_HOST_USER`).
+- No TTS/redis (this fork has no `tts.*` cvars). Add a tts-worker service only after porting TTS.
+- Requires .NET 10 SDK to build locally (`global.json` pins 10.0.100, rollForward latestFeature).
