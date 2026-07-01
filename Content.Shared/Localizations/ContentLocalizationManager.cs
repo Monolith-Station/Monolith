@@ -10,7 +10,8 @@ namespace Content.Shared.Localizations
         [Dependency] private ILocalizationManager _loc = default!;
 
         // If you want to change your codebase's language, do it here.
-        private const string Culture = "en-US";
+        // Capibara ESP: active language is Spanish (Spain). KEEP OURS on merge conflict.
+        private const string Culture = "es-ES";
 
         /// <summary>
         /// Custom format strings used for parsing and displaying minutes:seconds timespans.
@@ -46,10 +47,14 @@ namespace Content.Shared.Localizations
              * localization you should NOT modify these, instead add new functions specific to your language/culture.
              * This ensures the english translations continue to work as expected when fallbacks are needed.
              */
+            // Capibara ESP: en-US is the fallback culture so untranslated keys render English. KEEP OURS on merge conflict.
             var cultureEn = new CultureInfo("en-US");
+            _loc.LoadCulture(cultureEn);
+            _loc.SetFallbackCluture(cultureEn); // NB: RobustToolbox API is spelled "Cluture".
 
             _loc.AddFunction(cultureEn, "MAKEPLURAL", FormatMakePlural);
             _loc.AddFunction(cultureEn, "MANY", FormatMany);
+            // End Capibara ESP
         }
 
         private ILocValue FormatMany(LocArgs args)
