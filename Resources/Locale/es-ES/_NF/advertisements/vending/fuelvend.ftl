@@ -1,0 +1,20 @@
+advertisement-fuelvend-1 = ¡CARGA LA NAVE ESPACIAL CON EL COMBUSTIBLE PARA COHETES!
+advertisement-fuelvend-2 = ¿Con prisas?  ¡Hazte con algo de combustible!
+advertisement-fuelvend-3 = ¡Tenemos tarifas que no creerás que sean legales!
+advertisement-fuelvend-4 = ¿Has revisado las bombas últimamente?
+advertisement-fuelvend-5 = ¿Saliendo? ¡Recarga combustible!
+advertisement-fuelvend-6 = ¡Recarga! Sin carbón desde 2520.
+advertisement-fuelvend-7 = ¡GAS, GAS, GAS!
+advertisement-fuelvend-8 = ¿Plasma? ¿Uranio? ¿AME? Te tenemos cubierto.
+advertisement-fuelvend-9 = ¿Necesitas energía? ¿Sin tiempo? ¡Compra combustible!
+advertisement-fuelvend-10 = ¿Origen local? Ja. Hazte con combustible.
+advertisement-fuelvend-11 = ¿Tu generador está en marcha? ¡Mejor ve a repostarlo!
+advertisement-fuelvend-12 = ¿Cuál es la anti-materia? ¿Sin combustible?
+
+goodbye-fuelvend-1 = Otro cliente insatisfecho.
+goodbye-fuelvend-2 = Volverás.
+goodbye-fuelvend-3 = Ponte en marcha, me estás robando el tiempo.
+goodbye-fuelvend-4 = No dejes que la esclusa te golpee al salir.
+goodbye-fuelvend-5 = Mucha suerte ahí fuera, pardillo.
+goodbye-fuelvend-6 = Sí, sí, lárgate.
+goodbye-fuelvend-7 = ¿Sigues aquí? Vaya.

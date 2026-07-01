@@ -1,0 +1,2 @@
+station-event-bureaucratic-error-announcement = Un reciente error burocrático en el Departamento de Recursos Orgánicos puede provocar escasez de personal en algunos departamentos y exceso de personal en otros.
+station-event-clerical-error-announcement = Un pequeño error administrativo en el Departamento de Recursos Orgánicos ha provocado la destrucción permanente de algunos registros de la estación.

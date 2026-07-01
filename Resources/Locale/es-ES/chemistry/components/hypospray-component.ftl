@@ -1,0 +1,21 @@
+## UI
+
+hypospray-all-mode-text = Solo inyecta
+hypospray-mobs-only-mode-text = Extrae e inyecta
+hypospray-invalid-text = No válido
+hypospray-volume-label = Volumen: [color=white]{$currentVolume}/{$totalVolume}u[/color]
+    Modo: [color=white]{$modeString}[/color]
+
+## Entity
+
+hypospray-component-inject-other-message = Inyectas a {$other}.
+hypospray-component-inject-self-message = Te inyectas a ti mismo.
+hypospray-component-inject-self-clumsy-message = ¡Ups! Te has inyectado a ti mismo.
+hypospray-component-empty-message = Nada que inyectar.
+hypospray-component-feel-prick-message = ¡Sientes un pequeño pinchazo!
+hypospray-component-transfer-already-full-message = ¡{$owner} ya está lleno!
+hypospray-cant-inject = ¡No se puede inyectar en {$target}!
+
+hypospray-verb-mode-label = Cambiar modo de extracción del contenedor
+hypospray-verb-mode-inject-all = Ya no puedes extraer de contenedores.
+hypospray-verb-mode-inject-mobs-only = Ahora puedes extraer de contenedores.

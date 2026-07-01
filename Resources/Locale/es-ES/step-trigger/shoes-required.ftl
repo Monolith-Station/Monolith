@@ -1,0 +1,1 @@
+clothing-required-step-trigger-examine = Probablemente no deberías pisar esto descalzo.

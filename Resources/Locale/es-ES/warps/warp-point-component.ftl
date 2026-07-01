@@ -1,0 +1,1 @@
+warp-point-component-on-examine-success = El ID de ubicación de este es {$location}

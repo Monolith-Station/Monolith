@@ -1,0 +1,1 @@
+cloning-console-uncloneable-trait-error = ERROR: DATOS GENÉTICOS DESCONOCIDOS DETECTADOS, LA CLONACIÓN ES IMPOSIBLE.

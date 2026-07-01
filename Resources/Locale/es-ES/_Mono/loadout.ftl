@@ -1,0 +1,11 @@
+loadout-group-weapon = arma de fuego
+loadout-group-weapon-civilian = arma de defensa personal
+loadout-group-pistol = arma secundaria
+loadout-group-magazine = munición
+loadout-group-pistol-magazine = munición de arma secundaria
+loadout-group-special-gun = arma especial
+loadout-group-contractor-balaclava = pasamontañas
+loadout-group-ussp-jumpsuit = Mono de la USSP
+loadout-group-ussp-head = Casco de la USSP
+loadout-group-ussp-outerclothing = Ropa Exterior de la USSP
+loadout-group-ussp-backpack = Mochila de la USSP

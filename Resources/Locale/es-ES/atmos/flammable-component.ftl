@@ -1,0 +1,1 @@
+flammable-component-resist-message = ¡Te detienes, te tiras al suelo y ruedas!

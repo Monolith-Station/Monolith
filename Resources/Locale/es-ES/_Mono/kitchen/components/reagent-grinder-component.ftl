@@ -1,0 +1,1 @@
+reagent-grinder-component-storage-full-message = El triturador está lleno.

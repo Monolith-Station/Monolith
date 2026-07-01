@@ -1,0 +1,12 @@
+mail-metrics-program-name = MailMetrics
+mail-metrics-header = Ingresos por entregas de correo
+mail-metrics-opened = Ganancias (Abiertos)
+mail-metrics-expired = Pérdidas (Caducados)
+mail-metrics-damaged = Pérdidas (Dañados)
+mail-metrics-tampered = Pérdidas (Manipulados)
+mail-metrics-unopened = Sin abrir
+mail-metrics-count-header = Paquetes
+mail-metrics-money-header = Créditos
+mail-metrics-total = Total
+mail-metrics-progress = ¡{$opened} de {$total} paquetes abiertos!
+mail-metrics-progress-percent = Tasa de éxito: {$successRate}%

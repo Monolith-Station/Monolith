@@ -1,0 +1,1 @@
+diona-hurt-by-herbicide-popup = ¡El producto químico marchita parte de tu vegetación!

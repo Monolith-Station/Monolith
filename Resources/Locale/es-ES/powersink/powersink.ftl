@@ -1,0 +1,2 @@
+powersink-examine-drain-amount = El sumidero de energía está drenando [color={$markupDrainColor}]{$amount} kW[/color].
+powersink-imminent-explosion-announcement = Los escaneos del sistema han detectado que un dispositivo consumidor de energía no autorizado se está volviendo inestable.  Se informa al personal que localice y desconecte este dispositivo inmediatamente antes de que la estación sufra daños.

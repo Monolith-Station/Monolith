@@ -1,0 +1,10 @@
+department-Cargo = Logística
+department-Civilian = Civil
+# department-Command = Mando # Frontier: redefined in _NF
+department-CentralCommand = Mando Central
+department-Engineering = Ingeniería
+# department-Medical = Médico # Mono: redefined in _NF
+# department-Security = Seguridad # Frontier: redefined in _NF
+department-Science = Ciencia
+department-Silicon = Silicio
+department-Specific = Específico de estación

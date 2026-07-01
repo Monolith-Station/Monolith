@@ -1,0 +1,14 @@
+advertisement-lawdrobe-1 = ¡OBJECIÓN! ¡Hazte con el estado de derecho para ti mismo!
+advertisement-lawdrobe-2 = ¡Ve a molestar a seguridad hasta que acaten tus propias reglas!
+advertisement-lawdrobe-3 = ¿Ha llegado un nuevo caso? ¡Ve a sacarlos de la cárcel!
+advertisement-lawdrobe-4 = ¡Un donut al día mantiene a seguridad alejada!
+advertisement-lawdrobe-5 = ¡Nadie está por encima de la ley!
+advertisement-lawdrobe-6 = ¡No, oficial, no consiento ningún registro!
+advertisement-lawdrobe-7 = ¡Inyectarse drogas espaciales no deja evidencias!
+advertisement-lawdrobe-8 = ¿Tú o un ser querido habéis sufrido daños por culpa de partisanos descontrolados? ¡Qué pena!
+advertisement-lawdrobe-9 = ¡Caso cerrado! ¡El acusado tiene demasiado estilo!
+thankyou-lawdrobe-1 = ¡Puedes ganar cualquier caso con ese atuendo!
+thankyou-lawdrobe-2 = ¡Cómprale uno a tu cliente también!
+thankyou-lawdrobe-3 = ¡Ganes o pierdas, cobras de todas formas!
+thankyou-lawdrobe-4 = ¡Recuerda: solo es ilegal si te pillan!
+thankyou-lawdrobe-5 = ¡OBJECIÓN! ¡Ese atuendo es demasiado cool para los tribunales!

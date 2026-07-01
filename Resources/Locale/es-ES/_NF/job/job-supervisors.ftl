@@ -1,0 +1,12 @@
+job-supervisors-sr = el Supervisor
+job-supervisors-sheriff = el Coronel
+job-supervisors-bailiff = el Capitán
+job-supervisors-sergeant = los Líderes de Equipo
+job-supervisors-cadet = todo el personal de la TSFMC de mayor rango
+job-supervisors-prisoner = todo el personal de la TSFMC
+job-supervisors-nfsd = los Líderes de Equipo y el Coronel
+job-supervisors-pirate = el PDV Denasvar y superiores
+job-supervisors-pdv-denasvar = el PDV Asvaran y el Gran Visir
+job-supervisors-pirate-first-mate = el PDV Gran Visir
+job-supervisors-nobody = nadie
+job-supervisors-ws = Winter Solstice

@@ -1,0 +1,1 @@
+door-pry = Forzar puerta

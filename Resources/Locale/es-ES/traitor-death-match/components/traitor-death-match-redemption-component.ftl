@@ -1,0 +1,11 @@
+traitor-death-match-redemption-component-interact-using-main-message = La máquina zumba y muestra: {$secondMessage}
+traitor-death-match-redemption-component-interact-using-no-mind-message = "AUTENTICACIÓN FALLIDA (0045)"
+traitor-death-match-redemption-component-interact-using-no-user-mind-message = "AUTENTICACIÓN FALLIDA (0052)"
+traitor-death-match-redemption-component-interact-using-no-pda-message = EL PDA PROPORCIONADO NO ES UN PDA (0058)"
+traitor-death-match-redemption-component-interact-using-no-pda-owner-message ="EL PDA PROPORCIONADO NO TIENE PROPIETARIO (0064)"
+traitor-death-match-redemption-component-interact-using-pda-different-user-message = "EL PDA PROPORCIONADO ES PROPIEDAD DEL USUARIO (0070)"
+traitor-death-match-redemption-component-interact-using-no-pda-in-pocket-message = "NO HAY PDA DEL USUARIO EN EL BOLSILLO DE LA TARJETA DE ID (0083)"
+traitor-death-match-redemption-component-interact-using-tampering-detected = "MANIPULACIÓN DETECTADA (0101)"
+traitor-death-match-redemption-component-interact-using-user-no-uplink-account-message = "EL PDA DEL USUARIO NO TIENE CUENTA DE UPLINK (0102)"
+traitor-death-match-redemption-component-interact-using-victim-no-uplink-account-message = "EL PDA DEL USUARIO NO TIENE CUENTA DE UPLINK (0108)"
+traitor-death-match-redemption-component-interact-using-success-message = La máquina reproduce una pequeña melodía alegre y muestra: "ÉXITO: {$tcAmount} TC TRANSFERIDOS"

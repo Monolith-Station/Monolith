@@ -1,0 +1,21 @@
+shuttle-records-console-window-title = Ordenador de Registros de Transbordadores
+shuttle-records-copy-deed-button = Copiar escritura a tarjeta de identificación
+shuttle-records-shuttle-name-label = Nombre del transbordador: {$name}
+shuttle-records-shuttle-owner-label = Comprado por: {$owner}
+shuttle-records-shuttle-price-label = Precio de compra: {$price}
+shuttle-records-shuttle-status = Estado del transbordador: {$status}
+shuttle-records-shuttle-status-active = Activo en el sector
+shuttle-records-shuttle-status-inactive = Vendido o eliminado
+shuttle-records-transactions = Lista de transacciones
+shuttle-records-detail-title = Detalles del transbordador seleccionado
+shuttle-records-no-idcard = No hay tarjeta de identificación presente.
+shuttle-records-no-record-found = No se encontró ningún registro.
+shuttle-records-no-bank-account = La estación no tiene cuenta bancaria.
+shuttle-records-insufficient-funds = La estación no tiene fondos suficientes.
+shuttle-records-no-access = Acceso denegado.
+shuttle-records-transaction-confirm = ¿Estás seguro?
+shuttle-records-transaction-cost = Coste de la transacción: {$cost}
+shuttle-records-search = Buscar nave o capitán
+shuttle-records-time-of-purchase = Hora de compra: [color=white]{ $time }[/color]
+shuttle-records-show-active-only = Mostrar solo naves activas
+shuttle-records-purchased-voucher = El transbordador fue comprado con un vale.

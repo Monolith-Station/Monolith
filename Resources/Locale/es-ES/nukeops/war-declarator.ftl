@@ -1,0 +1,15 @@
+war-declarator-not-working = El dispositivo emite pitidos, pero no ocurre nada...
+war-declarator-ui-header = Declaración de Guerra
+war-declarator-ui-war-button = ¡DECLARAR GUERRA!
+war-declarator-ui-try-war-button = Intentar declarar guerra
+war-declarator-conditions-small-crew = ¡No hay suficientes operativos nucleares para declarar guerra!
+war-declarator-conditions-left-outpost = El transbordador abandonó el puesto avanzado del Syndicate
+war-declarator-conditions-time-out = El tiempo para declarar guerra ha expirado
+war-declarator-conditions-ready = ¡El transbordador puede abandonar el puesto avanzado!
+war-declarator-conditions-unknown = Desconocido
+war-declarator-boost-possible = Capaz de declarar guerra
+war-declarator-boost-impossible = Incapaz de declarar guerra
+war-declarator-boost-declared = ¡Guerra declarada! El transbordador puede estar deshabilitado durante...
+war-declarator-boost-timer = Tiempo restante: {$time} minutos.
+war-declarator-default-message = Un grupo marginal del Syndicate ha declarado su intención de destruir por completo la estación con un dispositivo nuclear, y desafía a la tripulación a intentar detenerlos.
+war-declarator-message-placeholder = Escribe aquí una declaración de guerra personalizada...
