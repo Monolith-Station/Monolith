@@ -56,6 +56,19 @@ function Format-Entry([string]$id, [string]$name, [string]$desc) {
     return $sb.ToString()
 }
 
+# --- exclusion set: ent- ids already defined in the mirrored es-ES tree (translated from
+# upstream .ftl files that define entity overrides, e.g. _DV vending-crates). Emitting them
+# again here would be a duplicate-message Fluent error at load time. ---
+$already = @{}
+$outDirResolved = (Resolve-Path -ErrorAction SilentlyContinue $OutDir)?.Path
+foreach ($f in Get-ChildItem -Recurse "Resources/Locale/es-ES" -Filter *.ftl) {
+    if ($outDirResolved -and $f.FullName.StartsWith($outDirResolved)) { continue }
+    foreach ($m in [regex]::Matches((Get-Content -LiteralPath $f.FullName -Raw), '(?m)^ent-([A-Za-z0-9_-]+)\s*=')) {
+        $already[$m.Groups[1].Value] = $true
+    }
+}
+Write-Host "Excluding $($already.Count) entity id(s) already defined in the mirrored es-ES tree."
+
 # --- generate ---
 $data = Get-Content -LiteralPath $Source -Raw | ConvertFrom-Json
 New-Item -ItemType Directory -Force $OutDir | Out-Null
@@ -72,6 +85,7 @@ function Flush-Chunk([System.Text.StringBuilder]$b, [int]$idx, [string]$dir) {
 
 foreach ($e in ($data | Sort-Object id)) {
     if (-not ($e.name -and $e.name.Trim())) { continue }   # skip name-less entities (keep English)
+    if ($already.ContainsKey($e.id)) { continue }          # already localized in the mirrored tree
     $esName = if ($map.ContainsKey($e.name)) { $map[$e.name] } else { $missName++; $e.name }
     $esDesc = ""
     if ($e.desc -and $e.desc.Trim()) {

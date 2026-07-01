@@ -1,6 +1,3 @@
-ent-PoweredDimSmallLight = luz pequeña
-    .desc = Una luminaria. Consume energía y produce luz cuando está equipada con una bombilla.
-
 ent-PoweredLEDLightPostSmall = farola
     .desc = Una luminaria. Consume energía y produce luz cuando está equipada con un tubo fluorescente.
 
@@ -6591,4 +6588,7 @@ ent-TechDiskMla73 = disco tecnológico de facción PDV MLA-73
 
 ent-TechDiskPrinter = impresora de discos tecnológicos
     .desc = Una máquina que imprime automáticamente discos tecnológicos cada 7,5 minutos a partir de datos pre-Fractura recabados automáticamente. Necesita 120 kW de energía HV para funcionar.
+
+ent-TechDiskRCD = disco tecnológico de manipulación rápida de materia
+    .desc = Un disco capaz de añadir equipamiento RCD a las recetas de un servidor.
 

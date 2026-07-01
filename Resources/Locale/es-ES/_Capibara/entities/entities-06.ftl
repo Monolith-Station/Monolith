@@ -1,6 +1,3 @@
-ent-TechDiskRCD = disco tecnológico de manipulación rápida de materia
-    .desc = Un disco capaz de añadir equipamiento RCD a las recetas de un servidor.
-
 ent-TechDiskRogueTools = disco tecnológico de facción PDV de equipamiento
     .desc = Un disco capaz de añadir diversas herramientas de los Rogues a las recetas de un servidor, para los fabricadores de facción.
 

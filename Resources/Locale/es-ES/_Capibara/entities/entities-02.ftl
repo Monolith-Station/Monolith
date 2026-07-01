@@ -2037,9 +2037,6 @@ ent-CrateVendingMachineRestockNutriMaxFilled = Caja de reabastecimiento de Nutri
 ent-CrateVendingMachineRestockPottedPlantVendFilled = Caja de reabastecimiento de Plant-O-Matic
     .desc = Contiene dos cajas de reabastecimiento para la máquina expendedora Plant-O-Matic.
 
-ent-CrateVendingMachineRestockPrideFilled = Caja de reabastecimiento de Pride-O-Mat
-    .desc = Contiene dos cajas de reabastecimiento para un Pride-O-Mat.
-
 ent-CrateVendingMachineRestockPTechFilled = Caja de reabastecimiento de PTech
     .desc = Contiene una caja de reabastecimiento para el dispensador de burocracia PTech.
 
@@ -7401,4 +7398,7 @@ ent-FoodMealTonkatsuNoodles = fideos tonkatsu
 
 ent-FoodMeat = carne cruda
     .desc = Un trozo de carne cruda.
+
+ent-FoodMeatAnomaly = masa de carne anómala
+    .desc = Un trozo de carne de densidad imposible. Solo mirarlo te pone incómodo.
 

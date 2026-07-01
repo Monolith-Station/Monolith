@@ -1,6 +1,3 @@
-ent-FoodMeatAnomaly = masa de carne anómala
-    .desc = Un trozo de carne de densidad imposible. Solo mirarlo te pone incómodo.
-
 ent-FoodMeatAnomalyCooked = filete anómalo
     .desc = Una masa gigantesca de carne cocinada. Una comida para una cena de grupo, o para alguien MUY hambriento.
 
@@ -6947,4 +6944,7 @@ ent-MindRoleWizard = Rol de Mago
 
 ent-MindRoleZombie = Rol de Zombie
     .desc = Entidad de rol mental
+
+ent-MindShieldImplant = implante de escudo mental
+    .desc = Este implante protegerá el cerebro de influencias externas e impedirá el uso de dispositivos de control mental.
 

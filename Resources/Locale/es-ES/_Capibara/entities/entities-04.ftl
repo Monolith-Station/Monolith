@@ -1,6 +1,3 @@
-ent-MindShieldImplant = implante de escudo mental
-    .desc = Este implante protegerá el cerebro de influencias externas e impedirá el uso de dispositivos de control mental.
-
 ent-MindShieldImplanter = implantador
     .desc = Una jeringa desechable diseñada exclusivamente para la inyección de implantes subdérmicos.
 
@@ -7131,4 +7128,7 @@ ent-PowerComputerCircuitboard = placa de ordenador de monitoreo de energía
 
 ent-PowerDrill = taladro eléctrico
     .desc = Un sencillo taladro de mano eléctrico.
+
+ent-PoweredDimSmallLight = luz pequeña
+    .desc = Una luminaria. Consume energía y produce luz cuando está equipada con una bombilla.
 
