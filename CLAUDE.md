@@ -24,6 +24,10 @@ This fork's purpose: a fully Spanish translation kept mergeable with upstream.
   IN PLACE — the engine has no per-locale mechanism for these docs. **On a merge conflict there:
   take UPSTREAM's version (`git checkout --theirs`), then retranslate that file** — see
   `_Capibara/sync-guidebook` notes below. Never try to hand-merge Spanish vs English hunks.
+- EXCEPTION (approved, tiny): guideEntry `name:` lines in `Resources/Prototypes/**/Guidebook/*.yml`
+  whose value can't be a Fluent id (spaces/dots) carry the Spanish title directly, marked with
+  `# Capibara ESP` comments. Raw names that ARE valid Fluent ids are instead localized additively
+  in `Resources/Locale/es-ES/_Capibara/guide-entries.ftl` (the raw name doubles as the loc key).
 
 ## Fluent-preservation rules (any translation, human or agent)
 Translate only human-readable text. Never modify/translate/add/remove: message IDs, attribute

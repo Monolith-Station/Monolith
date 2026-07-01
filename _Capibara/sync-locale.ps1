@@ -42,10 +42,12 @@ foreach ($id in $en.Keys) {
     if (-not $es.ContainsKey($id)) { $new += $id }
     elseif ($stored.ContainsKey($id) -and $stored[$id] -ne $h) { $changed += $id }
 }
-# Fork-owned es-ES-only keys are NOT stale: ent-* (entity overrides, sourced from YAML not
-# en-US .ftl) and capibara-* (seed/fork keys). Exclude them from REMOVED so the report stays
+# Fork-owned es-ES-only keys are NOT stale: everything defined under es-ES/_Capibara/
+# (entity ent-* overrides, seed keys, guide-entry titles, upstream-bug fixes) exists by
+# design with no en-US counterpart. Exclude those from REMOVED so the report stays
 # meaningful for the mirrored .ftl tree. (Entity drift is tracked by re-running the dumper.)
-foreach ($id in $es.Keys) { if (-not $en.ContainsKey($id) -and $id -notmatch '^(ent-|capibara-)|^hud-chatbox-highlights-tooltip$') { $removed += $id } }
+$forkOwned = Read-FlatMessages (Join-Path $EsRoot "_Capibara")
+foreach ($id in $es.Keys) { if (-not $en.ContainsKey($id) -and -not $forkOwned.ContainsKey($id)) { $removed += $id } }
 
 $lines = @("SYNC REPORT", "en-US messages: $($en.Count)  es-ES messages: $($es.Count)", "",
     "== NEW (translate): $($new.Count) ==") + @($new | Sort-Object) +
