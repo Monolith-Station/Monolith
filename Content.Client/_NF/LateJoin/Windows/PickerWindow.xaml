@@ -1,7 +1,7 @@
 ﻿<controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                      Title="Join Game"
+                      Title="{Loc capibara-ui-join-game-title}"
                       SetSize="800 600">
 
     <BoxContainer Orientation="Vertical">

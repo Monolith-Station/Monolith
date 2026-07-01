@@ -78,7 +78,7 @@
         Access="Internal"
         Icon="{xe:Tex '/Textures/_EinsteinEngines/Interface/language.png'}"
         BoundKey = "{x:Static is:ContentKeyFunctions.OpenLanguageMenu}"
-        ToolTip="Open the Language Menu"
+        ToolTip="{Loc 'capibara-ui-language-menu-tooltip'}"
         MinSize="42 64"
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"

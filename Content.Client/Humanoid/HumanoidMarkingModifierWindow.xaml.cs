@@ -118,7 +118,7 @@ public sealed partial class HumanoidMarkingModifierWindow : DefaultWindow
             });
             _enable = new CheckBox
             {
-                Text = "Enable",
+                Text = Loc.GetString("capibara-ui-marking-enable"), // Capibara ESP
                 HorizontalAlignment = HAlignment.Right
             };
 
@@ -135,7 +135,7 @@ public sealed partial class HumanoidMarkingModifierWindow : DefaultWindow
             };
 
             var lineEditBox = new BoxContainer();
-            lineEditBox.AddChild(new Label { Text = "Prototype id: "});
+            lineEditBox.AddChild(new Label { Text = Loc.GetString("capibara-ui-marking-prototype-id") }); // Capibara ESP
 
             // TODO: This line edit should really be an options / dropdown selector, not text.
             _lineEdit = new() { MinWidth = 200 };

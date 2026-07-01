@@ -188,7 +188,7 @@ public sealed partial class GunSystem
                             }),
                             (_noMagazineLabel = new Label
                             {
-                                Text = "No Magazine!",
+                                Text = Robust.Shared.Localization.Loc.GetString("capibara-ui-no-magazine"), // Capibara ESP
                                 StyleClasses = {StyleNano.StyleClassItemStatus}
                             })
                         }

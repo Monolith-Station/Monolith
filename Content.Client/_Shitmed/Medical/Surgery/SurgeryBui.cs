@@ -339,7 +339,7 @@ public sealed partial class SurgeryBui : BoundUserInterface
         else if (partMeta != null)
             _window.Title = $"Surgery - {partMeta.EntityName}";
         else
-            _window.Title = "Surgery";
+            _window.Title = Loc.GetString("capibara-ui-surgery-title"); // Capibara ESP
     }
 
     private enum ViewType
