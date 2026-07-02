@@ -69,7 +69,7 @@
       - id: EmergencyOxygenTankFilled
 #BF14      - id: EmergencyMedipen
 #BF14      - id: SyringeInaprovaline
-      - id: MedicationBoxPillsDexalin
+      - id: MedicationBoxPillsDexalin # BF14
       - id: SyringeSaline # BF14
       - id: BF14SyretteInaprovalineCapped # BF14
         amount: 2
@@ -87,7 +87,7 @@
       - id: MedicationBoxSyrettesArithrazine # BF14
 #BF14      - id: RadAutoInjector
       - id: BlisterPackPotassiumIodide # BF14
-      - id: BlisterPackBicaridine
+      - id: BlisterPackBicaridine # BF14
 
 - type: entity
   id: MedkitAdvancedFilled

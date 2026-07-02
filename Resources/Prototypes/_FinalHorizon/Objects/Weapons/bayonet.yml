@@ -1,0 +1,170 @@
+- type: entity
+  parent: BaseItem
+  id: FHKnifeBase
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - CombatKnife
+    - Knife
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 3.0 # BF14 4 > 3
+  - type: Utensil
+    types:
+      - Knife
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 28 # BF14 22 > 28
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Sprite
+  - type: Tool
+    qualities:
+      - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 30 # BF14 22 > 30
+  - type: Item
+    sprite: _FinalHorizon/Objects/Weapons/Melee/bayonet.rsi
+  - type: DisarmMalus
+    malus: 0.225
+  - type: ThrowingAngle
+    angle: 225
+  # BF14 edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/knife_pickup.ogg
+      params:
+        volume: -8
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/knife_drop.ogg
+      params:
+        volume: -8
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/knife_drop.ogg
+      params:
+        volume: -8
+  - type: Scalpel # Shitmed
+    speed: 0.65
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
+  # BF14 edit end
+
+- type: entity
+  name: 6h3 bayonet
+  parent: FHKnifeBase
+  id: FHKnife6h3
+  description: An AKM bayonet with two sharp edges near the point.
+  components:
+  - type: Sprite
+    sprite: _FinalHorizon/Objects/Weapons/Melee/bayonet.rsi
+    state: 6h3
+
+- type: entity
+  name: 6h4 bayonet
+  parent: FHKnifeBase
+  id: FHKnife6h4
+  description: An AK74 bayonet with two sharp edges near the point.
+  components:
+  - type: Sprite
+    sprite: _FinalHorizon/Objects/Weapons/Melee/bayonet.rsi
+    state: 6h4
+
+- type: entity
+  name: vz.58 bayonet
+  parent: FHKnifeBase
+  id: FHKnifevz58
+  description: A slim and sharp, but somewhat fragile Czechoslovakian bayonet.
+  components:
+  - type: Sprite
+    sprite: _FinalHorizon/Objects/Weapons/Melee/bayonet.rsi
+    state: vz58
+
+- type: entity
+  name: M7 bayonet
+  parent: FHKnifeBase
+  id: FHKnifeM7
+  description: A 12 inch bayonet with a carbon-steel blade. This one was manufacured in West Germany.
+  components:
+  - type: Sprite
+    sprite: _FinalHorizon/Objects/Weapons/Melee/bayonet.rsi
+    state: m7
+
+- type: entity
+  name: M68 bayonet
+  parent: FHKnifeBase
+  id: FHKnifeM68
+  description: Combat knife of the Bundeswehr forces. German quality.
+  components:
+  - type: Sprite
+    sprite: _FinalHorizon/Objects/Weapons/Melee/bayonet.rsi
+    state: m68
+
+- type: entity
+  name: L1A3 bayonet
+  parent: FHKnifeBase
+  id: FHKnifeL1A3
+  description: A 9 inch bayonet with a carbon-steel blade. Produced in Great Britain.
+  components:
+  - type: Sprite
+    sprite: _FinalHorizon/Objects/Weapons/Melee/bayonet.rsi
+    state: l1a3
+
+- type: entity
+  name: M62 bayonet
+  parent: FHKnifeBase
+  id: FHKnifeM62
+  description: A bayonet based on Finnish 'puukko' knives.
+  components:
+  - type: Sprite
+    sprite: _FinalHorizon/Objects/Weapons/Melee/bayonet.rsi
+    state: m62
+
+- type: entity
+  name: M78 bayonet
+  parent: FHKnifeBase
+  id: FHKnifeM78
+  description: Combat knife of the Bundesheer forces. German quality.
+  components:
+  - type: Sprite
+    sprite: _FinalHorizon/Objects/Weapons/Melee/bayonet.rsi
+    state: m78
+
+- type: entity
+  name: M 1958 bayonet
+  parent: FHKnifeBase
+  id: FHKnifeM1958
+  description: A FAMAS bayonet with two sharp edges near the tip.
+  components:
+  - type: Sprite
+    sprite: _FinalHorizon/Objects/Weapons/Melee/bayonet.rsi
+    state: m1958
+
+- type: entity
+  name: Taiga-1
+  parent: Machete # BF14 FHKnifeBase
+  id: FHKnifeTaiga
+  description: A deadly Spetsnaz machete. Smart people would stay away from it.
+  components:
+  - type: Sprite
+    sprite: _FinalHorizon/Objects/Weapons/Melee/bayonet.rsi
+    state: taiga
+  - type: Tag
+    tags:
+    - CombatKnife
+    - Knife
