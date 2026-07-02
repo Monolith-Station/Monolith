@@ -1,4 +1,4 @@
-# Ammo
+#region Ammo
 
 - type: listing
   id: UplinkNATOAmmoBox556Big
@@ -128,7 +128,7 @@
         tags:
           - AmericanUplink
 
-# Armour
+#region Armour
 
 - type: listing
   id: UplinkNATOArmorPlateLight
@@ -153,7 +153,7 @@
   productEntity: CratePlateMedium
   icon: { sprite: _Mono/Clothing/ArmorPlate/armor_medium.rsi, state: icon }
   cost:
-    NATORequisition: 12 # 2 minutes
+    NATORequisition: 3 # 30 seconds
   categories:
     - UplinkNATOUSArmour
   conditions:
@@ -162,7 +162,7 @@
         tags:
           - AmericanUplink
 
-# Utility
+#region Utility
 
 - type: listing
   id: UplinkNATOMacheteBelt
@@ -171,7 +171,7 @@
   productEntity: ClothingBeltMacheteFilled
   icon: { sprite: _Battlefield14/Clothing/Belt/machetebelt.rsi, state: icon }
   cost:
-    NATORequisition: 8 # 1 minute 20 seconds
+    NATORequisition: 3 # 30 seconds
   categories:
     - UplinkNATOUSUtility
   conditions:
@@ -187,7 +187,7 @@
   productEntity: ClothingArmbandThighHolsterFilledUS
   icon: { sprite: _Battlefield14/Clothing/Accessories/thighholster.rsi, state: icon } # TODO fix this weird shit where it has to be 64x64 or it doesn't work
   cost:
-    NATORequisition: 6 # 1 minute
+    NATORequisition: 3 # 30 seconds
   categories:
     - UplinkNATOUSUtility
   conditions:
@@ -219,7 +219,7 @@
   productEntity: ClothingArmbandMassScanner
   icon: { sprite: _Battlefield14/Clothing/Accessories/wristscanner.rsi, state: icon } # TODO fix this weird shit where it has to be 64x64 or it doesn't work
   cost:
-    NATORequisition: 6 # 1 minutes
+    NATORequisition: 3 # 30 seconds
   categories:
     - UplinkNATOUSUtility
   conditions:
@@ -235,7 +235,7 @@
   productEntity: CrateSecgearFilledBarbwire
   icon: { sprite: _RMC14/Objects/barbed_wire.rsi, state: barbed_wire_3 }
   cost:
-    NATORequisition: 4 # 40 seconds
+    NATORequisition: 3 # 30 seconds
   categories:
     - UplinkNATOUSUtility
   conditions:
@@ -244,7 +244,7 @@
         tags:
           - AmericanUplink
 
-# Medical
+#region Medical
 
 - type: listing
   id: UplinkNATOMedkitCombat
@@ -310,7 +310,7 @@
         tags:
           - AmericanUplink
 
-# Ship vouchers
+#region Ship vouchers
 
 - type: listing
   id: UplinkNATOUSMGBradley

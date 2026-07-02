@@ -1,4 +1,4 @@
-# Ammo
+#region Ammo
 
 - type: listing
   id: UplinkPACTAmmoBox545Big
@@ -144,7 +144,7 @@
         tags:
           - RussianUplink
 
-# Armour
+#region Armour
 
 - type: listing
   id: UplinkPACTArmorPlateLight
@@ -169,7 +169,7 @@
   productEntity: CratePlateMedium
   icon: { sprite: _Mono/Clothing/ArmorPlate/armor_medium.rsi, state: icon }
   cost:
-    PACTRequisition: 12 # 2 minutes
+    PACTRequisition: 3 # 30 seconds
   categories:
     - UplinkPACTRUArmour
   conditions:
@@ -178,7 +178,7 @@
         tags:
           - RussianUplink
 
-# Utility
+#region Utility
 
 - type: listing
   id: UplinkPACTMacheteBelt
@@ -187,7 +187,7 @@
   productEntity: ClothingBeltMacheteFilled
   icon: { sprite: _Battlefield14/Clothing/Belt/machetebelt.rsi, state: icon }
   cost:
-    PACTRequisition: 8 # 1 minute 20 seconds
+    PACTRequisition: 3 # 30 seconds
   categories:
     - UplinkPACTRUUtility
   conditions:
@@ -203,7 +203,7 @@
   productEntity: ClothingArmbandThighHolsterFilledRU
   icon: { sprite: _Battlefield14/Clothing/Accessories/thighholster.rsi, state: icon } # TODO fix this weird shit where it has to be 64x64 or it doesn't work
   cost:
-    PACTRequisition: 6 # 1 minute
+    PACTRequisition: 3 # 30 seconds
   categories:
     - UplinkPACTRUUtility
   conditions:
@@ -235,7 +235,7 @@
   productEntity: ClothingArmbandMassScanner
   icon: { sprite: _Battlefield14/Clothing/Accessories/wristscanner.rsi, state: icon } # TODO fix this weird shit where it has to be 64x64 or it doesn't work
   cost:
-    PACTRequisition: 6 # 1 minutes
+    PACTRequisition: 3 # 30 seconds
   categories:
     - UplinkPACTRUUtility
   conditions:
@@ -251,7 +251,7 @@
   productEntity: CrateSecgearFilledBarbwire
   icon: { sprite: _RMC14/Objects/barbed_wire.rsi, state: barbed_wire_3 }
   cost:
-    PACTRequisition: 4 # 40 seconds
+    PACTRequisition: 3 # 30 seconds
   categories:
     - UplinkPACTRUUtility
   conditions:
@@ -260,7 +260,7 @@
         tags:
           - RussianUplink
 
-# Medical
+#region Medical
 
 - type: listing
   id: UplinkPACTMedkitCombat
@@ -326,7 +326,7 @@
         tags:
           - RussianUplink
 
-# ships
+#region ships
 
 - type: listing
   id: UplinkPACTShipsBMD4
