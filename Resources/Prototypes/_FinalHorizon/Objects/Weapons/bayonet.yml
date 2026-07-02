@@ -157,10 +157,14 @@
 
 - type: entity
   name: Taiga-1
-  parent: FHKnifeBase
+  parent: Machete # BF14 FHKnifeBase
   id: FHKnifeTaiga
   description: A deadly Spetsnaz machete. Smart people would stay away from it.
   components:
   - type: Sprite
     sprite: _FinalHorizon/Objects/Weapons/Melee/bayonet.rsi
     state: taiga
+  - type: Tag
+    tags:
+    - CombatKnife
+    - Knife
