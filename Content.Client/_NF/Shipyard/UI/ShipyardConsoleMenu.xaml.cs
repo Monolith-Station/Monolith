@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client._Mono.Shipyard;
 using Content.Client.UserInterface.Controls;
 using Content.Client._NF.Shipyard.BUI;
 using Content.Shared._NF.Bank;
@@ -16,11 +17,11 @@ namespace Content.Client._NF.Shipyard.UI;
 public sealed partial class ShipyardConsoleMenu : FancyWindow
 {
     [Dependency] private IPrototypeManager _protoManager = default!;
-
     public event Action<ButtonEventArgs>? OnSellShip;
     public event Action<ButtonEventArgs>? OnOrderApproved;
     public event Action<ButtonEventArgs>? OnUnassignDeed;
     public event Action<string>? OnRenameShip;
+    public event Action<ButtonEventArgs>? OnPreviewShip;
     private readonly ShipyardConsoleBoundUserInterface _menu;
     private readonly List<VesselSize> _categoryStrings = new();
     private readonly List<VesselClass> _classStrings = new();
@@ -172,6 +173,7 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
                 Price = { Text = priceText },
             };
             vesselEntry.Purchase.OnPressed += (args) => { OnOrderApproved?.Invoke(args); };
+            vesselEntry.Preview.OnPressed += (args) => { OnPreviewShip?.Invoke(args); };
             Vessels.AddChild(vesselEntry);
         }
     }

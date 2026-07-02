@@ -20,4 +20,4 @@ public sealed partial class ShipyardUnassignCooldownComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan NextUnassignTime;
-} 
+}
