@@ -12,6 +12,7 @@
           radius: 2
         layer:
         - BulletImpassable # Mono - ProjectileGridPhase will take care of collisions with same ship shots
+        - Opaque
       projectile:
         shape:
           !type:PhysShapeAabb
