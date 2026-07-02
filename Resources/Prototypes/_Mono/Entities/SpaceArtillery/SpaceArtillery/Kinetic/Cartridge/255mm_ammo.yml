@@ -12,6 +12,7 @@
   - type: CartridgeAmmo
     proto: 255mmBulletAPHE
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/shells.rsi
     layers:
@@ -52,6 +53,7 @@
   - type: CartridgeAmmo
     proto: 255mmBulletEMP
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/shells.rsi
     layers:
