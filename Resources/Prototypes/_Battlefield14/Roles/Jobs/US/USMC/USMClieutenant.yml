@@ -25,6 +25,9 @@
       - USMC
     - type: ChatRank
       rank: BF-rank-lieutenant
+    - type: CMVendorUser
+      id: USMCLieutenant
+      points: 4
   - !type:AddImplantSpecial
     implants: [ TrackingImplantNATOUS ]
   access:
@@ -62,3 +65,4 @@
     - MagazinePistolM9
     - Tourniquet
     - Zipties
+    - CMVendUSMCWarVendorLieutenantTablet

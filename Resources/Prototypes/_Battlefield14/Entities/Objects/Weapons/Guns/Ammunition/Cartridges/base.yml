@@ -21,6 +21,7 @@
   abstract: true
   components:
   - type: CartridgeAmmo
+    muzzleFlash: MuzzleFlashEffectSmall
     soundEject:
       collection: BF_Cartridge_Drop_9x19
       params:

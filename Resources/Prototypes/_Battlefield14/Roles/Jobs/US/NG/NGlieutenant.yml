@@ -25,6 +25,9 @@
       - USMC
     - type: ChatRank
       rank: BF-rank-lieutenant
+    - type: CMVendorUser
+      id: ARNGLieutenant
+      points: 4
   - !type:AddImplantSpecial
     implants: [ TrackingImplantNATOUS ]
   access:
@@ -67,3 +70,4 @@
     - Whistle
     - Tourniquet
     - Zipties
+    - CMVendARNGWarVendorLieutenantTablet
