@@ -8,9 +8,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._CE.ZLevels.Core.Components;
 
 /// <summary>
-/// Marks a z-level map as a ground layer. Grids that land here are parked
-/// (physics disabled, no piloting) until they leave for a sky layer, mirroring
-/// how FTL arrivals to planets behave.
+/// Marks a z-level map as a ground layer. You can't fly a ship on the ground, dummy.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CEZGroundLayerComponent : Component;

@@ -3,6 +3,7 @@
  * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
  */
 
+using System.Numerics;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Actions;
@@ -67,6 +68,11 @@ public sealed partial class CEZLevelsSystem
         {
             foreach (var eye in viewer.Eyes)
             {
+                // Eyes die with their map (transit maps get deleted under them);
+                // the queued rebuild replaces them, but never race a stale handle.
+                if (TerminatingOrDeleted(eye))
+                    continue;
+
                 _transform.SetWorldPosition(eye, _transform.GetWorldPosition(xform));
             }
         }
@@ -85,7 +91,8 @@ public sealed partial class CEZLevelsSystem
 
         foreach (var eye in ent.Comp.Eyes)
         {
-            QueueDel(eye);
+            if (!TerminatingOrDeleted(eye))
+                QueueDel(eye);
         }
     }
 
@@ -114,7 +121,9 @@ public sealed partial class CEZLevelsSystem
         var eyes = ent.Comp.Eyes;
         foreach (var eye in ent.Comp.Eyes)
         {
-            QueueDel(eye);
+            // Eyes on a deleted transit map died with it.
+            if (!TerminatingOrDeleted(eye))
+                QueueDel(eye);
         }
         eyes.Clear();
 
@@ -129,29 +138,92 @@ public sealed partial class CEZLevelsSystem
 
         var globalPos = _transform.GetWorldPosition(xform);
 
+        // Maps this viewer's eye chain covers; used to find adjacent transit maps.
+        var coveredMaps = new HashSet<EntityUid> { map.Value };
+
+        // Riding a grid between levels: the view chain hangs off the gap being crossed.
+        EntityUid? mapAbove = null;
+        var belowChainStart = map.Value;
+        var includeChainStart = false;
+        if (TryComp<CEZTransitMapComponent>(map, out var transit))
+        {
+            mapAbove = transit.UpperMap;
+            if (transit.LowerMap is { } lower)
+            {
+                belowChainStart = lower;
+                includeChainStart = true;
+            }
+        }
+        else if (TryMapUp(map.Value, out var aboveMapUid))
+        {
+            mapAbove = aboveMapUid.Value;
+        }
+
+        if (includeChainStart)
+        {
+            SpawnViewerEye(eyes, actor, belowChainStart, globalPos);
+            coveredMaps.Add(belowChainStart);
+        }
+
         for (var i = 1; i <= MaxZLevelsBelowRendering; i++)
         {
-            if (!TryMapOffset(map.Value, -i, out var mapUidBelow))
+            if (!TryMapOffset(belowChainStart, -i, out var mapUidBelow))
                 break;
 
-            // SpawnAttachedTo: eyes must parent to the map itself, never to a grid that
-            // happens to occupy the position (SpawnAtPosition does a grid lookup).
-            var newEye = SpawnAttachedTo(_zEyeProto, new EntityCoordinates(mapUidBelow.Value, globalPos));
-
-            Transform(newEye).GridTraversal = false;
-            _viewSubscriber.AddViewSubscriber(newEye, actor.PlayerSession);
-            eyes.Add(newEye);
+            SpawnViewerEye(eyes, actor, mapUidBelow.Value, globalPos);
+            coveredMaps.Add(mapUidBelow.Value);
         }
 
         // We constantly load the upper z-level for the client so that you can quickly look up and climb stairs without PVS lag.
-        if (TryMapUp(map.Value, out var aboveMapUid))
+        if (mapAbove != null)
         {
-            var newEye = SpawnAttachedTo(_zEyeProto, new EntityCoordinates(aboveMapUid.Value, globalPos));
-
-            Transform(newEye).GridTraversal = false;
-            _viewSubscriber.AddViewSubscriber(newEye, actor.PlayerSession);
-            eyes.Add(newEye);
+            SpawnViewerEye(eyes, actor, mapAbove.Value, globalPos);
+            coveredMaps.Add(mapAbove.Value);
         }
+
+        // Grids transiting past any covered level must stream to this viewer too:
+        // both PVS contents and decal chunks key off view subscriptions.
+        var transitQuery = EntityQueryEnumerator<CEZTransitMapComponent>();
+        while (transitQuery.MoveNext(out var transitUid, out var transitComp))
+        {
+            if (transitUid == map.Value)
+                continue;
+
+            // A transit hop queues this rebuild AND deletes the old map in the same
+            // tick; never spawn an eye on a map that's already on death row.
+            if (TerminatingOrDeleted(transitUid) || EntityManager.IsQueuedForDeletion(transitUid))
+                continue;
+
+            if (transitComp.LowerMap is { } transitLower && coveredMaps.Contains(transitLower) ||
+                transitComp.UpperMap is { } transitUpper && coveredMaps.Contains(transitUpper))
+            {
+                SpawnViewerEye(eyes, actor, transitUid, globalPos);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Transit maps appear and disappear without viewers changing maps, so eye sets
+    /// have to be rebuilt when one is created or removed.
+    /// </summary>
+    internal void QueueAllViewerUpdates()
+    {
+        var query = EntityQueryEnumerator<CEZLevelViewerComponent>();
+        while (query.MoveNext(out var uid, out _))
+        {
+            _queuedViewerUpdates.Add(uid);
+        }
+    }
+
+    private void SpawnViewerEye(HashSet<EntityUid> eyes, ActorComponent actor, EntityUid mapUid, Vector2 globalPos)
+    {
+        // SpawnAttachedTo: eyes must parent to the map itself, never to a grid that
+        // happens to occupy the position (SpawnAtPosition does a grid lookup).
+        var newEye = SpawnAttachedTo(_zEyeProto, new EntityCoordinates(mapUid, globalPos));
+
+        Transform(newEye).GridTraversal = false;
+        _viewSubscriber.AddViewSubscriber(newEye, actor.PlayerSession);
+        eyes.Add(newEye);
     }
 
     private void OnZLevelFall(Entity<CEZPhysicsComponent> ent, ref CEZLevelFallMapEvent args)

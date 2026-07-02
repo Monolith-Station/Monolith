@@ -26,6 +26,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
+    - type: CEZGroundLayer
     - type: GridTree
     - type: Broadphase
     - type: OccluderTree

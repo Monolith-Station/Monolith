@@ -23,3 +23,14 @@
   id: CEZBlur
   kind: source
   path: "/Textures/_CE/Shaders/zblur.swsl"
+  params:
+    STRENGTH: 1.0
+    FADE: 1.0
+
+- type: shader
+  id: CEZBlurBlit
+  kind: source
+  path: "/Textures/_CE/Shaders/zblur_blit.swsl"
+  params:
+    STRENGTH: 1.0
+    FADE: 1.0

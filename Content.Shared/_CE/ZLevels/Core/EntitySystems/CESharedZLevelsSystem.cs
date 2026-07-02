@@ -28,6 +28,7 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
     private EntityQuery<MapComponent> _mapQuery;
     private EntityQuery<CEZLevelMapComponent> _zMapQuery;
     private EntityQuery<MapGridComponent> _gridQuery;
+    private EntityQuery<CEZTransitMapComponent> _transitQuery;
 
     protected EntityQuery<CEZPhysicsComponent> ZPhyzQuery;
 
@@ -38,6 +39,7 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
         _mapQuery = GetEntityQuery<MapComponent>();
         _zMapQuery = GetEntityQuery<CEZLevelMapComponent>();
         _gridQuery = GetEntityQuery<MapGridComponent>();
+        _transitQuery = GetEntityQuery<CEZTransitMapComponent>();
         ZPhyzQuery = GetEntityQuery<CEZPhysicsComponent>();
 
         InitMovement();
@@ -71,6 +73,17 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
         [NotNullWhen(true)] out Entity<CEZLevelMapComponent>? outputMapUid)
     {
         outputMapUid = null;
+
+        if (_transitQuery.TryComp(inputMapUid, out var transit))
+        {
+            if (offset > 0 && transit.UpperMap is { } transitUpper)
+                return TryMapOffset(transitUpper, offset - 1, out outputMapUid);
+            if (offset < 0 && transit.LowerMap is { } transitLower)
+                return TryMapOffset(transitLower, offset + 1, out outputMapUid);
+
+            return false;
+        }
+
         if (!Resolve(inputMapUid, ref inputMapUid.Comp, false))
             return false;
 

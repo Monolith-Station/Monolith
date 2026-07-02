@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Client.Parallax.Managers;
 using Content.Client.Viewport;
+using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.CCVar;
 using Content.Shared.Parallax.Biomes;
@@ -41,9 +42,12 @@ public sealed partial class ParallaxOverlay : Overlay
 
         //CrystallEdge draw parallax only for lowest zlevel
         if (args.Viewport.Eye is ScalingViewport.ZEye zEye)
-            return zEye.LowestDepth == zEye.Depth;
-        else
-            return !_zLevel.TryMapDown(args.MapUid, out _);
+            return zEye.DrawParallax;
+
+        if (_entManager.HasComponent<CEZTransitMapComponent>(args.MapUid))
+            return false;
+
+        return !_zLevel.TryMapDown(args.MapUid, out _);
         //CrystallEdge end
     }
 

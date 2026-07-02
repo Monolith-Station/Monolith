@@ -11,6 +11,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Shared.Map.Components;
 
 namespace Content.Client._CE.ZLevels.Core;
 
@@ -26,12 +27,14 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
 
     public static float ZLevelOffset = 0.7f;
 
+    private EntityQuery<MapGridComponent> _clientGridQuery;
+
     public override void Initialize()
     {
         base.Initialize();
+        _clientGridQuery = GetEntityQuery<MapGridComponent>();
         _overlay.AddOverlay(new CEZLevelBlurOverlay());
 
-        SubscribeLocalEvent<CEZPhysicsComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<CEZPhysicsComponent, GetEyeOffsetEvent>(OnEyeOffset);
     }
 
@@ -43,7 +46,7 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
         args.Offset += offset;
     }
 
-    private void OnStartup(Entity<CEZPhysicsComponent> ent, ref ComponentStartup args)
+    protected override void ZPhysicsStartup(Entity<CEZPhysicsComponent> ent)
     {
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
@@ -54,6 +57,30 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
         ent.Comp.NoRotDefault = sprite.NoRotation;
         ent.Comp.DrawDepthDefault = sprite.DrawDepth;
         ent.Comp.SpriteOffsetDefault = sprite.Offset;
+    }
+
+    public override void FrameUpdate(float frameTime)
+    {
+        base.FrameUpdate(frameTime);
+        var transitQuery = EntityQueryEnumerator<CEZTransitMapComponent, MapLightComponent>();
+        while (transitQuery.MoveNext(out _, out var transit, out var light))
+        {
+            if (transit.LowerMap is not { } lowerMap || transit.UpperMap is not { } upperMap)
+                continue;
+
+            var lowerColor = TryComp<MapLightComponent>(lowerMap, out var lowerLight)
+                ? lowerLight.AmbientLightColor
+                : MapLightComponent.DefaultColor;
+            var upperColor = TryComp<MapLightComponent>(upperMap, out var upperLight)
+                ? upperLight.AmbientLightColor
+                : MapLightComponent.DefaultColor;
+
+            var progress = 0f;
+            if (transit.PrimaryGrid is { } grid && ZPhyzQuery.TryComp(grid, out var zPhys))
+                progress = Math.Clamp(zPhys.LocalPosition, 0f, 1f);
+
+            light.AmbientLightColor = Color.InterpolateBetween(lowerColor, upperColor, progress);
+        }
     }
 
     public override void Update(float frameTime)
@@ -82,8 +109,16 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
 
         var pos = ent.Comp.LocalPosition;
 
-        if (xform.ParentUid != xform.MapUid && ZPhyzQuery.TryComp(xform.ParentUid, out var parentZPhys))
+        // Grid parents do NOT propagate: a grid's altitude is rendered by the transit
+        // map viewport pass, which already moves everything aboard (tiles included).
+        // Adding a sprite offset on top double-shifts passengers, and the forced
+        // NoRotation breaks rotated multi-tile sprites. Non-grid z-movers still propagate.
+        if (xform.ParentUid != xform.MapUid &&
+            !_clientGridQuery.HasComp(xform.ParentUid) &&
+            ZPhyzQuery.TryComp(xform.ParentUid, out var parentZPhys))
+        {
             pos = parentZPhys.LocalPosition;
+        }
 
         return pos;
     }

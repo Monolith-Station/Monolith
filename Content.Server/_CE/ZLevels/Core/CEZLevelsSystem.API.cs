@@ -3,6 +3,7 @@
  * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
  */
 
+using System.Linq;
 using Content.Server._CE.PVS;
 using Content.Shared._CE.ZLevels.Core.Components;
 using JetBrains.Annotations;
@@ -60,6 +61,20 @@ public sealed partial class CEZLevelsSystem
         RaiseLocalEvent(mapUid, new CEMapAddedIntoZNetworkEvent(network, depth));
 
         return true;
+    }
+
+    [PublicAPI]
+    public bool TryAddMapBelowNetwork(Entity<CEZLevelsNetworkComponent> network, EntityUid mapUid)
+    {
+        var depth = network.Comp.ZLevels.Count > 0 ? network.Comp.ZLevels.Keys.Min() - 1 : 0;
+        return TryAddMapsIntoZNetwork(network, new Dictionary<EntityUid, int> { { mapUid, depth } });
+    }
+
+    [PublicAPI]
+    public bool TryAddMapAboveNetwork(Entity<CEZLevelsNetworkComponent> network, EntityUid mapUid)
+    {
+        var depth = network.Comp.ZLevels.Count > 0 ? network.Comp.ZLevels.Keys.Max() + 1 : 0;
+        return TryAddMapsIntoZNetwork(network, new Dictionary<EntityUid, int> { { mapUid, depth } });
     }
 
     public bool TryAddMapsIntoZNetwork(Entity<CEZLevelsNetworkComponent> network, Dictionary<EntityUid, int> maps)

@@ -154,7 +154,7 @@ namespace Content.Client.Viewport
 
             DebugTools.AssertNotNull(_viewport);
 
-            RenderZLevels(_viewport!); // CrystallEdge Process multi-Z rendering
+            RenderZLevels(handle, _viewport!); // CrystallEdge Process multi-Z rendering
 
             // _viewport!.Render();
 
@@ -278,6 +278,8 @@ namespace Content.Client.Viewport
         {
             _viewport?.Dispose();
             _viewport = null;
+            _transitViewport?.Dispose(); // CrystallEdge
+            _transitViewport = null;
         }
 
         public MapCoordinates ScreenToMap(Vector2 coords)

@@ -27,6 +27,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using FTLMapComponent = Content.Shared.Shuttles.Components.FTLMapComponent;
+using Content.Server.Explosion.EntitySystems; // Mono
 using Content.Server.Salvage.Expeditions;
 using Content.Shared._Mono.Ships;
 using Content.Shared._Crescent.SpaceBiomes;
@@ -36,6 +37,8 @@ namespace Content.Server.Shuttles.Systems;
 
 public sealed partial class ShuttleSystem
 {
+    [Dependency] private readonly ExplosionSystem _explosion = default!; // Mono - crushed-grid evidence
+
     /*
      * This is a way to move a shuttle from one location to another, via an intermediate map for fanciness.
      */
@@ -1378,17 +1381,22 @@ public sealed partial class ShuttleSystem
 
     /// <summary>
     /// Flattens / deletes everything under the grid upon FTL.
+    /// Mono: public + funny extra code for two grids hitting eachother
     /// </summary>
-    private void Smimsh(EntityUid uid, FixturesComponent? manager = null, MapGridComponent? grid = null, TransformComponent? xform = null)
+    public void Smimsh(EntityUid uid, FixturesComponent? manager = null, MapGridComponent? grid = null, TransformComponent? xform = null, EntityUid? crushMap = null, bool explodeGrids = false, HashSet<EntityUid>? ignoredGrids = null)
     {
-        if (!Resolve(uid, ref manager, ref grid, ref xform) || xform.MapUid == null)
+        if (!Resolve(uid, ref manager, ref grid, ref xform))
             return;
 
-        if (!TryComp(xform.MapUid, out BroadphaseComponent? lookup))
+        var mapUid = crushMap ?? xform.MapUid;
+        if (mapUid == null)
+            return;
+
+        if (!TryComp(mapUid, out BroadphaseComponent? lookup))
             return;
 
         // Flatten anything not parented to a grid.
-        var transform = _physics.GetRelativePhysicsTransform((uid, xform), xform.MapUid.Value);
+        var transform = _physics.GetRelativePhysicsTransform((uid, xform), mapUid.Value);
         var aabbs = new List<Box2>(manager.Fixtures.Count);
         var tileSet = new List<(Vector2i, Tile)>();
 
@@ -1409,11 +1417,11 @@ public sealed partial class ShuttleSystem
 
             // Handle clearing biome stuff as relevant.
             tileSet.Clear();
-            _biomes.ReserveTiles(xform.MapUid.Value, aabb, tileSet);
+            _biomes.ReserveTiles(mapUid.Value, aabb, tileSet);
             _lookupEnts.Clear();
             _immuneEnts.Clear();
             // TODO: Ideally we'd query first BEFORE moving grid but needs adjustments above.
-            _lookup.GetLocalEntitiesIntersecting(xform.MapUid.Value, fixture.Shape, transform, _lookupEnts, flags: LookupFlags.Uncontained, lookup: lookup);
+            _lookup.GetLocalEntitiesIntersecting(mapUid.Value, fixture.Shape, transform, _lookupEnts, flags: LookupFlags.Uncontained, lookup: lookup);
 
             foreach (var ent in _lookupEnts)
             {
@@ -1447,8 +1455,63 @@ public sealed partial class ShuttleSystem
             }
         }
 
-        var ev = new ShuttleFlattenEvent(xform.MapUid.Value, aabbs);
+        // Did you make sure nobody was there BEFORE you landed, Zed?
+        if (explodeGrids && aabbs.Count > 0)
+        {
+            var union = aabbs[0];
+            for (var i = 1; i < aabbs.Count; i++)
+            {
+                union = union.Union(aabbs[i]);
+            }
+
+            var victims = new List<Entity<MapGridComponent>>();
+            _mapManager.FindGridsIntersecting(Transform(mapUid.Value).MapID, union, ref victims, approx: true, includeMap: false);
+
+            foreach (var victim in victims)
+            {
+                if (victim.Owner == uid || ignoredGrids?.Contains(victim.Owner) == true)
+                    continue;
+
+                if (_immuneQuery.HasComponent(victim.Owner))
+                    continue;
+
+
+                // No, I did not.
+                ExplodeCrushedGrid(victim.Owner, union, uid);
+            }
+        }
+
+        var ev = new ShuttleFlattenEvent(mapUid.Value, aabbs);
         RaiseLocalEvent(ref ev);
+    }
+
+    /// <summary>
+    /// That's going to leave a mark.
+    /// </summary>
+    private void ExplodeCrushedGrid(EntityUid victim, Box2 crusherAabb, EntityUid crusher)
+    {
+        if (!TryComp<MapGridComponent>(victim, out var victimGrid))
+            return;
+
+        var victimAabb = _transform.GetWorldMatrix(victim).TransformBox(victimGrid.LocalAABB);
+        if (!crusherAabb.Intersects(victimAabb))
+            return;
+
+        var overlap = crusherAabb.Intersect(victimAabb);
+        var area = overlap.Width * overlap.Height;
+        var intensity = Math.Clamp(area * 4f, 20f, 1200f);
+
+        _logger.Add(LogType.Explosion, LogImpact.Extreme,
+            $"{ToPrettyString(victim):entity} got crushed by the grid {ToPrettyString(crusher)} passing through");
+
+        _explosion.QueueExplosion(
+            new MapCoordinates(overlap.Center, Transform(victim).MapID),
+            ExplosionSystem.DefaultExplosionPrototypeId,
+            intensity,
+            slope: 4f,
+            maxTileIntensity: 10f,
+            cause: crusher,
+            addLog: false);
     }
 
     /// <summary>

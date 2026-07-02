@@ -106,14 +106,16 @@ public abstract partial class CESharedZLevelsSystem
         var query = EntityQueryEnumerator<CEZPhysicsComponent, CEActiveZPhysicsComponent, TransformComponent, PhysicsComponent>();
         while (query.MoveNext(out var uid, out var zPhys, out _, out var xform, out var physics))
         {
-            if (!_zMapQuery.HasComp(xform.MapUid))
+            if (_gridQuery.HasComp(uid))
+                continue;
+
+            if (!_zMapQuery.HasComp(xform.MapUid) && !_transitQuery.HasComp(xform.MapUid))
                 continue;
 
             var oldVelocity = zPhys.Velocity;
             var oldHeight = zPhys.LocalPosition;
 
-            // Grids fly as InAir bodies (see ShuttleSystem.Enable) but are still subject to z-gravity.
-            if (physics.BodyStatus == BodyStatus.OnGround || _gridQuery.HasComp(uid))
+            if (physics.BodyStatus == BodyStatus.OnGround)
             {
                 //Velocity application
                 var velocityEv = new CEGetZVelocityEvent((uid, zPhys));
@@ -153,9 +155,14 @@ public abstract partial class CESharedZLevelsSystem
 
             if (zPhys.LocalPosition < 0) //Need teleport to ZLevel down
             {
+                // A transit gap shares its floor plane with the lower level, so a fall
+                // out of one keeps its altitude instead of wrapping a whole level.
+                var fromTransit = _transitQuery.HasComp(xform.MapUid);
+
                 if (TryMoveDownOrChasm(uid))
                 {
-                    zPhys.LocalPosition += 1;
+                    if (!fromTransit)
+                        zPhys.LocalPosition += 1;
 
                     if (!zPhys.CurrentStickyGround)
                     {
@@ -223,15 +230,16 @@ public abstract partial class CESharedZLevelsSystem
             return 0;
 
         var xform = Transform(target);
+
+        // Transit maps are open air between two levels: no ground until the entity
+        // transfers to the lower level (where its real ground check happens).
+        if (_transitQuery.HasComp(xform.MapUid))
+            return -maxFloors;
+
         if (!_zMapQuery.TryComp(xform.MapUid, out var zMapComp))
             return 0;
         if (!_gridQuery.TryComp(xform.MapUid, out var mapGrid))
             return 0;
-
-        // Grids span many tiles, so they use a footprint check instead of the
-        // single-tile logic below. HighGround entities (stairs) don't apply to ships.
-        if (_gridQuery.TryComp(target, out var targetGrid))
-            return ComputeGridGroundHeight((target.Owner, targetGrid), (xform.MapUid.Value, zMapComp, mapGrid), maxFloors);
 
         var worldPosI = _transform.GetGridOrMapTilePosition(target);
         var worldPos = _transform.GetWorldPosition(target);
@@ -311,41 +319,6 @@ public abstract partial class CESharedZLevelsSystem
     }
 
     /// <summary>
-    /// Computes the ground height for a grid: the closest z-level (counting down from the
-    /// grid's own level) that has any solid tile anywhere under the grid's footprint.
-    /// </summary>
-    private float ComputeGridGroundHeight(Entity<MapGridComponent> grid,
-        Entity<CEZLevelMapComponent, MapGridComponent> map,
-        int maxFloors)
-    {
-        var worldAabb = _transform.GetWorldMatrix(grid).TransformBox(grid.Comp.LocalAABB);
-
-        var checkingMap = map.Owner;
-        var checkingGrid = map.Comp2;
-
-        for (var floor = 0; floor <= maxFloors; floor++)
-        {
-            if (floor != 0)
-            {
-                if (!TryMapOffset((map.Owner, map.Comp1), -floor, out var mapBelow))
-                    continue;
-                if (!_gridQuery.TryComp(mapBelow, out var gridBelow))
-                    continue;
-
-                checkingMap = mapBelow.Value;
-                checkingGrid = gridBelow;
-            }
-
-            // The enumerator skips empty tiles, so any hit means there's ground here.
-            var tiles = _map.GetTilesEnumerator(checkingMap, checkingGrid, worldAabb);
-            if (tiles.MoveNext(out _))
-                return -floor;
-        }
-
-        return -maxFloors;
-    }
-
-    /// <summary>
     /// Checks whether there is a ceiling above the specified entity (tiles on the layer above).
     /// If there are no Z-levels above, false will be returned.
     /// </summary>
@@ -362,14 +335,6 @@ public abstract partial class CESharedZLevelsSystem
 
         if (!_gridQuery.TryComp(mapAboveUid.Value, out var mapAboveGrid))
             return false;
-
-        // Grids hit the roof if any tile above their footprint is solid.
-        if (_gridQuery.TryComp(ent, out var entGrid))
-        {
-            var worldAabb = _transform.GetWorldMatrix(ent).TransformBox(entGrid.LocalAABB);
-            var tiles = _map.GetTilesEnumerator(mapAboveUid.Value, mapAboveGrid, worldAabb);
-            return tiles.MoveNext(out _);
-        }
 
         if (_map.TryGetTileRef(mapAboveUid.Value, mapAboveGrid, _transform.GetWorldPosition(ent), out var tileRef) &&
             !tileRef.Tile.IsEmpty)
@@ -477,7 +442,14 @@ public abstract partial class CESharedZLevelsSystem
             return false;
 
         if (_gridQuery.TryComp(ent, out var gridComp))
+        {
+            // Grids already in transit have their own altitude API (SetTransitProgress
+            // and TryExitTransit); teleporting them out would strand the transit map.
+            if (_transitQuery.HasComp(map.Value.Owner))
+                return false;
+
             return TryMoveGrid((ent, gridComp), (targetMap.Value.Owner, targetMap.Value.Comp, targetMapComp), offset);
+        }
 
         var beforeEv = new CEZLevelBeforeMapMoveEvent(offset, targetMap.Value.Comp.Depth);
         RaiseLocalEvent(ent, ref beforeEv);
@@ -588,6 +560,7 @@ public sealed class CEZLevelChasmAttempt(EntityUid falled) : CancellableEntityEv
 /// </summary>
 [ByRefEvent]
 public struct CEZLevelFallMapEvent;
+
 
 /// <summary>
 /// It is called on an entity when it hits the floor or ceiling with force.

@@ -1,5 +1,11 @@
 uniform sampler2D SCREEN_TEXTURE;
 uniform highp vec3 BLUR_COLOR;
+// 0 = no fog at all, 1 = a full z-level of depth haze. Fractional values fade the
+// effect continuously for levels seen from a grid in transit between them.
+uniform highp float STRENGTH;
+// Output opacity: used when compositing a transit grid pass, so ships dissolve
+// into the sky near the top of a gap. 1 for whole-screen fog usage.
+uniform highp float FADE;
 
 const highp float darken_strength = 0.3; // Darkness level 0.0 to 1.0
 const highp float blur_radius = 2.0; // Blur radius from 0.0 to 10.0
@@ -18,5 +24,6 @@ void fragment() {
     highp vec3 shadow = mix(vec3(1.0), BLUR_COLOR, darken_strength);
     blurred_color.rgb *= shadow;
 
-    COLOR = blurred_color;
+    COLOR = mix(color, blurred_color, clamp(STRENGTH, 0.0, 1.0));
+    COLOR.a = color.a * clamp(FADE, 0.0, 1.0);
 }
