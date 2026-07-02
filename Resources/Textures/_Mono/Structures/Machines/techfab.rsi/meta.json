@@ -1,17 +1,23 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "USSP and VG techfabs by Cosmological Pillow on Mono Discord. Base techfab states made by EmoGarbage.",
+  "copyright": "USSP and VG techfabs by Cosmological Pillow on Mono Discord, edited further by kasature90 (github). Base techfab states made by EmoGarbage.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
+      "name": "icon"
+    },
+    {
       "name": "techfab-ussp"
     },
     {
       "name": "techfab-viper"
+    },
+    {
+      "name": "panel"
     },
     {
       "name": "unlit"
@@ -30,9 +36,6 @@
           0.1
         ]
       ]
-    },
-    {
-      "name": "panel"
     }
   ]
 }
