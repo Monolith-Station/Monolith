@@ -7,8 +7,10 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:
-      - "1212:1212/udp"   # gameplay - Traefik cannot proxy UDP, must be a direct host port
-      - "1212:1212/tcp"   # status/launcher - can also be fronted by Dokploy/Traefik with HTTPS
+      # Host port is configurable (SS14_PORT) so several SS14 servers can share one host;
+      # inside the container the server always listens on 1212.
+      - "${SS14_PORT:-1212}:1212/udp"   # gameplay - Traefik cannot proxy UDP, must be a direct host port
+      - "${SS14_PORT:-1212}:1212/tcp"   # status/launcher - can also be fronted by Dokploy/Traefik with HTTPS
     volumes:
       - ss14-data:/data
     environment:
@@ -16,6 +18,7 @@ services:
       # server_config.prod.toml wins. Set these in Dokploy only to override.
       SS14_HOSTNAME: "${SS14_HOSTNAME:-}"
       SS14_DOMAIN: "${SS14_DOMAIN:-}"
+      SS14_PORT: "${SS14_PORT:-1212}"
       SS14_HUB_ADVERTISE: "${SS14_HUB_ADVERTISE:-true}"
       SS14_AUTH_MODE: "${SS14_AUTH_MODE:-1}"
       SS14_HOST_USER: "${SS14_HOST_USER:-}"
