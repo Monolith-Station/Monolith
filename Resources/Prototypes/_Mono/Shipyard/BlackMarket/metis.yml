@@ -1,0 +1,41 @@
+#Author: Corrupt142 on github.
+
+- type: vessel
+  id: Metis
+  parent: BaseVesselAntag
+  name: BT-Y Metis
+  description: A tiny, hit and run missile corvette armed with 2x "Vanquisher" missile swarm racks, some PD cannons and a flare launcher to ward off missiles.
+  price: 79500
+  purchasable: false # voucher only
+  category: Medium
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/metis.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  - Corvette
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Metis
+  mapName: 'PDV Metis'
+  mapPath: /Maps/_Mono/Shuttles/BlackMarket/metis.yml
+  minPlayers: 0
+  stations:
+    Metis:
+      gridComponents:
+      - type: VesselInfo
+        description: "Tiny, cramped and poorly built. This hull wont last for long..."
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Metis PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]
