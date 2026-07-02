@@ -25,6 +25,16 @@ public sealed class CapibaraCultureTest
         Assert.That(loc.HasString("zzzz-fmt-playtime"), Is.True,
             "en-US fallback should resolve keys missing from es-ES.");
 
+        // 4. Content-registered Fluent functions work inside the es-ES bundle.
+        //    Regression: MANY/MAKEPLURAL were en-US-only, so es-ES messages using
+        //    them logged "Unknown function: MANY()" at runtime.
+        Assert.That(loc.GetString("capibara-loc-many", ("count", 1)),
+            Is.EqualTo("segundo"),
+            "MANY() should return the singular form for count 1 in es-ES.");
+        Assert.That(loc.GetString("capibara-loc-many", ("count", 2)),
+            Is.EqualTo("segundos"),
+            "MANY() should pluralize with Spanish rules in es-ES.");
+
         await pair.CleanReturnAsync();
     }
 }

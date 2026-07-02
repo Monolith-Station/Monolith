@@ -41,6 +41,11 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
             _loc.AddFunction(culture, "GASQUANTITY", FormatGasQuantity); // Frontier
 
+            // Capibara ESP: Spanish-grammar versions of the language-specific functions
+            // registered below for en-US, so es-ES messages can use them too. KEEP OURS on merge conflict.
+            _loc.AddFunction(culture, "MAKEPLURAL", FormatMakePluralEs);
+            _loc.AddFunction(culture, "MANY", FormatManyEs);
+            // End Capibara ESP
 
             /*
              * The following language functions are specific to the english localization. When working on your own
@@ -70,6 +75,42 @@ namespace Content.Shared.Localizations
                 return (LocValueString) FormatMakePlural(args);
             }
         }
+
+        // Capibara ESP: Spanish pluralization for the es-ES culture. Regular cases only:
+        // unstressed vowel/á/é/ó → +s, í/ú → +es, z → -z+ces, s/x → invariable, consonant → +es.
+        private ILocValue FormatManyEs(LocArgs args)
+        {
+            var count = ((LocValueNumber) args.Args[1]).Value;
+
+            if (Math.Abs(count - 1) < 0.0001f)
+                return (LocValueString) args.Args[0];
+
+            return FormatMakePluralEs(args);
+        }
+
+        private ILocValue FormatMakePluralEs(LocArgs args)
+        {
+            var text = ((LocValueString) args.Args[0]).Value;
+            if (string.IsNullOrEmpty(text))
+                return new LocValueString(text);
+
+            var split = text.Split(' ', 2);
+            var plural = PluralizeSpanishWord(split[0]);
+            return new LocValueString(split.Length == 1 ? plural : $"{plural} {split[1]}");
+        }
+
+        private static string PluralizeSpanishWord(string word)
+        {
+            return char.ToLowerInvariant(word[^1]) switch
+            {
+                'a' or 'e' or 'i' or 'o' or 'u' or 'á' or 'é' or 'ó' => word + "s",
+                'í' or 'ú' => word + "es",
+                'z' => word[..^1] + "ces",
+                's' or 'x' => word, // lunes, tórax: invariable
+                _ => word + "es",
+            };
+        }
+        // End Capibara ESP
 
         private ILocValue FormatNaturalPercent(LocArgs args)
         {

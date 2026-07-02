@@ -1,2 +1,2 @@
 battery-drinker-verb-drink = Drenar
-battery-drinker-empty = ¡{CAPATALIZE(THE($target))} ya está vacío!
+battery-drinker-empty = ¡{CAPITALIZE(THE($target))} ya está vacío!

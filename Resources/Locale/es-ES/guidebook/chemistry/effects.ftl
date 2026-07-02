@@ -107,15 +107,15 @@ reagent-effect-guidebook-status-effect =
         [add]   { $chance ->
                     [1] Causa
                     *[other] causar
-                } {LOC($key)} durante al menos {NATURALFIXED($time, 3)} {MANY("second", $time)} con acumulación
+                } {LOC($key)} durante al menos {NATURALFIXED($time, 3)} {MANY("segundo", $time)} con acumulación
         *[set]  { $chance ->
                     [1] Causa
                     *[other] causar
-                } {LOC($key)} durante al menos {NATURALFIXED($time, 3)} {MANY("second", $time)} sin acumulación
+                } {LOC($key)} durante al menos {NATURALFIXED($time, 3)} {MANY("segundo", $time)} sin acumulación
         [remove]{ $chance ->
                     [1] Elimina
                     *[other] eliminar
-                } {NATURALFIXED($time, 3)} {MANY("second", $time)} de {LOC($key)}
+                } {NATURALFIXED($time, 3)} {MANY("segundo", $time)} de {LOC($key)}
     }
 
 reagent-effect-guidebook-activate-artifact =
@@ -262,7 +262,7 @@ reagent-effect-guidebook-electrocute =
     { $chance ->
         [1] Electrocuta
         *[other] electrocutar
-    } al metabolizador durante {NATURALFIXED($time, 3)} {MANY("second", $time)}
+    } al metabolizador durante {NATURALFIXED($time, 3)} {MANY("segundo", $time)}
 
 reagent-effect-guidebook-extinguish-reaction =
     { $chance ->
@@ -328,13 +328,13 @@ reagent-effect-guidebook-paralyze =
     { $chance ->
         [1] Paraliza
         *[other] paralizar
-    } al metabolizador durante al menos {NATURALFIXED($time, 3)} {MANY("second", $time)}
+    } al metabolizador durante al menos {NATURALFIXED($time, 3)} {MANY("segundo", $time)}
 
 reagent-effect-guidebook-movespeed-modifier =
     { $chance ->
         [1] Modifica
         *[other] modificar
-    } la velocidad de movimiento en {NATURALFIXED($walkspeed, 3)}x durante al menos {NATURALFIXED($time, 3)} {MANY("second", $time)}
+    } la velocidad de movimiento en {NATURALFIXED($walkspeed, 3)}x durante al menos {NATURALFIXED($time, 3)} {MANY("segundo", $time)}
 
 reagent-effect-guidebook-reset-narcolepsy =
     { $chance ->
@@ -370,13 +370,13 @@ reagent-effect-guidebook-reduce-rotting =
     { $chance ->
         [1] Regenera
         *[other] regenerar
-    } {NATURALFIXED($time, 3)} {MANY("second", $time)} de putrefacción
+    } {NATURALFIXED($time, 3)} {MANY("segundo", $time)} de putrefacción
 
 reagent-effect-guidebook-area-reaction =
     { $chance ->
         [1] Causa
         *[other] causar
-    } una reacción de humo o espuma durante {NATURALFIXED($duration, 3)} {MANY("second", $duration)}
+    } una reacción de humo o espuma durante {NATURALFIXED($duration, 3)} {MANY("segundo", $duration)}
 
 reagent-effect-guidebook-add-to-solution-reaction =
     { $chance ->
