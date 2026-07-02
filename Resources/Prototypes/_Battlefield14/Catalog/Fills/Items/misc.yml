@@ -63,3 +63,33 @@
     containers:
       item:
       - CombatKnife
+
+- type: entity
+  id: ClothingArmbandSheathKnifePolymerFilledTaiga
+  parent: ClothingArmbandSheathKnifePolymer
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - FHKnifeTaiga
+
+- type: entity
+  id: ClothingShoesBootsJackFilledUSMC
+  parent: ClothingShoesBootsJack
+  suffix: Filled, USMC, M7
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - FHKnifeM7
+
+- type: entity
+  id: ClothingShoesBootsJackFilledRU
+  parent: ClothingShoesBootsJack
+  suffix: Filled, RU, 6h4
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - FHKnife6h4

@@ -1012,14 +1012,14 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          max: 30 # BF14
+          max: 30.5 # BF14
         damage:
           types:
             Poison: -0.2
       - !type:EvenHealthChange
         conditions:
         - !type:ReagentThreshold
-          max: 30 # BF14
+          max: 30.5 # BF14
         damage:
           Brute: -0.8
           Burn: -0.8
