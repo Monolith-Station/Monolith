@@ -42,10 +42,10 @@ tags = "lang:es,region:es"
 mode = 1   # 0=optional 1=required 2=disabled. Public server -> required.
 
 [server]
-# Auto-restart after 8h uptime to clear long-uptime perf drift. Non-disruptive:
+# Auto-restart after 12h uptime to clear long-uptime perf drift. Non-disruptive:
 # only fires at round end or when nobody is connected. Process exits -> Docker
 # (restart: unless-stopped) brings it back up.
-uptime_restart_minutes = 480
+uptime_restart_minutes = 720
 
 [update]
 # How long the server must stay EMPTY before the pending (uptime/update) restart
