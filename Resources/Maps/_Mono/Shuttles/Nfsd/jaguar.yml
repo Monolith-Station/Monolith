@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/01/2026 10:36:06
+  time: 07/02/2026 07:26:41
   entityCount: 266
 maps: []
 grids:
@@ -75,10 +75,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        MetalFoam: []
         Kudzu: []
+        Puddle: []
         Smoke: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -2002,6 +2002,12 @@ entities:
       parent: 1
 - proto: WeaponLaserTurretL1Phalanx
   entities:
+  - uid: 262
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.5,7.5
+      parent: 1
   - uid: 263
     components:
     - type: Transform
@@ -2021,12 +2027,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 6.5,7.5
-      parent: 1
-  - uid: 262
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -5.5,7.5
       parent: 1
 - proto: WeaponTurretTarnyxReload
   entities:
