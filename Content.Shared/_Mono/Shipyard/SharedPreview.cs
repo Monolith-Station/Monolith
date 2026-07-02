@@ -13,14 +13,7 @@ public sealed class SharedPreview
     [Serializable, NetSerializable]
     public sealed class ShipyardPreviewUserInterfaceState : BoundUserInterfaceState
     {
-        public int GunneryPointsUsed;
-        public int GunneryPointsMax;
 
-        public ShipyardPreviewUserInterfaceState(int gunneryPointsUsed, int gunneryPointsMax)
-        {
-            GunneryPointsMax = gunneryPointsMax;
-            GunneryPointsUsed = gunneryPointsUsed;
-        }
     }
 
     [Serializable, NetSerializable]
