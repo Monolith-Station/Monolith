@@ -72,6 +72,7 @@
   - type: CartridgeAmmo
     proto: ShipMissileASM220HE
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/asm220.rsi
     layers:
@@ -171,6 +172,7 @@
   - type: CartridgeAmmo
     proto: ShipMissileASM220LOSAT
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/asm220.rsi
     layers:
@@ -275,6 +277,7 @@
   - type: CartridgeAmmo
     proto: ShipMissileASM220ECM
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/asm220.rsi
     layers:

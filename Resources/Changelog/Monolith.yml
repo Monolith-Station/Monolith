@@ -21908,3 +21908,153 @@ Entries:
   id: 2419
   time: '2026-06-29T09:02:50.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3930
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: >-
+        Kalisto a nimble, small artillery ship armed with a leviatan and some
+        missiles
+  id: 2420
+  time: '2026-06-29T12:07:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4148
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: Added a new T2 LPC ship for PDV! Ganymede
+  id: 2421
+  time: '2026-06-29T12:07:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4153
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Tweaks the Tethys (Chimera) to have a fuel locker.
+  id: 2422
+  time: '2026-06-29T15:41:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4162
+- author: lordsej
+  changes:
+    - type: Tweak
+      message: >-
+        Janitors rejoice, cleaner spray or cleanade grenades can now remove
+        pesky chimera hive biomass flooring with ease
+  id: 2423
+  time: '2026-06-29T16:13:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4096
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Added 2 new capital missile launchers - Vanquisher and Paladin.
+  id: 2424
+  time: '2026-06-30T05:52:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4166
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: >-
+        Renewable LPCs in the sector were found to be running under Emissions
+        Savings Time. They now line up their intended recharge times.
+    - type: Fix
+      message: Renewable LPCs can be used more than the initial purchase.
+    - type: Tweak
+      message: Player deed unassign timer lowered to 25 minutes.
+  id: 2425
+  time: '2026-06-30T07:26:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4132
+- author: RemervKeberb
+  changes:
+    - type: Add
+      message: Added handrail
+  id: 2426
+  time: '2026-06-30T08:17:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4093
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added 2 new superheavy shipweapons for ballistics. Not mapped anywhere
+        currently.
+    - type: Tweak
+      message: Changed AK570 sprite for a 5th time.
+    - type: Fix
+      message: Fixed ship weapons not having their intended muzzle flashes.
+  id: 2427
+  time: '2026-06-30T09:51:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4161
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: Minor fixes for kalisto/ganymede
+    - type: Tweak
+      message: Replaced kalistos 520mm for 2 Paladin missile launchers.
+  id: 2428
+  time: '2026-06-30T12:40:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4171
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Readded TSFN Polaris with some changes to armaments & updates for modern
+        standards.
+  id: 2429
+  time: '2026-06-30T12:45:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4172
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added 'Shenzhen' chemrail AMR for TSF T3.
+  id: 2430
+  time: '2026-07-01T09:53:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4168
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Changed coloring on USSP techfab, minor consistency for VG techfab
+        sprite.
+    - type: Tweak
+      message: >-
+        Changed USSP job icons for Rifleman & Sergeant to use white instead of
+        red. Just for better contrast.
+  id: 2431
+  time: '2026-07-01T19:03:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4177
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: >-
+        4 gauge canisters are no longer small items due to infringing on a MACo
+        patent.
+  id: 2432
+  time: '2026-07-01T19:03:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4169
+- author: thoughtlessuser
+  changes:
+    - type: Add
+      message: Added PDV guidebook.
+    - type: Tweak
+      message: >-
+        Changed TSFMC guidebook (only a little.) Changed new player guide (only
+        a little.)
+  id: 2433
+  time: '2026-07-01T19:08:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4167
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Longbow is 140mm again.
+    - type: Tweak
+      message: >-
+        Swapped Longbows on Serkesh, Scallywag, and Comet for Cyrexas. Likely
+        temporary.
+  id: 2434
+  time: '2026-07-02T09:48:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3901
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        Fixed laser shipweapons (such as Phalanx) not being able to shoot down
+        projectiles.
+  id: 2435
+  time: '2026-07-02T13:25:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4180
