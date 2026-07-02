@@ -1376,6 +1376,21 @@
       - FactionStaticUplinkPdv
 
 - type: listing
+  id: UplinkSecurityT1VoucherMetis
+  name:  uplink-pdv-t1-metis-voucher-name
+  description: uplink-pdv-t1-metis-voucher-desc
+  productEntity: ShipVoucherBastion
+  cost:
+    Doubloon: 50
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
   id: UplinkSecurityT1VoucherNeptune
   name:  uplink-pdv-t1-neptune-voucher-name
   description: uplink-pdv-t1-neptune-voucher-desc

@@ -277,6 +277,9 @@ uplink-pdv-t1-scorpion-voucher-desc = A small card that contains the data for th
 uplink-pdv-t1-bastion-voucher-name = PDV Bastion LPC [T1]
 uplink-pdv-t1-bastion-voucher-desc = A small card that contains the data for the procurement of a Bastion-class brawler from the flagship's reserves.
 
+uplink-pdv-t1-metis-voucher-name = PDV Metis LPC [T1]
+uplink-pdv-t1-metis-voucher-desc = A small card that contains the data for the procurement of a Metis-class missile corvette from the flagship's reserves.
+
 uplink-pdv-t1-neptune-voucher-name = PDV Neptune LPC [T1]
 uplink-pdv-t1-neptune-voucher-desc = A small card that contains the data for the procurement of a Neptune-class frigate from the flagship's reserves.
 
