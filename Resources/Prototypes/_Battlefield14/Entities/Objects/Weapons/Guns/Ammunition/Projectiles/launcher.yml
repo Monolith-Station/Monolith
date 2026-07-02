@@ -1,4 +1,4 @@
-## US
+#region US
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -248,6 +248,112 @@
     damage: 70 # It's a fucking rocket
 
 - type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletRocketM72HEATArmingDistance
+  name: 66mm HEAT rocket
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+  - type: Projectile
+    damage:
+      types:
+        Structural: 100
+        Blunt: 50
+    deleteOnCollide: true
+  - type: SubmunitionProjectile
+    submunitionPrototype: BulletRocketM72HEAT
+    distanceDelay: 6
+    submunitionDelay: 0
+    submunitionCount: 1
+    spreadAngle: 0
+    velocityMultiplier: 1
+  - type: StaminaDamageOnCollide
+    damage: 200
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletTrigger
+  id: BulletRocketM72HEAT
+  name: 66mm HEAT rocket
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+  - type: Projectile
+    damage:
+      types:
+        Structural: 120
+        Blunt: 120
+        Slash: 120
+    deleteOnCollide: true
+  - type: ArmorPiercing
+    piercingThickness: 5
+  - type: StaminaDamageOnCollide
+    damage: 200 # It's a fucking rocket
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 200
+    intensitySlope: 5
+    maxIntensity: 50
+    maxTileBreak: 1
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletRocketM72ThermobaricArmingDistance
+  name: 66mm incendiary rocket
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+  - type: Projectile
+    damage:
+      types:
+        Structural: 100
+        Blunt: 50
+    deleteOnCollide: true
+  - type: SubmunitionProjectile
+    submunitionPrototype: BulletRocketM72Thermobaric
+    distanceDelay: 6
+    submunitionDelay: 0
+    submunitionCount: 1
+    spreadAngle: 0
+    velocityMultiplier: 1
+  - type: StaminaDamageOnCollide
+    damage: 200
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletTrigger
+  id: BulletRocketM72Thermobaric
+  name: 66mm incendiary rocket
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+  - type: Projectile
+    damage:
+      types:
+        Structural: 100
+        Blunt: 120
+        Slash: 120
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: FireBomb
+    totalIntensity: 90
+    intensitySlope: 4
+    maxIntensity: 5
+    maxTileBreak: 0
+  - type: StaminaDamageOnCollide
+    damage: 200
+
+- type: entity
   id: BulletRocketStingerMANPADSMissile
   name: stinger missile
   parent: BaseBulletTrigger
@@ -294,7 +400,7 @@
     maxSpeed: 180
     trackDelay: 0.1
 
-## RU
+#region RU
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -482,8 +588,8 @@
     damage:
       types:
         Structural: 1000
-        Blunt: 250
-        Piercing: 250
+        Blunt: 150
+        Piercing: 150
     deleteOnCollide: false
   - type: ArmorPiercing
     piercingThickness: 5

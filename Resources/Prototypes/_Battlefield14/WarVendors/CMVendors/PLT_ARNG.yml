@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
-  id: CMVendUSMCWarVendorLieutenantTablet
-  name: USMC lieutenant war vendor tablet
+  id: CMVendARNGWarVendorLieutenantTablet
+  name: N.G. lieutenant war vendor tablet
   description: Top notch shit here.
   suffix: ColMarTech, DO NOT MAP
   components:
@@ -20,24 +20,26 @@
   - type: ActivatableUIRequiresAccess
   - type: CMAutomatedVendor
     jobs:
-    - USMCLieutenant
+    - ARNGLieutenant
     sections:
     - name: anti-armour solution
       entries:
-      - id: CrateSecgearNATOFilledSMAW
-        name: Mk 153 SMAW
-        points: 2
-      - id: CrateSecgearNATOFilledAT4
-        name: M163 AT4
+#      - id: CrateSecgearNATOFilledSMAW
+#        name: Mk 153 SMAW
+      - id: CrateSecgearNATOFilledM72LAW
+        name: M72 LAW
         points: 1
       - id: CratePowerWeaponFilledM107
-        name: M107 anti-materiel rifle
+        name: M107 anti materiel rifle
         points: 1
     - name: anti-personnel solution
       entries:
-      - id: CrateSecgearNATOFilledSMAWDisposable
-        name: SMAW-D
+      - id: CrateSecgearNATOFilledM72LAWThermobaric
+        name: thermobaric M72 LAWs
         points: 2
       - id: BoxGrenadesM34
         name: white phosphorus grenades
+        points: 1
+      - id: BoxArtilleryShellHowitzerM777WhitePhosphorus
+        name: white phosphorus 155mm artillery shells
         points: 1

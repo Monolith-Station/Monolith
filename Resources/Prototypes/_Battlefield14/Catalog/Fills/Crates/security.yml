@@ -44,6 +44,8 @@
           amount: 4
         - id: CartridgeSMAWNE
           amount: 4
+        - id: CartridgeSMAWHEDM
+          amount: 4
   - type: AccessReader
     access: [["NATOSoldier"]]
 
@@ -82,6 +84,32 @@
   - type: StorageFill
     contents:
         - id: WeaponLauncherUSM202FLASHFolded
+          amount: 5
+  - type: AccessReader
+    access: [["NATOSoldier"]]
+
+- type: entity
+  id: CrateSecgearNATOFilledM72LAW
+  suffix: Filled, M72 LAW
+  parent: CrateSecgear
+  name: M72 LAW crate
+  components:
+  - type: StorageFill
+    contents:
+        - id: WeaponLauncherUSM72LAWFolded
+          amount: 5
+  - type: AccessReader
+    access: [["NATOSoldier"]]
+
+- type: entity
+  id: CrateSecgearNATOFilledM72LAWThermobaric
+  suffix: Filled, M72 LAW, thermobaric
+  parent: CrateSecgear
+  name: thermobaric M72 LAW crate
+  components:
+  - type: StorageFill
+    contents:
+        - id: WeaponLauncherUSM72LAWThermobaricFolded
           amount: 5
   - type: AccessReader
     access: [["NATOSoldier"]]

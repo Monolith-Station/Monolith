@@ -200,7 +200,7 @@
     pvsIncrease: 0.35
 
 - type: entity
-  name: AT4
+  name: M136 AT4CS
   parent: BaseWeaponLauncherDisposable
   id: WeaponLauncherUSAT4
   description: A single shot 84mm disposable Light Anti-structure Weapon for precisely taking out structures with little collateral damage.
@@ -302,6 +302,68 @@
       - description: Has a minimum arming distance of 6 tiles.
         color: "#4f94ad"
         requireDetailRange: true
+
+- type: entity
+  parent: BaseWeaponLauncherDisposableFolded
+  id: WeaponLauncherUSM72LAWFolded
+  name: M72A7 LAW
+  description: "A super sensitive 'graze fuse', so much so that it's restricted from training. Cannot be reloaded, drop after use."
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Launchers/m72.rsi
+    layers:
+      - state: folded
+  - type: SpawnItemsOnUse
+    items:
+    - id: WeaponLauncherUSM72LAW
+
+- type: entity
+  name: M72A7 LAW
+  parent: BaseWeaponLauncherDisposableUnfolded
+  id: WeaponLauncherUSM72LAW
+  description: "A super sensitive 'graze fuse', so much so that it's restricted from training. Cannot be reloaded, drop after use."
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Launchers/m72.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Launchers/m72.rsi
+  - type: BasicEntityAmmoProvider
+    proto: BulletRocketM72HEATArmingDistance
+    capacity: 1
+
+- type: entity
+  parent: BaseWeaponLauncherDisposableFolded
+  id: WeaponLauncherUSM72LAWThermobaricFolded
+  name: M72A6 LAW
+  description: An M72 LAW with a modified warhead for less penetration but a higher blast effect. Cannot be reloaded, drop after use.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Launchers/m72thermobaric.rsi
+    layers:
+      - state: folded
+  - type: SpawnItemsOnUse
+    items:
+    - id: WeaponLauncherUSM72LAWThermobaric
+
+- type: entity
+  name: M72A6 LAW
+  parent: BaseWeaponLauncherDisposableUnfolded
+  id: WeaponLauncherUSM72LAWThermobaric
+  description: An M72 LAW with a modified warhead for less penetration but a higher blast effect. Cannot be reloaded, drop after use.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Launchers/m72thermobaric.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Launchers/m72thermobaric.rsi
+  - type: BasicEntityAmmoProvider
+    proto: BulletRocketM72ThermobaricArmingDistance
+    capacity: 1
 
 - type: entity
   name: FIM-92 Stinger MANPADS
