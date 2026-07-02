@@ -1,84 +1,84 @@
 <Document>
-# Botany
-As a botanist, it is your job to grow enough food to stop the chef from seeking "alternative sources". Grow lots of wheat, and when you get tired of that, grow weed. Make weed smoothies and spike drinks with nettles. Just keep growing plants, and you'll do great!
+# Botánica
+Como botánico, tu trabajo es cultivar suficiente comida para evitar que el cocinero busque "fuentes alternativas". Cultiva mucho trigo y, cuando te canses de eso, cultiva hierba. Prepara batidos de hierba y añade ortigas a las bebidas. ¡Sigue cultivando plantas y lo harás de maravilla!
 
-## Starting your shift
-First identify the machines around you that you will be using. Coordinate with the Chef to see if they want anything specific to be grown, otherwise grow wheat and bananas and whatever else you feel like growing. You may also grow plants for Chemistry (Medbay), the Bartender, or to sell by Cargo.
+## Comenzando tu turno
+Primero identifica las máquinas a tu alrededor que usarás. Coordínate con el Cocinero para ver si quieren que cultives algo específico; de lo contrario, cultiva trigo, plátanos y lo que te apetezca. También puedes cultivar plantas para Química (Enfermería), el Camarero o para vender en Logística.
 
 
-# Tools
-There are many tools that can be used to keep your crops healthy and growing. The Hydroponics Tray is where you will spend most of your time as a botanist.
+# Herramientas
+Hay muchas herramientas que puedes usar para mantener tus cultivos sanos y en crecimiento. La bandeja de hidroponía es donde pasarás la mayor parte de tu tiempo como botánico.
 
-## Hydroponics Tray
+## Bandeja de Hidroponía
 <Box>
 <GuideEntityEmbed Entity="hydroponicsTray"/>
 </Box>
-It's a hydroponics tray, it grows plants with water. First fill the tray with water, then add seeds.
-Hydroponics tray lights indicate different things depending on color and position:
-- [color=red]Red Light, Left[/color]: Dead plant that needs re-planting. Use a spade to remove the plant.
-- [color=orange]Flashing Orange Light, Center[/color]: The environment is sub-optimal. Check what is affecting the plant by Shift Clicking on it. It is likely weeds but it could be undesirable pressure or lack of oxygen. If weeds, use a mini hoe or spray 1 time with weed spray. Be warned, however, that overuse of weed killers can lead to unhealthy plants, possibly killing them.
-- [color=#0336ff]Blue Light, Right[/color]: Needs water. Use bucket on the water tank and fill the tray.
-- [color=green]Green Light, Left[/color]: Ready for harvest. Left click to harvest.
-- [color=yellow]Yellow Light, Right[/color]: Needs nutrients. Use any fruit and put it into the soil or get EZ nutrients from chemistry.
+Es una bandeja de hidroponía; hace crecer plantas con agua. Primero llena la bandeja con agua y luego añade semillas.
+Las luces de la bandeja de hidroponía indican cosas distintas según el color y la posición:
+- [color=red]Luz roja, izquierda[/color]: Planta muerta que necesita ser replantada. Usa una azada para retirar la planta.
+- [color=orange]Luz naranja intermitente, centro[/color]: El entorno es subóptimo. Comprueba qué afecta a la planta con Shift+Clic en ella. Probablemente sean malas hierbas, pero también puede deberse a presión no deseada o falta de oxígeno. Si son malas hierbas, usa una azada pequeña o rocía una vez con herbicida. Ten cuidado, sin embargo, de que el uso excesivo de herbicidas puede dañar las plantas y posiblemente matarlas.
+- [color=#0336ff]Luz azul, derecha[/color]: Necesita agua. Usa un cubo en el depósito de agua y llena la bandeja.
+- [color=green]Luz verde, izquierda[/color]: Lista para cosechar. Haz clic izquierdo para cosechar.
+- [color=yellow]Luz amarilla, derecha[/color]: Necesita nutrientes. Usa cualquier fruta y ponla en la tierra, o consigue nutrientes EZ en química.
 
-The lifecycle of a hydroponics tray is the following:
-- [color=lightgreen]Empty[/color]: no water, seed or nutrients
-- [color=lightgreen]Hydrated[/color]: you've added water to it (e.g. from a bottle or bucket).
-- [color=lightgreen]Ready for planting[/color]: you've added water and nutrients to it (i.e. fertilizer).
-- [color=lightgreen]Planted[/color]: you've added a seed to it
-- [color=lightgreen]Ready for Harvest[/color]: you've waited for the plant to grow
-- [color=lightgreen]Sampled[/color]: you've taken a sample (seed)
-- [color=lightgreen]Harvested[/color]: you've picked ready plants. Some plants will then grow again. Others will die and need replanting.
-- [color=lightgreen]Unhealthy[/color]: You've sampled too many seeds or sprayed it with deadly chemicals. The plant isn't coping too well. It'll continue to grow. Health can be restored by fertilizers or you can cut your losses and extract a seed (plant clippers) and replant.
-- [color=lightgreen]Old / Wilted[/color]: the plant has matured and will soon die. It will still be harvestable and you can extract seeds but only for a short duration. Extract the seed and then pluck it out / chop it down.
-- [color=lightgreen]Dead[/color]: the plant has been harvested and ceased growing. It should be plucked out / chopped down. No seeds can be extracted.
+El ciclo de vida de una bandeja de hidroponía es el siguiente:
+- [color=lightgreen]Vacía[/color]: sin agua, semillas ni nutrientes
+- [color=lightgreen]Hidratada[/color]: has añadido agua (p. ej., de una botella o un cubo).
+- [color=lightgreen]Lista para plantar[/color]: has añadido agua y nutrientes (es decir, fertilizante).
+- [color=lightgreen]Plantada[/color]: has añadido una semilla
+- [color=lightgreen]Lista para cosechar[/color]: has esperado a que la planta crezca
+- [color=lightgreen]Muestreada[/color]: has tomado una muestra (semilla)
+- [color=lightgreen]Cosechada[/color]: has recogido las plantas maduras. Algunas volverán a crecer. Otras morirán y necesitarán ser replantadas.
+- [color=lightgreen]Poco saludable[/color]: has tomado demasiadas muestras o la has rociado con productos químicos letales. La planta no lo está llevando bien. Seguirá creciendo. La salud puede restaurarse con fertilizantes, o puedes asumir las pérdidas y extraer una semilla (con tijeras de plantas) y replantar.
+- [color=lightgreen]Vieja / Marchita[/color]: la planta ha madurado y morirá pronto. Todavía se podrá cosechar y extraer semillas, pero solo por un tiempo breve. Extrae la semilla y luego arráncala o córtala.
+- [color=lightgreen]Muerta[/color]: la planta ha sido cosechada y ha dejado de crecer. Debe ser arrancada o cortada. No se pueden extraer semillas.
 
-## Seed Extractor
+## Extractor de Semillas
 <Box>
 <GuideEntityEmbed Entity="SeedExtractor"/>
 </Box>
-It extracts seeds. Insert crop, receive seeds.
+Extrae semillas. Introduce el cultivo y recibe semillas.
 
 
-# Plant Genetics
-Like all other forms of life known to the TSF's states, plants pass traits to offspring in their genes. By manipulating plant genetics, botanists can produce plant varieties with desirable mutations that increase plant health and yield.
+# Genética Vegetal
+Como todas las demás formas de vida conocidas por los estados de la TSF, las plantas transmiten rasgos a su descendencia a través de sus genes. Al manipular la genética vegetal, los botánicos pueden producir variedades de plantas con mutaciones deseables que aumentan la salud y el rendimiento.
 
-## Traits
-The phenotype, or set of observable characteristics and traits of a plant, can be determined through careful observation and study. A few common traits include:
+## Rasgos
+El fenotipo, o conjunto de características y rasgos observables de una planta, puede determinarse mediante observación y estudio cuidadosos. Algunos rasgos comunes incluyen:
 
-- [color=lightgreen]Bioluminescence[/color]: plants with this trait glow in the dark
-- [color=lightgreen]High yield[/color]: plants with this trait yield more fruit per harvest
-- [color=lightgreen]Less water[/color]: plants with this trait require less water than normal to grow
-- [color=lightgreen]Ligneous[/color]: plants with this trait require sharp tools to harvest
-- [color=lightgreen]Long life[/color]: plants with this trait live for more harvest cycles before dying
-- [color=lightgreen]Low light[/color]: plants with this trait need less light than normal to grow
-- [color=lightgreen]Pest resistance[/color]: plants with this trait are more resistant to pests
-- [color=lightgreen]Seedless[/color]: plants with this trait do not produce viable seeds
-- [color=lightgreen]Weed resistance[/color]: plants with this trait suppress weed growth
+- [color=lightgreen]Bioluminiscencia[/color]: las plantas con este rasgo brillan en la oscuridad
+- [color=lightgreen]Alto rendimiento[/color]: las plantas con este rasgo producen más frutos por cosecha
+- [color=lightgreen]Menos agua[/color]: las plantas con este rasgo necesitan menos agua de lo normal para crecer
+- [color=lightgreen]Leñosa[/color]: las plantas con este rasgo requieren herramientas afiladas para cosechar
+- [color=lightgreen]Vida larga[/color]: las plantas con este rasgo viven más ciclos de cosecha antes de morir
+- [color=lightgreen]Poca luz[/color]: las plantas con este rasgo necesitan menos luz de lo normal para crecer
+- [color=lightgreen]Resistencia a plagas[/color]: las plantas con este rasgo son más resistentes a las plagas
+- [color=lightgreen]Sin semillas[/color]: las plantas con este rasgo no producen semillas viables
+- [color=lightgreen]Resistencia a malas hierbas[/color]: las plantas con este rasgo suprimen el crecimiento de malas hierbas
 
-You can determine the phenotype of a plant simply by growing them and observing them! This is how Gregor Mendel, father of genetics, studied them in 1866.
+Puedes determinar el fenotipo de una planta simplemente cultivándola y observándola. ¡Así fue como Gregor Mendel, padre de la genética, las estudió en 1866!
 
-## Mutations
-Plants treated with [color=cyan]unstable mutagen[/color] will experience random genetic mutations, which can alter their genes and result in changes to their traits. You can save the plants with mutations you want by harvesting their seeds.
+## Mutaciones
+Las plantas tratadas con [color=cyan]mutágeno inestable[/color] experimentarán mutaciones genéticas aleatorias, que pueden alterar sus genes y provocar cambios en sus rasgos. Puedes conservar las plantas con las mutaciones que desees cosechando sus semillas.
 
-The more unstable mutagen you use, the more mutations you will get. Since many genes are vital to a plant's survival, most mutations will cause a plant to die.
+Cuanto más mutágeno inestable uses, más mutaciones obtendrás. Dado que muchos genes son vitales para la supervivencia de una planta, la mayoría de las mutaciones causarán su muerte.
 
 <Box>
 <GuideEntityEmbed Entity="UnstableMutagenChemistryBottle"/>
 </Box>
 
-## Cross-Pollination
-You can use a [color=cyan]sterile swab[/color] to transfer pollen from one plant to another. Plants that are cross-pollinated have a chance to transfer traits. Be careful re-using swabs; pollen is sticky!
+## Polinización Cruzada
+Puedes usar un [color=cyan]hisopo estéril[/color] para transferir polen de una planta a otra. Las plantas polinizadas de forma cruzada tienen posibilidades de transferir rasgos. ¡Ten cuidado de no reutilizar los hisopos; el polen es pegajoso!
 
 <Box>
 <GuideEntityEmbed Entity="BoxMouthSwab"/>
 <GuideEntityEmbed Entity="DiseaseSwab"/>
 </Box>
 
-## Chemicals
-Some chemicals have special effects on plants.
+## Productos Químicos
+Algunos productos químicos tienen efectos especiales en las plantas.
 
-[textlink="Click here to see all botanical chemicals." link="Botanical"]
+[textlink="Haz clic aquí para ver todos los productos químicos botánicos." link="Botanical"]
 
 <GuideReagentEmbed Reagent="Dylovene"/>
 <GuideReagentEmbed Reagent="Cryoxadone"/>

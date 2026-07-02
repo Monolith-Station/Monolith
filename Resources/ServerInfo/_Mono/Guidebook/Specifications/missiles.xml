@@ -1,42 +1,42 @@
 <Document>
-  # Missile Weapons Specifications
-  Notes:
-  - Munition range & ammo capacity is taken from the standard magazine & ammunition that comes loaded with the weapon.
-  - For munitions that accelerate over time (such as missiles), range is a rough estimate.
-  - For munitions that are fired at a static speed (such as normal weapons), range is simply just the launch velocity * projectile lifetime.
-  - RPS may not be accurate due to it being capped by server tick speed (usually 20 or 30 ticks/second).
-  - Rare guns such as ADS/NT/Syndicate shipguns will not be included.
+  # Especificaciones de Armas de Misil
+  Notas:
+  - El alcance de munición y la capacidad de munición se obtienen del cargador estándar y la munición con la que viene cargada el arma.
+  - Para municiones que aceleran con el tiempo (como los misiles), el alcance es una estimación aproximada.
+  - Para municiones que se disparan a velocidad estática (como las armas normales), el alcance es simplemente la velocidad de lanzamiento * tiempo de vida del proyectil.
+  - Las RPS pueden no ser precisas debido a que están limitadas por la velocidad de tick del servidor (normalmente 20 o 30 ticks/segundo).
+  - Las armas raras como los cañones de nave ADS/NT/Syndicate no estarán incluidas.
 
-  ## Specifications (as of 24-Oct-2025)
+  ## Especificaciones (a partir del 24-oct-2025)
   <Table Columns="7">
     <ColorBox>
       <Box>
-        Name
+        Nombre
       </Box>
     </ColorBox>
     <ColorBox>
       <Box>
-        Ammo Capacity
+        Capacidad de Munición
       </Box>
     </ColorBox>
     <ColorBox>
       <Box>
-        Firerate
+        Cadencia de Fuego
       </Box>
     </ColorBox>
     <ColorBox>
       <Box>
-        Munition Range (Estimated)
+        Alcance de Munición (Estimado)
       </Box>
     </ColorBox>
     <ColorBox>
       <Box>
-        Max Velocity
+        Velocidad Máxima
       </Box>
     </ColorBox>
     <ColorBox>
       <Box>
-        Size Class
+        Clase de Tamaño
       </Box>
     </ColorBox>
     <!--Vanyk-->
@@ -57,7 +57,7 @@
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        ~945 meters
+        ~945 metros
       </Box>
     </ColorBox>
     <ColorBox Color="#8f2b65">
@@ -67,7 +67,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Medium
+        Medio
       </Box>
     </ColorBox>
     <!--Vespera-->
@@ -88,7 +88,7 @@
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        ~630 meters
+        ~630 metros
       </Box>
     </ColorBox>
     <ColorBox Color="#8f2b65">
@@ -98,7 +98,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Medium
+        Medio
       </Box>
     </ColorBox>
     <!--Tovek-->
@@ -119,7 +119,7 @@
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        ~812 meters
+        ~812 metros
       </Box>
     </ColorBox>
     <ColorBox Color="#8f2b65">
@@ -129,7 +129,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Medium
+        Medio
       </Box>
     </ColorBox>
     <!--Torps-->
@@ -150,7 +150,7 @@
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        ~1747 meters
+        ~1747 metros
       </Box>
     </ColorBox>
     <ColorBox Color="#8f2b65">
@@ -160,7 +160,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Medium
+        Medio
       </Box>
     </ColorBox>
   </Table>

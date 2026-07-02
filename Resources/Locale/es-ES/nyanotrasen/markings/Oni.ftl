@@ -1,0 +1,14 @@
+marking-OniHornSingleCurved = Cuerno Simple Curvado
+marking-OniHornSingleCurved-single_curved = Cuerno Simple Curvado
+marking-OniHornSingleLeftCurved = Cuerno Simple Curvado Izquierdo
+marking-OniHornSingleLeftCurved-single_left_curved = Cuerno Simple Curvado Izquierdo
+marking-OniHornSingleRightCurved = Cuerno Simple Curvado Derecho
+marking-OniHornSingleRightCurved-single_right_curved = Cuerno Simple Curvado Derecho
+marking-OniHornDoubleCurvedOutwards = Cuernos Dobles Curvados Hacia Afuera
+marking-OniHornDoubleCurvedOutwards-double_curved_outwards = Cuernos Dobles Curvados Hacia Afuera
+marking-OniHornDoubleCurved = Cuernos Dobles Curvados
+marking-OniHornDoubleCurved-double_curved = Cuernos Dobles Curvados
+marking-OniHornDoubleLeftBrokeCurved = Cuernos Dobles Izquierdos Rotos Curvados
+marking-OniHornDoubleLeftBrokeCurved-double_left_broke_curved = Cuernos Dobles Izquierdos Rotos Curvados
+marking-OniHornDoubleRightBrokeCurved =  Cuernos Dobles Derechos Rotos Curvados
+marking-OniHornDoubleRightBrokeCurved-double_right_broke_curved = Cuernos Dobles Derechos Rotos Curvados

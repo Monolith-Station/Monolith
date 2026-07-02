@@ -1,5 +1,5 @@
 <Document>
-  # Gas Canisters
+  # Cilindros de gas
   <Box>
     <GuideEntityEmbed Entity="AirCanister"/>
     <GuideEntityEmbed Entity="OxygenCanister"/>
@@ -11,20 +11,20 @@
     <GuideEntityEmbed Entity="GasPort"/>
   </Box>
 
-  Gas canisters are a way to store gas in a portable container for easy transport.
-  They can store [color=orange][protodata="StorageCanister" comp="GasCanister" member="Volume"/] liters[/color] of gas.
+  Los cilindros de gas son una forma de almacenar gas en un contenedor portátil para facilitar su transporte.
+  Pueden almacenar [color=orange][protodata="StorageCanister" comp="GasCanister" member="Volume"/] litros[/color] de gas.
 
-  You can connect handheld tanks to a gas canister to refill them using the release valve on the canister.
-  The release valve also has a adjustable pressure regulator to control the pressure of the handheld tank connected.
+  Puedes conectar tanques de mano a un cilindro de gas para rellenarlos usando la válvula de escape del cilindro.
+  La válvula de escape también tiene un regulador de presión ajustable para controlar la presión del tanque de mano conectado.
 
-  Opening the release valve on a canister with no handheld tank connected will release gas into the atmosphere, at the specified regulator pressure.
+  Abrir la válvula de escape de un cilindro sin ningún tanque de mano conectado liberará gas a la atmósfera, a la presión especificada por el regulador.
 
-  [bold]Be sure to close the release valve before you eject your handheld tank![/bold]
+  [bold]¡Asegúrate de cerrar la válvula de escape antes de expulsar tu tanque de mano![/bold]
 
-  ## Connector Ports
-  Gas canisters and [textlink="portable scrubbers" link="PortableScrubber"] can be connected to a [textlink="pipenet" link="PipeNetworks"] by anchoring (wrenching) the device on top of a connector.
-  When connected, gas will be free to move in and out of the canister to balance pressure, temperature, and composition.
+  ## Puertos de conexión
+  Los cilindros de gas y los [textlink="depuradores portátiles" link="PortableScrubber"] pueden conectarse a una [textlink="red de tuberías" link="PipeNetworks"] anclando (con llave inglesa) el dispositivo sobre un conector.
+  Cuando están conectados, el gas puede entrar y salir del cilindro libremente para equilibrar la presión, la temperatura y la composición.
 
-  A pump can be used to insert or extract gas from a canister, useful for filling or emptying a canister entirely.
+  Se puede usar una bomba para insertar o extraer gas de un cilindro, lo que resulta útil para llenarlo o vaciarlo por completo.
 
 </Document>

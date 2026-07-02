@@ -1,24 +1,24 @@
 <Document>
-## Anomaly Scanner
+## Escáner de Anomalías
 
-The Anomaly Scanner is used to gather various information on anomalies. They can be found inside of the lockers in the science department.
+El Escáner de Anomalías se usa para recopilar información variada sobre las anomalías. Se pueden encontrar dentro de los casilleros del departamento de ciencias.
 
 <Box>
 <GuideEntityEmbed Entity="AnomalyScanner"/>
 </Box>
 
-Scanning an anomaly shows the severity, general stability, approximate point output, reactions with particle types, and time until the next pulse. The reaction types, specifically, can be used in conjunction with the A.P.E. to manipulate anomalies.
+Al escanear una anomalía se muestra la gravedad, estabilidad general, producción aproximada de puntos, reacciones con tipos de partículas y tiempo hasta el próximo pulso. Los tipos de reacción, en concreto, pueden utilizarse junto con el A.P.E. para manipular anomalías.
 
-## Anomaly Vessel
+## Recipiente de Anomalías
 
-The anomaly vessel is a machine that generates points from anomalies. Use the anomaly scanner on an empty vessel, and the anomaly that was last scanned will be synced with the vessel.
+El recipiente de anomalías es una máquina que genera puntos a partir de anomalías. Usa el escáner de anomalías en un recipiente vacío, y la anomalía que fue escaneada por última vez quedará sincronizada con el recipiente.
 
 <Box>
 <GuideEntityEmbed Entity="MachineAnomalyVessel"/>
 </Box>
 
-The amount of points a vessel generates per second is based on the severity, stability, and health of an anomaly. The higher each of these values, the higher the point output will be.
+La cantidad de puntos que genera un recipiente por segundo se basa en la gravedad, estabilidad y salud de una anomalía. Cuanto más altos sean estos valores, mayor será la producción de puntos.
 
-Be careful: if an anomaly goes [color=#a4885c]supercritical[/color], the vessel it is linked to will explode. This may damage the station and nearby equipment.
+Ten cuidado: si una anomalía entra en estado [color=#a4885c]supercrítico[/color], el recipiente al que está vinculada explotará. Esto puede dañar la estación y el equipamiento cercano.
 
 </Document>

@@ -1,0 +1,1 @@
+station-event-breaker-flip-announcement = Basándonos en { $data }, hemos optado por deshabilitar ciertos APC para evitar daños en el equipo. Por favor, contacta con el departamento de Ingeniería para volver a habilitarlos.

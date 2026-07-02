@@ -1,27 +1,27 @@
 <Document>
-# Surgery
-Your usual weekly activity. By performing surgical operations on your patients, you can heal wounds, remove or add body parts, organs, and more.
+# Cirugía
+Tu actividad semanal habitual. Realizando operaciones quirúrgicas en tus pacientes, puedes curar heridas, extraer o añadir partes del cuerpo, órganos y más.
 
-## The Basics
-To start surgery your patient needs to be laying down, and ideally sedated.
+## Lo Básico
+Para comenzar la cirugía, tu paciente necesita estar tumbado e idealmente sedado.
 
-If they are not sedated, they will be in a lot of pain, which decreases their mood, and will make surgical wounds worse.
+Si no está sedado, sufrirá mucho dolor, lo que empeora su estado de ánimo y agravará las heridas quirúrgicas.
 
 <Box>
 <GuideEntityEmbed Entity="NitrousOxideTank" Caption="nitrous oxide"/>
 <GuideEntityEmbed Entity="ClothingMaskBreathMedical" Caption="any breathing tool"/>
 </Box>
 
-You also need to wear protective gear such as a mask and gloves to prevent harming the patient due to contamination.
+También necesitas llevar equipo protector, como mascarilla y guantes, para evitar dañar al paciente por contaminación.
 
 <Box>
 <GuideEntityEmbed Entity="ClothingMaskSterile" Caption="any mask"/>
 <GuideEntityEmbed Entity="ClothingHandsGlovesNitrile" Caption="any gloves"/>
 </Box>
 
-## Getting Started
+## Comenzando
 
-To engage in surgery, you'll need a set of surgical tools.
+Para realizar una cirugía, necesitarás un conjunto de herramientas quirúrgicas.
 
 <Box>
 <GuideEntityEmbed Entity="Scalpel" Caption="scalpel"/>
@@ -35,6 +35,6 @@ To engage in surgery, you'll need a set of surgical tools.
 <GuideEntityEmbed Entity="BoneGel" Caption="bone gel"/>
 </Box>
 
-Once you've got tools in hand, interact with your patient to begin surgery. You'll be able to choose which part you want to operate on.
+Una vez que tengas las herramientas en mano, interactúa con tu paciente para comenzar la cirugía. Podrás elegir en qué parte deseas operar.
 
 </Document>

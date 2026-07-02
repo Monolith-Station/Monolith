@@ -1,7 +1,7 @@
-﻿<Document>
-  # Fire and Gas Control
-  Unfortunately, [textlink="fires" link="Fires"], [textlink="spacing" link="Spacing"], and other [textlink="atmospheric upsets" link="AtmosphericUpsets"] are a common occurrence on the station.
-  These upsets can quickly spread throughout the station and make the atmosphere uninhabitable for the crew.
+<Document>
+  # Control de Fuego y Gas
+  Desafortunadamente, [textlink="incendios" link="Fires"], [textlink="exposición al espacio" link="Spacing"] y otros [textlink="alteraciones atmosféricas" link="AtmosphericUpsets"] son una ocurrencia común en la estación.
+  Estos incidentes pueden extenderse rápidamente por toda la estación y hacer que la atmósfera sea inhabitable para la tripulación.
 
   <Box>
     <GuideEntityEmbed Entity="Firelock"/>
@@ -10,33 +10,33 @@
     <GuideEntityEmbed Entity="FireAlarm"/>
   </Box>
 
-  To combat this, stations have a variety of devices to help prevent these upsets from spreading.
+  Para combatir esto, las estaciones disponen de varios dispositivos que ayudan a evitar que estos incidentes se propaguen.
 
-  ## Firelocks
-  Firelocks are a simple and effective way to prevent fires from spreading throughout the station.
+  ## Esclusas de incendios
+  Las esclusas de incendios son una forma sencilla y efectiva de evitar que los incendios se propaguen por la estación.
 
-  Based on conditions sensed by the firelock, or through instruction from a connected [textlink="air" link="AirAlarms"] or fire alarm, they can close off sections of the station to prevent the spread of dangerous conditions.
+  En función de las condiciones detectadas por la esclusa, o mediante instrucciones de una [textlink="alarma de aire" link="AirAlarms"] o alarma contra incendios conectada, pueden bloquear secciones de la estación para evitar la propagación de condiciones peligrosas.
 
-  ## Station Sectioning
-  Firelocks are intentionally placed in key areas to divide the station into sections. Open spaces like hallways or promenades are divided into smaller sections. This prevents the spread of dangerous conditions to the entire station through connected rooms, hallways, and other open spaces.
+  ## Sectorización de la estación
+  Las esclusas de incendios se colocan deliberadamente en áreas clave para dividir la estación en sectores. Los espacios abiertos como pasillos o galerías se dividen en secciones más pequeñas. Esto evita que las condiciones peligrosas se extiendan a toda la estación a través de salas, pasillos y otros espacios abiertos conectados.
 
-  ## Basic Operation
-  When not connected to an [textlink="air alarm" link="AirAlarms"] or fire alarm, firelocks will function based on the conditions they sense. Firelocks will drop (close) if:
-  - The temperature between the two sides of the firelock is different by [color=orange][protodata="Firelock" comp="Firelock" member="TemperatureThreshold"/] K[/color] or more.
-  - The pressure between the two sides of the firelock is different by [color=orange][protodata="Firelock" comp="Firelock" member="PressureThreshold"/] kPa[/color] or more.
+  ## Funcionamiento básico
+  Cuando no están conectadas a una [textlink="alarma de aire" link="AirAlarms"] o alarma contra incendios, las esclusas de incendios funcionan en función de las condiciones que detectan. Las esclusas se cerrarán si:
+  - La temperatura entre los dos lados de la esclusa difiere en [color=orange][protodata="Firelock" comp="Firelock" member="TemperatureThreshold"/] K[/color] o más.
+  - La presión entre los dos lados de la esclusa difiere en [color=orange][protodata="Firelock" comp="Firelock" member="PressureThreshold"/] kPa[/color] o más.
 
-  If these conditions continue, the firelock will enter lockout mode. Firelocks in lockout mode will have [color=red]red[/color] lights and cannot be pried open by hand. They can only be opened by people with Engineering access or by using a crowbar.
+  Si estas condiciones persisten, la esclusa entrará en modo de bloqueo. Las esclusas en modo de bloqueo tendrán luces [color=red]rojas[/color] y no podrán abrirse a mano. Solo pueden abrirse por personas con acceso de Ingeniería o usando una palanca.
 
-  Firelocks in lockout mode cannot be opened by using Engineering access if they are unpowered. Only a crowbar can open an unpowered firelock in lockout mode.
+  Las esclusas en modo de bloqueo no pueden abrirse con acceso de Ingeniería si no tienen alimentación. Solo una palanca puede abrir una esclusa sin alimentación en modo de bloqueo.
 
-  If the conditions between the two sides of the firelock return to within acceptable differences, the firelock will disable lockout mode, and can be opened by anyone.
-  Note that this only means that the conditions are the same on both sides of the firelock, not that they are safe.
+  Si las condiciones entre los dos lados de la esclusa vuelven a diferencias aceptables, la esclusa desactivará el modo de bloqueo y podrá abrirla cualquiera.
+  Ten en cuenta que esto solo significa que las condiciones son iguales en ambos lados de la esclusa, no que sean seguras.
 
-  A common example of this is a firelock that has released due to both sides being exposed to space.
+  Un ejemplo común es una esclusa que se ha liberado porque ambos lados están expuestos al espacio.
 
-  ## Connecting to Air and Fire Alarms
-  Firelocks can be connected to [textlink="air alarms" link="AirAlarms"] and fire alarms to receive instructions on when to drop.
-  Firelocks use the [textlink="List system" link="Networking"], and you can connect these devices using a multitool or network configurator.
+  ## Conexión a alarmas de aire e incendios
+  Las esclusas de incendios pueden conectarse a [textlink="alarmas de aire" link="AirAlarms"] y alarmas contra incendios para recibir instrucciones sobre cuándo cerrarse.
+  Las esclusas usan el [textlink="sistema de lista" link="Networking"], y puedes conectar estos dispositivos con una multiherramienta o un configurador de red.
 
   <Box>
     <GuideEntityEmbed Entity="Firelock" Caption=""/>
@@ -46,32 +46,32 @@
     <GuideEntityEmbed Entity="AirAlarm" Caption=""/>
   </Box>
 
-  Each firelock has its own unique address. The process for connecting air vents, scrubbers, and sensors to air alarms is very similar.
+  Cada esclusa tiene su propia dirección única. El proceso para conectar ventiladores de aire, depuradores y sensores a las alarmas de aire es muy similar.
 
-  ## Operation Under Air Alarms
-  When connected to an air alarm, firelocks will also drop under the command of the connected [textlink="air alarm" link="AirAlarms"].
+  ## Funcionamiento bajo alarmas de aire
+  Cuando están conectadas a una alarma de aire, las esclusas también se cerrarán por orden de la [textlink="alarma de aire" link="AirAlarms"] conectada.
 
-  Firelocks will drop if the air alarm reaches a [color=red]Danger[/color] alert state. Firelocks will remain dropped until the air alarm returns to a [color=green]Green[/color] alert state.
+  Las esclusas se cerrarán si la alarma de aire alcanza un estado de alerta de [color=red]Peligro[/color]. Las esclusas permanecerán cerradas hasta que la alarma de aire vuelva a un estado de alerta [color=green]Verde[/color].
 
-  Firelocks that are in lockout mode will not raise even if the air alarm returns to a [color=green]Green[/color] alert state. Even if the pressure difference is resolved, the firelock will remain dropped until the air alarm re-sends a green alert state.
+  Las esclusas que estén en modo de bloqueo no se abrirán aunque la alarma de aire vuelva a un estado de alerta [color=green]Verde[/color]. Aunque la diferencia de presión se resuelva, la esclusa permanecerá cerrada hasta que la alarma de aire reenvíe un estado de alerta verde.
 
-  ## Operation Under Fire Alarms
-  When connected to a fire alarm, firelocks will drop if the fire alarm is triggered. Firelocks will remain dropped until the fire alarm is reset.
+  ## Funcionamiento bajo alarmas contra incendios
+  Cuando están conectadas a una alarma contra incendios, las esclusas se cerrarán si se activa la alarma. Las esclusas permanecerán cerradas hasta que se restablezca la alarma.
 
-  ## Fire Alarms
-  Fire alarms are devices that can be used to centrally control all connected firelocks.
+  ## Alarmas contra incendios
+  Las alarmas contra incendios son dispositivos que pueden usarse para controlar de forma centralizada todas las esclusas conectadas.
 
   <Box>
     <GuideEntityEmbed Entity="FireAlarm"/>
   </Box>
 
-  Devices with sensors can be [textlink="linked" link="Networking"] to fire alarms, which will trigger the fire alarm if the sensor enters the [color=red]Danger[/color] temperature threshold as defined by its sensors.
+  Los dispositivos con sensores pueden [textlink="vinculados" link="Networking"] a las alarmas contra incendios, lo que activará la alarma si el sensor supera el umbral de temperatura de [color=red]Peligro[/color] definido por sus sensores.
 
-  When the fire alarm is triggered, all connected firelocks will be overridden with a [color=red]Danger[/color] alert state and will drop.
+  Cuando se activa la alarma contra incendios, todas las esclusas conectadas serán sobreescritas con un estado de alerta de [color=red]Peligro[/color] y se cerrarán.
 
-  The alarm will automatically clear itself when the sensor returns to a [color=green]Normal[/color] temperature threshold.
+  La alarma se limpiará automáticamente cuando el sensor vuelva al umbral de temperatura [color=green]Normal[/color].
 
-  You can trigger and reset a fire alarm manually by interacting with it.
+  Puedes activar y restablecer una alarma contra incendios manualmente interactuando con ella.
 
-  This can be used to quickly drop firelocks in a room manually, or to raise them after an upset has been resolved.
+  Esto puede usarse para cerrar esclusas rápidamente en una sala de forma manual, o para abrirlas después de que se haya resuelto un incidente.
 </Document>

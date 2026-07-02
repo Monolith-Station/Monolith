@@ -8,7 +8,7 @@
 
 - type: guideEntry
   id: EconomyRecipes
-  name: Economy Recipes
+  name: Recetas de economía # Capibara ESP: es-ES title (raw name, not loc-id-able)
   text: "/ServerInfo/_Mono/Guidebook/Economy/EconomyRecipes.xml"
   priority: 2
   children:
@@ -16,6 +16,6 @@
 
 - type: guideEntry
   id: ArcFurnace
-  name: Arc Furnace Recipes
+  name: Recetas del horno de arco # Capibara ESP: es-ES title (raw name, not loc-id-able)
   text: "/ServerInfo/_Mono/Guidebook/Economy/ArcFurnace.xml"
   priority: 3

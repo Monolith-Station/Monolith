@@ -1,0 +1,1 @@
+station-event-unknown-shuttle-incoming = ¡Atención! Se ha avistado un transbordador espacial no identificado aproximándose a su sector.

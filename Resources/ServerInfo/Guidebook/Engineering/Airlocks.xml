@@ -1,20 +1,20 @@
-﻿<Document>
-  # Airlocks
-  Airlocks are used to control access to different areas of the station.
+<Document>
+  # Esclusas
+  Las esclusas se utilizan para controlar el acceso a diferentes áreas de la estación.
 
   <Box>
     <GuideEntityEmbed Entity="Airlock" Caption=""/>
     <GuideEntityEmbed Entity="AirlockGlass" Caption=""/>
   </Box>
 
-  Airlocks can be opened using either [color=yellow][bold][keybind="Use"][/bold][/color] with an empty hand, [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color] if hands are full, or by colliding with the airlock.
+  Las esclusas pueden abrirse usando [color=yellow][bold][keybind="Use"][/bold][/color] con la mano vacía, [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color] si tienes las manos llenas, o chocando con la esclusa.
 
-  Airlocks will only open if you have an ID card with the correct access level.
-  The ID card must be in your hand or in your ID slot.
-  In the case of having multiple IDs, the airlock will check them all when you try to open it.
-  This behavior is also the same for IDs in a PDA.
+  Las esclusas solo se abrirán si tienes una tarjeta de identificación con el nivel de acceso correcto.
+  La tarjeta de identificación debe estar en tu mano o en tu ranura de identificación.
+  En el caso de tener múltiples IDs, la esclusa los comprobará todos cuando intentes abrirla.
+  Este comportamiento también es el mismo para las IDs en un PDA.
 
-  The access level required to open the door can be modified using an Access Configurator, or by using a Multitool on the door electronics for the airlock (which requires deconstruction).
+  El nivel de acceso necesario para abrir la puerta puede modificarse usando un Configurador de Acceso, o usando una multiherramienta en la electrónica de la puerta de la esclusa (lo que requiere deconstrucción).
 
   <Box>
     <GuideEntityEmbed Entity="AccessConfigurator" Caption=""/>
@@ -22,21 +22,21 @@
     <GuideEntityEmbed Entity="DoorElectronics" Caption=""/>
   </Box>
 
-  Airlocks block gas flow, so they can be used to seal off areas in case of a [textlink="hull breach" link="Spacing"] or a [textlink="fire." link="Fires"]
-  They also store gas on their tile, even when closed, so be careful when opening them during or after a gas leak.
+  Las esclusas bloquean el flujo de gas, por lo que pueden usarse para sellar áreas en caso de una [textlink="brecha de casco" link="Spacing"] o un [textlink="incendio." link="Fires"]
+  También almacenan gas en su casilla, incluso cuando están cerradas, así que ten cuidado al abrirlas durante o después de una fuga de gas.
 
-  ## Bolting and Emergency Access
-  Airlocks can be bolted to prevent them from being opened or pried open by hand. When this occurs, the airlock will display red lights on the top of the door.
+  ## Bloqueo y Acceso de Emergencia
+  Las esclusas pueden bloquearse para impedir que se abran o se fuercen con la mano. Cuando esto ocurre, la esclusa mostrará luces rojas en la parte superior de la puerta.
 
-  Airlocks can also be set to emergency access. In this mode, anyone can open the airlock, regardless of access level. When this occurs, the airlock will display flashing yellow lights on the top of the door.
+  Las esclusas también pueden configurarse para acceso de emergencia. En este modo, cualquiera puede abrir la esclusa, independientemente del nivel de acceso. Cuando esto ocurre, la esclusa mostrará luces amarillas intermitentes en la parte superior de la puerta.
 
-  ## Remote Control
-  Airlocks can be controlled remotely, either by the station AI or by using a Door Remote.
+  ## Control Remoto
+  Las esclusas pueden controlarse de forma remota, ya sea por la IA de la estación o usando un Mando de Puerta.
   <Box>
     <GuideEntityEmbed Entity="PlayerStationAiEmpty" Caption=""/>
   </Box>
   <Box>
-    [color=#999999][italic]The Station AI, which has remote control over all airlocks[italic][/color]
+    [color=#999999][italic]La IA de la Estación, que tiene control remoto sobre todas las esclusas[italic][/color]
   </Box>
 
   <Box>
@@ -48,20 +48,20 @@
     <GuideEntityEmbed Entity="DoorRemoteResearch" Caption=""/>
   </Box>
   <Box>
-    [color=#999999][italic]Precious door remotes. With unlimited power...[italic][/color]
+    [color=#999999][italic]Preciados mandos de puertas. Con poder ilimitado...[italic][/color]
   </Box>
 
 
-  Department heads usually get door remotes for their respective department.
+  Los jefes de departamento suelen obtener mandos de puertas para su respectivo departamento.
 
-  They can open, close, bolt, and set to emergency access using these remotes.
+  Pueden abrir, cerrar, bloquear y configurar el acceso de emergencia usando estos mandos.
 
-  ## Linking
-  Airlocks can be linked using the [textlink="Link" link="Networking"] system to other devices.
-  This allows for proper station airlocks to space, or to link multiple airlocks together.
+  ## Vinculación
+  Las esclusas pueden vincularse usando el sistema de [textlink="Vinculación" link="Networking"] a otros dispositivos.
+  Esto permite crear esclusas de estación adecuadas hacia el espacio, o vincular múltiples esclusas entre sí.
 
-  ## Styling
-  Airlocks can come in different styles to match station departments. The department style commonly reflects the required access level.
+  ## Estilos
+  Las esclusas pueden tener diferentes estilos para coincidir con los departamentos de la estación. El estilo del departamento generalmente refleja el nivel de acceso requerido.
 
   <Box>
     <GuideEntityEmbed Entity="Airlock" Caption=""/>
@@ -82,56 +82,56 @@
     <GuideEntityEmbed Entity="AirlockSecurityGlass" Caption=""/>
   </Box>
 
-  Airlocks can be repainted using a spray painter.
+  Las esclusas pueden repintarse usando una pistola pulverizadora.
   <Box>
     <GuideEntityEmbed Entity="SprayPainter" Caption=""/>
   </Box>
 
-  ## Wiring
-  Airlocks have internal wiring under their maintenance panel, which can be opened using a screwdriver.
-  Each wire controls some aspect of the airlock's functionality.
-  When you either pulse, cut, or mend the wire, it will affect the airlock in different ways.
+  ## Cableado
+  Las esclusas tienen cableado interno bajo su panel de mantenimiento, que puede abrirse con un destornillador.
+  Cada cable controla algún aspecto de la funcionalidad de la esclusa.
+  Cuando pulsas, cortas o reparas el cable, afectará a la esclusa de diferentes maneras.
 
-  The lights next to the wires will indicate the status of the wire:
-  - A steady light indicates that the system is functioning as normal.
-  - A flashing light indicates that the system is malfunctioning. It is either not working or is behaving not as intended.
-  - No light indicates that the system is not powered.
+  Las luces junto a los cables indicarán el estado del cable:
+  - Una luz fija indica que el sistema funciona con normalidad.
+  - Una luz intermitente indica que el sistema está fallando. O no funciona o se comporta de manera no esperada.
+  - Sin luz indica que el sistema no tiene alimentación.
 
-  Below is a list of the wires and their functions:
+  A continuación se muestra una lista de los cables y sus funciones:
 
-  [color=#a4885c]Bolt Wire (BOLT)[/color]
-  - [color=yellow]Pulse the wire[/color]: Bolts or unbolts the door.
-  - [color=red]Cut the wire[/color]: Bolts the door.
-  - [color=green]Mend the wire[/color]: Does nothing.
+  [color=#a4885c]Cable de Bloqueo (BOLT)[/color]
+  - [color=yellow]Pulsar el cable[/color]: Bloquea o desbloquea la puerta.
+  - [color=red]Cortar el cable[/color]: Bloquea la puerta.
+  - [color=green]Reparar el cable[/color]: No hace nada.
 
-  [color=#a4885c]Power Wire (POWR)[/color]
-  - [color=yellow]Pulse the wire[/color]: Cuts power to the door for a short time.
-  - [color=red]Cut the wire[/color]: Either cuts power to the door if both power wires are cut, or causes a short circuit if only one is cut, shocking people without insulated gloves.
-  - [color=green]Mend the wire[/color]: Either restores power to the door if both power wires are cut, or stops the short circuit if only one is cut.
+  [color=#a4885c]Cable de Energía (POWR)[/color]
+  - [color=yellow]Pulsar el cable[/color]: Corta la energía de la puerta durante un breve tiempo.
+  - [color=red]Cortar el cable[/color]: Corta la energía de la puerta si ambos cables de energía están cortados, o provoca un cortocircuito si solo uno está cortado, dando una descarga a las personas sin guantes aislantes.
+  - [color=green]Reparar el cable[/color]: Restaura la energía de la puerta si ambos cables de energía están cortados, o detiene el cortocircuito si solo uno está cortado.
 
-  [color=#a4885c]Log Wire (LOG)[/color]
-  - [color=yellow]Pulse the wire[/color]: Temporary disables door logging.
-  - [color=red]Cut the wire[/color]: Disables door logging.
-  - [color=green]Mend the wire[/color]: Re-enables door logging.
+  [color=#a4885c]Cable de Registro (LOG)[/color]
+  - [color=yellow]Pulsar el cable[/color]: Desactiva temporalmente el registro de la puerta.
+  - [color=red]Cortar el cable[/color]: Desactiva el registro de la puerta.
+  - [color=green]Reparar el cable[/color]: Reactiva el registro de la puerta.
 
-  [color=#a4885c]Bolt Light (BLIT)[/color]
-  - [color=yellow]Pulse the wire[/color]: Turns the system off temporarily, or turns it back on.
-  - [color=red]Cut the wire[/color]: Prevents the bolt light from turning on, which communicates if the door is bolted or not.
-  - [color=green]Mend the wire[/color]: Turns the system back on.
+  [color=#a4885c]Luz de Bloqueo (BLIT)[/color]
+  - [color=yellow]Pulsar el cable[/color]: Apaga el sistema temporalmente, o lo vuelve a encender.
+  - [color=red]Cortar el cable[/color]: Impide que la luz de bloqueo se encienda, lo que indica si la puerta está bloqueada o no.
+  - [color=green]Reparar el cable[/color]: Vuelve a encender el sistema.
 
-  [color=#a4885c]Timer Light (TIMR)[/color]
-  - [color=yellow]Pulse the wire[/color]: Reduces the door timer temporarily.
-  - [color=red]Cut the wire[/color]: Disables the timer. The door will close as soon as it is safe to do so.
-  - [color=green]Mend the wire[/color]: Re-enables the timer.
+  [color=#a4885c]Luz de Temporizador (TIMR)[/color]
+  - [color=yellow]Pulsar el cable[/color]: Reduce temporalmente el temporizador de la puerta.
+  - [color=red]Cortar el cable[/color]: Desactiva el temporizador. La puerta se cerrará tan pronto como sea seguro hacerlo.
+  - [color=green]Reparar el cable[/color]: Reactiva el temporizador.
 
-  [color=#a4885c]Safety Light (SAFE)[/color]
-  - [color=yellow]Pulse the wire[/color]: Disables the safety system temporarily.
-  - [color=red]Cut the wire[/color]: Disables the safety system. The door will close even if there is an obstruction.
-  - [color=green]Mend the wire[/color]: Re-enables the safety system.
+  [color=#a4885c]Luz de Seguridad (SAFE)[/color]
+  - [color=yellow]Pulsar el cable[/color]: Desactiva temporalmente el sistema de seguridad.
+  - [color=red]Cortar el cable[/color]: Desactiva el sistema de seguridad. La puerta se cerrará incluso si hay una obstrucción.
+  - [color=green]Reparar el cable[/color]: Reactiva el sistema de seguridad.
 
-  [color=#a4885c]AI Access Light (AIA)[/color]
-  - [color=yellow]Pulse the wire[/color]: Does nothing.
-  - [color=red]Cut the wire[/color]: Disables AI access. The AI can no longer control the door.
-  - [color=green]Mend the wire[/color]: Re-enables AI access.
+  [color=#a4885c]Luz de Acceso IA (AIA)[/color]
+  - [color=yellow]Pulsar el cable[/color]: No hace nada.
+  - [color=red]Cortar el cable[/color]: Desactiva el acceso de la IA. La IA ya no puede controlar la puerta.
+  - [color=green]Reparar el cable[/color]: Reactiva el acceso de la IA.
 
 </Document>

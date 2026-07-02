@@ -86,7 +86,7 @@ public sealed partial class AdminLogsEui : BaseEui
         ClydeWindow = _clyde.CreateWindow(new WindowCreateParameters
         {
             Maximized = false,
-            Title = "Admin Logs",
+            Title = Loc.GetString("capibara-ui-admin-logs-title"), // Capibara ESP
             Monitor = monitor,
             Width = 1100,
             Height = 400

@@ -5,10 +5,10 @@
             <humanoid:MarkingPicker Name="MarkingPickerWidget" />
             <BoxContainer>
                 <CheckBox Name="MarkingForced" Text="Force" Pressed="True" />
-                <CheckBox Name="MarkingIgnoreSpecies" Text="Ignore Species" Pressed="True" />
+                <CheckBox Name="MarkingIgnoreSpecies" Text="{Loc capibara-ui-marking-ignore-species}" Pressed="True" />
             </BoxContainer>
             <Collapsible HorizontalExpand="True">
-                <CollapsibleHeading Title="Base layers" />
+                <CollapsibleHeading Title="{Loc capibara-ui-marking-base-layers}" />
                 <CollapsibleBody HorizontalExpand="True">
                     <BoxContainer Name="BaseLayersContainer" Orientation="Vertical" HorizontalExpand="True" />
                 </CollapsibleBody>

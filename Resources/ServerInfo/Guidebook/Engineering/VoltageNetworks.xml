@@ -1,9 +1,9 @@
-﻿<Document>
-  # Voltage Networks
-  In Space Station 14, power distribution is divided into three separate voltage networks.
-  These networks are the [color=green]Low Voltage[/color] Network, the [color=Yellow]Medium Voltage[/color] Network, and the [color=orange]High Voltage[/color] Network.
+<Document>
+  # Redes de Voltaje
+  En Space Station 14, la distribución de energía se divide en tres redes de voltaje separadas.
+  Estas redes son la Red de [color=green]Bajo Voltaje[/color], la Red de [color=Yellow]Voltaje Medio[/color] y la Red de [color=orange]Alto Voltaje[/color].
 
-  These networks power different types of machinery on the station.
+  Estas redes alimentan distintos tipos de maquinaria en la estación.
 
   <Box>
     <GuideEntityEmbed Entity="CableHVStack"/>
@@ -11,8 +11,8 @@
     <GuideEntityEmbed Entity="CableApcStack"/>
   </Box>
 
-  ## Low Voltage Network
-  The [color=green]Low Voltage[/color] Network is used for powering almost all small machines on the station. This includes things like lights, computers, and other small devices.
+  ## Red de Bajo Voltaje
+  La Red de [color=green]Bajo Voltaje[/color] se utiliza para alimentar casi todas las máquinas pequeñas de la estación. Esto incluye elementos como luces, ordenadores y otros dispositivos pequeños.
 
   <Box>
     <GuideEntityEmbed Entity="PoweredSmallLight" Caption=""/>
@@ -24,18 +24,18 @@
     <GuideEntityEmbed Entity="AlwaysPoweredWallLight" Caption=""/>
   </Box>
 
-  [color=green]Low Voltage[/color] power is provided by APCs, which are wall-mounted devices that convert power from the [color=Yellow]Medium Voltage[/color] Network to [color=green]Low Voltage[/color].
+  La energía de [color=green]Bajo Voltaje[/color] es proporcionada por los APCs, que son dispositivos montados en la pared que convierten la energía de la Red de [color=Yellow]Voltaje Medio[/color] a [color=green]Bajo Voltaje[/color].
 
   <Box>
     <GuideEntityEmbed Entity="APCBasic"/>
   </Box>
 
-  [color=green]Low Voltage[/color] wire doesn't have to be directly run to every machine, as it can power multiple machines as long as the wire is close enough to the machine.
-  It can power machines within 2 tiles radially, and 3 tiles in each cardinal direction.
+  El cable de [color=green]Bajo Voltaje[/color] no tiene que llegar directamente a cada máquina, ya que puede alimentar varias máquinas siempre que el cable esté lo suficientemente cerca de la máquina.
+  Puede alimentar máquinas dentro de 2 casillas radialmente y 3 casillas en cada dirección cardinal.
 
-  ## Medium Voltage Network
-  The [color=Yellow]Medium Voltage[/color] Network is used for powering APCs and other power-hungry machinery that can only accept [color=Yellow]Medium Voltage[/color] power.
-  The Particle Accelerator is an example, as it operates on [color=Yellow]Medium Voltage[/color] power.
+  ## Red de Voltaje Medio
+  La Red de [color=Yellow]Voltaje Medio[/color] se utiliza para alimentar los APCs y otra maquinaria de alto consumo que solo puede aceptar energía de [color=Yellow]Voltaje Medio[/color].
+  El Acelerador de Partículas es un ejemplo, ya que opera con energía de [color=Yellow]Voltaje Medio[/color].
 
   <Box>
     <GuideEntityEmbed Entity="ParticleAcceleratorEndCap" Caption="" Margin="0"/>
@@ -58,12 +58,12 @@
   </Box>
 
   <Box>
-    [color=#999999][italic]The Particle Accelerator[italic][/color]
+    [color=#999999][italic]El Acelerador de Partículas[italic][/color]
   </Box>
 
-  [color=Yellow]Medium Voltage[/color] power is provided by Substations, which are large machines that convert power from the [color=Orange]High Voltage[/color] Network to [color=Yellow]Medium Voltage[/color].
+  La energía de [color=Yellow]Voltaje Medio[/color] es proporcionada por las Subestaciones, que son máquinas grandes que convierten la energía de la Red de [color=Orange]Alto Voltaje[/color] a [color=Yellow]Voltaje Medio[/color].
 
-  There are also wallmount variants of these substations for compact spaces, like shuttles.
+  También hay variantes de montaje en pared de estas subestaciones para espacios compactos, como los transbordadores.
   <Box HorizontalAlignment="Stretch">
     <Box>
       <GuideEntityEmbed Entity="SubstationBasic"/>
@@ -73,10 +73,10 @@
     </Box>
   </Box>
 
-  ## High Voltage Network
-  The [color=Orange]High Voltage[/color] Network is used for moving large amount of power across the station. It is used to power most power handling equipment, such as SMES units and Substations.
+  ## Red de Alto Voltaje
+  La Red de [color=Orange]Alto Voltaje[/color] se utiliza para mover grandes cantidades de energía por toda la estación. Se utiliza para alimentar la mayor parte del equipo de manejo de energía, como las unidades SMES y las Subestaciones.
 
-  Most high-output generators output power to the [color=Orange]High Voltage[/color] Network.
+  La mayoría de los generadores de alta potencia envían energía a la Red de [color=Orange]Alto Voltaje[/color].
 
   <Box>
     <GuideEntityEmbed Entity="SMESBasic"/>
@@ -85,11 +85,11 @@
     <GuideEntityEmbed Entity="SubstationBasic"/>
   </Box>
 
-  ## Shock Damage
-  If you are shocked by a cable carrying power, you will take damage. The amount of damage you take is based on the voltage of the cable that shocked you.
+  ## Daño por Descarga
+  Si recibes una descarga de un cable que transporta energía, sufrirás daño. La cantidad de daño que recibes depende del voltaje del cable que te descargó.
 
-  [color=green]Low Voltage[/color] cables will deal less damage than [color=Yellow]Medium Voltage[/color] cables, which will deal less damage than [color=Orange]High Voltage[/color] cables.
+  Los cables de [color=green]Bajo Voltaje[/color] causarán menos daño que los cables de [color=Yellow]Voltaje Medio[/color], que causarán menos daño que los cables de [color=Orange]Alto Voltaje[/color].
 
-  Energized [color=Orange]High Voltage[/color] and [color=Yellow]Medium Voltage[/color] cabling hurts, so be sure to wear insulated gloves when working with it.
+  El cableado energizado de [color=Orange]Alto Voltaje[/color] y [color=Yellow]Voltaje Medio[/color] duele, así que asegúrate de usar guantes aislados cuando trabajes con él.
 
 </Document>

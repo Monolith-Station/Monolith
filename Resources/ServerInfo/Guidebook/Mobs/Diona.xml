@@ -5,34 +5,34 @@
     <GuideEntityEmbed Entity="MobDiona" Caption=""/>
   </Box>
 
-  They can't wear shoes, but are not slowed by Kudzu.
-  They get hungry and thirsty slower.
-  Their "blood" is tree sap and can't be metabolised from Iron.
-  Being plants, Weed Killer poisons them, while Robust Harvest heals them (but not without risk when overused!)
+  No pueden usar zapatos, pero el Kudzu no los ralentiza.
+  Sienten hambre y sed más lentamente.
+  Su «sangre» es savia de árbol y no puede metabolizarse a partir del Hierro.
+  Al ser plantas, el Herbicida los envenena, mientras que la Cosecha Robusta los cura (¡aunque no sin riesgos si se usa en exceso!)
 
-  They take [color=#1e90ff]30% less Blunt damage, 20% less Slash damage, and 10% less Piercing damage[/color];
-  but [color=#ffa500]50% more Heat damage, 20% more Shock damage, and they can easily
-  catch on fire when receiving enough Heat damage from *any* source.[/color]
+  Reciben [color=#1e90ff]un 30% menos de daño por Contusión, un 20% menos de daño por Corte y un 10% menos de daño por Perforación[/color];
+  pero [color=#ffa500]un 50% más de daño por Calor, un 20% más de daño por Descarga, y pueden prender fuego con facilidad
+  al recibir suficiente daño por Calor de *cualquier* fuente.[/color]
 
-  ## Make Like A Tree And Leave
+  ## Conviértete en árbol y desaparece
   <Box>
     <GuideEntityEmbed Entity="FloraTree" Caption=""/>
   </Box>
-  Being exposed to too much Robust Harvest will cause a Diona to grow out of control, turning into an immobile tree (dropping all their equipment).
-  Cutting down the tree will "restore" the Diona to their mobile state.
+  Exponerse en exceso a la Cosecha Robusta hará que un Diona crezca descontroladamente, convirtiéndose en un árbol inmóvil (y soltando todo su equipo).
+  Talar el árbol «restaurará» al Diona a su estado móvil.
 
-  ## Diona Nymphs
+  ## Ninfas Diona
   <Box>
     <GuideEntityEmbed Entity="MobDionaNymph" Caption=""/>
     <GuideEntityEmbed Entity="MobDionaNymph" Caption=""/>
     <GuideEntityEmbed Entity="MobDionaNymph" Caption=""/>
   </Box>
-  After death, a Diona can voluntarily destroy their own body, releasing their "internal organs" as three Nymphs,
-  with the player taking control of the Brain Nymph.
-  It can talk but has no hands or inventory, and can't do much.
+  Tras la muerte, un Diona puede destruir voluntariamente su propio cuerpo, liberando sus «órganos internos» como tres Ninfas,
+  con el jugador tomando el control de la Ninfa Cerebro.
+  Puede hablar pero no tiene manos ni inventario, y no puede hacer mucho.
 
-  After 10 minutes, a Nymph can reform into a whole Diona. This will be a new randomised body with a random name,
-  and there will be little to no evidence beyond their word about who they were before.
+  Tras 10 minutos, una Ninfa puede reformarse en un Diona completo. Será un cuerpo nuevo y aleatorio con un nombre aleatorio,
+  y no habrá prácticamente ninguna prueba más allá de su palabra sobre quiénes eran antes.
 
 
 </Document>

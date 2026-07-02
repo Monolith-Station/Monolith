@@ -1,11 +1,11 @@
 <Document>
-# Security
-Ensuring the safety of both station and crew is number one for [color=#cb0000]Security[/color]. They are ready for any situation, and [color=#cb0000]Security[/color] are on hand to maintain order and control crowds.
+# Seguridad
+Garantizar la seguridad tanto de la estación como de la tripulación es la prioridad número uno de [color=#cb0000]Seguridad[/color]. Están preparados para cualquier situación, y [color=#cb0000]Seguridad[/color] está disponible para mantener el orden y controlar a las multitudes.
 
-They face [textlink="Syndicate Agents" link="Traitors"], [textlink="Nuclear Operatives" link="NuclearOperatives"], [textlink="Zombies" link="Zombies"] and unruly staff.
+Se enfrentan a [textlink="Agentes del Syndicate" link="Traitors"], [textlink="Operativos Nucleares" link="NuclearOperatives"], [textlink="Zombis" link="Zombies"] y personal alborotador.
 
-## Personnel
-[color=#cb0000]Security[/color]'s staff is made up of Security Cadets, Security Officers, and the Detective. [color=#cb0000]Security[/color] is run by the Warden and Head of Security.
+## Personal
+El personal de [color=#cb0000]Seguridad[/color] está compuesto por Cadetes de Seguridad, Oficiales de Seguridad y el Detective. [color=#cb0000]Seguridad[/color] está dirigida por el Alcaide y el Jefe de Seguridad.
 
   <Box>
     <GuideEntityEmbed Entity="ToyFigurineSecurity" Caption="Secoff"/>
@@ -14,26 +14,26 @@ They face [textlink="Syndicate Agents" link="Traitors"], [textlink="Nuclear Oper
     <GuideEntityEmbed Entity="ToyFigurineHeadOfSecurity" Caption="HoS"/>
   </Box>
 
-## Gear
-First we have non-lethals a step above simply telling someone to cooperate with instructions. Both the stunbaton and disabler are capable of limiting the movement of an assailant, whereas handcuffs can be applied to deny a criminal free movement and access to their hands.
+## Equipamiento
+Primero tenemos las armas no letales, un paso más allá de simplemente decirle a alguien que coopere con las instrucciones. Tanto la porra paralizante como el desactivador son capaces de limitar el movimiento de un agresor, mientras que las esposas se pueden aplicar para negar a un criminal la libertad de movimiento y el uso de sus manos.
   <Box>
     <GuideEntityEmbed Entity="Stunbaton"/>
     <GuideEntityEmbed Entity="Handcuffs"/>
    <GuideEntityEmbed Entity="WeaponDisabler"/>
   </Box>
 
-## Flashes
-[color=#a4885c]Flashes[/color] are an effective tool for dispersing crowds and apprehending particularly evasive targets, with a large area of effect blinding all those without protection.
-It is worth noting that flashes can be both used in a large area ([color=yellow]Z[/color] hotkey) and if you attack somebody with it while [color=red]harm mode[/color] is active. Important to note that localized flashes last [color=yellow]2.5[/color] times as long as large area ones.
-[color=#cb0000]Security[/color] and [color=#a4885c]some[/color] other members of staff have eye protection from flashbangs and flashes.
+## Destelladores
+Los [color=#a4885c]destelladores[/color] son una herramienta eficaz para dispersar multitudes y capturar objetivos especialmente evasivos, con una gran área de efecto que ciega a todos los que no tengan protección.
+Vale la pena señalar que los destelladores pueden usarse tanto en un área grande (tecla de acceso rápido [color=yellow]Z[/color]) como atacando a alguien con él mientras el [color=red]modo daño[/color] está activo. Es importante señalar que los destelladores localizados duran [color=yellow]2.5[/color] veces más que los de área grande.
+[color=#cb0000]Seguridad[/color] y [color=#a4885c]algunos[/color] otros miembros del personal tienen protección ocular contra granadas cegadoras y destelladores.
   <Box>
     <GuideEntityEmbed Entity="Flash"/>
     <GuideEntityEmbed Entity="ClothingEyesGlassesSecurity"/>
     <GuideEntityEmbed Entity="GrenadeFlashBang"/>
   </Box>
-  
-## Lethals
-Should the situation dictate, [color=#cb0000]Security[/color] have access to laser rifles, shotguns, handguns and automatic rifles able to put down substancial fire against any who would stand against the station.
+
+## Letales
+Si la situación lo requiere, [color=#cb0000]Seguridad[/color] tiene acceso a rifles láser, escopetas, pistolas y rifles automáticos capaces de ejercer un fuego sustancial contra cualquiera que se oponga a la estación.
   <Box>
     <GuideEntityEmbed Entity="WeaponLaserCarbine"/>
     <GuideEntityEmbed Entity="WeaponShotgunKammerer"/>

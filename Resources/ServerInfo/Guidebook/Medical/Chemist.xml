@@ -1,12 +1,12 @@
 <Document>
-# Chemist
-Now you've done it. You picked the one job where -math- is mandatory. Grab your beaker, pull up a chair, and get cracking, it's time to cook up some chems.
+# Químico
+Pues ya lo has hecho. Elegiste el único trabajo donde las -matemáticas- son obligatorias. Coge tu vaso de precipitados, siéntate y manos a la obra: es hora de preparar algunos reactivos.
 
-While chemists primarily make medications, there's a very wide variety of chemicals that can be made, all of which are showcased in the Chemicals entry of the Guidebook.
+Aunque los químicos se dedican principalmente a fabricar medicamentos, hay una gran variedad de productos químicos que se pueden elaborar, todos ellos mostrados en la entrada de Productos Químicos de la Guía.
 
-[textlink="Click here to see a complete list of chemicals." link="Chemicals"]
+[textlink="Haz clic aquí para ver una lista completa de los productos químicos." link="Chemicals"]
 
-## Equipment:
+## Equipamiento:
 
   <Box>
     <GuideEntityEmbed Entity="ChemDispenser"/>
@@ -22,25 +22,25 @@ While chemists primarily make medications, there's a very wide variety of chemic
     <GuideEntityEmbed Entity="PillCanister"/>
   </Box>
 
-## The Basics:
-Chemistry is fairly straightforward once you know what to expect. Here's a simple, step-by-step process on how to begin.
+## Lo Básico:
+La química es bastante sencilla una vez que sabes qué esperar. Aquí tienes un proceso simple, paso a paso, sobre cómo empezar.
 
-- Grab a beaker, Pill Canister, and if desired, some Bottles.
-- Place the beaker in the Chemical Dispenser, and Pill Canister (or bottle) in the Chem Master.
-- Open the Chemical Dispenser UI, and make your mix. Recipes are in other sections of the guidebook.
-- Alt-click the dispenser to remove your beaker, and place it in the Chem Master.
-- Open the Chem Master UI. On the Input tab, move your mix into the buffer.
-- Move to the Output tab, customise your pill, and press the Create button.
-- Alt-click the Chem Master to get the pill bottle out. You may have to remove the beaker first.
-- Click on a table, crate, or another surface to empty the pill bottle if desired. Alternatively, store or empty it into another storage container.
+- Coge un vaso de precipitados, un dispensador de pastillas y, si lo deseas, algunas botellas.
+- Coloca el vaso de precipitados en el Dispensador de Químicos y el dispensador de pastillas (o botella) en el Chem Master.
+- Abre la interfaz del Dispensador de Químicos y prepara tu mezcla. Las recetas están en otras secciones de la guía.
+- Haz Alt+clic en el dispensador para sacar el vaso de precipitados y colócalo en el Chem Master.
+- Abre la interfaz del Chem Master. En la pestaña de Entrada, mueve tu mezcla al búfer.
+- Ve a la pestaña de Salida, personaliza tu pastilla y pulsa el botón Crear.
+- Haz Alt+clic en el Chem Master para sacar el frasco de pastillas. Puede que tengas que sacar primero el vaso de precipitados.
+- Haz clic en una mesa, caja u otra superficie para vaciar el frasco de pastillas si lo deseas. Alternativamente, guárdalo o vacíalo en otro contenedor de almacenamiento.
 
-That's it, you've made your first set of pills! Consider checking with Medical Doctors and other crew to see what else may be requested, refilling the medical kits in medbay storage, or just experimenting!
+¡Eso es todo, has creado tu primer lote de pastillas! Considera hablar con los Médicos y otros tripulantes para ver qué más se puede solicitar, rellenar los botiquines en el almacén de la enfermería, o simplemente experimentar.
 
-You can also use the hand labeler to organize individual bottles or bags without using the Chem Master labeling system.
+También puedes usar la etiquetadora manual para organizar botellas o bolsas individuales sin usar el sistema de etiquetado del Chem Master.
 
-## Extra Content:
+## Contenido Extra:
 
-Speaking of experimentation, there are a few more toy you can use when it comes to chemistry. This job requires a lot of trial and error, but it was worth mentioning that these things exist! It's up to you to figure out what to make with them.
+Hablando de experimentación, hay algunos juguetes más que puedes usar cuando se trata de química. Este trabajo requiere mucho ensayo y error, pero vale la pena mencionar que estas cosas existen. ¡Depende de ti descubrir qué hacer con ellas!
 
   <Box>
     <GuideEntityEmbed Entity="ModularGrenade"/>

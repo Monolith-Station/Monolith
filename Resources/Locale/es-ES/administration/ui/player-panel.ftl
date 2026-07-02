@@ -1,0 +1,25 @@
+player-panel-title = información de {$player}
+player-panel-username = Nombre de usuario: {$player}
+player-panel-whitelisted = En lista blanca:
+player-panel-bans = Baneos totales: {$totalBans}
+player-panel-rolebans = Baneos de rol totales: {$totalRoleBans}
+player-panel-notes = Notas totales: {$totalNotes}
+player-panel-playtime = Tiempo de juego total: {$days}d:{$hours}h:{$minutes}m
+player-panel-shared-connections = Conexiones compartidas: {$sharedConnections}
+
+player-panel-copy-username = Copiar
+player-panel-show-notes = Notas
+player-panel-show-bans = Ver baneos
+player-panel-help = Ahelp
+player-panel-freeze-and-mute = Congelar y silenciar
+player-panel-freeze = Congelar
+player-panel-unfreeze = Descongelar
+player-panel-kick = Expulsar
+player-panel-ban = Banear
+player-panel-logs = Registros
+player-panel-delete = Eliminar
+player-panel-rejuvenate = Rejuvenecer
+player-panel-false = Falso
+player-panel-true = Verdadero
+player-panel-follow = Seguir
+player-panel-camera = Cámara

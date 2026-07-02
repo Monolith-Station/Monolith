@@ -1,0 +1,10 @@
+marking-RobotAntennaTv = TV
+marking-RobotAntennaTesla = Tesla
+marking-RobotAntennaLightb = Luz (alt)
+marking-RobotAntennaLight = Luz
+marking-RobotAntennaCyberhead = Cabeza Cibernética
+marking-RobotAntennaSidelights = Luces Laterales
+marking-RobotAntennaAntlers = Astas
+marking-RobotAntennaDroneeyes = Ojos de Dron
+marking-RobotAntennaCrowned = Coronado
+marking-RobotAntennaTowers = Torres

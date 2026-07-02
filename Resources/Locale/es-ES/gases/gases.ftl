@@ -1,0 +1,13 @@
+gases-oxygen = Oxígeno
+gases-nitrogen = Nitrógeno
+gases-co2 = Dióxido de Carbono
+gases-plasma = Plasma
+gases-tritium = Tritio
+gases-water-vapor = Vapor de Agua
+gases-ammonia = Amoníaco
+gases-n2o = Óxido Nitroso
+gases-frezon = Frezon
+gases-bz = BZ
+gases-healium = Healium
+gases-nitrium = Nitrium
+gases-pluoxium = Pluoxium

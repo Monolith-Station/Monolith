@@ -24,7 +24,7 @@ public sealed class TraitExpandCollapseButtons : PanelContainer
         // Create the expand all button
         var expandAllButton = new Button
         {
-            Text = "Expand All",
+            Text = Loc.GetString("capibara-ui-expand-all"), // Capibara ESP
             StyleClasses = { "OpenRight" },
             HorizontalExpand = true,
             VerticalExpand = true,
@@ -35,7 +35,7 @@ public sealed class TraitExpandCollapseButtons : PanelContainer
         // Create the collapse all button
         var collapseAllButton = new Button
         {
-            Text = "Collapse All",
+            Text = Loc.GetString("capibara-ui-collapse-all"), // Capibara ESP
             StyleClasses = { "OpenLeft" },
             HorizontalExpand = true,
             VerticalExpand = true,

@@ -1,0 +1,1 @@
+station-event-vent-creatures-start-announcement = Atención. Se ha detectado una gran afluencia de formas de vida desconocidas en los sistemas de ventilación de la estación. Por favor, desháganse de estas criaturas antes de que empiece a afectar a la productividad.

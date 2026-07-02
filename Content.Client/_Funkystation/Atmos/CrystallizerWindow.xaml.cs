@@ -142,7 +142,7 @@ namespace Content.Client._Funkystation.Atmos
             RecipesContainer.Children.Clear();
             _buttonToRecipeId.Clear();
 
-            _nothingButton.Text = "Nothing";
+            _nothingButton.Text = Loc.GetString("capibara-ui-crystallizer-nothing"); // Capibara ESP
             _nothingButton.HorizontalExpand = true;
             _nothingButton.Pressed = true;
 
@@ -209,7 +209,7 @@ namespace Content.Client._Funkystation.Atmos
 
             if (recipe == null)
             {
-                var selectMessage = new Label { Text = "Please select a recipe." };
+                var selectMessage = new Label { Text = Loc.GetString("capibara-ui-crystallizer-select-recipe") }; // Capibara ESP
                 RequirementsContainer.AddChild(selectMessage);
                 GasList.Children.Clear();
                 return;

@@ -1,7 +1,7 @@
 <Document>
-  # Minor Antagonists
+  # Antagonistas Menores
 
-  Most if not all Minor Antagonists are ghost-controlled roles that gives dead people new ways to cause chaos around the station. They are spawned by random events.
+  La mayoría, si no todos, los Antagonistas Menores son roles controlados por fantasmas que dan a las personas muertas nuevas formas de causar caos en la estación. Aparecen mediante eventos aleatorios.
 
   # Revenant
 
@@ -9,14 +9,14 @@
     <GuideEntityEmbed Entity="MobRevenant"/>
   </Box>
 
-  Revenants are ethereal beings made of ectoplasm that haunt the crew and steal [color=#8f63e6]life essence[/color] from them.
-  - Your essence is your very own [bold]life force[/bold]. Taking damage reduces your essence.
-  - Essence is also spent to use [bold]abilities[/bold].
-  - To gain essence you first [bold]inspect[/bold] various souls for their worth. More worthy souls grant more essence. Then you must [bold]siphon[/bold] it either when the victim is crit, dead or asleep. All of this is done with [color=yellow][bold][keybind="Use"][/bold][/color].
-  - [bold]Stolen essence[/bold] is used to purchase new abilities to incapacitate the crew easier.
-  - You are [bold]vulnerable[/bold] to attacks when you siphon a soul or use an ability. You can tell when you are vulnerable when you have a [color=#8f63e6][italic]Corporeal[/italic][/color] status effect.
+  Los revenants son seres etéreos hechos de ectoplasma que acechan a la tripulación y les roban [color=#8f63e6]esencia vital[/color].
+  - Tu esencia es tu propia [bold]fuerza vital[/bold]. Recibir daño reduce tu esencia.
+  - La esencia también se gasta al usar [bold]habilidades[/bold].
+  - Para ganar esencia, primero [bold]inspecciona[/bold] varias almas para evaluar su valor. Las almas más valiosas otorgan más esencia. Luego debes [bold]sifonar[/bold] cuando la víctima está en estado crítico, muerta o dormida. Todo esto se hace con [color=yellow][bold][keybind="Use"][/bold][/color].
+  - La [bold]esencia robada[/bold] se usa para adquirir nuevas habilidades que incapacitan a la tripulación más fácilmente.
+  - Eres [bold]vulnerable[/bold] a los ataques cuando sifonas un alma o usas una habilidad. Puedes saber cuándo eres vulnerable cuando tienes el efecto de estado [color=#8f63e6][italic]Corpóreo[/italic][/color].
 
-  # Rat King
+  # Rey de las Ratas
 
   <Box>
     <GuideEntityEmbed Entity="MobRatServant" Caption=""/>
@@ -26,15 +26,15 @@
     <GuideEntityEmbed Entity="MobRatServant" Caption=""/>
   </Box>
 
-  Rat kings are abnormally large rodents capable of [color=yellow]raising huge rat armies[/color] by eating equally huge amounts of food.
-  - You have several abilities that come at the cost of your [bold]hunger.[/bold]
-  - One such ability is [color=yellow][italic]Raise Army[/italic][/color], which summons a [bold]Rat Servant[/bold]. You can [bold]command[/bold] your servants to stay in place, follow you, attack a target of your choice or attack indiscriminately.
-  - You can conjure a cloud of [color=#77b58e]ammonia[/color] using [color=purple][italic]Rat King's Domain[/italic][/color]. This purple gas is mildly poisonous to humans but heals rats.
-  - [color=#9daa98][italic]Rummage[/italic][/color] through a disposal unit by using the context menu. Use this to find [bold]scraps of food[/bold] to grow your army.
-  - Besides your abilities, [bold]you are stronger than most other animals.[/bold] You and your servants are capable of speech and you're both small enough to fit under airlocks and tables.
-  - [bold]Your underlings are still very fragile![/bold] Beware of spacings, explosions and the buisness end of a melee weapon.
+  Los reyes de las ratas son roedores anormalmente grandes capaces de [color=yellow]criar enormes ejércitos de ratas[/color] comiendo cantidades igualmente enormes de comida.
+  - Tienes varias habilidades que tienen como coste tu [bold]hambre.[/bold]
+  - Una de esas habilidades es [color=yellow][italic]Reclutar Ejército[/italic][/color], que invoca a un [bold]Sirviente Rata[/bold]. Puedes [bold]ordenar[/bold] a tus sirvientes que se queden en su sitio, que te sigan, que ataquen a un objetivo de tu elección o que ataquen indiscriminadamente.
+  - Puedes conjurar una nube de [color=#77b58e]amoníaco[/color] usando [color=purple][italic]Dominio del Rey de las Ratas[/italic][/color]. Este gas púrpura es levemente venenoso para los humanos pero cura a las ratas.
+  - [color=#9daa98][italic]Hurga[/italic][/color] en una unidad de eliminación de residuos usando el menú contextual. Úsalo para encontrar [bold]restos de comida[/bold] con los que hacer crecer tu ejército.
+  - Además de tus habilidades, [bold]eres más fuerte que la mayoría de los animales.[/bold] Tú y tus sirvientes podéis hablar y sois lo suficientemente pequeños para pasar por debajo de esclusas y mesas.
+  - [bold]¡Tus subordinados siguen siendo muy frágiles![/bold] Cuidado con los lanzamientos al espacio, las explosiones y el extremo contundente de un arma cuerpo a cuerpo.
 
-  # Space Dragon
+  # Dragón Espacial
 
   <Box>
     <GuideEntityEmbed Entity="MobCarp" Caption=""/>
@@ -44,23 +44,23 @@
     <GuideEntityEmbed Entity="MobCarp" Caption=""/>
   </Box>
 
-  Space dragons are giant extradimensional fish that can [color=red]eat crew[/color] and create [color=#4b7fcc]carp rifts.[/color]
-  - Dragons have powerful jaws that allow them to [color=red][italic]Devour[/italic][/color] infrastructure such as doors, windows, and walls.
-  - They can also heal themselves by using [color=red][italic]Devour[/italic][/color] on crew members that have gone unconscious or have died.
-  - Your [color=orange][italic]Dragon's Breath[/italic][/color] is a [bold]flaming projectile[/bold] which travels a straight flight path, exploding multiple times and igniting things along the way. Try not to hit your carps with this!
-  - You have the ability to [color=#4b7fcc][italic]Summon a Carp Rift[/italic][/color]. Rifts periodically spawn [bold]space carp[/bold] and charge up energy over a period of 5 minutes, [bold]which is when it's vulnerable.[/bold] After 5 minutes, it becomes invulnerable and will continue summoning carp as long as the dragon lives.
-  - You'll suffer a [bold]temporary debilitating feedback effect[/bold] if one of your rifts are destroyed before it's done charging.
-  - If a period of five minutes passes since your spawn or since the last time a rift was charging, [bold]you'll disappear.[/bold]
-  - Dragons who have the maximum of 3 fully charged rifts will [bold]never disappear[/bold], but they are still mortal.
+  Los dragones espaciales son peces extradimensionales gigantes que pueden [color=red]devorar a la tripulación[/color] y crear [color=#4b7fcc]grietas de carpa.[/color]
+  - Los dragones tienen poderosas mandíbulas que les permiten [color=red][italic]Devorar[/italic][/color] infraestructura como puertas, ventanas y paredes.
+  - También pueden curarse usando [color=red][italic]Devorar[/italic][/color] en miembros de la tripulación que hayan quedado inconscientes o hayan muerto.
+  - Tu [color=orange][italic]Aliento de Dragón[/italic][/color] es un [bold]proyectil llameante[/bold] que viaja en línea recta, explotando varias veces e incendiando todo a su paso. ¡Intenta no darle a tus carpas con esto!
+  - Tienes la habilidad de [color=#4b7fcc][italic]Invocar una Grieta de Carpa[/italic][/color]. Las grietas periódicamente generan [bold]carpas espaciales[/bold] y acumulan energía durante un período de 5 minutos, [bold]que es cuando son vulnerables.[/bold] Tras 5 minutos, se vuelven invulnerables y continuarán invocando carpas mientras el dragón viva.
+  - Sufrirás un [bold]efecto de retroalimentación debilitante temporal[/bold] si una de tus grietas es destruida antes de terminar de cargarse.
+  - Si pasan cinco minutos desde tu aparición o desde la última vez que una grieta estaba cargándose, [bold]desaparecerás.[/bold]
+  - Los dragones que tienen el máximo de 3 grietas completamente cargadas [bold]nunca desaparecerán[/bold], pero siguen siendo mortales.
 
-  # Slimes and Spiders
+  # Slimes y Arañas
 
   <Box>
     <GuideEntityEmbed Entity="MobAdultSlimesBlueAngry" Caption=""/>
     <GuideEntityEmbed Entity="MobGiantSpiderAngry" Caption=""/>
   </Box>
 
-  Slimes and spiders have no remarkable features, but will [color=cyan]infest the station[/color] from time to time regardless. Both will give chase and attack anything they see.
-  - Slimes may [bold]deal extra cellular or poison damage[/bold], based upon their color. Water hurts them just as it would hurt a slime person.
-  - Spiders have a venomous bite and can [bold]create webs[/bold] that are hard to move though. Webs are easily destroyed with a blade. They can also pry open airlocks.
+  Los slimes y las arañas no tienen características notables, pero [color=cyan]infestan la estación[/color] de vez en cuando de todos modos. Ambos perseguirán y atacarán todo lo que vean.
+  - Los slimes pueden [bold]causar daño celular o venenoso adicional[/bold] según su color. El agua les daña igual que a una persona slime.
+  - Las arañas tienen una mordedura venenosa y pueden [bold]crear telarañas[/bold] difíciles de atravesar. Las telarañas se destruyen fácilmente con una hoja. También pueden abrir esclusas a la fuerza.
 </Document>

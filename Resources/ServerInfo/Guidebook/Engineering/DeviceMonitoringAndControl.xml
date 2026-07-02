@@ -1,28 +1,28 @@
-﻿<Document>
-  # Device Monitoring and Control
-  Given the station-wide nature of the atmospherics network, it is important to have a way to monitor and control devices from a central location.
+<Document>
+  # Monitorización y Control de Dispositivos
+  Dada la naturaleza de toda la estación de la red de atmósferas, es importante tener una forma de monitorizar y controlar los dispositivos desde una ubicación central.
 
-  Using these systems, Atmospherics can monitor and control the atmosphere across the entire station.
+  Usando estos sistemas, Atmósferas puede monitorizar y controlar la atmósfera en toda la estación.
 
   <Box>
     <GuideEntityEmbed Entity="AirAlarm" Caption=""/>
     <GuideEntityEmbed Entity="AirSensor" Caption=""/>
   </Box>
   <Box>
-    ## Air Alarms
+    ## Alarmas de Aire
   </Box>
   <Box>
-    [color=#999999][italic]Wide area monitoring and control over atmos devices[italic][/color]
+    [color=#999999][italic]Monitorización y control de dispositivos de atmósferas en un área amplia[italic][/color]
   </Box>
 
   <Box>
     <GuideEntityEmbed Entity="ComputerAlert" Caption=""/>
   </Box>
   <Box>
-    ## Atmospheric Alerts Computer
+    ## Computadora de Alertas Atmosféricas
   </Box>
   <Box>
-    [color=#999999][italic]Station-wide monitoring of air alarms[italic][/color]
+    [color=#999999][italic]Monitorización de alarmas de aire en toda la estación[italic][/color]
   </Box>
 
   <Box>
@@ -30,10 +30,10 @@
     <GuideEntityEmbed Entity="GasPipeSensor" Caption=""/>
   </Box>
   <Box>
-    ## Atmospheric Network Monitor
+    ## Monitor de Red Atmosférica
   </Box>
   <Box>
-    [color=#999999][italic]Monitoring of whole pipe networks[italic][/color]
+    [color=#999999][italic]Monitorización de redes de tuberías completas[italic][/color]
   </Box>
 
 </Document>

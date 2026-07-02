@@ -1,0 +1,1 @@
+construction-ghost-examine-message = Construyendo: [color=cyan]{$name}[/color]

@@ -1,0 +1,1 @@
+role-type-emotional-support-pet-name = Mascota de apoyo emocional

@@ -1,6 +1,6 @@
 <Document>
-# Gas Mining
-Asteroids in the Frontier sector are a reliable source of large amounts of normally gaseous elements in the form of [color=gold]solidified deposits[/color].
+# Minería de Gas
+Los asteroides en el sector Frontier son una fuente fiable de grandes cantidades de elementos normalmente gaseosos en forma de [color=gold]depósitos solidificados[/color].
 
 <Box>
 <GuideEntityEmbed Entity="GasDepositOxygen" Caption="oxygen deposit"/>
@@ -8,17 +8,17 @@ Asteroids in the Frontier sector are a reliable source of large amounts of norma
 <GuideEntityEmbed Entity="GasDepositPlasma" Caption="plasma deposit"/>
 </Box>
 
-Atmospheric ships, for example, the [color=yellow]Gasbender[/color] and [color=yellow]Ambition[/color], come equipped with the equipment needed to extract from these deposits. Check for the [color=cyan]Atmospherics[/color] category at the [color=steelblue]shipyard console[/color] when buying ships.
+Las naves de atmosférica, por ejemplo, el [color=yellow]Gasbender[/color] y el [color=yellow]Ambition[/color], vienen equipadas con el equipo necesario para extraer de estos depósitos. Busca la categoría [color=cyan]Atmosférica[/color] en la [color=steelblue]consola del astillero[/color] al comprar naves.
 
-## Needed Equipment
+## Equipo Necesario
 
-The equipment you'll need:
-- A mining drill
-- A portable gaslock
-- Steel for pipes
-- A source of power (J.R.P.A.C.M.A.N. recommended)
-- LV cable
-- A gas deposit locator (optional)
+El equipo que necesitarás:
+- Un taladro minero
+- Una esclusa portátil de gas
+- Acero para tuberías
+- Una fuente de energía (J.R.P.A.C.M.A.N. recomendado)
+- Cable LV
+- Un localizador de depósitos de gas (opcional)
 
 <Box>
 <GuideEntityEmbed Entity="GasMiningDrill"/>
@@ -27,51 +27,51 @@ The equipment you'll need:
 <GuideEntityEmbed Entity="GasDepositLocator"/>
 </Box>
 
-## Mining Procedure
+## Procedimiento de Minería
 
-Standard procedure for drilling for gas is as follows:
+El procedimiento estándar para perforar en busca de gas es el siguiente:
 
-1. Find an asteroid with gas deposits on it. A [color=green]gas deposit scanner[/color] can help you find these, it'll beep when it's close to one, print one off at an [color=orange]engineering techfab[/color].
+1. Encuentra un asteroide con depósitos de gas. Un [color=green]escáner de depósitos de gas[/color] puede ayudarte a encontrarlos; emitirá un pitido cuando esté cerca de uno. Imprímelo en una [color=orange]techfab de ingeniería[/color].
 
-2. Drill out some of the asteroid, and look for [color=lightpink]whisps of solid elements[/color].
+2. Perfora parte del asteroide y busca [color=lightpink]volutas de elementos sólidos[/color].
 
-3. Anchor your gas mining drill onto the deposit.
+3. Ancla tu taladro minero de gas sobre el depósito.
 
-4. Build a set of pipes connecting the drill to the most convenient edge of the asteroid.
+4. Construye un conjunto de tuberías que conecten el taladro con el borde más conveniente del asteroide.
 
-5. Make sure that your shuttle can dock with the edge. You may find constructing a lattice jetty can help.
+5. Asegúrate de que tu transbordador pueda atracar en ese borde. Construir un muelle de rejilla puede ayudar.
 
-6. Note that gas filters, mixers and other equipment may not work on the asteroid. For efficient processing, set up your shuttle for onboard filtration, processing and storage.
+6. Ten en cuenta que los filtros de gas, mezcladores y otro equipo pueden no funcionar en el asteroide. Para un procesamiento eficiente, prepara tu transbordador para filtración, procesamiento y almacenamiento a bordo.
 
-7. Anchor a portable gaslock onto the edge of the asteroid. Point the red outlet port with the docking lights out towards space.
+7. Ancla una esclusa portátil de gas en el borde del asteroide. Apunta el puerto de salida rojo con las luces de atraque hacia el espacio.
 
-8. Dock your shuttle's gaslock with the portable gaslock, do this with the shuttle console like you're docking with a station.
+8. Acopla la esclusa de gas de tu transbordador con la esclusa portátil de gas; hazlo desde la consola del transbordador como si estuvieras acoplando con una estación.
 
-9. Anchor a portable generator on the asteroid, turn it on, and set up cables so both the mining drill and portable gaslock are powered.
+9. Ancla un generador portátil en el asteroide, enciéndelo y tiende cables para que tanto el taladro minero como la esclusa portátil de gas tengan energía.
 
-10. Set the target pressure on your drill.
+10. Establece la presión objetivo en tu taladro.
 
-11. Set the pressure and direction on both the portable gaslock and your shuttle's gaslock.
+11. Establece la presión y la dirección tanto en la esclusa portátil de gas como en la esclusa de gas de tu transbordador.
 
-12. Note that the gaslocks are bidirectional, and the direction the lights are moving is the direction the gas will flow. Both should point in the same direction to pump gas.
+12. Ten en cuenta que las esclusas son bidireccionales, y la dirección en la que se mueven las luces es la dirección en la que fluirá el gas. Ambas deben apuntar en la misma dirección para bombear gas.
 
-13. Wait until the gas deposit is depleted - the light on the miner should glow [color=yellow]yellow[/color] when low, and [color=red]red[/color] when empty. If you find other deposits, it is efficient to pump multiple deposits at the same time!
+13. Espera hasta que el depósito de gas se agote. La luz del minero debería brillar en [color=yellow]amarillo[/color] cuando está bajo, y en [color=red]rojo[/color] cuando está vacío. Si encuentras otros depósitos, ¡es eficiente bombear varios a la vez!
 
-14. If the miner glows [color=orange]orange[/color], your pipe network is backed up. Double check your pressures and pump directions!
+14. Si el minero brilla en [color=orange]naranja[/color], tu red de tuberías está saturada. ¡Comprueba dos veces tus presiones y las direcciones de las bombas!
 
-## Gas Filtering and Processing
+## Filtrado y Procesamiento del Gas
 
-Gas deposits are impure, and should be filtered before selling. [color=cyan]Gas filters[/color] can help extract one gas at a time through their side port.
+Los depósitos de gas son impuros y deben filtrarse antes de venderlos. Los [color=cyan]filtros de gas[/color] pueden ayudar a extraer un gas a la vez por su puerto lateral.
 
-Different gases have different values. The most valuable gases are [color=cyan]frezon[/color] followed by [color=limegreen]tritium[/color]. Ask someone who knows more about atmospherics about how to process plasma into tritium, and tritium into frezon.
+Los distintos gases tienen diferentes valores. Los gases más valiosos son el [color=cyan]frezon[/color], seguido del [color=limegreen]tritio[/color]. Pregunta a alguien que sepa más de atmosférica cómo procesar plasma en tritio, y tritio en frezon.
 
-Selling gas can be done through canisters, which can be crafted from [color=gray]plasteel[/color], or in bulk at a [color=lightgreen]gas sale point[/color], e.g. at Edison Power Plant.
+La venta de gas puede hacerse mediante canisters, que se pueden fabricar con [color=gray]plasteel[/color], o a granel en un [color=lightgreen]punto de venta de gas[/color], por ejemplo en la Planta de Energía Edison.
 
-- Canisters can be sold using cargo pallets and cargo sales consoles, like any other good.
-- Gas sales points can accept massive amounts of gas at a time, and require gas to be pumped in through a gaslock.
+- Los canisters pueden venderse usando palés de carga y consolas de venta de carga, como cualquier otro bien.
+- Los puntos de venta de gas pueden aceptar grandes cantidades de gas a la vez y requieren que el gas se bombee a través de una esclusa.
 
-Both sales methods pay according to the [bold]purity[/bold] of your mix. Be sure to filter your gas! The easier it is for NT to separate your gases out, the better the pay.
+Ambos métodos de venta pagan según la [bold]pureza[/bold] de tu mezcla. ¡Asegúrate de filtrar tu gas! Cuanto más fácil sea para NT separar tus gases, mejor será el pago.
 
-Best of luck out there, greenhorn, and keep at it.
+Buena suerte ahí fuera, novato, y sigue adelante.
 
 </Document>

@@ -1,35 +1,35 @@
 <Document>
-  # Piloting
+  # Pilotaje
   <Box>
     <GuideEntityEmbed Entity="ComputerShuttle"/>
   </Box>
-  To move a shuttle, you first need to click on the [color=#a4885c]shuttle console[/color] in its cockpit. After clicking the shuttle console, you should see a radar view of the space around your shuttle.
+  Para mover un transbordador, primero debes hacer clic en la [color=#a4885c]consola del transbordador[/color] en su cabina. Tras hacer clic en la consola del transbordador, deberías ver una vista de radar del espacio alrededor de tu transbordador.
 
-Newly purchased shuttles start docked with Colonial Outpost. To undock, follow these steps:
+Los transbordadores recién comprados comienzan acoplados al Puesto Colonial. Para desacoplarte, sigue estos pasos:
 
-- Tell people you are undocking using the shortband channel ([color=#CC6633]:d[/color]). Include your ship's callsign, which can be found on the NAV screen (e.g. "[color=#CC6633]:d Sabine CIV-123 undocking.[/color]")
-- Click on the DOCK tab, disconnect any airlocks that are docked to the station.
-- Return to the NAV tab.
+- Avisa a la gente de que vas a desacoplarte usando el canal de banda corta ([color=#CC6633]:d[/color]). Incluye el indicativo de tu nave, que puedes encontrar en la pantalla NAV (p. ej. "[color=#CC6633]:d Sabine CIV-123 undocking.[/color]")
+- Haz clic en la pestaña DOCK, desconecta cualquier esclusa acoplada a la estación.
+- Vuelve a la pestaña NAV.
 
-- To move a shuttle, the default controls (for a QWERTY keyboard) are:
+- Para mover un transbordador, los controles predeterminados (para un teclado QWERTY) son:
 
--[color=#028ed9][keybind="ShuttleStrafeUp"/][/color] & [color=#028ed9][keybind="ShuttleStrafeDown"/][/color]: Move forward and backward.
--[color=#028ed9][keybind="ShuttleStrafeLeft"/][/color] & [color=#028ed9][keybind="ShuttleStrafeRight"/][/color]: Move left and right.
--[color=#028ed9][keybind="ShuttleRotateLeft"/][/color] & [color=#028ed9][keybind="ShuttleRotateRight"/][/color]: Rotate left and right.
--[color=#028ed9][keybind="ShuttleBrake"/][/color]: Slow down.
--[color=#028ed9][keybind="ShuttleBrake"/][/color] + [color=#028ed9]any input[/color]: Move and rotate slowly.
+-[color=#028ed9][keybind="ShuttleStrafeUp"/][/color] & [color=#028ed9][keybind="ShuttleStrafeDown"/][/color]: Avanzar y retroceder.
+-[color=#028ed9][keybind="ShuttleStrafeLeft"/][/color] & [color=#028ed9][keybind="ShuttleStrafeRight"/][/color]: Moverse a la izquierda y a la derecha.
+-[color=#028ed9][keybind="ShuttleRotateLeft"/][/color] & [color=#028ed9][keybind="ShuttleRotateRight"/][/color]: Girar a la izquierda y a la derecha.
+-[color=#028ed9][keybind="ShuttleBrake"/][/color]: Reducir la velocidad.
+-[color=#028ed9][keybind="ShuttleBrake"/][/color] + [color=#028ed9]cualquier tecla[/color]: Moverse y girar lentamente.
 
-# Docking
+# Acoplamiento
   <Box>
     <GuideEntityEmbed Entity="AirlockGlassShuttle"/>
   </Box>
-  [bold]Before docking your ship with:[/bold]
-- [bold][color=#979797]Another ship[/color][/bold], it is best practice to announce your intention to dock over the traffic channel ([color=#CC6633]:d[/color]).
-- [bold][color=#ffd700]Colonial Outpost[/color][/bold], stop 200m out, request permission to dock from the Station Traffic Controller (STC) over the traffic radio channel ([color=#CC6633]:d[/color]).
-- [bold][color=#ffa500]Another station[/color][/bold], docks are first come, first serve. Be courteous and leave space where possible.
+  [bold]Antes de acoplar tu nave con:[/bold]
+- [bold][color=#979797]Otra nave[/color][/bold], lo más recomendable es anunciar tu intención de acoplarte por el canal de tráfico ([color=#CC6633]:d[/color]).
+- [bold][color=#ffd700]Colonial Outpost[/color][/bold], detente a 200 m, solicita permiso para acoplarte al Controlador de Tráfico de la Estación (STC) por el canal de radio de tráfico ([color=#CC6633]:d[/color]).
+- [bold][color=#ffa500]Otra estación[/color][/bold], los muelles son por orden de llegada. Sé cortés y deja espacio donde sea posible.
 
-To dock the ship:
-- Pilot towards the target so a set of its airlocks are nearby a set of airlocks of the target.
-- When very close, click on the DOCK tab for a closer view.
-- When next to the airlock, you can click "Dock" when highlighted to attach to the target.
+Para acoplar la nave:
+- Pilota hacia el objetivo de modo que un conjunto de tus esclusas queden cerca de un conjunto de esclusas del objetivo.
+- Cuando estés muy cerca, haz clic en la pestaña DOCK para obtener una vista más cercana.
+- Cuando estés junto a la esclusa, puedes hacer clic en "Dock" cuando esté resaltado para acoplarte al objetivo.
 </Document>

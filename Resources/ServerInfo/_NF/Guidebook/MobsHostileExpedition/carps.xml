@@ -1,146 +1,146 @@
 <Document>
   # Carps
-  
-  Space Carp are alien lifeforms that travel through space in schools. In the event a space station is in the path of a traveling school, anyone unlucky enough to be outside of the station's walls will be attacked.
-  
+
+  Los Space Carp son formas de vida alienígenas que viajan por el espacio en bancos. En caso de que una estación espacial se encuentre en la trayectoria de un banco en movimiento, cualquier persona con la mala suerte de estar fuera de los muros de la estación será atacada.
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # Known Variants
+
+  # Variantes Conocidas
   # "Carp"
-  
-  A variant of the common space carp, evolved to "swim" through gravity. Equally dangerous.
-  
-  [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
-  
+
+  Una variante del space carp común, evolucionada para "nadar" a través de la gravedad. Igual de peligrosa.
+
+  [color=#a4885c]Flier[/color]: la criatura levita sobre el suelo y puede sortear obstáculos bajos como mesas, bastidores de máquinas o barandillas sin ser bloqueada ni ralentizada.
+
   <Box>
   <GuideEntityEmbed Entity="MobCarp"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 50 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s[bold][color=#a4885c]*[/color][/bold]
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 5 [color=red]Slash[/color], 5 [color=yellow]Piercing[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Flier
-  
-  [bold][color=#a4885c]*[/color][/bold] - [italic]an average human can run at 4.5 m/s and walk at 2.5 m/s.[/italic]
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 50 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 4.5 m/s[bold][color=#a4885c]*[/color][/bold]
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 5 [color=red]Corte[/color], 5 [color=yellow]Perforación[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Flier
+
+  [bold][color=#a4885c]*[/color][/bold] - [italic]un humano promedio puede correr a 4.5 m/s y caminar a 2.5 m/s.[/italic]
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
+
   # "Magicarp"
-  
-  A lesser version of spaceproof giant carp believed to have magic powers. Contrary to popular belief, does not possess magical abilities.
-  
-  [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
-  
+
+  Una versión menor del carp gigante resistente al espacio que se cree posee poderes mágicos. Contrariamente a la creencia popular, no posee habilidades mágicas.
+
+  [color=#a4885c]Flier[/color]: la criatura levita sobre el suelo y puede sortear obstáculos bajos como mesas, bastidores de máquinas o barandillas sin ser bloqueada ni ralentizada.
+
   <Box>
   <GuideEntityEmbed Entity="MobCarpMagic"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 50 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 5 [color=red]Slash[/color], 5 [color=yellow]Piercing[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Flier
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 50 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 4.5 m/s
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 5 [color=red]Corte[/color], 5 [color=yellow]Perforación[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Flier
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
+
   # "Holocarp"
-  
-  Carp made out of holographic energies. Sadly for you, it is very much real.
-  
-  [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
-  
-  [color=#a4885c]Incorporeal[/color]: can only be damaged by melee attacks or energy weapons.
-  
+
+  Un carp compuesto de energías holográficas. Lamentablemente para ti, es completamente real.
+
+  [color=#a4885c]Flier[/color]: la criatura levita sobre el suelo y puede sortear obstáculos bajos como mesas, bastidores de máquinas o barandillas sin ser bloqueada ni ralentizada.
+
+  [color=#a4885c]Incorporeal[/color]: solo puede recibir daño de ataques cuerpo a cuerpo o armas de energía.
+
   <Box>
   <GuideEntityEmbed Entity="MobCarpHolo"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 50 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 5 [color=red]Slash[/color], 5 [color=yellow]Piercing[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Flier, Incorporeal
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 50 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 4.5 m/s
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 5 [color=red]Corte[/color], 5 [color=yellow]Perforación[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Flier, Incorporeal
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
+
   # "Rainbowcarp"
-  
-  "Wow such a shiny fishie!" you might say. Reasonable, but these are deadly nonetheless.
-  
-  [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
-  
+
+  "¡Vaya, qué pececillo tan brillante!" podrías decir. Comprensible, pero son mortales de todos modos.
+
+  [color=#a4885c]Flier[/color]: la criatura levita sobre el suelo y puede sortear obstáculos bajos como mesas, bastidores de máquinas o barandillas sin ser bloqueada ni ralentizada.
+
   <Box>
   <GuideEntityEmbed Entity="MobCarpRainbow"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 50 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 5 [color=red]Slash[/color], 5 [color=yellow]Piercing[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Flier
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 50 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 4.5 m/s
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 5 [color=red]Corte[/color], 5 [color=yellow]Perforación[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Flier
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
+
   # "Sharkminnow"
-  
-  A dangerous shark from the blackness of endless space, who loves to drink blood.
-  
-  [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
-  
+
+  Un peligroso tiburón proveniente de la oscuridad del espacio infinito, que adora beber sangre.
+
+  [color=#a4885c]Flier[/color]: la criatura levita sobre el suelo y puede sortear obstáculos bajos como mesas, bastidores de máquinas o barandillas sin ser bloqueada ni ralentizada.
+
   <Box>
   <GuideEntityEmbed Entity="MobShark"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 80 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 7 [color=red]Slash[/color], 5 [color=#9A54BF]Bloodloss[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Flier
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 80 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 4.5 m/s
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 7 [color=red]Corte[/color], 5 [color=#9A54BF]Pérdida de sangre[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Flier
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
+
   # "Snake"
-  
-  A small but menacing poisonous snake, distant relative of purple snake from Kepler-283c.
-  
-  [color=#a4885c]Small[/color]: creature is small enough to pass under tables and airlocks.
-  
+
+  Una pequeña pero amenazante serpiente venenosa, pariente lejana de la serpiente púrpura de Kepler-283c.
+
+  [color=#a4885c]Small[/color]: la criatura es lo suficientemente pequeña para pasar bajo mesas y esclusas.
+
   <Box>
   <GuideEntityEmbed Entity="MobSnake"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 50 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 3 [color=red]Slash[/color], 3 [color=#9A54BF]Bloodloss[/color], 4 [color=lime]Poison[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Small, Poison
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 50 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 4.5 m/s
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 3 [color=red]Corte[/color], 3 [color=#9A54BF]Pérdida de sangre[/color], 4 [color=lime]Veneno[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Small, Poison
+
   <GuideReagentEmbed Reagent="Toxin"/>
-  
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
+
   # "Space Dragon"
-  
-  A flying leviathan, loosely related to space carps. Capable of rending doors with its powerful jaws and known to eat its victims whole.
-  
-  [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
-  
+
+  Un leviatán volador, vagamente relacionado con los space carps. Capaz de destrozar puertas con sus poderosas mandíbulas y conocido por devorar a sus víctimas enteras.
+
+  [color=#a4885c]Flier[/color]: la criatura levita sobre el suelo y puede sortear obstáculos bajos como mesas, bastidores de máquinas o barandillas sin ser bloqueada ni ralentizada.
+
   <Box>
   <GuideEntityEmbed Entity="MobDragon"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 200 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 5 m/s
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 15 [color=red]Slash[/color], 15 [color=yellow]Piercing[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Flier
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 200 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 5 m/s
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 15 [color=red]Corte[/color], 15 [color=yellow]Perforación[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Flier
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # Mission Objectives
-  ## Elimination
+
+  # Objetivos de Misión
+  ## Eliminación
   <Box>
   <GuideEntityEmbed Entity="MobDragon"/>
   </Box>
-  Eliminate a large and dangerous creature - a [color=#a4885c]space dragon[/color] within given time constraints to earn a monetary reward.
-  
-  ## Destruction
+  Elimina a una criatura grande y peligrosa - un [color=#a4885c]space dragon[/color] dentro de las restricciones de tiempo establecidas para obtener una recompensa monetaria.
+
+  ## Destrucción
   <Box>
   <GuideEntityEmbed Entity="CarpStatue"/>
   </Box>
-  Destroy a certain number of [color=#a4885c]carp statues[/color] within given time constraints to earn a monetary reward.
+  Destruye un cierto número de [color=#a4885c]estatuas de carp[/color] dentro de las restricciones de tiempo establecidas para obtener una recompensa monetaria.
 </Document>

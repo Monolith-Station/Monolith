@@ -1,48 +1,48 @@
-﻿<Document>
-# Pumps
-  Pumps are the primary way of actively moving gasses through a [textlink="pipenet." link="PipeNetworks"]
-  They take gas from one side and push it to the other.
-  There are two different types of pumps:
+<Document>
+# Bombas
+  Las bombas son la principal forma de mover activamente los gases a través de una [textlink="red de tuberías." link="PipeNetworks"]
+  Toman gas de un lado y lo empujan al otro.
+  Hay dos tipos distintos de bombas:
 
   <Box>
     <GuideEntityEmbed Entity="GasPressurePump" Caption="pressure pump"/>
     <GuideEntityEmbed Entity="GasVolumePump" Caption="volumetric pump"/>
   </Box>
 
-  Some important things to note about pumps:
-  - Pumps [color=#a4885c]require power[/color] through a nearby LV cable to function.
-  - Pumps output on the side with the red stripe.
-  - Gas cannot move backwards through pumps (although if you are using a pump to do solely this, you should use the [textlink="passive gate" link="PassiveGate"] instead).
-  - Pumps cannot move gasses into pipes with pressures or volumes exceeding their [color=#a4885c]limit[/color]. This causes them to be [color=red]blocked[/color].
+  Algunas cosas importantes a tener en cuenta sobre las bombas:
+  - Las bombas [color=#a4885c]requieren energía[/color] a través de un cable de BT cercano para funcionar.
+  - Las bombas expulsan por el lado con la franja roja.
+  - El gas no puede moverse hacia atrás a través de las bombas (aunque si estás usando una bomba únicamente para eso, deberías usar la [textlink="compuerta pasiva" link="PassiveGate"] en su lugar).
+  - Las bombas no pueden mover gases hacia tuberías con presiones o volúmenes que superen su [color=#a4885c]límite[/color]. Esto hace que queden [color=red]bloqueadas[/color].
 
-  Pumps will show a colorful animation when they are doing work.
-  If they have no gas to pump or they are blocked, they will show a blinking [color=red]red[/color] animation.
-  Pumps that are off, have no power, or are unanchored will show no animation.
+  Las bombas mostrarán una animación colorida cuando estén en funcionamiento.
+  Si no tienen gas que bombear o están bloqueadas, mostrarán una animación [color=red]roja[/color] parpadeante.
+  Las bombas que estén apagadas, sin energía o sin anclar no mostrarán ninguna animación.
 
-  ## Pressure Pumps
-  Pressure pumps are the most common type of pump.
-  They move gas based on [color=#a4885c]pressure[/color], making them useful for controlling the exact pressure of a pipe, or for drawing a vacuum.
+  ## Bombas de Presión
+  Las bombas de presión son el tipo más común de bomba.
+  Mueven gas en función de la [color=#a4885c]presión[/color], lo que las hace útiles para controlar la presión exacta de una tubería o para crear vacío.
 
   <Box>
     <GuideEntityEmbed Entity="GasPressurePump" Caption="pressure pump"/>
   </Box>
 
-  A pressure pump [color=red]cannot[/color] move gas to a pipe that has a pressure higher or equal to the pressure set on the pump.
+  Una bomba de presión [color=red]no puede[/color] mover gas hacia una tubería con una presión mayor o igual a la establecida en la bomba.
 
-  For example, a pressure pump cannot pump gas to a pipe that is currently at 500 kPa, if the pressure pump is set at 500 kPa.
+  Por ejemplo, una bomba de presión no puede bombear gas hacia una tubería que actualmente esté a 500 kPa, si la bomba de presión está ajustada a 500 kPa.
 
-  Pressure pumps can pump up to a maximum pressure of [color=orange][protodata="GasPressurePump" comp="GasPressurePump" member="MaxTargetPressure"/] kPa[/color].
-  They will become [color=red]blocked[/color] if they try to push gas into a pipe higher than this pressure.
+  Las bombas de presión pueden bombear hasta una presión máxima de [color=orange][protodata="GasPressurePump" comp="GasPressurePump" member="MaxTargetPressure"/] kPa[/color].
+  Quedarán [color=red]bloqueadas[/color] si intentan empujar gas hacia una tubería que supere esta presión.
 
-  ## Volumetric Pumps
-  Volumetric pumps are an alternative pump, moving gas based on [color=#a4885c]volume[/color].
+  ## Bombas Volumétricas
+  Las bombas volumétricas son una alternativa, que mueven gas en función del [color=#a4885c]volumen[/color].
 
   <Box>
     <GuideEntityEmbed Entity="GasVolumePump" Caption="volumetric pump"/>
   </Box>
 
-  They are extremely useful for moving large amounts of gas quickly.
-  They can typically achieve higher pressures than a pressure pump.
+  Son extremadamente útiles para mover grandes cantidades de gas rápidamente.
+  Normalmente pueden alcanzar presiones más altas que una bomba de presión.
 
-  While volumetric pumps work off of the principle of volume, they will become [color=red]blocked[/color] if they try to push gas into a pipe higher than [color=orange][protodata="GasVolumePump" comp="GasVolumePump" member="HigherThreshold"/] kPa[/color].
+  Aunque las bombas volumétricas funcionan según el principio de volumen, quedarán [color=red]bloqueadas[/color] si intentan empujar gas hacia una tubería por encima de [color=orange][protodata="GasVolumePump" comp="GasVolumePump" member="HigherThreshold"/] kPa[/color].
 </Document>

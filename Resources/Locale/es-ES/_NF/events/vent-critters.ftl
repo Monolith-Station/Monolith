@@ -1,0 +1,1 @@
+station-event-vent-creatures-nf-start-announcement = Atención. Se ha detectado una gran cantidad de formas de vida desconocidas en los sistemas de ventilación de los transbordadores. Por favor, deshágase de estas criaturas antes de que empiece a afectar a la productividad.

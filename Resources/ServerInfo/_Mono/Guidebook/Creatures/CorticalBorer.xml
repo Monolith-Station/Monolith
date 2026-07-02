@@ -1,39 +1,39 @@
 <Document>
-  # Cortical Borer
+  # Perforador Cortical
 
   <Box>
     <GuideEntityEmbed Entity="MobCorticalBorer"/>
   </Box>
-  Cortical Borers are a worm-like parasitic species that inhabit the Colossus sector. They burrow into one's brain and feed off the body. It's said they can speak to their host, often try to persuade them to do certain things for unknown reasons.
+  Los Perforadores Corticales son una especie parasitaria con forma de gusano que habita el sector Colossus. Se introducen en el cerebro y se alimentan del cuerpo del huésped. Se dice que pueden hablarle a su huésped e intentan persuadirlo para que haga ciertas cosas por razones desconocidas.
 
-  ### Inject Chemicals
+  ### Inyectar Sustancias
   <Box>
     <GuideEntityEmbed Entity="Beaker"/>
   </Box>
-  The Cortical Borer injects reagents into its host, could be useful, could be harmful...
+  El Perforador Cortical inyecta reactivos en su huésped; podrían ser útiles o perjudiciales...
 
-  ### Check Blood
+  ### Analizar Sangre
   <Box>
     <GuideEntityEmbed Entity="HandheldHealthAnalyzer"/>
   </Box>
-  The Cortical Borer can use the host's blood in order to inspect its condition.
+  El Perforador Cortical puede usar la sangre del huésped para inspeccionar su estado.
 
-  ### Take Control
+  ### Tomar el Control
   <Box>
     <GuideEntityEmbed Entity="OrganHumanBrain"/>
   </Box>
-  The Cortical Borer take's control of the host fully for 40 seconds.
+  El Perforador Cortical toma el control total del huésped durante 40 segundos.
 
-  ### Lay Egg
+  ### Poner un Huevo
   <Box>
     <GuideEntityEmbed Entity="CorticalBorerEgg"/>
   </Box>
-  While the Cortical Borer has full control of it's host's body, it can lay an egg and force its host to vomit it out.
+  Mientras el Perforador Cortical tiene el control total del cuerpo de su huésped, puede poner un huevo y obligar al huésped a vomitarlo.
 
-  ## How do I Stop them?
+  ## ¿Cómo detenerlos?
   <Box>
     <GuideEntityEmbed Entity="JugSugar"/>
     <GuideEntityEmbed Entity="ClothingHeadHelmetHardsuitBasic"/>
   </Box>
-  While these creatures can be helpful, there is still a risk in letting them into your body. Wearing a helmet will prevent them from entering your body at all. Ingesting sugar will prevent it from getting into your body and suppress the abilities of one already inside. They can be removed from your body with a surgery to the brain, but it's recommended to consume sugar first, lest they take over your body during the procedure.
+  Aunque estas criaturas pueden resultar útiles, aún existe riesgo al dejarlas entrar en tu cuerpo. Llevar un casco evitará que entren por completo. Ingerir azúcar evitará que se introduzcan y suprimirá las habilidades de uno ya en tu interior. Pueden extraerse mediante una cirugía cerebral, aunque se recomienda consumir azúcar primero para evitar que tomen el control de tu cuerpo durante el procedimiento.
 </Document>

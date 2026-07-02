@@ -23,7 +23,7 @@ public sealed partial class DockObject : PanelContainer
     {
         var dockLabel = new Label()
         {
-            Text = "external airlock",
+            Text = Loc.GetString("capibara-ui-external-airlock"), // Capibara ESP
             HorizontalAlignment = HAlignment.Center,
         };
         

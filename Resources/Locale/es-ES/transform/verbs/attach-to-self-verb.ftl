@@ -1,0 +1,1 @@
+attach-to-self-verb-get-data-text = Fijar a uno mismo

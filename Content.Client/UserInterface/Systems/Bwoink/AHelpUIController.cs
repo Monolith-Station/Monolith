@@ -230,7 +230,7 @@ public sealed partial class AHelpUIController: UIController, IOnSystemChanged<Bw
         helper.ClydeWindow = _clyde.CreateWindow(new WindowCreateParameters
         {
             Maximized = false,
-            Title = "Admin Help",
+            Title = Loc.GetString("capibara-ui-admin-help-title"), // Capibara ESP
             Monitor = monitor,
             Width = 900,
             Height = 500

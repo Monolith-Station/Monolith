@@ -1,89 +1,89 @@
 <Document>
-  # JUDICIARY-CLASS E.R.V
+  # VEI CLASE JUDICIARY
   <Box>
   <GuideEntityEmbed Entity="MercenaryTechFab"/>
   <GuideEntityEmbed Entity="WeaponTurretL85Autocannon"/>
   <GuideEntityEmbed Entity="ResearchAndDevelopmentServer"/>
   <GuideEntityEmbed Entity="MachineArtifactAnalyzer"/>
   </Box>
-    [color=#a4885c]Ship Size:[/color] Medium
+    [color=#a4885c]Tamaño de la nave:[/color] Mediano
 
-  [color=#a4885c]Recommended Crew:[/color] 1-3
+  [color=#a4885c]Tripulación recomendada:[/color] 1-3
 
-  [color=#a4885c]Power Gen Type:[/color] Antimatter Engine (AME)
+  [color=#a4885c]Tipo de generación de energía:[/color] Motor de Antimateria (AME)
 
-  [color=#a4885c]Expeditions:[/color] All
+  [color=#a4885c]Expediciones:[/color] Todas
 
-  [color=#a4885c]IFF Console:[/color] None
+  [color=#a4885c]Consola IFF:[/color] Ninguna
 
-  "Judiciary-class Expeditionary Research Vessels are refitted Research hulls from a past era of galactic civil war. They are armed and armored, but are not the best choice for ship-to-ship combat. They instead excel with their manufacturing capability and personnel armament."
+  "Los Vehículos de Exploración e Investigación clase Judiciary son cascos de investigación reconvertidos de una era pasada de guerra civil galáctica. Están armados y acorazados, pero no son la mejor opción para el combate nave a nave. En cambio, destacan por su capacidad de fabricación y el armamento de su personal."
 
-  # PREFLIGHT CHECKLIST
+  # LISTA DE VERIFICACIÓN PREVIA AL VUELO
 
-  ## 1. Power supply
+  ## 1. Suministro de energía
 
-  ## 1.1. Battery units
+  ## 1.1. Unidades de batería
   <Box>
     <GuideEntityEmbed Entity="SMESAdvanced"/>
     <GuideEntityEmbed Entity="SubstationWallBasic"/>
     <GuideEntityEmbed Entity="APCBasic"/>
   </Box>
 
-  - Check that the Antimatter Engine (AME) generator is functional (View below.)
-  - Check that the SMES unit is anchored to the floor.
-  - Check that the substation unit is charging.
-  - Check that the Engineering/Research APC unit's Main Breaker is toggled on.
-  - Check that the Server Room/Atmos APC unit's Main Breaker is toggled on.
-  - Check that the Bridge APC unit's Main Breaker is toggled on.
+  - Verifica que el generador del Motor de Antimateria (AME) esté en funcionamiento (ver más abajo).
+  - Verifica que la unidad SMES esté anclada al suelo.
+  - Verifica que la subestación esté cargando.
+  - Verifica que el disyuntor principal de la unidad APC de Ingeniería/Investigación esté activado.
+  - Verifica que el disyuntor principal de la unidad APC de la Sala de Servidores/Atmosféricos esté activado.
+  - Verifica que el disyuntor principal de la unidad APC del Puente esté activado.
 
-  ## 1.2. Antimatter Engine (AME) reactor unit.
+  ## 1.2. Unidad reactora del Motor de Antimateria (AME).
   <Box>
     <GuideEntityEmbed Entity="AmeController"/>
     <GuideEntityEmbed Entity="AmeJar"/>
   </Box>
 
-  - Check that the AME control device is anchored to the floor and connected to a 3x3 containment shielding structure.
-  - Check that the AME control device is connected to the cable terminal of your SMES via HV.
-  - Check the fuel remaining of the generator unit.
-  - Enable Injection.
-  (Note: AMEs automatically generate power equivalent to demand.)
+  - Verifica que el dispositivo de control del AME esté anclado al suelo y conectado a una estructura de blindaje de contención 3x3.
+  - Verifica que el dispositivo de control del AME esté conectado al terminal de cable de tu SMES mediante HV.
+  - Verifica el combustible restante de la unidad generadora.
+  - Activa la inyección.
+  (Nota: Los AME generan automáticamente energía equivalente a la demanda.)
 
-  ## 2. Atmospherics
+  ## 2. Atmosféricos
 
-  ## 2.1. Distribution Loop
+  ## 2.1. Bucle de distribución
   <Box>
     <GuideEntityEmbed Entity="AirCanister"/>
     <GuideEntityEmbed Entity="GasPressurePump"/>
     <GuideEntityEmbed Entity="Catwalk"/>
   </Box>
 
-  - Check that both air canisters are anchored to their respective connector ports.
-  - Check that outgoing distribution air pump is ON. (This may require removal of covering catwalk with WIRECUTTERS.)
+  - Verifica que ambas bombonas de aire estén ancladas a sus puertos de conexión respectivos.
+  - Verifica que la bomba de aire de distribución de salida esté ENCENDIDA. (Puede que sea necesario retirar la pasarela de cobertura con CORTACABLES.)
 
-  ## 2.2. Waste Loop
+  ## 2.2. Bucle de residuos
   <Box>
     <GuideEntityEmbed Entity="GasPressurePump"/>
     <GuideEntityEmbed Entity="AirAlarm"/>
   </Box>
 
-  - Enable external waste loop pump. (Located outside of server room.)
+  - Activa la bomba del bucle de residuos externo. (Ubicada fuera de la sala de servidores.)
 
-  ## 3. Other checks
+  ## 3. Otras verificaciones
   <Box>
     <GuideEntityEmbed Entity="Gyroscope"/>
     <GuideEntityEmbed Entity="GravityGeneratorMini"/>
   </Box>
 
-  - Check that both gyroscopes are anchored, powered, and enabled.
-  - Check that the mini gravity generator is anchored, powered, and enabled.
+  - Verifica que ambos giroscopios estén anclados, alimentados y habilitados.
+  - Verifica que el minigenerador de gravedad esté anclado, alimentado y habilitado.
 
-  ## Sidenotes
+  ## Notas adicionales
 
-  * - Judiciary-class vessels have an isolated server room contained within a vacuum. In order to access Telecomms, the Gunnery server, or the Research server, EVA is required.
-
-
-  * - Notably, due to refit specifications, the AME has little armor and is a significant weak spot during combat. However, it is also on the side of the vessel with the most external weapons.
+  * - Los buques clase Judiciary tienen una sala de servidores aislada contenida en el vacío. Para acceder a las Telecomunicaciones, el servidor de Artillería o el servidor de Investigación, se requiere EVA.
 
 
-  * - Totaling combined APC wattage can appraise the rough power requirements of the vessel. Base power consumption is approximately 24kw, more if running shields, fabricating, moving or firing weapons.
+  * - Cabe destacar que, debido a las especificaciones del reacondicionamiento, el AME tiene poca armadura y es un punto débil significativo durante el combate. Sin embargo, también se encuentra en el lado del buque con la mayor cantidad de armas externas.
+
+
+  * - Sumar el vataje combinado de los APC puede dar una estimación aproximada de los requisitos de energía del buque. El consumo base de energía es de aproximadamente 24 kW, más si se utilizan escudos, se fabrica, se mueve o se disparan armas.
 </Document>

@@ -1,9 +1,9 @@
 <Document>
-# Part Manipulation
-This is how you will turn felinids into humans, or vice versa if you're feeling particularly cruel.
+# Manipulación de Partes
+Así es como convertirás a los félidos en humanos, o viceversa si te sientes especialmente cruel.
 
-## Anatomy
-Normally a body has 10 main parts. Those being:
+## Anatomía
+Normalmente un cuerpo tiene 10 partes principales. Estas son:
 
 <Box>
 <GuideEntityEmbed Entity="HeadHuman" Caption="head"/>
@@ -22,17 +22,17 @@ Normally a body has 10 main parts. Those being:
 <GuideEntityEmbed Entity="LeftFootHuman" Caption="left foot"/>
 </Box>
 
-Certain species might have more or less parts, such as tails, wings, or extra limbs, but this is the rough outline of what you'll see.
-To detach a limb, you'll need to apply the Remove Part surgery on it, which will then remove it without harming the patient.
+Ciertas especies pueden tener más o menos partes, como colas, alas o extremidades adicionales, pero este es el esquema general de lo que verás.
+Para separar un miembro, necesitarás aplicar la cirugía de Eliminar Parte correspondiente, que lo extraerá sin dañar al paciente.
 
-However if you want to reattach the limb, you'll need to apply the Attach Part surgery where you want it attached.
-Hands are attached to the arms, feet are attached to the legs. And everything else is attached to the torso.
+Sin embargo, si quieres volver a unir el miembro, necesitarás aplicar la cirugía de Adjuntar Parte donde desees unirlo.
+Las manos se unen a los brazos, los pies se unen a las piernas. Y todo lo demás se une al torso.
 
 
-## Where do I get more parts?
+## ¿Dónde consigo más partes?
 
-Normally when your patients come in needing new limbs, they'll need to get a new one, as their old ones will be either missing, or damaged beyond repair.
-For this you can use the Medical Biofabricator with some Biomass. Which can manufacture Biosynthetic limbs for all species.
+Normalmente cuando tus pacientes lleguen necesitando nuevos miembros, tendrán que conseguir uno nuevo, ya que los antiguos estarán desaparecidos o dañados más allá de toda reparación.
+Para esto puedes usar el Biofabricador Médico con algo de Biomasa, que puede fabricar miembros Biosintéticos para todas las especies.
 
 <Box>
 <GuideEntityEmbed Entity="MedicalBiofabricator" Caption="medical biofabricator"/>
@@ -40,12 +40,12 @@ For this you can use the Medical Biofabricator with some Biomass. Which can manu
 <GuideEntityEmbed Entity="MaterialBiomass" Caption="biomass"/>
 </Box>
 
-By default, every Chief Medical Officer has access to a Medical Biofabricator board in their locker.
+Por defecto, todo Médico Jefe tiene acceso a un tablero de Biofabricador Médico en su casillero.
 
-## I reattached my patient's limb, but
-## it's not working?
+## Recoloqué el miembro de mi paciente, pero
+## ¿no funciona?
 
-Your patient has taken enough damage to the point that their limb's nerves were badly damaged, and they need to be healed properly before it can work again.
-For this you can try the Tend Wounds surgeries, or letting them use topicals on their wounds.
+Tu paciente ha sufrido suficiente daño como para que los nervios de su miembro hayan quedado gravemente dañados, y necesitan curar correctamente antes de que vuelva a funcionar.
+Para esto puedes probar las cirugías de Tratamiento de Heridas, o dejar que usen tópicos en sus heridas.
 
 </Document>

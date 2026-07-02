@@ -1,20 +1,20 @@
 <Document>
-# Science
-[color=#c96dbf]Science[/color], often called Research and Development, is a job made up of both generating research points to unlock new technologies as well as using said technologies to produce new items at lathes to help out the sector.
-  
-## Technologies
+# Ciencia
+La [color=#c96dbf]Ciencia[/color], a menudo llamada Investigación y Desarrollo, es un trabajo que consiste tanto en generar puntos de investigación para desbloquear nuevas tecnologías como en utilizar dichas tecnologías para producir nuevos objetos en los tornos que ayuden al sector.
+
+## Tecnologías
   <Box>
     <GuideEntityEmbed Entity="ComputerResearchAndDevelopment"/>
     <GuideEntityEmbed Entity="ResearchAndDevelopmentServer"/>
   </Box>
-The most important thing inside your department is the R&D server, which stores unlocked technologies, and the R&D computer, which allows you to unlock [color=#a4885c]technologies[/color].
+Lo más importante de tu departamento es el servidor de I+D, que almacena las tecnologías desbloqueadas, y el ordenador de I+D, que te permite desbloquear [color=#a4885c]tecnologías[/color].
 
-Each technology costs [color=#a4885c]Research Points[/color] and unlocks recipes at lathes. Some technologies will also have prerequisites you have to unlock before you can research them.
+Cada tecnología tiene un coste en [color=#a4885c]Puntos de Investigación[/color] y desbloquea recetas en los tornos. Algunas tecnologías también tendrán requisitos previos que deberás desbloquear antes de poder investigarlas.
 
-[textlink="Click here to see a list of technologies." link="Technologies"].
+[textlink="Haz clic aquí para ver la lista de tecnologías." link="Technologies"].
 
-## Disciplines
-Technologies are spread over 4 different Disciplines:
+## Disciplinas
+Las tecnologías están distribuidas en 4 Disciplinas diferentes:
   <Box>
     <GuideEntityEmbed Entity="Wrench" Caption="Industrial"/>
     <GuideEntityEmbed Entity="WeaponTetherGun" Caption="Experimental"/>
@@ -22,14 +22,14 @@ Technologies are spread over 4 different Disciplines:
     <GuideEntityEmbed Entity="WeaponXrayCannon" Caption="Arsenal"/>
   </Box>
 
-<GuideEntityEmbed Entity="ComputerResearchAndDevelopment"/> Use your nearest R&D console to take note of which kind of research is locked behind each Discipline tree.
+<GuideEntityEmbed Entity="ComputerResearchAndDevelopment"/> Utiliza la consola de I+D más cercana para consultar qué tipo de investigación está bloqueada detrás de cada árbol de Disciplinas.
 
-## Tiers
-Each Discipline tree has up to 3 tiers of technologies. At the start the only tier that is open and available for you is tier 1.
+## Niveles
+Cada árbol de Disciplinas tiene hasta 3 niveles de tecnologías. Al principio, el único nivel abierto y disponible es el nivel 1.
 
-In order to progress further, you have to research up to [color=brown]75%[/color] of the current tier to move to the next one. So in order to unlock T2 researches you need to research 75% of T1.
+Para avanzar más, debes investigar hasta el [color=brown]75%[/color] del nivel actual para pasar al siguiente. Así, para desbloquear las investigaciones de nivel 2 necesitas investigar el 75% del nivel 1.
 
-## Lathes
+## Tornos
   <Box>
     <GuideEntityEmbed Entity="Protolathe"/>
     <GuideEntityEmbed Entity="CircuitImprinter"/>
@@ -39,6 +39,6 @@ In order to progress further, you have to research up to [color=brown]75%[/color
     <GuideEntityEmbed Entity="MedicalTechFab"/>
     <GuideEntityEmbed Entity="SecurityTechFab"/>
   </Box>
-At a lathe, you can choose a server to allow it print whatever recipes you have unlocked. Recipes require various materials (steel, glass, plastic, gold, plasma) which can be acquired from miners or salvagers.
+En un torno, puedes elegir un servidor para permitirle imprimir las recetas que hayas desbloqueado. Las recetas requieren varios materiales (acero, vidrio, plástico, oro, plasma) que se pueden obtener de mineros o salvadores.
 
 </Document>

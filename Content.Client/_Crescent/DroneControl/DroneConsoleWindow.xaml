@@ -1,7 +1,7 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                     xmlns:ui="clr-namespace:Content.Client.Shuttles.UI"
-                    Title="drone control console"
+                    Title="{Loc capibara-ui-drone-console-title}"
                     SetSize="1000 600"
                     MinSize="800 500">
     <GridContainer Columns="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -11,14 +11,14 @@
                       HorizontalExpand="False"
                       Margin="5">
             <controls:StripeBack>
-                <Label Text="Linked Drones" FontColorOverride="LightGray" Align="Center"/>
+                <Label Text="{Loc capibara-ui-drone-linked-drones}" FontColorOverride="LightGray" Align="Center"/>
             </controls:StripeBack>
             <ScrollContainer VerticalExpand="True">
                 <BoxContainer Name="DroneListContainer" Orientation="Vertical"/>
             </ScrollContainer>
 
             <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Name="SelectAllBtn" Text="Select All" Margin="2"/>
+                <Button Name="SelectAllBtn" Text="{Loc capibara-ui-drone-select-all}" Margin="2"/>
                 <Button Name="DeselectAllBtn" Text="Clear" Margin="2"/>
             </BoxContainer>
         </BoxContainer>

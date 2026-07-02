@@ -1,154 +1,154 @@
 <Document>
-  # Aberrant Flesh
+  # Carne Aberrante
 
-  Shambling masses of flesh, animated by anomalous energy. The anomaly that spawned them has long since vanished, but these creatures are resilient enough to survive on their own. Not much is known about their lifecycle or biological makeup; it is clear that they will attack and attempt to assimilate any biological life forms. They are highly aggressive, and attack anything they consider a threat - approach with caution.
-  
-  For the most part, aberrant flesh monsters use brute force and numerical advantage to eliminate threats. However, some of them have evolved to attack at range.
-  
-  Can be butchered for meat. Edible if you can keep it down.
-  
+  Masas de carne tambaleante, animadas por energía anómala. La anomalía que las engendró desapareció hace tiempo, pero estas criaturas son lo suficientemente resistentes como para sobrevivir por su cuenta. No se sabe mucho sobre su ciclo de vida o composición biológica; está claro que atacarán e intentarán asimilar cualquier forma de vida biológica. Son muy agresivas y atacan cualquier cosa que consideren una amenaza — acércate con precaución.
+
+  En su mayor parte, los monstruos de carne aberrante usan la fuerza bruta y la ventaja numérica para eliminar amenazas. Sin embargo, algunos han evolucionado para atacar a distancia.
+
+  Se pueden descuartizar para obtener carne. Comestible si logras retenerla.
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # Known Variants
+
+  # Variantes Conocidas
   # "Jared"
-  
-  "Jareds" are mindless meat shields who run at threats without any concern for their survival. They seem to be more fragile than the average human.
-  
+
+  Los "Jared" son escudos de carne sin mente que se lanzan hacia las amenazas sin preocuparse por su supervivencia. Parecen ser más frágiles que el humano promedio.
+
   <Box>
   <GuideEntityEmbed Entity="MobFleshJaredExpeditions"/>
   <GuideEntityEmbed Entity="MobFleshJaredOldExpeditions"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 50 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s[bold][color=#a4885c]*[/color][/bold]
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 8 [color=red]Blunt[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
-  
-  [bold][color=#a4885c]*[/color][/bold] - [italic]an average human can run at 4.5 m/s and walk at 2.5 m/s.[/italic]
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 50 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 4.5 m/s[bold][color=#a4885c]*[/color][/bold]
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 8 [color=red]Contusión[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] ninguna
+
+  [bold][color=#a4885c]*[/color][/bold] - [italic]un humano promedio puede correr a 4.5 m/s y caminar a 2.5 m/s.[/italic]
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
+
   # "Golem"
-  
-  "Golems" are mindless brutes, similar to "Jareds" but with a heavier build. This makes them slightly more resilient, but less agile.
-  
+
+  Los "Golem" son brutos sin mente, similares a los "Jared" pero con una constitución más robusta. Esto los hace algo más resistentes, pero menos ágiles.
+
   <Box>
   <GuideEntityEmbed Entity="MobFleshGolemExpeditions"/>
   <GuideEntityEmbed Entity="MobFleshGolemAltExpeditions"/>
   <GuideEntityEmbed Entity="MobFleshGolemOldExpeditions"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 70 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 8 [color=red]Blunt[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 70 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 4.5 m/s
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 8 [color=red]Contusión[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] ninguna
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
+
   # "Clamp"
-  
-  "Clamps" are flying variants that have mutated to shoot biological projectiles, such as [color=#a4885c]bone spikes[/color] containing naturally secreted [color=lime]gastro toxins[/color] or small living organisms known simply as [color=#a4885c]"maws"[/color].
-  
-  [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
-  
+
+  Los "Clamp" son variantes voladoras que han mutado para disparar proyectiles biológicos, como [color=#a4885c]pinchos de hueso[/color] que contienen [color=lime]toxinas gástricas[/color] secretadas naturalmente, o pequeños organismos vivos conocidos simplemente como [color=#a4885c]"mandíbulas"[/color].
+
+  [color=#a4885c]Volador[/color]: la criatura levita sobre el suelo y puede superar obstáculos bajos como mesas, bastidores de máquinas o barandillas sin ser bloqueada ni ralentizada.
+
   <Box>
   <GuideEntityEmbed Entity="MobFleshClampExpeditions"/>
   <GuideEntityEmbed Entity="DartAberrantFleshHorrorSpikeGuidebook"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 40 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 6 [color=yellow]Piercing[/color], 6 [color=lime]Toxin[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Flier, Shooter: bone spike / maw
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 40 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 4.5 m/s
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 6 [color=yellow]Perforación[/color], 6 [color=lime]Toxina[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Volador, Tirador: pincho de hueso / mandíbula
+
   <GuideReagentEmbed Reagent="GastroToxin"/>
-  
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
+
   <Box>
   <GuideEntityEmbed Entity="MobFleshClampOldExpeditions"/>
   <GuideEntityEmbed Entity="MobMawExpeditionsGuidebook"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 40 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 4 [color=red]Slash[/color] (maw)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Flier, Shooter: bone spike / maw
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 40 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 4.5 m/s
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 4 [color=red]Corte[/color] (mandíbula)
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Volador, Tirador: pincho de hueso / mandíbula
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
+
   # "Maw"
-  
-  Immobile, flesh-boring creatures that are launched at victims. They'll latch on with their teeth and bite their victims until killed or shaken off.
-  
+
+  Criaturas inmóviles que perforan la carne y son lanzadas contra las víctimas. Se aferran con sus dientes y muerden a sus víctimas hasta ser eliminadas o sacudidas.
+
   <Box>
   <GuideEntityEmbed Entity="MobMawExpeditionsGuidebook"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 8 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 0 m/s
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 4 [color=red]Slash[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 8 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 0 m/s
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 4 [color=red]Corte[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] ninguna
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
+
   # "Lover"
-  
-  The "Lover" shares similarities with "Jareds" and "Golems". Its light frame makes it fragile, but capable of flight.
-  
-  [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
-  
+
+  El "Lover" comparte similitudes con los "Jared" y los "Golem". Su estructura ligera lo hace frágil, pero capaz de volar.
+
+  [color=#a4885c]Volador[/color]: la criatura levita sobre el suelo y puede superar obstáculos bajos como mesas, bastidores de máquinas o barandillas sin ser bloqueada ni ralentizada.
+
   <Box>
   <GuideEntityEmbed Entity="MobFleshLoverExpeditions"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 30 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 5 m/s
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 8 [color=red]Blunt[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Flier
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 30 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 5 m/s
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 8 [color=red]Contusión[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] Volador
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # "Partially assimilated miner"
-  
-  An unfortunate miner that was "infected" upon contact with aberrant flesh and has been slowly assimilated.
-  
+
+  # "Minero parcialmente asimilado"
+
+  Un desafortunado minero que fue "infectado" al entrar en contacto con carne aberrante y ha sido lentamente asimilado.
+
   <Box>
   <GuideEntityEmbed Entity="MobFleshAssimilatedMiner"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (crit), 140 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 8 [color=red]Blunt[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 100 (crítico), 140 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 4.5 m/s
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 8 [color=red]Contusión[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] ninguna
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
+
   # "Horror"
-  
-  Tougher and more resilient than the average aberrant flesh monster, the "Horror" possesses sharp bone protrusions and highly developed musculature, allowing it to rend the flesh of its victims and tear through armor with efficiency.
-  
+
+  Más resistente y tenaz que el monstruo de carne aberrante promedio, el "Horror" posee protuberancias óseas afiladas y una musculatura muy desarrollada, lo que le permite desgarrar la carne de sus víctimas y atravesar la armadura con eficacia.
+
   <Box>
   <GuideEntityEmbed Entity="MobHorrorExpeditions"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 200 (death)
-  - [bold][color=#a4885c]Run speed:[/color][/bold] 4.6 m/s
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 12 [color=red]Slash[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] bone spike salvo (ghost role)
-  
+  - [bold][color=#a4885c]Umbrales de salud:[/color][/bold] 200 (muerte)
+  - [bold][color=#a4885c]Velocidad de carrera:[/color][/bold] 4.6 m/s
+  - [bold][color=#a4885c]Daño (tipo):[/color][/bold] 12 [color=red]Corte[/color]
+  - [bold][color=#a4885c]Resistencias al daño:[/color][/bold] ninguna
+  - [bold][color=#a4885c]Habilidades especiales:[/color][/bold] salva de pinchos de hueso (rol fantasma)
+
   [bold][color=#a4885c]________________________________________________________________________[/color]
-  
-  # Mission Objectives
-  ## Elimination
+
+  # Objetivos de Misión
+  ## Eliminación
   <Box>
   <GuideEntityEmbed Entity="MobHorrorExpeditions"/>
   </Box>
-  Eliminate a large and dangerous creature - an [color=#a4885c]aberrant flesh horror[/color] within given time constraints to earn a monetary reward.
-  
-  ## Destruction
+  Elimina una criatura grande y peligrosa — un [color=#a4885c]horror de carne aberrante[/color] dentro del tiempo establecido para obtener una recompensa monetaria.
+
+  ## Destrucción
   <Box>
   <GuideEntityEmbed Entity="AberrantFleshDigestiveSack"/>
   </Box>
-  Destroy a certain number of [color=#a4885c]assimilation sacks[/color] within given time constraints to earn a monetary reward. [bold][color=#a4885c]Note[/color][/bold]: each assimilation sack may spawn a few newborn aberrant flesh monsters periodically. Newborns are less robust than their fully grown counterparts.
+  Destruye un número determinado de [color=#a4885c]sacos de asimilación[/color] dentro del tiempo establecido para obtener una recompensa monetaria. [bold][color=#a4885c]Nota[/color][/bold]: cada saco de asimilación puede engendrar periódicamente algunas crías de monstruos de carne aberrante. Las crías son menos robustas que sus contrapartes adultas.
 </Document>

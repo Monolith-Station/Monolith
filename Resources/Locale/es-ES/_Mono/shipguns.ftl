@@ -1,0 +1,1 @@
+ship-gun-class-component-examine-detail = El cañón usa [color=yellow]{$processingPower}[/color] de potencia de procesamiento.

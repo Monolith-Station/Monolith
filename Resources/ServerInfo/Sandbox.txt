@@ -1,16 +1,16 @@
 
-[color=#ffffff]Entity spawn panel options[/color]
-[color=#a4885c]Default[/color] spawns small entities like mugs without aligning them to anything, while aligning block entities like walls to the grid.
-[color=#a4885c]PlaceFree[/color] spawns all entities without aligning them.
-[color=#a4885c]PlaceNearby[/color] limits the spawn radius to around 2 tiles.
-[color=#a4885c]SnapgridCenter[/color] aligns the entity to the middle of the tile.
-[color=#a4885c]SnapgridBorder[/color] aligns the entity to the border of the tile.
+[color=#ffffff]Opciones del panel de generación de entidades[/color]
+[color=#a4885c]Default[/color] genera entidades pequeñas como tazas sin alinearlas a nada, mientras que alinea entidades de bloque como paredes a la cuadrícula.
+[color=#a4885c]PlaceFree[/color] genera todas las entidades sin alinearlas.
+[color=#a4885c]PlaceNearby[/color] limita el radio de generación a unas 2 baldosas.
+[color=#a4885c]SnapgridCenter[/color] alinea la entidad al centro de la baldosa.
+[color=#a4885c]SnapgridBorder[/color] alinea la entidad al borde de la baldosa.
 
-[color=#ffffff]Grid aligned options[/color]
-[color=#a4885c]AlignSimilar[/color] snaps the entity to similar entities. Currently broken.
-[color=#a4885c]AlignTileAny[/color] aligns the entity to the grid.
-[color=#a4885c]AlignTileEmpty[/color] target tile must be empty
-[color=#a4885c]AlignTileNonDense[/color] no colliders allowed in the target tile.
-[color=#a4885c]AlignTileDense[/color] colliders must be in the target tile.
-[color=#a4885c]AlignWall[/color] snaps to vertical halftiles.
-[color=#a4885c]AlignWallProper[/color] snaps the entity to the middle of the tile edges
+[color=#ffffff]Opciones de alineación a cuadrícula[/color]
+[color=#a4885c]AlignSimilar[/color] ajusta la entidad a entidades similares. Actualmente está roto.
+[color=#a4885c]AlignTileAny[/color] alinea la entidad a la cuadrícula.
+[color=#a4885c]AlignTileEmpty[/color] la baldosa objetivo debe estar vacía
+[color=#a4885c]AlignTileNonDense[/color] no se permiten colisionadores en la baldosa objetivo.
+[color=#a4885c]AlignTileDense[/color] debe haber colisionadores en la baldosa objetivo.
+[color=#a4885c]AlignWall[/color] ajusta a medias-baldosas verticales.
+[color=#a4885c]AlignWallProper[/color] ajusta la entidad al centro de los bordes de la baldosa

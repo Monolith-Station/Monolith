@@ -1,0 +1,1 @@
+hand-placeholder-name = Ranura de módulo para

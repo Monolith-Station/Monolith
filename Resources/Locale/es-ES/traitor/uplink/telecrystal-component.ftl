@@ -1,0 +1,1 @@
+telecrystal-component-sucs-inserted = Introduces {THE($source)} en {THE($target)}.

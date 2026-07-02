@@ -1,0 +1,14 @@
+surgery-verb-text = Iniciar cirugía
+surgery-verb-message = Comenzar cirugía en esta entidad.
+surgery-ui-window-title = Cirugía
+surgery-ui-window-require = Requiere
+surgery-ui-window-parts = < Partes
+surgery-ui-window-surgeries = < Cirugías
+surgery-ui-window-steps = < Pasos
+surgery-ui-window-steps-error-skills = No tienes habilidades quirúrgicas.
+surgery-ui-window-steps-error-table = Necesitas una mesa de operaciones para esto.
+surgery-ui-window-steps-error-armor = ¡Necesitas quitarles la armadura!
+surgery-ui-window-steps-error-tools = Herramientas faltantes.
+surgery-error-laying = ¡Necesitan estar acostados!
+surgery-error-self-surgery = ¡No puedes realizarte una cirugía a ti mismo!
+surgery-part-damage-evaded = ¡{$user} lo esquivó por poco!
