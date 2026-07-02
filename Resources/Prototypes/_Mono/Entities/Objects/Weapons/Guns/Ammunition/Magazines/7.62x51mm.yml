@@ -262,3 +262,60 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+
+# Minigun Canister
+
+- type: entity
+  id: BaseMagazineMinigunUSSP
+  name: "rotating ammo drum (7.62x51mm)"
+  parent: [ BaseItem, RecyclableItemSteelMedium ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MagazineMinigunUSSP
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - Cartridge762x51mmFMJ
+    proto: Cartridge762x51mmFMJ
+    capacity: 300
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
+  - type: Item
+    size: Normal
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/Minigun/minigun_canister.rsi
+    color: "#b09a8a"
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+    zeroNoAmmo: true
+  - type: Appearance
+
+- type: entity
+  id: MagazineMinigunUSSP
+  name: "rotating ammo drum (7.62x51mm FMJ)"
+  parent: BaseMagazineMinigunUSSP
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge762x51mmFMJ
+
+- type: entity
+  id: MagazineMinigunUSSPEmpty
+  name: "rotating ammo drum (7.62x51mm any)"
+  suffix: empty
+  parent: BaseMagazineMinigunUSSP
+  components:
+  - type: BallisticAmmoProvider
+    proto: null

@@ -456,3 +456,76 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
+
+#USSP Minigun
+
+  - type: entity
+  name: "GSh-7.62 rotary machine gun"
+  parent: [BaseItem, BaseGunWieldable]
+  id: WeaponMinigunUSSP
+  description: "An enormous multi-barreled rotating gatling gun. A gas-operated rotary machine gun whose enormous volume of fire and ammunition capacity allows the suppression of large concentrations of enemy forces. Loads from a backpack fed ammo drum."
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Minigun/minigun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Minigun/minigun_inhands_32x.rsi
+    shape:
+    - 0,0,4,3
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: WieldDelay
+    baseDelay: 2
+    modifiedDelay: 2
+    preventFiring: true
+  - type: Gun
+    fireRate: 10
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    minAngle: 18
+    maxAngle: 60
+    angleIncrease: 5
+    angleDecay: 18
+    projectileSpeed: 55
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: GunWieldBonus
+    minAngle: -15
+    maxAngle: -30
+  - type: GunSpreadModifier
+    spread: 2
+  - type: AmmoCounter
+  - type: StaticPrice
+    price: 5000
+  - type: ItemTax
+    taxAccounts:
+      nfsd: 0.2
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Minigun/minigun_inhands_32x.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: ClothingSlotAmmoProvider
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+      - MinigunUSSPBackpack
+  - type: Tag
+    tags:
+    - WeaponMinigunUSSP
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.5
+    sprintModifier: 0.4
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/lmg_mouse.rsi
+      state: all

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Ported from cmss13 (https://github.com/cmss13-devs/cmss13). In-hand sprites for the 'Ol' Painless' minigun, originally drawn for the UPP 'GSh-7.62 rotary machine gun'. equipped-BACKPACK and equipped-SUITSTORAGE fall back to the in-hand sprite because cmss13 ships no separate back/suit-storage art for this weapon.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "equipped-SUITSTORAGE",
+      "directions": 4
+    }
+  ]
+}
