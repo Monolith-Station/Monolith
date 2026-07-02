@@ -47,6 +47,11 @@ mode = 1   # 0=optional 1=required 2=disabled. Public server -> required.
 # (restart: unless-stopped) brings it back up.
 uptime_restart_minutes = 480
 
+[update]
+# How long the server must stay EMPTY before the pending (uptime/update) restart
+# actually fires. Any player connecting during this window aborts the restart.
+restart_delay = 600
+
 [database]
 engine = "sqlite"
 sqlite_dbpath = "preferences.db"   # relative to --data-dir (/data) -> /data/preferences.db
