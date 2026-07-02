@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/02/2026 12:57:52
-  entityCount: 267
+  time: 07/02/2026 13:37:18
+  entityCount: 269
 maps: []
 grids:
 - 1
@@ -394,6 +394,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -0.5,-7.5
+      parent: 1
+- proto: AtmosDeviceFanDirectional
+  entities:
+  - uid: 268
+    components:
+    - type: Transform
+      pos: 0.5,-12.5
       parent: 1
 - proto: CableApcExtension
   entities:
@@ -927,9 +934,7 @@ entities:
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery
-      startingCharge: 5
-    - type: ApcPowerReceiverBattery
-      enabled: True
+      startingCharge: 0
 - proto: ComputerWallmountStationRecords
   entities:
   - uid: 265
@@ -1396,7 +1401,7 @@ entities:
         If all missiles hit a single spot, they can go trough 5 or 6 plastitanium layers, keep that in mind!
 
 
-        Works best in groups, and unshielded targets 
+        Works best in groups, and againtst unshielded targets 
 
         (Shields are your bane as they tank missiles really well)
 
@@ -1540,6 +1545,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -0.5,-4.5
+      parent: 1
+  - uid: 269
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,-6.5
       parent: 1
 - proto: SignalTimerItem
   entities:
