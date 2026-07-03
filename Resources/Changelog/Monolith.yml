@@ -22122,3 +22122,14 @@ Entries:
   id: 2443
   time: '2026-07-03T18:10:31.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4183
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added missile warning SFX to shuttle consoles, gave TSF & PDV/USSP
+        consoles with unique RWRs
+    - type: Tweak
+      message: Gunnery consoles nolonger have their missile warning SFX now
+  id: 2444
+  time: '2026-07-03T18:37:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4191
