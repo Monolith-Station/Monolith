@@ -5583,8 +5583,6 @@ entities:
     - type: Transform
       pos: -1.5,10.5
       parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 1
 - proto: LightBulbCrystalRed
   entities:
   - uid: 1022

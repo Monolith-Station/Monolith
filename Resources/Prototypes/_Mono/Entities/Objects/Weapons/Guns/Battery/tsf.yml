@@ -1,6 +1,6 @@
 
 - type: entity
-  name: "'Calico' DEW-20-C energy rifle"
+  name: "QBH-20-C Calico energy rifle"
   parent: [BaseWeaponRifle, BaseGunWieldable, BaseC2ContrabandUnredeemable]
   id: WeaponDEWCalico
   description: A cartridge-fed directed energy weapon used by Trans-Solarian Federation soldiers. Due to it using chemical-laser cartridges, it is unaffected by EMP, making it a favorite among the marines able to requisition one.
@@ -75,10 +75,10 @@
 
 
 - type: entity
-  name: "'Smilodon' DEW-50-C automatic energy weapon"
+  name: "QJH-50-C Smilodon automatic energy weapon"
   parent: [BaseWeaponRifle, BaseGunWieldable, BaseC2ContrabandUnredeemable]
   id: WeaponDEWSmilodon
-  description: Modified from the original "Calico" DEW, the "Smilodon" carries the philosophy of its predecessor into the world of LMGs - Capable of using battery boxes *and* chemical magazines while also having secondary storage for on-the-go marines, the Smilodon's only failures are the downsides of laser-based weapons and its bulky frame. Continued firing calibrates spread.
+  description: Modified from the original Calico DEW, the Smilodon carries the philosophy of its predecessor into the world of LMGs - Capable of using battery boxes *and* chemical magazines while also having secondary storage for on-the-go marines, the Smilodon's only failures are the downsides of laser-based weapons and its bulky frame. Continued firing calibrates spread.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/LMGs/smilodon.rsi

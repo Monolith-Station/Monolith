@@ -22038,3 +22038,98 @@ Entries:
   id: 2433
   time: '2026-07-01T19:08:28.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4167
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Longbow is 140mm again.
+    - type: Tweak
+      message: >-
+        Swapped Longbows on Serkesh, Scallywag, and Comet for Cyrexas. Likely
+        temporary.
+  id: 2434
+  time: '2026-07-02T09:48:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3901
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        Fixed laser shipweapons (such as Phalanx) not being able to shoot down
+        projectiles.
+  id: 2435
+  time: '2026-07-02T13:25:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4180
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Ship previewing.
+  id: 2436
+  time: '2026-07-02T21:30:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4185
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Mining ship drills, available at Mass Excavation research.
+    - type: Remove
+      message: Ore crabs.
+  id: 2437
+  time: '2026-07-03T11:10:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4189
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        TSF weapon designations aren't Space America anymore. Also gave the
+        MR-8C & ICWS proper names.
+    - type: Fix
+      message: Fixed MR-8C/QBU-243 optic slot not working.
+  id: 2438
+  time: '2026-07-03T11:23:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4184
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixed a buggy gyroscope on the Wolfsnake.
+  id: 2439
+  time: '2026-07-03T11:23:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4173
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Serzhant spawnpoint added to Camelot.
+  id: 2440
+  time: '2026-07-03T11:26:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4178
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Hyperwar gamemode. Admin-only.
+  id: 2441
+  time: '2026-07-03T17:36:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4192
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: 'buffed 250mm EMPHE missiles to be faster, more agile '
+  id: 2442
+  time: '2026-07-03T18:01:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4190
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: >-
+        Added a new PDV ship: Metis a missile corvette armed with 2 vanquisher
+        missile swarm racks
+  id: 2443
+  time: '2026-07-03T18:10:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4183
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added missile warning SFX to shuttle consoles, gave TSF & PDV/USSP
+        consoles with unique RWRs
+    - type: Tweak
+      message: Gunnery consoles nolonger have their missile warning SFX now
+  id: 2444
+  time: '2026-07-03T18:37:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4191

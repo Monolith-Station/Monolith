@@ -274,6 +274,9 @@ uplink-pdv-t1-fenrir-voucher-desc = A small card that contains the data for the 
 uplink-pdv-t1-kalisto-voucher-name = PDV Kalisto LPC [T1]
 uplink-pdv-t1-kalisto-voucher-desc = A small card that contains the data for the procurement of a Kalisto-class artillery corvette from the flagship's reserves.
 
+uplink-pdv-t1-metis-voucher-name = PDV Metis LPC [T1]
+uplink-pdv-t1-metis-voucher-desc = A small card that contains the data for the procurement of a Metis-class missile corvette from the flagship's reserves.
+
 uplink-pdv-t1-scorpion-voucher-name = PDV Scorpion LPC [T1]
 uplink-pdv-t1-scorpion-voucher-desc = A small card that contains the data for the procurement of a Scorpion-class escort from the flagship's reserves.
 

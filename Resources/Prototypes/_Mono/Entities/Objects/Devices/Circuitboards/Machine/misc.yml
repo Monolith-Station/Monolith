@@ -54,3 +54,16 @@
     stackRequirements:
       Glass: 5
       Cable: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ShipDrillMachineCircuitboard
+  name: ship drill machine board
+  components:
+  - type: MachineBoard
+    prototype: MachineShipDrill
+    requirements:
+      Capacitor: 3
+      Manipulator: 1
+    stackRequirements:
+      Steel: 7
