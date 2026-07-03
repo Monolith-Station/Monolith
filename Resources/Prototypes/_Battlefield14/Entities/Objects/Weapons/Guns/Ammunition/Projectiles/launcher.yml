@@ -98,7 +98,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 150
+        Structural: 1000
         Blunt: 250
   - type: ExplodeOnTrigger
   - type: HeFragProjectile
@@ -186,7 +186,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 400
+        Structural: 1500
         Blunt: 250
   - type: ExplodeOnTrigger
   - type: Explosive
@@ -286,19 +286,25 @@
   - type: Projectile
     damage:
       types:
-        Structural: 120
+        Structural: 1500
         Blunt: 120
         Slash: 120
-    deleteOnCollide: true
+    deleteOnCollide: false
   - type: ArmorPiercing
     piercingThickness: 5
+  - type: Heat
+    explosionDelay: 0.2
+    fragmentationDelay: 0.2
+    fragmentationCount: 30
+    fragmentationPrototype: Bullet84mmHEATFragment
   - type: StaminaDamageOnCollide
     damage: 200 # It's a fucking rocket
+#  - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: DemolitionCharge
-    totalIntensity: 200
+    totalIntensity: 100
     intensitySlope: 5
-    maxIntensity: 50
+    maxIntensity: 9
     maxTileBreak: 1
 
 - type: entity
@@ -340,7 +346,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 100
+        Structural: 1000
         Blunt: 120
         Slash: 120
   - type: ExplodeOnTrigger
@@ -500,6 +506,7 @@
   - type: Projectile
     damage:
       types:
+        Structural: 500
         Blunt: 200
   - type: HeFragProjectile
     fillPrototype: BulletRPG7OG7VFragment
@@ -646,6 +653,7 @@
   - type: Projectile
     damage:
       types:
+        Structural: 1000
         Blunt: 200
   - type: HeFragProjectile
     fillPrototype: BulletGrenadeF1Fragment
