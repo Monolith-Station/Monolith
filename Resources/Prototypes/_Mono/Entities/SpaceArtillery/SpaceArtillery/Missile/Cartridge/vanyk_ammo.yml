@@ -65,6 +65,19 @@
   - type: Appearance
 
 - type: entity
+  id: VanquisherMagazineInfinite
+  parent: VanquisherMagazine
+  components:
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: true
+    proto: VanykCartridgeUnguided
+    capacity: 288
+    mayTransfer: true
+    whitelist:
+      tags:
+      - VanykCartridgeUnguided
+
+- type: entity
   id: VanykCartridge
   name: 150mm HEAT missile
   description: An individual ASM-150 HEAT missile used in the Vanyk.

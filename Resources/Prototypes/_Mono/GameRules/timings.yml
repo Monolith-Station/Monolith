@@ -24,6 +24,15 @@
         volume: -2
 
 - type: entity
+  id: PortstrikeAnnounceRuleMinute90
+  parent: PortstrikeAnnounceRuleHour4
+  components:
+  - type: GameRule
+    delay:
+      min: 5200
+      max: 5200
+
+- type: entity
   id: PortstrikeAnnounceRuleHour1
   parent: PortstrikeAnnounceRuleHour4
   components:
