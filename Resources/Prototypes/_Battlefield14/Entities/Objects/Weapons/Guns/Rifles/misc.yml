@@ -5,7 +5,7 @@
   name: M-30 MR-C
   parent: BaseWeaponRifle
   id: WeaponRifleUSM30MRC
-  description: Cal 6.8x52, model 30, modular rifle caseless. The culmination of decades of research into caseless ammunition, the first practical caseless rifle.
+  description: Cal 4.73x33, model 30, modular rifle caseless. The culmination of decades of research into caseless ammunition, the first practical caseless rifle.
   components:
   - type: Item
     size: Huge
@@ -46,21 +46,21 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: Magazine68x52mmCaseless # NOT BF14
+        startingItem: MagazineRifleM30MRC
         insertSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagIn/m16_magin.ogg
         ejectSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagOut/skm_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - Magazine68x52mmCaseless # NOT BF14
+            - MagazineRifleM30MRC
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: Cartridge68x52mmCaseless
+        startingItem: BF_CartridgeRifle473x33
         priority: 1
         whitelist:
           tags:
-            - Cartridge68x52mmCaseless # NOT BF14
+            - BF_CartridgeRifle473x33
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -121,21 +121,21 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: Magazine68x52mmCaselessBig # NOT BF14
+        startingItem: MagazineRifleM42A5
         insertSound: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_magin.ogg
         ejectSound: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - Magazine68x52mmCaseless # NOT BF14
+            - MagazineRifleM41A
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: Cartridge68x52mmCaseless # NOT BF14
+        startingItem: BF_CartridgeRifle473x33
         priority: 1
         whitelist:
           tags:
-            - Cartridge68x52mmCaseless # NOT BF14
+            - BF_CartridgeRifle473x33
   - type: MagazineVisuals
     magState: mag
     steps: 3

@@ -2,7 +2,7 @@
 
 # Rifle
 
-# US
+#region US
 - type: entity
   name: box of STANAG magazines
   parent: BoxMagazine
@@ -141,7 +141,21 @@
       - id: MagazineRifleSCARH
         amount: 8
 
-# DE
+- type: entity
+  name: box of M-30 MR-C magazines
+  parent: BoxMagazine
+  id: BoxMagazineM30
+  description: A box full of 4.73x33mm M-30 MR-C magazines.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,3
+  - type: StorageFill
+    contents:
+      - id: MagazineRifleM30MRC
+        amount: 8
+
+#region DE
 
 - type: entity
   name: box of MP7 magazines
@@ -157,7 +171,7 @@
       - id: MagazineSubmachinegunMP7
         amount: 8
 
-# RU
+#region RU
 - type: entity
   name: box of AK-74 magazines
   parent: BoxMagazine
@@ -307,7 +321,7 @@
       - id: MagazinePistolMP443
         amount: 8
 
-## UNSC
+#region UNSC
 
 - type: entity
   name: box of MA5B magazines

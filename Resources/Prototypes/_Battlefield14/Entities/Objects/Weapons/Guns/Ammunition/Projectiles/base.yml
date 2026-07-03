@@ -33,6 +33,7 @@
     damage:
       types:
         Piercing: 20
+    armorPenetration: 0.3
   - type: StaminaDamageOnCollide
     damage: 4 # 25 hits to stun lol
   - type: ArmorPiercing

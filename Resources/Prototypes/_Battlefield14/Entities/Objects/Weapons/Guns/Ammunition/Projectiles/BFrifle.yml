@@ -166,7 +166,7 @@
 
 - type: entity
   id: BulletRifleBF145x114
-  name: bullet (1.45x114mm)
+  name: bullet (14.5x114mm)
   parent: BaseBulletRifle
   categories: [ HideSpawnMenu ]
   components:
@@ -181,3 +181,15 @@
     damage: 45 # ~3 hits to stun
   - type: ArmorPiercing
     piercingThickness: 5
+
+- type: entity
+  id: BulletRifleBF473x33
+  name: bullet (4.73x33)
+  parent: BaseBulletIntermediate
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 22
+    armorPenetration: 0.25

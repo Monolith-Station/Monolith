@@ -1,0 +1,47 @@
+- type: entity
+  id: MagazineRifleM30MRC
+  name: "M-30 MR-C magazine (4.73x33mm caseless)"
+  parent: BaseMagazineRifle
+  components:
+  - type: Tag
+    tags:
+      - MagazineRifleM30MRC
+      - Magazine
+  - type: BallisticAmmoProvider
+    proto: BF_CartridgeRifle473x33
+    mayTransfer: true
+    whitelist:
+      tags:
+        - BF_CartridgeRifle473x33
+    capacity: 30
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Rifle/M30.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineRifleM42A5
+  name: "M42A5 magazine (4.73x33mm caseless)"
+  parent: MagazineRifleM30MRC
+  components:
+  - type: Tag
+    tags:
+      - MagazineRifleM41A
+      - Magazine
+  - type: BallisticAmmoProvider
+    proto: BF_CartridgeRifle473x33
+    capacity: 99
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Rifle/M41A.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 8
+    zeroVisible: false

@@ -129,8 +129,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: AmmoBox68x52mmCaseless
-      - id: Magazine68x52mmCaseless
+      - id: MagazineBox473x33
+      - id: MagazineRifleM30MRC
         amount: 7
 
 - type: entity
@@ -140,8 +140,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: AmmoBox68x52mmCaseless
-      - id: Magazine68x52mmCaseless
+      - id: MagazineBox473x33
+      - id: MagazineRifleM30MRC
         amount: 7
 
 - type: entity
