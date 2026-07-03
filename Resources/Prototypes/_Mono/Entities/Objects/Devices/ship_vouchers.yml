@@ -535,6 +535,31 @@
 
 - type: entity
   parent: BaseShipLPCRenewable
+  id: ShipVoucherMetis
+  name: PDV Metis LPC [T1]
+  description: A small card that contains the data for the procurement of a Metis-class missile corvette from the flagship's reserves.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#1eff00"
+    - state: screen3
+      color: "#1eff00"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 7200 # one hour
+    consoleType: BlackMarket
+    companyName: PDV
+    vessels:
+    - Metis
+  - type: StaticPrice
+    vendPrice: 20000
+
+- type: entity
+  parent: BaseShipLPCRenewable
   id: ShipVoucherScorpion
   name: PDV Scorpion LPC [T1]
   description: A small card that contains the data for the procurement of a Scorpion-class escort from the flagship's reserves.
@@ -634,6 +659,7 @@
     - Fenrir
     - Garm
     - Kalisto
+    - Metis
 # end T1
 
 # start T2
