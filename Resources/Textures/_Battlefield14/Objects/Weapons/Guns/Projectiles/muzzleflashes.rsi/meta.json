@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "license": "Custom",
+  "copyright": "Made by the WillyBillyGilly and JoeHammad for the BF14 Project. All rights reserved. Do not modify, publish, use, relicense, or edit without permission from JoeHammad or Willy.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "suppressed",
+      "delays": [
+        [
+          0.05,
+          0.05,
+          0.05,
+          1.00
+        ]
+      ]
+    },
+    {
+      "name": "pistol",
+      "delays": [
+        [
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03
+        ]
+      ]
+    },
+    {
+      "name": "rifle",
+      "delays": [
+        [
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03
+        ]
+      ]
+    },
+    {
+      "name": "largerifle",
+      "delays": [
+        [
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03
+        ]
+      ]
+    },
+    {
+      "name": "shotgun",
+      "delays": [
+        [
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03
+        ]
+      ]
+    }
+  ]
+}

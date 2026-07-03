@@ -147,6 +147,7 @@
     - BF_CartridgeRifle762x54r
   - type: CartridgeAmmo
     proto: BulletRifleBF762x54mmR
+    muzzleFlash: MuzzleFlashEffectBFLargeRifle
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/7.62x54mmR.rsi
     layers:
@@ -166,6 +167,7 @@
     - BF_CartridgeRifle127x55
   - type: CartridgeAmmo
     proto: BulletRifleBF127x55
+    muzzleFlash: MuzzleFlashEffectBFLargeRifle
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/12.7x55.rsi
     layers:
@@ -185,6 +187,7 @@
     - BF_CartridgeRifle127x55
   - type: CartridgeAmmo
     proto: BulletRifleBF127x55Duplex
+    muzzleFlash: MuzzleFlashEffectBFLargeRifle
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/12.7x55.rsi
     layers:
@@ -192,6 +195,8 @@
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals
+
+# BTW other AMR cartridges are in Prototypes\_Battlefield14\Entities\BattlefieldArtillery\Artillery\Factions\Warsaw(Nato)\RU\Kinetic\Ammunition and the ru/us_magazines
 
 - type: entity
   id: BF_CartridgeRifle408CT
@@ -204,6 +209,7 @@
     - BF_CartridgeRifle408CT
   - type: CartridgeAmmo
     proto: BulletRifleBF408CT
+    muzzleFlash: MuzzleFlashEffectBFLargeRifle
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/12.7x108.rsi
     layers:
@@ -223,6 +229,7 @@
     - BF_CartridgeRifle145x114
   - type: CartridgeAmmo
     proto: BulletRifleBF145x114
+    muzzleFlash: MuzzleFlashEffectBFLargeRifle
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/12.7x108.rsi
     layers:
