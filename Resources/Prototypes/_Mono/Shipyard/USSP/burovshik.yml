@@ -1,0 +1,41 @@
+# Author Info
+# GitHub: deltarune2103
+# Discord: deltarune2103
+
+# Shuttle Notes:
+# Has NO shipguns. Your only offense is R A M M I N G.
+
+- type: vessel
+  id: Burovshik
+  parent: BaseVessel
+  name: UW Burovshik
+  description: A small mining vessel designed by UW, designed to drill into the asteroids. Or their opponents.
+  price: 32000 # appraised at ~26555
+  category: Small
+  group: Ussp
+  access: USSP
+  shuttlePath: /Maps/_Mono/Shuttles/USSP/burovshik.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Burovshik
+  mapName: 'Burovshik'
+  mapPath: /Maps/_Mono/Shuttles/USSP/burovshik.yml
+  minPlayers: 0
+  stations:
+    Burovshik:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Burovshik USSP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+           USSPSergeant: [ 0, 0 ]
+           USSPRifleman: [ 0, 0 ]
