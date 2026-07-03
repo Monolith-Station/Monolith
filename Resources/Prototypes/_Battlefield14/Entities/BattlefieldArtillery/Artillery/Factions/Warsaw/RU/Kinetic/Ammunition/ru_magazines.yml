@@ -39,7 +39,7 @@
 
 - type: entity
   id: Cartridge127mmKordN
-  name: cartridge (12.7x108mm Kord-N)
+  name: cartridge (12.7x108mm)
   parent: BaseCartridge
   components:
   - type: Tag
@@ -49,6 +49,7 @@
   - type: CartridgeAmmo
     deleteOnSpawn: true
     proto: Bullet127mmKordN
+    muzzleFlash: MuzzleFlashEffectBFLargeRifle
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/12.7x108.rsi
     layers:
