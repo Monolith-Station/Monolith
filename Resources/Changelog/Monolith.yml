@@ -22074,3 +22074,14 @@ Entries:
   id: 2437
   time: '2026-07-03T11:10:43.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4189
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        TSF weapon designations aren't Space America anymore. Also gave the
+        MR-8C & ICWS proper names.
+    - type: Fix
+      message: Fixed MR-8C/QBU-243 optic slot not working.
+  id: 2438
+  time: '2026-07-03T11:23:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4184
