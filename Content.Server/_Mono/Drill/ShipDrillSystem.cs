@@ -21,11 +21,6 @@ public partial class ShipDrillSystem : EntitySystem
     [Dependency] private SharedDecalSystem _decal = default!;
     [Dependency] private GatherableSystem _gather = default!;
 
-    public override void Initialize()
-    {
-        InitializeGatherDrill();
-    }
-
     private HashSet<EntityUid> _ents = new();
     private HashSet<TileRef> _nonEmptyTiles = new();
 
