@@ -1,0 +1,64 @@
+
+- type: entity
+  id: BaseMagazine10Phz
+  name: DEW magazine (10Phz DEW)
+  parent: [BaseItem, RecyclableItemSteelTiny] # Frontier: added RecyclableItemSteelTiny
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Magazine10Phz
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - Cartridge10Phz
+    capacity: 15
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/10Phz/10Phzmag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: Magazine10PhzEmpty
+  name: DEW magazine (10Phz any)
+  suffix: empty
+  parent: BaseMagazine10Phz
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine10Phz
+  name: DEW magazine (10Phz)
+  parent: BaseMagazine10Phz
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge10Phz
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+

@@ -38,7 +38,7 @@
   - type: SpawnItemsOnUse
     items:
     # Scrap chunks
-    - id: ScrapOre50
+    - id: ScrapOre10
       prob: 1.0
     # Parts
     - id: SuperCapacitorStockPart
@@ -100,10 +100,8 @@
   - type: SpawnItemsOnUse
     items:
     # Scrap chunks
-    - id: ScrapOre50
-      prob: 1.0
     - id: ScrapOre20
-      prob: 0.5
+      prob: 0.6
     # Parts
     - id: QuadraticCapacitorStockPart
       prob: 0.05
@@ -175,8 +173,8 @@
   - type: SpawnItemsOnUse
     items:
     # Scrap chunks
-    - id: ScrapOre100
-      prob: 1.0
+    - id: ScrapOre20
+      prob: 1
     # Parts
     - id: QuadraticCapacitorStockPart
       prob: 0.12
@@ -242,9 +240,7 @@
     items:
     # Scrap chunks
     - id: ScrapOre100
-      prob: 1.0
-    - id: ScrapOre20
-      prob: 0.5
+      prob: 0.4
     # Parts
     - id: QuadraticCapacitorStockPart
       prob: 0.4
@@ -311,9 +307,7 @@
     items:
     # Scrap chunks
     - id: ScrapOre100
-      prob: 1.0
-    - id: ScrapOre50
-      prob: 0.5
+      prob: 0.6
     - id: WeaponLaserTurboNF
       prob: 0.1
     # Parts

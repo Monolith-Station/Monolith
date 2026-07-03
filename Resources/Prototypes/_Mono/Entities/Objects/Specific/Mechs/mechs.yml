@@ -56,6 +56,116 @@
       - LightMechMount
       - IFFMechMount
 
+# S1 TSF/PDV Mechs
+
+# TSF Gygax
+- type: entity
+  id: MechGygaxTSF
+  parent: MechGygax
+  name: TSF Gygax
+  description: While lightly armored, the Gygax has incredible mobility thanks to its ability to punch through walls at high speeds.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: tsfgygax
+    - map: ["enum.PaperLabelVisuals.Layer"]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: Mech
+    baseState: tsfgygax
+    openState: tsfgygax-open
+    brokenState: tsfgygax-broken
+  - type: RadarBlip # Mono
+    radarColor: "#028EDE"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+
+# PDV Gygax
+- type: entity
+  id: MechGygaxPDV
+  parent: MechGygax
+  name: PDV Gygax
+  description: While lightly armored, the Gygax has incredible mobility thanks to its ability to punch through walls at high speeds.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: pdvgygax
+    - map: ["enum.PaperLabelVisuals.Layer"]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: Mech
+    baseState: pdvgygax
+    openState: pdvgygax-open
+    brokenState: pdvgygax-broken
+  - type: RadarBlip # Mono
+    radarColor: "#ffde21"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+
+# TSF Durand
+- type: entity
+  id: MechDurandTSF
+  parent: MechDurand
+  name: TSF Durand
+  description: A slow but beefy combat exosuit that is extra scary in confined spaces due to its punches. Xenos hate it!
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: tsfdurand
+    - map: ["enum.PaperLabelVisuals.Layer"]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: Mech
+    baseState: tsfdurand
+    openState: tsfdurand-open
+    brokenState: tsfdurand-broken
+  - type: RadarBlip # Mono
+    radarColor: "#028EDE"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+
+# PDV Durand
+- type: entity
+  id: MechDurandPDV
+  parent: MechDurand
+  name: PDV Durand
+  description: A slow but beefy combat exosuit that is extra scary in confined spaces due to its punches. Xenos hate it!
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: pdvdurand
+    - map: ["enum.PaperLabelVisuals.Layer"]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: Mech
+    baseState: pdvdurand
+    openState: pdvdurand-open
+    brokenState: pdvdurand-broken
+  - type: RadarBlip # Mono
+    radarColor: "#ffde21"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+
 
 # S2 Mechas
 - type: entity
@@ -97,9 +207,10 @@
     openState: broadsword-open
     brokenState: broadsword-broken
     mechToPilotDamageMultiplier: 0
+    criticalPowerStateSpeedPenalty: 0.75
     maxEquipmentAmount: 3
     airtight: true
-    maxIntegrity: 1500
+    maxIntegrity: 1750
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -116,7 +227,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2000
+        damage: 5000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -131,16 +242,16 @@
   - type: GenericVisualizer
   # EXTREMELY slow in gravity. Only really good to taxi, and that's about it.
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.2
-    baseSprintSpeed: 1
-    baseWeightlessModifier: 40
+    baseWalkSpeed: 0.75
+    baseSprintSpeed: 1.33
+    baseWeightlessModifier: 60
   - type: RadarBlip
     radarColor: "#E3E3E3"
     scale: 3
     requireNoGrid: true
     shape: square
   - type: Damageable
-    damageModifierSet: MechArmorMedium
+    damageModifierSet: MechArmorHeavy
   - type: Repairable
     fuelCost: 40
     doAfterDelay: 30
@@ -174,20 +285,57 @@
       mech-battery-slot:
       - PowerCageHigh
 
+#TSF Broadsword
+- type: entity
+  id: AFInterceptorTSF
+  parent: AFInterceptor
+  name: TSF AF-28 "Broadsword"
+  description: One of the first purpose built Armored Frames, made to engage light targets and other Armored Frames.
+  components:
+  - type: Mech
+    baseState: tsfbroadsword
+    openState: tsfbroadsword-open
+    brokenState: tsfbroadsword-broken
+  - type: RadarBlip
+    radarColor: "#028EDE"
+    scale: 3
+    requireNoGrid: true
+    shape: square
+
+#PDV Broadsword
+- type: entity
+  id: AFInterceptorPDV
+  parent: AFInterceptor
+  name: PDV AF-28 "Broadsword"
+  description: One of the first purpose built Armored Frames, made to engage light targets and other Armored Frames.
+  components:
+  - type: Mech
+    baseState: pdvbroadsword
+    openState: pdvbroadsword-open
+    brokenState: pdvbroadsword-broken
+  - type: RadarBlip
+    radarColor: "#ffde21"
+    scale: 3
+    requireNoGrid: true
+    shape: square
+
+#Halberd
+
 - type: entity
   id: AFInterceptorM
-  parent: [LightMultiroleMount, AFInterceptor]
+  parent: [MediumMechMount, AFInterceptor]
   name: AF-28-M "Halberd"
-  description: A modification of the Broadsword, the Halberd sacrifices armor and speed for heavier weapon mounts.
+  description: A modification of the Broadsword, the Halberd sacrifices light weapon mounts and speed for more armor and medium weapon mounts..
   components:
   - type: Mech
     baseState: broadsword
     openState: broadsword-open
     brokenState: broadsword-broken
     mechToPilotDamageMultiplier: 0
+    criticalPowerStateSpeedPenalty: 0.85
     maxEquipmentAmount: 3
     airtight: true
-    maxIntegrity: 1100
+    maxIntegrity: 2150
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -197,7 +345,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1600
+        damage: 3000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -208,11 +356,11 @@
         acts: ["Destruction"]
   # EXTREMELY slow in gravity. Only really good to taxi, and that's about it.
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.2
-    baseSprintSpeed: 1
-    baseWeightlessModifier: 35
+    baseWalkSpeed: 0.75
+    baseSprintSpeed: 1.33
+    baseWeightlessModifier: 50
   - type: Damageable
-    damageModifierSet: MechArmorLight
+    damageModifierSet: MechArmorHeavy
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -220,56 +368,39 @@
     - Halberd
     - MilitaryMechBounty
 
-
+#TSF Halberd
 - type: entity
-  id: AFInterceptorG
-  parent: [LightMultiroleMount, AFInterceptor]
-  name: AF-28-G "Sabre"
-  description: A modification of the Broadsword, the Sabre sacrifices it's jetpack and spaceproof shielding to function on planets. Has two hardpoints, which can carry Light or Medium hardpoints.
+  id: AFInterceptorMTSF
+  parent: AFInterceptorM
+  name: TSF AF-28-M "Halberd"
+  description: A modification of the Broadsword, the Halberd sacrifices armor and speed for heavier weapon mounts.
   components:
   - type: Mech
-    baseState: broadsword
-    openState: broadsword-open
-    brokenState: broadsword-broken
-    mechToPilotDamageMultiplier: 0
-    maxEquipmentAmount: 3
-    airtight: false
-    maxIntegrity: 1400
-    pilotWhitelist:
-      components:
-        - HumanoidAppearance
-        - BorgChassis
-    zoom: 1.15, 1.15 # its a ground mech.
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 2000
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:ChangeConstructionNodeBehavior
-        node: start
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  # Terrible radar, mostly good for navigating planets
-  - type: RadarConsole
-    followEntity: true
-  - type: DetectionRangeMultiplier
-    infraredMultiplier: 0.5
-    visualMultiplier: 0.75
-  # Only ground-based mecha so far. Don't use it in space. Can't move in space.
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 6
-    baseWeightlessModifier: 0.3 # Barely usable in space.
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-    - FootstepSound
-    - Sabre
-    - MilitaryMechBounty
+    baseState: tsfbroadsword
+    openState: tsfbroadsword-open
+    brokenState: tsfbroadsword-broken
+  - type: RadarBlip
+    radarColor: "#028EDE"
+    scale: 3
+    requireNoGrid: true
+    shape: square
+
+#PDV Halberd
+- type: entity
+  id: AFInterceptorMPDV
+  parent: AFInterceptorM
+  name: PDV AF-28-M "Halberd"
+  description: A modification of the Broadsword, the Halberd sacrifices armor and speed for heavier weapon mounts.
+  components:
+  - type: Mech
+    baseState: pdvbroadsword
+    openState: pdvbroadsword-open
+    brokenState: pdvbroadsword-broken
+  - type: RadarBlip
+    radarColor: "#ffde21"
+    scale: 3
+    requireNoGrid: true
+    shape: square
 
 #4x4 mechas
 - type: entity
@@ -309,9 +440,10 @@
     openState: flail-open
     brokenState: flail-broken
     mechToPilotDamageMultiplier: 0
+    criticalPowerStateSpeedPenalty: 0.85
     maxEquipmentAmount: 3
     airtight: true
-    maxIntegrity: 4000
+    maxIntegrity: 3000
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -328,7 +460,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 4000
+        damage: 6000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -345,9 +477,9 @@
   - type: MovementAlwaysTouching
   # EXTREMELY slow in gravity. Only really good to taxi, and that's about it. Even worse than S2s
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.1
+    baseWalkSpeed: 0.5
     baseSprintSpeed: 1
-    baseWeightlessModifier: 35
+    baseWeightlessModifier: 50
   - type: RadarBlip
     radarColor: "#E3E3E3"
     scale: 3
@@ -372,6 +504,57 @@
     useSound:
       path: /Audio/Items/jaws_pry.ogg
 
+- type: entity
+  id: AFFlailTSF
+  parent: AFFlail
+  name: TSF ASF-59 "Flail"
+  description: Newest mech on the market, the Armored Strike Frame is built to tackle ship-sized foes with it's oversized weapon mounts. Slow as a pig however, it tacks on generous armor plating to survive it's runs.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: _Mono/Objects/Specific/Mech/mechaS4.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: tsfflail
+    - map: ["enum.PaperLabelVisuals.Layer"]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: Mech
+    baseState: tsfflail
+    openState: tsfflail-open
+    brokenState: tsfflail-broken
+  - type: RadarBlip
+    radarColor: "#028EDE"
+    scale: 3
+    requireNoGrid: true
+    shape: square
+
+- type: entity
+  id: AFFlailPDV
+  parent: AFFlail
+  name: PDV ASF-59 "Flail"
+  description: Newest mech on the market, the Armored Strike Frame is built to tackle ship-sized foes with it's oversized weapon mounts. Slow as a pig however, it tacks on generous armor plating to survive it's runs.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: _Mono/Objects/Specific/Mech/mechaS4.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: pdvflail
+    - map: ["enum.PaperLabelVisuals.Layer"]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: Mech
+    baseState: pdvflail
+    openState: pdvflail-open
+    brokenState: pdvflail-broken
+  - type: RadarBlip
+    radarColor: "#ffde21"
+    scale: 3
+    requireNoGrid: true
+    shape: square
 
 - type: entity
   id: AFFlailE
@@ -384,9 +567,10 @@
     openState: flail-open
     brokenState: flail-broken
     mechToPilotDamageMultiplier: 0
+    criticalPowerStateSpeedPenalty: 0.85
     maxEquipmentAmount: 3
     airtight: true
-    maxIntegrity: 2250
+    maxIntegrity: 4000
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -395,7 +579,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 3000
+        damage: 8000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -406,20 +590,52 @@
         acts: ["Destruction"]
   - type: RadarConsole
     followEntity: true
-  - type: DetectionRangeMultiplier
-    infraredMultiplier: 1.5
-    visualMultiplier: 2
+  - type: DetectionRangeMultiplier #In exchange for its otherwise completely ass stats and the tradeoff of needing someone *in* the mech to use it, this is an overwatch computer.
+    infraredMultiplier: 2
+    visualMultiplier: 4
   # EXTREMELY slow in gravity. Only really good to taxi, and that's about it. Even worse than S2s
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.25
-    baseSprintSpeed: 0.5
-    baseWeightlessModifier: 30
+    baseWalkSpeed: 0.4
+    baseSprintSpeed: 0.8
+    baseWeightlessModifier: 45
   - type: Tag
     tags:
     - DoorBumpOpener
     - FootstepSound
     - Spyglass
     - MilitaryMechBounty
+
+- type: entity
+  id: AFFlailETSF
+  parent: AFFlailE
+  name: TSF ASF-59-E "Spyglass"
+  description: An extremely specialized mech based off the Flail Chassis. Uses sophisticated radar systems to provide command and control capabilities, in addition to employing advanced EWAR weaponry.
+  components:
+  - type: Mech
+    baseState: tsfflail
+    openState: tsfflail-open
+    brokenState: tsfflail-broken
+  - type: RadarBlip
+    radarColor: "#028EDE"
+    scale: 3
+    requireNoGrid: true
+    shape: square
+
+- type: entity
+  id: AFFlailEPDV
+  parent: AFFlailE
+  name: PDV ASF-59-E "Spyglass"
+  description: An extremely specialized mech based off the Flail Chassis. Uses sophisticated radar systems to provide command and control capabilities, in addition to employing advanced EWAR weaponry.
+  components:
+  - type: Mech
+    baseState: pdvflail
+    openState: pdvflail-open
+    brokenState: pdvflail-broken
+  - type: RadarBlip
+    radarColor: "#ffde21"
+    scale: 3
+    requireNoGrid: true
+    shape: square
 
 - type: entity
   id: AFMace
@@ -432,6 +648,7 @@
     openState: flail-open
     brokenState: flail-broken
     mechToPilotDamageMultiplier: 0
+    criticalPowerStateSpeedPenalty: 0.95
     maxEquipmentAmount: 1
     airtight: true
     maxIntegrity: 2000
@@ -443,7 +660,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 3000
+        damage: 4000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -453,12 +670,44 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.1
-    baseSprintSpeed: 1
-    baseWeightlessModifier: 50
+    baseWalkSpeed: 0.5
+    baseSprintSpeed: 1.2
+    baseWeightlessModifier: 75
   - type: Tag
     tags:
     - DoorBumpOpener
     - FootstepSound
     - Mace
     - MilitaryMechBounty
+
+- type: entity
+  id: AFMaceTSF
+  parent: AFMace
+  name: TSF ASF-59-B "Mace"
+  description: A haphazard refit, armor plating is stripped off to add oversized boosters to the machine. Due to the power constraints, it can only equip a single weapon, limiting versatilty. Fits Heavy Mounts.
+  components:
+  - type: Mech
+    baseState: tsfflail
+    openState: tsfflail-open
+    brokenState: tsfflail-broken
+  - type: RadarBlip
+    radarColor: "#028EDE"
+    scale: 3
+    requireNoGrid: true
+    shape: square
+
+- type: entity
+  id: AFMacePDV
+  parent: AFMace
+  name: PDV ASF-59-B "Mace"
+  description: A haphazard refit, armor plating is stripped off to add oversized boosters to the machine. Due to the power constraints, it can only equip a single weapon, limiting versatilty. Fits Heavy Mounts.
+  components:
+  - type: Mech
+    baseState: pdvflail
+    openState: pdvflail-open
+    brokenState: pdvflail-broken
+  - type: RadarBlip
+    radarColor: "#ffde21"
+    scale: 3
+    requireNoGrid: true
+    shape: square

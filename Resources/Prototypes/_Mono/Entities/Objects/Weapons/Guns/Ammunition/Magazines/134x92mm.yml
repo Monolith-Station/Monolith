@@ -1,0 +1,32 @@
+- type: entity
+  id: MagazineShenzhen
+  name: "QBU-284 magazine (13.4x92mm DU-APFSDS)"
+  parent: [BaseItem, RecyclableItemSteelTiny]
+  components:
+  - type: Tag
+    tags:
+      - MagazineShenzhen
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    proto: CartridgeShenzhen
+    capacity: 5
+    mayTransfer: true
+    whitelist:
+      tags:
+      - CartridgeShenzhen
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/134x92mm/shenzhen_5rnd_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance

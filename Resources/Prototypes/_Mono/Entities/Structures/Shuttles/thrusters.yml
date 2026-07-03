@@ -1,0 +1,26 @@
+- type: entity
+  id: ThrusterDebugStrength
+  parent: ThrusterSecurity
+  suffix: Debug Strength
+  components:
+  - type: Thruster
+    baseThrust: 20000
+    thrust: 20000 # 100x
+
+- type: entity
+  id: GyroscopeDebugStrength
+  parent: GyroscopeSecurity
+  suffix: Debug Strength
+  components:
+  - type: Thruster
+    baseThrust: 200000
+    thrust: 200000 # 100x
+
+- type: entity
+  parent: Thruster
+  id: ThrusterPartsT2
+  suffix: T2 Parts
+  components:
+  - type: Machine
+    partOverrides:
+      Capacitor: AdvancedCapacitorStockPart

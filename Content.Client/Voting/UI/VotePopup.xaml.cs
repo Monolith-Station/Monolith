@@ -13,9 +13,9 @@ namespace Content.Client.Voting.UI
     [GenerateTypedNameReferences]
     public sealed partial class VotePopup : Control
     {
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly IEntityNetworkManager _net = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private IVoteManager _voteManager = default!;
+        [Dependency] private IEntityNetworkManager _net = default!;
 
         private readonly VoteManager.ActiveVote _vote;
         private readonly Button[] _voteButtons;
@@ -64,7 +64,11 @@ namespace Content.Client.Voting.UI
                 var entry = _vote.Entries[i];
                 if (_vote.DisplayVotes)
                 {
-                    _voteButtons[i].Text = Loc.GetString("ui-vote-button", ("text", entry.Text), ("votes", entry.Votes));
+                    // Mono
+                    if (entry.RealVotes != entry.Votes)
+                        _voteButtons[i].Text = Loc.GetString("ui-vote-button-weighted", ("text", entry.Text), ("votes", entry.Votes), ("realvotes", entry.RealVotes));
+                    else
+                        _voteButtons[i].Text = Loc.GetString("ui-vote-button", ("text", entry.Text), ("votes", entry.Votes));
                 }
                 else
                 {

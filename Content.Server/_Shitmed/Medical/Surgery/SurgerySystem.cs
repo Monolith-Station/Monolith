@@ -28,17 +28,17 @@ using Content.Shared.Verbs;
 
 namespace Content.Server._Shitmed.Medical.Surgery;
 
-public sealed class SurgerySystem : SharedSurgerySystem
+public sealed partial class SurgerySystem : SharedSurgerySystem
 {
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly RottingSystem _rot = default!;
-    [Dependency] private readonly BlindableSystem _blindableSystem = default!;
+    [Dependency] private BodySystem _body = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private RottingSystem _rot = default!;
+    [Dependency] private BlindableSystem _blindableSystem = default!;
 
     private readonly List<EntProtoId> _surgeries = new();
 
@@ -150,7 +150,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         if (HasComp<ForcedSleepingComponent>(args.Body))
             damageChange = damageChange * ent.Comp.SleepModifier;
 
-        SetDamage(args.Body, damageChange, 0.5f, args.User, args.Part);
+        SetDamage(args.Body, damageChange, 1f, args.User, args.Part); // 0.5-> 1.0f part damage - Mono
     }
 
     private void OnSurgerySpecialDamageChange(Entity<SurgerySpecialDamageChangeEffectComponent> ent, ref SurgeryStepDamageChangeEvent args)

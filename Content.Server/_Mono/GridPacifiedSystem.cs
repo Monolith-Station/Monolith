@@ -20,11 +20,11 @@ namespace Content.Server._Mono;
 /// <summary>
 /// System that handles the GridPacifiedComponent, which has the GridPacifierComponent apply pacification to certain entities within range.
 /// </summary>
-public sealed class GridPacifiedSystem : EntitySystem
+public sealed partial class GridPacifiedSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private PlayTimeTrackingManager _playTimeTracking = default!;
 
     private ISawmill _logger = default!;
     private static readonly TimeSpan RequiredPlaytime = TimeSpan.FromHours(1);

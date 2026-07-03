@@ -123,3 +123,9 @@
   parent: BaseAmmoRIPIntermediateAmmoBoxRecipe
   id: AmmoBox556x45mmRIP
   result: AmmoBox556x45mmRIP
+
+#big box
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateBigAmmoBoxRecipe
+  id: AmmoBox556x45mmBigFMJ
+  result: AmmoBox556x45mmBigFMJ

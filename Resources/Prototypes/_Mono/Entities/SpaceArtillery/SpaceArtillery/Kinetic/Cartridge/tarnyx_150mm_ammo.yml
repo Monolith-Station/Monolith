@@ -9,16 +9,15 @@
       types:
         Structural: 100
   - type: Sprite
-    sprite: _Mono/Objects/SpaceArtillery/150_shell.rsi
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
     layers:
-    - state: 150-shell
+    - state: 150mmAP
   - type: Ammo
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
     radarColor: "#035EFC"
     scale: 1.5
-    requireNoGrid: true
     shape: circle
   - type: TimedDespawn
     lifetime: 5
@@ -86,15 +85,14 @@
         Structural: 16000
         Blunt: 50
   - type: Sprite
-    sprite: _Mono/Objects/SpaceArtillery/150_shell.rsi
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
     layers:
-    - state: 150-shell
+    - state: 150mmAP
   - type: Ammo
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 1.75
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 5

@@ -42,6 +42,28 @@
   - sprite: _Goobstation/Mobs/Customization/Tajaran/tail_markings.rsi
     state: tail_anim_rings
 
+- type: marking
+  id: TajaranLeopardTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Tajaran/leopard_tail.rsi
+    state: m_tail_leopard_primary
+  - sprite: _Goobstation/Mobs/Customization/Tajaran/leopard_tail.rsi
+    state: m_tail_leopard_tertiary
+
+- type: marking
+  id: TajaranLeopardWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Tajaran/leopard_tail.rsi
+    state: m_tail_leopard_primary_wag
+  - sprite: _Goobstation/Mobs/Customization/Tajaran/leopard_tail.rsi
+    state: m_tail_leopard_tertiary_wag
+
 # Tajaran Ears
 
 - type: marking

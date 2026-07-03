@@ -25,6 +25,12 @@ public sealed partial class ShipShieldEmitterComponent : Component
     public float DamageExp = 1.1f;
 
     /// <summary>
+    /// Modifies the total power consumed after damage exponentials are applied.
+    /// </summary>
+    [DataField]
+    public float PowerModifier = 0.5f;
+
+    /// <summary>
     /// Rate at which the emitter heals/reduces its damage per second when powered.
     /// </summary>
     [DataField]
@@ -37,7 +43,7 @@ public sealed partial class ShipShieldEmitterComponent : Component
     public float UnpoweredBonus = 6f;
 
     /// <summary>
-    /// Maximum power consumption limit for the emitter in watts.
+    /// Maximum power consumption limit for additional emitter load in watts.
     /// </summary>
     [DataField]
     public float MaxDraw = 150000f;
@@ -82,7 +88,7 @@ public sealed partial class ShipShieldEmitterComponent : Component
     public SoundSpecifier PowerDownSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");
 
     /// <summary>
-    /// While shield is active, reduces impact energy from grid collisions by this much.
+    /// While shield is active, multiplies impact energy to both grids from grid collisions by this much.
     /// </summary>
     [DataField]
     public float CollisionResistanceMultiplier = 1.0f;

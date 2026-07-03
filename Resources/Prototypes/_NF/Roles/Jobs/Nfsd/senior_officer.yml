@@ -8,17 +8,14 @@
       time: 72000 # 20 hours # mono
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 28800 # 8 hours # mono
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
       time: 36000 # 10 hours # mono
   startingGear: SeniorOfficerGear
   icon: JobIconSergeant
   supervisors: job-supervisors-sheriff
   weight: 140
   displayWeight: 50
+  assignedCompany: TSF
   canBeAntag: false
-  guides: [ BasicLore, TransSolarFederation ] # Mono
   access:
   - Armory
   - Sergeant
@@ -47,11 +44,11 @@
 
 - type: startingGear
   id: SeniorOfficerGear
-  equipment:
-    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+#  equipment:
+#    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:
     back:
-    - Magazine45_ACPPistolFMJ
+#    - Magazine45_ACPPistolFMJ Mono
     - BaseSecurityUplinkRadioOfficer
 #    - ShipVoucherNfsdSergeant # Mono
     - RadioHandheldNF # Mono

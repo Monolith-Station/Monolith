@@ -46,11 +46,42 @@
 
 - type: entity
   id: IFFMechMountEquipment
+  parent: BaseItem
   abstract: true
   categories: [ HideSpawnMenu ]
   components:
+  - type: Item
+    storedRotation: 0
   - type: Tag
     tags:
     - IFFMechMount
   - type: StaticPrice
     price: 500
+
+- type: entity
+  id: MechIFFTSF
+  parent: BaseExosuitParts
+  name: TSF Mech IFF
+  description: Apply before the final weld of a standard mech to give it blue IFF on radar and give it a coat of blue paint.
+  components:
+    - type: Item
+      storedRotation: 0
+    - type: Sprite
+      state: tesla
+    - type: Tag
+      tags:
+      - MechIFFTSF
+
+- type: entity
+  id: MechIFFPDV
+  parent: BaseExosuitParts
+  name: PDV Mech IFF
+  description: Apply before the final weld of a standard mech to give it yellow IFF on radar and give it a coat of tan paint.
+  components:
+    - type: Item
+      storedRotation: 0
+    - type: Sprite
+      state: tesla
+    - type: Tag
+      tags:
+      - MechIFFPDV

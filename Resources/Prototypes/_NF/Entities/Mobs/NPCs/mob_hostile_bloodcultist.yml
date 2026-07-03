@@ -23,7 +23,7 @@
   - type: TriggerOnBeingGibbed
   - type: GibOnTrigger
     deleteItems: true
-    deleteOrgans: true
+    deleteOrgans: false
     gib: false
     useArgumentEntity: true
   - type: MovementSpeedModifier

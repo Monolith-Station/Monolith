@@ -36,28 +36,33 @@ namespace Content.Shared.VendingMachines
 
         // Frontier: random ejection
         /// <summary>
-        /// Used by the server to determine how many items the machine allowed to eject from random triggers.
+        /// Used by the server to determine how many items the machine allowed to eject from random triggers. (Default 2)
         /// </summary>
         [DataField]
-        public int EjectRandomMax = 2;
+        public int EjectRandomMax = 1;
 
         /// <summary>
-        /// Used by the server to determine how many items the machine ejected from random triggers.
+        /// Used by the server to determine how many items the machine ejected from random triggers. (Default 2)
         /// </summary>
         [DataField]
-        public int EjectRandomCounter = 2;
+        public int EjectRandomCounter = 1;
 
         /// <summary>
-        /// The time it takes to regain a single charge
+        /// The time it takes to regain a single charge (Default 1800)
         /// </summary>
         [DataField]
-        public TimeSpan EjectRechargeDuration = TimeSpan.FromSeconds(1800);
+        public TimeSpan EjectRechargeDuration = TimeSpan.FromSeconds(720);
 
         /// <summary>
         /// The time when the next charge will be added
         /// </summary>
         [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
         public TimeSpan EjectNextChargeTime;
+
+        /// <summary>
+        /// Mono: Chance you can hit that vend wire again (Default 0)
+        /// </summary>
+		[DataField] public float EjectNoCountChance = 0.3f;
         // End Frontier: random ejection
 
         [DataField, AutoNetworkedField]
@@ -78,6 +83,7 @@ namespace Content.Shared.VendingMachines
 
         public string? NextItemToEject;
 
+        [DataField]
         public bool Broken;
 
         /// <summary>
@@ -242,6 +248,12 @@ namespace Content.Shared.VendingMachines
         [DataField]
         public double? LastPurchasePrice;
         // End Frontier: taxes, cash slot
+
+        /// <summary>
+        /// Mono: Makes all positions in vending machines free if set false
+        /// </summary>
+        [DataField]
+        public bool RequiresCash = false;
     }
 
     [Serializable, NetSerializable]

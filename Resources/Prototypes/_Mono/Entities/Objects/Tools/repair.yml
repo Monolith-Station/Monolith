@@ -83,10 +83,10 @@
     sprite: _Mono/Objects/Tools/repair_device_item.rsi
     state: prefracture
   - type: LimitedCharges
-    maxCharges: 300
+    maxCharges: 800
     charges: 50
   - type: AutoRecharge
-    rechargeDuration: 3
+    rechargeDuration: 2
   - type: Tag
     tags:
     - ShipRepairTool

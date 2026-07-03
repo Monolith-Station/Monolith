@@ -56,4 +56,10 @@ public sealed partial class HTNComponent : NPCComponent
     /// </summary>
     [DataField]
     public float? SleepPlayerCheckRangeOverride = null;
+
+    /// <summary>
+    /// Monolith - If not null, do not sleep if the grid we're on is moving at least this fast.
+    /// </summary>
+    [DataField]
+    public float? SleepMaxGridSpeed = null;
 }

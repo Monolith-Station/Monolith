@@ -11,3 +11,31 @@
     Plastic: 200
     Gold: 200
     Diamond: 25 # That shit is OP against emps.
+
+# Smilodon battery cells
+
+- type: latheRecipe
+  id: LargePowerCell700Thz
+  result: LargePowerCell700Thz
+  categories:
+  - Ammo
+  completetime: 10
+  materials:
+    Steel: 5000
+    Plasteel: 2000
+    Glass: 500
+    Plastic: 500
+    Gold: 500
+
+- type: latheRecipe
+  id: LargePowerCell400Thz
+  result: LargePowerCell400Thz
+  categories:
+  - Ammo
+  completetime: 10
+  materials:
+    Steel: 5000
+    Plasteel: 2000
+    Glass: 500
+    Plastic: 500
+    Gold: 500

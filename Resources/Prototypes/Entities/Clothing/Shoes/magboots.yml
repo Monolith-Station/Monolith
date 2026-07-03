@@ -9,7 +9,7 @@
     sprite: Clothing/Shoes/Boots/magboots.rsi
     layers:
     - state: icon
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: Clothing/Shoes/Boots/magboots.rsi
   - type: ToggleClothing
@@ -25,8 +25,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: icon-on}
           False: {state: icon}
   - type: StaticPrice
@@ -96,7 +96,7 @@
     sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
   - type: ClothingSpeedModifier
     walkModifier: 0.9
-    sprintModifier: 0.85 # 0.9->0.85 Mono
+    sprintModifier: 0.9
   - type: GasTank
     outputPressure: 42.6
     air:
@@ -104,8 +104,8 @@
       volume: 0.75
       temperature: 293.15
       moles:
-      - 0.153853429 # oxygen
-      - 0.153853429 # nitrogen
+        Oxygen: 0.153853429 # oxygen
+        Nitrogen: 0.153853429 # nitrogen
   - type: Item
     sprite: null
     size: Normal

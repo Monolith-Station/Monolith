@@ -269,7 +269,7 @@
     Sneeze:
       path: /Audio/_Goobstation/Voice/Vox/vox_sneeze.ogg
     Cough:
-      path: /Audio/_Goobstation/Voice/Vox/vox_cough.ogg
+      collection: VoxCough #goob
     CatHisses:
       collection: CatHisses
     MonkeyScreeches:
@@ -292,6 +292,12 @@
       path: /Audio/_Goobstation/Voice/Vox/vox_deathgasp.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+    Click: #imp
+      collection: VoxClick
+    Chitter: #imp
+      collection: VoxChitter
+    Hiss: #imp
+      collection: VoxHiss
   params:
     variation: 0.125
 

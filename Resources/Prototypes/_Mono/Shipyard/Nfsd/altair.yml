@@ -1,0 +1,42 @@
+#made by Eldritch_Pineapple :3
+- type: vessel
+  id: Altair
+  parent: BaseVesselAntag
+  name: TSF-PIN Altair
+  description: A heavily-armed frigate with 4 cyrexa, laser cannons and its main armament, a CHARON mass driver. Made as a heavy frontline brawler and to serve as a fleet anchor for smaller forces.
+  limit: 2
+  price: 425000
+  purchasable: false # voucher only
+  category: Large
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/altair.yml
+  guidebookPage: Null
+  class:
+  - Frigate
+  - Pursuit
+  - Patrol
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Altair
+  mapName: 'Altair'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/altair.yml
+  minPlayers: 0
+  stations:
+    Altair:
+      stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Is all this really worth it? A sense of regret washes over you, then dissapears."
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Altair TSFN{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]

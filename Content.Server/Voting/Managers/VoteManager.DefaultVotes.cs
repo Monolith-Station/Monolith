@@ -6,12 +6,12 @@ using Content.Server.Administration.Managers;
 using Content.Server.Discord.WebhookMessages;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;
-using Content.Server.Maps;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Database;
+using Content.Shared.Maps;
 using Content.Shared.Players;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Voting;
@@ -24,10 +24,10 @@ namespace Content.Server.Voting.Managers
 {
     public sealed partial class VoteManager
     {
-        [Dependency] private readonly IPlayerLocator _locator = default!;
-        [Dependency] private readonly ILogManager _logManager = default!;
-        [Dependency] private readonly IBanManager _bans = default!;
-        [Dependency] private readonly VoteWebhooks _voteWebhooks = default!;
+        [Dependency] private IPlayerLocator _locator = default!;
+        [Dependency] private ILogManager _logManager = default!;
+        [Dependency] private IBanManager _bans = default!;
+        [Dependency] private VoteWebhooks _voteWebhooks = default!;
 
         private VotingSystem? _votingSystem;
         private RoleSystem? _roleSystem;
@@ -233,7 +233,9 @@ namespace Content.Server.Voting.Managers
 
             foreach (var (k, v) in presets)
             {
-                options.Options.Add((Loc.GetString(v), k));
+                options.Options.Add((Loc.GetString(v.Name), k));
+                if (v.Weight != 1f)
+                    options.Weights.Add(k, v.Weight);
             }
 
             WirePresetVoteInitiator(options, initiator);
@@ -247,13 +249,13 @@ namespace Content.Server.Voting.Managers
                 {
                     picked = (string) _random.Pick(args.Winners);
                     _chatManager.DispatchServerAnnouncement(
-                        Loc.GetString("ui-vote-gamemode-tie", ("picked", Loc.GetString(presets[picked]))));
+                        Loc.GetString("ui-vote-gamemode-tie", ("picked", Loc.GetString(presets[picked].Name))));
                 }
                 else
                 {
                     picked = (string) args.Winner;
                     _chatManager.DispatchServerAnnouncement(
-                        Loc.GetString("ui-vote-gamemode-win", ("winner", Loc.GetString(presets[picked]))));
+                        Loc.GetString("ui-vote-gamemode-win", ("winner", Loc.GetString(presets[picked].Name))));
                 }
                 _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Preset vote finished: {picked}");
                 var ticker = _entityManager.EntitySysManager.GetEntitySystem<GameTicker>();
@@ -585,9 +587,9 @@ namespace Content.Server.Voting.Managers
             DirtyCanCallVoteAll();
         }
 
-        private Dictionary<string, string> GetGamePresets()
+        private Dictionary<string, (string Name, float Weight)> GetGamePresets() // Mono - add weight
         {
-            var presets = new Dictionary<string, string>();
+            var presets = new Dictionary<string, (string, float)>();
 
             foreach (var preset in _prototypeManager.EnumeratePrototypes<GamePresetPrototype>())
             {
@@ -600,7 +602,7 @@ namespace Content.Server.Voting.Managers
                 if(_playerManager.PlayerCount > (preset.MaxPlayers ?? int.MaxValue))
                     continue;
 
-                presets[preset.ID] = preset.ModeTitle;
+                presets[preset.ID] = (preset.ModeTitle, preset.Weight);
             }
             return presets;
         }

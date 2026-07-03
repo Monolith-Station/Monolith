@@ -1,0 +1,42 @@
+#Author: Hverabrao on Github and Discord.
+
+- type: vessel
+  id: Buran
+  parent: BaseVesselAntag
+  name: VEF Buran
+  description: USSP capital-sized frigate with tremendous broadside firepower and thick armor. Glory to commissariat.
+  limit: 2
+  price: 320000
+  purchasable: false # voucher only
+  category: Large
+  group: Ussp
+  access: USSP
+  shuttlePath: /Maps/_Mono/Shuttles/USSP/buran.yml
+  guidebookPage: ShipyardNFROperation
+  class:
+  - Frigate
+  engine:
+  - NFR
+
+- type: gameMap
+  id: Buran
+  mapName: 'Buran'
+  mapPath: /Maps/_Mono/Shuttles/USSP/buran.yml
+  minPlayers: 0
+  stations:
+    Buran:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Outdated, yet still reliable."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Buran USSP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+           USSPSergeant: [ 0, 0 ]
+           USSPRifleman: [ 0, 0 ]
+

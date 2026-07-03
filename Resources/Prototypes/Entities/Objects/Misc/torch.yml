@@ -79,3 +79,8 @@
     - type: Tag
       tags:
       - Torch
+    - type: EntityRadiusHeater # Mono
+      thermalEnergy: 1500
+      radius: 0.75
+      limit: 350
+      requireActivation: true

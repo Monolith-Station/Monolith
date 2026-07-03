@@ -170,9 +170,18 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - NamesFirst
-    - NamesLast
-    nameFormat: name-format-standard
+    - NamesResomiUnisex
+
+- type: entity # mono
+  parent: MobHydrakin
+  id: MobHydrakinRandom
+  name: Urist McHydra
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_hydrakin_unisex
 
 - type: entity
   parent: MobGoblin
@@ -270,7 +279,7 @@
     - SolCommon
     - TauCetiBasic
 
-    
+
 # Navy Captain
 
 - type: entity

@@ -24,6 +24,7 @@
   - type: ItemToggleSize
     activatedSize: Huge
   - type: ItemTogglePointLight
+    toggleableVisualsColorModulatesLights: true
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/Weapons/eblade1.ogg
@@ -61,7 +62,7 @@
     color: white
     netsync: false
   - type: Appearance
-  - type: ToggleableLightVisuals # Add support for multiple layers
+  - type: ToggleableVisuals # Add support for multiple layers
     spriteLayer: blade
     inhandVisuals:
       left:
@@ -70,7 +71,6 @@
       right:
       - state: inhand-right-blade
         shader: unshaded
-  - type: Reflect
   - type: IgnitionSource
     temperature: 700
   - type: Scalpel # Shitmed
@@ -87,7 +87,7 @@
 
 - type: entity
   name: energy sword
-  parent: BaseMeleeWeaponEnergy
+  parent: [ BaseMeleeWeaponEnergy, BaseFactionGearPDVT2 ] # Mono
   id: EnergySword
   description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
   components:
@@ -107,6 +107,22 @@
   - type: Tag  # Mono
     tags:
     - EnergySword
+  - type: Reflect
+    reflectProb: 0.5
+    reflects:
+    - Energy
+  - type: MeleeWeapon
+    heavyStaminaCost: 2.5 # goob edit
+    wideAnimationRotation: -135
+    attackRate: 1.2
+    damage:
+      types:
+        Blunt: 4.5
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Slash: 50
+        Structural: 100
 
 - type: entity
   name: energy dagger
@@ -284,12 +300,16 @@
       map: [ "blade" ]
   - type: Item
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
+  - type: Reflect
+    reflectProb: 0.5
+    reflects:
+    - Energy
 
 - type: entity
   name: double-bladed energy sword
   parent: BaseMeleeWeaponEnergy
   id: EnergySwordDouble
-  description: This energy sword has been modified to have blades on both ends, it's unwieldy and dangerous... This can be stored in pockets.
+  description: A variant of the classic Energy Sword with blades on both ends.
   components:
   - type: ItemToggle
     onUse: false # wielding events control it instead
@@ -312,7 +332,7 @@
       types:
         Slash: 15 # Mono increased from 10 to 15 to be on-par with normal e-swords
         Heat: 20
-        Structural: 75 # Mono increased from 25 to 75, keep in mind a breaching hammer does 300 a hit
+        Structural: 100 # Mono increased from 25 to 100, keep in mind a breaching hammer does 300 a hit
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -348,7 +368,7 @@
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
   - type: Reflect
-    reflectProb: .75
+    reflectProb: .5
     spread: 75
   - type: PirateBountyItem # Mono
     id: TSFEnergyWeapon

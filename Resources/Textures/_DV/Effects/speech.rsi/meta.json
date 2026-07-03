@@ -25,6 +25,18 @@
             "name": "felinid2"
         },
         {
+            "name": "felinid3",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5,
+					0.3
+                ]
+            ]
+        },
+        {
             "name": "rodentia0",
             "delays": [
                 [
@@ -42,6 +54,18 @@
             "name": "rodentia2"
         },
         {
+            "name": "rodentia3",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
             "name": "chitinid0",
             "delays": [
                 [
@@ -57,6 +81,18 @@
         },
         {
             "name": "chitinid2"
+        },
+        {
+            "name": "chitinid3",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5,
+					0.3
+                ]
+            ]
         }
     ]
 }

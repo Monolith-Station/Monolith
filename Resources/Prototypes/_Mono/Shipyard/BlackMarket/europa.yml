@@ -1,10 +1,13 @@
+#Author: Technically Starch under it's old name, mercury, but Articular is one of the more recent contributors.
+
 - type: vessel
   id: Europa
   parent: BaseVesselAntag
   name: IDY Europa
-  description: A repurposed interdyne medical frigate, with a focus on broadside firepower and shields.
+  description: A repurposed interdyne medical frigate, with a focus on broadside firepower and armor.
   limit: 3
   price: 280650
+  purchasable: false # voucher only
   category: Large
   group: BlackMarket
   access: Pirate

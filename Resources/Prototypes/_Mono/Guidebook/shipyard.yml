@@ -4,13 +4,15 @@
   text: "/ServerInfo/_NF/Guidebook/Shipyard.xml"
   priority: 6
   children:
+  - ShipyardNFROperation
   - ShipyardArgent
   - ShipyardJudiciary
   - ShipyardSabine
   - ShipyardTakeaway
-  - ShipyardRuby
+#  - ShipyardRuby
   - ShipyardMotleyAnne
-  
+  - ShipyardFenrir
+
 - type: guideEntry
   id: ShipyardArgent
   name: guide-entry-shipyard-argent
@@ -31,12 +33,22 @@
   name: guide-entry-shipyard-takeaway
   text: "/ServerInfo/_Mono/Guidebook/Shipyard/Takeaway.xml"
 
-- type: guideEntry
-  id: ShipyardRuby
-  name: guide-entry-shipyard-ruby
-  text: "/ServerInfo/_Mono/Guidebook/Shipyard/Ruby.xml"
+#- type: guideEntry
+#  id: ShipyardRuby
+#  name: guide-entry-shipyard-ruby
+#  text: "/ServerInfo/_Mono/Guidebook/Shipyard/Ruby.xml"
 
 - type: guideEntry
   id: ShipyardMotleyAnne
   name: guide-entry-shipyard-motley-anne
   text: "/ServerInfo/_Mono/Guidebook/Shipyard/MotleyAnne.xml"
+
+- type: guideEntry
+  id: ShipyardFenrir
+  name: guide-entry-shipyard-fenrir
+  text: "/ServerInfo/_Mono/Guidebook/Shipyard/Fenrir.xml"
+
+- type: guideEntry
+  id: ShipyardNFROperation
+  name: guide-entry-shipyard-nfr
+  text: "/ServerInfo/_Mono/Guidebook/Shipyard/NFRManual.xml"

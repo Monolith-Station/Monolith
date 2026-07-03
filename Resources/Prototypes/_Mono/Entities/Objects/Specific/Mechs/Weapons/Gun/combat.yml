@@ -1,8 +1,32 @@
+#Small Weapons
+- type: entity
+  id: WeaponMechCombatPulseRifleTSF
+  name: CL-94 Pulse Emitter
+  description: Fires a heavy pulse laser.
+  suffix: Mech Weapon, Gun, Combat, Pulse
+  parent: [ BaseMechWeaponRange, CombatMechEquipment ]
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_pulse
+  - type: Gun
+    fireRate: 1.5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: RiflePulse # Pulse Rifle
+    fireCost: 30
+  - type: Appearance
+  - type: AmmoCounter
+
 #Light Weapons
 - type: entity
   id: LightMechaAutocannon
-  name: LAC-29 20mm autocannon
-  description: The everyman's mecha rifle. Chambered in 20mm, with balanced stats to tackle both Armored Frames and do light damage against ships. Fits on Light Hardpoints.
+  name: LAC-29 35mm autocannon
+  description: The everyman's mecha rifle. Chambered in 35mm AP rounds, with balanced stats to tackle both Armored Frames and do light damage against ships. Fits on Light Hardpoints.
   suffix: Mech Weapon, Gun, Combat, Rifle
   parent: [ BaseMechWeaponRange, LightMechMountEquipment ]
   components:
@@ -11,11 +35,11 @@
     state: assaultrifle64x32
   - type: Gun
     projectileSpeed: 110
-    fireRate: 5
+    fireRate: 2.5
     minAngle: 0
-    maxAngle: 20
-    angleIncrease: 4
-    angleDecay: 20
+    maxAngle: 15
+    angleIncrease: 1
+    angleDecay: 15
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -24,7 +48,7 @@
   - type: Battery
     maxCharge: 180
   - type: ProjectileBatteryAmmoProvider
-    proto: 20mmBullet
+    proto: 35mmBullet
     fireCost: 60
   - type: Appearance
   - type: AmmoCounter
@@ -40,11 +64,11 @@
     sprite: _Mono/Objects/Specific/Mech/tgmc_mecha_weapons.rsi
     state: smg64x32
   - type: Gun
-    projectileSpeed: 70
+    projectileSpeed: 55
     fireRate: 14
     minAngle: 0
-    maxAngle: 20
-    angleIncrease: 2
+    maxAngle: 35
+    angleIncrease: 1
     angleDecay: 20
     selectedMode: FullAuto
     availableModes:
@@ -55,8 +79,7 @@
     maxCharge: 100
   - type: ProjectileBatteryAmmoProvider
     proto: Bullet45_ACPFMJ_Mech
-    fireCost: 20
-
+    fireCost: 18
   - type: Appearance
   - type: AmmoCounter
 
@@ -109,7 +132,7 @@
     fireRate: 2
     minAngle: 0
     maxAngle: 10
-    angleIncrease: 2
+    angleIncrease: 1.5
     angleDecay: 10
     selectedMode: FullAuto
     availableModes:
@@ -120,7 +143,7 @@
     maxCharge: 200
   - type: ProjectileBatteryAmmoProvider
     proto: Mech90mmBullet
-    fireCost: 200
+    fireCost: 120
   - type: Appearance
   - type: AmmoCounter
 
@@ -175,8 +198,8 @@
   - type: Battery
     maxCharge: 500
   - type: ProjectileBatteryAmmoProvider
-    proto: ShipMissileASM302
-    fireCost: 500
+    proto: ShipMissileASM150
+    fireCost: 300
   - type: Appearance
   - type: AmmoCounter
 
@@ -227,8 +250,8 @@
     shotsPerBurst: 3
     burstCooldown: 5
     minAngle: 0
-    maxAngle: 15
-    angleIncrease: 10
+    maxAngle: 12
+    angleIncrease: 1
     angleDecay: 20
     selectedMode: Burst
     availableModes:
@@ -259,7 +282,7 @@
     projectileSpeed: 80 # marauder is slow dingus... not inaccurate
     minAngle: 0
     maxAngle: 30
-    fireRate: 3
+    fireRate: 1
     angleIncrease: 3
     angleDecay: 15
     selectedMode: FullAuto
@@ -271,7 +294,7 @@
     maxCharge: 300
   - type: ProjectileBatteryAmmoProvider
     proto: MechMediumPlasmaProjectile
-    fireCost: 70
+    fireCost: 100
   - type: Appearance
   - type: AmmoCounter
 

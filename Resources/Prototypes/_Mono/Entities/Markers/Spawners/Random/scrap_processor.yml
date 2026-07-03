@@ -100,6 +100,7 @@
      - id: AppraisalTool
      - id: FlashlightLantern
      - id: ClothingEyesGlassesMeson
+     - id: ClothingEyesGlassesThermal
      - id: ClothingHandsGlovesColorYellow
      - id: GeigerCounter
      - id: Lantern
@@ -157,7 +158,9 @@
      - id: PowerDrill
      - id: JawsOfLife
      - id: WelderExperimental
+     - id: ClothingEyesGlassesMesonTray
      - id: RCD
+     - id: RPD
      - id: ShipRepairDeviceEmpty
 # Scrap
 - type: entityTable
@@ -236,6 +239,7 @@
     - id: ContainmentFieldGeneratorCircuitboard
     - id: SolarAssemblyFlatpack
     - id: CentrifugeLatheMiniCircuitboard # Mono: Economy
+    #- id: IndustrialLatheMachineCircuitboard # Mono: Economy
     #Atmos
     - !type:GroupSelector
       weight: 2
@@ -258,6 +262,7 @@
     - id: APECircuitboard
     - id: ArtifactAnalyzerMachineCircuitboard
     - id: ArtifactCrusherMachineCircuitboard
+    - id: OrganHarvesterMachineCircuitboard
     - id: ResearchAndDevelopmentServerMachineCircuitboard
     - id: ResearchComputerCircuitboard
     #- id: StationAiUploadCircuitboardUnlocked #Not til it's balanced.
@@ -265,6 +270,7 @@
     - id: MaterialReclaimerMachineCircuitboard
     - id: OreProcessorIndustrialMachineCircuitboard
     - id: OreProcessorMachineCircuitboard
+    - id: OreMagnetMachineCircuitboard # Mono
     - id: ShredderMachineCircuitboard
     - id: ShuttleGunKineticCircuitboard
     - id: NFScrapProcessorCircuitboard

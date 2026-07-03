@@ -1,4 +1,4 @@
-﻿# Base prototypes
+# Base prototypes
 
 - type: latheRecipe
   abstract: true
@@ -96,13 +96,23 @@
     Plastic: 300
 
 - type: latheRecipe
+  id: RPD
+  parent: NFBaseToolsRecipe
+  result: RPDEmpty
+  completetime: 4
+  materials:
+    Steel: 1000
+    Plastic: 300
+
+- type: latheRecipe
   id: RCDAmmo
   parent: NFBaseToolsRecipe
   result: RCDAmmo
   completetime: 2.4
   materials:
-    Steel: 500
-    Plastic: 250
+    Steel: 2000
+    Plastic: 750
+    Plasteel: 600
 
 # Migrated from Recipes/Lathes/tools.yml
 - type: latheRecipe

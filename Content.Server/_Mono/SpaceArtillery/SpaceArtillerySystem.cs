@@ -1,9 +1,9 @@
 using System.Numerics;
 using Content.Server._Mono.AmmoLoader;
 using Content.Server._Mono.FireControl;
+using Content.Server.Power.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Mono.AmmoLoader;
@@ -13,6 +13,7 @@ using Content.Shared.Camera;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Examine;
 using Content.Shared.Power;
+using Content.Shared.Power.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Map;
@@ -23,13 +24,13 @@ namespace Content.Server._Mono.SpaceArtillery;
 
 public sealed partial class SpaceArtillerySystem : EntitySystem
 {
-    [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _recoilSystem = default!;
-    [Dependency] private readonly FireControlSystem _fireControl = default!;
-    [Dependency] private readonly AmmoLoaderSystem _ammoLoader = default!;
+    [Dependency] private GunSystem _gun = default!;
+    [Dependency] private DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private SharedCameraRecoilSystem _recoilSystem = default!;
+    [Dependency] private FireControlSystem _fireControl = default!;
+    [Dependency] private AmmoLoaderSystem _ammoLoader = default!;
 
     private const float DISTANCE = 100;
     private const float BIG_DAMAGE = 1000;

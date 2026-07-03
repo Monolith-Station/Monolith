@@ -22,7 +22,7 @@ public sealed partial class TargetSeekingComponent : Component
     /// How quickly the projectile can change direction in degrees per second.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public Angle? TurnRate = 100f;
+    public Angle? TurnRate = 60f;
 
     /// <summary>
     /// The current target entity being tracked.

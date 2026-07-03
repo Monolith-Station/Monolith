@@ -197,6 +197,15 @@
     critThreshold: 150
   - type: Inventory
     templateId: chimera
+    relayBlockedSlots:
+    - outerClothing
+    - neck
+    - mask
+    - head
+    - jumpsuit
+    - shoes
+    - gloves
+  - type: Appearance
   - type: SurgeryTarget
   - type: ContainerContainer
     containers:

@@ -7,12 +7,16 @@
   - type: PlaceableSurface # For bedsheets
     placeCentered: true
     positionOffset: 0, -0.001 # Make sure the bed is placed behind the blanket
-  - type: HealOnBuckle # Regular bed values, plus bonus cold recovery
+  - type: HealOnBuckle # Make roughly half as attractive as a constructed bed
     damage:
       types:
-        Poison: -0.1
-        Blunt: -0.1
-        Cold: -0.1
+        Poison: -0.05
+        Blunt: -0.05
+        Cold: -0.05
+        Shock: -0.02
+        Heat: -0.05
+        Slash: -0.05
+        Piercing: -0.05
   - type: Transform
     noRot: true
   - type: Item

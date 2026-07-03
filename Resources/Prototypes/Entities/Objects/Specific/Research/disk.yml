@@ -100,6 +100,9 @@
     points: 10000
   - type: StaticPrice
     price: 2000
+  - type: Tag
+    tags:
+    - ResearchDisk10000
 
 - type: entity
   parent: ResearchDisk
@@ -137,6 +140,9 @@
     points: 10000
   - type: StaticPrice # Frontier
     price: 2000 # Mono
+  - type: Tag
+    tags:
+    - ResearchDisk10000
 
 - type: entity
   parent: ResearchDisk

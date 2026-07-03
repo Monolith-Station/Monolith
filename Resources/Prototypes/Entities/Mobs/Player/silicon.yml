@@ -38,6 +38,7 @@
     - ActionJumpToCore
     - ActionSurvCameraLights
     - ActionAIViewLaws
+    - ActionOpenRemoteDevicesMenu # Corvax-Next-AiRemoteControl
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -50,6 +51,8 @@
         type: SiliconLawBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
+      enum.RemoteDeviceUiKey.Key: # Corvax-Next-AiRemoteControl
+        type: RemoteDevicesBoundUserInterface
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
@@ -116,6 +119,7 @@
       whitelist:
         tags:
         - StationAi
+        - CanPilot # Mono
   - type: ContainerContainer
     containers:
       station_ai_mind_slot: !type:ContainerSlot
@@ -392,7 +396,14 @@
   - AiHolder
   suffix: Empty
   components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   #- type: WarpPoint # Mono - comment out
+  #  blacklist:
+  #    tags:
+  #    - GhostOnlyWarp
   - type: ContainerComp
     proto: AiHeld
     container: station_ai_mind_slot
@@ -414,6 +425,7 @@
   - type: StationAiVision
   - type: InteractionOutline
   - type: Sprite
+    snapCardinals: true
     sprite: Mobs/Silicon/station_ai.rsi
     layers:
     - state: base
@@ -508,6 +520,7 @@
     - HideContextMenu
     - StationAi
     - NoConsoleSound
+    - CanPilot #Mono
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true

@@ -67,3 +67,16 @@
         - Jetpack
   - type: BorgModuleIcon
     icon: { sprite: _NF/Interface/Actions/actions_borg.rsi, state: jetpack-module }
+
+- type: entity # Mono
+  id: BorgModuleJetpackADM
+  parent: BorgModuleJetpack
+  name: pre-fracture jetpack cyborg module
+  components:
+  - type: DroppableBorgModule
+    moduleId: NFJetpack
+    items:
+    - id: JetpackADMFilled
+      whitelist:
+        components:
+        - Jetpack

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "From Baystation12 - https://github.com/Baystation12/Baystation12/pull/34564, equipped feet and equipped sealed ripped from a full suit sprite by JoeHammad",
+  "copyright": "From Baystation12 - https://github.com/Baystation12/Baystation12/pull/34564, equipped feet and equipped sealed ripped from a full suit sprite by JoeHammad, Vox modifications by 10KE",
   "size": {
     "x": 32,
     "y": 32
@@ -20,6 +20,14 @@
 		{
 			"name": "equipped-FEET-sealed",
 			"directions": 4
-		}
+		},
+        {
+          "name": "equipped-FEET-sealed-vox",
+          "directions": 4
+        },
+        {
+          "name": "equipped-FEET-vox",
+          "directions": 4
+        }
   ]
 }

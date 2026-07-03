@@ -1,21 +1,22 @@
-using Content.Server.Power.Components;
 using Content.Shared._EinsteinEngines.Silicon.Systems;
 using Content.Shared.Bed.Sleep;
 using Content.Server._EinsteinEngines.Silicon.Charge;
 using Content.Server._EinsteinEngines.Power.Components;
 using Content.Server.Humanoid;
+using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems; //Monolith IPC rework
+using Content.Shared.Power.Components;
 
 namespace Content.Server._EinsteinEngines.Silicon.Death;
 
-public sealed class SiliconDeathSystem : EntitySystem
+public sealed partial class SiliconDeathSystem : EntitySystem
 {
-    [Dependency] private readonly SleepingSystem _sleep = default!;
-    [Dependency] private readonly SiliconChargeSystem _silicon = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearanceSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!; //Monolith IPC rework
+    [Dependency] private SleepingSystem _sleep = default!;
+    [Dependency] private SiliconChargeSystem _silicon = default!;
+    [Dependency] private HumanoidAppearanceSystem _humanoidAppearanceSystem = default!;
+    [Dependency] private DamageableSystem _damage = default!; // mono
 
     public override void Initialize()
     {
@@ -46,21 +47,20 @@ public sealed class SiliconDeathSystem : EntitySystem
         var deadEvent = new SiliconChargeDyingEvent(uid, batteryComp, batteryUid);
         RaiseLocalEvent(uid, deadEvent);
 
-        if (deadEvent.Cancelled)
+        if (deadEvent.Cancelled
+            || siliconDeadComp.ModifierOnDead == null
+            || !TryComp<DamageableComponent>(uid, out var damageComp))
             return;
 
         /*EntityManager.EnsureComponent<SleepingComponent>(uid); Monolith IPC rework edit start
         EntityManager.EnsureComponent<ForcedSleepingComponent>(uid);*/
-
-        if(!TryComp<HandsComponent>(uid, out var handsComp))
-            return;
-        _hands.RemoveHands(uid, handsComp); // edit end
-
+        siliconDeadComp.OriginalModifier = damageComp.DamageModifierSetId;
+        _damage.SetDamageModifierSetId(uid, siliconDeadComp.ModifierOnDead.Value);
 
         if (TryComp(uid, out HumanoidAppearanceComponent? humanoidAppearanceComponent))
         {
             var layers = HumanoidVisualLayersExtension.Sublayers(HumanoidVisualLayers.HeadSide);
-            _humanoidAppearanceSystem.SetLayersVisibility(uid, layers, false, true, humanoidAppearanceComponent);
+            _humanoidAppearanceSystem.SetLayersVisibility((uid, humanoidAppearanceComponent), layers, false);
         }
 
         siliconDeadComp.Dead = true;
@@ -73,8 +73,8 @@ public sealed class SiliconDeathSystem : EntitySystem
         /*RemComp<ForcedSleepingComponent>(uid); Monolith IPC rework edit start
         _sleep.TryWaking(uid, true, null);*/
 
-        _hands.AddHand(uid, "right hand", HandLocation.Right);
-        _hands.AddHand(uid, "left hand", HandLocation.Left); // edit end
+        if (siliconDeadComp.OriginalModifier != null)
+            _damage.SetDamageModifierSetId(uid, siliconDeadComp.OriginalModifier.Value);
 
         siliconDeadComp.Dead = false;
 

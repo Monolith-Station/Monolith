@@ -36,15 +36,24 @@
   cost: 50000
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 10, 5
+  position: 10, 6
+  recipeUnlocks:
+  - AmmoBox762x39mmBigFMJ
+  - AmmoBox762x51mmBigFMJ
+  - AmmoBox762x54mmRBigFMJ
+  - AmmoBox9x19mmBigFMJ
+  - AmmoBox45_ACPBigFMJ
+  - AmmoBox45_magnumBigFMJ
+  - AmmoBox46x30mmBigFMJ
+  - AmmoBox556x45mmBigFMJ
 
 - type: technology
   id: UniversalMaterialResearchT3
   name: research-technology-universal-engsci-3
-  entityIcon: MaterialSynthalloy
+  entityIcon: SheetPlastitanium
   discipline: FactionUniversal
   tier: 2
   cost: 100000
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 10, 10
+  position: 10, 11

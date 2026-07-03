@@ -1,5 +1,4 @@
 using Content.Server.Administration.Logs;
-using Content.Server.Light.Components;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.NodeGroups;
@@ -16,7 +15,10 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Jittering;
+using Content.Shared.Light.Components;
 using Content.Shared.Maps;
+using Content.Shared.NodeContainer;
+using Content.Shared.NodeContainer.NodeGroups;
 using Content.Shared.Popups;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
@@ -35,26 +37,27 @@ using PullerComponent = Content.Shared.Movement.Pulling.Components.PullerCompone
 
 namespace Content.Server.Electrocution;
 
-public sealed class ElectrocutionSystem : SharedElectrocutionSystem
+public sealed partial class ElectrocutionSystem : SharedElectrocutionSystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly MeleeWeaponSystem _meleeWeapon = default!;
-    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
-    [Dependency] private readonly NodeGroupSystem _nodeGroup = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly SharedJitteringSystem _jittering = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedStutteringSystem _stuttering = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityLookupSystem _entityLookup = default!;
+    [Dependency] private MeleeWeaponSystem _meleeWeapon = default!;
+    [Dependency] private NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private NodeGroupSystem _nodeGroup = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private SharedJitteringSystem _jittering = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedStutteringSystem _stuttering = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
     [ValidatePrototypeId<StatusEffectPrototype>]
     private const string StatusEffectKey = "Electrocution";
@@ -64,6 +67,9 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
 
     // Yes, this is absurdly small for a reason.
     public const float ElectrifiedDamagePerWatt = 0.0015f; // Goobstation - This information is allowed to be public, and was needed in BatteryElectrocuteChargeSystem.cs
+    private static readonly ProtoId<TagPrototype> WindowTag = "Window";
+
+    // Multiply and shift the log scale for shock damage.
     private const float RecursiveDamageMultiplier = 0.75f;
     private const float RecursiveTimeMultiplier = 0.8f;
 
@@ -134,13 +140,13 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             return false;
         if (electrified.NoWindowInTile)
         {
-            var tileRef = transform.Coordinates.GetTileRef(EntityManager, _mapManager);
+            var tileRef = _turf.GetTileRef(transform.Coordinates);
 
             if (tileRef != null)
             {
                 foreach (var entity in _entityLookup.GetLocalEntitiesIntersecting(tileRef.Value, flags: LookupFlags.StaticSundries))
                 {
-                    if (_tag.HasTag(entity, "Window"))
+                    if (_tag.HasTag(entity, WindowTag))
                         return false;
                 }
             }

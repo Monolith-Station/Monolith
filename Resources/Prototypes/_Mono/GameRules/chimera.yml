@@ -16,11 +16,11 @@
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2
-    maxOccurrences: 6 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
+    maxOccurrences: 4 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
   - type: GameRule
     minPlayers: 40
   - type: LoadMapRule
-    preloadedGrid: ChimeraSakuratsu
+    gridPath: /Maps/_Mono/ShuttleEvent/sakuratsu_chimera.yml
 
 - type: entity
   parent: BaseRandomShuttleRule
@@ -31,11 +31,11 @@
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2
-    maxOccurrences: 3 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
+    maxOccurrences: 2 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
   - type: GameRule
     minPlayers: 40
   - type: LoadMapRule
-    preloadedGrid: ChimeraOlympus
+    gridPath: /Maps/_Mono/ShuttleEvent/olympus_chimera.yml
 
 - type: entity
   parent: BaseRandomShuttleRule
@@ -46,11 +46,11 @@
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2
-    maxOccurrences: 6 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
+    maxOccurrences: 4 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
   - type: GameRule
     minPlayers: 40
   - type: LoadMapRule
-    preloadedGrid: ChimeraTethys
+    gridPath: /Maps/_Mono/ShuttleEvent/tethys_chimera.yml
 
 - type: entity
   parent: BaseRandomShuttleRule
@@ -61,9 +61,9 @@
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2
-    maxOccurrences: 6 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
+    maxOccurrences: 4 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
   - type: GameRule
     minPlayers: 40
   - type: LoadMapRule
-    preloadedGrid: ChimeraLegionnaire
+    gridPath: /Maps/_Mono/ShuttleEvent/legionnaire_chimera.yml
 

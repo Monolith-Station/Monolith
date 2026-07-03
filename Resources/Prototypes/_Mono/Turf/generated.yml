@@ -154,154 +154,154 @@
 
 - type: tile
   id: PlatingHalfV
-  parent: Plating
+  parent: PlatingSpace
   name: V half-plating
   sprite: /Textures/_Mono/Tiles/plating/script/half_v.png
   vertices: ['0.25, 0', '0.75, 0', '0.75, 1', '0.25, 1']
 
 - type: tile
   id: PlatingHalfH
-  parent: Plating
+  parent: PlatingSpace
   name: H half-plating
   sprite: /Textures/_Mono/Tiles/plating/script/half_h.png
   vertices: ['0, 0.25', '0, 0.75', '1, 0.75', '1, 0.25']
 
 - type: tile
   id: PlatingWedgeN
-  parent: Plating
+  parent: PlatingSpace
   name: north wedge plating
   sprite: /Textures/_Mono/Tiles/plating/script/wedge_n.png
   vertices: ['0, 1', '1, 1', '0.5, 0.5']
 
 - type: tile
   id: PlatingWedgeE
-  parent: Plating
+  parent: PlatingSpace
   name: east wedge plating
   sprite: /Textures/_Mono/Tiles/plating/script/wedge_e.png
   vertices: ['1, 1', '1, 0', '0.5, 0.5']
 
 - type: tile
   id: PlatingWedgeS
-  parent: Plating
+  parent: PlatingSpace
   name: south wedge plating
   sprite: /Textures/_Mono/Tiles/plating/script/wedge_s.png
   vertices: ['1, 0', '0, 0', '0.5, 0.5']
 
 - type: tile
   id: PlatingWedgeW
-  parent: Plating
+  parent: PlatingSpace
   name: west wedge plating
   sprite: /Textures/_Mono/Tiles/plating/script/wedge_w.png
   vertices: ['0, 0', '0, 1', '0.5, 0.5']
 
 - type: tile
   id: PlatingHalfTiltNESLower
-  parent: Plating
+  parent: PlatingSpace
   name: NE-S lower half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_ne_s_l.png
   vertices: ['0, 1', '1, 1', '1, 0', '0.5, 0']
 
 - type: tile
   id: PlatingHalfTiltSEWLower
-  parent: Plating
+  parent: PlatingSpace
   name: SE-W lower half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_se_w_l.png
   vertices: ['1, 1', '1, 0', '0, 0', '0, 0.5']
 
 - type: tile
   id: PlatingHalfTiltSWNLower
-  parent: Plating
+  parent: PlatingSpace
   name: SW-N lower half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_sw_n_l.png
   vertices: ['1, 0', '0, 0', '0, 1', '0.5, 1']
 
 - type: tile
   id: PlatingHalfTiltNWELower
-  parent: Plating
+  parent: PlatingSpace
   name: NW-E lower half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_nw_e_l.png
   vertices: ['0, 0', '0, 1', '1, 1', '1, 0.5']
 
 - type: tile
   id: PlatingHalfTiltNESUpper
-  parent: Plating
+  parent: PlatingSpace
   name: NE-S upper half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_ne_s_u.png
   vertices: ['0.5, 1', '1, 1', '1, 0']
 
 - type: tile
   id: PlatingHalfTiltSEWUpper
-  parent: Plating
+  parent: PlatingSpace
   name: SE-W upper half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_se_w_u.png
   vertices: ['1, 0.5', '1, 0', '0, 0']
 
 - type: tile
   id: PlatingHalfTiltSWNUpper
-  parent: Plating
+  parent: PlatingSpace
   name: SW-N upper half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_sw_n_u.png
   vertices: ['0.5, 0', '0, 0', '0, 1']
 
 - type: tile
   id: PlatingHalfTiltNWEUpper
-  parent: Plating
+  parent: PlatingSpace
   name: NW-E upper half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_nw_e_u.png
   vertices: ['0, 0.5', '0, 1', '1, 1']
 
 - type: tile
   id: PlatingHalfTiltNEWLower
-  parent: Plating
+  parent: PlatingSpace
   name: NE-W lower half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_ne_w_l.png
   vertices: ['0, 1', '1, 1', '1, 0', '0, 0.5']
 
 - type: tile
   id: PlatingHalfTiltSENLower
-  parent: Plating
+  parent: PlatingSpace
   name: SE-N lower half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_se_n_l.png
   vertices: ['1, 1', '1, 0', '0, 0', '0.5, 1']
 
 - type: tile
   id: PlatingHalfTiltSWELower
-  parent: Plating
+  parent: PlatingSpace
   name: SW-E lower half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_sw_e_l.png
   vertices: ['1, 0', '0, 0', '0, 1', '1, 0.5']
 
 - type: tile
   id: PlatingHalfTiltNWSLower
-  parent: Plating
+  parent: PlatingSpace
   name: NW-S lower half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_nw_s_l.png
   vertices: ['0, 0', '0, 1', '1, 1', '0.5, 0']
 
 - type: tile
   id: PlatingHalfTiltNEWUpper
-  parent: Plating
+  parent: PlatingSpace
   name: NE-W upper half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_ne_w_u.png
   vertices: ['0, 1', '1, 1', '1, 0.5']
 
 - type: tile
   id: PlatingHalfTiltSENUpper
-  parent: Plating
+  parent: PlatingSpace
   name: SE-N upper half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_se_n_u.png
   vertices: ['1, 1', '1, 0', '0.5, 0']
 
 - type: tile
   id: PlatingHalfTiltSWEUpper
-  parent: Plating
+  parent: PlatingSpace
   name: SW-E upper half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_sw_e_u.png
   vertices: ['1, 0', '0, 0', '0, 0.5']
 
 - type: tile
   id: PlatingHalfTiltNWSUpper
-  parent: Plating
+  parent: PlatingSpace
   name: NW-S upper half-tilt plating
   sprite: /Textures/_Mono/Tiles/plating/script/halftilt_nw_s_u.png
   vertices: ['0, 0', '0, 1', '0.5, 1']

@@ -163,6 +163,17 @@
   - WeaponLaserCarbine
   categories: [ HideSpawnMenu ]
   id: WeaponLaserCarbineExpedition
+  components:
+  - type: Gun
+    burstCooldown: 0.5
+    burstFireRate: 3
+    shotsPerBurst: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+    
 
 - type: entity
   parent:

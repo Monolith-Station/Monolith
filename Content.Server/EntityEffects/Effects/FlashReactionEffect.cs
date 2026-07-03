@@ -63,7 +63,7 @@ public sealed partial class FlashReactionEffect : EntityEffect
             args.TargetEntity,
             null,
             range,
-            Duration * 1000,
+            TimeSpan.FromSeconds(Duration),
             slowTo: SlowTo,
             sound: Sound);
 

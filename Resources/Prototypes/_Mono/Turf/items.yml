@@ -285,3 +285,51 @@
   name: commercial mono grey steel tile
   spawn: FloorTileItemSteelGreyMonoCommercial
   maxCount: 30
+
+# Monolith tiles
+
+- type: entity
+  name: horizontal catwalk tile
+  parent: FloorTileItemBase
+  id: FloorTileItemCatwalkHorizontal
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Tiles/tile.rsi
+    state: catwalk-tile-horizontal
+  - type: Item
+    heldPrefix: dark
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorTileCatwalkHorizontal
+  - type: Stack
+    stackType: FloorTileCatwalkHorizontal
+
+- type: stack
+  id: FloorTileCatwalkHorizontal
+  name: horizontal catwalk tile
+  spawn: FloorTileItemCatwalkHorizontal
+  maxCount: 30
+
+- type: entity
+  name: vertical catwalk tile
+  parent: FloorTileItemBase
+  id: FloorTileItemCatwalkVertical
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Tiles/tile.rsi
+    state: catwalk-tile-vertical
+  - type: Item
+    heldPrefix: dark
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorTileCatwalkVertical
+  - type: Stack
+    stackType: FloorTileCatwalkVertical
+
+- type: stack
+  id: FloorTileCatwalkVertical
+  name: vertical catwalk tile
+  spawn: FloorTileItemCatwalkVertical
+  maxCount: 30

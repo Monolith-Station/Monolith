@@ -8,6 +8,10 @@
     snap:
     - Window
   components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -74,8 +78,13 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Airtight
+  - type: DeltaPressure
+    minPressure: 1000
+    minPressureDelta: 750
+    scalingType: Linear
+    scalingPower: 0.0005
   - type: IconSmooth
-    key: walls
+    key: basewindows # Mono
     base: window
   - type: InteractionPopup
     interactSuccessString: comp-window-knock
@@ -170,6 +179,9 @@
         layer:
         - GlassLayer
   - type: Repairable
+    qualities:
+    - Welding #Mono
+    - Applicating #Mono
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Glass
@@ -208,6 +220,10 @@
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:
     - South
+  - type: DeltaPressure
+    minPressure: 250
+    minPressureDelta: 187.5
+    scalingType: Threshold
   - type: Construction
     graph: WindowDirectional
     node: windowDirectional
@@ -285,7 +301,7 @@
         mask:
         - FullTileMask
         layer:
-        - GlassLayer
+        - DiagonalGlassLayer # Mono GlassLayer->DiagonalGlassLayer
   - type: Airtight
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:

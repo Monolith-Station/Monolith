@@ -1,9 +1,11 @@
 using System.Numerics;
+using Content.Server.Destructible; // Mono
 using Content.Server.NPC.Components;
 using Content.Shared._Goobstation.Weapons.SmartGun;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Components;
 using Content.Shared.Interaction;
+using Content.Shared.NPC.Components; // Mono
 using Content.Shared.Physics;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -15,9 +17,10 @@ namespace Content.Server.NPC.Systems;
 
 public sealed partial class NPCCombatSystem
 {
-    [Dependency] private readonly SharedCombatModeSystem _combat = default!;
-    [Dependency] private readonly RotateToFaceSystem _rotate = default!;
-    [Dependency] private readonly SharedLaserPointerSystem _pointer = default!; // Goobstation
+    [Dependency] private SharedCombatModeSystem _combat = default!;
+    [Dependency] private RotateToFaceSystem _rotate = default!;
+    [Dependency] private SharedLaserPointerSystem _pointer = default!; // Goobstation
+    [Dependency] private DestructibleSystem _destructible = default!;
 
     private EntityQuery<CombatModeComponent> _combatQuery;
     private EntityQuery<NPCSteeringComponent> _steeringQuery;
@@ -25,6 +28,7 @@ public sealed partial class NPCCombatSystem
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<RequireProjectileTargetComponent> _requireTargetQuery; // Mono
+    private EntityQuery<NpcFactionMemberComponent> _factionQuery; // Mono
 
     // TODO: Don't predict for hitscan
     private const float ShootSpeed = 20f;
@@ -42,6 +46,7 @@ public sealed partial class NPCCombatSystem
         _steeringQuery = GetEntityQuery<NPCSteeringComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
         _requireTargetQuery = GetEntityQuery<RequireProjectileTargetComponent>(); // Mono
+        _factionQuery = GetEntityQuery<NpcFactionMemberComponent>(); // Mono
 
         SubscribeLocalEvent<NPCRangedCombatComponent, ComponentStartup>(OnRangedStartup);
         SubscribeLocalEvent<NPCRangedCombatComponent, ComponentShutdown>(OnRangedShutdown);
@@ -74,10 +79,12 @@ public sealed partial class NPCCombatSystem
 
     private void UpdateRanged(float frameTime)
     {
-        var query = EntityQueryEnumerator<NPCRangedCombatComponent, TransformComponent>();
+        var query = EntityQueryEnumerator<NPCRangedCombatComponent>();
 
-        while (query.MoveNext(out var uid, out var comp, out var xform))
+        while (query.MoveNext(out var uid, out var comp))
         {
+            var xform = Transform(uid); // Mono
+
             if (!_gun.TryGetGun(uid, out var gunUid, out var gun))
             {
                 comp.Status = CombatStatus.NoWeapon;
@@ -152,12 +159,8 @@ public sealed partial class NPCCombatSystem
             if (comp.LOSAccumulator < 0f)
             {
                 comp.LOSAccumulator += UnoccludedCooldown;
-                // For consistency with NPC steering.                                                  // Mono
-                comp.TargetInLOS = _interaction.InRangeUnobstructed(uid, comp.Target, distance + 0.1f, comp.ObstructedMask, predicate: (EntityUid entity) =>
-                {
-                    return _physicsQuery.TryGetComponent(entity, out var physics) && (physics.CollisionLayer & (int)comp.BulletMask) == 0 // ignore if it can't collide with bullets
-                        || _requireTargetQuery.HasComponent(entity); // or if it requires targeting
-                });
+                // Mono
+                comp.TargetInLOS = InRangeGoodTarget((gunUid, gun), uid, comp.Target, distance, comp.ShotsThreshold, comp.ObstructedMask, comp.BulletMask);
             }
 
             if (!comp.TargetInLOS)
@@ -218,7 +221,7 @@ public sealed partial class NPCCombatSystem
 
             if (_mapManager.TryFindGridAt(xform.MapID, targetPos, out var gridUid, out var mapGrid))
             {
-                targetCordinates = new EntityCoordinates(gridUid, mapGrid.WorldToLocal(targetSpot));
+                targetCordinates = new EntityCoordinates(gridUid, _map.WorldToLocal(gridUid, mapGrid, targetSpot));
             }
             else
             {
@@ -264,5 +267,38 @@ public sealed partial class NPCCombatSystem
                 targetPos - worldPos,
                 target);
         }
+    }
+
+    // Mono
+    public bool InRangeGoodTarget(Entity<GunComponent?> gun, EntityUid source, EntityUid target, float distance, float shotsThreshold, CollisionGroup obstructedMask = CollisionGroup.Opaque, CollisionGroup bulletMask = CollisionGroup.Impassable | CollisionGroup.BulletImpassable)
+    {
+        if (!Resolve(gun, ref gun.Comp, false))
+            return false;
+
+        var dmg = _gun.GetNextDamage(gun).GetTotal().Float(); // this will be wrong but damageable is evil and i have no idea how to do this better
+        var destroyAccum = 0f;
+        var firerate = gun.Comp.FireRateModified;
+        var threshold = shotsThreshold;
+        // For consistency with NPC steering.                                                  // Mono
+        return _interaction.InRangeUnobstructed(source, target, distance + 0.1f, obstructedMask,
+            predicate: (EntityUid uid) => {
+                if (_physicsQuery.TryGetComponent(uid, out var physics)
+                    && (physics.CollisionLayer & (int)bulletMask) == 0
+                ) // this will collide with the bullet
+                    return true;
+
+                if (_requireTargetQuery.HasComponent(uid)) // requires targeting so it won't collide
+                    return true;
+
+                // do not consider living things for shoot-through
+                if (!_factionQuery.HasComp(uid)
+                    && _destructible.TryGetDestroyedAt(uid, out var at))
+                {
+                    destroyAccum += at.Value.Float() / dmg / firerate;
+                    if (destroyAccum < threshold)
+                        return true;
+                }
+                return false;
+            });
     }
 }

@@ -33,7 +33,7 @@
   parent: ClothingOuterArmorBasic
   id: ClothingOuterArmorBPVestMedium
   name: medium bulletproof vest
-  description: A simple kevlar vest of unknown origin. This one is more heavily reinforced against bullet at the cost of it being cumbersome.
+  description: A simple kevlar vest of unknown origin. This one is more heavily reinforced against bullets at the cost of it being cumbersome.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Armor/bulletproof_medium.rsi
@@ -65,7 +65,7 @@
   parent: ClothingOuterArmorBasic
   id: ClothingOuterArmorBPVestHeavy
   name: heavy bulletproof vest
-  description: A simple kevlar vest of unknown origin. This juggernaut vest makes you practically a walking tank at, at the cose of heat protection and extreme bulk.
+  description: A simple kevlar vest of unknown origin. This juggernaut vest makes you practically a walking tank, at the cost of heat protection and extreme bulk.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Armor/bulletproof_heavy.rsi
@@ -107,18 +107,18 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.65
+        Blunt: 0.6
+        Slash: 0.6
         Piercing: 0.55
-        Heat: 0.7
+        Heat: 0.6
         Caustic: 0.9 # Frontier
   - type: Tag  # Mono
     tags:
     - Kevlar
   - type: StaminaDamageResistance # Mono - Stamres
-    coefficient: 0.8
+    coefficient: 0.7
   - type: ExplosionResistance
-    damageCoefficient: 0.90
+    damageCoefficient: 0.85
   - type: StaticPrice
     price: 4000
     vendPrice: 7000
@@ -133,7 +133,7 @@
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Armor/bulletproof_stabproof.rsi
   - type: Clothing
-    sprite: _Mono/Clothing/OuterClothing/Armor/bulletproof_stabprooft.rsi
+    sprite: _Mono/Clothing/OuterClothing/Armor/bulletproof_stabproof.rsi
   - type: Armor
     modifiers:
       coefficients:

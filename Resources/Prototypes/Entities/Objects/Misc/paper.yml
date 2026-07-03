@@ -693,8 +693,11 @@
         insertSound: /Audio/Effects/packetrip.ogg
         ejectSound: /Audio/Effects/packetrip.ogg
         whitelist:
-          tags:
-            - Paper
+#          tags: #Mono start
+#            - Paper
+          components:
+            - Cash
+            - Paper #Mono end
   - type: ActivatableUI
     key: enum.PaperUiKey.Key
     requiresComplex: false

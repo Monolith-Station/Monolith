@@ -10,7 +10,7 @@
     damage:
       types:
         Radiation: 25
-        Structural: 500
+        Structural: 1500
         Heat: 50
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
@@ -22,7 +22,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 10
@@ -31,10 +30,10 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 30
-    intensitySlope: 12
-    maxIntensity: 15
-    maxTileBreak: 1
+    totalIntensity: 60
+    intensitySlope: 8
+    maxIntensity: 12
+    maxTileBreak: 3
 
 # Cerberus
 
@@ -48,8 +47,8 @@
     damage:
       types:
         Radiation: 20
-        Structural: 350
-        Heat: 80
+        Structural: 120
+        Heat: 60
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
     layers:
@@ -60,18 +59,17 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
-    lifetime: 12.2
+    lifetime: 10
   - type: PointLight
     color: "#FF0040"
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 18
-    intensitySlope: 10
-    maxIntensity: 15
+    totalIntensity: 30
+    intensitySlope: 6
+    maxIntensity: 6
 
 - type: entity
   name: cerberus spread
@@ -95,8 +93,8 @@
     damage:
       types:
         Radiation: 6
-        Structural: 65
-        Heat: 35
+        Structural: 20
+        Heat: 15
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
     layers:
@@ -108,7 +106,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 1.45
-    requireNoGrid: true
     shape: arrow
   - type: TimedDespawn
     lifetime: 2.8
@@ -117,10 +114,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 7
-    intensitySlope: 2
-    maxIntensity: 4
-    maxTileBreak: 1
+    totalIntensity: 5
+    intensitySlope: 1
+    maxIntensity: 1
 
 # Scylla
 
@@ -134,8 +130,8 @@
     damage:
       types:
         Radiation: 5
-        Structural: 60
-        Heat: 30
+        Structural: 10
+        Heat: 10
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
     layers:
@@ -145,7 +141,6 @@
   - type: RadarBlip
     radarColor: "#00e5ff"
     scale: 1.45
-    requireNoGrid: true
     shape: arrow
   - type: TimedDespawn
     lifetime: 2.1
@@ -154,10 +149,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 15
+    totalIntensity: 3
     intensitySlope: 3
-    maxIntensity: 5
-    maxTileBreak: 1
+    maxIntensity: 3
 
 # Type 241
 
@@ -184,7 +178,6 @@
   - type: RadarBlip
     radarColor: "#FF00AA"
     scale: 2.4
-    requireNoGrid: true
     shape: arrow
   - type: TimedDespawn
     lifetime: 24
@@ -193,8 +186,8 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 15
-    intensitySlope: 9
+    totalIntensity: 25
+    intensitySlope: 5
     maxIntensity: 5
     maxTileBreak: 3
 
@@ -222,7 +215,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 0.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 3
@@ -255,7 +247,6 @@
   - type: RadarBlip
     radarColor: "#035EFC"
     scale: 2
-    requireNoGrid: true
     shape: circle
   - type: TimedDespawn
     lifetime: 6.6
@@ -289,7 +280,6 @@
   - type: RadarBlip
     radarColor: "#C92BCC"
     scale: 3.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 10
@@ -298,9 +288,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 200
-    intensitySlope: 10
-    maxIntensity: 100
+    totalIntensity: 500
+    intensitySlope: 100
+    maxIntensity: 20
     maxTileBreak: 5
   - type: GatheringProjectile
   - type: MiningGatheringSoft
@@ -318,7 +308,7 @@
     damage:
       types:
         Radiation: 35
-        Structural: 2000
+        Structural: 160
         Heat: 35
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Projectiles/ship_projectiles.rsi
@@ -331,7 +321,6 @@
   - type: RadarBlip
     radarColor: "#ffffff"
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 6
@@ -340,9 +329,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 75
-    intensitySlope: 35
-    maxIntensity: 15
+    totalIntensity: 25
+    intensitySlope: 7
+    maxIntensity: 7
 
 # Harbinger
 
@@ -365,21 +354,20 @@
     muzzleFlash: MuzzleFlashEffectTempCold
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    radarColor: "#9507fa"
-    scale: 3
-    requireNoGrid: true
+    radarColor: "#6c00d6"
+    scale: 5
     shape: circle
   - type: TimedDespawn
-    lifetime: 10
+    lifetime: 4.4
   - type: PointLight
     color: "#FB00FF"
   - type: EmpOnTrigger
-    range: 3
+    range: 4
     energyConsumption: 6000000
-    disableDuration: 27.5
+    disableDuration: 15
   - type: LightningOnTrigger
     chance: 1
-    count: 5
+    count: 6
     range: 24
     lightningProto: LightningEMP
     lightningEffects: false
@@ -407,7 +395,6 @@
   - type: RadarBlip
     radarColor: "#ab0707"
     scale: 3
-    requireNoGrid: true
     shape: circle
   - type: TimedDespawn
     lifetime: 4.5
@@ -417,7 +404,7 @@
   - type: Explosive
     explosionType: Default
     totalIntensity: 120
-    intensitySlope: 5
+    intensitySlope: 45
     maxIntensity: 45
     maxTileBreak: 4
 
@@ -447,9 +434,9 @@
     damage:
      types:
       Heat: 35
-      Structural: 50
+      Structural: 35
   - type: HitscanBasicRaycast
-    maxDistance: 400
+    maxDistance: 512
 
 # Apollo
 
@@ -491,6 +478,8 @@
      types:
        Heat: 120
        Structural: 500
+  - type: HitscanRadarSignature
+    radarColor: "#5d46e2"
   - type: HitscanSpawnEntity
     spawnedEntity: PrometheusExplosion
   - type: HitscanBasicRaycast
@@ -552,7 +541,7 @@
   - type: HitscanSpawnEntity
     spawnedEntity: SunderExplosion
   - type: HitscanBasicRaycast
-    maxDistance: 700
+    maxDistance: 900
 
 # Flayer
 
@@ -577,9 +566,9 @@
   - type: HitscanBasicDamage
     damage:
      types:
-      Piercing: 50
-      Heat: 25
-      Structural: 100
+      Piercing: 25
+      Heat: 5
+      Structural: 75
   - type: HitscanBasicRaycast
     maxDistance: 500
 
@@ -593,9 +582,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 6000
-    intensitySlope: 35
-    maxIntensity: 700
+    totalIntensity: 1200
+    intensitySlope: 150
+    maxIntensity: 30
 
 - type: entity
   id: SunderExplosion
@@ -605,8 +594,8 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 22
-    intensitySlope: 2
+    totalIntensity: 45
+    intensitySlope: 5
     maxIntensity: 5
 
 - type: entity
@@ -617,6 +606,6 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 50
-    intensitySlope: 10
-    maxIntensity: 25
+    totalIntensity: 80
+    intensitySlope: 8
+    maxIntensity: 8

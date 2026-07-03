@@ -11,7 +11,7 @@ namespace Content.Shared.Audio;
 [Prototype]
 public sealed partial class AmbientMusicPrototype : IPrototype
 {
-    [IdDataField] public string ID { get; } = string.Empty;
+    [IdDataField] public string ID { get; private set; } = string.Empty;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("sound", required: true)]
     public SoundSpecifier Sound = default!;

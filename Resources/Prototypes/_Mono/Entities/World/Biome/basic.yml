@@ -11,6 +11,18 @@
   minimum: 0.25
 
 - type: noiseChannel
+  id: DensityVeryRare
+  noiseType: Perlin
+  fractalLacunarityByPi: 0.666666666
+  remapTo0Through1: true
+  clippingRanges:
+  - 0.4, 0.6
+  clippedValue: 30
+  inputMultiplier: 3
+  outputMultiplier: 7500.0
+  minimum: 0.25
+
+- type: noiseChannel
   id: WreckRare
   noiseType: Perlin
   fractalLacunarityByPi: 0.666666666
@@ -18,8 +30,8 @@
   - 0.0, 0.4
   clippedValue: 0
   remapTo0Through1: true
-  inputMultiplier: 16 # Makes wreck concentration very low noise at scale.
-  outputMultiplier: 0.35
+  outputMultiplier: 0
+  minimum: 0.2 # constant probability
 
 # region Far Ring
 - type: spaceBiome
@@ -141,12 +153,12 @@
       prob: 1
       orGroup: wreck
     - id: NFWreckDebrisBrassLarge
-      prob: 0.9
+      prob: 0.5
       orGroup: wreck
     - id: NFWreckDebrisBrassExtraLarge
-      prob: 3
+      prob: 1
       orGroup: wreck
-    - id: MonoRamDroneSpawnerT1
+    - id: MonoDroneSpawnerT1
       prob: 3
       orGroup: wreck
 
@@ -174,15 +186,15 @@
     - id: NFWreckDebrisBrassExtraLarge
       prob: 0.3
       orGroup: wreck
-    - id: MonoRamDroneSpawnerT2Inner
-      prob: 4
+    - id: MonoDroneSpawnerT2Inner
+      prob: 1.5
       orGroup: wreck
 
 - type: spaceBiome
   id: MonoWorldgenVeryFarT2Middle
   parent: MonoWorldgenVeryFarT1
   priority: -3
-  distanceRange: null
+  distanceRange: 25000, 30000
   chunkComponents:
   - type: NoiseDrivenDebrisSelector
     noiseChannel: WreckRare
@@ -202,6 +214,36 @@
     - id: NFWreckDebrisBrassExtraLarge
       prob: 0.3
       orGroup: wreck
-    - id: MonoRamDroneSpawnerT2Middle
-      prob: 4
+    - id: MonoDroneSpawnerT2Middle
+      prob: 1.5
+      orGroup: wreck
+
+
+- type: spaceBiome
+  id: MonoWorldgenVeryFarT2Far
+  parent: MonoWorldgenVeryFarT1
+  priority: -4
+  distanceRange: null
+  chunkComponents:
+  - type: DebrisFeaturePlacerController
+    densityNoiseChannel: DensityVeryRare
+  - type: NoiseDrivenDebrisSelector
+    debrisTable:
+    - id: NFWreckDebrisSmall
+      prob: 0.5
+      orGroup: wreck
+    - id: NFWreckDebrisMedium
+      prob: 1
+      orGroup: wreck
+    - id: NFWreckDebrisLarge
+      prob: 0.5
+      orGroup: wreck
+    - id: NFWreckDebrisBrassLarge
+      prob: 0.3
+      orGroup: wreck
+    - id: NFWreckDebrisBrassExtraLarge
+      prob: 0.9
+      orGroup: wreck
+    - id: MonoDroneSpawnerT2Far
+      prob: 1
       orGroup: wreck

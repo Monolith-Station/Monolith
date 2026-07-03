@@ -3,6 +3,8 @@
 // See AGPLv3.txt for details.
 using Content.Shared._NF.Shuttles.Events;
 using Robust.Client.UserInterface.Controls;
+using System.Text.RegularExpressions;
+using System;
 
 namespace Content.Client.Shuttles.UI
 {
@@ -10,7 +12,7 @@ namespace Content.Client.Shuttles.UI
     {
         private readonly ButtonGroup _buttonGroup = new();
         public event Action<NetEntity?, InertiaDampeningMode>? OnInertiaDampeningModeChanged;
-        public event Action<NetEntity?, float>? OnMaxShuttleSpeedChanged;
+        public event Action<float?>? OnMaxShuttleSpeedChanged;
         public event Action<string, string>? OnNetworkPortButtonPressed;
 
         private void NfInitialize()
@@ -23,8 +25,7 @@ namespace Content.Client.Shuttles.UI
             MaximumIFFDistanceValue.OnValueChanged += args => OnRangeFilterChanged(args);
 
             // Frontier - Maximum Shuttle Speed
-            MaximumShuttleSpeedValue.GetChild(0).GetChild(1).Margin = new Thickness(8, 0, 0, 0);
-            MaximumShuttleSpeedValue.OnValueChanged += args => OnMaxSpeedChanged(args);
+            MaximumShuttleSpeedValue.OnTextChanged += args => OnMaxSpeedChanged(args);
 
             DampenerOff.OnPressed += _ => SetDampenerMode(InertiaDampeningMode.Off);
             DampenerOn.OnPressed += _ => SetDampenerMode(InertiaDampeningMode.Dampen);
@@ -99,10 +100,11 @@ namespace Content.Client.Shuttles.UI
         }
 
         // Frontier - Maximum Shuttle Speed
-        private void OnMaxSpeedChanged(int value)
+        private void OnMaxSpeedChanged(LineEdit.LineEditEventArgs value)
         {
-            _entManager.TryGetNetEntity(_shuttleEntity, out var shuttle);
-            OnMaxShuttleSpeedChanged?.Invoke(shuttle, value);
+            MaximumShuttleSpeedValue.Text = Regex.Replace(MaximumShuttleSpeedValue.Text, "[^0-9]", "");
+            float.TryParse(MaximumShuttleSpeedValue.Text, out var speed);
+            OnMaxShuttleSpeedChanged?.Invoke(MaximumShuttleSpeedValue.Text == "" ? null : speed);
         }
 
         private void NfAddShuttleDesignation(EntityUid? shuttle)
@@ -111,11 +113,11 @@ namespace Content.Client.Shuttles.UI
             if (_entManager.TryGetComponent<MetaDataComponent>(shuttle, out var metadata))
             {
                 var shipName = metadata.EntityName;
-                
+
                 // Try to find a designation in the format XXX-### (like CIV-748)
                 // by checking each word in the ship name
                 var shipNameParts = shipName.Split(' ');
-                
+
                 foreach (var part in shipNameParts)
                 {
                     // Check if this part matches the designation format (e.g., CIV-748)
@@ -132,7 +134,7 @@ namespace Content.Client.Shuttles.UI
                         }
                     }
                 }
-                
+
                 // If we get here, no designation was found, so just show the full name
                 NavDisplayLabel.Text = shipName;
                 // Leave ShuttleDesignation.Text as "Unknown" (the default)

@@ -138,3 +138,9 @@
   parent: BaseAmmoRIPIntermediateMagazineRecipe
   id: AmmoBox45_magnumRIP
   result: AmmoBox45_magnumRIP
+
+#big box
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateBigAmmoBoxRecipe
+  id: AmmoBox45_magnumBigFMJ
+  result: AmmoBox45_magnumBigFMJ

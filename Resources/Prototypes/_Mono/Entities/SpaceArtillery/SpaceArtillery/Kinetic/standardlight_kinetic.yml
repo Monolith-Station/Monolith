@@ -3,15 +3,19 @@
 - type: entity
   id: WeaponTurretL85Autocannon
   name: L85 20mm autocannon
-  parent: BallisticArtilleryMagazine
-  description: A light 20mm ballistic autocannon designed for rapid fire and suppressing smaller targets at close range. Cheap, light, and can be remotely activated or linked up to a GCS.
+  parent:
+  - BallisticArtilleryMagazine
+  - BallisticArtilleryTier1HP
+  suffix: Small, T1
+  description: A light 20mm ballistic autocannon designed for rapid fire point defense and suppressing smaller targets at close range. Cheap, light, and can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 250
   - type: Sprite
-    sprite: _Mono/Objects/ShuttleWeapons/50cal.rsi
+    offset: -0.03,0
+    sprite: _Mono/Objects/ShuttleWeapons/L85.rsi
     layers:
-    - state: space_artillery
+    - state: icon
   - type: Appearance
   - type: FireControlRotate
   - type: AutoShootGun
@@ -24,7 +28,7 @@
   - type: Gun
     fireRate: 12
     recoil: 5 # 1/5x
-    projectileSpeed: 160
+    projectileSpeed: 192
     minAngle: 0
     maxAngle: 5
     shootThermalSignature: 10000 # relatively low for a shipgun, ~693m signature if firing continuously
@@ -68,6 +72,12 @@
     radarColor: "#FF0000"
     scale: 1
     visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.7,-0.7,0.7,0.7"
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
@@ -81,8 +91,11 @@
 - type: entity
   id: WeaponTurretRAC30
   name: RAC-30 Draupnir Autocannon
-  parent: BallisticArtilleryMagazine
-  description: A heavy duty rapid rife autocannon, originally mounted as a dogfighting weapon on atmospheric craft.
+  parent:
+  - BallisticArtilleryMagazine
+  - BallisticArtilleryTier2HP
+  suffix: Medium, T2
+  description: A heavy duty rapid fire 30mm autocannon, originally mounted as a dogfighting weapon on atmospheric craft.
   components:
   - type: StaticPrice
     price: 1000
@@ -102,9 +115,9 @@
   - type: Gun
     fireRate: 25
     recoil: 5 # 1/5x
-    projectileSpeed: 180
+    projectileSpeed: 216
     minAngle: 0
-    maxAngle: 8
+    maxAngle: 4
     shootThermalSignature: 100000 # ~4.5km if firing continuously
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
@@ -129,17 +142,6 @@
           tags:
           - Magazine30mm
         whitelistFailPopup: gun-magazine-whitelist-fail
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 10000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: RadiationBlocker
     resistance: 8
   - type: RadarBlip

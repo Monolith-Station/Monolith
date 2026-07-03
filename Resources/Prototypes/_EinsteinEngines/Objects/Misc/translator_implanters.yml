@@ -126,10 +126,10 @@
   - type: Implanter
     implant: MarishTranslatorImplant
 
-- type: entity # Mono
-  id: NovaCygniTranslatorImplanter
+- type: entity
+  id: NewKinPidginTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: Nova Cygni translator implant
+  name: ka'rakk translator implant
   components:
   - type: Implanter
-    implant: NovaCygniTranslatorImplant
+    implant: NewKinPidginTranslatorImplant

@@ -18,8 +18,8 @@
   supervisors: job-supervisors-nobody
   weight: 50
   displayWeight: 50
+  assignedCompany: PDV
   setPreference: true
-  guides: [ BasicLore, PhaethonDynasty ] # Mono
   access:
   - Pirate
   - GrandVizier
@@ -54,4 +54,5 @@
   storage:
     back:
     - RadioHandheldNF # mono
-    - ShipVoucherSaintie
+    - PhoneInstrumentHigh
+    - RubberStampPDVVizier # mono

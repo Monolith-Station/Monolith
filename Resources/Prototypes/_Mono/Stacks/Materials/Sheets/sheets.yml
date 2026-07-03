@@ -1,11 +1,4 @@
 - type: stack
-  id: Synthalloy
-  name: synthalloy
-  icon: { sprite: /Textures/_Mono/Objects/Materials/synthalloy.rsi, state: synthalloy }
-  spawn: MaterialSynthalloy1
-  maxCount: 50
-
-- type: stack
   id: Pyrogel
   name: pyrogel
   icon: { sprite: _Mono/Objects/Materials/pyrogel.rsi, state: icon }

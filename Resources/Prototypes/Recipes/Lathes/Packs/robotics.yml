@@ -7,6 +7,7 @@
   - PositronicBrain
   - SciFlash
   - CyborgEndoskeleton
+  - AiRemoteBrain
 
 - type: latheRecipePack
   id: BorgModulesStatic
@@ -51,6 +52,8 @@
   id: Robotics
   recipes:
   - ProximitySensor
+  - BorgIFFTSF # _Mono
+  - BorgIFFPDV # _Mono
 
 - type: latheRecipePack
   id: BorgModules
@@ -95,6 +98,9 @@
     - MechEquipmentGrabber
     - MechEquipmentHorn
     - MechEquipmentGrabberSmall
+    - PowerCageSmall
+    - PowerCageMedium
+    - PowerCageHigh
 
 - type: latheRecipePack
   id: Modsuits

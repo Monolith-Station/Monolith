@@ -7,12 +7,12 @@ using SixLabors.ImageSharp.PixelFormats;
 
 namespace Content.Client._RMC14.CombatMode;
 
-public sealed class RMCCombatModeUISystem : EntitySystem
+public sealed partial class RMCCombatModeUISystem : EntitySystem
 {
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly CombatModeSystem _combatMode = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly RMCCombatModeSystem _rmcCombatMode = default!;
+    [Dependency] private IClyde _clyde = default!;
+    [Dependency] private CombatModeSystem _combatMode = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private RMCCombatModeSystem _rmcCombatMode = default!;
 
     private ICursor? _crosshairCursor;
 
@@ -22,7 +22,7 @@ public sealed class RMCCombatModeUISystem : EntitySystem
             _hands.GetActiveHandEntity() is { } held &&
             _rmcCombatMode.GetCrosshair(held) != null)
         {
-            _crosshairCursor ??= _clyde.CreateCursor(new Image<Rgba32>(1, 1), Vector2i.One);
+            _crosshairCursor ??= _clyde.CreateCursor(new Image<Rgba32>(1, 1), Vector2i.Zero);
             _clyde.SetCursor(_crosshairCursor);
         }
         else

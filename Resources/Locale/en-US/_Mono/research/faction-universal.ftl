@@ -14,3 +14,4 @@ research-technology-universal-armorplates-2 = Plasteel Hex-ply Stamping Reverse 
 
 research-technology-universal-boarding-pods = Alternative Delivery Methods
 research-technology-universal-special-pods = Specialized Pods
+research-technology-universal-armorplates-2 = Advanced Plate Material Reverse Engineering

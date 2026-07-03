@@ -366,6 +366,18 @@
 
 - type: entity
   parent: WeaponCaseLong
+  id: WeaponCaseLongIrohExpedition
+  suffix: Dungeon, Iroh
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleIroh
+      amount: 1
+    - id: Magazine556x45mmFMJ
+      amount: 2
+
+- type: entity
+  parent: WeaponCaseLong
   id: WeaponCaseLongAk
   suffix: Dungeon, AKM
   components:
@@ -697,6 +709,19 @@
     contents:
     - id: C4
       amount: 2
+
+- type: entity # Mono
+  parent: WeaponCaseShortExplosives
+  id: WeaponCaseShortBombCollar
+  suffix: Dungeon, Bomb Collar
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingNeckBombCollar
+      amount: 4
+    - id: RemoteSignaller
+      amount: 2
+    - id: BombCollarSealer
 
 # Turrets
 - type: entity

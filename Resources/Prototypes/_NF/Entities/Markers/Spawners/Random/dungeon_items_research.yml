@@ -214,8 +214,8 @@
         color: red
   - type: RandomSpawner
     prototypes:
-    - ResearchDisk
-    - ResearchDisk
+    - ResearchDisk10000
+    - ResearchDisk10000
     - ResearchDisk35000
     chance: 0.95
     offset: 0.0

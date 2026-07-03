@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: 2025 DuneTemplar
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Author Info
+# GitHub: DuneTemplar
+# Discord: dunetemplar
+
+- type: vessel
+  id: Kuldi
+  parent: BaseVessel
+  name: DWI Kuldi
+  description: Equipped with a full chemistry lab and cryogenics, this ship is Dornan-Weryl Industrial's solution to most medical care.
+  price: 95000 # A bit higher than the grid appraisal +vendors
+  category: Medium
+  group: Medical
+  shuttlePath: /Maps/_Mono/Shuttles/kuldi.yml
+  guidebookPage: null
+  class:
+  - Medical
+  - Chemistry
+  engine:
+  - AME
+
+- type: gameMap
+  id: Kuldi
+  mapName: 'DWI Kuldi'
+  mapPath: /Maps/_Mono/Shuttles/kuldi.yml
+  minPlayers: 0
+  stations:
+    Kuldi:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Kuldi MED{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            MdMedic: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

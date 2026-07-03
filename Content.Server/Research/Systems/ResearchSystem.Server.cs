@@ -69,6 +69,8 @@ public sealed partial class ResearchSystem
         if (serverComponent.Clients.Contains(client))
             return;
 
+        UnregisterClient(client, clientComponent); // Mono Research Fix, unregister a client if applicable before registering to a new server
+
         serverComponent.Clients.Add(client);
         clientComponent.Server = server;
         SyncClientWithServer(client, clientComponent: clientComponent);

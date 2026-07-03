@@ -1,10 +1,11 @@
 - type: cargoProduct
   id: CargoBarreSpaceCleaner
+  name: barrel of space cleaner #Mono
   icon:
     sprite: _NF/Objects/Storage/Barrels/blue.rsi
     state: icon
   product: ChemicalBarrelSpaceCleaner
-  cost: 3500
+  cost: 1500 #Mono 3500 >> 1500
   category: cargoproduct-category-name-service
   group: market
 
@@ -20,7 +21,6 @@
 
 - type: cargoProduct
   id: ServiceVehicleJanicart
-  abstract: true
   icon:
     sprite: Objects/Vehicles/janicart.rsi
     state: icon

@@ -16,11 +16,11 @@ namespace Content.Client._NF.LateJoin.Controls;
 [GenerateTypedNameReferences]
 public sealed partial class StationPickerControl : PickerControl
 {
-    [Dependency] private readonly ILocalizationManager _loc = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly JobRequirementsManager _jobReqs = default!;
-    [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
+    [Dependency] private IEntitySystemManager _entitySystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private JobRequirementsManager _jobReqs = default!;
+    [Dependency] private IClientPreferencesManager _preferencesManager = default!;
     private readonly SpriteSystem _spriteSystem;
 
     public StationPickerControl()
@@ -126,6 +126,9 @@ public sealed partial class StationPickerControl : PickerControl
 
         foreach (var (stationEntity, stationJobInformation) in stationList)
         {
+            var icon = stationJobInformation.StationDisplayInfo?.StationIcon;
+            var iconTexture = icon != null ? _spriteSystem.Frame0(icon) : null;
+
             var viewState = new StationListItem.ViewState(
                 stationEntity,
                 stationJobInformation.GetStationNameWithJobCount(),
@@ -136,7 +139,7 @@ public sealed partial class StationPickerControl : PickerControl
                     ? _loc.GetString(stationJobInformation.StationDisplayInfo.StationDescription)
                     : "",
                 _lastSelectedStation?.StationEntity == stationEntity,
-                stationJobInformation.StationDisplayInfo?.StationIcon?.CanonPath
+                iconTexture
             );
 
             // Always select the first station in the list if none is selected yet.

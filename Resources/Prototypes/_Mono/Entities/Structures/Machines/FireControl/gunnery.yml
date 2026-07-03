@@ -53,9 +53,6 @@
     board: MachineGCSLowCircuitboard
   - type: FireControlServer
     processingPower: 24
-  - type: PassiveThermalSignature # no cheesing it by unanchoring
-    signature: 100000 # ~630m
-  - type: ThermalSignature
   - type: Battery
     maxCharge: 125
     startingCharge: 125
@@ -78,9 +75,6 @@
     board: MachineGCSMediumCircuitboard
   - type: FireControlServer
     processingPower: 42
-  - type: PassiveThermalSignature
-    signature: 250000 # ~1km
-  - type: ThermalSignature
   - type: Battery
     maxCharge: 250
     startingCharge: 250
@@ -103,9 +97,6 @@
     board: MachineGCSHighCircuitboard
   - type: FireControlServer
     processingPower: 60
-  - type: PassiveThermalSignature
-    signature: 1000000 # ~2km
-  - type: ThermalSignature
   - type: Battery
     maxCharge: 500
     startingCharge: 500
@@ -121,16 +112,13 @@
 
 - type: entity
   id: GunneryServerUltra
-  parent: [GunneryServerBase] # removed BaseStructureDisableToolUse
+  parent: [BaseStructureDisableToolUse, GunneryServerBase]
   name: ultra-high-power gunnery control server
   components:
   - type: Machine
     board: MachineGCSUltraCircuitboard
   - type: FireControlServer
     processingPower: 90
-  - type: PassiveThermalSignature
-    signature: 4000000 # ~4km
-  - type: ThermalSignature
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
@@ -140,8 +128,8 @@
     idleLoad: 50
     batteryRechargeRate: 2400
     batteryRechargeEfficiency: 0.95
-#  - type: Anchorable # Sorry Tunguska, but I am NOT risking this being used for a missile bus. - "what could go wrong" says redrover
-#    flags: Anchorable
+  - type: Anchorable # Sorry Tunguska, but I am NOT risking this being used for a missile bus. - "what could go wrong" says redrover -- It turns out, a lot could and did.
+    flags: Anchorable
   - type: ShipRepairable
     repairTime: 25
     repairCost: 100
@@ -154,10 +142,7 @@
   - type: Machine
     board: MachineGCSUltraCircuitboard
   - type: FireControlServer
-    processingPower: 500
-  - type: PassiveThermalSignature
-    signature: 8000000 # ~5.6km
-  - type: ThermalSignature
+    processingPower: 300
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
@@ -255,6 +240,7 @@
   - type: FireControlConsole
   - type: ShipNpcTarget
     needPower: true
+  - type: TargetSeekingTarget
   - type: ActivatableUI
     key: enum.FireControlConsoleUiKey.Key
   - type: UserInterface
@@ -308,6 +294,12 @@
     radarColor: "#fc9403"
     scale: 1.5
     shape: diamond
+    gridConfig:
+      color: "#fc9403"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.5,-0.5,0.5,0.5"
 
 - type: entity
   parent: [BaseStructureComputerTabletop, ComputerGunneryConsole]

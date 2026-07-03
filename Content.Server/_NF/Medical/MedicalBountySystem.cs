@@ -51,8 +51,7 @@ public sealed partial class MedicalBountySystem : EntitySystem
         _proto.PrototypesReloaded += OnPrototypesReloaded;
 
         SubscribeLocalEvent<MedicalBountyComponent, ComponentStartup>(InitializeMedicalBounty);
-        SubscribeLocalEvent<MedicalBountyComponent, MobStateChangedEvent>(OnMobStateChanged);
-
+        
         SubscribeLocalEvent<MedicalBountyRedemptionComponent, RedeemMedicalBountyMessage>(RedeemMedicalBounty);
         SubscribeLocalEvent<MedicalBountyRedemptionComponent, EntInsertedIntoContainerMessage>(OnEntityInserted);
         SubscribeLocalEvent<MedicalBountyRedemptionComponent, EntRemovedFromContainerMessage>(OnEntityRemoved);
@@ -252,15 +251,6 @@ public sealed partial class MedicalBountySystem : EntitySystem
         }
 
         _ui.SetUiState(uid, MedicalBountyRedemptionUiKey.Key, GetUserInterfaceState(uid, component));
-    }
-
-    public void OnMobStateChanged(EntityUid uid, MedicalBountyComponent _, MobStateChangedEvent args)
-    {
-        if (args.NewMobState == MobState.Critical ||
-            args.NewMobState == MobState.Alive)
-        {
-            RemComp<StinkyTraitComponent>(uid);
-        }
     }
 
     private MedicalBountyRedemptionUIState GetUserInterfaceState(EntityUid uid, MedicalBountyRedemptionComponent component)

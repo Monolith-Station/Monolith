@@ -17,7 +17,7 @@
     - state: stc_label
 
 - type: entity
-  parent: EncryptionKey
+  parent: [ BaseFactionGearTSFT1, EncryptionKey ]
   id: EncryptionKeyNfsd
   name: TSFMC encryption key
   categories: [ DoNotMap ]

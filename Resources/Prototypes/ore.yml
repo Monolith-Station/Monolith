@@ -86,6 +86,10 @@
   minOreYield: 1
   maxOreYield: 3
 
+- type: ore # Mono
+  id: OreAnomalySpawner
+  oreEntity: RandomAnomalySpawnerTrapless #Changed to trapless from normal, no trap anoms that gib people (someone malded)
+
 - type: weightedRandomOre
   id: RandomOreDistributionStandard
   weights:

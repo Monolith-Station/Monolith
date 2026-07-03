@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT2 ]
+  parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitUsspL27
   name: USSP L-27 tacsuit
   description: The standard combat suit of USSP naval operations.
@@ -41,11 +41,9 @@
   - type: StaticPrice
     price: 1250
     vendPrice: 7500
-  - type: PirateBountyItem # Mono
-    id: ClothingOuterHardsuitTacsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT0 ]
+  parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitUsspL10
   name: USSP L-10 lightsuit
   description: An old USSP model of combat suit that is still in use in the frontlines.
@@ -87,11 +85,9 @@
   - type: StaticPrice
     price: 420
     vendPrice: 2500
-  - type: PirateBountyItem # Mono
-    id: ClothingOuterHardsuitTacsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT0 ]
+  parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitUsspL10A
   name: USSP L-10-A lightsuit
   description: An old USSP model of combat suit that is still in use in the frontlines.
@@ -133,11 +129,9 @@
   - type: StaticPrice
     price: 500
     vendPrice: 3000
-  - type: PirateBountyItem # Mono
-    id: ClothingOuterHardsuitTacsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT0 ]
+  parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitUsspM10
   name: USSP M-10 scoutsuit
   description: A new prototype of combat suit using the old L-10 as a baseline. It has a integrated mass scanner in his helmet.
@@ -178,11 +172,9 @@
   - type: StaticPrice
     price: 1350
     vendPrice: 8000
-  - type: PirateBountyItem # Mono
-    id: ClothingOuterHardsuitTacsuitHighValue
 
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT2 ]
+  parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitUsspL30
   name: USSP L-30 Naval Commissar parade hardsuit.
   description: A highly decorated hardsuit with upgraded mobility and higher quality lighter armor plates to quickly convey orders on the frontline. (or not be sweaty in a parade)
@@ -224,11 +216,9 @@
   - type: StaticPrice
     price: 3300
     vendPrice: 20000
-  - type: PirateBountyItem # Mono
-    id: ClothingOuterHardsuitTacsuitHighValue
 
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT3 ]
+  parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitOfficerCombat
   name: USSP UF-16 "Voenkom" commissar tacsuit
   description: Developed by Union armament manufacturers for use by members of the commissariat on the frontlines. Features enhanced plating for survivability, allowing commanders to continue to give orders even while under heavy fire.
@@ -270,5 +260,4 @@
   - type: StaticPrice
     price: 4200
     vendPrice: 25000
-  - type: PirateBountyItem # Mono
-    id: ClothingOuterHardsuitTacsuitHighValue
+

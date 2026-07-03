@@ -13,7 +13,7 @@ job-name-pirate = PDV Rahkshan
 job-name-pirate-captain = PDV Grand Vizier
 job-name-pirate-first-mate = PDV Asvaran
 job-name-pdv-denasvar = PDV Denasvar
-job-name-security-guard = Security Guard
+job-name-security-guard = Judge
 job-name-sheriff = TSFMC Colonel
 job-name-stc = Station Traffic Controller
 job-name-sr = Overseer
@@ -32,7 +32,7 @@ JobPirate = PDV Rakhshan
 JobPirateCaptain = PDV Grand Vizier
 JobPirateFirstMate = PDV Asvaran
 JobPirateBoatswain = PDV Denasvar
-JobSecurityGuard = Security Guard
+JobSecurityGuard = Judge
 JobSTC = Station Traffic Controller
 
 # Upstream Removed

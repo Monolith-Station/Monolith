@@ -1,0 +1,203 @@
+- type: entity
+  id: BulletPulse
+  name: pulse
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    layers:
+    - state: omnilaser-blue
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 10 # Mono 10 -> 40
+  - type: ProjectileThrowOnHit
+    distance: 3
+    speed: 3
+  - type: StaminaDamageOnCollide
+    damage: 30 # Mono 10 -> 40
+
+- type: entity
+  id: BulletDetain
+  name: detain
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 2
+  - type: StaminaDamageOnCollide
+    damage: 40
+
+- type: entity
+  id: BulletExecute
+  name: execute
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    layers:
+    - state: omnilaser-green
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 20 #fuck parity. Mono 15 -> 20
+        Radiation: 5 # Mono
+
+- type: entity
+  id: BulletHotshot
+  name: hotshot
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: heavylaser
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15 # Mono 2 - 15
+  - type: IgniteOnCollide
+    fireStacks: 1.5
+
+- type: entity
+  id: BulletSleepshot
+  name: sleepshot
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    layers:
+    - state: omnilaser-pink
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 2
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Haloperidol
+          Quantity: 2
+
+- type: entity
+  id: BulletBigshot
+  name: bigshot
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Structural: 350 # Mono 250 - 350
+
+### Mono start
+
+- type: entity
+  id: BulletExplode
+  name: explode
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: heavylaser
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 5
+  - type: ExplodeOnTrigger
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 2
+    intensitySlope: 0.8
+    totalIntensity: 5
+    tileBreakScale: 1

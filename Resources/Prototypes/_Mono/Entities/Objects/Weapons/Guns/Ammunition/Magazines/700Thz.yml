@@ -1,0 +1,64 @@
+
+- type: entity
+  id: BaseMagazine700Thz
+  name: DEW magazine (700Thz DEW)
+  parent: [BaseItem, RecyclableItemSteelTiny]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Magazine700Thz
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - Cartridge700Thz
+    capacity: 20
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/700Thz/700Thzmag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: Magazine700ThzEmpty
+  name: DEW magazine (700Thz any)
+  suffix: empty
+  parent: BaseMagazine700Thz
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine700Thz
+  name: DEW magazine (700Thz DEW)
+  parent: BaseMagazine700Thz
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge700Thz
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+

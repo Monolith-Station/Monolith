@@ -12,7 +12,7 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 10
+        maxVol: 20
   - type: RefillableSolution
     solution: hypospray
   - type: ExaminableSolution
@@ -20,7 +20,7 @@
   - type: Hypospray
     onlyAffectsMobs: false
   - type: UseDelay
-    delay: 2.5
+    delay: 1
   - type: StaticPrice
     price: 550
     vendPrice: 5000 # Mono
@@ -41,7 +41,7 @@
   - type: SolutionContainerManager # Mono
     solutions:
       hypospray:
-        maxVol: 15 # why is a lawenforcement version the same as a civilian version?
+        maxVol: 25 # why is a lawenforcement version the same as a civilian version?
   - type: RefillableSolution
     solution: hypospray
   - type: ExaminableSolution
@@ -49,7 +49,7 @@
   - type: Hypospray
     onlyAffectsMobs: false
   - type: UseDelay
-    delay: 1.5
+    delay: 0.75
   - type: StaticPrice
     price: 750  # Mono end
 
@@ -68,11 +68,7 @@
     price: 20 # 20 whole dollars
     vendPrice: 10000
   - type: UseDelay
-    delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      hypospray:
-        maxVol: 12 # Mono end
+    delay: 0.65
     
 - type: entity
   name: empty medipen
