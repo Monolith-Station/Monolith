@@ -1,5 +1,5 @@
 ## NATO
-# US
+#region US
 
 - type: entity
   parent: MarkerBase
@@ -54,8 +54,27 @@
       - CrateSecgearNATOFilledM14EBR
     chance: 1
 
+- type: entity
+  parent: MarkerBase
+  id: RandomWeaponNATOARNGLauncher
+  name: random NATO ARNG launcher crate
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _Battlefield14/Objects/Weapons/Guns/Launchers/m72.rsi
+        state: folded
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+      - CrateSecgearNATOFilledSMAW # carl gustav
+      - CrateSecgearNATOFilledM72LAW
+      - CrateSecgearNATOFilledM72LAWThermobaric
+      - CrateSecgearNATOFilledM202FLASH
+    chance: 1
+
 ## PACT
-# RU
+#region RU
 
 - type: entity
   parent: MarkerBase

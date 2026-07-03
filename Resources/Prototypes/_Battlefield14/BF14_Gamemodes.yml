@@ -1,8 +1,8 @@
 - type: gamePreset
-  id: USMC_vs_VDV
+  id: BF14_Stations_USMC_VDV
   alias:
   - USMCvsVDV
-  name: USMC vs VDV
+  name: Station control, USMC vs VDV
   showInVote: true
   description: Larp and frag.
   minPlayers: 10
@@ -10,7 +10,18 @@
   - NFAdventure
 
 - type: gamePreset
-  id: GroundwarUSA
+  id: BF14_Carriers_USMC_VDV
+  alias:
+  - CarriersUSMCvsVDV
+  name: carrier vs carrier
+  showInVote: true
+  description: Carriers fight eachother.
+  minPlayers: 10
+  rules:
+  - NFAdventure
+
+- type: gamePreset
+  id: BF14_GroundwarUSA
   alias:
   - USA
   name: Ground war, USA
@@ -21,7 +32,7 @@
   - NFAdventure
 
 - type: gamePreset
-  id: GroundwarRussia
+  id: BF14_GroundwarRussia
   alias:
   - Russia
   name: Ground war, Russia
