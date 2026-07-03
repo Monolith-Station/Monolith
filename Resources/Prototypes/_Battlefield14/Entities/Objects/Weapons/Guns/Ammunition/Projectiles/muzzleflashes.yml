@@ -1,0 +1,69 @@
+- type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashEffectBFPistol
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.15, 0
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
+      state: pistol
+
+- type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashEffectBFRifle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.15, 0
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
+      state: rifle
+
+- type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashEffectBFLargeRifle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.15, 0
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
+      state: largerifle
+
+- type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashEffectBFShotgun
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.15, 0
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
+      state: shotgun
+
+- type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashEffectBFSuppressed
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.15, 0
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
+      state: suppressed

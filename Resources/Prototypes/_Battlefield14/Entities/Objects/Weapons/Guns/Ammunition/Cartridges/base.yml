@@ -4,6 +4,7 @@
   abstract: true
   components:
   - type: CartridgeAmmo
+    muzzleFlash: MuzzleFlashEffectBFRifle
     soundEject:
       collection: BF_Cartridge_Drop_556x45
       params:
@@ -21,7 +22,7 @@
   abstract: true
   components:
   - type: CartridgeAmmo
-    muzzleFlash: MuzzleFlashEffectSmall
+    muzzleFlash: MuzzleFlashEffectBFPistol
     soundEject:
       collection: BF_Cartridge_Drop_9x19
       params:
@@ -40,6 +41,25 @@
   abstract: true
   components:
   - type: CartridgeAmmo
+    muzzleFlash: MuzzleFlashEffectBFShotgun
+    soundEject:
+      collection: BF_Cartridge_Drop_40x46mm
+      params:
+        volume: -5
+        variation: 0.125
+  - type: EmitSoundOnLand
+    sound:
+      collection: BF_Cartridge_Drop_40x46mm
+      params:
+        volume: -1
+
+- type: entity
+  parent: [BaseCartridge, RecyclableItemSteelTiny]
+  id: BaseCartridgeLauncher
+  abstract: true
+  components:
+  - type: CartridgeAmmo
+    muzzleFlash: MuzzleFlashEffectBFShotgun
     soundEject:
       collection: BF_Cartridge_Drop_40x46mm
       params:

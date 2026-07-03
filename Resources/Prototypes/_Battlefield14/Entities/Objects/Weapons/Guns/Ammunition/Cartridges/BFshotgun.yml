@@ -10,6 +10,7 @@
     - Cartridge
     - BF_CartridgeShotgun12Gauge
   - type: CartridgeAmmo
+    muzzleFlash: MuzzleFlashEffectBFShotgun
     soundEject:
       collection: ShellEject
       params:
@@ -128,6 +129,7 @@
     - Cartridge
     - BF_CartridgeShotgun4Gauge
   - type: CartridgeAmmo
+    muzzleFlash: MuzzleFlashEffectBFShotgun
     soundEject:
       collection: ShellEject
       params:
