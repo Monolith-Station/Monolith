@@ -664,20 +664,6 @@ public sealed partial class CEZLevelsSystem
         }
     }
 
-    private void UpdateTransitWaves()
-    {
-        var query = EntityQueryEnumerator<CEZTransitWaveComponent, MapGridComponent>();
-        while (query.MoveNext(out var uid, out var wave, out var grid))
-        {
-            var t = (float) (_timing.CurTime - wave.StartTime).TotalSeconds;
-            var altitude = wave.CenterAltitude + wave.Amplitude * MathF.Sin(MathF.Tau * t / wave.Period);
-
-            // Left transit (landed, probably by dipping below the ground): wave over.
-            if (!SetTransitAltitude((uid, grid), altitude))
-                RemCompDeferred<CEZTransitWaveComponent>(uid);
-        }
-    }
-
     private bool LandTransitSet(Entity<MapGridComponent> grid)
     {
         foreach (var gridUid in CollectGridSet(grid))
