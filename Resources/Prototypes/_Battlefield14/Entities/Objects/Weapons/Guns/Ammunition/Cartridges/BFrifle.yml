@@ -1,23 +1,4 @@
 - type: entity
-  id: BF_CartridgeRifle366
-  name: cartridge (.366 TKM)
-  parent: BaseCartridgeRifle
-  components:
-  - type: Tag
-    tags:
-    - Cartridge
-    - BF_CartridgeRifle366
-  - type: CartridgeAmmo
-    proto: BulletRifleBF366
-  - type: Sprite
-    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/intermediate.rsi
-    layers:
-    - state: base
-      map: ["enum.AmmoVisualLayers.Base"]
-  - type: Appearance
-  - type: SpentAmmoVisuals
-
-- type: entity
   id: BF_CartridgeRifle556x45
   name: cartridge (5.56x45mm)
   parent: BaseCartridgeRifle
@@ -232,6 +213,45 @@
     muzzleFlash: MuzzleFlashEffectBFLargeRifle
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/12.7x108.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: BF_CartridgeRifle366
+  name: cartridge (.366 TKM)
+  parent: BaseCartridgeRifle
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - BF_CartridgeRifle366
+  - type: CartridgeAmmo
+    proto: BulletRifleBF366
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/intermediate.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: BF_CartridgeRifle473x33
+  name: cartridge (4.73x33mm)
+  parent: BaseCartridgeRifle
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - BF_CartridgeRifle473x33
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: BulletRifleBF473x33
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/4.73x33.rsi
     layers:
     - state: base
       map: ["enum.AmmoVisualLayers.Base"]
