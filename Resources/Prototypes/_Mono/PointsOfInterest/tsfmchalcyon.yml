@@ -63,3 +63,59 @@
         - type: StationDeadDropReporting
           messageSet: Nfsd
         - type: StationDeadDropHintExempt
+
+### Hyperwar
+
+- type: pointOfInterest
+  id: TSFMCHalcyonHyperwar
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'TSFMC Flagship Halcyon'
+  minimumDistance: 4500
+  maximumDistance: 5500
+  spawnGamePreset: [ MonoRogueTSFHyperwar ]
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/POI/tsfmchalcyon_hw.yml
+  addComponents:
+  - type: IFF
+    color: "#047abd"
+    readOnly: true
+  - type: SolarPoweredGrid
+    doNotCull: true
+
+- type: gameMap
+  id: TSFMCHalcyonHyperwar
+  mapName: 'TSFMC Flagship Halcyon'
+  mapPath: /Maps/_Mono/POI/tsfmchalcyon_hw.yml
+  minPlayers: 0
+  randomRotation: false
+  stations:
+    TSFMCHalcyonHyperwar:
+      stationProto: SecurityFrontierOutpost
+      gridComponents:
+      - type: VesselInfo
+        description: "A mothballed battleship-turned-FOB, and Home of the TSFMC operations."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'TSFMC Flagship Halcyon'
+        - type: ExtraStationInformation
+          icon:
+            sprite: _NF/Structures/Decoration/banner.rsi
+            state: nfsd-banner
+          stationSubtext: 'frontier-lobby-nfsd-subtext'
+          stationDescription: 'frontier-lobby-nfsd-description'
+          lobbySortOrder: 2
+        - type: StationJobs
+          availableJobs:
+            Sheriff: [ 1, 1 ]
+            Bailiff: [3, 3 ]
+            SeniorOfficer: [ 5, 5 ] # Mono
+            Brigmedic: [ 2, 2 ] # Mono
+            Deputy: [ -1, -1 ] # Mono
+            TsfEngineer: [ 2, 2 ]
+            TsfBorg: [ 2, 2 ]
+          tags:
+          - HeadOfPersonnel
+          - HeadOfSecurity
+        - type: StationDeadDropReporting
+          messageSet: Nfsd
+        - type: StationDeadDropHintExempt
