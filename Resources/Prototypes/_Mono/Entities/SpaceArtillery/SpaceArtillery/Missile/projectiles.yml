@@ -230,10 +230,10 @@
     muzzleFlash: MuzzleFlashEffectSmall
   - type: RadarBlip
     radarColor: "#FB00FF"
-    scale: 1
+    scale: 2
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 8
+    lifetime: 7
   - type: PointLight
     radius: 3.5
     color: orange
@@ -253,11 +253,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 25
+    acceleration: 60
     detectionRange: 600
     scanArc: 45
-    launchSpeed: 30
-    maxSpeed: 300
+    launchSpeed: 60
+    maxSpeed: 400
     trackDelay: 0.6
 
 # Serpent Torpedo
