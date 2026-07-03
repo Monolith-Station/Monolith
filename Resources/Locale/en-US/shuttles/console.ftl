@@ -20,6 +20,12 @@ shuttle-console-linear-velocity = Linear Velocity:
 shuttle-console-linear-velocity-value = {$X}, {$Y}
 shuttle-console-angular-velocity = Angular Velocity:
 shuttle-console-angular-velocity-value = {$angularVelocity}
+shuttle-console-altitude = Altitude:
+shuttle-console-altitude-value = {$altitude}
+shuttle-console-travel-state = Status:
+shuttle-console-travel-state-grounded = Grounded
+shuttle-console-travel-state-flying = Flying
+shuttle-console-travel-state-hovering = Hovering
 
 shuttle-console-unknown = Unknown
 shuttle-console-iff-label = {$name} ({$distance}m)

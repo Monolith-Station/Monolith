@@ -7,9 +7,17 @@ using Content.Server._CE.ZLevels.Core;
 using Content.Server.Administration;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using Content.Shared._CE.ZLevels.Mapping.Prototypes;
 using Content.Shared.Administration;
+using Content.Shared.Light.Components;
+using Content.Shared.Light.EntitySystems;
+using Robust.Server.GameObjects;
 using Robust.Shared.Console;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Server._CE.ZLevels.Mapping.Commands;
 
@@ -104,41 +112,111 @@ public sealed class CETransitSetCommand : CEBaseTransitCommand
 [AdminCommand(AdminFlags.Server | AdminFlags.Mapping)]
 public sealed class CETransitDebugCommand : CEBaseTransitCommand
 {
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly MapSystem _map = default!;
+
     public override string Command => "cez-transit-debug";
-    public override string Description => "Does whatever was coded in at the time";
+    public override string Description =>
+        "Loads in a testing map and spawns a shuttle for testing Z-levels.";
+
+    private const string ZMapId = "GrasslandsZ";
+    private const int ShuttleDepth = 2;
+    private static readonly ResPath DefaultShuttle = new("/Maps/_Mono/Shuttles/bucket.yml");
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length is < 1 or > 3)
+        if (args.Length > 1)
         {
             shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
             return;
         }
 
-        if (!TryGetGrid(shell, args[0], out var grid))
-            return;
+        var shuttlePath = args.Length == 1 ? new ResPath(args[0]) : DefaultShuttle;
 
-        var amplitude = 1f;
-        if (args.Length >= 2 && !float.TryParse(args[1], out amplitude))
+        if (!_proto.Resolve<CEZLevelMapPrototype>(ZMapId, out var zMapProto))
         {
-            shell.WriteError($"Invalid amplitude {args[1]}.");
+            shell.WriteError($"Unknown CEZLevelMapPrototype {ZMapId}");
             return;
         }
 
-        var period = 10f;
-        if (args.Length == 3 && !float.TryParse(args[2], out period))
+        var network = ZLevel.CreateZNetwork(zMapProto.Components);
+        _meta.SetEntityName(network, $"Debug zNetwork: {ZMapId}");
+
+        var opts = new DeserializationOptions { InitializeMaps = true };
+
+        var maps = new Dictionary<EntityUid, int>();
+        var byDepth = new Dictionary<int, Entity<MapComponent>>();
+        var depth = 0;
+
+        foreach (var path in zMapProto.Maps)
         {
-            shell.WriteError($"Invalid period {args[2]}.");
+            if (!_mapLoader.TryLoadMap(path, out var mapEnt, out _, opts))
+            {
+                shell.WriteError($"Failed to load zNetwork map (depth {depth}): {path}!");
+                Cleanup(byDepth, network);
+                return;
+            }
+
+            maps.Add(mapEnt.Value, depth);
+            byDepth[depth] = mapEnt.Value;
+            _meta.SetEntityName(mapEnt.Value, $"Debug {ZMapId} [{depth}]");
+            depth++;
+        }
+
+        if (!ZLevel.TryAddMapsIntoZNetwork(network, maps))
+        {
+            shell.WriteError("Failed to create zNetwork from loaded maps!");
+            Cleanup(byDepth, network);
             return;
         }
 
-        if (!ZLevel.ToggleTransitWave(grid, amplitude, period))
+        // i prefer being able to see don't you
+        foreach (var (mapUid, _) in maps)
         {
-            shell.WriteError("Failed to start wave: grid must be on a z-level map.");
+            if (!Entities.TryGetComponent<LightCycleComponent>(mapUid, out var cycle))
+                continue;
+
+            var noon = (float)(cycle.Duration.TotalSeconds / 2d);
+            var noonColor = SharedLightCycleSystem.GetColor((mapUid, cycle), cycle.OriginalColor, noon);
+
+            cycle.OriginalColor = noonColor;
+            cycle.Enabled = false;
+            Entities.Dirty(mapUid, cycle);
+
+            if (Entities.TryGetComponent<MapLightComponent>(mapUid, out var mapLight))
+            {
+                mapLight.AmbientLightColor = noonColor;
+                Entities.Dirty(mapUid, mapLight);
+            }
+        }
+
+        // A test ship, delivered to the sky.
+        if (!byDepth.TryGetValue(ShuttleDepth, out var shuttleMap))
+        {
+            shell.WriteError($"{ZMapId} has no layer {ShuttleDepth}; shuttle load skipped");
             return;
         }
 
-        shell.WriteLine($"Toggled transit wave on {args[0]} (amplitude {amplitude}, period {period}s).");
+        if (!_mapLoader.TryLoadGrid(shuttleMap.Comp.MapId, shuttlePath, out var shuttle, opts))
+        {
+            shell.WriteError($"Failed to load shuttle {shuttlePath}");
+            return;
+        }
+
+        var shuttleNet = Entities.GetNetEntity(shuttle.Value.Owner);
+        shell.WriteLine($"Loaded {ZMapId}; shuttle {shuttleNet} on layer {ShuttleDepth} (map {shuttleMap.Comp.MapId})");
+    }
+
+    private void Cleanup(Dictionary<int, Entity<MapComponent>> byDepth, EntityUid network)
+    {
+        foreach (var (_, mapEnt) in byDepth)
+        {
+            _map.DeleteMap(mapEnt.Comp.MapId);
+        }
+
+        Entities.QueueDeleteEntity(network);
     }
 }
 

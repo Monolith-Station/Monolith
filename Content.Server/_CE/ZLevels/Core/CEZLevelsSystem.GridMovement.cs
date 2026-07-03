@@ -114,6 +114,10 @@ public sealed partial class CEZLevelsSystem
     /// </summary>
     private void UpdateGridGravity(float frameTime)
     {
+        // Pilot vertical flight: read the consoles, then let parked ships spool up.
+        CollectPilotVerticalInputs();
+        UpdateTakeoffSpool();
+
         // Collect first: entering/hopping transit adds components mid-query otherwise.
         _gravityQueue.Clear();
 
@@ -189,16 +193,6 @@ public sealed partial class CEZLevelsSystem
             return;
         }
 
-        if (_timing.CurTime < faller.GravityTime)
-            return;
-
-        // A powered gravity generator kills vertical momentum: the ship hovers.
-        if (TryComp<GravityComponent>(grid, out var gravity) && gravity.Enabled)
-        {
-            faller.Velocity = 0f;
-            return;
-        }
-
         var xform = Transform(grid);
         if (!TryComp<CEZTransitMapComponent>(xform.MapUid, out var transit) ||
             transit.LowerMap is not { } lowerMap ||
@@ -207,9 +201,83 @@ public sealed partial class CEZLevelsSystem
             return;
         }
 
-        faller.Velocity = Math.Min(faller.Velocity + GridGravity * frameTime, GridTerminalVelocity);
+        var progress = zPhys.LocalPosition;
+        var hasGravgen = TryComp<GravityComponent>(grid, out var gravity) && gravity.Enabled;
 
-        var altitude = lowerZ.Depth + zPhys.LocalPosition - faller.Velocity * frameTime;
+        if (!hasGravgen)
+        {
+            // Plummeting. The consoles can beep all they want.
+            // (The grace period only delays gravity, never pilot control.)
+            if (_timing.CurTime < faller.GravityTime)
+                return;
+
+            faller.Velocity = Math.Min(faller.Velocity + GridGravity * frameTime, GridTerminalVelocity);
+        }
+        else
+        {
+            var input = GetTransitVerticalInput(xform.MapUid!.Value);
+            var accel = GetVerticalThrustAccel(grid);
+
+            if (input > 0f && accel > 0f)
+            {
+                faller.Velocity = Math.Max(faller.Velocity - input * accel * frameTime, -MaxPilotVerticalSpeed);
+            }
+            else if (input < 0f && accel > 0f)
+            {
+                faller.Velocity = Math.Min(faller.Velocity - input * accel * frameTime, MaxPilotVerticalSpeed);
+            }
+            else
+            {
+                // The gravgen has the stick. Idle near a plane means "park on it";
+                // idle mid-gap means hover.
+                var damp = Math.Max(accel, HoverDampAccel);
+
+                if (progress <= SettleZone)
+                {
+                    faller.Velocity = Math.Min(faller.Velocity + damp * frameTime, MaxPilotVerticalSpeed);
+
+                    if (progress <= TouchdownProgress)
+                    {
+                        faller.Velocity = 0f;
+                        TryExitTransit(grid);
+                        return;
+                    }
+                }
+                else if (progress >= 1f - SettleZone && transit.UpperMap != null)
+                {
+                    faller.Velocity = Math.Max(faller.Velocity - damp * frameTime, -MaxPilotVerticalSpeed);
+
+                    if (progress >= 1f - TouchdownProgress)
+                    {
+                        faller.Velocity = 0f;
+                        TryExitTransit(grid);
+                        return;
+                    }
+                }
+                else if (faller.Velocity > 0f)
+                {
+                    faller.Velocity = Math.Max(faller.Velocity - damp * frameTime, 0f);
+                }
+                else
+                {
+                    faller.Velocity = Math.Min(faller.Velocity + damp * frameTime, 0f);
+                }
+            }
+
+            // Approach governor: any descent that ends ON the plane below — ground
+            // layers always, settles too — slows the fuck down before touching it.
+            // Punching through a non-ground plane with the key held stays fast.
+            var landingBelow = HasComp<CEZGroundLayerComponent>(lowerMap) ||
+                               (input == 0f && progress <= SettleZone);
+            if (faller.Velocity > 0f && landingBelow)
+                faller.Velocity = Math.Min(faller.Velocity, Math.Max(TouchdownSpeed, progress * ApproachGain));
+
+            // Same gentle touch when settling up onto the plane above.
+            if (faller.Velocity < 0f && input == 0f && progress >= 1f - SettleZone)
+                faller.Velocity = Math.Max(faller.Velocity, -Math.Max(TouchdownSpeed, (1f - progress) * ApproachGain));
+        }
+
+        var altitude = lowerZ.Depth + progress - faller.Velocity * frameTime;
         if (!SetTransitAltitude(grid, altitude))
             return;
 
@@ -385,8 +453,11 @@ public sealed partial class CEZLevelsSystem
     /// (gap below at progress 1 when one exists, otherwise gap above at progress 0 —
     /// the same physical place). Which way it goes afterwards is just how its progress
     /// changes; crossing a plane hops gaps (see <see cref="SetTransitProgress"/>).
+    /// Pass <paramref name="preferUpperGap"/> to become airborne in the gap above
+    /// instead (a liftoff shouldn't sweep the pad it's leaving when it climbs
+    /// through its own plane).
     /// </summary>
-    public bool TryEnterTransit(Entity<MapGridComponent> grid, float? startProgress = null)
+    public bool TryEnterTransit(Entity<MapGridComponent> grid, float? startProgress = null, bool preferUpperGap = false)
     {
         var xform = Transform(grid);
 
@@ -405,18 +476,21 @@ public sealed partial class CEZLevelsSystem
         int depth;
         float defaultProgress;
 
-        if (TryMapDown(currentMap, out var below))
+        var hasBelow = TryMapDown(currentMap, out var below);
+        var hasAbove = TryMapUp(currentMap, out var above);
+
+        if (hasBelow && !(preferUpperGap && hasAbove))
         {
-            lowerMap = below.Value.Owner;
+            lowerMap = below!.Value.Owner;
             upperMap = currentMap;
             offset = -1;
             depth = below.Value.Comp.Depth;
             defaultProgress = 1f;
         }
-        else if (TryMapUp(currentMap, out var above))
+        else if (hasAbove)
         {
             lowerMap = currentMap;
-            upperMap = above.Value.Owner;
+            upperMap = above!.Value.Owner;
             offset = 1;
             depth = above.Value.Comp.Depth;
             defaultProgress = 0f;
