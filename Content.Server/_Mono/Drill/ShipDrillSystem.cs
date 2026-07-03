@@ -1,8 +1,10 @@
+using System.Linq;
 using System.Numerics;
 using System.Transactions;
 using Content.Server.Gatherable;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Decals;
+using Content.Shared.Maps;
 using Robust.Shared.Map;
 
 namespace Content.Server._Mono.Drill;
@@ -15,6 +17,7 @@ public partial class ShipDrillSystem : EntitySystem
     [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private ITileDefinitionManager _tileDef = default!;
+    [Dependency] private TileSystem _tile = default!;
     [Dependency] private SharedDecalSystem _decal = default!;
     [Dependency] private GatherableSystem _gather = default!;
 
@@ -24,6 +27,7 @@ public partial class ShipDrillSystem : EntitySystem
     }
 
     private HashSet<EntityUid> _ents = new();
+    private HashSet<TileRef> _nonEmptyTiles = new();
 
     private float _updateCooldown = 0.25f;
     private float _updateTimer = 0f;
@@ -52,47 +56,45 @@ public partial class ShipDrillSystem : EntitySystem
 
             var dVec = comp.DrillSize / 2;
 
-            for (var x = -dVec.X; x <= dVec.X; x++)
+            var worldBox = new Box2(
+                coords.Offset(_xform.GetWorldRotation(uid).RotateVec(-dVec + comp.DrillOffsets)).Position,
+                coords.Offset(_xform.GetWorldRotation(uid).RotateVec(dVec + comp.DrillOffsets)).Position);
+
+            var grids = _mapManager.FindGridsIntersecting(_xform.GetMapId(dGrid.Value), worldBox);
+
+            foreach (var grid in grids)
             {
-                for (var y = -dVec.Y; y <= dVec.Y; y++)
+                if (grid.Owner == dGrid)
+                    continue;
+
+                _look.GetEntitiesIntersecting(grid.Owner, worldBox, _ents, LookupFlags.Static);
+
+                foreach (var ent in _ents)
                 {
-                    ProcessTile(uid, dGrid.Value, comp, x, y, coords);
+                    comp.DrillType?.Drill(ent, uid, this, EntityManager);
+                    var tileRef = _map.GetTileRef(grid.Owner, grid, Transform(ent).Coordinates);
+                    _nonEmptyTiles.Add(tileRef);
                 }
+
+                var tiles = _map.GetTilesIntersecting(grid.Owner, grid, worldBox);
+
+                var tilesToDelete = tiles.ToList();
+                tilesToDelete.RemoveAll(tile => _nonEmptyTiles.Contains(tile));
+
+                foreach (var tileRef in tilesToDelete)
+                {
+                    var tileDef = _tileDef[tileRef.Tile.TypeId];
+
+                    if (comp.TileWhitelist != null && !comp.TileWhitelist.Contains(tileDef.ID))
+                        continue;
+
+                    _map.SetTile(grid.Owner, grid, tileRef.GridIndices, Tile.Empty);
+                }
+
+                _ents.Clear();
+                _nonEmptyTiles.Clear();
             }
-        }
-    }
-
-    private void ProcessTile(EntityUid uid, EntityUid drillGrid, ShipDrillComponent comp, float x, float y, MapCoordinates coords)
-    {
-        var rVec = _xform.GetWorldRotation(uid).RotateVec(new Vector2(x, y) + comp.DrillOffsets);
-        var nCoords = coords.Offset(rVec);
-
-        if (!_mapManager.TryFindGridAt(nCoords, out var grid, out var gridComp))
-            return;
-
-        if (grid == drillGrid)
-            return;
-
-        _ents.Clear();
-        _look.GetEntitiesInRange(nCoords.MapId, nCoords.Position, EntityLookupSystem.LookupEpsilon, _ents, LookupFlags.Static);
-
-        if (comp.DrillType != null)
-        {
-            foreach (var ent in _ents)
-            {
-                comp.DrillType.Drill(ent, uid, this, EntityManager);
-            }
-        }
-
-        if (_ents.Count <= 0)
-        {
-            var tileRef = _map.GetTileRef(grid, gridComp, nCoords);
-            var tileDef = _tileDef[tileRef.Tile.TypeId];
-
-            if (!comp.TileWhitelist.Contains(tileDef.ID) && comp.TileWhitelist != null)
-                return;
-
-            _map.SetTile(grid, gridComp, tileRef.GridIndices, Tile.Empty);
         }
     }
 }
+

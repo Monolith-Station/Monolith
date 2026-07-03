@@ -51,7 +51,7 @@ public sealed partial class GatherableSystem : EntitySystem
         args.Handled = true;
     }
 
-    public void Gather(EntityUid gatheredUid, EntityUid? gatherer = null, GatherableComponent? component = null, bool spawnOnGatherer = false)
+    public void Gather(EntityUid gatheredUid, EntityUid? gatherer = null, GatherableComponent? component = null, bool spawnOnGatherer = false) //mono
     {
         if (!Resolve(gatheredUid, ref component))
             return;
@@ -99,12 +99,12 @@ public sealed partial class GatherableSystem : EntitySystem
 /// <summary>
 /// Raised when entity has been gathered - Mono
 /// </summary>
-public sealed class GatheredEvent(EntityUid? gatherer, bool teleportLootToGatherer) : EntityEventArgs
+public record struct GatheredEvent(EntityUid? Gatherer, bool TeleportLootToGatherer)
 {
     /// <summary>
     /// Entity that gathered Gatherable entity.
     /// </summary>
-    public EntityUid? Gatherer { get; } = gatherer;
+    public EntityUid? Gatherer { get; } = Gatherer;
 
-    public bool TeleportLootToGatherer { get; } = teleportLootToGatherer;
+    public bool TeleportLootToGatherer { get; } = TeleportLootToGatherer;
 }

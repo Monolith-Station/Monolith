@@ -14,10 +14,10 @@ public sealed partial class ShipDrillComponent : Component
     public Vector2 DrillOffsets = new(0, 1f);
 
     [DataField]
-    public Vector2 DrillSize = new(1.5f, 2f);
+    public Vector2 DrillSize = new(2f, 2f);
 
     [DataField]
-    public ProtoId<ContentTileDefinition>[]? TileWhitelist =
+    public List<ProtoId<ContentTileDefinition>>? TileWhitelist =
     [
         "FloorCaveDrought", "FloorAsteroidSand", "FloorIce",
         "FloorBasalt", "FloorChromite", "FloorLowDesert",
