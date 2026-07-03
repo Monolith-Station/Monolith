@@ -1,0 +1,36 @@
+#Author: Grandalff on Github.
+
+- type: vessel
+  id: Gnevny
+  parent: BaseVesselAntag
+  name: NCS Gnevny
+  description: A Fast brawler that has 4 bofor and 2 AK820
+  price: 184000
+  category: Medium
+  group: Ussp
+  access: USSP
+  shuttlePath: /Maps/_Mono/Shuttles/USSP/gnevny.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - AME
+
+- type: gameMap
+  id: Gnevny
+  mapName: 'Gnevny'
+  mapPath: /Maps/_Mono/Shuttles/USSP/gnevny.yml
+  minPlayers: 0
+  stations:
+    Gnevny:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Gnevny USSP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+           USSPSergeant: [ 0, 0 ]
+           USSPRifleman: [ 0, 0 ]
