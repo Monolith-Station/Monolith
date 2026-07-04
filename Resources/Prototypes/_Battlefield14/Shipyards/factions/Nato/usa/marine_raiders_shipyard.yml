@@ -22,7 +22,7 @@
     - map: ["computerLayerKeys"]
       state: generic_keys
   - type: ShipyardConsole
-    shipyardChannel: Traffic
+    shipyardChannel: USRadio
     ignoreBaseSaleRate: true # Fixed 70% sale rate.
     canTransferDeed: false
   - type: ShipyardListing
