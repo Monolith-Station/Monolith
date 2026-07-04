@@ -32,6 +32,19 @@
   - type: Appearance
 
 - type: entity
+  id: PaladinMagazineInfinite
+  parent: PaladinMagazine
+  components:
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: true
+    proto: MissileCartridge250mm
+    capacity: 24
+    mayTransfer: true
+    whitelist:
+      tags:
+      - MissileCartridge250mm
+
+- type: entity
   id: PaladinMagazineEMPHE
   name: "Paladin 250mm EMPHE missile autoloader"
   parent: PaladinMagazine
