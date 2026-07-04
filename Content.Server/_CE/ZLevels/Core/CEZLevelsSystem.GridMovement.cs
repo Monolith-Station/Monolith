@@ -27,10 +27,16 @@ public sealed partial class CEZLevelsSystem
     [Dependency] private ShuttleConsoleSystem _console = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private ExplosionSystem _explosion = default!;
-
     [Dependency] private GravitySystem _grav = default!;
 
     private readonly List<Entity<MapGridComponent>> _gravityQueue = new();
+    private readonly TimeSpan _checkTimer = TimeSpan.FromSeconds(0.5);
+    private TimeSpan _nextCheckTime;
+
+    [Dependency] private EntityQuery<CEZLevelMapComponent> _zMapQuery = new();
+    [Dependency] private EntityQuery<CEZGroundLayerComponent> _zGroundQuery = new();
+    [Dependency] private EntityQuery<PhysicsComponent> _physQuery = new();
+
 
     private void InitializeGridMovement()
     {
@@ -86,47 +92,52 @@ public sealed partial class CEZLevelsSystem
         CollectPilotVerticalInputs();
         UpdateTakeoffSpool();
 
-        // Collect first: entering/hopping transit adds components mid-query otherwise.
-        _gravityQueue.Clear();
-
-        var levelQuery = EntityQueryEnumerator<CEZGridFallerComponent, MapGridComponent>();
-        while (levelQuery.MoveNext(out var uid, out var faller, out var grid))
+        // Throttle checking for grid gravity so the server doesn't set itself on fire.
+        if (_timing.CurTime >= _nextCheckTime)
         {
-            if (_timing.CurTime < faller.GravityTime)
-                continue;
+            _nextCheckTime = _timing.CurTime + _checkTimer;
 
-            var xform = Transform(uid);
+            // Collect first: entering/hopping transit adds components mid-query otherwise.
+            _gravityQueue.Clear();
 
-            if (xform.MapUid is not { } mapUid || !HasComp<CEZLevelMapComponent>(mapUid))
-                continue;
+            var levelQuery = EntityQueryEnumerator<CEZGridFallerComponent, MapGridComponent>();
+            while (levelQuery.MoveNext(out var uid, out var faller, out var grid))
+            {
+                if (_timing.CurTime < faller.GravityTime)
+                    continue;
 
-            // You can't fall out of the ground floor.
-            if (HasComp<CEZGroundLayerComponent>(mapUid))
-                continue;
+                var xform = Transform(uid);
 
-            // Parked/anchored ships hold position.
-            if (TryComp<PhysicsComponent>(uid, out var body) && body.BodyType == BodyType.Static)
-                continue;
+                if (xform.MapUid is not { } mapUid || !_zMapQuery.HasComp(mapUid))
+                    continue;
 
-            if (_grav.IsWeightless(uid))
-                continue;
+                // You can't fall out of the ground floor.
+                if (_zGroundQuery.HasComp(mapUid))
+                    continue;
 
-            if (HasGroundUnderFootprint((uid, grid), mapUid))
-                continue;
+                // Parked/anchored ships hold position.
+                if (_physQuery.TryComp(uid, out var body) && body.BodyType == BodyType.Static)
+                    continue;
 
-            _gravityQueue.Add((uid, grid));
+                if (!_grav.IsWeightless(uid))
+                    continue;
+
+                if (HasGroundUnderFootprint((uid, grid), mapUid))
+                    continue;
+
+                _gravityQueue.Add((uid, grid));
+            }
+
+            foreach (var grid in _gravityQueue)
+            {
+                if (TryComp<CEZGridFallerComponent>(grid, out var faller))
+                    faller.Velocity = 0f;
+
+                TryEnterTransit(grid); // Plummet.
+            }
         }
 
-        foreach (var grid in _gravityQueue)
-        {
-            if (TryComp<CEZGridFallerComponent>(grid, out var faller))
-                faller.Velocity = 0f;
-
-            TryEnterTransit(grid);
-        }
-
-        // Falling grids in transit: one integrator per transit map, driving the whole
-        // docked set through SetTransitAltitude (hops, crushes and landings included).
+        // Clear out the queue.
         _gravityQueue.Clear();
 
         var transitQuery = EntityQueryEnumerator<CEZTransitMapComponent>();
@@ -202,8 +213,7 @@ public sealed partial class CEZLevelsSystem
 
         if (!hasGravgen)
         {
-            // Plummeting. The consoles can beep all they want.
-            // (The grace period only delays gravity, never pilot control.)
+            // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
             if (_timing.CurTime < faller.GravityTime)
                 return;
 
@@ -217,8 +227,7 @@ public sealed partial class CEZLevelsSystem
 
             if (input != 0f && accel > 0f)
             {
-                // Powered flight, up (input>0) or down (input<0). Curves into the
-                // speed cap instead of slamming it; an over-cap launch boost coasts.
+                // Flight.
                 faller.Velocity = ApproachTerminal(faller.Velocity, -input * accel, MaxPilotVerticalSpeed, frameTime);
             }
             else
@@ -326,8 +335,7 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Whether any solid tile of the map lies under the grid's footprint (the grid is
-    /// resting on something rather than hanging over a hole or open sky).
+    /// Whether any solid tile of the map lies under the grid's footprint.
     /// </summary>
     private bool HasGroundUnderFootprint(Entity<MapGridComponent> grid, EntityUid mapUid)
     {
