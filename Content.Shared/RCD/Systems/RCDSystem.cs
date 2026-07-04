@@ -217,9 +217,9 @@ public partial class RCDSystem : EntitySystem
         _transform.SetParent(effect, gridData.GridUid);
         _transform.SetLocalPositionNoLerp(effect, gridData.Position + new Vector2(0.5f, 0.5f));
         // </Mono>
-        var ev = new RCDDoAfterEvent(GetNetCoordinates(mapGridData.Value.Location), component.ConstructionDirection, component.ProtoId, cost, EntityManager.GetNetEntity(effect));
+        var ev = new RCDDoAfterEvent(GetNetCoordinates(mapGridData.Value.Location), component.ConstructionDirection, component.ProtoId, cost, GetNetEntity(effect));
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay*component.DelayMultiplier, ev, uid, target: args.Target, used: uid) // Mono - add delay multiplier.
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay * component.DelayMultiplier, ev, uid, target: args.Target, used: uid) // Mono - add delay multiplier.
         {
             BreakOnDamage = true,
             BreakOnHandChange = true,
@@ -264,7 +264,7 @@ public partial class RCDSystem : EntitySystem
     private void OnDoAfter(EntityUid uid, RCDComponent component, RCDDoAfterEvent args)
     {
         if (args.Cancelled && _net.IsServer)
-            QueueDel(EntityManager.GetEntity(args.Effect));
+            QueueDel(GetEntity(args.Effect));
 
         if (args.Handled || args.Cancelled || !_timing.IsFirstTimePredicted)
             return;

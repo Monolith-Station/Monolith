@@ -152,7 +152,7 @@ internal sealed partial class NFPowerSolarSystem : EntitySystem
     private void UpdatePanelCoverage(Entity<NFSolarPanelComponent> panel)
     {
         var entity = panel.Owner;
-        var xform = EntityManager.GetComponent<TransformComponent>(entity);
+        var xform = Comp<TransformComponent>(entity);
 
         // So apparently, and yes, I *did* only find this out later,
         // this is just a really fancy way of saying "Lambert's law of cosines".

@@ -177,7 +177,7 @@ public sealed partial class SiliconChargeSystem : EntitySystem
 
             siliconComp.OverheatAccumulator -= 5;
 
-            if (!EntityManager.TryGetComponent<FlammableComponent>(silicon, out var flamComp)
+            if (!TryComp<FlammableComponent>(silicon, out var flamComp)
                 || flamComp is { OnFire: true }
                 || !(temperComp.CurrentTemperature > temperComp.HeatDamageThreshold))
                 return hotTempMulti;

@@ -198,7 +198,7 @@ public sealed partial class ExplosionSystem
         if (!airtight.AirBlocked)
             return;
 
-        if (!EntityManager.TryGetComponent(uid, out TransformComponent? transform) || !transform.Anchored)
+        if (!TryComp(uid, out TransformComponent? transform) || !transform.Anchored)
             return;
 
         if (!TryComp<MapGridComponent>(transform.GridUid, out var grid))

@@ -29,7 +29,7 @@ namespace Content.Server.OfHolding
                     _popupSystem.PopupEntity(Loc.GetString("of-holding-warn"), uid, args.User);
                     return;
                 }
-                EntityManager.SpawnEntity("Singularity", Transform(args.User).Coordinates);
+                Spawn("Singularity", Transform(args.User).Coordinates);
                 _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(args.User):player} released a singularity by combining 2 bags of holding.");
             }
         }

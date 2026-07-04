@@ -332,7 +332,7 @@ public abstract partial class SharedChatSystem : EntitySystem
             return rawmsg;
         tagStart += outerTag.Length + 2;
 
-        string innerTagProcessed = tagParameter != null ? $"[{innerTag}={tagParameter}]" : $"[{innerTag}]";
+        var innerTagProcessed = tagParameter != null ? $"[{innerTag}={tagParameter}]" : $"[{innerTag}]";
 
         rawmsg = rawmsg.Insert(tagEnd, $"[/{innerTag}]");
         rawmsg = rawmsg.Insert(tagStart, innerTagProcessed);

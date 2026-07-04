@@ -106,7 +106,7 @@ public sealed partial class ClumsySystem : EntitySystem
         // If someone is putting you on the table, always get past the guard.
         // goob station fix some bonks
         if (!_cfg.GetCVar(CCVars.GameTableBonk)
-            || args.PuttingOnTable !=ent.Owner
+            || args.PuttingOnTable != ent.Owner
             || !rand.Prob(ent.Comp.ClumsyDefaultCheck))
             return;
 

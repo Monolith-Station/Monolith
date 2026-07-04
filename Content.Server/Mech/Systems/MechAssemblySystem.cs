@@ -1,4 +1,4 @@
-﻿using Content.Server.Mech.Components;
+using Content.Server.Mech.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Components;
@@ -62,6 +62,6 @@ public sealed partial class MechAssemblySystem : EntitySystem
                 return;
         }
         Spawn(component.FinishedPrototype, Transform(uid).Coordinates);
-        EntityManager.DeleteEntity(uid);
+        Del(uid);
     }
 }

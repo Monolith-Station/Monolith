@@ -25,7 +25,7 @@ public sealed partial class GoobTriggerSystem : EntitySystem
 
     private void HandleDeleteParentTrigger(Entity<DeleteParentOnTriggerComponent> entity, ref TriggerEvent args)
     {
-        EntityManager.QueueDeleteEntity(Transform(entity).ParentUid); // cleanedup - goob mudles
+        QueueDel(Transform(entity).ParentUid); // cleanedup - goob mudles
         args.Handled = true;
     }
 

@@ -131,7 +131,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
             GetOilLevel(uid, component),
             GetOilPurity(uid, component),
             component.FryingOilThreshold,
-            EntityManager.GetNetEntityArray(component.Storage.ContainedEntities.ToArray()));
+            GetNetEntityArray(component.Storage.ContainedEntities.ToArray()));
 
         _uiSystem.SetUiState(uid, DeepFryerUiKey.Key, state);
     }
@@ -585,7 +585,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
 
     private void OnRemoveItem(EntityUid uid, DeepFryerComponent component, DeepFryerRemoveItemMessage args)
     {
-        var removedItem = EntityManager.GetEntity(args.Item);
+        var removedItem = GetEntity(args.Item);
         if (removedItem.Valid)
         {
             //JJ Comment - This line should be unnecessary. Some issue is keeping the UI from updating when converting straight to a Burned Mess while the UI is still open. To replicate, put a Raw Meat in the fryer with no oil in it. Wait until it sputters with no effect. It should transform to Burned Mess, but doesn't.

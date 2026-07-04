@@ -520,23 +520,23 @@ public sealed partial class AtmosAlertsComputerWindow : FancyWindow
             {
                 // Frontier: multiple type checks
                 case AtmosAlarmEntryContainer entry:
-                {
-                    if (entry.NetEntity != currTrackedEntity)
-                        entry.RemoveAsFocus();
+                    {
+                        if (entry.NetEntity != currTrackedEntity)
+                            entry.RemoveAsFocus();
 
-                    else if (entry.NetEntity == currTrackedEntity)
-                        entry.SetAsFocus();
-                    break;
-                }
+                        else if (entry.NetEntity == currTrackedEntity)
+                            entry.SetAsFocus();
+                        break;
+                    }
                 case AtmosAlarmGaslockEntryContainer gaslockEntry:
-                {
-                    if (gaslockEntry.NetEntity != currTrackedEntity)
-                        gaslockEntry.RemoveAsFocus();
+                    {
+                        if (gaslockEntry.NetEntity != currTrackedEntity)
+                            gaslockEntry.RemoveAsFocus();
 
-                    else if (gaslockEntry.NetEntity == currTrackedEntity)
-                        gaslockEntry.SetAsFocus();
-                    break;
-                }
+                        else if (gaslockEntry.NetEntity == currTrackedEntity)
+                            gaslockEntry.SetAsFocus();
+                        break;
+                    }
             }
             // End Frontier
         }

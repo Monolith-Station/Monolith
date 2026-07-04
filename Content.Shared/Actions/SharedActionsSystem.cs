@@ -468,33 +468,33 @@ public abstract partial class SharedActionsSystem : EntitySystem
 
                 break;
             case EntityWorldTargetActionComponent entityWorldAction:
-            {
-                var actionEntity = GetEntity(ev.EntityTarget);
-                var actionCoords = GetCoordinates(ev.EntityCoordinatesTarget);
-
-                if (actionEntity is null && actionCoords is null)
                 {
-                    Log.Error($"Attempted to perform an entity-world-targeted action without an entity or world coordinates! Action: {name}");
-                    return;
+                    var actionEntity = GetEntity(ev.EntityTarget);
+                    var actionCoords = GetCoordinates(ev.EntityCoordinatesTarget);
+
+                    if (actionEntity is null && actionCoords is null)
+                    {
+                        Log.Error($"Attempted to perform an entity-world-targeted action without an entity or world coordinates! Action: {name}");
+                        return;
+                    }
+
+                    var entWorldAction = new Entity<EntityWorldTargetActionComponent>(actionEnt, entityWorldAction);
+
+                    if (!ValidateEntityWorldTarget(user, actionEntity, actionCoords, entWorldAction))
+                        return;
+
+                    _adminLogger.Add(LogType.Action,
+                        $"{ToPrettyString(user):user} is performing the {name:action} action (provided by {ToPrettyString(action.Container ?? user):provider}) targeted at {ToPrettyString(actionEntity):target} {actionCoords:target}.");
+
+                    if (entityWorldAction.Event != null)
+                    {
+                        entityWorldAction.Event.Entity = actionEntity;
+                        entityWorldAction.Event.Coords = actionCoords;
+                        Dirty(actionEnt, entityWorldAction);
+                        performEvent = entityWorldAction.Event;
+                    }
+                    break;
                 }
-
-                var entWorldAction = new Entity<EntityWorldTargetActionComponent>(actionEnt, entityWorldAction);
-
-                if (!ValidateEntityWorldTarget(user, actionEntity, actionCoords, entWorldAction))
-                    return;
-
-                _adminLogger.Add(LogType.Action,
-                    $"{ToPrettyString(user):user} is performing the {name:action} action (provided by {ToPrettyString(action.Container ?? user):provider}) targeted at {ToPrettyString(actionEntity):target} {actionCoords:target}.");
-
-                if (entityWorldAction.Event != null)
-                {
-                    entityWorldAction.Event.Entity = actionEntity;
-                    entityWorldAction.Event.Coords = actionCoords;
-                    Dirty(actionEnt, entityWorldAction);
-                    performEvent = entityWorldAction.Event;
-                }
-                break;
-            }
             case InstantActionComponent instantAction:
                 if (action.CheckCanInteract && !_actionBlockerSystem.CanInteract(user, null))
                     return;
@@ -666,7 +666,7 @@ public abstract partial class SharedActionsSystem : EntitySystem
             if (action.RaiseOnAction)
                 target = actionId;
 
-            RaiseLocalEvent(target, (object) actionEvent, broadcast: true);
+            RaiseLocalEvent(target, (object)actionEvent, broadcast: true);
             handled = actionEvent.Handled;
         }
 

@@ -1,4 +1,4 @@
-﻿using Content.Server.Worldgen.Systems.Debris;
+using Content.Server.Worldgen.Systems.Debris;
 using Content.Shared.Maps;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 

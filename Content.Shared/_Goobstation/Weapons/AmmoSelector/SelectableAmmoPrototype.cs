@@ -34,7 +34,7 @@ public sealed partial class SelectableAmmoPrototype : IPrototype
     public float FireRate = 8f;
 
     [DataField(customTypeSerializer: typeof(FlagSerializer<SelectableAmmoWeaponFlags>))]
-    public int Flags = (int) SelectableAmmoFlags.ChangeWeaponFireCost;
+    public int Flags = (int)SelectableAmmoFlags.ChangeWeaponFireCost;
 }
 
 public sealed class SelectableAmmoWeaponFlags;

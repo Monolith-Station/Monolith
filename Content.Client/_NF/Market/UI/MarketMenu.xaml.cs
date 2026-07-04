@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._NF.Market;
 using Content.Shared._NF.Market.BUI;

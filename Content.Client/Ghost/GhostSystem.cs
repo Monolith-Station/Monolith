@@ -29,7 +29,7 @@ namespace Content.Client.Ghost
 
         public override void Update(float frameTime)
         {
-            foreach (var ghost in EntityManager.EntityQuery<GhostComponent, MindComponent>(true))
+            foreach (var ghost in EntityQuery<GhostComponent, MindComponent>(true))
             {
                 var ui = _uiManager.GetActiveUIWidgetOrNull<GhostGui>();
                 if (ui != null && Player != null)

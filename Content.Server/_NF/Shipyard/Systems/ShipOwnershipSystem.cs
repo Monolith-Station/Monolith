@@ -41,7 +41,7 @@ public sealed partial class ShipOwnershipSystem : EntitySystem
     public void RegisterShipOwnership(EntityUid gridUid, ICommonSession owningPlayer)
     {
         // Don't register ownership if the entity isn't valid
-        if (!EntityManager.EntityExists(gridUid))
+        if (!Exists(gridUid))
             return;
 
         // Add ownership component to the ship

@@ -339,7 +339,7 @@ public abstract partial class SharedSealableClothingSystem : EntitySystem
                 return false;
             }
 
-            comp.ProcessQueue.Enqueue(EntityManager.GetNetEntity(sealeable));
+            comp.ProcessQueue.Enqueue(GetNetEntity(sealeable));
         }
 
         comp.IsInProcess = true;
@@ -378,11 +378,11 @@ public abstract partial class SharedSealableClothingSystem : EntitySystem
             return;
         }
 
-        var processingPart = EntityManager.GetEntity(comp.ProcessQueue.Dequeue());
+        var processingPart = GetEntity(comp.ProcessQueue.Dequeue());
         Dirty(control);
 
         // If the entity no longer exists (e.g., due to limb loss), skip it and continue
-        if (!EntityManager.EntityExists(processingPart))
+        if (!Exists(processingPart))
         {
             NextSealProcess(control);
             return;

@@ -1,4 +1,4 @@
-﻿using Content.Shared.Interaction;
+using Content.Shared.Interaction;
 using Content.Shared.Maps;
 using Content.Shared.Nyanotrasen.Digging;
 using Content.Shared.Physics;

@@ -235,7 +235,7 @@ public sealed partial class AdminSystem : EntitySystem
 
         if (session?.AttachedEntity != null)
         {
-            entityName = EntityManager.GetComponent<MetaDataComponent>(session.AttachedEntity.Value).EntityName;
+            entityName = Comp<MetaDataComponent>(session.AttachedEntity.Value).EntityName;
             identityName = Identity.Name(session.AttachedEntity.Value, EntityManager);
 
             // Frontier

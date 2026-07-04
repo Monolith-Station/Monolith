@@ -106,7 +106,7 @@ namespace Content.Shared.Gravity
         private void OnGravityChange(ref GravityChangedEvent ev)
         {
             var alerts = AllEntityQuery<AlertsComponent, TransformComponent>();
-            while(alerts.MoveNext(out var uid, out _, out var xform))
+            while (alerts.MoveNext(out var uid, out _, out var xform))
             {
                 if (xform.GridUid != ev.ChangedGridIndex)
                     continue;
@@ -148,7 +148,7 @@ namespace Content.Shared.Gravity
 
         private void OnGridInit(GridInitializeEvent ev)
         {
-            EntityManager.EnsureComponent<GravityComponent>(ev.EntityUid);
+            EnsureComp<GravityComponent>(ev.EntityUid);
         }
 
         [Serializable, NetSerializable]

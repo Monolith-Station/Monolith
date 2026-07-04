@@ -88,7 +88,7 @@ public sealed partial class ConstructionSystem
                 : _prototypeManager.Index<MachinePartPrototype>(part).StockPartPrototype;
             for (var i = 0; i < amount; i++)
             {
-                var p = EntityManager.SpawnEntity(partProto, xform.Coordinates);
+                var p = Spawn(partProto, xform.Coordinates);
 
                 if (!_container.Insert(p, partContainer))
                     throw new Exception($"Couldn't insert machine part of type {part} to machine with prototype {partProto.ToString() ?? "N/A"}!");

@@ -191,7 +191,7 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void HandleDeleteTrigger(EntityUid uid, DeleteOnTriggerComponent component, TriggerEvent args)
         {
-            EntityManager.QueueDeleteEntity(uid);
+            QueueDel(uid);
             args.Handled = true;
         }
 

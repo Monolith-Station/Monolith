@@ -400,7 +400,7 @@ public sealed partial class SuitSensorSystem : EntitySystem
 
         // get health mob state
         var isAlive = false;
-        if (EntityManager.TryGetComponent(sensor.User.Value, out MobStateComponent? mobState))
+        if (TryComp(sensor.User.Value, out MobStateComponent? mobState))
             isAlive = !_mobStateSystem.IsDead(sensor.User.Value, mobState);
 
         // get mob total damage

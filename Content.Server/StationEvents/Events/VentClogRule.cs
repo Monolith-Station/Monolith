@@ -28,7 +28,7 @@ public sealed partial class VentClogRule : StationEventSystem<VentClogRuleCompon
             .Where(x => !x.Abstract)
             .Select(x => x.ID).ToList();
 
-        foreach (var (_, transform) in EntityManager.EntityQuery<GasVentPumpComponent, TransformComponent>())
+        foreach (var (_, transform) in EntityQuery<GasVentPumpComponent, TransformComponent>())
         {
             var station = CompOrNull<StationMemberComponent>(transform.GridUid)?.Station;
             if (!station.HasValue || !stations.Contains(station.Value))

@@ -1,4 +1,4 @@
-﻿using Content.Shared.GameTicking;
+using Content.Shared.GameTicking;
 using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client._NF.LateJoin.Interfaces;

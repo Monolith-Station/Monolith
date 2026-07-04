@@ -1,4 +1,4 @@
-﻿using Content.Shared._Scp.ScpCCVars; // Mono
+using Content.Shared._Scp.ScpCCVars; // Mono
 using Robust.Client.Graphics; // Mono
 using Robust.Shared.Configuration; // Mono
 using Robust.Shared.Player;

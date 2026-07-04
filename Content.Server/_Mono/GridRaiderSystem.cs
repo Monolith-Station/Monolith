@@ -45,7 +45,7 @@ public sealed partial class GridRaiderSystem : EntitySystem
         // When the component is removed, remove NoHack/NoDeconstruct from all protected entities
         foreach (var entity in component.ProtectedEntities.ToList())
         {
-            if (EntityManager.EntityExists(entity))
+            if (Exists(entity))
             {
                 RemoveProtection(entity);
             }

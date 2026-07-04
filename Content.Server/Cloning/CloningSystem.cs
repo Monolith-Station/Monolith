@@ -141,11 +141,11 @@ namespace Content.Server.Cloning
         private void HandleMindAdded(EntityUid uid, BeingClonedComponent clonedComponent, MindAddedMessage message)
         {
             if (clonedComponent.Parent == EntityUid.Invalid ||
-                !EntityManager.EntityExists(clonedComponent.Parent) ||
+                !Exists(clonedComponent.Parent) ||
                 !TryComp<CloningPodComponent>(clonedComponent.Parent, out var cloningPodComponent) ||
                 uid != cloningPodComponent.BodyContainer.ContainedEntity)
             {
-                EntityManager.RemoveComponent<BeingClonedComponent>(uid);
+                RemComp<BeingClonedComponent>(uid);
                 return;
             }
             UpdateStatus(clonedComponent.Parent, CloningPodStatus.Cloning, cloningPodComponent);
@@ -218,10 +218,10 @@ namespace Content.Server.Cloning
             if (!TryComp<PhysicsComponent>(bodyToClone, out var physics))
                 return false;
 
-            var cloningCost = (int) Math.Round(physics.FixturesMass * clonePod.BiomassRequirementMultiplier);
+            var cloningCost = (int)Math.Round(physics.FixturesMass * clonePod.BiomassRequirementMultiplier);
 
             if (_configManager.GetCVar(CCVars.BiomassEasyMode))
-                cloningCost = (int) Math.Round(cloningCost * EasyModeCloningCost);
+                cloningCost = (int)Math.Round(cloningCost * EasyModeCloningCost);
 
             // Check if they have the uncloneable trait
             if (TryComp<UncloneableComponent>(bodyToClone, out var uncloneable))
@@ -254,7 +254,7 @@ namespace Content.Server.Cloning
             if (TryComp<DamageableComponent>(bodyToClone, out var damageable) &&
                 damageable.Damage.DamageDict.TryGetValue("Cellular", out var cellularDmg))
             {
-                var chance = Math.Clamp((float) (cellularDmg / 100), 0, 1);
+                var chance = Math.Clamp((float)(cellularDmg / 100), 0, 1);
                 chance *= failChanceModifier;
 
                 if (cellularDmg > 0 && clonePod.ConnectedConsole != null)
@@ -281,13 +281,13 @@ namespace Content.Server.Cloning
 
             // Frontier
             // Transfer of special components, e.g. small/big traits
-            foreach (var comp in EntityManager.GetComponents(bodyToClone))
+            foreach (var comp in AllComps(bodyToClone))
             {
                 if (comp is ITransferredByCloning)
                 {
                     var copy = _serialization.CreateCopy(comp, notNullableOverride: true);
                     copy.Owner = mob;
-                    EntityManager.AddComponent(mob, copy, overwrite: true);
+                    AddComp(mob, copy, overwrite: true);
                 }
             }
 
@@ -297,7 +297,7 @@ namespace Content.Server.Cloning
             if (!ev.NameHandled)
                 _metaSystem.SetEntityName(mob, MetaData(bodyToClone).EntityName);
 
-            var cloneMindReturn = EntityManager.AddComponent<BeingClonedComponent>(mob);
+            var cloneMindReturn = AddComp<BeingClonedComponent>(mob);
             cloneMindReturn.Mind = mind;
             cloneMindReturn.Parent = uid;
             _containerSystem.Insert(mob, clonePod.BodyContainer);
@@ -392,7 +392,7 @@ namespace Content.Server.Cloning
             if (clonePod.BodyContainer.ContainedEntity is not { Valid: true } entity || clonePod.CloningProgress < clonePod.CloningTime)
                 return;
 
-            EntityManager.RemoveComponent<BeingClonedComponent>(entity);
+            RemComp<BeingClonedComponent>(entity);
             _containerSystem.Remove(entity, clonePod.BodyContainer);
             clonePod.CloningProgress = 0f;
             clonePod.UsedBiomass = 0;
@@ -429,7 +429,7 @@ namespace Content.Server.Cloning
 
             if (!_emag.CheckFlag(uid, EmagType.Interaction))
             {
-                _material.SpawnMultipleFromMaterial(_robustRandom.Next(1, (int) (clonePod.UsedBiomass / 2.5)), clonePod.RequiredMaterial, Transform(uid).Coordinates);
+                _material.SpawnMultipleFromMaterial(_robustRandom.Next(1, (int)(clonePod.UsedBiomass / 2.5)), clonePod.RequiredMaterial, Transform(uid).Coordinates);
             }
 
             clonePod.UsedBiomass = 0;

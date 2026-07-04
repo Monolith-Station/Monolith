@@ -126,7 +126,7 @@ public sealed partial class TelephoneSystem : SharedTelephoneSystem
     {
         base.Update(frameTime);
 
-        var query = EntityManager.EntityQueryEnumerator<TelephoneComponent>();
+        var query = EntityQueryEnumerator<TelephoneComponent>();
         while (query.MoveNext(out var uid, out var telephone))
         {
             var entity = new Entity<TelephoneComponent>(uid, telephone);

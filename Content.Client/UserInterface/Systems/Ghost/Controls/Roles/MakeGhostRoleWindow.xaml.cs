@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Numerics;
 using Content.Server.Ghost.Roles.Raffles;
 using Content.Shared.Ghost.Roles.Raffles;

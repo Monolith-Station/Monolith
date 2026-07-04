@@ -173,21 +173,21 @@ public sealed partial class ArtifactSystem
         {
             var reg = Factory.GetRegistration(name);
 
-            if (node.Discovered && EntityManager.HasComponent(uid, reg.Type))
+            if (node.Discovered && HasComp(uid, reg.Type))
             {
                 // Don't re-add permanent components unless this is the first time you've entered this node
                 if (effect.PermanentComponents.ContainsKey(name))
                     continue;
 
-                EntityManager.RemoveComponent(uid, reg.Type);
+                RemComp(uid, reg.Type);
             }
 
             var comp = (Component) Factory.GetComponent(reg);
 
             var temp = (object)comp;
             _serialization.CopyTo(entry.Component, ref temp);
-            EntityManager.RemoveComponent(uid, temp!.GetType());
-            EntityManager.AddComponent(uid, (Component)temp!);
+            RemComp(uid, temp!.GetType());
+            AddComp(uid, (Component)temp!);
         }
 
         node.Discovered = true;
@@ -220,12 +220,12 @@ public sealed partial class ArtifactSystem
                 var comp = (Component) Factory.GetComponent(name);
                 var temp = (object)comp;
                 _serialization.CopyTo(entry, ref temp);
-                EntityManager.RemoveComponent(uid, temp!.GetType());
-                EntityManager.AddComponent(uid, (Component)temp);
+                RemComp(uid, temp!.GetType());
+                AddComp(uid, (Component)temp);
                 continue;
             }
 
-            EntityManager.RemoveComponentDeferred(uid, Factory.GetRegistration(name).Type);
+            RemCompDeferred(uid, Factory.GetRegistration(name).Type);
         }
 
         component.CurrentNodeId = null;

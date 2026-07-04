@@ -208,13 +208,13 @@ namespace Content.Client.Construction
             if (!CheckConstructionConditions(prototype, loc, dir, user, showPopup: true))
                 return false;
 
-            ghost = EntityManager.SpawnEntity("constructionghost", loc);
-            var comp = EntityManager.GetComponent<ConstructionGhostComponent>(ghost.Value);
+            ghost = Spawn("constructionghost", loc);
+            var comp = Comp<ConstructionGhostComponent>(ghost.Value);
             comp.Prototype = prototype;
             comp.GhostId = ghost.GetHashCode();
-            EntityManager.GetComponent<TransformComponent>(ghost.Value).LocalRotation = dir.ToAngle();
+            Comp<TransformComponent>(ghost.Value).LocalRotation = dir.ToAngle();
             _ghosts.Add(comp.GhostId, ghost.Value);
-            var sprite = EntityManager.GetComponent<SpriteComponent>(ghost.Value);
+            var sprite = Comp<SpriteComponent>(ghost.Value);
             sprite.Color = new Color(48, 255, 48, 128);
 
             for (int i = 0; i < prototype.Layers.Count; i++)
@@ -262,7 +262,7 @@ namespace Content.Client.Construction
         {
             foreach (var ghost in _ghosts)
             {
-                if (EntityManager.GetComponent<TransformComponent>(ghost.Value).Coordinates.Equals(loc))
+                if (Comp<TransformComponent>(ghost.Value).Coordinates.Equals(loc))
                     return true;
             }
 
@@ -280,7 +280,7 @@ namespace Content.Client.Construction
                 throw new ArgumentException($"Can't start construction for a ghost with no prototype. Ghost id: {ghostId}");
             }
 
-            var transform = EntityManager.GetComponent<TransformComponent>(ghostId);
+            var transform = Comp<TransformComponent>(ghostId);
             var msg = new TryStartStructureConstructionMessage(GetNetCoordinates(transform.Coordinates), ghostComp.Prototype.ID, transform.LocalRotation, ghostId.GetHashCode(),
                                                                GetNetEntity(with)); // Goobstation
             RaiseNetworkEvent(msg);
@@ -302,7 +302,7 @@ namespace Content.Client.Construction
             if (!_ghosts.TryGetValue(ghostId, out var ghost))
                 return;
 
-            EntityManager.QueueDeleteEntity(ghost);
+            QueueDel(ghost);
             _ghosts.Remove(ghostId);
         }
 
@@ -313,7 +313,7 @@ namespace Content.Client.Construction
         {
             foreach (var ghost in _ghosts.Values)
             {
-                EntityManager.QueueDeleteEntity(ghost);
+                QueueDel(ghost);
             }
 
             _ghosts.Clear();

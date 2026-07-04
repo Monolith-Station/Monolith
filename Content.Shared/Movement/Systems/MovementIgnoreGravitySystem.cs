@@ -1,4 +1,4 @@
-﻿using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Robust.Shared.GameStates;
 

@@ -1,4 +1,4 @@
-﻿using Content.Server.Worldgen.Systems.Biomes;
+using Content.Server.Worldgen.Systems.Biomes;
 using Content.Server.Worldgen.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 

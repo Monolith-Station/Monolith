@@ -1,4 +1,4 @@
-﻿using Content.Shared.GameTicking;
+using Content.Shared.GameTicking;
 using Content.Shared.NameIdentifier;
 using Robust.Shared.Collections;
 using Robust.Shared.Prototypes;

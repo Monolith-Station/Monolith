@@ -428,14 +428,14 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         foreach (var entity in gridEntities)
         {
             // Add ship access to doors
-            if (EntityManager.HasComponent<DoorComponent>(entity))
+            if (HasComp<DoorComponent>(entity))
             {
-                EntityManager.EnsureComponent<ShipAccessReaderComponent>(entity);
+                EnsureComp<ShipAccessReaderComponent>(entity);
             }
             // Add ship access to entity storage (lockers, crates, etc.)
-            else if (EntityManager.HasComponent<EntityStorageComponent>(entity))
+            else if (HasComp<EntityStorageComponent>(entity))
             {
-                EntityManager.EnsureComponent<ShipAccessReaderComponent>(entity);
+                EnsureComp<ShipAccessReaderComponent>(entity);
             }
         }
     }

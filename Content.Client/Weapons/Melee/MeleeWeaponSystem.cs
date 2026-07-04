@@ -118,7 +118,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             if (!TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent) || altDown != BoundKeyState.Down)
                 return;
 
-            switch(altFireComponent.AttackType)
+            switch (altFireComponent.AttackType)
             {
                 case AltFireAttackType.Light:
                     ClientLightAttack(userOverride, mousePos, coordinates, weaponUid, weapon);
@@ -149,7 +149,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                     target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
                 }
 
-                EntityManager.RaisePredictiveEvent(new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
+                RaisePredictiveEvent(new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
                 return;
             }
 

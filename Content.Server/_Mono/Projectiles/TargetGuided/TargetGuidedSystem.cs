@@ -196,7 +196,7 @@ public sealed partial class TargetGuidedSystem : EntitySystem
         // Check if controlling console still exists
         if (component.ControllingConsole.HasValue)
         {
-            if (!EntityManager.EntityExists(component.ControllingConsole.Value))
+            if (!Exists(component.ControllingConsole.Value))
                 return true;
 
             // Check if console is still powered/functioning

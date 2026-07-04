@@ -107,7 +107,7 @@ public sealed partial class DeadDropSystem : EntitySystem
         _minDeadDropTimeout = newMax;
         // Change all existing dead drop timeouts
         var minTime = _timing.CurTime + TimeSpan.FromSeconds(_minDeadDropTimeout);
-        var query = EntityManager.AllEntityQueryEnumerator<DeadDropComponent>();
+        var query = AllEntityQuery<DeadDropComponent>();
         while (query.MoveNext(out var _, out var comp))
         {
             comp.MinimumCoolDown = _minDeadDropTimeout;
@@ -121,7 +121,7 @@ public sealed partial class DeadDropSystem : EntitySystem
         _maxDeadDropTimeout = newMax;
         // Change all existing dead drop timeouts
         var maxTime = _timing.CurTime + TimeSpan.FromSeconds(_maxDeadDropTimeout);
-        var query = EntityManager.AllEntityQueryEnumerator<DeadDropComponent>();
+        var query = AllEntityQuery<DeadDropComponent>();
         while (query.MoveNext(out var _, out var comp))
         {
             comp.MaximumCoolDown = _maxDeadDropTimeout;
@@ -134,7 +134,7 @@ public sealed partial class DeadDropSystem : EntitySystem
     {
         _minDeadDropDistance = newMax;
         // Change all existing dead drop timeouts
-        var query = EntityManager.AllEntityQueryEnumerator<DeadDropComponent>();
+        var query = AllEntityQuery<DeadDropComponent>();
         while (query.MoveNext(out var _, out var comp))
         {
             comp.MinimumDistance = _minDeadDropDistance;
@@ -145,7 +145,7 @@ public sealed partial class DeadDropSystem : EntitySystem
     {
         _maxDeadDropDistance = newMax;
         // Change all existing dead drop timeouts
-        var query = EntityManager.AllEntityQueryEnumerator<DeadDropComponent>();
+        var query = AllEntityQuery<DeadDropComponent>();
         while (query.MoveNext(out var _, out var comp))
         {
             comp.MaximumDistance = _maxDeadDropDistance;
@@ -211,7 +211,7 @@ public sealed partial class DeadDropSystem : EntitySystem
         }
 
         //Find a new potential dead drop to spawn.
-        var deadDropQuery = EntityManager.EntityQueryEnumerator<PotentialDeadDropComponent>();
+        var deadDropQuery = EntityQueryEnumerator<PotentialDeadDropComponent>();
         List<(EntityUid ent, PotentialDeadDropComponent comp)> potentialDeadDrops = new();
         while (deadDropQuery.MoveNext(out var ent, out var potentialDeadDrop))
         {
@@ -525,7 +525,7 @@ public sealed partial class DeadDropSystem : EntitySystem
         dropHint.AppendLine();
         dropHint.AppendLine(Loc.GetString("deaddrop-hint-next-drop", ("time", hintNextDrop.ToString("hh\\:mm") + ":00")));
 
-        var paper = EntityManager.SpawnEntity(component.HintPaper, Transform(uid).Coordinates);
+        var paper = Spawn(component.HintPaper, Transform(uid).Coordinates);
 
         if (TryComp(paper, out PaperComponent? paperComp))
         {
@@ -538,7 +538,7 @@ public sealed partial class DeadDropSystem : EntitySystem
         component.DeadDropCalled = true;
         //logic of posters ends here and logic of radio signals begins here
 
-        var deadDropQuery = EntityManager.EntityQueryEnumerator<StationDeadDropReportingComponent>();
+        var deadDropQuery = EntityQueryEnumerator<StationDeadDropReportingComponent>();
         while (deadDropQuery.MoveNext(out var reportStation, out var reportComp))
         {
             if (!TryComp<StationDataComponent>(reportStation, out var stationData))
@@ -639,7 +639,7 @@ public sealed partial class DeadDropSystem : EntitySystem
         if (entityList == null)
         {
             entityList = new();
-            var hintQuery = EntityManager.AllEntityQueryEnumerator<DeadDropComponent>();
+            var hintQuery = AllEntityQuery<DeadDropComponent>();
             while (hintQuery.MoveNext(out var ent, out var _))
             {
                 var stationUid = _station.GetOwningStation(ent);
@@ -660,19 +660,19 @@ public sealed partial class DeadDropSystem : EntitySystem
                 break;
 
             string objectHintString;
-            if (EntityManager.TryGetComponent<PotentialDeadDropComponent>(hintTuple.Item2, out var potentialDeadDrop))
+            if (TryComp<PotentialDeadDropComponent>(hintTuple.Item2, out var potentialDeadDrop))
                 objectHintString = Loc.GetString(potentialDeadDrop.HintText);
             else
                 objectHintString = Loc.GetString("dead-drop-hint-generic");
 
             string stationHintString;
-            if (EntityManager.TryGetComponent(hintTuple.Item1, out MetaDataComponent? stationMetadata))
+            if (TryComp(hintTuple.Item1, out MetaDataComponent? stationMetadata))
                 stationHintString = stationMetadata.EntityName;
             else
                 stationHintString = Loc.GetString("dead-drop-station-hint-generic");
 
             string timeString;
-            if (EntityManager.TryGetComponent<DeadDropComponent>(hintTuple.Item2, out var deadDrop) && deadDrop.NextDrop != null)
+            if (TryComp<DeadDropComponent>(hintTuple.Item2, out var deadDrop) && deadDrop.NextDrop != null)
             {
                 var dropTimeWithError = deadDrop.NextDrop.Value - _ticker.RoundStartTimeSpan + TimeSpan.FromSeconds(_random.Next(-MaxHintTimeErrorSeconds, MaxHintTimeErrorSeconds));
                 timeString = Loc.GetString("dead-drop-time-known", ("time", dropTimeWithError.ToString("hh\\:mm") + ":00"));

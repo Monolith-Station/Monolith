@@ -129,7 +129,7 @@ public abstract partial class SharedStationSpawningSystem : EntitySystem
     public void EquipStartingGear(EntityUid entity, LoadoutPrototype loadout, bool raiseEvent = true)
     {
         EquipStartingGear(entity, loadout.StartingGear, raiseEvent);
-        EquipStartingGear(entity, (IEquipmentLoadout) loadout, raiseEvent);
+        EquipStartingGear(entity, (IEquipmentLoadout)loadout, raiseEvent);
     }
 
     /// <summary>
@@ -146,7 +146,7 @@ public abstract partial class SharedStationSpawningSystem : EntitySystem
     /// </summary>
     public void EquipStartingGear(EntityUid entity, StartingGearPrototype? startingGear, bool raiseEvent = true)
     {
-        EquipStartingGear(entity, (IEquipmentLoadout?) startingGear, raiseEvent);
+        EquipStartingGear(entity, (IEquipmentLoadout?)startingGear, raiseEvent);
     }
 
     /// <summary>
@@ -169,7 +169,7 @@ public abstract partial class SharedStationSpawningSystem : EntitySystem
                 var equipmentStr = startingGear.GetGear(slot.Name);
                 if (!string.IsNullOrEmpty(equipmentStr))
                 {
-                    var equipmentEntity = EntityManager.SpawnEntity(equipmentStr, xform.Coordinates);
+                    var equipmentEntity = Spawn(equipmentStr, xform.Coordinates);
                     InventorySystem.TryEquip(entity, equipmentEntity, slot.Name, silent: true, force: true);
                 }
             }
@@ -181,7 +181,7 @@ public abstract partial class SharedStationSpawningSystem : EntitySystem
             var coords = xform.Coordinates;
             foreach (var prototype in inhand)
             {
-                var inhandEntity = EntityManager.SpawnEntity(prototype, coords);
+                var inhandEntity = Spawn(prototype, coords);
 
                 if (_handsSystem.TryGetEmptyHand(entity, out var emptyHand, handsComponent))
                 {

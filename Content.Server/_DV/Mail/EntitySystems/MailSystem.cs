@@ -468,7 +468,7 @@ namespace Content.Server._DV.Mail.EntitySystems
             var mailComp = EnsureComp<MailComponent>(uid);
 
             var container = _containerSystem.EnsureContainer<Container>(uid, "contents");
-            foreach (var entity in EntitySpawnCollection.GetSpawns(mailComp.Contents, _random).Select(item => EntityManager.SpawnEntity(item, Transform(uid).Coordinates)))
+            foreach (var entity in EntitySpawnCollection.GetSpawns(mailComp.Contents, _random).Select(item => Spawn(item, Transform(uid).Coordinates)))
             {
                 if (!_containerSystem.Insert(entity, container))
                 {
@@ -780,7 +780,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 var index = _random.Next(validTeleporters.Count);
 
                 var coordinates = Transform(validTeleporters[index].Entity).Coordinates;
-                var mail = EntityManager.SpawnEntity(chosenParcel, coordinates);
+                var mail = Spawn(chosenParcel, coordinates);
                 SetupMail(mail, component, candidate);
                 validTeleporters[index].HadMail = true;
 

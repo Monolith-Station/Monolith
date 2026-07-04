@@ -432,7 +432,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
         }
 
-        if (!EntityManager.TryGetComponent<StationDataComponent>(station, out var stationDataComp)) return;
+        if (!TryComp<StationDataComponent>(station, out var stationDataComp)) return;
 
         var filter = _stationSystem.GetInStation(stationDataComp);
 
@@ -921,7 +921,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             case ChatTransmitRange.GhostRangeLimitNoAdminCheck:
                 initialResult = (data.Observer && data.Range < 0) ? MessageRangeCheckResult.HideChat : MessageRangeCheckResult.Full;
                 break;
-            // End Frontier
+                // End Frontier
         }
         var insistHideChat = data.HideChatOverride ?? false;
         var insistNoHideChat = !(data.HideChatOverride ?? true);

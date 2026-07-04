@@ -18,11 +18,12 @@ namespace Content.Shared.Bed.Cryostorage;
 /// </summary>
 public abstract partial class SharedCryostorageSystem : EntitySystem
 {
-    [Dependency] private   IConfigurationManager _configuration = default!;
-    [Dependency] private   IMapManager _mapManager = default!;
-    [Dependency] private   ISharedPlayerManager _player = default!;
-    [Dependency] private   MobStateSystem _mobState = default!;
-    [Dependency] private   SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IConfigurationManager _configuration = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] protected IGameTiming Timing = default!;
     [Dependency] protected ISharedAdminLogManager AdminLog = default!;
     [Dependency] protected SharedMindSystem Mind = default!;
@@ -159,7 +160,7 @@ public abstract partial class SharedCryostorageSystem : EntitySystem
         if (PausedMap == null || !Exists(PausedMap))
             return;
 
-        EntityManager.DeleteEntity(PausedMap.Value);
+        Del(PausedMap.Value);
         PausedMap = null;
     }
 
@@ -168,9 +169,9 @@ public abstract partial class SharedCryostorageSystem : EntitySystem
         if (PausedMap != null && Exists(PausedMap))
             return;
 
-        var map = _mapManager.CreateMap();
-        _mapManager.SetMapPaused(map, true);
-        PausedMap = _mapManager.GetMapEntityId(map);
+        var map = _mapSystem.CreateMap();
+        _mapSystem.SetPaused(map, true);
+        PausedMap = map;
     }
 
     public bool IsInPausedMap(Entity<TransformComponent?> entity)

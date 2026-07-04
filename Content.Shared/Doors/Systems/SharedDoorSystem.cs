@@ -603,7 +603,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
 
             //TODO: Make only shutters ignore these objects upon colliding instead of all airlocks
             // Excludes Glasslayer for windows, GlassAirlockLayer for windoors, TableLayer for tables
-            if (otherPhysics.Comp.CollisionLayer == (int) CollisionGroup.GlassLayer || otherPhysics.Comp.CollisionLayer == (int) CollisionGroup.GlassAirlockLayer || otherPhysics.Comp.CollisionLayer == (int) CollisionGroup.TableLayer)
+            if (otherPhysics.Comp.CollisionLayer == (int)CollisionGroup.GlassLayer || otherPhysics.Comp.CollisionLayer == (int)CollisionGroup.GlassAirlockLayer || otherPhysics.Comp.CollisionLayer == (int)CollisionGroup.TableLayer)
                 continue;
 
             // Ignore low-passable entities.
@@ -611,7 +611,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
                 continue;
 
             //For when doors need to close over conveyor belts
-            if (otherPhysics.Comp.CollisionLayer == (int) CollisionGroup.ConveyorMask)
+            if (otherPhysics.Comp.CollisionLayer == (int)CollisionGroup.ConveyorMask)
                 continue;
 
             if ((physics.CollisionMask & otherPhysics.Comp.CollisionLayer) == 0 && (otherPhysics.Comp.CollisionMask & physics.CollisionLayer) == 0)

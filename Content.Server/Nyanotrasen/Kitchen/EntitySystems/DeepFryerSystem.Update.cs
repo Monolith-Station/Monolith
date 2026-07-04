@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server.Nyanotrasen.Kitchen.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
@@ -14,7 +14,7 @@ public sealed partial class DeepFryerSystem
         {
             base.Update(frameTime);
 
-            foreach (var component in EntityManager.EntityQuery<DeepFryerComponent>())
+            foreach (var component in EntityQuery<DeepFryerComponent>())
             {
                 var uid = component.Owner;
 

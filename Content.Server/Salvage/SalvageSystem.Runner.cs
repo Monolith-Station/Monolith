@@ -231,7 +231,7 @@ public sealed partial class SalvageSystem
 
                             // Get a list of all grid positions on the destination map
                             List<Vector2> gridCoords = new();
-                            var gridQuery = EntityManager.AllEntityQueryEnumerator<MapGridComponent, TransformComponent>();
+                            var gridQuery = AllEntityQuery<MapGridComponent, TransformComponent>();
                             while (gridQuery.MoveNext(out var _, out _, out var xform))
                             {
                                 if (xform.MapID == mapId)

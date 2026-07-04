@@ -1,4 +1,4 @@
-﻿using Content.Server._NF.CrateMachine;
+using Content.Server._NF.CrateMachine;
 using Content.Server._NF.Market.Components;
 using Content.Server._NF.Market.Extensions;
 using Content.Shared._NF.Market;

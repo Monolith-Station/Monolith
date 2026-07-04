@@ -1,4 +1,4 @@
-﻿using Content.Server.Construction;
+using Content.Server.Construction;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Xenoarchaeology.Equipment.Components;

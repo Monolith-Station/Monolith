@@ -25,7 +25,7 @@ public sealed partial class TelepathicArtifactSystem : EntitySystem
         var victims = _lookup.GetEntitiesInRange(uid, component.Range);
         foreach (var victimUid in victims)
         {
-            if (!EntityManager.HasComponent<ActorComponent>(victimUid))
+            if (!HasComp<ActorComponent>(victimUid))
                 continue;
 
             // roll if msg should be usual or drastic
