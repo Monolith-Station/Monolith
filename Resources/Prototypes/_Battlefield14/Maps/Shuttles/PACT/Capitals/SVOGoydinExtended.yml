@@ -1,10 +1,10 @@
 - type: pointOfInterest
-  id: SVOGoydin
+  id: SVOGoydinExtended
   parent: [BaseMobilePOI, BaseRepairablePOI]
   name: 'SVO Goydin'
   minimumDistance: 3000
   maximumDistance: 3000
-  spawnGamePreset: [ BF14_Stations_USMC_VDV ]
+  spawnGamePreset: [ BF14_Carriers_USMC_VDV ]
   spawnGroup: Optional
   gridPath: /Maps/_Battlefield14/Shuttles/PACT/Capitals/SVOGoydin.yml
   addComponents:
@@ -13,14 +13,14 @@
 #    readOnly: true
 
 - type: gameMap
-  id: SVOGoydin
+  id: SVOGoydinExtended
   mapName: 'SVO Goydin'
-  mapPath: /Maps/_Battlefield14/Shuttles/PACT/Capitals/SVOGoydin.yml
+  mapPath: /Maps/_Battlefield14/Shuttles/PACT/Capitals/SVOGoydinExtended.yml
   minPlayers: 0
   randomRotation: false
   maxRandomOffset: 0
   stations:
-    SVOGoydin:
+    SVOGoydinExtended:
       stationProto: SecurityFrontierOutpost
       gridComponents:
       - type: VesselInfo

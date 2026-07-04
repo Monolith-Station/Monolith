@@ -1,26 +1,26 @@
 - type: pointOfInterest
-  id: USSBarackObama
+  id: USSBarackObamaExtended
   parent: [BaseMobilePOI, BaseRepairablePOI]
   name: 'USS Barack Obama'
   minimumDistance: 3000
   maximumDistance: 3000
-  spawnGamePreset: [ BF14_Stations_USMC_VDV ]
+  spawnGamePreset: [ BF14_Carriers_USMC_VDV ]
   spawnGroup: Optional
-  gridPath: /Maps/_Battlefield14/Shuttles/NATO/Capitals/USSBarackObama.yml
+  gridPath: /Maps/_Battlefield14/Shuttles/NATO/Capitals/USSBarackObamaExtended.yml
   addComponents:
   - type: IFF
     color: "#047abd"
 #    readOnly: true
 
 - type: gameMap
-  id: USSBarackObama
+  id: USSBarackObamaExtended
   mapName: 'USS Barack Obama'
-  mapPath: /Maps/_Battlefield14/Shuttles/NATO/Capitals/USSBarackObama.yml
+  mapPath: /Maps/_Battlefield14/Shuttles/NATO/Capitals/USSBarackObamaExtended.yml
   minPlayers: 0
   randomRotation: false
   maxRandomOffset: 0
   stations:
-    USSBarackObama:
+    USSBarackObamaExtended:
       stationProto: SecurityFrontierOutpost
       gridComponents:
       - type: VesselInfo

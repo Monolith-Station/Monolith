@@ -25,9 +25,6 @@
       - VDV
     - type: ChatRank
       rank: BF-rank-ru-juniorsergeant
-    - type: CMVendorUser
-      id: VDVLieutenant
-      points: 4
   - !type:AddImplantSpecial
     implants: [ TrackingImplantPACTRU ]
   access:
@@ -70,4 +67,3 @@
     - SyndicateWhistle
     - Tourniquet
     - Zipties
-    - CMVendVDVWarVendorLieutenantTablet

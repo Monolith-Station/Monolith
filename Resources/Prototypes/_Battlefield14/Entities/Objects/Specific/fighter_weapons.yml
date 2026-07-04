@@ -112,12 +112,12 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 300
+    acceleration: 60
     detectionRange: 350
     scanArc: 40
-    launchSpeed: 150
-    maxSpeed: 180
-    trackDelay: 0.5
+    launchSpeed: 5
+    maxSpeed: 120
+    trackDelay: 1
 
 - type: entity
   id: MediumFighterMaverick
