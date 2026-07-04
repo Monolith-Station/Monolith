@@ -4,6 +4,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Content.Server._Mono.GameRule.Systems;
 using Content.Server._NF.Bank;
 using Content.Server._NF.GameRule.Components;
 using Content.Server._NF.GameTicking.Events;
@@ -29,16 +30,17 @@ namespace Content.Server._NF.GameRule;
 /// <summary>
 /// This handles the dungeon and trading post spawning, as well as round end capitalism summary
 /// </summary>
-public sealed class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRuleComponent>
+public sealed partial class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRuleComponent>
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly BankSystem _bank = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly PointOfInterestSystem _poi = default!;
-    [Dependency] private readonly IBaseServer _baseServer = default!;
-    [Dependency] private readonly IEntitySystemManager _entSys = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private BankSystem _bank = default!;
+    [Dependency] private GameTicker _ticker = default!;
+    [Dependency] private PointOfInterestSystem _poi = default!;
+    [Dependency] private IBaseServer _baseServer = default!;
+    [Dependency] private IEntitySystemManager _entSys = default!;
+    [Dependency] private HyperwarRuleSystem _hyperwar = default!;
 
     private readonly HttpClient _httpClient = new();
 
@@ -307,6 +309,12 @@ public sealed class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRuleCompon
 
     protected override void Started(EntityUid uid, NFAdventureRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
+        if (_hyperwar.HyperwarActive)
+        {
+            base.Started(uid, component, gameRule, args);
+            return;
+        }
+
         var mapUid = GameTicker.DefaultMap;
 
         //First, we need to grab the list and sort it into its respective spawning logics

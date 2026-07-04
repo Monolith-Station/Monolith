@@ -65,6 +65,7 @@ public sealed partial class AreaReactionEffect : EntityEffect
             var transform = reagentArgs.EntityManager.GetComponent<TransformComponent>(reagentArgs.TargetEntity);
             var mapManager = IoCManager.Resolve<IMapManager>();
             var mapSys = reagentArgs.EntityManager.System<MapSystem>();
+            var turf = reagentArgs.EntityManager.System<TurfSystem>();
             var spreaderSys = args.EntityManager.System<SpreaderSystem>();
             var sys = args.EntityManager.System<TransformSystem>();
             var mapCoords = sys.GetMapCoordinates(reagentArgs.TargetEntity, xform: transform);
@@ -75,7 +76,7 @@ public sealed partial class AreaReactionEffect : EntityEffect
                 return;
             }
 
-            if (spreaderSys.RequiresFloorToSpread(_prototypeId) && tileRef.Tile.IsSpace())
+            if (spreaderSys.RequiresFloorToSpread(_prototypeId) && turf.IsSpace(tileRef))
                 return;
 
             var coords = mapSys.MapToGrid(gridUid, mapCoords);

@@ -14403,7 +14403,7 @@ entities:
     - type: Transform
       pos: 29.5,27.5
       parent: 1
-- proto: LedokolAttatchmentComputer
+- proto: LedokolAttachmentComputer
   entities:
   - uid: 1834
     components:
@@ -15511,18 +15511,6 @@ entities:
     components:
     - type: Transform
       pos: 49.895966,17.999765
-      parent: 1
-- proto: ShipVoucherUSSPLedokolAttatchment
-  entities:
-  - uid: 1828
-    components:
-    - type: Transform
-      pos: 40.29071,23.767498
-      parent: 1
-  - uid: 1983
-    components:
-    - type: Transform
-      pos: 40.60321,23.517498
       parent: 1
 - proto: SinkWide
   entities:

@@ -21,7 +21,7 @@
 
 - type: gameMap
   id: HeliosFortress
-  mapName: 'PDV Helio Fortress'
+  mapName: 'PDV Helios Fortress'
   mapPath: /Maps/_Mono/POI/pdvhelios.yml
   minPlayers: 0
   stations:
@@ -42,6 +42,54 @@
             PirateCaptain: [ 1, 1 ]
             PirateFirstMate: [ 1, 1 ]
             PDVDenasvar: [ 3, 3 ]
+            PDVInfiltrator: [ 2, 2 ]
+            Pirate: [ -1, -1 ]
+            PdvBorg: [ 2, 2 ]
+          tags:
+          - GrandVizier
+        - type: StationDeadDropReporting
+          messageSet: Pirate
+        - type: StationDeadDropHintExempt
+
+### Hyperwar
+
+- type: pointOfInterest
+  id: HeliosFortressHyperwar
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'PDV Helios Fortress'
+  minimumDistance: 7500
+  maximumDistance: 9500
+  spawnGamePreset: [ MonoRogueTSFHyperwar ]
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/POI/pdvhelios_hw.yml
+  addComponents:
+  - type: IFF
+    color: "#DE9E59"
+    readOnly: true # mono
+
+- type: gameMap
+  id: HeliosFortressHyperwar
+  mapName: 'PDV Helios Fortress'
+  mapPath: /Maps/_Mono/POI/pdvhelios_hw.yml
+  minPlayers: 0
+  stations:
+    HeliosFortressHyperwar:
+      stationProto: RecordsFrontierOutpostCargo
+      gridComponents:
+      - type: VesselInfo
+        description: "An oppressive imperial aura lurks here. Glory to the Sultan."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'PDV Helio Fortress'
+        - type: ExtraStationInformation
+          icon: /Textures/_NF/Interface/Pirate/piratelogo.png
+          stationSubtext: 'frontier-lobby-pirate-subtext'
+          stationDescription: 'frontier-lobby-pirate-description'
+        - type: StationJobs
+          availableJobs:
+            PirateCaptain: [ 1, 1 ]
+            PirateFirstMate: [ 3, 3 ]
+            PDVDenasvar: [ 5, 5 ]
             PDVInfiltrator: [ 2, 2 ]
             Pirate: [ -1, -1 ]
             PdvBorg: [ 2, 2 ]

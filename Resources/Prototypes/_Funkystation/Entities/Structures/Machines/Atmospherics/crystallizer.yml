@@ -83,6 +83,7 @@
   - type: ActivatableUI
     key: enum.CrystallizerUiKey.Key
     requiresComplex: false
+    blockSpectators: true
   - type: PointLight
     color: "#3a807f"
     radius: 2

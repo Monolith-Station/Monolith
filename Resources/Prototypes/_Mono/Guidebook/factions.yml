@@ -5,6 +5,8 @@
   priority: 1
   children:
   - TSFMC_Entry
+  - PDV_Entry
+  - Minor_Factions
 
 - type: guideEntry
   id: TSFMC_Entry
@@ -14,6 +16,12 @@
   children:
   - Smuggling
   - Defusal
+
+- type: guideEntry
+  id: PDV_Entry
+  name: PDV
+  text: "/ServerInfo/_Mono/Guidebook/Factions/PDV.xml"
+  priority: 3
 
 - type: guideEntry
   id: Smuggling
@@ -26,3 +34,39 @@
   name: Defusal
   text: "/ServerInfo/Guidebook/Security/Defusal.xml"
   priority: 5
+
+- type: guideEntry
+  id: Minor_Factions
+  name: Minor Factions
+  text: "/ServerInfo/_Mono/Guidebook/Factions/Minor_Factions.xml"
+  priority: 6
+  children:
+  - USSP_Entry
+  - Viper_Group
+
+- type: guideEntry
+  id: USSP_Entry
+  name: USSP
+  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP_Remnants.xml"
+  priority: 7
+  children:
+  - USSP_SoP
+  - USSP_Overview
+
+- type: guideEntry
+  id: USSP_SoP
+  name: S.O.P
+  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP_SOP.xml"
+  priority: 8
+
+- type: guideEntry
+  id: USSP_Overview
+  name: Union of Soviet Socialist Planets
+  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP.xml"
+  priority: 9
+
+- type: guideEntry
+  id: Viper_Group
+  name: The Viper Group
+  text: "/ServerInfo/_Mono/Guidebook/Factions/viper_group.xml"
+  priority: 11

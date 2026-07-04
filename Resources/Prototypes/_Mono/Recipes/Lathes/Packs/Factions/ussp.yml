@@ -5,10 +5,7 @@
   - WeaponRifleAK502USSP
   - WeaponRevolverMatebaUSSP
   - WeaponDP29USSP
-  - WeaponRifleSVSUSSP
-  - WeaponSniperMosinUSSP
   - WeaponShotgunBigLeadyUSSP
-  - WeaponSubMachineGunAK220USSP
   - WeaponRifleAK410USSP
 
 - type: latheRecipePack
@@ -32,8 +29,17 @@
 - type: latheRecipePack
   id: MonoUSSPVouchersDynamic
   recipes:
-  - BasicVoucherUssp
-  - IntermediateVoucherUssp
-  - AdvancedVoucherUssp
-  - LedokolVoucherUssp
-  - LedokolRamVoucherUssp
+  - ShipVoucherUsspRemontnik
+  - ShipVoucherUsspAkula
+  - ShipVoucherUsspDrakon
+  - ShipVoucherUsspTayfun
+  - ShipVoucherUsspBuran
+  - ShipVoucherUsspSulak
+  - ShipVoucherUsspLedokol
+  - ShipVoucherUsspLedokolAttachment
+
+- type: latheRecipePack
+  id: MonoUSSPStatic
+  recipes:
+  - USSPTechfabMachineCircuitboard
+  - ShipVoucherUsspT0Recipe

@@ -71,3 +71,31 @@
         Heat: 25 # Mono
         Shock: 10
         Structural: 70
+
+- type: entity
+  id: Coilgun134x92mm
+  parent: BasicHitscan
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Piercing: 180 # Substitute right now since theres no AP for hitscan iirc
+        Structural: 500
+  - type: HitscanBasicRaycast
+    maxDistance: 200
+    collisionMask:
+    - Impassable
+    - Opaque
+  - type: HitscanReflect
+    reflectiveType: None
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: gauss_muzzle
+    travelFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: gauss_trail
+    impactFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: gauss_impact

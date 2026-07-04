@@ -83,6 +83,21 @@
   id: SmartfridgeCircuitboard
   result: SmartfridgeCircuitboard
 
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: SmartArmoryCircuitboard
+  result: SmartArmoryCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ShipDrillMachineCircuitboard
+  result: ShipDrillMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: LargeThrusterMachineCircuitboard
+  result: LargeThrusterMachineCircuitboard
+
 # Datafarm
 
 - type: latheRecipe
@@ -96,3 +111,20 @@
   parent: BaseGoldCircuitboardRecipe
   id: CentrifugeLatheMiniCircuitboard
   result: CentrifugeLatheMiniCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: OreMagnetMachineCircuitboard
+  result: OreMagnetMachineCircuitboard
+
+# faction-specific RWR shuttle consoles - can be made by anyone because it doesnt do shit gameplay wise
+
+- type: latheRecipe
+  parent: ShuttleConsoleCircuitboard
+  id: ShuttleConsoleCircuitboardTSFN
+  result: ShuttleConsoleCircuitboardTSFN
+
+- type: latheRecipe
+  parent: ShuttleConsoleCircuitboard
+  id: ShuttleConsoleCircuitboardKPV63RWR
+  result: ShuttleConsoleCircuitboardKPV63RWR
